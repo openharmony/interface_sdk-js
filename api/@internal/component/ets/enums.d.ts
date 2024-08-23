@@ -9266,6 +9266,7 @@ declare enum EllipsisMode {
 /**
  * A type which can be undefined
  *
+ * @typedef { T | undefined } Nullable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
@@ -9273,6 +9274,7 @@ declare enum EllipsisMode {
 /**
  * A type which can be undefined
  *
+ * @typedef { T | undefined } Nullable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice

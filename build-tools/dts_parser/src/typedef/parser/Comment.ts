@@ -31,6 +31,8 @@ export namespace Comment {
     ATOMIC_SERVICE = 'atomicservice',
     KIT = 'kit',
     FILE = 'file',
+    PARAM = 'param',
+    RETURNS = 'returns'
   }
 
   export interface JsDocProcessorInterface {
@@ -53,7 +55,7 @@ export namespace Comment {
     isConstant: boolean = false; // @constant标签--标注api为常量
     isAtomicService: boolean = false; //@atomicservice--标注是否为高阶API
     kit: string = '';
-    isFile: boolean = false;
+    fileTagContent: string = 'NA';
     tags: CommentTag[] | undefined = undefined;
 
     constructor() {}
@@ -195,13 +197,13 @@ export namespace Comment {
       return this.kit;
     }
 
-    setIsFile(isFile: boolean): JsDocInfo {
-      this.isFile = isFile;
+    setFileTagContent(isFile: string): JsDocInfo {
+      this.fileTagContent = isFile;
       return this;
     }
 
-    getIsFile(): boolean {
-      return this.isFile;
+    getFileTagContent(): string {
+      return this.fileTagContent;
     }
 
     setTags(tags: CommentTag[]): JsDocInfo {

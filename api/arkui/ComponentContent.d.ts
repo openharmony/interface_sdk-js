@@ -18,6 +18,7 @@
  * @kit ArkUI
  */
 
+import { BuildOptions } from './BuilderNode';
 import { Content } from './Content';
 import { UIContext } from '../@ohos.arkui.UIContext';
 import { WrappedBuilder } from 'wrappedBuilderObject';
@@ -56,6 +57,21 @@ export class ComponentContent<T extends Object> extends Content{
    * @since 12
    */
   constructor(uiContext: UIContext, builder: WrappedBuilder<[T]>, args: T);
+
+  /**
+   * Constructor.
+   *
+   * @param { UIContext } uiContext - uiContext used to create the ComponentContent
+   * @param { WrappedBuilder<[T]> } builder - Defined the builder will be called to build ComponentContent.
+   * @param { T } args - Parameters used to update the ComponentContent.
+   * @param { BuildOptions } options - Defined the options will be used when build.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  constructor(uiContext: UIContext, builder: WrappedBuilder<[T]>, args: T, options: BuildOptions);
+
 
   /**
    * Update the ComponentContent based on the provided parameters.
@@ -98,4 +114,14 @@ export class ComponentContent<T extends Object> extends Content{
    * @since 12
    */
   dispose(): void;
+
+  /**
+   * Notify ComponentContent to update the configuration to trigger a reload of the ComponentContent.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  updateConfiguration(): void;
 }

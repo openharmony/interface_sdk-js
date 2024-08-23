@@ -24,6 +24,7 @@ import userAuth from '@ohos.userIAM.userAuth';
  * Declare UserAuthIcon, use for user authentication.
  *
  * @syscap SystemCapability.UserIAM.UserAuth.Core
+ * @atomicservice
  * @since 12
  */
 @Component
@@ -33,6 +34,7 @@ export default struct UserAuthIcon {
      *
      * @type { userAuth.AuthParam }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
      * @since 12
      */
     authParam: userAuth.AuthParam;
@@ -42,6 +44,7 @@ export default struct UserAuthIcon {
      *
      * @type { userAuth.WidgetParam }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
      * @since 12
      */
     widgetParam: userAuth.WidgetParam;
@@ -52,6 +55,7 @@ export default struct UserAuthIcon {
      * @type { ?Dimension }
      * @default 64
      * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
      * @since 12
      */
     iconHeight?: Dimension;
@@ -62,6 +66,7 @@ export default struct UserAuthIcon {
      * @type { ?ResourceColor }
      * @default $r('sys.color.ohos_id_color_activated')
      * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
      * @since 12
      */
     iconColor?: ResourceColor;
@@ -73,6 +78,7 @@ export default struct UserAuthIcon {
      *
      * @param { userAuth.UserAuthResult } result - Authentication result information.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
      * @since 12
      */
     onAuthResult: (result: userAuth.UserAuthResult) => void;
@@ -81,6 +87,7 @@ export default struct UserAuthIcon {
      * When user click the icon, it will be returned through this callback.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
      * @since 12
      */
     onIconClick?: () => void;

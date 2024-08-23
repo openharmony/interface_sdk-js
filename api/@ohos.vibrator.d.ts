@@ -453,6 +453,16 @@ declare namespace vibrator {
    * @since 11
    */
     usage: Usage;
+
+  /**
+   * Indicates whether to bypass system management switches.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @systemapi
+   * @since 12
+   */
+    systemUsage?: boolean;
   }
 
   /**

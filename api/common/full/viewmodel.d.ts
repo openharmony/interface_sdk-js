@@ -1476,6 +1476,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * Gets the dotted spacing of a line.
    * Returns the current line segment style array containing an even number of non-negative numbers.
    *
+   * @type { Array<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -2677,6 +2678,7 @@ export interface CanvasRenderingContext2D {
   /**
    * Restores the saved drawing context.
    *
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -2685,6 +2687,7 @@ export interface CanvasRenderingContext2D {
   /**
    * Saves the current drawing context.
    *
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
@@ -3496,6 +3499,7 @@ export declare class Locate {
    * The Unicode locale key set defined by the locale. If this locale does not have a specific key set, an empty set is
    * returned. For example: {"nu": "arab"}, which means that the numbers in the current environment use Arabic numbers.
    *
+   * @type { object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 5
    */
@@ -3691,6 +3695,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
 /**
  * Used for ide.
  *
+ * @typedef { object } DefaultData<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @systemapi
  * @since 4
@@ -3699,6 +3704,7 @@ type DefaultData<T> = object;
 /**
  * Used for ide.
  *
+ * @typedef { object & Options<T, Data> & ThisType<T & ViewModel & Data> } CombinedOptions<T extends ViewModel, Data>
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @systemapi
  * @since 4

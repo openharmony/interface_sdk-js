@@ -26,6 +26,8 @@ import type Want from '../@ohos.app.ability.Want';
 import type StartOptions from '../@ohos.app.ability.StartOptions';
 import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
 import OpenLinkOptions from '../@ohos.app.ability.OpenLinkOptions';
+import type UIServiceProxy from './UIServiceProxy';
+import type UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallback';
 
 /**
  * The context of UI extension. It allows access to UIExtension-specific resources.
@@ -86,7 +88,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
@@ -224,7 +226,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
@@ -328,7 +330,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
@@ -466,7 +468,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
@@ -646,4 +648,75 @@ export default class UIExtensionContext extends ExtensionContext {
    * @since 12
    */
   openAtomicService(appId: string, options?: AtomicServiceOptions): Promise<AbilityResult>;
+
+  /**
+   * Starts a UI service extension ability.
+   * If the target UI service extension ability is visible, you can start the target UI service extension ability;
+   * If the target UI service extension ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UI service extension ability.
+   *
+   * @param { Want } want - Indicates the want info to start.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000012 - The application is controlled.
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
+   * @throws { BusinessError } 16000019 - Can not match any component.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16200001 - The caller has been released.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 13
+   */
+  startUIServiceExtensionAbility(want: Want): Promise<void>;
+
+  /**
+   * Connects to a UI service extension ability.
+   * If the target UI service extension ability is visible, you can connect the target UI service extension ability;
+   * If the target UI service extension ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to connect target invisible UI service extension ability.
+   *
+   * @param { Want } want - Indicates the want info to connect.
+   * @param { UIServiceExtensionConnectCallback } callback - The callback of connection.
+   * @returns { Promise<UIServiceProxy> } The promise to get UIServiceProxy.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+   * @throws { BusinessError } 16000055 - Installation-free timed out.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 13
+   */
+  connectUIServiceExtensionAbility(want: Want, callback: UIServiceExtensionConnectCallback) : Promise<UIServiceProxy>;
+
+  /**
+   * Disconnects from a UI service extension, in contrast to {@link connectUIServiceExtensionAbility}.
+   *
+   * @param { UIServiceProxy } proxy - The UI service proxy return by connectUIServiceExtensionAbility.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 13
+   */
+  disconnectUIServiceExtensionAbility(proxy: UIServiceProxy): Promise<void>;
 }

@@ -103,11 +103,12 @@ export class CheckHump {
    */
   static checkAPINameOfHump(apiInfo: ApiInfo): void {
     const jsDocInfo: Comment.JsDocInfo | undefined = apiInfo.getLastJsDocInfo();
+    const publishVersion: string = apiInfo.getJsDocInfos().length > 0 ? apiInfo.getJsDocInfos()[0].getSince() : '';
     if (jsDocInfo) {
       if (jsDocInfo.getDeprecatedVersion() !== '-1') {
         return;
       }
-      if (jsDocInfo.getSince() !== String(CommonFunctions.getCheckApiVersion())) {
+      if (publishVersion !== String(CommonFunctions.getCheckApiVersion())) {
         return;
       }
     }

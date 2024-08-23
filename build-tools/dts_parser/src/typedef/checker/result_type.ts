@@ -101,6 +101,8 @@ export enum ErrorMessage {
   ERROR_INFO_VALUE_IMPLEMENTS = 'The [implements] tag value is incorrect. Please check if the tag value matches the inherited class name.',
   ERROR_INFO_VALUE_ENUM = 'The [enum] tag type is incorrect. Please check if the tag type is { string } or { number }.',
   ERROR_INFO_VALUE_SINCE = 'The [since] tag value is incorrect. Please check if the tag value is a numerical value.',
+  ERROR_INFO_VALUE_SINCE_NUMBER = 'The [since] value is greater than the latest version number.',
+  ERROR_INFO_VALUE_SINCE_JSDOC = 'The [since] value for different jsdoc should not be the same.',
   ERROR_INFO_RETURNS = 'The [returns] tag was used incorrectly. The returns tag should not be used when the return type is void.',
   ERROR_INFO_VALUE_RETURNS = 'The [returns] tag type is incorrect. Please check if the tag type is consistent with the return type.',
   ERROR_INFO_VALUE_USEINSTEAD = 'The [useinstead] tag value is incorrect. Please check the usage method.',
@@ -117,6 +119,7 @@ export enum ErrorMessage {
   ERROR_INFO_VALUE_PARAM = 'The value of the [$$] [param] tag is incorrect. Please check if it matches the [$$] parameter name.',
   ERROR_INFO_VALUE1_THROWS = 'The type of the [$$] [throws] tag is incorrect. Please fill in [BusinessError].',
   ERROR_INFO_VALUE2_THROWS = 'The type of the [$$] [throws] tag is incorrect. Please check if the tag value is a numerical value.',
+  ERROR_INFO_VALUE3_THROWS = 'The description of the [401 throws] is incorrect. please fix it according to the specification.',
   ERROR_INFO_INHERIT = 'It was detected that there is an inheritable label [$$] in the current file, but there are child nodes without this label.',
   ERROR_INFO_FOLLOW = 'It was detected that there is a following label [$$] in the current file, but the parent nodes without this label.',
   ERROR_ORDER = 'JSDoc label order error, please adjust the order of [$$] labels.',
@@ -148,6 +151,7 @@ export enum ErrorMessage {
   ERROR_NO_JSDOC_TAG = 'add  tags to the Jsdoc.',
   ERROR_HAS_CHINESE = 'Jsdoc has chinese.',
   ERROR_ERROR_CODE = 'The generic error code does not contain the current error code.',
+  ERROR_ERROR_SYSTEMAPI_ATOMICSERVICE = 'The [systemapi] and [atomicservice] cannot exist in the same doc.',
   ERROR_CHANGES_JSDOC_LEVEL = 'Forbid changes: Cannot change from public API to system API.',
   ERROR_CHANGES_JSDOC_PERMISSION_RANGE = 'Forbid changes: Cannot reduce or permission or increase and permission.',
   ERROR_CHANGES_JSDOC_PERMISSION_VALUE = 'Forbid changes: Cannot change permission value,cannot judge the range change.',
@@ -185,6 +189,10 @@ export enum ErrorMessage {
   ERROR_CHANGES_ENUM_MEMBER_VALUE = 'Forbid changes: Cannot change Enumeration assignment.',
   ERROR_CHANGES_JSDOC_CHANGE = 'Forbid changes: Historical JSDoc cannot be changed.',
   ERROR_CHANGES_JSDOC_NUMBER = 'Forbid changes: API changes must add a new section of JSDoc.',
+  ERROR_CHANGES_SYSCAP_NA_TO_HAVE = 'Forbid changes: Cannot change from NA to syscap.',
+  ERROR_CHANGES_SYSCAP_HAVE_TO_NA = 'Forbid changes: Cannot change from syscap to NA.',
+  ERROR_CHANGES_SYSCAP_A_TO_B = 'Forbid changes: Cannot change syscap value.',
+  ERROR_CHANGES_ADD_PROPERTY = 'Forbid changes: Cannot add new property to interface API.',
 }
 
 export const incompatibleApiDiffTypes: Map<ApiDiffType, ErrorMessage> = new Map(
@@ -240,6 +248,12 @@ export const incompatibleApiDiffTypes: Map<ApiDiffType, ErrorMessage> = new Map(
     [ApiDiffType.ENUM_MEMBER_VALUE_CHANGE, ErrorMessage.ERROR_CHANGES_ENUM_MEMBER_VALUE],
     // 16.是否拥有元服务能力
     [ApiDiffType.ATOMIC_SERVICE_HAVE_TO_NA, ErrorMessage.ERROR_CHANGES_JSDOC_ATOMICSERVICE_TO_NA],
+    // 17.syscap变更
+    [ApiDiffType.SYSCAP_NA_TO_HAVE, ErrorMessage.ERROR_CHANGES_SYSCAP_NA_TO_HAVE],
+    [ApiDiffType.SYSCAP_HAVE_TO_NA, ErrorMessage.ERROR_CHANGES_SYSCAP_HAVE_TO_NA],
+    [ApiDiffType.SYSCAP_A_TO_B, ErrorMessage.ERROR_CHANGES_SYSCAP_A_TO_B],
+    // 18.interface不允许新增属性
+    [ApiDiffType.ADD, ErrorMessage.ERROR_CHANGES_ADD_PROPERTY]
   ]
 );
 

@@ -44,7 +44,7 @@ declare interface LayoutConstraint {
    * @since 12
    */
   maxSize: Size;
-  
+
   /**
    * MinSize
    *
@@ -55,7 +55,7 @@ declare interface LayoutConstraint {
    * @since 12
    */
   minSize: Size;
-  
+
   /**
    * PercentReference, if the size unit of the child nodes is percentage, then they use PercentReference to calculate
    * the px size.
@@ -173,7 +173,7 @@ export class FrameNode {
 
   /**
    * Clear children of the current FrameNode.
-   * 
+   *
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -632,6 +632,7 @@ export class FrameNode {
    * Mount ComponentContent to FrameNode.
    * 
    * @param { ComponentContent<T> } content - Newly added ComponentContent.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -644,6 +645,7 @@ export class FrameNode {
  * Used to define the FrameNode type.
  *
  * @interface TypedFrameNode
+ * @extends FrameNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -1234,6 +1236,19 @@ export namespace typeNode {
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'XComponent'): XComponent;
+
+  /**
+   * Create a FrameNode of XComponent type with options.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'XComponent' } nodeType - node type.
+   * @param { XComponentOptions } options - initialization parameters.
+   * @returns { XComponent } - Return XComponent type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'XComponent', options: XComponentOptions): XComponent;
 }
 
 /**

@@ -73,6 +73,7 @@ import type UIAbilityContext from './application/UIAbilityContext';
  * @namespace notificationManager
  * @syscap SystemCapability.Notification.Notification
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare namespace notificationManager {
@@ -1823,6 +1824,23 @@ declare namespace notificationManager {
    * @StageModelOnly
    * @since 11
    */
+  /**
+   * Request permission to send notification.
+   *
+   * @param { UIAbilityContext } context - The context indicates the ability context you want to bind;
+   * @param { AsyncCallback<void> } callback - The callback of requestEnableNotification.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600004 - Notification disabled.
+   * @throws { BusinessError } 1600013 - A notification dialog box is already displayed.
+   * @syscap SystemCapability.Notification.Notification
+   * @StageModelOnly
+   * @crossplatform
+   * @since 12
+   */
   function requestEnableNotification(context: UIAbilityContext, callback: AsyncCallback<void>): void;
 
   /**
@@ -1899,6 +1917,23 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @StageModelOnly
    * @since 11
+   */
+  /**
+   * Request permission to send notification.
+   *
+   * @param { UIAbilityContext } context - The context indicates the ability context you want to bind;
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600004 - Notification disabled.
+   * @throws { BusinessError } 1600013 - A notification dialog box is already displayed.
+   * @syscap SystemCapability.Notification.Notification
+   * @StageModelOnly
+   * @crossplatform
+   * @since 12
    */
   function requestEnableNotification(context: UIAbilityContext): Promise<void>;
 
@@ -2719,6 +2754,20 @@ declare namespace notificationManager {
   function setAdditionalConfig(key: string, value: string): Promise<number>;
 
   /**
+   * Request open the notification settings pop-up window.
+   *
+   * @param { UIAbilityContext } context - The context indicates the ability context you want to bind;
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600018 - the notification settings window is already displayed.
+   * @syscap SystemCapability.Notification.NotificationSettings
+   * @stagemodelonly
+   * @since 12
+   */
+  function openNotificationSettings(context: UIAbilityContext): Promise<void>;
+
+  /**
    * Describes a button option for a triggering.
    *
    * @typedef ButtonOptions
@@ -2751,6 +2800,7 @@ declare namespace notificationManager {
     /**
      * The callback function that receives a new button option of a notification.
      *
+     * @type { ?function }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 11
@@ -2762,7 +2812,6 @@ declare namespace notificationManager {
    * Describes the parameters of check notifications.
    *
    * @typedef NotificationCheckInfo
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 10
@@ -2850,7 +2899,6 @@ declare namespace notificationManager {
    * Describes the result of check notifications.
    *
    * @typedef NotificationCheckResult
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 10
@@ -2886,12 +2934,27 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
+  /**
+   * Describes NotificationSlot types.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Notification.Notification
+   * @atomicservice
+   * @since 12
+   */
   export enum SlotType {
     /**
      * NotificationSlot of an unknown type.
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 9
+     */
+    /**
+     * NotificationSlot of an unknown type.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @atomicservice
+     * @since 12
      */
     UNKNOWN_TYPE = 0,
 
@@ -2901,6 +2964,13 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @since 9
      */
+    /**
+     * NotificationSlot for social communication.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @atomicservice
+     * @since 12
+     */
     SOCIAL_COMMUNICATION = 1,
 
     /**
@@ -2908,6 +2978,13 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 9
+     */
+    /**
+     * NotificationSlot for service information.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @atomicservice
+     * @since 12
      */
     SERVICE_INFORMATION = 2,
 
@@ -2917,6 +2994,13 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @since 9
      */
+    /**
+     * NotificationSlot for content information.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @atomicservice
+     * @since 12
+     */
     CONTENT_INFORMATION = 3,
 
     /**
@@ -2925,6 +3009,13 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @since 11
      */
+    /**
+     * NotificationSlot for live view.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @atomicservice
+     * @since 12
+     */
     LIVE_VIEW = 4,
 
     /**
@@ -2932,6 +3023,13 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 11
+     */
+    /**
+     * NotificationSlot for customer service.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @atomicservice
+     * @since 12
      */
     CUSTOMER_SERVICE = 5,
 
@@ -2950,6 +3048,13 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @since 9
      */
+    /**
+     * NotificationSlot for other purposes.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @atomicservice
+     * @since 12
+     */
     OTHER_TYPES = 0xFFFF
   }
 
@@ -2966,6 +3071,7 @@ declare namespace notificationManager {
    * @enum { number }
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   export enum ContentType {
@@ -2980,6 +3086,7 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     NOTIFICATION_CONTENT_BASIC_TEXT,
@@ -2995,6 +3102,7 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     NOTIFICATION_CONTENT_LONG_TEXT,
@@ -3005,6 +3113,13 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @since 9
      */
+    /**
+     * Picture-attached notification.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @atomicservice
+     * @since 12
+     */
     NOTIFICATION_CONTENT_PICTURE,
 
     /**
@@ -3012,6 +3127,13 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 9
+     */
+    /**
+     * Conversation notification.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @atomicservice
+     * @since 12
      */
     NOTIFICATION_CONTENT_CONVERSATION,
 
@@ -3026,6 +3148,7 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     NOTIFICATION_CONTENT_MULTILINE,
@@ -3036,6 +3159,13 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @since 11
      */
+    /**
+     * System local live view notification.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @atomicservice
+     * @since 12
+     */
     NOTIFICATION_CONTENT_SYSTEM_LIVE_VIEW,
 
     /**
@@ -3043,6 +3173,13 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 11
+     */
+    /**
+     * Common live view notification.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @atomicservice
+     * @since 12
      */
     NOTIFICATION_CONTENT_LIVE_VIEW,
   }
@@ -3370,6 +3507,7 @@ declare namespace notificationManager {
   /**
    * Describes a bundleOption in a notification.
    *
+   * @typedef { _BundleOption } BundleOption
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -3378,6 +3516,7 @@ declare namespace notificationManager {
   /**
    * Describes an action button displayed in a notification.
    *
+   * @typedef { _NotificationActionButton } NotificationActionButton
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -3392,6 +3531,7 @@ declare namespace notificationManager {
   /**
    * Describes a normal text notification.
    *
+   * @typedef { _NotificationBasicContent } NotificationBasicContent
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12
@@ -3407,6 +3547,7 @@ declare namespace notificationManager {
   /**
    * Describes notification types.
    *
+   * @typedef { _NotificationContent } NotificationContent
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12
@@ -3422,6 +3563,7 @@ declare namespace notificationManager {
   /**
    * Describes a long text notification.
    *
+   * @typedef { _NotificationLongTextContent } NotificationLongTextContent
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12
@@ -3431,6 +3573,7 @@ declare namespace notificationManager {
   /**
    * Describes a live view notification.
    *
+   * @typedef { _NotificationLiveViewContent } NotificationLiveViewContent
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11
@@ -3446,6 +3589,7 @@ declare namespace notificationManager {
   /**
    * Describes a multi-line text notification.
    *
+   * @typedef { _NotificationMultiLineContent } NotificationMultiLineContent
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12
@@ -3455,6 +3599,7 @@ declare namespace notificationManager {
   /**
    * Describes a picture-attached notification.
    *
+   * @typedef { _NotificationPictureContent } NotificationPictureContent
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -3463,6 +3608,7 @@ declare namespace notificationManager {
   /**
    * Describes a system live view notification.
    *
+   * @typedef { _NotificationSystemLiveViewContent } NotificationSystemLiveViewContent
    * @syscap SystemCapability.Notification.Notification
    * @since 11
    */
@@ -3471,6 +3617,7 @@ declare namespace notificationManager {
   /**
    * Describes a NotificationFlags instance.
    *
+   * @typedef { _NotificationFlags } NotificationFlags
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -3480,6 +3627,7 @@ declare namespace notificationManager {
   /**
    * The status of the notification flag.
    *
+   * @typedef { _NotificationFlagStatus } NotificationFlagStatus
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -3495,6 +3643,7 @@ declare namespace notificationManager {
   /**
    * Defines a NotificationRequest instance.
    *
+   * @typedef { _NotificationRequest } NotificationRequest
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @since 12
@@ -3504,7 +3653,7 @@ declare namespace notificationManager {
   /**
    * Defines a UnifiedGroupInfo instance.
    *
-   * @typedef {_UnifiedGroupInfo} UnifiedGroupInfo
+   * @typedef { _UnifiedGroupInfo } UnifiedGroupInfo
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12
@@ -3514,6 +3663,7 @@ declare namespace notificationManager {
   /**
    * Defines a NotificationFilter instance.
    *
+   * @typedef { _NotificationFilter } NotificationFilter
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11
@@ -3523,6 +3673,7 @@ declare namespace notificationManager {
   /**
    * Defines a NotificationCheckRequest instance.
    *
+   * @typedef { _NotificationCheckRequest } NotificationCheckRequest
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11
@@ -3532,6 +3683,7 @@ declare namespace notificationManager {
   /**
    * Describes distributed options.
    *
+   * @typedef { _DistributedOptions } DistributedOptions
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -3540,6 +3692,7 @@ declare namespace notificationManager {
   /**
    * Describes a NotificationSlot instance.
    *
+   * @typedef { _NotificationSlot } NotificationSlot
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -3548,6 +3701,7 @@ declare namespace notificationManager {
   /**
    * Describes live view notification option type.
    *
+   * @typedef { _LiveViewStatus } LiveViewStatus
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11
@@ -3557,6 +3711,7 @@ declare namespace notificationManager {
   /**
    * Provides sorting information about an active notification.
    *
+   * @typedef { _NotificationSorting } NotificationSorting
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -3566,6 +3721,7 @@ declare namespace notificationManager {
   /**
    * Describes a NotificationTemplate instance.
    *
+   * @typedef { _NotificationTemplate } NotificationTemplate
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -3574,6 +3730,7 @@ declare namespace notificationManager {
   /**
    * Describes a NotificationUserInput instance.
    *
+   * @typedef { _NotificationUserInput } NotificationUserInput
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -3582,6 +3739,7 @@ declare namespace notificationManager {
   /**
    * Describes a system live view capsule type.
    *
+   * @typedef { _NotificationCapsule } NotificationCapsule
    * @syscap SystemCapability.Notification.Notification
    * @since 11
    */
@@ -3590,6 +3748,7 @@ declare namespace notificationManager {
   /**
    * Describes a system live view button type.
    *
+   * @typedef { _NotificationButton } NotificationButton
    * @syscap SystemCapability.Notification.Notification
    * @since 11
    */
@@ -3598,6 +3757,7 @@ declare namespace notificationManager {
   /**
    * Describes a system live view time type.
    *
+   * @typedef { _NotificationTime } NotificationTime
    * @syscap SystemCapability.Notification.Notification
    * @since 11
    */
@@ -3606,6 +3766,7 @@ declare namespace notificationManager {
   /**
    * Describes a system live view progress type.
    *
+   * @typedef { _NotificationProgress } NotificationProgress
    * @syscap SystemCapability.Notification.Notification
    * @since 11
    */

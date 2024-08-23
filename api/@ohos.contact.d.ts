@@ -1486,6 +1486,7 @@ declare namespace contact {
     /**
      * Indicates the contact invalid ID.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -1494,6 +1495,7 @@ declare namespace contact {
     /**
      * Indicates the contact invalid ID.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2072,6 +2074,7 @@ declare namespace contact {
     /**
      * Indicates a custom label.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2080,6 +2083,7 @@ declare namespace contact {
     /**
      * Indicates a custom label.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2091,6 +2095,7 @@ declare namespace contact {
     /**
      * Indicates a home email.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2099,6 +2104,7 @@ declare namespace contact {
     /**
      * Indicates a home email.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2110,6 +2116,7 @@ declare namespace contact {
     /**
      * Indicates a work email.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2118,6 +2125,7 @@ declare namespace contact {
     /**
      * Indicates a work email.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2129,6 +2137,7 @@ declare namespace contact {
     /**
      * Indicates an email of the OTHER type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2137,6 +2146,7 @@ declare namespace contact {
     /**
      * Indicates an email of the OTHER type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2148,6 +2158,7 @@ declare namespace contact {
     /**
      * Indicates an invalid label ID.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2156,6 +2167,7 @@ declare namespace contact {
     /**
      * Indicates an invalid label ID.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2250,6 +2262,7 @@ declare namespace contact {
     /**
      * Indicates a custom label.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2258,6 +2271,7 @@ declare namespace contact {
     /**
      * Indicates a custom label.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2269,6 +2283,7 @@ declare namespace contact {
     /**
      * Indicates an anniversary event.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2277,6 +2292,7 @@ declare namespace contact {
     /**
      * Indicates an anniversary event.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2288,6 +2304,7 @@ declare namespace contact {
     /**
      * Indicates an event of the OTHER type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2296,6 +2313,7 @@ declare namespace contact {
     /**
      * Indicates an event of the OTHER type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2307,6 +2325,7 @@ declare namespace contact {
     /**
      * Indicates an birthday event.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2315,6 +2334,7 @@ declare namespace contact {
     /**
      * Indicates an birthday event.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2326,6 +2346,7 @@ declare namespace contact {
     /**
      * Indicates an invalid label ID.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2334,6 +2355,7 @@ declare namespace contact {
     /**
      * Indicates an invalid label ID.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2497,6 +2519,7 @@ declare namespace contact {
     /**
      * Indicates a custom label.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2505,6 +2528,7 @@ declare namespace contact {
     /**
      * Indicates a custom label.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2516,6 +2540,7 @@ declare namespace contact {
     /**
      * Indicates an AIM instant message.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2524,6 +2549,7 @@ declare namespace contact {
     /**
      * Indicates an AIM instant message.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2535,6 +2561,7 @@ declare namespace contact {
     /**
      * Indicates a Windows Live instant message.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2543,6 +2570,7 @@ declare namespace contact {
     /**
      * Indicates a Windows Live instant message.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2554,6 +2582,7 @@ declare namespace contact {
     /**
      * Indicates a Yahoo instant message.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2562,6 +2591,7 @@ declare namespace contact {
     /**
      * Indicates a Yahoo instant message.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2573,6 +2603,7 @@ declare namespace contact {
     /**
      * Indicates a Skype instant message.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2581,6 +2612,7 @@ declare namespace contact {
     /**
      * Indicates a Skype instant message.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2592,6 +2624,7 @@ declare namespace contact {
     /**
      * Indicates a QQ instant message.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2600,6 +2633,7 @@ declare namespace contact {
     /**
      * Indicates a QQ instant message.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2611,6 +2645,7 @@ declare namespace contact {
     /**
      * Indicates an ICQ instant message.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2619,6 +2654,7 @@ declare namespace contact {
     /**
      * Indicates an ICQ instant message.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2630,6 +2666,7 @@ declare namespace contact {
     /**
      * Indicates a Jabber instant message.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2638,6 +2675,7 @@ declare namespace contact {
     /**
      * Indicates a Jabber instant message.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2649,6 +2687,7 @@ declare namespace contact {
     /**
      * Indicates an invalid label ID.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -2657,6 +2696,7 @@ declare namespace contact {
     /**
      * Indicates an invalid label ID.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3015,6 +3055,7 @@ declare namespace contact {
     /**
      * Indicates a custom label.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3023,6 +3064,7 @@ declare namespace contact {
     /**
      * Indicates a custom label.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3034,6 +3076,7 @@ declare namespace contact {
     /**
      * Indicates a home number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3042,6 +3085,7 @@ declare namespace contact {
     /**
      * Indicates a home number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3053,6 +3097,7 @@ declare namespace contact {
     /**
      * Indicates a mobile phone number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3061,6 +3106,7 @@ declare namespace contact {
     /**
      * Indicates a mobile phone number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3072,6 +3118,7 @@ declare namespace contact {
     /**
      * Indicates a work number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3080,6 +3127,7 @@ declare namespace contact {
     /**
      * Indicates a work number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3091,6 +3139,7 @@ declare namespace contact {
     /**
      * Indicates a work fax number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3099,6 +3148,7 @@ declare namespace contact {
     /**
      * Indicates a work fax number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3110,6 +3160,7 @@ declare namespace contact {
     /**
      * Indicates a home fax number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3118,6 +3169,7 @@ declare namespace contact {
     /**
      * Indicates a home fax number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3129,6 +3181,7 @@ declare namespace contact {
     /**
      * Indicates a pager number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3137,6 +3190,7 @@ declare namespace contact {
     /**
      * Indicates a pager number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3148,6 +3202,7 @@ declare namespace contact {
     /**
      * Indicates a number of the OTHER type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3156,6 +3211,7 @@ declare namespace contact {
     /**
      * Indicates a number of the OTHER type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3167,6 +3223,7 @@ declare namespace contact {
     /**
      * Indicates a callback number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3175,6 +3232,7 @@ declare namespace contact {
     /**
      * Indicates a callback number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3186,6 +3244,7 @@ declare namespace contact {
     /**
      * Indicates a car number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3194,6 +3253,7 @@ declare namespace contact {
     /**
      * Indicates a car number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3205,6 +3265,7 @@ declare namespace contact {
     /**
      * Indicates a company director number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3213,6 +3274,7 @@ declare namespace contact {
     /**
      * Indicates a company director number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3224,6 +3286,7 @@ declare namespace contact {
     /**
      * Indicates an Integrated Services Digital Network (ISDN) number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3232,6 +3295,7 @@ declare namespace contact {
     /**
      * Indicates an Integrated Services Digital Network (ISDN) number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3243,6 +3307,7 @@ declare namespace contact {
     /**
      * Indicates a main number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3251,6 +3316,7 @@ declare namespace contact {
     /**
      * Indicates a main number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3262,6 +3328,7 @@ declare namespace contact {
     /**
      * Indicates a number of the OTHER_FAX type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3270,6 +3337,7 @@ declare namespace contact {
     /**
      * Indicates a number of the OTHER_FAX type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3281,6 +3349,7 @@ declare namespace contact {
     /**
      * Indicates a radio number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3289,6 +3358,7 @@ declare namespace contact {
     /**
      * Indicates a radio number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3300,6 +3370,7 @@ declare namespace contact {
     /**
      * Indicates a telex number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3308,6 +3379,7 @@ declare namespace contact {
     /**
      * Indicates a telex number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3319,6 +3391,7 @@ declare namespace contact {
     /**
      * Indicates a teletypewriter (TTY) or test-driven development (TDD) number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3327,6 +3400,7 @@ declare namespace contact {
     /**
      * Indicates a teletypewriter (TTY) or test-driven development (TDD) number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3338,6 +3412,7 @@ declare namespace contact {
     /**
      * Indicates a work mobile phone number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3346,6 +3421,7 @@ declare namespace contact {
     /**
      * Indicates a work mobile phone number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3357,6 +3433,7 @@ declare namespace contact {
     /**
      * Indicates a work pager number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3365,6 +3442,7 @@ declare namespace contact {
     /**
      * Indicates a work pager number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3376,6 +3454,7 @@ declare namespace contact {
     /**
      * Indicates an assistant number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3384,6 +3463,7 @@ declare namespace contact {
     /**
      * Indicates an assistant number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3395,6 +3475,7 @@ declare namespace contact {
     /**
      * Indicates an MMS number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3403,6 +3484,7 @@ declare namespace contact {
     /**
      * Indicates an MMS number.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3414,6 +3496,7 @@ declare namespace contact {
     /**
      * Indicates an invalid label ID.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3422,6 +3505,7 @@ declare namespace contact {
     /**
      * Indicates an invalid label ID.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3531,6 +3615,7 @@ declare namespace contact {
     /**
      * Indicates a custom label.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3539,6 +3624,7 @@ declare namespace contact {
     /**
      * Indicates a custom label.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3550,6 +3636,7 @@ declare namespace contact {
     /**
      * Indicates a home address.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3558,6 +3645,7 @@ declare namespace contact {
     /**
      * Indicates a home address.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3569,6 +3657,7 @@ declare namespace contact {
     /**
      * Indicates a work address.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3577,6 +3666,7 @@ declare namespace contact {
     /**
      * Indicates a work address.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3588,6 +3678,7 @@ declare namespace contact {
     /**
      * Indicates an address of the OTHER type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3596,6 +3687,7 @@ declare namespace contact {
     /**
      * Indicates an address of the OTHER type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3607,6 +3699,7 @@ declare namespace contact {
     /**
      * Indicates an invalid label ID.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3615,6 +3708,7 @@ declare namespace contact {
     /**
      * Indicates an invalid label ID.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3811,6 +3905,7 @@ declare namespace contact {
     /**
      * Indicates custom relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3819,6 +3914,7 @@ declare namespace contact {
     /**
      * Indicates custom relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3830,6 +3926,7 @@ declare namespace contact {
     /**
      * Indicates assistant relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3838,6 +3935,7 @@ declare namespace contact {
     /**
      * Indicates assistant relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3849,6 +3947,7 @@ declare namespace contact {
     /**
      * Indicates brother relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3857,6 +3956,7 @@ declare namespace contact {
     /**
      * Indicates brother relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3868,6 +3968,7 @@ declare namespace contact {
     /**
      * Indicates child relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3876,6 +3977,7 @@ declare namespace contact {
     /**
      * Indicates child relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3887,6 +3989,7 @@ declare namespace contact {
     /**
      * Indicates domestic partner relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3895,6 +3998,7 @@ declare namespace contact {
     /**
      * Indicates domestic partner relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3906,6 +4010,7 @@ declare namespace contact {
     /**
      * Indicates father relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3914,6 +4019,7 @@ declare namespace contact {
     /**
      * Indicates father relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3925,6 +4031,7 @@ declare namespace contact {
     /**
      * Indicates friend relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3933,6 +4040,7 @@ declare namespace contact {
     /**
      * Indicates friend relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3944,6 +4052,7 @@ declare namespace contact {
     /**
      * Indicates manager relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3952,6 +4061,7 @@ declare namespace contact {
     /**
      * Indicates manager relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3963,6 +4073,7 @@ declare namespace contact {
     /**
      * Indicates mother relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3971,6 +4082,7 @@ declare namespace contact {
     /**
      * Indicates mother relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3982,6 +4094,7 @@ declare namespace contact {
     /**
      * Indicates parent relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -3990,6 +4103,7 @@ declare namespace contact {
     /**
      * Indicates parent relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -4001,6 +4115,7 @@ declare namespace contact {
     /**
      * Indicates partner relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -4009,6 +4124,7 @@ declare namespace contact {
     /**
      * Indicates partner relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -4020,6 +4136,7 @@ declare namespace contact {
     /**
      * Indicates referrer relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -4028,6 +4145,7 @@ declare namespace contact {
     /**
      * Indicates referrer relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -4039,6 +4157,7 @@ declare namespace contact {
     /**
      * Indicates relative relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -4047,6 +4166,7 @@ declare namespace contact {
     /**
      * Indicates relative relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -4058,6 +4178,7 @@ declare namespace contact {
     /**
      * Indicates sister relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -4066,6 +4187,7 @@ declare namespace contact {
     /**
      * Indicates sister relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -4077,6 +4199,7 @@ declare namespace contact {
     /**
      * Indicates spouse relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -4085,6 +4208,7 @@ declare namespace contact {
     /**
      * Indicates spouse relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -4096,6 +4220,7 @@ declare namespace contact {
     /**
      * Indicates invalid relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -4104,6 +4229,7 @@ declare namespace contact {
     /**
      * Indicates invalid relationship type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -4181,6 +4307,7 @@ declare namespace contact {
     /**
      * Indicates a custom label.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -4189,6 +4316,7 @@ declare namespace contact {
     /**
      * Indicates a custom label.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -4200,6 +4328,7 @@ declare namespace contact {
     /**
      * Indicates a home SIP address.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -4208,6 +4337,7 @@ declare namespace contact {
     /**
      * Indicates a home SIP address.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -4219,6 +4349,7 @@ declare namespace contact {
     /**
      * Indicates a work SIP address.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -4227,6 +4358,7 @@ declare namespace contact {
     /**
      * Indicates a work SIP address.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -4238,6 +4370,7 @@ declare namespace contact {
     /**
      * Indicates an SIP address of the OTHER type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -4246,6 +4379,7 @@ declare namespace contact {
     /**
      * Indicates an SIP address of the OTHER type.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -4257,6 +4391,7 @@ declare namespace contact {
     /**
      * Indicates an invalid label ID.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
@@ -4265,6 +4400,7 @@ declare namespace contact {
     /**
      * Indicates an invalid label ID.
      *
+     * @type { number }
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData

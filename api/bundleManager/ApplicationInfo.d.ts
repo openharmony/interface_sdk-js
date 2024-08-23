@@ -586,6 +586,28 @@ export interface ApplicationInfo {
    * @since 12
    */
   readonly releaseType: string;
+
+  /**
+   * Indicates whether the application enables cloud file sync.
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly cloudFileSyncEnabled: boolean;
+
+  /**
+   * Indicates the flags of the application.
+   *
+   * @type { ?number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  readonly flags?: number;
 }
 
 /**
@@ -644,6 +666,35 @@ export interface ModuleMetadata {
 }
 
 /**
+ * Indicates MultiAppMode
+ *
+ * @typedef MultiAppMode
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @since 12
+ */
+export interface MultiAppMode {
+  /**
+   * Indicates the multiAppModeType of the bundle
+   *
+   * @type { bundleManager.MultiAppModeType }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 12
+   */
+  readonly multiAppModeType: bundleManager.MultiAppModeType;
+
+  /**
+   * Indicates the max count of the bundle
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 12
+   */
+  readonly maxCount: number;
+}
+
+/**
  * Indicates the information of preinstalled application
  *
  * @typedef PreinstalledApplicationInfo
@@ -696,33 +747,4 @@ export interface PreinstalledApplicationInfo {
    * @since 12
    */
   readonly labelId: number;
-}
-
-/**
- * Indicates MultiAppMode
- *
- * @typedef MultiAppMode
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @since 12
- */
-export interface MultiAppMode {
-  /**
-   * Indicates the multiAppModeType of the bundle
-   *
-   * @type { bundleManager.MultiAppModeType }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 12
-   */
-  readonly multiAppModeType: bundleManager.MultiAppModeType;
-
-  /**
-   * Indicates the max count of the bundle
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 12
-   */
-  readonly maxCount: number;
 }

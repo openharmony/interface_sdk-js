@@ -687,7 +687,7 @@ declare interface ProvideOptions {
 declare const Provide: PropertyDecorator & ((value: string | ProvideOptions) => PropertyDecorator);
 
 /**
- * Defining Provider PropertyDecorator.
+ * Defining Provider PropertyDecorator, aliasName is the only matching key and if aliasName is the default, the default attribute name is regarded as aliasName.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -728,7 +728,8 @@ declare const Provider: (aliasName?: string) => PropertyDecorator;
 declare const Consume: PropertyDecorator & ((value: string) => PropertyDecorator);
 
 /**
-* Defining Consumer PropertyDecorator.
+* Defining Consumer PropertyDecorator, aliasName is the only matching key and if aliasName is the default, the default attribute name is regarded as aliasName.
+* And @Consumer will find the nearest @Provider.
 * @syscap SystemCapability.ArkUI.ArkUI.Full
 * @crossplatform
 * @atomicservice
@@ -1182,7 +1183,8 @@ declare const Concurrent: MethodDecorator;
  * The Sendable decorator can be used only for classes. A class with this decorator is marked as sendable, and the class object can be shared globally.
  * Since 12, the Sendable decorator can be used for function and typeAlias also.
  * A function with this decorator is marked as sendable, and the function can be an shareable property of sendable-class object.
- * A typeAlias with this decorator is marked as sendable, and the typeAlias can be used to declare properties, variables, and arguments that need to be assigned with sendable-function.
+ * A typeAlias with this decorator is marked as sendable, and the typeAlias can be used to declare properties, variables,
+ * and arguments that need to be assigned with sendable-function.
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1315,6 +1317,7 @@ declare const Reusable: ClassDecorator;
 /**
  * Get context.
  *
+ * @typedef { import('../api/application/Context').default } Context
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @StageModelOnly
  * @since 9
@@ -1322,6 +1325,7 @@ declare const Reusable: ClassDecorator;
 /**
  * Get context.
  *
+ * @typedef { import('../api/application/Context').default } Context
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @StageModelOnly
  * @crossplatform
@@ -1330,6 +1334,7 @@ declare const Reusable: ClassDecorator;
 /**
  * Get context.
  *
+ * @typedef { import('../api/application/Context').default } Context
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @StageModelOnly
  * @crossplatform
@@ -2711,7 +2716,6 @@ declare interface GeometryTransitionOptions {
    * @default TransitionHierarchyStrategy.ADAPTIVE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @atomicservice
    * @since 12
    */
   hierarchyStrategy?: TransitionHierarchyStrategy
@@ -2726,7 +2730,6 @@ declare interface GeometryTransitionOptions {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @atomicservice
  * @since 12
  */
 declare enum TransitionHierarchyStrategy {
@@ -2736,7 +2739,6 @@ declare enum TransitionHierarchyStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @atomicservice
    * @since 12
    */
   NONE = 0,
@@ -2748,7 +2750,6 @@ declare enum TransitionHierarchyStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @atomicservice
    * @since 12
    */
   ADAPTIVE = 1,
@@ -3986,6 +3987,7 @@ declare enum TransitionEdge {
 /**
  * Defines all transition effects.
  *
+ * @typedef { object } TransitionEffects
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -3994,6 +3996,7 @@ declare enum TransitionEdge {
 /**
  * Defines all transition effects.
  *
+ * @typedef { object } TransitionEffects
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -4090,7 +4093,7 @@ declare class TransitionEffect<
   Effect extends TransitionEffects[Type] = TransitionEffects[Type]
 > {
   /**
-   * Defines an identity transition effect
+   * Disables the transition effect
    *
    * @type { TransitionEffect<"identity"> }
    * @readonly
@@ -4101,7 +4104,7 @@ declare class TransitionEffect<
    * @since 10
    */
   /**
-   * Defines an identity transition effect
+   * Disables the transition effect
    *
    * @type { TransitionEffect<"identity"> }
    * @readonly
@@ -4115,7 +4118,7 @@ declare class TransitionEffect<
   static readonly IDENTITY: TransitionEffect<"identity">;
 
   /**
-   * Defines an opacity transition effect
+   * Specifies a transition effect with transparency of 0, which is equivalent to TransitionEffect.opacity(0).
    *
    * @type { TransitionEffect<"opacity"> }
    * @readonly
@@ -4126,7 +4129,7 @@ declare class TransitionEffect<
    * @since 10
    */
   /**
-   * Defines an opacity transition effect
+   * Specifies a transition effect with transparency of 0, which is equivalent to TransitionEffect.opacity(0).
    *
    * @type { TransitionEffect<"opacity"> }
    * @readonly
@@ -4179,7 +4182,10 @@ declare class TransitionEffect<
   >;
 
   /**
-   * Defines a slide & switch transition effect
+   * Specify a transition effect where the element enters by shrinking first and then expanding as it slides in from the right, 
+   * and exits by shrinking first and then expanding as it slides out to the left, with a minimum scale ratio of 0.8. 
+   * It comes with default animation parameters, which can also be overridden. 
+   * The default animation duration is set to 600ms, and the specified animation curve is cubicBezierCurve(0.24, 0.0, 0.50, 1.0).
    *
    * @type { TransitionEffect<"slideSwitch"> }
    * @readonly
@@ -4190,7 +4196,10 @@ declare class TransitionEffect<
    * @since 10
    */
   /**
-   * Defines a slide & switch transition effect
+   * Specify a transition effect where the element enters by shrinking first and then expanding as it slides in from the right, 
+   * and exits by shrinking first and then expanding as it slides out to the left, with a minimum scale ratio of 0.8. 
+   * It comes with default animation parameters, which can also be overridden. 
+   * The default animation duration is set to 600ms, and the specified animation curve is cubicBezierCurve(0.24, 0.0, 0.50, 1.0).
    *
    * @type { TransitionEffect<"slideSwitch"> }
    * @readonly
@@ -4230,6 +4239,16 @@ declare class TransitionEffect<
    * Creates a rotation transition effect
    *
    * @param { RotateOptions } options - rotate options
+   * Set the rotation effect for component transitions when inserting and deleting. 
+   * The value represents the starting rotation point for the inserting animation and the ending rotation point for the deleting animation.
+   * -x: Horizontal component of the rotational vector.
+   * -y: Vertical component of the rotational vector.
+   * -z: Vertical component of the rotational vector.
+   * -centerX, centerY specify the rotation center point, with default values of "50%", 
+   * meaning that the default rotation center point is the center point of the component.
+   * -The center point of (0, 0) represents the upper-left corner of the component.
+   * -centerZ refers to the Z-axis anchor point. The default value of centerZ is 0.
+   * -perspective indicates the visual distance. The perspective property does not support transition animation.
    * @returns { TransitionEffect<"rotate"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4240,6 +4259,16 @@ declare class TransitionEffect<
    * Creates a rotation transition effect
    *
    * @param { RotateOptions } options - rotate options
+   * Set the rotation effect for component transitions when inserting and deleting. 
+   * The value represents the starting rotation point for the inserting animation and the ending rotation point for the deleting animation.
+   * -x: Horizontal component of the rotational vector.
+   * -y: Vertical component of the rotational vector.
+   * -z: Vertical component of the rotational vector.
+   * -centerX, centerY specify the rotation center point, with default values of "50%", 
+   * meaning that the default rotation center point is the center point of the component.
+   * -The center point of (0, 0) represents the upper-left corner of the component.
+   * -centerZ refers to the Z-axis anchor point. The default value of centerZ is 0.
+   * -perspective indicates the visual distance. The perspective property does not support transition animation.
    * @returns { TransitionEffect<"rotate"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4275,7 +4304,7 @@ declare class TransitionEffect<
   /**
    * Creates an opacity transition effect with alpha value
    *
-   * @param { number } alpha - opacity alpha value
+   * @param { number } alpha - opacity alpha value, value range [0, 1].
    * @returns { TransitionEffect<"opacity"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4285,13 +4314,25 @@ declare class TransitionEffect<
   /**
    * Creates an opacity transition effect with alpha value
    *
-   * @param { number } alpha - opacity alpha value
+   * @param { number } alpha - opacity alpha value, value range [0, 1].
    * @returns { TransitionEffect<"opacity"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Creates an opacity transition effect with alpha value
+   *
+   * @param { number } alpha - opacity alpha value, value range [0, 1].
+   * Illegal values less than 0 are treated as 0, and illegal values greater than 1 are treated as 1.
+   * @returns { TransitionEffect<"opacity"> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
    */
   static opacity(alpha: number): TransitionEffect<"opacity">;
 
@@ -5175,12 +5216,14 @@ declare namespace focusControl {
 /**
  * Import the PointerStyle type object for setCursor.
  *
+ * @typedef { import('../api/@ohos.multimodalInput.pointer').default.PointerStyle } PointerStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 11
  */
 /**
  * Import the PointerStyle type object for setCursor.
  *
+ * @typedef { import('../api/@ohos.multimodalInput.pointer').default.PointerStyle } PointerStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
@@ -6562,7 +6605,7 @@ declare interface BackgroundEffectOptions {
    * Define the blurOptions of BackgroundEffect.
    *
    * @type { ?BlurOptions }
-   * @default { grayScale: [0,1] }
+   * @default { grayScale: [0,0] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -7864,6 +7907,17 @@ declare interface BaseEvent {
    * @since 12
    */
   getModifierKeyState?(keys: Array<string>): boolean;
+
+  /**
+   * Indicates the ID of the input device that triggers the current event.
+   *
+   * @type { ?number } [deviceId] The ID of the input device that triggers the current event
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  deviceId?: number;
 }
 
 /**
@@ -9111,6 +9165,7 @@ declare interface TouchEvent extends BaseEvent {
  * The value of oldValue is last size of the component.
  * The value of newValue is new size of the component.
  *
+ * @typedef { function } SizeChangeCallback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -9177,6 +9232,7 @@ declare type TransitionFinishCallback = (transitionIn: boolean) => void;
 /**
  * Defines the PixelMap type object for ui component.
  *
+ * @typedef { import('../api/@ohos.multimedia.image').default.PixelMap } PixelMap
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -9252,6 +9308,7 @@ declare enum DragBehavior {
 /**
  * Import the UnifiedData type object for ui component.
  *
+ * @typedef { import('../api/@ohos.data.unifiedDataChannel').default.UnifiedData } UnifiedData
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -9259,6 +9316,7 @@ declare enum DragBehavior {
 /**
  * Import the UnifiedData type object for ui component.
  *
+ * @typedef { import('../api/@ohos.data.unifiedDataChannel').default.UnifiedData } UnifiedData
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -9269,12 +9327,14 @@ declare type UnifiedData = import('../api/@ohos.data.unifiedDataChannel').defaul
 /**
  * Import the Summary type object for ui component.
  *
+ * @typedef { import('../api/@ohos.data.unifiedDataChannel').default.Summary } Summary
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 /**
  * Import the Summary type object for ui component.
  *
+ * @typedef { import('../api/@ohos.data.unifiedDataChannel').default.Summary } Summary
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
@@ -9284,12 +9344,14 @@ declare type Summary = import('../api/@ohos.data.unifiedDataChannel').default.Su
 /**
  * Import the UniformDataType type object for ui component.
  *
+ * @typedef { import('../api/@ohos.data.uniformTypeDescriptor').default.UniformDataType } UniformDataType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 /**
  * Import the UniformDataType type object for ui component.
  *
+ * @typedef { import('../api/@ohos.data.uniformTypeDescriptor').default.UniformDataType } UniformDataType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
@@ -10343,12 +10405,14 @@ declare interface DragEvent {
 /**
  * Import the IntentionCode type object for IntentionCode.
  *
+ * @typedef { import('../api/@ohos.multimodalInput.intentionCode').IntentionCode } IntentionCode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 /**
  * Import the IntentionCode type object for IntentionCode.
  *
+ * @typedef { import('../api/@ohos.multimodalInput.intentionCode').IntentionCode } IntentionCode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
@@ -11463,6 +11527,17 @@ declare interface SheetOptions extends BindOptions {
    * @since 12
    */
   onTypeDidChange?: Callback<SheetType>;
+
+  /**
+   * Set whether sheet is allowed to expand safe area in embedded mode
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  expandSafeAreaInEmbeddedMode?: boolean;
 
   /**
    * The UIContext that the sheet belongs to
@@ -13063,6 +13138,7 @@ declare enum MenuPreviewMode {
 /**
  * Defines the animator range of start and end property.
  *
+ * @typedef { [from: T, to: T] } AnimationRange<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
@@ -13070,6 +13146,7 @@ declare enum MenuPreviewMode {
 /**
  * Defines the animator range of start and end property.
  *
+ * @typedef { [from: T, to: T] } AnimationRange<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -13262,13 +13339,13 @@ declare interface ContextMenuOptions {
   /**
    * Defines the border radius of menu.
    *
-   * @type { ?(Length | BorderRadiuses) }
+   * @type { ?(Length | BorderRadiuses | LocalizedBorderRadiuses) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  borderRadius?: Length | BorderRadiuses;
+  borderRadius?: Length | BorderRadiuses | LocalizedBorderRadiuses;
 
   /**
    * Callback function when the context menu appears.
@@ -13882,6 +13959,7 @@ declare interface PixelStretchEffectOptions {
    * right property. value range (-∞, ∞)
    * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
    *
+   * @type { ?Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -13891,6 +13969,7 @@ declare interface PixelStretchEffectOptions {
    * right property. value range (-∞, ∞)
    * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
    *
+   * @type { ?Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -13955,6 +14034,29 @@ declare interface ClickEffect {
    * @since 11
    */
   scale?: number;
+}
+
+/**
+ * Defines the fadingEdge options.
+ *
+ * @typedef FadingEdgeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
+declare interface FadingEdgeOptions {
+  /**
+   * The length of FadingEdge.
+   *
+   * @type { LengthMetrics }
+   * @default 32vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  fadingEdgeLength?: LengthMetrics;
 }
 
 /**
@@ -14498,6 +14600,7 @@ declare enum MenuPolicy {
 /**
  * ImageModifier
  *
+ * @typedef { import('../api/arkui/ImageModifier').ImageModifier } ImageModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -14697,6 +14800,7 @@ declare interface InvertOptions {
 /**
  * Import the CircleShape type object for common method.
  * 
+ * @typedef { import('../api/@ohos.arkui.shape').CircleShape } CircleShape
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -14708,6 +14812,7 @@ declare type CircleShape = import('../api/@ohos.arkui.shape').CircleShape;
 /**
  * Import the EllipseShape type object for common method.
  * 
+ * @typedef { import('../api/@ohos.arkui.shape').EllipseShape } EllipseShape
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -14719,6 +14824,7 @@ declare type EllipseShape = import('../api/@ohos.arkui.shape').EllipseShape;
 /**
  * Import the PathShape type object for common method.
  * 
+ * @typedef { import('../api/@ohos.arkui.shape').PathShape } PathShape
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -14730,6 +14836,7 @@ declare type PathShape = import('../api/@ohos.arkui.shape').PathShape;
 /**
  * Import the RectShape type object for common method.
  * 
+ * @typedef { import('../api/@ohos.arkui.shape').RectShape } RectShape
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -16146,6 +16253,20 @@ declare class CommonMethod<T> {
    * @since 11
    */
   onClick(event: (event: ClickEvent) => void): T;
+
+  /**
+   * Trigger a click event when a click is clicked, move distance should smaller than distanceThreshold. 
+   *
+   * @param { function } event - this function callback executed when the click action is recognized
+   * @param { number } distanceThreshold - the distance threshold of finger's movement when detecting a click action
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  onClick(event: Callback<ClickEvent>, distanceThreshold: number): T;
 
   /**
    * Trigger a hover event.
@@ -18268,7 +18389,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    * @deprecated since 9
-   * @useinstead grid_col/[GridColColumnOption] and grid_row/[GridRowColumnOption]
+   * @useinstead grid_col/GridColColumnOption and grid_row/GridRowColumnOption
    */
   useSizeType(value: {
     xs?: number | { span: number; offset: number };
@@ -18325,8 +18446,8 @@ declare class CommonMethod<T> {
   /**
    * Specifies the direction and style of chain in relative container
    *
-   * @param { Axis } value - indicates direction of the chain
-   * @param { ChainStyle } value - indicates style of the chain
+   * @param { Axis } direction - indicates direction of the chain
+   * @param { ChainStyle } style - indicates style of the chain
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -19023,12 +19144,13 @@ declare class CommonMethod<T> {
   blendMode(value: BlendMode, type?: BlendApplyType): T;
 
   /**
-   * The parameter specifies whether to crop based on the edge contour.
+   * Whether to crop the sub components of the current component.
    *
    * @param { boolean } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
    */
@@ -19076,7 +19198,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    * @deprecated since 12
-   * @useinstead common[CommonMethod]#clipShape
+   * @useinstead CommonMethod#clipShape
    */
   clip(value: boolean | CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute): T;
 
@@ -19087,6 +19209,7 @@ declare class CommonMethod<T> {
   * @returns { T }
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
+  * @form
   * @atomicservice
   * @since 12
   */
@@ -19142,7 +19265,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    * @deprecated since 12
-   * @useinstead common[CommonMethod]#maskShape
+   * @useinstead CommonMethod#maskShape
    */
   mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask): T;
 
@@ -19153,6 +19276,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
    */
@@ -20230,12 +20354,14 @@ declare const Common: CommonInterface;
 /**
  * Defines the CustomBuilder Type.
  *
+ * @typedef { (() => any) | void } CustomBuilder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines the CustomBuilder Type.
  *
+ * @typedef { (() => any) | void } CustomBuilder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @since 9
@@ -20243,6 +20369,7 @@ declare const Common: CommonInterface;
 /**
  * Defines the CustomBuilder Type.
  *
+ * @typedef { (() => any) | void } CustomBuilder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -20251,6 +20378,7 @@ declare const Common: CommonInterface;
 /**
  * Defines the CustomBuilder Type.
  *
+ * @typedef { (() => any) | void } CustomBuilder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -20433,6 +20561,7 @@ declare interface OverlayOffset {
  * The second element means the stop position.
  * The range of this value is [0,1]. A value of 1 means region ending position and 0 means region starting position.
  *
+ * @typedef { [ number, number ] } FractionStop
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
@@ -21573,7 +21702,7 @@ declare interface Measurable {
   /**
    * Call this measure method in onMeasure callback to supply sub component size.
    *
-   * @param { ConstraintSizeOptions } childConstraint
+   * @param { ConstraintSizeOptions } constraint
    * @returns { MeasureResult }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -21582,7 +21711,7 @@ declare interface Measurable {
   /**
    * Call this measure method in onMeasure callback to supply sub component size.
    *
-   * @param { ConstraintSizeOptions } childConstraint
+   * @param { ConstraintSizeOptions } constraint
    * @returns { MeasureResult }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -21713,6 +21842,7 @@ declare interface MeasureResult extends SizeResult {
 /**
  * The navigation destination information.
  *
+ * @typedef {import('../api/@ohos.arkui.observer').default.NavDestinationInfo} NavDestinationInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -21752,7 +21882,7 @@ declare type NavigationInfo = import('../api/@ohos.arkui.observer').default.Navi
 /**
  * UIContext
  *
- * @typedef {import('../api/@ohos.arkui.UIContext').UIContext} UIContext
+ * @typedef { import('../api/@ohos.arkui.UIContext').UIContext } UIContext
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -21763,6 +21893,7 @@ declare type UIContext = import('../api/@ohos.arkui.UIContext').UIContext;
 /**
  * DrawContext
  *
+ * @typedef { import('../api/arkui/Graphics').DrawContext } DrawContext
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -22018,7 +22149,7 @@ declare class CustomComponent extends CommonAttribute {
    * @form
    * @since 9
    * @deprecated since 10
-   * @useinstead common[CustomComponent]#onPlaceChildren
+   * @useinstead CustomComponent#onPlaceChildren
    */
   onLayout?(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void;
 
@@ -22054,7 +22185,7 @@ declare class CustomComponent extends CommonAttribute {
    * @form
    * @since 9
    * @deprecated since 10
-   * @useinstead common[CustomComponent]#onMeasureSize
+   * @useinstead CustomComponent#onMeasureSize
    */
   onMeasure?(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void;
 
@@ -22613,6 +22744,16 @@ declare abstract class TextContentControllerBase {
  * @atomicservice
  * @since 11
  */
+/**
+ * CommonScrollableMethod
+ *
+ * @extends CommonMethod<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12
+ */
 declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**
    * Scrollbar status.
@@ -22653,7 +22794,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**
    * Edge scrolling effect.
    *
-   * @param { EdgeEffect } value - edge scrolling effect.
+   * @param { EdgeEffect } edgeEffect - edge scrolling effect.
    * @param { EdgeEffectOptions } options - edge scrolling effect options. 
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -22662,6 +22803,19 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @since 11
    */
   edgeEffect(edgeEffect: EdgeEffect, options?: EdgeEffectOptions): T;
+
+  /**
+   * Called when setting whether to enable fading Edge effect.
+   *
+   * @param { Optional<boolean> } enabled - Whether to turn on the edge fade effect
+   * @param { FadingEdgeOptions } [options] - The options of fadingEdge.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  fadingEdge(enabled: Optional<boolean>, options?: FadingEdgeOptions): T;
 
   /**
    * Nested scrolling options.
@@ -22709,6 +22863,8 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 12
+   * @useinstead ScrollableCommonMethod#onDidScroll
    */
   onScroll(event: (scrollOffset: number, scrollState: ScrollState) => void): T;
 
@@ -22732,6 +22888,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
    */
@@ -22843,6 +23000,7 @@ declare type OnWillScrollCallback =
   * @param { ScrollState } scrollState - current scroll state.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
+  * @form
   * @atomicservice
   * @since 12
   */
@@ -23393,6 +23551,8 @@ declare interface Callback<T, V = void> {
  * The value of event contains information about HoverEvent.
  *
  * @typedef HoverCallback
+ * @param { boolean } isHover
+ * @param { HoverEvent} event
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -23406,6 +23566,8 @@ declare type HoverCallback = (isHover: boolean, event: HoverEvent) => void
  * The value of event contains information about AccessibilityHoverEvent.
  *
  * @typedef { function }
+ * @param { boolean } isHover
+ * @param { AccessibilityHoverEvent } event
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice

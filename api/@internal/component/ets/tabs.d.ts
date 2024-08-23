@@ -1522,7 +1522,7 @@ declare interface TabContentTransitionProxy {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 112
+   * @since 12
    */
   finishTransition(): void;
 }

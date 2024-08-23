@@ -165,7 +165,7 @@ export default class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12  
+   * @since 12
    */
   off(type: 'abilityLifecycle', callbackId: number): Promise<void>;
 
@@ -399,7 +399,7 @@ export default class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   killAllProcesses(clearPageStack: boolean): Promise<void>;
 

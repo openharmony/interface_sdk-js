@@ -518,20 +518,20 @@ declare namespace commonEventManager {
     COMMON_EVENT_THERMAL_LEVEL_CHANGED = 'usual.event.THERMAL_LEVEL_CHANGED',
 
     /**
-     * This commonEvent means when the device is about to enter the sleep mode
+     * This commonEvent means when the device is about to enter the force sleep mode
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 12
      */
-    COMMON_EVENT_ENTER_SLEEP = 'usual.event.ENTER_SLEEP',
+    COMMON_EVENT_ENTER_FORCE_SLEEP = 'usual.event.ENTER_FORCE_SLEEP',
 
     /**
-     * This commonEvent means when the device exits the sleep mode
+     * This commonEvent means when the device exits the force sleep mode
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 12
      */
-    COMMON_EVENT_EXIT_SLEEP = 'usual.event.EXIT_SLEEP',
+    COMMON_EVENT_EXIT_FORCE_SLEEP = 'usual.event.EXIT_FORCE_SLEEP',
 
     /**
      * This commonEvent means when the user is present after the device is awakened.
@@ -2183,6 +2183,18 @@ declare namespace commonEventManager {
     COMMON_EVENT_MINORSMODE_OFF = 'usual.event.MINORSMODE_OFF',
 
     /**
+     * Indicates the action of a common event that the bundle resources have been changed.
+     * To subscribe to this common event, your application must have the ohos.permission.GET_BUNDLE_RESOURCES
+     * permission.
+     * This is a protected common event, which can be sent only by the system.
+     * 
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @since 12
+     */
+    COMMON_EVENT_BUNDLE_RESOURCES_CHANGED = "usual.event.BUNDLE_RESOURCES_CHANGED",    
+
+    /**
      * This common event means that datashare is ready.
      * This is a protected common event that can only be sent by system.
      *
@@ -2191,6 +2203,16 @@ declare namespace commonEventManager {
      * @since 12
      */
     COMMON_EVENT_DATA_SHARE_READY = 'usual.event.DATA_SHARE_READY',
+
+    /**
+     * This common event means that vpn connection status has been changed.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @since 12
+     */
+    COMMON_EVENT_VPN_CONNECTION_STATUS_CHANGED = 'usual.event.VPN_CONNECTION_STATUS_CHANGED',
   }
 
   /**
@@ -2202,6 +2224,7 @@ declare namespace commonEventManager {
   /**
    * Describes the data of the common event
    *
+   * @typedef { _CommonEventData } CommonEventData
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11
@@ -2217,6 +2240,7 @@ declare namespace commonEventManager {
   /**
    * Describes the subscriber of common event
    *
+   * @typedef { _CommonEventSubscriber } CommonEventSubscriber
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11
@@ -2232,6 +2256,7 @@ declare namespace commonEventManager {
   /**
    * Describes the information of the subscriber
    *
+   * @typedef { _CommonEventSubscribeInfo } CommonEventSubscribeInfo
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11
@@ -2254,6 +2279,7 @@ declare namespace commonEventManager {
   /**
    * Describes the information of the subscriber
    *
+   * @typedef { _CommonEventPublishData } CommonEventPublishData
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice

@@ -99,6 +99,21 @@ declare namespace display {
   function getDefaultDisplaySync(): Display;
 
   /**
+   * Obtain the target display.
+   *
+   * @param { number } displayId Display id to query. This parameter should be greater than or equal to 0.
+   * @returns { Display } the result of display
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *                                                                   2. Incorrect parameter types.
+   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @atomicservice
+   * @since 12
+   */
+  function getDisplayByIdSync(displayId: number): Display;
+
+  /**
    * Obtain all displays.
    *
    * @param { AsyncCallback<Array<Display>> } callback the result of all displays
@@ -159,10 +174,22 @@ declare namespace display {
   function getAllDisplays(): Promise<Array<Display>>;
 
   /**
+   * Obtain all display physical resolution
+   *
+   * @returns { Promise<Array<DisplayPhysicalResolution>> } the result of all display physical resolution
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @atomicservice
+   * @since 12
+   */
+  function getAllDisplayPhysicalResolution(): Promise<Array<DisplayPhysicalResolution>>;
+
+  /**
    * Check whether there is a privacy window on the current display.
    *
    * @param { number } displayId Display id to query. This parameter should be greater than or equal to 0.
    * @returns { boolean } true means there is a privacy window on the current display
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
@@ -187,8 +214,8 @@ declare namespace display {
    *
    * @param { 'add' | 'remove' | 'change' } type the event of display change
    * @param { Callback<number> } callback the display id of changed
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 12
@@ -210,8 +237,8 @@ declare namespace display {
    *
    * @param { 'add' | 'remove' | 'change' } type the event of display change event
    * @param { Callback<number> } callback the display id of changed
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 12
@@ -223,6 +250,7 @@ declare namespace display {
    *
    * @param { 'privateModeChange' } type the event of private mode changes
    * @param { Callback<boolean> } callback Callback used to return the result whether display is on private mode or not
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -236,6 +264,7 @@ declare namespace display {
    *
    * @param { 'privateModeChange' } type the event of private mode changes
    * @param { Callback<boolean> } callback Callback used to return the result whether display is on private mode or not
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -323,8 +352,8 @@ declare namespace display {
    *
    * @param { 'foldStatusChange' } type the event of fold status changes
    * @param { Callback<FoldStatus> } callback Callback used to return the current fold status of device
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -449,8 +478,8 @@ declare namespace display {
    *
    * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
    * @param { Callback<FoldDisplayMode> } callback Callback used to return the current fold display mode
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -474,8 +503,8 @@ declare namespace display {
    *
    * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
    * @param { Callback<FoldDisplayMode> } callback Callback used to return the current fold display mode
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -900,6 +929,7 @@ declare namespace display {
     /**
      * The display ID is used to identify the screen where the crease is located.
      *
+     * @type { number }
      * @readonly
      * @syscap SystemCapability.Window.SessionManager
      * @since 10
@@ -907,6 +937,7 @@ declare namespace display {
     /**
      * The display ID is used to identify the screen where the crease is located.
      *
+     * @type { number }
      * @readonly
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -917,6 +948,7 @@ declare namespace display {
     /**
      * Crease Region.
      *
+     * @type { Array<Rect> }
      * @readonly
      * @syscap SystemCapability.Window.SessionManager
      * @since 10
@@ -924,6 +956,7 @@ declare namespace display {
     /**
      * Crease Region.
      *
+     * @type { Array<Rect> }
      * @readonly
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -951,12 +984,14 @@ declare namespace display {
     /**
      * The X-axis coordinate of the upper left vertex of the rectangle, in pixels.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
     /**
      * The X-axis coordinate of the upper left vertex of the rectangle, in pixels.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -966,12 +1001,14 @@ declare namespace display {
     /**
      * The Y-axis coordinate of the upper left vertex of the rectangle, in pixels.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
     /**
      * The Y-axis coordinate of the upper left vertex of the rectangle, in pixels.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -981,12 +1018,14 @@ declare namespace display {
     /**
      * Width of the rectangle, in pixels.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
     /**
      * Width of the rectangle, in pixels.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -996,12 +1035,14 @@ declare namespace display {
     /**
      * Height of the rectangle, in pixels.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
     /**
      * Height of the rectangle, in pixels.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1028,12 +1069,14 @@ declare namespace display {
     /**
      * Indicates the size of left side curved area of the waterfall screen.
      *
+     * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
     /**
      * Indicates the size of left side curved area of the waterfall screen.
      *
+     * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1043,12 +1086,14 @@ declare namespace display {
     /**
      * Indicates the size of right side curved area of the waterfall screen.
      *
+     * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
     /**
      * Indicates the size of right side curved area of the waterfall screen.
      *
+     * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1058,12 +1103,14 @@ declare namespace display {
     /**
      * Indicates the size of top side curved area of the waterfall screen.
      *
+     * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
     /**
      * Indicates the size of top side curved area of the waterfall screen.
      *
+     * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1073,12 +1120,14 @@ declare namespace display {
     /**
      * Indicates the size of bottom side curved area of the waterfall screen.
      *
+     * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
     /**
      * Indicates the size of bottom side curved area of the waterfall screen.
      *
+     * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1105,12 +1154,14 @@ declare namespace display {
     /**
      * Bounding rectangles of the cutout areas of the display.
      *
+     * @type { Array<Rect> }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
     /**
      * Bounding rectangles of the cutout areas of the display.
      *
+     * @type { Array<Rect> }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1120,17 +1171,62 @@ declare namespace display {
     /**
      * Rectangles of curved parts on each side of a waterfall display.
      *
+     * @type { WaterfallDisplayAreaRects }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
     /**
      * Rectangles of curved parts on each side of a waterfall display.
      *
+     * @type { WaterfallDisplayAreaRects }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
      */
     readonly waterfallDisplayAreaRects: WaterfallDisplayAreaRects;
+  }
+
+  /**
+   * Define display physical resolution.
+   *
+   * @interface DisplayPhysicalResolution
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  interface DisplayPhysicalResolution {
+    /**
+     * fold display mode.
+     *
+     * @type { FoldDisplayMode }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 12
+     */
+    foldDisplayMode: FoldDisplayMode;
+
+    /**
+     * Display physical width, in pixels.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    physicalWidth: number;
+
+    /**
+     * Display physical height, in pixels.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    physicalHeight: number;
   }
 
   /**
@@ -1161,12 +1257,14 @@ declare namespace display {
     /**
      * Display ID.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * Display ID.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -1174,6 +1272,7 @@ declare namespace display {
     /**
      * Display ID.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -1184,12 +1283,14 @@ declare namespace display {
     /**
      * Display name.
      *
+     * @type { string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * Display name.
      *
+     * @type { string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1199,12 +1300,14 @@ declare namespace display {
     /**
      * The display is alive.
      *
+     * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * The display is alive.
      *
+     * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1214,12 +1317,14 @@ declare namespace display {
     /**
      * The state of display.
      *
+     * @type { DisplayState }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * The state of display.
      *
+     * @type { DisplayState }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1229,12 +1334,14 @@ declare namespace display {
     /**
      * Refresh rate, in Hz.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * Refresh rate, in Hz.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1244,6 +1351,7 @@ declare namespace display {
     /**
      * Rotation degrees of the display.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -1254,7 +1362,7 @@ declare namespace display {
      * The value 2 indicates that the screen of the display rotates clockwise by 180°.
      * The value 3 indicates that the screen of the display rotates clockwise by 270°.
      * 
-     *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11
@@ -1264,12 +1372,14 @@ declare namespace display {
     /**
      * Display width, in pixels.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * Display width, in pixels.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -1277,6 +1387,7 @@ declare namespace display {
     /**
      * Display width, in pixels.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -1287,12 +1398,14 @@ declare namespace display {
     /**
      * Display height, in pixels.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * Display height, in pixels.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -1300,6 +1413,7 @@ declare namespace display {
     /**
      * Display height, in pixels.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -1308,14 +1422,38 @@ declare namespace display {
     height: number;
 
     /**
+     * Display available width, in pixels.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    availableWidth: number;
+
+    /**
+     * Display available height, in pixels.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    availableHeight: number;
+
+    /**
      * Display resolution.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * Display resolution.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 11
@@ -1323,6 +1461,7 @@ declare namespace display {
     /**
      * Display resolution.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -1333,6 +1472,7 @@ declare namespace display {
     /**
      * Display orientation.
      *
+     * @type { Orientation }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -1340,6 +1480,7 @@ declare namespace display {
     /**
      * Display orientation.
      *
+     * @type { Orientation }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -1350,12 +1491,14 @@ declare namespace display {
     /**
      * Display density, in pixels. The value for a low-resolution display is 1.0.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * Display density, in pixels. The value for a low-resolution display is 1.0.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -1366,12 +1509,14 @@ declare namespace display {
     /**
      * Text scale density of the display.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * Text scale density of the display.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 11
@@ -1379,6 +1524,7 @@ declare namespace display {
     /**
      * Text scale density of the display.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -1389,12 +1535,14 @@ declare namespace display {
     /**
      * DPI on the x-axis.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * DPI on the x-axis.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1404,12 +1552,14 @@ declare namespace display {
     /**
      * DPI on the y-axis.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * DPI on the y-axis.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1492,6 +1642,7 @@ declare namespace display {
      * Check if current display has immersive window.
      *
      * @param { AsyncCallback<boolean> } callback
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
@@ -1505,6 +1656,7 @@ declare namespace display {
      * Check if current display has immersive window.
      *
      * @returns { Promise<boolean> }
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
@@ -1518,12 +1670,11 @@ declare namespace display {
      * Obtain the available area of the display.
      *
      * @returns { Promise<Rect> }
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use.
-     * @since 11
+     * @atomicservice
+     * @since 12
      */
     getAvailableArea(): Promise<Rect>;
 
@@ -1532,14 +1683,13 @@ declare namespace display {
     *
     * @param { 'availableAreaChange' } type - the event of available area changes
     * @param { Callback<Rect> } callback - Callback used to return the available area
-    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
     * <br>2. Incorrect parameter types.
     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
     * @syscap SystemCapability.Window.SessionManager
-    * @systemapi Hide this for inner system use.
-    * @since 11
+    * @atomicservice
+    * @since 12
     */
     on(type: 'availableAreaChange', callback: Callback<Rect>): void;
 
@@ -1548,14 +1698,13 @@ declare namespace display {
     *
     * @param { 'availableAreaChange' } type - the event of available area changes
     * @param { Callback<Rect> } [callback] - Callback used to return the available area
-    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
     * <br>2. Incorrect parameter types.
     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
     * @syscap SystemCapability.Window.SessionManager
-    * @systemapi Hide this for inner system use.
-    * @since 11
+    * @atomicservice
+    * @since 12
     */
     off(type: 'availableAreaChange', callback?: Callback<Rect>): void;
   }

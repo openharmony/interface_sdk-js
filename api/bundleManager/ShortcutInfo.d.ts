@@ -31,91 +31,192 @@ export interface ShortcutInfo {
    * Indicates the ID of the application to which this shortcut belongs
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 9
    */
-  readonly id: string;
+  /**
+   * Indicates the ID of the application to which this shortcut belongs
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 12
+   */
+  id: string;
 
+  /**
+   * Indicates the name of the bundle containing the shortcut
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 9
+   */
   /**
    * Indicates the name of the bundle containing the shortcut
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 9
+   * @since 12
    */
-  readonly bundleName: string;
+  bundleName: string;
 
   /**
    * Indicates the moduleName of the shortcut
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 9
    */
-  readonly moduleName: string;
+  /**
+   * Indicates the moduleName of the shortcut
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 12
+   */
+  moduleName?: string;
 
   /**
    * Indicates the host ability of the shortcut
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 9
    */
-  readonly hostAbility: string;
+  /**
+   * Indicates the host ability of the shortcut
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 12
+   */
+  hostAbility?: string;
 
   /**
    * Indicates the icon of the shortcut
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 9
    */
-  readonly icon: string;
+  /**
+   * Indicates the icon of the shortcut
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 12
+   */
+  icon?: string;
 
   /**
    * Indicates the icon id of the shortcut
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 9
    */
-  readonly iconId: number;
+  /**
+   * Indicates the icon id of the shortcut
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 12
+   */
+  iconId?: number;
 
   /**
    * Indicates the label of the shortcut
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 9
    */
-  readonly label: string;
+  /**
+   * Indicates the label of the shortcut
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 12
+   */
+  label?: string;
 
   /**
    * Indicates the label id of the shortcut
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 9
    */
-  readonly labelId: number;
+  /**
+   * Indicates the label id of the shortcut
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 12
+   */
+  labelId?: number;
 
   /**
    * Indicates the wants of the shortcut
    *
    * @type { Array<ShortcutWant> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 9
    */
-  readonly wants: Array<ShortcutWant>;
+  /**
+   * Indicates the wants of the shortcut
+   *
+   * @type { ?Array<ShortcutWant> }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 12
+   */
+  wants?: Array<ShortcutWant>;
+
+  /**
+   * Indicates the index of application clone.
+   *
+   * @type { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 12
+   */
+  appIndex: number;
+  
+  /**
+   * Indicates the source type of shortcut.
+   *
+   * @type { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 12
+   */
+  sourceType: number;
 }
 
 /**
@@ -131,42 +232,68 @@ export interface ShortcutWant {
    * Indicates the target bundle of the shortcut want
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 9
    */
-  readonly targetBundle: string;
+  /**
+   * Indicates the target bundle of the shortcut want
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 12
+   */
+  targetBundle: string;
 
   /**
    * Indicates the target module of the shortcut want
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 9
    */
-  readonly targetModule: string;
+  /**
+   * Indicates the target module of the shortcut want
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 12
+   */
+  targetModule?: string;
 
+  /**
+   * Indicates the target ability of the shortcut want
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 9
+   */
   /**
    * Indicates the target ability of the shortcut want
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 9
+   * @since 12
    */
-  readonly targetAbility: string;
+  targetAbility: string;
 
   /**
    * Indicates the parameters of the shortcut want
    *
-   * @type { Array<ParameterItem> }
-   * @readonly
+   * @type { ?Array<ParameterItem> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 12
    */
-  readonly parameters: Array<ParameterItem>;
+  parameters?: Array<ParameterItem>;
 }
 
 /**
@@ -182,21 +309,19 @@ export interface ParameterItem {
    * Indicates the key of the parameter item.
    *
    * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 12
    */
-  readonly key: string;
+  key: string;
 
   /**
    * Indicates the value of the parameter item.
    *
    * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 12
    */
-  readonly value: string;
+  value: string;
 }

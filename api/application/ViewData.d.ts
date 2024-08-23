@@ -27,7 +27,7 @@ import type AutoFillRect from './AutoFillRect';
  * @interface ViewData
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
- * @StageModelOnly
+ * @stagemodelonly
  * @since 11
  */
 export default interface ViewData {
@@ -37,7 +37,7 @@ export default interface ViewData {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   bundleName: string;
@@ -48,7 +48,7 @@ export default interface ViewData {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   moduleName: string;
@@ -59,7 +59,7 @@ export default interface ViewData {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   abilityName: string;
@@ -70,7 +70,7 @@ export default interface ViewData {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   pageUrl: string;
@@ -81,7 +81,7 @@ export default interface ViewData {
    * @type { Array<PageNodeInfo> }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   pageNodeInfos: Array<PageNodeInfo>;
@@ -92,7 +92,7 @@ export default interface ViewData {
    * @type { AutoFillRect }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   pageRect: AutoFillRect;

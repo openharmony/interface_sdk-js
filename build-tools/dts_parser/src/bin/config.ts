@@ -20,6 +20,7 @@ import { EnumUtils } from '../utils/EnumUtils';
 import { FileUtils } from '../utils/FileUtils';
 import { LogUtil } from '../utils/logUtil';
 import { FilesMap, Parser } from '../coreImpl/parser/parser';
+import { parserParam } from '../coreImpl/parser/NodeProcessor';
 import { DiffHelper } from '../coreImpl/diff/diff';
 import {
   BasicDiffInfo,
@@ -260,10 +261,12 @@ function outputInfos(infos: ToolReturnData, options: OptionObjType, callback: To
  * @return { ToolNameValueType }
  */
 function collectApi(options: OptionObjType): ToolNameValueType {
+  // process.env.NEED_DETECTION = 'true';
   const fileDir: string = path.resolve(FileUtils.getBaseDirName(), options.collectPath);
   let collectFile: string = '';
   if (options.collectFile !== '') {
     collectFile = path.resolve(FileUtils.getBaseDirName(), options.collectFile);
+    parserParam.setSdkPath(collectFile);
   }
   let allApis: FilesMap;
   try {
@@ -526,11 +529,13 @@ function diffApi(options: OptionObjType): ToolNameValueType {
   let data: BasicDiffInfo[] = [];
   try {
     if (status.isDirectory()) {
-      const oldSDKApiMap: FilesMap = Parser.parseDir(oldFileDir);
       const newSDKApiMap: FilesMap = Parser.parseDir(newFileDir);
+      Parser.cleanParserParamSDK();
+      const oldSDKApiMap: FilesMap = Parser.parseDir(oldFileDir);
       data = DiffHelper.diffSDK(oldSDKApiMap, newSDKApiMap, options.all);
     } else {
       const oldSDKApiMap: FilesMap = Parser.parseFile(path.resolve(oldFileDir, '..'), oldFileDir);
+      Parser.cleanParserParamSDK();
       const newSDKApiMap: FilesMap = Parser.parseFile(path.resolve(newFileDir, '..'), newFileDir);
       data = DiffHelper.diffSDK(oldSDKApiMap, newSDKApiMap, options.all);
     }
@@ -723,7 +728,8 @@ function addApiNumberSheet(relationsSet: Set<string>, workbook: ExcelJS.Workbook
     '差异项-新版本',
     '兼容性列表',
     '接口全路径',
-    '是否为系统API'
+    '是否为系统API',
+    '是否为同名API'
   ];
   let diffTypeNumberArr: DiffNumberInfo[] = [];
   relationsSet.forEach((apiRelation: string) => {
@@ -764,7 +770,7 @@ function addApiNumberSheet(relationsSet: Set<string>, workbook: ExcelJS.Workbook
       diffNumberInfo.getSubsystem(),
       diffNumberInfo.getIsApi(),
       diffNumberInfo.getApiType(),
-      `${diffNumberInfo.getAllDiffType().join(' #&# ')} #&# ${diffNumberInfo.getIsSameNameFunction()}`,
+      diffNumberInfo.getAllDiffType().join(' #&# '),
       diffNumberInfo.getAllChangeType().join(' #&# '),
       getCompatibleObject(diffNumberInfo),
       calculateChangeNumber(diffNumberInfo),
@@ -773,6 +779,7 @@ function addApiNumberSheet(relationsSet: Set<string>, workbook: ExcelJS.Workbook
       diffNumberInfo.getAllCompatible().join(' #&# '),
       diffNumberInfo.getApiRelation(),
       diffNumberInfo.getIsSystemapi(),
+      diffNumberInfo.getIsSameNameFunction(),
     ];
   });
 }

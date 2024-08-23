@@ -33,6 +33,7 @@ declare namespace screen {
    * Get all screen instances, then can get or set detail information.
    *
    * @param { AsyncCallback<Array<Screen>> } callback the callback of all screens info
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -44,6 +45,7 @@ declare namespace screen {
    * Get all screen instances, then can get or set detail information.
    *
    * @returns { Promise<Array<Screen>> } the result of all screens info
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -57,6 +59,7 @@ declare namespace screen {
    * @param { 'connect' | 'disconnect' | 'change' } eventType the event of screen changes. This parameter is of string
    * type and cannot be empty.
    * @param { Callback<number> } callback Callback used to return the screen ID. This parameter is callable.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -72,6 +75,7 @@ declare namespace screen {
    * type and cannot be empty.
    * @param { Callback<number> } callback Callback used to return the screen ID. If this parameter is specified, it must
    * be a callback.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -87,6 +91,7 @@ declare namespace screen {
    * sure it's type of Array<ExpandOption>.
    * @param { AsyncCallback<number> } callback callback used to return the group ID of the expanded screens. It must
    * be a callback.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
@@ -102,6 +107,7 @@ declare namespace screen {
    * @param { Array<ExpandOption> } options Parameters for expanding the screen. The options must be valid, and make
    * sure it's type of Array<ExpandOption>.
    * @returns { Promise<number> } used to return the group ID of the expanded screens
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
@@ -117,6 +123,7 @@ declare namespace screen {
    * @param { Array<number> } expandScreen IDs of expand screens to stop. The size of the expandScreen Array should not
    * exceed 1000.
    * @param { AsyncCallback<void> } callback used to return the result
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
@@ -132,6 +139,7 @@ declare namespace screen {
    * @param { Array<number> } expandScreen IDs of expand screens to stop. The size of the expandScreen Array should not
    * exceed 1000.
    * @returns { Promise<void> } promise used to return the result
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
@@ -147,6 +155,7 @@ declare namespace screen {
    * @param { number } mainScreen ID of the primary screen. It's type should be int.
    * @param { Array<number> } mirrorScreen IDs of secondary screens
    * @param { AsyncCallback<number> } callback Callback used to return the group ID of the secondary screens
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
@@ -162,6 +171,7 @@ declare namespace screen {
    * @param { number } mainScreen ID of the primary screen. It's type should be int.
    * @param { Array<number> } mirrorScreen IDs of secondary screens
    * @returns { Promise<number> } Promise used to return the group ID of the secondary screens
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
@@ -177,6 +187,7 @@ declare namespace screen {
    * @param { Array<number> } mirrorScreen IDs of mirror screens to stop. The size of the mirrorScreen Array should not
    * exceed 1000.
    * @param { AsyncCallback<void> } callback used to return the result
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
@@ -192,6 +203,7 @@ declare namespace screen {
    * @param { Array<number> } mirrorScreen IDs of mirror screens to stop. The size of the mirrorScreen Array should not
    * exceed 1000.
    * @returns { Promise<void> } promise used to return the result
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
@@ -208,6 +220,7 @@ declare namespace screen {
    * @param { VirtualScreenOption } options Indicates the options of the virtual screen.
    * @param { AsyncCallback<Screen> } callback Callback used to return the created virtual screen
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
@@ -224,6 +237,7 @@ declare namespace screen {
    * @param { VirtualScreenOption } options Indicates the options of the virtual screen.
    * @returns { Promise<Screen> } Promise used to return the created virtual screen
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * 2. Incorrect parameter types.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
@@ -238,6 +252,7 @@ declare namespace screen {
    *
    * @param { number } screenId Indicates the screen id of the virtual screen.
    * @param { AsyncCallback<void> } callback Callback used to return the result.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400002 - Unauthorized operation.
@@ -252,6 +267,7 @@ declare namespace screen {
    *
    * @param { number } screenId Indicates the screen id of the virtual screen.
    * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400002 - Unauthorized operation.
@@ -269,6 +285,7 @@ declare namespace screen {
    * @param { string } surfaceId Indicates the surface id.
    * @param { AsyncCallback<void> } callback Callback used to return the result
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
@@ -286,6 +303,7 @@ declare namespace screen {
    * @param { string } surfaceId Indicates the surface id.
    * @returns { Promise<void> } Promise that returns no value
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
@@ -299,6 +317,7 @@ declare namespace screen {
    * Get screen rotation lock status.
    *
    * @param { AsyncCallback<boolean> } callback If true, auto rotate is locked. If false, auto rotate is unlocked
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -309,6 +328,7 @@ declare namespace screen {
    * Get screen rotation lock status.
    *
    * @returns { Promise<boolean> } If true, auto rotate is locked. If false, auto rotate is unlocked
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -320,6 +340,7 @@ declare namespace screen {
    *
    * @param { boolean } isLocked Indicates whether the screen rotation switch is locked.
    * @param { AsyncCallback<void> } callback Callback used to return the result.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -333,6 +354,7 @@ declare namespace screen {
    *
    * @param { boolean } isLocked Indicates whether the screen rotation switch is locked.
    * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -353,6 +375,7 @@ declare namespace screen {
     /**
      * Screen id
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -362,6 +385,7 @@ declare namespace screen {
     /**
      * The start coordinate X of the screen origin
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -371,6 +395,7 @@ declare namespace screen {
     /**
      * The start coordinate Y of the screen origin
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -390,6 +415,7 @@ declare namespace screen {
     /**
      * Indicates the name of the virtual screen.
      *
+     * @type { string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -399,6 +425,7 @@ declare namespace screen {
     /**
      * Indicates the width of the virtual screen.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -408,6 +435,7 @@ declare namespace screen {
     /**
      * Indicates the height of the virtual screen.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -417,6 +445,7 @@ declare namespace screen {
     /**
      * Indicates the density of the virtual screen.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -426,6 +455,7 @@ declare namespace screen {
     /**
      * Indicates the surface id of the virtual screen.
      *
+     * @type { string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -491,6 +521,7 @@ declare namespace screen {
     /**
      * Screen id
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -500,6 +531,7 @@ declare namespace screen {
     /**
      * Group id
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -509,6 +541,7 @@ declare namespace screen {
     /**
      * Mode supported by the screen
      *
+     * @type { Array<ScreenModeInfo> }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -518,6 +551,7 @@ declare namespace screen {
     /**
      * Currently active mode
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -527,6 +561,7 @@ declare namespace screen {
     /**
      * Orientation of the screen
      *
+     * @type { Orientation }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -536,6 +571,7 @@ declare namespace screen {
     /**
      * Source mode of the screen
      *
+     * @type { ScreenSourceMode }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -547,6 +583,7 @@ declare namespace screen {
      *
      * @param { Orientation } orientation Screen orientation. orientation value must from enum Orientation.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
@@ -561,6 +598,7 @@ declare namespace screen {
      *
      * @param { Orientation } orientation Screen orientation. orientation value must from enum Orientation.
      * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
@@ -575,6 +613,7 @@ declare namespace screen {
      *
      * @param { number } modeIndex Index of the mode to set.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
@@ -589,6 +628,7 @@ declare namespace screen {
      *
      * @param { number } modeIndex Index of the mode to set.
      * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
@@ -603,6 +643,7 @@ declare namespace screen {
      *
      * @param { number } densityDpi Pixel density. The value ranges from 80 to 640.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
@@ -617,6 +658,7 @@ declare namespace screen {
      *
      * @param { number } densityDpi Pixel density. The value ranges from 80 to 640.
      * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.

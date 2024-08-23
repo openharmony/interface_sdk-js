@@ -41,6 +41,7 @@ declare namespace bundleManager {
     /**
      * Indicates the user id
      *
+     * @type { ?number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @StageModelOnly
      * @since 12
@@ -50,6 +51,7 @@ declare namespace bundleManager {
     /**
      * Indicates the install flag, which 0 for first install, 1 for cover install
      *
+     * @type { ?number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @StageModelOnly
      * @since 12

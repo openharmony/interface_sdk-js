@@ -139,6 +139,7 @@ declare namespace common2D {
      */
     z: number;
   }
+  
 }
 
 export default common2D;

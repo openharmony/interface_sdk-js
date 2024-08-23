@@ -27,6 +27,7 @@
 /**
  * Use the DrawableDescriptor class to get drawable image.
  *
+ * @typedef { import ('../api/@ohos.arkui.drawableDescriptor').DrawableDescriptor } DrawableDescriptor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
@@ -54,6 +55,16 @@ declare type DrawingColorFilter = import('../api/@ohos.graphics.drawing').defaul
  */
 declare type ResolutionQuality  = import('../api/@ohos.multimedia.image').default.ResolutionQuality;
 
+/**
+ * Lattice for dividing an image into grids.
+ *
+ * @typedef { import('../api/@ohos.graphics.drawing').default.Lattice } Lattice
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type DrawingLattice  = import('../api/@ohos.graphics.drawing').default.Lattice;
 
 /**
  * @enum { number }
@@ -1463,7 +1474,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * Enable image analyzer.
    *
-   * @param { boolean} config
+   * @param { boolean} enable
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
@@ -1471,7 +1482,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * Enable image analyzer.
    *
-   * @param { boolean} config
+   * @param { boolean} enable
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -1613,6 +1624,8 @@ declare const ImageInstance: ImageAttribute;
  * @since 10
  */
 /**
+ * @typedef { function } ImageErrorCallback
+ * @param { ImageError } error
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -1759,4 +1772,15 @@ declare interface ResizableOptions {
    * @since 12
    */
   slice?: EdgeWidths;
+
+  /**
+   * Image lattice.
+   *
+   * @type { ?DrawingLattice }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  lattice?: DrawingLattice;
 }

@@ -33,6 +33,10 @@ export class LegalityCheck {
    */
   static apiLegalityCheck(singleApi: ApiInfo, apiJsdoc: Comment.JsDocInfo): ErrorTagFormat[] {
     const apiLegalityCheckResult: ErrorTagFormat[] = [];
+
+    //check systemapi and atomicservice
+    LegalityCheck.checkSystemapiAtomicservice(apiJsdoc, apiLegalityCheckResult);
+
     const nodeInfo: ts.Node = singleApi.getNode() as ts.Node;
     const apiLegalityTagsArray: string[] = apiLegalityCheckTypeMap.get(nodeInfo.kind) as string[];
     const apiLegalityTagsSet: Set<string> = new Set(apiLegalityTagsArray);
@@ -99,7 +103,7 @@ export class LegalityCheck {
       if (apiLegalityTagsSet.has(apiTag.tag)) {
         apiLegalityTagsSet.delete(apiTag.tag);
       }
-      if (singleApi.getApiType() === ApiType.PROPERTY) {
+      if (singleApi.getApiType() === ApiType.PROPERTY || singleApi.getApiType() === ApiType.DECLARE_CONST) {
         apiLegalityTagsSet.delete('constant');
         illegalTagsArray.push('constant');
       }
@@ -111,7 +115,7 @@ export class LegalityCheck {
         apiLegalityTagsSet.delete('typedef');
       }
       if ((singleApi.getApiType() === ApiType.METHOD && (singleApi as MethodInfo).getReturnValue().length === 0) ||
-        singleApi.getApiType() === ApiType.TYPE_ALIAS && ((singleApi as TypeAliasInfo).getReturnType() === 'void' ||
+        singleApi.getApiType() === ApiType.TYPE_ALIAS && ((singleApi as TypeAliasInfo).getReturnType().join() === 'void' ||
           !(singleApi as TypeAliasInfo).getTypeIsFunction())) {
         apiLegalityTagsSet.delete('returns');
         illegalTagsArray.push('returns');
@@ -219,7 +223,7 @@ export class LegalityCheck {
     }
     // check repeat throws
     const orderedThrowsCode: string[] = apiThrowsCode.sort();
-    for (var i = 0; i < orderedThrowsCode.length; i++) {
+    for (let i = 0; i < orderedThrowsCode.length; i++) {
       if (orderedThrowsCode[i] === orderedThrowsCode[i + 1]) {
         apiRepeatThrows.state = false;
         apiRepeatThrows.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_REPEATLABEL, ['throws']);
@@ -246,5 +250,26 @@ export class LegalityCheck {
       }
     });
     return illegalTagsArray;
+  }
+  /**
+   * systemapi and atomicservice cannot exist at the same time
+   * @param apiJsdoc 
+   */
+  static checkSystemapiAtomicservice(apiJsdoc: Comment.JsDocInfo, apiLegalityCheckResult: ErrorTagFormat[]) {
+    const apiSystemapiAtomicservice: ErrorTagFormat = {
+      state: true,
+      errorInfo: '',
+    };
+    const tagsName: string[] = [];
+    apiJsdoc.tags?.forEach((tag: Comment.CommentTag) => {
+      tagsName.push(tag.tag);
+    })
+    const hasSystemapi: boolean = tagsName.includes('systemapi');
+    const hasAtomicservice: boolean = tagsName.includes('atomicservice');
+    if (hasSystemapi && hasAtomicservice) {
+      apiSystemapiAtomicservice.state=false;
+      apiSystemapiAtomicservice.errorInfo=ErrorMessage.ERROR_ERROR_SYSTEMAPI_ATOMICSERVICE;
+    }
+    apiLegalityCheckResult.push(apiSystemapiAtomicservice);
   }
 }

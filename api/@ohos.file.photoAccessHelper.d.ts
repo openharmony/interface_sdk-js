@@ -159,6 +159,14 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     MOVING_PHOTO = 3,
+    /**
+     * Burst Photo Type
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    BURST = 4,
   }
 
   /**
@@ -332,7 +340,23 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 12
      */
-    ANALYSIS_VIDEO_LABEL
+    ANALYSIS_VIDEO_LABEL,
+    /**
+     * Analysis of highlight
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    ANALYSIS_HIGHLIGHT,
+    /**
+     * Analysis of multi crop
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    ANALYSIS_MULTI_CROP
   }
 
   /**
@@ -494,6 +518,116 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     EDITED_MODE = 1
+  }
+
+  /**
+   * Enumeration type of permissions for accessing asset uri.
+   *
+   * @enum { number } PhotoPermissionType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 12
+   */
+  enum PhotoPermissionType {
+    /**
+     * Temporary access to photos, this permission could be canceled when APP dies.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    TEMPORARY_READ_IMAGEVIDEO = 0,
+
+    /**
+     * Persistence access to photos.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    PERSISTENT_READ_IMAGEVIDEO = 1
+  }
+
+  /**
+   * Enumeration type of hide sensitive information.
+   *
+   * @enum { number } HideSensitiveType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 12
+   */
+  enum HideSensitiveType {
+    /**
+     * Hide location information and shooting param.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    HIDE_LOCATION_AND_SHOOTING_PARAM = 0,
+
+    /**
+     * Hide location information.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    HIDE_LOCATION_ONLY = 1,
+
+    /**
+     * Hide shooting param.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    HIDE_SHOOTING_PARAM_ONLY = 2,
+
+    /**
+     * Hide nothing.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    NO_HIDE_SENSITIVE_TYPE = 3
+  }
+    
+  /**
+   * Enum: complete button text
+   *
+   * @enum { number } CompleteButtonText
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 12
+   */
+  enum CompleteButtonText {
+    /**
+     * Complete button text: done
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    TEXT_DONE = 0,
+    /**
+     * Complete button text: send
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    TEXT_SEND = 1,
+
+    /**
+     * Complete button text: add
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    TEXT_ADD = 2,
   }
 
   /**
@@ -734,6 +868,15 @@ declare namespace photoAccessHelper {
      * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
+     */
+    /**
+     * uri of the asset.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
      */
     readonly uri: string;
     /**
@@ -1388,6 +1531,23 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     cancelPhotoRequest(requestId: string): void;
+    /**
+     * Fetch thumbnail of the video keyframe.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { number } beginFrameTimeMs - Fetch the time position of the video frame.
+     * @param { ThumbnailType } type - The type of thumbnail.
+     * @returns { Promise<image.PixelMap> } Returns the thumbnail's pixelMap.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    getKeyFrameThumbnail(beginFrameTimeMs: number, type: ThumbnailType): Promise<image.PixelMap>;
   }
 
   /**
@@ -1604,7 +1764,43 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12
      */
-    DYNAMIC_RANGE_TYPE = 'dynamic_range_type'
+    DYNAMIC_RANGE_TYPE = 'dynamic_range_type',
+    /**
+     * Cover position of the asset, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    COVER_POSITION = 'cover_position',
+    /**
+     * Unique uuid of the burst photos, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    BURST_KEY = 'burst_key',
+    /**
+     * Thumbnail of photo asset has been ready, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    THUMBNAIL_READY = 'thumbnail_ready',
+    /**
+     * Width and height information of lcd picture, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    LCD_SIZE = 'lcd_size',
+    /**
+     * Width and height information of thumbnail picture, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    THM_SIZE = 'thm_size'
   }
 
   /**
@@ -2316,6 +2512,22 @@ declare namespace photoAccessHelper {
      * @since 10
      */
     getAssets(options: FetchOptions): Promise<FetchResult<PhotoAsset>>;
+    /**
+     * Fetch shared photo assets in an album.
+     *
+     * @permission ohos.permission.ACCESS_MEDIALIB_THUMB_DB
+     * @param { FetchOptions } options - Fetch options.
+     * @returns { Array<SharedPhotoAsset> } Returns the shared photo assets
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    getSharedPhotoAssets(options: FetchOptions): Array<SharedPhotoAsset>;
   }
 
   /**
@@ -2602,6 +2814,21 @@ declare namespace photoAccessHelper {
      * @since 10
      */
     getAssets(options: FetchOptions): Promise<FetchResult<PhotoAsset>>;
+    /**
+     * Fetch a group of burst assets
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { string } burstKey - Burst asset uuid
+     * @param { FetchOptions } options - Retrieval options.
+     * @returns { Promise<FetchResult<PhotoAsset>> } Returns the fetch result.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    getBurstAssets(burstKey: string, options: FetchOptions): Promise<FetchResult<PhotoAsset>>;
     /**
      * Create a photo asset
      *
@@ -3026,6 +3253,22 @@ declare namespace photoAccessHelper {
      */
     registerChange(uri: string, forChildUris: boolean, callback: Callback<ChangeData>): void;
     /**
+     * Get analysis progress of the asset.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { AnalysisType } analysisType - Analysis type
+     * @returns { Promise<string> } Returns analysis progress info into a json string
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+     getDataAnalysisProgress(analysisType: AnalysisType): Promise<string>;
+    /**
      * Unregister change notify for the specified uri.
      *
      * @param { string } uri - PhotoAsset's uri, album's uri or DefaultChangeUri
@@ -3259,6 +3502,111 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     getIndexConstructProgress(): Promise<string>;
+    /**
+     * Grant permission of assets to an APP.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { string } appid - App Id
+     * @param { Array<string> } uriList - List of asset uris whose permission will be granted to an App,
+     * <br>the capacity of uriList is 1000.
+     * @param { PhotoPermissionType } photoPermissionType - Permission type of accessing assets.
+     * @param { HideSensitiveType } hideSensitiveType - Hide sensitive info type of accessing assets.
+     * @returns { Promise<number> } Returns result of grant permission
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    grantPhotoUrisPermission(appid: string, uriList: Array<string>, photoPermissionType: PhotoPermissionType, hideSensitiveType: HideSensitiveType): Promise<number>;
+    /**
+     * Grant permission of asset to an APP.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { string } appid - App Id
+     * @param { string } uri - Asset uri whose permission will be granted to an App.
+     * @param { PhotoPermissionType } photoPermissionType - Permission type of accessing assets.
+     * @param { HideSensitiveType } hideSensitiveType - Hide sensitive info type of accessing assets.
+     * @returns { Promise<number> } Returns result of grant permission
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    grantPhotoUriPermission(appid: string, uri: string, photoPermissionType: PhotoPermissionType, hideSensitiveType: HideSensitiveType): Promise<number>;
+    /**
+     * Cancel permission of asset to an APP.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { string } appid - App Id
+     * @param { string } uri - Asset uri whose permission will be granted to an App.
+     * @param { PhotoPermissionType } photoPermissionType - Permission type of accessing assets.
+     * @returns { Promise<number> } Returns result of cancel permission
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    cancelPhotoUriPermission(appid: string, uri: string, photoPermissionType: PhotoPermissionType): Promise<number>;
+    /**
+     * Provides the capability of thumbnail generation according to specified rules.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { dataSharePredicates.DataSharePredicates } predicate - Rule options for generating thumbnails.
+     * @param { AsyncCallback<void> } callback - Returns void when the task is completed.
+     * @returns { number } Create task id for generating thumbnails
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    startThumbnailCreationTask(predicate: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<void>): number;
+    /**
+     * Provides the capability of stop generating thumbnails.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { number } taskId - Stop generating thumbnail task id.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    stopThumbnailCreationTask(taskId: number): void;
+    /**
+     * Fetch shared photo assets.
+     *
+     * @permission ohos.permission.ACCESS_MEDIALIB_THUMB_DB
+     * @param { FetchOptions } options - Fetch options.
+     * @returns { Array<SharedPhotoAsset> } Returns the shared photo assets
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    getSharedPhotoAssets(options: FetchOptions): Array<SharedPhotoAsset>;
   }
 
   /**
@@ -3678,6 +4026,16 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     themeColor?: CustomColors;
+
+    /**
+     * Complete button text
+     *
+     * @type { ?CompleteButtonText }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    completeButtonText?: CompleteButtonText;
   }
 
   /**
@@ -3954,7 +4312,16 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 11
      */
-    PHOTO_PROXY = 3
+    PHOTO_PROXY = 3,
+
+    /**
+     * Private moving photo resource
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    PRIVATE_MOVING_PHOTO_RESOURCE = 4
   }
 
   /**
@@ -4009,7 +4376,25 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 12
      */
-    MULTI_EXPOSURE = 4
+    MULTI_EXPOSURE = 4,
+
+    /**
+     * Cinema graph
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    CINEMA_GRAPH = 5,
+
+    /**
+     * Image only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    IMAGE_ONLY = 10
   }
 
   /**
@@ -4041,6 +4426,17 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11
      */
+    /**
+     * The constructor to create a MediaAssetChangeRequest instance.
+     *
+     * @param { PhotoAsset } asset - Specify which asset to change
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
     constructor(asset: PhotoAsset);
 
     /**
@@ -4056,6 +4452,21 @@ declare namespace photoAccessHelper {
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11
+     */
+    /**
+     * Create image asset change request.
+     *
+     * @param { Context } context - Hap context information
+     * @param { string } fileUri - File uri
+     * @returns { MediaAssetChangeRequest } - Returns a MediaAssetChangeRequest instance
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 13900002 - No such file
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
      */
     static createImageAssetRequest(context: Context, fileUri: string): MediaAssetChangeRequest;
 
@@ -4157,6 +4568,17 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11
      */
+    /**
+     * Get the asset.
+     *
+     * @returns { PhotoAsset } - Returns the asset
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
     getAsset(): PhotoAsset;
 
     /**
@@ -4225,6 +4647,17 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 11
+     */
+    /**
+     * Set title of the asset.
+     *
+     * @param { string } title - the new title of the asset
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
      */
     setTitle(title: string): void;
 
@@ -4672,6 +5105,314 @@ declare namespace photoAccessHelper {
   }
 
   /**
+   * Defines the shared photo asset
+   *
+   * @interface SharedPhotoAsset
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 12
+   */
+  interface SharedPhotoAsset {
+    /**
+     * File id of photo asset
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    fileId: number;
+    /**
+     * URI of photo asset
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    uri: string;
+    /**
+     * Path data of photo asset
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    data: string;
+    /**
+     * Media type of photo asset
+     *
+     * @type { PhotoType }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    mediaType: PhotoType;
+    /**
+     * Display name of photo asset
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    displayName: string;
+    /**
+     * Size of photo asset
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    size: number;
+    /**
+     * Added date of photo asset
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    dateAdded: number;
+    /**
+     * Modify date of photo asset
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    dateModified: number;
+    /**
+     * Duration of video photo asset
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    duration: number;
+    /**
+     * Width of photo asset
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    width: number;
+    /**
+     * Height of photo asset
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    height: number;
+    /**
+     * DateTaken of photo asset
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    dateTaken: number;
+    /**
+     * Orientation of photo asset
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    orientation: number;
+    /**
+     * Favorite state of photo asset
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    isFavorite: boolean;
+    /**
+     * Title of photo asset
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    title: string;
+    /**
+     * Position of photo asset
+     *
+     * @type { PositionType }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    position: PositionType;
+    /**
+     * Trashed date of photo asset
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    dateTrashed: number;
+    /**
+     * Hidden state of photo asset
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    hidden: boolean;
+    /**
+     * User comment info of photo asset
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    userComment: string;
+    /**
+     * Camera shot key of photo asset
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    cameraShotKey: string;
+    /**
+     * The year of the file created
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    dateYear: string;
+    /**
+     * The month of the file created
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    dateMonth: string;
+    /**
+     * The day of the file created
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    dateDay: string;
+    /**
+     * Pending state of the asset, true means asset is pending
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    pending: boolean;
+    /**
+     * Added date of photo asset in milliseconds
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    dateAddedMs: number;
+    /**
+     * Modified time of the asset in milliseconds
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    dateModifiedMs: number;
+    /**
+     * Trashed time of the asset in milliseconds
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    dateTrashedMs: number;
+    /**
+     * Subtype of photo asset
+     *
+     * @type { PhotoSubtype }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    subtype: PhotoSubtype;
+    /**
+     * Effect mode of moving photo
+     * 
+     * @type { MovingPhotoEffectMode }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    movingPhotoEffectMode: MovingPhotoEffectMode;
+    /**
+     * Dynamic range type of the asset
+     *
+     * @type { DynamicRangeType }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    dynamicRangeType: DynamicRangeType;
+    /**
+     * Ready state of thumbnail
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    thumbnailReady: boolean;
+    /**
+     * Width and height information of lcd picture
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    lcdSize: string;
+    /**
+     * Width and height information of thumbnail picture
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    thmSize: string;
+  }
+
+  /**
    * Defines the moving photo.
    *
    * @interface MovingPhoto
@@ -4860,6 +5601,33 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     ART_LAYOUT_VIEWED_DURATION
+  }
+
+  /**
+   * The type of thumbnail
+   *
+   * @enum { number } ThumbnailType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 12
+   */
+  enum ThumbnailType {
+    /**
+     * LCD thumbnail
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    LCD = 1,
+    /**
+     * THM thumbnail
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    THM = 2
   }
 
   /**

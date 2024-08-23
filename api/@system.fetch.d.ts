@@ -22,6 +22,7 @@
 export interface FetchResponse {
   /**
    * Server status code.
+   * @type { number }
    * @syscap SystemCapability.Communication.NetStack
    * @since 3
    */
@@ -29,6 +30,7 @@ export interface FetchResponse {
 
   /**
    * Data returned by the success function.
+   * @type { string | object }
    * @syscap SystemCapability.Communication.NetStack
    * @since 3
    */
@@ -36,6 +38,7 @@ export interface FetchResponse {
 
   /**
    * All headers in the response from the server.
+   * @type { Object }
    * @syscap SystemCapability.Communication.NetStack
    * @since 3
    */

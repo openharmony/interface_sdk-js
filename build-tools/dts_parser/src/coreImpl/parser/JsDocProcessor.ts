@@ -182,11 +182,11 @@ export class JsDocProcessorHelper {
   }
 
   static setKitContent(jsDocInfo: Comment.JsDocInfo, commentTag: Comment.CommentTag): void {
-    jsDocInfo.setKit(commentTag.source.replace(/\* @kit\s+|\r|\n/g, '').trim());
+    jsDocInfo.setKit(commentTag.source.replace(/\* @kit|\r|\n/g, '').trim());
   }
 
   static setIsFile(jsDocInfo: Comment.JsDocInfo, commentTag: Comment.CommentTag): void {
-    jsDocInfo.setIsFile(true);
+    jsDocInfo.setFileTagContent(commentTag.source.replace(/\* @file|\r|\n/g, '').trim());
   }
 
   /**
@@ -195,11 +195,11 @@ export class JsDocProcessorHelper {
    * @param { Comment.CommentInfo } jsDoc 一段JsDoc的信息解析的注释对象
    * @returns 返回JsDoc得到的JsDocInfo对象
    */
-  static processJsDoc(jsDoc: Comment.CommentInfo, parentKitInfo: string, parentIsFile: boolean): Comment.JsDocInfo {
+  static processJsDoc(jsDoc: Comment.CommentInfo, parentKitInfo: string, parentFileTag: string): Comment.JsDocInfo {
     const jsDocInfo: Comment.JsDocInfo = new Comment.JsDocInfo();
     jsDocInfo.setDescription(jsDoc.description);
     jsDocInfo.setKit(parentKitInfo);
-    jsDocInfo.setIsFile(parentIsFile);
+    jsDocInfo.setFileTagContent(parentFileTag);
     for (let i = 0; i < jsDoc.commentTags.length; i++) {
       const commentTag: Comment.CommentTag = jsDoc.commentTags[i];
       jsDocInfo.addTag(commentTag);
@@ -219,7 +219,7 @@ export class JsDocProcessorHelper {
    * @param { ts.SourceFile } sourceFile node节点的sourceFile
    * @returns 返回解析后的多段JsDoc的信息数组
    */
-  static processJsDocInfos(node: ts.Node, apiType: string, parentKitInfo: string, parentIsFile: boolean): Comment.JsDocInfo[] {
+  static processJsDocInfos(node: ts.Node, apiType: string, parentKitInfo: string, parentFileTag: string): Comment.JsDocInfo[] {
     const sourceFile = node.getSourceFile();
     const allCommentInfos: Comment.CommentInfo[] = CommentHelper.getNodeLeadingComments(node, sourceFile);
     const commentInfos: Comment.CommentInfo[] = allCommentInfos.filter((commentInfo: Comment.CommentInfo) => {
@@ -233,12 +233,12 @@ export class JsDocProcessorHelper {
     if (commentInfos.length === 0 && parentKitInfo !== '') {
       const jsDocInfo: Comment.JsDocInfo = new Comment.JsDocInfo();
       jsDocInfo.setKit(parentKitInfo);
-      jsDocInfo.setIsFile(parentIsFile);
+      jsDocInfo.setFileTagContent(parentFileTag);
       jsDocInfos.push(jsDocInfo);
     }
     for (let i = 0; i < commentInfos.length; i++) {
       const commentInfo: Comment.CommentInfo = commentInfos[i];
-      const jsDocInfo: Comment.JsDocInfo = JsDocProcessorHelper.processJsDoc(commentInfo, parentKitInfo, parentIsFile);
+      const jsDocInfo: Comment.JsDocInfo = JsDocProcessorHelper.processJsDoc(commentInfo, parentKitInfo, parentFileTag);
       jsDocInfos.push(jsDocInfo);
     }
     return jsDocInfos;

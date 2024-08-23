@@ -63,6 +63,7 @@ declare namespace cloudExtension {
   /**
    * Indicates cloud assets in one column.
    *
+   * @typedef { Array<CloudAsset> } CloudAssets
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11
@@ -72,6 +73,7 @@ declare namespace cloudExtension {
   /**
    * Indicates possible cloud types.
    *
+   * @typedef { null | number | string | boolean | Uint8Array | CloudAsset | CloudAssets } CloudType
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11

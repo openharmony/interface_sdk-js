@@ -26,6 +26,7 @@ import {
   Chip, ChipOptions, ChipSize, IconCommonOptions, LabelMarginOptions, LabelOptions, PrefixIconOptions,
   SuffixIconOptions, ChipSymbolGlyphOptions
 } from '@ohos.arkui.advanced.Chip';
+import { NavPushPathHelper } from '@ohos.atomicservice.NavPushPathHelper';
 import {
   IconOptions, LabelOptions as ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle, ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup
 } from '@ohos.arkui.advanced.ChipGroup';
@@ -49,8 +50,9 @@ import {
 } from '@ohos.arkui.advanced.Popup';
 import { ProgressButton } from '@ohos.arkui.advanced.ProgressButton';
 import {
-  SegmentButton, SegmentButtonOptions, SegmentButtonItemOptionsArray, TabSegmentButtonOptions, TabSegmentButtonConstructionOptions, CapsuleSegmentButtonOptions, 
-  CapsuleSegmentButtonConstructionOptions, SegmentButtonTextItem, SegmentButtonIconItem, SegmentButtonIconTextItem, DimensionNoPercentage, CommonSegmentButtonOptions, 
+  SegmentButton, SegmentButtonOptions, SegmentButtonItemOptionsArray, TabSegmentButtonOptions,
+  TabSegmentButtonConstructionOptions, CapsuleSegmentButtonOptions, CapsuleSegmentButtonConstructionOptions,
+  SegmentButtonTextItem, SegmentButtonIconItem, SegmentButtonIconTextItem, DimensionNoPercentage, CommonSegmentButtonOptions,
   ItemRestriction, SegmentButtonItemTuple, SegmentButtonItemArray, SegmentButtonItemOptionsConstructorOptions, SegmentButtonItemOptions
 } from '@ohos.arkui.advanced.SegmentButton';
 import {
@@ -61,7 +63,7 @@ import { SplitLayout } from '@ohos.arkui.advanced.SplitLayout';
 import { OperationOption, OperationType, SelectOptions, SubHeader, SymbolOptions } from '@ohos.arkui.advanced.SubHeader';
 import { SwipeRefresher } from '@ohos.arkui.advanced.SwipeRefresher';
 import { TabTitleBar, TabTitleBarMenuItem, TabTitleBarTabItem } from '@ohos.arkui.advanced.TabTitleBar';
-import { ItemState, ToolBar, ToolBarOption, ToolBarOptions } from '@ohos.arkui.advanced.ToolBar';
+import { ItemState, ToolBar, ToolBarOption, ToolBarOptions, ToolBarModifier } from '@ohos.arkui.advanced.ToolBar';
 import {
   CallbackParam, NodeParam, TreeController, TreeListenType, TreeListener, TreeListenerManager, TreeView
 } from '@ohos.arkui.advanced.TreeView';
@@ -72,9 +74,9 @@ import dragController from '@ohos.arkui.dragController';
 import { DrawableDescriptor, LayeredDrawableDescriptor, PixelMapDrawableDescriptor, AnimationOptions, AnimatedDrawableDescriptor } from '@ohos.arkui.drawableDescriptor';
 import inspector from '@ohos.arkui.inspector';
 import {
-  NodeRenderType, RenderOptions, BuilderNode, NodeController, FrameNode, DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation,
+  NodeRenderType, RenderOptions, BuilderNode, BuildOptions, NodeController, FrameNode, DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation,
   Frame, RenderNode, XComponentNode, LengthMetrics, LengthMetricsUnit, LengthUnit, ColorMetrics, LayoutConstraint, ComponentContent, NodeContent, Content, typeNode, ShapeMask, ShapeClip,
-  NodeAdapter
+  NodeAdapter, Rect, RoundRect, edgeColors, borderStyles, borderRadiuses
 } from '@ohos.arkui.node';
 import uiObserver from '@ohos.arkui.observer';
 import performanceMonitor from '@ohos.arkui.performanceMonitor';
@@ -85,7 +87,8 @@ import {
 } from '@ohos.arkui.UIContext';
 import curves from '@ohos.curves';
 import {
-  AtomicServiceWeb, OnMessageEvent, OnErrorReceiveEvent, OnHttpErrorReceiveEvent, OnPageBeginEvent, OnPageEndEvent
+  AtomicServiceWeb, OnMessageEvent, OnErrorReceiveEvent, OnHttpErrorReceiveEvent, OnPageBeginEvent, OnPageEndEvent,
+  AtomicServiceWebController, OnLoadInterceptEvent, OnProgressChangeEvent, OnLoadInterceptCallback, WebHeader
 } from '@ohos.atomicservice.AtomicServiceWeb';
 import dragInteraction from '@ohos.deviceStatus.dragInteraction';
 import display from '@ohos.display';
@@ -125,7 +128,7 @@ import {
   HoverModeStatus,
   OnHoverStatusChangeHandler,
 } from '@ohos.arkui.advanced.FoldSplitContainer';
-import { AppStorageV2, PersistenceV2, Type } from '@ohos.arkui.StateManagement';
+import { AppStorageV2, PersistenceV2, Type, UIUtils } from '@ohos.arkui.StateManagement';
 import { IDataSourcePrefetching, IPrefetcher, BasicPrefetcher } from '@ohos.arkui.Prefetcher';
 import uiExtension from '@ohos.arkui.uiExtension';
 import { FullScreenLaunchComponent } from '@ohos.arkui.advanced.FullScreenLaunchComponent';
@@ -143,7 +146,7 @@ import {
   MarqueeModifier, ProgressModifier, QRCodeModifier, TextClockModifier, TextTimerModifier, LineModifier, PathModifier,
   PolygonModifier, PolylineModifier, RectModifier, ShapeModifier, AlphabetIndexerModifier, FormComponentModifier,
   HyperlinkModifier, MenuModifier, MenuItemModifier, PanelModifier, SymbolGlyphModifier, AttributeUpdater,
-  ContainerSpanModifier
+  ContainerSpanModifier, SymbolSpanModifier, ParticleModifier
 } from "@ohos.arkui.modifier";
 import {
   DownloadFileButton,
@@ -153,10 +156,14 @@ import {
   DownloadContentOptions,
   DownloadStyleOptions
 } from '@ohos.arkui.advanced.DownloadFileButton';
-
+import {
+  InnerFullScreenLaunchComponent,
+  LaunchController
+} from '@ohos.arkui.advanced.InnerFullScreenLaunchComponent';
 export {
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, App, AppResponse, AtomicServiceBar,
   AtomicServiceNavigation, NavDestinationBuilder,
+  NavPushPathHelper,
   BackRouterOptions, BuilderNode, Button, ButtonOptions, CallbackParam,
   CapsuleSegmentButtonConstructionOptions, CapsuleSegmentButtonOptions, Chip, ChipOptions, ChipSize, CircleShape, ComponentUtils,
   ComposeListItem, ComposeTitleBar, ComposeTitleBarMenuItem, Configuration, ConfirmDialog, ContentItem, ContextMenuController,
@@ -170,24 +177,25 @@ export {
   LabelOptions, LayeredDrawableDescriptor, LoadingDialog, LocaleResponse, MarginType, Matrix4, MeasureOptions, MeasureText,
   MediaQuery, MediaQueryEvent, MediaQueryList, NodeController, NodeParam, NodeRenderType, Offset, OperateButton, OperateCheck, OperateIcon,
   OperateItem, OperationOption, OperationType, OverlayManager, PathShape, PiPWindow, Pivot, Popup, PopupButtonOptions, PopupIconOptions, PopupOptions,
-  PopupTextOptions, Position, PrefixIconOptions, ProgressButton, Prompt, PromptAction, PromptOptions, RectShape, RenderNode, RenderOptions,
+  PopupTextOptions, Position, PrefixIconOptions, ProgressButton, Prompt, PromptAction, PromptOptions, RectShape, RenderNode, RenderOptions, BuildOptions,
   RequestFullWindowOptions, Rotation, Router, RouterOptions, RouterState, Scale, ScreenOnVisibleOptions, SegmentButton, SegmentButtonItemOptionsArray,
   SegmentButtonOptions, SelectDialog, SelectOptions, SelectTitleBar, SelectTitleBarMenuItem, SelectionMenu,
   SelectionMenuOptions, ShapeMask, ShapeClip, ShowActionMenuOptions, ShowDialogOptions, ShowDialogSuccessResponse,
   ShowToastOptions, Size, SplitLayout, SubHeader, SuffixIconOptions, SwipeRefresher, SymbolOptions, SystemMediaQuery, SystemRouter,
   TabSegmentButtonConstructionOptions, TabSegmentButtonOptions, TabTitleBar, TabTitleBarMenuItem, TabTitleBarTabItem,
-  TipsDialog, ToolBar, ToolBarOption, ToolBarOptions, Translation, TreeController, TreeListenType, TreeListener,
+  TipsDialog, ToolBar, ToolBarOption, ToolBarOptions, ToolBarModifier, Translation, TreeController, TreeListenType, TreeListener,
   TreeListenerManager, TreeView, UIContext, UIInspector, UIObserver, PageInfo, WindowExtensionAbility, WindowExtensionContext, XComponentNode,
   LengthMetrics, LengthMetricsUnit, LengthUnit, ColorMetrics, LayoutConstraint, ComponentContent, NodeContent, Content, componentSnapshot, componentUtils, curves, display, dragController, dragInteraction,
   font, inspector, matrix4, mediaquery, performanceMonitor, pluginComponentManager, PluginComponentTemplate, prompt, promptAction, router,
   AtomicServiceWeb, OnMessageEvent, OnErrorReceiveEvent, OnHttpErrorReceiveEvent, OnPageBeginEvent, OnPageEndEvent,
+  AtomicServiceWebController, OnLoadInterceptEvent, OnProgressChangeEvent, OnLoadInterceptCallback, WebHeader,
   screen, screenshot, uiAppearance, uiExtensionHost, uiObserver, window, windowAnimationManager, CustomContentDialog,
   AtomicServiceTabs, TabBarOptions, TabBarPosition, TabContentBuilder, OnContentWillChangeCallback,
   IconOptions, ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle, ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup,
   Colors, CustomColors, Theme, ThemeControl, CustomTheme, ChipSymbolGlyphOptions,
   ExtraRegionPosition, ExpandedRegionLayoutOptions, HoverModeRegionLayoutOptions, FoldedRegionLayoutOptions, PresetSplitRatio, FoldSplitContainer,
   HoverModeStatus, OnHoverStatusChangeHandler,
-  AppStorageV2, PersistenceV2, Type, typeNode,
+  AppStorageV2, PersistenceV2, Type, UIUtils, typeNode,
   IDataSourcePrefetching, IPrefetcher, BasicPrefetcher, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, uiExtension, FullScreenLaunchComponent, MeasureUtils,
   CommonModifier, ColumnModifier, ColumnSplitModifier, RowModifier, RowSplitModifier, SideBarContainerModifier,
   BlankModifier, DividerModifier, GridColModifier, GridRowModifier, NavDestinationModifier, NavigatorModifier,
@@ -200,9 +208,11 @@ export {
   ImageAnimatorModifier, ImageModifier, VideoModifier, DataPanelModifier, GaugeModifier, LoadingProgressModifier,
   MarqueeModifier, ProgressModifier, QRCodeModifier, TextClockModifier, TextTimerModifier, LineModifier, PathModifier,
   PolygonModifier, PolylineModifier, RectModifier, ShapeModifier, AlphabetIndexerModifier, FormComponentModifier,
-  HyperlinkModifier, MenuModifier, MenuItemModifier, PanelModifier, SymbolGlyphModifier, AttributeUpdater,
+  HyperlinkModifier, MenuModifier, MenuItemModifier, PanelModifier, SymbolGlyphModifier, AttributeUpdater, SymbolSpanModifier,
   ContainerSpanModifier, SegmentButtonTextItem, SegmentButtonIconItem, SegmentButtonIconTextItem, DimensionNoPercentage,
   CommonSegmentButtonOptions, ItemRestriction, SegmentButtonItemTuple, SegmentButtonItemArray, SegmentButtonItemOptionsConstructorOptions, SegmentButtonItemOptions,
   PixelMapDrawableDescriptor, AnimationOptions, AnimatedDrawableDescriptor, NodeAdapter, DownloadFileButton,
-  DownloadLayoutDirection, DownloadIconStyle, DownloadDescription, DownloadContentOptions, DownloadStyleOptions
+  DownloadLayoutDirection, DownloadIconStyle, DownloadDescription, DownloadContentOptions, DownloadStyleOptions,
+  Rect, RoundRect, edgeColors, borderStyles, borderRadiuses, ParticleModifier,
+  InnerFullScreenLaunchComponent, LaunchController,
 };

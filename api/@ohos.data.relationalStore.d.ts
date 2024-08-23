@@ -114,6 +114,7 @@ declare namespace relationalStore {
     /**
      * The name of asset.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -123,6 +124,7 @@ declare namespace relationalStore {
     /**
      * The uri of asset.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -132,6 +134,7 @@ declare namespace relationalStore {
     /**
      * The path of asset.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -141,6 +144,7 @@ declare namespace relationalStore {
     /**
      * The create time of asset.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -150,6 +154,7 @@ declare namespace relationalStore {
     /**
      * The modify time of asset.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -159,6 +164,7 @@ declare namespace relationalStore {
     /**
      * The size of asset.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -168,6 +174,7 @@ declare namespace relationalStore {
     /**
      * The status of asset.
      *
+     * @type { ?AssetStatus }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -287,6 +294,7 @@ declare namespace relationalStore {
     /**
      * The database name.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -296,6 +304,7 @@ declare namespace relationalStore {
     /**
      * Specifies the security level of the database.
      *
+     * @type { SecurityLevel }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 9
@@ -305,6 +314,7 @@ declare namespace relationalStore {
     /**
      * Specifies whether the database is encrypted.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -313,6 +323,7 @@ declare namespace relationalStore {
     /**
      * The data group id of application.
      *
+     * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @StageModelOnly
      * @since 10
@@ -386,6 +397,44 @@ declare namespace relationalStore {
      * @since 12
      */
     pluginLibs?: Array<string>;
+
+    /**
+     * Enumerates the high availability modes of the RDB store.
+     *
+     * @type { ?HAMode }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 12
+     */
+    haMode?: HAMode;
+  }
+
+  /**
+   * Enumerates the high availability modes of the RDB store.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @systemapi
+   * @since 12
+   */
+  enum HAMode {
+    /**
+     * SINGLE: Data is written to a single RDB store.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 12
+     */
+    SINGLE = 0,
+
+    /**
+     * MAIN_REPLICA: Data is written to the main and replica RDB stores.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 12
+     */
+    MAIN_REPLICA
   }
 
   /**
@@ -432,6 +481,7 @@ declare namespace relationalStore {
     /**
      * Describes the total number of data to sync.
      *
+     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -440,6 +490,7 @@ declare namespace relationalStore {
     /**
      * Describes the number of successfully synced data.
      *
+     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -448,6 +499,7 @@ declare namespace relationalStore {
     /**
      * Describes the number of data failed to sync.
      *
+     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -456,6 +508,7 @@ declare namespace relationalStore {
     /**
      * Describes the number of data remained to sync.
      *
+     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -473,6 +526,7 @@ declare namespace relationalStore {
     /**
      * Describes the {@code Statistic} details of the upload process.
      *
+     * @type { Statistic }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -481,6 +535,7 @@ declare namespace relationalStore {
     /**
      * Describes the {@code Statistic} details of the download process.
      *
+     * @type { Statistic }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -571,6 +626,7 @@ declare namespace relationalStore {
     /**
      * Describes the status of data sync progress.
      *
+     * @type { Progress }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -579,6 +635,7 @@ declare namespace relationalStore {
     /**
      * Describes the code of data sync progress.
      *
+     * @type { ProgressCode }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -756,7 +813,6 @@ declare namespace relationalStore {
   /**
    * Describes the subscription type.
    *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
@@ -765,7 +821,6 @@ declare namespace relationalStore {
     /**
      * Subscription to remote data changes
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -778,6 +833,12 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
+    /**
+     * Subscription to cloud data changes
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 12
+     */
     SUBSCRIBE_TYPE_CLOUD,
 
     /**
@@ -786,6 +847,12 @@ declare namespace relationalStore {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
+     */
+    /**
+     * Subscription to cloud data changes details
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 12
      */
     SUBSCRIBE_TYPE_CLOUD_DETAILS,
 
@@ -813,6 +880,12 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
+    /**
+     * Means the change type is data change.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
     DATA_CHANGE,
 
     /**
@@ -821,6 +894,12 @@ declare namespace relationalStore {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
+     */
+    /**
+     * Means the change type is asset change.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
      */
     ASSET_CHANGE
   }
@@ -836,6 +915,7 @@ declare namespace relationalStore {
     /**
      * Indicates the changed table
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -844,6 +924,7 @@ declare namespace relationalStore {
     /**
      * Indicates the changed type
      *
+     * @type { ChangeType }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -853,6 +934,7 @@ declare namespace relationalStore {
      * Indicates if there is a string primary key, the inserted will keep data's primary keys
      * otherwise it will keep the data's rowid.
      *
+     * @type { Array<string> | Array<number> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -862,6 +944,7 @@ declare namespace relationalStore {
      * Indicates if there is a string primary key, the updated will keep data's primary keys
      * otherwise it will keep the data's rowid.
      *
+     * @type { Array<string> | Array<number> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -871,6 +954,7 @@ declare namespace relationalStore {
      * Indicates if there is a string primary key, the deleted will keep data's primary keys
      * otherwise it will keep the data's rowid.
      *
+     * @type { Array<string> | Array<number> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -880,7 +964,6 @@ declare namespace relationalStore {
   /**
    * Describes the distribution type of the tables.
    *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10
@@ -889,7 +972,6 @@ declare namespace relationalStore {
     /**
      * Indicates the table is distributed among the devices
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -901,6 +983,12 @@ declare namespace relationalStore {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
+     */
+    /**
+     * Indicates the table is distributed between the cloud and the devices.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 12
      */
     DISTRIBUTED_CLOUD
   }
@@ -956,6 +1044,7 @@ declare namespace relationalStore {
     /**
      * Specifies whether the database auto sync.
      *
+     * @type { boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -1101,6 +1190,15 @@ declare namespace relationalStore {
      * @since 11
      */
     DELETED_FLAG_FIELD = '#_deleted_flag',
+
+    /**
+     * Data status field.
+     * Indicates data status.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 12
+     */
+    DATA_STATUS_FIELD = '#_data_status',
 
     /**
      * Owner field.
@@ -1978,6 +2076,7 @@ declare namespace relationalStore {
      * The column names are returned as a string array, in which the strings are in the same order
      * as the columns in the result set.
      *
+     * @type { Array<string> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1997,6 +2096,7 @@ declare namespace relationalStore {
      * The returned number is equal to the length of the string array returned by the
      * columnNames method.
      *
+     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2012,6 +2112,7 @@ declare namespace relationalStore {
     /**
      * Obtains the number of rows in the result set.
      *
+     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2029,6 +2130,7 @@ declare namespace relationalStore {
      * Obtains the current index of the result set.
      * The result set index starts from 0.
      *
+     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2044,6 +2146,7 @@ declare namespace relationalStore {
     /**
      * Checks whether the cursor is positioned at the first row.
      *
+     * @type { boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2059,6 +2162,7 @@ declare namespace relationalStore {
     /**
      * Checks whether the cursor is positioned at the last row.
      *
+     * @type { boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2074,6 +2178,7 @@ declare namespace relationalStore {
     /**
      * Checks whether the cursor is positioned after the last row.
      *
+     * @type { boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2089,6 +2194,7 @@ declare namespace relationalStore {
     /**
      * Checks whether the cursor is positioned before the first row.
      *
+     * @type { boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2106,6 +2212,7 @@ declare namespace relationalStore {
      * Checks whether the current result set is closed.
      * If the result set is closed by calling the close method, true will be returned.
      *
+     * @type { boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -3142,6 +3249,7 @@ declare namespace relationalStore {
      * Set RdbStore version. The version number must be an integer greater than 0.
      * Obtains the RdbStore version.
      *
+     * @type { number }
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -3167,7 +3275,6 @@ declare namespace relationalStore {
      * Set whether the database is rebuilt.
      *
      * @type {RebuildType}
-     * @readonly
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -4552,19 +4659,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12
-     */
-    /**
-     * Queries data in the database based on specified conditions with sync function.
-     *
-     * @param { RdbPredicates } predicates - The specified query condition by the instance object of {@link RdbPredicates}.
-     * @param { Array<string> } columns - The columns to query. If the value is empty array, the query applies to all columns.
-     * @returns { ResultSet } The {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -5798,6 +5892,36 @@ declare namespace relationalStore {
     restore(srcName: string): Promise<void>;
 
     /**
+     * Restores a database from a specified database file.
+     *
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800010 - Invalid database path.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 12
+     */
+    restore(): Promise<void>;
+
+    /**
      * Set table to be distributed table.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
@@ -5877,7 +6001,7 @@ declare namespace relationalStore {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { Array<string> } tables - Indicates the table names you want to set.
      * @param { DistributedType } type - Indicates the distributed type {@link DistributedType}.
-     * This method only works when type equals to DistributedType.DISTRIBUTED_CLOUD
+     * ohos.permission.DISTRIBUTED_DATASYNC is required only when type is DISTRIBUTED_DEVICE.
      * @param { AsyncCallback<void> } callback - The callback of setDistributedTables.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -5913,7 +6037,7 @@ declare namespace relationalStore {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { Array<string> } tables - Indicates the table names you want to set.
      * @param { DistributedType } type - Indicates the distributed type {@link DistributedType}.
-     * This method only works when type equals to DistributedType.DISTRIBUTED_CLOUD
+     * ohos.permission.DISTRIBUTED_DATASYNC is required only when type is DISTRIBUTED_DEVICE.
      * @param { DistributedConfig } config - Indicates the distributed config of the tables. For details, see {@link DistributedConfig}.
      * @param { AsyncCallback<void> } callback - The callback of setDistributedTables.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -5955,7 +6079,7 @@ declare namespace relationalStore {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { Array<string> } tables - Indicates the table names you want to set.
      * @param { DistributedType } type - Indicates the distributed type {@link DistributedType}.
-     * This method only works when type equals to DistributedType.DISTRIBUTED_CLOUD
+     * ohos.permission.DISTRIBUTED_DATASYNC is required only when type is DISTRIBUTED_DEVICE.
      * @param { DistributedConfig } config - Indicates the distributed config of the tables. For details, see {@link DistributedConfig}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -6104,13 +6228,11 @@ declare namespace relationalStore {
     /**
      * Sync data to cloud.
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { SyncMode } mode - indicates the database synchronization mode.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
      * @param { AsyncCallback<void> } callback - {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      * 3. The mode must be a SyncMode of cloud. 4. The progress must be a callback type. 5. The callback must be a function.
-     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
@@ -6118,11 +6240,9 @@ declare namespace relationalStore {
     /**
      * Sync data to cloud.
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { SyncMode } mode - indicates the database synchronization mode.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
      * @param { AsyncCallback<void> } callback - {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
-     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      * 3. The mode must be a SyncMode of cloud. 4. The progress must be a callback type. 5. The callback must be a function.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -6135,13 +6255,11 @@ declare namespace relationalStore {
     /**
      * Sync data to cloud.
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { SyncMode } mode - indicates the database synchronization mode.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
      * @returns { Promise<void> } : devices sync status array, {string}: device id, {number}: device sync status.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      * 3. The mode must be a SyncMode of cloud. 4. The progress must be a callback type.
-     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
@@ -6149,11 +6267,9 @@ declare namespace relationalStore {
     /**
      * Sync data to cloud.
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { SyncMode } mode - indicates the database synchronization mode.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
      * @returns { Promise<void> } : devices sync status array, {string}: device id, {number}: device sync status.
-     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      * 3. The mode must be a SyncMode of cloud. 4. The progress must be a callback type.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -6166,7 +6282,6 @@ declare namespace relationalStore {
     /**
      * Sync data to cloud.
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { SyncMode } mode - indicates the database synchronization mode.
      * @param { string[] } tables - indicates the database synchronization mode.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
@@ -6174,7 +6289,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      * 3. The mode must be a SyncMode of cloud. 4. The tablesNames must be not empty. 5. The progress must be a callback type.
      * 6. The callback must be a function.
-     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
@@ -6182,12 +6296,10 @@ declare namespace relationalStore {
     /**
      * Sync data to cloud.
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { SyncMode } mode - indicates the database synchronization mode.
      * @param { string[] } tables - indicates the database synchronization mode.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
      * @param { AsyncCallback<void> } callback - {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
-     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      * 3. The mode must be a SyncMode of cloud. 4. The tablesNames must be not empty. 5. The progress must be a callback type.
      * 6. The callback must be a function.
@@ -6206,14 +6318,12 @@ declare namespace relationalStore {
     /**
      * Sync data to cloud.
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { SyncMode } mode - indicates the database synchronization mode.
      * @param { string[] } tables - indicates the database synchronization mode.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
      * @returns { Promise<void> } : devices sync status array, {string}: device id, {number}: device sync status.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      * 3. The mode must be a SyncMode of cloud. 4. The tablesNames must be not empty. 5. The progress must be a callback type.
-     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
@@ -6221,12 +6331,10 @@ declare namespace relationalStore {
     /**
      * Sync data to cloud.
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { SyncMode } mode - indicates the database synchronization mode.
      * @param { string[] } tables - indicates the database synchronization mode.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
      * @returns { Promise<void> } : devices sync status array, {string}: device id, {number}: device sync status.
-     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      * 3. The mode must be a SyncMode of cloud. 4. The tablesNames must be not empty. 5. The progress must be a callback type.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -6893,6 +7001,28 @@ declare namespace relationalStore {
      * @since 12
      */
     queryLockedRow(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
+
+    /**
+     * Lock cloud container before non-auto cloud sync.
+     *
+     * @returns { Promise<number> } The expired time of the lock.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 12
+     */
+    lockCloudContainer(): Promise<number>;
+
+    /**
+     * Unlock cloud container.
+     *
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 12
+     */
+    unlockCloudContainer(): Promise<void>;
   }
 
   /**

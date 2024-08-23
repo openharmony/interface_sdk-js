@@ -223,7 +223,6 @@ declare namespace installer {
      * @throws { BusinessError } 17700054 - Failed to install the HAP because the HAP requests wrong permissions.
      * @throws { BusinessError } 17700058 - Failed to install the HAP because the device has been controlled.
      * @throws { BusinessError } 17700066 - Failed to install the HAP because installing the native package failed.
-     * @throws { BusinessError } 17700068 - Failed to install the HAP because the maximum count of clone app cannot be reduced.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
@@ -369,7 +368,6 @@ declare namespace installer {
      * @throws { BusinessError } 17700054 - Failed to install the HAP because the HAP requests wrong permissions.
      * @throws { BusinessError } 17700058 - Failed to install the HAP because the device has been controlled.
      * @throws { BusinessError } 17700066 - Failed to install the HAP because installing the native package failed.
-     * @throws { BusinessError } 17700068 - Failed to install the HAP because the maximum count of clone app cannot be reduced.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
@@ -527,7 +525,6 @@ declare namespace installer {
      * @throws { BusinessError } 17700054 - Failed to install the HAP because the HAP requests wrong permissions.
      * @throws { BusinessError } 17700058 - Failed to install the HAP because the device has been controlled.
      * @throws { BusinessError } 17700066 - Failed to install the HAP because installing the native package failed.
-     * @throws { BusinessError } 17700068 - Failed to install the HAP because the maximum count of clone app cannot be reduced.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
@@ -568,6 +565,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700020 - The specified bundle is a pre-installed bundle and cannot be uninstalled.
      * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle and cannot be uninstalled.
      * @throws { BusinessError } 17700045 - Failed to uninstall the HAP because uninstall is not allowed by the enterprise device management.
+     * @throws { BusinessError } 17700060 - The specified application cannot be uninstalled.
      * @throws { BusinessError } 17700067 - Failed to uninstall the HAP because uninstalling the native package failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -605,6 +603,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700020 - The specified bundle is a pre-installed bundle and cannot be uninstalled.
      * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle and cannot be uninstalled.
      * @throws { BusinessError } 17700045 - Failed to uninstall the HAP because uninstall is not allowed by the enterprise device management.
+     * @throws { BusinessError } 17700060 - The specified application cannot be uninstalled.
      * @throws { BusinessError } 17700067 - Failed to uninstall the HAP because uninstalling the native package failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -646,6 +645,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700020 - The specified bundle is a pre-installed bundle and cannot be uninstalled.
      * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle and cannot be uninstalled.
      * @throws { BusinessError } 17700045 - Failed to uninstall the HAP because uninstall is not allowed by the enterprise device management.
+     * @throws { BusinessError } 17700060 - The specified application cannot be uninstalled.
      * @throws { BusinessError } 17700067 - Failed to uninstall the HAP because uninstalling the native package failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -807,7 +807,6 @@ declare namespace installer {
      * @throws { BusinessError } 17700049 - Failed to install the HAP because the bundleName is different from the bundleName of the caller application.
      * @throws { BusinessError } 17700050 - Failed to install the HAP because enterprise normal/MDM bundle cannot be installed on non-enterprise device.
      * @throws { BusinessError } 17700051 - Failed to install the HAP because the distribution type of caller application is not enterprise_mdm.
-     * @throws { BusinessError } 17700068 - Failed to install the HAP because the maximum count of clone app cannot be reduced.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
@@ -872,7 +871,6 @@ declare namespace installer {
      * @throws { BusinessError } 17700049 - Failed to install the HAP because the bundleName is different from the bundleName of the caller application.
      * @throws { BusinessError } 17700050 - Failed to install the HAP because enterprise normal/MDM bundle cannot be installed on non-enterprise device.
      * @throws { BusinessError } 17700051 - Failed to install the HAP because the distribution type of caller application is not enterprise_mdm.
-     * @throws { BusinessError } 17700068 - Failed to install the HAP because the maximum count of clone app cannot be reduced.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
@@ -945,48 +943,11 @@ declare namespace installer {
      * @throws { BusinessError } 17700049 - Failed to install the HAP because the bundleName is different from the bundleName of the caller application.
      * @throws { BusinessError } 17700050 - Failed to install the HAP because enterprise normal/MDM bundle cannot be installed on non-enterprise device.
      * @throws { BusinessError } 17700051 - Failed to install the HAP because the distribution type of caller application is not enterprise_mdm.
-     * @throws { BusinessError } 17700068 - Failed to install the HAP because the maximum count of clone app cannot be reduced.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
      */
     updateBundleForSelf(hapFilePaths: Array<string>, installParam?: InstallParam): Promise<void>;
-
-    /**
-   * Add extend resources.
-   *
-   * @permission ohos.permission.INSTALL_BUNDLE
-   * @param { string } bundleName - Indicates the bundleName.
-   * @param { Array<string> } filePaths - Indicates the file path for extend resources.
-   * @returns { Promise<void> } Returns addExtResource result.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700301 - AddExtResource failed due to parse file failed.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 12
-   */
-  addExtResource(bundleName: string, filePaths: Array<string>): Promise<void>;
-
-  /**
-  * Remove extend resources.
-  *
-  * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
-  * @param { string } bundleName - Indicates the bundleName.
-  * @param { Array<string> } moduleName - Indicates the moduleNames for extend resources.
-  * @returns { Promise<void> } Returns removeExtResource result.
-  * @throws { BusinessError } 201 - Permission denied.
-  * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-  * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-  * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-  * @throws { BusinessError } 17700302 - RemoveExtResource failed due to module does not exist.
-  * @syscap SystemCapability.BundleManager.BundleFramework.Core
-  * @systemapi
-  * @since 12
-  */
-  removeExtResource(bundleName: string, moduleNames: Array<string>): Promise<void>;
 
     /**
      * Uninstall updates for a pre-installed application.
@@ -1008,6 +969,42 @@ declare namespace installer {
     uninstallUpdates(bundleName: string, installParam?: InstallParam): Promise<void>;
 
     /**
+     * Add extend resources.
+     *
+     * @permission ohos.permission.INSTALL_BUNDLE
+     * @param { string } bundleName - Indicates the bundleName.
+     * @param { Array<string> } filePaths - Indicates the file path for extend resources.
+     * @returns { Promise<void> } Returns addExtResource result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+     * @throws { BusinessError } 17700301 - AddExtResource failed due to parse file failed.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+    */
+    addExtResource(bundleName: string, filePaths: Array<string>): Promise<void>;
+
+    /**
+     * Remove extend resources.
+     *
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
+     * @param { string } bundleName - Indicates the bundleName.
+     * @param { Array<string> } moduleNames - Indicates the moduleNames for extend resources.
+     * @returns { Promise<void> } Returns removeExtResource result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+     * @throws { BusinessError } 17700302 - RemoveExtResource failed due to module does not exist.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    removeExtResource(bundleName: string, moduleNames: Array<string>): Promise<void>;
+
+    /**
      * Create clone instance for an application.
      *
      * @permission ohos.permission.INSTALL_CLONE_BUNDLE
@@ -1025,7 +1022,7 @@ declare namespace installer {
      * @systemapi
      * @since 12
      */
-    createAppClone(bundleName: string, createAppCloneParam?: CreateAppCloneParam): Promise<number>;
+     createAppClone(bundleName: string, createAppCloneParam?: CreateAppCloneParam): Promise<number>;
 
     /**
      * Destroy clone instance for an application.
@@ -1045,7 +1042,25 @@ declare namespace installer {
      * @systemapi
      * @since 12
      */
-    destroyAppClone(bundleName: string, appIndex: number, userId?: number): Promise<void>;
+     destroyAppClone(bundleName: string, appIndex: number, userId?: number): Promise<void>;
+
+    /**
+     * Install application by bundle name with specified user.
+     *
+     * @permission ohos.permission.INSTALL_BUNDLE
+     * @param { string } bundleName - Indicates the bundle name of application.
+     * @param { number } [userId] - userId Indicates the user ID.
+     * @returns { Promise<void> }
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 17700001 - The specified bundleName cannot be found or the bundle is not installed by the specified user.
+     * @throws { BusinessError } 17700004 - The userId is invalid.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+     installPreexistingApp(bundleName: string, userId?: number): Promise<void>;
   }
 
   /**
@@ -1060,6 +1075,7 @@ declare namespace installer {
     /**
      * Indicates the moduleName
      *
+     * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -1069,6 +1085,7 @@ declare namespace installer {
     /**
      * Indicates the hash value
      *
+     * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -1151,6 +1168,7 @@ declare namespace installer {
     /**
      * Indicates the user id
      *
+     * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -1160,6 +1178,7 @@ declare namespace installer {
     /**
      * Indicates the installation type. The value 0x00 means normal installation, 0x01 means overwrite installation, and 0x10 means installation-free.
      *
+     * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -1169,6 +1188,7 @@ declare namespace installer {
     /**
      * Indicates whether the param has data
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -1178,6 +1198,7 @@ declare namespace installer {
     /**
      * Indicates the hash params
      *
+     * @type { ?Array<HashParam> }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -1187,6 +1208,7 @@ declare namespace installer {
     /**
      * Indicates the deadline of the crowdtesting bundle
      *
+     * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -1196,6 +1218,7 @@ declare namespace installer {
     /**
      * Indicates the shared bundle dir paths.
      *
+     * @type { ?Array<String> }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
@@ -1205,6 +1228,7 @@ declare namespace installer {
     /**
      * Indicates the distribution type specified during bundle installation.
      *
+     * @type { ?string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
@@ -1214,6 +1238,7 @@ declare namespace installer {
     /**
      * Indicates the additional information during bundle installation.
      *
+     * @type { ?string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
@@ -1254,6 +1279,7 @@ declare namespace installer {
     /**
      * Indicates the shared bundle name
      *
+     * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
@@ -1263,6 +1289,7 @@ declare namespace installer {
     /**
      * Indicates the shared version code. If default, indicates that all version sharing bundles are uninstalled
      *
+     * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
@@ -1278,7 +1305,7 @@ declare namespace installer {
    * @systemapi
    * @since 12
    */
-  export interface CreateAppCloneParam {
+   export interface CreateAppCloneParam {
     /**
      * Indicates the user id
      * 

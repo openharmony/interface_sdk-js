@@ -374,6 +374,7 @@ declare namespace dataAbility {
   /**
    * Indicates possible value types
    *
+   * @typedef { number | string | boolean }
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @since 7
    */

@@ -184,6 +184,46 @@ declare namespace promptAction {
      * @since 12
      */
     offset?: Offset;
+    /**
+     * Background color of toast.
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    backgroundColor?: ResourceColor;
+    /**
+     * Text color of toast.
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    textColor?: ResourceColor;
+    /**
+     * Background blur Style of toast.
+     *
+     * @type { ?BlurStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    backgroundBlurStyle?: BlurStyle;
+    /**
+     * Shadow of toast.
+     *
+     * @type { ?(ShadowOptions | ShadowStyle) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    shadow?: ShadowOptions | ShadowStyle;
   }
 
   /**
@@ -224,14 +264,8 @@ declare namespace promptAction {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
-     */
-    /**
-     * Toast shows at the top.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 12
+     * @deprecated since 12
+     * @useinstead promptAction.ToastShowMode#DEFAULT
      */
     TOP_MOST = 1,
 
@@ -240,7 +274,6 @@ declare namespace promptAction {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @atomicservice
      * @since 12
      */
     SYSTEM_TOP_MOST = 2
@@ -1053,6 +1086,7 @@ declare namespace promptAction {
      * The array structure is {text:'button', color: '#666666'}.
      * One to six buttons are supported.
      *
+     * @type { [Button, Button?, Button?, Button?, Button?, Button?] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
@@ -1061,6 +1095,7 @@ declare namespace promptAction {
      * The array structure is {text:'button', color: '#666666'}.
      * One to six buttons are supported.
      *
+     * @type { [Button, Button?, Button?, Button?, Button?, Button?] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
@@ -1070,6 +1105,7 @@ declare namespace promptAction {
      * The array structure is {text:'button', color: '#666666'}.
      * One to six buttons are supported.
      *
+     * @type { [Button, Button?, Button?, Button?, Button?, Button?] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
@@ -1172,7 +1208,7 @@ declare namespace promptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   function openToast(options: ShowToastOptions): Promise<number>;
 
@@ -1188,7 +1224,7 @@ declare namespace promptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   function closeToast(toastId: number): void;
 

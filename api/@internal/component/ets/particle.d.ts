@@ -355,7 +355,7 @@ interface EmitterProperty {
    * @atomicservice
    * @since 12
    */
-  index : number;
+  index: number;
 
   /**
    * Emitter emission rate.
@@ -608,12 +608,16 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
 interface ParticlePropertyUpdaterConfigs<T> {
   /**
    * No effect of particle updater.
+   *
+   * @type { void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * No effect of particle updater.
+   *
+   * @type { void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -730,12 +734,16 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
 interface ParticleColorPropertyUpdaterConfigs {
   /**
    * No effect of particle color property updater.
+   *
+   * @type { void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * No effect of particle color property updater.
+   *
+   * @type { void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1216,27 +1224,27 @@ declare enum ParticleUpdater {
   CURVE = 'curve',
 }
 
- /**
+/**
  * Defines the SizeT type.
  *
- * @typedef { import('../../../../api/arkui/Graphics').SizeT<T> }
+ * @typedef { import('../api/arkui/Graphics').SizeT<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 12
  */
-declare type SizeT<T> = import('../../../../api/arkui/Graphics').SizeT<T>;
+declare type SizeT<T> = import('../api/arkui/Graphics').SizeT<T>;
 
  /**
  * Defines the PositionT type.
  *
- * @typedef { import('../../../../api/arkui/Graphics').PositionT<T> }
+ * @typedef { import('../api/arkui/Graphics').PositionT<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 12
  */
-declare type PositionT<T> = import('../../../../api/arkui/Graphics').PositionT<T>;
+declare type PositionT<T> = import('../api/arkui/Graphics').PositionT<T>;
 
 /**
  * Defines the Particle component attribute functions.
@@ -1254,6 +1262,17 @@ declare type PositionT<T> = import('../../../../api/arkui/Graphics').PositionT<T
  * @since 11
  */
 declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
+  /**
+   * Particle disturbance Field.
+   *
+   * @param { Array<DisturbanceFieldOptions> } fields - particle disturbance Field params.
+   * @returns { ParticleAttribute } Returns the particle attribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  disturbanceFields(fields: Array<DisturbanceFieldOptions>): ParticleAttribute;
 
   /**
    * Add particle animation component properties.
@@ -1266,18 +1285,6 @@ declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
    * @since 12
    */
   emitter(value : Array<EmitterProperty>) : ParticleAttribute;
-
-  /**
-   * Particle disturbance Field.
-   *
-   * @param { Array<DisturbanceFieldOptions> } fields - particle disturbance Field params.
-  * @returns { ParticleAttribute } Returns the particle attribute.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @atomicservice
-  * @since 12
-  */
-  disturbanceFields(fields: Array<DisturbanceFieldOptions>): ParticleAttribute;
 }
 
 /**

@@ -98,6 +98,7 @@ declare namespace fileShare {
   /**
    * Failed policy result on URI.
    *
+   * @typedef { object }
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since 11
    */

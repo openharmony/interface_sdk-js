@@ -34,11 +34,11 @@ export enum StringConstant {
   /**
    * exportDefault节点apiName前缀
    */
-  EXPORT_DEFAULT = 'export_default_',
+  EXPORT_DEFAULT = 'export_default',
   /**
    * export节点apiName前缀
    */
-  EXPORT = 'export_',
+  EXPORT = 'export',
   /**
    * d.ts文件后缀名
    */
