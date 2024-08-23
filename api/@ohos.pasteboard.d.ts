@@ -348,25 +348,25 @@ declare namespace pasteboard {
    * @enum { number }
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
-   * @since 13
+   * @since 12
    */
   enum Pattern {
     /**
      * URL pattern.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 13
+     * @since 12
      */
     URL,
     /**
      * Number pattern.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 13
+     * @since 12
      */
     NUMBER,
     /**
      * Email address pattern.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 13
+     * @since 12
      */
     EMAILADDRESS,
   }
@@ -1537,7 +1537,7 @@ declare namespace pasteboard {
      *                                                                   3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since 13
+     * @since 12
      */
       detectPatterns(patterns: Array<Pattern>): Promise<Array<Pattern>>;
   }
