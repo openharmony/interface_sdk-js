@@ -4516,6 +4516,18 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     setEffectMode(mode: MovingPhotoEffectMode): void;
+
+    /**
+     * Set orientation of the asset.
+     *
+     * @param { number } orientation - the new orientation of the asset
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 13
+     */
+    setOrientation(orientation: number): void;
   }
 
   /**
