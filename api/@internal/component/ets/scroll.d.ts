@@ -617,7 +617,7 @@ declare class Scroller {
   /**
    * Called when viewing the scroll offset.
    *
-   * @returns { OffsetResult }
+   * @returns { OffsetResult } Returns the current scrolling offset. If the scroller not bound to a component, the return value is void.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
