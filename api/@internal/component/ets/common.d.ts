@@ -18775,7 +18775,7 @@ declare class CommonMethod<T> {
   /**
    * Add mask text to the current component. The layout is the same as that of the current component.
    *
-   * @param { string | CustomBuilder } value
+   * @param { string } value
    * @param { object } options
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -18784,7 +18784,7 @@ declare class CommonMethod<T> {
   /**
    * Add mask text to the current component. The layout is the same as that of the current component.
    *
-   * @param { string | CustomBuilder } value
+   * @param { string } value
    * @param { object } options
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
