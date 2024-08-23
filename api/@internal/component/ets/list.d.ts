@@ -1285,6 +1285,20 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   cachedCount(value: number): ListAttribute;
 
   /**
+   * Called when the minimum number of list item caches is set for long list deferred loading.
+   *
+   * @param { number } count - cached count.
+   * @param { boolean } show - whether to show the nodes in the cache.
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  cachedCount(count: number, show: boolean): ListAttribute;
+
+  /**
    * Called when setting whether to enable chain linkage dynamic effect.
    *
    * @param { boolean } value
