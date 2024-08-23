@@ -1539,7 +1539,7 @@ declare namespace pasteboard {
      * @atomicservice
      * @since 12
      */
-      detectPatterns(patterns: Array<Pattern>): Promise<Array<Pattern>>;
+    detectPatterns(patterns: Array<Pattern>): Promise<Array<Pattern>>;
   }
 }
 
