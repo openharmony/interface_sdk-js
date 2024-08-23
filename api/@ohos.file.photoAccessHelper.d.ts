@@ -485,6 +485,49 @@ declare namespace photoAccessHelper {
   }
 
   /**
+   * Enumeration of compatible mode.
+   *
+   * @enum { number } CompatibleMode
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 13
+   */
+  enum CompatibleMode {
+    /**
+     * Original format mode
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 13
+     */
+    ORIGINAL_FORMAT_MODE = 0,
+
+    /**
+     * Compatible format mode.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 13
+     */
+    COMPATIBLE_FORMAT_MODE = 1
+  }
+
+  /**
+   * Data handler used to notify the progress of required media asset data
+   *
+   * @interface MediaAssetProgressHandler
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 13
+   */
+  interface MediaAssetProgressHandler {
+    /**
+     * Indicates the progress of required media asset data
+     *
+     * @param { number } progress - the progress of required media asset data; from 0 to 100.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 13
+     */
+    onProgress(progress: number): void;
+  }
+
+  /**
    * Enumeration of source mode
    *
    * @enum { number } SourceMode
@@ -573,7 +616,25 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 11
      */
-    sourceMode?: SourceMode
+    sourceMode?: SourceMode;
+
+    /**
+     * Indicates the compatible mode
+     *
+     * @type { ?CompatibleMode }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 13
+     */
+    compatibleMode?: CompatibleMode;
+
+    /**
+     * data handler used to notify the progress of required media asset data
+     *
+     * @type { ?MediaAssetProgressHandler }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 13
+     */
+    mediaAssetProgressHandler?: MediaAssetProgressHandler;
   }
 
   /**
