@@ -1278,7 +1278,7 @@ declare namespace taskpool {
    * @param { number } period - The period in milliseconds for executing task.
    * @param { Task } task - The task want to execute.
    * @param { Priority } [priority] - Task priority, MEDIUM is default.
-   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types;
    * <br>3. Parameter verification failed.
