@@ -348,24 +348,28 @@ declare namespace pasteboard {
    * @enum { number }
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   enum Pattern {
     /**
-     * Indicates the URL pattern like "http://www.example.com" "https://www.example.com" "file:///sdcard/test.txt".
-     * @since 12
+     * URL indicates the URL pattern.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 13
      */
     URL,
     /**
-     * Indicates the number pattern like "1".
+     * NUMBER indicates the number pattern.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 12
+     * @atomicservice
+     * @since 13
      */
     NUMBER,
     /**
-     * Indicates the email address pattern like "huiwqjd23e4r@huiinl.com".
+     * EMAILADDRESS indicates the email address pattern.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 12
+     * @atomicservice
+     * @since 13
      */
     EMAILADDRESS,
   }
@@ -1529,15 +1533,15 @@ declare namespace pasteboard {
     /**
      * Detect patterns in the pasteboard. This method will not trigger a pop-up warning that the application is reading the pasteboard content.
      * 
-     * @param { Array<Pattern> } patternsToDetect - The patterns to detect.
+     * @param { Array<Pattern> } patterns - The patterns to detect.
      * @returns { Promise<Array<Pattern>> } the promise returned by the detectPatterns.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *                                                                   2. Incorrect parameter types;
      *                                                                   3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 12
+     * @since 13
      */
-      detectPatterns(patternsToDetect: Array<Pattern>): Promise<Array<Pattern>>;
+      detectPatterns(patterns: Array<Pattern>): Promise<Array<Pattern>>;
   }
 }
 
