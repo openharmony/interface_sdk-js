@@ -23896,6 +23896,37 @@ declare interface SelectionOptions {
 }
 
 /**
+ * enum keyboard avoid mode
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare enum KeyboardAvoidMode {
+  /**
+   * Defines avoid keyboard when keyboard shows.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  DEFAULT = 0,
+
+  /**
+   * Defines not avoid keyboard when keyboard shows.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  NONE = 1,
+}
+
+/**
  * Enumerates the type of area in hover mode.
  *
  * @enum { number }
