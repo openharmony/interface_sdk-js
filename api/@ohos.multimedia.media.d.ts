@@ -1999,6 +1999,27 @@ declare namespace media {
     setMediaMuted(mediaType: MediaType,  muted: boolean ): Promise<void>;
 
     /**
+     * Set playback start position and end position.
+     * @param { number } startTimeMs - Playback start position, should be in [0, duration),
+     *                                 -1 means that the start position is not set,
+     *                                 and the playback will start from 0.
+     * @param { number } endTimeMs - Playback end position, which should usually be in (startTimeMs, duration],
+     *                               -1 means that the end position is not set,
+     *                               and the playback will be ended at the end of the stream.
+     * @param { SeekMode } [mode] - Use the specified seek mode to jump to the playback start position,
+     *                             currently support SeekMode.SEEK_PREV_SYNC and SeekMode.SEEK_CLOSEST,
+     *                             other values are invalid, the default value is SeekMode.SEEK_PREV_SYNC.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 202 - Called from Non-System applications. Return by promise.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @systemapi
+     * @since 12
+     */
+    setPlaybackRange(startTimeMs: number, endTimeMs: number, mode?: SeekMode) : Promise<void>;
+
+    /**
      * Media URI. Mainstream media formats are supported.
      * Network:http://xxx
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
