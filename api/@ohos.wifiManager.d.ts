@@ -599,7 +599,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
-   * @throws {BusinessError} 2501001 - Wifi is closed.
+   * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @crossplatform
    * @since 12
@@ -1399,7 +1399,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 801 - Capability not supported.
-   * @throws {BusinessError} 2801000 - P2P module errors.
+   * @throws {BusinessError} 2801000 - P2P module error.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @systemapi Hide this for inner system use.
    * @since 9
