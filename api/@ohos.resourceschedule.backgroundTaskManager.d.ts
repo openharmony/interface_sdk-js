@@ -522,7 +522,7 @@ declare namespace backgroundTaskManager {
      * Voice over Internet Phone mode
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 9
+     * @since 13
      */
     VOIP = 8,
 
