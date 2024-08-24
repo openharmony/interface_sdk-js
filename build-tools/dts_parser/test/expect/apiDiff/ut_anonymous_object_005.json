@@ -8,7 +8,7 @@
     "newApiName": "test",
     "oldDtsName": "ut_anonymous_object_005.d.ts",
     "newDtsName": "ut_anonymous_object_005.d.ts",
-    "diffType": 95,
+    "diffType": 92,
     "diffMessage": "函数的参数类型变更",
     "changeLogUrl": "",
     "changeLogs": [],
