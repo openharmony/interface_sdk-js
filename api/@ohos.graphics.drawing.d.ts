@@ -142,7 +142,7 @@ declare namespace drawing {
      */
     DARKEN = 16,
     /**
-     * Choose a lighter background and source color. 
+     * Choose a lighter background and source color.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
@@ -166,7 +166,7 @@ declare namespace drawing {
      */
     HARD_LIGHT = 20,
     /**
-     * Lightens or Darkens the colors, depending on the source. 
+     * Lightens or Darkens the colors, depending on the source.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
@@ -399,7 +399,7 @@ declare namespace drawing {
 
   /**
    * Describes a path object.
-   * 
+   *
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
@@ -444,7 +444,7 @@ declare namespace drawing {
     /**
      * This is done by using angle arc mode. In this mode, a rectangle that encloses an ellipse is specified first,
      * and then a start angle and a sweep angle are specified.
-     * The arc is a portion of the ellipse defined by the start angle and the sweep angle. 
+     * The arc is a portion of the ellipse defined by the start angle and the sweep angle.
      * By default, a line segment from the last point of the path to the start point of the arc is also added.
      * @param { number } x1 - Indicates the x coordinate of the upper left corner of the rectangle.
      * @param { number } y1 - Indicates the y coordinate of the upper left corner of the rectangle.
@@ -1060,17 +1060,6 @@ declare namespace drawing {
     drawColor(color: common2D.Color, blendMode?: BlendMode): void;
 
     /**
-     * Fills clip with the specified ARGB color of hexadecimal format.
-     * @param { number } color - Number must be ARGB color of hexadecimal format.
-     * @param { BlendMode } blendMode - Used to combine source color and destination. The default value is SRC_OVER.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    drawColor(color: number, blendMode?: BlendMode): void;
-
-    /**
      * Fills the clipped rectangle with the specified ARGB color.
      * @param { number } alpha - Alpha channel of color. The range of alpha must be [0, 255].
      * @param { number } red - Red channel of color. The range of red must be [0, 255].
@@ -1544,7 +1533,7 @@ declare namespace drawing {
 
   /**
    * Provide a description of the text
-   * 
+   *
    * class TextBlob
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
@@ -1609,10 +1598,10 @@ declare namespace drawing {
      */
     uniqueID(): number;
   }
-  
+
   /**
    * The Typeface class specifies the typeface and intrinsic style of a font.
-   * 
+   *
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
@@ -1706,7 +1695,7 @@ declare namespace drawing {
 
   /**
    * Font controls options applied when drawing and measuring text.
-   * 
+   *
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
@@ -2007,7 +1996,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    UNDERLINE_POSITION_VALID  = 1 << 1,
+    UNDERLINE_POSITION_VALID = 1 << 1,
 
     /**
      * Set if strikethroughThickness of FontMetrics is valid.
@@ -2021,14 +2010,14 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    STRIKETHROUGH_POSITION_VALID  = 1 << 3,
+    STRIKETHROUGH_POSITION_VALID = 1 << 3,
 
     /**
      * set if top, bottom, xMin, xMax of FontMetrics invalid.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    BOUNDS_INVALID               = 1 << 4,
+    BOUNDS_INVALID = 1 << 4,
   }
 
   /**
@@ -2428,27 +2417,11 @@ declare namespace drawing {
      * @since 12
      */
     static create(blurRadius: number, x: number, y: number, color: common2D.Color): ShadowLayer;
-
-    /**
-     * Makes a new ShadowLayer with the specified ARGB color of hexadecimal format.
-     *
-     * @param { number } blurRadius - The blur radius of the shadow. The blur radius must be greater than 0.
-     * @param { number } x - The offset point on x-axis.
-     * @param { number } y - The offset point on y-axis.
-     * @param { number } color - The shadow color. Number must be ARGB color of hexadecimal format.
-     * @returns { ShadowLayer } ShadowLayer object.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @static
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    static create(blurRadius: number, x: number, y: number, color: number): ShadowLayer;
   }
 
   /**
    * ColorFilters are optional objects in the drawing pipeline.
-   * 
+   *
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
@@ -2467,19 +2440,6 @@ declare namespace drawing {
     static createBlendModeColorFilter(color: common2D.Color, mode: BlendMode): ColorFilter;
 
     /**
-     * Makes a color filter with the given ARGB color of hexadecimal format and blend mode.
-     * @param { number } color - Number must be ARGB color of hexadecimal format.
-     * @param { BlendMode } mode - BlendMode.
-     * @returns { ColorFilter } Colorfilter object.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @static
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    static createBlendModeColorFilter(color: number, mode: BlendMode): ColorFilter;
-
-    /**
      * Create a color filter consisting of two filters.
      * @param { ColorFilter } outer - The filter is used next.
      * @param { ColorFilter } inner - The filter is used first.
@@ -2491,6 +2451,7 @@ declare namespace drawing {
      * @since 11
      */
     static createComposeColorFilter(outer: ColorFilter, inner: ColorFilter): ColorFilter;
+
     /**
      * Makes a color filter that converts between linear colors and sRGB colors.
      * @returns { ColorFilter } Colorfilter object.
@@ -2499,6 +2460,7 @@ declare namespace drawing {
      * @since 11
      */
     static createLinearToSRGBGamma(): ColorFilter;
+
     /**
      * Makes a color filter that converts between sRGB colors and linear colors.
      * @returns { ColorFilter } Colorfilter object.
@@ -2507,6 +2469,7 @@ declare namespace drawing {
      * @since 11
      */
     static createSRGBGammaToLinear(): ColorFilter;
+
     /**
      * Makes a color filter that multiplies the luma of its input into the alpha channel,
      * and sets the red, green, and blue channels to zero.
@@ -2719,21 +2682,11 @@ declare namespace drawing {
     * Set the color of the pen.
     * @param { common2D.Color } color - The range of color channels must be [0, 255].
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
     * @syscap SystemCapability.Graphics.Drawing
     * @since 11
     */
     setColor(color: common2D.Color): void;
-
-    /**
-    * Set the specified ARGB color of hexadecimal format to the pen.
-    * @param { number } color - Number must be ARGB color of hexadecimal format.
-    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
-    * @syscap SystemCapability.Graphics.Drawing
-    * @since 12
-    */
-    setColor(color: number): void;
 
     /**
     * Set the AGRB color of the pen.
@@ -2758,10 +2711,10 @@ declare namespace drawing {
 
     /**
     * Sets the thickness of the pen used by the paint to outline the shape.
-    * 
+    *
     * @param { number } width - Zero thickness for hairline; greater than zero for pen thickness.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+    * <br>2. Incorrect parameter types.
     * @syscap SystemCapability.Graphics.Drawing
     * @since 11
     */
@@ -2777,9 +2730,10 @@ declare namespace drawing {
 
     /**
     * Requests, but does not require, that edge pixels draw opaque or with partial transparency.
+    * 
     * @param { boolean } aa - Setting for antialiasing.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+    * <br>2. Incorrect parameter types.
     * @syscap SystemCapability.Graphics.Drawing
     * @since 11
     */
@@ -2796,10 +2750,10 @@ declare namespace drawing {
 
     /**
     * Replaces alpha, leaving RGB
-    * 
+    *
     * @param { number } alpha - Alpha channel of color. The range of alpha must be [0, 255].
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
     * @syscap SystemCapability.Graphics.Drawing
     * @since 11
     */
@@ -2815,10 +2769,10 @@ declare namespace drawing {
 
     /**
     * Sets ColorFilter to pen
-    * 
+    *
     * @param { ColorFilter } filter - ColorFilter to apply to subsequent draw.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+    * <br>2. Incorrect parameter types.
     * @syscap SystemCapability.Graphics.Drawing
     * @since 11
     */
@@ -2874,10 +2828,10 @@ declare namespace drawing {
 
     /**
     * Sets a blender that implements the specified blendmode enum.
-    * 
+    *
     * @param { BlendMode } mode - Blendmode.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
     * @syscap SystemCapability.Graphics.Drawing
     * @since 11
     */
@@ -2885,10 +2839,10 @@ declare namespace drawing {
 
     /**
     * Request color distribution error.
-    * 
+    *
     * @param { boolean } dither - Whether the color is distributed incorrectly.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+    * <br>2. Incorrect parameter types.
     * @syscap SystemCapability.Graphics.Drawing
     * @since 11
     */
@@ -2986,16 +2940,6 @@ declare namespace drawing {
      * @since 11
      */
     setColor(color: common2D.Color): void;
-
-    /**
-     * Set the specified ARGB color of hexadecimal format to the brush.
-     * @param { number } color - Number must be ARGB color of hexadecimal format.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    setColor(color: number): void;
 
     /**
      * Set the ARGB color of the brush.
