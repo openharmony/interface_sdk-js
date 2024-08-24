@@ -498,6 +498,17 @@ export interface SignatureInfo {
    * @since 11
    */
   readonly appIdentifier: string;
+
+  /**
+   * Indicates the certificate
+   *
+   * @type { ?string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 13
+   */
+  readonly certificate?: string;
 }
 
 /**
