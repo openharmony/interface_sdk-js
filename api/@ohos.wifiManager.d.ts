@@ -586,27 +586,11 @@ declare namespace wifiManager {
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { AsyncCallback<WifiLinkedInfo> } callback - Indicates callback of function.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
-   */
-  /**
-   * Obtain connection information about the Wi-Fi connection.
-   * @permission ohos.permission.GET_WIFI_INFO
-   * @param { AsyncCallback<WifiLinkedInfo> } callback - Indicates callback of function.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   * @throws {BusinessError} 801 - Capability not supported.
-   * @throws {BusinessError} 2501000 - Operation failed.
-   * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
-   * @syscap SystemCapability.Communication.WiFi.STA
-   * @crossplatform
-   * @since 12
    */
   function getLinkedInfo(callback: AsyncCallback<WifiLinkedInfo>): void;
 
@@ -850,19 +834,6 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 10
-   */
-  /**
-   * Check whether the current device supports the specified band.
-   * @permission ohos.permission.GET_WIFI_INFO
-   * @param { WifiBandType } bandType - Indicates the band type.
-   * @returns { boolean }Returns {@code true} if the specified band is supported, returns {@code false} otherwise.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types. 3.Parameter verification failed.
-   * @throws {BusinessError} 801 - Capability not supported.
-   * @throws {BusinessError} 2501000 - Operation failed.
-   * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 12
    */
   function isBandTypeSupported(bandType: WifiBandType): boolean;
 
@@ -1110,18 +1081,6 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 11
    */
-  /**
-   * Get all the stations in the block list.
-   * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.MANAGE_WIFI_HOTSPOT
-   * @returns { Array<StationInfo> } stations in the block list.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 801 - Capability not supported.
-   * @throws {BusinessError} 2601000 - Hotspot module error.
-   * @syscap SystemCapability.Communication.WiFi.AP.Core
-   * @systemapi Hide this for inner system use.
-   * @since 12
-   */
   function getHotspotBlockList(): Array<StationInfo>;
 
   /**
@@ -1145,18 +1104,6 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2801000 - P2P module error.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
-   */
-  /**
-   * Obtain information about the P2P connection.
-   * @permission ohos.permission.GET_WIFI_INFO
-   * @param { AsyncCallback<WifiP2pLinkedInfo> } callback - Indicates callback of function.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   * @throws {BusinessError} 801 - Capability not supported.
-   * @throws {BusinessError} 2801000 - P2P module error.
-   * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 12
    */
   function getP2pLinkedInfo(callback: AsyncCallback<WifiP2pLinkedInfo>): void;
 
@@ -1202,18 +1149,6 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 10
    */
-  /**
-   * Obtain information about the current p2p group.
-   * @permission ohos.permission.GET_WIFI_INFO
-   * @param { AsyncCallback<WifiP2pGroupInfo> } callback - Indicates callback of function.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   * @throws {BusinessError} 801 - Capability not supported.
-   * @throws {BusinessError} 2801000 - P2P module error.
-   * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 12
-   */
   function getCurrentGroup(callback: AsyncCallback<WifiP2pGroupInfo>): void;
 
   /**
@@ -1257,20 +1192,6 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2801000 - P2P module error.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 10
-   */
-  /**
-   * Obtain the information about own device information. 
-   * DeviceAddress in the returned WifiP2pDevice will be set "00:00:00:00:00:00",
-   * if ohos.permission.GET_WIFI_LOCAL_MAC is not granted.
-   * @permission ohos.permission.GET_WIFI_INFO
-   * @param { AsyncCallback<WifiP2pDevice> } callback - Indicates callback of function.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   * @throws {BusinessError} 801 - Capability not supported.
-   * @throws {BusinessError} 2801000 - P2P module error.
-   * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 12
    */
   function getP2pPeerDevices(callback: AsyncCallback<WifiP2pDevice[]>): void;
 
@@ -1323,20 +1244,6 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2801000 - P2P module error.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 11
-   */
-  /**
-   * Obtain the information about own device information. 
-   * DeviceAddress in the returned WifiP2pDevice will be set "00:00:00:00:00:00",
-   * if ohos.permission.GET_WIFI_LOCAL_MAC is not granted.
-   * @permission ohos.permission.GET_WIFI_INFO
-   * @param { AsyncCallback<WifiP2pDevice> } callback - Indicates callback of function.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   * @throws {BusinessError} 801 - Capability not supported.
-   * @throws {BusinessError} 2801000 - P2P module error.
-   * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 12
    */
   function getP2pLocalDevice(callback: AsyncCallback<WifiP2pDevice>): void;
 
@@ -1496,22 +1403,6 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @systemapi Hide this for inner system use.
    * @since 10
-   */
-  /**
-   * Obtain the information about own device information. 
-   * DeviceAddress in the returned WifiP2pDevice will be set "00:00:00:00:00:00",
-   * if ohos.permission.GET_WIFI_LOCAL_MAC is not granted.
-   * @permission ohos.permission.GET_WIFI_INFO
-   * @param { AsyncCallback<WifiP2pDevice> } callback - Indicates callback of function.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 801 - Capability not supported.
-   * @throws {BusinessError} 2801000 - P2P module error.
-   * @syscap SystemCapability.Communication.WiFi.P2P
-   * @systemapi Hide this for inner system use.
-   * @since 12
    */
   function getP2pGroups(callback: AsyncCallback<Array<WifiP2pGroupInfo>>): void;
 
