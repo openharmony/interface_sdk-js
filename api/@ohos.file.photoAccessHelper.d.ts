@@ -5412,6 +5412,89 @@ declare namespace photoAccessHelper {
     thmSize: string;
   }
 
+    /**
+   * Defines the shared album asset
+   *
+   * @interface SharedAlbumAsset
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 13
+   */
+    interface SharedAlbumAsset {
+      /**
+       * album id of album asset
+       *
+       * @type { number }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @systemapi
+       * @since 13
+       */
+      albumId: number;
+      /**
+       * type of album asset
+       *
+       * @type { AlbumType }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @systemapi
+       * @since 13
+       */
+      albumType: AlbumType;
+      /**
+       * subtype of album asset
+       *
+       * @type { AlbumSubtype }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @systemapi
+       * @since 13
+       */
+      albumSubType: AlbumSubtype;
+      /**
+       * album name
+       *
+       * @type { string }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @systemapi
+       * @since 12
+       */
+      albumName: string;
+      /**
+       * uri of album cover
+       *
+       * @type { string }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @systemapi
+       * @since 12
+       */
+      coverUri: string;
+      /**
+       * number of assets in this album
+       *
+       * @type { number }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @systemapi
+       * @since 12
+       */
+      count: number;
+      /**
+       * number of photo assets in this album
+       *
+       * @type { number }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @systemapi
+       * @since 12
+       */
+      imageCount: number;
+      /**
+       * number of video assets in this album
+       *
+       * @type { number }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @systemapi
+       * @since 12
+       */
+      videoCount: number;
+    }
+
   /**
    * Defines the moving photo.
    *
