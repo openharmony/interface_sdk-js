@@ -2299,6 +2299,7 @@ declare namespace window {
    *                                                                  2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1300001 - Repeated operation.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @throws { BusinessError } 1300004 - Unauthorized operation.
    * @throws { BusinessError } 1300006 - This window context is abnormal.
    * @throws { BusinessError } 1300008 - The display device is abnormal.
@@ -2336,6 +2337,7 @@ declare namespace window {
    *                                                                  2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1300001 - Repeated operation.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @throws { BusinessError } 1300004 - Unauthorized operation.
    * @throws { BusinessError } 1300006 - This window context is abnormal.
    * @throws { BusinessError } 1300008 - The display device is abnormal.
