@@ -592,6 +592,18 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    */
+  /**
+   * Obtain connection information about the Wi-Fi connection.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @param { AsyncCallback<WifiLinkedInfo> } callback - Indicates callback of function.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @throws {BusinessError} 2501001 - Wifi is closed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @crossplatform
+   * @since 12
+   */
   function getLinkedInfo(callback: AsyncCallback<WifiLinkedInfo>): void;
 
   /**
