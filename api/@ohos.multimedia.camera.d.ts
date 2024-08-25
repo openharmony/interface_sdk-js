@@ -7110,6 +7110,30 @@ declare namespace camera {
     getActiveFrameRate(): FrameRateRange;
 
     /**
+     * Gets the preview rotation angle.
+     *
+     * @param { number } displayRotation - The current display rotation angle.
+     * @returns { ImageRotation } The preview rotation angle.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    getPreviewRotation(displayRotation: number): ImageRotation;
+
+     /**
+      * Sets the preview rotation angle.
+      *
+      * @param { ImageRotation } previewRotation - Preview display rotation angle.
+      * @param { boolean } isDisplayLocked - TRUE means the display is locked, if not set, the default is FALSE.
+      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+      * @throws { BusinessError } 7400201 - Camera service fatal error.
+      * @syscap SystemCapability.Multimedia.Camera.Core
+      * @since 12
+      */
+    setPreviewRotation(previewRotation: ImageRotation, isDisplayLocked?: boolean): void;
+
+    /**
      * Gets the current preconfig type if you had already call preconfig interface.
      *
      * @returns { Profile } The current preconfig type.
@@ -8115,6 +8139,18 @@ declare namespace camera {
      * @since 12
      */
     enableMovingPhoto(enabled: boolean): void;
+
+    /**
+     * Gets the photo rotation angle.
+     *
+     * @param { number } deviceDegree - The current device rotation degree.
+     * @returns { ImageRotation } The photo rotation angle.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    getPhotoRotation(deviceDegree: number): ImageRotation;
   }
 
   /**
@@ -8314,6 +8350,18 @@ declare namespace camera {
      * @since 12
      */
     getActiveFrameRate(): FrameRateRange;
+
+    /**
+     * Gets the video rotation angle.
+     *
+     * @param { number } deviceDegree - The current device rotation degree.
+     * @returns { ImageRotation } The video rotation angle.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    getVideoRotation(deviceDegree: number): ImageRotation;
 
     /**
      * Subscribes frame start event callback.
