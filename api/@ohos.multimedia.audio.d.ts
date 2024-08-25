@@ -7430,7 +7430,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800103 - Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 13
+     * @since 12
      */
     setDefaultOutputDevice(deviceType: DeviceType): void
 
