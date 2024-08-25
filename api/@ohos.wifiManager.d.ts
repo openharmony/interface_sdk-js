@@ -2320,7 +2320,7 @@ declare namespace wifiManager {
     UNKNOWN = -1,
 
     /**
-     * Wi-Fi STA disabled
+     * wifi is closed
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 12
