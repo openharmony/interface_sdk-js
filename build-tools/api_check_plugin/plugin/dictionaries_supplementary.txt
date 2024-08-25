@@ -354,6 +354,7 @@ fts
 fulfills
 fuma
 furse
+gainmap
 gamepad
 gba
 gbk

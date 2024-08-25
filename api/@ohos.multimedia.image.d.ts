@@ -2699,6 +2699,88 @@ declare namespace image {
   }
 
   /**
+   * Enumerates the HDR metadata types that need to be stored in Pixelmap.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 12
+   */
+  enum HdrMetadataKey {
+    /**
+     * Indicate the types of metadata that image needs to use.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    HDR_METADATA_TYPE = 0,
+
+    /**
+     * Static metadata key.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    HDR_STATIC_METADATA = 1,
+
+    /**
+     * Dynamic metadata key.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    HDR_DYNAMIC_METADATA = 2,
+
+    /**
+     * Gainmap metadata key.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    HDR_GAINMAP_METADATA = 3,
+  }
+
+  /**
+   * Value for HDR_METADATA_TYPE.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 12
+   */
+  enum HdrMetadataType {
+    /**
+     * No metadata.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    NONE = 0,
+
+    /**
+     * Indicates that metadata will be used for the base image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    BASE = 1,
+
+    /**
+     * Indicates that metadata will be used for the gainmap image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    GAINMAP = 2,
+
+    /**
+     * Indicates that metadata will be used for the alternate image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    ALTERNATE = 3,
+  }
+
+  /**
    * Describes region information.
    *
    * @typedef Region
@@ -4180,6 +4262,222 @@ declare namespace image {
      */
     sourceSize?: Size;
   }
+
+  /**
+   * Value for HDR_STATIC_METADATA.
+   *
+   * @typedef HdrStaticMetadata
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 12
+   */
+  interface HdrStaticMetadata {
+    /**
+     * The X-coordinate of the primary colors. The length of the array is three. Store in the order of r, g, b.
+     *
+     * @type { Array<number> }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    displayPrimariesX: Array<number>;
+
+    /**
+     * The Y-coordinate of the primary colors. The length of the array is three. Store in the order of r, g, b.
+     *
+     * @type { Array<number> }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    displayPrimariesY: Array<number>;
+
+    /**
+     * The X-coordinate of the white point value.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    whitePointX: number;
+
+    /**
+     * The Y-coordinate of the white point value.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    whitePointY: number;
+
+    /**
+     * Max luminance.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    maxLuminance: number;
+
+    /**
+     * Min luminance.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    minLuminance: number;
+
+    /**
+     * Maximum brightness of displayed content.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    maxContentLightLevel: number;
+
+    /**
+     * Maximum average brightness of displayed content.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    maxFrameAverageLightLevel: number;
+  }
+
+  /**
+   * The per-component metadata.
+   *
+   * @typedef GainmapChannel
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 12
+   */
+  interface GainmapChannel {
+    /**
+     * The per-component max gain map values.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    gainmapMax: number;
+
+    /**
+     * The per-component min gain map values.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    gainmapMin: number;
+
+    /**
+     * The per-component gamma values.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    gamma: number;
+
+    /**
+     * The per-component baseline offset.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    baseOffset: number;
+
+    /**
+     * The per-component alternate offset.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    alternateOffset: number;
+  }
+
+  /**
+   * Values for HDR_GAINMAP_METADATA.
+   *
+   * @typedef HdrGainmapMetadata
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 12
+   */
+  interface HdrGainmapMetadata {
+    /**
+     * The version used by the writer.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    writerVersion: number;
+
+    /**
+     * The minimum version a parser needs to understand.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    miniVersion: number;
+
+    /**
+     * The number of gain map channels, with a value of 1 or 3.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    gainmapChannelCount: number;
+
+    /**
+     * Indicate whether to use the color space of the base image.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    useBaseColorFlag: boolean;
+
+    /**
+     * The baseline hdr headroom.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */    
+    baseHeadroom: number;
+
+    /**
+     * The alternate hdr headroom.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    alternateHeadroom: number;
+
+    /**
+     * The per-channel metadata.
+     *
+     * @type { Array<GainmapChannel> }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    channels: Array<GainmapChannel>;
+  }
+
+  /**
+   * Defines the hdr metadata value.
+   *
+   * @typedef {HdrMetadataType | HdrStaticMetadata | ArrayBuffer | HdrGainmapMetadata} HdrMetadataValue
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 12
+   */
+  type HdrMetadataValue = HdrMetadataType | HdrStaticMetadata | ArrayBuffer | HdrGainmapMetadata;
 
   /**
    * Create pixelmap by data buffer.
@@ -6361,6 +6659,38 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 12
      */
     setTransferDetached(detached: boolean): void;
+
+    /**
+     * Get metadata.
+     * 
+     * @param { HdrMetadataKey } key Type of metadata.
+     * @returns { HdrMetadataValue } Returns the value of metadata.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 501 - Resource unavailable.
+     * @throws { BusinessError } 62980173 - The DMA memory does not exist.
+     * @throws { BusinessError } 62980302 - Memory copy failed.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    getMetadata(key: HdrMetadataKey): HdrMetadataValue;
+
+    /**
+     * Set metadata.
+     * 
+     * @param { HdrMetadataKey } key Type of metadata.
+     * @param { HdrMetadataValue } value Value of metadata.
+     * @returns { Promise<void> } A Promise instance used to return the instance release result. If the operation fails,
+     * an error message is returned.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 501 - Resource unavailable.
+     * @throws { BusinessError } 62980173 - The DMA memory does not exist.
+     * @throws { BusinessError } 62980302 - Memory copy failed.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    setMetadata(key: HdrMetadataKey, value: HdrMetadataValue): Promise<void>;
   }
 
   /**
