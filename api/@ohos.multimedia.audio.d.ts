@@ -7427,12 +7427,13 @@ declare namespace audio {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
+     * @return { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800103 - Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 12
      */
-    setDefaultOutputDevice(deviceType: DeviceType): void
+    setDefaultOutputDevice(deviceType: DeviceType): Promise<void>
 
     /**
      * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
