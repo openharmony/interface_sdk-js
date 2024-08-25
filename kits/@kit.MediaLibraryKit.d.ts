@@ -19,6 +19,7 @@
  */
 
 import photoAccessHelper from '@ohos.file.photoAccessHelper';
+import sendablePhotoAccessHelper from '@ohos.file.sendablePhotoAccessHelper';
 import { MovingPhotoView, MovingPhotoViewController, MovingPhotoViewAttribute } from '@ohos.multimedia.movingphotoview';
 import { AlbumPickerComponent, AlbumPickerOptions, AlbumInfo } from '@ohos.file.AlbumPickerComponent';
 import {
@@ -28,7 +29,8 @@ import {
     SelectMode, PickerColorMode, ReminderMode, MaxCountType
 } from '@ohos.file.PhotoPickerComponent';
 export {
-    photoAccessHelper, MovingPhotoView, MovingPhotoViewController, MovingPhotoViewAttribute,
+    photoAccessHelper, sendablePhotoAccessHelper,
+    MovingPhotoView, MovingPhotoViewController, MovingPhotoViewAttribute,
     PhotoPickerComponent, PickerController, PickerOptions,
     DataType, ItemInfo, PhotoBrowserInfo, AnimatorParams,
     MaxSelected, ItemType, ClickType, PickerOrientation,
