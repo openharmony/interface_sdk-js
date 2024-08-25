@@ -7424,10 +7424,10 @@ declare namespace audio {
      *                                    EARPIECE: Built-in earpiece
      *                                    SPEAKER: Built-in speaker
      *                                    DEFAULT: System default output device
+     * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
-     * @return { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800103 - Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
