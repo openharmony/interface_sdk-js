@@ -597,6 +597,17 @@ export interface ApplicationInfo {
    * @since 12
    */
   readonly cloudFileSyncEnabled: boolean;
+
+  /**
+   * Indicates the flags of the application.
+   *
+   * @type { ?number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  readonly flags?: number;
 }
 
 /**

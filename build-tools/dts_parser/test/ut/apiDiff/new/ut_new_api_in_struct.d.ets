@@ -12,21 +12,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 /**
- * @namespace abilityAccessCtrl
- * @syscap SystemCapability.Security.AccessToken
- * @since 8
+ * the ut for method in interface
+ *
  */
-/**
- * @namespace abilityAccessCtrl
- * @syscap SystemCapability.Security.AccessToken
- * @since 10
- */
-declare namespace abilityAccessCtrl {
-
-  interface AtManager {
-    requestPermissionsFromUser(context: Context, permissionList: Array<Permissions>): Promise<PermissionRequestResult>;
-  }
+export struct Test {
+  new?(str: string): void;
+  old(): void;
+  func(): void;
+  testProperty: string;
+  testProperty1?: string;
 }

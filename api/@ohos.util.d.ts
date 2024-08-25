@@ -719,22 +719,6 @@ declare namespace util {
      * @crossplatform
      * @atomicservice
      * @since 11
-     */
-    /**
-     * Decodes the input and returns a string. If options.stream is true, any incomplete byte sequences occurring
-     * at the end of the input are buffered internally and emitted after the next call to textDecoder.decode().
-     * If textDecoder.fatal is true, decoding errors that occur will result in a TypeError being thrown.
-     *
-     * @param { Uint8Array } input - Decoded numbers in accordance with the format
-     * @param { DecodeWithStreamOptions } [options] - Options
-     * @returns { string } Return decoded text
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 11
      * @deprecated since 12
      * @useinstead ohos.util.decodeToString
      */
@@ -1760,6 +1744,7 @@ declare namespace util {
      * Default constructor used to create a new LruBuffer instance with the default capacity of 64.
      *
      * @param { number } [capacity] - Indicates the capacity to customize for the buffer.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice

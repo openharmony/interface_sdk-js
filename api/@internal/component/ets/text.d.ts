@@ -143,6 +143,20 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   font(value: Font): TextAttribute;
 
   /**
+   * Called when the font is set.
+   *
+   * @param { Font } fontValue - the text font size and weight and family and style.
+   * @param { FontSettingOptions } options - font setting options.
+   * @returns { TextAttribute } The attribute of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  font(fontValue: Font, options?: FontSettingOptions): TextAttribute;
+
+  /**
    * Called when the font color is set.
    *
    * @param { ResourceColor } value
@@ -403,6 +417,20 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 11
    */
   fontWeight(value: number | FontWeight | string): TextAttribute;
+
+  /**
+   * Called when the font weight is set.
+   *
+   * @param { number | FontWeight | string } weight
+   * @param { FontSettingOptions } options - font setting options.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  fontWeight(weight: number | FontWeight | string, options?: FontSettingOptions): TextAttribute;
 
   /**
    * Set font line spacing.

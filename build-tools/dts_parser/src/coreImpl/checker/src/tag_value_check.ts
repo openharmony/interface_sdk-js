@@ -199,7 +199,7 @@ export class TagValueCheck {
     }
     const spacealCase: string[] = CommonFunctions.judgeSpecialCase((singleApi as MethodInfo).returnValueType);
     if (singleApi.getApiType() === ApiType.TYPE_ALIAS) {
-      returnsApiValue.push((singleApi as TypeAliasInfo).getReturnType());
+      returnsApiValue.push((singleApi as TypeAliasInfo).getReturnType().join());
     } else {
       returnsApiValue = spacealCase.length > 0 ? spacealCase : (singleApi as MethodInfo).getReturnValue();
     }

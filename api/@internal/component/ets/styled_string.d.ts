@@ -123,6 +123,32 @@ declare class StyledString {
      * @since 12
      */
     static fromHtml(html: string): Promise<StyledString>;
+
+    /**
+     * Returns ArrayBuffer from the serialized styled string.
+     *
+     * @param { StyledString } styledString - StyledString parameter.
+     * @returns { ArrayBuffer }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 13
+     */
+    static marshalling(styledString: StyledString): ArrayBuffer;
+
+    /**
+     * Returns StyledString from the deserialized ArrayBuffer.
+     *
+     * @param { ArrayBuffer } buffer - The buffer will be deserialized to a StyledString.
+     * @returns { Promise<StyledString> }
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 13
+     */
+    static unmarshalling(buffer: ArrayBuffer): Promise<StyledString>;
 }
 
 /**
@@ -591,6 +617,40 @@ declare class TextShadowStyle {
 }
 
 /**
+ * Defines Sets the property string background color.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
+declare class BackgroundColorStyle {
+
+    /**
+     * constructor.
+     *
+     * @param { TextBackgroundStyle } textBackgroundStyle - textBackgroundStyle value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    constructor(textBackgroundStyle: TextBackgroundStyle);
+
+    /**
+     * Get the textBackgroundStyle value of the StyledString.
+     *
+     * @type { TextBackgroundStyle } - the textBackgroundStyle value of the StyledString
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    readonly textBackgroundStyle: TextBackgroundStyle;
+}
+
+/**
  * Defines GestureStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -904,15 +964,15 @@ declare class UrlStyle {
  *
  * @typedef { TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle |
  * GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan |
- * UserDataSpan } StyledStringValue
+ * UserDataSpan | BackgroundColorStyle } StyledStringValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 13
-*/
+ */
 declare type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle |
 TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan |
-UserDataSpan;
+UserDataSpan | BackgroundColorStyle;
 
 /**
  * MutableStyledString
@@ -1158,6 +1218,16 @@ declare enum StyledStringKey {
       * @since 12
       */
      LINE_HEIGHT = 5,
+
+     /**
+      * The key of BackgroundColorStyle.
+      *
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @atomicservice
+      * @since 13
+      */
+     BACKGROUND_COLOR = 6,
 
      /**
       * The key of UrlStyle.

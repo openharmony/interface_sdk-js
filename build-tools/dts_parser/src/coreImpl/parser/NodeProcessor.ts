@@ -63,12 +63,21 @@ export class NodeProcessorHelper {
   // 如果是字符串的话，会出现单双引号重复的情况
   static regQuotation: RegExp = /^[\'|\"](.*)[\'|\"]$/;
 
+
+  /**
+   * 停止递归
+   *
+   */
+  static stopRecursion = false;
+
   /**
    * 解析文件typereference对应symbol集合
-   * 
+   *
    * @type {Map<string, Map<string, ts.Symbol>>}
    */
   static symbolOfTypeReferenceMap: Map<string, Map<string, ts.Symbol>> = new Map<string, Map<string, ts.Symbol>>();
+
+  static typeReferenceFileMap: Map<string, ApiInfo> = new Map();
 
   static processReference(
     sourceFile: ts.SourceFile,
@@ -95,8 +104,11 @@ export class NodeProcessorHelper {
    * @param { ts.Node } node 当前处理的节点
    * @param { FileInfoMap } parentMap 父节点建立的map对象
    * @param { BasicApiInfo } parentApiInfo 父节点解析后的对象
+   * @param { boolean } [stopRecursion=false] 是否停止递归
    */
-  static processNode(node: ts.Node, parentMap: FileInfoMap | ApiInfosMap, parentApiInfo: BasicApiInfo): void {
+  static processNode(node: ts.Node, parentMap: FileInfoMap | ApiInfosMap, parentApiInfo: BasicApiInfo,
+    stopRecursion: boolean = false): void {
+    NodeProcessorHelper.stopRecursion = stopRecursion;
     const nodeProcessor: NodeProcessorInterface | undefined = nodeProcessorMap.get(node.kind);
     if (!nodeProcessor) {
       return;
@@ -108,10 +120,11 @@ export class NodeProcessorHelper {
       return;
     }
     childNodes.forEach((cNode: ts.Node) => {
-      if (apiInfo.getApiType() === ApiType.STRUCT && cNode.getFullText() === '') { // 去除struct的默认构造方法
+      if (apiInfo.getApiType() === ApiType.STRUCT && cNode.getFullText() === '') {
+        // 去除struct的默认构造方法
         return;
       }
-      NodeProcessorHelper.processNode(cNode, currentMap as ApiInfosMap, apiInfo);
+      NodeProcessorHelper.processNode(cNode, currentMap as ApiInfosMap, apiInfo, stopRecursion);
     });
   }
 
@@ -273,11 +286,7 @@ export class NodeProcessorHelper {
    * @returns { ts.NodeArray<ts.Node> | undefined } 返回当前节点的子节点
    */
   static getChildNodes(node: ts.Node): ts.NodeArray<ts.Node> | undefined {
-    if (
-      ts.isInterfaceDeclaration(node) ||
-      ts.isClassDeclaration(node) ||
-      ts.isEnumDeclaration(node)
-    ) {
+    if (ts.isInterfaceDeclaration(node) || ts.isClassDeclaration(node) || ts.isEnumDeclaration(node)) {
       return node.members;
     }
     if (ts.isStructDeclaration(node)) {
@@ -542,11 +551,11 @@ export class NodeProcessorHelper {
    */
   static processEnumValue(node: ts.Node, parentApi: BasicApiInfo): EnumValueInfo {
     const enumValueNode: ts.EnumMember = node as ts.EnumMember;
+    const enumValue: string | undefined = enumValueNode.initializer?.getText();
     const enumValueInfo: EnumValueInfo = new EnumValueInfo(ApiType.ENUM_VALUE, node, parentApi);
     enumValueInfo.setApiName(enumValueNode.name.getText());
     enumValueInfo.setDefinedText(enumValueNode.getText());
-    const enumInfo: EnumInfo = parentApi as EnumInfo;
-    enumValueInfo.setValue(NodeProcessorHelper.getCurrentEnumValue(enumInfo));
+    enumValueInfo.setValue(enumValue ?? NodeProcessorHelper.getCurrentEnumValue(parentApi));
     if (enumValueNode.initializer) {
       const value: string = enumValueNode.initializer.getText().replace(NodeProcessorHelper.regQuotation, '$1');
       enumValueInfo.setValue(value);
@@ -556,10 +565,13 @@ export class NodeProcessorHelper {
 
   /**
    *
-   * @param  { EnumInfo } enumInfo Enum枚举类节点的信息
+   * @param  { BasicApiInfo } enumInfo Enum枚举类节点的信息
    * @returns { string } 返回当前遍历到的枚举成员的可能的枚举值
    */
-  static getCurrentEnumValue(enumInfo: EnumInfo): string {
+  static getCurrentEnumValue(enumInfo: BasicApiInfo): string {
+    if (!(enumInfo instanceof EnumInfo)) {
+      return "";
+    }
     const length: number = enumInfo.getChildApis().length;
     if (length === 0) {
       return String(0);
@@ -586,12 +598,7 @@ export class NodeProcessorHelper {
     ModifierHelper.processModifiers(propertyNode.modifiers, propertyInfo);
     propertyInfo.setIsRequired(!propertyNode.questionToken ? true : false);
     propertyInfo.addType(NodeProcessorHelper.processDataType(typeNode));
-    NodeProcessorHelper.processFunctionTypeNode(
-      propertyNode.type,
-      propertyInfo,
-      new ParamInfo(ApiType.PARAM),
-      false
-    );
+    NodeProcessorHelper.processFunctionTypeNode(propertyNode.type, propertyInfo, new ParamInfo(ApiType.PARAM), false);
     propertyInfo.setTypeKind(typeNode?.kind);
     return propertyInfo;
   }
@@ -643,12 +650,7 @@ export class NodeProcessorHelper {
       const returnValues: string[] = NodeProcessorHelper.processDataType(methodNode.type);
       methodInfo.setReturnValue(returnValues);
       methodInfo.setReturnValueType(methodNode.type.kind);
-      NodeProcessorHelper.processFunctionTypeNode(
-        methodNode.type,
-        methodInfo,
-        new ParamInfo(ApiType.PARAM),
-        false
-      );
+      NodeProcessorHelper.processFunctionTypeNode(methodNode.type, methodInfo, new ParamInfo(ApiType.PARAM), false);
     }
     for (let i = 0; i < methodNode.parameters.length; i++) {
       const param: ts.ParameterDeclaration = methodNode.parameters[i];
@@ -706,7 +708,7 @@ export class NodeProcessorHelper {
   /**
    * 设置SymbolOfTypeReferenceMap对象
    *
-   * @param {string} filePath 文件路径 
+   * @param {string} filePath 文件路径
    * @param {ts.TypeReferenceNode} tsNode 文件中的typeReference
    * @param {ts.Symbol} symbol typereference对应symbol
    */
@@ -727,7 +729,7 @@ export class NodeProcessorHelper {
   /**
    * 从symbolOfTypeReferenceMap获取值
    *
-   * @param {string} filePath 文件路径 
+   * @param {string} filePath 文件路径
    * @param {ts.TypeReferenceNode} tsNode 文件中的typeReference
    * @return {(ts.Symbol | undefined)} symbol值
    */
@@ -762,6 +764,9 @@ export class NodeProcessorHelper {
     paramInfo: ParamInfo,
     isParam: boolean = true
   ): void {
+    if (NodeProcessorHelper.stopRecursion) {
+      return;
+    }
     if (!typeNode) {
       return;
     }
@@ -771,15 +776,6 @@ export class NodeProcessorHelper {
       typeNode.types.forEach((type: ts.TypeNode) => {
         NodeProcessorHelper.processFunctionTypeNode(type, methodInfo, paramInfo, isParam);
       });
-    } else if (ts.isFunctionTypeNode(typeNode)) {
-      // const methodApiInfo: MethodInfo = NodeProcessorHelper.processMethod(typeNode, methodInfo);
-
-      // typeNode.parameters.forEach((parameter: ts.ParameterDeclaration) => {
-      //   if (parameter.type) {
-      //     NodeProcessorHelper.processFunctionTypeNode(parameter.type, methodInfo, paramInfo, isParam);
-      //   }
-      // });
-      // NodeProcessorHelper.processFunctionTypeNode(typeNode.type, methodInfo, paramInfo, isParam);
     }
     if (!ts.isTypeReferenceNode(typeNode)) {
       return;
@@ -803,10 +799,25 @@ export class NodeProcessorHelper {
     paramInfo: ParamInfo,
     isParam: boolean = true
   ): void {
+    let typeNodeName: string = "";
     const typeArguments: ts.NodeArray<ts.TypeNode> | undefined = typeNode.typeArguments;
     typeArguments?.forEach((typeArgument: ts.TypeNode) => {
       NodeProcessorHelper.processFunctionTypeNode(typeArgument, methodInfo, paramInfo, isParam);
     });
+    if (ts.isIdentifier(typeNode.typeName)) {
+      typeNodeName = typeNode.typeName.escapedText.toString();
+    } else {
+      typeNodeName = typeNode.typeName.right.escapedText.toString();
+    }
+    if (NodeProcessorHelper.typeReferenceFileMap.has(typeNodeName)) {
+      const apiInfo: ApiInfo = NodeProcessorHelper.typeReferenceFileMap.get(typeNodeName)!;
+      if (isParam) {
+        paramInfo.addTypeLocations(apiInfo);
+      } else {
+        methodInfo.addTypeLocations(apiInfo);
+      }
+      return;
+    }
     try {
       const tsProgram: ts.Program = parserParam.getTsProgram();
       const typeChecker: ts.TypeChecker = tsProgram.getTypeChecker();
@@ -819,15 +830,21 @@ export class NodeProcessorHelper {
         return;
       }
       const declaration: ts.Declaration = declarations[0];
-      const fileTags: FileTag = methodInfo.getKitInfoFromParent(methodInfo);
-      if (!ts.isTypeAliasDeclaration(declaration)) {
-        return;
-      }
-      const typeAliasInfo: TypeAliasInfo = NodeProcessorHelper.processTypeAlias(declaration, methodInfo);
-      if (isParam) {
-        paramInfo.addTypeLocations(typeAliasInfo);
-      } else {
-        methodInfo.addTypeLocations(typeAliasInfo);
+      const currentApiMap: FileInfoMap = new Map();
+      NodeProcessorHelper.processNode(declaration, currentApiMap, methodInfo, true);
+      NodeProcessorHelper.stopRecursion = false;
+      if (currentApiMap.has(typeNodeName)) {
+        const currentMap: ApiInfosMap = currentApiMap.get(typeNodeName) as ApiInfosMap;
+        const baseApiInfo: ApiInfo[] = currentMap.get(StringConstant.SELF) as ApiInfo[];
+        const apiInfo: ApiInfo = baseApiInfo[0];
+        NodeProcessorHelper.typeReferenceFileMap.set(typeNodeName, apiInfo);
+        if (apiInfo) {
+          if (isParam) {
+            paramInfo.addTypeLocations(apiInfo);
+          } else {
+            methodInfo.addTypeLocations(apiInfo);
+          }
+        }
       }
     } catch (error) {
     } finally {
@@ -942,7 +959,7 @@ export class NodeProcessorHelper {
         );
         typeAliasInfo.setParamInfos(typeParamInfo);
       });
-      typeAliasInfo.setReturnType(nodeType.type.getText());
+      typeAliasInfo.setReturnType(NodeProcessorHelper.processDataType(nodeType.type));
       typeAliasInfo.setTypeIsFunction(true);
     } else if (ts.isTypeLiteralNode(nodeType)) {
       nodeType.members.forEach((member: ts.TypeElement) => {

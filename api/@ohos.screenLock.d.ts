@@ -120,7 +120,7 @@ declare namespace screenLock {
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
-   * @throws { BusinessError } 13200003 - illegal use.
+   * @throws { BusinessError } 13200003 - Invalid use.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -143,7 +143,7 @@ declare namespace screenLock {
    * @returns { Promise<boolean> } the promise returned by the function.
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
-   * @throws { BusinessError } 13200003 - illegal use.
+   * @throws { BusinessError } 13200003 - Invalid use.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -187,6 +187,16 @@ declare namespace screenLock {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
+  /**
+   * Indicates the system event type related to the screenlock management service. Adding strongAuthChanged and screenLockDisabledChanged.
+   *
+   * @typedef {('beginWakeUp' | 'endWakeUp' | 'beginScreenOn' | 'endScreenOn' | 'beginScreenOff' | 'endScreenOff' | 'unlockScreen'
+   * | 'lockScreen' | 'beginExitAnimation' | 'beginSleep' | 'endSleep' | 'changeUser' | 'screenlockEnabled' | 'serviceRestart'
+   * | 'strongAuthChanged' | 'screenLockDisabledChanged')}
+   * @syscap SystemCapability.MiscServices.ScreenLock
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
   type EventType =
     'beginWakeUp'
     | 'endWakeUp'
@@ -201,7 +211,89 @@ declare namespace screenLock {
     | 'endSleep'
     | 'changeUser'
     | 'screenlockEnabled'
-    | 'serviceRestart';
+    | 'serviceRestart'
+    | 'strongAuthChanged'
+    | 'screenLockDisabledChanged';
+
+  /**
+   * Indicates the strong authentication reason flags used to request.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.ScreenLock
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  enum StrongAuthReasonFlags {
+    /**
+     * Indicates that there are no strong authentication reason flags.
+     */
+    NONE = 0x00000000,
+
+    /**
+     * Indicates the strong authentication reason requested after boot.
+     */
+    AFTER_BOOT = 0x00000001,
+
+    /**
+     * Indicates the strong authentication reason requested after timeout.
+     */
+    AFTER_TIMEOUT = 0x00000002,
+ 
+    /**
+     * Indicates the strong authentication reason requested by active request.
+     */
+    ACTIVE_REQUEST = 0x00000004,
+
+    /**
+     * Indicates the strong authentication reason requested by policy restriction.
+     */
+    POLICY_RESTRICTION = 0x00000008
+  }
+
+  /**
+   * Indicates the screen lock authentication state.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.ScreenLock
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  enum AuthState {
+    /**
+     * Indicates the screen lock is not authenticated.
+     */
+    NOT_AUTHED = 0,
+
+    /**
+     * Indicates the screen lock is pre authenticated by credential.
+     */
+    PRE_AUTHED_BY_CREDENTIAL = 1,
+
+    /**
+     * Indicates the screen lock is pre authenticated by fingerprint.
+     */
+    PRE_AUTHED_BY_FINGERPRINT = 2,
+
+    /**
+     * Indicates the screen lock is pre authenticated by face.
+     */
+    PRE_AUTHED_BY_FACE = 3,
+
+    /**
+     * Indicates the screen lock is authenticated by credential.
+     */
+    AUTHED_BY_CREDENTIAL = 4,
+
+    /**
+     * Indicates the screen lock is authenticated by fingerprint.
+     */
+    AUTHED_BY_FINGERPRINT = 5,
+
+    /**
+     * Indicates the screen lock is authenticated by face.
+     */
+    AUTHED_BY_FACE = 6,
+  }
 
   /**
    * Indicates the system event type and parameter related to the screenlock management service.
@@ -215,6 +307,7 @@ declare namespace screenLock {
     /**
      * Indicates the system event type related to the screenlock management service.
      *
+     * @type { EventType }
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -223,6 +316,7 @@ declare namespace screenLock {
     /**
      * Identifies the customized extended parameter of an event.
      *
+     * @type { string }
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -282,6 +376,112 @@ declare namespace screenLock {
    * @since 9
    */
   function sendScreenLockEvent(event: String, parameter: number): Promise<boolean>;
+
+  /**
+   * Request strong authentication for os account local userId.
+   *
+   * @permission ohos.permission.ACCESS_SCREEN_LOCK
+   * @param { StrongAuthReasonFlags } reasonFlag - The strong authentication reason flag.
+   * @param { number } userId - Os account local userId.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 201 - permission denied.
+   * @throws { BusinessError } 202 - permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
+   * @syscap SystemCapability.MiscServices.ScreenLock
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function requestStrongAuth(reasonFlag: StrongAuthReasonFlags, userId: number): Promise<void>;
+
+  /**
+   * Obtain strong authentication reason flags for os account local userId.
+   *
+   * @permission ohos.permission.ACCESS_SCREEN_LOCK
+   * @param { number } userId - Os account local userId.
+   * @returns { number } the strong authentication reason flags.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 201 - permission denied.
+   * @throws { BusinessError } 202 - permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
+   * @syscap SystemCapability.MiscServices.ScreenLock
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function getStrongAuth(userId: number): number;
+
+  /**
+   * Disable screen lock showing for os account local userId. This only becomes effective when there is no password.
+   *
+   * @permission ohos.permission.ACCESS_SCREEN_LOCK
+   * @param { boolean } disable - disable or enable screen lock showing.
+   * @param { number } userId - Os account local userId.
+   * @returns { Promise<boolean> } the promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 201 - permission denied.
+   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
+   * @syscap SystemCapability.MiscServices.ScreenLock
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function setScreenLockDisabled(disable: boolean, userId: number): Promise<boolean>;
+
+  /**
+   * Check whether screen lock is disabled for os account local userId.
+   *
+   * @permission ohos.permission.ACCESS_SCREEN_LOCK
+   * @param { number } userId - Os account local userId.
+   * @returns { boolean } whether screen lock is disabled.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 201 - permission denied.
+   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
+   * @syscap SystemCapability.MiscServices.ScreenLock
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function isScreenLockDisabled(userId: number): boolean;
+
+  /**
+   * Set the screen lock authentication state for os account local userId.
+   *
+   * @permission ohos.permission.ACCESS_SCREEN_LOCK_INNER
+   * @param { AuthState } state - the screen lock authentication state.
+   * @param { number } userId - Os account local userId.
+   * @param { Uint8Array } authToken - the authentication token for this state
+   * @returns { Promise<boolean> } the promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 201 - permission denied.
+   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
+   * @syscap SystemCapability.MiscServices.ScreenLock
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function setScreenLockAuthState(state: AuthState, userId: number, authToken: Uint8Array): Promise<boolean>;
+
+  /**
+   * Obtain the screen lock authentication state for os account local userId.
+   *
+   * @permission ohos.permission.ACCESS_SCREEN_LOCK
+   * @param { number } userId - Os account local userId.
+   * @returns { AuthState } the screen lock authentication state.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 201 - permission denied.
+   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
+   * @syscap SystemCapability.MiscServices.ScreenLock
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function getScreenLockAuthState(userId: number): AuthState;
 }
 
 export default screenLock;

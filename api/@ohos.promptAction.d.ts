@@ -224,6 +224,30 @@ declare namespace promptAction {
      * @since 12
      */
     shadow?: ShadowOptions | ShadowStyle;
+
+    /**
+     * Define whether to respond to the hover mode.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    enableHoverMode?: boolean;
+  
+    /**
+     * Defines the toast's diaplay area in hover mode.
+     *
+     * @type { ?HoverModeAreaType }
+     * @default HoverModeAreaType.BOTTOM_SCREEN
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    hoverModeArea?: HoverModeAreaType;
   }
 
   /**
@@ -645,6 +669,30 @@ declare namespace promptAction {
      * @since 12
      */
     shadow?: ShadowOptions | ShadowStyle;
+
+    /**
+     * Defines whether to respond to the hover mode.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    enableHoverMode?: boolean;
+
+    /**
+     * Defines the dialog's display area in hover mode.
+     *
+     * @type { ?HoverModeAreaType }
+     * @default HoverModeAreaType.BOTTOM_SCREEN
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    hoverModeArea?: HoverModeAreaType;
   }
 
   /**
@@ -850,6 +898,42 @@ declare namespace promptAction {
      * @since 12
      */
     onWillDisappear?: () => void;
+
+    /**
+     * Defines the customDialog's keyboard avoid mode
+     *
+     * @type { ?KeyboardAvoidMode }
+     * @default KeyboardAvoidMode.DEFAULT
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    keyboardAvoidMode?: KeyboardAvoidMode;
+
+    /**
+     * Defines whether to respond to the hover mode.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    enableHoverMode?: boolean;
+
+    /**
+     * Defines the customDialog's display area in hover mode.
+     *
+     * @type { ?HoverModeAreaType }
+     * @default HoverModeAreaType.BOTTOM_SCREEN
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    hoverModeArea?: HoverModeAreaType;
   }
 
   /**

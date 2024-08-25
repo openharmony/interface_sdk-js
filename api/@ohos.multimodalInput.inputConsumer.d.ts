@@ -77,6 +77,16 @@ declare namespace inputConsumer {
      * @since 8
      */
     finalKeyDownDuration: number;
+
+    /**
+     * Whether to report repeated key events. By default, the value is true if it is left unspecified.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+     * @systemapi hide for inner use
+     * @since 13
+     */
+    isRepeat?: boolean;
   }
 
   /**
@@ -110,6 +120,19 @@ declare namespace inputConsumer {
    * @systemapi hide for inner use
    * @since 8
    */
+  /**
+   * Subscribe system keys.
+   *
+   * @param { 'key' } type - type of the inputevent about input which is to be subscribed.
+   * @param { KeyOptions } keyOptions - the key events about input which is to be subscribed.
+   * @param { Callback<KeyOptions> } callback - callback function, receive reported data.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+   * @systemapi hide for inner use
+   * @since 12
+   */
   function on(type: 'key', keyOptions: KeyOptions, callback: Callback<KeyOptions>): void;
 
   /**
@@ -123,6 +146,19 @@ declare namespace inputConsumer {
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
    * @since 8
+   */
+  /**
+   * Subscribe system keys.
+   *
+   * @param { 'key' } type - type of the inputevent about input which is to be subscribed.
+   * @param { KeyOptions } keyOptions - the key events about input which is to be subscribed.
+   * @param { Callback<KeyOptions> } callback - callback function, receive reported data.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+   * @systemapi hide for inner use
+   * @since 12
    */
   function off(type: 'key', keyOptions: KeyOptions, callback?: Callback<KeyOptions>): void;
 

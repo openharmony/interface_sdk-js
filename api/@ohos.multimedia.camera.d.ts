@@ -1762,6 +1762,15 @@ declare namespace camera {
     APERTURE_VIDEO = 14,
 
     /**
+     * Panorama photo camera mode.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    PANORAMA_PHOTO = 15,
+
+    /**
      * Fluorescence photo mode.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -2541,7 +2550,16 @@ declare namespace camera {
      * @systemapi
      * @since 12
      */
-    MANUAL = 5
+    MANUAL = 5,
+
+    /**
+     * Lock white balance mode.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    LOCKED = 6
   }
 
   /**
@@ -3743,6 +3761,20 @@ declare namespace camera {
      * @since 12
      */
     setUsage(usage: UsageType, enabled: boolean): void;
+
+    /**
+     * Get the supported camera output capability set.
+     *
+     * @param { CameraDevice } camera - Camera device.
+     * @returns { Array<CameraOutputCapability> } The array of the output capability.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    getCameraOutputCapabilities(camera: CameraDevice): Array<CameraOutputCapability>;
   }
 
   /**
@@ -4663,6 +4695,28 @@ declare namespace camera {
      * @since 12
      */
     off(type: 'effectSuggestionChange', callback?: AsyncCallback<EffectSuggestionType>): void;
+
+    /**
+     * Gets session functions.
+     *
+     * @returns { Array<PhotoFunctions> } List of session functions.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    getSessionFunctions(): Array<PhotoFunctions>;
+
+    /**
+     * Gets session conflict functions.
+     *
+     * @returns { Array<PhotoConflictFunctions> } List of session conflict functions.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    getSessionConflictFunctions(): Array<PhotoConflictFunctions>;
   }
 
   /**
@@ -4794,6 +4848,28 @@ declare namespace camera {
      * @since 11
      */
     off(type: 'macroStatusChanged', callback?: AsyncCallback<boolean>): void;
+
+    /**
+     * Gets session functions.
+     *
+     * @returns { Array<VideoFunctions> } List of session functions.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    getSessionFunctions(): Array<VideoFunctions>;
+
+    /**
+     * Gets session conflict functions.
+     *
+     * @returns { Array<VideoConflictFunctions> } List of session conflict functions.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    getSessionConflictFunctions(): Array<VideoConflictFunctions>;
   }
 
   /**
@@ -5207,6 +5283,28 @@ declare namespace camera {
      * @since 11
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
+
+    /**
+     * Gets session functions.
+     *
+     * @returns { Array<PortraitPhotoFunctions> } List of session functions.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    getSessionFunctions(): Array<PortraitPhotoFunctions>;
+
+    /**
+     * Gets session conflict functions.
+     *
+     * @returns { Array<PortraitPhotoConflictFunctions> } List of session conflict functions.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    getSessionConflictFunctions(): Array<PortraitPhotoConflictFunctions>;
   }
 
   /**
@@ -6619,6 +6717,65 @@ declare namespace camera {
   }
 
   /**
+   * Panorama photo session object.
+   *
+   * @interface PanoramaPhotoSession
+   * @extends Session, Focus, AutoExposure, WhiteBalance, ColorEffect
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  interface PanoramaPhotoSession extends Session, Focus, AutoExposure, WhiteBalance, ColorEffect {
+    /**
+     * Subscribes to error events.
+     *
+     * @param { 'error' } type - Event type.
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { 'error' } type - Event type.
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Subscribes focus state change event callback.
+     *
+     * @param { 'focusStateChange' } type - Event type.
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
+
+    /**
+     * Unsubscribes from focus state change event callback.
+     *
+     * @param { 'focusStateChange' } type - Event type.
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
+  }
+
+  /**
    * Fluorescence photo session object.
    *
    * @interface FluorescencePhotoSession
@@ -6674,6 +6831,78 @@ declare namespace camera {
      * @since 12
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
+  }
+
+  /**
+   * Photo Functions object.
+   *
+   * @interface PhotoFunctions
+   * @extends FlashQuery, AutoExposureQuery, ManualExposureQuery, FocusQuery, ZoomQuery, BeautyQuery, ColorEffectQuery, ColorManagementQuery, MacroQuery, SceneDetectionQuery
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  interface PhotoFunctions extends FlashQuery, AutoExposureQuery, ManualExposureQuery, FocusQuery, ZoomQuery, BeautyQuery, ColorEffectQuery, ColorManagementQuery, MacroQuery, SceneDetectionQuery {
+  }
+
+  /**
+   * Video Functions object.
+   *
+   * @interface VideoFunctions
+   * @extends FlashQuery, AutoExposureQuery, ManualExposureQuery, FocusQuery, ZoomQuery, StabilizationQuery, BeautyQuery, ColorEffectQuery, ColorManagementQuery, MacroQuery, SceneDetectionQuery
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  interface VideoFunctions extends FlashQuery, AutoExposureQuery, ManualExposureQuery, FocusQuery, ZoomQuery, StabilizationQuery, BeautyQuery, ColorEffectQuery, ColorManagementQuery, MacroQuery, SceneDetectionQuery {
+  }
+
+  /**
+   * Portrait Photo Functions object.
+   *
+   * @interface PortraitPhotoFunctions
+   * @extends FlashQuery, AutoExposureQuery, FocusQuery, ZoomQuery, BeautyQuery, ColorEffectQuery, ColorManagementQuery, PortraitQuery, ApertureQuery, SceneDetectionQuery
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  interface PortraitPhotoFunctions extends FlashQuery, AutoExposureQuery, FocusQuery, ZoomQuery, BeautyQuery, ColorEffectQuery, ColorManagementQuery, PortraitQuery, ApertureQuery, SceneDetectionQuery {
+  }
+
+  /**
+   * Photo Conflict Functions object.
+   *
+   * @interface PhotoConflictFunctions
+   * @extends ZoomQuery, MacroQuery
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  interface PhotoConflictFunctions extends ZoomQuery, MacroQuery {
+  }
+
+  /**
+   * Video Conflict Functions object.
+   *
+   * @interface VideoConflictFunctions
+   * @extends ZoomQuery, MacroQuery
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  interface VideoConflictFunctions extends ZoomQuery, MacroQuery {
+  }
+
+  /**
+   * Portrait Photo Conflict Functions object.
+   *
+   * @interface PortraitPhotoFunctions
+   * @extends ZoomQuery, PortraitQuery, ApertureQuery
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  interface PortraitPhotoConflictFunctions extends ZoomQuery, PortraitQuery, ApertureQuery {
   }
 
   /**

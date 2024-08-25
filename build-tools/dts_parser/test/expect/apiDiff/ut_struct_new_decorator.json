@@ -2,8 +2,8 @@
   {
     "apiType": "Struct",
     "statusCode": 23,
-    "oldApiDefinedText": " struct MyComponent",
-    "newApiDefinedText": " struct MyComponent",
+    "oldApiDefinedText": "struct MyComponent",
+    "newApiDefinedText": "struct MyComponent",
     "oldApiName": "MyComponent",
     "newApiName": "MyComponent",
     "oldDtsName": "ut_struct_new_decorator.d.ets",
@@ -12,7 +12,7 @@
     "diffMessage": "新增装饰器",
     "changeLogUrl": "",
     "changeLogs": [],
-    "isCompatible": true,
+    "isCompatible": false,
     "oldHierarchicalRelations": [
       "ut_struct_new_decorator.d.ets",
       "MyComponent"
@@ -33,8 +33,9 @@
     "newDescription": "Component",
     "oldSyscapField": "",
     "newSyscapField": "",
-    "oldKitInfo": "",
-    "newKitInfo": "",
-    "isSystemapi": false
+    "oldKitInfo": "NA",
+    "newKitInfo": "NA",
+    "isSystemapi": false,
+    "isSameNameFunction": false
   }
 ]

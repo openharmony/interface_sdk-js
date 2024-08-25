@@ -115,7 +115,7 @@ export class LegalityCheck {
         apiLegalityTagsSet.delete('typedef');
       }
       if ((singleApi.getApiType() === ApiType.METHOD && (singleApi as MethodInfo).getReturnValue().length === 0) ||
-        singleApi.getApiType() === ApiType.TYPE_ALIAS && ((singleApi as TypeAliasInfo).getReturnType() === 'void' ||
+        singleApi.getApiType() === ApiType.TYPE_ALIAS && ((singleApi as TypeAliasInfo).getReturnType().join() === 'void' ||
           !(singleApi as TypeAliasInfo).getTypeIsFunction())) {
         apiLegalityTagsSet.delete('returns');
         illegalTagsArray.push('returns');

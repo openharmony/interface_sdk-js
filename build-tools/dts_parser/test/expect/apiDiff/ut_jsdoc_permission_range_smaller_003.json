@@ -35,8 +35,9 @@
     "newDescription": "ohos.permission.GET_SENSITIVE_PERMISSIONS and ohos.permission.GRANT_SENSITIVE_PERMISSIONS",
     "oldSyscapField": "",
     "newSyscapField": "",
-    "oldKitInfo": "",
-    "newKitInfo": "",
-    "isSystemapi": false
+    "oldKitInfo": "NA",
+    "newKitInfo": "NA",
+    "isSystemapi": false,
+    "isSameNameFunction": false
   }
 ]

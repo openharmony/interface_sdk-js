@@ -11529,6 +11529,17 @@ declare interface SheetOptions extends BindOptions {
   onTypeDidChange?: Callback<SheetType>;
 
   /**
+   * Set whether sheet is allowed to expand safe area in embedded mode
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  expandSafeAreaInEmbeddedMode?: boolean;
+
+  /**
    * The UIContext that the sheet belongs to
    *
    * @type { ?UIContext }
@@ -12559,6 +12570,18 @@ declare interface PopupOptions {
    * @since 12
    */
   onWillDismiss?: boolean | Callback<DismissPopupAction>;
+    
+  /**
+   * Determine if it is compatible popup's half folded.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  enableHoverMode?: boolean;
 }
 
 /**
@@ -13070,6 +13093,18 @@ declare interface CustomPopupOptions {
    * @since 12
   */
   onWillDismiss?: boolean | Callback<DismissPopupAction>;
+
+ /**
+   * Determine if it is compatible popup's half folded.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  enableHoverMode?: boolean;
 }
 
 /**
@@ -13483,6 +13518,18 @@ declare interface ContextMenuOptions {
    * @since 12
    */
   transition?: TransitionEffect;
+
+  /**
+    * Determine if it is compatible menu's half folded.
+    *
+    * @type { ?boolean }
+    * @default false
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 13
+    */
+  enableHoverMode?: boolean;
 }
 
 /**
@@ -14023,6 +14070,29 @@ declare interface ClickEffect {
    * @since 11
    */
   scale?: number;
+}
+
+/**
+ * Defines the fadingEdge options.
+ *
+ * @typedef FadingEdgeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
+declare interface FadingEdgeOptions {
+  /**
+   * The length of FadingEdge.
+   *
+   * @type { LengthMetrics }
+   * @default 32vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  fadingEdgeLength?: LengthMetrics;
 }
 
 /**
@@ -18705,7 +18775,7 @@ declare class CommonMethod<T> {
   /**
    * Add mask text to the current component. The layout is the same as that of the current component.
    *
-   * @param { string | CustomBuilder } value
+   * @param { string } value
    * @param { object } options
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -18714,7 +18784,7 @@ declare class CommonMethod<T> {
   /**
    * Add mask text to the current component. The layout is the same as that of the current component.
    *
-   * @param { string | CustomBuilder } value
+   * @param { string } value
    * @param { object } options
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -22771,6 +22841,19 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   edgeEffect(edgeEffect: EdgeEffect, options?: EdgeEffectOptions): T;
 
   /**
+   * Called when setting whether to enable fading Edge effect.
+   *
+   * @param { Optional<boolean> } enabled - Whether to turn on the edge fade effect
+   * @param { FadingEdgeOptions } [options] - The options of fadingEdge.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  fadingEdge(enabled: Optional<boolean>, options?: FadingEdgeOptions): T;
+
+  /**
    * Nested scrolling options.
    *
    * @param { NestedScrollOptions } value - options for nested scrolling.
@@ -23810,4 +23893,67 @@ declare interface SelectionOptions {
    * @since 12
    */
   menuPolicy?: MenuPolicy;
+}
+
+/**
+ * enum keyboard avoid mode
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare enum KeyboardAvoidMode {
+  /**
+   * Defines avoid keyboard when keyboard shows.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  DEFAULT = 0,
+
+  /**
+   * Defines not avoid keyboard when keyboard shows.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  NONE = 1,
+}
+
+/**
+ * Enumerates the type of area in hover mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
+declare enum HoverModeAreaType {
+
+  /**
+   * Layout top half screen when the phone in hover mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  TOP_SCREEN = 0,
+
+  /**
+   * Layout bottom half screen when the phone in hover mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  BOTTOM_SCREEN = 1,
 }

@@ -690,6 +690,10 @@ export enum ApiDiffType {
   KIT_NA_TO_HAVE,
   NEW_SAME_NAME_FUNCTION,
   REDUCE_SAME_NAME_FUNCTION,
+  /** 匿名对象整改导致的参数类型的兼容改变，*/
+  PARAM_TYPE_CHANGE_COMPATIABLE,
+  /** 匿名对象整改导致的参数类型的不兼容改变，*/
+  PARAM_TYPE_CHANGE_IN_COMPATIABLE,
 }
 
 export const diffTypeMap: Map<ApiDiffType, string> = new Map([
@@ -782,6 +786,8 @@ export const diffTypeMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.ATOMIC_SERVICE_NA_TO_HAVE, 'API从不支持元服务到支持元服务'],
   [ApiDiffType.NEW_SAME_NAME_FUNCTION, '新增同名函数'],
   [ApiDiffType.REDUCE_SAME_NAME_FUNCTION, '删除同名函数'],
+  [ApiDiffType.PARAM_TYPE_CHANGE_COMPATIABLE, '函数变更'],
+  [ApiDiffType.PARAM_TYPE_CHANGE_IN_COMPATIABLE, '函数变更'],
 ]);
 
 export const diffMap: Map<ApiDiffType, string> = new Map([
@@ -876,6 +882,8 @@ export const diffMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.ATOMIC_SERVICE_NA_TO_HAVE, 'API从不支持元服务到支持元服务'],
   [ApiDiffType.NEW_SAME_NAME_FUNCTION, '新增同名函数'],
   [ApiDiffType.REDUCE_SAME_NAME_FUNCTION, '删除同名函数'],
+  [ApiDiffType.PARAM_TYPE_CHANGE_COMPATIABLE, '函数的参数类型变更'],
+  [ApiDiffType.PARAM_TYPE_CHANGE_IN_COMPATIABLE, '函数的参数类型变更'],
 ]);
 
 export const apiChangeMap: Map<ApiDiffType, string> = new Map([
@@ -968,6 +976,8 @@ export const apiChangeMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_CHANGE, 'API修改（原型修改）'],
   [ApiDiffType.NEW_SAME_NAME_FUNCTION, 'API修改（原型修改）'],
   [ApiDiffType.REDUCE_SAME_NAME_FUNCTION, 'API修改（原型修改）'],
+  [ApiDiffType.PARAM_TYPE_CHANGE_COMPATIABLE, 'API修改（原型修改）'],
+  [ApiDiffType.PARAM_TYPE_CHANGE_IN_COMPATIABLE, 'API修改（原型修改）'],
 ]);
 
 /**
@@ -1026,6 +1036,7 @@ export const incompatibleApiDiffTypes: Set<ApiDiffType> = new Set([
   ApiDiffType.KIT_CHANGE,
   ApiDiffType.KIT_HAVE_TO_NA,
   ApiDiffType.REDUCE_SAME_NAME_FUNCTION,
+  ApiDiffType.PARAM_TYPE_CHANGE_IN_COMPATIABLE,
 ]);
 
 export const isNotApiSet: Set<string> = new Set([
@@ -1040,5 +1051,6 @@ export const isNotApiSet: Set<string> = new Set([
 export const parentApiTypeSet: Set<string> = new Set([
   ApiType.INTERFACE,
   ApiType.STRUCT,
-  ApiType.CLASS
+  ApiType.CLASS,
+  ApiType.TYPE_ALIAS,
 ]);

@@ -137,6 +137,43 @@ export declare interface FourFingersSwipe {
 }
 
 /**
+ * Swipe Inward event on touchPad
+ *
+ * @interface SwipeInward
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @systemapi hide for inner use
+ * @since 12
+ */
+export declare interface SwipeInward {
+  /**
+   * Action type
+   * @type { ActionType }
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi hide for inner use
+   * @since 12
+   */
+  type: ActionType;
+
+  /**
+   * Coordinate x
+   * @type { number }
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi hide for inner use
+   * @since 12
+   */
+  x: number;
+
+  /**
+   * Coordinate y
+   * @type { number }
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi hide for inner use
+   * @since 12
+   */
+  y: number;
+}
+
+/**
  * Three fingers tap event on touchPad
  *
  * @interface ThreeFingersTap
