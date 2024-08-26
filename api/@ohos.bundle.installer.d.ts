@@ -1114,6 +1114,7 @@ declare namespace installer {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundleName cannot be found or the bundle is not installed by the specified user.
      * @throws { BusinessError } 17700004 - The userId is invalid.
+     * @throws { BusinessError } 17700071 - It is not allowed to install the enterprise bundle.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
