@@ -7278,6 +7278,17 @@ declare namespace media {
     stopRecording(): Promise<void>;
 
     /**
+     * Skip some windows' privacy mode of current app during the screen recording.
+     * @param { Array<number> } windowIDs - windowID list to be skipped privacy mode .
+     * @returns { Promise<void> } A Promise instance used to return when skipPrivacyMode completed.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 12
+     */
+    skipPrivacyMode(windowIDs: Array<number>): Promise<void>;
+
+    /**
      * Set microphone enable or disable.
      * @param { boolean } enable - Set microphone enable or disable during recording.
      * @returns { Promise<void> } A Promise instance used to return when setMicEnabled completed.
