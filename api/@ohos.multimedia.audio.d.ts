@@ -7344,6 +7344,26 @@ declare namespace audio {
     getSilentModeAndMixWithOthers(): boolean;
 
     /**
+     * Temporarily changes the current audio device
+     * This function applys on audiorenderers whose StreamUsage are
+     * STREAM_USAGE_VOICE_COMMUNICATIN/STREAM_USAGE_VIDEO_COMMUNICATION/STREAM_USAGE_VOICE_MESSAGE.
+     * Setting the device will only takes effect if no other accessory such as headphones are in use
+     * @param { DeviceType } deviceType - the available deviceTypes are
+     *                                    EARPIECE: Built-in earpiece
+     *                                    SPEAKER: Built-in speaker
+     *                                    DEFAULT: System default output device
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800103 - Operation not permit at current state.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 12
+     */
+    setDefaultOutputDevice(deviceType: DeviceType): Promise<void>;
+
+    /**
      * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
      * triggered when audio playback is interrupted.
      * @param { 'audioInterrupt' } type - Type of the event to listen for. Only the audioInterrupt event is supported.
