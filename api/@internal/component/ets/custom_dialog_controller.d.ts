@@ -466,6 +466,18 @@ declare interface CustomDialogControllerOptions {
    * @since 12
    */
   backgroundBlurStyle?: BlurStyle;
+
+  /**
+   * Defines the customDialog's keyboard avoid mode
+   *
+   * @type { ?KeyboardAvoidMode }
+   * @default KeyboardAvoidMode.DEFAULT
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  keyboardAvoidMode?: KeyboardAvoidMode;
 }
 
 /**
