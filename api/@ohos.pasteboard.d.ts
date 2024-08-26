@@ -368,7 +368,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 12
      */
-    EMAILADDRESS,
+    EMAIL_ADDRESS,
   }
 
 
