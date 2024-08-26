@@ -19,7 +19,7 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
-import stream from './@ohos.util.stream'
+import stream from './@ohos.util.stream';
 
 export default fileIo;
 
@@ -7536,7 +7536,7 @@ declare interface Stat {
    */
   readonly ctime: number;
   /**
-   * 
+   *
    * @type { LocationType }
    * @readonly
    * @throws { BusinessError } 13900042 - Unknown error
