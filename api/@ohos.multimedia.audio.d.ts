@@ -7419,8 +7419,8 @@ declare namespace audio {
      * Temporarily changes the current audio device
      * This function applys on audiorenderers whose StreamUsage are
      * STREAM_USAGE_VOICE_COMMUNICATIN/STREAM_USAGE_VIDEO_COMMUNICATION/STREAM_USAGE_VOICE_MESSAGE.
-     * Setting the device will ony takes effect if no other accessory such as headphoes are in use
-     * @param { DeviceType } devicetype - the available deviceTypes are
+     * Setting the device will only takes effect if no other accessory such as headphones are in use
+     * @param { DeviceType } deviceType - the available deviceTypes are
      *                                    EARPIECE: Built-in earpiece
      *                                    SPEAKER: Built-in speaker
      *                                    DEFAULT: System default output device
@@ -7433,7 +7433,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 12
      */
-    setDefaultOutputDevice(deviceType: DeviceType): Promise<void>
+    setDefaultOutputDevice(deviceType: DeviceType): Promise<void>;
 
     /**
      * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
