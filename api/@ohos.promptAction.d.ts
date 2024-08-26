@@ -856,6 +856,18 @@ declare namespace promptAction {
      * @since 12
      */
     onWillDisappear?: () => void;
+
+    /**
+     * Defines the customDialog's keyboard avoid mode
+     *
+     * @type { ?KeyboardAvoidMode }
+     * @default KeyboardAvoidMode.DEFAULT
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    keyboardAvoidMode?: KeyboardAvoidMode;
   }
 
   /**
