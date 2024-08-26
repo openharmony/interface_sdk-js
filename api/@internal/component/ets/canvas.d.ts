@@ -1242,14 +1242,14 @@ declare interface CanvasPattern {
   /**
    * Adds the matrix transformation effect to the current template.
    *
-   * @param { Matrix2D } transform - transformation matrix
+   * @param { Matrix2D } transform - transformation matrix. The default value is null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Adds the matrix transformation effect to the current template.
    *
-   * @param { Matrix2D } transform - transformation matrix
+   * @param { Matrix2D } transform - transformation matrix. The default value is null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -1257,7 +1257,7 @@ declare interface CanvasPattern {
   /**
    * Adds the matrix transformation effect to the current template.
    *
-   * @param { Matrix2D } transform - transformation matrix
+   * @param { Matrix2D } transform - transformation matrix. The default value is null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1266,7 +1266,7 @@ declare interface CanvasPattern {
   /**
    * Adds the matrix transformation effect to the current template.
    *
-   * @param { Matrix2D } transform - transformation matrix
+   * @param { Matrix2D } transform - transformation matrix. The default value is null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -2387,26 +2387,29 @@ declare class RenderingContextSettings {
 declare class CanvasRenderer extends CanvasPath {
   /**
    * Transparency. The value ranges from 0.0 (completely transparent) to 1.0 (completely opaque).
-   *    The default value is 1.0. If the value is out of range, the assignment is invalid.
+   *    If the value is out of range, the assignment is invalid.
    *
    * @type { number }
+   * @default 1.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Transparency. The value ranges from 0.0 (completely transparent) to 1.0 (completely opaque).
-   *    The default value is 1.0. If the value is out of range, the assignment is invalid.
+   *    If the value is out of range, the assignment is invalid.
    *
    * @type { number }
+   * @default 1.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
    * Transparency. The value ranges from 0.0 (completely transparent) to 1.0 (completely opaque).
-   *    The default value is 1.0. If the value is out of range, the assignment is invalid.
+   *    If the value is out of range, the assignment is invalid.
    *
    * @type { number }
+   * @default 1.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -2414,9 +2417,10 @@ declare class CanvasRenderer extends CanvasPath {
    */
   /**
    * Transparency. The value ranges from 0.0 (completely transparent) to 1.0 (completely opaque).
-   *    The default value is 1.0. If the value is out of range, the assignment is invalid.
+   *    If the value is out of range, the assignment is invalid.
    *
    * @type { number }
+   * @default 1.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -2443,6 +2447,7 @@ declare class CanvasRenderer extends CanvasPath {
    * xor: In the image, those overlaps and other places outside of the normal drawing are transparent.
    *
    * @type { string }
+   * @default source-over
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -2464,6 +2469,7 @@ declare class CanvasRenderer extends CanvasPath {
    * xor: In the image, those overlaps and other places outside of the normal drawing are transparent.
    *
    * @type { string }
+   * @default source-over
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -2486,6 +2492,7 @@ declare class CanvasRenderer extends CanvasPath {
    * xor: In the image, those overlaps and other places outside of the normal drawing are transparent.
    *
    * @type { string }
+   * @default source-over
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -2509,6 +2516,7 @@ declare class CanvasRenderer extends CanvasPath {
    * xor: In the image, those overlaps and other places outside of the normal drawing are transparent.
    *
    * @type { string }
+   * @default source-over
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -2944,47 +2952,51 @@ declare class CanvasRenderer extends CanvasPath {
   stroke(path: Path2D): void;
 
   /**
-   * Attributes that describe the fill color and style. The default value is # 000 (black). The options are as follows:
+   * Attributes that describe the fill color and style. The options are as follows:
    * color: Color String
    * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
    *
    * @type { string | CanvasGradient | CanvasPattern }
+   * @default #000000 (black)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Attributes that describe the fill color and style. The default value is # 000 (black). The options are as follows:
+   * Attributes that describe the fill color and style. The options are as follows:
    * color: Color String
    * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
    *
    * @type { string | CanvasGradient | CanvasPattern }
+   * @default #000000 (black)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Attributes that describe the fill color and style. The default value is # 000 (black). The options are as follows:
+   * Attributes that describe the fill color and style. The options are as follows:
    *
    * @type { string | number | CanvasGradient | CanvasPattern }
    * string: Color String.
    * number: Indicates the color with number.
    * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
+   * @default #000000 (black)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @since 10
    */
   /**
-   * Attributes that describe the fill color and style. The default value is # 000 (black). The options are as follows:
+   * Attributes that describe the fill color and style. The options are as follows:
    *
    * @type { string | number | CanvasGradient | CanvasPattern }
    * string: Color String.
    * number: Indicates the color with number.
    * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
+   * @default #000000 (black)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -2994,47 +3006,51 @@ declare class CanvasRenderer extends CanvasPath {
   fillStyle: string | number | CanvasGradient | CanvasPattern;
 
   /**
-   * Attributes of the stroke color and style. The default value is # 000 (black). The options are as follows:
+   * Attributes of the stroke color and style. The options are as follows:
    * color: Color String
    * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
    *
    * @type { string | CanvasGradient | CanvasPattern }
+   * @default #000000 (black)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Attributes of the stroke color and style. The default value is # 000 (black). The options are as follows:
+   * Attributes of the stroke color and style. The options are as follows:
    * color: Color String
    * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
    *
    * @type { string | CanvasGradient | CanvasPattern }
+   * @default #000000 (black)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Attributes of the stroke color and style. The default value is # 000 (black). The options are as follows:
+   * Attributes of the stroke color and style. The options are as follows:
    *
    * @type { string | number | CanvasGradient | CanvasPattern }
    * string: Color String.
    * number: Indicates the color with number.
    * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
+   * @default #000000 (black)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @since 10
    */
   /**
-   * Attributes of the stroke color and style. The default value is # 000 (black). The options are as follows:
+   * Attributes of the stroke color and style. The options are as follows:
    *
    * @type { string | number | CanvasGradient | CanvasPattern }
    * string: Color String.
    * number: Indicates the color with number.
    * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
+   * @default #000000 (black)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -3270,6 +3286,7 @@ declare class CanvasRenderer extends CanvasPath {
    * none: Turn off filter effects
    *
    * @type { string }
+   * @default none
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -3293,6 +3310,7 @@ declare class CanvasRenderer extends CanvasPath {
    * none: Turn off filter effects
    *
    * @type { string }
+   * @default none
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -3317,6 +3335,7 @@ declare class CanvasRenderer extends CanvasPath {
    * none: Turn off filter effects
    *
    * @type { string }
+   * @default none
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -3342,6 +3361,7 @@ declare class CanvasRenderer extends CanvasPath {
    * none: Turn off filter effects
    *
    * @type { string }
+   * @default none
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -3657,37 +3677,41 @@ declare class CanvasRenderer extends CanvasPath {
   ): void;
 
   /**
-   * Specifies whether to smooth the image. The value true indicates that the image is smooth (default value).
+   * Specifies whether to smooth the image. The value true indicates that the image is smooth.
    *    The value false indicates that the image is not smooth.
    *
    * @type { boolean }
+   * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Specifies whether to smooth the image. The value true indicates that the image is smooth (default value).
+   * Specifies whether to smooth the image. The value true indicates that the image is smooth.
    *    The value false indicates that the image is not smooth.
    *
    * @type { boolean }
+   * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Specifies whether to smooth the image. The value true indicates that the image is smooth (default value).
+   * Specifies whether to smooth the image. The value true indicates that the image is smooth.
    *    The value false indicates that the image is not smooth.
    *
    * @type { boolean }
+   * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @since 10
    */
   /**
-   * Specifies whether to smooth the image. The value true indicates that the image is smooth (default value).
+   * Specifies whether to smooth the image. The value true indicates that the image is smooth.
    *    The value false indicates that the image is not smooth.
    *
    * @type { boolean }
+   * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -3700,6 +3724,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Smoothness level of the current image. For details, see {@link ImageSmoothingQuality}.
    *
    * @type { ImageSmoothingQuality }
+   * @default low
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -3707,6 +3732,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Smoothness level of the current image. For details, see {@link ImageSmoothingQuality}.
    *
    * @type { ImageSmoothingQuality }
+   * @default low
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -3715,6 +3741,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Smoothness level of the current image. For details, see {@link ImageSmoothingQuality}.
    *
    * @type { ImageSmoothingQuality }
+   * @default low
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -3724,6 +3751,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Smoothness level of the current image. For details, see {@link ImageSmoothingQuality}.
    *
    * @type { ImageSmoothingQuality }
+   * @default low
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -3736,6 +3764,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Line segment endpoint attribute. For details, see {@link CanvasLineCap}.
    *
    * @type { CanvasLineCap }
+   * @default butt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -3743,6 +3772,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Line segment endpoint attribute. For details, see {@link CanvasLineCap}.
    *
    * @type { CanvasLineCap }
+   * @default butt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -3751,6 +3781,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Line segment endpoint attribute. For details, see {@link CanvasLineCap}.
    *
    * @type { CanvasLineCap }
+   * @default butt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -3760,6 +3791,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Line segment endpoint attribute. For details, see {@link CanvasLineCap}.
    *
    * @type { CanvasLineCap }
+   * @default butt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -3769,33 +3801,37 @@ declare class CanvasRenderer extends CanvasPath {
   lineCap: CanvasLineCap;
 
   /**
-   * Dotted line offset attribute. The default value is 0.0.
+   * Dotted line offset attribute.
    *
    * @type { number }
+   * @default 0.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Dotted line offset attribute. The default value is 0.0.
+   * Dotted line offset attribute.
    *
    * @type { number }
+   * @default 0.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Dotted line offset attribute. The default value is 0.0.
+   * Dotted line offset attribute.
    *
    * @type { number }
+   * @default 0.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @since 10
    */
   /**
-   * Dotted line offset attribute. The default value is 0.0.
+   * Dotted line offset attribute.
    *
    * @type { number }
+   * @default 0.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -3808,6 +3844,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Line segment connection point attribute. For details, see {@link CanvasLineJoin}.
    *
    * @type { CanvasLineJoin }
+   * @default miter
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -3815,6 +3852,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Line segment connection point attribute. For details, see {@link CanvasLineJoin}.
    *
    * @type { CanvasLineJoin }
+   * @default miter
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -3823,6 +3861,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Line segment connection point attribute. For details, see {@link CanvasLineJoin}.
    *
    * @type { CanvasLineJoin }
+   * @default miter
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -3832,6 +3871,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Line segment connection point attribute. For details, see {@link CanvasLineJoin}.
    *
    * @type { CanvasLineJoin }
+   * @default miter
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -3844,6 +3884,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Line thickness attribute. The value cannot be 0 or a negative number.
    *
    * @type { number }
+   * @default 1(px)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -3851,6 +3892,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Line thickness attribute. The value cannot be 0 or a negative number.
    *
    * @type { number }
+   * @default 1(px)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -3859,6 +3901,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Line thickness attribute. The value cannot be 0 or a negative number.
    *
    * @type { number }
+   * @default 1(px)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -3868,6 +3911,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Line thickness attribute. The value cannot be 0 or a negative number.
    *
    * @type { number }
+   * @default 1(px)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -3880,6 +3924,7 @@ declare class CanvasRenderer extends CanvasPath {
    * The value of this parameter cannot be 0 or a negative number.
    *
    * @type { number }
+   * @default 10(px)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -3887,6 +3932,7 @@ declare class CanvasRenderer extends CanvasPath {
    * The value of this parameter cannot be 0 or a negative number.
    *
    * @type { number }
+   * @default 10(px)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -3895,6 +3941,7 @@ declare class CanvasRenderer extends CanvasPath {
    * The value of this parameter cannot be 0 or a negative number.
    *
    * @type { number }
+   * @default 10(px)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -3904,6 +3951,7 @@ declare class CanvasRenderer extends CanvasPath {
    * The value of this parameter cannot be 0 or a negative number.
    *
    * @type { number }
+   * @default 10(px)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -4133,33 +4181,37 @@ declare class CanvasRenderer extends CanvasPath {
   strokeRect(x: number, y: number, w: number, h: number): void;
 
   /**
-   * Shadow blur radius. The default value is 0. The value cannot be a negative number.
+   * Shadow blur radius. The value cannot be a negative number.
    *
    * @type { number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Shadow blur radius. The default value is 0. The value cannot be a negative number.
+   * Shadow blur radius. The value cannot be a negative number.
    *
    * @type { number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Shadow blur radius. The default value is 0. The value cannot be a negative number.
+   * Shadow blur radius. The value cannot be a negative number.
    *
    * @type { number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @since 10
    */
   /**
-   * Shadow blur radius. The default value is 0. The value cannot be a negative number.
+   * Shadow blur radius. The value cannot be a negative number.
    *
    * @type { number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -4169,33 +4221,37 @@ declare class CanvasRenderer extends CanvasPath {
   shadowBlur: number;
 
   /**
-   * Shadow color. The default value is transparent black.
+   * Shadow color.
    *
    * @type { string }
+   * @default transparent black
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Shadow color. The default value is transparent black.
+   * Shadow color.
    *
    * @type { string }
+   * @default transparent black
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Shadow color. The default value is transparent black.
+   * Shadow color.
    *
    * @type { string }
+   * @default transparent black
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @since 10
    */
   /**
-   * Shadow color. The default value is transparent black.
+   * Shadow color.
    *
    * @type { string }
+   * @default transparent black
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -4205,33 +4261,37 @@ declare class CanvasRenderer extends CanvasPath {
   shadowColor: string;
 
   /**
-   * Horizontal offset distance of the shadow. The default value is 0.
+   * Horizontal offset distance of the shadow.
    *
    * @type { number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Horizontal offset distance of the shadow. The default value is 0.
+   * Horizontal offset distance of the shadow.
    *
    * @type { number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Horizontal offset distance of the shadow. The default value is 0.
+   * Horizontal offset distance of the shadow.
    *
    * @type { number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @since 10
    */
   /**
-   * Horizontal offset distance of the shadow. The default value is 0.
+   * Horizontal offset distance of the shadow.
    *
    * @type { number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -4241,33 +4301,37 @@ declare class CanvasRenderer extends CanvasPath {
   shadowOffsetX: number;
 
   /**
-   * Vertical offset distance of the shadow. The default value is 0.
+   * Vertical offset distance of the shadow.
    *
    * @type { number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Vertical offset distance of the shadow. The default value is 0.
+   * Vertical offset distance of the shadow.
    *
    * @type { number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Vertical offset distance of the shadow. The default value is 0.
+   * Vertical offset distance of the shadow.
    *
    * @type { number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @since 10
    */
   /**
-   * Vertical offset distance of the shadow. The default value is 0.
+   * Vertical offset distance of the shadow.
    *
    * @type { number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -4480,6 +4544,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Text drawing direction. For details, see {@link CanvasDirection}.
    *
    * @type { CanvasDirection }
+   * @default inherit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -4487,6 +4552,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Text drawing direction. For details, see {@link CanvasDirection}.
    *
    * @type { CanvasDirection }
+   * @default inherit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -4495,6 +4561,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Text drawing direction. For details, see {@link CanvasDirection}.
    *
    * @type { CanvasDirection }
+   * @default inherit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -4504,6 +4571,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Text drawing direction. For details, see {@link CanvasDirection}.
    *
    * @type { CanvasDirection }
+   * @default inherit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -4513,33 +4581,37 @@ declare class CanvasRenderer extends CanvasPath {
   direction: CanvasDirection;
 
   /**
-   * Font style. The default value is 14px sans-serif.
+   * Font style.
    *
    * @type { string }
+   * @default normal normal 14px sans-serif
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Font style. The default value is 14px sans-serif.
+   * Font style.
    *
    * @type { string }
+   * @default normal normal 14px sans-serif
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Font style. The default value is 14px sans-serif.
+   * Font style.
    *
    * @type { string }
+   * @default normal normal 14px sans-serif
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @since 10
    */
   /**
-   * Font style. The default value is 14px sans-serif.
+   * Font style.
    *
    * @type { string }
+   * @default normal normal 14px sans-serif
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -4552,6 +4624,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Text alignment mode. For details, see {@link CanvasTextAlign}.
    *
    * @type { CanvasTextAlign }
+   * @default start
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -4559,6 +4632,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Text alignment mode. For details, see {@link CanvasTextAlign}.
    *
    * @type { CanvasTextAlign }
+   * @default start
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -4567,6 +4641,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Text alignment mode. For details, see {@link CanvasTextAlign}.
    *
    * @type { CanvasTextAlign }
+   * @default start
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -4576,6 +4651,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Text alignment mode. For details, see {@link CanvasTextAlign}.
    *
    * @type { CanvasTextAlign }
+   * @default start
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -4588,6 +4664,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Text baseline. For details, see {@link CanvasTextBaseline}.
    *
    * @type { CanvasTextBaseline }
+   * @default alphabetic
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -4595,6 +4672,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Text baseline. For details, see {@link CanvasTextBaseline}.
    *
    * @type { CanvasTextBaseline }
+   * @default alphabetic
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -4603,6 +4681,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Text baseline. For details, see {@link CanvasTextBaseline}.
    *
    * @type { CanvasTextBaseline }
+   * @default alphabetic
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -4612,6 +4691,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Text baseline. For details, see {@link CanvasTextBaseline}.
    *
    * @type { CanvasTextBaseline }
+   * @default alphabetic
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -5953,7 +6033,7 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
   /**
    * Enable image analyzer for Canvas.
    *
-   * @param { boolean } enable
+   * @param { boolean } enable - If enable image analyzer for Canvas. The default value is false.
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
