@@ -7106,13 +7106,6 @@ declare namespace media {
      * @since 12
      */
     SEEK_CLOSEST = 2,
-    /**
-     * Seek in continuous mode.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @systemapi
-     * @since 12
-     */
-    SEEK_CONTINUOUS = 3,
   }
 
   /**
