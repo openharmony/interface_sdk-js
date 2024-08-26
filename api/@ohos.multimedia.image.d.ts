@@ -2703,14 +2703,14 @@ declare namespace image {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 13
+   * @since 12
    */
   enum HdrMetadataKey {
     /**
      * Indicate the types of metadata that image needs to use.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 12
      */
     HDR_METADATA_TYPE = 0,
 
@@ -2718,7 +2718,7 @@ declare namespace image {
      * Static metadata key.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 12
      */
     HDR_STATIC_METADATA = 1,
 
@@ -2726,7 +2726,7 @@ declare namespace image {
      * Dynamic metadata key.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 12
      */
     HDR_DYNAMIC_METADATA = 2,
 
@@ -2734,7 +2734,7 @@ declare namespace image {
      * Gainmap metadata key.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 12
      */
     HDR_GAINMAP_METADATA = 3,
   }
@@ -2744,14 +2744,14 @@ declare namespace image {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 13
+   * @since 12
    */
   enum HdrMetadataType {
     /**
      * No metadata.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 12
      */
     NONE = 0,
 
@@ -2759,7 +2759,7 @@ declare namespace image {
      * Indicates that metadata will be used for the base image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 12
      */
     BASE = 1,
 
@@ -2767,7 +2767,7 @@ declare namespace image {
      * Indicates that metadata will be used for the gainmap image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 12
      */
     GAINMAP = 2,
 
@@ -2775,7 +2775,7 @@ declare namespace image {
      * Indicates that metadata will be used for the alternate image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 12
      */
     ALTERNATE = 3,
   }
@@ -4315,7 +4315,7 @@ declare namespace image {
    *
    * @typedef HdrStaticMetadata
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 13
+   * @since 12
    */
   interface HdrStaticMetadata {
     /**
@@ -4323,7 +4323,7 @@ declare namespace image {
      *
      * @type { Array<number> }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 12
      */
     displayPrimariesX: Array<number>;
 
@@ -4332,7 +4332,7 @@ declare namespace image {
      *
      * @type { Array<number> }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 12
      */
     displayPrimariesY: Array<number>;
 
@@ -4341,7 +4341,7 @@ declare namespace image {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 12
      */
     whitePointX: number;
 
@@ -4350,7 +4350,7 @@ declare namespace image {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 12
      */
     whitePointY: number;
 
@@ -4359,7 +4359,7 @@ declare namespace image {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 12
      */
     maxLuminance: number;
 
@@ -4368,7 +4368,7 @@ declare namespace image {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 12
      */
     minLuminance: number;
 
@@ -4377,7 +4377,7 @@ declare namespace image {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 12
      */
     maxContentLightLevel: number;
 
@@ -4386,7 +4386,7 @@ declare namespace image {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 12
      */
     maxFrameAverageLightLevel: number;
   }
@@ -4396,7 +4396,7 @@ declare namespace image {
    *
    * @typedef GainmapChannel
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 13
+   * @since 12
    */
   interface GainmapChannel {
     /**
@@ -4404,7 +4404,7 @@ declare namespace image {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 12
      */
     gainmapMax: number;
 
@@ -4413,7 +4413,7 @@ declare namespace image {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 12
      */
     gainmapMin: number;
 
@@ -4422,7 +4422,7 @@ declare namespace image {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 12
      */
     gamma: number;
 
@@ -4431,7 +4431,7 @@ declare namespace image {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 12
      */
     baseOffset: number;
 
@@ -4440,7 +4440,7 @@ declare namespace image {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 12
      */
     alternateOffset: number;
   }
@@ -4450,7 +4450,7 @@ declare namespace image {
    *
    * @typedef HdrGainmapMetadata
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 13
+   * @since 12
    */
   interface HdrGainmapMetadata {
     /**
@@ -4458,7 +4458,7 @@ declare namespace image {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 12
      */
     writerVersion: number;
 
@@ -4467,7 +4467,7 @@ declare namespace image {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 12
      */
     miniVersion: number;
 
@@ -4476,7 +4476,7 @@ declare namespace image {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 12
      */
     gainmapChannelCount: number;
 
@@ -4485,7 +4485,7 @@ declare namespace image {
      *
      * @type { boolean }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 12
      */
     useBaseColorFlag: boolean;
 
@@ -4494,7 +4494,7 @@ declare namespace image {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 12
      */    
     baseHeadroom: number;
 
@@ -4503,7 +4503,7 @@ declare namespace image {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 12
      */
     alternateHeadroom: number;
 
@@ -4512,7 +4512,7 @@ declare namespace image {
      *
      * @type { Array<GainmapChannel> }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13
+     * @since 12
      */
     channels: Array<GainmapChannel>;
   }
