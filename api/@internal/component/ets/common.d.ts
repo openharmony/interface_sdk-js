@@ -13331,13 +13331,13 @@ declare interface ContextMenuOptions {
   /**
    * Defines the border radius of menu.
    *
-   * @type { ?(Length | BorderRadiuses) }
+   * @type { ?(Length | BorderRadiuses | LocalizedBorderRadiuses) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  borderRadius?: Length | BorderRadiuses;
+  borderRadius?: Length | BorderRadiuses | LocalizedBorderRadiuses;
 
   /**
    * Callback function when the context menu appears.
