@@ -356,19 +356,19 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 13
      */
-    URL,
+    URL = 0,
     /**
      * Number pattern.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 13
      */
-    NUMBER,
+    NUMBER = 1,
     /**
      * Email address pattern.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 13
      */
-    EMAIL_ADDRESS,
+    EMAIL_ADDRESS = 2,
   }
 
 
