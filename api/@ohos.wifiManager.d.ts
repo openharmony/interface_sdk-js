@@ -266,6 +266,7 @@ declare namespace wifiManager {
    *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
+   * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -283,6 +284,7 @@ declare namespace wifiManager {
    *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
+   * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -293,6 +295,7 @@ declare namespace wifiManager {
   * Add a specified candidate hotspot configuration and returns the networkId.
   * This method adds one configuration at a time. After this configuration is added,
   *     your device will determine whether to connect to the hotspot.
+  * The app must be in the foreground.
   * @permission ohos.permission.SET_WIFI_INFO
   * @param { WifiDeviceConfig } config - candidate config.
   * @returns { Promise<number> } Returns {@code networkId} if the configuration is added; returns {@code -1} otherwise.
@@ -309,6 +312,7 @@ declare namespace wifiManager {
   * Add a specified candidate hotspot configuration and returns the networkId.
   * This method adds one configuration at a time. After this configuration is added,
   *     your device will determine whether to connect to the hotspot.
+  * The app must be in the foreground.
   * @permission ohos.permission.SET_WIFI_INFO
   * @param { WifiDeviceConfig } config - candidate config.
   * @returns { Promise<number> } Returns {@code networkId} if the configuration is added; returns {@code -1} otherwise.
@@ -327,6 +331,7 @@ declare namespace wifiManager {
   * Add a specified candidate hotspot configuration and returns the networkId.
   * This method adds one configuration at a time. After this configuration is added,
   *     your device will determine whether to connect to the hotspot.
+  * The app must be in the foreground.
   * @permission ohos.permission.SET_WIFI_INFO
   * @param { WifiDeviceConfig } config - candidate config.
   * @param { AsyncCallback<number> } callback - Indicates call back of addCandidateConfig.
@@ -343,6 +348,7 @@ declare namespace wifiManager {
   * Add a specified candidate hotspot configuration and returns the networkId.
   * This method adds one configuration at a time. After this configuration is added,
   *     your device will determine whether to connect to the hotspot.
+  * The app must be in the foreground.
   * @permission ohos.permission.SET_WIFI_INFO
   * @param { WifiDeviceConfig } config - candidate config.
   * @param { AsyncCallback<number> } callback - Indicates call back of addCandidateConfig.
@@ -360,6 +366,7 @@ declare namespace wifiManager {
   /**
    * Remove a specified candidate hotspot configuration, only the configuration which is added by ourself is allowed
    * to be removed.
+   * The app must be in the foreground.
    * @permission ohos.permission.SET_WIFI_INFO
    * @param { number } networkId - Network ID which will be removed.
    * @returns { Promise<void> } Return results.
@@ -368,6 +375,7 @@ declare namespace wifiManager {
    *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
+   * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    */
@@ -375,6 +383,7 @@ declare namespace wifiManager {
   /**
    * Remove a specified candidate hotspot configuration, only the configuration which is added by ourself is allowed
    * to be removed.
+   * The app must be in the foreground.
    * @permission ohos.permission.SET_WIFI_INFO
    * @param { number } networkId - Network ID which will be removed.
    * @returns { Promise<void> } Return results.
@@ -383,6 +392,7 @@ declare namespace wifiManager {
    *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
+   * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @atomicservice
    * @since 12
@@ -392,6 +402,7 @@ declare namespace wifiManager {
   /**
    * Remove a specified candidate hotspot configuration, only the configuration which is added by ourself is allowed
    * to be removed.
+   * The app must be in the foreground
    * @permission ohos.permission.SET_WIFI_INFO
    * @param { number } networkId - Network ID which will be removed.
    * @param { AsyncCallback<void> } callback - Indicates call back of removeCandidateConfig.
@@ -400,6 +411,7 @@ declare namespace wifiManager {
    *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
+   * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    */
@@ -407,6 +419,7 @@ declare namespace wifiManager {
   /**
    * Remove a specified candidate hotspot configuration, only the configuration which is added by ourself is allowed
    * to be removed.
+   * The app must be in the foreground.
    * @permission ohos.permission.SET_WIFI_INFO
    * @param { number } networkId - Network ID which will be removed.
    * @param { AsyncCallback<void> } callback - Indicates call back of removeCandidateConfig.
@@ -415,6 +428,7 @@ declare namespace wifiManager {
    *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
+   * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @atomicservice
    * @since 12
@@ -461,6 +475,7 @@ declare namespace wifiManager {
   /**
    * Connect to a specified candidate hotspot by networkId, only the configuration which is added by ourself
    * is allowed to be connected. This method connect to a configuration at a time.
+   * The app must be in the foreground.
    * @permission ohos.permission.SET_WIFI_INFO
    * @param { number } networkId - Network ID which will be connected. The value of networkId cannot be less than 0.
    * @throws {BusinessError} 201 - Permission denied.
@@ -468,7 +483,7 @@ declare namespace wifiManager {
    *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
-   * @throws {BusinessError} 2501001 - Wifi is closed.
+   * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    */
@@ -476,6 +491,7 @@ declare namespace wifiManager {
   /**
    * Connect to a specified candidate hotspot by networkId, only the configuration which is added by ourself
    * is allowed to be connected. This method connect to a configuration at a time.
+   * The app must be in the foreground.
    * @permission ohos.permission.SET_WIFI_INFO
    * @param { number } networkId - Network ID which will be connected. The value of networkId cannot be less than 0.
    * @throws {BusinessError} 201 - Permission denied.
@@ -483,7 +499,7 @@ declare namespace wifiManager {
    *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
-   * @throws {BusinessError} 2501001 - Wifi is closed.
+   * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @atomicservice
    * @since 12
@@ -500,7 +516,7 @@ declare namespace wifiManager {
    *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
-   * @throws {BusinessError} 2501001 - Wifi is closed.
+   * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -518,7 +534,7 @@ declare namespace wifiManager {
    *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
-   * @throws {BusinessError} 2501001 - Wifi is closed.
+   * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -532,6 +548,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
+   * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -555,7 +572,7 @@ declare namespace wifiManager {
   function getSignalLevel(rssi: number, band: number): number;
 
   /**
-   * Obtain connection information about the Wi-Fi connection.
+   * Obtain connection information about the Wi-Fi connection. If does't have the permission of ohos.permission.GET_WIFI_PEERS_MAC, return random bssid.
    * @permission ohos.permission.GET_WIFI_INFO
    * @returns { Promise<WifiLinkedInfo> } Returns Wi-Fi linked information.
    * @throws {BusinessError} 201 - Permission denied.
@@ -567,7 +584,7 @@ declare namespace wifiManager {
    */
 
   /**
-   * Obtain connection information about the Wi-Fi connection.
+   * Obtain connection information about the Wi-Fi connection. If does't have the permission of ohos.permission.GET_WIFI_PEERS_MAC, return random bssid.
    * @permission ohos.permission.GET_WIFI_INFO
    * @returns { Promise<WifiLinkedInfo> } Returns Wi-Fi linked information.
    * @throws {BusinessError} 201 - Permission denied.
@@ -674,7 +691,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
-   * @throws {BusinessError} 2501001 - Wifi is closed.
+   * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -726,7 +743,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
-   * @throws {BusinessError} 2501001 - Wifi is closed.
+   * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -740,7 +757,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
-   * @throws {BusinessError} 2501001 - Wifi is closed.
+   * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -785,6 +802,7 @@ declare namespace wifiManager {
    *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
+   * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -802,6 +820,7 @@ declare namespace wifiManager {
    *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
+   * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -815,6 +834,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
+   * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -834,6 +854,7 @@ declare namespace wifiManager {
    *     2. Incorrect parameter types. 3.Parameter verification failed. 
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
+   * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -887,6 +908,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
+   * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -900,6 +922,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
+   * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 11
    */
@@ -917,6 +940,7 @@ declare namespace wifiManager {
    *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
+   * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 12
@@ -1084,8 +1108,8 @@ declare namespace wifiManager {
    */
   function delHotspotBlockList(stationInfo: StationInfo);
 
-    /**
-   * Get all the stations in the block list.
+  /**
+   * Get all the stations in the block list. If does't have the permission of ohos.permission.GET_WIFI_PEERS_MAC, return random bssid.
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.MANAGE_WIFI_HOTSPOT
    * @returns { Array<StationInfo> } stations in the block list.
    * @throws {BusinessError} 201 - Permission denied.
@@ -1118,6 +1142,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - P2P module error.
+   * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
@@ -1196,6 +1221,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - P2P module error.
+   * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
@@ -1206,6 +1232,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - P2P module error.
+   * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 10
    */
@@ -1246,6 +1273,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - P2P module error.
+   * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
@@ -1258,6 +1286,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - P2P module error.
+   * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 11
    */
@@ -1272,6 +1301,7 @@ declare namespace wifiManager {
    *     2.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
+   * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
@@ -1283,6 +1313,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
+   * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
@@ -1296,6 +1327,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 401 - Invalid parameters.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
+   * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
@@ -1308,6 +1340,7 @@ declare namespace wifiManager {
    *     2.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
+   * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 10
    */
@@ -1319,6 +1352,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
+   * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
@@ -1330,6 +1364,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
+   * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
@@ -1339,6 +1374,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
+   * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 10
    */
@@ -1350,6 +1386,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
+   * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 9
    */
@@ -1364,6 +1401,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1.Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
+   * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -1404,6 +1442,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - P2P module error.
+   * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -1416,6 +1455,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - P2P module error.
+   * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -1432,6 +1472,7 @@ declare namespace wifiManager {
    *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
+   * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @systemapi Hide this for inner system use.
    * @since 9
