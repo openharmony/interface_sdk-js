@@ -4009,6 +4009,20 @@ declare namespace photoAccessHelper {
      */
     createAssetsForApp(bundleName: string, appName: string, appId: string, photoCreationConfigs: Array<PhotoCreationConfig>): Promise<Array<string>>;
     /**
+     * Create asset and grant short term permission to the application.
+     *
+     * @permission ohos.permission.SHORT_TERM_WRITE_IMAGEVIDEO
+     * @param { PhotoCreationConfig } photoCreationConfig - photo asset creation configs
+     * @returns { Promise<string> } - Returns the media library file uri to application which has been authorized
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    createAssetWithShortTermPermission(photoCreationConfig: PhotoCreationConfig): Promise<string>;
+    /**
      * Get the index of the asset in the album
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
