@@ -6407,7 +6407,7 @@ declare function connectDfs(networkId: string, listeners: DfsListeners): Promise
  * @throws { BusinessError } 201 - Permission denied.
  * @throws { BusinessError } 401 - The parameter check failed.Possible causes:1.Mandatory parameters are left unspecified;
  * <br>2.Incorrect parameter types.
- * @throws { BusinessError } 13600004 - Failed to unmount.
+ * @throws { BusinessError } 13600004 - Unmount failed.
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
@@ -6646,7 +6646,7 @@ declare interface File {
    * @readonly
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
-   * @throws { BusinessError } 14300002 - Invalid uri
+   * @throws { BusinessError } 14300002 - Invalid URI
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
    */
@@ -6670,7 +6670,7 @@ declare interface File {
    * @returns { string } Return the parent path of file.
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
-   * @throws { BusinessError } 14300002 - Invalid uri
+   * @throws { BusinessError } 14300002 - Invalid URI
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
    */
