@@ -401,10 +401,6 @@ export const apiLegalityCheckTypeMap: Map<ts.SyntaxKind, string[]> = new Map([
  */
 export let compositiveResult: ApiResultSimpleInfo[] = [];
 
-export function cleanCompositiveResult() {
-  compositiveResult = [];
-}
-
 /**
  * An array of local error messages
  */
@@ -412,8 +408,12 @@ export const compositiveLocalResult: ApiResultInfo[] = [];
 
 export let apiCheckResult: ApiResultMessage[] = [];
 
+export let hierarchicalRelationsSet: Set<string> = new Set();
+
 export function cleanApiCheckResult() {
   apiCheckResult = [];
+  compositiveResult = [];
+  hierarchicalRelationsSet = new Set();
 }
 
 export const punctuationMarkSet: Set<string> = new Set(['\\{', '\\}', '\\(', '\\)', '\\[', '\\]', '\\@', '\\.', '\\:',

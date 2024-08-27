@@ -27,7 +27,7 @@ import { Check } from '../../src/coreImpl/checker/src/api_check_plugin';
 import { apiCheckResult, cleanApiCheckResult, compositiveResult } from '../../src/utils/checkUtils';
 import { LocalEntry } from '../../src/coreImpl/checker/local_entry';
 import { ApiChangeCheck } from '../../src/coreImpl/checker/src/check_api_diff';
-import { ApiResultMessage } from '../../src/typedef/checker/result_type';
+import { ApiResultMessage, checkEntryType } from '../../src/typedef/checker/result_type';
 const utDir: string = 'test/ut';
 const outputDir: string = 'test/output';
 const expectDir: string = 'test/expect';
@@ -161,7 +161,6 @@ describe('testApiCheck', function () {
   const outputFileDir: string = path.join(FileUtils.getBaseDirName(), outputDir, 'apiCheck');
   const expectFileDir: string = path.join(FileUtils.getBaseDirName(), expectDir, 'apiCheck');
   const testFileNames: string[] = fs.readdirSync(testFileDir);
-
   testFileNames.forEach((testFileName: string) => {
     const baseName: string = path
       .basename(testFileName)
@@ -174,8 +173,7 @@ describe('testApiCheck', function () {
       if (!fs.existsSync(outputFileDir)) {
         fs.mkdirSync(outputFileDir);
       }
-      cleanApiCheckResult();
-      Check.scanEntry([testFilePath], '', true);
+      Check.scanEntry([testFilePath], '');
       let ruleName: string = testFileName.substring(0, testFileName.indexOf('.'));
       ruleName = testFileName.indexOf('API_DEFINE_ANONYMOUS_FUNCTION') !== -1 ?
         'API_DEFINE_ANONYMOUS_FUNCTION_01' : ruleName;
@@ -236,5 +234,43 @@ describe('testApiChangeCheck', function () {
       expect(outputContent).eql(expectFileContent);
     });
   });
-});
+
+  describe('testApiCheckIncrement', function testApiCheckIncrement() {
+    const testFileDir: string = path.join(FileUtils.getBaseDirName(), '/test/ut/apiIncrement');
+    const outputFileDir: string = path.join(FileUtils.getBaseDirName(), '/test/output/apiIncrement');
+    const expectFileDir: string = path.join(FileUtils.getBaseDirName(), '/test/expect/apiIncrement');
+    const testFileNames: string[] = fs.readdirSync(testFileDir);
+
+    testFileNames.forEach((testFileName: string) => {
+      const testFilePath: string = path.join(testFileDir, testFileName);
+      const testOldFileDir: string = path.join(testFilePath, '/old');
+      const testNewFileDir: string = path.join(testFilePath, '/new');
+      const baseName: string = path
+        .basename(testFileName)
+        .replace(/.d.ts/g, '')
+        .replace(/.d.ets/g, '');
+      const outputFilePath: string = path.join(outputFileDir, `${baseName}.json`);
+      const expectFilePath: string = path.join(expectFileDir, `${baseName}.json`);
+      it('\ntestFile#' + testFilePath + '\noutput:' + outputFilePath + '\nexpect:' + expectFilePath, function () {
+        if (!fs.existsSync(outputFileDir)) {
+          fs.mkdirSync(outputFileDir);
+        }
+        cleanApiCheckResult();
+        const files: Array<string> = FileUtils.readFilesInDir(testNewFileDir);
+        const checkParam: checkEntryType = {
+          filePathArr: files,
+          fileRuleArr: ['all'],
+          output: './result.json',
+          prId: testFilePath,
+          isOutExcel: 'true',
+          isIncrement: true,
+        };
+        LocalEntry.checkEntryLocal(checkParam);
+        const outputContent: string = JSON.stringify(apiCheckResult, null, 2);
+        fs.writeFileSync(outputFilePath, outputContent, StringConstant.UTF8);
+        const expectFileContent: string = fs.readFileSync(expectFilePath, 'utf-8').replace(/\r\n/g, '\n');
+        expect(outputContent).eql(expectFileContent);
+      });
+    });
+  });
 
