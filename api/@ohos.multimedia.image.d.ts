@@ -3404,7 +3404,7 @@ declare namespace image {
    *
    * @typedef PackingOptionsForSequence
    * @syscap SystemCapability.Multimedia.Image.ImagePacker
-   * @since 12
+   * @since 13
    */
   interface PackingOptionsForSequence {
     /**
@@ -3412,7 +3412,7 @@ declare namespace image {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 12
+     * @since 13
      */
     frameCount: number;
 
@@ -3422,7 +3422,7 @@ declare namespace image {
      *
      * @type { Array<number> }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 12
+     * @since 13
      */
     delayTimeList: Array<number>;
 
@@ -3431,7 +3431,7 @@ declare namespace image {
      *
      * @type { ?Array<number> }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 12
+     * @since 13
      */
     disposalTypes?: Array<number>;
 
@@ -3441,7 +3441,7 @@ declare namespace image {
      *
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 12
+     * @since 13
      */
     loopCount?: number;
   }
@@ -6745,7 +6745,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *
    * @typedef Picture
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 12
+   * @since 13
    */
   interface Picture {
     /**
@@ -6753,7 +6753,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @returns { PixelMap } Returns the pixel map.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     getMainPixelmap(): PixelMap;
 
@@ -6764,7 +6764,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600901 - Unknown error.
      * @throws { BusinessError } 7600201 - Unsupported operation.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     getHdrComposedPixelmap(): Promise<PixelMap>;
 
@@ -6772,7 +6772,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains the gain map pixel map.
      * @returns { PixelMap|null } Returns the pixel map if the operation is successful; returns null otherwise.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     getGainmapPixelmap(): PixelMap|null;
 
@@ -6784,7 +6784,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     setAuxiliaryPicture(type: AuxiliaryPictureType, auxiliaryPicture: AuxiliaryPicture): void;
 
@@ -6796,7 +6796,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     getAuxiliaryPicture(type: AuxiliaryPictureType): AuxiliaryPicture|null;
 
@@ -6810,7 +6810,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: Unsupported metadata type.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     setMetadata(metadataType: MetadataType, metadata: Metadata): Promise<void>
 
@@ -6823,7 +6823,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: Unsupported metadata type.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     getMetadata(metadataType: MetadataType): Promise<Metadata>
 
@@ -6835,14 +6835,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 62980097 - IPC error.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     marshalling(sequence: rpc.MessageSequence): void
 
     /**
      * Releases this Picture object.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     release(): void
   }
@@ -6855,7 +6855,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 12
+   * @since 13
    */
   function createPicture(mainPixelmap : PixelMap): Picture;
 
@@ -6868,7 +6868,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 62980097 - IPC error.
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 12
+   * @since 13
    */
   function createPictureFromParcel(sequence: rpc.MessageSequence): Picture;
 
@@ -6882,7 +6882,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 12
+   * @since 13
    */
   function createAuxiliaryPicture(buffer: ArrayBuffer, size: Size, type: AuxiliaryPictureType): AuxiliaryPicture
 
@@ -6891,7 +6891,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *
    * @typedef AuxiliaryPicture
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 12
+   * @since 13
    */
   interface AuxiliaryPicture {
     /**
@@ -6906,7 +6906,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600301 - Memory alloc failed.
      * @throws { BusinessError } 7600302 - Memory copy failed.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     writePixelsFromBuffer(data: ArrayBuffer): Promise<void>;
 
@@ -6918,7 +6918,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600301 - Memory alloc failed.
      * @throws { BusinessError } 7600302 - Memory copy failed.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     readPixelsToBuffer(): Promise<ArrayBuffer>;
 
@@ -6927,7 +6927,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @returns { AuxiliaryPictureType } Returns the type of auxiliary picture.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     getType(): AuxiliaryPictureType;
 
@@ -6942,7 +6942,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
      * metadata type does not match the auxiliary picture type.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     setMetadata(metadataType: MetadataType, metadata: Metadata): Promise<void>
 
@@ -6956,7 +6956,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
      * metadata type does not match the auxiliary picture type.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     getMetadata(metadataType: MetadataType): Promise<Metadata>
 
@@ -6966,7 +6966,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { AuxiliaryPictureInfo } Returns the auxiliary picture information. If the operation fails, an error
      * message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     getAuxiliaryPictureInfo(): AuxiliaryPictureInfo;
 
@@ -6977,14 +6977,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     setAuxiliaryPictureInfo(info: AuxiliaryPictureInfo): void
 
     /**
      * Releases this AuxiliaryPicture object.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     release():void
   }
@@ -6994,14 +6994,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 12
+   * @since 13
    */
   enum AuxiliaryPictureType {
     /**
      * Gain map.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     GAINMAP = 1,
 
@@ -7009,7 +7009,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Depth map.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     DEPTH_MAP = 2,
 
@@ -7017,7 +7017,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Unrefocus map.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     UNREFOCUS_MAP = 3,
 
@@ -7025,7 +7025,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Linear map.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     LINEAR_MAP = 4,
 
@@ -7033,7 +7033,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Fragment map.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     FRAGMENT_MAP = 5,
   }
@@ -7043,14 +7043,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 12
+   * @since 13
    */
   enum MetadataType {
     /**
      * EXIF metadata.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     EXIF_METADATA = 1,
 
@@ -7058,7 +7058,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Fragment metadata. 
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     FRAGMENT_METADATA = 2,
   }
@@ -7068,7 +7068,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *
    * @typedef Metadata
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 12
+   * @since 13
    */
   interface Metadata {
     /**
@@ -7082,7 +7082,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
      * metadata type does not match the auxiliary picture type.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     getProperties(key: Array<string>): Promise<Record<string, string|null>>
 
@@ -7097,7 +7097,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
      * metadata type does not match the auxiliary picture type.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     setProperties(records: Record<string, string|null>): Promise<void>
 
@@ -7107,7 +7107,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @returns { Promise<Record<string, string|null>> } Array of Records instance used to return the property values.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     getAllProperties(): Promise<Record<string, string|null>>
 
@@ -7118,7 +7118,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600301 - Memory alloc failed.
      * @throws { BusinessError } 7600302 - Memory copy failed.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     clone(): Promise<Metadata>
   }
@@ -7128,14 +7128,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *
    * @enum { string }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 12
+   * @since 13
    */
   enum FragmentMapPropertyKey {
     /**
      * The x-coordinate of the top left corner of the mark cup map in the original image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     X_IN_ORIGINAL = "XInOriginal",
 
@@ -7143,7 +7143,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * The y-coordinate of the top left corner of the mark cup map in the original image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     Y_IN_ORIGINAL = "YInOriginal",
 
@@ -7151,7 +7151,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Mark cut map width.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     WIDTH = "FragmentImageWidth",
 
@@ -7159,7 +7159,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Mark cut map width.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     HEIGHT = "FragmentImageHeight"
   }
@@ -7169,7 +7169,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *
    * @typedef DecodingOptionsForPicture
    * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @since 12
+   * @since 13
    */
   interface DecodingOptionsForPicture {
     /**
@@ -7177,7 +7177,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @type { Array<AuxiliaryPictureType> }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     desiredAuxiliaryPictures: Array<AuxiliaryPictureType>;
   }
@@ -7187,7 +7187,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *
    * @typedef AuxiliaryPictureInfo
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 12
+   * @since 13
    */
   interface AuxiliaryPictureInfo {
     /**
@@ -7195,7 +7195,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @type { AuxiliaryPictureType }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     auxiliaryPictureType: AuxiliaryPictureType;
 
@@ -7204,7 +7204,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @type { Size }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     size: Size;
 
@@ -7213,7 +7213,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
     rowStride: number;
 
@@ -7222,7 +7222,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @type { PixelMapFormat }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
      pixelFormat: PixelMapFormat;
 
@@ -7231,7 +7231,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @type { colorSpaceManager.ColorSpaceManager }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since 13
      */
      colorSpace: colorSpaceManager.ColorSpaceManager;
   }
@@ -8248,7 +8248,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 7700301 - Decode failed.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 12
+     * @since 13
      */
     createPicture(options?: DecodingOptionsForPicture): Promise<Picture>
 
@@ -8430,7 +8430,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { PackingOptionsForSequence } options Options for image packing.
      * @returns { Promise<ArrayBuffer> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 12
+     * @since 13
      */
     packing(pixelmapSequence: Array<PixelMap>, options: PackingOptionsForSequence): Promise<ArrayBuffer>;
 
@@ -8494,7 +8494,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { PackingOptionsForSequence } options Options for image packing.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 12
+     * @since 13
      */
     packToFile(pixelmapSequence: Array<PixelMap>, fd: number, options: PackingOptionsForSequence): Promise<void>;
 
@@ -8542,7 +8542,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 7800301 - Encode failed.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 12
+     * @since 13
      */
     packing(picture: Picture, options: PackingOption): Promise<ArrayBuffer>;
 
@@ -8557,7 +8557,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 7800301 - Encode failed.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 12
+     * @since 13
      */
     packToFile(picture: Picture, fd: number, options: PackingOption): Promise<void>
 
