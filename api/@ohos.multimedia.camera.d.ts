@@ -4437,7 +4437,16 @@ declare namespace camera {
      * @systemapi
      * @since 12
      */
-    MOON_CAPTURE_BOOST = 0
+    MOON_CAPTURE_BOOST = 0,
+
+    /**
+     * Feature for low light boost.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    LOW_LIGHT_BOOST = 2
   }
 
   /**
