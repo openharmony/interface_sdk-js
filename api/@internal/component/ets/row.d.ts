@@ -218,6 +218,18 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
    * @since 11
    */
   pointLight(value: PointLightStyle): RowAttribute;
+  /**
+   * Called when the Main-Axis's direction is set reversed or not
+   *
+   * @param { Optional<boolean> } isReversed - If the main axis is reversed.
+   * @returns { RowAttribute } The attribute of the row.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  reverse(isReversed: Optional<boolean>): RowAttribute;
 }
 
 /**
