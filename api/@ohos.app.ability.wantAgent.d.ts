@@ -686,7 +686,17 @@ declare namespace wantAgent {
      * @atomicservice
      * @since 12
      */
-    SEND_COMMON_EVENT
+    SEND_COMMON_EVENT,
+
+    /**
+     * Starts a service extension.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    START_SERVICE_EXTENSION = 6
   }
 
   /**
