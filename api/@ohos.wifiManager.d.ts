@@ -2362,14 +2362,12 @@ declare namespace wifiManager {
    * Wi-Fi Category.
    * @enum { number }
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @systemapi Hide this for inner system use.
    * @since 12
    */
   enum WifiCategory {
     /**
      * Default.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
      * @since 12
      */
     DEFAULT = 1,
@@ -2377,7 +2375,6 @@ declare namespace wifiManager {
     /**
      * Wifi6.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
      * @since 12
      */
     WIFI6 = 2,
@@ -2385,7 +2382,6 @@ declare namespace wifiManager {
     /**
      * Wifi6+.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
      * @since 12
      */
     WIFI6_PLUS = 3
