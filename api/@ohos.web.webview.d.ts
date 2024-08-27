@@ -4805,7 +4805,7 @@ declare namespace webview {
      * @atomicservice
      * @since 12
      */
-    onCreateNativeMediaPlayer(callback: CreateNativeMediaPlayerCallback): void
+    onCreateNativeMediaPlayer(callback: CreateNativeMediaPlayerCallback): void;
 
     /**
      * Set enable overall web caching
@@ -6992,7 +6992,7 @@ declare namespace webview {
    * @since 12
    */
   type CreateNativeMediaPlayerCallback =
-      (handler: NativeMediaPlayerHandler, mediaInfo: MediaInfo) => NativeMediaPlayerBridge
+      (handler: NativeMediaPlayerHandler, mediaInfo: MediaInfo) => NativeMediaPlayerBridge;
 
   /**
    * This class is used to set adblock config.
