@@ -3401,6 +3401,7 @@ export default class UIAbilityContext extends Context {
    */
    /**
    * Starts the UIAbility or UIExtensionAbility by type.
+   * If the caller application is in the background, it is not allowed to call this interface.
    *
    * @param { string } type - The type of target ability.
    * @param { Record<string, Object> } wantParam - Indicates the want parameter.
@@ -3441,6 +3442,7 @@ export default class UIAbilityContext extends Context {
    */
   /**
    * Starts the UIAbility or UIExtensionAbility by type.
+   * If the caller application is in the background, it is not allowed to call this interface.
    *
    * @param { string } type - The type of target ability.
    * @param { Record<string, Object> } wantParam - Indicates the want parameter.
