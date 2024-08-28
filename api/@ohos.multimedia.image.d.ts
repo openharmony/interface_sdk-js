@@ -6770,11 +6770,11 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Obtains the gain map pixel map.
-     * @returns { PixelMap|null } Returns the pixel map if the operation is successful; returns null otherwise.
+     * @returns { PixelMap | null } Returns the pixel map if the operation is successful; returns null otherwise.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13
      */
-    getGainmapPixelmap(): PixelMap|null;
+    getGainmapPixelmap(): PixelMap | null;
 
     /**
      * Set auxiliary picture.
@@ -6792,13 +6792,13 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains the auxiliary picture based on type.
      *
      * @param { AuxiliaryPictureType } type The type of auxiliary picture.
-     * @returns { AuxiliaryPicture|null } Returns the auxiliary picture object.
+     * @returns { AuxiliaryPicture | null } Returns the auxiliary picture object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13
      */
-    getAuxiliaryPicture(type: AuxiliaryPictureType): AuxiliaryPicture|null;
+    getAuxiliaryPicture(type: AuxiliaryPictureType): AuxiliaryPicture | null;
 
     /**
      * Set the metadata of main picture.
@@ -6884,7 +6884,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 13
    */
-  function createAuxiliaryPicture(buffer: ArrayBuffer, size: Size, type: AuxiliaryPictureType): AuxiliaryPicture
+  function createAuxiliaryPicture(buffer: ArrayBuffer, size: Size, type: AuxiliaryPictureType): AuxiliaryPicture;
 
   /**
    * AuxiliaryPicture instance.
@@ -7076,7 +7076,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * of records.
      *
      * @param { Array<string> } key Name of the properties whose value is to be obtained.
-     * @returns { Promise<Record<string, string|null>> } Array of Records instance used to return the property values.
+     * @returns { Promise<Record<string, string | null>> } Array of Records instance used to return the property values.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
@@ -7084,12 +7084,12 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13
      */
-    getProperties(key: Array<string>): Promise<Record<string, string|null>>
+    getProperties(key: Array<string>): Promise<Record<string, string | null>>
 
     /**
      * Modify the value of properties in an image with the specified keys.
      *
-     * @param { Record<string, string|null> } records Array of the property Records whose values are to
+     * @param { Record<string, string | null> } records Array of the property Records whose values are to
      * be modified.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -7099,17 +7099,17 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13
      */
-    setProperties(records: Record<string, string|null>): Promise<void>
+    setProperties(records: Record<string, string | null>): Promise<void>
 
     /**
      * Obtains the value of all properties in an image. This method uses a promise to return the property values
      * in array of records.
      *
-     * @returns { Promise<Record<string, string|null>> } Array of Records instance used to return the property values.
+     * @returns { Promise<Record<string, string | null>> } Array of Records instance used to return the property values.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13
      */
-    getAllProperties(): Promise<Record<string, string|null>>
+    getAllProperties(): Promise<Record<string, string | null>>
 
     /**
      * Obtains a clone of metadata. This method uses a promise to return the metadata.
@@ -7137,7 +7137,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13
      */
-    X_IN_ORIGINAL = "XInOriginal",
+    X_IN_ORIGINAL = 'XInOriginal',
 
     /**
      * The y-coordinate of the top left corner of the mark cup map in the original image.
@@ -7145,7 +7145,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13
      */
-    Y_IN_ORIGINAL = "YInOriginal",
+    Y_IN_ORIGINAL = 'YInOriginal',
 
     /**
      * Mark cut map width.
@@ -7153,7 +7153,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13
      */
-    WIDTH = "FragmentImageWidth",
+    WIDTH = 'FragmentImageWidth',
 
     /**
      * Mark cut map width.
@@ -7161,7 +7161,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13
      */
-    HEIGHT = "FragmentImageHeight"
+    HEIGHT = 'FragmentImageHeight'
   }
 
   /**
