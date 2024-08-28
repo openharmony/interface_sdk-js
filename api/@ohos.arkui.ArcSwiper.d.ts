@@ -275,6 +275,107 @@ declare type AnimationEndHandler = (index: number, event: SwiperAnimationEvent) 
  */
 declare type GestureSwipeHandler = (index: number, event: SwiperAnimationEvent) => void
 
+
+/**
+ * Defines the swiper content animated transition options.
+ *
+ * @interface SwiperContentAnimatedTransition
+ * @syscap SystemCapability.ArkUI.ArkUI.Circle
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare interface SwiperContentAnimatedTransition {
+  /**
+   * Defines the timeout of custom content transition animation after the page is moved out of the swiper. The unit is ms.
+   * If SwiperContentTransitionProxy.finishTransition() is not invoked, use the timeout as animation end time.
+   *
+   * @type { ?number }
+   * @default 0 ms
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  timeout?: number;
+
+  /**
+   * Called when custom content transition animation start.
+   *
+   * @type { Callback<SwiperContentTransitionProxy> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  transition: Callback<SwiperContentTransitionProxy>;
+}
+
+/**
+ * The proxy of SwiperContentAnimatedTransition.
+ *
+ * @interface SwiperContentTransitionProxy
+ * @syscap SystemCapability.ArkUI.ArkUI.Circle
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare interface SwiperContentTransitionProxy {
+  /**
+   * the index value of the swiper content selected before animation start.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  selectedIndex: number;
+
+  /**
+   * The index value of the swiper content.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  index: number;
+
+  /**
+   * the moving ratio of the swiper content from the start position of the swiper main axis.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  position: number;
+
+  /**
+   * the swiper main axis length for calculating position.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  mainAxisLength: number;
+
+  /**
+   * Notifies Swiper page the custom content transition animation is complete.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  finishTransition(): void;
+}
+
 /**
  * Defines the Arc swiper attribute functions.
  *
@@ -404,6 +505,42 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
    * @since 12
    */
   onGestureSwipe(handler: Optional<GestureSwipeHandler>): ArcSwiperAttribute;
+
+  /**
+   * Invoked when setting the sliding effect
+   *
+   * @param {  Optional<EdgeEffect> } value
+   * @returns { ArcSwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  effectMode(value: Optional<EdgeEffect>): ArcSwiperAttribute;
+
+  /**
+   * Custom swiper content transition animation.
+   *
+   * @param { Optional<SwiperContentAnimatedTransition> } transition - custom content transition animation.
+   * @returns { ArcSwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  customContentTransition(transition: Optional<SwiperContentAnimatedTransition>): ArcSwiperAttribute;
+
+  /**
+   * Custom swiper content transition animation.
+   *
+   * @param { Optional<boolean> } disabled
+   * @returns { ArcSwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  disableTransitionAnimation(disabled: Optional<boolean>): ArcSwiperAttribute;
 }
 
 /**
