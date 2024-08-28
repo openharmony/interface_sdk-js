@@ -1771,6 +1771,15 @@ declare namespace camera {
     PANORAMA_PHOTO = 15,
 
     /**
+     * Timelapse photo camera mode.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    TIME_LAPSE_PHOTO = 16,
+
+    /**
      * Fluorescence photo mode.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -5757,98 +5766,98 @@ declare namespace camera {
     /**
      * Subscribes ISO info event callback.
      *
-     * @param { 'isoInfo' } type - Event type.
+     * @param { 'isoInfoChange' } type - Event type.
      * @param { AsyncCallback<IsoInfo> } callback - Callback used to get the ISO info.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
      */
-    on(type: 'isoInfo', callback: AsyncCallback<IsoInfo>): void;
+    on(type: 'isoInfoChange', callback: AsyncCallback<IsoInfo>): void;
 
     /**
      * Unsubscribes from ISO info event callback.
      *
-     * @param { 'isoInfo' } type - Event type.
+     * @param { 'isoInfoChange' } type - Event type.
      * @param { AsyncCallback<IsoInfo> } callback - Callback used to get the ISO info.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
      */
-    off(type: 'isoInfo', callback?: AsyncCallback<IsoInfo>): void;
+    off(type: 'isoInfoChange', callback?: AsyncCallback<IsoInfo>): void;
 
     /**
      * Subscribes exposure info event callback.
      *
-     * @param { 'exposureInfo' } type - Event type.
+     * @param { 'exposureInfoChange' } type - Event type.
      * @param { AsyncCallback<ExposureInfo> } callback - Callback used to get the exposure info.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
      */
-    on(type: 'exposureInfo', callback: AsyncCallback<ExposureInfo>): void;
+    on(type: 'exposureInfoChange', callback: AsyncCallback<ExposureInfo>): void;
 
     /**
      * Unsubscribes from exposure info event callback.
      *
-     * @param { 'exposureInfo' } type - Event type.
+     * @param { 'exposureInfoChange' } type - Event type.
      * @param { AsyncCallback<ExposureInfo> } callback - Callback used to get the exposure info.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
      */
-    off(type: 'exposureInfo', callback?: AsyncCallback<ExposureInfo>): void;
+    off(type: 'exposureInfoChange', callback?: AsyncCallback<ExposureInfo>): void;
 
     /**
      * Subscribes aperture info event callback.
      *
-     * @param { 'apertureInfo' } type - Event type.
+     * @param { 'apertureInfoChange' } type - Event type.
      * @param { AsyncCallback<ApertureInfo> } callback - Callback used to get the aperture info.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
      */
-    on(type: 'apertureInfo', callback: AsyncCallback<ApertureInfo>): void;
+    on(type: 'apertureInfoChange', callback: AsyncCallback<ApertureInfo>): void;
 
     /**
      * Unsubscribes from aperture info event callback.
      *
-     * @param { 'apertureInfo' } type - Event type.
+     * @param { 'apertureInfoChange' } type - Event type.
      * @param { AsyncCallback<ApertureInfo> } callback - Callback used to get the aperture info.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
      */
-    off(type: 'apertureInfo', callback?: AsyncCallback<ApertureInfo>): void;
+    off(type: 'apertureInfoChange', callback?: AsyncCallback<ApertureInfo>): void;
 
     /**
      * Subscribes lumination info event callback.
      *
-     * @param { 'luminationInfo' } type - Event type.
+     * @param { 'luminationInfoChange' } type - Event type.
      * @param { AsyncCallback<LuminationInfo> } callback - Callback used to get the lumination info.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
      */
-    on(type: 'luminationInfo', callback: AsyncCallback<LuminationInfo>): void;
+    on(type: 'luminationInfoChange', callback: AsyncCallback<LuminationInfo>): void;
 
     /**
      * Unsubscribes from lumination info event callback.
      *
-     * @param { 'luminationInfo' } type - Event type.
+     * @param { 'luminationInfoChange' } type - Event type.
      * @param { AsyncCallback<LuminationInfo> } callback - Callback used to get the lumination info.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
      */
-    off(type: 'luminationInfo', callback?: AsyncCallback<LuminationInfo>): void;
+    off(type: 'luminationInfoChange', callback?: AsyncCallback<LuminationInfo>): void;
   }
 
   /**
@@ -5935,98 +5944,98 @@ declare namespace camera {
     /**
      * Subscribes ISO info event callback.
      *
-     * @param { 'isoInfo' } type - Event type.
+     * @param { 'isoInfoChange' } type - Event type.
      * @param { AsyncCallback<IsoInfo> } callback - Callback used to get the ISO info.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
      */
-    on(type: 'isoInfo', callback: AsyncCallback<IsoInfo>): void;
+    on(type: 'isoInfoChange', callback: AsyncCallback<IsoInfo>): void;
 
     /**
      * Unsubscribes from ISO info event callback.
      *
-     * @param { 'isoInfo' } type - Event type.
+     * @param { 'isoInfoChange' } type - Event type.
      * @param { AsyncCallback<IsoInfo> } callback - Callback used to get the ISO info.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
      */
-    off(type: 'isoInfo', callback?: AsyncCallback<IsoInfo>): void;
+    off(type: 'isoInfoChange', callback?: AsyncCallback<IsoInfo>): void;
 
     /**
      * Subscribes exposure info event callback.
      *
-     * @param { 'exposureInfo' } type - Event type.
+     * @param { 'exposureInfoChange' } type - Event type.
      * @param { AsyncCallback<ExposureInfo> } callback - Callback used to get the exposure info.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
      */
-    on(type: 'exposureInfo', callback: AsyncCallback<ExposureInfo>): void;
+    on(type: 'exposureInfoChange', callback: AsyncCallback<ExposureInfo>): void;
 
     /**
      * Unsubscribes from exposure info event callback.
      *
-     * @param { 'exposureInfo' } type - Event type.
+     * @param { 'exposureInfoChange' } type - Event type.
      * @param { AsyncCallback<ExposureInfo> } callback - Callback used to get the exposure info.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
      */
-    off(type: 'exposureInfo', callback?: AsyncCallback<ExposureInfo>): void;
+    off(type: 'exposureInfoChange', callback?: AsyncCallback<ExposureInfo>): void;
 
     /**
      * Subscribes aperture info event callback.
      *
-     * @param { 'apertureInfo' } type - Event type.
+     * @param { 'apertureInfoChange' } type - Event type.
      * @param { AsyncCallback<ApertureInfo> } callback - Callback used to get the aperture info.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
      */
-    on(type: 'apertureInfo', callback: AsyncCallback<ApertureInfo>): void;
+    on(type: 'apertureInfoChange', callback: AsyncCallback<ApertureInfo>): void;
 
     /**
      * Unsubscribes from aperture info event callback.
      *
-     * @param { 'apertureInfo' } type - Event type.
+     * @param { 'apertureInfoChange' } type - Event type.
      * @param { AsyncCallback<ApertureInfo> } callback - Callback used to get the aperture info.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
      */
-    off(type: 'apertureInfo', callback?: AsyncCallback<ApertureInfo>): void;
+    off(type: 'apertureInfoChange', callback?: AsyncCallback<ApertureInfo>): void;
 
     /**
      * Subscribes lumination info event callback.
      *
-     * @param { 'luminationInfo' } type - Event type.
+     * @param { 'luminationInfoChange' } type - Event type.
      * @param { AsyncCallback<LuminationInfo> } callback - Callback used to get the lumination info.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
      */
-    on(type: 'luminationInfo', callback: AsyncCallback<LuminationInfo>): void;
+    on(type: 'luminationInfoChange', callback: AsyncCallback<LuminationInfo>): void;
 
     /**
      * Unsubscribes from lumination info event callback.
      *
-     * @param { 'luminationInfo' } type - Event type.
+     * @param { 'luminationInfoChange' } type - Event type.
      * @param { AsyncCallback<LuminationInfo> } callback - Callback used to get the lumination info.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
      */
-    off(type: 'luminationInfo', callback?: AsyncCallback<LuminationInfo>): void;
+    off(type: 'luminationInfoChange', callback?: AsyncCallback<LuminationInfo>): void;
   }
 
   /**
@@ -8734,6 +8743,393 @@ declare namespace camera {
      * @since 10
      */
     off(type: 'error', callback?: ErrorCallback): void;
+  }
+
+  /**
+   * Enumerates the timelapse recording state.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  enum TimeLapseRecordState {
+    /**
+     * TimeLapse idle state.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    IDLE = 0,
+
+    /**
+     * TimeLapse recording state.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    RECORDING = 1
+  }
+
+  /**
+   * Enumerates the timelapse preview type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  enum TimeLapsePreviewType {
+    /**
+     * TimeLapse dark preview.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    DARK = 1,
+
+    /**
+     * TimeLapse Light preview.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    LIGHT = 2
+  }
+
+  /**
+   * Try AE information.
+   *
+   * @typedef TryAEInfo
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  interface TryAEInfo {
+    /**
+     * Determine whether try AE is done.
+     *
+     * @type { boolean }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    readonly isTryAEDone: boolean;
+
+    /**
+     * Determine whether AE hint is needed.
+     *
+     * @type { ?boolean }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    readonly isTryAEHintNeeded?: boolean;
+
+    /**
+     * Timelapse preview type.
+     *
+     * @type { ?TimeLapsePreviewType }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    readonly previewType?: TimeLapsePreviewType;
+
+    /**
+     * Timelapse capture interval.
+     *
+     * @type { ?number }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    readonly captureInterval?: number;
+  }
+
+  /**
+   * Timelapse photo session object.
+   *
+   * @interface TimeLapsePhotoSession
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  interface TimeLapsePhotoSession extends Session, Focus, ManualFocus, AutoExposure, ManualExposure, ManualIso, WhiteBalance, Zoom, ColorEffect {
+    /**
+     * Subscribes to error events.
+     *
+     * @param { 'error' } type - Event type.
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { 'error' } type - Event type.
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Subscribes focus state change event callback.
+     *
+     * @param { 'focusStateChange' } type - Event type.
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
+
+    /**
+     * Unsubscribes from focus state change event callback.
+     *
+     * @param { 'focusStateChange' } type - Event type.
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
+
+    /**
+     * Subscribes ISO info event callback.
+     *
+     * @param { 'isoInfoChange' } type - Event type.
+     * @param { AsyncCallback<IsoInfo> } callback - Callback used to get the ISO info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    on(type: 'isoInfoChange', callback: AsyncCallback<IsoInfo>): void;
+
+    /**
+     * Unsubscribes from ISO info event callback.
+     *
+     * @param { 'isoInfoChange' } type - Event type.
+     * @param { AsyncCallback<IsoInfo> } callback - Callback used to get the ISO info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    off(type: 'isoInfoChange', callback?: AsyncCallback<IsoInfo>): void;
+
+    /**
+     * Subscribes exposure info event callback.
+     *
+     * @param { 'exposureInfoChange' } type - Event type.
+     * @param { AsyncCallback<ExposureInfo> } callback - Callback used to get the exposure info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    on(type: 'exposureInfoChange', callback: AsyncCallback<ExposureInfo>): void;
+
+    /**
+     * Unsubscribes from exposure info event callback.
+     *
+     * @param { 'exposureInfoChange' } type - Event type.
+     * @param { AsyncCallback<ExposureInfo> } callback - Callback used to get the exposure info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    off(type: 'exposureInfoChange', callback?: AsyncCallback<ExposureInfo>): void;
+
+    /**
+     * Subscribes lumination info event callback.
+     *
+     * @param { 'luminationInfoChange' } type - Event type.
+     * @param { AsyncCallback<LuminationInfo> } callback - Callback used to get the lumination info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    on(type: 'luminationInfoChange', callback: AsyncCallback<LuminationInfo>): void;
+
+    /**
+     * Unsubscribes from lumination info event callback.
+     *
+     * @param { 'luminationInfoChange' } type - Event type.
+     * @param { AsyncCallback<LuminationInfo> } callback - Callback used to get the lumination info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    off(type: 'luminationInfoChange', callback?: AsyncCallback<LuminationInfo>): void;
+
+    /**
+     * Check whether try AE is needed.
+     *
+     * @returns { boolean } Is try AE needed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    isTryAENeeded(): boolean;
+
+    /**
+     * Start try AE.
+     *
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    startTryAE(): void;
+
+    /**
+     * Stop try AE.
+     *
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    stopTryAE(): void;
+
+    /**
+     * Subscribes try AE info event callback.
+     *
+     * @param { 'tryAEInfoChange' } type - Event type.
+     * @param { AsyncCallback<TryAEInfo> } callback - Callback used to get the try AE info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    on(type: 'tryAEInfoChange', callback: AsyncCallback<TryAEInfo>): void;
+
+    /**
+     * Unsubscribes from try AE info event callback.
+     *
+     * @param { 'tryAEInfoChange' } type - Event type.
+     * @param { AsyncCallback<TryAEInfo> } callback - Callback used to get the try AE info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    off(type: 'tryAEInfoChange', callback?: AsyncCallback<TryAEInfo>): void;
+
+    /**
+     * Gets supported timelapse interval range.
+     *
+     * @returns { Array<number> } Timelapse interval range.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    getSupportedTimeLapseIntervalRange(): Array<number>;
+
+    /**
+     * Gets the timelapse interval in use.
+     *
+     * @returns { number } the timelapse interval in use.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    getTimeLapseInterval(): number;
+
+    /**
+     * Sets a timelapse interval for a camera device.
+     *
+     * @param { number } interval The timelapse interval.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    setTimeLapseInterval(interval: number): void;
+
+    /**
+     * Gets the timelapse recording state in use.
+     *
+     * @returns { TimeLapseRecordState } the timelapse recording state in use.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    getTimeLapseRecordState(): TimeLapseRecordState;
+
+    /**
+     * Sets a timelapse recording state.
+     *
+     * @param { TimeLapseRecordState } state The timelapse recording state.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    setTimeLapseRecordState(state: TimeLapseRecordState): void;
+
+    /**
+     * Gets the timelapse preview type in use.
+     *
+     * @returns { TimeLapsePreviewType } the timelapse preview type in use.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    getTimeLapsePreviewType(): TimeLapsePreviewType;
+
+    /**
+     * Sets a timelapse preview type.
+     *
+     * @param { TimeLapsePreviewType } type The timelapse preview type.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    setTimeLapsePreviewType(type: TimeLapsePreviewType): void;
   }
 }
 
