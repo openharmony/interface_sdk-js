@@ -26,7 +26,8 @@ export class ForbiddenWordsCheck {
    * @returns { ErrorTagFormat }
    */
   static forbiddenWordsCheck(singleApi: ClassInfo): ErrorTagFormat {
-    const forbiddenWordsArr: string[] = ['any', 'this', 'unknown'];
+    const forbiddenWordsArr: string[] = ['this', 'unknown'];
+    const forbiddenWordAny: string = 'any';
     const forbiddenWordsResult: ErrorTagFormat = {
       state: true,
       errorInfo: '',
@@ -46,7 +47,8 @@ export class ForbiddenWordsCheck {
     });
     let apiTextWordsArr = fullText.split(/\s/g);
     apiTextWordsArr.forEach((apiTextWord) => {
-      if (forbiddenWordsArr.includes(apiTextWord) && publishVersion === apiVersionToBeVerified) {
+
+      if (publishVersion === apiVersionToBeVerified && (forbiddenWordsArr.includes(apiTextWord) || (apiTextWord === forbiddenWordAny && singleApi.getFilePath().indexOf('.d.ets') !== -1))) {
         forbiddenWordsResult.state = false;
         forbiddenWordsResult.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ILLEGAL_USE_ANY, [apiTextWord]);
       }

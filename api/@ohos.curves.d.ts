@@ -642,12 +642,12 @@ declare namespace curves {
   /**
    * Constructs a spring motion when called.
    *
-   * @param { number } [response] The default value is 0.15. Unit: seconds. Value range: (0, +∞).
-   * Note: If a value is set to 0 or less, the default value of 0.15 is used.
-   * @param { number } [dampingFraction] The default value is 0.86. Unit: seconds. Value range: [0, +∞).
-   * Note: If a value is set to 0 or less, the default value of 0.86 is used.
-   * @param { number } [overlapDuration] The default value is 0.25. Unit: seconds. Value range: [0, +∞).
-   * Note: If a value is set to 0 or less, the default value of 0.25 is used.
+   * @param { number } [response] The default value is 0.55. Unit: seconds. Value range: (0, +∞).
+   * Note: If a value is set to 0 or less, the default value of 0.55 is used.
+   * @param { number } [dampingFraction] The default value is 0.825. Unit: seconds. Value range: [0, +∞).
+   * Note: If a value is set to 0 or less, the default value of 0.825 is used.
+   * @param { number } [overlapDuration] The default value is 0. Unit: seconds. Value range: [0, +∞).
+   * Note: If a value is set to 0 or less, the default value of 0 is used.
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -655,12 +655,12 @@ declare namespace curves {
   /**
    * Constructs a spring motion when called.
    *
-   * @param { number } [response] The default value is 0.15. Unit: seconds. Value range: (0, +∞).
-   * Note: If a value is set to 0 or less, the default value of 0.15 is used.
-   * @param { number } [dampingFraction] The default value is 0.86. Unit: seconds. Value range: [0, +∞).
-   * Note: If a value is set to 0 or less, the default value of 0.86 is used.
-   * @param { number } [overlapDuration] The default value is 0.25. Unit: seconds. Value range: [0, +∞).
-   * Note: If a value is set to 0 or less, the default value of 0.25 is used.
+   * @param { number } [response] The default value is 0.55. Unit: seconds. Value range: (0, +∞).
+   * Note: If a value is set to 0 or less, the default value of 0.55 is used.
+   * @param { number } [dampingFraction] The default value is 0.825. Unit: seconds. Value range: [0, +∞).
+   * Note: If a value is set to 0 or less, the default value of 0.825 is used.
+   * @param { number } [overlapDuration] The default value is 0. Unit: seconds. Value range: [0, +∞).
+   * Note: If a value is set to 0 or less, the default value of 0 is used.
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -669,12 +669,12 @@ declare namespace curves {
   /**
    * Constructs a spring motion when called.
    *
-   * @param { number } [response] The default value is 0.15. Unit: seconds. Value range: (0, +∞).
-   * Note: If a value is set to 0 or less, the default value of 0.15 is used.
-   * @param { number } [dampingFraction] The default value is 0.86. Unit: seconds. Value range: [0, +∞).
-   * Note: If a value is set to 0 or less, the default value of 0.86 is used.
-   * @param { number } [overlapDuration] The default value is 0.25. Unit: seconds. Value range: [0, +∞).
-   * Note: If a value is set to 0 or less, the default value of 0.25 is used.
+   * @param { number } [response] The default value is 0.55. Unit: seconds. Value range: (0, +∞).
+   * Note: If a value is set to 0 or less, the default value of 0.55 is used.
+   * @param { number } [dampingFraction] The default value is 0.825. Unit: seconds. Value range: [0, +∞).
+   * Note: If a value is set to 0 or less, the default value of 0.825 is used.
+   * @param { number } [overlapDuration] The default value is 0. Unit: seconds. Value range: [0, +∞).
+   * Note: If a value is set to 0 or less, the default value of 0 is used.
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

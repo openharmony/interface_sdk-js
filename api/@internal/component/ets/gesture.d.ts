@@ -1793,18 +1793,48 @@ interface GestureInterface<T> {
    * @since 11
    */
   tag(tag: string): T;
+}
 
+/**
+ * Defines TapGesture parameters.
+ *
+ * @interface TapGestureParameters
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface TapGestureParameters {
   /**
-   * Input source type for touch event response.
+   * Number of consecutive clicks recognized. If the value is less than 1, the default value is used.
    *
-   * @param { Array<SourceTool> } value - indicate the input source that allows touch
-   * @returns { T }
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  count?: number;
+  /**
+   * The hand index that triggers the click. If the value is less than 1, the default value is used.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  fingers?: number;
+  /**
+   * The limited move distance of click. If the value is less than 0, the default value is used.
+   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  allowedTypes(value: Array<SourceTool>): T;
+  distanceThreshold?: number;
 }
 
 /**
@@ -1865,7 +1895,18 @@ interface TapGestureInterface extends GestureInterface<TapGestureInterface> {
    * @atomicservice
    * @since 11
    */
-  (value?: { count?: number; fingers?: number }): TapGestureInterface;
+  /**
+   * Set the value.
+   * TapGestureParameters: The parameters of the tapGesture.
+   *
+   * @param { TapGestureParameters } value
+   * @returns { TapGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  (value?: TapGestureParameters): TapGestureInterface;
 
   /**
    * Tap gesture recognition success callback.
@@ -3052,17 +3093,6 @@ declare class GestureHandler<T> implements GestureInterface<T> {
    * @since 12
    */
   tag(tag: string): T;
-  /**
-   * Input source type for touch event response.
-   *
-   * @param { Array<SourceTool> } types - indicate the input source that allows touch
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  allowedTypes(types: Array<SourceTool>): T;
 }
 
 /**
@@ -3914,6 +3944,15 @@ declare class GestureRecognizer {
    * @since 12
    */
   getEventTargetInfo(): EventTargetInfo;
+  /**
+   * Returns whether the gesture recognizer is valid.
+   * 
+   * @returns { boolean } - true is valid, false is invalid
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  isValid(): boolean;
 }
 
 /**

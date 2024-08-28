@@ -5,7 +5,7 @@
     "parentModuleName": "testNamespace",
     "syscap": "",
     "permissions": "",
-    "since": "",
+    "since": "-1",
     "isForm": false,
     "isCrossPlatForm": false,
     "isAutomicService": false,
@@ -14,7 +14,7 @@
     "deprecatedVersion": "",
     "useInstead": "",
     "apiType": "Interface",
-    "definedText": " interface TestInterface",
+    "definedText": "interface TestInterface",
     "pos": {
       "line": 17,
       "character": 3
@@ -23,7 +23,10 @@
     "modelLimitation": "",
     "decorators": [],
     "errorCodes": [],
-    "kitInfo": ""
+    "kitInfo": "NA",
+    "absolutePath": "",
+    "parentApiType": "Namespace",
+    "isOptional": false
   },
   {
     "filePath": "ut_field_interface_object_joint.d.ts",
@@ -31,7 +34,7 @@
     "parentModuleName": "TestInterface",
     "syscap": "",
     "permissions": "",
-    "since": "",
+    "since": "-1",
     "isForm": false,
     "isCrossPlatForm": false,
     "isAutomicService": false,
@@ -49,6 +52,9 @@
     "modelLimitation": "",
     "decorators": [],
     "errorCodes": [],
-    "kitInfo": ""
+    "kitInfo": "NA",
+    "absolutePath": "",
+    "parentApiType": "Interface",
+    "isOptional": false
   }
 ]

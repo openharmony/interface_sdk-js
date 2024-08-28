@@ -74,12 +74,14 @@ declare class Queue<T> {
   /**
    * Gets the element number of the Queue.This is a number one higher than the highest index in the queue.
    *
+   * @type { number }
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
   /**
    * Gets the element number of the Queue.This is a number one higher than the highest index in the queue.
    *
+   * @type { number }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -87,6 +89,7 @@ declare class Queue<T> {
   /**
    * Gets the element number of the Queue.This is a number one higher than the highest index in the queue.
    *
+   * @type { number }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice

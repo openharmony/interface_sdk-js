@@ -214,7 +214,6 @@ export class ApiStatisticsHelper {
       .setPos(apiInfo.getPos())
       .setHierarchicalRelations(relations.join('/'))
       .setDecorators(apiInfo.getDecorators())
-      .setAbsolutePath(apiInfo.getFileAbsolutePath())
       .setParentApiType(apiInfo.getParentApiType())
       .setIsOptional(isOptional);
     if (notJsDocApiTypes.has(apiInfo.getApiType())) {

@@ -1483,7 +1483,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   vertical(value: boolean): SwiperAttribute;
 
   /**
-   * Called when the size of the rotation chart is set.
+   * Sets the space between child components.
    *
    * @param { number | string } value
    * @returns { SwiperAttribute }
@@ -1491,7 +1491,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 7
    */
   /**
-   * Called when the size of the rotation chart is set.
+   * Sets the space between child components.
    *
    * @param { number | string } value
    * @returns { SwiperAttribute }
@@ -1501,7 +1501,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 10
    */
   /**
-   * Called when the size of the rotation chart is set.
+   * Sets the space between child components.
    *
    * @param { number | string } value
    * @returns { SwiperAttribute }
@@ -1545,7 +1545,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   displayMode(value: SwiperDisplayMode): SwiperAttribute;
 
   /**
-   * Called when setting the cached count of the swiper container one side.
+   * Sets the number of child components to be preloaded(cached).
    *
    * @param { number } value
    * @returns { SwiperAttribute }
@@ -1553,7 +1553,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 8
    */
   /**
-   * Called when setting the cached count of the swiper container one side.
+   * Sets the number of child components to be preloaded(cached).
    *
    * @param { number } value
    * @returns { SwiperAttribute }
@@ -1563,7 +1563,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 10
    */
   /**
-   * Called when setting the cached count of the swiper container one side.
+   * Sets the number of child components to be preloaded(cached).
    *
    * @param { number } value
    * @returns { SwiperAttribute }
@@ -1576,7 +1576,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   cachedCount(value: number): SwiperAttribute;
 
   /**
-   * This command is invoked when the number of subcomponents is set.
+   * Sets the number of elements to display per page.
    *
    * @param { number | string } value
    * @returns { SwiperAttribute }
@@ -1584,7 +1584,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 8
    */
   /**
-   * This command is invoked when the number of subcomponents is set.
+   * Sets the number of elements to display per page.
    *
    * @param { number | string | SwiperAutoFill } value
    * @returns { SwiperAttribute }
@@ -1594,7 +1594,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 10
    */
   /**
-   * This command is invoked when the number of subcomponents is set.
+   * Sets the number of elements to display per page.
    *
    * If swipeByGroup is set to true:
    * 1、All sub-items are grouped from index 0.
@@ -1646,7 +1646,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   effectMode(value: EdgeEffect): SwiperAttribute;
 
   /**
-   * Called when sliding is disableSwipe
+   * Sets whether to disable the swipe feature
    *
    * @param { boolean } value
    * @returns { SwiperAttribute }
@@ -1654,7 +1654,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 8
    */
   /**
-   * Called when sliding is disableSwipe
+   * Sets whether to disable the swipe feature
    *
    * @param { boolean } value
    * @returns { SwiperAttribute }
@@ -1664,7 +1664,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 10
    */
   /**
-   * Called when sliding is disableSwipe
+   * Sets whether to disable the swipe feature
    *
    * @param { boolean } value
    * @returns { SwiperAttribute }
@@ -1677,7 +1677,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   disableSwipe(value: boolean): SwiperAttribute;
 
   /**
-   * Called when sliding is curve
+   * Sets the animation curve
    *
    * @param { Curve | string } value
    * @returns { SwiperAttribute }
@@ -1685,7 +1685,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 8
    */
   /**
-   * Called when sliding is curve
+   * Sets the animation curve
    * Curve is an enumeration type for common curves
    * ICurve is a curve object
    *
@@ -1697,7 +1697,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 10
    */
   /**
-   * Called when sliding is curve
+   * Sets the animation curve
    * Curve is an enumeration type for common curves
    * ICurve is a curve object
    *
@@ -1772,10 +1772,11 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 11
    */
   /**
+   * The previous margin which can be used to expose a small portion of the previous item.
    * When the previous item is empty, do not display blank space.
    *
    * @param { Length } value - The length of previous margin.
-   * @param { boolean } [ignoreBlank] - Ignoring blank space at the end of the page.
+   * @param { boolean } [ignoreBlank] - Whether to hide(ignore) the previous margin on the first page in non-loop scenarios.
    * @returns { SwiperAttribute } The attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1803,10 +1804,11 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 11
    */
   /**
+   * The next margin which can be used to expose a small portion of the latter item. 
    * When the next item is empty, do not display blank space.
    *
    * @param { Length } value - The length of next margin.
-   * @param { boolean } [ignoreBlank] - Ignoring blank space on homepage.
+   * @param { boolean } [ignoreBlank] - Whether to hide(ignore) the next margin on the last page in non-loop scenarios.
    * @returns { SwiperAttribute } The attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

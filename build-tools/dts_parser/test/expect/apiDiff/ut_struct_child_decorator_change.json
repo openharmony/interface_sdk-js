@@ -35,9 +35,10 @@
     "newDescription": "",
     "oldSyscapField": "",
     "newSyscapField": "",
-    "oldKitInfo": "",
-    "newKitInfo": "",
-    "isSystemapi": false
+    "oldKitInfo": "NA",
+    "newKitInfo": "NA",
+    "isSystemapi": false,
+    "isSameNameFunction": false
   },
   {
     "apiType": "Property",
@@ -52,7 +53,7 @@
     "diffMessage": "新增装饰器",
     "changeLogUrl": "",
     "changeLogs": [],
-    "isCompatible": true,
+    "isCompatible": false,
     "oldHierarchicalRelations": [
       "ut_struct_child_decorator_change.d.ets",
       "MyComponent",
@@ -75,8 +76,9 @@
     "newDescription": "BuilderParam",
     "oldSyscapField": "",
     "newSyscapField": "",
-    "oldKitInfo": "",
-    "newKitInfo": "",
-    "isSystemapi": false
+    "oldKitInfo": "NA",
+    "newKitInfo": "NA",
+    "isSystemapi": false,
+    "isSameNameFunction": false
   }
 ]

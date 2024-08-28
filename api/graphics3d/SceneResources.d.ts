@@ -19,8 +19,7 @@
  */
 
 import { Vec2, Vec3, Vec4, Aabb } from './SceneTypes';
-import { Resource } from 'GlobalResource';
-import { Callback } from '../@ohos.base'
+import { Callback } from '../@ohos.base';
 
 /**
  * The enum of SceneResource type.
@@ -125,12 +124,12 @@ export interface SceneResource {
   /**
    * Scene resource uri.
    *
-   * @type { ?Resource }
+   * @type { ?ResourceStr }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-  readonly uri?: Resource;
+  readonly uri?: ResourceStr;
 
 
   /**

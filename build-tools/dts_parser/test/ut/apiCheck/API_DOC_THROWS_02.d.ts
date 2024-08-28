@@ -27,7 +27,7 @@ declare interface AuthorizationCallback {
   /**
    * A test case for throws tag's value
    * @type { string }
-   * @throws { test } 401 - The parameter check failed.
+   * @throws { test } 901 - The parameter check failed.
    * @syscap SystemCapability.Account.AppAccount
    * @since 10
    */

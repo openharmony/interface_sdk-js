@@ -410,6 +410,7 @@ declare namespace webSocket {
      * @param { AsyncCallback<boolean> } callback - the callback of connect.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2302999 - Websocket other unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
@@ -421,6 +422,7 @@ declare namespace webSocket {
      * @param { AsyncCallback<boolean> } callback - the callback of connect.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2302999 - Websocket other unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
@@ -433,7 +435,11 @@ declare namespace webSocket {
      * @param { AsyncCallback<boolean> } callback - the callback of connect.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2302001 - Websocket url error.
+     * @throws { BusinessError } 2302002 - Websocket certificate file does not exist.
+     * @throws { BusinessError } 2302003 - Websocket connection already exists.
      * @throws { BusinessError } 2302998 - It is not allowed to access this domain.
+     * @throws { BusinessError } 2302999 - Websocket other unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
@@ -460,6 +466,7 @@ declare namespace webSocket {
      * @param { AsyncCallback<boolean> } callback - the callback of connect.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2302999 - Websocket other unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
@@ -472,6 +479,7 @@ declare namespace webSocket {
      * @param { AsyncCallback<boolean> } callback - the callback of connect.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2302999 - Websocket other unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
@@ -485,7 +493,11 @@ declare namespace webSocket {
      * @param { AsyncCallback<boolean> } callback - the callback of connect.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2302001 - Websocket url error.
+     * @throws { BusinessError } 2302002 - Websocket certificate file does not exist.
+     * @throws { BusinessError } 2302003 - Websocket connection already exists.
      * @throws { BusinessError } 2302998 - It is not allowed to access this domain.
+     * @throws { BusinessError } 2302999 - Websocket other unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
@@ -512,6 +524,7 @@ declare namespace webSocket {
      * @returns { Promise<boolean> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2302999 - Websocket other unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
@@ -524,6 +537,7 @@ declare namespace webSocket {
      * @returns { Promise<boolean> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2302999 - Websocket other unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
@@ -537,7 +551,11 @@ declare namespace webSocket {
      * @returns { Promise<boolean> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2302001 - Websocket url error.
+     * @throws { BusinessError } 2302002 - Websocket certificate file does not exist.
+     * @throws { BusinessError } 2302003 - Websocket connection already exists.
      * @throws { BusinessError } 2302998 - It is not allowed to access this domain.
+     * @throws { BusinessError } 2302999 - Websocket other unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice

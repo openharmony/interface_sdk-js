@@ -231,15 +231,17 @@ export class CommonFunctions {
   }
   static getExtendsApiValue(singleApi: ApiInfo): string {
     let extendsApiValue: string = '';
+    const extendsApiValueArr: string[] = [];
     const extendsApiArr: ParentClass[] = (singleApi as ClassInfo).getParentClasses();
     if (extendsApiArr.length === 0) {
       return extendsApiValue;
     }
     extendsApiArr.forEach(extendsApi => {
       if (extendsApi.getExtendClass().length !== 0) {
-        extendsApiValue = extendsApi.getExtendClass();
+        extendsApiValueArr.push(extendsApi.getExtendClass());
       }
     });
+    extendsApiValue = extendsApiValueArr.join(',');
     return extendsApiValue;
   }
 
@@ -397,15 +399,30 @@ export const apiLegalityCheckTypeMap: Map<ts.SyntaxKind, string[]> = new Map([
 /**
  * An array of online error messages
  */
-export const compositiveResult: ApiResultSimpleInfo[] = [];
+export let compositiveResult: ApiResultSimpleInfo[] = [];
 
 /**
  * An array of local error messages
  */
 export const compositiveLocalResult: ApiResultInfo[] = [];
 
-export const apiCheckResult: ApiResultMessage[] = [];
+export let apiCheckResult: ApiResultMessage[] = [];
+
+export let hierarchicalRelationsSet: Set<string> = new Set();
+
+export function cleanApiCheckResult() {
+  apiCheckResult = [];
+  compositiveResult = [];
+  hierarchicalRelationsSet = new Set();
+}
 
 export const punctuationMarkSet: Set<string> = new Set(['\\{', '\\}', '\\(', '\\)', '\\[', '\\]', '\\@', '\\.', '\\:',
   '\\,', '\\;', '\\(', '\\)', '\\"', '\\/', '\\_', '\\-', '\\=', '\\?', '\\<', '\\>', '\\,', '\\!', '\\#', '\：', '\，',
   '\\:', '\\|', '\\%', '\\&', '\\¡', '\\¢', '\\+', '\\`', '\\\\', '\\\'']);
+
+export const throwsTagDescriptionArr: string[] = [
+  'Parameter error. Possible causes:',
+  'Mandatory parameters are left unspecified',
+  'Incorrect parameter types',
+  'Parameter verification failed'
+];

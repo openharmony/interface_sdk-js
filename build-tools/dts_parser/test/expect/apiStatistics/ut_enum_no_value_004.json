@@ -5,7 +5,7 @@
     "parentModuleName": "NoValue",
     "syscap": "",
     "permissions": "",
-    "since": "",
+    "since": "-1",
     "isForm": false,
     "isCrossPlatForm": false,
     "isAutomicService": false,
@@ -23,7 +23,10 @@
     "modelLimitation": "",
     "decorators": [],
     "errorCodes": [],
-    "kitInfo": ""
+    "kitInfo": "NA",
+    "absolutePath": "",
+    "parentApiType": "Enum",
+    "isOptional": false
   },
   {
     "filePath": "ut_enum_no_value_004.d.ts",
@@ -31,7 +34,7 @@
     "parentModuleName": "NoValue",
     "syscap": "",
     "permissions": "",
-    "since": "",
+    "since": "-1",
     "isForm": false,
     "isCrossPlatForm": false,
     "isAutomicService": false,
@@ -49,7 +52,10 @@
     "modelLimitation": "",
     "decorators": [],
     "errorCodes": [],
-    "kitInfo": ""
+    "kitInfo": "NA",
+    "absolutePath": "",
+    "parentApiType": "Enum",
+    "isOptional": false
   },
   {
     "filePath": "ut_enum_no_value_004.d.ts",
@@ -57,7 +63,7 @@
     "parentModuleName": "NoValue",
     "syscap": "",
     "permissions": "",
-    "since": "",
+    "since": "-1",
     "isForm": false,
     "isCrossPlatForm": false,
     "isAutomicService": false,
@@ -75,6 +81,9 @@
     "modelLimitation": "",
     "decorators": [],
     "errorCodes": [],
-    "kitInfo": ""
+    "kitInfo": "NA",
+    "absolutePath": "",
+    "parentApiType": "Enum",
+    "isOptional": false
   }
 ]

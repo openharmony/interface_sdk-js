@@ -392,6 +392,8 @@ export default class Context extends BaseContext {
    * @systemapi
    * @stagemodelonly
    * @since 9
+   * @deprecated since 12
+   * @useinstead ohos.app.ability.application/application#createBundleContext
    */
   createBundleContext(bundleName: string): Context;
 
@@ -427,6 +429,8 @@ export default class Context extends BaseContext {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 12
+   * @useinstead ohos.app.ability.application/application#createModuleContext
    */
   createModuleContext(moduleName: string): Context;
 
@@ -441,6 +445,8 @@ export default class Context extends BaseContext {
    * @systemapi
    * @stagemodelonly
    * @since 9
+   * @deprecated since 12
+   * @useinstead ohos.app.ability.application/application#createModuleContext
    */
   createModuleContext(bundleName: string, moduleName: string): Context;
 

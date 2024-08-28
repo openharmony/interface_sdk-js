@@ -14,7 +14,7 @@
     "deprecatedVersion": "",
     "useInstead": "",
     "apiType": "Interface",
-    "definedText": " export interface Test",
+    "definedText": "export interface Test",
     "pos": {
       "line": 20,
       "character": 1
@@ -23,7 +23,10 @@
     "modelLimitation": "",
     "decorators": [],
     "errorCodes": [],
-    "kitInfo": ""
+    "kitInfo": "NA",
+    "absolutePath": "",
+    "parentApiType": "SourceFile",
+    "isOptional": false
   },
   {
     "filePath": "ut_jsdoc_readonly_020.d.ts",
@@ -49,6 +52,9 @@
     "modelLimitation": "",
     "decorators": [],
     "errorCodes": [],
-    "kitInfo": ""
+    "kitInfo": "NA",
+    "absolutePath": "",
+    "parentApiType": "Interface",
+    "isOptional": false
   }
 ]

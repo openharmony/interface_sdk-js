@@ -265,6 +265,23 @@ declare namespace bundleManager {
      * @since 12
      */
     GET_BUNDLE_INFO_ONLY_WITH_LAUNCHER_ABILITY = 0x00001000,
+    /**
+     * Used to obtain the bundleInfo only if any user installed
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    GET_BUNDLE_INFO_OF_ANY_USER = 0x00002000,
+    /**
+     * Used to return all applications that exclude app clone information.
+     * Only effective on {@link getAllBundleInfo}
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    GET_BUNDLE_INFO_EXCLUDE_CLONE = 0x00004000,
   }
 
   /**
@@ -1374,6 +1391,25 @@ declare namespace bundleManager {
      * @since 12
     */
     APP_CLONE = 2,
+  }
+
+  /**
+   * This enumeration value is used to identify various flags of application
+   *
+   * @enum { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+  */
+  export enum ApplicationInfoFlag {
+    /**
+     * Indicates The application is currently installed for the calling user.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    FLAG_INSTALLED = 0x00000001,
   }
 
   /**

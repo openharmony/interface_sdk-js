@@ -816,6 +816,24 @@ declare class ListScroller extends Scroller {
    * @since 12
    */
   closeAllSwipeActions(options?: CloseSwipeActionOptions): void;
+  
+  /**
+   * Get visible list content info by position.
+   *
+   * @param { number } x - X coordinate relative to the upper left corner of the list's original area, in vp.
+   * @param { number } y - Y coordinate relative to the upper left corner of the list's original area, in vp.
+   * @returns { VisibleListContentInfo } Visible list content info of the position.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100004 - The controller not bound to component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  getVisibleListContentInfo(x: number, y: number): VisibleListContentInfo;
 }
 
 /**
@@ -1460,6 +1478,18 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 12
    */
   childrenMainSize(value: ChildrenMainSize): ListAttribute;
+
+  /**
+   * Set maintain visible content position List.
+   *
+   * @param { boolean } enabled - maintain visible content position.
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  maintainVisibleContentPosition(enabled: boolean): ListAttribute;
 
   /**
    * Called when the offset and status callback of the slide are set.

@@ -20,6 +20,7 @@ import { EnumUtils } from '../utils/EnumUtils';
 import { FileUtils } from '../utils/FileUtils';
 import { LogUtil } from '../utils/logUtil';
 import { FilesMap, Parser } from '../coreImpl/parser/parser';
+import { parserParam } from '../coreImpl/parser/NodeProcessor';
 import { DiffHelper } from '../coreImpl/diff/diff';
 import {
   BasicDiffInfo,
@@ -41,6 +42,7 @@ import { ApiCountHelper } from '../coreImpl/count/count';
 import { CommonFunctions } from '../utils/checkUtils';
 import { FunctionUtils, KitData } from '../utils/FunctionUtils';
 import { ApiInfo, ApiType } from '../typedef/parser/ApiInfoDefination';
+import { checkEntryType } from '../typedef/checker/result_type';
 
 
 /**
@@ -141,6 +143,10 @@ export const Plugin: PluginType = {
       },
       {
         isRequiredOption: false,
+        options: ['--is-increment <string>', 'check api is increment, only check change', 'true'],
+      },
+      {
+        isRequiredOption: false,
         options: ['--excel <string>', 'check api excel', 'false'],
       },
       {
@@ -197,6 +203,7 @@ export const Plugin: PluginType = {
       path: argv.path,
       checker: argv.checker,
       prId: argv.prId,
+      isIncrement: argv.isIncrement,
       old: argv.old,
       new: argv.new,
       oldVersion: argv.oldVersion,
@@ -260,10 +267,12 @@ function outputInfos(infos: ToolReturnData, options: OptionObjType, callback: To
  * @return { ToolNameValueType }
  */
 function collectApi(options: OptionObjType): ToolNameValueType {
+  // process.env.NEED_DETECTION = 'true';
   const fileDir: string = path.resolve(FileUtils.getBaseDirName(), options.collectPath);
   let collectFile: string = '';
   if (options.collectFile !== '') {
     collectFile = path.resolve(FileUtils.getBaseDirName(), options.collectFile);
+    parserParam.setSdkPath(collectFile);
   }
   let allApis: FilesMap;
   try {
@@ -446,14 +455,22 @@ function handleCollectData(apiData: ApiStatisticsInfo[], workbook: ExcelJS.Workb
  * @param { OptionObjType } options
  * @return { ToolNameValueType }
  */
-function checkApi(): ToolNameValueType {
+function checkApi(options: OptionObjType): ToolNameValueType {
   try {
     let mdApiFiles: string[] = [];
     const filePathTxt: string = path.resolve(FileUtils.getBaseDirName(), '../mdFiles.txt');
     if (fs.existsSync(filePathTxt)) {
       mdApiFiles = CommonFunctions.getMdFiles(filePathTxt);
     }
-    LocalEntry.checkEntryLocal(mdApiFiles, ['all'], './result.json', '', 'true');
+    const checkParam: checkEntryType = {
+      filePathArr: mdApiFiles,
+      fileRuleArr: ['all'],
+      output: './result.json',
+      prId: options.prId,
+      isOutExcel: 'true',
+      isIncrement: Boolean(options.isIncrement === 'true'),
+    };
+    LocalEntry.checkEntryLocal(checkParam);
     return {
       data: [],
     };
@@ -475,8 +492,16 @@ function checkApi(): ToolNameValueType {
 function checkOnline(options: OptionObjType): ToolNameValueType {
   options.format = formatType.NULL;
   try {
-    LocalEntry.checkEntryLocal(options.path.split(','), options.checker.split(','), options.output, options.prId,
-      options.excel);
+
+    const checkParam: checkEntryType = {
+      filePathArr: options.path.split(','),
+      fileRuleArr: options.checker.split(','),
+      output: options.output,
+      prId: options.prId,
+      isOutExcel: options.excel,
+      isIncrement: Boolean(options.isIncrement === 'true'),
+    };
+    LocalEntry.checkEntryLocal(checkParam);
     return {
       data: [],
     };
@@ -499,7 +524,15 @@ function checkOnline(options: OptionObjType): ToolNameValueType {
 function apiChangeCheck(options: OptionObjType): ToolNameValueType {
   options.format = formatType.NULL;
   try {
-    LocalEntry.apiChangeCheckEntryLocal(options.prId, options.checker.split(','), options.output, options.excel);
+    const checkParam: checkEntryType = {
+      filePathArr: [],
+      fileRuleArr: options.checker.split(','),
+      output: options.output,
+      prId: options.prId,
+      isOutExcel: options.excel,
+      isIncrement: Boolean(options.isIncrement === 'true'),
+    };
+    LocalEntry.apiChangeCheckEntryLocal(checkParam);
     return {
       data: [],
     };
@@ -526,11 +559,13 @@ function diffApi(options: OptionObjType): ToolNameValueType {
   let data: BasicDiffInfo[] = [];
   try {
     if (status.isDirectory()) {
-      const oldSDKApiMap: FilesMap = Parser.parseDir(oldFileDir);
       const newSDKApiMap: FilesMap = Parser.parseDir(newFileDir);
+      Parser.cleanParserParamSDK();
+      const oldSDKApiMap: FilesMap = Parser.parseDir(oldFileDir);
       data = DiffHelper.diffSDK(oldSDKApiMap, newSDKApiMap, options.all);
     } else {
       const oldSDKApiMap: FilesMap = Parser.parseFile(path.resolve(oldFileDir, '..'), oldFileDir);
+      Parser.cleanParserParamSDK();
       const newSDKApiMap: FilesMap = Parser.parseFile(path.resolve(newFileDir, '..'), newFileDir);
       data = DiffHelper.diffSDK(oldSDKApiMap, newSDKApiMap, options.all);
     }
@@ -924,6 +959,7 @@ export type OptionObjType = {
   path: string;
   checker: string;
   prId: string;
+  isIncrement: string;
   collectPath: string;
   collectFile: string;
   checkLabels: string;

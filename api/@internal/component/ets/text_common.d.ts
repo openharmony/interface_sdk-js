@@ -153,6 +153,26 @@ declare interface TextDataDetectorConfig {
    * @since 12
    */
   onDetectResultUpdate?: (result: string) => void
+
+  /**
+   * The color of AI entity.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  color?: ResourceColor,
+
+  /**
+   * The decoration of AI entity.
+   *
+   * @type { ?DecorationStyleInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  decoration?: DecorationStyleInterface
 }
 
 /**
@@ -590,6 +610,19 @@ declare interface LayoutManager {
    * @since 12
    */
   getLineMetrics(lineNumber: number): LineMetrics;
+
+  /**
+   * Get the rects for range.
+   * @param { TextRange } range - The range to set.
+   * @param { RectWidthStyle } widthStyle - Width style to set.
+   * @param { RectHeightStyle } heightStyle - Height style to set.
+   * @returns { Array<TextBox> } The rects for range.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  getRectsForRange(range: TextRange, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array<TextBox>;
 }
 
 /**
@@ -646,6 +679,39 @@ declare type Affinity = import('../api/@ohos.graphics.text').default.Affinity;
  * @since 12
  */
 declare type LineMetrics = import('../api/@ohos.graphics.text').default.LineMetrics; 
+
+/**
+ * Define the RectWidthStyle type.
+ * 
+ * @typedef { import('../api/@ohos.graphics.text').default.RectWidthStyle } RectWidthStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
+declare type RectWidthStyle = import('../api/@ohos.graphics.text').default.RectWidthStyle;
+
+/**
+ * Define the RectHeightStyle type.
+ * 
+ * @typedef { import('../api/@ohos.graphics.text').default.RectHeightStyle } RectHeightStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
+declare type RectHeightStyle = import('../api/@ohos.graphics.text').default.RectHeightStyle;
+
+/**
+ * Define the TextBox type.
+ * 
+ * @typedef { import('../api/@ohos.graphics.text').default.TextBox } TextBox
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
+declare type TextBox = import('../api/@ohos.graphics.text').default.TextBox;
 
 /**
  * Defines the cursor style
@@ -809,6 +875,18 @@ declare class TextMenuItemId {
    * @since 12
    */
   static readonly CAMERA_INPUT: TextMenuItemId;
+
+  /**
+   * Indicates the TextMenuItemId to help with text creation by invoking large models.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  static readonly AI_WRITER: TextMenuItemId;
 }
 
 /**
@@ -898,7 +976,7 @@ declare interface EditMenuOptions {
   /**
    * Passes the default menu, invokes before every display to generate a menu for triggering click events.
    *
-   * @param { TextMenuItem } menuItem - current default menu array.
+   * @param { Array<TextMenuItem> } menuItems - current default menu array.
    * @returns { Array<TextMenuItem> } - Return the menu after operations.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -963,3 +1041,27 @@ interface DecorationStyleResult {
    */
   style?: TextDecorationStyle;
 }
+
+/**
+ * Defines the options of font.
+ *
+ * @interface FontSettingOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12
+ */
+declare interface FontSettingOptions {
+  /**
+    * Define weather VariableFontWeight is supported.
+    *
+    * @type { ?boolean }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @form
+    * @atomicservice
+    * @since 12
+    */
+  enableVariableFontWeight?: boolean;
+ }

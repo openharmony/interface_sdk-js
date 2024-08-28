@@ -50,6 +50,15 @@ export declare class SelectTitleBarMenuItem {
   value: ResourceStr;
 
   /**
+   * Icon label for this menu item.
+   * @type { ?ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  label?: ResourceStr;
+
+  /**
    * Whether to enable this menu item.
    * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full

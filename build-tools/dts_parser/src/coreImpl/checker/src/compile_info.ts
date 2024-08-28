@@ -62,11 +62,12 @@ export class AddErrorLogs {
 
     checkErrorInfos.forEach((checkErrorInfo: ApiResultSimpleInfo) => {
       const checkErrorMessage: string = checkErrorInfo.getMessage().replace(/API check error of \[.*\]: /g, '');
-      if (checkErrorMessage === CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, ['kit'])) {
-        hasLostKitErrorInfo.push(checkErrorInfo.getMessage());
+      const keyMessage: string = checkErrorInfo.getFilePath() + checkErrorMessage;
+      if (keyMessage === apiInfo.getFilePath() + CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, ['kit'])) {
+        hasLostKitErrorInfo.push(checkErrorInfo.getFilePath() + checkErrorInfo.getMessage());
       }
-      if (checkErrorMessage === CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, ['file'])) {
-        hasLostfileErrorInfo.push(checkErrorInfo.getMessage());
+      if (keyMessage === apiInfo.getFilePath() + CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, ['file'])) {
+        hasLostfileErrorInfo.push(checkErrorInfo.getFilePath() + checkErrorInfo.getMessage());
       }
     });
     if ((isLostKitErrorInfo && hasLostKitErrorInfo.length !== 0) ||

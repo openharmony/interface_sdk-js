@@ -402,6 +402,23 @@ declare namespace appManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Kill process with account.
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.KILL_APP_PROCESSES
+   *     or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.CLEAN_BACKGROUND_PROCESSES
+   * @param { string } bundleName - The process bundle name.
+   * @param { number } accountId - The account id.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
   function killProcessWithAccount(bundleName: string, accountId: number): Promise<void>;
 
   /**
@@ -419,7 +436,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since 13
    */
   function killProcessWithAccount(bundleName: string, accountId: number, clearPageStack: boolean, appIndex?: number):
     Promise<void>;
@@ -439,6 +456,23 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9
+   */
+  /**
+   * Kill process with account.
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.KILL_APP_PROCESSES
+   *     or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.CLEAN_BACKGROUND_PROCESSES
+   * @param { string } bundleName - The process bundle name.
+   * @param { number } accountId - The account id.
+   * @param { AsyncCallback<void> } callback - The callback of killProcessWithAccount.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
    */
   function killProcessWithAccount(bundleName: string, accountId: number, callback: AsyncCallback<void>): void;
 
@@ -499,6 +533,21 @@ declare namespace appManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Kill processes by bundle name
+   *
+   * @permission ohos.permission.KILL_APP_PROCESSES or ohos.permission.CLEAN_BACKGROUND_PROCESSES
+   * @param { string } bundleName - bundle name.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
   function killProcessesByBundleName(bundleName: string): Promise<void>;
 
   /**
@@ -515,7 +564,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since 13
    */
   function killProcessesByBundleName(bundleName: string, clearPageStack: boolean, appIndex?: number): Promise<void>;
 
@@ -533,6 +582,21 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9
+   */
+  /**
+   * Kill processes by bundle name
+   *
+   * @permission ohos.permission.KILL_APP_PROCESSES or ohos.permission.CLEAN_BACKGROUND_PROCESSES
+   * @param { string } bundleName - bundle name.
+   * @param { AsyncCallback<void> } callback - The callback of killProcessesByBundleName.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
    */
   function killProcessesByBundleName(bundleName: string, callback: AsyncCallback<void>);
 
@@ -957,7 +1021,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since 13
    */
   function clearUpAppData(bundleName: string, appCloneIndex?: number): Promise<void>;
 
@@ -974,9 +1038,28 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since 13
    */
   function terminateMission(missionId: number): Promise<void>;
+
+  /**
+   * Get pids of processes which belong to specific bundle name and support process cache feature.
+   *
+   * @permission ohos.permission.GET_RUNNING_INFO
+   * @param { string } bundleName - bundle name.
+   * @returns { Promise<Array<number>> } Returns the list of pid.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 13
+   */
+  function getSupportedProcessCachePids(bundleName : string): Promise<Array<number>>;
 
   /**
    * The ability or extension state data.
