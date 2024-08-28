@@ -347,7 +347,6 @@ declare namespace pasteboard {
    * Enumerates the patterns allowed in the system pasteboard.
    * @enum { number }
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @atomicservice
    * @since 13
    */
   enum Pattern {
@@ -1536,7 +1535,6 @@ declare namespace pasteboard {
      *                                                                   2. Incorrect parameter types;
      *                                                                   3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
      * @since 13
      */
     detectPatterns(patterns: Array<Pattern>): Promise<Array<Pattern>>;
