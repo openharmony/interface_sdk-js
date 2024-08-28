@@ -5530,6 +5530,17 @@ declare namespace photoAccessHelper {
     saveCameraPhoto(): void;
 
     /**
+     * Save the photo asset captured by camera with imageFileType.
+     *
+     * @param { ImageFileType } [imageFileType] - Image file type
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @throws { BusinessError } 14000016 - Operation Not Support
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 13
+     */
+    saveCameraPhoto(imageFileType: ImageFileType): void;
+
+    /**
      * Discard the photo asset captured by camera.
      *
      * @throws { BusinessError } 14000011 - Internal system error
