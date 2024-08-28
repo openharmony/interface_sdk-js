@@ -4009,7 +4009,7 @@ declare namespace photoAccessHelper {
      */
     createAssetsForApp(bundleName: string, appName: string, appId: string, photoCreationConfigs: Array<PhotoCreationConfig>): Promise<Array<string>>;
     /**
-     * Create asset and grant short term permission to the application.
+     * Create asset and grant short term permission to the application.Suggest using showAssetsCreationDialog without permission application.
      *
      * @permission ohos.permission.SHORT_TERM_WRITE_IMAGEVIDEO
      * @param { PhotoCreationConfig } photoCreationConfig - photo asset creation configs
