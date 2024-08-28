@@ -2730,7 +2730,7 @@ declare namespace drawing {
 
     /**
     * Requests, but does not require, that edge pixels draw opaque or with partial transparency.
-    * 
+    *
     * @param { boolean } aa - Setting for antialiasing.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
     * <br>2. Incorrect parameter types.
