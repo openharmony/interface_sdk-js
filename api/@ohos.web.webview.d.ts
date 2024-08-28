@@ -4498,7 +4498,7 @@ declare namespace webview {
      * @atomicservice
      * @since 12
      */
-    getLastJavascriptProxyCallingFrameUrl(): string
+    getLastJavascriptProxyCallingFrameUrl(): string;
 
     /**
      * Start current camera.
