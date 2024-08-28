@@ -1046,6 +1046,25 @@ declare namespace installer {
      * @since 12
      */
      destroyAppClone(bundleName: string, appIndex: number, userId?: number): Promise<void>;
+
+    /**
+     * Install application by bundle name with specified user.
+     *
+     * @permission ohos.permission.INSTALL_BUNDLE
+     * @param { string } bundleName - Indicates the bundle name of application.
+     * @param { number } [userId] - userId Indicates the user ID.
+     * @returns { Promise<void> }
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 17700001 - The specified bundleName cannot be found or the bundle is not installed by the specified user.
+     * @throws { BusinessError } 17700004 - The userId is invalid.
+     * @throws { BusinessError } 17700071 - It is not allowed to install the enterprise bundle.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+     installPreexistingApp(bundleName: string, userId?: number): Promise<void>;
   }
 
   /**
