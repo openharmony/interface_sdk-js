@@ -64,7 +64,8 @@ declare namespace uiEffect {
      * @param { number } waveCount - The number of waves when the water ripples. The maximum count of waves is 3, the minimum value is 1,  default is 2.
      * @param { number } x - Represents the X-axis position of center point  where the water ripple first appears on the screen.
      * @param { number } y - Represents the Y-axis position of center point  where the water ripple first appears on the screen.
-     * @param { WaterRippleMode } rippleMode - Set the mode of water ripple, 0 for mobile to desktop(Receive), 1 for mobile to desktop(Send), 2 for mobile to mobile.
+     * @param { WaterRippleMode } rippleMode - Set the mode of water ripple,
+     * 0 for mobile to desktop(Receive), 1 for mobile to desktop(Send), 2 for mobile to mobile.
      * @returns { Filter } - Returns  water ripple Filter.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
@@ -85,7 +86,7 @@ declare namespace uiEffect {
      * @systemapi
      * @since 12
      */
-    flyInFlyOutEffect(degree: number, flyMode: FlyMode ): Filter;
+    flyInFlyOutEffect(degree: number, flyMode: FlyMode): Filter;
   }
 
   /**
