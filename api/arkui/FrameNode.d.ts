@@ -1411,6 +1411,75 @@ export namespace typeNode {
    * @since 13
    */
   function createNode(context: UIContext, nodeType: 'Toggle', options?: ToggleOptions): Toggle;
+
+  /**
+   * Define the FrameNode type for Marquee.
+   *
+   * @typedef { TypedFrameNode<MarqueeInterface, MarqueeAttribute> } Marquee
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  type Marquee = TypedFrameNode<MarqueeInterface, MarqueeAttribute>;
+
+  /**
+   * Create a FrameNode of Marquee type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Marquee' } nodeType - node type.
+   * @returns { Marquee } - Return Marquee type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  function createNode(context: UIContext, nodeType: 'Marquee'): Marquee;
+
+  /**
+   * Define the FrameNode type for TextArea.
+   *
+   * @typedef { TypedFrameNode<TextAreaInterface, TextAreaAttribute> } TextArea
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  type TextArea = TypedFrameNode<TextAreaInterface, TextAreaAttribute>;
+
+  /**
+   * Create a FrameNode of TextArea type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'TextArea' } nodeType - node type.
+   * @returns { TextArea } - Return TextArea type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  function createNode(context: UIContext, nodeType: 'TextArea'): TextArea;
+
+  /**
+   * Define the FrameNode type for SymbolGlyph.
+   *
+   * @typedef { TypedFrameNode<SymbolGlyphInterface, SymbolGlyphAttribute> } SymbolGlyph
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  type SymbolGlyph = TypedFrameNode<SymbolGlyphInterface, SymbolGlyphAttribute>;
+
+  /**
+   * Create a FrameNode of SymbolGlyph type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'SymbolGlyph' } nodeType - node type.
+   * @returns { SymbolGlyph } - Return SymbolGlyph type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  function createNode(context: UIContext, nodeType: 'SymbolGlyph'): SymbolGlyph;
 }
 
 /**
