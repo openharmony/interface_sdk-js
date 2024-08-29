@@ -518,6 +518,18 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
   indicator(value: GaugeIndicatorOptions): GaugeAttribute;
 
   /**
+   * Set the content modifier of gauge.
+   *
+   * @param { ContentModifier<GaugeConfiguration> } modifier - The content modifier of gauge.
+   * @returns { GaugeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  contentModifier(modifier: ContentModifier<GaugeConfiguration>): GaugeAttribute;
+
+  /**
    * Sets if mark to privacy sensitive.
    *
    * @param { Optional<boolean> } isPrivacySensitiveMode - indicates if mark to  privacy sensitive .
@@ -529,18 +541,6 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @since 12
    */
     privacySensitive(isPrivacySensitiveMode: Optional<boolean>): GaugeAttribute;
-
-  /**
-   * Set the content modifier of gauge.
-   *
-   * @param { ContentModifier<GaugeConfiguration> } modifier - The content modifier of gauge.
-   * @returns { GaugeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  contentModifier(modifier: ContentModifier<GaugeConfiguration>): GaugeAttribute;
 }
 
 /**

@@ -687,7 +687,7 @@ declare interface ProvideOptions {
 declare const Provide: PropertyDecorator & ((value: string | ProvideOptions) => PropertyDecorator);
 
 /**
- * Defining Provider PropertyDecorator, aliasName is the only matching key and if aliasName is the default, the default attribute name is regarded as aliasName.
+ * Defining Provider PropertyDecorator.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -728,7 +728,7 @@ declare const Provider: (aliasName?: string) => PropertyDecorator;
 declare const Consume: PropertyDecorator & ((value: string) => PropertyDecorator);
 
 /**
-* Defining Consumer PropertyDecorator, aliasName is the only matching key and if aliasName is the default, the default attribute name is regarded as aliasName. And @Consumer will find the nearest @Provider.
+* Defining Consumer PropertyDecorator.
 * @syscap SystemCapability.ArkUI.ArkUI.Full
 * @crossplatform
 * @atomicservice
@@ -1672,10 +1672,10 @@ declare interface Rectangle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 11
  */
-/**
+/**i
  * Interface for ExpectedFrameRateRange.
  *
- * @typedef ExpectedFrameRateRange
+ * @interface ExpectedFrameRateRange
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
@@ -2304,7 +2304,7 @@ interface ICurve {
   /**
    * Get curve value by fraction.
    *
-   * @param { number } fraction -Indicates the current normalized time parameter. Value range: [0, 1].
+   * @param { number } fraction - Indicates the current normalized time parameter. Value range: [0, 1].
    * Note: If the value is less than 0, it will be processed as 0. If the value is greater than 1, 1 is used.
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2314,7 +2314,7 @@ interface ICurve {
   /**
    * Get curve value by fraction.
    *
-   * @param { number } fraction -Indicates the current normalized time parameter. Value range: [0, 1].
+   * @param { number } fraction - Indicates the current normalized time parameter. Value range: [0, 1].
    * Note: If the value is less than 0, it will be processed as 0. If the value is greater than 1, 1 is used.
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2325,7 +2325,7 @@ interface ICurve {
   /**
    * Get curve value by fraction.
    *
-   * @param { number } fraction -Indicates the current normalized time parameter. Value range: [0, 1].
+   * @param { number } fraction - Indicates the current normalized time parameter. Value range: [0, 1].
    * Note: If the value is less than 0, it will be processed as 0. If the value is greater than 1, 1 is used.
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2701,7 +2701,6 @@ declare interface GeometryTransitionOptions {
    * whether follow target for the component still in the hierarchy, default: false, stay current.
    *
    * @type { ?boolean }
-   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -4247,7 +4246,7 @@ declare class TransitionEffect<
    * -x: Horizontal component of the rotational vector.
    * -y: Vertical component of the rotational vector.
    * -z: Vertical component of the rotational vector.
-   * -centerX, centerY specify the rotation center point, with default values of "50%", 
+   * -centerX, centerY specify the rotation center point, with default values of "50%",
    * meaning that the default rotation center point is the center point of the component.
    * -The center point of (0, 0) represents the upper-left corner of the component.
    * -centerZ refers to the Z-axis anchor point. The default value of centerZ is 0.
@@ -4267,7 +4266,7 @@ declare class TransitionEffect<
    * -x: Horizontal component of the rotational vector.
    * -y: Vertical component of the rotational vector.
    * -z: Vertical component of the rotational vector.
-   * -centerX, centerY specify the rotation center point, with default values of "50%", 
+   * -centerX, centerY specify the rotation center point, with default values of "50%",
    * meaning that the default rotation center point is the center point of the component.
    * -The center point of (0, 0) represents the upper-left corner of the component.
    * -centerZ refers to the Z-axis anchor point. The default value of centerZ is 0.
@@ -7618,7 +7617,7 @@ declare interface BaseEvent {
   /**
    * the Horizontal axis coordinate.
    *
-   * @type { ?number }
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -7630,7 +7629,7 @@ declare interface BaseEvent {
   /**
    * the Vertical axis coordinate.
    *
-   * @type { ?number }
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -9320,7 +9319,7 @@ declare enum DragResult {
  */
 /**
  * Enum for BlendMode.
- * Blend modes for compositing current component 
+ * Blend modes for compositing current component
  * with overlapping content. Use overlapping content
  * as dst, current component as src.
  *
@@ -11358,13 +11357,12 @@ declare interface SheetOptions extends BindOptions {
    * Called when detents of the sheet changed
    *
    * @type { ?Callback<number> }
-   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  onDetentsDidChange?: Callback<number>;
+    onDetentsDidChange?: Callback<number>;
 
   /**
    * Called when width of the sheet changed
@@ -11375,7 +11373,7 @@ declare interface SheetOptions extends BindOptions {
    * @atomicservice
    * @since 12
    */
-  onWidthDidChange?: Callback<number>;
+    onWidthDidChange?: Callback<number>;
 
   /**
    * Called when the sheet type changed
@@ -18674,10 +18672,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Linear Gradient
-   * angle: Angle of Linear Gradient. The default value is 180;
-   * direction: Direction of Linear Gradient. The default value is GradientDirection.Bottom; 
-   * colors: Color description for gradients.
-   * repeating: repeating. The default value is false
+   * angle: Angle of Linear Gradient; direction: Direction of Linear Gradient; colors: Color description for gradients,repeating: repeating.
    *
    * @param { object } value
    * @returns { T }
@@ -18763,12 +18758,12 @@ declare class CommonMethod<T> {
   /**
    * Angle Gradient
    * center:is the center point of the angle gradient
-   * start:Start point of angle gradient. The default value is 0
-   * end:End point of angle gradient. The default value is 0
+   * start:Start point of angle gradient.
+   * end:End point of angle gradient.
    * number:number
-   * rotating:rotating. The default value is 0
+   * rotating:rotating.
    * colors:Color description for gradients
-   * repeating:repeating. The default value is false
+   * repeating:repeating.
    *
    * @param { object } value
    * @returns { T }
@@ -18844,9 +18839,9 @@ declare class CommonMethod<T> {
   /**
    * Radial Gradient
    * center:Center point of radial gradient
-   * radius:Radius of Radial Gradient. value range [0, +∞)
+   * radius:Radius of Radial Gradient.
    * colors:Color description for gradients
-   * repeating: Refill. The default value is false
+   * repeating: Refill.
    *
    * @param { object } value
    * @returns { T }
@@ -18957,7 +18952,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Add a blendMode effect to the current component
-   * 
+   *
    * @param { BlendMode } value - Different hybrid modes
    * @param { BlendApplyType } [type] - Different blend apply type
    * @returns { T }
@@ -20002,7 +19997,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 12
    */
-  onSizeChange(event: SizeChangeCallback): T;
+   onSizeChange(event: SizeChangeCallback): T;
 }
 
 /**
@@ -21677,17 +21672,6 @@ declare interface MeasureResult extends SizeResult {
 declare type NavDestinationInfo = import('../api/@ohos.arkui.observer').default.NavDestinationInfo;
 
 /**
- * The router page information.
- *
- * @typedef {import('../api/@ohos.arkui.observer').default.RouterPageInfo} RouterPageInfo
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12
- */
- declare type RouterPageInfo = import('../api/@ohos.arkui.observer').default.RouterPageInfo;
-
-/**
  * The navigation information.
  *
  * @typedef {import('../api/@ohos.arkui.observer').default.NavigationInfo} NavigationInfo
@@ -21697,6 +21681,17 @@ declare type NavDestinationInfo = import('../api/@ohos.arkui.observer').default.
  * @since 12
  */
 declare type NavigationInfo = import('../api/@ohos.arkui.observer').default.NavigationInfo;
+
+/**
+ * The router page information.
+ *
+ * @typedef {import('../api/@ohos.arkui.observer').default.RouterPageInfo} RouterPageInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type RouterPageInfo = import('../api/@ohos.arkui.observer').default.RouterPageInfo;
 
 /**
  * UIContext
@@ -22830,7 +22825,7 @@ declare type OnScrollCallback = (scrollOffset: number, scrollState: ScrollState)
  * @atomicservice
  * @since 12
  */
-declare type OnMoveHandler = (from: number, to: number) => void;
+declare type OnMoveHandler = (from: number, to: number) => void
 
 /**
  * Define DynamicNode.
@@ -22851,7 +22846,7 @@ declare class DynamicNode<T> {
    * @atomicservice
    * @since 12
    */
-  onMove(handler: Optional<OnMoveHandler>): T;
+  onMove(handler: Optional<OnMoveHandler>): T
 }
 
 /**
@@ -23379,14 +23374,12 @@ declare type HoverCallback = (isHover: boolean, event: HoverEvent) => void
  * The value of event contains information about AccessibilityHoverEvent.
  *
  * @typedef { function }
- * @param { boolean } isHover
- * @param { AccessibilityHoverEvent } event
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 12
  */
-declare type AccessibilityCallback = (isHover: boolean, event: AccessibilityHoverEvent) => void
+declare type AccessibilityCallback = (isHover: boolean, event: AccessibilityHoverEvent) => void;
 
 /**
  * Defines the options about VisibleAreaEvent.

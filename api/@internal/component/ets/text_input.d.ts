@@ -184,7 +184,7 @@ declare enum InputType {
    */
   SCREEN_LOCK_PASSWORD = 9,
 
-  /**
+  /*
    * UserName entry mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
