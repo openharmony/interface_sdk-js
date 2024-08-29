@@ -553,4 +553,15 @@ export default class ApplicationContext extends Context {
    * @since 12
    */
   getCurrentAppCloneIndex(): number;
+
+  /**
+   * Set font size scale.
+   * @param {number} fontSizeScale - Font size scale.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 13
+   */
+  setFontSizeScale(fontSizeScale: number): void;
 }
