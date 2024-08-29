@@ -5601,7 +5601,7 @@ declare namespace photoAccessHelper {
     /**
      * Save the photo asset captured by camera with imageFileType.
      *
-     * @param { ImageFileType } [imageFileType] - Image file type
+     * @param { ImageFileType } imageFileType - Image file type
      * @throws { BusinessError } 14000011 - System inner fail
      * @throws { BusinessError } 14000016 - Operation Not Support
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
