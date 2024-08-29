@@ -9158,7 +9158,7 @@ declare enum WordBreak {
  * @atomicservice
  * @since 12
  */
-declare enum LineBreakStrategy  {
+declare enum LineBreakStrategy {
   /**
    * By default. Display as many characters as possible on each line until no more characters
    * can be displayed on that line, and do not automatically add hyphens under this strategy
@@ -9179,7 +9179,7 @@ declare enum LineBreakStrategy  {
    * @atomicservice
    * @since 12
    */
-  HIGH_QUALITY  = 1,
+  HIGH_QUALITY = 1,
 
   /**
    * Balanced folding. We will try our best to ensure that the width of each line in a paragraph
@@ -9190,7 +9190,66 @@ declare enum LineBreakStrategy  {
    * @atomicservice
    * @since 12
    */
-  BALANCED  = 2,
+  BALANCED = 2,
+}
+
+/**
+ * Enum of Illuminated type
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 11
+ */
+declare enum IlluminatedType {
+  /**
+   * Component is not illuminated.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  NONE = 0,
+  /**
+   * Border is illuminated.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  BORDER = 1,
+  /**
+   * Content is illuminated.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  CONTENT = 2,
+  /**
+   * Border and Content is illuminated.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  BORDER_CONTENT = 3,
+  /**
+   * Border is illuminated, and the border have a bloom effect.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  BLOOM_BORDER = 4,
+  /**
+   * Border and Content is illuminated, and the border have a bloom effect.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  BLOOM_BORDER_CONTENT = 5
 }
 
 /**
@@ -9280,7 +9339,7 @@ declare enum EllipsisMode {
  * @atomicservice
  * @since 12
  */
-declare type Nullable<T> = T | undefined;
+ declare type Nullable<T> = T | undefined;
 
 
 /**
@@ -9317,7 +9376,7 @@ declare enum OptionWidthMode {
    * @since 12
    */
   FIT_CONTENT = 'fit_content',
-
+ 
   /**
    * The menu width fit the trigger.
    *
@@ -9334,65 +9393,6 @@ declare enum OptionWidthMode {
    * @since 12
    */
   FIT_TRIGGER = 'fit_trigger',
-}
-
-/**
- * Enum of Illuminated type
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 11
- */
-declare enum IlluminatedType {
-  /**
-   * Component is not illuminated.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 11
-   */
-  NONE = 0,
-  /**
-   * Border is illuminated.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 11
-   */
-  BORDER = 1,
-  /**
-   * Content is illuminated.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 11
-   */
-  CONTENT = 2,
-  /**
-   * Border and Content is illuminated.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 11
-   */
-  BORDER_CONTENT = 3,
-  /**
-   * Border is illuminated, and the border have a bloom effect.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 11
-   */
-  BLOOM_BORDER = 4,
-  /**
-   * Border and Content is illuminated, and the border have a bloom effect.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 11
-   */
-  BLOOM_BORDER_CONTENT = 5
 }
 
 /**
@@ -9554,7 +9554,7 @@ declare enum EmbeddedType {
  * @atomicservice
  * @since 12
  */
-declare enum MarqueeUpdateStrategy  {
+declare enum MarqueeUpdateStrategy {
   /**
    * Reset scroll position and restart scroll.
    *

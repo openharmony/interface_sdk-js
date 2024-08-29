@@ -69,7 +69,7 @@ declare namespace uiObserver {
      * @since 11
      */
     /**
-     * When the NavDestination is displayed.
+     * When the NavDestination displayed.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform

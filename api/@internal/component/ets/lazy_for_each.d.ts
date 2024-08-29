@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+ 
 /**
  * @file
  * @kit ArkUI
@@ -452,7 +452,7 @@ interface DataReloadOperation {
  * @since 12
  */
 declare type DataOperation =
-  DataAddOperation | DataDeleteOperation | DataChangeOperation | DataMoveOperation | DataExchangeOperation | DataReloadOperation
+  DataAddOperation | DataDeleteOperation | DataChangeOperation | DataMoveOperation | DataExchangeOperation | DataReloadOperation;
 
 /**
  * Data Change Listener.
@@ -501,7 +501,7 @@ declare interface DataChangeListener {
    * @since 11
    */
   onDataReloaded(): void;
-
+ 
   /**
    * Data added.
    *
@@ -512,7 +512,7 @@ declare interface DataChangeListener {
    * @useinstead onDataAdd
    */
   onDataAdded(index: number): void;
-
+ 
   /**
    * Data added.
    *
@@ -538,7 +538,7 @@ declare interface DataChangeListener {
    * @since 11
    */
   onDataAdd(index: number): void;
-
+ 
   /**
    * Data moved.
    *
@@ -579,7 +579,7 @@ declare interface DataChangeListener {
    * @since 11
    */
   onDataMove(from: number, to: number): void;
-
+ 
   /**
    * Data deleted.
    *
@@ -590,7 +590,7 @@ declare interface DataChangeListener {
    * @useinstead onDataDelete
    */
   onDataDeleted(index: number): void;
-
+ 
   /**
    * Data deleted.
    *
@@ -616,7 +616,7 @@ declare interface DataChangeListener {
    * @since 11
    */
   onDataDelete(index: number): void;
-
+ 
   /**
    * Call when has data change.
    *
@@ -627,7 +627,7 @@ declare interface DataChangeListener {
    * @useinstead onDataChange
    */
   onDataChanged(index: number): void;
-
+ 
   /**
    * Call when has data change.
    *
@@ -665,7 +665,7 @@ declare interface DataChangeListener {
    */
   onDatasetChange(dataOperations: DataOperation[]): void;
 }
-
+ 
 /**
  * Developers need to implement this interface to provide data to LazyForEach component.
  *
@@ -716,7 +716,7 @@ declare interface IDataSource {
    * @since 11
    */
   totalCount(): number;
-
+ 
   /**
    * Return the data of index.
    *
@@ -745,7 +745,7 @@ declare interface IDataSource {
    * @since 11
    */
   getData(index: number): any;
-
+ 
   /**
    * Register data change listener.
    *
@@ -771,7 +771,7 @@ declare interface IDataSource {
    * @since 11
    */
   registerDataChangeListener(listener: DataChangeListener): void;
-
+ 
   /**
    * Unregister data change listener.
    *
@@ -798,7 +798,7 @@ declare interface IDataSource {
    */
   unregisterDataChangeListener(listener: DataChangeListener): void;
 }
-
+ 
 /**
  * declare ForEachAttribute
  *
@@ -886,7 +886,7 @@ interface LazyForEachInterface {
     keyGenerator?: (item: any, index: number) => string,
   ): LazyForEachAttribute;
 }
-
+ 
 /**
  * Defines LazyForEach Component.
  *

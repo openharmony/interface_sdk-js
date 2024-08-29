@@ -53,7 +53,7 @@ declare type DrawingColorFilter = import('../api/@ohos.graphics.drawing').defaul
  * @systemapi
  * @since 12
  */
-declare type ResolutionQuality  = import('../api/@ohos.multimedia.image').default.ResolutionQuality;
+declare type ResolutionQuality = import('../api/@ohos.multimedia.image').default.ResolutionQuality;
 
 /**
  * Lattice for dividing an image into grids.
@@ -64,7 +64,7 @@ declare type ResolutionQuality  = import('../api/@ohos.multimedia.image').defaul
  * @atomicservice
  * @since 12
  */
-declare type DrawingLattice  = import('../api/@ohos.graphics.drawing').default.Lattice;
+declare type DrawingLattice = import('../api/@ohos.graphics.drawing').default.Lattice;
 
 /**
  * @enum { number }
@@ -1523,6 +1523,17 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   resizable(value: ResizableOptions): ImageAttribute;
 
   /**
+   * Set the quality enhancement level of image.
+   *
+   * @param { ResolutionQuality } imageQuality
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  enhancedImageQuality(imageQuality: ResolutionQuality): ImageAttribute;
+
+  /**
    * Whether to support sensitive privacy information
    *
    * @param { boolean } supported - Whether to support sensitive privacy information.
@@ -1533,17 +1544,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 12
    */
   privacySensitive(supported: boolean): ImageAttribute;
-
-  /**
-   * Set the quality enhancement level of image.
-   *
-   * @param { ResolutionQuality } imageQuality
-   * @returns { ImageAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 12
-   */
-  enhancedImageQuality(imageQuality: ResolutionQuality): ImageAttribute;
 }
 
 /**
