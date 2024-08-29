@@ -3734,7 +3734,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 12
    */
   enableKeyboardOnFocus(isEnabled: boolean): RichEditorAttribute;
 
