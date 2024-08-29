@@ -3911,7 +3911,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     PRIVATE_MOVING_PHOTO_RESOURCE = 4
   }
@@ -3975,7 +3975,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     CINEMA_GRAPH = 5,
 
@@ -3984,7 +3984,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     IMAGE_ONLY = 10
   }
