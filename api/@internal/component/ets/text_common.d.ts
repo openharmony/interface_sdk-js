@@ -983,3 +983,27 @@ interface DecorationStyleResult {
    */
   style?: TextDecorationStyle;
 }
+
+/**
+ * Defines the options of font.
+ *
+ * @interface FontSettingOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12
+ */
+declare interface FontSettingOptions {
+  /**
+    * Define weather VariableFontWeight is supported.
+    *
+    * @type { ?boolean }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @form
+    * @atomicservice
+    * @since 12
+    */
+  enableVariableFontWeight?: boolean;
+ }
