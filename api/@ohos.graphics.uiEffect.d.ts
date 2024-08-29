@@ -219,6 +219,15 @@ declare namespace uiEffect {
   }
 
   /**
+   * Defines the blending effect.
+   * @typedef Blender
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @since 13
+   */
+  type Blender = BrightnessBlender;
+
+  /**
    * The Blender of backgroundColorEffect.
    * @typedef BrightnessBlender
    * @syscap SystemCapability.Graphics.Drawing
