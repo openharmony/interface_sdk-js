@@ -2684,14 +2684,6 @@ declare namespace photoAccessHelper {
      */
     PORTRAIT,
     /**
-     * Group photo album
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
-     * @since 12
-     */
-    GROUP_PHOTO,
-    /**
      * Highlight album
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -5564,19 +5556,6 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     placeBefore(album: Album): void;
-
-    /**
-     * Dismiss group photo album.
-     *
-     * @throws { BusinessError } 202 - Called by non-system application
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 14000011 - System inner fail
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
-     * @since 12
-     */
-    dismiss(): void;
   }
 
   /**
