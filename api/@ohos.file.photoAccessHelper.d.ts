@@ -568,6 +568,80 @@ declare namespace photoAccessHelper {
   }
 
   /**
+   * Enumeration type of permissions for accessing asset uri.
+   *
+   * @enum { number } PhotoPermissionType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 12
+   */
+  enum PhotoPermissionType {
+    /**
+     * Temporary access to photos, this permission could be canceled when APP dies.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    TEMPORARY_READ_IMAGEVIDEO = 0,
+
+    /**
+     * Persistence access to photos.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    PERSISTENT_READ_IMAGEVIDEO = 1
+  }
+
+  /**
+   * Enumeration type of hide sensitive information.
+   *
+   * @enum { number } HideSensitiveType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 12
+   */
+  enum HideSensitiveType {
+    /**
+     * Hide location information and shooting param.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    HIDE_LOCATION_AND_SHOOTING_PARAM = 0,
+
+    /**
+     * Hide location information.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    HIDE_LOCATION_ONLY = 1,
+
+    /**
+     * Hide shooting param.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    HIDE_SHOOTING_PARAM_ONLY = 2,
+
+    /**
+     * Hide nothing.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    NO_HIDE_SENSITIVE_TYPE = 3
+  }
+
+  /**
    * Options to request media asset
    *
    * @interface RequestOptions
@@ -4003,6 +4077,68 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     getIndexConstructProgress(): Promise<string>;
+    /**
+     * Grant permission of assets to an APP.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { string } appid - App Id
+     * @param { Array<string> } uriList - List of asset uris whose permission will be granted to an App,
+     * <br>the capacity of uriList is 1000.
+     * @param { PhotoPermissionType } photoPermissionType - Permission type of accessing assets.
+     * @param { HideSensitiveType } hideSensitiveType - Hide sensitive info type of accessing assets.
+     * @returns { Promise<number> } Returns result of grant permission
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    grantPhotoUrisPermission(
+      appid: string,
+      uriList: Array<string>,
+      photoPermissionType: PhotoPermissionType,
+      hideSensitiveType: HideSensitiveType
+    ): Promise<number>;
+    /**
+     * Grant permission of asset to an APP.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { string } appid - App Id
+     * @param { string } uri - Asset uri whose permission will be granted to an App.
+     * @param { PhotoPermissionType } photoPermissionType - Permission type of accessing assets.
+     * @param { HideSensitiveType } hideSensitiveType - Hide sensitive info type of accessing assets.
+     * @returns { Promise<number> } Returns result of grant permission
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    grantPhotoUriPermission(appid: string, uri: string, photoPermissionType: PhotoPermissionType, hideSensitiveType: HideSensitiveType): Promise<number>;
+    /**
+     * Cancel permission of asset to an APP.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { string } appid - App Id
+     * @param { string } uri - Asset uri whose permission will be granted to an App.
+     * @param { PhotoPermissionType } photoPermissionType - Permission type of accessing assets.
+     * @returns { Promise<number> } Returns result of cancel permission
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    cancelPhotoUriPermission(appid: string, uri: string, photoPermissionType: PhotoPermissionType): Promise<number>;
   }
 
   /**

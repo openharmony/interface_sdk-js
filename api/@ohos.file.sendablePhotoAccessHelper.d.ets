@@ -20,8 +20,8 @@
 
 import type Context from './application/Context';
 import type image from './@ohos.multimedia.image';
-import lang from '@arkts.lang';
-import { photoAccessHelper } from '@kit.MediaLibraryKit';
+import lang from '../arkts/@arkts.lang';
+import photoAccessHelper from './@ohos.file.photoAccessHelper';
 
 /**
  * Helper functions to access image and video assets
