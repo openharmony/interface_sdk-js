@@ -1672,7 +1672,7 @@ declare interface Rectangle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 11
  */
-/**i
+/**
  * Interface for ExpectedFrameRateRange.
  *
  * @interface ExpectedFrameRateRange
@@ -10255,7 +10255,6 @@ declare interface DragEvent {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 12
    */
   getModifierKeyState?(keys: Array<string>): boolean;
@@ -10541,7 +10540,6 @@ declare interface KeyEvent {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 12
    */
   getModifierKeyState?(keys: Array<string>): boolean;
@@ -11362,7 +11360,7 @@ declare interface SheetOptions extends BindOptions {
    * @atomicservice
    * @since 12
    */
-    onDetentsDidChange?: Callback<number>;
+  onDetentsDidChange?: Callback<number>;
 
   /**
    * Called when width of the sheet changed
@@ -11374,7 +11372,7 @@ declare interface SheetOptions extends BindOptions {
    * @since 12
    */
     onWidthDidChange?: Callback<number>;
-
+ 
   /**
    * Called when the sheet type changed
    *
@@ -11384,7 +11382,7 @@ declare interface SheetOptions extends BindOptions {
    * @atomicservice
    * @since 12
    */
-  onTypeDidChange?: Callback<SheetType>;
+    onTypeDidChange?: Callback<SheetType>;
 
   /**
    * The UIContext that the sheet belongs to
@@ -18672,7 +18670,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Linear Gradient
-   * angle: Angle of Linear Gradient; direction: Direction of Linear Gradient; colors: Color description for gradients,repeating: repeating.
+   * angle: Angle of Linear Gradient; direction:Direction of Linear Gradient;  colors:Color description for gradients,repeating:repeating.
    *
    * @param { object } value
    * @returns { T }
@@ -18758,12 +18756,12 @@ declare class CommonMethod<T> {
   /**
    * Angle Gradient
    * center:is the center point of the angle gradient
-   * start:Start point of angle gradient.
-   * end:End point of angle gradient.
+   * start:Start point of angle gradient
+   * end:End point of angle gradient
    * number:number
-   * rotating:rotating.
+   * rotating:rotating
    * colors:Color description for gradients
-   * repeating:repeating.
+   * repeating:repeating
    *
    * @param { object } value
    * @returns { T }
@@ -18839,9 +18837,9 @@ declare class CommonMethod<T> {
   /**
    * Radial Gradient
    * center:Center point of radial gradient
-   * radius:Radius of Radial Gradient.
+   * radius:Radius of Radial Gradient
    * colors:Color description for gradients
-   * repeating: Refill.
+   * repeating: Refill
    *
    * @param { object } value
    * @returns { T }
@@ -21655,7 +21653,7 @@ declare type NavigationInfo = import('../api/@ohos.arkui.observer').default.Navi
  * @atomicservice
  * @since 12
  */
-declare type RouterPageInfo = import('../api/@ohos.arkui.observer').default.RouterPageInfo;
+ declare type RouterPageInfo = import('../api/@ohos.arkui.observer').default.RouterPageInfo;
 
 /**
  * UIContext

@@ -52,7 +52,7 @@ import { ProgressButton } from '@ohos.arkui.advanced.ProgressButton';
 import {
   SegmentButton, SegmentButtonOptions, SegmentButtonItemOptionsArray, TabSegmentButtonOptions,
   TabSegmentButtonConstructionOptions, CapsuleSegmentButtonOptions, CapsuleSegmentButtonConstructionOptions,
-  SegmentButtonTextItem, SegmentButtonIconItem, SegmentButtonIconTextItem, DimensionNoPercentage, CommonSegmentButtonOptions,
+  SegmentButtonTextItem, SegmentButtonIconItem, SegmentButtonIconTextItem, DimensionNoPercentage, CommonSegmentButtonOptions, 
   ItemRestriction, SegmentButtonItemTuple, SegmentButtonItemArray, SegmentButtonItemOptionsConstructorOptions, SegmentButtonItemOptions
 } from '@ohos.arkui.advanced.SegmentButton';
 import {
@@ -147,7 +147,7 @@ import {
   PolygonModifier, PolylineModifier, RectModifier, ShapeModifier, AlphabetIndexerModifier, FormComponentModifier,
   HyperlinkModifier, MenuModifier, MenuItemModifier, PanelModifier, SymbolGlyphModifier, AttributeUpdater,
   ContainerSpanModifier, SymbolSpanModifier, ParticleModifier
-} from "@ohos.arkui.modifier";
+} from '@ohos.arkui.modifier';
 import { IDataSourcePrefetching, IPrefetcher, BasicPrefetcher } from '@ohos.arkui.Prefetcher';
 import {
   DownloadFileButton,
