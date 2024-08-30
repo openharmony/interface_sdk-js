@@ -734,7 +734,7 @@ declare namespace photoAccessHelper {
   /**
    * Data handler when quick request image is finished
    *
-   * @interface QuickImageDataHandler
+   * @typedef QuickImageDataHandler
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 13
    */
