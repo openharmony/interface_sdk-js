@@ -1545,7 +1545,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   displayMode(value: SwiperDisplayMode): SwiperAttribute;
 
   /**
-   * Sets the number of child components to be cached.
+   * Sets the number of child components to be preloaded(cached).
    *
    * @param { number } value
    * @returns { SwiperAttribute }
@@ -1553,7 +1553,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 8
    */
   /**
-   * Sets the number of child components to be cached.
+   * Sets the number of child components to be preloaded(cached).
    *
    * @param { number } value
    * @returns { SwiperAttribute }
@@ -1563,7 +1563,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 10
    */
   /**
-   * Sets the number of child components to be cached.
+   * Sets the number of child components to be preloaded(cached).
    *
    * @param { number } value
    * @returns { SwiperAttribute }
@@ -1776,7 +1776,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * When the previous item is empty, do not display blank space.
    *
    * @param { Length } value - The length of previous margin.
-   * @param { boolean } [ignoreBlank] - A boolean value determines whether to ignore blank space at the end of the page.
+   * @param { boolean } [ignoreBlank] - Whether to hide(ignore) the previous margin on the first page in non-loop scenarios.
    * @returns { SwiperAttribute } The attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1808,7 +1808,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * When the next item is empty, do not display blank space.
    *
    * @param { Length } value - The length of next margin.
-   * @param { boolean } [ignoreBlank] - A boolean value determines whether to ignore blank space on homepage.
+   * @param { boolean } [ignoreBlank] - Whether to hide(ignore) the next margin on the last page in non-loop scenarios.
    * @returns { SwiperAttribute } The attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

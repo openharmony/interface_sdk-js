@@ -827,6 +827,7 @@ declare namespace componentUtils {
   * Provide the ability to obtain the coordinates and size of component drawing areas.
   * @param {string} id - component id.
   * @returns {ComponentInfo} the object of ComponentInfo.
+  * @throws { BusinessError } 100001 - UI execution context not found.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @since 10
@@ -835,6 +836,7 @@ declare namespace componentUtils {
   * Provide the ability to obtain the coordinates and size of component drawing areas.
   * @param {string} id - component id.
   * @returns {ComponentInfo} the object of ComponentInfo.
+  * @throws { BusinessError } 100001 - UI execution context not found.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice

@@ -1602,7 +1602,15 @@ declare namespace connection {
      * @atomicservice
      * @since 12
      */
-    NET_CAPABILITY_PORTAL = 17
+    NET_CAPABILITY_PORTAL = 17,
+
+    /**
+     * Indicates that the network is checking connectivity.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @atomicservice
+     * @since 12
+     */
+    NET_CAPABILITY_CHECKING_CONNECTIVITY = 31
   }
 
   /**
@@ -1667,6 +1675,14 @@ declare namespace connection {
      */
     BEARER_WIFI = 1,
 
+    /**
+     * Indicates that the network is based on a bluetooth network.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @since 12
+     */
+    BEARER_BLUETOOTH = 2,
+ 
     /**
      * Indicates that the network is an Ethernet network.
      * @syscap SystemCapability.Communication.NetManager.Core

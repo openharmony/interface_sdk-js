@@ -19,6 +19,54 @@
  */
 
 /**
+ * Define options used to construct a row.
+ *
+ * @interface RowOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 13
+ */
+declare interface RowOptions {
+  /**
+   * Row spacing.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Row spacing.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Row spacing.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Row spacing.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  space?: string | number;
+}
+
+/**
  * The components are laid out horizontally
  *
  * @interface RowInterface
@@ -91,7 +139,18 @@ interface RowInterface {
    * @atomicservice
    * @since 11
    */
-  (value?: { space?: string | number }): RowAttribute;
+  /**
+   * Called when the layout is set in the horizontal direction.
+   *
+   * @param { ?RowOptions } options - row options
+   * @returns { RowAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 13
+   */
+  (options?: RowOptions): RowAttribute;
 }
 
 /**
@@ -218,6 +277,18 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
    * @since 11
    */
   pointLight(value: PointLightStyle): RowAttribute;
+  /**
+   * Called when the Main-Axis's direction is set reversed or not
+   *
+   * @param { Optional<boolean> } isReversed - If the main axis is reversed.
+   * @returns { RowAttribute } The attribute of the row.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  reverse(isReversed: Optional<boolean>): RowAttribute;
 }
 
 /**

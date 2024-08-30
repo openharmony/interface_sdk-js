@@ -65,7 +65,7 @@ type typeTest = {
    * @atomicservice
    * @since 11
    */
-  isTest: boolean;
+  isTest?: boolean;
 }
 
 export interface LazyForEachInterface {}

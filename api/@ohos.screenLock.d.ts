@@ -120,7 +120,7 @@ declare namespace screenLock {
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
-   * @throws { BusinessError } 13200003 - illegal use.
+   * @throws { BusinessError } 13200003 - Invalid use.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -143,7 +143,7 @@ declare namespace screenLock {
    * @returns { Promise<boolean> } the promise returned by the function.
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
-   * @throws { BusinessError } 13200003 - illegal use.
+   * @throws { BusinessError } 13200003 - Invalid use.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -307,6 +307,7 @@ declare namespace screenLock {
     /**
      * Indicates the system event type related to the screenlock management service.
      *
+     * @type { EventType }
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -315,6 +316,7 @@ declare namespace screenLock {
     /**
      * Identifies the customized extended parameter of an event.
      *
+     * @type { string }
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
      * @since 9

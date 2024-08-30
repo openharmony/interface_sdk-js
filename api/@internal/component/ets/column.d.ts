@@ -19,6 +19,54 @@
  */
 
 /**
+ * Column constructor options.
+ *
+ * @interface ColumnOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 13
+ */
+interface ColumnOptions {
+  /**
+   * Vertical layout element spacing
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Vertical layout element spacing.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Vertical layout element spacing.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Vertical layout element spacing.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  space?: string | number;
+}
+
+/**
  * Defines the Column Component.
  *
  * @interface ColumnInterface
@@ -99,7 +147,18 @@ interface ColumnInterface {
    * @atomicservice
    * @since 11
    */
-  (value?: { space?: string | number }): ColumnAttribute;
+  /**
+   * Set the options.
+   *
+   * @param { ColumnOptions } [options] - column options
+   * @returns { ColumnAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 13
+   */
+  (options?: ColumnOptions): ColumnAttribute;
 }
 
 /**
@@ -226,6 +285,18 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
    * @since 11
    */
   pointLight(value: PointLightStyle): ColumnAttribute;
+  /**
+   * Called when the Main-Axis's direction is set reversed or not
+   *
+   * @param { Optional<boolean> } isReversed - If the main axis is reversed.
+   * @returns { ColumnAttribute } The attribute of the column.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  reverse(isReversed: Optional<boolean>): ColumnAttribute;
 }
 
 /**

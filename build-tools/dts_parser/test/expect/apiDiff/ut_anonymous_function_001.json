@@ -8,11 +8,11 @@
     "newApiName": "testFun",
     "oldDtsName": "ut_anonymous_function_001.d.ts",
     "newDtsName": "ut_anonymous_function_001.d.ts",
-    "diffType": 43,
+    "diffType": 95,
     "diffMessage": "函数的参数类型变更",
     "changeLogUrl": "",
     "changeLogs": [],
-    "isCompatible": false,
+    "isCompatible": true,
     "oldHierarchicalRelations": [
       "ut_anonymous_function_001.d.ts",
       "Test",

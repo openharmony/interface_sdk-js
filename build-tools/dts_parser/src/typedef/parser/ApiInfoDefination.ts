@@ -509,7 +509,7 @@ export class PropertyInfo extends ApiInfo {
   isRequired: boolean = false; // 属性是否为必选
   isStatic: boolean = false; // 属性是否为静态
   typeKind: ts.SyntaxKind = ts.SyntaxKind.Unknown; //type类型的kind值
-  typeLocations: TypeAliasInfo[] = []; // 参数、返回值的JsDoc信息
+  typeLocations: ApiInfo[] = []; // 参数、返回值的JsDoc信息
   objLocations: PropertyInfo[] = []; // 匿名类型的JsDoc信息
 
   constructor(apiType: string = '', node: ts.Node, parentApi: BasicApiInfo | undefined) {
@@ -558,12 +558,16 @@ export class PropertyInfo extends ApiInfo {
     return this.typeKind;
   }
 
-  addTypeLocations(typeLocation: TypeAliasInfo): void {
+  addTypeLocations(typeLocation: ApiInfo): void {
     this.typeLocations.push(typeLocation);
   }
 
-  getTypeLocations(): TypeAliasInfo[] {
+  getTypeLocations(): ApiInfo[] {
     return this.typeLocations;
+  }
+
+  setTypeLocations(apiInfos: ApiInfo[]): void {
+    this.typeLocations = apiInfos;
   }
 
   addObjLocations(ObjLocation: PropertyInfo): void {
@@ -572,6 +576,10 @@ export class PropertyInfo extends ApiInfo {
 
   getObjLocations(): PropertyInfo[] {
     return this.objLocations;
+  }
+
+  setObjLocations(objLocations: PropertyInfo[]): void {
+    this.objLocations = objLocations;
   }
 }
 
@@ -593,7 +601,7 @@ export class ConstantInfo extends ApiInfo {
 export class TypeAliasInfo extends ApiInfo {
   type: string[] = []; // type定义的类型
   typeName: TypeAliasType = '' as TypeAliasType; //type的类型
-  returnType: string = ''; //type类型为function时的返回值
+  returnType: string[] = []; //type类型为function时的返回值
   paramInfos: ParamInfo[] = []; //type类型为function时的参数名和参数类型
   typeIsFunction: boolean = false; //type类型是否为function
   typeLiteralApiInfos: PropertyInfo[] = [];//type类型为匿名对象时的属性数据
@@ -615,12 +623,11 @@ export class TypeAliasInfo extends ApiInfo {
     return this.typeName;
   }
 
-  setReturnType(returnType: string): TypeAliasInfo {
-    this.returnType = returnType;
-    return this;
+  setReturnType(returnValue: string[]): void {
+    this.returnType.push(...returnValue);
   }
 
-  getReturnType(): string {
+  getReturnType(): string[] {
     return this.returnType;
   }
 
@@ -711,7 +718,7 @@ export class MethodInfo extends ApiInfo {
   isStatic: boolean = false; // 方法是否是静态
   sync: string = ''; //同步函数标志
   returnValueType: ts.SyntaxKind = ts.SyntaxKind.Unknown;
-  typeLocations: TypeAliasInfo[] = []; // 参数、返回值的JsDoc信息
+  typeLocations: ApiInfo[] = []; // 参数、返回值的JsDoc信息
   objLocations: PropertyInfo[] = []; // 匿名类型的JsDoc信息
   isRequired: boolean = false;
 
@@ -755,12 +762,16 @@ export class MethodInfo extends ApiInfo {
     return this.isStatic;
   }
 
-  addTypeLocations(typeLocation: TypeAliasInfo): void {
+  addTypeLocations(typeLocation: ApiInfo): void {
     this.typeLocations.push(typeLocation);
   }
 
-  getTypeLocations(): TypeAliasInfo[] {
+  getTypeLocations(): ApiInfo[] {
     return this.typeLocations;
+  }
+
+  setTypeLocations(apiInfos: ApiInfo[]): void {
+    this.typeLocations = apiInfos;
   }
 
   addObjLocations(ObjLocation: PropertyInfo): void {
@@ -769,6 +780,10 @@ export class MethodInfo extends ApiInfo {
 
   getObjLocations(): PropertyInfo[] {
     return this.objLocations;
+  }
+
+  setObjLocations(objLocations: PropertyInfo[]): void {
+    this.objLocations = objLocations;
   }
 
   setSync(sync: string): void {
@@ -808,7 +823,7 @@ export class ParamInfo {
   isRequired: boolean = false; // 参数是否必选
   definedText: string = '';
   methodApiInfo: MethodInfo | undefined;
-  typeLocations: TypeAliasInfo[] = []; // 参数、返回值的JsDoc信息
+  typeLocations: ApiInfo[] = []; // 参数、返回值的JsDoc信息
   objLocations: PropertyInfo[] = []; // 匿名类型的JsDoc信息
   typeIsObject: boolean = false;//type类型是否为匿名对象
 
@@ -860,12 +875,16 @@ export class ParamInfo {
     return this.definedText;
   }
 
-  addTypeLocations(typeLocation: TypeAliasInfo): void {
+  addTypeLocations(typeLocation: ApiInfo): void {
     this.typeLocations.push(typeLocation);
   }
 
-  getTypeLocations(): TypeAliasInfo[] {
+  getTypeLocations(): ApiInfo[] {
     return this.typeLocations;
+  }
+
+  setTypeLocations(apiInfos: ApiInfo[]): void {
+    this.typeLocations = apiInfos;
   }
 
   addObjLocations(ObjLocation: PropertyInfo): void {
@@ -875,6 +894,11 @@ export class ParamInfo {
   getObjLocations(): PropertyInfo[] {
     return this.objLocations;
   }
+
+  setObjLocations(objLocations: PropertyInfo[]): void {
+    this.objLocations = objLocations;
+  }
+
   setMethodApiInfo(methodApiInfo: MethodInfo | undefined) {
     this.methodApiInfo = methodApiInfo;
   }

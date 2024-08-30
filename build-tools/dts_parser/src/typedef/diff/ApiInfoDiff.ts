@@ -576,10 +576,6 @@ export enum ApiStatusCode {
   KIT_CHANGE = 26,
   ATOMICSERVICE_CHANGE = 27,
   ERRORCODE_DELETE = 28,
-  EXPORT_NAME_CHANGE = 29,
-  EXPORT_NAME_NUMBER_ADD = 30,
-  EXPORT_NAME_NUMBER_REDUCE = 31,
-
 }
 
 export enum ApiDiffType {
@@ -694,9 +690,10 @@ export enum ApiDiffType {
   KIT_NA_TO_HAVE,
   NEW_SAME_NAME_FUNCTION,
   REDUCE_SAME_NAME_FUNCTION,
-  EXPORT_NAME_CHANGE,
-  EXPORT_NAME_NUMBER_REDUCE,
-  EXPORT_NAME_NUMBER_ADD
+  /** 匿名对象整改导致的参数类型的兼容改变，*/
+  PARAM_TYPE_CHANGE_COMPATIABLE,
+  /** 匿名对象整改导致的参数类型的不兼容改变，*/
+  PARAM_TYPE_CHANGE_IN_COMPATIABLE,
 }
 
 export const diffTypeMap: Map<ApiDiffType, string> = new Map([
@@ -789,11 +786,8 @@ export const diffTypeMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.ATOMIC_SERVICE_NA_TO_HAVE, 'API从不支持元服务到支持元服务'],
   [ApiDiffType.NEW_SAME_NAME_FUNCTION, '新增同名函数'],
   [ApiDiffType.REDUCE_SAME_NAME_FUNCTION, '删除同名函数'],
-  [ApiDiffType.EXPORT_NAME_CHANGE, 'export名称变更'],
-  [ApiDiffType.EXPORT_NAME_NUMBER_REDUCE, '删除export名称'],
-  [ApiDiffType.EXPORT_NAME_NUMBER_ADD, '新增export名称'],
-  
-  
+  [ApiDiffType.PARAM_TYPE_CHANGE_COMPATIABLE, '函数变更'],
+  [ApiDiffType.PARAM_TYPE_CHANGE_IN_COMPATIABLE, '函数变更'],
 ]);
 
 export const diffMap: Map<ApiDiffType, string> = new Map([
@@ -888,10 +882,8 @@ export const diffMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.ATOMIC_SERVICE_NA_TO_HAVE, 'API从不支持元服务到支持元服务'],
   [ApiDiffType.NEW_SAME_NAME_FUNCTION, '新增同名函数'],
   [ApiDiffType.REDUCE_SAME_NAME_FUNCTION, '删除同名函数'],
-  [ApiDiffType.EXPORT_NAME_CHANGE, 'export名称变更'],
-  [ApiDiffType.EXPORT_NAME_NUMBER_REDUCE, '删除export名称'],
-  [ApiDiffType.EXPORT_NAME_NUMBER_ADD, '新增export名称'],
-
+  [ApiDiffType.PARAM_TYPE_CHANGE_COMPATIABLE, '函数的参数类型变更'],
+  [ApiDiffType.PARAM_TYPE_CHANGE_IN_COMPATIABLE, '函数的参数类型变更'],
 ]);
 
 export const apiChangeMap: Map<ApiDiffType, string> = new Map([
@@ -967,9 +959,6 @@ export const apiChangeMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.KIT_CHANGE, '非API变更'],
   [ApiDiffType.KIT_HAVE_TO_NA, '非API变更'],
   [ApiDiffType.KIT_NA_TO_HAVE, '非API变更'],
-  [ApiDiffType.EXPORT_NAME_CHANGE, '非API变更'],
-  [ApiDiffType.EXPORT_NAME_NUMBER_REDUCE, '非API变更'],
-  [ApiDiffType.EXPORT_NAME_NUMBER_ADD, '非API变更'],
   [ApiDiffType.ATOMIC_SERVICE_HAVE_TO_NA, 'API修改（约束变化）'],
   [ApiDiffType.ATOMIC_SERVICE_NA_TO_HAVE, 'API修改（约束变化）'],
   [ApiDiffType.TYPE_ALIAS_FUNCTION_RETURN_TYPE_ADD, 'API修改（原型修改）'],
@@ -987,6 +976,8 @@ export const apiChangeMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.TYPE_ALIAS_FUNCTION_PARAM_CHANGE, 'API修改（原型修改）'],
   [ApiDiffType.NEW_SAME_NAME_FUNCTION, 'API修改（原型修改）'],
   [ApiDiffType.REDUCE_SAME_NAME_FUNCTION, 'API修改（原型修改）'],
+  [ApiDiffType.PARAM_TYPE_CHANGE_COMPATIABLE, 'API修改（原型修改）'],
+  [ApiDiffType.PARAM_TYPE_CHANGE_IN_COMPATIABLE, 'API修改（原型修改）'],
 ]);
 
 /**
@@ -1045,8 +1036,7 @@ export const incompatibleApiDiffTypes: Set<ApiDiffType> = new Set([
   ApiDiffType.KIT_CHANGE,
   ApiDiffType.KIT_HAVE_TO_NA,
   ApiDiffType.REDUCE_SAME_NAME_FUNCTION,
-  ApiDiffType.EXPORT_NAME_CHANGE,
-  ApiDiffType.EXPORT_NAME_NUMBER_REDUCE,
+  ApiDiffType.PARAM_TYPE_CHANGE_IN_COMPATIABLE,
 ]);
 
 export const isNotApiSet: Set<string> = new Set([
@@ -1061,5 +1051,6 @@ export const isNotApiSet: Set<string> = new Set([
 export const parentApiTypeSet: Set<string> = new Set([
   ApiType.INTERFACE,
   ApiType.STRUCT,
-  ApiType.CLASS
+  ApiType.CLASS,
+  ApiType.TYPE_ALIAS,
 ]);

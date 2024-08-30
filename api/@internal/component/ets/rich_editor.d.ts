@@ -3734,9 +3734,21 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 12
    */
   enableKeyboardOnFocus(isEnabled: boolean): RichEditorAttribute;
+
+  /**
+   * Enable or disable haptic feedback.
+   *
+   * @param { boolean } isEnabled - Default value is true, set false to disable haptic feedback.
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  enableHapticFeedback(isEnabled: boolean): RichEditorAttribute;
 }
 
 /**

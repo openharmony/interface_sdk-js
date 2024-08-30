@@ -1813,6 +1813,7 @@ export class ComponentUtils {
    *
    * @param { string } id - ID of the component whose attributes are to be obtained.
    * @returns { componentUtils.ComponentInfo } the object of ComponentInfo.
+   * @throws { BusinessError } 100001 - UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -1821,6 +1822,7 @@ export class ComponentUtils {
    *
    * @param { string } id - ID of the component whose attributes are to be obtained.
    * @returns { componentUtils.ComponentInfo } the object of ComponentInfo.
+   * @throws { BusinessError } 100001 - UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -2044,6 +2046,26 @@ export class SwiperDynamicSyncScene extends DynamicSyncScene {
   * @since 12
   */
   readonly type: SwiperDynamicSyncSceneType;
+}
+
+/**
+ * Represents a dynamic synchronization scene of Marquee.
+ * 
+ * @extends DynamicSyncScene
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 13
+ */
+export class MarqueeDynamicSyncScene extends DynamicSyncScene {
+  /**
+  * Type of the MarqueeDynamicSyncSceneType.
+  * @type { MarqueeDynamicSyncSceneType }
+  * @readonly
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @atomicservice
+  * @since 13
+  */
+  readonly type: MarqueeDynamicSyncSceneType;
 }
 
 /**
@@ -3108,6 +3130,26 @@ export class UIContext {
    * @since 12
    */
   getWindowName(): string | undefined;
+  
+  /**
+   * Get the width breakpoint of current window.
+   *
+   * @returns { WidthBreakpoint } The width breakpoint of current window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  getWindowWidthBreakpoint(): WidthBreakpoint;
+  
+  /**
+   * Get the height breakpoint of current window.
+   *
+   * @returns { HeightBreakpoint } The height breakpoint of current window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice 
+   * @since 13
+   */
+  getWindowHeightBreakpoint(): HeightBreakpoint;
 
   /**
    * Open the BindSheet.
@@ -3292,6 +3334,25 @@ export const enum SwiperDynamicSyncSceneType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   */
+  ANIMATION = 1
+}
+
+/**
+ * Enum of scene type for Marquee
+ * 
+ * @enum { number } MarqueeDynamicSyncSceneType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 13
+ */
+export const enum MarqueeDynamicSyncSceneType {
+  /**
+   * Scene type is ANIMATION.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
    */
   ANIMATION = 1
 }

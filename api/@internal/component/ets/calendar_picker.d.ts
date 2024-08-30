@@ -238,7 +238,16 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    * @atomicservice
    * @since 11
    */
-  onChange(callback: (value: Date) => void): CalendarPickerAttribute;
+  /**
+   * Callback for selected date changed.
+   * @param { Callback<Date> } callback - callback for selected date changed.
+   * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  onChange(callback: Callback<Date>): CalendarPickerAttribute;
 }
 
 /**
@@ -272,7 +281,15 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @atomicservice
    * @since 11
    */
-  onAccept?: (value: Date) => void;
+  /**
+   * Called when the OK button in the dialog is clicked.
+   * @type { ?Callback<Date> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  onAccept?: Callback<Date>;
 
   /**
    * Called when the Cancel button in the dialog is clicked.
@@ -289,7 +306,15 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @atomicservice
    * @since 11
    */
-  onCancel?: () => void;
+  /**
+   * Called when the Cancel button in the dialog is clicked.
+   * @type { ?VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  onCancel?: VoidCallback;
 
   /**
    * This event is triggered when a date is selected in dialog.
@@ -306,7 +331,15 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @atomicservice
    * @since 11
    */
-  onChange?: (value: Date) => void;
+  /**
+   * This event is triggered when a date is selected in dialog.
+   * @type { ?Callback<Date> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  onChange?: Callback<Date>;
 
   /**
    * Defines the calendarPickerDialog's background color
@@ -381,7 +414,16 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @atomicservice
    * @since 12
    */
-  onDidAppear?: () => void;
+  /**
+   * Callback function when the dialog appears.
+   *
+   * @type { ?VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  onDidAppear?: VoidCallback;
 
   /**
    * Callback function when the dialog disappears.
@@ -392,7 +434,16 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @atomicservice
    * @since 12
    */
-  onDidDisappear?: () => void;
+  /**
+   * Callback function when the dialog disappears.
+   *
+   * @type { ?VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  onDidDisappear?: VoidCallback;
 
   /**
    * Callback function before the dialog openAnimation starts.
@@ -403,7 +454,16 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @atomicservice
    * @since 12
    */
-  onWillAppear?: () => void;
+  /**
+   * Callback function before the dialog openAnimation starts.
+   *
+   * @type { ?VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  onWillAppear?: VoidCallback;
 
   /**
    * Callback function before the dialog closeAnimation starts.
@@ -414,7 +474,16 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @atomicservice
    * @since 12
    */
-  onWillDisappear?: () => void;
+  /**
+   * Callback function before the dialog closeAnimation starts.
+   *
+   * @type { ?VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  onWillDisappear?: VoidCallback;
 
   /**
    * Defines the dialog's shadow.
@@ -426,6 +495,30 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @since 12
    */
   shadow?: ShadowOptions | ShadowStyle;
+
+  /**
+   * Defines whether to respond to the hover mode.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  enableHoverMode?: boolean;
+
+  /**
+   * Defines the dialog's display area in hover mode.
+   *
+   * @type { ?HoverModeAreaType }
+   * @default HoverModeAreaType.BOTTOM_SCREEN
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  hoverModeArea?: HoverModeAreaType;
 }
 
 /**

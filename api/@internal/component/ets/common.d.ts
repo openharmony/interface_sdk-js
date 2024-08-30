@@ -1676,7 +1676,7 @@ declare interface Rectangle {
 /**
  * Interface for ExpectedFrameRateRange.
  *
- * @typedef ExpectedFrameRateRange
+ * @interface ExpectedFrameRateRange
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
@@ -6009,7 +6009,7 @@ declare enum BlurStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 13
  */
 declare enum BlurStyleActivePolicy {
   /**
@@ -6018,7 +6018,7 @@ declare enum BlurStyleActivePolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   FOLLOWS_WINDOW_ACTIVE_STATE = 0,
 
@@ -6028,7 +6028,7 @@ declare enum BlurStyleActivePolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   ALWAYS_ACTIVE = 1,
 
@@ -6038,7 +6038,7 @@ declare enum BlurStyleActivePolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   ALWAYS_INACTIVE = 2,
 }
@@ -6050,7 +6050,7 @@ declare enum BlurStyleActivePolicy {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 13
  */
 declare enum BlurType {
   /**
@@ -6059,7 +6059,7 @@ declare enum BlurType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   WITHIN_WINDOW = 0,
   /**
@@ -6068,7 +6068,7 @@ declare enum BlurType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   BEHIND_WINDOW = 1
 }
@@ -6292,7 +6292,7 @@ declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   policy?: BlurStyleActivePolicy;
 
@@ -6304,7 +6304,7 @@ declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   inactiveColor?: ResourceColor;
 
@@ -6316,7 +6316,7 @@ declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   type?: BlurType;
 }
@@ -6621,7 +6621,7 @@ declare interface BackgroundEffectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   policy?: BlurStyleActivePolicy;
 
@@ -6633,7 +6633,7 @@ declare interface BackgroundEffectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   inactiveColor?: ResourceColor;
 
@@ -6645,7 +6645,7 @@ declare interface BackgroundEffectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   type?: BlurType;
 }
@@ -10686,6 +10686,16 @@ declare interface KeyEvent {
    * @since 12
    */
   getModifierKeyState?(keys: Array<string>): boolean;
+
+  /**
+   * Unicode of a key
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 14
+   */
+  unicode?: number;
 }
 
 /**
@@ -11527,6 +11537,17 @@ declare interface SheetOptions extends BindOptions {
    * @since 12
    */
   onTypeDidChange?: Callback<SheetType>;
+
+  /**
+   * Set whether sheet is allowed to expand safe area in embedded mode
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  expandSafeAreaInEmbeddedMode?: boolean;
 
   /**
    * The UIContext that the sheet belongs to
@@ -12559,6 +12580,18 @@ declare interface PopupOptions {
    * @since 12
    */
   onWillDismiss?: boolean | Callback<DismissPopupAction>;
+    
+  /**
+   * Determine if it is compatible popup's half folded.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  enableHoverMode?: boolean;
 }
 
 /**
@@ -13070,6 +13103,18 @@ declare interface CustomPopupOptions {
    * @since 12
   */
   onWillDismiss?: boolean | Callback<DismissPopupAction>;
+
+ /**
+   * Determine if it is compatible popup's half folded.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  enableHoverMode?: boolean;
 }
 
 /**
@@ -13483,6 +13528,18 @@ declare interface ContextMenuOptions {
    * @since 12
    */
   transition?: TransitionEffect;
+
+  /**
+    * Determine if it is compatible menu's half folded.
+    *
+    * @type { ?boolean }
+    * @default false
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 13
+    */
+  enableHoverMode?: boolean;
 }
 
 /**
@@ -14023,6 +14080,29 @@ declare interface ClickEffect {
    * @since 11
    */
   scale?: number;
+}
+
+/**
+ * Defines the fadingEdge options.
+ *
+ * @typedef FadingEdgeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
+declare interface FadingEdgeOptions {
+  /**
+   * The length of FadingEdge.
+   *
+   * @type { LengthMetrics }
+   * @default 32vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  fadingEdgeLength?: LengthMetrics;
 }
 
 /**
@@ -18705,7 +18785,7 @@ declare class CommonMethod<T> {
   /**
    * Add mask text to the current component. The layout is the same as that of the current component.
    *
-   * @param { string | CustomBuilder } value
+   * @param { string } value
    * @param { object } options
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -18714,7 +18794,7 @@ declare class CommonMethod<T> {
   /**
    * Add mask text to the current component. The layout is the same as that of the current component.
    *
-   * @param { string | CustomBuilder } value
+   * @param { string } value
    * @param { object } options
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -19108,6 +19188,20 @@ declare class CommonMethod<T> {
    * @since 12
    */
   blendMode(value: BlendMode, type?: BlendApplyType): T;
+
+  /**
+   * Add a blendMode effect to the current component.Cannot be used together with the blendMode interface.
+   * 
+   * @param { BlendMode | Blender } effect - When the effect type is BlendMode type, define Different hybrid modes.
+   * When the effect type is Blender type, Define the corresponding blending effect.
+   * @param { BlendApplyType } [type] - Different blend apply type
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @form
+   * @since 13
+   */
+  advancedBlendMode(effect: BlendMode | Blender, type?: BlendApplyType): T;
 
   /**
    * Whether to crop the sub components of the current component.
@@ -21891,6 +21985,17 @@ declare type VisualEffect = import('../api/@ohos.graphics.uiEffect').default.Vis
 declare type Filter = import('../api/@ohos.graphics.uiEffect').default.Filter;
 
 /**
+ * Blender
+ *
+ * @typedef { import('../api/@ohos.graphics.uiEffect').default.Blender } Blender
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @form
+ * @since 13
+ */
+declare type Blender = import('../api/@ohos.graphics.uiEffect').default.Blender;
+
+/**
  * ComponentContent.
  *
  * @typedef {import('../api/arkui/ComponentContent').ComponentContent<T>} ComponentContent<T = Object>
@@ -22769,6 +22874,19 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @since 11
    */
   edgeEffect(edgeEffect: EdgeEffect, options?: EdgeEffectOptions): T;
+
+  /**
+   * Called when setting whether to enable fading Edge effect.
+   *
+   * @param { Optional<boolean> } enabled - Whether to turn on the edge fade effect
+   * @param { FadingEdgeOptions } [options] - The options of fadingEdge.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  fadingEdge(enabled: Optional<boolean>, options?: FadingEdgeOptions): T;
 
   /**
    * Nested scrolling options.
@@ -23810,4 +23928,67 @@ declare interface SelectionOptions {
    * @since 12
    */
   menuPolicy?: MenuPolicy;
+}
+
+/**
+ * enum keyboard avoid mode
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare enum KeyboardAvoidMode {
+  /**
+   * Defines avoid keyboard when keyboard shows.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  DEFAULT = 0,
+
+  /**
+   * Defines not avoid keyboard when keyboard shows.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  NONE = 1,
+}
+
+/**
+ * Enumerates the type of area in hover mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
+declare enum HoverModeAreaType {
+
+  /**
+   * Layout top half screen when the phone in hover mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  TOP_SCREEN = 0,
+
+  /**
+   * Layout bottom half screen when the phone in hover mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  BOTTOM_SCREEN = 1,
 }

@@ -663,13 +663,25 @@ declare class NavPathInfo {
    *
    * @param { string } name - The name of NavDestination.
    * @param { unknown } param - The detailed parameter of the NavDestination.
-   * @param { import('../api/@ohos.base').Callback<PopInfo> } onPop - The callback when next page returns.
+   * @param { ?import('../api/@ohos.base').Callback<PopInfo> } onPop - The callback when next page returns.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  constructor(name: string, param: unknown, onPop?: import('../api/@ohos.base').Callback<PopInfo>);
+  /**
+   * Creates an instance of NavPathInfo.
+   *
+   * @param { string } name - The name of NavDestination.
+   * @param { unknown } param - The detailed parameter of the NavDestination.
+   * @param { ?import('../api/@ohos.base').Callback<PopInfo> } onPop - The callback when next page returns.
+   * @param { ?boolean } isEntry - Indicates whether it is an entry destination.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  constructor(name: string, param: unknown, onPop?: import('../api/@ohos.base').Callback<PopInfo>, isEntry?: boolean);
 
   /**
    * The name of NavDestination.
@@ -727,6 +739,17 @@ declare class NavPathInfo {
    * @since 12
    */
   onPop?: import('../api/@ohos.base').Callback<PopInfo>;
+
+  /**
+   * Indicates whether it is an entry destination.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  isEntry?: boolean;
 }
 
 /**
@@ -2001,7 +2024,7 @@ declare interface NavigationTitleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   mainTitleModifier?: TextModifier;
 
@@ -2012,7 +2035,7 @@ declare interface NavigationTitleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   subTitleModifier?: TextModifier;
 }
@@ -2384,6 +2407,19 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   hideTitleBar(value: boolean): NavigationAttribute;
 
   /**
+   * Hide navigation title bar
+   *
+   * @param { boolean } hide
+   * @param { boolean } animated
+   * @returns { NavigationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  hideTitleBar(hide: boolean, animated: boolean): NavigationAttribute;
+
+  /**
    * Hide navigation back button
    *
    * @param { boolean } value
@@ -2534,6 +2570,19 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 11
    */
   hideToolBar(value: boolean): NavigationAttribute;
+
+  /**
+   * Hide tool bar
+   *
+   * @param { boolean } hide
+   * @param { boolean } animated
+   * @returns { NavigationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  hideToolBar(hide: boolean, animated: boolean): NavigationAttribute;
 
   /**
    * Trigger callback when title mode change finished at free mode.

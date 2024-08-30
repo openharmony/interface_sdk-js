@@ -829,5 +829,36 @@ declare namespace hidebug {
    * @since 12
    */
   function setAppResourceLimit(type: string, value: number, enableDebugLog: boolean): void;
+
+  /**
+   * Judge if the application is in debugged state, including either in arkui layer or native layer debugged state.
+   *
+   * @returns { boolean } true if the application is debugged.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  function isDebugState(): boolean;
+
+  /**
+   * Get the graphics memory of application
+   *
+   * @returns { Promise<number> } Returns the graphics memory of application, in kilobyte.
+   * @throws { BusinessError } 11400104 - Failed to get the application memory due to a remote exception.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @atomicservice
+   * @since 13
+   */
+  function getGraphicsMemory(): Promise<number>;
+
+  /**
+   * Get the graphics memory of application
+   *
+   * @returns { number } Returns the graphics memory of application, in kilobyte.
+   * @throws { BusinessError } 11400104 - Failed to get the application memory due to a remote exception.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @atomicservice
+   * @since 13
+   */
+  function getGraphicsMemorySync(): number;
 }
 export default hidebug;
