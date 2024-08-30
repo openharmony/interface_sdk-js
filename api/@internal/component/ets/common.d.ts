@@ -10397,7 +10397,7 @@ declare interface DragEvent {
    * @returns { boolean }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform   
+   * @crossplatform
    * @since 12
    */
   getModifierKeyState?(keys: Array<string>): boolean;
@@ -18813,7 +18813,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Linear Gradient
-   * angle: Angle of Linear Gradient; direction:Direction of Linear Gradient;  colors:Color description for gradients,repeating: repeating.
+   * angle: Angle of Linear Gradient; direction:Direction of Linear Gradient;  colors:Color description for gradients,repeating:repeating.
    *
    * @param { object } value
    * @returns { T }
