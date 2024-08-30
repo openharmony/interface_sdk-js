@@ -10397,9 +10397,7 @@ declare interface DragEvent {
    * @returns { boolean }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
+   * @crossplatform   * @since 12
    */
   getModifierKeyState?(keys: Array<string>): boolean;
 }
@@ -10684,7 +10682,6 @@ declare interface KeyEvent {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 12
    */
   getModifierKeyState?(keys: Array<string>): boolean;
@@ -11505,7 +11502,7 @@ declare interface SheetOptions extends BindOptions {
    * @atomicservice
    * @since 12
    */
-    onDetentsDidChange?: Callback<number>;
+  onDetentsDidChange?: Callback<number>;
 
   /**
    * Called when width of the sheet changed
@@ -11517,7 +11514,7 @@ declare interface SheetOptions extends BindOptions {
    * @since 12
    */
     onWidthDidChange?: Callback<number>;
-
+ 
   /**
    * Called when the sheet type changed
    *
@@ -11527,7 +11524,7 @@ declare interface SheetOptions extends BindOptions {
    * @atomicservice
    * @since 12
    */
-  onTypeDidChange?: Callback<SheetType>;
+    onTypeDidChange?: Callback<SheetType>;
 
   /**
    * The UIContext that the sheet belongs to
@@ -18815,7 +18812,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Linear Gradient
-   * angle: Angle of Linear Gradient; direction: Direction of Linear Gradient; colors: Color description for gradients,repeating: repeating.
+   * angle: Angle of Linear Gradient; direction:Direction of Linear Gradient;  colors:Color description for gradients,repeating: repeating.
    *
    * @param { object } value
    * @returns { T }
@@ -18901,12 +18898,12 @@ declare class CommonMethod<T> {
   /**
    * Angle Gradient
    * center:is the center point of the angle gradient
-   * start:Start point of angle gradient.
-   * end:End point of angle gradient.
+   * start:Start point of angle gradient
+   * end:End point of angle gradient
    * number:number
-   * rotating:rotating.
+   * rotating:rotating
    * colors:Color description for gradients
-   * repeating:repeating.
+   * repeating:repeating
    *
    * @param { object } value
    * @returns { T }
@@ -18982,9 +18979,9 @@ declare class CommonMethod<T> {
   /**
    * Radial Gradient
    * center:Center point of radial gradient
-   * radius:Radius of Radial Gradient.
+   * radius:Radius of Radial Gradient
    * colors:Color description for gradients
-   * repeating: Refill.
+   * repeating: Refill
    *
    * @param { object } value
    * @returns { T }
@@ -19511,19 +19508,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  /**
-   * Bind content cover
-   *
-   * @param { Optional<boolean> } isShow - true means display content, false means hide content.
-   * @param { CustomBuilder } builder - the content to be displayed.
-   * @param { ModalTransition } [type] - transition type.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  bindContentCover(isShow: Optional<boolean>, builder: CustomBuilder, type?: ModalTransition): T;
+  bindContentCover(isShow: boolean, builder: CustomBuilder, type?: ModalTransition): T;
 
   /**
    * Bind content cover
@@ -19548,19 +19533,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  /**
-   * Bind content cover
-   *
-   * @param { Optional<boolean> } isShow - true means display content, false means hide content.
-   * @param { CustomBuilder } builder - the content to be displayed.
-   * @param { ContentCoverOptions } [options] - options of content cover.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  bindContentCover(isShow: Optional<boolean>, builder: CustomBuilder, options?: ContentCoverOptions): T;
+  bindContentCover(isShow: boolean, builder: CustomBuilder, options?: ContentCoverOptions): T;
 
   /**
    * Bind sheet
@@ -19585,19 +19558,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  /**
-   * Bind sheet
-   *
-   * @param { Optional<boolean> } isShow - true means display sheet, false means hide sheet.
-   * @param { CustomBuilder } builder - the sheet to be displayed.
-   * @param { SheetOptions } [options] - options of sheet.
-   * @returns { T } - template type
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  bindSheet(isShow: Optional<boolean>, builder: CustomBuilder, options?: SheetOptions): T;
+  bindSheet(isShow: boolean, builder: CustomBuilder, options?: SheetOptions): T;
 
   /**
    * Sets styles for component state.
@@ -21834,7 +21795,7 @@ declare type NavigationInfo = import('../api/@ohos.arkui.observer').default.Navi
  * @atomicservice
  * @since 12
  */
-declare type RouterPageInfo = import('../api/@ohos.arkui.observer').default.RouterPageInfo;
+ declare type RouterPageInfo = import('../api/@ohos.arkui.observer').default.RouterPageInfo;
 
 /**
  * UIContext
