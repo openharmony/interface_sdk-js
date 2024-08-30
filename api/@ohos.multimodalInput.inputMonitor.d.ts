@@ -22,7 +22,7 @@ import { Callback } from './@ohos.base';
 import { MouseEvent } from './@ohos.multimodalInput.mouseEvent';
 import type display from './@ohos.display';
 import type { TouchEvent } from './@ohos.multimodalInput.touchEvent';
-import type { Rotate, Pinch, ThreeFingersSwipe, FourFingersSwipe } from './@ohos.multimodalInput.gestureEvent';
+import type { Rotate, Pinch, ThreeFingersSwipe, FourFingersSwipe, SwipeInward } from './@ohos.multimodalInput.gestureEvent';
 import type { ThreeFingersTap } from './@ohos.multimodalInput.gestureEvent';
 import type { FingerprintEvent } from './@ohos.multimodalInput.shortKey';
 
@@ -432,5 +432,35 @@ declare namespace inputMonitor {
    * @since 12
    */
   function off(type: 'fingerprint', receiver?: Callback<FingerprintEvent>): void;
+
+  /**
+   * Enables listening touchPad swipe inward events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'swipeInward' } type - Event type, which is **swipeInward**.
+   * @param { Callback<SwipeInward> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 12
+   */
+  function on(type: 'swipeInward', receiver: Callback<SwipeInward>): void;
+
+  /**
+   * Cancel listening touchPad swipe inward events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'swipeInward' } type - Event type, which is **swipeInward**.
+   * @param { Callback<SwipeInward> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 12
+   */
+  function off(type: 'swipeInward', receiver?: Callback<SwipeInward>): void;
 }
 export default inputMonitor;
