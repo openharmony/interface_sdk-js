@@ -10397,7 +10397,8 @@ declare interface DragEvent {
    * @returns { boolean }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform   * @since 12
+   * @crossplatform   
+   * @since 12
    */
   getModifierKeyState?(keys: Array<string>): boolean;
 }
