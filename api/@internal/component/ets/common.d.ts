@@ -19366,7 +19366,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-   /**
+  /**
    * Bind content cover
    *
    * @param { Optional<boolean> } isShow - true means display content, false means hide content.
@@ -19378,7 +19378,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 12
    */
-   bindContentCover(isShow: Optional<boolean>, builder: CustomBuilder, type?: ModalTransition): T;
+  bindContentCover(isShow: Optional<boolean>, builder: CustomBuilder, type?: ModalTransition): T;
 
   /**
    * Bind content cover
@@ -19452,7 +19452,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 12
    */
-  bindSheet(isShow: Optional<boolean>, builder: CustomBuilder, options?: SheetOptions):
+  bindSheet(isShow: Optional<boolean>, builder: CustomBuilder, options?: SheetOptions): T;
 
   /**
    * Sets styles for component state.
