@@ -1672,7 +1672,7 @@ declare interface Rectangle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 11
  */
-/**i
+/**
  * Interface for ExpectedFrameRateRange.
  *
  * @interface ExpectedFrameRateRange
