@@ -456,6 +456,38 @@ declare interface TextEditControllerEx extends TextBaseController{
 }
 
 /**
+ * The previewText.
+ * @interface PreviewText
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface PreviewText {
+  /**
+   * Start offset of the previewText
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  offset: number;
+
+  /**
+   * Value of the previewText.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  value: string;
+}
+
+/**
  * Define the StyledString controller.
  *
  * @interface StyledStringController
@@ -829,38 +861,6 @@ declare class TextMenuItemId {
    * @since 12
    */
   static readonly CAMERA_INPUT: TextMenuItemId;
-}
-
-/**
- * The previewText.
- * @interface PreviewText
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12
- */
-declare interface PreviewText {
-  /**
-   * Start offset of the previewText
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  offset: number;
-
-  /**
-   * Value of the previewText.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  value: string;
 }
 
 /**

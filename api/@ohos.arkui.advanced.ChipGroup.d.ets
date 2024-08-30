@@ -448,7 +448,7 @@ export declare struct ChipGroup {
     chipGroupPadding?: ChipGroupPaddingOptions;
 
     /**
-     * Chip group callback. when clip status is changed, this onChange is called.
+     * Chip group callback. when chip status is changed, this onChange is called.
      *
      * @type { ?Callback<Array<number>> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
