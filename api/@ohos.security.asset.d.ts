@@ -943,6 +943,13 @@ declare namespace asset {
      * @since 12
      */
     OPERATION_TYPE = TagType.NUMBER | 0x46,
+    /**
+     * A tag whose value is a bool indicating whether the attributes of an asset are required to be encrypted.
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @since 13
+     */
+    REQUIRE_ATTR_ENCRYPTED = TagType.BOOL | 0x47,
   }
 
   /**
