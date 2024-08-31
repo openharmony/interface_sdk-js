@@ -3643,7 +3643,7 @@ declare namespace util {
      *
      * @param { Object } value - A included in the isAnyArrayBuffer value
      * @returns { boolean } Returns true if the value is an instance of one of the ArrayBuffer views,
-     * such as typed array objects or DataView. Equivalent to ArrayBuffer.isView().
+     * such as typed array objects or DataView.
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
@@ -3652,7 +3652,7 @@ declare namespace util {
      *
      * @param { Object } value - A included in the isAnyArrayBuffer value
      * @returns { boolean } Returns true if the value is an instance of one of the ArrayBuffer views,
-     * such as typed array objects or DataView. Equivalent to ArrayBuffer.isView().
+     * such as typed array objects or DataView.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -3662,7 +3662,7 @@ declare namespace util {
      *
      * @param { Object } value - A included in the isAnyArrayBuffer value
      * @returns { boolean } Returns true if the value is an instance of one of the ArrayBuffer views,
-     * such as typed array objects or DataView. Equivalent to ArrayBuffer.isView().
+     * such as typed array objects or DataView.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
