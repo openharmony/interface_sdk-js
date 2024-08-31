@@ -20,7 +20,7 @@
 
 import type BaseContext from './application/BaseContext';
 import type { Callback } from './@ohos.base';
-import { NodeController } from '@kit.ArkUI';
+import { NodeController } from '@ohos.arkui.node';
 import { typeNode } from './arkui/FrameNode';
 
 /**
