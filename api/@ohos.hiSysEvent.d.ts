@@ -119,10 +119,18 @@ declare namespace hiSysEvent {
     /**
      * The params of the event.
      *
-     * @type { ?object }
+     * @type { object }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9
+     */
+    /**
+     * The params of the event.
+     *
+     * @type { ?object }
+     * @syscap SystemCapability.HiviewDFX.HiSysEvent
+     * @systemapi hide for inner use
+     * @since 12
      */
     params?: object;
   }
@@ -242,10 +250,18 @@ declare namespace hiSysEvent {
     /**
      * The tag of the event.
      *
-     * @type { ?string }
+     * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9
+     */
+    /**
+     * The tag of the event.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.HiviewDFX.HiSysEvent
+     * @systemapi hide for inner use
+     * @since 12
      */
     tag?: string;
 
