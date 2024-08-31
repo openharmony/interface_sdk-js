@@ -2856,7 +2856,7 @@ declare namespace window {
   function shiftAppWindowFocus(sourceWindowId: number, targetWindowId: number): Promise<void>;
 
   /**
-   * Window request to get focus or lost focus.
+   * Window request to get focus or lose focus.
    *
    * @param { boolean } isFocused - Window request to get focus if true.
    * @returns { Promise<void> } - Promise that returns no value.
