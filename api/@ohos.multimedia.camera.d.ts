@@ -1731,7 +1731,7 @@ declare namespace camera {
      * @since 12
      */
     PANORAMA_PHOTO = 15,
-
+    
     /**
      * Timelapse photo camera mode.
      *
@@ -6056,7 +6056,7 @@ declare namespace camera {
   /**
    * High resolution session object.
    *
-   * @interface HighResolutionPhotoSession 
+   * @interface HighResolutionPhotoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12
@@ -6345,7 +6345,7 @@ declare namespace camera {
    * @systemapi
    * @since 12
    */
-  interface LightPaintingPhotoSession extends Session, Flash, Focus, Zoom, ColorEffect {
+   interface LightPaintingPhotoSession extends Session, Flash, Focus, Zoom, ColorEffect {
     /**
      * Subscribes to error events.
      *
@@ -6357,7 +6357,7 @@ declare namespace camera {
      * @since 12
      */
     on(type: 'error', callback: ErrorCallback): void;
-
+  
     /**
      * Unsubscribes from error events.
      *
@@ -6369,7 +6369,7 @@ declare namespace camera {
      * @since 12
      */
     off(type: 'error', callback?: ErrorCallback): void;
-
+  
     /**
      * Subscribes focus state change event callback.
      *
@@ -6381,7 +6381,7 @@ declare namespace camera {
      * @since 12
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
-
+  
     /**
      * Unsubscribes from focus state change event callback.
      *
@@ -6393,7 +6393,7 @@ declare namespace camera {
      * @since 12
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
-
+  
     /**
      * Subscribes zoom info event callback.
      *
@@ -6405,7 +6405,7 @@ declare namespace camera {
      * @since 12
      */
     on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
-
+  
     /**
      * Unsubscribes from zoom info event callback.
      *
@@ -6417,7 +6417,7 @@ declare namespace camera {
      * @since 12
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
-
+  
     /**
      * Gets the light painting type in use.
      *
@@ -6429,7 +6429,7 @@ declare namespace camera {
      * @since 12
      */
     getLightPaintingType(): LightPaintingType;
-
+  
     /**
      * Sets a light painting type for a camera device.
      *
@@ -6442,7 +6442,7 @@ declare namespace camera {
      * @since 12
      */
     setLightPaintingType(type: LightPaintingType): void;
-
+  
     /**
      * Gets supported light painting types.
      *
@@ -6835,6 +6835,30 @@ declare namespace camera {
      * @since 12
      */
     getActiveProfile(): Profile;
+
+    /**
+     * Gets the preview rotation angle.
+     *
+     * @param { number } displayRotation - The current display rotation angle.
+     * @returns { ImageRotation } The preview rotation angle.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    getPreviewRotation(displayRotation: number): ImageRotation;
+
+     /**
+      * Sets the preview rotation angle.
+      *
+      * @param { ImageRotation } previewRotation - Preview display rotation angle.
+      * @param { boolean } isDisplayLocked - TRUE means the display is locked, if not set, the default is FALSE.
+      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+      * @throws { BusinessError } 7400201 - Camera service fatal error.
+      * @syscap SystemCapability.Multimedia.Camera.Core
+      * @since 12
+      */
+    setPreviewRotation(previewRotation: ImageRotation, isDisplayLocked?: boolean): void;
 
     /**
      * Adds a deferred surface.
@@ -7355,7 +7379,22 @@ declare namespace camera {
     capture(setting: PhotoCaptureSetting): Promise<void>;
 
     /**
-     * Confirm capture in Night mode.
+     * Start burst capture.
+     *
+     * @param { PhotoCaptureSetting } setting - Photo capture settings.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400104 - Session not running.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    burstCapture(setting: PhotoCaptureSetting): Promise<void>;
+
+    /**
+     * Confirm capture in Night mode or end burst capture.
      *
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400104 - Session not running.
@@ -7685,7 +7724,7 @@ declare namespace camera {
      * The method must be called after Session.addInput() and Session.addOutput(photoOutput) are called.
      * To avoid stream reconfiguration and performance loss,
      * you are advised to call the method before Session.commitConfig().
-     * 
+     *
      * @param { boolean } enabled - The value TRUE means to enable quick thumbnail, and FALSE means the opposite.
      * @throws { BusinessError } 7400104 - session is not running.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -7697,7 +7736,7 @@ declare namespace camera {
      * The method must be called after Session.addInput() and Session.addOutput(photoOutput) are called.
      * To avoid stream reconfiguration and performance loss,
      * you are advised to call the method before Session.commitConfig().
-     * 
+     *
      * @param { boolean } enabled - The value TRUE means to enable quick thumbnail, and FALSE means the opposite.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
@@ -7782,6 +7821,18 @@ declare namespace camera {
      * @since 12
      */
     enableMovingPhoto(enabled: boolean): void;
+
+    /**
+     * Gets the photo rotation angle.
+     *
+     * @param { number } deviceDegree - The current device rotation degree.
+     * @returns { ImageRotation } The photo rotation angle.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    getPhotoRotation(deviceDegree: number): ImageRotation;
   }
 
   /**
@@ -7981,6 +8032,18 @@ declare namespace camera {
      * @since 12
      */
     getActiveFrameRate(): FrameRateRange;
+
+    /**
+     * Gets the video rotation angle.
+     *
+     * @param { number } deviceDegree - The current device rotation degree.
+     * @returns { ImageRotation } The video rotation angle.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    getVideoRotation(deviceDegree: number): ImageRotation;
 
     /**
      * Subscribes frame start event callback.
@@ -8363,7 +8426,7 @@ declare namespace camera {
      * @since 12
      */
     IDLE = 0,
-
+ 
     /**
      * TimeLapse recording state.
      *
@@ -8391,7 +8454,7 @@ declare namespace camera {
      * @since 12
      */
     DARK = 1,
-
+ 
     /**
      * TimeLapse Light preview.
      *
@@ -8421,7 +8484,7 @@ declare namespace camera {
      * @since 12
      */
     readonly isTryAEDone: boolean;
-
+ 
     /**
      * Determine whether AE hint is needed.
      *
@@ -8432,7 +8495,7 @@ declare namespace camera {
      * @since 12
      */
     readonly isTryAEHintNeeded?: boolean;
-
+ 
     /**
      * Timelapse preview type.
      *
@@ -8443,7 +8506,7 @@ declare namespace camera {
      * @since 12
      */
     readonly previewType?: TimeLapsePreviewType;
-
+ 
     /**
      * Timelapse capture interval.
      *
@@ -8476,7 +8539,7 @@ declare namespace camera {
      * @since 12
      */
     on(type: 'error', callback: ErrorCallback): void;
-
+ 
     /**
      * Unsubscribes from error events.
      *
@@ -8488,7 +8551,7 @@ declare namespace camera {
      * @since 12
      */
     off(type: 'error', callback?: ErrorCallback): void;
-
+ 
     /**
      * Subscribes focus state change event callback.
      *
@@ -8500,7 +8563,7 @@ declare namespace camera {
      * @since 12
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
-
+ 
     /**
      * Unsubscribes from focus state change event callback.
      *
@@ -8512,7 +8575,7 @@ declare namespace camera {
      * @since 12
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
-
+ 
     /**
      * Subscribes ISO info event callback.
      *
@@ -8524,7 +8587,7 @@ declare namespace camera {
      * @since 12
      */
     on(type: 'isoInfoChange', callback: AsyncCallback<IsoInfo>): void;
-
+ 
     /**
      * Unsubscribes from ISO info event callback.
      *
@@ -8536,7 +8599,7 @@ declare namespace camera {
      * @since 12
      */
     off(type: 'isoInfoChange', callback?: AsyncCallback<IsoInfo>): void;
-
+ 
     /**
      * Subscribes exposure info event callback.
      *
@@ -8548,7 +8611,7 @@ declare namespace camera {
      * @since 12
      */
     on(type: 'exposureInfoChange', callback: AsyncCallback<ExposureInfo>): void;
-
+ 
     /**
      * Unsubscribes from exposure info event callback.
      *
@@ -8560,7 +8623,7 @@ declare namespace camera {
      * @since 12
      */
     off(type: 'exposureInfoChange', callback?: AsyncCallback<ExposureInfo>): void;
-
+ 
     /**
      * Subscribes lumination info event callback.
      *
@@ -8572,7 +8635,7 @@ declare namespace camera {
      * @since 12
      */
     on(type: 'luminationInfoChange', callback: AsyncCallback<LuminationInfo>): void;
-
+ 
     /**
      * Unsubscribes from lumination info event callback.
      *
@@ -8584,7 +8647,7 @@ declare namespace camera {
      * @since 12
      */
     off(type: 'luminationInfoChange', callback?: AsyncCallback<LuminationInfo>): void;
-
+ 
     /**
      * Check whether try AE is needed.
      *
@@ -8596,7 +8659,7 @@ declare namespace camera {
      * @since 12
      */
     isTryAENeeded(): boolean;
-
+ 
     /**
      * Start try AE.
      *
@@ -8608,7 +8671,7 @@ declare namespace camera {
      * @since 12
      */
     startTryAE(): void;
-
+ 
     /**
      * Stop try AE.
      *
@@ -8620,7 +8683,7 @@ declare namespace camera {
      * @since 12
      */
     stopTryAE(): void;
-
+ 
     /**
      * Subscribes try AE info event callback.
      *
@@ -8632,7 +8695,7 @@ declare namespace camera {
      * @since 12
      */
     on(type: 'tryAEInfoChange', callback: AsyncCallback<TryAEInfo>): void;
-
+ 
     /**
      * Unsubscribes from try AE info event callback.
      *
@@ -8644,7 +8707,7 @@ declare namespace camera {
      * @since 12
      */
     off(type: 'tryAEInfoChange', callback?: AsyncCallback<TryAEInfo>): void;
-
+ 
     /**
      * Gets supported timelapse interval range.
      *
@@ -8656,7 +8719,7 @@ declare namespace camera {
      * @since 12
      */
     getSupportedTimeLapseIntervalRange(): Array<number>;
-
+ 
     /**
      * Gets the timelapse interval in use.
      *
@@ -8668,7 +8731,7 @@ declare namespace camera {
      * @since 12
      */
     getTimeLapseInterval(): number;
-
+ 
     /**
      * Sets a timelapse interval for a camera device.
      *
@@ -8681,7 +8744,7 @@ declare namespace camera {
      * @since 12
      */
     setTimeLapseInterval(interval: number): void;
-
+ 
     /**
      * Gets the timelapse recording state in use.
      *
@@ -8693,7 +8756,7 @@ declare namespace camera {
      * @since 12
      */
     getTimeLapseRecordState(): TimeLapseRecordState;
-
+ 
     /**
      * Sets a timelapse recording state.
      *
@@ -8706,7 +8769,7 @@ declare namespace camera {
      * @since 12
      */
     setTimeLapseRecordState(state: TimeLapseRecordState): void;
-
+ 
     /**
      * Gets the timelapse preview type in use.
      *
@@ -8718,7 +8781,7 @@ declare namespace camera {
      * @since 12
      */
     getTimeLapsePreviewType(): TimeLapsePreviewType;
-
+ 
     /**
      * Sets a timelapse preview type.
      *
