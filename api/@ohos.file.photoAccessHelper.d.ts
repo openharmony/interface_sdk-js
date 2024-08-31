@@ -640,7 +640,26 @@ declare namespace photoAccessHelper {
      */
     NO_HIDE_SENSITIVE_TYPE = 3
   }
-    
+
+  /**
+   * Enumeration type of authorization mode.
+   *
+   * @enum { number } AuthorizationMode
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 12
+   */
+  enum AuthorizationMode {
+    /**
+     * Short time authorization.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    SHORT_TIME_AUTHORIZATION = 0
+  }
+
   /**
    * Enum: complete button text
    *
@@ -4022,6 +4041,34 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     createAssetWithShortTermPermission(photoCreationConfig: PhotoCreationConfig): Promise<string>;
+    /**
+     * Create assets and grant save permission with authorization mode to the app which called the save dialog.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { string } bundleName - BundleName of the application which called the save dialog
+     * @param { string } appName - AppName of the application which called the save dialog
+     * @param { string } appId - AppId of the application which called the save dialog
+     * @param { number } tokenId - TokenId of the application which called the save dialog
+     * @param { AuthorizationMode } authorizationMode - Mode of authorization
+     * @param { Array<PhotoCreationConfig> } photoCreationConfigs - List of the photo asset creation configs
+     * @returns { Promise<Array<string>> } - Returns the media library file uri list to application which has been authorized
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    createAssetsForAppWithMode(
+      bundleName: string,
+      appName: string,
+      appId: string,
+      tokenId: number,
+      authorizationMode: AuthorizationMode,
+      photoCreationConfigs: Array<PhotoCreationConfig>
+    ): Promise<Array<string>>;
     /**
      * Get the index of the asset in the album
      *
