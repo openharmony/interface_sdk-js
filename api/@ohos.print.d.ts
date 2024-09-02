@@ -1090,42 +1090,6 @@ declare namespace print {
   }
 
   /**
-   * Enumeration of Printer Event.
-   * @enum { number } PrinterEvent
-   * @syscap SystemCapability.Print.PrintFramework
-   * @since 12
-   */
-  enum PrinterEvent {
-    /**
-     * Printer added.
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 12
-     */
-    PRINTER_EVENT_ADDED = 0,
-
-    /**
-     * Printer deleted.
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 12
-     */
-    PRINTER_EVENT_DELETED = 1,
-
-    /**
-     * Printer state changed.
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 12
-     */
-    PRINTER_EVENT_STATE_CHANGED = 2,
-
-    /**
-     * Printer info changed.
-     * @syscap SystemCapability.Print.PrintFramework
-     * @since 12
-     */
-    PRINTER_EVENT_INFO_CHANGED = 3,
-  }
-
-  /**
    * Enumeration of  Print Job State.
    * @enum { number } PrintJobState
    * @syscap SystemCapability.Print.PrintFramework
@@ -1844,19 +1808,6 @@ declare namespace print {
   function on(type: 'printerStateChange', callback: (state: PrinterState, info: PrinterInfo) => void): void;
 
   /**
-   * Register event callback for the change of printer.
-   * @permission ohos.permission.PRINT
-   * @param { 'printerChange' } type - Indicates change of printer.
-   * @param { function } callback - The callback function for change of printer.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-   * @syscap SystemCapability.Print.PrintFramework
-   * @since 12
-   */
-  function on(type: 'printerChange', callback: (event: PrinterEvent, info: PrinterInformation) => void): void;
-
-  /**
    * Unregister event callback for the state change of printer.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { 'printerStateChange' } type - Indicates state change of printer.
@@ -2229,11 +2180,12 @@ declare namespace print {
 
   /**
    * Get all added printers.
-   * @permission ohos.permission.PRINT
+   * @permission ohos.permission.MANAGE_PRINT_JOB
    * @returns { Promise<Array<string>> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
    * @since 12
    */
   function getAddedPrinters(): Promise<Array<string>>;
@@ -2274,7 +2226,7 @@ declare namespace print {
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
-   * @since 12
+   * @since 13
    */
   function addPrinterToDiscovery(printerInformation: PrinterInformation): Promise<void>;
 
@@ -2286,7 +2238,7 @@ declare namespace print {
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
-   * @since 12
+   * @since 13
    */
   function updatePrinterInDiscovery(printerInformation: PrinterInformation): Promise<void>;
 
@@ -2298,7 +2250,7 @@ declare namespace print {
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
-   * @since 12
+   * @since 13
    */
   function removePrinterFromDiscovery(printerId: string): Promise<void>;
 
@@ -2310,7 +2262,7 @@ declare namespace print {
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
-   * @since 12
+   * @since 13
    */
   function getPrinterInformationById(printerId: string): Promise<PrinterInformation>;
 
@@ -2318,14 +2270,14 @@ declare namespace print {
    * defines printer information.
    * @typedef PrinterInformation
    * @syscap SystemCapability.Print.PrintFramework
-   * @since 12
+   * @since 13
    */
   interface PrinterInformation {
     /**
      * Printer id.
      * @type { string }
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 12
+     * @since 13
      */
     printerId: string;
 
@@ -2333,7 +2285,7 @@ declare namespace print {
      * Printer name.
      * @type { string }
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 12
+     * @since 13
      */
     printerName: string;
 
@@ -2341,7 +2293,7 @@ declare namespace print {
      * Current printer status.
      * @type { PrinterStatus }
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 12
+     * @since 13
      */
     printerStatus: PrinterStatus;
 
@@ -2349,7 +2301,7 @@ declare namespace print {
      * Printer description.
      * @type { ?string }
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 12
+     * @since 13
      */
     description?: string;
 
@@ -2357,7 +2309,7 @@ declare namespace print {
      * Printer capabilities.
      * @type { ?PrinterCapabilities }
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 12
+     * @since 13
      */
     capability?: PrinterCapabilities;
 
@@ -2365,7 +2317,7 @@ declare namespace print {
      * Printer uri.
      * @type { ?string }
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 12
+     * @since 13
      */
     uri?: string;
 
@@ -2373,7 +2325,7 @@ declare namespace print {
      * Printer make.
      * @type { ?string }
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 12
+     * @since 13
      */
     printerMake?: string;
 
@@ -2381,7 +2333,7 @@ declare namespace print {
      * Detail information in json format.
      * @type { ?string }
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 12
+     * @since 13
      */
     options?: string;
   }
@@ -2390,14 +2342,14 @@ declare namespace print {
    * defines printer capabilities.
    * @typedef PrinterCapabilities
    * @syscap SystemCapability.Print.PrintFramework
-   * @since 12
+   * @since 13
    */
   interface PrinterCapabilities {
     /**
      * The page size list supported by the printer.
      * @type { Array<PrintPageSize> }
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 12
+     * @since 13
      */
     supportedPageSizes: Array<PrintPageSize>;
 
@@ -2405,7 +2357,7 @@ declare namespace print {
      * Array of supported color mode.
      * @type { Array<PrintColorMode> }
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 12
+     * @since 13
      */
     supportedColorModes: Array<PrintColorMode>;
 
@@ -2413,7 +2365,7 @@ declare namespace print {
      * Array of supported duplex mode.
      * @type { Array<PrintDuplexMode> }
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 12
+     * @since 13
      */
     supportedDuplexModes: Array<PrintDuplexMode>;
 
@@ -2421,7 +2373,7 @@ declare namespace print {
      * Array of supported print media types.
      * @type { ?Array<string> }
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 12
+     * @since 13
      */
     supportedMediaTypes?: Array<string>;
 
@@ -2429,7 +2381,7 @@ declare namespace print {
      * Array of supported print quality.
      * @type { ?Array<PrintQuality> }
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 12
+     * @since 13
      */
     supportedQualities?: Array<PrintQuality>;
 
@@ -2437,7 +2389,7 @@ declare namespace print {
      * Array of supported print orientation.
      * @type { ?Array<PrintOrientationMode> }
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 12
+     * @since 13
      */
     supportedOrientations?: Array<PrintOrientationMode>;
 
@@ -2445,7 +2397,7 @@ declare namespace print {
      * Advanced capability in json format.
      * @type { ?string }
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 12
+     * @since 13
      */
     options?: string;
   }
@@ -2454,27 +2406,27 @@ declare namespace print {
    * Enumeration of Print Quality.
    * @enum { number } PrintQuality
    * @syscap SystemCapability.Print.PrintFramework
-   * @since 12
+   * @since 13
    */
   enum PrintQuality {
     /**
      * Draft quality mode.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 12
+     * @since 13
      */
     QUALITY_DRAFT = 3,
 
     /**
      * Normal quality mode.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 12
+     * @since 13
      */
     QUALITY_NORMAL = 4,
 
     /**
      * High quality mode.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 12
+     * @since 13
      */
     QUALITY_HIGH = 5,
   }
@@ -2483,41 +2435,41 @@ declare namespace print {
    * Enumeration of Print OrientationMode.
    * @enum { number } PrintOrientationMode
    * @syscap SystemCapability.Print.PrintFramework
-   * @since 12
+   * @since 13
    */
   enum PrintOrientationMode {
     /**
      * Portrait mode.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 12
+     * @since 13
      */
     ORIENTATION_MODE_PORTRAIT = 0,
 
     /**
      * Landscape mode.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 12
+     * @since 13
      */
     ORIENTATION_MODE_LANDSCAPE= 1,
 
     /**
      * Reverse landscape mode.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 12
+     * @since 13
      */
     ORIENTATION_MODE_REVERSE_LANDSCAPE = 2,
 
     /**
      * Reverse portrait mode.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 12
+     * @since 13
      */
     ORIENTATION_MODE_REVERSE_PORTRAIT = 3,
 
     /**
      * Not specified.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 12
+     * @since 13
      */
     ORIENTATION_MODE_NONE = 4,
   }
@@ -2526,27 +2478,27 @@ declare namespace print {
    * Enumeration of Printer Status.
    * @enum { number } PrinterStatus
    * @syscap SystemCapability.Print.PrintFramework
-   * @since 12
+   * @since 13
    */
   enum PrinterStatus {
     /**
      * Printer idle.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 12
+     * @since 13
      */
     PRINTER_IDLE = 0,
 
     /**
      * Printer busy.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 12
+     * @since 13
      */
     PRINTER_BUSY = 1,
 
     /**
      * Printer not available.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 12
+     * @since 13
      */
     PRINTER_UNAVAILABLE = 2,
   }
