@@ -2856,9 +2856,9 @@ declare namespace window {
   function shiftAppWindowFocus(sourceWindowId: number, targetWindowId: number): Promise<void>;
 
   /**
-   * Window request to get focus or lose focus.
+   * Window requests to get focus or lose focus.
    *
-   * @param { boolean } isFocused - Window request to get focus if true.
+   * @param { boolean } isFocused - Window requests to get focus if true, requests to lose focus if false.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    *                                                                  2. Incorrect parameter types.
