@@ -158,6 +158,19 @@ declare namespace inputEventClient {
    * @systemapi hide for inner use
    * @since 8
    */
+  /**
+   * Inject system keys.
+   *
+   * @permission ohos.permission.INJECT_INPUT_EVENT
+   * @param { { KeyEvent } } KeyEvent - the key event to be injected.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+   * @systemapi hide for inner use
+   * @since 12
+   */
   function injectEvent({ KeyEvent: KeyEvent }): void;
 
   /**
