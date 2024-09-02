@@ -25,8 +25,9 @@ import type print from './@ohos.print';
  * class of print extensionAbility.
  *
  * @syscap SystemCapability.Print.PrintFramework
- * @stagemodelonly
- * @since 12
+ * @systemapi Hide this for inner system use.
+ * @StageModelOnly
+ * @since 10
  */
 export default class PrintExtensionAbility {
 
@@ -35,8 +36,9 @@ export default class PrintExtensionAbility {
    * @param { Want } want - call print page want params.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
-   * @stagemodelonly
-   * @since 12
+   * @systemapi Hide this for inner system use.
+   * @StageModelOnly
+   * @since 10
    */
   onCreate(want: Want): void;
 
@@ -44,8 +46,9 @@ export default class PrintExtensionAbility {
    * Called once to start to discover the printers connected with the device.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
-   * @stagemodelonly
-   * @since 12
+   * @systemapi Hide this for inner system use.
+   * @StageModelOnly
+   * @since 10
    */
   onStartDiscoverPrinter(): void;
 
@@ -53,8 +56,9 @@ export default class PrintExtensionAbility {
    * Called once to stop discovering the printer.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
-   * @stagemodelonly
-   * @since 12
+   * @systemapi Hide this for inner system use.
+   * @StageModelOnly
+   * @since 10
    */
   onStopDiscoverPrinter(): void;
 
@@ -63,8 +67,9 @@ export default class PrintExtensionAbility {
    * @param { number } printerId - connect the printerId.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
-   * @stagemodelonly
-   * @since 12
+   * @systemapi Hide this for inner system use.
+   * @StageModelOnly
+   * @since 10
    */
   onConnectPrinter(printerId: number): void;
 
@@ -73,8 +78,9 @@ export default class PrintExtensionAbility {
    * @param { number } printerId - connect the printerId.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
-   * @stagemodelonly
-   * @since 12
+   * @systemapi Hide this for inner system use.
+   * @StageModelOnly
+   * @since 10
    */
   onDisconnectPrinter(printerId: number): void;
 
@@ -84,7 +90,7 @@ export default class PrintExtensionAbility {
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 10
    */
   onStartPrintJob(jobInfo: print.PrintJob): void;
@@ -95,7 +101,7 @@ export default class PrintExtensionAbility {
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 10
    */
   onCancelPrintJob(jobInfo: print.PrintJob): void;
@@ -107,7 +113,7 @@ export default class PrintExtensionAbility {
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 10
    */
   onRequestPrinterCapability(printerId: number): print.PrinterCapability;
@@ -119,7 +125,7 @@ export default class PrintExtensionAbility {
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 10
    */
   onRequestPreview(jobInfo: print.PrintJob): string;
@@ -128,8 +134,9 @@ export default class PrintExtensionAbility {
    * Called once to finalize the extensionAbility.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
-   * @stagemodelonly
-   * @since 12
+   * @systemapi Hide this for inner system use.
+   * @StageModelOnly
+   * @since 10
    */
   onDestroy(): void;
 }
