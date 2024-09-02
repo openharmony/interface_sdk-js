@@ -885,7 +885,7 @@ export declare struct PopoverDialog {
 /**
  * Defines PopoverDialog Options
  * 
- * @interface PopoverOptions
+ * @typedef PopoverOptions
  * @extends CustomPopupOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
