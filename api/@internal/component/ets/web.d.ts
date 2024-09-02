@@ -7862,7 +7862,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 14
    */
   forceDisplayScrollBar(enabled: boolean): WebAttribute;
 
