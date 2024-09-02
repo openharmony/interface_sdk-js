@@ -426,7 +426,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 13
+   * @since 14
    */
   export type UIServiceExtensionContext = _UIServiceExtensionContext.default;
 
@@ -437,7 +437,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   export type UIServiceProxy = _UIServiceProxy.default;
 
@@ -448,7 +448,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 13
+   * @since 14
    */
   export type UIServiceHostProxy = _UIServiceHostProxy.default;
 
@@ -459,7 +459,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   export type UIServiceExtensionConnectCallback = _UIServiceExtensionConnectCallback.default;
 }
