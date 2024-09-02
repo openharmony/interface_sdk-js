@@ -10427,6 +10427,17 @@ declare interface DragEvent {
    * @crossplatform
    * @since 12
    */
+  /**
+   * Query the ModifierKey press state, support 'ctrl'|'alt'|'shift'|'fn'
+   *
+   * @param { Array<string> } keys - indicate the keys of the ModifierKey.
+   * @returns { boolean }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   getModifierKeyState?(keys: Array<string>): boolean;
 }
 
@@ -10711,6 +10722,17 @@ declare interface KeyEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
+   */
+  /**
+   * Get the modifier keys press state, support 'ctrl'|'alt'|'shift'|'fn'
+   *
+   * @param { Array<string> } keys - indicate the modifier keys.
+   * @returns { boolean }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
    */
   getModifierKeyState?(keys: Array<string>): boolean;
 }
