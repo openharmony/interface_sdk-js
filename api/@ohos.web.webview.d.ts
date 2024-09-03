@@ -4139,7 +4139,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 13
      */
     scrollTo(x: number, y: number, duration?: number): void;
 
@@ -4181,7 +4181,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 13
      */
     scrollBy(deltaX: number, deltaY: number, duration?: number): void;
 
