@@ -2305,7 +2305,7 @@ interface ICurve {
   /**
    * Get curve value by fraction.
    *
-   * @param { number } fraction -Indicates the current normalized time parameter. Value range: [0, 1].
+   * @param { number } fraction - Indicates the current normalized time parameter. Value range: [0, 1].
    * Note: If the value is less than 0, it will be processed as 0. If the value is greater than 1, 1 is used.
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2315,7 +2315,7 @@ interface ICurve {
   /**
    * Get curve value by fraction.
    *
-   * @param { number } fraction -Indicates the current normalized time parameter. Value range: [0, 1].
+   * @param { number } fraction - Indicates the current normalized time parameter. Value range: [0, 1].
    * Note: If the value is less than 0, it will be processed as 0. If the value is greater than 1, 1 is used.
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2326,7 +2326,7 @@ interface ICurve {
   /**
    * Get curve value by fraction.
    *
-   * @param { number } fraction -Indicates the current normalized time parameter. Value range: [0, 1].
+   * @param { number } fraction - Indicates the current normalized time parameter. Value range: [0, 1].
    * Note: If the value is less than 0, it will be processed as 0. If the value is greater than 1, 1 is used.
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4244,7 +4244,7 @@ declare class TransitionEffect<
    * -x: Horizontal component of the rotational vector.
    * -y: Vertical component of the rotational vector.
    * -z: Vertical component of the rotational vector.
-   * -centerX, centerY specify the rotation center point, with default values of "50%", 
+   * -centerX, centerY specify the rotation center point, with default values of "50%",
    * meaning that the default rotation center point is the center point of the component.
    * -The center point of (0, 0) represents the upper-left corner of the component.
    * -centerZ refers to the Z-axis anchor point. The default value of centerZ is 0.
@@ -4264,7 +4264,7 @@ declare class TransitionEffect<
    * -x: Horizontal component of the rotational vector.
    * -y: Vertical component of the rotational vector.
    * -z: Vertical component of the rotational vector.
-   * -centerX, centerY specify the rotation center point, with default values of "50%", 
+   * -centerX, centerY specify the rotation center point, with default values of "50%",
    * meaning that the default rotation center point is the center point of the component.
    * -The center point of (0, 0) represents the upper-left corner of the component.
    * -centerZ refers to the Z-axis anchor point. The default value of centerZ is 0.
@@ -9521,7 +9521,7 @@ declare enum DragResult {
  */
 /**
  * Enum for BlendMode.
- * Blend modes for compositing current component 
+ * Blend modes for compositing current component
  * with overlapping content. Use overlapping content
  * as dst, current component as src.
  *
@@ -19372,7 +19372,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Add a blendMode effect to the current component
-   * 
+   *
    * @param { BlendMode } value - Different hybrid modes
    * @param { BlendApplyType } [type] - Different blend apply type
    * @returns { T }
@@ -22106,17 +22106,6 @@ declare interface MeasureResult extends SizeResult {
 declare type NavDestinationInfo = import('../api/@ohos.arkui.observer').default.NavDestinationInfo;
 
 /**
- * The router page information.
- *
- * @typedef {import('../api/@ohos.arkui.observer').default.RouterPageInfo} RouterPageInfo
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12
- */
- declare type RouterPageInfo = import('../api/@ohos.arkui.observer').default.RouterPageInfo;
-
-/**
  * The navigation information.
  *
  * @typedef {import('../api/@ohos.arkui.observer').default.NavigationInfo} NavigationInfo
@@ -22126,6 +22115,17 @@ declare type NavDestinationInfo = import('../api/@ohos.arkui.observer').default.
  * @since 12
  */
 declare type NavigationInfo = import('../api/@ohos.arkui.observer').default.NavigationInfo;
+
+/**
+ * The router page information.
+ *
+ * @typedef {import('../api/@ohos.arkui.observer').default.RouterPageInfo} RouterPageInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type RouterPageInfo = import('../api/@ohos.arkui.observer').default.RouterPageInfo;
 
 /**
  * UIContext
