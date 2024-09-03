@@ -395,14 +395,14 @@ declare namespace webview {
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 14
    */
   enum PressureLevel {
     /**
      * Modules are advised to free buffers that are cheap to re-allocate and not immediately needed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 14
      */
     MEMORY_PRESSURE_LEVEL_MODERATE = 1,
 
@@ -410,7 +410,7 @@ declare namespace webview {
      * At this level, modules are advised to free all possible memory.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 14
      */
     MEMORY_PRESSURE_LEVEL_CRITICAL = 2
   }
@@ -5052,7 +5052,7 @@ declare namespace webview {
      * <br>2. Parameter string is too long. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 14
      */
     static trimMemoryByPressureLevel(level: PressureLevel): void;
 
