@@ -4457,7 +4457,7 @@ export default class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   setRestoreEnabled(enabled: boolean): void;
 
