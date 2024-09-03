@@ -751,6 +751,26 @@ declare namespace photoAccessHelper {
   }
 
   /**
+   * Data handler when quick request image is finished
+   *
+   * @typedef QuickImageDataHandler
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 13
+   */
+  interface QuickImageDataHandler<T> {
+    /**
+     * Indicates required media asset data quickly is prepared
+     *
+     * @param { T } data - the returned data of picture
+     * @param { image.ImageSource } imageSource - the returned data of imageSource
+     * @param { Map<string, string> } map - additional information for the data
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 13
+     */
+    onDataPrepared(data: T, imageSource: image.ImageSource, map: Map<string, string>): void;
+  }
+
+  /**
    * Photo Proxy used to save image data
    *
    * @interface PhotoProxy
@@ -789,6 +809,30 @@ declare namespace photoAccessHelper {
       asset: PhotoAsset,
       requestOptions: RequestOptions,
       dataHandler: MediaAssetDataHandler<image.ImageSource>
+    ): Promise<string>;
+
+    /**
+     * Quick request image
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { Context } context - Hap context information
+     * @param { PhotoAsset } asset - the photo asset requested
+     * @param { RequestOptions } requestOptions - the request options
+     * @param { QuickImageDataHandler<image.Picture> } dataHandler - data handler used to obtain image data quickly when picture is prepared
+     * @returns { Promise<string> } Returns request id
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 13
+     */
+    static quickRequestImage(
+      context: Context,
+      asset: PhotoAsset,
+      requestOptions: RequestOptions,
+      dataHandler: QuickImageDataHandler<image.Picture>
     ): Promise<string>;
 
     /**
@@ -5154,6 +5198,31 @@ declare namespace photoAccessHelper {
   }
 
   /**
+   * The format in which the image is saved
+   *
+   * @enum { number } ImageFileType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 13
+   */
+  enum ImageFileType {
+    /**
+     * Jpeg type
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 13
+     */
+    JPEG = 1,
+
+    /**
+     * Heif type
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 13
+     */
+    HEIF = 2
+  }
+    
+  /**
    * Enumeration of moving photo effect mode.
    *
    * @enum { number } MovingPhotoEffectMode
@@ -5589,6 +5658,17 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     saveCameraPhoto(): void;
+
+    /**
+     * Save the photo asset captured by camera with imageFileType.
+     *
+     * @param { ImageFileType } imageFileType - Image file type
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @throws { BusinessError } 14000016 - Operation Not Support
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 13
+     */
+    saveCameraPhoto(imageFileType: ImageFileType): void;
 
     /**
      * Discard the photo asset captured by camera.
