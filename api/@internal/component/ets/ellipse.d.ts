@@ -19,6 +19,90 @@
  */
 
 /**
+ * Ellipse constructor options.
+ *
+ * @interface EllipseOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 14
+ */
+interface EllipseOptions {
+  /**
+   * Set width.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Set width.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Set width.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Set width.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  width?: string | number;
+
+  /**
+   * Set height.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Set height.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Set height.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Set height.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  height?: string | number;
+}
+
+/**
  * Ellipse drawing.
  *
  * @interface EllipseInterface
@@ -91,7 +175,18 @@ interface EllipseInterface {
    * @atomicservice
    * @since 11
    */
-  new (value?: { width?: string | number; height?: string | number }): EllipseAttribute;
+  /**
+   * use new function to set the value.
+   *
+   * @param { EllipseOptions } [options] - ellipse options
+   * @returns { EllipseAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  new (options?: EllipseOptions): EllipseAttribute;
 
   /**
    * Set the value.
@@ -131,7 +226,18 @@ interface EllipseInterface {
    * @atomicservice
    * @since 11
    */
-  (value?: { width?: string | number; height?: string | number }): EllipseAttribute;
+  /**
+   * Set the value.
+   *
+   * @param { EllipseOptions } [options] - ellipse options
+   * @returns { EllipseAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  (options?: EllipseOptions): EllipseAttribute;
 }
 
 /**

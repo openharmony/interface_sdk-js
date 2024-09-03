@@ -365,6 +365,19 @@ interface XComponentInterface {
 }
 
 /**
+ * Callback invoked when XComponent onload.
+ *
+ * @typedef { function } OnNativeLoadCallback
+ * @param { object } [event] - Get the context of the XCompoonent instance object,
+ * and the methods mounted on the context are defined by the developer in the C++layer.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare type OnNativeLoadCallback = (event?: object) => void
+
+/**
  * Defines XComponentAttribute.
  *
  * @extends CommonMethod<XComponentAttribute>
@@ -399,7 +412,17 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @atomicservice
    * @since 12
    */
-  onLoad(callback: (event?: object) => void): XComponentAttribute;
+  /**
+   * Called when judging whether the xcomponent surface is created.
+   *
+   * @param { OnNativeLoadCallback } callback - Called when judging whether the xcomponent surface is created.
+   * @returns { XComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onLoad(callback: OnNativeLoadCallback): XComponentAttribute;
 
   /**
    * Called when judging whether the xcomponent is destroyed.
@@ -419,7 +442,17 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @atomicservice
    * @since 12
    */
-  onDestroy(event: () => void): XComponentAttribute;
+  /**
+   * Called when judging whether the xcomponent is destroyed.
+   *
+   * @param { VoidCallback } event - Called when judging whether the xcomponent is destroyed.
+   * @returns { XComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onDestroy(event: VoidCallback): XComponentAttribute;
 
   /**
    * Enable image analyzer for XComponent.
