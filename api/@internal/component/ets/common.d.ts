@@ -13591,6 +13591,17 @@ declare interface ContextMenuOptions {
   aboutToDisappear?: () => void;
   
   /**
+   * The margin of menu's layoutRegion.
+   *
+   * @type { ?Margin }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  layoutRegionMargin?: Margin;
+  
+  /**
    * The preview animator options.
    *
    * @type { ?ContextMenuAnimationOptions }
