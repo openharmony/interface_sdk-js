@@ -2191,6 +2191,16 @@ declare namespace commonEventManager {
      * @since 12
      */
     COMMON_EVENT_DATA_SHARE_READY = 'usual.event.DATA_SHARE_READY',
+
+    /**
+     * This common event means that vpn connection status has been changed.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @since 12
+     */
+    COMMON_EVENT_VPN_CONNECTION_STATUS_CHANGED = 'usual.event.VPN_CONNECTION_STATUS_CHANGED',
   }
 
   /**
