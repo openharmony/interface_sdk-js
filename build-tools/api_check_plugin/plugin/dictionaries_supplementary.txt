@@ -121,7 +121,6 @@ buttonconfig
 bypassed
 bypassing
 bytrace
-backforward
 callbackfn
 camped
 canceling
@@ -165,6 +164,7 @@ compositing
 compresses
 concatenates
 cone
+concatenates
 conferencing
 confpersist
 connectable
@@ -786,7 +786,6 @@ pss
 pssh
 puk
 pvr
-qualities
 quant
 querier
 queriers
@@ -809,13 +808,13 @@ recovered
 recovering
 recovers
 recursions
+reclaimed
 redefines
 redirections
 reenter
 refill
 refresher
 refusing
-regarded
 rehandshake
 rejects
 relocation
@@ -863,7 +862,6 @@ rtt
 ruim
 ruleset
 rwt
-resfile
 s5
 sac
 sae
@@ -906,6 +904,7 @@ sha1
 shadertype
 sharedarraybuffer
 shenzhen
+shrinks
 shortkey
 showcounter
 shrinks
@@ -917,6 +916,11 @@ singly
 skews
 slidable
 sliderstyle
+statvfs
+stk
+str
+strokes
+structurally
 sm3
 smil
 smpte
@@ -982,8 +986,8 @@ suscriber
 suscribes
 suspending
 suspends
+suspending
 swanctl
-switchmode
 switchvideomode
 symantec
 symbolglyph
@@ -999,7 +1003,6 @@ systemapp
 systembar
 systemsize
 systemui
-suspending
 tabletype
 tailoring
 talkback

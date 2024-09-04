@@ -319,7 +319,7 @@ export class ApiInfo extends BasicApiInfo {
 
   constructor(apiType: string = '', node: ts.Node, parentApi: BasicApiInfo | undefined) {
     super(apiType, node, parentApi);
-    let parentKitInfo: string = 'NA';
+    let parentKitInfo: string = '';
     let parentIsFile: boolean = false;
     if (parentApi) {
       parentKitInfo = this.getKitInfoFromParent(parentApi).kitInfo;
@@ -342,7 +342,7 @@ export class ApiInfo extends BasicApiInfo {
   getKitInfoFromParent(parentApi: BasicApiInfo): FileTag {
     const parentApiInfo = parentApi as ApiInfo;
     const jsDocInfos: Comment.JsDocInfo[] = parentApiInfo.getJsDocInfos();
-    let kitInfo: string | undefined = '';
+    let kitInfo: string = '';
     let isFile: boolean = false;
     jsDocInfos.forEach((jsDocInfo: Comment.JsDocInfo) => {
       kitInfo = jsDocInfo.getKit();

@@ -133,11 +133,11 @@ export class TagValueCheck {
       state: true,
       errorInfo: '',
     };
-    let extendsTagValue: string = tag.name + tag.description;
+    let extendsTagValue: string = tag.name;
     if (singleApi.getApiType() === ApiType.CLASS || singleApi.getApiType() === ApiType.INTERFACE) {
       const extendsApiValue: string = CommonFunctions.getExtendsApiValue(singleApi);
       const ImplementsApiValue: string = CommonFunctions.getImplementsApiValue(singleApi);
-      if (tag.tag === 'extends' && extendsTagValue.replace(/\s/g, '') !== extendsApiValue) {
+      if (tag.tag === 'extends' && extendsTagValue !== extendsApiValue) {
         extendsValueCheckResult.state = false;
         extendsValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_EXTENDS;
       }

@@ -105,12 +105,12 @@ export class DiffHelper {
       oldSourceFileInfo?.setSyscap(DiffHelper.getSyscapField(oldSourceFileInfo));
       const oldKitInfo: string | undefined = oldSourceFileInfo?.getLastJsDocInfo()?.getKit();
       //文件在新版本中被删除
-      if (!clonedNewSDKApiMap.get(key) && oldKitInfo !== 'NA') {
+      if (!clonedNewSDKApiMap.get(key) && oldKitInfo) {
         diffInfos.push(
           DiffProcessorHelper.wrapDiffInfo(
             oldSourceFileInfo,
             undefined,
-            new DiffTypeInfo(ApiStatusCode.KIT_CHANGE, ApiDiffType.KIT_HAVE_TO_NA, oldKitInfo, 'NA')
+            new DiffTypeInfo(ApiStatusCode.KIT_CHANGE, ApiDiffType.KIT_CHANGE, oldKitInfo, 'NA')
           )
         );
       } else if (clonedNewSDKApiMap.get(key)) {
@@ -121,7 +121,7 @@ export class DiffHelper {
             DiffProcessorHelper.wrapDiffInfo(
               oldSourceFileInfo,
               newSourceFileInfo,
-              new DiffTypeInfo(ApiStatusCode.KIT_CHANGE, DiffHelper.getKitDiffType(oldKitInfo, newKitInfo), oldKitInfo, newKitInfo)
+              new DiffTypeInfo(ApiStatusCode.KIT_CHANGE, ApiDiffType.KIT_CHANGE, oldKitInfo, newKitInfo)
             )
           );
         }
@@ -131,29 +131,16 @@ export class DiffHelper {
     for (const key of clonedNewSDKApiMap.keys()) {
       const newSourceFileInfo: ApiInfo | undefined = DiffHelper.getSourceFileInfo(clonedNewSDKApiMap.get(key));
       const newKitInfo: string | undefined = newSourceFileInfo?.getLastJsDocInfo()?.getKit();
-      if (!clonedOldSDKApiMap.get(key) && newKitInfo !== 'NA') {
+      if (!clonedOldSDKApiMap.get(key) && newKitInfo) {
         diffInfos.push(
           DiffProcessorHelper.wrapDiffInfo(
             undefined,
             newSourceFileInfo,
-            new DiffTypeInfo(ApiStatusCode.KIT_CHANGE, ApiDiffType.KIT_NA_TO_HAVE, 'NA', newKitInfo)
+            new DiffTypeInfo(ApiStatusCode.KIT_CHANGE, ApiDiffType.KIT_CHANGE, 'NA', newKitInfo)
           )
         );
       }
     }
-  }
-
-  static getKitDiffType(oldKitInfo: string | undefined, newKitInfo: string | undefined): ApiDiffType {
-    if (oldKitInfo === 'NA' && newKitInfo === '') {
-      return ApiDiffType.KIT_NA_TO_HAVE;
-    } else if (oldKitInfo === '' && newKitInfo === 'NA') {
-      return ApiDiffType.KIT_HAVE_TO_NA;
-    } else if (oldKitInfo === 'NA' || oldKitInfo === '') {
-      return ApiDiffType.KIT_NA_TO_HAVE;
-    } else if (newKitInfo === 'NA' || newKitInfo === '') {
-      return ApiDiffType.KIT_HAVE_TO_NA;
-    }
-    return ApiDiffType.KIT_CHANGE;
   }
 
   static getSourceFileInfo(fileMap: FileInfoMap | undefined): ApiInfo | undefined {
