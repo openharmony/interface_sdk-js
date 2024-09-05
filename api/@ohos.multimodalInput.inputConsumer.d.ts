@@ -247,8 +247,8 @@ declare namespace inputConsumer {
    * @param { Callback<HotkeyOptions> } callback - Callback used to return shortcut key events.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 4200002 - The hotkey has been used by the system. You can call the {@Link GetAllSystemHotkeys}
-   * <br>interface to query all system hotkeys.
+   * @throws { BusinessError } 4200002 - The hotkey has been used by the system. You can call the {@Link
+   * <br> GetAllSystemHotkeys} interface to query all system hotkeys.
    * @throws { BusinessError } 4200003 - The hotkey has been subscribed to by another.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 13
