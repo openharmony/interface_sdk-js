@@ -682,8 +682,6 @@ export enum ApiDiffType {
   ATOMIC_SERVICE_NA_TO_HAVE,
   ATOMIC_SERVICE_HAVE_TO_NA,
   PROPERTY_TYPE_SIGN_CHANGE,
-  KIT_HAVE_TO_NA,
-  KIT_NA_TO_HAVE,
 }
 
 export const diffTypeMap: Map<ApiDiffType, string> = new Map([
@@ -770,8 +768,6 @@ export const diffTypeMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.SINCE_VERSION_HAVE_TO_NA, '起始版本有变化'],
   [ApiDiffType.SINCE_VERSION_NA_TO_HAVE, '起始版本有变化'],
   [ApiDiffType.KIT_CHANGE, 'kit变更'],
-  [ApiDiffType.KIT_HAVE_TO_NA, '删除kit'],
-  [ApiDiffType.KIT_NA_TO_HAVE, '新增kit'],
   [ApiDiffType.ATOMIC_SERVICE_HAVE_TO_NA, 'API从支持元服务到不支持元服务'],
   [ApiDiffType.ATOMIC_SERVICE_NA_TO_HAVE, 'API从不支持元服务到支持元服务'],
 ]);
@@ -862,8 +858,6 @@ export const diffMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.HISTORICAL_JSDOC_CHANGE, '历史版本jsdoc变更'],
   [ApiDiffType.HISTORICAL_API_CHANGE, '历史版本API变更'],
   [ApiDiffType.KIT_CHANGE, 'kit变更'],
-  [ApiDiffType.KIT_HAVE_TO_NA, 'kit信息从有到无'],
-  [ApiDiffType.KIT_NA_TO_HAVE, 'kit信息从无到有'],
   [ApiDiffType.ATOMIC_SERVICE_HAVE_TO_NA, 'API从支持元服务到不支持元服务'],
   [ApiDiffType.ATOMIC_SERVICE_NA_TO_HAVE, 'API从不支持元服务到支持元服务'],
 ]);
@@ -939,8 +933,6 @@ export const apiChangeMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.SINCE_VERSION_HAVE_TO_NA, 'API修改（约束变化）'],
   [ApiDiffType.SINCE_VERSION_NA_TO_HAVE, 'API修改（约束变化）'],
   [ApiDiffType.KIT_CHANGE, '非API变更'],
-  [ApiDiffType.KIT_HAVE_TO_NA, '非API变更'],
-  [ApiDiffType.KIT_NA_TO_HAVE, '非API变更'],
   [ApiDiffType.ATOMIC_SERVICE_HAVE_TO_NA, 'API修改（约束变化）'],
   [ApiDiffType.ATOMIC_SERVICE_NA_TO_HAVE, 'API修改（约束变化）'],
   [ApiDiffType.TYPE_ALIAS_FUNCTION_RETURN_TYPE_ADD, 'API修改（原型修改）'],
@@ -1011,8 +1003,6 @@ export const incompatibleApiDiffTypes: Set<ApiDiffType> = new Set([
   ApiDiffType.SYSCAP_A_TO_B,
   ApiDiffType.SYSCAP_HAVE_TO_NA,
   ApiDiffType.SYSCAP_NA_TO_HAVE,
-  ApiDiffType.KIT_CHANGE,
-  ApiDiffType.KIT_HAVE_TO_NA,
 ]);
 
 export const isNotApiSet: Set<string> = new Set([

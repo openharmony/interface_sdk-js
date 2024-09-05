@@ -148,7 +148,6 @@ export enum ErrorMessage {
   ERROR_NO_JSDOC_TAG = 'add  tags to the Jsdoc.',
   ERROR_HAS_CHINESE = 'Jsdoc has chinese.',
   ERROR_ERROR_CODE = 'The generic error code does not contain the current error code.',
-  ERROR_ERROR_SYSTEMAPI_ATOMICSERVICE = 'The [systemapi] and [atomicservice] cannot exist in the same doc.',
   ERROR_CHANGES_JSDOC_LEVEL = 'Forbid changes: Cannot change from public API to system API.',
   ERROR_CHANGES_JSDOC_PERMISSION_RANGE = 'Forbid changes: Cannot reduce or permission or increase and permission.',
   ERROR_CHANGES_JSDOC_PERMISSION_VALUE = 'Forbid changes: Cannot change permission value,cannot judge the range change.',
