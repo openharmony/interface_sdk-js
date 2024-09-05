@@ -3656,6 +3656,7 @@ declare namespace audio {
      * @since 12
      */
     getCurrentAudioRendererInfoArray(callback: AsyncCallback<AudioRendererChangeInfoArray>): void;
+    
     /**
      * Get information of current existing audio renderers.
      * @returns { Promise<AudioRendererChangeInfoArray> } Promise used to return the information of current
@@ -3672,6 +3673,7 @@ declare namespace audio {
      * @since 12
      */
     getCurrentAudioRendererInfoArray(): Promise<AudioRendererChangeInfoArray>;
+
     /**
      * Get information of current existing audio renderers.
      * @returns { AudioRendererChangeInfoArray } The information of current existing audio renderers.
@@ -3703,6 +3705,7 @@ declare namespace audio {
      * @since 12
      */
     getCurrentAudioCapturerInfoArray(callback: AsyncCallback<AudioCapturerChangeInfoArray>): void;
+
     /**
      * Get information of current existing audio capturers.
      * @returns { Promise<AudioCapturerChangeInfoArray> } Promise used to return the information of current existing
@@ -3719,6 +3722,7 @@ declare namespace audio {
      * @since 12
      */
     getCurrentAudioCapturerInfoArray(): Promise<AudioCapturerChangeInfoArray>;
+
     /**
      * Get information of current existing audio capturers.
      * @returns { AudioCapturerChangeInfoArray } The information of current existing audio capturers.
@@ -3746,6 +3750,7 @@ declare namespace audio {
      * @since 10
      */
     getAudioEffectInfoArray(usage: StreamUsage, callback: AsyncCallback<AudioEffectInfoArray>): void;
+
     /**
      * Gets information of audio effects.
      * @param { StreamUsage } usage - Stream usage.
@@ -3758,6 +3763,7 @@ declare namespace audio {
      * @since 10
      */
     getAudioEffectInfoArray(usage: StreamUsage): Promise<AudioEffectInfoArray>;
+
     /**
      * Gets information of audio effects.
      * @param { StreamUsage } usage - Stream usage.
@@ -3778,7 +3784,7 @@ declare namespace audio {
      * @throws { BusinessError } 201 - Permission denied. 
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 6800301 - System error.
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
      * @since 13
      */
@@ -3799,7 +3805,7 @@ declare namespace audio {
      *                                 2. The input audioEffectProperties are not supported by the current device.
      *                                 3. The name or catergory of the input audioEffectProperties is incorrect.
      * @throws { BusinessError } 6800301 - System error.
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
      * @since 13
      */
@@ -3812,58 +3818,11 @@ declare namespace audio {
      * @throws { BusinessError } 201 - Permission denied. 
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 6800301 - System error.
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
      * @since 13
      */
     getAudioEffectProperty(): Array<AudioEffectProperty>;
-
-    /**
-     * Gets supported audio enhancement properties based on current devices.
-     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
-     * @returns { Array<AudioEnhancementProperty> } Array of supported audio enhancement properties.
-     * @throws { BusinessError } 201 - Permission denied. 
-     * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 6800301 - System error.
-     * @syscap SystemCapability.Multimedia.Audio.Capturer
-     * @systemapi
-     * @since 13
-     */
-    getSupportedAudioEnhancementProperty(): Array<AudioEnhancementProperty>;
-
-    /**
-     * Sets current audio enhancement properties.
-     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
-     * @param { Array<AudioEnhancementProperty> } propertyArray - array of audio enhancement property to be set. 
-     * Notice that only one enhancement property name in each enhancement category should be set.
-     * @throws { BusinessError } 201 - Permission denied. 
-     * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                 1.Mandatory parameters are left unspecified;
-     *                                 2.Incorrect parameter types.
-     * @throws { BusinessError } 6800101 - Parameter verification failed. Possible causes:
-     *                                 1. More than one enhancement property names of the same enhancement property category are in the input array.
-     *                                 2. The input audioEnhancementProperties are not supported by the current device.
-     *                                 3. The name or category of the input audioEnhancementProperties is incorrect.
-     * @throws { BusinessError } 6800301 - System error.
-     * @syscap SystemCapability.Multimedia.Audio.Capturer
-     * @systemapi
-     * @since 13
-     */
-    setAudioEnhancementProperty(propertyArray: Array<AudioEnhancementProperty>): void;
-
-    /**
-     * Gets current audio enhancement properties.
-     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
-     * @returns { Array<AudioEnhancementProperty> } Array of current audio enhancement properties.
-     * @throws { BusinessError } 201 - Permission denied. 
-     * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 6800301 - System error.
-     * @syscap SystemCapability.Multimedia.Audio.Capturer
-     * @systemapi
-     * @since 13
-     */
-    getAudioEnhancementProperty(): Array<AudioEnhancementProperty>;
 
     /**
      * Listens for audio renderer change events. When there is any audio renderer change,
@@ -9313,9 +9272,33 @@ declare namespace audio {
   }
 
   /**
+   * Enumerates audio effect flags.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.xxx
+   * @since 13
+   */
+  enum EffectFlag {
+    /**
+     * Audio render effect.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 13
+     */
+    RENDER_EFFECT_FLAG = 0,
+  
+    /**
+     * Audio capture effect.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 13
+     */
+    CAPTURE_EFFECT_FLAG = 1
+  }
+
+  /**
    * Describes an audio effect property.
    * @typedef AudioEffectProperty
-   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   * @syscap SystemCapability.Multimedia.Audio.Core
    * @systemapi
    * @since 13
    */
@@ -9323,7 +9306,7 @@ declare namespace audio {
     /**
      * Name of effect property.
      * @type { string }
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
      * @since 13
      */
@@ -9332,38 +9315,20 @@ declare namespace audio {
     /**
      * Effect category this effect property belongs to.
      * @type { string }
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
      * @since 13
      */
     category: string;
-  }
 
-  /**
-   * Describes an audio enhancement property.
-   * @typedef AudioEnhancementProperty
-   * @syscap SystemCapability.Multimedia.Audio.Capturer
-   * @systemapi
-   * @since 13
-   */
-  interface AudioEnhancementProperty {
     /**
-     * Name of enhancement property.
-     * @type { string }
-     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * Effect flag of this effect property.
+     * @type { EffectFlag }
+     * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
      * @since 13
      */
-    name: string;
-
-    /**
-     * Enhancement category the enhancement property belongs to.
-     * @type { string }
-     * @syscap SystemCapability.Multimedia.Audio.Capturer
-     * @systemapi
-     * @since 13
-     */
-    category: string;
+    flag: EffectFlag;
   }
 }
 
