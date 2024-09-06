@@ -2966,6 +2966,16 @@ declare namespace audio {
     getSpatializationManager(): AudioSpatializationManager;
 
     /**
+     * Obtains an {@link AudioEffectManager} instance.
+     * @returns { AudioEffectManager } AudioEffectManager instance.
+     * @throws { BusinessError } 202 - Not system App.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 15
+     */
+    getEffectManager(): AudioEffectManager;
+
+    /**
      * user disable the safe media volume state.
      * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
      * @returns {Promise<void>} Promise used to return the result.
@@ -3776,53 +3786,6 @@ declare namespace audio {
      * @since 10
      */
     getAudioEffectInfoArraySync(usage: StreamUsage): AudioEffectInfoArray;
-
-    /**
-     * Gets supported audio effect properties based on current devices.
-     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
-     * @returns { Array<AudioEffectProperty> } Array of supported audio effect properties.
-     * @throws { BusinessError } 201 - Permission denied. 
-     * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 6800301 - System error.
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     * @systemapi
-     * @since 15
-     */
-    getSupportedAudioEffectProperty(): Array<AudioEffectProperty>;
-
-    /**
-     * Sets current audio effect properties.
-     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
-     * @param { Array<AudioEffectProperty> } propertyArray - array of audio effect property to be set. 
-     * Notice that only one effect property name in each effect property category should be set.
-     * @throws { BusinessError } 201 - Permission denied. 
-     * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                 1.Mandatory parameters are left unspecified;
-     *                                 2.Incorrect parameter types.
-     * @throws { BusinessError } 6800101 - Parameter verification failed. Possible causes:
-     *                                 1. More than one effect property name of the same effect property category are in the input array.
-     *                                 2. The input audioEffectProperties are not supported by the current device.
-     *                                 3. The name or catergory of the input audioEffectProperties is incorrect.
-     * @throws { BusinessError } 6800301 - System error.
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     * @systemapi
-     * @since 15
-     */
-    setAudioEffectProperty(propertyArray: Array<AudioEffectProperty>): void;
-
-    /**
-     * Gets current audio effect properties.
-     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
-     * @returns { Array<AudioEffectProperty> } Array of current audio effect properties.
-     * @throws { BusinessError } 201 - Permission denied. 
-     * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 6800301 - System error.
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     * @systemapi
-     * @since 15
-     */
-    getAudioEffectProperty(): Array<AudioEffectProperty>;
 
     /**
      * Listens for audio renderer change events. When there is any audio renderer change,
@@ -5117,6 +5080,62 @@ declare namespace audio {
      */
     getSpatializationSceneType(): AudioSpatializationSceneType;
   }
+
+  /**
+   * Implements audio effect management.
+   * @typedef AudioEffectManager
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @systemapi
+   * @since 15
+   */
+  interface AudioEffectManager {
+    /**
+     * Gets supported audio effect properties based on current devices.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
+     * @returns { Array<AudioEffectProperty> } Array of supported audio effect properties.
+     * @throws { BusinessError } 201 - Permission denied. 
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800301 - System error.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 15
+     */
+    getSupportedAudioEffectProperty(): Array<AudioEffectProperty>;
+
+    /**
+     * Sets current audio effect properties.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
+     * @param { Array<AudioEffectProperty> } propertyArray - array of audio effect property to be set. 
+     * Notice that only one effect property name in each effect property category should be set.
+     * @throws { BusinessError } 201 - Permission denied. 
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed. Possible causes:
+     *                                 1. More than one effect property name of the same effect property category are in the input array.
+     *                                 2. The input audioEffectProperties are not supported by the current device.
+     *                                 3. The name or catergory of the input audioEffectProperties is incorrect.
+     * @throws { BusinessError } 6800301 - System error.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 15
+     */
+    setAudioEffectProperty(propertyArray: Array<AudioEffectProperty>): void;
+
+    /**
+     * Gets current audio effect properties.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
+     * @returns { Array<AudioEffectProperty> } Array of current audio effect properties.
+     * @throws { BusinessError } 201 - Permission denied. 
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800301 - System error.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 15
+     */
+    getAudioEffectProperty(): Array<AudioEffectProperty>;
+   }
 
   /**
    * Connect type for device.
