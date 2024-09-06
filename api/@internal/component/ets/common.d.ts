@@ -19248,7 +19248,7 @@ declare class CommonMethod<T> {
   advancedBlendMode(effect: BlendMode | Blender, type?: BlendApplyType): T;
 
   /**
-   * Whether to crop the sub components of the current component.
+   * Whether to crop the sub components beyond the current component range.
    *
    * @param { boolean } value
    * @returns { T }
