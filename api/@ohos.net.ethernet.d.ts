@@ -408,6 +408,7 @@ declare namespace ethernet {
   export interface MacAddressInfo {
     /**
      * Ethernet interface name.
+     * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
      * @since 13
@@ -416,6 +417,7 @@ declare namespace ethernet {
 
     /**
      * Ethernet specific mac address.
+     * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
      * @since 13
