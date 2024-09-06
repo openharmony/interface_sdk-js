@@ -240,11 +240,11 @@ declare namespace inputConsumer {
   function getAllSystemHotkeys(): Promise<Array<HotkeyOptions>>;
 
   /**
-   * Subscribes to shortcut key events.
+   * Listening for hotkey event changes.
    *
-   * @param { 'hotkey' } type - Type of the shortcut key events.
-   * @param { HotkeyOptions } hotkeyOptions - Shortcut key events.
-   * @param { Callback<HotkeyOptions> } callback - Callback used to return shortcut key events.
+   * @param { 'hotkeyChange' } type - Type of the hotkey events.
+   * @param { HotkeyOptions } hotkeyOptions - hotkey events.
+   * @param { Callback<HotkeyOptions> } callback - Callback used to return hotkey events.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 4200002 - The hotkey has been used by the system. You can call the {@Link
@@ -253,20 +253,20 @@ declare namespace inputConsumer {
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 13
    */
-  function on(type: 'hotkey', hotkeyOptions: HotkeyOptions, callback: Callback<HotkeyOptions>): void;
+  function on(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback: Callback<HotkeyOptions>): void
 
   /**
-   * Unsubscribes from shortcut key events.
+   * Unsubscribes from hotkey events.
    *
-   * @param { 'hotkey' } type - Type of the shortcut key events.
-   * @param { HotkeyOptions } hotkeyOptions - Shortcut key events.
-   * @param { Callback<HotkeyOptions> } callback - Callback used to return shortcut key events.
+   * @param { 'hotkeyChange' } type - Type of the hotkey events.
+   * @param { HotkeyOptions } hotkeyOptions - Hotkey events.
+   * @param { Callback<HotkeyOptions> } callback - Callback used to return hotkey events.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 13
    */
-  function off(type: 'hotkey', hotkeyOptions: HotkeyOptions, callback?: Callback<HotkeyOptions>): void;
+  function off(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback?: Callback<HotkeyOptions>): void
 }
 
 export default inputConsumer;
