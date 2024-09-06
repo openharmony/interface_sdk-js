@@ -77,7 +77,7 @@ import {
   NodeRenderType, RenderOptions, BuilderNode, BuildOptions, NodeController, FrameNode, DrawContext, Size, Offset, Position, Pivot,
   Scale, Translation, Matrix4, Rotation, Frame, RenderNode, XComponentNode, LengthMetrics, ColorMetrics, LengthUnit, LengthMetricsUnit,
   LayoutConstraint, ComponentContent, NodeContent, Content, typeNode, NodeAdapter, ShapeMask, ShapeClip, Rect, RoundRect,
-  edgeColors, borderStyles, borderRadiuses
+  edgeColors, edgeWidths, borderStyles, borderRadiuses
 } from '@ohos.arkui.node';
 import uiObserver from '@ohos.arkui.observer';
 import performanceMonitor from '@ohos.arkui.performanceMonitor';
@@ -216,6 +216,6 @@ export {
   CommonSegmentButtonOptions, ItemRestriction, SegmentButtonItemTuple, SegmentButtonItemArray,
   SegmentButtonItemOptionsConstructorOptions, SegmentButtonItemOptions, DownloadFileButton,
   DownloadLayoutDirection, DownloadIconStyle, DownloadDescription, DownloadContentOptions, DownloadStyleOptions, NodeAdapter,
-  Rect, RoundRect, edgeColors, borderStyles, borderRadiuses, ParticleModifier,
+  Rect, RoundRect, edgeColors, edgeWidths, borderStyles, borderRadiuses, ParticleModifier,
   InnerFullScreenLaunchComponent, LaunchController,
 };
