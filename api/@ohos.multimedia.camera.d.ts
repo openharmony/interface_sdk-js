@@ -8661,7 +8661,7 @@ declare namespace camera {
      * @type { boolean }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     readonly isCameraLensDirty: boolean;
   }
