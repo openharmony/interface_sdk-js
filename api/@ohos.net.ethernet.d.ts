@@ -243,7 +243,7 @@ declare namespace ethernet {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2200003 - System internal error.
-   * @throws { BusinessError } 2200005 - Device information does not exist.
+   * @throws { BusinessError } 2201005 - Device information does not exist.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
    * @since 13
