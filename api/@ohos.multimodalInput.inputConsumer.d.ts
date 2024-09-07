@@ -256,7 +256,7 @@ declare namespace inputConsumer {
   function on(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback: Callback<HotkeyOptions>): void
 
   /**
-   * Unsubscribes from hotkey events.
+   * Unsubscribe from hotkey event changes.
    *
    * @param { 'hotkeyChange' } type - Type of the hotkey events.
    * @param { HotkeyOptions } hotkeyOptions - Hotkey events.
