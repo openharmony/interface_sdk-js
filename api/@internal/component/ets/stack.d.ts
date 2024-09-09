@@ -19,6 +19,54 @@
  */
 
 /**
+ * Options used to construct the stack.
+ *
+ * @interface StackOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 13
+ */
+declare interface StackOptions {
+  /**
+   * Set the alignment of sub components within the container.
+   *
+   * @type { ?Alignment }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Set the alignment of sub components within the container.
+   *
+   * @type { ?Alignment }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Set the alignment of sub components within the container.
+   *
+   * @type { ?Alignment }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Set the alignment of sub components within the container.
+   *
+   * @type { ?Alignment }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  alignContent?: Alignment;
+}
+
+/**
  * Provides ports for stacking containers.
  *
  * @interface StackInterface
@@ -91,7 +139,18 @@ interface StackInterface {
    * @atomicservice
    * @since 11
    */
-  (value?: { alignContent?: Alignment }): StackAttribute;
+  /**
+   * Set the options.
+   *
+   * @param { ?StackOptions } options - stack options
+   * @returns { StackAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 13
+   */
+  (options?: StackOptions): StackAttribute;
 }
 
 /**

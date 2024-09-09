@@ -3403,6 +3403,7 @@ export default class UIAbilityContext extends Context {
    */
    /**
    * Starts the UIAbility or UIExtensionAbility by type.
+   * If the caller application is in the background, it is not allowed to call this interface.
    *
    * @param { string } type - The type of target ability.
    * @param { Record<string, Object> } wantParam - Indicates the want parameter.
@@ -3443,6 +3444,7 @@ export default class UIAbilityContext extends Context {
    */
   /**
    * Starts the UIAbility or UIExtensionAbility by type.
+   * If the caller application is in the background, it is not allowed to call this interface.
    *
    * @param { string } type - The type of target ability.
    * @param { Record<string, Object> } wantParam - Indicates the want parameter.
@@ -3664,6 +3666,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.

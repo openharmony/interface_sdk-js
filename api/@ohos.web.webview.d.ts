@@ -395,14 +395,14 @@ declare namespace webview {
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 14
    */
   enum PressureLevel {
     /**
      * Modules are advised to free buffers that are cheap to re-allocate and not immediately needed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 14
      */
     MEMORY_PRESSURE_LEVEL_MODERATE = 1,
 
@@ -410,7 +410,7 @@ declare namespace webview {
      * At this level, modules are advised to free all possible memory.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 14
      */
     MEMORY_PRESSURE_LEVEL_CRITICAL = 2
   }
@@ -727,7 +727,7 @@ declare namespace webview {
    * @typedef ScrollOffset
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 14
    */
   interface ScrollOffset {
     /**
@@ -735,7 +735,7 @@ declare namespace webview {
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 14
      */
     horizontal: number;
 
@@ -744,7 +744,7 @@ declare namespace webview {
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 14
      */
     vertical: number;
   }
@@ -4139,7 +4139,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 13
      */
     scrollTo(x: number, y: number, duration?: number): void;
 
@@ -4181,7 +4181,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 13
      */
     scrollBy(deltaX: number, deltaY: number, duration?: number): void;
 
@@ -4582,7 +4582,7 @@ declare namespace webview {
      * @atomicservice
      * @since 12
      */
-    getLastJavascriptProxyCallingFrameUrl(): string
+    getLastJavascriptProxyCallingFrameUrl(): string;
 
     /**
      * Start current camera.
@@ -4805,7 +4805,7 @@ declare namespace webview {
      * @atomicservice
      * @since 12
      */
-    onCreateNativeMediaPlayer(callback: CreateNativeMediaPlayerCallback): void
+    onCreateNativeMediaPlayer(callback: CreateNativeMediaPlayerCallback): void;
 
     /**
      * Set enable overall web caching
@@ -5052,7 +5052,7 @@ declare namespace webview {
      * <br>2. Parameter string is too long. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 14
      */
     static trimMemoryByPressureLevel(level: PressureLevel): void;
 
@@ -5084,7 +5084,7 @@ declare namespace webview {
      * @returns { ScrollOffset } scroll offset
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since 14
      */
     getScrollOffset(): ScrollOffset;
 
@@ -6992,7 +6992,7 @@ declare namespace webview {
    * @since 12
    */
   type CreateNativeMediaPlayerCallback =
-      (handler: NativeMediaPlayerHandler, mediaInfo: MediaInfo) => NativeMediaPlayerBridge
+      (handler: NativeMediaPlayerHandler, mediaInfo: MediaInfo) => NativeMediaPlayerBridge;
 
   /**
    * This class is used to set adblock config.

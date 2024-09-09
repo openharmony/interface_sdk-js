@@ -29,6 +29,14 @@ import type abilityWantAgent from '../@ohos.app.ability.wantAgent';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 7
  */
+/**
+ * Provides the information required for triggering a WantAgent.
+ *
+ * @typedef WantAgentInfo
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @atomicservice
+ * @since 12
+ */
 export interface WantAgentInfo {
   /**
    * An array of all Wants for starting abilities or sending common events. Only Wants can be displayed.
@@ -36,6 +44,14 @@ export interface WantAgentInfo {
    * @type { Array<Want> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
+   */
+  /**
+   * An array of all Wants for starting abilities or sending common events. Only Wants can be displayed.
+   *
+   * @type { Array<Want> }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 12
    */
   wants: Array<Want>;
 
@@ -48,6 +64,16 @@ export interface WantAgentInfo {
    * @deprecated since 11
    * @useinstead WantAgentInfo#actionType
    */
+  /**
+   * Type of the action specified in a Want.
+   *
+   * @type { ?wantAgent.OperationType }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 12
+   * @deprecated since 11
+   * @useinstead WantAgentInfo#actionType
+   */
   operationType?: wantAgent.OperationType;
 
   /**
@@ -57,6 +83,14 @@ export interface WantAgentInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 11
    */
+  /**
+   * Type of the action specified in a Want.
+   *
+   * @type { ?abilityWantAgent.OperationType }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 12
+   */
   actionType?: abilityWantAgent.OperationType;
 
   /**
@@ -65,6 +99,14 @@ export interface WantAgentInfo {
    * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
+   */
+  /**
+   * Request code defined by the user.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 12
    */
   requestCode: number;
 
@@ -77,6 +119,16 @@ export interface WantAgentInfo {
    * @deprecated since 11
    * @useinstead WantAgentInfo#actionFlags
    */
+  /**
+   * An array of flags for using the WantAgent.
+   *
+   * @type { ?Array<wantAgent.WantAgentFlags> }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 12
+   * @deprecated since 11
+   * @useinstead WantAgentInfo#actionFlags
+   */
   wantAgentFlags?: Array<wantAgent.WantAgentFlags>;
 
   /**
@@ -85,6 +137,14 @@ export interface WantAgentInfo {
    * @type { ?Array<abilityWantAgent.WantAgentFlags> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 11
+   */
+  /**
+   * An array of flags for using the WantAgent.
+   *
+   * @type { ?Array<abilityWantAgent.WantAgentFlags> }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 12
    */
   actionFlags?: Array<abilityWantAgent.WantAgentFlags>;
 
@@ -96,6 +156,15 @@ export interface WantAgentInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    */
+  /**
+   * Extra information about how the Want starts an ability.
+   * If there is no extra information to set, this constant can be left empty.
+   *
+   * @type { ?object }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 12
+   */
   extraInfo?: { [key: string]: any };
 
   /**
@@ -106,6 +175,16 @@ export interface WantAgentInfo {
    * @type { ?Record<string, Object> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 11
+   */
+  /**
+   * Extra information about how the Want starts an ability.
+   * If there is no extra information to set, this constant can be left empty.
+   * The ability of this property is same as extraInfo. If both are set, this property will be used.
+   *
+   * @type { ?Record<string, Object> }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 12
    */
   extraInfos?: Record<string, Object>;
 }

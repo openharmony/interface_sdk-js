@@ -1084,7 +1084,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 13
      */
     drawColor(color: number, blendMode?: BlendMode): void;
 
@@ -2491,7 +2491,7 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @static
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 13
      */
     static create(blurRadius: number, x: number, y: number, color: number): ShadowLayer;
   }
@@ -2525,7 +2525,7 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @static
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 13
      */
     static createBlendModeColorFilter(color: number, mode: BlendMode): ColorFilter;
 
@@ -2781,7 +2781,7 @@ declare namespace drawing {
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
     * @syscap SystemCapability.Graphics.Drawing
-    * @since 12
+    * @since 13
     */
     setColor(color: number): void;
 
@@ -3051,7 +3051,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 13
      */
     setColor(color: number): void;
 

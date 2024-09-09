@@ -262,6 +262,19 @@ interface CheckboxInterface {
 }
 
 /**
+ * Defines a Checkbox callback when onChange.
+ *
+ * @typedef { function } OnCheckboxChangeCallback
+ * @param { boolean } value - selected status
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 13
+ */
+declare type OnCheckboxChangeCallback  = (value: boolean) => void;
+
+/**
  * Defines the attribute functions of Checkbox.
  *
  * @extends CommonMethod<CheckboxAttribute>
@@ -479,7 +492,18 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @atomicservice
    * @since 11
    */
-  onChange(callback: (value: boolean) => void): CheckboxAttribute;
+  /**
+   * Called when the selection status changes.
+   *
+   * @param { OnCheckboxChangeCallback } callback
+   * @returns { CheckboxAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 13
+   */
+  onChange(callback: OnCheckboxChangeCallback): CheckboxAttribute;
 
   /**
    * Set the content modifier of checkbox.

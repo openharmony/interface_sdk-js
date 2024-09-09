@@ -923,14 +923,13 @@ declare namespace media {
     videoOrientation?: string;
 
      /**
-     * This value exists if the video is HDR video.
+     * This value exists if the video is HDR video.This field is readonly in current version.
      * @type { ?HdrType }
-     * @readonly
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
      * @since 12
      */
-    readonly hdrType?: HdrType;
+    hdrType?: HdrType;
 
     /**
      * The geographical location info of the video.

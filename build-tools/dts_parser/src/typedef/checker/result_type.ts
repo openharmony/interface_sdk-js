@@ -855,3 +855,57 @@ export class ErrorBaseInfo {
     return this.errorInfo;
   }
 }
+
+/**
+ * check工具入口传参
+ *
+ * @interface checkEntryType
+ */
+export interface checkEntryType {
+  /**
+   * 文件路径集合
+   *
+   * @type {string[]}
+   */
+  filePathArr: string[];
+
+  /**
+   * 规则集合，全部规则为第一个字符串为all
+   *
+   * @type {string[]}
+   */
+  fileRuleArr: string[];
+
+  /**
+   * 输出路径
+   *
+   * @type {string}
+   */
+  output: string;
+
+  /**
+   * check中判断diff数据时的路径
+   * 线上为prid，通过服务器获取差异文件
+   * 本地为diff文件，需要包含old和new两个文件
+   *
+   * @type {string}
+   */
+  prId: string;
+
+  /**
+   * 是否输出excel
+   *
+   * @type {string}
+   * @memberof checkEntry
+   */
+  isOutExcel: string;
+
+  /**
+   * 是否为增量检查
+   *
+   * @default true
+   * @type {boolean}
+   * @memberof checkEntryType
+   */
+  isIncrement: boolean;
+}

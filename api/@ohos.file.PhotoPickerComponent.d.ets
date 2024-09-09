@@ -171,6 +171,26 @@ export declare class PickerController {
    * @since 12
    */
   setPhotoBrowserItem(uri: string, photoBrowserRange?: PhotoBrowserRange): void;
+
+  /**
+   * Exit photo browser.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 13
+   */
+  exitPhotoBrowser(): void;
+
+  /**
+   * Sets whether other elements on the photo browser page are visible.
+   *
+   * @param { Array<PhotoBrowserUIElement> } elements - other elements on the photo browser page
+   * @param { boolean } isVisible - visible or not
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 13
+   */
+  setPhotoBrowserUIElementVisibility(elements: Array<PhotoBrowserUIElement>, isVisible: boolean): void;
 }
 
 /**
@@ -280,6 +300,26 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @since 12
    */
   maxVideoSelectNumber?: number;
+
+  /**
+   * Support to set sliding selection
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 13
+   */
+  isSlidingSelectionSupported?: boolean;
+
+  /**
+   * Support to set photo browser checkbox position
+   *
+   * @type { ?[number, number] }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 13
+   */
+  photoBrowserCheckboxPosition?: [number, number];
 }
 
 /**
@@ -715,4 +755,32 @@ export declare enum PhotoBrowserRange {
    * @since 12
    */
   SELECTED_ONLY = 1,
+}
+
+/**
+ * PhotoBrowserUIElement. include CHECKBOX and BACK_BUTTON
+ *
+ * @enum { number } PhotoBrowserUIElement
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 13
+ */
+export declare enum PhotoBrowserUIElement {
+  /**
+   * CHECKBOX. checkbox
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 13
+   */
+  CHECKBOX = 0,
+
+  /**
+   * BACK_BUTTON. back button
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 13
+   */
+  BACK_BUTTON = 1
 }

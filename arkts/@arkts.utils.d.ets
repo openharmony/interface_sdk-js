@@ -452,7 +452,7 @@ declare namespace utils {
       *
       * @syscap SystemCapability.Utils.Lang
       * @atomicservice
-      * @since 12
+      * @since 13
       */
       MAP = 1,
     }
