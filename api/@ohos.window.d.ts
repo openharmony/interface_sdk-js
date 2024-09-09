@@ -7879,6 +7879,23 @@ declare namespace window {
      * @since 12
      */
     createSubWindowWithOptions(name: string, options: SubWindowOptions): Promise<Window>;
+
+    /**
+     * Get window From Point.
+     *
+     * @param { number } windowNumber - Indicate the Number of query windows.
+     * @param { number } x - Indicate the X-coordinate of the window.
+     * @param { number } y - Indicate the Y-coordinate of the window.
+     * @returns { Promise<Array<Window>> } Promise used to return the window.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 13
+     */
+    getWindowFromPoint(windowNumber : number, x? : number, y? : number): Promise<Array<Window>>;
   }
 
   /**
