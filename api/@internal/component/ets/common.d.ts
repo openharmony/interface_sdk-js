@@ -2305,7 +2305,7 @@ interface ICurve {
   /**
    * Get curve value by fraction.
    *
-   * @param { number } fraction -Indicates the current normalized time parameter. Value range: [0, 1].
+   * @param { number } fraction - Indicates the current normalized time parameter. Value range: [0, 1].
    * Note: If the value is less than 0, it will be processed as 0. If the value is greater than 1, 1 is used.
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2315,7 +2315,7 @@ interface ICurve {
   /**
    * Get curve value by fraction.
    *
-   * @param { number } fraction -Indicates the current normalized time parameter. Value range: [0, 1].
+   * @param { number } fraction - Indicates the current normalized time parameter. Value range: [0, 1].
    * Note: If the value is less than 0, it will be processed as 0. If the value is greater than 1, 1 is used.
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2326,7 +2326,7 @@ interface ICurve {
   /**
    * Get curve value by fraction.
    *
-   * @param { number } fraction -Indicates the current normalized time parameter. Value range: [0, 1].
+   * @param { number } fraction - Indicates the current normalized time parameter. Value range: [0, 1].
    * Note: If the value is less than 0, it will be processed as 0. If the value is greater than 1, 1 is used.
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4244,7 +4244,7 @@ declare class TransitionEffect<
    * -x: Horizontal component of the rotational vector.
    * -y: Vertical component of the rotational vector.
    * -z: Vertical component of the rotational vector.
-   * -centerX, centerY specify the rotation center point, with default values of "50%", 
+   * -centerX, centerY specify the rotation center point, with default values of "50%",
    * meaning that the default rotation center point is the center point of the component.
    * -The center point of (0, 0) represents the upper-left corner of the component.
    * -centerZ refers to the Z-axis anchor point. The default value of centerZ is 0.
@@ -4264,7 +4264,7 @@ declare class TransitionEffect<
    * -x: Horizontal component of the rotational vector.
    * -y: Vertical component of the rotational vector.
    * -z: Vertical component of the rotational vector.
-   * -centerX, centerY specify the rotation center point, with default values of "50%", 
+   * -centerX, centerY specify the rotation center point, with default values of "50%",
    * meaning that the default rotation center point is the center point of the component.
    * -The center point of (0, 0) represents the upper-left corner of the component.
    * -centerZ refers to the Z-axis anchor point. The default value of centerZ is 0.
@@ -4818,6 +4818,15 @@ declare enum PreDragStatus {
  * @atomicservice
  * @since 11
  */
+/**
+ * DragItemInfo object description
+ *
+ * @interface DragItemInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
 declare interface DragItemInfo {
   /**
    * Uses the pixelMap object for drawing.
@@ -4833,6 +4842,15 @@ declare interface DragItemInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Uses the pixelMap object for drawing.
+   *
+   * @type { ?PixelMap }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
    */
   pixelMap?: PixelMap;
 
@@ -4851,6 +4869,15 @@ declare interface DragItemInfo {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Uses the custom builder for drawing, if pixelMap is set, this value is ignored.
+   *
+   * @type { ?CustomBuilder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   builder?: CustomBuilder;
 
   /**
@@ -4867,6 +4894,15 @@ declare interface DragItemInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Sets the extra info for drag event.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
    */
   extraInfo?: string;
 }
@@ -9373,6 +9409,15 @@ declare type UniformDataType = import('../api/@ohos.data.uniformTypeDescriptor')
  * @atomicservice
  * @since 11
  */
+/**
+ * Enum for Drag Result.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
 declare enum DragResult {
   /**
    * If the drag is successful, return DragResult.DRAG_SUCCESSFUL.
@@ -9387,6 +9432,14 @@ declare enum DragResult {
    * @atomicservice
    * @since 11
    */
+  /**
+   * If the drag is successful, return DragResult.DRAG_SUCCESSFUL.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   DRAG_SUCCESSFUL = 0,
   /**
    * If drag fail, return DragResult.DRAG_FAILED.
@@ -9400,6 +9453,14 @@ declare enum DragResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * If drag fail, return DragResult.DRAG_FAILED.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
    */
   DRAG_FAILED = 1,
   /**
@@ -9460,7 +9521,7 @@ declare enum DragResult {
  */
 /**
  * Enum for BlendMode.
- * Blend modes for compositing current component 
+ * Blend modes for compositing current component
  * with overlapping content. Use overlapping content
  * as dst, current component as src.
  *
@@ -10094,6 +10155,15 @@ declare enum BlendApplyType {
  * @atomicservice
  * @since 11
  */
+/**
+ * DragEvent object description
+ *
+ * @interface DragEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
 declare interface DragEvent {
   /**
    * X coordinate of the touch point relative to the left edge of the device screen.
@@ -10109,6 +10179,15 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * X coordinate of the touch point relative to the left edge of the device screen.
+   *
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
    */
   getDisplayX(): number;
 
@@ -10127,6 +10206,15 @@ declare interface DragEvent {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Y coordinate of the touch point relative to the upper edge of the device screen.
+   *
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   getDisplayY(): number;
 
   /**
@@ -10144,6 +10232,15 @@ declare interface DragEvent {
    * @atomicservice
    * @since 11
    */
+  /**
+   * X coordinate of the touch point relative to the left edge of the current window.
+   *
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   getWindowX(): number;
 
   /**
@@ -10160,6 +10257,15 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Y coordinate of the touch point relative to the left edge of the current window.
+   *
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
    */
   getWindowY(): number;
 
@@ -10295,6 +10401,15 @@ declare interface DragEvent {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Set dragEvent result to DragEvent.
+   *
+   * @param { DragResult } dragResult - the return of dragEvent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   setResult(dragResult: DragResult): void;
 
   /**
@@ -10312,6 +10427,15 @@ declare interface DragEvent {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Get dragEvent result from DragEvent.
+   *
+   * @returns { DragResult } - dragResult Data.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   getResult(): DragResult;
 
   /**
@@ -10328,6 +10452,15 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Get the rectangle of drag window.
+   *
+   * @returns { Rectangle } - getPreview rectangle.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
    */
   getPreviewRect(): Rectangle;
 
@@ -10396,8 +10529,18 @@ declare interface DragEvent {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 12
+   */
+  /**
+   * Query the ModifierKey press state, support 'ctrl'|'alt'|'shift'|'fn'
+   *
+   * @param { Array<string> } keys - indicate the keys of the ModifierKey.
+   * @returns { boolean }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
    */
   getModifierKeyState?(keys: Array<string>): boolean;
 }
@@ -10682,8 +10825,18 @@ declare interface KeyEvent {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 12
+   */
+  /**
+   * Get the modifier keys press state, support 'ctrl'|'alt'|'shift'|'fn'
+   *
+   * @param { Array<string> } keys - indicate the modifier keys.
+   * @returns { boolean }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
    */
   getModifierKeyState?(keys: Array<string>): boolean;
 
@@ -18582,6 +18735,17 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
+   * (To be triggered, press and hold for 170 milliseconds (ms))
+   *
+   * @param { function } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   onDragStart(event: (event: DragEvent, extraParams?: string) => CustomBuilder | DragItemInfo): T;
 
   /**
@@ -18600,6 +18764,16 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * After binding, a callback is triggered when the component is dragged to the range of the component.
+   *
+   * @param { function } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
    */
   onDragEnter(event: (event: DragEvent, extraParams?: string) => void): T;
 
@@ -18620,6 +18794,16 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * After binding, a callback is triggered when the drag moves within the range of a placeable component.
+   *
+   * @param { function } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   onDragMove(event: (event: DragEvent, extraParams?: string) => void): T;
 
   /**
@@ -18638,6 +18822,16 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * After binding, a callback is triggered when the component is dragged out of the component range.
+   *
+   * @param { function } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
    */
   onDragLeave(event: (event: DragEvent, extraParams?: string) => void): T;
 
@@ -18660,6 +18854,17 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * The component bound to this event can be used as the drag release target.
+   * This callback is triggered when the drag behavior is stopped within the scope of the component.
+   *
+   * @param { function } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   onDrop(event: (event: DragEvent, extraParams?: string) => void): T;
 
   /**
@@ -18678,6 +18883,16 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * This function is called when the drag event is end.
+   *
+   * @param { function } event - indicates the function to be called.
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
    */
   onDragEnd(event: (event: DragEvent, extraParams?: string) => void): T;
 
@@ -19177,7 +19392,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Add a blendMode effect to the current component
-   * 
+   *
    * @param { BlendMode } value - Different hybrid modes
    * @param { BlendApplyType } [type] - Different blend apply type
    * @returns { T }
@@ -19204,7 +19419,7 @@ declare class CommonMethod<T> {
   advancedBlendMode(effect: BlendMode | Blender, type?: BlendApplyType): T;
 
   /**
-   * Whether to crop the sub components of the current component.
+   * Whether to crop the sub components beyond the current component range.
    *
    * @param { boolean } value
    * @returns { T }
@@ -21911,17 +22126,6 @@ declare interface MeasureResult extends SizeResult {
 declare type NavDestinationInfo = import('../api/@ohos.arkui.observer').default.NavDestinationInfo;
 
 /**
- * The router page information.
- *
- * @typedef {import('../api/@ohos.arkui.observer').default.RouterPageInfo} RouterPageInfo
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12
- */
- declare type RouterPageInfo = import('../api/@ohos.arkui.observer').default.RouterPageInfo;
-
-/**
  * The navigation information.
  *
  * @typedef {import('../api/@ohos.arkui.observer').default.NavigationInfo} NavigationInfo
@@ -21931,6 +22135,17 @@ declare type NavDestinationInfo = import('../api/@ohos.arkui.observer').default.
  * @since 12
  */
 declare type NavigationInfo = import('../api/@ohos.arkui.observer').default.NavigationInfo;
+
+/**
+ * The router page information.
+ *
+ * @typedef {import('../api/@ohos.arkui.observer').default.RouterPageInfo} RouterPageInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type RouterPageInfo = import('../api/@ohos.arkui.observer').default.RouterPageInfo;
 
 /**
  * UIContext

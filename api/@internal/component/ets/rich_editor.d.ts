@@ -2721,6 +2721,17 @@ declare interface SelectionMenuOptions {
    * @since 12
    */
   onDisappear?: Callback<void>;
+
+  /**
+   * Menu type, default value is MenuType.SELECTION_MENU.
+   * 
+   * @type { ?MenuType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  menuType?: MenuType;
 }
 
 /**
@@ -3749,6 +3760,18 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 13
    */
   enableHapticFeedback(isEnabled: boolean): RichEditorAttribute;
+
+  /**
+   * Define bar state of the RichEditor.
+   *
+   * @param { BarState } state - bar state.
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  barState(state: BarState): RichEditorAttribute;
 }
 
 /**

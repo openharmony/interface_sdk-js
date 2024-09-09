@@ -797,6 +797,91 @@ declare namespace avSession {
   function stopCasting(session: SessionToken): Promise<void>;
 
   /**
+   * Begin to write device logs into a file descriptor for the purpose of problem locating.
+   * If the logs exceed max file size, no logs will be written and DEVICE_LOG_FULL event will be omitted.
+   * @param { string } url - The file descriptor to be written.
+   * @param { number } maxSize - The max size to be written in kilobyte.
+   * if not set, then written process will exit when there is no space to write.
+   * @returns { Promise<void> } Promise for the result
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 401 - Parameter check failed. 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types.
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @throws { BusinessError } 6600102 - The session does not exist.
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 13
+   */
+  function startDeviceLogging(url: string, maxSize?: number): Promise<void>;
+
+  /**
+   * Stop the current device written even the discovery is ongoing.
+   * @returns { Promise<void> } Promise for the result
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @throws { BusinessError } 6600102 - The session does not exist.
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 13
+   */
+  function stopDeviceLogging(): Promise<void>;
+
+  /**
+   * Register log event callback.
+   * @param { 'deviceLogEvent' } type - Command to register 'deviceLogEvent'.
+   * @param { Callback<DeviceLogEventCode> } callback - Used to handle ('deviceLogEvent') command
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 401 - Parameter check failed. 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types.
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @throws { BusinessError } 6600102 - The session does not exist.
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 13
+   */
+  function on(type: 'deviceLogEvent', callback: Callback<DeviceLogEventCode>): void;
+
+  /**
+   * UnRegister log event callback.
+   * @param { 'deviceLogEvent' } type - Command to register 'deviceLogEvent'.
+   * @param { Callback<DeviceLogEventCode> } callback - Used to handle ('deviceLogEvent') command
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 401 - Parameter check failed. 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types.
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @throws { BusinessError } 6600102 - The session does not exist.
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 13
+   */
+  function off(type: 'deviceLogEvent', callback?: Callback<DeviceLogEventCode>): void;
+
+  /**
+   * Enumerates device log event code.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 13
+   */
+  enum DeviceLogEventCode {
+    /**
+      * Log is full.
+      * @syscap SystemCapability.Multimedia.AVSession.AVCast
+      * @systemapi
+      * @since 13
+      */
+    DEVICE_LOG_FULL = 1,
+
+    /**
+      * Log is written with exception, such as the fd cannot be written and so on.
+      * @syscap SystemCapability.Multimedia.AVSession.AVCast
+      * @systemapi
+      * @since 13
+      */
+    DEVICE_LOG_EXCEPTION = 2,
+  }
+
+  /**
    * Session type, support audio & video
    * @typedef { 'audio' | 'video' } AVSessionType
    * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -5035,6 +5120,33 @@ declare namespace avSession {
      * @since 12
      */
     deviceType: DeviceType;
+
+    /**
+     * Device manufacturer.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    manufacturer?: string;
+
+    /**
+     * Device model name.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    modelName?: string;
+
+    /**
+     * Network id.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @systemapi
+     * @since 13
+     */
+    networkId?: string;
 
     /**
      * device ip address if available.

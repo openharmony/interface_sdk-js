@@ -540,6 +540,49 @@ declare namespace photoAccessHelper {
   }
 
   /**
+   * Enumeration of compatible mode.
+   *
+   * @enum { number } CompatibleMode
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 13
+   */
+  enum CompatibleMode {
+    /**
+     * Original format mode
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 13
+     */
+    ORIGINAL_FORMAT_MODE = 0,
+
+    /**
+     * Compatible format mode.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 13
+     */
+    COMPATIBLE_FORMAT_MODE = 1
+  }
+
+  /**
+   * Data handler used to notify the progress of required media asset data
+   *
+   * @interface MediaAssetProgressHandler
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 13
+   */
+  interface MediaAssetProgressHandler {
+    /**
+     * Indicates the progress of required media asset data
+     *
+     * @param { number } progress - the progress of required media asset data; from 0 to 100.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 13
+     */
+    onProgress(progress: number): void;
+  }
+
+  /**
    * Enumeration of source mode
    *
    * @enum { number } SourceMode
@@ -640,7 +683,26 @@ declare namespace photoAccessHelper {
      */
     NO_HIDE_SENSITIVE_TYPE = 3
   }
-    
+
+  /**
+   * Enumeration type of authorization mode.
+   *
+   * @enum { number } AuthorizationMode
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 12
+   */
+  enum AuthorizationMode {
+    /**
+     * Short time authorization.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    SHORT_TIME_AUTHORIZATION = 0
+  }
+
   /**
    * Enum: complete button text
    *
@@ -702,7 +764,25 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 11
      */
-    sourceMode?: SourceMode
+    sourceMode?: SourceMode;
+
+    /**
+     * Indicates the compatible mode
+     *
+     * @type { ?CompatibleMode }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 13
+     */
+    compatibleMode?: CompatibleMode;
+
+    /**
+     * data handler used to notify the progress of required media asset data
+     *
+     * @type { ?MediaAssetProgressHandler }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 13
+     */
+    mediaAssetProgressHandler?: MediaAssetProgressHandler;
   }
 
   /**
@@ -729,6 +809,26 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     onDataPrepared(data: T, map?: Map<string, string>): void;
+  }
+
+  /**
+   * Data handler when quick request image is finished
+   *
+   * @typedef QuickImageDataHandler
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 13
+   */
+  interface QuickImageDataHandler<T> {
+    /**
+     * Indicates required media asset data quickly is prepared
+     *
+     * @param { T } data - the returned data of picture
+     * @param { image.ImageSource } imageSource - the returned data of imageSource
+     * @param { Map<string, string> } map - additional information for the data
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 13
+     */
+    onDataPrepared(data: T, imageSource: image.ImageSource, map: Map<string, string>): void;
   }
 
   /**
@@ -770,6 +870,30 @@ declare namespace photoAccessHelper {
       asset: PhotoAsset,
       requestOptions: RequestOptions,
       dataHandler: MediaAssetDataHandler<image.ImageSource>
+    ): Promise<string>;
+
+    /**
+     * Quick request image
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { Context } context - Hap context information
+     * @param { PhotoAsset } asset - the photo asset requested
+     * @param { RequestOptions } requestOptions - the request options
+     * @param { QuickImageDataHandler<image.Picture> } dataHandler - data handler used to obtain image data quickly when picture is prepared
+     * @returns { Promise<string> } Returns request id
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 13
+     */
+    static quickRequestImage(
+      context: Context,
+      asset: PhotoAsset,
+      requestOptions: RequestOptions,
+      dataHandler: QuickImageDataHandler<image.Picture>
     ): Promise<string>;
 
     /**
@@ -1994,6 +2118,20 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     THM_SIZE = 'thm_size',
+    /**
+     * Detail time of the asset, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 13
+     */
+    DETAIL_TIME = 'detail_time',
+    /**
+     * Date taken of the asset in milliseconds, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 13
+     */
+    DATE_TAKEN_MS  = 'date_taken_ms',
     /**
      * Cloud enhancement status of the asset, read only
      *
@@ -4038,6 +4176,34 @@ declare namespace photoAccessHelper {
      */
     createAssetWithShortTermPermission(photoCreationConfig: PhotoCreationConfig): Promise<string>;
     /**
+     * Create assets and grant save permission with authorization mode to the app which called the save dialog.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { string } bundleName - BundleName of the application which called the save dialog
+     * @param { string } appName - AppName of the application which called the save dialog
+     * @param { string } appId - AppId of the application which called the save dialog
+     * @param { number } tokenId - TokenId of the application which called the save dialog
+     * @param { AuthorizationMode } authorizationMode - Mode of authorization
+     * @param { Array<PhotoCreationConfig> } photoCreationConfigs - List of the photo asset creation configs
+     * @returns { Promise<Array<string>> } - Returns the media library file uri list to application which has been authorized
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    createAssetsForAppWithMode(
+      bundleName: string,
+      appName: string,
+      appId: string,
+      tokenId: number,
+      authorizationMode: AuthorizationMode,
+      photoCreationConfigs: Array<PhotoCreationConfig>
+    ): Promise<Array<string>>;
+    /**
      * Get the index of the asset in the album
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
@@ -5116,11 +5282,36 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     PRIVATE_MOVING_PHOTO_RESOURCE = 4
   }
 
+  /**
+   * The format in which the image is saved
+   *
+   * @enum { number } ImageFileType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 13
+   */
+  enum ImageFileType {
+    /**
+     * Jpeg type
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 13
+     */
+    JPEG = 1,
+
+    /**
+     * Heif type
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 13
+     */
+    HEIF = 2
+  }
+    
   /**
    * Enumeration of moving photo effect mode.
    *
@@ -5180,7 +5371,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     CINEMA_GRAPH = 5,
 
@@ -5189,7 +5380,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     IMAGE_ONLY = 10
   }
@@ -5557,6 +5748,17 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     saveCameraPhoto(): void;
+
+    /**
+     * Save the photo asset captured by camera with imageFileType.
+     *
+     * @param { ImageFileType } imageFileType - Image file type
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @throws { BusinessError } 14000016 - Operation Not Support
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 13
+     */
+    saveCameraPhoto(imageFileType: ImageFileType): void;
 
     /**
      * Discard the photo asset captured by camera.
