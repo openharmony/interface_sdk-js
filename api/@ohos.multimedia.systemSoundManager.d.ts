@@ -318,6 +318,123 @@ declare namespace systemSoundManager {
      */
     GENTLE = 1,
   }
+  /**
+   * Type definition of haptics in tone scenario.
+   *
+   * @typedef {RingtoneType | SystemToneType} ToneHapticsType
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 13
+   */
+  type ToneHapticsType = RingtoneType | SystemToneType;
+
+  /**
+   * Enum for haptics mode in tone scenario.
+   * @enum {number}
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 13
+   */
+  enum ToneHapticsMode {
+    /**
+     * None haptics mode.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 13
+     */
+    NONE = 0,
+    /**
+     * Haptics is synchronized with tone.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 13
+     */
+    SYNC = 1,
+
+    /**
+     * Haptics is out of synchronize with tone.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 13
+     */
+    NON_SYNC = 2,
+  }
+  /**
+   * Haptics settings in tone scenario.
+   * @typedef ToneHapticsSettings
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 13
+   */
+  interface ToneHapticsSettings {
+    /**
+     * Haptics mode.
+     * @type { ToneHapticsMode }
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 13
+     */
+    mode: ToneHapticsMode;
+    /**
+     * Haptics uri. Users can set/get this parameter when {@link ToneHapticsSettings#mode} is
+     * {@link ToneHapticsMode#NON_SYC}. In other cases, this uri is useless and should be ignored.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 13
+     */
+    hapticsUri?: string;
+  }
+
+  /**
+   * Haptics attributes in tone scenario.
+   * @typedef ToneHapticsAttrs
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 13
+   */
+  interface ToneHapticsAttrs {
+    /**
+     * Get haptics uri.
+     * @returns { string } Haptics uri.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 13
+     */
+    getUri(): string;
+
+    /**
+     * Get title of haptics.
+     * @returns { string } Haptics title.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 13
+     */
+    getTitle(): string;
+
+    /**
+     * Get file name of haptics.
+     * @returns { string } Haptics title.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 13
+     */
+    getFileName(): string;
+  }
+
+  /**
+   * Type definition of tone haptics array.
+   *
+   * @typedef { Array<ToneHapticsAttrs> } ToneHapticsAttrsArray
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 13
+   */
+  type ToneHapticsAttrsArray = Array<ToneHapticsAttrs>;
+
 
   /**
    * Gets system sound manager for all type sound.
@@ -737,6 +854,96 @@ declare namespace systemSoundManager {
      * @since 12
      */
     removeCustomizedTone(context: BaseContext, uri:string): Promise<void>;
+
+    /**
+     * Get haptics settings.
+     * @param { BaseContext } context - Current application context.
+     * @param { ToneHapticsType } type - Tone haptics type.
+     * @returns { Promise<ToneHapticsSettings> } Promise used to return results of this call.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 20700003 - Unsupported operation.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 13
+     */
+    getToneHapticsSettings(context: BaseContext, type: ToneHapticsType): Promise<ToneHapticsSettings>;
+
+    /**
+     * Set haptics settings.
+     * @param { BaseContext } context - Current application context.
+     * @param { ToneHapticsType } type - Tone haptics type.
+     * @param { ToneHapticsSettings } settings - Tone haptics settings.
+     * @returns { Promise<void> } Promise used to return results of this call.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 5400102 - Operation not allowed. For example, the input URI is not valid.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 20700003 - Unsupported operation.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 13
+     */
+    setToneHapticsSettings(context: BaseContext, type: ToneHapticsType, settings: ToneHapticsSettings): Promise<void>;
+
+    /**
+     * Get haptics list.
+     * @param { BaseContext } context - Current application context.
+     * @param { boolean } isSynced - The queried haptics is synchronized with tone or not.
+     * @returns { Promise<ToneHapticsAttrsArray> } Promise used to return ToneHapticsAttrsArray.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 20700003 - Unsupported operation.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 13
+     */
+    getToneHapticsList(context: BaseContext, isSynced: boolean): Promise<ToneHapticsAttrsArray>;
+
+    /**
+     * Get attributes of haptics which is synchronized with one tone. If no haptics is found, then the attributes in
+     * the returned ToneHapticsAttrs is empty.
+     * @param { BaseContext } context - Current application context.
+     * @param { string } toneUri - Uri of tone to query.
+     * @returns { Promise<ToneHapticsAttrs> } Promise used to return ToneHapticsAttrs.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 5400102 - Operation not allowed. For example, the input URI is not used for tones.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 20700003 - Unsupported operation.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 13
+     */
+    getHapticsAttrsSyncedWithTone(context: BaseContext, toneUri: string): Promise<ToneHapticsAttrs>;
+
+    /**
+     * Open haptics.
+     * @param { BaseContext } context - Current application context.
+     * @param { string } hapticsUri - Uri of haptics to open.
+     * @returns { Promise<number> } Promise used to return fd.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 5400102 - Operation not allowed. For example, the input URI is not one for haptics.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 20700003 - Unsupported operation.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 13
+     */
+    openToneHaptics(context: BaseContext, hapticsUri: string): Promise<number>;
   }
 
   /**
