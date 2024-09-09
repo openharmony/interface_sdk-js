@@ -38,7 +38,8 @@ declare namespace distributedDeviceManager {
    */
   interface DeviceBasicInfo {
     /**
-     * Device unique identifier, The actual value is the udid-hash confused with the appid based on sha256.
+     * Device unique identifier, The actual value is udid_hash + appid + salt_value,
+     * which is based on the obfuscated value of base256.
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
@@ -224,7 +225,8 @@ declare namespace distributedDeviceManager {
      * Get the device id of the local device.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @returns { string } - Returns local device id.
+     * @returns { string } - Returns local device id. The actual value is udid_hash + appid + salt_value,
+     * which is based on the obfuscated value of base256.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
