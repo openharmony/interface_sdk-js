@@ -4512,6 +4512,33 @@ declare namespace photoAccessHelper {
      * @since 10
      */
     extraUris: Array<string>;
+    /**
+     * sharedPhotoAssets of the same type
+     * 
+     * @type { Array<SharedPhotoAsset> }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    sharedPhotoAssets: Array<SharedPhotoAsset>;
+    /**
+     * sharedAlbumAssets of the same type
+     * 
+     * @type { Array<SharedAlbumAsset> }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    sharedAlbumAssets: Array<SharedAlbumAsset>;
+    /**
+     * sharedExtraPhotoAssets of the same type
+     * 
+     * @type { Array<SharedPhotoAsset> }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    sharedExtraPhotoAssets: Array<SharedPhotoAsset>;
   }
 
   /**
@@ -6319,9 +6346,18 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     thmSize: string;
+    /**
+     * modified time of thumbnail status
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    thumbnailModifiedMs: number;
   }
 
-    /**
+  /**
    * Defines the shared album asset
    *
    * @interface SharedAlbumAsset
@@ -6363,7 +6399,7 @@ declare namespace photoAccessHelper {
        * @type { string }
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @systemapi
-       * @since 12
+       * @since 13
        */
       albumName: string;
       /**
@@ -6372,7 +6408,7 @@ declare namespace photoAccessHelper {
        * @type { string }
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @systemapi
-       * @since 12
+       * @since 13
        */
       coverUri: string;
       /**
@@ -6381,7 +6417,7 @@ declare namespace photoAccessHelper {
        * @type { number }
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @systemapi
-       * @since 12
+       * @since 13
        */
       count: number;
       /**
@@ -6390,7 +6426,7 @@ declare namespace photoAccessHelper {
        * @type { number }
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @systemapi
-       * @since 12
+       * @since 13
        */
       imageCount: number;
       /**
@@ -6399,7 +6435,7 @@ declare namespace photoAccessHelper {
        * @type { number }
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @systemapi
-       * @since 12
+       * @since 13
        */
       videoCount: number;
     }
