@@ -91,7 +91,7 @@ declare namespace inputConsumer {
   /**
    * Defines the shortcut key structure.
    *
-   * @interface HotkeyOptions
+   * @typedef HotkeyOptions
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 13
    */
