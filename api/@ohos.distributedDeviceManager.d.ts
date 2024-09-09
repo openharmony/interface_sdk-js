@@ -38,7 +38,7 @@ declare namespace distributedDeviceManager {
    */
   interface DeviceBasicInfo {
     /**
-     * Device unique identifier, The actual value is udid_hash + appid + salt_value,
+     * Device identifier. The actual value is udid_hash + appid + salt_value,
      * which is based on the obfuscated value of base256.
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
