@@ -2203,17 +2203,19 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @atomicservice
    * @since 12
    */
+  cancelButton(value: { style?: CancelButtonStyle, icon?: IconOptions }): TextInputAttribute;
+
   /**
    * Set the cancel button style
    *
-   * @param { CancelButtonOptions | CancelButtonSymbolOptions } value - indicates the style of the cancel button.
+   * @param { CancelButtonSymbolOptions } symbolOptions - indicates the style of the cancel button.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 14
    */
-  cancelButton(value: CancelButtonOptions | CancelButtonSymbolOptions): TextInputAttribute;
+  cancelButton(symbolOptions: CancelButtonSymbolOptions): TextInputAttribute;
 
   /**
    * Sets selection when on focus.
