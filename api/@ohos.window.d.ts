@@ -7876,25 +7876,6 @@ declare namespace window {
      * @since 12
      */
     createSubWindowWithOptions(name: string, options: SubWindowOptions): Promise<Window>;
-
-    /**
-     * Sub window bind main window.
-     *
-     * @param { number } mainWindowId - window id of main window
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
-     * @throws { BusinessError } 1300009 - The parent window is invalid.
-     * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use.
-     * @StageModelOnly
-     * @since 14
-     */
-    bindMainWindow(mainWindowId: number): Promise<void>;
   }
 
   /**
