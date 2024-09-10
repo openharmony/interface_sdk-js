@@ -223,13 +223,12 @@ declare namespace distributedDeviceManager {
     getLocalDeviceType(): number;
 
     /**
-     * Device identifier. The actual value is udid-hash confused with appid and salt value based on sha256.
-     * This id remains unchanged after application installation. If the application is uninstalled and reinstalled,
-     * the obtained ID will change.
+     * Get the device id of the local device.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @returns { string } - Returns local device id. The actual value is udid_hash + appid + salt_value,
-     * which is based on the obfuscated value of base256.
+     * @returns { string } - Device identifier. The actual value is udid-hash confused with appid and salt value based on sha256.
+     * This id remains unchanged after application installation. If the application is uninstalled and reinstalled,
+     * the obtained ID will change.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
