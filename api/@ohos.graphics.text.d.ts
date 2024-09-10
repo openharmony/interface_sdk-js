@@ -1221,7 +1221,7 @@ declare namespace text {
      * Get the longest line with indent of horizontal space this paragraph occupies.
      * @returns { number } The longest line with indent of horizontal space this paragraph occupies.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 13
      */
     getLongestLineWithIndent(): number;
 
