@@ -25,14 +25,30 @@
  * @syscap SystemCapability.Customization.CustomConfig
  * @since 12
  */
+/**
+ * Provides cust config APIS.
+ *
+ * @namespace customConfig
+ * @syscap SystemCapability.Customization.CustomConfig
+ * @atomicservice
+ * @since 13
+ */
 declare namespace customConfig {
   
   /**
    * Gets the channelId of the app.
    *
-   * @returns { string } the channelId or empty if not exsit.
+   * @returns { string } the channelId or empty if not exist.
    * @syscap SystemCapability.Customization.CustomConfig
    * @since 12
+   */
+  /**
+   * Gets the channelId of the app.
+   *
+   * @returns { string } the channelId or empty if not exist.
+   * @syscap SystemCapability.Customization.CustomConfig
+   * @atomicservice
+   * @since 13
    */
   function getChannelId(): string;
 
