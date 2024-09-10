@@ -2767,6 +2767,17 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 12
    */
   systemBarStyle(style: Optional<SystemBarStyle>): NavigationAttribute;
+  
+  /**
+   * Set the Navigation can be restored after the application is terminated.
+   * To enable this attribute, a navigation id must be set.
+   * 
+   * @param { boolean } recoverable - navigation can be recovered.
+   * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 13
+   */
+  recoverable(recoverable: Optional<boolean>): NavigationAttribute;
 }
 
 /**
