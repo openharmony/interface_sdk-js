@@ -19830,7 +19830,18 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  onVisibleAreaChange(ratios: Array<number>, event: (isVisible: boolean, currentRatio: number) => void): T;
+  /**
+   * Trigger a visible area change event.
+   *
+   * @param { Array<number> } ratios
+   * @param { VisibleAreaChangeCallback } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback): T;
 
   /**
    * Set the spherical effect of the component.
@@ -23722,7 +23733,19 @@ declare interface VisibleAreaEventOptions {
  * @atomicservice
  * @since 12
  */
-declare type VisibleAreaChangeCallback = (isVisible: boolean, currentRatio: number) => void;
+/**
+ * Defines the callback type used in VisibleAreaChange events.
+ *
+ * @typedef { function } VisibleAreaChangeCallback
+ * @param { boolean } isExpanding - Indicates the ratio of the visible area to its own area compared to the last change.
+ * It is true as the ratio increases and false as the ratio decreases.
+ * @param { number } currentRatio - The value of currentRatio indicates the visibility ratio of the current component.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
+declare type VisibleAreaChangeCallback = (isExpanding: boolean, currentRatio: number) => void;
 
 /**
  * Defines a UICommonEvent which is used to set different common event to target component.
