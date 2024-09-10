@@ -3139,6 +3139,51 @@ declare namespace audio {
   }
 
   /**
+   * Desribes audio device block status. By default, the device is consider as unblocked.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @since 13
+   */
+  enum DeviceBlockStatus{
+    /**
+     * Device is unblocked.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 13
+     */
+    UNBLOCKED = 0,
+    /**
+     * Device is blocked.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 13
+     */
+    BLOCKED = 1,
+  }
+
+  /**
+   * Desribes audio device block status info.
+   * @typedef DeviceBlockStatusInfo
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @since 13
+   */
+  interface DeviceBlockStatusInfo {
+    /**
+     * Device block status.
+     * @type {DeviceBlockStatus}
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 13
+     */
+    blockStatus: DeviceBlockStatus;
+
+    /**
+     * Audio device descriptors whose block status has changed.
+     * @type {AudioDeviceDescriptors}
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 13
+     */
+    devices: AudioDeviceDescriptors;
+  }
+
+  /**
    * Implements audio router management.
    * @typedef AudioRoutingManager
    * @syscap SystemCapability.Multimedia.Audio.Device
@@ -3774,9 +3819,11 @@ declare namespace audio {
     getPreferredInputDeviceForCapturerInfoSync(capturerInfo: AudioCapturerInfo): AudioDeviceDescriptors;
 
     /**
-     * Subscribes microphone blocked events. When microphone is blocked, registered clients will receive the callback.
-     * @param { 'microphoneBlocked' } type - Type of the event to listen for.
-     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the blocked microphone information.
+     * Subscribes microphone blocked events. The caller will receive the callback only when it is recording and the used
+     * microphones' block status have changed. Currently, block detecting is only support for microphones located on
+     * the local device.
+     * @param { 'microphoneBlockStatus' } type - Type of the event to listen for.
+     * @param { Callback<DeviceBlockStatusInfo> } callback - Callback used to obtain the microphone block status.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
@@ -3784,12 +3831,12 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 13
      */
-    on(type: 'microphoneBlocked', callback: Callback<AudioDeviceDescriptors>): void;
+    on(type: 'microphoneBlockStatus', callback: Callback<DeviceBlockStatusInfo>): void;
 
     /**
      * Unsubscribes microphone blocked events.
-     * @param { 'microphoneBlocked' } type - Type of the event to listen for.
-     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the blocked microphone information.
+     * @param { 'microphoneBlockStatus' } type - Type of the event to listen for.
+     * @param { Callback<DeviceBlockStatusInfo> } callback - Callback used to obtain the microphone block status.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
@@ -3797,7 +3844,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 13
      */
-     off(type: 'microphoneBlocked', callback?: Callback<AudioDeviceDescriptors>): void;
+     off(type: 'microphoneBlockStatus', callback?: Callback<DeviceBlockStatusInfo>): void;
   }
 
   /**
