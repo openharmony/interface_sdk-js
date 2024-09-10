@@ -7853,6 +7853,13 @@ declare namespace audio {
      * @since 12
      */
     SOURCE_TYPE_VOICE_MESSAGE = 10,
+
+    /**
+     * Camcorder source type.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 13
+     */
+    SOURCE_TYPE_CAMCORDER = 13,
   }
 
   /**
