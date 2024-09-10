@@ -2785,7 +2785,7 @@ declare namespace notificationManager {
    * @systemapi
    * @since 13
    */
-  function getDoNotDisturbProfile(id: number): Promise<DoNotDisturbProfile>
+  function getDoNotDisturbProfile(id: number): Promise<DoNotDisturbProfile>;
 
   /**
    * Describes a button option for a triggering.
