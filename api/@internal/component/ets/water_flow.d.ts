@@ -656,6 +656,18 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
   cachedCount(value: number): WaterFlowAttribute;
 
   /**
+   * Called to set number of flow items to be preloaded (cached) in LazyForEach / Repeat. 
+   * @param { number } count - number of flow items to be preloaded (cached).
+   * @param { boolean } show - if true, cached items are displayed when clip is disabled.
+   * @returns { WaterFlowAttribute } the attribute of the water flow.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  cachedCount(count: number, show: boolean): WaterFlowAttribute;
+
+  /**
    * Called when the water flow begins to arrive.
    *
    * @param { function } event
