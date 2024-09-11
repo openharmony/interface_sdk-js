@@ -23002,6 +23002,47 @@ declare abstract class TextContentControllerBase {
 }
 
 /**
+ * Enum of scrollable containers' content clip mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare enum ContentClipMode {
+  /**
+   * Clip to content rect inside margin & padding.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  CONTENT_ONLY = 0,
+
+  /**
+   * Clip to scrollable's outer rect, including padding but inside margin.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  BOUNDARY = 1,
+
+  /**
+   * Clip to the safeArea of scrollable container.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  SAFE_AREA = 2,
+}
+
+/**
  * CommonScrollableMethod
  *
  * @extends CommonMethod<T>
@@ -23220,6 +23261,18 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @since 11
    */
   flingSpeedLimit(speedLimit: number): T;
+
+  /**
+   * Clip the content of the scrollable container, excluding background.
+   * 
+   * @param { ContentClipMode | RectShape } clip - A value from enum ContentClipMode or a customized clip rect.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  clipContent(clip: ContentClipMode | RectShape): T;
 }
 
 /**
