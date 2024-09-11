@@ -2131,7 +2131,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 13
      */
-    DATE_TAKEN_MS  = 'date_taken_ms',
+    DATE_TAKEN_MS = 'date_taken_ms',
     /**
      * Cloud enhancement status of the asset, read only
      *
