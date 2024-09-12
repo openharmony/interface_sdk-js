@@ -2915,7 +2915,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12
      */
-    IMAGE,
+    IMAGE = 1031,
     /**
      * Cloud Enhancement album
      *
