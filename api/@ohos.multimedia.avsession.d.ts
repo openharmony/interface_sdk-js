@@ -4868,6 +4868,26 @@ declare namespace avSession {
      * @since 11
      */
     authenticationStatus?: number;
+
+    /**
+     * Indicates the current device is legacy or not.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @systemapi
+     * @since 13
+     */
+    isLegacy?: boolean;
+
+    /**
+     * Medium types used to discover devices.
+     * 1: BLE
+     * 2: COAP
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @systemapi
+     * @since 13
+     */
+    mediumTypes?: number;
   }
 
   /**
