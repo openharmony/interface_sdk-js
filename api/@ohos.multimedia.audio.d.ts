@@ -3819,10 +3819,19 @@ declare namespace audio {
     getPreferredInputDeviceForCapturerInfoSync(capturerInfo: AudioCapturerInfo): AudioDeviceDescriptors;
 
     /**
-     * Subscribes microphone blocked events. The caller will receive the callback only when it is recording and the used
+     * Query whether microphone block detection is supported on current device.
+     * @returns { Promise<boolean> } Promise used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 13
+     */
+    isMicrophoneBlockDetectionSupported():Promise<boolean>;
+
+    /**
+     * Subscribes microphone blocked events. Before subscribing, users should query whether block detection is supported
+     * on current device. The caller will receive the callback only when it is recording and the used
      * microphones' block status have changed. Currently, block detecting is only support for microphones located on
      * the local device.
-     * @param { 'microphoneBlockStatus' } type - Type of the event to listen for.
+     * @param { 'microphoneBlockStatusChanged' } type - Type of the event to listen for.
      * @param { Callback<DeviceBlockStatusInfo> } callback - Callback used to obtain the microphone block status.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -3831,11 +3840,11 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 13
      */
-    on(type: 'microphoneBlockStatus', callback: Callback<DeviceBlockStatusInfo>): void;
+    on(type: 'microphoneBlockStatusChanged', callback: Callback<DeviceBlockStatusInfo>): void;
 
     /**
      * Unsubscribes microphone blocked events.
-     * @param { 'microphoneBlockStatus' } type - Type of the event to listen for.
+     * @param { 'microphoneBlockStatusChanged' } type - Type of the event to listen for.
      * @param { Callback<DeviceBlockStatusInfo> } callback - Callback used to obtain the microphone block status.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -3844,7 +3853,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 13
      */
-     off(type: 'microphoneBlockStatus', callback?: Callback<DeviceBlockStatusInfo>): void;
+     off(type: 'microphoneBlockStatusChanged', callback?: Callback<DeviceBlockStatusInfo>): void;
   }
 
   /**
