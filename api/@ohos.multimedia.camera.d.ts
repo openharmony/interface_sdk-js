@@ -8649,11 +8649,23 @@ declare namespace camera {
      * Check whether camera is occluded.
      *
      * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
      */
     readonly isCameraOccluded: boolean;
+
+    /**
+     * Check whether camera lens is dirty.
+     *
+     * @type { boolean }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    readonly isCameraLensDirty: boolean;
   }
 
   /**
