@@ -2920,6 +2920,7 @@ declare namespace photoAccessHelper {
      * Cloud Enhancement album
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
      * @since 13
      */
     CLOUD_ENHANCEMENT = 1032,
