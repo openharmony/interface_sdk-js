@@ -7268,7 +7268,7 @@ declare namespace audio {
      * Source type for voice transcription and processing.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 13
+     * @since 15
      */
     SOURCE_TYPE_VOICE_TRANSCRIPTION = 12,
   }
