@@ -1535,6 +1535,17 @@ declare struct SegmentButton {
    */
   @Link
   selectedIndexes: number[];
+
+  /**
+   * The click event callback will be triggered when a option button of SegmentButton is clicked.
+   * 
+   * @type { ?Callback<number> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  onItemClicked?: Callback<number>;
 }
 
 export {
