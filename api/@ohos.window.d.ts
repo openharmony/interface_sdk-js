@@ -2856,23 +2856,6 @@ declare namespace window {
   function shiftAppWindowFocus(sourceWindowId: number, targetWindowId: number): Promise<void>;
 
   /**
-   * Window requests to get focus or lose focus.
-   *
-   * @param { boolean } isFocused - Window requests to get focus if true, requests to lose focus if false.
-   * @returns { Promise<void> } - Promise that returns no value.
-   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   *                                                                  2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-   * @throws { BusinessError } 1300002 - This window state is abnormal.
-   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-   * @syscap SystemCapability.Window.SessionManager
-   * @systemapi
-   * @since 13
-   */
-  function requestFocus(isFocused: boolean): Promise<void>;
-
-  /**
    * Get info of visible windows.
    *
    * @returns { Promise<Array<WindowInfo>> } - Promise that returns windowInfo list.
@@ -6248,6 +6231,23 @@ declare namespace window {
      * @since 12
      */
     setWindowFocusable(isFocusable: boolean, callback: AsyncCallback<void>): void;
+
+    /**
+     * Window requests to get focus or lose focus.
+     *
+     * @param { boolean } isFocused - Window requests to get focus if true, requests to lose focus if false.
+     * @returns { Promise<void> } - Promise that returns no value.
+     * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi
+     * @since 13
+     */
+    requestFocus(isFocused: boolean): Promise<void>;
 
     /**
      * Sets whether keep screen on or not.
