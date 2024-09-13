@@ -696,6 +696,35 @@ declare namespace webview {
   }
 
   /**
+   * Defines the scroll offset of the webpage in view port, the unit is virtual pixel.
+   * Related to {@link getScrollOffset} method.
+   *
+   * @typedef ScrollOffset
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 13
+   */
+  interface ScrollOffset {
+    /**
+     * Get the horizontal offset.
+     * @type { number }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 13
+     */
+    x: number;
+
+    /**
+     * Get the vertical offset.
+     * @type { number }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 13
+     */
+    y: number;
+  }
+
+  /**
    * Subscribe to a callback of a specified type of web event once.
    *
    * @param {string} type Types of web event.
@@ -4980,6 +5009,17 @@ declare namespace webview {
      * @since 12
      */
     setBackForwardCacheOptions(options: BackForwardCacheOptions): void;
+
+    /**
+     * Get the scroll offset of the webpage in view port, the coordinates of the top left corner of the view port are X: 0, Y: 0. 
+     * And the unit is virtual pixel.
+     *
+     * @returns { ScrollOffset } scroll offset
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 13
+     */
+    getScrollOffset(): ScrollOffset;
 
     /**
      * Scrolls by the specified delta position and returns a result indicating whether the scrolling operation was successful or not.
