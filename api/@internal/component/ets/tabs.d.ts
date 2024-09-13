@@ -1362,6 +1362,31 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   barBackgroundBlurStyle(value: BlurStyle): TabsAttribute;
 
   /**
+   * Set the BlurStyle of the tab bar.
+   *
+   * @param { BlurStyle } style - style indicate the blur style for the tab bar
+   * @param { BackgroundBlurStyleOptions } options - options indicate the options for the tab bar
+   * @returns { TabsAttribute } the attribute of the tabs
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  barBackgroundBlurStyle(style: BlurStyle, options: BackgroundBlurStyleOptions): TabsAttribute;
+
+  /**
+   * Set the BackgroundEffect of the tab bar.
+   *
+   * @param { BackgroundEffectOptions } options - options indicate the options for the tab bar
+   * @returns { TabsAttribute } the attribute of the tabs
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  barBackgroundEffect(options: BackgroundEffectOptions): TabsAttribute;
+
+  /**
    * Called when content will change.
    *
    * @param { function } handler
