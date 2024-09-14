@@ -23,7 +23,7 @@ import { MouseEvent } from './@ohos.multimodalInput.mouseEvent';
 import type display from './@ohos.display';
 import type { TouchEvent } from './@ohos.multimodalInput.touchEvent';
 import type { Rotate, Pinch, ThreeFingersSwipe, FourFingersSwipe, SwipeInward } from './@ohos.multimodalInput.gestureEvent';
-import type { ThreeFingersTap } from './@ohos.multimodalInput.gestureEvent';
+import type { ThreeFingersTap, TouchGestureEvent, TouchGestureType } from './@ohos.multimodalInput.gestureEvent';
 import type { FingerprintEvent } from './@ohos.multimodalInput.shortKey';
 
 /**
@@ -462,5 +462,37 @@ declare namespace inputMonitor {
    * @since 12
    */
   function off(type: 'swipeInward', receiver?: Callback<SwipeInward>): void;
+
+  /**
+   * Enables listening for touchscreen gesture events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { TouchGestureType} type - Touchscreen gesture type.
+   * @param { number }fingers - Number of fingers.
+   * @param { Callback<TouchGestureEvent>} receiver - Callback used to receive reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 13
+   */
+  function on(type: TouchGestureType, fingers: number, receiver: Callback<TouchGestureEvent>): void;
+
+  /**
+   * Disables listening to touchscreen gesture events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { TouchGestureType} type - Touchscreen gesture type.
+   * @param { number }fingers - Number of fingers.
+   * @param { Callback<TouchGestureEvent>} receiver - Callback used to receive reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 13
+   */
+  function off(type: TouchGestureType, fingers: number, receiver?: Callback<TouchGestureEvent>): void;
 }
 export default inputMonitor;

@@ -190,6 +190,108 @@ export declare interface ThreeFingersTap {
    */
   type: ActionType;
 }
+
+/**
+ * Defines a touchscreen gesture event.
+ *
+ * @interface TouchGestureEvent
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 13
+ */
+export declare interface TouchGestureEvent {
+  /**
+   * Gesture action type.
+   *
+   * @type { TouchGesturAction }
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 13
+   */
+  action: TouchGesturAction;
+  /**
+   * Collection of all touch points upon completion of the gesture.
+   *
+   * @type { Touch[] }
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 13
+   */
+  touches: Touch[];
+}
+
+/**
+ * Enumerates touchscreen gesture types.
+ *
+ * @enum { string }
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 13
+ */
+export declare enum TouchGestureType {
+  /**
+   * Touchscreen swiping gesture.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 13
+   */
+  SWIPE = "touchSwipeGesture",
+  /**
+   * Touchscreen pinching gesture.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 13
+   */
+  PINCH = "touchPinchGesture",
+}
+
+/**
+ * Enumerates touchscreen gesture action types.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 13
+ */
+export declare enum TouchGesturAction {
+  /**
+   * Swiping down with multiple fingers.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 13
+   */
+  SWIPE_DOWN = 0,
+  /**
+   * Swiping up with multiple fingers.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 13
+   */
+  SWIPE_UP,
+  /**
+   * Swiping left with multiple fingers.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 13
+   */
+  SWIPE_LEFT,
+  /**
+   * Swiping right with multiple fingers.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 13
+   */
+  SWIPE_RIGHT,
+  /**
+   * Multi-finger pinching closed.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 13
+   */
+  PINCH_CLOSED,
+  /**
+   * Multi-finger pinching opened.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 13
+   */
+  PINCH_OPENED
+}
   
 /**
  * Gesture action type
