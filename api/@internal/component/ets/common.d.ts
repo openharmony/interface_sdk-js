@@ -11234,6 +11234,59 @@ declare enum ScrollSizeMode {
 }
 
 /**
+ * Define the mode of sheet how to avoid keyboard.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare enum SheetKeyboardAvoidMode {
+  /**
+   * Sheet will not aovid keyboard.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  NONE = 0,
+
+  /**
+   * Firstly sheet will avoid keyboard by changing its height.
+   * And then sheet will avoid by resizing after reaching its maximum height.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  TRANSLATE_AND_RESIZE = 1,
+
+  /**
+   * Sheet will only avoid keyboard by resizing the content.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  RESIZE_ONLY = 2,
+
+  /**
+   * Firstly sheet will avoid keyboard by changing its height.
+   * And then sheet will avoid keyboard by scrolling after reaching its maximum height.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  TRANSLATE_AND_SCROLL = 3,
+}
+
+/**
  * Component sheet dismiss
  *
  * @interface SheetDismiss
@@ -11712,6 +11765,18 @@ declare interface SheetOptions extends BindOptions {
    * @since 12
    */
   uiContext?: UIContext;
+
+  /**
+   * Determine the mode of sheet how to avoid keyboard.
+   *
+   * @type { ?SheetKeyboardAvoidMode }
+   * @default SheetKeyboardAvoidMode.TRANSLATE_AND_SCROLL
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  keyboardAvoidMode?: SheetKeyboardAvoidMode;
 }
 
 /**
