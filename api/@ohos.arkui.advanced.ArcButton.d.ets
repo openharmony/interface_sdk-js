@@ -21,7 +21,7 @@
 import { ColorMetrics, LengthMetrics } from '@ohos.arkui.node';
 
  /**
- * Describes the type of arc button.
+ * Describes the Position of arc button.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
@@ -29,9 +29,9 @@ import { ColorMetrics, LengthMetrics } from '@ohos.arkui.node';
  * @atomicservice
  * @since 12
  */
-export declare enum ArcButtonTypeMode {
+export declare enum ArcButtonPosition {
     /**
-     * The upper arc button is located above the circular screen.
+     * The top edge button is located above the circular screen.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -40,7 +40,7 @@ export declare enum ArcButtonTypeMode {
      */
     TOP_EDGE = 0,
     /**
-     * The bottom arc button is located below the circular screen.
+     * The bottom edge button is located below the circular screen.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -105,8 +105,9 @@ export declare enum ArcButtonStyleMode {
      * @atomicservice
      * @since 12
      */
-    CUSTOM_MODE = 4
+    CUSTOM = 4
 }
+
 /**
  * Defines an arc button status.
  *
@@ -145,53 +146,7 @@ export declare enum ArcButtonStatus {
      */
     DISABLED = 2
 }
-/**
- * Provides an arc button click effect status.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Circle
- * @crossplatform
- * @atomicservice
- * @since 12
- */
-export declare enum ArkButtonClickEffectStyle {
-    /**
-     * Off click effect.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
-    NONE = 0,
-    /**
-     * LIGHT.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
-    LIGHT = 1,
-    /**
-     * MIDDLE.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
-    MIDDLE = 2,
-    /**
-     * HEAVY.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
-    HEAVY = 3
-}
+
 /**
  * Defines the arc button options.
  *
@@ -203,35 +158,15 @@ export declare enum ArkButtonClickEffectStyle {
  */
 interface CommonArcButtonOptions {
     /**
-     * Describes the arc button type.
+     * Describes the arc button position.
      *
-     * @type { ?ArcButtonTypeMode }
+     * @type { ? ArcButtonPosition}
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    type?: ArcButtonTypeMode;
-    /**
-     * Describes the radius of the great arc.
-     *
-     * @type { ?LengthMetrics }
-     * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
-    width?: LengthMetrics;
-    /**
-     * Describes the height of the curved button.
-     *
-     * @type { ?LengthMetrics }
-     * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
-    height?: LengthMetrics;
+    position?: ArcButtonPosition;
     /**
      * Describes the arc button style mode.
      *
@@ -261,17 +196,17 @@ interface CommonArcButtonOptions {
      * @atomicservice
      * @since 12
      */
-    resourceText?: ResourceStr;
+    label?: ResourceStr;
     /**
-     * Describes the arc button dynamic effect switch.
+     * Describe the blurred background style of the arc-shaped button.
      *
-     * @type { ?ArkButtonClickEffectStyle }
+     * @type { ?BlurStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    touchEffect?: ArkButtonClickEffectStyle;
+    backgroundBlurStyle?: BlurStyle;
     /**
      * Describes the arc button background color.
      *
@@ -311,7 +246,7 @@ interface CommonArcButtonOptions {
      * @atomicservice
      * @since 12
      */
-    textSize?: LengthMetrics;
+    fontSize?: LengthMetrics;
     /**
      * Describes the arc button text color.
      *
@@ -321,7 +256,7 @@ interface CommonArcButtonOptions {
      * @atomicservice
      * @since 12
      */
-    textColor?: ColorMetrics;
+    fontColor?: ColorMetrics;
     /**
      * Describes the arc button pressed text color.
      *
@@ -341,7 +276,7 @@ interface CommonArcButtonOptions {
      * @atomicservice
      * @since 12
      */
-    textStyle?: FontStyle;
+    fontStyle?: FontStyle;
     /**
      * Describes the arc button text family.
      *
@@ -351,7 +286,7 @@ interface CommonArcButtonOptions {
      * @atomicservice
      * @since 12
      */
-    textFamily?: string | Resource;
+    fontFamily?: string | Resource;
     /**
      * Describes the arc button text margin.
      *
@@ -361,7 +296,7 @@ interface CommonArcButtonOptions {
      * @atomicservice
      * @since 12
      */
-    textMargin?: LocalizedMargin;
+    fontMargin?: LocalizedMargin;
     
     /**
      * Describes the arc button touch event.
@@ -372,7 +307,7 @@ interface CommonArcButtonOptions {
      * @atomicservice
      * @since 12
      */
-    touchCallback?: Callback<TouchEvent>;
+    onTouch?: Callback<TouchEvent>;
     
     /**
      * Describes the arc button click event.
@@ -383,7 +318,7 @@ interface CommonArcButtonOptions {
      * @atomicservice
      * @since 12
      */
-    onClickEvent?: Callback<ClickEvent>;
+    onClick?: Callback<ClickEvent>;
 }
 /**
  * The class for ArcButtonOptions.
@@ -395,35 +330,15 @@ interface CommonArcButtonOptions {
  */
 export declare class ArcButtonOptions {
     /**
-     * Describes Upper and Down arc button type.
+     * Describes the position of button on screen.
      *
-     * @type { ArcButtonTypeMode }
+     * @type { ArcButtonPosition }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    type: ArcButtonTypeMode;
-    /**
-     * Describes the radius of the great arc.
-     *
-     * @type { LengthMetrics }
-     * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
-    width: LengthMetrics;
-    /**
-     * Describes the height of the curved button.
-     *
-     * @type { LengthMetrics }
-     * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
-    height: LengthMetrics;
+    positon: ArcButtonPosition;
     /**
      * Describes the controller for scrollable container.
      *
@@ -453,17 +368,17 @@ export declare class ArcButtonOptions {
      * @atomicservice
      * @since 12
      */
-    resourceText: ResourceStr;
+    label: ResourceStr;
     /**
-     * Describes the arc button dynamic effect switch.
+     * Describe the blurred background style of the arc-shaped button.
      *
-     * @type { ArkButtonClickEffectStyle }
+     * @type { BlurStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
      * @since 12
      */
-    touchEffect: ArkButtonClickEffectStyle;
+    backgroundBlurStyle: BlurStyle;
     /**
      * Describes the arc button background color.
      *
@@ -503,7 +418,7 @@ export declare class ArcButtonOptions {
      * @atomicservice
      * @since 12
      */
-    textSize: LengthMetrics;
+    fontSize: LengthMetrics;
     /**
      * Describes the arc button text color.
      *
@@ -513,7 +428,7 @@ export declare class ArcButtonOptions {
      * @atomicservice
      * @since 12
      */
-    textColor: ColorMetrics;
+    fontColor: ColorMetrics;
     /**
      * Describes the arc button pressed text color.
      *
@@ -533,7 +448,7 @@ export declare class ArcButtonOptions {
      * @atomicservice
      * @since 12
      */
-    textStyle: FontStyle;
+    fontStyle: FontStyle;
     /**
      * Describes the arc button text family.
      *
@@ -543,7 +458,7 @@ export declare class ArcButtonOptions {
      * @atomicservice
      * @since 12
      */
-    textFamily: string | Resource;
+    fontFamily: string | Resource;
     /**
      * Describes the arc button text margin.
      *
@@ -553,7 +468,7 @@ export declare class ArcButtonOptions {
      * @atomicservice
      * @since 12
      */
-    textMargin: LocalizedMargin;
+    fontMargin: LocalizedMargin;
     
     /**
      * Describes the arc button touch event.
@@ -564,7 +479,7 @@ export declare class ArcButtonOptions {
      * @atomicservice
      * @since 12
      */
-    touchCallback?: Callback<TouchEvent>;
+    onTouch?: Callback<TouchEvent>;
     
     /**
      * Describes the arc button click event.
@@ -575,7 +490,7 @@ export declare class ArcButtonOptions {
      * @atomicservice
      * @since 12
      */
-    onClickEvent?: Callback<ClickEvent>;
+    onClick?: Callback<ClickEvent>;
     
     /**
      * Constructor of the CommonArcButtonOptions.
