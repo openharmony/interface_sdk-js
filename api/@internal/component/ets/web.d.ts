@@ -3432,7 +3432,7 @@ declare class WebResourceResponse {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13
    */
-  getResponseDataEx(): string | number | ArraryBuffer | Resource | undefined;
+  getResponseDataEx(): string | number | ArrayBuffer | Resource | undefined;
 
   /**
    * Gets the response encoding.
