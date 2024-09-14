@@ -422,6 +422,17 @@ declare type CanvasTextBaseline = "alphabetic" | "bottom" | "hanging" | "ideogra
 declare type ImageSmoothingQuality = "high" | "low" | "medium";
 
 /**
+ * Import the frame node type object for Canvas.
+ *
+ * @typedef { import('../api/arkui/FrameNode').FrameNode } FrameNode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
+declare type FrameNode = import('../api/arkui/FrameNode').FrameNode;
+
+/**
  * Opaque objects that describe gradients, created by createLinearGradient() or createRadialGradient()
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5249,6 +5260,17 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
   readonly width: number;
 
   /**
+   * Frame node of the canvas. The default value is null.
+   *
+   * @type { FrameNode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  readonly canvas: FrameNode;
+
+  /**
    * Generate a character string in the data url format.
    *
    * @param { string } type - Image format. The default value is image/png.
@@ -5365,6 +5387,70 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @since 12
    */
   constructor(settings?: RenderingContextSettings, unit?: LengthMetricsUnit);
+
+  /**
+   * Register the listener that watches if the canvasrenderingcontext2d attached to the Canvas frameNode.
+   *
+   * @param { 'onAttach' } type Indicates the type of event.
+   * @param { Callback<void> } callback Indicates the listener.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;
+   *     3. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  on(type: 'onAttach', callback: Callback<void>): void;
+
+  /**
+   * Unregister the listener that watches if the canvasrenderingcontext2d attached to the Canvas frameNode.
+   *
+   * @param { 'onAttach' } type Indicates the type of event.
+   * @param { Callback<void> } callback Indicates the listener.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;
+   *     3. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  off(type: 'onAttach', callback?: Callback<void>): void;
+
+  /**
+   * Register the listener that watches if the canvasrenderingcontext2d detached from the Canvas frameNode.
+   *
+   * @param { 'onDetach' } type Indicates the type of event.
+   * @param { Callback<void> } callback Indicates the listener.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;
+   *     3. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  on(type: 'onDetach', callback: Callback<void>): void;
+
+  /**
+   * Unregister the listener that watches if the canvasrenderingcontext2d detached from the Canvas frameNode.
+   *
+   * @param { 'onDetach' } type Indicates the type of event.
+   * @param { Callback<void> } callback Indicates the listener.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;
+   *     3. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  off(type: 'onDetach', callback?: Callback<void>): void;
 }
 
 /**
