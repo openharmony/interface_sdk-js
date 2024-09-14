@@ -6723,6 +6723,19 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getMetadata(key: HdrMetadataKey): HdrMetadataValue;
 
     /**
+     * Set pixelmap memory name.
+     * 
+     * @param { string } name The name of the memory that needs to be set
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.The length of the input parameter is too long.
+     * 2.Parameter verification failed.
+     * @throws { BusinessError } 501 - Resource unavailable.
+     * @throws { BusinessError } 62980286 - Memory format not supported.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    setMemoryNameSync(name: string): void;
+
+    /**
      * Set metadata.
      * 
      * @param { HdrMetadataKey } key Type of metadata.
