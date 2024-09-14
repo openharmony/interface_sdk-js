@@ -673,7 +673,6 @@ declare namespace picker {
      * @param { window } window - represents the window.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
-     * @systemApi
      * @since 13
      */
     constructor(context: Context, window: window.Window);
