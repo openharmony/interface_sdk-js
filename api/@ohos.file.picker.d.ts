@@ -669,10 +669,9 @@ declare namespace picker {
     /**
      * The constructor used to create a DocumentViewPicker object.
      *
-     * @param { context } context - represents the context.
-     * @param { window } window - represents the window.
+     * @param { Context } context - represents the context.
+     * @param { window.Window } window - represents the window.
      * @syscap SystemCapability.FileManagement.UserFileService
-     * @atomicservice
      * @since 13
      */
     constructor(context: Context, window: window.Window);
