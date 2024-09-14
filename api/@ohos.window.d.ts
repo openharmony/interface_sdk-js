@@ -3918,7 +3918,7 @@ declare namespace window {
     moveWindowToAsync(x: number, y: number): Promise<void>;
 
     /**
-     * Move window to the position in screen.
+     * Move window to the position relative to current screen.
      * 
      * @param { number } x - Indicate the X-coordinate of the window relative to current screen.
      * @param { number } y - Indicate the Y-coordinate of the window relative to current screen.
