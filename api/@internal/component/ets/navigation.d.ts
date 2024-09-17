@@ -1157,6 +1157,26 @@ declare class NavPathStack {
   replacePath(info: NavPathInfo, options?: NavigationOptions): void;
 
   /**
+   * Replace the NavDestination into the stack.
+   *
+   * @param { NavPathInfo } info - Indicates the NavDestination to replace in stack.
+   * @param { NavigationOptions } [options] - Indicates options of stack operation.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameters types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100005 - Builder function not registered.
+   * @throws { BusinessError } 100006 - NavDestination not found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  replaceDestination(info: NavPathInfo, options?: NavigationOptions): Promise<void>;
+
+  /**
    * Replace the current NavDestination with the specific one.The current NavDestination will be destroyed.
    *
    * @param { string } name - Indicates name of the new NavDestination in top of stack.
