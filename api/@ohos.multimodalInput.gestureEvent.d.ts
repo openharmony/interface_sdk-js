@@ -196,6 +196,7 @@ export declare interface ThreeFingersTap {
  *
  * @interface TouchGestureEvent
  * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @systemapi hide for inner use
  * @since 13
  */
 export declare interface TouchGestureEvent {
@@ -204,6 +205,7 @@ export declare interface TouchGestureEvent {
    *
    * @type { TouchGesturAction }
    * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi hide for inner use
    * @since 13
    */
   action: TouchGesturAction;
@@ -212,6 +214,7 @@ export declare interface TouchGestureEvent {
    *
    * @type { Touch[] }
    * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi hide for inner use
    * @since 13
    */
   touches: Touch[];
@@ -222,6 +225,7 @@ export declare interface TouchGestureEvent {
  *
  * @enum { string }
  * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @systemapi hide for inner use
  * @since 13
  */
 export declare enum TouchGestureType {
@@ -229,6 +233,7 @@ export declare enum TouchGestureType {
    * Touchscreen swiping gesture.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi hide for inner use
    * @since 13
    */
   SWIPE = "touchSwipeGesture",
@@ -236,6 +241,7 @@ export declare enum TouchGestureType {
    * Touchscreen pinching gesture.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi hide for inner use
    * @since 13
    */
   PINCH = "touchPinchGesture",
@@ -246,6 +252,7 @@ export declare enum TouchGestureType {
  *
  * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @systemapi hide for inner use
  * @since 13
  */
 export declare enum TouchGesturAction {
@@ -253,6 +260,7 @@ export declare enum TouchGesturAction {
    * Swiping down with multiple fingers.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi hide for inner use
    * @since 13
    */
   SWIPE_DOWN = 0,
@@ -260,6 +268,7 @@ export declare enum TouchGesturAction {
    * Swiping up with multiple fingers.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi hide for inner use
    * @since 13
    */
   SWIPE_UP,
@@ -267,6 +276,7 @@ export declare enum TouchGesturAction {
    * Swiping left with multiple fingers.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi hide for inner use
    * @since 13
    */
   SWIPE_LEFT,
@@ -274,6 +284,7 @@ export declare enum TouchGesturAction {
    * Swiping right with multiple fingers.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi hide for inner use
    * @since 13
    */
   SWIPE_RIGHT,
@@ -281,6 +292,7 @@ export declare enum TouchGesturAction {
    * Multi-finger pinching closed.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi hide for inner use
    * @since 13
    */
   PINCH_CLOSED,
@@ -288,6 +300,7 @@ export declare enum TouchGesturAction {
    * Multi-finger pinching opened.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi hide for inner use
    * @since 13
    */
   PINCH_OPENED
