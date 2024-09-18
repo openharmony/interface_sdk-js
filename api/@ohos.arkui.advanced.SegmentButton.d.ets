@@ -59,6 +59,30 @@ interface SegmentButtonTextItem {
    * @since 12
    */
   text: ResourceStr;
+
+  /**
+   * The accessibilityLevel of buttonItem.
+   *
+   * @type { ?string }
+   * @default "auto"
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  accessibilityLevel?: string;
+
+  /**
+   * The accessibilityDescription of buttonItem.
+   *
+   * @type { ?ResourceStr }
+   * @default ""
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  accessibilityDescription?: ResourceStr;
 }
 
 /**
@@ -99,6 +123,18 @@ interface SegmentButtonIconItem {
   icon: ResourceStr;
 
   /**
+   * The accessibilityText of icon.
+   *
+   * @type { ?ResourceStr }
+   * @default ""
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  iconAccessibilityText?: ResourceStr;
+
+  /**
    * The icon of icon only item in the selected state.
    *
    * @type { ResourceStr }
@@ -116,6 +152,42 @@ interface SegmentButtonIconItem {
    * @since 12
    */
   selectedIcon: ResourceStr;
+
+  /**
+   * The accessibilityText of selectedIcon.
+   *
+   * @type { ?ResourceStr }
+   * @default ""
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  selectedIconAccessibilityText?: ResourceStr;
+
+  /**
+   * The accessibilityLevel of buttonItem.
+   *
+   * @type { ?string }
+   * @default "auto"
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  accessibilityLevel?: string;
+
+  /**
+   * The accessibilityDescription of buttonItem.
+   *
+   * @type { ?ResourceStr }
+   * @default ""
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  accessibilityDescription?: ResourceStr;
 }
 
 /**
@@ -156,6 +228,18 @@ interface SegmentButtonIconTextItem {
   icon: ResourceStr;
 
   /**
+   * The accessibilityText of icon.
+   *
+   * @type { ?ResourceStr }
+   * @default ""
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  iconAccessibilityText?: ResourceStr;
+
+  /**
    * The icon of icon and text item in the selected state.
    *
    * @type { ResourceStr }
@@ -175,6 +259,18 @@ interface SegmentButtonIconTextItem {
   selectedIcon: ResourceStr;
 
   /**
+   * The accessibilityText of selectedIcon.
+   *
+   * @type { ?ResourceStr }
+   * @default ""
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  selectedIconAccessibilityText?: ResourceStr;
+
+  /**
    * The text of icon and text item.
    *
    * @type { ResourceStr }
@@ -192,6 +288,30 @@ interface SegmentButtonIconTextItem {
    * @since 12
    */
   text: ResourceStr;
+
+  /**
+   * The accessibilityLevel of buttonItem.
+   *
+   * @type { ?string }
+   * @default "auto"
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  accessibilityLevel?: string;
+
+  /**
+   * The accessibilityDescription of buttonItem.
+   *
+   * @type { ?ResourceStr }
+   * @default ""
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  accessibilityDescription?: ResourceStr;
 }
 
 /**
@@ -781,6 +901,18 @@ interface SegmentButtonItemOptionsConstructorOptions {
   icon?: ResourceStr;
 
   /**
+   * The accessibilityText of icon.
+   *
+   * @type { ?ResourceStr }
+   * @default ""
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  iconAccessibilityText?: ResourceStr;
+
+  /**
    * The icon of icon and text item in the selected state.
    *
    * @type { ?ResourceStr }
@@ -800,6 +932,18 @@ interface SegmentButtonItemOptionsConstructorOptions {
   selectedIcon?: ResourceStr;
 
   /**
+   * The accessibilityText of selectedIcon.
+   *
+   * @type { ?ResourceStr }
+   * @default ""
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  selectedIconAccessibilityText?: ResourceStr;
+
+  /**
    * The text of icon and text item.
    *
    * @type { ?ResourceStr }
@@ -817,6 +961,30 @@ interface SegmentButtonItemOptionsConstructorOptions {
    * @since 12
    */
   text?: ResourceStr;
+
+  /**
+   * The accessibilityLevel of buttonItem.
+   *
+   * @type { ?string }
+   * @default "auto"
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  accessibilityLevel?: string;
+
+  /**
+   * The accessibilityDescription of buttonItem.
+   *
+   * @type { ?ResourceStr }
+   * @default ""
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  accessibilityDescription?: ResourceStr;
 }
 
 /**
@@ -856,6 +1024,18 @@ declare class SegmentButtonItemOptions {
   icon?: ResourceStr;
 
   /**
+   * The accessibilityText of icon.
+   *
+   * @type { ?ResourceStr }
+   * @default ""
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  iconAccessibilityText?: ResourceStr;
+
+  /**
    * The icon of selected item.
    *
    * @type { ?ResourceStr }
@@ -875,6 +1055,18 @@ declare class SegmentButtonItemOptions {
   selectedIcon?: ResourceStr;
 
   /**
+   * The accessibilityText of selectedIcon.
+   *
+   * @type { ?ResourceStr }
+   * @default ""
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  selectedIconAccessibilityText?: ResourceStr;
+
+  /**
    * The text of item.
    *
    * @type { ?ResourceStr }
@@ -892,6 +1084,30 @@ declare class SegmentButtonItemOptions {
    * @since 12
    */
   text?: ResourceStr;
+
+  /**
+   * The accessibilityLevel of buttonItem.
+   *
+   * @type { ?string }
+   * @default "auto"
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  accessibilityLevel?: string;
+
+  /**
+   * The accessibilityDescription of buttonItem.
+   *
+   * @type { ?ResourceStr }
+   * @default ""
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  accessibilityDescription?: ResourceStr;
 
   /**
    * The constructor used to create a SegmentButtonOptionsArray object.
