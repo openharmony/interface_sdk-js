@@ -44,7 +44,7 @@ export default class AutoFillExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 13
    */
   reloadInModal(customData: CustomData): Promise<void>;
 }

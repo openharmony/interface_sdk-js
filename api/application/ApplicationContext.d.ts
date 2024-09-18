@@ -553,4 +553,40 @@ export default class ApplicationContext extends Context {
    * @since 12
    */
   getCurrentAppCloneIndex(): number;
+
+  /**
+   * Set font size scale.
+   * @param {number} fontSizeScale - Font size scale.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 13
+   */
+  setFontSizeScale(fontSizeScale: number): void;
+
+  /**
+   * Get current app key of current running app instance.
+   *
+   * @returns { string } Returns the key of current running app instance.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000078 - The multi-instance is not supported.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 14
+   */
+  getCurrentInstanceKey(): string;
+
+  /**
+   * Get all running app instance key for current bundle
+   *
+   * @returns { Array<string> } Returns the array of all running app instance keys.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000078 - The multi-instance is not supported.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 14
+   */
+    getAllRunningInstanceKeys(): Promise<Array<string>>;
 }

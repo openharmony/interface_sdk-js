@@ -25,8 +25,7 @@ import { Callback } from './@ohos.base';
  *
  * @namespace inputConsumer
  * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
- * @systemapi hide for inner use
- * @since 8
+ * @since 13
  */
 declare namespace inputConsumer {
   /**
@@ -84,6 +83,42 @@ declare namespace inputConsumer {
      * @type { ?boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
+     * @since 13
+     */
+    isRepeat?: boolean;
+  }
+
+  /**
+   * Defines the shortcut key structure.
+   *
+   * @typedef HotkeyOptions
+   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+   * @since 13
+   */
+  interface HotkeyOptions {
+    /**
+     * Defines modifier keys. One or two modifier keys are supported.
+     *
+     * @type { Array<number> }
+     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+     * @since 13
+     */
+    preKeys: Array<number>;
+
+    /**
+     * Defines modified keys.
+     *
+     * @type { number }
+     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+     * @since 13
+     */
+    finalKey: number;
+
+    /**
+     * Whether to report repeated key events. By default, the value is true if it is left unspecified.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since 13
      */
     isRepeat?: boolean;
@@ -194,6 +229,44 @@ declare namespace inputConsumer {
    * @since 11
    */
   function getShieldStatus(shieldMode: ShieldMode): boolean;
+
+  /**
+   * Obtains all system hotkeys. This API uses a promise to return the result.
+   *
+   * @Returns { Promise<Array<HotkeyOptions>> } All system hotkeys.
+   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+   * @since 13
+   */
+  function getAllSystemHotkeys(): Promise<Array<HotkeyOptions>>;
+
+  /**
+   * Listening for hotkey event changes.
+   *
+   * @param { 'hotkeyChange' } type - Type of the hotkey events.
+   * @param { HotkeyOptions } hotkeyOptions - hotkey events.
+   * @param { Callback<HotkeyOptions> } callback - Callback used to return hotkey events.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 4200002 - The hotkey has been used by the system. You can call the {@Link
+   * <br> GetAllSystemHotkeys} interface to query all system hotkeys.
+   * @throws { BusinessError } 4200003 - The hotkey has been subscribed to by another.
+   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+   * @since 13
+   */
+  function on(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback: Callback<HotkeyOptions>): void
+
+  /**
+   * Unsubscribe from hotkey event changes.
+   *
+   * @param { 'hotkeyChange' } type - Type of the hotkey events.
+   * @param { HotkeyOptions } hotkeyOptions - Hotkey events.
+   * @param { Callback<HotkeyOptions> } callback - Callback used to return hotkey events.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+   * @since 13
+   */
+  function off(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback?: Callback<HotkeyOptions>): void
 }
 
 export default inputConsumer;

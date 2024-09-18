@@ -41,8 +41,8 @@ function collectDeclaration(url) {
   // 入口
   try {
     const utPath = path.resolve(__dirname, url);
-    const arktsPath = path.resolve(url, '../arkts');
-    const kitPath = path.resolve(url, '../kits');
+    const arktsPath = path.resolve(utPath, '../arkts');
+    const kitPath = path.resolve(utPath, '../kits');
     const utFiles = [];
     readFile(utPath, utFiles); // 读取文件
     readFile(arktsPath, utFiles); // 读取文件

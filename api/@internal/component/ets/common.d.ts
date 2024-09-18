@@ -10529,8 +10529,18 @@ declare interface DragEvent {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 12
+   */
+  /**
+   * Query the ModifierKey press state, support 'ctrl'|'alt'|'shift'|'fn'
+   *
+   * @param { Array<string> } keys - indicate the keys of the ModifierKey.
+   * @returns { boolean }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
    */
   getModifierKeyState?(keys: Array<string>): boolean;
 }
@@ -10815,8 +10825,18 @@ declare interface KeyEvent {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 12
+   */
+  /**
+   * Get the modifier keys press state, support 'ctrl'|'alt'|'shift'|'fn'
+   *
+   * @param { Array<string> } keys - indicate the modifier keys.
+   * @returns { boolean }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
    */
   getModifierKeyState?(keys: Array<string>): boolean;
 
@@ -11211,6 +11231,59 @@ declare enum ScrollSizeMode {
    * @since 12
    */
   CONTINUOUS = 1,
+}
+
+/**
+ * Define the mode of sheet how to avoid keyboard.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare enum SheetKeyboardAvoidMode {
+  /**
+   * Sheet will not aovid keyboard.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  NONE = 0,
+
+  /**
+   * Firstly sheet will avoid keyboard by changing its height.
+   * And then sheet will avoid by resizing after reaching its maximum height.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  TRANSLATE_AND_RESIZE = 1,
+
+  /**
+   * Sheet will only avoid keyboard by resizing the content.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  RESIZE_ONLY = 2,
+
+  /**
+   * Firstly sheet will avoid keyboard by changing its height.
+   * And then sheet will avoid keyboard by scrolling after reaching its maximum height.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  TRANSLATE_AND_SCROLL = 3,
 }
 
 /**
@@ -11692,6 +11765,18 @@ declare interface SheetOptions extends BindOptions {
    * @since 12
    */
   uiContext?: UIContext;
+
+  /**
+   * Determine the mode of sheet how to avoid keyboard.
+   *
+   * @type { ?SheetKeyboardAvoidMode }
+   * @default SheetKeyboardAvoidMode.TRANSLATE_AND_SCROLL
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  keyboardAvoidMode?: SheetKeyboardAvoidMode;
 }
 
 /**
@@ -13589,6 +13674,17 @@ declare interface ContextMenuOptions {
    * @since 12
    */
   aboutToDisappear?: () => void;
+  
+  /**
+   * The margin of menu's layoutRegion.
+   *
+   * @type { ?Margin }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  layoutRegionMargin?: Margin;
   
   /**
    * The preview animator options.
@@ -19980,7 +20076,18 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  onVisibleAreaChange(ratios: Array<number>, event: (isVisible: boolean, currentRatio: number) => void): T;
+  /**
+   * Trigger a visible area change event.
+   *
+   * @param { Array<number> } ratios
+   * @param { VisibleAreaChangeCallback } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback): T;
 
   /**
    * Set the spherical effect of the component.
@@ -23887,7 +23994,19 @@ declare interface VisibleAreaEventOptions {
  * @atomicservice
  * @since 12
  */
-declare type VisibleAreaChangeCallback = (isVisible: boolean, currentRatio: number) => void;
+/**
+ * Defines the callback type used in VisibleAreaChange events.
+ *
+ * @typedef { function } VisibleAreaChangeCallback
+ * @param { boolean } isExpanding - Indicates the ratio of the visible area to its own area compared to the last change.
+ * It is true as the ratio increases and false as the ratio decreases.
+ * @param { number } currentRatio - The value of currentRatio indicates the visibility ratio of the current component.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
+declare type VisibleAreaChangeCallback = (isExpanding: boolean, currentRatio: number) => void;
 
 /**
  * Defines a UICommonEvent which is used to set different common event to target component.
