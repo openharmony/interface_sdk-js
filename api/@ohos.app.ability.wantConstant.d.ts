@@ -300,6 +300,22 @@ declare namespace wantConstant {
      * @since 12
      */
     SUB_PACKAGE_NAME = 'ohos.param.atomicservice.subpackageName',
+
+    /**
+     * Indicates the param of app instance key.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @since 14
+     */
+    APP_INSTANCE_KEY = 'ohos.extra.param.key.appInstance',
+
+    /**
+    * Indicates the param of creating a new instance.
+    *
+    * @syscap SystemCapability.Ability.AbilityBase
+    * @since 14
+    */
+     CREATE_APP_INSTANCE_KEY = 'ohos.extra.param.key.createAppInstance',
   }
 
   /**
