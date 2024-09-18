@@ -336,7 +336,7 @@ declare namespace restrictions {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 13
+   * @since 14
    */
   function setDisallowedPolicyForAccount(admin: Want, feature: string, disallow: boolean, accountId: number): void;
 
@@ -355,7 +355,7 @@ declare namespace restrictions {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 13
+   * @since 14
    */
   function getDisallowedPolicyForAccount(admin: Want, feature: string, accountId: number): boolean;
 }
