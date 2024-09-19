@@ -471,8 +471,10 @@ declare namespace inputMonitor {
    * @param { number }fingers - Number of fingers.
    * @param { Callback<TouchGestureEvent>} receiver - Callback used to receive reported data.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - SystemAPI permit error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 202 - Caller is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1.Mandatory parameters are left unspecified;
+   *                                 2.Incorrect parameter types.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 13
@@ -487,8 +489,10 @@ declare namespace inputMonitor {
    * @param { number }fingers - Number of fingers.
    * @param { Callback<TouchGestureEvent>} receiver - Callback used to receive reported data.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - SystemAPI permit error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 202 - Caller is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1.Mandatory parameters are left unspecified;
+   *                                 2.Incorrect parameter types.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 13
