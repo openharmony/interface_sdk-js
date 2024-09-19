@@ -111,6 +111,36 @@ export declare struct PhotoPickerComponent {
   onPhotoBrowserChanged?: (browserItemInfo: BaseItemInfo) => boolean;
 
   /**
+   * Callback when selected items are deleted
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 13
+   */
+  onSelectedItemsDeleted?: ItemsDeletedCallback;
+
+  /**
+   * Callback when exceed max selected
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 13
+   */
+  onExceedMaxSelected?: ExceedMaxSelectedCallback;
+
+  /**
+   * Callback when the current album is deleted
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 13
+   */
+  onCurrentAlbumDeleted?: CurrentAlbumDeletedCallback
+
+  /**
    * PickerController
    *
    * @type { ?PickerController }
@@ -130,6 +160,39 @@ export declare struct PhotoPickerComponent {
    */
   build(): void;
 }
+
+
+/**
+ * The callback of onSelectedItemsDeleted event
+ *
+ * @typedef { function } ItemsDeletedCallback
+ * @param { Array<ItemInfo> }
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 13
+ */
+export type ItemsDeletedCallback = (itemInfos: Array<ItemInfo>) => void;
+
+/**
+ * The callback of onExceedMaxSelected event
+ *
+ * @typedef { function } ItemsDeletedCallback
+ * @param { MaxCountType }
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 13
+ */
+export type ExceedMaxSelectedCallback = (maxCountType: MaxCountType) => void;
+
+/**
+ * The callback of onCurrentAlbumDeleted event
+ *
+ * @typedef { function } CurrentAlbumDeletedCallback
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 13
+ */
+export type CurrentAlbumDeletedCallback = () => void;
 
 /**
  * The class for PickerController
