@@ -221,33 +221,6 @@ export declare interface TouchGestureEvent {
 }
 
 /**
- * Enumerates touchscreen gesture types.
- *
- * @enum { string }
- * @syscap SystemCapability.MultimodalInput.Input.Core
- * @systemapi hide for inner use
- * @since 13
- */
-export declare enum TouchGestureType {
-  /**
-   * Touchscreen swiping gesture.
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @systemapi hide for inner use
-   * @since 13
-   */
-  SWIPE = "touchSwipeGesture",
-  /**
-   * Touchscreen pinching gesture.
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @systemapi hide for inner use
-   * @since 13
-   */
-  PINCH = "touchPinchGesture",
-}
-
-/**
  * Enumerates touchscreen gesture action types.
  *
  * @enum { number }

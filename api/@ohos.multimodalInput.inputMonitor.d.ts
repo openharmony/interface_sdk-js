@@ -467,9 +467,9 @@ declare namespace inputMonitor {
    * Enables listening for touchscreen gesture events.
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { TouchGestureType} type - Touchscreen gesture type.
-   * @param { number }fingers - Number of fingers.
-   * @param { Callback<TouchGestureEvent>} receiver - Callback used to receive reported data.
+   * @param { 'touchSwipe' } type - Touchscreen gesture type.
+   * @param { number } fingers - Number of fingers.
+   * @param { Callback<TouchGestureEvent> } receiver - Callback used to receive reported data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -479,15 +479,15 @@ declare namespace inputMonitor {
    * @systemapi hide for inner use
    * @since 13
    */
-  function on(type: TouchGestureType, fingers: number, receiver: Callback<TouchGestureEvent>): void;
+  function on(type: 'touchSwipe', fingers: number, receiver: Callback<TouchGestureEvent>): void;
 
   /**
    * Disables listening to touchscreen gesture events.
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { TouchGestureType} type - Touchscreen gesture type.
-   * @param { number }fingers - Number of fingers.
-   * @param { Callback<TouchGestureEvent>} receiver - Callback used to receive reported data.
+   * @param { 'touchSwipe' } type - Touchscreen gesture type.
+   * @param { number } fingers - Number of fingers.
+   * @param { Callback<TouchGestureEvent> } receiver - Callback used to receive reported data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -497,6 +497,42 @@ declare namespace inputMonitor {
    * @systemapi hide for inner use
    * @since 13
    */
-  function off(type: TouchGestureType, fingers: number, receiver?: Callback<TouchGestureEvent>): void;
+  function off(type: 'touchSwipe', fingers: number, receiver?: Callback<TouchGestureEvent>): void;
+
+  /**
+   * Enables listening for touchscreen gesture events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'touchPinch' } type - Touch screen gesture type.
+   * @param { number } fingers - Number of fingers.
+   * @param { Callback<TouchGestureEvent> } receiver - Callback used to receive reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Caller is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1.Mandatory parameters are left unspecified;
+   *                                 2.Incorrect parameter types.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 13
+   */
+  function on(type: 'touchPinch', fingers: number, receiver: Callback<TouchGestureEvent>): void;
+
+  /**
+   * Disables listening to touchscreen gesture events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'touchPinch' } type - Touchscreen gesture type.
+   * @param { number } fingers - Number of fingers.
+   * @param { Callback<TouchGestureEvent> } receiver - Callback used to receive reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Caller is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1.Mandatory parameters are left unspecified;
+   *                                 2.Incorrect parameter types.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 13
+   */
+  function off(type: 'touchPinch', fingers: number, receiver?: Callback<TouchGestureEvent>): void;
 }
 export default inputMonitor;
