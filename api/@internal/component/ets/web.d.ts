@@ -3422,6 +3422,19 @@ declare class WebResourceResponse {
   getResponseData(): string;
 
   /**
+   * Gets the response data.
+   *
+   * @returns { string | number | ArrayBuffer | Resource | undefined } Return the response data.
+   *                                                                   string type indicate string in HTML format.
+   *                                                                   number type indicate file handle.
+   *                                                                   Resource type indicate $rawfile resource.
+   *                                                                   ArrayBuffer type indicate binary data.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 13
+   */
+  getResponseDataEx(): string | number | ArrayBuffer | Resource | undefined;
+
+  /**
    * Gets the response encoding.
    *
    * @returns { string } Return the response encoding.
@@ -3689,6 +3702,15 @@ declare class WebResourceResponse {
    * @since 12
    */
   setResponseIsReady(IsReady: boolean): void;
+
+  /**
+   * Gets whether the response is ready.
+   *
+   * @returns { boolean } True indicates the response data is ready and false is not ready.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 13
+   */
+  getResponseIsReady(): boolean;
 }
 
 /**
