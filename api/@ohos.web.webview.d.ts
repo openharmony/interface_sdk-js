@@ -836,7 +836,7 @@ declare namespace webview {
    * @typedef ScrollOffset
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   interface ScrollOffset {
     /**
@@ -844,18 +844,18 @@ declare namespace webview {
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 14
+     * @since 13
      */
-    horizontal: number;
+    x: number;
 
     /**
      * Get the vertical offset.
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 14
+     * @since 13
      */
-    vertical: number;
+    y: number;
   }
 
   /**
@@ -5224,7 +5224,7 @@ declare namespace webview {
      * @returns { ScrollOffset } scroll offset
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 14
+     * @since 13
      */
     getScrollOffset(): ScrollOffset;
 
