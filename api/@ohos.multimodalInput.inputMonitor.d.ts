@@ -467,7 +467,7 @@ declare namespace inputMonitor {
    * Enables listening touchscreen swipe gesture events.
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { 'touchSwipeGesture' } type - Touchscreen gesture type.
+   * @param { 'touchscreenSwipe' } type - Touchscreen gesture type.
    * @param { number } fingers - Number of fingers.
    * @param { Callback<TouchGestureEvent> } receiver - Callback used to receive reported data.
    * @throws { BusinessError } 201 - Permission denied.
@@ -479,13 +479,13 @@ declare namespace inputMonitor {
    * @systemapi hide for inner use
    * @since 13
    */
-  function on(type: 'touchSwipeGesture', fingers: number, receiver: Callback<TouchGestureEvent>): void;
+  function on(type: 'touchscreenSwipe', fingers: number, receiver: Callback<TouchGestureEvent>): void;
 
   /**
    * Disables listening touchscreen swipe gesture events.
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { 'touchSwipeGesture' } type - Touchscreen gesture type.
+   * @param { 'touchscreenSwipe' } type - Touchscreen gesture type.
    * @param { number } fingers - Number of fingers.
    * @param { Callback<TouchGestureEvent> } receiver - Callback used to receive reported data.
    * @throws { BusinessError } 201 - Permission denied.
@@ -497,13 +497,13 @@ declare namespace inputMonitor {
    * @systemapi hide for inner use
    * @since 13
    */
-  function off(type: 'touchSwipeGesture', fingers: number, receiver?: Callback<TouchGestureEvent>): void;
+  function off(type: 'touchscreenSwipe', fingers: number, receiver?: Callback<TouchGestureEvent>): void;
 
   /**
    * Enables listening touchscreen pinch gesture events.
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { 'touchPinchGesture' } type - Touch screen gesture type.
+   * @param { 'touchscreenPinch' } type - Touch screen gesture type.
    * @param { number } fingers - Number of fingers.
    * @param { Callback<TouchGestureEvent> } receiver - Callback used to receive reported data.
    * @throws { BusinessError } 201 - Permission denied.
@@ -515,13 +515,13 @@ declare namespace inputMonitor {
    * @systemapi hide for inner use
    * @since 13
    */
-  function on(type: 'touchPinchGesture', fingers: number, receiver: Callback<TouchGestureEvent>): void;
+  function on(type: 'touchscreenPinch', fingers: number, receiver: Callback<TouchGestureEvent>): void;
 
   /**
    * Disables listening touchscreen pinch gesture events.
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { 'touchPinchGesture' } type - Touchscreen gesture type.
+   * @param { 'touchscreenPinch' } type - Touchscreen gesture type.
    * @param { number } fingers - Number of fingers.
    * @param { Callback<TouchGestureEvent> } receiver - Callback used to receive reported data.
    * @throws { BusinessError } 201 - Permission denied.
@@ -533,6 +533,6 @@ declare namespace inputMonitor {
    * @systemapi hide for inner use
    * @since 13
    */
-  function off(type: 'touchPinchGesture', fingers: number, receiver?: Callback<TouchGestureEvent>): void;
+  function off(type: 'touchscreenPinch', fingers: number, receiver?: Callback<TouchGestureEvent>): void;
 }
 export default inputMonitor;
