@@ -50,6 +50,16 @@ declare interface MovingPhotoViewOptions {
      * @since 12
      */
     controller?: MovingPhotoViewController;
+    /**
+     * image ai options of MovingPhotoView.
+     *
+     * @type { ?MovingPhotoViewController }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    imageAIOptions?: ImageAIOptions;
 }
 /**
  * Defines the moving photo view interface.
@@ -220,6 +230,19 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @since 13
      */
     repeatPlay(isRepeatPlay: boolean): MovingPhotoViewAttribute;
+
+    /**
+     * Sets whether to enable moving photo analyzer. If the value is true, the moving photo can
+     * be analyzed by AI.
+     *
+     * @param { boolean } isEnableAnalyner  whether to enable moving photo analyzer
+     * @returns { MovingPhotoViewAttribute }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    enableAnalyner(isEnableAnalyner: boolean): MovingPhotoViewAttribute;
 }
 /**
  * Defines the MovingPhotoView controller.
