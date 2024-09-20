@@ -58,7 +58,7 @@ export default class WorkSchedulerExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @systemapi
    * @stagemodelonly
-   * @since 13
+   * @since 14
    */
   startServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -86,7 +86,7 @@ export default class WorkSchedulerExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @systemapi
    * @stagemodelonly
-   * @since 13
+   * @since 14
    */
   stopServiceExtensionAbility(want: Want): Promise<void>;
 }
