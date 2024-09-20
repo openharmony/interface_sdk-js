@@ -2977,7 +2977,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     GROUP_PHOTO,
     /**
@@ -6111,7 +6111,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     dismiss(): void;
   }
