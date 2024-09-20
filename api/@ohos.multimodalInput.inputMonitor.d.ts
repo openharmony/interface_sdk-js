@@ -23,7 +23,7 @@ import { MouseEvent } from './@ohos.multimodalInput.mouseEvent';
 import type display from './@ohos.display';
 import type { TouchEvent } from './@ohos.multimodalInput.touchEvent';
 import type { Rotate, Pinch, ThreeFingersSwipe, FourFingersSwipe, SwipeInward } from './@ohos.multimodalInput.gestureEvent';
-import type { ThreeFingersTap, TouchGestureEvent, TouchGestureType } from './@ohos.multimodalInput.gestureEvent';
+import type { ThreeFingersTap, TouchGestureEvent } from './@ohos.multimodalInput.gestureEvent';
 import type { FingerprintEvent } from './@ohos.multimodalInput.shortKey';
 
 /**
