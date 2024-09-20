@@ -203,12 +203,12 @@ export declare interface TouchGestureEvent {
   /**
    * Gesture action type.
    *
-   * @type { TouchGesturAction }
+   * @type { TouchGestureAction }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
    * @since 13
    */
-  action: TouchGesturAction;
+  action: TouchGestureAction;
   /**
    * Collection of all touch points upon completion of the gesture.
    *
@@ -228,7 +228,7 @@ export declare interface TouchGestureEvent {
  * @systemapi hide for inner use
  * @since 13
  */
-export declare enum TouchGesturAction {
+export declare enum TouchGestureAction {
   /**
    * Swiping down with multiple fingers.
    *
