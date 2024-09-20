@@ -166,12 +166,12 @@ export declare struct PhotoPickerComponent {
  * The callback of onSelectedItemsDeleted event
  *
  * @typedef { function } ItemsDeletedCallback
- * @param { Array<ItemInfo> }
+ * @param { Array<BaseItemInfo> }
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 13
  */
-export type ItemsDeletedCallback = (itemInfos: Array<ItemInfo>) => void;
+export type ItemsDeletedCallback = (baseItemInfos: Array<BaseItemInfo>) => void;
 
 /**
  * The callback of onExceedMaxSelected event
@@ -182,7 +182,7 @@ export type ItemsDeletedCallback = (itemInfos: Array<ItemInfo>) => void;
  * @atomicservice
  * @since 13
  */
-export type ExceedMaxSelectedCallback = (maxCountType: MaxCountType) => void;
+export type ExceedMaxSelectedCallback = (exceedMaxCountType: MaxCountType) => void;
 
 /**
  * The callback of onCurrentAlbumDeleted event
