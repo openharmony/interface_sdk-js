@@ -2900,7 +2900,7 @@ declare namespace window {
    * @atomicservice
    * @since 14
    */
-  function getWindowFromPoint(displayId : number, windowNumber? : number, x? : number, y? : number): Promise<Array<Window>>;
+  function getWindowFromPoint(displayId: number, windowNumber?: number, x?: number, y?: number): Promise<Array<Window>>;
 
   /**
    * Register the callback of systemBarTintChange
