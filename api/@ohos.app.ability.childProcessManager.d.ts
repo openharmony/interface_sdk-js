@@ -107,6 +107,7 @@ declare namespace childProcessManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000061 - Operation not supported. The API cannot be called in a child process.
+   * @throws { BusinessError } 16000062 - The number of native child process exceeds upper bound.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12
