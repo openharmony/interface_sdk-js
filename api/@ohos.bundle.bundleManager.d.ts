@@ -3143,6 +3143,7 @@ declare namespace bundleManager {
    * @param { boolean } deleteOriginalFiles - Used to decide whether to delete the original files.
    * @param { AsyncCallback<void> } callback - Indicates the callback of verifyAbc result.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700201 - Failed to verify the abc file.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -3172,6 +3173,7 @@ declare namespace bundleManager {
    * @param { boolean } deleteOriginalFiles - Used to decide whether to delete the original files.
    * @returns { Promise<void> } Returns verifyAbc result.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700201 - Failed to verify the abc file.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -3243,6 +3245,7 @@ declare namespace bundleManager {
    * @param { string } abcPath - The abc path.
    * @returns { Promise<void> } Returns deleteAbc result.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700202 - Failed to delete the abc file.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
