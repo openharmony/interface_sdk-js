@@ -1844,7 +1844,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
-    CAMERA_FORMAT_YCRCB_P010
+    CAMERA_FORMAT_YCRCB_P010,
+
+    /**
+     * HEIC Format.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 13
+     */
+    CAMERA_FORMAT_HEIC = 2003
   }
 
   /**
@@ -7620,6 +7628,30 @@ declare namespace camera {
     release(): Promise<void>;
   }
 
+  /**
+   * Enumerates the camera video codec type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @since 13
+   */
+  enum VideoCodecType {
+    /**
+     * Codec type AVC.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 13
+     */
+    AVC = 0,
+
+    /**
+     * Codec type HEVC.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 13
+     */
+    HEVC = 1
+  }
 
   /**
    * Photo output object.
@@ -7759,6 +7791,26 @@ declare namespace camera {
      * @since 11
      */
     deferImageDelivery(type: DeferredDeliveryImageType): void;
+
+    /**
+     * Get supported moving photo video codec types.
+     *
+     * @returns { Array<VideoCodecType> } An array of supported video codec types for moving photo.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 13
+     */
+    getSupportedMovingPhotoVideoCodecTypes(): Array<VideoCodecType>;
+
+    /**
+     * Sets codec type for moving photo, default to AVC.
+     *
+     * @param { VideoCodecType } codecType - Codec type for moving photo.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 13
+     */
+    setMovingPhotoVideoCodecType(codecType: VideoCodecType): void;
 
     /**
      * Subscribes photo available event callback.
