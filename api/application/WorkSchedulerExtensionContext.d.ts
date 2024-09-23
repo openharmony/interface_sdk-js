@@ -27,7 +27,7 @@ import type Want from '../@ohos.app.ability.Want';
  *
  * @extends ExtensionContext
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
- * @StageModelOnly
+ * @stageModelOnly
  * @since 10
  */
 export default class WorkSchedulerExtensionContext extends ExtensionContext {
