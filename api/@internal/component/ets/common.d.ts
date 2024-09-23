@@ -20486,11 +20486,12 @@ declare class CommonMethod<T> {
    * When a gesture bound to this component will be accepted, a user-defined callback is triggered to get the result
    *
    * @param { GestureRecognizerJudgeBeginCallback } callback - A callback instance used when a gesture bound to this component will be accepted.
-   * @param { boolean } exposeInnerGestureFlag
+   * @param { boolean } [exposeInnerGestureFlag]
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
+   * 
    * @since 13
    */
     onGestureRecognizerJudgeBegin(callback: GestureRecognizerJudgeBeginCallback, exposeInnerGestureFlag?: boolean): T;
