@@ -2886,7 +2886,7 @@ declare namespace window {
   function getSnapshot(windowId: number): Promise<image.PixelMap>;
 
   /**
-   * Get window From Point.
+   * get windows by coordinate.
    *
    * @param { number } displayId - Indicate the id of display.
    * @param { number } windowNumber - Indicate the Number of query windows.
@@ -2900,7 +2900,7 @@ declare namespace window {
    * @atomicservice
    * @since 14
    */
-  function getWindowFromPoint(displayId: number, windowNumber?: number, x?: number, y?: number): Promise<Array<Window>>;
+  function getWindowsByCoordinate(displayId: number, windowNumber?: number, x?: number, y?: number): Promise<Array<Window>>;
 
   /**
    * Register the callback of systemBarTintChange
