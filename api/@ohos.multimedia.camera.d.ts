@@ -8296,7 +8296,7 @@ declare namespace camera {
     /**
      * Video identifier.
      *
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13
