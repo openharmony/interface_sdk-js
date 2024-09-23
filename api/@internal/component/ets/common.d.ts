@@ -2200,14 +2200,14 @@ declare interface AnimateParam {
   playMode?: PlayMode;
 
   /**
-   * Callback invoked when the animation playback is complete.
+   * Callback invoked when the animation playback is complete or the ability is about to enter the background.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Callback invoked when the animation playback is complete.
+   * Callback invoked when the animation playback is complete or the ability is about to enter the background.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2215,7 +2215,7 @@ declare interface AnimateParam {
    * @since 9
    */
   /**
-   * Callback invoked when the animation playback is complete.
+   * Callback invoked when the animation playback is complete or the ability is about to enter the background.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2224,7 +2224,7 @@ declare interface AnimateParam {
    * @since 10
    */
   /**
-   * Callback invoked when the animation playback is complete.
+   * Callback invoked when the animation playback is complete or the ability is about to enter the background.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -23799,7 +23799,7 @@ declare interface KeyframeAnimateParam {
   iterations?: number;
 
   /**
-   * Callback invoked when the whole keyframe animation is complete.
+   * Callback invoked when the whole keyframe animation is complete or the ability is about to enter the background.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -23807,7 +23807,7 @@ declare interface KeyframeAnimateParam {
    * @since 11
    */
   /**
-   * Callback invoked when the whole keyframe animation is complete.
+   * Callback invoked when the whole keyframe animation is complete or the ability is about to enter the background.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
