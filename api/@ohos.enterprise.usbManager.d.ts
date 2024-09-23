@@ -102,7 +102,7 @@ declare namespace usbManager {
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 13
+   * @since 14
    */
   enum Descriptor {
     /**
@@ -110,7 +110,7 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 13
+     * @since 14
      */
     INTERFACE = 0,
 
@@ -119,7 +119,7 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 13
+     * @since 14
      */
     DEVICE = 1
   }
@@ -130,7 +130,7 @@ declare namespace usbManager {
    * @typedef UsbDeviceType
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 13
+   * @since 14
    */
   export interface UsbDeviceType {
     /**
@@ -139,7 +139,7 @@ declare namespace usbManager {
      * @type { number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 13
+     * @since 14
      */
     baseClass: number;
 
@@ -149,7 +149,7 @@ declare namespace usbManager {
      * @type { number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 13
+     * @since 14
      */
     subClass: number;
 
@@ -159,7 +159,7 @@ declare namespace usbManager {
      * @type { number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 13
+     * @since 14
      */
     protocol: number;
 
@@ -169,7 +169,7 @@ declare namespace usbManager {
      * @type { Descriptor }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 13
+     * @since 14
      */
     descriptor: Descriptor;
   }
@@ -377,7 +377,7 @@ declare namespace usbManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 13
+   * @since 14
    */
   function addDisallowedUsbDevices(admin: Want, usbDevices: Array<UsbDeviceType>): void;
 
@@ -397,7 +397,7 @@ declare namespace usbManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 13
+   * @since 14
    */
   function removeDisallowedUsbDevices(admin: Want, usbDevices: Array<UsbDeviceType>): void;
 
@@ -416,7 +416,7 @@ declare namespace usbManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 13
+   * @since 14
    */
   function getDisallowedUsbDevices(admin: Want): Array<UsbDeviceType>;
 }

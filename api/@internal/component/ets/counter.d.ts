@@ -163,7 +163,18 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @atomicservice
    * @since 11
    */
-  onInc(event: () => void): CounterAttribute;
+  /**
+   * Listen to the event that the value increases.
+   *
+   * @param { VoidCallback } event
+   * @returns { CounterAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  onInc(event: VoidCallback): CounterAttribute;
 
   /**
    * Listens to the number decrease event.
@@ -203,7 +214,18 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @atomicservice
    * @since 11
    */
-  onDec(event: () => void): CounterAttribute;
+  /**
+   * Listens to the number decrease event.
+   *
+   * @param { VoidCallback } event
+   * @returns { CounterAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  onDec(event: VoidCallback): CounterAttribute;
 
   /**
    * Indicates whether the decrease button of counter component is available or not.

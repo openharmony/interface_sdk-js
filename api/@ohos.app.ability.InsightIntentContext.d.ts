@@ -51,7 +51,7 @@ export default class InsightIntentContext {
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16000061 - Can not start component belongs to other bundle.
+   * @throws { BusinessError } 16000061 - Operation not supported.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
@@ -81,7 +81,7 @@ export default class InsightIntentContext {
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16000061 - Can not start component belongs to other bundle.
+   * @throws { BusinessError } 16000061 - Operation not supported.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly

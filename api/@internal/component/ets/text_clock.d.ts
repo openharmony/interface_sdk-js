@@ -160,6 +160,72 @@ declare interface TextClockConfiguration extends CommonConfiguration<TextClockCo
 }
 
 /**
+ * Options to construct TextClock component.
+ *
+ * @interface TextClockOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 14
+ */
+declare interface TextClockOptions {
+  /**
+   * Time zone offset.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Time zone offset.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Time zone offset.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  timeZoneOffset?: number;
+
+  /**
+   * TextClock controller.
+   *
+   * @type { ?TextClockController }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * TextClock controller.
+   *
+   * @type { ?TextClockController }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * TextClock controller.
+   *
+   * @type { ?TextClockController }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  controller?: TextClockController
+}
+
+/**
  * TextClock component, which provides the text clock capability.
  *
  * @interface TextClockInterface
@@ -222,7 +288,21 @@ interface TextClockInterface {
    * @atomicservice
    * @since 11
    */
-  (options?: { timeZoneOffset?: number; controller?: TextClockController }): TextClockAttribute;
+  /**
+   * Construct the text clock component.
+   * Specifies the current time zone.
+   * The valid value is an integer ranging from - 14 to 12,
+   * Where a negative value indicates the eastern time zone, for example, -8.
+   *
+   * @param { TextClockOptions } [options] - TextClock options.
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  (options?: TextClockOptions): TextClockAttribute;
 }
 
 /**
