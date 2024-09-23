@@ -32,6 +32,7 @@ export declare class GesturePoint {
    * @param { number } positionY - Indicates the Y coordinate of point.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   constructor(positionX: number, positionY: number);
   /**

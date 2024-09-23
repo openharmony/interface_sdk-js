@@ -256,6 +256,32 @@ declare namespace bundleManager {
      * @since 12
      */
     GET_BUNDLE_INFO_WITH_SKILL = 0x00000800,
+    /**
+     * Used to return only the applications that have an icon displayed on the homescreen.
+     * Only effective on {@link getAllBundleInfo}
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    GET_BUNDLE_INFO_ONLY_WITH_LAUNCHER_ABILITY = 0x00001000,
+    /**
+     * Used to obtain the bundleInfo only if any user installed
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    GET_BUNDLE_INFO_OF_ANY_USER = 0x00002000,
+    /**
+     * Used to return all applications that exclude app clone information.
+     * Only effective on {@link getAllBundleInfo}
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    GET_BUNDLE_INFO_EXCLUDE_CLONE = 0x00004000,
   }
 
   /**
@@ -1368,6 +1394,25 @@ declare namespace bundleManager {
   }
 
   /**
+   * This enumeration value is used to identify various flags of application
+   *
+   * @enum { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+  */
+  export enum ApplicationInfoFlag {
+    /**
+     * Indicates The application is currently installed for the calling user.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    FLAG_INSTALLED = 0x00000001,
+  }
+
+  /**
    * Obtains own bundleInfo.
    *
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
@@ -2385,6 +2430,19 @@ declare namespace bundleManager {
    * @since 10
    */
   function getLaunchWantForBundleSync(bundleName: string, userId?: number): Want;
+
+  /**
+   * Obtains the Want for starting the main ability of own application.
+   * The main ability of an application is the ability that has the
+   * #ACTION_HOME and #ENTITY_HOME Want filters set in the application's <b>config.json</b> or <b>module.json</b> file.
+   *
+   * @returns { Want } the Want for starting the application's main ability.
+   * @throws { BusinessError } 17700072 - The launch want is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 13
+   */
+  function getLaunchWant(): Want;
 
   /**
    * Obtains the profile designated by metadata name, abilityName and moduleName from the current application.
@@ -3605,16 +3663,6 @@ declare namespace bundleManager {
   export type RecoverableApplicationInfo = _RecoverableApplicationInfo;
 
   /**
-   * Indicates the information of preinstalled application.
-   *
-   * @typedef { _PreinstalledApplicationInfo  }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 12
-   */
-  export type PreinstalledApplicationInfo = _PreinstalledApplicationInfo;
-
-  /**
    * Obtains configuration information about an skill
    *
    * @typedef { _Skill.Skill }
@@ -3633,6 +3681,16 @@ declare namespace bundleManager {
    * @since 12
    */
   export type SkillUrl = _Skill.SkillUri;
+
+  /**
+   * Indicates the information of preinstalled application.
+   *
+   * @typedef { _PreinstalledApplicationInfo  }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  export type PreinstalledApplicationInfo = _PreinstalledApplicationInfo;
 }
 
 export default bundleManager;

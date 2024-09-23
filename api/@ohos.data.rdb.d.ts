@@ -510,6 +510,14 @@ declare namespace rdb {
    * @useinstead ohos.data.relationalStore.StoreConfig
    */
   interface StoreConfig {
+    /**
+     * Manages relational database configurations.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.StoreConfig
+     */
     name: string;
   }
 
@@ -937,7 +945,20 @@ declare namespace rdb {
     notIn(field: string, value: Array<ValueType>): RdbPredicates;
   }
 
+  /**
+   * Configure RdbPredicates to match the specified field whose data type is ValueType array and values
+   * are out of a given range.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 7
+   * @deprecated since 9
+   */
   export type ResultSet = _ResultSet;
 }
 
+/**
+ * Provides methods for rdbStore create and delete.
+ * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+ * @since 7
+ * @deprecated since 9
+ */
 export default rdb;

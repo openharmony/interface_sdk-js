@@ -449,17 +449,6 @@ export interface HapModuleInfo {
    */
   readonly routerMap: Array<RouterItem>;
 
-   /**
-   * Indicates the code path
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 12
-   */
-   readonly codePath: string;
-
   /**
    * Indicates native library path.
    *
@@ -469,6 +458,17 @@ export interface HapModuleInfo {
    * @since 12
    */
   readonly nativeLibraryPath: string;
+
+     /**
+   * Indicates the code path
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+     readonly codePath: string;  
 }
 
 /**

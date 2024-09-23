@@ -27,6 +27,7 @@ import { AsyncCallback } from './@ohos.base';
  *
  * @interface FormMenuItemStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
  */
 export interface FormMenuItemStyle {
@@ -35,6 +36,7 @@ export interface FormMenuItemStyle {
    *
    * @type { ?MenuItemOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   options?: MenuItemOptions;
@@ -45,6 +47,7 @@ export interface FormMenuItemStyle {
  *
  * @interface AddFormOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
  */
 export interface AddFormOptions {
@@ -53,6 +56,7 @@ export interface AddFormOptions {
    *
    * @type { ?formBindingData.FormBindingData }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   formBindingData?: formBindingData.FormBindingData;
@@ -62,6 +66,7 @@ export interface AddFormOptions {
    *
    * @type { ?AsyncCallback<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   callback?: AsyncCallback<string>;
@@ -71,6 +76,7 @@ export interface AddFormOptions {
    *
    * @type { ?FormMenuItemStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   style?: FormMenuItemStyle;
@@ -83,6 +89,7 @@ export interface AddFormOptions {
  * @param { string } componentId - The id of the component used to get form snapshot.
  * @param { AddFormOptions } [options] - Add form options.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
  */
 @Builder

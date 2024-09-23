@@ -15,7 +15,7 @@
 
 import { ErrorMessage, ErrorTagFormat, } from '../../../typedef/checker/result_type';
 import { CommonFunctions } from '../../../utils/checkUtils';
-import { Comment } from "../../../typedef/parser/Comment";
+import { Comment } from '../../../typedef/parser/Comment';
 
 export class ChineseCheck {
 

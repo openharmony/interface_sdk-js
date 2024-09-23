@@ -210,6 +210,7 @@ declare namespace hiAppEvent {
     /**
      * Configuration item: application event logging switch.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 7
      * @deprecated since 9
@@ -219,6 +220,7 @@ declare namespace hiAppEvent {
     /**
      * Configuration item: event file directory storage quota size.
      *
+     * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 7
      * @deprecated since 9

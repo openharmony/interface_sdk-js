@@ -222,6 +222,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
 /**
  * Used for ide.
  *
+ * @typedef { object } DefaultData<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @systemapi
  * @since 4
@@ -231,6 +232,7 @@ type DefaultData<T> = object;
 /**
  * Used for ide.
  *
+ * @typedef { object & Options<T, Data> & ThisType<T & ViewModel & Data> } CombinedOptions<T extends ViewModel, Data>
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @systemapi
  * @since 4

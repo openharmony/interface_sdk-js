@@ -32,7 +32,8 @@
     "oldSyscapField": "",
     "newSyscapField": "",
     "oldKitInfo": "",
-    "newKitInfo": "",
-    "isSystemapi": false
+    "newKitInfo": "NA",
+    "isSystemapi": false,
+    "isSameNameFunction": false
   }
 ]

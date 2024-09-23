@@ -18,9 +18,8 @@
  * @kit ArkGraphics3D
  */
 
-import { Shader, MaterialType, Material, Animation, Environment, Image } from './SceneResources'
-import { Camera, LightType, Light, Node, NodeType } from './SceneNodes'
-import { Resource } from 'GlobalResource';
+import { Shader, MaterialType, Material, Animation, Environment, Image } from './SceneResources';
+import { Camera, LightType, Light, Node, NodeType } from './SceneNodes';
 
 /**
  * The scene resource parameters type.
@@ -42,11 +41,11 @@ export interface SceneResourceParameters {
   /**
    * The resource uri of the scene resource parameters.
    *
-   * @type { ?Resource }
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-  uri?: Resource;
+  uri?: ResourceStr;
 }
 
 /**
@@ -165,15 +164,15 @@ export interface SceneResourceFactory {
  */
 export class Scene {
   /**
-   * Create a new scene from a Resource.
+   * Create a new scene from a ResourceStr.
    *
-   * @param { Resource } uri - the resource of creating a scene
+   * @param { ResourceStr } uri - the resource of creating a scene
    * @returns { Promise<Scene> } promise a scene
    * @static
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-  static load(uri? : Resource): Promise<Scene>;
+  static load(uri? : ResourceStr): Promise<Scene>;
    
   /**
    * The environment of the scene.

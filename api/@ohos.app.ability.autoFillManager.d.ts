@@ -141,7 +141,6 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @atomicservice
    * @since 12
    */
   export type ViewData = _ViewData.default;
@@ -161,7 +160,6 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @atomicservice
    * @since 12
    */
   export type PageNodeInfo = _PageNodeInfo.default;
@@ -180,7 +178,6 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @atomicservice
    * @since 12
    */
   export { AutoFillType };
@@ -200,7 +197,6 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @atomicservice
    * @since 12
    */
   export type FillRequest = _AutoFillRequest.FillRequest;
@@ -220,7 +216,6 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @atomicservice
    * @since 12
    */
   export type SaveRequest = _AutoFillRequest.SaveRequest;
@@ -232,7 +227,6 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @atomicservice
    * @since 12
    */
   export type UpdateRequest = _AutoFillRequest.UpdateRequest;
@@ -252,7 +246,6 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @atomicservice
    * @since 12
    */
   export type FillResponse = _AutoFillRequest.FillResponse;
@@ -272,7 +265,6 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @atomicservice
    * @since 12
    */
   export type FillRequestCallback = _AutoFillRequest.FillRequestCallback;
@@ -292,7 +284,6 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @atomicservice
    * @since 12
    */
   export type SaveRequestCallback = _AutoFillRequest.SaveRequestCallback;
@@ -304,7 +295,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 13
    */
   export type CustomData = _CustomData.default;
 
@@ -315,7 +306,6 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @atomicservice
    * @since 12
    */
   export type AutoFillRect = _AutoFillRect.default;
@@ -327,7 +317,6 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @atomicservice
    * @since 12
    */
   export type AutoFillPopupConfig = _AutoFillPopupConfig.default;
@@ -339,7 +328,6 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @atomicservice
    * @since 12
    */
   export type PopupSize = _AutoFillPopupConfig.PopupSize;
@@ -350,7 +338,6 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @atomicservice
    * @since 12
    */
   export { PopupPlacement };

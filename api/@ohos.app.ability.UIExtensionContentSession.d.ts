@@ -127,7 +127,7 @@ export default class UIExtensionContentSession {
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
@@ -199,7 +199,7 @@ export default class UIExtensionContentSession {
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
@@ -235,7 +235,7 @@ export default class UIExtensionContentSession {
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
@@ -307,7 +307,7 @@ export default class UIExtensionContentSession {
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
@@ -343,7 +343,7 @@ export default class UIExtensionContentSession {
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
@@ -415,7 +415,7 @@ export default class UIExtensionContentSession {
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
@@ -548,6 +548,7 @@ export default class UIExtensionContentSession {
    */
   /**
    * Starts the UIAbility or UIExtensionAbility by type.
+   * If the caller application is in the background, it is not allowed to call this interface.
    *
    * @param { string } type - The type of target ability.
    * @param { Record<string, Object> } wantParam - Indicates the want parameter.
@@ -586,6 +587,7 @@ export default class UIExtensionContentSession {
    */
   /**
    * Starts the UIAbility or UIExtensionAbility by type.
+   * If the caller application is in the background, it is not allowed to call this interface.
    *
    * @param { string } type - The type of target ability.
    * @param { Record<string, Object> } wantParam - Indicates the want parameter.

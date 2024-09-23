@@ -2835,7 +2835,7 @@ declare namespace sensor {
      */
     /**
      * Sensor event reporting event interval.
-     * @type {?(number | SensorFrequency) }
+     * @type { ?(number | SensorFrequency) }
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
      * @since 11

@@ -2,8 +2,8 @@
   {
     "apiType": "Namespace",
     "statusCode": 5,
-    "oldApiDefinedText": " export namespace test",
-    "newApiDefinedText": " export namespace test",
+    "oldApiDefinedText": "export namespace test",
+    "newApiDefinedText": "export namespace test",
     "oldApiName": "test",
     "newApiName": "test",
     "oldDtsName": "ut_jsdoc_deprecated_have_to_na.d.ts",
@@ -33,8 +33,9 @@
     "newDescription": "-1",
     "oldSyscapField": "",
     "newSyscapField": "",
-    "oldKitInfo": "",
-    "newKitInfo": "",
-    "isSystemapi": false
+    "oldKitInfo": "NA",
+    "newKitInfo": "NA",
+    "isSystemapi": false,
+    "isSameNameFunction": false
   }
 ]

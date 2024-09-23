@@ -5,7 +5,7 @@
     "parentModuleName": "global",
     "syscap": "",
     "permissions": "",
-    "since": "",
+    "since": "-1",
     "isForm": false,
     "isCrossPlatForm": false,
     "isAutomicService": false,
@@ -14,7 +14,7 @@
     "deprecatedVersion": "",
     "useInstead": "",
     "apiType": "Struct",
-    "definedText": " struct MyComponent",
+    "definedText": "struct MyComponent",
     "pos": {
       "line": 15,
       "character": 1
@@ -25,6 +25,9 @@
       "Component"
     ],
     "errorCodes": [],
-    "kitInfo": ""
+    "kitInfo": "NA",
+    "absolutePath": "",
+    "parentApiType": "SourceFile",
+    "isOptional": false
   }
 ]

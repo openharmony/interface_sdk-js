@@ -94,6 +94,7 @@ declare enum IndexerAlign {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   START,
@@ -103,9 +104,72 @@ declare enum IndexerAlign {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   END,
+}
+
+/**
+ * AlphabetIndexer constructor options.
+ *
+ * @interface AlphabetIndexerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
+interface AlphabetIndexerOptions {
+  /**
+   * Alphabetical index string array.
+   *
+   * @type { Array<string> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Alphabetical index string array.
+   *
+   * @type { Array<string> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Alphabetical index string array.
+   *
+   * @type { Array<string> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  arrayValue: Array<string>;
+  /**
+   * ID of the selected item.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * ID of the selected item.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * ID of the selected item.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  selected: number;
 }
 
 /**
@@ -163,8 +227,56 @@ interface AlphabetIndexerInterface {
    * @atomicservice
    * @since 11
    */
-  (value: { arrayValue: Array<string>; selected: number }): AlphabetIndexerAttribute;
+  /**
+   * Construct the alphabet indexer component.
+   * Called when the alphabet indexer component is used.
+   *
+   * @param { AlphabetIndexerOptions } options - alphabet indexer options
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  (options: AlphabetIndexerOptions): AlphabetIndexerAttribute;
 }
+
+/**
+ * Defines an AlphabetIndexer callback when onSelect.
+ *
+ * @typedef { function } OnAlphabetIndexerSelectCallback
+ * @param { number } index - selected index
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
+declare type OnAlphabetIndexerSelectCallback  = (index: number) => void;
+
+/**
+ * Defines an AlphabetIndexer callback when onPopupSelect.
+ *
+ * @typedef { function } OnAlphabetIndexerPopupSelectCallback
+ * @param { number } index - selected index
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
+declare type OnAlphabetIndexerPopupSelectCallback  = (index: number) => void;
+
+/**
+ * Defines an AlphabetIndexer callback when onRequestPopupData.
+ *
+ * @typedef { function } OnAlphabetIndexerRequestPopupDataCallback
+ * @param { number } index - selected index
+ * @returns { Array<string> } string array corresponding to the index
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
+declare type OnAlphabetIndexerRequestPopupDataCallback  = (index: number) => Array<string>;
 
 /**
  * Defines the alphabet index bar attribute functions.
@@ -648,7 +760,17 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @atomicservice
    * @since 11
    */
-  onSelect(callback: (index: number) => void): AlphabetIndexerAttribute;
+  /**
+   * Index bar selection callback.
+   *
+   * @param { OnAlphabetIndexerSelectCallback } callback
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  onSelect(callback: OnAlphabetIndexerSelectCallback): AlphabetIndexerAttribute;
 
   /**
    * Index bar selection callback and return the strings which display on pop-up.
@@ -677,7 +799,17 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @atomicservice
    * @since 11
    */
-  onRequestPopupData(callback: (index: number) => Array<string>): AlphabetIndexerAttribute;
+  /**
+   * Index bar selection callback and return the strings which display on pop-up.
+   *
+   * @param { OnAlphabetIndexerRequestPopupDataCallback } callback
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  onRequestPopupData(callback: OnAlphabetIndexerRequestPopupDataCallback): AlphabetIndexerAttribute;
 
   /**
    * Pop-up selection callback.
@@ -706,7 +838,17 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @atomicservice
    * @since 11
    */
-  onPopupSelect(callback: (index: number) => void): AlphabetIndexerAttribute;
+  /**
+   * Pop-up selection callback.
+   *
+   * @param { OnAlphabetIndexerPopupSelectCallback } callback
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  onPopupSelect(callback: OnAlphabetIndexerPopupSelectCallback): AlphabetIndexerAttribute;
 
   /**
    * Sets the selected index.
@@ -841,6 +983,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @param { boolean } value - Default value is true, set false to disable haptic feedback.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   enableHapticFeedback(value: boolean): AlphabetIndexerAttribute;

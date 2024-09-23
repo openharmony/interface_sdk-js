@@ -22,5 +22,4 @@
  * A test case for typedef tag's lost
  */
 export interface OnReleaseCallback {
-  (msg: string): void;
 }

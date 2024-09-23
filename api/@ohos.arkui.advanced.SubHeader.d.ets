@@ -290,6 +290,7 @@ export declare struct SubHeader {
    * Attributes of Symbol icon.
    * @type { SymbolOptions}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   iconSymbolOptions?: SymbolOptions;
@@ -373,6 +374,7 @@ export declare struct SubHeader {
    * Attributes of Symbol icons in operation area.
    * @type { Array<SymbolOptions> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   operationSymbolOptions?: Array<SymbolOptions>;
@@ -381,6 +383,7 @@ export declare struct SubHeader {
    * Text modifier for primary title.
    * @type { TextModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   primaryTitleModifier?: TextModifier;
@@ -389,6 +392,7 @@ export declare struct SubHeader {
    * Text modifier for secondary title.
    * @type { TextModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   secondaryTitleModifier?: TextModifier;
@@ -397,6 +401,7 @@ export declare struct SubHeader {
    * Set the title content.
    * @type { () => void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   @BuilderParam titleBuilder?: () => void;
@@ -407,6 +412,7 @@ export declare struct SubHeader {
    * @default {start: LengthMetrics.resource($r('sys.float.margin_left')),
    * <br> end: LengthMetrics.resource($r('sys.float.margin_right'))}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   @Prop contentMargin?: LocalizedMargin;
@@ -418,6 +424,7 @@ export declare struct SubHeader {
    * <br> When the left area is secondaryTitle or the group of secondaryTitle and icon,
    * <br> the default value is {start: LengthMetrics.vp(12), end: LengthMetrics.vp(12)};
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   @Prop contentPadding?: LocalizedPadding;

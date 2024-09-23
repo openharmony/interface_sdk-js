@@ -19,6 +19,210 @@
  */
 
 /**
+ * Define options used to construct a rating.
+ *
+ * @interface RatingOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 13
+ */
+declare interface RatingOptions {
+  /**
+   * Rating option.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Rating option.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Rating option.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Rating option.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  rating: number;
+
+  /**
+   * Indicator option.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Indicator option.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Indicator option.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Indicator option.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  indicator?: boolean
+}
+
+/**
+ * Define star style options.
+ *
+ * @interface StarStyleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 13
+ */
+declare interface StarStyleOptions {
+  /**
+   * Background URI option.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Background URI option.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Background URI option.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Background URI option.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  backgroundUri: string;
+
+  /**
+   * Foreground URI option.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Foreground URI option.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Foreground URI option.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Foreground URI option.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  foregroundUri: string;
+
+  /**
+   * Secondary URI option.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Secondary URI option.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Secondary URI option.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Secondary URI option.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  secondaryUri?: string
+}
+
+/**
  * Provides the interface for scoring bars.
  *
  * @interface RatingInterface
@@ -30,8 +234,8 @@
  *
  * @interface RatingInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Provides the interface for scoring bars.
@@ -39,8 +243,8 @@
  * @interface RatingInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Provides the interface for scoring bars.
@@ -48,9 +252,9 @@
  * @interface RatingInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 interface RatingInterface {
   /**
@@ -67,8 +271,8 @@ interface RatingInterface {
    * @param { object } options
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when a score bar is created.
@@ -77,8 +281,8 @@ interface RatingInterface {
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when a score bar is created.
@@ -87,11 +291,22 @@ interface RatingInterface {
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
-  (options?: { rating: number; indicator?: boolean }): RatingAttribute;
+  /**
+   * Called when a score bar is created.
+   *
+   * @param { RatingOptions } [options] - rating options
+   * @returns { RatingAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 13
+   */
+  (options?: RatingOptions): RatingAttribute;
 }
 
 /**
@@ -100,6 +315,7 @@ interface RatingInterface {
  * @interface RatingConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface RatingConfiguration extends CommonConfiguration<RatingConfiguration> {
@@ -109,6 +325,7 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   rating: number;
@@ -119,6 +336,7 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   indicator: boolean;
@@ -129,6 +347,7 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   stars: number;
@@ -139,6 +358,7 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   stepSize: number;
@@ -149,6 +369,7 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
    * @type { Callback<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   triggerChange: Callback<number>;
@@ -166,8 +387,8 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
  *
  * @extends CommonMethod<RatingAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the rating attribute functions.
@@ -175,8 +396,8 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
  * @extends CommonMethod<RatingAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the rating attribute functions.
@@ -184,9 +405,9 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
  * @extends CommonMethod<RatingAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class RatingAttribute extends CommonMethod<RatingAttribute> {
   /**
@@ -203,8 +424,8 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @param { number } value
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the total number of stars is set.
@@ -213,8 +434,8 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the total number of stars is set.
@@ -223,9 +444,9 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   stars(value: number): RatingAttribute;
 
@@ -243,8 +464,8 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @param { number } value
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the step size of the operation rating.
@@ -253,8 +474,8 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the step size of the operation rating.
@@ -263,9 +484,9 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   stepSize(value: number): RatingAttribute;
 
@@ -283,8 +504,8 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @param { object } value
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when a picture is set.
@@ -293,8 +514,8 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when a picture is set.
@@ -303,11 +524,22 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
-  starStyle(value: { backgroundUri: string; foregroundUri: string; secondaryUri?: string }): RatingAttribute;
+  /**
+   * Called when a picture is set.
+   *
+   * @param { StarStyleOptions } options - star style options
+   * @returns { RatingAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 13
+   */
+  starStyle(options: StarStyleOptions): RatingAttribute;
 
   /**
    * Called when the star rating of the operation scoring bar changes.
@@ -323,8 +555,8 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @param { function } callback
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the star rating of the operation scoring bar changes.
@@ -333,8 +565,8 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the star rating of the operation scoring bar changes.
@@ -343,9 +575,9 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   onChange(callback: (value: number) => void): RatingAttribute;
 
@@ -356,6 +588,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @returns { RatingAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   contentModifier(modifier: ContentModifier<RatingConfiguration>): RatingAttribute;
@@ -371,25 +604,25 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
  * Defines Rating Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines Rating Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines Rating Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const Rating: RatingInterface;
 
@@ -403,24 +636,24 @@ declare const Rating: RatingInterface;
  * Defines Rating Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines Rating Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines Rating Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const RatingInstance: RatingAttribute;

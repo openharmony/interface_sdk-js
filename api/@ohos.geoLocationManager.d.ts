@@ -34,17 +34,9 @@ import { NotificationRequest } from './notification/notificationRequest';
  * geocoding, reverse geocoding, country code, fencing and other functions.
  *
  * @namespace geoLocationManager
- * @atomicservice
- * @since 11
- */
-/**
- * Provides interfaces for acquiring location information, managing location switches,
- * geocoding, reverse geocoding, country code, fencing and other functions.
- *
- * @namespace geoLocationManager
  * @syscap SystemCapability.Location.Location.Core
  * @atomicservice
- * @since 12
+ * @since 11
  */
 declare namespace geoLocationManager {
   /**
@@ -363,6 +355,7 @@ declare namespace geoLocationManager {
    * @param { LocatingRequiredDataConfig } config - Indicates the locating required data configuration parameters.
    * @param { Callback<Array<LocatingRequiredData>> } [callback] - Indicates the callback for reporting WiFi/BT scan info.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('locatingRequiredDataChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301800 - Failed to start WiFi or Bluetooth scanning.
@@ -379,6 +372,7 @@ declare namespace geoLocationManager {
    * @param { 'locatingRequiredDataChange' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<Array<LocatingRequiredData>> } [callback] - Indicates the callback for reporting WiFi/BT scan info.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('locatingRequiredDataChange')} due to limited device capabilities.
    * @syscap SystemCapability.Location.Location.Core
@@ -392,6 +386,7 @@ declare namespace geoLocationManager {
    *
    * @param { 'locationIconStatusChange' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<LocationIconStatus> } callback - Indicates the callback for reporting the location icon status.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('locationIconStatusChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
@@ -406,6 +401,7 @@ declare namespace geoLocationManager {
    *
    * @param { 'locationIconStatusChange' } type - Indicates the location service event to be subscribed to.
    * @param { Callback<LocationIconStatus> } [callback] - Indicates the callback for reporting the location icon status.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('locationIconStatusChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
@@ -856,6 +852,7 @@ declare namespace geoLocationManager {
    *
    * @param { LocationMockConfig } config - Indicates the configuration parameters for location simulation.
    * Contains the array of locations and reporting intervals that need to be simulated.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.setMockedLocations} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
@@ -943,6 +940,7 @@ declare namespace geoLocationManager {
    * @param { LocatingRequiredDataConfig } config - Indicates the request parameters for obtaining the data required for locating.
    * @returns { Promise<Array<LocatingRequiredData>> } The promise returned by the function, for reporting WiFi/BT scan info.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getLocatingRequiredData} due to limited device capabilities.
    * @throws { BusinessError } 3301800 - Failed to start WiFi or Bluetooth scanning.
@@ -1000,6 +998,7 @@ declare namespace geoLocationManager {
    * Get location icon status.
    *
    * @returns { LocationIconStatus } The location icon status.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getLocationIconStatus} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
@@ -1133,20 +1132,20 @@ declare namespace geoLocationManager {
     /**
      * Satellite constellation type array.
      *
-     * @type { Array<SatelliteConstellationCategory> }
+     * @type { ?Array<SatelliteConstellationCategory> }
      * @syscap SystemCapability.Location.Location.Gnss
      * @since 12
      */
-    satelliteConstellation: Array<SatelliteConstellationCategory>;
+    satelliteConstellation?: Array<SatelliteConstellationCategory>;
 
     /**
      * Satellite additional information array.
      *
-     * @type { Array<number> }
+     * @type { ?Array<number> }
      * @syscap SystemCapability.Location.Location.Gnss
      * @since 12
      */
-    satelliteAdditionalInfo: Array<number>;
+    satelliteAdditionalInfo?: Array<number>;
   }
 
   /**
@@ -2114,52 +2113,52 @@ declare namespace geoLocationManager {
     /**
      * Indicates vertical position accuracy in meters.
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 12
      */
-    altitudeAccuracy: number;
+    altitudeAccuracy?: number;
 
     /**
      * Indicates speed accuracy in meter per seconds.
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 12
      */
-    speedAccuracy: number;
+    speedAccuracy?: number;
 
     /**
      * Indicates direction accuracy in degrees.
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 12
      */
-    directionAccuracy: number;
+    directionAccuracy?: number;
 
     /**
      * Time uncertainty Of timeSinceBoot in nanosecond.
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 12
      */
-    uncertaintyOfTimeSinceBoot: number;
+    uncertaintyOfTimeSinceBoot?: number;
 
     /**
      * Indicates the source of the location.
      *
-     * @type { LocationSourceType }
+     * @type { ?LocationSourceType }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
      * @since 12
      */
-    sourceType: LocationSourceType;
+    sourceType?: LocationSourceType;
   }
 
   /**

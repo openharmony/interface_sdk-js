@@ -402,7 +402,34 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    NV12 = 9
+    NV12 = 9,
+
+    /**
+     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：
+     * R(10bits), G(10bits), B(10bits), A(2bits) and are stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    RGBA_1010102 = 10,
+
+    /**
+     * Indicates that the storage order is to store Y first and then U V alternately each occupies 10 bits
+     * and are stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    YCBCR_P010 = 11,
+
+    /**
+     * Indicates that the storage order is to store Y first and then V U alternately each occupies 10 bits
+     * and are stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    YCRCB_P010 = 12
   }
 
   /**
@@ -2160,6 +2187,78 @@ declare namespace image {
     SCENE_VERSION = 'HwMnoteSceneVersion',
 
     /**
+     * Is Xmage Supported
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    IS_XMAGE_SUPPORTED = 'HwMnoteIsXmageSupported',
+
+    /**
+     * Xmage Mode
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    XMAGE_MODE = 'HwMnoteXmageMode',
+
+    /**
+     * Xmage X1 Coordinate
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    XMAGE_LEFT = 'HwMnoteXmageLeft',
+
+    /**
+     * Xmage Y1 Coordinate
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    XMAGE_TOP = 'HwMnoteXmageTop',
+
+    /**
+     * Xmage X2 Coordinate
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    XMAGE_RIGHT = 'HwMnoteXmageRight',
+
+    /**
+     * Xmage Y2 Coordinate
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    XMAGE_BOTTOM = 'HwMnoteXmageBottom',
+
+    /**
+     * Cloud Enhancement Mode
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    CLOUD_ENHANCEMENT_MODE = 'HwMnoteCloudEnhancementMode',
+
+    /**
+     * Wind Snapshot Mode
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    WIND_SNAPSHOT_MODE = 'HwMnoteWindSnapshotMode',
+
+    /**
      * GIF LOOP COUNT
      * If infinite loop returns 0, other values represent the number of loops
      *
@@ -2418,6 +2517,47 @@ declare namespace image {
   }
 
   /**
+   * Enumerates the anti-aliasing level.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 12
+   */
+  enum AntiAliasingLevel {
+    /**
+     * Nearest-neighbor interpolation algorithm.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    NONE = 0,
+
+    /**
+     * Bilinear interpolation algorithm.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    LOW = 1,
+
+    /**
+     * Bilinear interpolation algorithm with mipmap linear filtering.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    MEDIUM = 2,
+
+    /**
+     * Cubic interpolation algorithm.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    HIGH = 3,
+  }
+
+  /**
    * Enum for image scale mode.
    *
    * @enum { number }
@@ -2556,6 +2696,88 @@ declare namespace image {
      * @since 9
      */
     JPEG = 4
+  }
+
+  /**
+   * Enumerates the HDR metadata types that need to be stored in Pixelmap.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 12
+   */
+  enum HdrMetadataKey {
+    /**
+     * Indicate the types of metadata that image needs to use.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    HDR_METADATA_TYPE = 0,
+
+    /**
+     * Static metadata key.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    HDR_STATIC_METADATA = 1,
+
+    /**
+     * Dynamic metadata key.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    HDR_DYNAMIC_METADATA = 2,
+
+    /**
+     * Gainmap metadata key.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    HDR_GAINMAP_METADATA = 3,
+  }
+
+  /**
+   * Value for HDR_METADATA_TYPE.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 12
+   */
+  enum HdrMetadataType {
+    /**
+     * No metadata.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    NONE = 0,
+
+    /**
+     * Indicates that metadata will be used for the base image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    BASE = 1,
+
+    /**
+     * Indicates that metadata will be used for the gainmap image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    GAINMAP = 2,
+
+    /**
+     * Indicates that metadata will be used for the alternate image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    ALTERNATE = 3,
   }
 
   /**
@@ -3175,6 +3397,53 @@ declare namespace image {
      * @since 12
      */
     needsPackProperties?: boolean;
+  }
+
+  /**
+   * Describes the options for image sequence packing.
+   *
+   * @typedef PackingOptionsForSequence
+   * @syscap SystemCapability.Multimedia.Image.ImagePacker
+   * @since 13
+   */
+  interface PackingOptionsForSequence {
+    /**
+     * Specify the number of frames.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @since 13
+     */
+    frameCount: number;
+
+    /**
+     * Specify the delay time for each frame of the dynamic image.
+     * If the length is less than frameCount, the missing parts will be filling with the last value
+     *
+     * @type { Array<number> }
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @since 13
+     */
+    delayTimeList: Array<number>;
+
+    /**
+     * Specify the disposal types of each frame in the image sequence packing.
+     *
+     * @type { ?Array<number> }
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @since 13
+     */
+    disposalTypes?: Array<number>;
+
+    /**
+     * Specify the number of times the loop should, the range is [0, 65535]
+     * If this loop is equal to 0, it will be infinite loop.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @since 13
+     */
+    loopCount?: number;
   }
 
   /**
@@ -4040,6 +4309,222 @@ declare namespace image {
      */
     sourceSize?: Size;
   }
+
+  /**
+   * Value for HDR_STATIC_METADATA.
+   *
+   * @typedef HdrStaticMetadata
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 12
+   */
+  interface HdrStaticMetadata {
+    /**
+     * The X-coordinate of the primary colors. The length of the array is three. Store in the order of r, g, b.
+     *
+     * @type { Array<number> }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    displayPrimariesX: Array<number>;
+
+    /**
+     * The Y-coordinate of the primary colors. The length of the array is three. Store in the order of r, g, b.
+     *
+     * @type { Array<number> }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    displayPrimariesY: Array<number>;
+
+    /**
+     * The X-coordinate of the white point value.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    whitePointX: number;
+
+    /**
+     * The Y-coordinate of the white point value.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    whitePointY: number;
+
+    /**
+     * Max luminance.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    maxLuminance: number;
+
+    /**
+     * Min luminance.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    minLuminance: number;
+
+    /**
+     * Maximum brightness of displayed content.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    maxContentLightLevel: number;
+
+    /**
+     * Maximum average brightness of displayed content.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    maxFrameAverageLightLevel: number;
+  }
+
+  /**
+   * The per-component metadata.
+   *
+   * @typedef GainmapChannel
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 12
+   */
+  interface GainmapChannel {
+    /**
+     * The per-component max gain map values.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    gainmapMax: number;
+
+    /**
+     * The per-component min gain map values.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    gainmapMin: number;
+
+    /**
+     * The per-component gamma values.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    gamma: number;
+
+    /**
+     * The per-component baseline offset.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    baseOffset: number;
+
+    /**
+     * The per-component alternate offset.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    alternateOffset: number;
+  }
+
+  /**
+   * Values for HDR_GAINMAP_METADATA.
+   *
+   * @typedef HdrGainmapMetadata
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 12
+   */
+  interface HdrGainmapMetadata {
+    /**
+     * The version used by the writer.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    writerVersion: number;
+
+    /**
+     * The minimum version a parser needs to understand.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    miniVersion: number;
+
+    /**
+     * The number of gain map channels, with a value of 1 or 3.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    gainmapChannelCount: number;
+
+    /**
+     * Indicate whether to use the color space of the base image.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    useBaseColorFlag: boolean;
+
+    /**
+     * The baseline hdr headroom.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */    
+    baseHeadroom: number;
+
+    /**
+     * The alternate hdr headroom.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    alternateHeadroom: number;
+
+    /**
+     * The per-channel metadata.
+     *
+     * @type { Array<GainmapChannel> }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    channels: Array<GainmapChannel>;
+  }
+
+  /**
+   * Defines the hdr metadata value.
+   *
+   * @typedef {HdrMetadataType | HdrStaticMetadata | ArrayBuffer | HdrGainmapMetadata} HdrMetadataValue
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 12
+   */
+  type HdrMetadataValue = HdrMetadataType | HdrStaticMetadata | ArrayBuffer | HdrGainmapMetadata;
 
   /**
    * Create pixelmap by data buffer.
@@ -5558,6 +6043,40 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     scaleSync(x: number, y: number): void;
 
     /**
+     * Image zoom in width and height width with anti-aliasing. This method uses a promise to return the result.
+     *
+     * @param { number } x The zoom value of width.
+     * @param { number } y The zoom value of height.
+     * @param { AntiAliasingLevel } level The anti-aliasing algorithm to be used.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 12
+     */
+    scale(x: number, y: number, level: AntiAliasingLevel): Promise<void>;
+
+    /**
+     * Image zoom in width and height with anti-aliasing.
+     *
+     * @param { number } x The zoom value of width.
+     * @param { number } y The zoom value of height.
+     * @param { AntiAliasingLevel } level The anti-aliasing algorithm to be used.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    scaleSync(x: number, y: number, level: AntiAliasingLevel): void;
+
+    /**
      * Image position transformation. This method uses a callback to return the operation result.
      *
      * @param { number } x The position value of width.
@@ -6025,6 +6544,20 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform 
      * @since 11
      */
+     /**
+     * Set color space of pixel map.
+     * 
+     * This method is only used to set the colorspace property of pixelmap, while all pixel data remains the same after calling this method.
+     * If you want to change colorspace for all pixels, use method {@Link #applyColorSpace(colorSpaceManager.ColorSpaceManager)} or
+     * {@Link #applyColorSpace(colorSpaceManager.ColorSpaceManager, AsyncCallback<void>)}.
+     *
+     * @param { colorSpaceManager.ColorSpaceManager } colorSpace The color space for pixel map.
+     * @throws { BusinessError } 62980111 - The image source data is incomplete.
+     * @throws { BusinessError } 62980115 - If the image parameter invalid.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform 
+     * @since 12
+     */
     setColorSpace(colorSpace: colorSpaceManager.ColorSpaceManager): void;
 
     /**
@@ -6161,6 +6694,559 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 12
      */
     release(): Promise<void>;
+
+   /**
+     * Enables the PixelMap object to be transferred across threads and detaches the reference from the current
+     * thread upon transfer.
+     *
+     * @param { boolean } detached A boolean value indicating whether to enable or disable the transfer and
+     * detachment feature.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    setTransferDetached(detached: boolean): void;
+
+    /**
+     * Get metadata.
+     * 
+     * @param { HdrMetadataKey } key Type of metadata.
+     * @returns { HdrMetadataValue } Returns the value of metadata.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 501 - Resource unavailable.
+     * @throws { BusinessError } 62980173 - The DMA memory does not exist.
+     * @throws { BusinessError } 62980302 - Memory copy failed.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    getMetadata(key: HdrMetadataKey): HdrMetadataValue;
+
+    /**
+     * Set pixelmap memory name.
+     * 
+     * @param { string } name The name of the memory that needs to be set
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.The length of the input parameter is too long.
+     * 2.Parameter verification failed.
+     * @throws { BusinessError } 501 - Resource unavailable.
+     * @throws { BusinessError } 62980286 - Memory format not supported.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    setMemoryNameSync(name: string): void;
+
+    /**
+     * Set metadata.
+     * 
+     * @param { HdrMetadataKey } key Type of metadata.
+     * @param { HdrMetadataValue } value Value of metadata.
+     * @returns { Promise<void> } A Promise instance used to return the instance release result. If the operation fails,
+     * an error message is returned.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 501 - Resource unavailable.
+     * @throws { BusinessError } 62980173 - The DMA memory does not exist.
+     * @throws { BusinessError } 62980302 - Memory copy failed.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    setMetadata(key: HdrMetadataKey, value: HdrMetadataValue): Promise<void>;
+  }
+
+  /**
+   * Picture instance.
+   *
+   * @typedef Picture
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 13
+   */
+  interface Picture {
+    /**
+     * Obtains the pixel map of the main image.
+     *
+     * @returns { PixelMap } Returns the pixel map.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    getMainPixelmap(): PixelMap;
+
+    /**
+     * Obtains the hdr pixel map. This method uses a promise to return the PixelMap object.
+     *
+     * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
+     * @throws { BusinessError } 7600901 - Unknown error.
+     * @throws { BusinessError } 7600201 - Unsupported operation.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    getHdrComposedPixelmap(): Promise<PixelMap>;
+
+    /**
+     * Obtains the gain map pixel map.
+     * @returns { PixelMap | null } Returns the pixel map if the operation is successful; returns null otherwise.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    getGainmapPixelmap(): PixelMap | null;
+
+    /**
+     * Set auxiliary picture.
+     *
+     * @param { AuxiliaryPictureType } type The type of auxiliary picture.
+     * @param { AuxiliaryPicture } auxiliaryPicture AuxiliaryPicture object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    setAuxiliaryPicture(type: AuxiliaryPictureType, auxiliaryPicture: AuxiliaryPicture): void;
+
+    /**
+     * Obtains the auxiliary picture based on type.
+     *
+     * @param { AuxiliaryPictureType } type The type of auxiliary picture.
+     * @returns { AuxiliaryPicture | null } Returns the auxiliary picture object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    getAuxiliaryPicture(type: AuxiliaryPictureType): AuxiliaryPicture | null;
+
+    /**
+     * Set the metadata of main picture.
+     *
+     * @param { MetadataType } metadataType The type of metadata.
+     * @param { Metadata } metadata The metadata of main picture.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: Unsupported metadata type.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    setMetadata(metadataType: MetadataType, metadata: Metadata): Promise<void>
+
+    /**
+     * Obtains the metadata of main picture.
+     *
+     * @param { MetadataType } metadataType The type of metadata.
+     * @returns { Promise<Metadata> } Return the metadata of main picture.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: Unsupported metadata type.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    getMetadata(metadataType: MetadataType): Promise<Metadata>
+
+    /**
+     * Marshalling picture and write into MessageSequence.
+     *
+     * @param { rpc.MessageSequence } sequence rpc.MessageSequence parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 62980097 - IPC error.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    marshalling(sequence: rpc.MessageSequence): void
+
+    /**
+     * Releases this Picture object.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    release(): void
+  }
+
+  /**
+   * Create a Picture object by the pixel map of the main image.
+   *
+   * @param { PixelMap } mainPixelmap The pixel map of the main image.
+   * @returns { Picture } Returns the Picture object.
+   * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 13
+   */
+  function createPicture(mainPixelmap : PixelMap): Picture;
+
+  /**
+   * Creates a Picture object based on MessageSequence parameter.
+   *
+   * @param { rpc.MessageSequence } sequence - rpc.MessageSequence parameter.
+   * @returns { Picture } Returns the Picture object.
+   * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 62980097 - IPC error.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 13
+   */
+  function createPictureFromParcel(sequence: rpc.MessageSequence): Picture;
+
+  /**
+   * Create a AuxiliaryPicture object by data buffer.
+   *
+   * @param { ArrayBuffer } buffer The image data buffer.
+   * @param { Size } size The size of auxiliary picture.
+   * @param { AuxiliaryPictureType } type The type of auxiliary picture.
+   * @returns { AuxiliaryPicture } The AuxiliaryPicture object.
+   * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 13
+   */
+  function createAuxiliaryPicture(buffer: ArrayBuffer, size: Size, type: AuxiliaryPictureType): AuxiliaryPicture;
+
+  /**
+   * AuxiliaryPicture instance.
+   *
+   * @typedef AuxiliaryPicture
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 13
+   */
+  interface AuxiliaryPicture {
+    /**
+     * Reads auxiliary picture data in an ArrayBuffer and writes the data to a AuxiliaryPicture object. This method
+     * uses a promise to return the result.
+     *
+     * @param { ArrayBuffer } data A buffer from which the auxiliary picture data will be read.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an
+     * error message is returned.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 7600301 - Memory alloc failed.
+     * @throws { BusinessError } 7600302 - Memory copy failed.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    writePixelsFromBuffer(data: ArrayBuffer): Promise<void>;
+
+    /**
+     * Reads image pixel map data and writes the data to an ArrayBuffer. This method uses
+     * a promise to return the result.
+     *
+     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the pixel map data.
+     * @throws { BusinessError } 7600301 - Memory alloc failed.
+     * @throws { BusinessError } 7600302 - Memory copy failed.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    readPixelsToBuffer(): Promise<ArrayBuffer>;
+
+    /**
+     * Obtains the type of auxiliary picture.
+     *
+     * @returns { AuxiliaryPictureType } Returns the type of auxiliary picture.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    getType(): AuxiliaryPictureType;
+
+    /**
+     * Set the metadata of auxiliary picture.
+     *
+     * @param { MetadataType } metadataType The type of metadata.
+     * @param { Metadata } metadata The metadata of auxiliary picture.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
+     * metadata type does not match the auxiliary picture type.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    setMetadata(metadataType: MetadataType, metadata: Metadata): Promise<void>
+
+    /**
+     * Obtains the metadata of auxiliary picture.
+     *
+     * @param { MetadataType } metadataType The type of metadata.
+     * @returns { Promise<Metadata> } Return the metadata of auxiliary picture.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
+     * metadata type does not match the auxiliary picture type.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    getMetadata(metadataType: MetadataType): Promise<Metadata>
+
+    /**
+     * Obtains the information about this auxiliary picture.
+     *
+     * @returns { AuxiliaryPictureInfo } Returns the auxiliary picture information. If the operation fails, an error
+     * message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    getAuxiliaryPictureInfo(): AuxiliaryPictureInfo;
+
+    /**
+     * Set the information about this auxiliary picture.
+     *
+     * @param { AuxiliaryPictureInfo } info the auxiliary picture information.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    setAuxiliaryPictureInfo(info: AuxiliaryPictureInfo): void
+
+    /**
+     * Releases this AuxiliaryPicture object.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    release():void
+  }
+
+  /**
+   * Enumerates auxiliary picture type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 13
+   */
+  enum AuxiliaryPictureType {
+    /**
+     * Gain map.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    GAINMAP = 1,
+
+    /**
+     * Depth map.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    DEPTH_MAP = 2,
+
+    /**
+     * Unrefocus map.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    UNREFOCUS_MAP = 3,
+
+    /**
+     * Linear map.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    LINEAR_MAP = 4,
+
+    /**
+     * Fragment map.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    FRAGMENT_MAP = 5,
+  }
+
+  /**
+   * Enumerates metadata type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 13
+   */
+  enum MetadataType {
+    /**
+     * EXIF metadata.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    EXIF_METADATA = 1,
+
+    /**
+     * Fragment metadata. 
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    FRAGMENT_METADATA = 2,
+  }
+
+  /**
+   * Metadata instance.
+   *
+   * @typedef Metadata
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 13
+   */
+  interface Metadata {
+    /**
+     * Obtains the value of properties in an image. This method uses a promise to return the property values in array
+     * of records.
+     *
+     * @param { Array<string> } key Name of the properties whose value is to be obtained.
+     * @returns { Promise<Record<string, string | null>> } Array of Records instance used to return the property values.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
+     * metadata type does not match the auxiliary picture type.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    getProperties(key: Array<string>): Promise<Record<string, string | null>>
+
+    /**
+     * Modify the value of properties in an image with the specified keys.
+     *
+     * @param { Record<string, string | null> } records Array of the property Records whose values are to
+     * be modified.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
+     * metadata type does not match the auxiliary picture type.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    setProperties(records: Record<string, string | null>): Promise<void>
+
+    /**
+     * Obtains the value of all properties in an image. This method uses a promise to return the property values
+     * in array of records.
+     *
+     * @returns { Promise<Record<string, string | null>> } Array of Records instance used to return the property values.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    getAllProperties(): Promise<Record<string, string | null>>
+
+    /**
+     * Obtains a clone of metadata. This method uses a promise to return the metadata.
+     *
+     * @returns { Promise<Metadata> } A Promise instance used to return the metadata.
+     * @throws { BusinessError } 7600301 - Memory alloc failed.
+     * @throws { BusinessError } 7600302 - Memory copy failed.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    clone(): Promise<Metadata>
+  }
+
+  /**
+   * Enumerates fragment map information types of an image.
+   *
+   * @enum { string }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 13
+   */
+  enum FragmentMapPropertyKey {
+    /**
+     * The x-coordinate of the top left corner of the mark cup map in the original image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    X_IN_ORIGINAL = 'XInOriginal',
+
+    /**
+     * The y-coordinate of the top left corner of the mark cup map in the original image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    Y_IN_ORIGINAL = 'YInOriginal',
+
+    /**
+     * Mark cut map width.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    WIDTH = 'FragmentImageWidth',
+
+    /**
+     * Mark cut map width.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    HEIGHT = 'FragmentImageHeight'
+  }
+
+  /**
+   * Describes image decoding parameters.
+   *
+   * @typedef DecodingOptionsForPicture
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @since 13
+   */
+  interface DecodingOptionsForPicture {
+    /**
+     * Expected set of auxiliary picture types, default to decoding all auxiliary pictures.
+     *
+     * @type { Array<AuxiliaryPictureType> }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    desiredAuxiliaryPictures: Array<AuxiliaryPictureType>;
+  }
+
+   /**
+   * Describes auxiliary picture information.
+   *
+   * @typedef AuxiliaryPictureInfo
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 13
+   */
+  interface AuxiliaryPictureInfo {
+    /**
+     * Indicates auxiliary picture type.
+     *
+     * @type { AuxiliaryPictureType }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    auxiliaryPictureType: AuxiliaryPictureType;
+
+    /**
+     * Indicates image dimensions specified by a {@link Size} interface.
+     *
+     * @type { Size }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    size: Size;
+
+    /**
+     * The number of byte per row.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    rowStride: number;
+
+    /**
+     * Indicates image format.
+     *
+     * @type { PixelMapFormat }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+     pixelFormat: PixelMapFormat;
+
+    /**
+     * Indicates color space for pixel map.
+     *
+     * @type { colorSpaceManager.ColorSpaceManager }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+     colorSpace: colorSpaceManager.ColorSpaceManager;
   }
 
   /**
@@ -6491,6 +7577,33 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @since 10
      */
+     /**
+     * Creates a PixelMap array based on image decoding parameters. This method uses a promise to
+     * return the array.
+     *
+     * @param { DecodingOptions } options Image decoding parameters.
+     * @returns { Promise<Array<PixelMap>> } A Promise instance used to return the PixelMap array.
+     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980099 - The shared memory data is abnormal.
+     * @throws { BusinessError } 62980101 - The image data is abnormal.
+     * @throws { BusinessError } 62980103 - The image data is not supported.
+     * @throws { BusinessError } 62980106 - The image is too large.
+     * @throws { BusinessError } 62980109 - Failed to crop the image.
+     * @throws { BusinessError } 62980110 - The image source data is incorrect.
+     * @throws { BusinessError } 62980111 - The image source data is incomplete.
+     * @throws { BusinessError } 62980112 - The image format does not match.
+     * @throws { BusinessError } 62980113 - Unknown image format.
+     * @throws { BusinessError } 62980115 - Invalid image parameter.
+     * @throws { BusinessError } 62980116 - Failed to decode the image.
+     * @throws { BusinessError } 62980118 - Failed to create the image plugin.
+     * @throws { BusinessError } 62980122 - Failed to decode the image header.
+     * @throws { BusinessError } 62980137 - Invalid media operation.
+     * @throws { BusinessError } 62980173 - The DMA memory does not exist.
+     * @throws { BusinessError } 62980174 - The DMA memory data is abnormal.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 12
+     */
     createPixelMapList(options?: DecodingOptions): Promise<Array<PixelMap>>;
 
     /**
@@ -6517,6 +7630,31 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Creates a PixelMap array. This method uses a callback to return the array.
+     *
+     * @param { AsyncCallback<Array<PixelMap>> } callback Callback used to return the PixelMap array.
+     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980099 - The shared memory data is abnormal.
+     * @throws { BusinessError } 62980101 - The image data is abnormal.
+     * @throws { BusinessError } 62980103 - The image data is not supported.
+     * @throws { BusinessError } 62980106 - The image is too large.
+     * @throws { BusinessError } 62980109 - Failed to crop the image.
+     * @throws { BusinessError } 62980110 - The image source data is incorrect.
+     * @throws { BusinessError } 62980111 - The image source data is incomplete.
+     * @throws { BusinessError } 62980112 - The image format does not match.
+     * @throws { BusinessError } 62980113 - Unknown image format.
+     * @throws { BusinessError } 62980115 - Invalid image parameter.
+     * @throws { BusinessError } 62980116 - Failed to decode the image.
+     * @throws { BusinessError } 62980118 - Failed to create the image plugin.
+     * @throws { BusinessError } 62980122 - Failed to decode the image header.
+     * @throws { BusinessError } 62980137 - Invalid media operation.
+     * @throws { BusinessError } 62980173 - The DMA memory does not exist.
+     * @throws { BusinessError } 62980174 - The DMA memory data is abnormal.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 12
      */
     createPixelMapList(callback: AsyncCallback<Array<PixelMap>>): void;
 
@@ -6547,6 +7685,33 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @since 10
      */
+    /**
+     * Creates a PixelMap array based on image decoding parameters. This method uses a callback to
+     * return the array.
+     *
+     * @param { DecodingOptions } options Image decoding parameters.
+     * @param { AsyncCallback<Array<PixelMap>> } callback Callback used to return the PixelMap array.
+     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980099 - The shared memory data is abnormal.
+     * @throws { BusinessError } 62980101 - The image data is abnormal.
+     * @throws { BusinessError } 62980103 - The image data is not supported.
+     * @throws { BusinessError } 62980106 - The image is too large.
+     * @throws { BusinessError } 62980109 - Failed to crop the image.
+     * @throws { BusinessError } 62980110 - The image source data is incorrect.
+     * @throws { BusinessError } 62980111 - The image source data is incomplete.
+     * @throws { BusinessError } 62980112 - The image format does not match.
+     * @throws { BusinessError } 62980113 - Unknown image format.
+     * @throws { BusinessError } 62980115 - Invalid image parameter.
+     * @throws { BusinessError } 62980116 - Failed to decode the image.
+     * @throws { BusinessError } 62980118 - Failed to create the image plugin.
+     * @throws { BusinessError } 62980122 - Failed to decode the image header.
+     * @throws { BusinessError } 62980137 - Invalid media operation.
+     * @throws { BusinessError } 62980173 - The DMA memory does not exist.
+     * @throws { BusinessError } 62980174 - The DMA memory data is abnormal.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 12
+     */
     createPixelMapList(options: DecodingOptions, callback: AsyncCallback<Array<PixelMap>>): void;
 
     /**
@@ -6567,6 +7732,25 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Obtains the array of delay time in an image. This method uses a promise to return the array.
+     *
+     * @returns { Promise<Array<number>> } A Promise instance used to return the array.
+     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980110 - The image source data is incorrect.
+     * @throws { BusinessError } 62980111 - The image source data is incomplete.
+     * @throws { BusinessError } 62980112 - The image format does not match.
+     * @throws { BusinessError } 62980113 - Unknown image format.
+     * @throws { BusinessError } 62980115 - Invalid image parameter.
+     * @throws { BusinessError } 62980116 - Failed to decode the image.
+     * @throws { BusinessError } 62980118 - Failed to create the image plugin.
+     * @throws { BusinessError } 62980122 - Failed to decode the image header.
+     * @throws { BusinessError } 62980137 - Invalid media operation.
+     * @throws { BusinessError } 62980149 - Invalid MIME type for the image source.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 12
      */
     getDelayTimeList(): Promise<Array<number>>;
 
@@ -6589,6 +7773,25 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @since 10
      */
+    /**
+     * Obtains the array of delay time in an image. This method uses a callback to return the array.
+     *
+     * @param { AsyncCallback<Array<number>> } callback Callback used to return the array.
+     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980110 - The image source data is incorrect.
+     * @throws { BusinessError } 62980111 - The image source data is incomplete.
+     * @throws { BusinessError } 62980112 - The image format does not match.
+     * @throws { BusinessError } 62980113 - Unknown image format.
+     * @throws { BusinessError } 62980115 - Invalid image parameter.
+     * @throws { BusinessError } 62980116 - Failed to decode the image.
+     * @throws { BusinessError } 62980118 - Failed to create the image plugin.
+     * @throws { BusinessError } 62980122 - Failed to decode the image header.
+     * @throws { BusinessError } 62980137 - Invalid media operation.
+     * @throws { BusinessError } 62980149 - Invalid MIME type for the image source.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 12
+     */
     getDelayTimeList(callback: AsyncCallback<Array<number>>): void;
 
     /**
@@ -6598,7 +7801,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980096 - The operation failed.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980137 - Invalid media operation.
-     * @throws { BusinessError } 62980149 - Invalid image source mime type.
+     * @throws { BusinessError } 62980149 - Invalid MIME type for the image source.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 12
@@ -6623,6 +7826,24 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @since 10
      */
+    /**
+     * Obtains the count of frame in an image. This method uses a promise to return the number.
+     *
+     * @returns { Promise<number> } A Promise instance used to return the number.
+     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980110 - The image source data is incorrect.
+     * @throws { BusinessError } 62980111 - The image source data is incomplete.
+     * @throws { BusinessError } 62980112 - The image format does not match.
+     * @throws { BusinessError } 62980113 - Unknown image format.
+     * @throws { BusinessError } 62980115 - Invalid image parameter.
+     * @throws { BusinessError } 62980116 - Failed to decode the image.
+     * @throws { BusinessError } 62980118 - Failed to create the image plugin.
+     * @throws { BusinessError } 62980122 - Failed to decode the image header.
+     * @throws { BusinessError } 62980137 - Invalid media operation.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 12
+     */
     getFrameCount(): Promise<number>;
 
     /**
@@ -6642,6 +7863,24 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Obtains the count of frame in an image. This method uses a callback to return the number.
+     *
+     * @param { AsyncCallback<number> } callback Callback used to return the number.
+     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980110 - The image source data is incorrect.
+     * @throws { BusinessError } 62980111 - The image source data is incomplete.
+     * @throws { BusinessError } 62980112 - The image format does not match.
+     * @throws { BusinessError } 62980113 - Unknown image format.
+     * @throws { BusinessError } 62980115 - Invalid image parameter.
+     * @throws { BusinessError } 62980116 - Failed to decode the image.
+     * @throws { BusinessError } 62980118 - Failed to create the image plugin.
+     * @throws { BusinessError } 62980122 - Failed to decode the image header.
+     * @throws { BusinessError } 62980137 - Invalid media operation.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 12
      */
     getFrameCount(callback: AsyncCallback<number>): void;
 
@@ -6668,6 +7907,30 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Obtains the value of a property in an image with the specified index. This method uses a
+     * promise to return the property value in a string.
+     *
+     * @param { PropertyKey } key - Name of the property whose value is to be obtained.
+     * @param { ImagePropertyOptions } options - Index of the image.
+     * @returns { Promise<string> } A Promise instance used to return the property value. If the operation fails, the default value is returned.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;3.Parameter verification failed;
+     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980103 - The image data is not supported.
+     * @throws { BusinessError } 62980110 - The image source data is incorrect.
+     * @throws { BusinessError } 62980111 - The image source data is incomplete.
+     * @throws { BusinessError } 62980112 - The image format does not match.
+     * @throws { BusinessError } 62980113 - Unknown image format.
+     * @throws { BusinessError } 62980115 - Invalid image parameter.
+     * @throws { BusinessError } 62980116 - Failed to decode the image.
+     * @throws { BusinessError } 62980118 - Failed to create the image plugin.
+     * @throws { BusinessError } 62980122 - Failed to decode the image header.
+     * @throws { BusinessError } 62980123 - Images in EXIF format are not supported.
+     * @throws { BusinessError } 62980135 - The EXIF value is invalid.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 12
      */
     getImageProperty(key: PropertyKey, options?: ImagePropertyOptions): Promise<string>;
 
@@ -6784,6 +8047,22 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @since 11
      */
+    /**
+     * Modify the value of a property in an image with the specified key. This method uses a
+     * promise to return the property value in a string.
+     *
+     * @param { PropertyKey } key - Name of the property whose value is to be modified.
+     * @param { string } value - The value to be set to property.
+     * @returns { Promise<void> } A Promise instance used to return the property value.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
+     * @throws { BusinessError } 62980123 - The image does not support EXIF decoding.
+     * @throws { BusinessError } 62980133 - The EXIF data is out of range.
+     * @throws { BusinessError } 62980135 - The EXIF value is invalid.
+     * @throws { BusinessError } 62980146 - The EXIF data failed to be written to the file.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 12
+     */
     modifyImageProperty(key: PropertyKey, value: string): Promise<void>;
 
     /**
@@ -6848,7 +8127,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an
      * error message is returned.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed;
-     * @throws { BusinessError } 62980123 - Images in EXIF format are not supported.
+     * @throws { BusinessError } 62980123 - The image does not support EXIF decoding.
      * @throws { BusinessError } 62980133 - The EXIF data is out of range.
      * @throws { BusinessError } 62980135 - The EXIF value is invalid.
      * @throws { BusinessError } 62980146 - The EXIF data failed to be written to the file.
@@ -6971,6 +8250,20 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 10
      */
     release(): Promise<void>;
+
+    /**
+     * Creates a Picture object based on image decoding parameters. This method uses a promise to
+     * return the object.
+     *
+     * @param { DecodingOptionsForPicture } options Image decoding parameters.
+     * @returns { Promise<Picture> } A Promise instance used to return the Picture object.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 7700301 - Decode failed.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 13
+     */
+    createPicture(options?: DecodingOptionsForPicture): Promise<Picture>
 
     /**
      * Supported image formats.
@@ -7144,6 +8437,17 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     packing(source: PixelMap, option: PackingOption): Promise<ArrayBuffer>;
 
     /**
+     * Compresses or packs some images into an arraybuffer and uses a promise to return the result.
+     *
+     * @param { Array<PixelMap> } pixelmapSequence PixelMaps to be processed.
+     * @param { PackingOptionsForSequence } options Options for image packing.
+     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the operation result.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @since 13
+     */
+    packing(pixelmapSequence: Array<PixelMap>, options: PackingOptionsForSequence): Promise<ArrayBuffer>;
+
+    /**
      * Compresses or packs an image into a file and uses a callback to return the result.
      *
      * @param { ImageSource } source Image to be processed.
@@ -7195,6 +8499,18 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     packToFile(source: PixelMap, fd: number, options: PackingOption): Promise<void>;
 
+    /**
+     * Compresses or packs some images into a file and uses a promise to return the result.
+     *
+     * @param { Array<PixelMap> } pixelmapSequence PixelMaps to be processed.
+     * @param { number } fd ID of a file descriptor.
+     * @param { PackingOptionsForSequence } options Options for image packing.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @since 13
+     */
+    packToFile(pixelmapSequence: Array<PixelMap>, fd: number, options: PackingOptionsForSequence): Promise<void>;
+
      /**
      * Releases an ImagePacker instance and uses a callback to return the result.
      *
@@ -7228,6 +8544,35 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 10
      */
     release(): Promise<void>;
+
+    /**
+     * Compresses or packs an image and uses a promise to return the result.
+     *
+     * @param { Picture } picture Picture to be processed.
+     * @param { PackingOption } options Option for image packing.
+     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the compressed or packed data.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 7800301 - Encode failed.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @since 13
+     */
+    packing(picture: Picture, options: PackingOption): Promise<ArrayBuffer>;
+
+    /**
+     * Compresses or packs an image into a file and uses a promise to return the result.
+     *
+     * @param { Picture } picture Picture to be processed.
+     * @param { number } fd ID of a file descriptor.
+     * @param { PackingOption } options Options for image packing.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 7800301 - Encode failed.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @since 13
+     */
+    packToFile(picture: Picture, fd: number, options: PackingOption): Promise<void>
 
     /**
      * Supported image formats.
@@ -7432,6 +8777,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     on(type: 'imageArrival', callback: AsyncCallback<void>): void;
 
     /**
+     * Remove callback subscriptions when releasing buffer
+     *
+     * @param { 'imageArrival' } type - Event type.
+     * @param { AsyncCallback<void> } callback Callback to be removed.
+     * @syscap SystemCapability.Multimedia.Image.ImageReceiver
+     * @since 12
+     */
+    off(type: 'imageArrival', callback?: AsyncCallback<void>): void;
+
+    /**
      * Release image receiver instance and uses a callback to return the result.
      *
      * @param { AsyncCallback<void> } callback Callback to return the operation result.
@@ -7523,6 +8878,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 9
      */
     on(type: 'imageRelease', callback: AsyncCallback<void>): void;
+
+    /**
+     * Remove callback subscriptions when releasing buffer
+     *
+     * @param { 'imageRelease' } type - Event type.
+     * @param { AsyncCallback<void> } callback Callback to be removed.
+     * @syscap SystemCapability.Multimedia.Image.ImageCreator
+     * @since 12
+     */
+    off(type: 'imageRelease', callback?: AsyncCallback<void>): void;
 
     /**
      * Releases buffer in bufferqueue instance and uses a callback to return the result.

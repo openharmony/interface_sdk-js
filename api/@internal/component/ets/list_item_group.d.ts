@@ -120,6 +120,17 @@ declare interface ListItemGroupOptions {
   header?: CustomBuilder;
 
   /**
+    * Describes the ListItemGroup headerCompenent.
+    *
+    * @type { ?ComponentContent }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 13
+    */
+  headerComponent?: ComponentContent;
+
+  /**
    * Describes the ListItemGroup footer.
    *
    * @type { ?CustomBuilder }
@@ -144,6 +155,17 @@ declare interface ListItemGroupOptions {
    * @since 11
    */
   footer?: CustomBuilder;
+
+  /**
+    * Describes the ListItemGroup footerComponent.
+    *
+    * @type { ?ComponentContent }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 13
+    */
+  footerComponent?: ComponentContent;
 
   /**
    * Describes the ListItemGroup space.
@@ -312,13 +334,18 @@ declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute
    * @atomicservice
    * @since 11
    */
+  /**
+   * Called when the ListItemGroup split line style is set.
+   *
+   * @param { ListDividerOptions | null } value
+   * @returns { ListItemGroupAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   divider(
-    value: {
-      strokeWidth: Length;
-      color?: ResourceColor;
-      startMargin?: Length;
-      endMargin?: Length;
-    } | null,
+    value: ListDividerOptions | null,
   ): ListItemGroupAttribute;
 
   /**
@@ -328,6 +355,7 @@ declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute
    * @returns { ListItemGroupAttribute } the attribute of the ListItemGroup.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   childrenMainSize(value: ChildrenMainSize): ListItemGroupAttribute;

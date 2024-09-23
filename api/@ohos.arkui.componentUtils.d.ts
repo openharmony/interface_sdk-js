@@ -785,18 +785,20 @@ declare namespace componentUtils {
 
   /**
   * The matrix is column-first fourth-order matrix.
-  * @typedef Matrix4Result
+  * @typedef { [number, number, number, number, number, number, number, number, number, number, number, number, number, number, number, number] } Matrix4Result
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @since 10
   */
   /**
   * The matrix is column-first fourth-order matrix.
+  * @typedef { [number, number, number, number, number, number, number, number, number, number, number, number, number, number, number, number] } Matrix4Result
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
   * @since 11
   */
   /**
   * The matrix is column-first fourth-order matrix.
+  * @typedef { [number, number, number, number, number, number, number, number, number, number, number, number, number, number, number, number] } Matrix4Result
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
@@ -825,6 +827,7 @@ declare namespace componentUtils {
   * Provide the ability to obtain the coordinates and size of component drawing areas.
   * @param {string} id - component id.
   * @returns {ComponentInfo} the object of ComponentInfo.
+  * @throws { BusinessError } 100001 - UI execution context not found.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @since 10
@@ -833,6 +836,7 @@ declare namespace componentUtils {
   * Provide the ability to obtain the coordinates and size of component drawing areas.
   * @param {string} id - component id.
   * @returns {ComponentInfo} the object of ComponentInfo.
+  * @throws { BusinessError } 100001 - UI execution context not found.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice

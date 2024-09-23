@@ -183,6 +183,16 @@ declare namespace router {
      * @since 11
      */
     params?: Object;
+
+    /**
+     * Set router page stack can be recovered after application is destroyed. When router page stack is recovered,
+     * top page will be recovered, other page recovered when it backs. the default value is 'true'.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Lite
+     * @since 13
+     */
+    recoverable?: boolean;
   }
 
   /**
@@ -291,6 +301,7 @@ declare namespace router {
      * @type { Object }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     params: Object;
@@ -731,6 +742,7 @@ declare namespace router {
    * @param { Object } [params] - params of page.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
  function back(index: number, params?: Object): void;
@@ -817,6 +829,7 @@ declare namespace router {
    * @returns { RouterState | undefined } Page state.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
    function getStateByIndex(index: number): RouterState | undefined;
@@ -828,6 +841,7 @@ declare namespace router {
     * @returns { Array<RouterState> } Page state.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
+    * @atomicservice
     * @since 12
     */
    function getStateByUrl(url: string): Array<RouterState>;
@@ -994,6 +1008,16 @@ declare namespace router {
      * @since 11
      */
     params?: Object;
+
+    /**
+     * Set router page stack can be recovered after application is destroyed. When router page stack is recovered,
+     * top page will be recovered, other page recovered when it backs. the default value is 'true'.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Lite
+     * @since 13
+     */
+    recoverable?: boolean;
   }
 
   /**

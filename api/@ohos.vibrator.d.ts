@@ -431,6 +431,7 @@ declare namespace vibrator {
   /**
    * Vibrator id, default is 0.
    *
+   * @type { ?number }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @atomicservice
    * @since 11
@@ -446,11 +447,22 @@ declare namespace vibrator {
   /**
    * The use of vibration.
    *
+   * @type { Usage }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @atomicservice
    * @since 11
    */
     usage: Usage;
+
+  /**
+   * Indicates whether to bypass system management switches.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @systemapi
+   * @since 12
+   */
+    systemUsage?: boolean;
   }
 
   /**
@@ -502,6 +514,7 @@ declare namespace vibrator {
     /**
      * The value is "time", which triggers the motor vibration according to the specified duration.
      *
+     * @type { 'time' }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @atomicservice
      * @since 11
@@ -517,6 +530,7 @@ declare namespace vibrator {
     /**
      * The duration of the vibration, in ms.
      *
+     * @type { number }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @atomicservice
      * @since 11
@@ -535,6 +549,7 @@ declare namespace vibrator {
     /**
      * The value is "preset", which triggers motor vibration according to preset vibration effect.
      *
+     * @type { 'preset' }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 9
      */
@@ -543,6 +558,7 @@ declare namespace vibrator {
     /**
      * Preset type vibration.
      *
+     * @type { string }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 9
      */
@@ -584,6 +600,7 @@ declare namespace vibrator {
   /**
    * The value is "file", which triggers motor vibration according to the vibration profile.
    *
+   * @type { 'file' }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 10
    */
@@ -592,6 +609,7 @@ declare namespace vibrator {
   /**
    * Haptic file descriptor, some formats are supported.
    *
+   * @type { HapticFileDescriptor }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 10
    */
@@ -611,6 +629,7 @@ declare namespace vibrator {
      * The file descriptor of haptic effect source from file system. The caller
      * is responsible to close the file descriptor.
      *
+     * @type { number }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 10
      */
@@ -620,6 +639,7 @@ declare namespace vibrator {
      * The offset into the file where the data to be read, in bytes. By default,
      * the offset is zero.
      *
+     * @type { ?number }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 10
      */
@@ -629,6 +649,7 @@ declare namespace vibrator {
      * The length in bytes of the data to be read. By default, the length is the
      * rest of bytes in the file from the offset.
      *
+     * @type { ?number }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 10
      */

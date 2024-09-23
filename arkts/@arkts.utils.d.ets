@@ -365,6 +365,7 @@ declare namespace utils {
     * @param { ISendable | undefined | null } value - The value of the parsed key value pair.
     * @returns { ISendable | undefined | null } Return the modified ISendable or undefined or null.
     * @syscap SystemCapability.Utils.Lang
+    * @atomicservice
     * @since 12
     */
     type Transformer = (this: ISendable, key: string,
@@ -451,7 +452,7 @@ declare namespace utils {
       *
       * @syscap SystemCapability.Utils.Lang
       * @atomicservice
-      * @since 12
+      * @since 13
       */
       MAP = 1,
     }
@@ -484,5 +485,17 @@ declare namespace utils {
       parseReturnType: ParseReturnType;
     }
   }
+
+  /**
+  * Checks whether an ArkTS value is sendable.
+  * 
+  * @param { Object | null | undefined } value - The value to check.
+  * @returns { boolean } True if the value is sendable, false otherwise.
+  * @syscap SystemCapability.Utils.Lang
+  * @stagemodelonly
+  * @atomicservice
+  * @since 12
+  */
+  function isSendable(value: Object | null | undefined): boolean;
 }
 export default utils;

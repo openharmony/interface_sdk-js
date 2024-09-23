@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023 Huawei Device Co., Ltd.
+ * Copyright (C) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -28,6 +28,14 @@ import type baseProfile from './@ohos.bluetooth.baseProfile';
  * @syscap SystemCapability.Communication.Bluetooth.Core
  * @since 10
  */
+/**
+ * Provides methods to accessing bluetooth audio related capabilities.
+ *
+ * @namespace a2dp
+ * @syscap SystemCapability.Communication.Bluetooth.Core
+ * @crossplatform
+ * @since 13
+ */
 declare namespace a2dp {
   /**
    * Base interface of profile.
@@ -48,6 +56,17 @@ declare namespace a2dp {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10
    */
+  /**
+   * create the instance of a2dp profile.
+   *
+   * @returns { A2dpSourceProfile } Returns the instance of profile.
+   * @throws { BusinessError } 401 - Invalid parameter.Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @since 13
+   */
   function createA2dpSrcProfile(): A2dpSourceProfile;
 
   /**
@@ -56,6 +75,14 @@ declare namespace a2dp {
    * @typedef A2dpSourceProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10
+   */
+  /**
+   * Manager a2dp source profile.
+   *
+   * @typedef A2dpSourceProfile
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @since 13
    */
   interface A2dpSourceProfile extends BaseProfile {
     /**
@@ -69,8 +96,8 @@ declare namespace a2dp {
      * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
-     * @throws { BusinessError } 2900004 - Profile is not supported.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900004 - Profile not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
@@ -89,8 +116,8 @@ declare namespace a2dp {
      * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
-     * @throws { BusinessError } 2900004 - Profile is not supported.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900004 - Profile not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
@@ -109,8 +136,8 @@ declare namespace a2dp {
      * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
-     * @throws { BusinessError } 2900004 - Profile is not supported.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900004 - Profile not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
@@ -129,7 +156,7 @@ declare namespace a2dp {
      * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
@@ -149,7 +176,7 @@ declare namespace a2dp {
      * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
@@ -169,7 +196,7 @@ declare namespace a2dp {
      * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
@@ -189,7 +216,7 @@ declare namespace a2dp {
      * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
@@ -209,7 +236,7 @@ declare namespace a2dp {
      * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
@@ -229,7 +256,7 @@ declare namespace a2dp {
      * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
@@ -249,7 +276,7 @@ declare namespace a2dp {
      * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
@@ -269,7 +296,7 @@ declare namespace a2dp {
      * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
@@ -289,7 +316,7 @@ declare namespace a2dp {
      * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
@@ -309,7 +336,7 @@ declare namespace a2dp {
      * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
@@ -330,7 +357,7 @@ declare namespace a2dp {
      * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
@@ -350,7 +377,7 @@ declare namespace a2dp {
      * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
@@ -371,7 +398,7 @@ declare namespace a2dp {
      * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
@@ -391,6 +418,7 @@ declare namespace a2dp {
     /**
      * codec type
      *
+     * @type { CodecType }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 11
      */
@@ -398,6 +426,7 @@ declare namespace a2dp {
     /**
      * codec bits per sample.
      *
+     * @type { CodecBitsPerSample }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 11
      */
@@ -405,6 +434,7 @@ declare namespace a2dp {
     /**
      * codec channel mode.
      *
+     * @type { CodecChannelMode }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 11
      */
@@ -412,6 +442,7 @@ declare namespace a2dp {
     /**
      * codec sample rate.
      *
+     * @type { CodecSampleRate }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 11
      */
@@ -477,7 +508,21 @@ declare namespace a2dp {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 11
      */
-    CODEC_TYPE_L2HC = 2
+    CODEC_TYPE_L2HC = 2,
+    /**
+     * L2HCST.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 13
+     */
+    CODEC_TYPE_L2HCST = 3,
+    /**
+     * LDAC.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 13
+     */
+    CODEC_TYPE_LDAC = 4
   }
 
   /**

@@ -95,12 +95,14 @@ declare class TreeMap<K, V> {
   /**
    * Gets the element number of the hashmap.
    *
+   * @type { number }
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
   /**
    * Gets the element number of the hashmap.
    *
+   * @type { number }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -108,6 +110,7 @@ declare class TreeMap<K, V> {
   /**
    * Gets the element number of the hashmap.
    *
+   * @type { number }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice

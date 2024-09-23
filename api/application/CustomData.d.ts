@@ -27,7 +27,7 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
- * @since 12
+ * @since 13
  */
 export default interface CustomData {
     /**
@@ -38,7 +38,7 @@ export default interface CustomData {
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @systemapi
      * @stagemodelonly
-     * @since 12
+     * @since 13
      */
     data: Record<string, Object>;
   }

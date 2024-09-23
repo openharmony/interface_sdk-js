@@ -35,8 +35,9 @@
     "newDescription": "str: string, str3: string",
     "oldSyscapField": "",
     "newSyscapField": "",
-    "oldKitInfo": "",
-    "newKitInfo": "",
-    "isSystemapi": false
+    "oldKitInfo": "NA",
+    "newKitInfo": "NA",
+    "isSystemapi": false,
+    "isSameNameFunction": false
   }
 ]

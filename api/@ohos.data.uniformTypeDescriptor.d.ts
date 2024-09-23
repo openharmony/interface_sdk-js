@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -33,6 +33,15 @@
  * @atomicservice
  * @since 11
  */
+/**
+ * Provides methods for uniform data type definition and query.
+ *
+ * @namespace uniformTypeDescriptor
+ * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
 declare namespace uniformTypeDescriptor {
   /**
    * Uniform data type IDs.
@@ -48,6 +57,15 @@ declare namespace uniformTypeDescriptor {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Uniform data type IDs.
+   *
+   * @enum { string }
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 13
    */
   enum UniformDataType {
     /**
@@ -87,6 +105,14 @@ declare namespace uniformTypeDescriptor {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Text data type.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
     TEXT = 'general.text',
 
     /**
@@ -101,6 +127,14 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Plain text data type.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
      */
     PLAIN_TEXT = 'general.plain-text',
 
@@ -117,6 +151,14 @@ declare namespace uniformTypeDescriptor {
      * @atomicservice
      * @since 11
      */
+    /**
+     * HTML data type.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
     HTML = 'general.html',
 
     /**
@@ -131,6 +173,14 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Hyperlink data type.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
      */
     HYPERLINK = 'general.hyperlink',
 
@@ -418,7 +468,15 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
-     */    
+     */
+    /**
+     * Image data type.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
     IMAGE = 'general.image',
 
     /**
@@ -658,6 +716,14 @@ declare namespace uniformTypeDescriptor {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Video data type.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
     VIDEO = 'general.video',
 
     /**
@@ -792,6 +858,14 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Audio data type.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
      */
     AUDIO = 'general.audio',
 
@@ -968,6 +1042,14 @@ declare namespace uniformTypeDescriptor {
      * @atomicservice
      * @since 11
      */
+    /**
+     * File data type.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
     FILE = 'general.file',
 
     /**
@@ -990,6 +1072,14 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Folder data type.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
      */
     FOLDER = 'general.folder',
 
@@ -1452,6 +1542,14 @@ declare namespace uniformTypeDescriptor {
      * @atomicservice
      * @since 11
      */
+    /**
+     * OpenHarmony system defined pixel map data type(the data is provided and bound to OpenHarmony system).
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
     OPENHARMONY_PIXEL_MAP = 'openharmony.pixel-map',
 
     /**
@@ -1620,7 +1718,7 @@ declare namespace uniformTypeDescriptor {
      * @param { string } type - A uniform data type to be compared.
      * @returns { boolean } Returns true if the data type belongs to the given data type, else false.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect Parameters types.
+     * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
      */
@@ -1632,7 +1730,7 @@ declare namespace uniformTypeDescriptor {
      * @param { string } type - A uniform data type to be compared.
      * @returns { boolean } Returns true if the data type is the lower level type of the given data type, else false.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect Parameters types.
+     * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
      */
@@ -1644,7 +1742,7 @@ declare namespace uniformTypeDescriptor {
      * @param { string } type - A uniform data type to be compared.
      * @returns { boolean } Returns true if the data type is the higher level type of the given data type, else false.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect Parameters types.
+     * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
      */
@@ -1656,7 +1754,7 @@ declare namespace uniformTypeDescriptor {
      * @param { TypeDescriptor } typeDescriptor - A uniform type descriptor to be compared.
      * @returns { boolean } Returns true if the type descriptor is equal to the given type descriptor, else false.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect Parameters types.
+     * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 11
      */
@@ -1670,7 +1768,7 @@ declare namespace uniformTypeDescriptor {
    * @returns { TypeDescriptor } Returns the uniform type descriptor corresponding to the uniform data type ID or null
    * <br>if the uniform data type does not exist.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect Parameters types.
+   * <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 11
    */
@@ -1684,7 +1782,7 @@ declare namespace uniformTypeDescriptor {
    * @returns { string } Returns the uniform data type ID corresponding to the given filename extension and the
    * <br>uniform data type it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type does not exist.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect Parameters types.
+   * <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 11
    */
@@ -1698,11 +1796,39 @@ declare namespace uniformTypeDescriptor {
    * @returns { string } Returns the uniform data type ID corresponding to the given MIME type and the uniform data type
    * <br>it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type does not exist.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect Parameters types.
+   * <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 11
    */
   function getUniformDataTypeByMIMEType(mimeType: string, belongsTo?: string): string;
+
+  /**
+   * Queries and returns the uniform type descriptor list by the given filename extension and the uniform data type it belongs to.
+   *
+   * @param { string } filenameExtension - Filename extension.
+   * @param { string } [belongsTo] - A uniform data type ID it belongs to.
+   * @returns { Array<string> } Returns the uniform data type ID list corresponding to the given filename extension and the
+   * <br>uniform data type it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type does not exist.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect Parameters types.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 13
+   */
+  function getUniformDataTypesByFilenameExtension(filenameExtension: string, belongsTo?: string): Array<string>;
+
+  /**
+   * Queries and returns the uniform type descriptor list by the given MIME type and the uniform data type it belongs to.
+   *
+   * @param { string } mimeType - MIME type.
+   * @param { string } [belongsTo] - A uniform data type ID it belongs to.
+   * @returns { Array<string> } Returns the uniform data type ID list corresponding to the given MIME type and the uniform data type
+   * <br>it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type does not exist.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect Parameters types.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 13
+   */
+  function getUniformDataTypesByMIMEType(mimeType: string, belongsTo?: string): Array<string>;
 }
 
 export default uniformTypeDescriptor;

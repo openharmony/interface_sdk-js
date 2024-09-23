@@ -35,9 +35,10 @@
     "newDescription": "b: string, c: number, a: number",
     "oldSyscapField": "",
     "newSyscapField": "",
-    "oldKitInfo": "",
-    "newKitInfo": "",
-    "isSystemapi": false
+    "oldKitInfo": "NA",
+    "newKitInfo": "NA",
+    "isSystemapi": false,
+    "isSameNameFunction": false
   },
   {
     "apiType": "Method",
@@ -75,9 +76,10 @@
     "newDescription": "c: number",
     "oldSyscapField": "",
     "newSyscapField": "",
-    "oldKitInfo": "",
-    "newKitInfo": "",
-    "isSystemapi": false
+    "oldKitInfo": "NA",
+    "newKitInfo": "NA",
+    "isSystemapi": false,
+    "isSameNameFunction": false
   },
   {
     "apiType": "Method",
@@ -115,8 +117,9 @@
     "newDescription": "c: number",
     "oldSyscapField": "",
     "newSyscapField": "",
-    "oldKitInfo": "",
-    "newKitInfo": "",
-    "isSystemapi": false
+    "oldKitInfo": "NA",
+    "newKitInfo": "NA",
+    "isSystemapi": false,
+    "isSameNameFunction": false
   }
 ]

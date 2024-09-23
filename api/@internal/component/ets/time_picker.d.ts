@@ -287,6 +287,7 @@ interface TimePickerInterface {
  * @typedef { import('../api/@ohos.intl').default.DateTimeOptions } DateTimeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare type DateTimeOptions = import('../api/@ohos.intl').default.DateTimeOptions
@@ -434,6 +435,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @returns { TimePickerAttribute } the attribute of the time picker
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
   */
   dateTimeOptions(value: DateTimeOptions): TimePickerAttribute;
@@ -473,6 +475,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @param { boolean } enable - Default value is true, set false to disable haptic feedback.
    * @returns { TimePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   enableHapticFeedback(enable: boolean): TimePickerAttribute;
@@ -573,6 +576,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @type { ?PickerDialogButtonStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   acceptButtonStyle?: PickerDialogButtonStyle;
@@ -583,6 +587,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @type { ?PickerDialogButtonStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   cancelButtonStyle?: PickerDialogButtonStyle;
@@ -811,6 +816,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onWillAppear?: () => void;
@@ -821,6 +827,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onWillDisappear?: () => void;
@@ -831,6 +838,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @type { ?(ShadowOptions | ShadowStyle) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   shadow?: ShadowOptions | ShadowStyle;
@@ -841,9 +849,34 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @type { ?DateTimeOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   dateTimeOptions?: DateTimeOptions;
+
+  /**
+   * Defines whether to respond to the hover mode.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  enableHoverMode?: boolean;
+
+  /**
+   * Defines the dialog's display area in hover mode.
+   *
+   * @type { ?HoverModeAreaType }
+   * @default HoverModeAreaType.BOTTOM_SCREEN
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  hoverModeArea?: HoverModeAreaType;
 }
 
 /**

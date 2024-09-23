@@ -24,6 +24,7 @@
  * @interface FocusBoxStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface FocusBoxStyle {
@@ -33,6 +34,7 @@ declare interface FocusBoxStyle {
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   margin?: LengthMetrics;
@@ -42,6 +44,7 @@ declare interface FocusBoxStyle {
    * @type { ?ColorMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   strokeColor?: ColorMetrics;
@@ -51,6 +54,7 @@ declare interface FocusBoxStyle {
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   strokeWidth?: LengthMetrics;
@@ -62,6 +66,7 @@ declare interface FocusBoxStyle {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare enum FocusPriority {
@@ -70,6 +75,7 @@ declare enum FocusPriority {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   AUTO = 0,
@@ -79,6 +85,7 @@ declare enum FocusPriority {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   PRIOR = 2000,
@@ -88,6 +95,7 @@ declare enum FocusPriority {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   PREVIOUS = 3000,

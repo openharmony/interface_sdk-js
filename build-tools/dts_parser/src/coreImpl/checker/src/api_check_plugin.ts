@@ -28,7 +28,7 @@ import {
 } from '../../../typedef/checker/result_type';
 import { ClassInfo } from '../../../typedef/parser/ApiInfoDefination';
 import { Comment } from '../../../typedef/parser/Comment';
-import { compositiveResult, compositiveLocalResult, CommonFunctions } from '../../../utils/checkUtils';
+import { compositiveResult, compositiveLocalResult, CommonFunctions, cleanApiCheckResult } from '../../../utils/checkUtils';
 import { OrderCheck } from './tag_order_check';
 import { TagNameCheck } from './tag_name_check';
 import { LegalityCheck } from './tag_legality_check';
@@ -43,9 +43,9 @@ import { EventMethodChecker } from './event_method_check';
 import { EventMethodData } from '../../../typedef/checker/event_method_check_interface';
 import { ApiChangeCheck } from './check_api_diff';
 import { TagInheritCheck } from './tag_inherit_check';
-import { ChineseCheck } from "./check_chinese";
+import { ChineseCheck } from './check_chinese';
 import { AnonymousFunctionCheck } from './check_anonymous_function';
-import { CheckErrorCode } from "./check_error_code";
+import { CheckErrorCode } from './check_error_code';
 
 export let currentFilePath: string = '';
 
@@ -55,10 +55,11 @@ export class Check {
    * @param { string[] } files -File path for storing file information.
    */
   static scanEntry(files: string[], prId: string): void {
+    cleanApiCheckResult();
     ApiChangeCheck.checkApiChange(prId);
     files.forEach((filePath: string, index: number) => {
       currentFilePath = filePath;
-      if (filePath.indexOf('build-tools') !== -1) {
+      if (process.env.NODE_ENV !== "development" && filePath.indexOf('build-tools') !== -1) {
         return;
       }
       console.log(`scaning file in no ${++index}!`);
@@ -110,10 +111,11 @@ export class Check {
     // for all nodes of the current file
     allNodeInfos.forEach((singleApi: ApiInfo) => {
       const apiJsdoc: Comment.JsDocInfo | undefined = singleApi.getLastJsDocInfo();
+      const apiJsdocTextLength: number = singleApi.getJsDocText().length;
       if (singleApi.getApiType() === 'Method' && singleApi.getParentApi()?.apiType === 'Struct') {
         return;
       }
-      if (apiJsdoc === undefined) {
+      if (apiJsdoc === undefined || apiJsdocTextLength === 0) {
         const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
         errorBaseInfo
           .setErrorID(ErrorID.NO_JSDOC_ID)
@@ -125,7 +127,7 @@ export class Check {
           errorBaseInfo);
         AddErrorLogs.addAPICheckErrorLogs(apiInfoNojsdoc, compositiveResult, compositiveLocalResult);
       } else {
-        if (apiJsdoc.getKit().length === 0) {
+        if (apiJsdoc.getKit() === 'NA') {
           const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
           errorBaseInfo
             .setErrorID(ErrorID.WRONG_SCENE_ID)
@@ -137,7 +139,7 @@ export class Check {
             errorBaseInfo);
           AddErrorLogs.addAPICheckErrorLogs(apiInfoNoKit, compositiveResult, compositiveLocalResult);
         }
-        if (!apiJsdoc.getIsFile()) {
+        if (!apiJsdoc.getFileTagContent()) {
           const apiInfo: ApiCheckInfo = new ApiCheckInfo();
           const errorBaseInfo: ErrorBaseInfo = new ErrorBaseInfo();
           errorBaseInfo

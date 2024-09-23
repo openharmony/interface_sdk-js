@@ -31,6 +31,7 @@ import { AbilityInfo } from './abilityInfo';
  */
 export interface HapModuleInfo {
   /**
+   * @type { string }
    * @default Indicates the name of this hapmodule
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -38,6 +39,7 @@ export interface HapModuleInfo {
    */
   readonly name: string;
   /**
+   * @type { string }
    * @default Describes the hapmodule
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -45,6 +47,7 @@ export interface HapModuleInfo {
    */
   readonly description: string;
   /**
+   * @type { number }
    * @default Indicates the description of this hapmodule
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -52,6 +55,7 @@ export interface HapModuleInfo {
    */
   readonly descriptionId: number;
   /**
+   * @type { string }
    * @default Indicates the icon of this hapmodule
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -59,6 +63,7 @@ export interface HapModuleInfo {
    */
   readonly icon: string;
   /**
+   * @type { string }
    * @default Indicates the label of this hapmodule
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -66,6 +71,7 @@ export interface HapModuleInfo {
    */
   readonly label: string;
   /**
+   * @type { number }
    * @default Indicates the label id of this hapmodule
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -73,6 +79,7 @@ export interface HapModuleInfo {
    */
   readonly labelId: number;
   /**
+   * @type { number }
    * @default Indicates the icon id of this hapmodule
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -80,6 +87,7 @@ export interface HapModuleInfo {
    */
   readonly iconId: number;
   /**
+   * @type { string }
    * @default Indicates the background img of this hapmodule
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -87,6 +95,7 @@ export interface HapModuleInfo {
    */
   readonly backgroundImg: string;
   /**
+   * @type { number }
    * @default Indicates the supported modes of this hapmodule
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -94,6 +103,7 @@ export interface HapModuleInfo {
    */
   readonly supportedModes: number;
   /**
+   * @type { Array<string> }
    * @default Indicates the req capabilities of this hapmodule
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -101,6 +111,7 @@ export interface HapModuleInfo {
    */
   readonly reqCapabilities: Array<string>;
   /**
+   * @type { Array<string> }
    * @default The device types that this hapmodule can run on
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -108,6 +119,7 @@ export interface HapModuleInfo {
    */
   readonly deviceTypes: Array<string>;
   /**
+   * @type { Array<AbilityInfo> }
    * @default Obtains configuration information about ability
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -115,6 +127,7 @@ export interface HapModuleInfo {
    */
   readonly abilityInfo: Array<AbilityInfo>;
   /**
+   * @type { string }
    * @default Indicates the name of the .hap package to which the capability belongs
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -122,6 +135,7 @@ export interface HapModuleInfo {
    */
   readonly moduleName: string;
   /**
+   * @type { string }
    * @default Indicates the main ability name of this hapmodule
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -129,6 +143,7 @@ export interface HapModuleInfo {
    */
   readonly mainAbilityName: string;
   /**
+   * @type { boolean }
    * @default Indicates whether free installation of the hapmodule is supported
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7

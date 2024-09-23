@@ -777,6 +777,7 @@ declare namespace i18n {
     /**
      * Unit name.
      *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12
@@ -792,6 +793,7 @@ declare namespace i18n {
     /**
      * The measurement system of the unit.
      *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 12

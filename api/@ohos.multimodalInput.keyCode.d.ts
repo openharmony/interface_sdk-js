@@ -25,6 +25,14 @@
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9
  */
+/**
+ * KeyCode
+ *
+ * @enum { number }
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @atomicservice
+ * @since 12
+ */
 export declare enum KeyCode {
   /**
    * KEYCODE_FN
@@ -59,10 +67,25 @@ export declare enum KeyCode {
   KEYCODE_BACK = 2,
 
   /**
+   * KEYCODE_SEARCH
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 13
+   */
+  KEYCODE_SEARCH = 9,
+
+  /**
    * KEYCODE_MEDIA_PLAY_PAUSE
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
+   */
+  /**
+   * KEYCODE_MEDIA_PLAY_PAUSE
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @atomicservice
+   * @since 12
    */
   KEYCODE_MEDIA_PLAY_PAUSE = 10,
 
@@ -72,6 +95,13 @@ export declare enum KeyCode {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
+  /**
+   * KEYCODE_MEDIA_STOP
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @atomicservice
+   * @since 12
+   */
   KEYCODE_MEDIA_STOP = 11,
 
   /**
@@ -79,6 +109,13 @@ export declare enum KeyCode {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
+   */
+  /**
+   * KEYCODE_MEDIA_NEXT
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @atomicservice
+   * @since 12
    */
   KEYCODE_MEDIA_NEXT = 12,
 
@@ -88,6 +125,13 @@ export declare enum KeyCode {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
+  /**
+   * KEYCODE_MEDIA_PREVIOUS
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @atomicservice
+   * @since 12
+   */
   KEYCODE_MEDIA_PREVIOUS = 13,
 
   /**
@@ -96,6 +140,13 @@ export declare enum KeyCode {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
+  /**
+   * KEYCODE_MEDIA_REWIND
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @atomicservice
+   * @since 12
+   */
   KEYCODE_MEDIA_REWIND = 14,
 
   /**
@@ -103,6 +154,13 @@ export declare enum KeyCode {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
+   */
+  /**
+   * KEYCODE_MEDIA_FAST_FORWARD
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @atomicservice
+   * @since 12
    */
   KEYCODE_MEDIA_FAST_FORWARD = 15,
 
@@ -856,6 +914,13 @@ export declare enum KeyCode {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
+  /**
+   * KEYCODE_MEDIA_PLAY
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @atomicservice
+   * @since 12
+   */
   KEYCODE_MEDIA_PLAY = 2085,
 
   /**
@@ -863,6 +928,13 @@ export declare enum KeyCode {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
+   */
+  /**
+   * KEYCODE_MEDIA_PAUSE
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @atomicservice
+   * @since 12
    */
   KEYCODE_MEDIA_PAUSE = 2086,
 

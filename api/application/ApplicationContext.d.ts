@@ -165,7 +165,7 @@ export default class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12  
+   * @since 12
    */
   off(type: 'abilityLifecycle', callbackId: number): Promise<void>;
 
@@ -399,7 +399,7 @@ export default class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   killAllProcesses(clearPageStack: boolean): Promise<void>;
 
@@ -517,16 +517,12 @@ export default class ApplicationContext extends Context {
   /**
    * Set the state about whether the application supports process cache or not.
    *
-   * @permission ohos.permission.SET_PROCESS_CACHE_STATE
    * @param { boolean } isSupported - Indicates the process cache support state.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system App.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000200 - The supported process cache state cannot be set more than once.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
    * @stagemodelonly
    * @since 12
    */
@@ -557,4 +553,40 @@ export default class ApplicationContext extends Context {
    * @since 12
    */
   getCurrentAppCloneIndex(): number;
+
+  /**
+   * Set font size scale.
+   * @param {number} fontSizeScale - Font size scale.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 13
+   */
+  setFontSizeScale(fontSizeScale: number): void;
+
+  /**
+   * Get current app key of current running app instance.
+   *
+   * @returns { string } Returns the key of current running app instance.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000078 - The multi-instance is not supported.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 14
+   */
+  getCurrentInstanceKey(): string;
+
+  /**
+   * Get all running app instance key for current bundle
+   *
+   * @returns { Array<string> } Returns the array of all running app instance keys.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000078 - The multi-instance is not supported.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 14
+   */
+    getAllRunningInstanceKeys(): Promise<Array<string>>;
 }

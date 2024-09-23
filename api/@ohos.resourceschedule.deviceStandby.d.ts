@@ -192,6 +192,7 @@ declare namespace deviceStandby {
     /**
      * The set of resource types that an application requests.
      *
+     * @type { number }
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -201,6 +202,7 @@ declare namespace deviceStandby {
     /**
      * The application name.
      *
+     * @type { string }
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -210,6 +212,7 @@ declare namespace deviceStandby {
     /**
      * The exemption duration.
      *
+     * @type { number }
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -229,6 +232,7 @@ declare namespace deviceStandby {
     /**
      * The set of resource types that an application requests.
      *
+     * @type { number }
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -238,6 +242,7 @@ declare namespace deviceStandby {
     /**
      * The application uid.
      *
+     * @type { number }
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -247,6 +252,7 @@ declare namespace deviceStandby {
     /**
      * The application name.
      *
+     * @type { string }
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -256,6 +262,7 @@ declare namespace deviceStandby {
     /**
      * The exemption duration.
      *
+     * @type { number }
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -265,6 +272,7 @@ declare namespace deviceStandby {
     /**
      * The reason for the request.
      *
+     * @type { string }
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
      * @since 10

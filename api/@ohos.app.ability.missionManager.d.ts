@@ -28,7 +28,6 @@ import StartOptions from './@ohos.app.ability.StartOptions';
  * This module provides the capability to manage abilities and obtaining system task information.
  *
  * @namespace missionManager
- * @permission ohos.permission.MANAGE_MISSIONS
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
  * @since 9
@@ -500,7 +499,7 @@ declare namespace missionManager {
   /**
    * Mission information corresponding to ability.
    *
-   * @permission ohos.permission.MANAGE_MISSIONS
+   * @typedef { _MissionInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9
@@ -510,7 +509,7 @@ declare namespace missionManager {
   /**
    * MissionListener registered by app.
    *
-   * @permission ohos.permission.MANAGE_MISSIONS
+   * @typedef { _MissionListener }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9
@@ -520,7 +519,7 @@ declare namespace missionManager {
   /**
    * Mission snapshot corresponding to mission.
    *
-   * @permission ohos.permission.MANAGE_MISSIONS
+   * @typedef { _MissionSnapshot }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9

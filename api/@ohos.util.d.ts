@@ -394,6 +394,7 @@ declare namespace util {
    * @param { string } uuid - String that specifies a UUID
    * @returns { Uint8Array } Return a Uint8Array representing this UUID. Throw SyntaxError if parsing fails.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
+   * @throws { BusinessError } 10200002 - Invalid uuid string.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -468,6 +469,27 @@ declare namespace util {
   }
 
   /**
+   * Defines the decode with stream related options parameters.
+   *
+   * @interface DecodeToStringOptions
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  interface DecodeToStringOptions {
+    /**
+    * Stream option controls stream processing in decoding. The default value is false.
+    * @type { ?boolean }
+    * @syscap SystemCapability.Utils.Lang
+    * @crossplatform
+    * @atomicservice
+    * @since 12
+    */
+    stream?: boolean;
+  }
+
+  /**
    * The TextDecoder represents a text decoder that accepts a string as input,
    * decodes it in UTF-8 format, and outputs UTF-8 byte stream.
    *
@@ -518,12 +540,14 @@ declare namespace util {
     /**
      * The source encoding's name, lowercased.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 7
      */
     /**
      * The source encoding's name, lowercased.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -531,6 +555,7 @@ declare namespace util {
     /**
      * The source encoding's name, lowercased.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -541,12 +566,14 @@ declare namespace util {
     /**
      * Returns `true` if error mode is "fatal", and `false` otherwise.
      *
+     * @type { boolean }
      * @syscap SystemCapability.Utils.Lang
      * @since 7
      */
     /**
      * Returns `true` if error mode is "fatal", and `false` otherwise.
      *
+     * @type { boolean }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -554,6 +581,7 @@ declare namespace util {
     /**
      * Returns `true` if error mode is "fatal", and `false` otherwise.
      *
+     * @type { boolean }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -564,12 +592,14 @@ declare namespace util {
     /**
      * Returns `true` if ignore BOM flag is set, and `false` otherwise.
      *
+     * @type { false }
      * @syscap SystemCapability.Utils.Lang
      * @since 7
      */
     /**
      * Returns `true` if ignore BOM flag is set, and `false` otherwise.
      *
+     * @type { false }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -577,6 +607,7 @@ declare namespace util {
     /**
      * Returns `true` if ignore BOM flag is set, and `false` otherwise.
      *
+     * @type { false }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -688,8 +719,28 @@ declare namespace util {
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 12
+     * @useinstead ohos.util.decodeToString
      */
     decodeWithStream(input: Uint8Array, options?: DecodeWithStreamOptions): string;
+    /**
+     * The input is decoded and a string is returned.
+     * If options.stream is set to true, any incomplete byte sequences found at the end of the input are internally
+     * buffered and will be emitted after the next call to textDecoder.decodeToString().
+     * If textDecoder.fatal is set to true, any decoding errors that occur will result in a TypeError being thrown.
+     *
+     * @param { Uint8Array } input - Decoded numbers in accordance with the format.
+     * @param { DecodeToStringOptions } [options] - The default option is set to false.
+     * @returns { string } Return decoded text
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    decodeToString(input: Uint8Array, options?: DecodeToStringOptions): string;
   }
 
   /**
@@ -750,12 +801,14 @@ declare namespace util {
     /**
      * Encoding format.
      *
+     * @type { 'utf-8' }
      * @syscap SystemCapability.Utils.Lang
      * @since 7
      */
     /**
      * Encoding format.
      *
+     * @type { 'utf-8' }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -763,6 +816,7 @@ declare namespace util {
     /**
      * Encoding format.
      *
+     * @type { 'utf-8' }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -1433,6 +1487,7 @@ declare namespace util {
     /**
      * Obtains a list of all values in the current buffer.
      *
+     * @type { number }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      * @deprecated since 9
@@ -1689,6 +1744,7 @@ declare namespace util {
      * Default constructor used to create a new LruBuffer instance with the default capacity of 64.
      *
      * @param { number } [capacity] - Indicates the capacity to customize for the buffer.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -1754,12 +1810,14 @@ declare namespace util {
     /**
      * Obtains a list of all values in the current buffer.
      *
+     * @type { number }
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
     /**
      * Obtains a list of all values in the current buffer.
      *
+     * @type { number }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -1767,6 +1825,7 @@ declare namespace util {
     /**
      * Obtains a list of all values in the current buffer.
      *
+     * @type { number }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -3584,7 +3643,7 @@ declare namespace util {
      *
      * @param { Object } value - A included in the isAnyArrayBuffer value
      * @returns { boolean } Returns true if the value is an instance of one of the ArrayBuffer views,
-     * such as typed array objects or DataView. Equivalent to ArrayBuffer.isView().
+     * such as typed array objects or DataView.
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
@@ -3593,7 +3652,7 @@ declare namespace util {
      *
      * @param { Object } value - A included in the isAnyArrayBuffer value
      * @returns { boolean } Returns true if the value is an instance of one of the ArrayBuffer views,
-     * such as typed array objects or DataView. Equivalent to ArrayBuffer.isView().
+     * such as typed array objects or DataView.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -3603,7 +3662,7 @@ declare namespace util {
      *
      * @param { Object } value - A included in the isAnyArrayBuffer value
      * @returns { boolean } Returns true if the value is an instance of one of the ArrayBuffer views,
-     * such as typed array objects or DataView. Equivalent to ArrayBuffer.isView().
+     * such as typed array objects or DataView.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice

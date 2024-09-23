@@ -97,6 +97,84 @@ declare namespace usbManager {
   }
 
   /**
+   * USB Descriptor
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 14
+   */
+  enum Descriptor {
+    /**
+     * Interface descriptor
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 14
+     */
+    INTERFACE = 0,
+
+    /**
+     * Device descriptor
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 14
+     */
+    DEVICE = 1
+  }
+
+  /**
+   * USB device Type.
+   *
+   * @typedef UsbDeviceType
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 14
+   */
+  export interface UsbDeviceType {
+    /**
+     * The base class in USB class code information.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 14
+     */
+    baseClass: number;
+
+    /**
+     * The subclass in USB class code information.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 14
+     */
+    subClass: number;
+
+    /**
+     * The protocol in USB class code information.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 14
+     */
+    protocol: number;
+
+    /**
+     * The descriptor that the class code is used in.
+     *
+     * @type { Descriptor }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 14
+     */
+    descriptor: Descriptor;
+  }
+
+  /**
    * Set usb policy by {@link UsbPolicy}.
    * This function can be called by a super administrator.
    *
@@ -281,6 +359,66 @@ declare namespace usbManager {
    * @since 12
    */
   function getUsbStorageDeviceAccessPolicy(admin: Want): UsbPolicy;
+
+  /**
+   * Adds disallowed USB devices by {@link UsbDeviceType} array.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_USB
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { Array<UsbDeviceType> } usbDevices - list of USB device types.
+   *                                              The size of the array after setting cannot be greater 1000.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200010 - A conflict policy has been configured.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 14
+   */
+  function addDisallowedUsbDevices(admin: Want, usbDevices: Array<UsbDeviceType>): void;
+
+  /**
+   * Removes disallowed USB devices by {@link UsbDeviceType} array.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_USB
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { Array<UsbDeviceType> } usbDevices - list of USB device types.
+   *                                              The size of the array after setting cannot be greater 1000.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 14
+   */
+  function removeDisallowedUsbDevices(admin: Want, usbDevices: Array<UsbDeviceType>): void;
+
+  /**
+   * Gets the disallowed USB devices list.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_USB
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @returns { Array<UsbDeviceType> } USB device types that are disallowed.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 14
+   */
+  function getDisallowedUsbDevices(admin: Want): Array<UsbDeviceType>;
 }
 
 export default usbManager;

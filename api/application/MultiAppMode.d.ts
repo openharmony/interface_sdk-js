@@ -23,7 +23,7 @@
  * @enum { number }
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
- * @StageModelOnly
+ * @stagemodelonly
  * @since 12
  */
 export enum MultiAppMode {
@@ -32,17 +32,27 @@ export enum MultiAppMode {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   NOT_SUPPORTED = 0,
+
+  /**
+   * Indicates the type of multi instance.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @since 14
+   */
+  MULTI_INSTANCE = 1,
 
   /**
    * Indicates the type of app clone.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   APP_CLONE = 2

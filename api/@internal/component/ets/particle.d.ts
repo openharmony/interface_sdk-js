@@ -341,6 +341,7 @@ interface ParticleConfigs {
  * @interface EmitterProperty
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 interface EmitterProperty {
@@ -351,9 +352,10 @@ interface EmitterProperty {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
-  index : number;
+  index: number;
 
   /**
    * Emitter emission rate.
@@ -361,6 +363,7 @@ interface EmitterProperty {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   emitRate?: number;
@@ -371,6 +374,7 @@ interface EmitterProperty {
    * @type { ?PositionT<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   position?: PositionT<number>;
@@ -381,6 +385,7 @@ interface EmitterProperty {
    * @type { ?SizeT<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   size?: SizeT<number>;
@@ -494,6 +499,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     lifetimeRange?: number;
@@ -602,12 +608,16 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
 interface ParticlePropertyUpdaterConfigs<T> {
   /**
    * No effect of particle updater.
+   *
+   * @type { void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * No effect of particle updater.
+   *
+   * @type { void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -724,12 +734,16 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
 interface ParticleColorPropertyUpdaterConfigs {
   /**
    * No effect of particle color property updater.
+   *
+   * @type { void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * No effect of particle color property updater.
+   *
+   * @type { void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -818,6 +832,7 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
    * @default DistributionType.UNIFORM
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   distributionType?: DistributionType;
@@ -1122,6 +1137,7 @@ declare enum ParticleEmitterShape {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare enum DistributionType {
@@ -1130,6 +1146,7 @@ declare enum DistributionType {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   UNIFORM = 0,
@@ -1139,6 +1156,7 @@ declare enum DistributionType {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   GAUSSIAN = 1,
@@ -1206,27 +1224,27 @@ declare enum ParticleUpdater {
   CURVE = 'curve',
 }
 
- /**
+/**
  * Defines the SizeT type.
  *
- * @typedef { import('../../../../api/arkui/Graphics').SizeT<T> }
+ * @typedef { import('../api/arkui/Graphics').SizeT<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 12
  */
-declare type SizeT<T> = import('../../../../api/arkui/Graphics').SizeT<T>;
+declare type SizeT<T> = import('../api/arkui/Graphics').SizeT<T>;
 
  /**
  * Defines the PositionT type.
  *
- * @typedef { import('../../../../api/arkui/Graphics').PositionT<T> }
+ * @typedef { import('../api/arkui/Graphics').PositionT<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 12
  */
-declare type PositionT<T> = import('../../../../api/arkui/Graphics').PositionT<T>;
+declare type PositionT<T> = import('../api/arkui/Graphics').PositionT<T>;
 
 /**
  * Defines the Particle component attribute functions.
@@ -1244,6 +1262,17 @@ declare type PositionT<T> = import('../../../../api/arkui/Graphics').PositionT<T
  * @since 11
  */
 declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
+  /**
+   * Particle disturbance Field.
+   *
+   * @param { Array<DisturbanceFieldOptions> } fields - particle disturbance Field params.
+   * @returns { ParticleAttribute } Returns the particle attribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  disturbanceFields(fields: Array<DisturbanceFieldOptions>): ParticleAttribute;
 
   /**
    * Add particle animation component properties.
@@ -1256,18 +1285,6 @@ declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
    * @since 12
    */
   emitter(value : Array<EmitterProperty>) : ParticleAttribute;
-
-  /**
-   * Particle disturbance Field.
-   *
-   * @param { Array<DisturbanceFieldOptions> } fields - particle disturbance Field params.
-  * @returns { ParticleAttribute } Returns the particle attribute.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @atomicservice
-  * @since 12
-  */
-  disturbanceFields(fields: Array<DisturbanceFieldOptions>): ParticleAttribute;
 }
 
 /**
@@ -1290,6 +1307,7 @@ declare const Particle: ParticleInterface;
  * @interface DisturbanceFieldOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface DisturbanceFieldOptions {
@@ -1303,6 +1321,7 @@ declare interface DisturbanceFieldOptions {
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   strength?: number;
@@ -1314,6 +1333,7 @@ declare interface DisturbanceFieldOptions {
    * @default DisturbanceFieldShape.RECT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   shape?: DisturbanceFieldShape;
@@ -1325,6 +1345,7 @@ declare interface DisturbanceFieldOptions {
    * @default {width:0,height:0}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   size?: SizeT<number>;
@@ -1336,6 +1357,7 @@ declare interface DisturbanceFieldOptions {
    * @default {x:0,y:0}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   position?: PositionT<number>;
@@ -1351,6 +1373,7 @@ declare interface DisturbanceFieldOptions {
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   feather?: number;
@@ -1362,6 +1385,7 @@ declare interface DisturbanceFieldOptions {
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   noiseScale?: number;
@@ -1373,6 +1397,7 @@ declare interface DisturbanceFieldOptions {
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   noiseFrequency?: number;
@@ -1384,6 +1409,7 @@ declare interface DisturbanceFieldOptions {
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   noiseAmplitude?: number;
@@ -1395,6 +1421,7 @@ declare interface DisturbanceFieldOptions {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare enum DisturbanceFieldShape {
@@ -1404,6 +1431,7 @@ declare enum DisturbanceFieldShape {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   RECT,
@@ -1413,6 +1441,7 @@ declare enum DisturbanceFieldShape {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   CIRCLE,
@@ -1422,6 +1451,7 @@ declare enum DisturbanceFieldShape {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   ELLIPSE

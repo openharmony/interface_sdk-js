@@ -21,8 +21,10 @@
 /**
  * Import the drawing canvas type object for Canvas.
  *
+ * @typedef { import('../api/@ohos.graphics.drawing').default.Canvas } DrawingCanvas
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare type DrawingCanvas = import('../api/@ohos.graphics.drawing').default.Canvas;
@@ -33,6 +35,7 @@ declare type DrawingCanvas = import('../api/@ohos.graphics.drawing').default.Can
  * "evenodd": odd and even round rule
  * "nonzero": (Default) Non-zero Wrap Rules
  *
+ * @typedef { "evenodd" | "nonzero" } CanvasFillRule
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
@@ -42,9 +45,10 @@ declare type DrawingCanvas = import('../api/@ohos.graphics.drawing').default.Can
  * "evenodd": odd and even round rule
  * "nonzero": (Default) Non-zero Wrap Rules
  *
+ * @typedef { "evenodd" | "nonzero" } CanvasFillRule
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Filling style algorithm, which determines whether a point is within or outside the path. The following
@@ -52,10 +56,11 @@ declare type DrawingCanvas = import('../api/@ohos.graphics.drawing').default.Can
  * "evenodd": odd and even round rule
  * "nonzero": (Default) Non-zero Wrap Rules
  *
+ * @typedef { "evenodd" | "nonzero" } CanvasFillRule
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Filling style algorithm, which determines whether a point is within or outside the path. The following
@@ -63,11 +68,12 @@ declare type DrawingCanvas = import('../api/@ohos.graphics.drawing').default.Can
  * "evenodd": odd and even round rule
  * "nonzero": (Default) Non-zero Wrap Rules
  *
+ * @typedef { "evenodd" | "nonzero" } CanvasFillRule
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare type CanvasFillRule = "evenodd" | "nonzero";
 
@@ -78,6 +84,7 @@ declare type CanvasFillRule = "evenodd" | "nonzero";
  * "square": The end of the segment ends in a square, but a rectangular area is added that is the same width
  *    as the segment and is half the thickness of the segment.
  *
+ * @typedef { "butt" | "round" | "square" } CanvasLineCap
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
@@ -88,9 +95,10 @@ declare type CanvasFillRule = "evenodd" | "nonzero";
  * "square": The end of the segment ends in a square, but a rectangular area is added that is the same width
  *    as the segment and is half the thickness of the segment.
  *
+ * @typedef { "butt" | "round" | "square" } CanvasLineCap
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Specifies the attribute of drawing the end of each line segment. The following configurations are supported:
@@ -99,10 +107,11 @@ declare type CanvasFillRule = "evenodd" | "nonzero";
  * "square": The end of the segment ends in a square, but a rectangular area is added that is the same width
  *    as the segment and is half the thickness of the segment.
  *
+ * @typedef { "butt" | "round" | "square" } CanvasLineCap
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Specifies the attribute of drawing the end of each line segment. The following configurations are supported:
@@ -111,11 +120,12 @@ declare type CanvasFillRule = "evenodd" | "nonzero";
  * "square": The end of the segment ends in a square, but a rectangular area is added that is the same width
  *    as the segment and is half the thickness of the segment.
  *
+ * @typedef { "butt" | "round" | "square" } CanvasLineCap
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare type CanvasLineCap = "butt" | "round" | "square";
 
@@ -129,6 +139,7 @@ declare type CanvasLineCap = "butt" | "round" | "square";
  * "round": Draw the shape of the corner by filling in an additional sector with the center at the end of the
  *    connected section. The radius of the fillet is the width of the segment.
  *
+ * @typedef { "bevel" | "miter" | "round" } CanvasLineJoin
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
@@ -142,9 +153,10 @@ declare type CanvasLineCap = "butt" | "round" | "square";
  * "round": Draw the shape of the corner by filling in an additional sector with the center at the end of the
  *    connected section. The radius of the fillet is the width of the segment.
  *
+ * @typedef { "bevel" | "miter" | "round" } CanvasLineJoin
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Sets the attribute of how two connected parts (line segments, arcs, and curves) whose length is not 0
@@ -156,10 +168,11 @@ declare type CanvasLineCap = "butt" | "round" | "square";
  * "round": Draw the shape of the corner by filling in an additional sector with the center at the end of the
  *    connected section. The radius of the fillet is the width of the segment.
  *
+ * @typedef { "bevel" | "miter" | "round" } CanvasLineJoin
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Sets the attribute of how two connected parts (line segments, arcs, and curves) whose length is not 0
@@ -171,11 +184,12 @@ declare type CanvasLineCap = "butt" | "round" | "square";
  * "round": Draw the shape of the corner by filling in an additional sector with the center at the end of the
  *    connected section. The radius of the fillet is the width of the segment.
  *
+ * @typedef { "bevel" | "miter" | "round" } CanvasLineJoin
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare type CanvasLineJoin = "bevel" | "miter" | "round";
 
@@ -185,6 +199,7 @@ declare type CanvasLineJoin = "bevel" | "miter" | "round";
  * "ltr": The text direction is left to right.
  * "rtl": The text direction is from right to left.
  *
+ * @typedef { "inherit" | "ltr" | "rtl" } CanvasDirection
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
@@ -194,9 +209,10 @@ declare type CanvasLineJoin = "bevel" | "miter" | "round";
  * "ltr": The text direction is left to right.
  * "rtl": The text direction is from right to left.
  *
+ * @typedef { "inherit" | "ltr" | "rtl" } CanvasDirection
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Indicates the attribute of the current text direction. The options are as follows:
@@ -204,10 +220,11 @@ declare type CanvasLineJoin = "bevel" | "miter" | "round";
  * "ltr": The text direction is left to right.
  * "rtl": The text direction is from right to left.
  *
+ * @typedef { "inherit" | "ltr" | "rtl" } CanvasDirection
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Indicates the attribute of the current text direction. The options are as follows:
@@ -215,11 +232,12 @@ declare type CanvasLineJoin = "bevel" | "miter" | "round";
  * "ltr": The text direction is left to right.
  * "rtl": The text direction is from right to left.
  *
+ * @typedef { "inherit" | "ltr" | "rtl" } CanvasDirection
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare type CanvasDirection = "inherit" | "ltr" | "rtl";
 
@@ -233,6 +251,7 @@ declare type CanvasDirection = "inherit" | "ltr" | "rtl";
  * "start": (Default) Where the text snap line begins (Left alignment refers to the local from left to right,
  *    and right alignment refers to the local from right to left)
  *
+ * @typedef { "center" | "end" | "left" | "right" | "start" } CanvasTextAlign
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
@@ -246,9 +265,10 @@ declare type CanvasDirection = "inherit" | "ltr" | "rtl";
  * "start": (Default) Where the text snap line begins (Left alignment refers to the local from left to right,
  *    and right alignment refers to the local from right to left)
  *
+ * @typedef { "center" | "end" | "left" | "right" | "start" } CanvasTextAlign
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Describes the alignment mode for drawing text. The options are as follows:
@@ -260,10 +280,11 @@ declare type CanvasDirection = "inherit" | "ltr" | "rtl";
  * "start": (Default) Where the text snap line begins (Left alignment refers to the local from left to right,
  *    and right alignment refers to the local from right to left)
  *
+ * @typedef { "center" | "end" | "left" | "right" | "start" } CanvasTextAlign
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Describes the alignment mode for drawing text. The options are as follows:
@@ -275,11 +296,12 @@ declare type CanvasDirection = "inherit" | "ltr" | "rtl";
  * "start": (Default) Where the text snap line begins (Left alignment refers to the local from left to right,
  *    and right alignment refers to the local from right to left)
  *
+ * @typedef { "center" | "end" | "left" | "right" | "start" } CanvasTextAlign
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare type CanvasTextAlign = "center" | "end" | "left" | "right" | "start";
 
@@ -294,6 +316,7 @@ declare type CanvasTextAlign = "center" | "end" | "left" | "right" | "start";
  * "middle": The text baseline is in the middle of the text block.
  * "top": The text baseline is at the top of the text block.
  *
+ * @typedef { "alphabetic" | "bottom" | "hanging" | "ideographic" | "middle" | "top" } CanvasTextBaseline
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
@@ -308,9 +331,10 @@ declare type CanvasTextAlign = "center" | "end" | "left" | "right" | "start";
  * "middle": The text baseline is in the middle of the text block.
  * "top": The text baseline is at the top of the text block.
  *
+ * @typedef { "alphabetic" | "bottom" | "hanging" | "ideographic" | "middle" | "top" } CanvasTextBaseline
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Text baseline, which supports the following configurations:
@@ -323,10 +347,11 @@ declare type CanvasTextAlign = "center" | "end" | "left" | "right" | "start";
  * "middle": The text baseline is in the middle of the text block.
  * "top": The text baseline is at the top of the text block.
  *
+ * @typedef { "alphabetic" | "bottom" | "hanging" | "ideographic" | "middle" | "top" } CanvasTextBaseline
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Text baseline, which supports the following configurations:
@@ -339,11 +364,12 @@ declare type CanvasTextAlign = "center" | "end" | "left" | "right" | "start";
  * "middle": The text baseline is in the middle of the text block.
  * "top": The text baseline is at the top of the text block.
  *
+ * @typedef { "alphabetic" | "bottom" | "hanging" | "ideographic" | "middle" | "top" } CanvasTextBaseline
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare type CanvasTextBaseline = "alphabetic" | "bottom" | "hanging" | "ideographic" | "middle" | "top";
 
@@ -353,6 +379,7 @@ declare type CanvasTextBaseline = "alphabetic" | "bottom" | "hanging" | "ideogra
  * "low": (default)low
  * "medium": medium
  *
+ * @typedef { "high" | "low" | "medium" } ImageSmoothingQuality
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
@@ -362,9 +389,10 @@ declare type CanvasTextBaseline = "alphabetic" | "bottom" | "hanging" | "ideogra
  * "low": (default)low
  * "medium": medium
  *
+ * @typedef { "high" | "low" | "medium" } ImageSmoothingQuality
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Sets the image smoothness attribute. The options are as follows:
@@ -372,10 +400,11 @@ declare type CanvasTextBaseline = "alphabetic" | "bottom" | "hanging" | "ideogra
  * "low": (default)low
  * "medium": medium
  *
+ * @typedef { "high" | "low" | "medium" } ImageSmoothingQuality
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Sets the image smoothness attribute. The options are as follows:
@@ -383,11 +412,12 @@ declare type CanvasTextBaseline = "alphabetic" | "bottom" | "hanging" | "ideogra
  * "low": (default)low
  * "medium": medium
  *
+ * @typedef { "high" | "low" | "medium" } ImageSmoothingQuality
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare type ImageSmoothingQuality = "high" | "low" | "medium";
 
@@ -401,25 +431,25 @@ declare type ImageSmoothingQuality = "high" | "low" | "medium";
  * Opaque objects that describe gradients, created by createLinearGradient() or createRadialGradient()
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Opaque objects that describe gradients, created by createLinearGradient() or createRadialGradient()
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Opaque objects that describe gradients, created by createLinearGradient() or createRadialGradient()
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class CanvasGradient {
   /**
@@ -438,8 +468,8 @@ declare class CanvasGradient {
    * @param { string } color - CSS color value <color>. If the color value cannot be resolved to a valid CSS color value <color>
    *    a SYNTAX_ERR error is thrown.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Add a breakpoint defined by offset and color to the gradient
@@ -449,8 +479,8 @@ declare class CanvasGradient {
    *    a SYNTAX_ERR error is thrown.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Add a breakpoint defined by offset and color to the gradient
@@ -460,9 +490,9 @@ declare class CanvasGradient {
    *    a SYNTAX_ERR error is thrown.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   addColorStop(offset: number, color: string): void;
 }
@@ -477,25 +507,25 @@ declare class CanvasGradient {
  * Path object, which provides basic methods for drawing paths.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Path object, which provides basic methods for drawing paths.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Path object, which provides basic methods for drawing paths.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class CanvasPath {
   /**
@@ -522,8 +552,8 @@ declare class CanvasPath {
    * @param { boolean } counterclockwise - If the value is true, the arc is drawn counterclockwise. Otherwise,
    *    the arc is drawn clockwise. The default value is false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Draw an arc path
@@ -537,8 +567,8 @@ declare class CanvasPath {
    *    the arc is drawn clockwise. The default value is false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Draw an arc path
@@ -552,9 +582,9 @@ declare class CanvasPath {
    *    the arc is drawn clockwise. The default value is false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, counterclockwise?: boolean): void;
 
@@ -578,8 +608,8 @@ declare class CanvasPath {
    * @param { number } y2 - The y-axis coordinate of the second control point.
    * @param { number } radius - Radius of the arc.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Draw arc paths based on control points and radius
@@ -591,8 +621,8 @@ declare class CanvasPath {
    * @param { number } radius - Radius of the arc.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Draw arc paths based on control points and radius
@@ -604,9 +634,9 @@ declare class CanvasPath {
    * @param { number } radius - Radius of the arc.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   arcTo(x1: number, y1: number, x2: number, y2: number, radius: number): void;
 
@@ -632,8 +662,8 @@ declare class CanvasPath {
    * @param { number } x - x-axis coordinate of the end point.
    * @param { number } y - y-axis coordinate of the end point.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Drawing Cubic Bessel Curve Paths
@@ -646,8 +676,8 @@ declare class CanvasPath {
    * @param { number } y - y-axis coordinate of the end point.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Drawing Cubic Bessel Curve Paths
@@ -660,9 +690,9 @@ declare class CanvasPath {
    * @param { number } y - y-axis coordinate of the end point.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void;
 
@@ -676,25 +706,25 @@ declare class CanvasPath {
    * Returns the pen point to the start point of the current sub-path
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Returns the pen point to the start point of the current sub-path
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Returns the pen point to the start point of the current sub-path
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   closePath(): void;
 
@@ -728,8 +758,8 @@ declare class CanvasPath {
    * @param { boolean } counterclockwise - If the value is true, the ellipse is drawn counterclockwise. Otherwise,
    *    the ellipse is drawn clockwise. The default value is false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Draw an Elliptic Path
@@ -746,8 +776,8 @@ declare class CanvasPath {
    *    the ellipse is drawn clockwise. The default value is false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Draw an Elliptic Path
@@ -764,9 +794,9 @@ declare class CanvasPath {
    *    the ellipse is drawn clockwise. The default value is false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   ellipse(
     x: number,
@@ -793,8 +823,8 @@ declare class CanvasPath {
    * @param { number } x - The x-axis coordinate of the end point of the line.
    * @param { number } y - The y-axis coordinate of the end point of the line.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Connect sub-path using straight lines
@@ -803,8 +833,8 @@ declare class CanvasPath {
    * @param { number } y - The y-axis coordinate of the end point of the line.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Connect sub-path using straight lines
@@ -813,9 +843,9 @@ declare class CanvasPath {
    * @param { number } y - The y-axis coordinate of the end point of the line.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   lineTo(x: number, y: number): void;
 
@@ -833,8 +863,8 @@ declare class CanvasPath {
    * @param { number } x - The x-axis coordinate of the point.
    * @param { number } y - The y-axis coordinate of the point.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Moves the start point of a new sub-path to the (x, y) coordinate.
@@ -843,8 +873,8 @@ declare class CanvasPath {
    * @param { number } y - The y-axis coordinate of the point.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Moves the start point of a new sub-path to the (x, y) coordinate.
@@ -853,9 +883,9 @@ declare class CanvasPath {
    * @param { number } y - The y-axis coordinate of the point.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   moveTo(x: number, y: number): void;
 
@@ -877,8 +907,8 @@ declare class CanvasPath {
    * @param { number } x - x-axis coordinate of the end point.
    * @param { number } y - y-axis coordinate of the end point.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Draw quadratic Bezier curve paths
@@ -889,8 +919,8 @@ declare class CanvasPath {
    * @param { number } y - y-axis coordinate of the end point.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Draw quadratic Bezier curve paths
@@ -901,9 +931,9 @@ declare class CanvasPath {
    * @param { number } y - y-axis coordinate of the end point.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void;
 
@@ -925,8 +955,8 @@ declare class CanvasPath {
    * @param { number } w - Width of the rectangle.
    * @param { number } h - Height of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Draw Rectangular Paths
@@ -937,8 +967,8 @@ declare class CanvasPath {
    * @param { number } h - Height of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Draw Rectangular Paths
@@ -949,9 +979,9 @@ declare class CanvasPath {
    * @param { number } h - Height of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   rect(x: number, y: number, w: number, h: number): void;
 }
@@ -968,8 +998,8 @@ declare class CanvasPath {
  *
  * @extends CanvasPath
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * 2D path object for path drawing
@@ -977,8 +1007,8 @@ declare class CanvasPath {
  * @extends CanvasPath
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * 2D path object for path drawing
@@ -986,16 +1016,16 @@ declare class CanvasPath {
  * @extends CanvasPath
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class Path2D extends CanvasPath {
   /**
    * Adds a path according to the specified path variable.
    *
    * @param { Path2D } path - Indicates the path object to be added.
-   * @param { Matrix2D } transform - Transformation matrix of the new trail
+   * @param { Matrix2D } transform - Transformation matrix of the new trail. The default value is null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -1003,31 +1033,31 @@ declare class Path2D extends CanvasPath {
    * Adds a path according to the specified path variable.
    *
    * @param { Path2D } path - Indicates the path object to be added.
-   * @param { Matrix2D } transform - Transformation matrix of the new trail
+   * @param { Matrix2D } transform - Transformation matrix of the new trail. The default value is null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Adds a path according to the specified path variable.
    *
    * @param { Path2D } path - Indicates the path object to be added.
-   * @param { Matrix2D } transform - Transformation matrix of the new trail
+   * @param { Matrix2D } transform - Transformation matrix of the new trail. The default value is null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Adds a path according to the specified path variable.
    *
    * @param { Path2D } path - Indicates the path object to be added.
-   * @param { Matrix2D } transform - Transformation matrix of the new trail
+   * @param { Matrix2D } transform - Transformation matrix of the new trail. The default value is null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   addPath(path: Path2D, transform?: Matrix2D): void;
 
@@ -1041,25 +1071,25 @@ declare class Path2D extends CanvasPath {
    * Create an empty path object.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Create an empty path object.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Create an empty path object.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   constructor();
 
@@ -1070,6 +1100,7 @@ declare class Path2D extends CanvasPath {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   constructor(unit: LengthMetricsUnit);
@@ -1086,8 +1117,8 @@ declare class Path2D extends CanvasPath {
    *
    * @param { Path2D } path - Path object to be copied
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Create a copy of a path object
@@ -1095,8 +1126,8 @@ declare class Path2D extends CanvasPath {
    * @param { Path2D } path - Path object to be copied
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Create a copy of a path object
@@ -1104,9 +1135,9 @@ declare class Path2D extends CanvasPath {
    * @param { Path2D } path - Path object to be copied
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   constructor(path: Path2D);
 
@@ -1118,6 +1149,7 @@ declare class Path2D extends CanvasPath {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   constructor(path: Path2D, unit: LengthMetricsUnit);
@@ -1134,8 +1166,8 @@ declare class Path2D extends CanvasPath {
    *
    * @param { string } d - Indicates the path string that compiles with the SVG path description specifications.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Create a new path according to the description.
@@ -1143,8 +1175,8 @@ declare class Path2D extends CanvasPath {
    * @param { string } d - Indicates the path string that compiles with the SVG path description specifications.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Create a new path according to the description.
@@ -1152,9 +1184,9 @@ declare class Path2D extends CanvasPath {
    * @param { string } d - Indicates the path string that compiles with the SVG path description specifications.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   constructor(d: string);
 
@@ -1166,6 +1198,7 @@ declare class Path2D extends CanvasPath {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   constructor(description: string, unit: LengthMetricsUnit);
@@ -1183,8 +1216,8 @@ declare class Path2D extends CanvasPath {
  *
  * @interface CanvasPattern
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Describes an opaque object of a template, which is created using the createPattern() method.
@@ -1192,8 +1225,8 @@ declare class Path2D extends CanvasPath {
  * @interface CanvasPattern
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Describes an opaque object of a template, which is created using the createPattern() method.
@@ -1201,44 +1234,44 @@ declare class Path2D extends CanvasPath {
  * @interface CanvasPattern
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare interface CanvasPattern {
   /**
    * Adds the matrix transformation effect to the current template.
    *
-   * @param { Matrix2D } transform - transformation matrix
+   * @param { Matrix2D } transform - transformation matrix. The default value is null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Adds the matrix transformation effect to the current template.
    *
-   * @param { Matrix2D } transform - transformation matrix
+   * @param { Matrix2D } transform - transformation matrix. The default value is null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Adds the matrix transformation effect to the current template.
    *
-   * @param { Matrix2D } transform - transformation matrix
+   * @param { Matrix2D } transform - transformation matrix. The default value is null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Adds the matrix transformation effect to the current template.
    *
-   * @param { Matrix2D } transform - transformation matrix
+   * @param { Matrix2D } transform - transformation matrix. The default value is null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   setTransform(transform?: Matrix2D): void;
 }
@@ -1255,8 +1288,8 @@ declare interface CanvasPattern {
  *
  * @interface TextMetrics
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Size information of the text
@@ -1264,8 +1297,8 @@ declare interface CanvasPattern {
  * @interface TextMetrics
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Size information of the text
@@ -1273,9 +1306,9 @@ declare interface CanvasPattern {
  * @interface TextMetrics
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare interface TextMetrics {
   /**
@@ -1292,8 +1325,8 @@ declare interface TextMetrics {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Double, the distance from the horizontal line indicated by the textBaseline property to the top of
@@ -1302,8 +1335,8 @@ declare interface TextMetrics {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Double, the distance from the horizontal line indicated by the textBaseline property to the top of
@@ -1312,9 +1345,9 @@ declare interface TextMetrics {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   readonly actualBoundingBoxAscent: number;
 
@@ -1332,8 +1365,8 @@ declare interface TextMetrics {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Double, the distance from the horizontal line indicated by the textBaseline property to the bottom of
@@ -1342,8 +1375,8 @@ declare interface TextMetrics {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Double, the distance from the horizontal line indicated by the textBaseline property to the bottom of
@@ -1352,9 +1385,9 @@ declare interface TextMetrics {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   readonly actualBoundingBoxDescent: number;
 
@@ -1372,8 +1405,8 @@ declare interface TextMetrics {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Double, parallel to the baseline, distance from the alignment point determined by the textAlign property to
@@ -1382,8 +1415,8 @@ declare interface TextMetrics {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Double, parallel to the baseline, distance from the alignment point determined by the textAlign property to
@@ -1392,9 +1425,9 @@ declare interface TextMetrics {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   readonly actualBoundingBoxLeft: number;
 
@@ -1412,8 +1445,8 @@ declare interface TextMetrics {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Double, parallel to the baseline, distance from the alignment point determined by the textAlign property to
@@ -1422,8 +1455,8 @@ declare interface TextMetrics {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Double, parallel to the baseline, distance from the alignment point determined by the textAlign property to
@@ -1432,9 +1465,9 @@ declare interface TextMetrics {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   readonly actualBoundingBoxRight: number;
 
@@ -1452,8 +1485,8 @@ declare interface TextMetrics {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Double, the distance from the horizontal line indicated by the textBaseline property to the alphabetic baseline of
@@ -1462,8 +1495,8 @@ declare interface TextMetrics {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Double, the distance from the horizontal line indicated by the textBaseline property to the alphabetic baseline of
@@ -1472,9 +1505,9 @@ declare interface TextMetrics {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   readonly alphabeticBaseline: number;
 
@@ -1492,8 +1525,8 @@ declare interface TextMetrics {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Double, the distance from the horizontal line indicated by the textBaseline property to the top of the
@@ -1502,8 +1535,8 @@ declare interface TextMetrics {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Double, the distance from the horizontal line indicated by the textBaseline property to the top of the
@@ -1512,9 +1545,9 @@ declare interface TextMetrics {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   readonly emHeightAscent: number;
 
@@ -1532,8 +1565,8 @@ declare interface TextMetrics {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to the bottom of the
@@ -1542,8 +1575,8 @@ declare interface TextMetrics {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to the bottom of the
@@ -1552,9 +1585,9 @@ declare interface TextMetrics {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   readonly emHeightDescent: number;
 
@@ -1572,8 +1605,8 @@ declare interface TextMetrics {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to the top of the
@@ -1582,8 +1615,8 @@ declare interface TextMetrics {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to the top of the
@@ -1592,9 +1625,9 @@ declare interface TextMetrics {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   readonly fontBoundingBoxAscent: number;
 
@@ -1612,8 +1645,8 @@ declare interface TextMetrics {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to the bottom of the
@@ -1622,8 +1655,8 @@ declare interface TextMetrics {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to the bottom of the
@@ -1632,9 +1665,9 @@ declare interface TextMetrics {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   readonly fontBoundingBoxDescent: number;
 
@@ -1652,8 +1685,8 @@ declare interface TextMetrics {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to
@@ -1662,8 +1695,8 @@ declare interface TextMetrics {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to
@@ -1672,9 +1705,9 @@ declare interface TextMetrics {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   readonly hangingBaseline: number;
 
@@ -1692,8 +1725,8 @@ declare interface TextMetrics {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to
@@ -1702,8 +1735,8 @@ declare interface TextMetrics {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to
@@ -1712,9 +1745,9 @@ declare interface TextMetrics {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   readonly ideographicBaseline: number;
 
@@ -1730,8 +1763,8 @@ declare interface TextMetrics {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Indicates the width of a character string. The value is of the double type.
@@ -1739,8 +1772,8 @@ declare interface TextMetrics {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Indicates the width of a character string. The value is of the double type.
@@ -1748,9 +1781,9 @@ declare interface TextMetrics {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   readonly width: number;
 
@@ -1766,8 +1799,8 @@ declare interface TextMetrics {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Indicates the height of a character string. The value is of the double type.
@@ -1775,8 +1808,8 @@ declare interface TextMetrics {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Indicates the height of a character string. The value is of the double type.
@@ -1784,9 +1817,9 @@ declare interface TextMetrics {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   readonly height: number;
 }
@@ -1801,25 +1834,25 @@ declare interface TextMetrics {
  * Bitmap image object that can be drawn onto the current Canvas
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Bitmap image object that can be drawn onto the current Canvas
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Bitmap image object that can be drawn onto the current Canvas
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class ImageBitmap {
   /**
@@ -1834,8 +1867,8 @@ declare class ImageBitmap {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Indicates the height of the CSS pixel unit of ImageData.
@@ -1843,8 +1876,8 @@ declare class ImageBitmap {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Indicates the height of the CSS pixel unit of ImageData.
@@ -1852,9 +1885,9 @@ declare class ImageBitmap {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   readonly height: number;
 
@@ -1870,8 +1903,8 @@ declare class ImageBitmap {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Indicates the width of the CSS pixel unit of ImageData.
@@ -1879,8 +1912,8 @@ declare class ImageBitmap {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Indicates the width of the CSS pixel unit of ImageData.
@@ -1888,9 +1921,9 @@ declare class ImageBitmap {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   readonly width: number;
 
@@ -1904,25 +1937,25 @@ declare class ImageBitmap {
    * Releases all graphics resources associated with an ImageBitmap.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Releases all graphics resources associated with an ImageBitmap.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Releases all graphics resources associated with an ImageBitmap.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   close(): void;
 
@@ -1938,8 +1971,8 @@ declare class ImageBitmap {
    *
    * @param { string } src - Path of the image object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Create an ImageBitmap object based on the transferred image path.
@@ -1947,8 +1980,8 @@ declare class ImageBitmap {
    * @param { string } src - Path of the image object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Create an ImageBitmap object based on the transferred image path.
@@ -1956,9 +1989,9 @@ declare class ImageBitmap {
    * @param { string } src - Path of the image object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   constructor(src: string);
 
@@ -1970,6 +2003,7 @@ declare class ImageBitmap {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   constructor(src: string, unit: LengthMetricsUnit);
@@ -2007,6 +2041,7 @@ declare class ImageBitmap {
    * @param { LengthMetricsUnit } [unit] - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   constructor(data: PixelMap, unit: LengthMetricsUnit);
@@ -2022,25 +2057,25 @@ declare class ImageBitmap {
  * Image data object
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Image data object
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Image data object
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class ImageData {
   /**
@@ -2055,8 +2090,8 @@ declare class ImageData {
    *
    * @type { Uint8ClampedArray }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Array containing image pixel data
@@ -2064,8 +2099,8 @@ declare class ImageData {
    * @type { Uint8ClampedArray }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Array containing image pixel data
@@ -2073,9 +2108,9 @@ declare class ImageData {
    * @type { Uint8ClampedArray }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   readonly data: Uint8ClampedArray;
 
@@ -2091,8 +2126,8 @@ declare class ImageData {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Width of the image.
@@ -2100,8 +2135,8 @@ declare class ImageData {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Width of the image.
@@ -2109,9 +2144,9 @@ declare class ImageData {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   readonly height: number;
 
@@ -2127,8 +2162,8 @@ declare class ImageData {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Height of the image.
@@ -2136,8 +2171,8 @@ declare class ImageData {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Height of the image.
@@ -2145,9 +2180,9 @@ declare class ImageData {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   readonly width: number;
 
@@ -2167,8 +2202,8 @@ declare class ImageData {
    * @param { number } height - Height of the image.
    * @param { Uint8ClampedArray } data - Data of the image. If this parameter is not specified, the default value is a black rectangular image.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Create an ImageData object based on the input parameters.
@@ -2178,8 +2213,8 @@ declare class ImageData {
    * @param { Uint8ClampedArray } data - Data of the image. If this parameter is not specified, the default value is a black rectangular image.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Create an ImageData object based on the input parameters.
@@ -2189,9 +2224,9 @@ declare class ImageData {
    * @param { Uint8ClampedArray } data - Data of the image. If this parameter is not specified, the default value is a black rectangular image.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   constructor(width: number, height: number, data?: Uint8ClampedArray);
 
@@ -2205,6 +2240,7 @@ declare class ImageData {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   constructor(width: number, height: number, data?: Uint8ClampedArray, unit?: LengthMetricsUnit);
@@ -2220,25 +2256,25 @@ declare class ImageData {
  * This object allows you to set properties when creating a rendering context
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * This object allows you to set properties when creating a rendering context
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * This object allows you to set properties when creating a rendering context
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class RenderingContextSettings {
   /**
@@ -2253,8 +2289,8 @@ declare class RenderingContextSettings {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Indicates whether anti-aliasing is enabled for canvas. The default value is false.
@@ -2262,8 +2298,8 @@ declare class RenderingContextSettings {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Indicates whether anti-aliasing is enabled for canvas. The default value is false.
@@ -2271,9 +2307,9 @@ declare class RenderingContextSettings {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   antialias?: boolean;
 
@@ -2289,8 +2325,8 @@ declare class RenderingContextSettings {
    *
    * @param { boolean } antialias - Indicates whether anti-aliasing is enabled for canvas
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Create an RenderingContextSettings object based on the antialias and alpha.
@@ -2298,8 +2334,8 @@ declare class RenderingContextSettings {
    * @param { boolean } antialias - Indicates whether anti-aliasing is enabled for canvas
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Create an RenderingContextSettings object based on the antialias and alpha.
@@ -2307,9 +2343,9 @@ declare class RenderingContextSettings {
    * @param { boolean } antialias - Indicates whether anti-aliasing is enabled for canvas
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   constructor(antialias?: boolean);
 }
@@ -2326,8 +2362,8 @@ declare class RenderingContextSettings {
  *
  * @extends CanvasPath
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Canvas renderer for drawing shapes, text, images and other objects
@@ -2335,8 +2371,8 @@ declare class RenderingContextSettings {
  * @extends CanvasPath
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Canvas renderer for drawing shapes, text, images and other objects
@@ -2344,48 +2380,52 @@ declare class RenderingContextSettings {
  * @extends CanvasPath
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class CanvasRenderer extends CanvasPath {
   /**
    * Transparency. The value ranges from 0.0 (completely transparent) to 1.0 (completely opaque).
-   *    The default value is 1.0. If the value is out of range, the assignment is invalid.
+   *    If the value is out of range, the assignment is invalid.
    *
    * @type { number }
+   * @default 1.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Transparency. The value ranges from 0.0 (completely transparent) to 1.0 (completely opaque).
-   *    The default value is 1.0. If the value is out of range, the assignment is invalid.
+   *    If the value is out of range, the assignment is invalid.
    *
    * @type { number }
+   * @default 1.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Transparency. The value ranges from 0.0 (completely transparent) to 1.0 (completely opaque).
-   *    The default value is 1.0. If the value is out of range, the assignment is invalid.
+   *    If the value is out of range, the assignment is invalid.
    *
    * @type { number }
+   * @default 1.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Transparency. The value ranges from 0.0 (completely transparent) to 1.0 (completely opaque).
-   *    The default value is 1.0. If the value is out of range, the assignment is invalid.
+   *    If the value is out of range, the assignment is invalid.
    *
    * @type { number }
+   * @default 1.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   globalAlpha: number;
 
@@ -2407,6 +2447,7 @@ declare class CanvasRenderer extends CanvasPath {
    * xor: In the image, those overlaps and other places outside of the normal drawing are transparent.
    *
    * @type { string }
+   * @default source-over
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -2428,9 +2469,10 @@ declare class CanvasRenderer extends CanvasPath {
    * xor: In the image, those overlaps and other places outside of the normal drawing are transparent.
    *
    * @type { string }
+   * @default source-over
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Type of composition operation applied when drawing a new shape. The following types are supported:
@@ -2450,10 +2492,11 @@ declare class CanvasRenderer extends CanvasPath {
    * xor: In the image, those overlaps and other places outside of the normal drawing are transparent.
    *
    * @type { string }
+   * @default source-over
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Type of composition operation applied when drawing a new shape. The following types are supported:
@@ -2473,11 +2516,12 @@ declare class CanvasRenderer extends CanvasPath {
    * xor: In the image, those overlaps and other places outside of the normal drawing are transparent.
    *
    * @type { string }
+   * @default source-over
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   globalCompositeOperation: string;
 
@@ -2497,8 +2541,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } dx - x-axis coordinate of the upper left corner of the image on the target canvas.
    * @param { number } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Draw an image on a canvas
@@ -2508,8 +2552,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Draw an image on a canvas
@@ -2519,9 +2563,9 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } dy - y-axis coordinate of the upper left corner of the image on the target canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   drawImage(image: ImageBitmap | PixelMap, dx: number, dy: number): void;
 
@@ -2545,8 +2589,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } dw - Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
    * @param { number } dh - Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Draw an image on a canvas
@@ -2558,8 +2602,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } dh - Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Draw an image on a canvas
@@ -2571,9 +2615,9 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } dh - Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   drawImage(image: ImageBitmap | PixelMap, dx: number, dy: number, dw: number, dh: number): void;
 
@@ -2605,8 +2649,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } dw - Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
    * @param { number } dh - Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    *Draw an image on a canvas
@@ -2622,8 +2666,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } dh - Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    *Draw an image on a canvas
@@ -2639,9 +2683,9 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } dh - Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   drawImage(
     image: ImageBitmap | PixelMap,
@@ -2665,25 +2709,25 @@ declare class CanvasRenderer extends CanvasPath {
    * Clear the sub-path list and start a new path.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Clear the sub-path list and start a new path.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Clear the sub-path list and start a new path.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   beginPath(): void;
 
@@ -2699,8 +2743,8 @@ declare class CanvasRenderer extends CanvasPath {
    *
    * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Sets the currently created path as the current clipping path
@@ -2708,8 +2752,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Sets the currently created path as the current clipping path
@@ -2717,9 +2761,9 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   clip(fillRule?: CanvasFillRule): void;
 
@@ -2737,8 +2781,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { Path2D } path - Path to be cut.
    * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Tailoring according to the specified path
@@ -2747,8 +2791,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Tailoring according to the specified path
@@ -2757,9 +2801,9 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   clip(path: Path2D, fillRule?: CanvasFillRule): void;
 
@@ -2775,8 +2819,8 @@ declare class CanvasRenderer extends CanvasPath {
    *
    * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Fills existing paths according to the current fill style.
@@ -2784,8 +2828,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Fills existing paths according to the current fill style.
@@ -2793,9 +2837,9 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   fill(fillRule?: CanvasFillRule): void;
 
@@ -2813,8 +2857,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { Path2D } path - Path to be filled.
    * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Fills the specified path according to the current fill style
@@ -2823,8 +2867,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Fills the specified path according to the current fill style
@@ -2833,9 +2877,9 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { CanvasFillRule } fillRule - Algorithm rule. For details, see {@link CanvasFillRule}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   fill(path: Path2D, fillRule?: CanvasFillRule): void;
 
@@ -2849,25 +2893,25 @@ declare class CanvasRenderer extends CanvasPath {
    * Draws an existing path according to the current stroke style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Draws an existing path according to the current stroke style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Draws an existing path according to the current stroke style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   stroke(): void;
 
@@ -2883,8 +2927,8 @@ declare class CanvasRenderer extends CanvasPath {
    *
    * @param { Path2D } path - Specified stroke path object
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Draws the specified path according to the current stroke style
@@ -2892,8 +2936,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { Path2D } path - Specified stroke path object
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Draws the specified path according to the current stroke style
@@ -2901,109 +2945,117 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { Path2D } path - Specified stroke path object
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   stroke(path: Path2D): void;
 
   /**
-   * Attributes that describe the fill color and style. The default value is # 000 (black). The options are as follows:
+   * Attributes that describe the fill color and style. The options are as follows:
    * color: Color String
    * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
    *
    * @type { string | CanvasGradient | CanvasPattern }
+   * @default #000000 (black)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Attributes that describe the fill color and style. The default value is # 000 (black). The options are as follows:
+   * Attributes that describe the fill color and style. The options are as follows:
    * color: Color String
    * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
    *
    * @type { string | CanvasGradient | CanvasPattern }
+   * @default #000000 (black)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
-   * Attributes that describe the fill color and style. The default value is # 000 (black). The options are as follows:
+   * Attributes that describe the fill color and style. The options are as follows:
    *
    * @type { string | number | CanvasGradient | CanvasPattern }
    * string: Color String.
    * number: Indicates the color with number.
    * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
+   * @default #000000 (black)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
-   * Attributes that describe the fill color and style. The default value is # 000 (black). The options are as follows:
+   * Attributes that describe the fill color and style. The options are as follows:
    *
    * @type { string | number | CanvasGradient | CanvasPattern }
    * string: Color String.
    * number: Indicates the color with number.
    * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
+   * @default #000000 (black)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   fillStyle: string | number | CanvasGradient | CanvasPattern;
 
   /**
-   * Attributes of the stroke color and style. The default value is # 000 (black). The options are as follows:
+   * Attributes of the stroke color and style. The options are as follows:
    * color: Color String
    * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
    *
    * @type { string | CanvasGradient | CanvasPattern }
+   * @default #000000 (black)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Attributes of the stroke color and style. The default value is # 000 (black). The options are as follows:
+   * Attributes of the stroke color and style. The options are as follows:
    * color: Color String
    * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
    *
    * @type { string | CanvasGradient | CanvasPattern }
+   * @default #000000 (black)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
-   * Attributes of the stroke color and style. The default value is # 000 (black). The options are as follows:
+   * Attributes of the stroke color and style. The options are as follows:
    *
    * @type { string | number | CanvasGradient | CanvasPattern }
    * string: Color String.
    * number: Indicates the color with number.
    * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
+   * @default #000000 (black)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
-   * Attributes of the stroke color and style. The default value is # 000 (black). The options are as follows:
+   * Attributes of the stroke color and style. The options are as follows:
    *
    * @type { string | number | CanvasGradient | CanvasPattern }
    * string: Color String.
    * number: Indicates the color with number.
    * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
+   * @default #000000 (black)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   strokeStyle: string | number | CanvasGradient | CanvasPattern;
 
@@ -3027,8 +3079,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } y1 - y-axis coordinate of the end point.
    * @returns { CanvasGradient }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Creates a linear gradient object that is specified along the parameter coordinates
@@ -3040,8 +3092,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @returns { CanvasGradient }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Creates a linear gradient object that is specified along the parameter coordinates
@@ -3053,9 +3105,9 @@ declare class CanvasRenderer extends CanvasPath {
    * @returns { CanvasGradient }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   createLinearGradient(x0: number, y0: number, x1: number, y1: number): CanvasGradient;
 
@@ -3083,8 +3135,8 @@ declare class CanvasRenderer extends CanvasPath {
    * "no-repeat": Non-repeating images in both X and Y directions
    * @returns { CanvasPattern | null }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Creates a template object using the specified image
@@ -3100,8 +3152,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @returns { CanvasPattern | null }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Creates a template object using the specified image
@@ -3117,9 +3169,9 @@ declare class CanvasRenderer extends CanvasPath {
    * @returns { CanvasPattern | null }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   createPattern(image: ImageBitmap, repetition: string | null): CanvasPattern | null;
 
@@ -3147,8 +3199,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } r1 - Radius of the end circle.
    * @returns { CanvasGradient }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Creates a radioactive gradient object based on parameters that determine the coordinates of two circles
@@ -3162,8 +3214,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @returns { CanvasGradient }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Creates a radioactive gradient object based on parameters that determine the coordinates of two circles
@@ -3177,9 +3229,9 @@ declare class CanvasRenderer extends CanvasPath {
    * @returns { CanvasGradient }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   createRadialGradient(x0: number, y0: number, r0: number, x1: number, y1: number, r1: number): CanvasGradient;
 
@@ -3234,6 +3286,7 @@ declare class CanvasRenderer extends CanvasPath {
    * none: Turn off filter effects
    *
    * @type { string }
+   * @default none
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -3257,9 +3310,10 @@ declare class CanvasRenderer extends CanvasPath {
    * none: Turn off filter effects
    *
    * @type { string }
+   * @default none
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Provides filter effects such as blur and grayscale. You can set the following filter effects:
@@ -3281,10 +3335,11 @@ declare class CanvasRenderer extends CanvasPath {
    * none: Turn off filter effects
    *
    * @type { string }
+   * @default none
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Provides filter effects such as blur and grayscale. You can set the following filter effects:
@@ -3306,11 +3361,12 @@ declare class CanvasRenderer extends CanvasPath {
    * none: Turn off filter effects
    *
    * @type { string }
+   * @default none
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   filter: string;
 
@@ -3330,8 +3386,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } sh - Height of the ImageData object.
    * @returns { ImageData }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Creates a new, empty ImageData object of the specified size
@@ -3341,8 +3397,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @returns { ImageData }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Creates a new, empty ImageData object of the specified size
@@ -3352,9 +3408,9 @@ declare class CanvasRenderer extends CanvasPath {
    * @returns { ImageData }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   createImageData(sw: number, sh: number): ImageData;
 
@@ -3374,8 +3430,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { ImageData } imagedata - ImageData object to be copied.
    * @returns { ImageData }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * From an existing ImageData object, copy an object with the same width and height as the image.
@@ -3385,8 +3441,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @returns { ImageData }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * From an existing ImageData object, copy an object with the same width and height as the image.
@@ -3396,9 +3452,9 @@ declare class CanvasRenderer extends CanvasPath {
    * @returns { ImageData }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   createImageData(imagedata: ImageData): ImageData;
 
@@ -3422,8 +3478,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } sh - The height of the rectangular area of the image data to be extracted.
    * @returns { ImageData }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Obtains the pixel data of a specified area on the current canvas.
@@ -3435,8 +3491,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @returns { ImageData }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Obtains the pixel data of a specified area on the current canvas.
@@ -3448,9 +3504,9 @@ declare class CanvasRenderer extends CanvasPath {
    * @returns { ImageData }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   getImageData(sx: number, sy: number, sw: number, sh: number): ImageData;
 
@@ -3508,8 +3564,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
    * @param { number } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Draws the specified ImageData object onto the canvas
@@ -3519,8 +3575,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number | string } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Draws the specified ImageData object onto the canvas
@@ -3530,9 +3586,9 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number | string } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   putImageData(imagedata: ImageData, dx: number | string, dy: number | string): void;
 
@@ -3568,8 +3624,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } dirtyHeight - Height of the rectangular area in the source image data.
    *    The default is the height of the image data.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Draws the specified ImageData object onto the canvas
@@ -3587,8 +3643,8 @@ declare class CanvasRenderer extends CanvasPath {
    *    The default is the height of the image data.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Draws the specified ImageData object onto the canvas
@@ -3606,9 +3662,9 @@ declare class CanvasRenderer extends CanvasPath {
    *    The default is the height of the image data.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   putImageData(
     imagedata: ImageData,
@@ -3621,42 +3677,46 @@ declare class CanvasRenderer extends CanvasPath {
   ): void;
 
   /**
-   * Specifies whether to smooth the image. The value true indicates that the image is smooth (default value).
+   * Specifies whether to smooth the image. The value true indicates that the image is smooth.
    *    The value false indicates that the image is not smooth.
    *
    * @type { boolean }
+   * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Specifies whether to smooth the image. The value true indicates that the image is smooth (default value).
+   * Specifies whether to smooth the image. The value true indicates that the image is smooth.
    *    The value false indicates that the image is not smooth.
    *
    * @type { boolean }
+   * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
-   * Specifies whether to smooth the image. The value true indicates that the image is smooth (default value).
+   * Specifies whether to smooth the image. The value true indicates that the image is smooth.
    *    The value false indicates that the image is not smooth.
    *
    * @type { boolean }
+   * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
-   * Specifies whether to smooth the image. The value true indicates that the image is smooth (default value).
+   * Specifies whether to smooth the image. The value true indicates that the image is smooth.
    *    The value false indicates that the image is not smooth.
    *
    * @type { boolean }
+   * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   imageSmoothingEnabled: boolean;
 
@@ -3664,6 +3724,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Smoothness level of the current image. For details, see {@link ImageSmoothingQuality}.
    *
    * @type { ImageSmoothingQuality }
+   * @default low
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -3671,28 +3732,31 @@ declare class CanvasRenderer extends CanvasPath {
    * Smoothness level of the current image. For details, see {@link ImageSmoothingQuality}.
    *
    * @type { ImageSmoothingQuality }
+   * @default low
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Smoothness level of the current image. For details, see {@link ImageSmoothingQuality}.
    *
    * @type { ImageSmoothingQuality }
+   * @default low
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Smoothness level of the current image. For details, see {@link ImageSmoothingQuality}.
    *
    * @type { ImageSmoothingQuality }
+   * @default low
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   imageSmoothingQuality: ImageSmoothingQuality;
 
@@ -3700,6 +3764,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Line segment endpoint attribute. For details, see {@link CanvasLineCap}.
    *
    * @type { CanvasLineCap }
+   * @default butt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -3707,64 +3772,71 @@ declare class CanvasRenderer extends CanvasPath {
    * Line segment endpoint attribute. For details, see {@link CanvasLineCap}.
    *
    * @type { CanvasLineCap }
+   * @default butt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Line segment endpoint attribute. For details, see {@link CanvasLineCap}.
    *
    * @type { CanvasLineCap }
+   * @default butt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Line segment endpoint attribute. For details, see {@link CanvasLineCap}.
    *
    * @type { CanvasLineCap }
+   * @default butt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   lineCap: CanvasLineCap;
 
   /**
-   * Dotted line offset attribute. The default value is 0.0.
+   * Dotted line offset attribute.
    *
    * @type { number }
+   * @default 0.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Dotted line offset attribute. The default value is 0.0.
+   * Dotted line offset attribute.
    *
    * @type { number }
+   * @default 0.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
-   * Dotted line offset attribute. The default value is 0.0.
+   * Dotted line offset attribute.
    *
    * @type { number }
+   * @default 0.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
-   * Dotted line offset attribute. The default value is 0.0.
+   * Dotted line offset attribute.
    *
    * @type { number }
+   * @default 0.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   lineDashOffset: number;
 
@@ -3772,6 +3844,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Line segment connection point attribute. For details, see {@link CanvasLineJoin}.
    *
    * @type { CanvasLineJoin }
+   * @default miter
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -3779,28 +3852,31 @@ declare class CanvasRenderer extends CanvasPath {
    * Line segment connection point attribute. For details, see {@link CanvasLineJoin}.
    *
    * @type { CanvasLineJoin }
+   * @default miter
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Line segment connection point attribute. For details, see {@link CanvasLineJoin}.
    *
    * @type { CanvasLineJoin }
+   * @default miter
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Line segment connection point attribute. For details, see {@link CanvasLineJoin}.
    *
    * @type { CanvasLineJoin }
+   * @default miter
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   lineJoin: CanvasLineJoin;
 
@@ -3808,6 +3884,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Line thickness attribute. The value cannot be 0 or a negative number.
    *
    * @type { number }
+   * @default 1(px)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -3815,28 +3892,31 @@ declare class CanvasRenderer extends CanvasPath {
    * Line thickness attribute. The value cannot be 0 or a negative number.
    *
    * @type { number }
+   * @default 1(px)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Line thickness attribute. The value cannot be 0 or a negative number.
    *
    * @type { number }
+   * @default 1(px)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Line thickness attribute. The value cannot be 0 or a negative number.
    *
    * @type { number }
+   * @default 1(px)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   lineWidth: number;
 
@@ -3844,6 +3924,7 @@ declare class CanvasRenderer extends CanvasPath {
    * The value of this parameter cannot be 0 or a negative number.
    *
    * @type { number }
+   * @default 10(px)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -3851,28 +3932,31 @@ declare class CanvasRenderer extends CanvasPath {
    * The value of this parameter cannot be 0 or a negative number.
    *
    * @type { number }
+   * @default 10(px)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The value of this parameter cannot be 0 or a negative number.
    *
    * @type { number }
+   * @default 10(px)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The value of this parameter cannot be 0 or a negative number.
    *
    * @type { number }
+   * @default 10(px)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   miterLimit: number;
 
@@ -3888,8 +3972,8 @@ declare class CanvasRenderer extends CanvasPath {
    *
    * @returns { number[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Gets the current segment style.
@@ -3897,8 +3981,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @returns { number[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Gets the current segment style.
@@ -3906,9 +3990,9 @@ declare class CanvasRenderer extends CanvasPath {
    * @returns { number[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   getLineDash(): number[];
 
@@ -3926,8 +4010,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number[] } segments - A set of numbers that describe the length of alternating drawn lines segments and
    *    spacing (coordinate space units).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Sets the dashed line mode for line drawing.
@@ -3936,8 +4020,8 @@ declare class CanvasRenderer extends CanvasPath {
    *    spacing (coordinate space units).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Sets the dashed line mode for line drawing.
@@ -3946,9 +4030,9 @@ declare class CanvasRenderer extends CanvasPath {
    *    spacing (coordinate space units).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   setLineDash(segments: number[]): void;
 
@@ -3970,8 +4054,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } w - Width of the rectangle.
    * @param { number } h - Height of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Clears the drawing content of a rectangular area.
@@ -3982,8 +4066,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } h - Height of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Clears the drawing content of a rectangular area.
@@ -3994,9 +4078,9 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } h - Height of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   clearRect(x: number, y: number, w: number, h: number): void;
 
@@ -4018,8 +4102,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } w - Width of the rectangle.
    * @param { number } h - Height of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Fills a specified rectangular area
@@ -4030,8 +4114,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } h - Height of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Fills a specified rectangular area
@@ -4042,9 +4126,9 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } h - Height of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   fillRect(x: number, y: number, w: number, h: number): void;
 
@@ -4066,8 +4150,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } w - Width of the rectangle.
    * @param { number } h - Height of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Stroke Specify Rectangular Area
@@ -4078,8 +4162,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } h - Height of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Stroke Specify Rectangular Area
@@ -4090,153 +4174,169 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } h - Height of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   strokeRect(x: number, y: number, w: number, h: number): void;
 
   /**
-   * Shadow blur radius. The default value is 0. The value cannot be a negative number.
+   * Shadow blur radius. The value cannot be a negative number.
    *
    * @type { number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Shadow blur radius. The default value is 0. The value cannot be a negative number.
+   * Shadow blur radius. The value cannot be a negative number.
    *
    * @type { number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
-   * Shadow blur radius. The default value is 0. The value cannot be a negative number.
+   * Shadow blur radius. The value cannot be a negative number.
    *
    * @type { number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
-   * Shadow blur radius. The default value is 0. The value cannot be a negative number.
+   * Shadow blur radius. The value cannot be a negative number.
    *
    * @type { number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   shadowBlur: number;
 
   /**
-   * Shadow color. The default value is transparent black.
+   * Shadow color.
    *
    * @type { string }
+   * @default transparent black
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Shadow color. The default value is transparent black.
+   * Shadow color.
    *
    * @type { string }
+   * @default transparent black
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
-   * Shadow color. The default value is transparent black.
+   * Shadow color.
    *
    * @type { string }
+   * @default transparent black
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
-   * Shadow color. The default value is transparent black.
+   * Shadow color.
    *
    * @type { string }
+   * @default transparent black
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   shadowColor: string;
 
   /**
-   * Horizontal offset distance of the shadow. The default value is 0.
+   * Horizontal offset distance of the shadow.
    *
    * @type { number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Horizontal offset distance of the shadow. The default value is 0.
+   * Horizontal offset distance of the shadow.
    *
    * @type { number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
-   * Horizontal offset distance of the shadow. The default value is 0.
+   * Horizontal offset distance of the shadow.
    *
    * @type { number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
-   * Horizontal offset distance of the shadow. The default value is 0.
+   * Horizontal offset distance of the shadow.
    *
    * @type { number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   shadowOffsetX: number;
 
   /**
-   * Vertical offset distance of the shadow. The default value is 0.
+   * Vertical offset distance of the shadow.
    *
    * @type { number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Vertical offset distance of the shadow. The default value is 0.
+   * Vertical offset distance of the shadow.
    *
    * @type { number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
-   * Vertical offset distance of the shadow. The default value is 0.
+   * Vertical offset distance of the shadow.
    *
    * @type { number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
-   * Vertical offset distance of the shadow. The default value is 0.
+   * Vertical offset distance of the shadow.
    *
    * @type { number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   shadowOffsetY: number;
 
@@ -4250,25 +4350,25 @@ declare class CanvasRenderer extends CanvasPath {
    * Top of the stack pop-up state in the drawing state stack
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Top of the stack pop-up state in the drawing state stack
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Top of the stack pop-up state in the drawing state stack
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   restore(): void;
 
@@ -4282,25 +4382,25 @@ declare class CanvasRenderer extends CanvasPath {
    * Saves the current drawing state to the drawing state stack
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Saves the current drawing state to the drawing state stack
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Saves the current drawing state to the drawing state stack
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   save(): void;
 
@@ -4322,8 +4422,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } y - The y-axis coordinate of the start point of the text.
    * @param { number } maxWidth - Maximum width of the drawing.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Fills the specified text at the specified location
@@ -4334,8 +4434,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } maxWidth - Maximum width of the drawing.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Fills the specified text at the specified location
@@ -4346,9 +4446,9 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } maxWidth - Maximum width of the drawing.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   fillText(text: string, x: number, y: number, maxWidth?: number): void;
 
@@ -4366,8 +4466,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { string } text - Text string to be measured.
    * @returns { TextMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Measure the size of a specified text. For details about the return value, see {@link TextMetrics}.
@@ -4376,8 +4476,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @returns { TextMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Measure the size of a specified text. For details about the return value, see {@link TextMetrics}.
@@ -4386,9 +4486,9 @@ declare class CanvasRenderer extends CanvasPath {
    * @returns { TextMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   measureText(text: string): TextMetrics;
 
@@ -4410,8 +4510,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } y - The y-axis-axis coordinate of the start point of the text.
    * @param { number } maxWidth - Maximum width of the stroke.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Stroke specified text at specified position
@@ -4422,8 +4522,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } maxWidth - Maximum width of the stroke.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Stroke specified text at specified position
@@ -4434,77 +4534,89 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } maxWidth - Maximum width of the stroke.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   strokeText(text: string, x: number, y: number, maxWidth?: number): void;
 
   /**
    * Text drawing direction. For details, see {@link CanvasDirection}.
    *
+   * @type { CanvasDirection }
+   * @default inherit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Text drawing direction. For details, see {@link CanvasDirection}.
    *
+   * @type { CanvasDirection }
+   * @default inherit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Text drawing direction. For details, see {@link CanvasDirection}.
    *
+   * @type { CanvasDirection }
+   * @default inherit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Text drawing direction. For details, see {@link CanvasDirection}.
    *
+   * @type { CanvasDirection }
+   * @default inherit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   direction: CanvasDirection;
 
   /**
-   * Font style. The default value is 14px sans-serif.
+   * Font style.
    *
    * @type { string }
+   * @default normal normal 14px sans-serif
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Font style. The default value is 14px sans-serif.
+   * Font style.
    *
    * @type { string }
+   * @default normal normal 14px sans-serif
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
-   * Font style. The default value is 14px sans-serif.
+   * Font style.
    *
    * @type { string }
+   * @default normal normal 14px sans-serif
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
-   * Font style. The default value is 14px sans-serif.
+   * Font style.
    *
    * @type { string }
+   * @default normal normal 14px sans-serif
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   font: string;
 
@@ -4512,6 +4624,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Text alignment mode. For details, see {@link CanvasTextAlign}.
    *
    * @type { CanvasTextAlign }
+   * @default start
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -4519,28 +4632,31 @@ declare class CanvasRenderer extends CanvasPath {
    * Text alignment mode. For details, see {@link CanvasTextAlign}.
    *
    * @type { CanvasTextAlign }
+   * @default start
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Text alignment mode. For details, see {@link CanvasTextAlign}.
    *
    * @type { CanvasTextAlign }
+   * @default start
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Text alignment mode. For details, see {@link CanvasTextAlign}.
    *
    * @type { CanvasTextAlign }
+   * @default start
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   textAlign: CanvasTextAlign;
 
@@ -4548,6 +4664,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Text baseline. For details, see {@link CanvasTextBaseline}.
    *
    * @type { CanvasTextBaseline }
+   * @default alphabetic
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -4555,28 +4672,31 @@ declare class CanvasRenderer extends CanvasPath {
    * Text baseline. For details, see {@link CanvasTextBaseline}.
    *
    * @type { CanvasTextBaseline }
+   * @default alphabetic
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Text baseline. For details, see {@link CanvasTextBaseline}.
    *
    * @type { CanvasTextBaseline }
+   * @default alphabetic
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Text baseline. For details, see {@link CanvasTextBaseline}.
    *
    * @type { CanvasTextBaseline }
+   * @default alphabetic
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   textBaseline: CanvasTextBaseline;
 
@@ -4592,8 +4712,8 @@ declare class CanvasRenderer extends CanvasPath {
    *
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Obtains the currently applied transformation matrix.
@@ -4601,8 +4721,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Obtains the currently applied transformation matrix.
@@ -4610,9 +4730,9 @@ declare class CanvasRenderer extends CanvasPath {
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   getTransform(): Matrix2D;
 
@@ -4626,25 +4746,25 @@ declare class CanvasRenderer extends CanvasPath {
    * Resets the current transformation matrix using the identity matrix
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Resets the current transformation matrix using the identity matrix
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Resets the current transformation matrix using the identity matrix
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   resetTransform(): void;
 
@@ -4662,8 +4782,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } angle - The radian of clockwise rotation, which can be converted to an angle value using the formula:
    *    degree * Math.PI / 180
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Adds the effect of a rotation
@@ -4672,8 +4792,8 @@ declare class CanvasRenderer extends CanvasPath {
    *    degree * Math.PI / 180
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Adds the effect of a rotation
@@ -4682,9 +4802,9 @@ declare class CanvasRenderer extends CanvasPath {
    *    degree * Math.PI / 180
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   rotate(angle: number): void;
 
@@ -4702,8 +4822,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } x - Horizontal scaling factor
    * @param { number } y - Vertical scaling factor
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Increases the scaling effect of the X and Y axes.
@@ -4712,8 +4832,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } y - Vertical scaling factor
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Increases the scaling effect of the X and Y axes.
@@ -4722,9 +4842,9 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } y - Vertical scaling factor
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   scale(x: number, y: number): void;
 
@@ -4752,8 +4872,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } e - Horizontal movement
    * @param { number } f - Vertical movement
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Adds 2D transformation effects, including rotation, translation, and scaling.
@@ -4767,8 +4887,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } f - Vertical movement
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Adds 2D transformation effects, including rotation, translation, and scaling.
@@ -4782,9 +4902,9 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } f - Vertical movement
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   setTransform(a: number, b: number, c: number, d: number, e: number, f: number): void;
 
@@ -4802,8 +4922,8 @@ declare class CanvasRenderer extends CanvasPath {
    *
    * @param { Matrix2D } transform - 2D transformation matrix. For details, see {@link Matrix2D}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The 2D transformation effect is added. The current transformation matrix is not overwritten and
@@ -4812,8 +4932,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { Matrix2D } transform - 2D transformation matrix. For details, see {@link Matrix2D}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The 2D transformation effect is added. The current transformation matrix is not overwritten and
@@ -4822,9 +4942,9 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { Matrix2D } transform - 2D transformation matrix. For details, see {@link Matrix2D}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   setTransform(transform?: Matrix2D): void;
 
@@ -4852,8 +4972,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } e - Horizontal movement
    * @param { number } f - Vertical movement
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Adds the 2D transformation effect, including rotation, translation, and scaling,
@@ -4867,8 +4987,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } f - Vertical movement
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Adds the 2D transformation effect, including rotation, translation, and scaling,
@@ -4882,9 +5002,9 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } f - Vertical movement
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   transform(a: number, b: number, c: number, d: number, e: number, f: number): void;
 
@@ -4902,8 +5022,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } x - Horizontal movement distance
    * @param { number } y - Vertical travel distance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Increases the translation effect of the X and Y axes
@@ -4912,8 +5032,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } y - Vertical travel distance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Increases the translation effect of the X and Y axes
@@ -4922,9 +5042,9 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } y - Vertical travel distance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   translate(x: number, y: number): void;
 
@@ -4966,8 +5086,8 @@ declare class CanvasRenderer extends CanvasPath {
    *
    * @param { ImageBitmap } bitmap
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * transfer ImageBitmap to content.
@@ -4975,8 +5095,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { ImageBitmap } bitmap
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * transfer ImageBitmap to content.
@@ -4984,9 +5104,9 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { ImageBitmap } bitmap
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   transferFromImageBitmap(bitmap: ImageBitmap): void;
 
@@ -4995,6 +5115,7 @@ declare class CanvasRenderer extends CanvasPath {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   saveLayer(): void;
@@ -5004,6 +5125,7 @@ declare class CanvasRenderer extends CanvasPath {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   restoreLayer(): void;
@@ -5013,6 +5135,7 @@ declare class CanvasRenderer extends CanvasPath {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
   reset(): void;
@@ -5030,8 +5153,8 @@ declare class CanvasRenderer extends CanvasPath {
  *
  * @extends CanvasRenderer
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Draw context object for the Canvas component.
@@ -5039,8 +5162,8 @@ declare class CanvasRenderer extends CanvasPath {
  * @extends CanvasRenderer
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Draw context object for the Canvas component.
@@ -5048,9 +5171,9 @@ declare class CanvasRenderer extends CanvasPath {
  * @extends CanvasRenderer
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class CanvasRenderingContext2D extends CanvasRenderer {
   /**
@@ -5065,8 +5188,8 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The default value is 0, which is bound to the height of the specified canvas. The value is read-only.
@@ -5074,8 +5197,8 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The default value is 0, which is bound to the height of the specified canvas. The value is read-only.
@@ -5083,9 +5206,9 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   readonly height: number;
 
@@ -5101,8 +5224,8 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * The default value is 0, which is bound to the width of the specified canvas. The value is read-only.
@@ -5110,8 +5233,8 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * The default value is 0, which is bound to the width of the specified canvas. The value is read-only.
@@ -5119,9 +5242,9 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   readonly width: number;
 
@@ -5143,8 +5266,8 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    *    If the value is out of the range, the default value 0.92 is used.
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Generate a character string in the data url format.
@@ -5155,8 +5278,8 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Generate a character string in the data url format.
@@ -5167,9 +5290,9 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   toDataURL(type?: string, quality?: any): string;
 
@@ -5181,6 +5304,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @throws { BusinessError } 110001 - Image analysis feature is not supported.
    * @throws { BusinessError } 110002 - Image analysis is currently being executed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   startImageAnalyzer(config: ImageAnalyzerConfig): Promise<void>;
@@ -5188,6 +5312,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
   /**
    * Stop image analyzer.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   stopImageAnalyzer(): void;
@@ -5204,8 +5329,8 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    *
    * @param { RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Constructor of the canvas drawing context object, which is used to create a drawing context object.
@@ -5213,8 +5338,8 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @param { RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Constructor of the canvas drawing context object, which is used to create a drawing context object.
@@ -5222,9 +5347,9 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @param { RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   constructor(settings?: RenderingContextSettings);
 
@@ -5236,6 +5361,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   constructor(settings?: RenderingContextSettings, unit?: LengthMetricsUnit);
@@ -5253,8 +5379,8 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
  *
  * @extends CanvasRenderer
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Draw context object for the OffscreenCanvas component.
@@ -5262,8 +5388,8 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
  * @extends CanvasRenderer
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Draw context object for the OffscreenCanvas component.
@@ -5271,9 +5397,9 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
  * @extends CanvasRenderer
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
   /**
@@ -5294,8 +5420,8 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    *    If the value is out of the range, the default value 0.92 is used.
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Generate a character string in the data url format.
@@ -5306,8 +5432,8 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Generate a character string in the data url format.
@@ -5318,9 +5444,9 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   toDataURL(type?: string, quality?: any): string;
 
@@ -5336,8 +5462,8 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    *
    * @returns { ImageBitmap }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * transfer the content to ImageBitmap
@@ -5345,8 +5471,8 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * @returns { ImageBitmap }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * transfer the content to ImageBitmap
@@ -5354,9 +5480,9 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * @returns { ImageBitmap }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   transferToImageBitmap(): ImageBitmap;
 
@@ -5376,8 +5502,8 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * @param { number } height - the height of the OffscreenCanvas
    * @param { RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Constructor of the canvas drawing context object, which is used to create a drawing context object.
@@ -5387,8 +5513,8 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * @param { RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Constructor of the canvas drawing context object, which is used to create a drawing context object.
@@ -5398,9 +5524,9 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * @param { RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   constructor(width: number, height: number, settings?: RenderingContextSettings);
 
@@ -5414,6 +5540,7 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   constructor(width: number, height: number, settings?: RenderingContextSettings, unit?: LengthMetricsUnit);
@@ -5431,8 +5558,8 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
  *
  * @extends CanvasRenderer
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
  * @form
+ * @since 9
  */
 /**
  * Draw an object off the screen. The drawing content is not directly displayed on the screen.
@@ -5440,17 +5567,17 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
  * @extends CanvasRenderer
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 10
  * @form
+ * @since 10
  */
 /**
  * Draw an object off the screen. The drawing content is not directly displayed on the screen.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class OffscreenCanvas {
   /**
@@ -5465,8 +5592,8 @@ declare class OffscreenCanvas {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Height of the off-screen canvas.
@@ -5474,8 +5601,8 @@ declare class OffscreenCanvas {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Height of the off-screen canvas.
@@ -5483,9 +5610,9 @@ declare class OffscreenCanvas {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   height: number;
 
@@ -5501,8 +5628,8 @@ declare class OffscreenCanvas {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Width of the off-screen canvas.
@@ -5510,8 +5637,8 @@ declare class OffscreenCanvas {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Width of the off-screen canvas.
@@ -5519,9 +5646,9 @@ declare class OffscreenCanvas {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   width: number;
 
@@ -5537,8 +5664,8 @@ declare class OffscreenCanvas {
    *
    * @returns { ImageBitmap }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Exports rendered content as an ImageBitmap object
@@ -5546,8 +5673,8 @@ declare class OffscreenCanvas {
    * @returns { ImageBitmap }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Exports rendered content as an ImageBitmap object
@@ -5555,9 +5682,9 @@ declare class OffscreenCanvas {
    * @returns { ImageBitmap }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   transferToImageBitmap(): ImageBitmap;
 
@@ -5600,8 +5727,8 @@ declare class OffscreenCanvas {
    * @param { number } width - Width of the off-screen canvas.
    * @param { number } height - Height of the off-screen canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Constructor of the off-screen canvas, which is used to create an off-screen canvas object.
@@ -5610,8 +5737,8 @@ declare class OffscreenCanvas {
    * @param { number } height - Height of the off-screen canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Constructor of the off-screen canvas, which is used to create an off-screen canvas object.
@@ -5620,9 +5747,9 @@ declare class OffscreenCanvas {
    * @param { number } height - Height of the off-screen canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   constructor(width: number, height: number);
 
@@ -5635,6 +5762,7 @@ declare class OffscreenCanvas {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   constructor(width: number, height: number, unit: LengthMetricsUnit);
@@ -5646,6 +5774,7 @@ declare class OffscreenCanvas {
  * @interface Size
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface Size {
@@ -5655,6 +5784,7 @@ declare interface Size {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   width: number;
@@ -5665,6 +5795,7 @@ declare interface Size {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   height: number;
@@ -5675,6 +5806,7 @@ declare interface Size {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare class DrawingRenderingContext {
@@ -5685,6 +5817,7 @@ declare class DrawingRenderingContext {
    * @returns { Size } The size of the DrawingRenderingContext.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   get size(): Size;
@@ -5695,6 +5828,7 @@ declare class DrawingRenderingContext {
    * @returns { DrawingCanvas } The canvas of the DrawingRenderingContext.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   get canvas(): DrawingCanvas;
@@ -5704,6 +5838,7 @@ declare class DrawingRenderingContext {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   invalidate(): void;
@@ -5715,6 +5850,7 @@ declare class DrawingRenderingContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
+   * @atomicservice
    * @since 12
    */
   constructor(unit?: LengthMetricsUnit);
@@ -5732,8 +5868,8 @@ declare class DrawingRenderingContext {
  *
  * @interface CanvasInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  *TextTimer component, which provides the text timer capability.
@@ -5741,8 +5877,8 @@ declare class DrawingRenderingContext {
  * @interface CanvasInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  *TextTimer component, which provides the text timer capability.
@@ -5750,9 +5886,9 @@ declare class DrawingRenderingContext {
  * @interface CanvasInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 interface CanvasInterface {
   /**
@@ -5769,8 +5905,8 @@ interface CanvasInterface {
    * @param { CanvasRenderingContext2D } context - Canvas context object. For details, see {@link CanvasRenderingContext2D}.
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Construct a canvas component.
@@ -5779,8 +5915,8 @@ interface CanvasInterface {
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Construct a canvas component.
@@ -5789,9 +5925,9 @@ interface CanvasInterface {
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   /**
    * Construct a canvas component.
@@ -5800,9 +5936,9 @@ interface CanvasInterface {
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   (context?: CanvasRenderingContext2D | DrawingRenderingContext): CanvasAttribute;
 
@@ -5813,6 +5949,7 @@ interface CanvasInterface {
    * @param { ImageAIOptions } imageAIOptions
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   (context: CanvasRenderingContext2D | DrawingRenderingContext, imageAIOptions: ImageAIOptions): CanvasAttribute;
@@ -5830,8 +5967,8 @@ interface CanvasInterface {
  *
  * @extends CommonMethod<CanvasAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Provides attribute for Canvas.
@@ -5839,8 +5976,8 @@ interface CanvasInterface {
  * @extends CommonMethod<CanvasAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Provides attribute for Canvas.
@@ -5848,9 +5985,9 @@ interface CanvasInterface {
  * @extends CommonMethod<CanvasAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
   /**
@@ -5867,8 +6004,8 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
    * @param { function } event
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Event notification after the canvas component is constructed. You can draw the canvas at this time.
@@ -5877,8 +6014,8 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Event notification after the canvas component is constructed. You can draw the canvas at this time.
@@ -5887,18 +6024,19 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   onReady(event: () => void): CanvasAttribute;
 
   /**
    * Enable image analyzer for Canvas.
    *
-   * @param { boolean } enable
+   * @param { boolean } enable - If enable image analyzer for Canvas. The default value is false.
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   enableAnalyzer(enable: boolean): CanvasAttribute;
@@ -5914,25 +6052,25 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
  * Defines Canvas Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines Canvas Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines Canvas Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const Canvas: CanvasInterface;
 
@@ -5946,24 +6084,24 @@ declare const Canvas: CanvasInterface;
  * Defines Canvas Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines Canvas Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines Canvas Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const CanvasInstance: CanvasAttribute;

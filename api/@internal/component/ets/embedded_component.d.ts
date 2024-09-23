@@ -25,6 +25,7 @@
  *
  * @interface EmbeddedComponentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
  */
 interface EmbeddedComponentInterface {
@@ -36,6 +37,7 @@ interface EmbeddedComponentInterface {
    * @param { EmbeddedType } type - indicates type of the EmbeddedComponent
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   (
@@ -49,6 +51,7 @@ interface EmbeddedComponentInterface {
  *
  * @interface TerminationInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
  */
 declare interface TerminationInfo {
@@ -57,6 +60,7 @@ declare interface TerminationInfo {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
    code: number;
@@ -66,6 +70,7 @@ declare interface TerminationInfo {
    *
    * @type { ?import('../api/@ohos.app.ability.Want').default }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
    want?: import('../api/@ohos.app.ability.Want').default;
@@ -76,6 +81,7 @@ declare interface TerminationInfo {
  *
  * @extends CommonMethod<EmbeddedComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
  */
 declare class EmbeddedComponentAttribute extends CommonMethod<EmbeddedComponentAttribute> {
@@ -85,6 +91,7 @@ declare class EmbeddedComponentAttribute extends CommonMethod<EmbeddedComponentA
    * @param { import('../api/@ohos.base').Callback<TerminationInfo> } callback
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   onTerminated(callback: import('../api/@ohos.base').Callback<TerminationInfo>): EmbeddedComponentAttribute;
@@ -95,6 +102,7 @@ declare class EmbeddedComponentAttribute extends CommonMethod<EmbeddedComponentA
    * @param { import('../api/@ohos.base').ErrorCallback } callback
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   onError(callback: import('../api/@ohos.base').ErrorCallback): EmbeddedComponentAttribute;
@@ -104,6 +112,7 @@ declare class EmbeddedComponentAttribute extends CommonMethod<EmbeddedComponentA
  * Defines EmbeddedComponent Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
  */
 declare const EmbeddedComponent: EmbeddedComponentInterface;
@@ -112,6 +121,7 @@ declare const EmbeddedComponent: EmbeddedComponentInterface;
  * Defines EmbeddedComponent Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
  */
 declare const EmbeddedComponentInstance: EmbeddedComponentAttribute;

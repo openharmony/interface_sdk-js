@@ -119,10 +119,18 @@ declare namespace hiSysEvent {
     /**
      * The params of the event.
      *
-     * @type { ?object }
+     * @type { object }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9
+     */
+    /**
+     * The params of the event.
+     *
+     * @type { ?object }
+     * @syscap SystemCapability.HiviewDFX.HiSysEvent
+     * @systemapi hide for inner use
+     * @since 12
      */
     params?: object;
   }
@@ -242,10 +250,18 @@ declare namespace hiSysEvent {
     /**
      * The tag of the event.
      *
-     * @type { ?string }
+     * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9
+     */
+    /**
+     * The tag of the event.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.HiviewDFX.HiSysEvent
+     * @systemapi hide for inner use
+     * @since 12
      */
     tag?: string;
 
@@ -272,6 +288,7 @@ declare namespace hiSysEvent {
     /**
      * Rule of filter system event
      *
+     * @type { WatchRule[] }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9
@@ -281,6 +298,7 @@ declare namespace hiSysEvent {
     /**
     * Receive system event.
     *
+    * @type { function }
     * @syscap SystemCapability.HiviewDFX.HiSysEvent
     * @systemapi hide for inner use
     * @since 9
@@ -290,6 +308,7 @@ declare namespace hiSysEvent {
     /**
      * Hisysevent service shutdown.
      *
+     * @type { function }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9
@@ -409,6 +428,7 @@ declare namespace hiSysEvent {
     /**
      * Handle query result, the query result will be send in several times.
      *
+     * @type { function }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9
@@ -418,6 +438,7 @@ declare namespace hiSysEvent {
     /**
      * Notify querier execute query has finished.
      *
+     * @type { function }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9

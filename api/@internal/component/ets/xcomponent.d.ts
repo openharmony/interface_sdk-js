@@ -298,6 +298,7 @@ declare interface XComponentOptions {
    *
    * @type { ?ImageAIOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   imageAIOptions?: ImageAIOptions;
@@ -430,6 +431,17 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @since 12
    */
   enableAnalyzer(enable: boolean): XComponentAttribute;
+
+  /**
+   * Enable privacy protection for XComponent.
+   *
+   * @param { boolean } isSecure
+   * @returns { XComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  enableSecure(isSecure: boolean): XComponentAttribute;
 }
 
 /**

@@ -93,6 +93,7 @@ export declare class EditableTitleBarMenuItem {
  * Declaration of the image item .
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export type EditableTitleBarItem = EditableTitleBarMenuItem;
@@ -144,6 +145,7 @@ export declare enum EditableLeftIconType {
  * @interface EditableTitleBarOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export declare interface EditableTitleBarOptions {
@@ -153,6 +155,7 @@ export declare interface EditableTitleBarOptions {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   backgroundColor?: ResourceColor;
@@ -163,6 +166,7 @@ export declare interface EditableTitleBarOptions {
    * @type { ?BlurStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   backgroundBlurStyle?: BlurStyle;
@@ -173,6 +177,7 @@ export declare interface EditableTitleBarOptions {
    * @type { ?Array<SafeAreaType> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   safeAreaTypes?: Array<SafeAreaType>;
@@ -183,6 +188,7 @@ export declare interface EditableTitleBarOptions {
    * @type { ?Array<SafeAreaEdge> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   safeAreaEdges?: Array<SafeAreaEdge>;
@@ -221,6 +227,7 @@ export declare struct EditableTitleBar {
    * @type { ?EditableTitleBarItem }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   imageItem?: EditableTitleBarItem;
@@ -245,6 +252,7 @@ export declare struct EditableTitleBar {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   subtitle?: ResourceStr;
@@ -255,6 +263,7 @@ export declare struct EditableTitleBar {
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   isSaveIconRequired: boolean;
@@ -310,6 +319,7 @@ export declare struct EditableTitleBar {
    * @default {expandSafeAreaTypes: SafeAreaType.SYSTEM, expandSafeAreaEdges: SafeAreaEdge.TOP}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   options: EditableTitleBarOptions;
@@ -321,6 +331,7 @@ export declare struct EditableTitleBar {
    * <br> end: LengthMetrics.resource($r('sys.float.margin_right'))}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   @Prop contentMargin?: LocalizedMargin;

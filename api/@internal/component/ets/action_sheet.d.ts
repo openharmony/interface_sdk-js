@@ -119,7 +119,16 @@ interface SheetInfo {
    * @atomicservice
    * @since 11
    */
-  action: () => void;
+  /**
+   * Callback method after the operation.
+   *
+   * @type { VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  action: VoidCallback;
 }
 
 /**
@@ -128,6 +137,7 @@ interface SheetInfo {
  * @interface DismissDialogAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface DismissDialogAction {
@@ -137,6 +147,7 @@ declare interface DismissDialogAction {
    * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   dismiss: Callback<void>;
@@ -147,9 +158,171 @@ declare interface DismissDialogAction {
    * @type { DismissReason }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   reason: DismissReason;
+}
+
+/**
+ * Base button params used for ActionSheet.
+ *
+ * @interface ActionSheetButtonOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
+interface ActionSheetButtonOptions {
+  /**
+   * Enable switch of confirmation button
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Enable switch of confirmation button
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  enabled?: boolean;
+
+  /**
+   * Default focus switch of confirmation button
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Default focus switch of confirmation button
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  defaultFocus?: boolean;
+
+  /**
+   * Style of confirmation button.
+   * @type { ?DialogButtonStyle }
+   * @default DialogButtonStyle.DEFAULT
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Style of confirmation button.
+   * @type { ?DialogButtonStyle }
+   * @default DialogButtonStyle.DEFAULT
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  style?: DialogButtonStyle;
+
+  /**
+   * Text content of the confirmation button.
+   *
+   * @type { string | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Text content of the confirmation button.
+   *
+   * @type { string | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Text content of the confirmation button.
+   *
+   * @type { string | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  value: string | Resource;
+
+  /**
+   * Method executed by the callback.
+   *
+   * @type { function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Method executed by the callback.
+   *
+   * @type { function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Method executed by the callback.
+   *
+   * @type { function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * Method executed by the callback.
+   *
+   * @type { VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  action: VoidCallback;
+}
+
+/**
+ * ActionSheet offset.
+ *
+ * @interface ActionSheetOffset
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
+interface ActionSheetOffset {
+  /**
+   * Dx of the pop-up window relative to the alignment position.
+   *
+   * @type { number | string | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  dx: number | string | Resource;
+  /**
+   * Dy of the pop-up window relative to the alignment position.
+   *
+   * @type { number | string | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  dy: number | string | Resource;
 }
 
 /**
@@ -271,116 +444,16 @@ interface ActionSheetOptions
    * @atomicservice
    * @since 11
    */
-  confirm?: {
-    /**
-     * Enable switch of confirmation button
-     * @type { ?boolean }
-     * @default true
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Enable switch of confirmation button
-     * @type { ?boolean }
-     * @default true
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    enabled?: boolean;
-
-    /**
-     * Default focus switch of confirmation button
-     * @type { ?boolean }
-     * @default false
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Default focus switch of confirmation button
-     * @type { ?boolean }
-     * @default false
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    defaultFocus?: boolean;
-    
-    /**
-     * Style of confirmation button.
-     * @type { ?DialogButtonStyle }
-     * @default DialogButtonStyle.DEFAULT
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Style of confirmation button.
-     * @type { ?DialogButtonStyle }
-     * @default DialogButtonStyle.DEFAULT
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    style?: DialogButtonStyle;
-
-    /**
-     * Text content of the confirmation button.
-     *
-     * @type { string | Resource }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */
-    /**
-     * Text content of the confirmation button.
-     *
-     * @type { string | Resource }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Text content of the confirmation button.
-     *
-     * @type { string | Resource }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    value: string | Resource;
-
-    /**
-     * Method executed by the callback.
-     *
-     * @type { function }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */
-    /**
-     * Method executed by the callback.
-     *
-     * @type { function }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Method executed by the callback.
-     *
-     * @type { function }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    action: () => void;
-  };
+  /**
+   * Invoke the commit function.
+   *
+   * @type { ?ActionSheetButtonOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  confirm?: ActionSheetButtonOptions;
 
   /**
    * Execute Cancel Function.
@@ -406,7 +479,16 @@ interface ActionSheetOptions
    * @atomicservice
    * @since 11
    */
-  cancel?: () => void;
+  /**
+   * Execute Cancel Function.
+   *
+   * @type { ?VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  cancel?: VoidCallback;
 
   /**
    * The Array of sheets
@@ -510,7 +592,16 @@ interface ActionSheetOptions
    * @atomicservice
    * @since 11
    */
-  offset?: { dx: number | string | Resource; dy: number | string | Resource };
+  /**
+   * Offset of the pop-up window relative to the alignment position.
+   *
+   * @type { ?ActionSheetOffset }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  offset?: ActionSheetOffset;
 
   /**
    * Mask Region of dialog. The size cannot exceed the main window.
@@ -619,6 +710,7 @@ interface ActionSheetOptions
    * @type { ?Callback<DismissDialogAction> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onWillDismiss?: Callback<DismissDialogAction>;
@@ -629,6 +721,7 @@ interface ActionSheetOptions
    * @type { ?TransitionEffect }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   transition?: TransitionEffect;
@@ -639,6 +732,7 @@ interface ActionSheetOptions
    * @type { ?(Dimension | BorderRadiuses | LocalizedBorderRadiuses) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   cornerRadius?: Dimension | BorderRadiuses | LocalizedBorderRadiuses;
@@ -649,6 +743,7 @@ interface ActionSheetOptions
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   width?: Dimension;
@@ -659,6 +754,7 @@ interface ActionSheetOptions
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   height?: Dimension;
@@ -669,6 +765,7 @@ interface ActionSheetOptions
    * @type { ?(Dimension | EdgeWidths | LocalizedEdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   borderWidth?: Dimension | EdgeWidths | LocalizedEdgeWidths;
@@ -679,6 +776,7 @@ interface ActionSheetOptions
    * @type { ?(ResourceColor | EdgeColors | LocalizedEdgeColors) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   borderColor?: ResourceColor | EdgeColors | LocalizedEdgeColors;
@@ -689,6 +787,7 @@ interface ActionSheetOptions
    * @type { ?(BorderStyle | EdgeStyles) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   borderStyle?: BorderStyle | EdgeStyles;
@@ -699,9 +798,34 @@ interface ActionSheetOptions
    * @type { ?(ShadowOptions | ShadowStyle) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   shadow?: ShadowOptions | ShadowStyle;
+
+  /**
+   * Defines whether to respond to the hover mode.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  enableHoverMode?: boolean;
+
+  /**
+   * Defines the actionSheet's display area in hover mode.
+   *
+   * @type { ?HoverModeAreaType }
+   * @default HoverModeAreaType.BOTTOM_SCREEN
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  hoverModeArea?: HoverModeAreaType;
 }
 
 /**

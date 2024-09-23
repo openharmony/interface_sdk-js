@@ -429,7 +429,61 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @atomicservice
    * @since 11
    */
-  onDateChange(callback: (value: Date) => void): DatePickerAttribute;
+  /**
+   * This event is triggered when a DatePicker date or time is selected.
+   *
+   * @param { Callback<Date> } callback
+   * @returns { DatePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  onDateChange(callback: Callback<Date>): DatePickerAttribute;
+}
+
+/**
+ * Provide an interface for the lunar switch style of DatePickerDialog
+ * 
+ * @interface LunarSwitchStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare interface LunarSwitchStyle {
+  /**
+   * Define the selected color of lunar switch.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  selectedColor?: ResourceColor;
+
+  /**
+   * Define the unselected color of lunar switch.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  unselectedColor?: ResourceColor;
+
+  /**
+   * Define the stroke color of lunar switch.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  strokeColor?: ResourceColor;
 }
 
 /**
@@ -501,6 +555,17 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @since 11
    */
   lunarSwitch?: boolean;
+
+  /**
+   * Describes the lunar switch color.
+   * 
+   * @type { ?LunarSwitchStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  lunarSwitchStyle?: LunarSwitchStyle;
 
   /**
    * Indicates whether to show the time selector.
@@ -584,6 +649,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @type { ?PickerDialogButtonStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   acceptButtonStyle?: PickerDialogButtonStyle;
@@ -594,6 +660,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @type { ?PickerDialogButtonStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   cancelButtonStyle?: PickerDialogButtonStyle;
@@ -709,7 +776,16 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @atomicservice
    * @since 11
    */
-  onCancel?: () => void;
+  /**
+   * Called when the Cancel button in the dialog is clicked.
+   *
+   * @type { ?VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  onCancel?: VoidCallback;
 
   /**
    * This event is triggered when a DatePicker date or time is selected in dialog.
@@ -739,7 +815,16 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @atomicservice
    * @since 11
    */
-  onDateAccept?: (value: Date) => void;
+  /**
+   * Called when the OK button in the dialog is clicked.
+   *
+   * @type { ?Callback<Date> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  onDateAccept?: Callback<Date>;
 
   /**
    * This event is triggered when a DatePicker date or time is selected in dialog.
@@ -758,7 +843,16 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @atomicservice
    * @since 11
    */
-  onDateChange?: (value: Date) => void;
+  /**
+   * This event is triggered when a DatePicker date or time is selected in dialog.
+   *
+   * @type { ?Callback<Date> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  onDateChange?: Callback<Date>;
 
   /**
    * Defines the datePickerDialog's background color
@@ -811,7 +905,16 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @atomicservice
    * @since 12
    */
-  onDidAppear?: () => void;
+  /**
+   * Callback function when the dialog appears.
+   *
+   * @type { ?VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  onDidAppear?: VoidCallback;
 
   /**
    * Callback function when the dialog disappears.
@@ -822,7 +925,16 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @atomicservice
    * @since 12
    */
-  onDidDisappear?: () => void;
+  /**
+   * Callback function when the dialog disappears.
+   *
+   * @type { ?VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  onDidDisappear?: VoidCallback;
 
   /**
    * Callback function before the dialog openAnimation starts.
@@ -830,9 +942,19 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
-  onWillAppear?: () => void;
+  /**
+   * Callback function before the dialog openAnimation starts.
+   *
+   * @type { ?VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  onWillAppear?: VoidCallback;
 
   /**
    * Callback function before the dialog closeAnimation starts.
@@ -840,9 +962,19 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
-  onWillDisappear?: () => void;
+  /**
+   * Callback function before the dialog closeAnimation starts.
+   *
+   * @type { ?VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  onWillDisappear?: VoidCallback;
 
   /**
    * Defines the dialog's shadow.
@@ -850,6 +982,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @type { ?(ShadowOptions | ShadowStyle) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   shadow?: ShadowOptions | ShadowStyle;
@@ -860,9 +993,34 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @type { ?DateTimeOptions } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   dateTimeOptions?: DateTimeOptions;
+
+  /**
+   * Defines whether to respond to the hover mode.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  enableHoverMode?: boolean;
+
+  /**
+   * Defines the dialog's display area in hover mode.
+   *
+   * @type { ?HoverModeAreaType }
+   * @default HoverModeAreaType.BOTTOM_SCREEN
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  hoverModeArea?: HoverModeAreaType;
 }
 
 /**

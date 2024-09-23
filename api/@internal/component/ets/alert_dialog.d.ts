@@ -345,23 +345,15 @@ declare enum DialogButtonDirection {
 }
 
 /**
- * Base button param used for AlertDialogParamWithOptions.
+ * Base button param.
  *
- * @interface AlertDialogButtonOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Base button param used for AlertDialogParamWithOptions.
- *
- * @interface AlertDialogButtonOptions
+ * @interface AlertDialogButtonBaseOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 13
  */
-declare interface AlertDialogButtonOptions {
+declare interface AlertDialogButtonBaseOptions {
   /**
    * Enable switch of button.
    *
@@ -499,16 +491,55 @@ declare interface AlertDialogButtonOptions {
    * @atomicservice
    * @since 11
    */
-  action: () => void;
+  /**
+   * Method executed by the callback.
+   *
+   * @type { VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  action: VoidCallback;
+}
+
+/**
+ * Base button param used for AlertDialogParamWithOptions.
+ *
+ * @interface AlertDialogButtonOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+/**
+ * Base button param used for AlertDialogParamWithOptions.
+ *
+ * @interface AlertDialogButtonOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
+/**
+ * Button param used for AlertDialogParamWithOptions.
+ *
+ * @interface AlertDialogButtonOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
+declare interface AlertDialogButtonOptions extends AlertDialogButtonBaseOptions {
   /**
    * Define whether the button responds to Enter/Space key by default.
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
-    primary?: boolean;
+  primary?: boolean;
 }
 
 /**
@@ -677,7 +708,16 @@ declare interface AlertDialogParam {
    * @atomicservice
    * @since 11
    */
-  cancel?: () => void;
+  /**
+   * Execute Cancel Function.
+   *
+   * @type { ?VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  cancel?: VoidCallback;
 
   /**
    * Alignment in the vertical direction.
@@ -864,6 +904,7 @@ declare interface AlertDialogParam {
    * @type { ?Callback<DismissDialogAction> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onWillDismiss?: Callback<DismissDialogAction>;
@@ -874,6 +915,7 @@ declare interface AlertDialogParam {
    * @type { ?TransitionEffect }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   transition?: TransitionEffect;
@@ -884,6 +926,7 @@ declare interface AlertDialogParam {
    * @type { ?(Dimension | BorderRadiuses | LocalizedBorderRadiuses) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   cornerRadius?: Dimension | BorderRadiuses | LocalizedBorderRadiuses;
@@ -894,6 +937,7 @@ declare interface AlertDialogParam {
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   width?: Dimension;
@@ -904,6 +948,7 @@ declare interface AlertDialogParam {
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   height?: Dimension;
@@ -914,6 +959,7 @@ declare interface AlertDialogParam {
    * @type { ?(Dimension | EdgeWidths | LocalizedEdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   borderWidth?: Dimension | EdgeWidths | LocalizedEdgeWidths;
@@ -924,6 +970,7 @@ declare interface AlertDialogParam {
    * @type { ?(ResourceColor | EdgeColors | LocalizedEdgeColors) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   borderColor?: ResourceColor | EdgeColors | LocalizedEdgeColors;
@@ -934,6 +981,7 @@ declare interface AlertDialogParam {
    * @type { ?(BorderStyle | EdgeStyles) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   borderStyle?: BorderStyle | EdgeStyles;
@@ -944,6 +992,7 @@ declare interface AlertDialogParam {
    * @type { ?(ShadowOptions | ShadowStyle) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   shadow?: ShadowOptions | ShadowStyle;
@@ -958,6 +1007,30 @@ declare interface AlertDialogParam {
    * @since 12
    */
   textStyle?: TextStyle;
+
+  /**
+   * Defines whether to respond to the hover mode.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  enableHoverMode?: boolean;
+
+  /**
+   * Defines the alertDialog's display area in hover mode.
+   *
+   * @type { ?HoverModeAreaType }
+   * @default HoverModeAreaType.BOTTOM_SCREEN
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  hoverModeArea?: HoverModeAreaType;
 }
 
 /**
@@ -1009,168 +1082,16 @@ declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
    * @atomicservice
    * @since 11
    */
-  confirm?: {
-    /**
-     * Enable switch of confirmation button
-     * @type { ?boolean }
-     * @default true
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Enable switch of confirmation button
-     * @type { ?boolean }
-     * @default true
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    enabled?: boolean;
-
-    /**
-     * Default focus switch of confirmation button
-     * @type { ?boolean }
-     * @default false
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Default focus switch of confirmation button
-     * @type { ?boolean }
-     * @default false
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    defaultFocus?: boolean;
-    
-    /**
-     * Style of confirmation button.
-     * @type { ?DialogButtonStyle }
-     * @default DialogButtonStyle.DEFAULT
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Style of confirmation button.
-     * @type { ?DialogButtonStyle }
-     * @default DialogButtonStyle.DEFAULT
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    style?: DialogButtonStyle;
-
-    /**
-     * Text content of the confirmation button.
-     *
-     * @type { ResourceStr }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Text content of the confirmation button.
-     *
-     * @type { ResourceStr }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Text content of the confirmation button.
-     *
-     * @type { ResourceStr }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    value: ResourceStr;
-
-    /**
-     * Text color of the confirmation button.
-     *
-     * @type { ?ResourceColor }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Text color of the confirmation button.
-     *
-     * @type { ?ResourceColor }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Text color of the confirmation button.
-     *
-     * @type { ?ResourceColor }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    fontColor?: ResourceColor;
-
-    /**
-     * Background color of the confirmation button.
-     *
-     * @type { ?ResourceColor }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Background color of the confirmation button.
-     *
-     * @type { ?ResourceColor }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Background color of the confirmation button.
-     *
-     * @type { ?ResourceColor }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    backgroundColor?: ResourceColor;
-
-    /**
-     * Method executed by the callback.
-     *
-     * @type { function }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Method executed by the callback.
-     *
-     * @type { function }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Method executed by the callback.
-     *
-     * @type { function }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    action: () => void;
-  };
+  /**
+   * Invoke the commit function.
+   *
+   * @type { ?AlertDialogButtonBaseOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  confirm?: AlertDialogButtonBaseOptions;
 }
 
 /**
@@ -1179,6 +1100,7 @@ declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
  * @interface DismissDialogAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface DismissDialogAction {
@@ -1188,6 +1110,7 @@ declare interface DismissDialogAction {
    * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   dismiss: Callback<void>;
@@ -1198,6 +1121,7 @@ declare interface DismissDialogAction {
    * @type { DismissReason }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   reason: DismissReason;
@@ -1252,168 +1176,16 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
    * @atomicservice
    * @since 11
    */
-  primaryButton: {
-    /**
-     * Enable switch of primaryButton
-     * @type { ?boolean }
-     * @default true
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Enable switch of primaryButton
-     * @type { ?boolean }
-     * @default true
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    enabled?: boolean;
-
-    /**
-     * Default focus switch of primaryButton button
-     * @type { ?boolean }
-     * @default false
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Default focus switch of primaryButton button
-     * @type { ?boolean }
-     * @default false
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    defaultFocus?: boolean;
-    
-    /**
-     * Style of primaryButton button.
-     * @type { ?DialogButtonStyle }
-     * @default DialogButtonStyle.DEFAULT
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Style of primaryButton button.
-     * @type { ?DialogButtonStyle }
-     * @default DialogButtonStyle.DEFAULT
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    style?: DialogButtonStyle;
-
-    /**
-     * Text content of the confirmation button.
-     *
-     * @type { ResourceStr }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Text content of the confirmation button.
-     *
-     * @type { ResourceStr }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Text content of the confirmation button.
-     *
-     * @type { ResourceStr }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    value: ResourceStr;
-
-    /**
-     * Text color of the confirmation button.
-     *
-     * @type { ?ResourceColor }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Text color of the confirmation button.
-     *
-     * @type { ?ResourceColor }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Text color of the confirmation button.
-     *
-     * @type { ?ResourceColor }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    fontColor?: ResourceColor;
-
-    /**
-     * Background color of the confirmation button.
-     *
-     * @type { ?ResourceColor }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Background color of the confirmation button.
-     *
-     * @type { ?ResourceColor }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Background color of the confirmation button.
-     *
-     * @type { ?ResourceColor }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    backgroundColor?: ResourceColor;
-
-    /**
-     * Method executed by the callback.
-     *
-     * @type { function }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Method executed by the callback.
-     *
-     * @type { function }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Method executed by the callback.
-     *
-     * @type { function }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    action: () => void;
-  };
+  /**
+   * First button.
+   *
+   * @type { AlertDialogButtonBaseOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  primaryButton: AlertDialogButtonBaseOptions;
 
   /**
    * Second button.
@@ -1439,168 +1211,16 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
    * @atomicservice
    * @since 11
    */
-  secondaryButton: {
-    /**
-     * Enable switch of secondaryButton
-     * @type { ?boolean }
-     * @default true
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Enable switch of secondaryButton
-     * @type { ?boolean }
-     * @default true
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    enabled?: boolean;
-
-    /**
-     * Default focus switch of secondaryButton button
-     * @type { ?boolean }
-     * @default false
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Default focus switch of secondaryButton button
-     * @type { ?boolean }
-     * @default false
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    defaultFocus?: boolean;
-    
-    /**
-     * Style of secondaryButton button.
-     * @type { ?DialogButtonStyle }
-     * @default DialogButtonStyle.DEFAULT
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Style of secondaryButton button.
-     * @type { ?DialogButtonStyle }
-     * @default DialogButtonStyle.DEFAULT
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    style?: DialogButtonStyle;
-
-    /**
-     * Text content of the confirmation button.
-     *
-     * @type { ResourceStr }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Text content of the confirmation button.
-     *
-     * @type { ResourceStr }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Text content of the confirmation button.
-     *
-     * @type { ResourceStr }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    value: ResourceStr;
-
-    /**
-     * Text color of the confirmation button.
-     *
-     * @type { ?ResourceColor }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Text color of the confirmation button.
-     *
-     * @type { ?ResourceColor }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Text color of the confirmation button.
-     *
-     * @type { ?ResourceColor }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    fontColor?: ResourceColor;
-
-    /**
-     * Background color of the confirmation button.
-     *
-     * @type { ?ResourceColor }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Background color of the confirmation button.
-     *
-     * @type { ?ResourceColor }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Background color of the confirmation button.
-     *
-     * @type { ?ResourceColor }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    backgroundColor?: ResourceColor;
-
-    /**
-     * Method executed by the callback.
-     *
-     * @type { function }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Method executed by the callback.
-     *
-     * @type { function }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Method executed by the callback.
-     *
-     * @type { function }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    action: () => void;
-  };
+  /**
+   * Second button.
+   *
+   * @type { AlertDialogButtonBaseOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  secondaryButton: AlertDialogButtonBaseOptions;
 }
 
 /**

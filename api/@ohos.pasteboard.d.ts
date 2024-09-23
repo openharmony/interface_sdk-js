@@ -130,6 +130,7 @@ declare namespace pasteboard {
    */
   /**
    * Indicates type of value.
+   * @typedef { string | image.PixelMap | Want | ArrayBuffer }
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11
@@ -265,7 +266,7 @@ declare namespace pasteboard {
    * @param { string } mimeType - indicates MIME type of value, its size cannot be greater than 1024 bytes.
    * @param { ValueType } value - content to be saved.
    * @returns { PasteDataRecord } a new PasteDataRecord object which contains mimeType and value.
-   * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
    *    2. Incorrect parameters types;
    *    3. Parameter verification failed.
    * @syscap SystemCapability.MiscServices.Pasteboard
@@ -341,6 +342,34 @@ declare namespace pasteboard {
      */
     CROSSDEVICE
   }
+
+  /**
+   * Enumerates the patterns allowed in the system pasteboard.
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @since 13
+   */
+  enum Pattern {
+    /**
+     * URL pattern.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 13
+     */
+    URL = 0,
+    /**
+     * Number pattern.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 13
+     */
+    NUMBER = 1,
+    /**
+     * Email address pattern.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 13
+     */
+    EMAIL_ADDRESS = 2,
+  }
+
 
   /**
    * Paste data property.
@@ -676,9 +705,9 @@ declare namespace pasteboard {
      * @param { string } mimeType - indicates the MIME type of value, its size cannot be greater than 1024 bytes.
      * @param { ValueType } value - content to be saved.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types; 
+     *    2. Incorrect parameters types;
      *    3. Parameter verification failed.
-     * @throws { BusinessError } 12900002 - The number of record exceeds the maximum limit.
+     * @throws { BusinessError } 12900002 - The number of records exceeds the upper limit.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
@@ -1012,6 +1041,20 @@ declare namespace pasteboard {
      * @since 11
      */
     replaceRecord(index: number, record: PasteDataRecord): void;
+
+    /**
+     * Utilized to notify pasteboard service while reading PasteData, in this case, the service will help to preserve the context and resources
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 12
+     */
+    pasteStart(): void;
+
+    /**
+     * Invoked to notify pasteboard service the utilization of PasteData has completed and occupied resources can be released for further usage
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 12
+     */
+    pasteComplete(): void;
   }
 
   /**
@@ -1054,7 +1097,7 @@ declare namespace pasteboard {
     /**
      * Checks whether the data is remote.
      * @returns { boolean } True is remote data, else false.
-     * @throws { BusinessError } 12900005 - Request time out.
+     * @throws { BusinessError } 12900005 - Request timed out.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11
@@ -1064,7 +1107,7 @@ declare namespace pasteboard {
     /**
      * Gets source of data.
      * @returns { string } data source.
-     * @throws { BusinessError } 12900005 - Request time out.
+     * @throws { BusinessError } 12900005 - Request timed out.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11
@@ -1077,7 +1120,7 @@ declare namespace pasteboard {
      * @returns { boolean } if having mimeType in PasteData returns true, else returns false.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *    2. Incorrect parameters types.
-     * @throws { BusinessError } 12900005 - Request time out.
+     * @throws { BusinessError } 12900005 - Request timed out.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11
@@ -1142,7 +1185,7 @@ declare namespace pasteboard {
 
     /**
      * Clears the pasteboard.
-     * @throws { BusinessError } 12900005 - Request time out.
+     * @throws { BusinessError } 12900005 - Request timed out.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11
@@ -1176,7 +1219,7 @@ declare namespace pasteboard {
      * @param { AsyncCallback<PasteData> } callback - the callback of getData.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *    2. Incorrect  parameters types.
-     * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
+     * @throws { BusinessError } 12900003 - Another copy or paste operation is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
@@ -1185,7 +1228,7 @@ declare namespace pasteboard {
      * @param { AsyncCallback<PasteData> } callback - the callback of getData.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *    2. Incorrect  parameters types.
-     * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
+     * @throws { BusinessError } 12900003 - Another copy or paste operation is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11
@@ -1194,10 +1237,11 @@ declare namespace pasteboard {
      * Gets pastedata from the system pasteboard.
      * @permission ohos.permission.READ_PASTEBOARD
      * @param { AsyncCallback<PasteData> } callback - the callback of getData.
-     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+     *    permission required to call the API.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *    2. Incorrect  parameters types.
-     * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
+     * @throws { BusinessError } 12900003 - Another copy or paste operation is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 12
@@ -1207,14 +1251,14 @@ declare namespace pasteboard {
     /**
      * Gets pastedata from the system pasteboard.
      * @returns { Promise<PasteData> } the promise returned by the getData.
-     * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
+     * @throws { BusinessError } 12900003 - Another copy or paste operation is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
     /**
      * Gets pastedata from the system pasteboard.
      * @returns { Promise<PasteData> } the promise returned by the getData.
-     * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
+     * @throws { BusinessError } 12900003 - Another copy or paste operation is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11
@@ -1223,8 +1267,9 @@ declare namespace pasteboard {
      * Gets pastedata from the system pasteboard.
      * @permission ohos.permission.READ_PASTEBOARD
      * @returns { Promise<PasteData> } the promise returned by the getData.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+     *    permission required to call the API.
+     * @throws { BusinessError } 12900003 - Another copy or paste operation is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 12
@@ -1234,7 +1279,7 @@ declare namespace pasteboard {
     /**
      * Gets pasteData from the system pasteboard.
      * @returns { PasteData }  a new PasteData.
-     * @throws { BusinessError } 12900005 - Request time out.
+     * @throws { BusinessError } 12900005 - Request timed out.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11
@@ -1243,8 +1288,9 @@ declare namespace pasteboard {
      * Gets pasteData from the system pasteboard.
      * @permission ohos.permission.READ_PASTEBOARD
      * @returns { PasteData }  a new PasteData.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 12900005 - Request time out.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+     *    permission required to call the API.
+     * @throws { BusinessError } 12900005 - Request timed out.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 12
@@ -1310,7 +1356,7 @@ declare namespace pasteboard {
     /**
      * Checks whether there is content in the system pasteboard.
      * @returns { boolean } True exists, false does not exist.
-     * @throws { BusinessError } 12900005 - Request time out.
+     * @throws { BusinessError } 12900005 - Request timed out.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11
@@ -1347,7 +1393,7 @@ declare namespace pasteboard {
      * @param { AsyncCallback<void> } callback - the callback of setData.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
      *    2. Incorrect parameters types.
-     * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
+     * @throws { BusinessError } 12900003 - Another copy or paste operation is in progress.
      * @throws { BusinessError } 12900004 - Replication is prohibited.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
@@ -1358,7 +1404,7 @@ declare namespace pasteboard {
      * @param { AsyncCallback<void> } callback - the callback of setData.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *    2. Incorrect parameters types.
-     * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
+     * @throws { BusinessError } 12900003 - Another copy or paste operation is in progress.
      * @throws { BusinessError } 12900004 - Replication is prohibited.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
@@ -1372,7 +1418,7 @@ declare namespace pasteboard {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *    2. Incorrect  parameters types.
-     * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
+     * @throws { BusinessError } 12900003 - Another copy or paste operation is in progress.
      * @throws { BusinessError } 12900004 - Replication is prohibited.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
@@ -1383,7 +1429,7 @@ declare namespace pasteboard {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *    2. Incorrect  parameters types.
-     * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
+     * @throws { BusinessError } 12900003 - Another copy or paste operation is in progress.
      * @throws { BusinessError } 12900004 - Replication is prohibited.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
@@ -1396,7 +1442,7 @@ declare namespace pasteboard {
      * @param { PasteData } data - PasteData will be written to the clipboard.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *    2. Incorrect parameters types.
-     * @throws { BusinessError } 12900005 - Request time out.
+     * @throws { BusinessError } 12900005 - Request timed out.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11
@@ -1407,8 +1453,9 @@ declare namespace pasteboard {
      * Gets unified data from the system pasteboard.
      * @permission ohos.permission.READ_PASTEBOARD
      * @returns { Promise<unifiedDataChannel.UnifiedData> } the promise returned by the getData.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+     *    permission required to call the API.
+     * @throws { BusinessError } 12900003 - Another copy or paste operation is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 12
@@ -1419,8 +1466,9 @@ declare namespace pasteboard {
      * Gets unified data from the system pasteboard.
      * @permission ohos.permission.READ_PASTEBOARD
      * @returns { unifiedDataChannel.UnifiedData }  a new UnifiedData.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 12900005 - Request time out.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+     *    permission required to call the API.
+     * @throws { BusinessError } 12900005 - Request timed out.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 12
@@ -1433,7 +1481,7 @@ declare namespace pasteboard {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *    2. Incorrect  parameters types.
-     * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
+     * @throws { BusinessError } 12900003 - Another copy or paste operation is in progress.
      * @throws { BusinessError } 12900004 - Replication is prohibited.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
@@ -1446,7 +1494,7 @@ declare namespace pasteboard {
      * @param { unifiedDataChannel.UnifiedData } data - Unified data will be written to the pasteboard.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *    2. Incorrect  parameters types.
-     * @throws { BusinessError } 12900005 - Request time out.
+     * @throws { BusinessError } 12900005 - Request timed out.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 12
@@ -1470,13 +1518,26 @@ declare namespace pasteboard {
 
     /**
      * Removes the unified ShareOptions of your application.
-     * 
+     *
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @systemapi
      * @since 12
      */
     removeAppShareOptions(): void;
+
+    /**
+     * Detects the patterns in the pasteboard.
+     * 
+     * @param { Array<Pattern> } patterns - Patterns to detect.
+     * @returns { Promise<Array<Pattern>> } Promise used to return the patterns detected.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                   2. Incorrect parameter types;
+     *                                                                   3. Parameter verification failed.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 13
+     */
+    detectPatterns(patterns: Array<Pattern>): Promise<Array<Pattern>>;
   }
 }
 

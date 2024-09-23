@@ -298,6 +298,7 @@ interface TextPickerInterface {
  * @interface DividerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface DividerOptions {
@@ -307,6 +308,7 @@ declare interface DividerOptions {
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   strokeWidth?: Dimension;
@@ -317,6 +319,7 @@ declare interface DividerOptions {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   color?: ResourceColor;
@@ -327,6 +330,7 @@ declare interface DividerOptions {
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   startMargin?: Dimension;
@@ -337,6 +341,7 @@ declare interface DividerOptions {
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   endMargin?: Dimension;
@@ -562,6 +567,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   divider(value: DividerOptions | null): TextPickerAttribute;
@@ -573,6 +579,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   gradientHeight(value: Dimension): TextPickerAttribute;
@@ -773,6 +780,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @type { ?PickerDialogButtonStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   acceptButtonStyle?: PickerDialogButtonStyle;
@@ -783,6 +791,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @type { ?PickerDialogButtonStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   cancelButtonStyle?: PickerDialogButtonStyle;
@@ -1010,6 +1019,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onWillAppear?: () => void;
@@ -1020,6 +1030,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onWillDisappear?: () => void;
@@ -1030,9 +1041,34 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @type { ?(ShadowOptions | ShadowStyle) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   shadow?: ShadowOptions | ShadowStyle; 
+
+  /**
+   * Defines whether to respond to the hover mode.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  enableHoverMode?: boolean;
+
+  /**
+   * Defines the dialog's display area in hover mode.
+   *
+   * @type { ?HoverModeAreaType }
+   * @default HoverModeAreaType.BOTTOM_SCREEN
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  hoverModeArea?: HoverModeAreaType;
 }
 
 /**

@@ -391,6 +391,7 @@ declare enum TextAreaType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   NUMBER_DECIMAL = 12,
@@ -919,6 +920,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   textOverflow(value: TextOverflow): TextAreaAttribute;
@@ -930,6 +932,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   textIndent(value: Dimension): TextAreaAttribute;
@@ -973,6 +976,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   caretStyle(value: CaretStyle): TextAreaAttribute;
@@ -984,6 +988,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   selectedBackgroundColor(value: ResourceColor): TextAreaAttribute;
@@ -1361,6 +1366,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   minFontSize(value: number | string | Resource): TextAreaAttribute;
@@ -1372,6 +1378,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   maxFontSize(value: number | string | Resource): TextAreaAttribute;
@@ -1383,6 +1390,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   heightAdaptivePolicy(value: TextHeightAdaptivePolicy): TextAreaAttribute;
@@ -1414,6 +1422,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   wordBreak(value: WordBreak): TextAreaAttribute;
@@ -1425,6 +1434,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute } The attribute of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   lineBreakStrategy(strategy: LineBreakStrategy): TextAreaAttribute;
@@ -1467,6 +1477,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   decoration(value: TextDecorationOptions): TextAreaAttribute;
@@ -1478,6 +1489,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   letterSpacing(value: number | string | Resource): TextAreaAttribute;
@@ -1489,6 +1501,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   lineSpacing(value: LengthMetrics): TextAreaAttribute;
@@ -1500,6 +1513,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   lineHeight(value: number | string | Resource): TextAreaAttribute;
@@ -1558,6 +1572,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   fontFeature(value: string): TextAreaAttribute;
@@ -1569,6 +1584,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onWillInsert(callback: Callback<InsertValue, boolean>): TextAreaAttribute;
@@ -1580,6 +1596,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onDidInsert(callback: Callback<InsertValue>): TextAreaAttribute;
@@ -1591,6 +1608,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onWillDelete(callback: Callback<DeleteValue, boolean>): TextAreaAttribute;
@@ -1602,6 +1620,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onDidDelete(callback: Callback<DeleteValue>): TextAreaAttribute;
@@ -1629,6 +1648,18 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 12
    */
   enablePreviewText(enable: boolean): TextAreaAttribute;
+
+  /**
+   * Enable or disable haptic feedback.
+   *
+   * @param { boolean } isEnabled - Default value is true, set false to disable haptic feedback.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  enableHapticFeedback(isEnabled: boolean): TextAreaAttribute;
 }
 
 /**

@@ -1044,6 +1044,60 @@ declare namespace calendarManager {
      * @since 12
      */
     excludedDates?: number[];
+
+    /**
+     * The days of the week associated with the recurrence event.
+     * @type { ?number[] }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 12
+     */
+    daysOfWeek?: number[];
+
+    /**
+     * The days of the month associated with the recurrence event.
+     * @type { ?number[] }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 12
+     */
+    daysOfMonth?: number[];
+
+    /**
+     * The days of the year associated with the recurrence event.
+     * @type { ?number[] }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 12
+     */
+    daysOfYear?: number[];
+
+    /**
+     * The weeks of the month associated with the recurrence event.
+     * @type { ?number[] }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 12
+     */
+    weeksOfMonth?: number[];
+
+    /**
+     * The weeks of the year associated with the recurrence event.
+     * @type { ?number[] }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 12
+     */
+    weeksOfYear?: number[];
+
+    /**
+     * The months of the year associated with the recurrence event.
+     * @type { ?number[] }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 12
+     */
+    monthsOfYear?: number[];
   }
 
   /**
