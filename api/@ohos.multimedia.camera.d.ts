@@ -86,7 +86,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
-    CAMERA_STATUS_UNAVAILABLE = 3
+    CAMERA_STATUS_UNAVAILABLE = 3,
+
+    /**
+     * Server unavailable status.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 13
+     */
+    CAMERA_SERVER_UNAVAILABLE = 4
   }
 
   /**
