@@ -20492,7 +20492,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @atomicservice
    * 
-   * @since 13
+   * @since 14
    */
     onGestureRecognizerJudgeBegin(callback: GestureRecognizerJudgeBeginCallback, exposeInnerGestureFlag?: boolean): T;
 
