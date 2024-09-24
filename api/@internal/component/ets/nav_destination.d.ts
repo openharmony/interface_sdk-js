@@ -682,6 +682,32 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
   menus(value: Array<NavigationMenuItem> | CustomBuilder): NavDestinationAttribute;
 
   /**
+    * Configure toolbar with default style parameter or custom parameter.
+    *
+    * @param { Array<ToolbarItem> | CustomBuilder } toolbarParam - Toolbar configuration parameters.
+    * @param { NavigationToolbarOptions } [options] - Indicates the options of toolbar.
+    * @returns { NavDestinationAttribute }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 13
+    */
+  toolbarConfiguration(toolbarParam: Array<ToolbarItem> | CustomBuilder, options?: NavigationToolbarOptions): NavDestinationAttribute;
+
+  /**
+   * Hide tool bar
+   *
+   * @param { boolean } hide
+   * @param { boolean } [animated]
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  hideToolBar(hide: boolean, animated?: boolean): NavDestinationAttribute;
+
+  /**
    * Invoked before sub-components of NavDestination are created.
    *
    * @param { import('../api/@ohos.base').Callback<NavDestinationContext> } callback
