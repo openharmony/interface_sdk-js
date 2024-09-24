@@ -2886,7 +2886,7 @@ declare namespace window {
   function getSnapshot(windowId: number): Promise<image.PixelMap>;
 
   /**
-   * get windows by coordinate.
+   * Get windows by coordinate.
    *
    * @param { number } displayId - Indicate the id of display.
    * @param { number } windowNumber - Indicate the Number of query windows.
