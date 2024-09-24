@@ -125,6 +125,22 @@ declare class StyledString {
     static fromHtml(html: string): Promise<StyledString>;
 
     /**
+     * Returns HTML string from the provided StyledString.
+     *
+     * @param { StyledString } styledString - the StyledString will be converted to a HTML string.
+     * @returns { string }
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    static toHtml(styledString: StyledString): string;
+
+    /**
      * Returns ArrayBuffer from the serialized styled string.
      *
      * @param { StyledString } styledString - StyledString parameter.
