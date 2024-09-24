@@ -5480,7 +5480,7 @@ declare namespace collections {
      *
      * @param { number } element - Element to be contained (0 means 0, else means 1).
      * @param { number } fromIndex - The starting position of the index, containing the value at that index position.
-     * @param { number } toIndex - The end of the index, excluding the value at that index.
+     * @param { number } toIndex - The end of the index, containing the value at that index.
      * @returns { boolean } The boolean type, if bit vector contains the specified element, return true,
                             else return false.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
