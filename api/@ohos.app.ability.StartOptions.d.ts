@@ -155,7 +155,7 @@ export default class StartOptions {
   startupVisibility?: contextConstant.StartupVisibility;
 
   /**
-   * The start Window Icon.
+   * The start window Icon.
    *
    * @type { ?image.PixelMap }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -165,12 +165,12 @@ export default class StartOptions {
   startWindowIcon?: image.PixelMap;
 
   /**
-   * The start Window backgroundColor.
+   * The start window backgroundColor.
    *
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 14
    */
-  startWindowBackroundColor?: string;
+  startWindowBackgroundColor?: string;
 }
