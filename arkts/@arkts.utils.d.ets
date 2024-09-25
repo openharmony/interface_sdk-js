@@ -177,7 +177,7 @@ declare namespace utils {
     enum AsyncLockMode {
       /**
        * Shared lock operation.
-       * The operation could reenter in the same thread if this mode is specified. 
+       * The operation could reenter if this mode is specified. 
        *
        * @syscap SystemCapability.Utils.Lang
        * @atomicservice
