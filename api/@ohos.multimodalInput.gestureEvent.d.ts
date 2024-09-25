@@ -278,7 +278,7 @@ export declare enum TouchGestureAction {
    */
   PINCH_OPENED,
   /**
-   * End of gesture.
+   * The gesture ends.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
