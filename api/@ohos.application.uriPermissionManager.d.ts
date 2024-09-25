@@ -47,7 +47,7 @@ declare namespace uriPermissionManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000058 - Invalid URI flag.
    * @throws { BusinessError } 16000059 - Invalid URI type.
-   * @throws { BusinessError } 16000060 - Sandbox application can not grant URI permission.
+   * @throws { BusinessError } 16000060 - A sandbox application cannot grant URI permission.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use.
    * @since 10
@@ -77,7 +77,7 @@ declare namespace uriPermissionManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000058 - Invalid URI flag.
    * @throws { BusinessError } 16000059 - Invalid URI type.
-   * @throws { BusinessError } 16000060 - Sandbox application can not grant URI permission.
+   * @throws { BusinessError } 16000060 - A sandbox application cannot grant URI permission.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use.
    * @since 10
