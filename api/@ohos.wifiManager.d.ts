@@ -115,6 +115,16 @@ declare namespace wifiManager {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Query the Wi-Fi status, This API does't need permission.
+   * @returns { boolean } Returns {@code true} if the Wi-Fi is active, returns {@code false} otherwise.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   function isWifiActive(): boolean;
 
   /**
