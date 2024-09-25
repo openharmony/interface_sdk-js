@@ -1844,7 +1844,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
-    CAMERA_FORMAT_YCRCB_P010
+    CAMERA_FORMAT_YCRCB_P010,
+
+    /**
+     * HEIC Format.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 13
+     */
+    CAMERA_FORMAT_HEIC = 2003
   }
 
   /**
@@ -2006,6 +2014,18 @@ declare namespace camera {
      * @since 11
      */
     setFlashMode(flashMode: FlashMode): void;
+
+    /**
+     * Enable lcd flash.
+     *
+     * @param { boolean } enabled - Target lcd flash status.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    enableLcdFlash(enabled: boolean): void;
   }
 
   /**
@@ -4791,6 +4811,30 @@ declare namespace camera {
     off(type: 'effectSuggestionChange', callback?: AsyncCallback<EffectSuggestionType>): void;
 
     /**
+     * Subscribes to lcd flash status.
+     *
+     * @param { 'lcdFlashStatus' } type - Event type.
+     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    on(type: 'lcdFlashStatus', callback: AsyncCallback<LcdFlashStatus>): void;
+
+    /**
+     * Unsubscribes from lcd flash status.
+     *
+     * @param { 'lcdFlashStatus' } type - Event type.
+     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    off(type: 'lcdFlashStatus', callback?: AsyncCallback<LcdFlashStatus>): void;
+
+    /**
      * Gets session functions.
      *
      * @returns { Array<PhotoFunctions> } List of session functions.
@@ -4942,6 +4986,30 @@ declare namespace camera {
      * @since 11
      */
     off(type: 'macroStatusChanged', callback?: AsyncCallback<boolean>): void;
+
+    /**
+     * Subscribes to lcd flash status.
+     *
+     * @param { 'lcdFlashStatus' } type - Event type.
+     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    on(type: 'lcdFlashStatus', callback: AsyncCallback<LcdFlashStatus>): void;
+
+    /**
+     * Unsubscribes from lcd flash status.
+     *
+     * @param { 'lcdFlashStatus' } type - Event type.
+     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    off(type: 'lcdFlashStatus', callback?: AsyncCallback<LcdFlashStatus>): void;
 
     /**
      * Gets session functions.
@@ -5377,6 +5445,30 @@ declare namespace camera {
      * @since 11
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
+
+    /**
+     * Subscribes to lcd flash status.
+     *
+     * @param { 'lcdFlashStatus' } type - Event type.
+     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    on(type: 'lcdFlashStatus', callback: AsyncCallback<LcdFlashStatus>): void;
+
+    /**
+     * Unsubscribes from lcd flash status.
+     *
+     * @param { 'lcdFlashStatus' } type - Event type.
+     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    off(type: 'lcdFlashStatus', callback?: AsyncCallback<LcdFlashStatus>): void;
 
     /**
      * Gets session functions.
@@ -7696,6 +7788,30 @@ declare namespace camera {
     release(): Promise<void>;
   }
 
+  /**
+   * Enumerates the camera video codec type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @since 13
+   */
+  enum VideoCodecType {
+    /**
+     * Codec type AVC.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 13
+     */
+    AVC = 0,
+
+    /**
+     * Codec type HEVC.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 13
+     */
+    HEVC = 1
+  }
 
   /**
    * Photo output object.
@@ -7793,6 +7909,33 @@ declare namespace camera {
     confirmCapture();
 
     /**
+     * Confirm if the raw image delivery is supported
+     *
+     * @returns { boolean } TRUE if the type of delivery image is support.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400104 - Session not running.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    isRawDeliverySupported(): boolean;
+  
+    /**
+     * Enable raw image image delivery.
+     *
+     * @param { boolean } enabled - Target state for raw image delivery.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400104 - Session not running.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    enableRawDelivery(enabled: boolean): void;
+
+    /**
      * Confirm if the deferred image delivery supported in the specific device.
      *
      * @param { DeferredDeliveryImageType } type - Type of delivery image.
@@ -7835,6 +7978,26 @@ declare namespace camera {
      * @since 11
      */
     deferImageDelivery(type: DeferredDeliveryImageType): void;
+
+    /**
+     * Get supported moving photo video codec types.
+     *
+     * @returns { Array<VideoCodecType> } An array of supported video codec types for moving photo.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 13
+     */
+    getSupportedMovingPhotoVideoCodecTypes(): Array<VideoCodecType>;
+
+    /**
+     * Sets codec type for moving photo, default to AVC.
+     *
+     * @param { VideoCodecType } codecType - Codec type for moving photo.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 13
+     */
+    setMovingPhotoVideoCodecType(codecType: VideoCodecType): void;
 
     /**
      * Subscribes photo available event callback.
