@@ -8283,6 +8283,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13
+     * @readonly
      */
     readonly isDeferredVideoEnhancementAvailable: boolean;
     /**
@@ -8292,6 +8293,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 13
+     * @readonly
      */
     readonly videoId?: string;
   }
