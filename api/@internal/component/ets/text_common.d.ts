@@ -861,6 +861,18 @@ declare class TextMenuItemId {
    * @since 12
    */
   static readonly CAMERA_INPUT: TextMenuItemId;
+
+  /**
+   * Indicates the TextMenuItemId to help with text creation by invoking large models.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+    static readonly AI_WRITER: TextMenuItemId;
 }
 
 /**
