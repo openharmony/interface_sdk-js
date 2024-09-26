@@ -6053,6 +6053,7 @@ declare namespace window {
     /**
      * Set whether the main window is topmost.
      *
+     * @permission ohos.permission.WINDOW_TOPMOST
      * @param { boolean } isMainWindowTopmost - Main window is topmost if true.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
@@ -6062,9 +6063,9 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 13
+     * @since 14
      */
-    setMainWindowTopmost(isMainWindowTopmost: boolean): Promise<void>;
+    setWindowTopmost(isMainWindowTopmost: boolean): Promise<void>;
 
     /**
      * Sets the brightness of window.
