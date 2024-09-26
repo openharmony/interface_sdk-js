@@ -116,7 +116,7 @@ declare namespace wifiManager {
    * @since 12
    */
   /**
-   * Query the Wi-Fi status, This API does't need permission.
+   * Query the Wi-Fi status
    * @returns { boolean } Returns {@code true} if the Wi-Fi is active, returns {@code false} otherwise.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.

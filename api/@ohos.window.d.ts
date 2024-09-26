@@ -7665,6 +7665,22 @@ declare namespace window {
     setTitleButtonVisible(isMaximizeVisible: boolean, isMinimizeVisible: boolean, isSplitVisible: boolean): void;
     
     /**
+     * Set whether to display the maximize, minimize buttons of main window.
+     *
+     * @param { boolean } isMaximizeVisible - Display maximize button if true, or hide maximize button if false.
+     * @param { boolean } isMinimizeVisible - Display minimize button if true, or hide minimize button if false.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 14
+     */
+    setWindowTitleButtonVisible(isMaximizeVisible: boolean, isMinimizeVisible: boolean): void;
+        
+    /**
      * Enable landscape multiWindow
      *
      * @returns { Promise<void> } Promise that returns no value.
