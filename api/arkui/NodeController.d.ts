@@ -153,4 +153,46 @@ export abstract class NodeController {
    * @since 12
    */
   onTouchEvent?(event: TouchEvent): void;
+
+  /**
+   * OnAttach Method. Executed when the associated NodeContainer is attached to the main tree.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onAttach?(): void;
+
+  /**
+   * OnDetach Method. Executed when the associated NodeContainer is detached from the main tree.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onDetach?(): void;
+  
+  /**
+   * OnBind Method. Executed when the NodeController is bound to a NodeContainer.
+   *
+   * @param { number } containerId - the uniqueId of the NodeContainer.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onBind?(containerId: number): void;
+
+  /**
+   * OnUnbind Method. Executed when the NodeController is unbind with the NodeContainer.
+   *
+   * @param { number } containerId - the uniqueId of the NodeContainer.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onUnbind?(containerId: number): void;
 }
