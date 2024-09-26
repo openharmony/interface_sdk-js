@@ -14950,6 +14950,14 @@ declare enum DragPreviewMode {
    * @since 12
    */
   ENABLE_DEFAULT_RADIUS = 4,
+  /**
+   * Enable the default gray effect on the dragging item.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  ENABLE_DRAG_ITEM_GRAY_EFFECT = 5,
 }
 
 /**
