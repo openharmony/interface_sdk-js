@@ -19,7 +19,7 @@
  */
 
 
-import { ChipSize, ChipSymbolGlyphOptions } from '@ohos.arkui.advanced.Chip';
+import { ChipSize, ChipSymbolGlyphOptions, CloseOptions, ChipSuffixSymbolGlyphOptions } from '@ohos.arkui.advanced.Chip';
 import { SymbolGlyphModifier } from './@ohos.arkui.modifier';
 
 /**
@@ -54,6 +54,62 @@ export interface IconOptions {
      * @since 12
      */
     size?: SizeOptions;
+}
+
+/**
+ * Defines suffix icon options.
+ *
+ * @interface SuffixImageIconOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+export interface SuffixImageIconOptions extends IconOptions {
+    /**
+     * Called when the suffix image icon is clicked.
+     *
+     * @type { ?VoidCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    action?: VoidCallback;
+
+    /**
+     * Set accessibility text for icon.
+     *
+     * @type { ?ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    accessibilityText?: ResourceStr;
+
+    /**
+     * Set accessibility description for icon.
+     *
+     * @type { ?ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    accessibilityDescription?: ResourceStr;
+
+    /**
+     * Set accessibility level for icon.
+     *
+     * @type { ?string }
+     * @default "auto"
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    accessibilityLevel?: string;
 }
 
 /**
@@ -132,8 +188,21 @@ export interface ChipGroupItemOptions {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 14
+     * @useinstead ChipGroupItemOptions#suffixImageIcon
      */
     suffixIcon?: IconOptions;
+
+    /**
+     * Suffix icon.
+     *
+     * @type { ?SuffixImageIconOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    suffixImageIcon?: SuffixImageIconOptions;
 
     /**
      * suffix symbol.
@@ -147,6 +216,17 @@ export interface ChipGroupItemOptions {
     suffixSymbol?: ChipSymbolGlyphOptions;
 
     /**
+     * Set options for suffix symbol.
+     *
+     * @type { ?ChipSuffixSymbolGlyphOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    suffixSymbolOptions?: ChipSuffixSymbolGlyphOptions;
+
+    /**
      * Allow close.
      *
      * @type { ?boolean }
@@ -156,6 +236,40 @@ export interface ChipGroupItemOptions {
      * @since 12
      */
     allowClose?: boolean;
+
+    /**
+     * Set options for default close icon when 'allowaClose' is true.
+     *
+     * @type { ?CloseOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    closeOptions?: CloseOptions;
+
+    /**
+     * Set accessibility description for ChipGroup item.
+     *
+     * @type { ?ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    accessibilityDescription?: ResourceStr;
+
+    /**
+     * Set accessibility level for ChipGroup item.
+     *
+     * @type { ?string }
+     * @default "auto"
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    accessibilityLevel?: string;
 }
 
 
@@ -303,6 +417,107 @@ export interface IconItemOptions {
      * @since 12
      */
     action: Callback<void>;
+
+    /**
+     * Set accessibility text for icon.
+     *
+     * @type { ?ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    accessibilityText?: ResourceStr;
+
+    /**
+     * Set accessibility description for icon.
+     *
+     * @type { ?ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    accessibilityDescription?: ResourceStr;
+
+    /**
+     * Set accessibility level for icon.
+     *
+     * @type { ?string }
+     * @default "auto"
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    accessibilityLevel?: string;
+}
+
+/**
+ * Defines symbol item options.
+ *
+ * @interface SymbolItemOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+export interface SymbolItemOptions {
+    /**
+     * Set symbol.
+     *
+     * @type { ?SymbolGlyphModifier }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    symbol: SymbolGlyphModifier;
+
+    /**
+     * Called when the symbol item is clicked.
+     *
+     * @type { ?VoidCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    action: VoidCallback;
+
+    /**
+     * Set accessibility text for symbol.
+     *
+     * @type { ?ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    accessibilityText?: ResourceStr;
+
+    /**
+     * Set accessibility description for symbol.
+     *
+     * @type { ?ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    accessibilityDescription?: ResourceStr;
+
+    /**
+     * Set accessibility level for symbol.
+     *
+     * @type { ?string }
+     * @default "auto"
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    accessibilityLevel?: string;
 }
 
 /**
@@ -358,8 +573,17 @@ export declare struct IconGroupSuffix {
      * @atomicservice
      * @since 12
      */
+    /**
+     * Suffix item.
+     *
+     * @type { Array<IconItemOptions | SymbolGlyphModifier | SymbolItemOptions> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
     @Require @Prop
-    items: Array<IconItemOptions | SymbolGlyphModifier>;
+    items: Array<IconItemOptions | SymbolGlyphModifier | SymbolItemOptions>;
 }
 
 
