@@ -7932,6 +7932,37 @@ declare namespace camera {
   }
 
   /**
+   * Deferred video enhancement info.
+   *
+   * @typedef DeferredVideoEnhancementInfo
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 13
+   */
+  interface DeferredVideoEnhancementInfo {
+    /**
+     * Check whether deferred video enhancement available.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     * @readonly
+     */
+    readonly isDeferredVideoEnhancementAvailable: boolean;
+    /**
+     * Video identifier.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     * @readonly
+     */
+    readonly videoId?: string;
+  }
+
+  /**
    * Video output object.
    *
    * @interface VideoOutput
@@ -8044,6 +8075,67 @@ declare namespace camera {
      * @since 12
      */
     getVideoRotation(deviceDegree: number): ImageRotation;
+
+    /**
+     * Confirm if auto deferred video enhancement is supported in the specific device.
+     *
+     * @returns { boolean } TRUE if auto deferred video enhancement is supported.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    isAutoDeferredVideoEnhancementSupported(): boolean;
+
+    /**
+     * Confirm if auto deferred video enhancement is enabled.
+     *
+     * @returns { boolean } TRUE if auto deferred video enhancement is enabled.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    isAutoDeferredVideoEnhancementEnabled(): boolean;
+
+    /**
+     * Enable auto deferred video enhancement if needed.
+     *
+     * @param { boolean } enabled - Status of auto deferred video enhancement.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    enableAutoDeferredVideoEnhancement(enabled: boolean): void;
+
+    /**
+     * Subscribes deferred video enhancement info callback.
+     *
+     * @param { 'deferredVideoEnhancementInfo' } type - Event type.
+     * @param { AsyncCallback<DeferredVideoEnhanceInfo> } callback - Callback used to return the result.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    on(type: 'deferredVideoEnhancementInfo', callback: AsyncCallback<DeferredVideoEnhancementInfo>): void;
+
+    /**
+     * Unsubscribes from deferred video enhancement info callback.
+     *
+     * @param { 'deferredVideoEnhancementInfo' } type - Event type.
+     * @param { AsyncCallback<DeferredVideoEnhancementInfo> } callback - Callback used to return the result.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    off(type: 'deferredVideoEnhancementInfo', callback?: AsyncCallback<DeferredVideoEnhancementInfo>): void;
 
     /**
      * Subscribes frame start event callback.
