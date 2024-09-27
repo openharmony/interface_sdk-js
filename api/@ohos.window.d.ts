@@ -8726,6 +8726,40 @@ declare namespace window {
     off(eventType: 'windowStageEvent', callback?: Callback<WindowStageEventType>): void;
 
     /**
+     * Window stage close callback on.
+     * 
+     * @param { 'windowStageClose' } eventType The value is fixed at 'windowStageClose', indicating the window stage close event.
+     * @param { Callback<void> } callback Callback function requires a boolean return value to determine whether to close the current main window.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 14
+     */
+    on(eventType: 'windowStageClose', callback: Callback<void>): void;
+
+    /**
+     * Window stage close callback off.
+     *
+     * @param { 'windowStageClose' } eventType The value is fixed at 'windowStageClose', indicating the window stage close event.
+     * @param { Callback<void> } callback Callback function requires a boolean return value to determine whether to close the current main window.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 14
+     */
+    off(eventType: 'windowStageClose', callback?: Callback<void>): void;
+
+    /**
      * Disable window decoration. It must be called before loadContent.
      *
      * @throws { BusinessError } 1300002 - This window state is abnormal.
