@@ -8839,7 +8839,70 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
-    FACE_DETECTION = 0
+    FACE_DETECTION = 0,
+
+    /**
+     * Human body detection type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    HUMAN_BODY = 1,
+
+    /**
+     * Cat face detection type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    CAT_FACE = 2,
+
+    /**
+     * Cat body detection type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    CAT_BODY = 3,
+
+    /**
+     * Dog face detection type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    DOG_FACE = 4,
+
+    /**
+     * Dog body detection type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    DOG_BODY = 5,
+
+    /**
+     * Salient detection type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    SALIENT_DETECTION = 6,
+
+    /**
+     * Barcode detection type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    BAR_CODE_DETECTION = 7
   }
 
   /**
@@ -8931,6 +8994,52 @@ declare namespace camera {
   }
 
   /**
+   * Enum for emotion type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 13
+   */
+  enum Emotion {
+    /**
+     * Emotion type: Neutral.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    NEUTRAL = 0,
+  
+    /**
+     * Emotion type: Sadness.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    SADNESS = 1,
+
+    /**
+     * Emotion type: Smile.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    SMILE = 2,
+  
+    /**
+     * Emotion type: Surprise.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    SURPRISE = 3
+  }
+
+  /**
    * Metadata object basis.
    *
    * @typedef MetadataObject
@@ -8965,6 +9074,228 @@ declare namespace camera {
      * @since 10
      */
     readonly boundingBox: Rect;
+    /**
+     * Metadata object id.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    readonly objectId: number;
+    /**
+     * Confidence for the detected type.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    readonly confidence: number;
+  }
+
+  /**
+   * Metadata object for face.
+   *
+   * @typedef MetadataFaceObject
+   * @extends MetadataObject
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 13
+   */
+  interface MetadataFaceObject extends MetadataObject {
+    /**
+     * Bounding box for left eye.
+     *
+     * @type { Rect }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    readonly leftEyeBoundingBox: Rect;
+
+    /**
+     * Bounding box for right eye.
+     *
+     * @type { Rect }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    readonly rightEyeBoundingBox: Rect;
+
+    /**
+     * Emotion type for face.
+     *
+     * @type { Emotion }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    readonly emotion: Emotion;
+
+    /**
+     * Emotion confidence.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    readonly emotionConfidence: number;
+
+    /**
+     * Pitch angle for face.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    readonly pitchAngle: number;
+
+    /**
+     * Yaw angle for face.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    readonly yawAngle: number;
+
+    /**
+     * Roll angle for face.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    readonly rollAngle: number;
+  }
+  
+  /**
+   * Metadata object for human body.
+   *
+   * @typedef MetadataHumanBodyObject
+   * @extends MetadataObject
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 13
+   */
+  interface MetadataHumanBodyObject extends MetadataObject {
+  }
+  
+  /**
+   * Metadata object for cat face.
+   *
+   * @typedef MetadataCatFaceObject
+   * @extends MetadataObject
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 13
+   */
+  interface MetadataCatFaceObject extends MetadataObject {
+    /**
+     * Bounding box for left eye.
+     *
+     * @type { Rect }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    readonly leftEyeBoundingBox: Rect;
+
+    /**
+     * Bounding box for right eye.
+     *
+     * @type { Rect }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    readonly rightEyeBoundingBox: Rect;
+  }
+  
+  /**
+   * Metadata object for cat body.
+   *
+   * @typedef MetadataCatBodyObject
+   * @extends MetadataObject
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 13
+   */
+  interface MetadataCatBodyObject extends MetadataObject {
+  }
+  
+  /**
+   * Metadata object for dog face.
+   *
+   * @typedef MetadataDogFaceObject
+   * @extends MetadataObject
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 13
+   */
+  interface MetadataDogFaceObject extends MetadataObject {
+    /**
+     * Bounding box for left eye.
+     *
+     * @type { Rect }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    readonly leftEyeBoundingBox: Rect;
+
+    /**
+     * Bounding box for right eye.
+     *
+     * @type { Rect }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    readonly rightEyeBoundingBox: Rect;
+  }
+
+  /**
+   * Metadata object for dog body.
+   *
+   * @typedef MetadataDogBodyObject
+   * @extends MetadataObject
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 13
+   */
+  interface MetadataDogBodyObject extends MetadataObject {
+  }
+
+  /**
+   * Metadata object for salient detection.
+   *
+   * @typedef MetadataSalientDetectionObject
+   * @extends MetadataObject
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 13
+   */
+  interface MetadataSalientDetectionObject extends MetadataObject {
   }
 
   /**
@@ -9046,6 +9377,34 @@ declare namespace camera {
      * @since 10
      */
     stop(): Promise<void>;
+
+    /**
+     * Add metadata object types.
+     *
+     * @param { Array<MetadataObjectType> } types - Object types to be added.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect. 
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    addMetadataObjectTypes(types: Array<MetadataObjectType>): void;
+
+    /**
+     * Remove metadata object types.
+     *
+     * @param { Array<MetadataObjectType> } types - Object types to be removed.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect. 
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    removeMetadataObjectTypes(types: Array<MetadataObjectType>): void;
 
     /**
      * Subscribes to metadata objects available event callback.
