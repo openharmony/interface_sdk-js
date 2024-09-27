@@ -20357,6 +20357,32 @@ declare class CommonMethod<T> {
   accessibilityVirtualNode(builder: CustomBuilder): T;
 
   /**
+   * Sets accessibilityChecked
+   *
+   * @param { boolean } isCheck - set accessibility checked status
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  accessibilityChecked(isCheck: boolean): T;
+
+  /**
+   * Sets accessibilitySelected
+   *
+   * @param { boolean } isSelect - set accessibility selected status
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  accessibilitySelected(isSelect: boolean): T;
+
+  /**
    * Sets obscured
    *
    * @param { Array<ObscuredReasons> } reasons - reasons of obscuration
