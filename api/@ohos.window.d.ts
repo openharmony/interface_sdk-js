@@ -6063,6 +6063,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
      * @since 14
      */
     setWindowTopmost(isWindowTopmost: boolean): Promise<void>;
