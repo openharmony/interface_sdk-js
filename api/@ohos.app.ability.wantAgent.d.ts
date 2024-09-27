@@ -60,7 +60,7 @@ declare namespace wantAgent {
    * @param { AsyncCallback<string> } callback - The callback is used to return the bundle name.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
+   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
    * @throws { BusinessError } 16000151 - Invalid wantagent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
@@ -87,7 +87,7 @@ declare namespace wantAgent {
    * @returns { Promise<string> } Returns the bundle name.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
+   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
    * @throws { BusinessError } 16000151 - Invalid wantagent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
@@ -114,7 +114,7 @@ declare namespace wantAgent {
    * @param { AsyncCallback<number> } callback - The callback is used to return the UID.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
+   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
    * @throws { BusinessError } 16000151 - Invalid wantagent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
@@ -141,7 +141,7 @@ declare namespace wantAgent {
    * @returns { Promise<number> } Returns the UID.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
+   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
    * @throws { BusinessError } 16000151 - Invalid wantagent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
@@ -156,7 +156,7 @@ declare namespace wantAgent {
    * @param { AsyncCallback<Want> } callback - The callback is used to return the Want.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
+   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
    * @throws { BusinessError } 16000015 - Service timeout.
    * @throws { BusinessError } 16000151 - Invalid wantagent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -172,7 +172,7 @@ declare namespace wantAgent {
    * @returns { Promise<Want> } Returns the Want.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
+   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
    * @throws { BusinessError } 16000015 - Service timeout.
    * @throws { BusinessError } 16000151 - Invalid wantagent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -200,7 +200,7 @@ declare namespace wantAgent {
    * @param { AsyncCallback<void> } callback - The callback of cancel.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
+   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
    * @throws { BusinessError } 16000151 - Invalid wantagent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
@@ -227,7 +227,7 @@ declare namespace wantAgent {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
+   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
    * @throws { BusinessError } 16000151 - Invalid wantagent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
@@ -329,7 +329,7 @@ declare namespace wantAgent {
    * @param { AsyncCallback<WantAgent> } callback - The callback is used to return the created WantAgent.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
+   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
    * @throws { BusinessError } 16000151 - Invalid wantagent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
@@ -356,7 +356,7 @@ declare namespace wantAgent {
    * @returns { Promise<WantAgent> } Returns the created WantAgent.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
+   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
    * @throws { BusinessError } 16000151 - Invalid wantagent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
@@ -384,7 +384,7 @@ declare namespace wantAgent {
    * @param { AsyncCallback<number> } callback - The callback is used to return the OperationType of the WantAgent.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
+   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
    * @throws { BusinessError } 16000015 - Service timeout.
    * @throws { BusinessError } 16000151 - Invalid wantagent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -413,7 +413,7 @@ declare namespace wantAgent {
    * @returns { Promise<number> } Returns the OperationType of the WantAgent.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy, there are concurrent tasks, waiting for retry.
+   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
    * @throws { BusinessError } 16000015 - Service timeout.
    * @throws { BusinessError } 16000151 - Invalid wantagent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
