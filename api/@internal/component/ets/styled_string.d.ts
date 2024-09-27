@@ -123,6 +123,34 @@ declare class StyledString {
      * @since 12
      */
     static fromHtml(html: string): Promise<StyledString>;
+    
+    /**
+     * Returns ArrayBuffer from the serialized styled string.
+     *
+     * @param { StyledString } styledString - StyledString parameter.
+     * @returns { ArrayBuffer }
+     * @throws { BusinessError } 202 - If the operation fails.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 13
+     */
+    static marshalling(styledString: StyledString): ArrayBuffer;
+
+    /**
+     * Returns StyledString from the deserialized ArrayBuffer.
+     *
+     * @param { ArrayBuffer } buffer - The buffer will be deserialized to a StyledString.
+     * @returns { Promise<StyledString> }
+     * @throws { BusinessError } 202 - If the operation fails.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 13
+     */
+    static unmarshalling(buffer: ArrayBuffer): Promise<StyledString>;
 }
 
 /**
