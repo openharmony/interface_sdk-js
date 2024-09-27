@@ -6054,7 +6054,7 @@ declare namespace window {
      * Set whether the main window is topmost.
      *
      * @permission ohos.permission.WINDOW_TOPMOST
-     * @param { boolean } isMainWindowTopmost - Main window is topmost if true.
+     * @param { boolean } isWindowTopmost - Main window is topmost if true.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
@@ -6065,7 +6065,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @since 14
      */
-    setWindowTopmost(isMainWindowTopmost: boolean): Promise<void>;
+    setWindowTopmost(isWindowTopmost: boolean): Promise<void>;
 
     /**
      * Sets the brightness of window.
