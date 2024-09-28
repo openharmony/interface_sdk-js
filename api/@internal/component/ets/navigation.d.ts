@@ -2463,7 +2463,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   hideTitleBar(hide: boolean, animated: boolean): NavigationAttribute;
 
@@ -2628,7 +2628,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   hideToolBar(hide: boolean, animated: boolean): NavigationAttribute;
 
