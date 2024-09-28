@@ -299,14 +299,14 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
   briefText: string;
 
   /**
-   * Brief text of the multi-line text notification.
+   * Long title of the multi-line text notification.
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
   /**
-   * Brief text of the multi-line text notification.
+   * Long title of the multi-line text notification.
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
@@ -342,7 +342,7 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
  */
 export interface NotificationPictureContent extends NotificationBasicContent {
   /**
-   * Multi-line content of the multi-line text notification.
+   * Brief text of the multi-line text notification.
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
