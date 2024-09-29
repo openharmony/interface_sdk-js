@@ -8520,12 +8520,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Enable or disable haptic feedback.
    *
-   * @param { boolean } enable - Default value is true, set false to disable haptic feedback.
+   * @param { boolean } enabled - Default value is true, set false to disable haptic feedback.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13
    */
-  enableHapticFeedback(enable: boolean): WebAttribute;
+  enableHapticFeedback(enabled: boolean): WebAttribute;
 }
 
 /**
