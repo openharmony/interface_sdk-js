@@ -2139,7 +2139,16 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 13
      */
-    CE_AVAILABLE = 'ce_available'
+    CE_AVAILABLE = 'ce_available',
+    /**
+     * visibility of thumbnails
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    THUMBNAIL_VISIBLE = 'thumbnail_visible'
   }
 
   /**
@@ -6458,6 +6467,15 @@ declare namespace photoAccessHelper {
      * @since 13
      */
     thumbnailModifiedMs: number;
+    /**
+     * visibility of thumbnails
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    thumbnailVisible: number;
   }
 
   /**

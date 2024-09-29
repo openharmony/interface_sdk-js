@@ -119,7 +119,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -128,8 +128,8 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - The application is not allow jumping to other applications.
-   * @throws { BusinessError } 16000019 - Can not match any component.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
@@ -229,7 +229,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -237,8 +237,8 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - The application is not allow jumping to other applications.
-   * @throws { BusinessError } 16000019 - Can not match any component.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
@@ -343,7 +343,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -352,8 +352,8 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - The application is not allow jumping to other applications.
-   * @throws { BusinessError } 16000019 - Can not match any component.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
@@ -390,7 +390,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -399,7 +399,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000019 - Can not match any component.
+   * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000069 - The extension cannot start the third party application.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -490,7 +490,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -499,8 +499,8 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - The application is not allow jumping to other applications.
-   * @throws { BusinessError } 16000019 - Can not match any component.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
@@ -600,7 +600,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -608,8 +608,8 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - The application is not allow jumping to other applications.
-   * @throws { BusinessError } 16000019 - Can not match any component.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
@@ -714,7 +714,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -723,8 +723,8 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - The application is not allow jumping to other applications.
-   * @throws { BusinessError } 16000019 - Can not match any component.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
@@ -785,7 +785,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000069 - The extension cannot start the third party application.
    * @throws { BusinessError } 16000070 - The extension cannot start the service.
@@ -818,7 +818,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -926,8 +926,8 @@ export default class UIExtensionContext extends ExtensionContext {
    * @returns { Promise<AbilityResult> } Returns the result of openAtomicService.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000003 - The appId does not exist.
-   * @throws { BusinessError } 16000004 - Can not start invisible component
+   * @throws { BusinessError } 16000003 - The specified ID does not exist.
+   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -953,13 +953,13 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000019 - Can not match any component.
+   * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -983,7 +983,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000011 - The context does not exist.

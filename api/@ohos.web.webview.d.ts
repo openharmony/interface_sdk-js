@@ -1409,6 +1409,21 @@ declare namespace webview {
      */
     static fetchCookie(url: string): Promise<string>;
 
+     /**
+     * Gets all cookies for the given URL Asynchronously.
+     *
+     * @param { string } url - The URL for which the cookies are requested.
+     * @param { boolean } incognito - {@code true} gets all cookies for the given URL
+     *                                in incognito mode; {@code false} otherwise.
+     * @returns { Promise<string> } - A promise resolved after the cookies of given URL have been gotten.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 13
+     */
+    static fetchCookie(url: string, incognito: boolean): Promise<string>;
+
     /**
      * Gets all cookies for the given URL Asynchronously.
      *
@@ -1458,6 +1473,24 @@ declare namespace webview {
     static configCookieSync(url: string, value: string, incognito?: boolean): void;
 
     /**
+     * Set a single cookie (key-value pair) for the given URL.
+     *
+     * @param { string } url - The URL for which the cookie is to be set.
+     * @param { string } value - The cookie as a string, using the format of the 'Set-Cookie' HTTP response header.
+     * @param { boolean } incognito - {@code true} set a single cookie (key-value pair) for the given URL
+     *                                in incognito mode; {@code false} otherwise.
+     * @param { boolean } includeHttpOnly - {@code true} HTTP-only cookies can also be overwritten;
+     *                                      {@code false} otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100005 - Invalid cookie value.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 13
+     */
+    static configCookieSync(url: string, value: string, incognito: boolean, includeHttpOnly: boolean): void;
+
+    /**
      * Set a single cookie (key-value pair) for the given URL Asynchronously.
      *
      * @param { string } url - The URL for which the cookie is to be set.
@@ -1473,6 +1506,25 @@ declare namespace webview {
      * @since 11
      */
     static configCookie(url: string, value: string): Promise<void>;
+
+    /**
+     * Set a single cookie (key-value pair) for the given URL Asynchronously.
+     *
+     * @param { string } url - The URL for which the cookie is to be set.
+     * @param { string } value - The cookie as a string, using the format of the 'Set-Cookie' HTTP response header.
+     * @param { boolean } incognito - {@code true} set a single cookie (key-value pair) for the given URL
+     *                                in incognito mode; {@code false} otherwise.
+     * @param { boolean } includeHttpOnly - {@code true} HTTP-only cookies can also be overwritten;
+     *                                      {@code false} otherwise.
+     * @returns { Promise<void> } - A promise resolved after the cookies of given URL have been set.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100005 - Invalid cookie value.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 13
+     */
+    static configCookie(url: string, value: string, incognito: boolean, includeHttpOnly: boolean): Promise<void>;
 
     /**
      * Set a single cookie (key-value pair) for the given URL Asynchronously.

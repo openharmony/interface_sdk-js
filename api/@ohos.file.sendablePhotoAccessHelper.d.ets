@@ -1094,6 +1094,15 @@ declare namespace sendablePhotoAccessHelper {
      * @since 13
      */
     thumbnailModifiedMs: number;
+    /**
+     * visibility of thumbnails
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    thumbnailVisible: number;
   }
 
   /**

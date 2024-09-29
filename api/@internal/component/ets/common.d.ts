@@ -2200,14 +2200,14 @@ declare interface AnimateParam {
   playMode?: PlayMode;
 
   /**
-   * Callback invoked when the animation playback is complete.
+   * Callback invoked when the animation playback is complete or the ability is about to enter the background.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Callback invoked when the animation playback is complete.
+   * Callback invoked when the animation playback is complete or the ability is about to enter the background.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2215,7 +2215,7 @@ declare interface AnimateParam {
    * @since 9
    */
   /**
-   * Callback invoked when the animation playback is complete.
+   * Callback invoked when the animation playback is complete or the ability is about to enter the background.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2224,7 +2224,7 @@ declare interface AnimateParam {
    * @since 10
    */
   /**
-   * Callback invoked when the animation playback is complete.
+   * Callback invoked when the animation playback is complete or the ability is about to enter the background.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16920,6 +16920,20 @@ declare class CommonMethod<T> {
   * @since 12
   */
  focusScopeId(id: string, isGroup?: boolean): T;
+  /**
+  * Set container as a focus group with a specific identifier.
+  *
+  * @param { string } id - focus scope identifier.
+  * @param { boolean } [isGroup] - whether this scope is a focus group, the default value is false.
+  * @param { boolean } [arrowStepOut] - whether the arrow keys can move focus from inside the focus group to outside,
+  * only effective when isGroup is true, the default value is true.
+  * @returns { T }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 14
+  */
+ focusScopeId(id: string, isGroup?: boolean, arrowStepOut?: boolean): T;
 
   /**
   * Set the focus priority of component in a specific focus scope.
@@ -20341,6 +20355,32 @@ declare class CommonMethod<T> {
    * @since 12
    */
   accessibilityVirtualNode(builder: CustomBuilder): T;
+
+  /**
+   * Sets accessibilityChecked
+   *
+   * @param { boolean } isCheck - set accessibility checked status
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  accessibilityChecked(isCheck: boolean): T;
+
+  /**
+   * Sets accessibilitySelected
+   *
+   * @param { boolean } isSelect - set accessibility selected status
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  accessibilitySelected(isSelect: boolean): T;
 
   /**
    * Sets obscured
@@ -23799,7 +23839,7 @@ declare interface KeyframeAnimateParam {
   iterations?: number;
 
   /**
-   * Callback invoked when the whole keyframe animation is complete.
+   * Callback invoked when the whole keyframe animation is complete or the ability is about to enter the background.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -23807,7 +23847,7 @@ declare interface KeyframeAnimateParam {
    * @since 11
    */
   /**
-   * Callback invoked when the whole keyframe animation is complete.
+   * Callback invoked when the whole keyframe animation is complete or the ability is about to enter the background.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

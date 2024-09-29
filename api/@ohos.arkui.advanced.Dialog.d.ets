@@ -868,7 +868,7 @@ export declare struct PopoverDialog {
    * @atomicservice
    * @since 13
    */
-  @Prop
+  @Require @Prop
   popover: PopoverOptions;
   /**
    * Sets the targetBuilder content.
@@ -879,7 +879,8 @@ export declare struct PopoverDialog {
    * @atomicservice
    * @since 13
    */
-  @BuilderParam targetBuilder: Callback<void>;
+  @Require @BuilderParam 
+  targetBuilder: Callback<void>;
 }
 
 /**
