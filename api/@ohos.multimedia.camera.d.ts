@@ -4561,6 +4561,7 @@ declare namespace camera {
    * Tripod detection result.
    *
    * @interface TripodDetectionResult
+   * @extends SceneFeatureDetectionResult
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13
