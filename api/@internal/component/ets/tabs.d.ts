@@ -359,6 +359,28 @@ declare class TabsController {
    * @since 12
    */
   preloadItems(indices: Optional<Array<number>>): Promise<void>;
+
+  /**
+   * Set tab bar translate.
+   *
+   * @param { TranslateOptions } translate - translate options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  setTabBarTranslate(translate: TranslateOptions): void;
+
+  /**
+   * Set tab bar opacity.
+   *
+   * @param { number } opacity - opacity
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  setTabBarOpacity(opacity: number): void;
 }
 
 /**

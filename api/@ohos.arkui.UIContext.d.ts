@@ -3289,6 +3289,56 @@ export class UIContext {
    * @since 13
    */
   getMaxFontScale(): number;
+
+  /**
+   * Bind tabs to scrollable container component to automatically hide tab bar.
+   *
+   * @param { TabsController } tabsController - The controller of the tabs.
+   * @param { Scroller } scroller - The controller of the scrollable container component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  bindTabsToScrollable(tabsController: TabsController, scroller: Scroller): void;
+
+  /**
+   * Unbind tabs from scrollable container component.
+   *
+   * @param { TabsController } tabsController - The controller of the tabs.
+   * @param { Scroller } scroller - The controller of the scrollable container component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  unbindTabsFromScrollable(tabsController: TabsController, scroller: Scroller): void;
+
+  /**
+   * Bind tabs to nested scrollable container components to automatically hide tab bar.
+   *
+   * @param { TabsController } tabsController - The controller of the tabs.
+   * @param { Scroller } parentScroller - The controller of the parent scrollable container component.
+   * @param { Scroller } childScroller - The controller of the child scrollable container component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  bindTabsToNestedScrollable(tabsController: TabsController, parentScroller: Scroller, childScroller: Scroller): void;
+
+  /**
+   * Unbind tabs from nested scrollable container components.
+   *
+   * @param { TabsController } tabsController - The controller of the tabs.
+   * @param { Scroller } parentScroller - The controller of the parent scrollable container component.
+   * @param { Scroller } childScroller - The controller of the child scrollable container component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  unbindTabsFromNestedScrollable(tabsController: TabsController, parentScroller: Scroller, childScroller: Scroller): void;
 }
 
 /**
