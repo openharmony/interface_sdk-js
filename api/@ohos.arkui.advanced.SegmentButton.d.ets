@@ -1753,6 +1753,17 @@ declare struct SegmentButton {
   selectedIndexes: number[];
 
   /**
+   * The max font scale of the segmented button option text.
+   * @type { number | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  @Prop
+  maxFontScale: number | Resource;
+
+  /**
    * The click event callback will be triggered when a option button of SegmentButton is clicked.
    * 
    * @type { ?Callback<number> }
