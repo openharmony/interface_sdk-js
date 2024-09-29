@@ -19,6 +19,90 @@
  */
 
 /**
+ * Defines Line constructor options.
+ *
+ * @interface LineOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 14
+ */
+interface LineOptions {
+  /**
+   * Width of the rectangle where the line resides.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Width of the rectangle where the line resides.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Width of the rectangle where the line resides.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Width of the rectangle where the line resides.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  width?: string | number;
+
+  /**
+   * Height of the rectangle where the line resides.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Height of the rectangle where the line resides.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Height of the rectangle where the line resides.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Height of the rectangle where the line resides.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  height?: string | number;
+}
+
+/**
  * Line drawing component.
  *
  * @interface LineInterface
@@ -99,7 +183,18 @@ interface LineInterface {
    * @atomicservice
    * @since 11
    */
-  new (value?: { width?: string | number; height?: string | number }): LineAttribute;
+  /**
+   * Uses new to create the line.
+   *
+   * @param { LineOptions } [options] - Line options
+   * @returns { LineAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  new (options?: LineOptions): LineAttribute;
 
   /**
    * The return value of the parameter is Line.
@@ -147,7 +242,18 @@ interface LineInterface {
    * @atomicservice
    * @since 11
    */
-  (value?: { width?: string | number; height?: string | number }): LineAttribute;
+  /**
+   * The return value of the parameter is Line.
+   *
+   * @param { LineOptions } [options] - Line options
+   * @returns { LineAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  (options?: LineOptions): LineAttribute;
 }
 
 /**
