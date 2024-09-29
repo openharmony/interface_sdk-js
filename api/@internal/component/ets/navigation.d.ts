@@ -77,7 +77,16 @@ declare interface NavigationCommonTitle {
    * @atomicservice
    * @since 11
    */
-  main: string;
+  /**
+   * Sets the main title.
+   *
+   * @type { string | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  main: string | Resource;
 
   /**
    * Sets the sub title.
@@ -103,7 +112,16 @@ declare interface NavigationCommonTitle {
    * @atomicservice
    * @since 11
    */
-  sub: string;
+  /**
+   * Sets the sub title.
+   *
+   * @type { string | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  sub: string | Resource;
 }
 
 /**
@@ -499,7 +517,16 @@ declare interface NavigationMenuItem {
    * @atomicservice
    * @since 11
    */
-  value: string;
+  /**
+   * The value of navigation menu item.
+   *
+   * @type { string | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  value: string | Resource;
 
   /**
    * The icon of navigation menu item.
@@ -525,7 +552,16 @@ declare interface NavigationMenuItem {
    * @atomicservice
    * @since 11
    */
-  icon?: string;
+  /**
+   * The value of navigation menu item.
+   *
+   * @type { ?(string | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  icon?: string | Resource;
 
   /**
    * The symbol of navigation menu item.
@@ -2038,6 +2074,18 @@ declare interface NavigationTitleOptions {
    * @since 13
    */
   subTitleModifier?: TextModifier;
+  
+  /**
+   * Defines whether to respond to the hover mode.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  enableHoverMode?: boolean;
 }
 
 /**
@@ -2407,6 +2455,19 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   hideTitleBar(value: boolean): NavigationAttribute;
 
   /**
+   * Hide navigation title bar
+   *
+   * @param { boolean } hide
+   * @param { boolean } animated
+   * @returns { NavigationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  hideTitleBar(hide: boolean, animated: boolean): NavigationAttribute;
+
+  /**
    * Hide navigation back button
    *
    * @param { boolean } value
@@ -2559,6 +2620,19 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   hideToolBar(value: boolean): NavigationAttribute;
 
   /**
+   * Hide tool bar
+   *
+   * @param { boolean } hide
+   * @param { boolean } animated
+   * @returns { NavigationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  hideToolBar(hide: boolean, animated: boolean): NavigationAttribute;
+
+  /**
    * Trigger callback when title mode change finished at free mode.
    *
    * @param { (titleMode: NavigationTitleMode) => void } callback
@@ -2693,6 +2767,17 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 12
    */
   systemBarStyle(style: Optional<SystemBarStyle>): NavigationAttribute;
+  
+  /**
+   * Set the Navigation can be restored after the application is terminated.
+   * To enable this attribute, a navigation id must be set.
+   * 
+   * @param { boolean } recoverable - navigation can be recovered.
+   * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 13
+   */
+  recoverable(recoverable: Optional<boolean>): NavigationAttribute;
 }
 
 /**

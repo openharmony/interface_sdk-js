@@ -1218,6 +1218,15 @@ declare namespace text {
     getLongestLine(): number;
 
     /**
+     * Get the longest line of horizontal space this paragraph occupies, and this horizontal space contains the width
+     * of indent.
+     * @returns { number } The longest line with indent of horizontal space this paragraph occupies.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 13
+     */
+    getLongestLineWithIndent(): number;
+
+    /**
      * Get the min intrinsic width of horizontal space this paragraph occupies.
      * @returns { number } The min intrinsic width of horizontal space this paragraph occupies.
      * @syscap SystemCapability.Graphics.Drawing

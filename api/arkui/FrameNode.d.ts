@@ -1411,6 +1411,213 @@ export namespace typeNode {
    * @since 13
    */
   function createNode(context: UIContext, nodeType: 'Toggle', options?: ToggleOptions): Toggle;
+
+  /**
+   * Define the FrameNode type for Marquee.
+   *
+   * @typedef { TypedFrameNode<MarqueeInterface, MarqueeAttribute> } Marquee
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  type Marquee = TypedFrameNode<MarqueeInterface, MarqueeAttribute>;
+
+  /**
+   * Create a FrameNode of Marquee type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Marquee' } nodeType - node type.
+   * @returns { Marquee } - Return Marquee type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  function createNode(context: UIContext, nodeType: 'Marquee'): Marquee;
+
+  /**
+   * Define the FrameNode type for TextArea.
+   *
+   * @typedef { TypedFrameNode<TextAreaInterface, TextAreaAttribute> } TextArea
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  type TextArea = TypedFrameNode<TextAreaInterface, TextAreaAttribute>;
+
+  /**
+   * Create a FrameNode of TextArea type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'TextArea' } nodeType - node type.
+   * @returns { TextArea } - Return TextArea type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  function createNode(context: UIContext, nodeType: 'TextArea'): TextArea;
+
+  /**
+   * Define the FrameNode type for SymbolGlyph.
+   *
+   * @typedef { TypedFrameNode<SymbolGlyphInterface, SymbolGlyphAttribute> } SymbolGlyph
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  type SymbolGlyph = TypedFrameNode<SymbolGlyphInterface, SymbolGlyphAttribute>;
+
+  /**
+   * Create a FrameNode of SymbolGlyph type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'SymbolGlyph' } nodeType - node type.
+   * @returns { SymbolGlyph } - Return SymbolGlyph type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  function createNode(context: UIContext, nodeType: 'SymbolGlyph'): SymbolGlyph;
+
+  /**
+   * Define the FrameNode type for QRCode.
+   *
+   * @typedef { TypedFrameNode<QRCodeInterface, QRCodeAttribute> } QRCode
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  type QRCode = TypedFrameNode<QRCodeInterface, QRCodeAttribute>;
+
+  /**
+   * Create a FrameNode of QRCode type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'QRCode' } nodeType - node type.
+   * @returns { QRCode } - Return QRCode type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  function createNode(context: UIContext, nodeType: 'QRCode'): QRCode;
+
+  /**
+   * Define the FrameNode type for Badge.
+   *
+   * @typedef { TypedFrameNode<BadgeInterface, BadgeAttribute> } Badge
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  type Badge = TypedFrameNode<BadgeInterface, BadgeAttribute>;
+
+  /**
+   * Create a FrameNode of Badge type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Badge' } nodeType - node type.
+   * @returns { Badge } - Return Badge type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  function createNode(context: UIContext, nodeType: 'Badge'): Badge;
+
+  /**
+   * Define the FrameNode type for TextClock.
+   *
+   * @typedef { TypedFrameNode<TextClockInterface, TextClockAttribute> } TextClock
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  type TextClock = TypedFrameNode<TextClockInterface, TextClockAttribute>;
+
+  /**
+   * Create a FrameNode of TextClock type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'TextClock' } nodeType - node type.
+   * @returns { TextClock } - Return TextClock type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  function createNode(context: UIContext, nodeType: 'TextClock'): TextClock;
+
+  /**
+   * Define the FrameNode type for TextTimer.
+   *
+   * @typedef { TypedFrameNode<TextTimerInterface, TextTimerAttribute> } TextTimer
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  type TextTimer = TypedFrameNode<TextTimerInterface, TextTimerAttribute>;
+
+  /**
+   * Create a FrameNode of TextTimer type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'TextTimer' } nodeType - node type.
+   * @returns { TextTimer } - Return TextTimer type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  function createNode(context: UIContext, nodeType: 'TextTimer'): TextTimer;
+
+  /**
+   * Define the FrameNode type for Grid.
+   *
+   * @typedef { TypedFrameNode<GridInterface, GridAttribute> } Grid
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  type Grid = TypedFrameNode<GridInterface, GridAttribute>;
+
+  /**
+   * Create a FrameNode of Grid type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Grid' } nodeType - node type.
+   * @returns { Grid } - Return Grid type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  function createNode(context: UIContext, nodeType: 'Grid'): Grid;
+
+  /**
+   * Define the FrameNode type for GridItem.
+   *
+   * @typedef { TypedFrameNode<GridItemInterface, GridItemAttribute> } GridItem
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  type GridItem = TypedFrameNode<GridItemInterface, GridItemAttribute>;
+
+  /**
+   * Create a FrameNode of GridItem type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'GridItem' } nodeType - node type.
+   * @returns { GridItem } - Return GridItem type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  function createNode(context: UIContext, nodeType: 'GridItem'): GridItem;
 }
 
 /**

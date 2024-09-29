@@ -1632,6 +1632,16 @@ declare abstract class CustomSpan {
      * @since 12
      */
     abstract onDraw(context: DrawContext, drawInfo: CustomSpanDrawInfo): void;
+
+    /**
+     * Invalidate all components that use the object, which will cause a re-render of all components.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    invalidate(): void;
 }
 
 /**

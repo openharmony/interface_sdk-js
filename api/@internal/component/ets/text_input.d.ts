@@ -1102,6 +1102,59 @@ interface PasswordIcon {
 }
 
 /**
+ * Defines a TextInput callback when onSubmit.
+ *
+ * @typedef { function } OnSubmitCallback
+ * @param { EnterKeyType } enterKey - Input method Enter key type.
+ * @param { SubmitEvent } event - The event submitted.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare type OnSubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => void;
+
+/**
+ * Defines a TextInput callback when onTextSelectionChange.
+ *
+ * @typedef { function } OnTextSelectionChangeCallback
+ * @param { number } selectionStart - The starting position of the selected text, the starting position of the text is 0.
+ * @param { number } selectionEnd - The end location of the selected text.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare type OnTextSelectionChangeCallback = (selectionStart: number, selectionEnd: number) => void;
+
+/**
+ * Defines a TextInput callback when onContentScroll.
+ *
+ * @typedef { function } OnContentScrollCallback
+ * @param { number } totalOffsetX - The text is offset in px on the horizontal axis of the content area.
+ * @param { number } totalOffsetY - The text is offset in px on the vertical axis of the content area.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare type OnContentScrollCallback = (totalOffsetX: number, totalOffsetY: number) => void;
+
+
+/**
+ * Defines a TextInput callback when onPaste.
+ *
+ * @typedef { function } OnPasteCallback
+ * @param { string } content - The text content of the paste.
+ * @param { PasteEvent } event - User-defined paste event.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare type OnPasteCallback = (content: string, event: PasteEvent) => void;
+
+/**
  * Defines the TextInput attribute functions.
  *
  * @extends CommonMethod<TextInputAttribute>
@@ -1345,7 +1398,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @atomicservice
    * @since 11
    */
-  onEditChange(callback: (isEditing: boolean) => void): TextInputAttribute;
+  /**
+   * Called when judging whether the text editing change finished.
+   *
+   * @param { Callback<boolean> } callback
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onEditChange(callback: Callback<boolean>): TextInputAttribute;
 
   /**
    * Called when submitted.
@@ -1374,7 +1437,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @atomicservice
    * @since 11
    */
-  onSubmit(callback: (enterKey: EnterKeyType, event: SubmitEvent) => void): TextInputAttribute;
+  /**
+   * Called when submitted.
+   *
+   * @param { OnSubmitCallback } callback - Callback of the listened event.
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onSubmit(callback: OnSubmitCallback): TextInputAttribute;
 
   /**
    * Called when the input of the input box changes.
@@ -1434,7 +1507,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @atomicservice
    * @since 11
    */
-  onTextSelectionChange(callback: (selectionStart: number, selectionEnd: number) => void): TextInputAttribute;
+  /**
+   * Called when the text selection changes.
+   *
+   * @param { OnTextSelectionChangeCallback } callback - Callback of the listened event.
+   * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onTextSelectionChange(callback: OnTextSelectionChangeCallback): TextInputAttribute;
 
   /**
    * Called when the content scrolls.
@@ -1455,7 +1538,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @atomicservice
    * @since 11
    */
-  onContentScroll(callback: (totalOffsetX: number, totalOffsetY: number) => void): TextInputAttribute;
+  /**
+   * Called when the content scrolls.
+   *
+   * @param { OnContentScrollCallback } callback - Callback of the listened event.
+   * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onContentScroll(callback: OnContentScrollCallback): TextInputAttribute;
 
   /**
    * Called when the input of maximum text length is set.
@@ -1661,7 +1754,18 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @atomicservice
    * @since 11
    */
-  inputFilter(value: ResourceStr, error?: (value: string) => void): TextInputAttribute;
+  /**
+   * Called when the inputFilter of text is set.
+   *
+   * @param { ResourceStr } value
+   * @param { Callback<string> } [error]
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  inputFilter(value: ResourceStr, error?: Callback<string>): TextInputAttribute;
 
   /**
    * Called when using the Clipboard menu
@@ -1690,7 +1794,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @atomicservice
    * @since 11
    */
-  onCopy(callback: (value: string) => void): TextInputAttribute;
+  /**
+   * Called when using the Clipboard menu.
+   *
+   * @param { Callback<string> } callback
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onCopy(callback: Callback<string>): TextInputAttribute;
 
   /**
    * Called when using the Clipboard menu
@@ -1719,7 +1833,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @atomicservice
    * @since 11
    */
-  onCut(callback: (value: string) => void): TextInputAttribute;
+  /**
+   * Called when using the Clipboard menu.
+   *
+   * @param { Callback<string> } callback
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onCut(callback: Callback<string>): TextInputAttribute;
 
   /**
    * Called when using the Clipboard menu
@@ -1751,7 +1875,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @atomicservice
    * @since 11
    */
-  onPaste(callback: (value: string, event: PasteEvent) => void): TextInputAttribute;
+  /**
+   * Called when using the Clipboard menu.
+   *
+   * @param { OnPasteCallback } callback - Executed when a paste operation is performed.
+   * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onPaste(callback: OnPasteCallback): TextInputAttribute;
 
   /**
    * Called when the copy option is set.
@@ -2203,7 +2337,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @atomicservice
    * @since 12
    */
-  cancelButton(value: { style?: CancelButtonStyle, icon?: IconOptions }): TextInputAttribute;
+  /**
+   * Set the cancel button style.
+   *
+   * @param { CancelButtonOptions } options - Indicates the style of the cancel button.
+   * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  cancelButton(options: CancelButtonOptions): TextInputAttribute;
 
   /**
    * Sets selection when on focus.
@@ -2447,6 +2591,18 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 12
    */
   enablePreviewText(enable: boolean): TextInputAttribute;
+
+  /**
+   * Enable or disable haptic feedback.
+   *
+   * @param { boolean } isEnabled - Default value is true, set false to disable haptic feedback.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  enableHapticFeedback(isEnabled: boolean): TextInputAttribute;
 }
 
 /**

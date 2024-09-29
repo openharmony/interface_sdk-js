@@ -251,6 +251,90 @@ declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfigur
 }
 
 /**
+ * Defines the toggle options.
+ *
+ * @interface ToggleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 13
+ */
+declare interface ToggleOptions {
+  /**
+   * Type of the toggle.
+   *
+   * @type { ToggleType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Type of the toggle.
+   *
+   * @type { ToggleType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Type of the toggle.
+   *
+   * @type { ToggleType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Type of the toggle.
+   *
+   * @type { ToggleType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  type: ToggleType;
+
+  /**
+   * Whether the toggle is on.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Whether the toggle is on.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Whether the toggle is on.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Whether the toggle is on.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  isOn?: boolean
+}
+
+/**
  * Defines the toggle interface.
  *
  * @interface ToggleInterface
@@ -323,7 +407,18 @@ interface ToggleInterface {
    * @atomicservice
    * @since 11
    */
-  (options: { type: ToggleType; isOn?: boolean }): ToggleAttribute;
+  /**
+   * Set parameters to obtain the toggle.
+   *
+   * @param { ToggleOptions } options - toggle options
+   * @returns { ToggleAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 13
+   */
+  (options: ToggleOptions): ToggleAttribute;
 }
 
 /**

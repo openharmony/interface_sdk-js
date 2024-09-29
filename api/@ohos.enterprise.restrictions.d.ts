@@ -336,7 +336,7 @@ declare namespace restrictions {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 13
+   * @since 14
    */
   function setDisallowedPolicyForAccount(admin: Want, feature: string, disallow: boolean, accountId: number): void;
 
@@ -355,9 +355,66 @@ declare namespace restrictions {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 13
+   * @since 14
    */
   function getDisallowedPolicyForAccount(admin: Want, feature: string, accountId: number): boolean;
+
+  /**
+   * Adds applications or bundles or other contents to the list to restrict them from using a specific feature.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } feature - feature indicates the specific feature to be disallowed.
+   * @param { Array<string> } list - list of restricted applications or bundles or other contents.
+   * @param { number } accountId - indicates the account ID.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 14
+   */
+  function addDisallowedListForAccount(admin: Want, feature: string, list: Array<string>, accountId: number): void;
+
+  /**
+   * Removes applications or bundles or other contents from the list to unblock them from using a specific feature.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } feature - feature indicates the specific feature to be disallowed.
+   * @param { Array<string> } list - list of unblock applications or bundles or other contents.
+   * @param { number } accountId - indicates the account ID.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 14
+   */
+  function removeDisallowedListForAccount(admin: Want, feature: string, list: Array<string>, accountId: number): void;
+
+  /**
+   * Gets the list of applications or bundles or other contents that are restrict from using a specific feature.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } feature - feature indicates the specific feature to be disallowed.
+   * @param { number } accountId - indicates the account ID.
+   * @returns { Array<string> } list - list of applications or bundles or other contents.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 14
+   */
+  function getDisallowedListForAccount(admin: Want, feature: string, accountId: number): Array<string>;
 }
 
 export default restrictions;

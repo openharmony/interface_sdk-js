@@ -364,6 +364,108 @@ declare namespace screen {
   function setScreenRotationLocked(isLocked: boolean): Promise<void>;
 
   /**
+   * Set multi screen mode(mirror/extend).
+   *
+   * @param { number } primaryScreenId - primary screen id.
+   * @param { number } secondaryScreenId - secondary screen id.
+   * @param { MultiScreenMode } secondaryScreenMode - secondary screen mode.
+   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *                                                                   2. Incorrect parameter types.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 13
+   */
+  function setMultiScreenMode(primaryScreenId: number, secondaryScreenId: number,
+    secondaryScreenMode: MultiScreenMode): Promise<void>;
+
+    /**
+   * Set multi screen relative position.
+   *
+   * @param { MultiScreenPositionOptions } mainScreenOptions - main screen position.
+   * @param { MultiScreenPositionOptions } secondaryScreenOptions - secondary screen position.
+   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *                                                                   2. Incorrect parameter types.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 13
+   */
+  function setMultiScreenRelativePosition(mainScreenOptions: MultiScreenPositionOptions,
+    secondaryScreenOptions: MultiScreenPositionOptions): Promise<void>;
+
+  /**
+   * Indicate the screen mode
+   *
+   * @enum { number }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 13
+   */
+  enum MultiScreenMode {
+
+    /**
+     * Indicate that the screen is in mirror mode.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 13
+     */
+    SCREEN_MIRROR = 0,
+
+    /**
+     * Indicate that the screen is in extend mode.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 13
+     */
+    SCREEN_EXTEND = 1
+  }
+
+  /**
+   * The parameter of making extend screen
+   *
+   * @interface MultiScreenPositionOptions
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 13
+   */
+  interface MultiScreenPositionOptions {
+    /**
+     * Screen id
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 13
+     */
+    id: number;
+
+    /**
+     * The start coordinate X of the screen origin
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 13
+     */
+    startX: number;
+
+    /**
+     * The start coordinate Y of the screen origin
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 13
+     */
+    startY: number;
+  }
+
+  /**
    * The parameter of making expand screen
    *
    * @interface ExpandOption

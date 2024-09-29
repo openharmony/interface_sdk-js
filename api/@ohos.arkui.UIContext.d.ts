@@ -2049,6 +2049,26 @@ export class SwiperDynamicSyncScene extends DynamicSyncScene {
 }
 
 /**
+ * Represents a dynamic synchronization scene of Marquee.
+ * 
+ * @extends DynamicSyncScene
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 13
+ */
+export class MarqueeDynamicSyncScene extends DynamicSyncScene {
+  /**
+  * Type of the MarqueeDynamicSyncSceneType.
+  * @type { MarqueeDynamicSyncSceneType }
+  * @readonly
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @atomicservice
+  * @since 13
+  */
+  readonly type: MarqueeDynamicSyncSceneType;
+}
+
+/**
  * class DragController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 11
@@ -2242,6 +2262,17 @@ export class FocusController {
    * @since 12
    */
   requestFocus(key: string): void;
+
+  /**
+   * Activate focus style.
+   * @param { boolean } isActive - activate/deactivate the focus style.
+   * @param { boolean } [autoInactive] - deactivate the focus style when touch event or mouse event triggers, the default value is true.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  activate(isActive: boolean, autoInactive?: boolean): void;
 }
 
 /**
@@ -3110,6 +3141,26 @@ export class UIContext {
    * @since 12
    */
   getWindowName(): string | undefined;
+  
+  /**
+   * Get the width breakpoint of current window.
+   *
+   * @returns { WidthBreakpoint } The width breakpoint of current window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  getWindowWidthBreakpoint(): WidthBreakpoint;
+  
+  /**
+   * Get the height breakpoint of current window.
+   *
+   * @returns { HeightBreakpoint } The height breakpoint of current window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice 
+   * @since 13
+   */
+  getWindowHeightBreakpoint(): HeightBreakpoint;
 
   /**
    * Open the BindSheet.
@@ -3294,6 +3345,25 @@ export const enum SwiperDynamicSyncSceneType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   */
+  ANIMATION = 1
+}
+
+/**
+ * Enum of scene type for Marquee
+ * 
+ * @enum { number } MarqueeDynamicSyncSceneType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 13
+ */
+export const enum MarqueeDynamicSyncSceneType {
+  /**
+   * Scene type is ANIMATION.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
    */
   ANIMATION = 1
 }

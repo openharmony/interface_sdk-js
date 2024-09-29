@@ -58,7 +58,7 @@ declare namespace errorManager {
    * @returns { number } Returns the number code of the observer.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000003 - Id does not exist.
+   * @throws { BusinessError } 16000003 - The specified ID does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11
@@ -85,7 +85,7 @@ declare namespace errorManager {
    * @param { AsyncCallback<void> } callback - The callback of off.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000003 - Id does not exist.
+   * @throws { BusinessError } 16000003 - The specified ID does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11
@@ -112,7 +112,7 @@ declare namespace errorManager {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000003 - Id does not exist.
+   * @throws { BusinessError } 16000003 - The specified ID does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11

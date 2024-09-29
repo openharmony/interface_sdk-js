@@ -37,7 +37,7 @@ import type drm from './@ohos.multimedia.drm';
  */
 /**
  * @namespace media
- * @syscap SystemCapability.Multimedia.Media
+ * @syscap SystemCapability.Multimedia.Media.Core
  * @crossplatform
  * @atomicservice
  * @since 12

@@ -117,13 +117,20 @@ declare namespace uiExtension {
 
     /**
      * Hide the non-secure windows.
+     * When called by modal UIExtension and shouldHide == false, the "ohos.permission.ALLOW_SHOW_NON_SECURE_WINDOWS" permission is required.
      *
+     * @permission ohos.permission.ALLOW_SHOW_NON_SECURE_WINDOWS
      * @param { boolean } shouldHide - Hide the non-secure windows if true, otherwise means the opposite.
      * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 1300002 - Abnormal state. Possible causes:
+     * <br> 1. Permission denied. Interface caller does not have permission "ohos.permission.ALLOW_SHOW_NON_SECURE_WINDOWS".
+     * <br> 2. The UIExtension window proxy is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 12

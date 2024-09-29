@@ -50,7 +50,7 @@ export default class UIServiceExtensionContext extends ExtensionContext {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -86,6 +86,7 @@ export default class UIServiceExtensionContext extends ExtensionContext {
    * Starts the UIAbility or UIExtensionAbility by type.
    * If the target ability is visible, you can start the target ability; If the target ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * If the caller application is in the background, it is not allowed to call this interface.
    *
    * @param { string } type - The type of target ability.
    * @param { Record<string, Object> } wantParam - Indicates the want parameter.
@@ -120,7 +121,7 @@ export default class UIServiceExtensionContext extends ExtensionContext {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.

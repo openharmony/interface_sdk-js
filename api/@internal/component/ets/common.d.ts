@@ -1676,7 +1676,7 @@ declare interface Rectangle {
 /**
  * Interface for ExpectedFrameRateRange.
  *
- * @typedef ExpectedFrameRateRange
+ * @interface ExpectedFrameRateRange
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
@@ -2200,14 +2200,14 @@ declare interface AnimateParam {
   playMode?: PlayMode;
 
   /**
-   * Callback invoked when the animation playback is complete.
+   * Callback invoked when the animation playback is complete or the ability is about to enter the background.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Callback invoked when the animation playback is complete.
+   * Callback invoked when the animation playback is complete or the ability is about to enter the background.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2215,7 +2215,7 @@ declare interface AnimateParam {
    * @since 9
    */
   /**
-   * Callback invoked when the animation playback is complete.
+   * Callback invoked when the animation playback is complete or the ability is about to enter the background.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2224,7 +2224,7 @@ declare interface AnimateParam {
    * @since 10
    */
   /**
-   * Callback invoked when the animation playback is complete.
+   * Callback invoked when the animation playback is complete or the ability is about to enter the background.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2305,7 +2305,7 @@ interface ICurve {
   /**
    * Get curve value by fraction.
    *
-   * @param { number } fraction -Indicates the current normalized time parameter. Value range: [0, 1].
+   * @param { number } fraction - Indicates the current normalized time parameter. Value range: [0, 1].
    * Note: If the value is less than 0, it will be processed as 0. If the value is greater than 1, 1 is used.
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2315,7 +2315,7 @@ interface ICurve {
   /**
    * Get curve value by fraction.
    *
-   * @param { number } fraction -Indicates the current normalized time parameter. Value range: [0, 1].
+   * @param { number } fraction - Indicates the current normalized time parameter. Value range: [0, 1].
    * Note: If the value is less than 0, it will be processed as 0. If the value is greater than 1, 1 is used.
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2326,7 +2326,7 @@ interface ICurve {
   /**
    * Get curve value by fraction.
    *
-   * @param { number } fraction -Indicates the current normalized time parameter. Value range: [0, 1].
+   * @param { number } fraction - Indicates the current normalized time parameter. Value range: [0, 1].
    * Note: If the value is less than 0, it will be processed as 0. If the value is greater than 1, 1 is used.
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4244,7 +4244,7 @@ declare class TransitionEffect<
    * -x: Horizontal component of the rotational vector.
    * -y: Vertical component of the rotational vector.
    * -z: Vertical component of the rotational vector.
-   * -centerX, centerY specify the rotation center point, with default values of "50%", 
+   * -centerX, centerY specify the rotation center point, with default values of "50%",
    * meaning that the default rotation center point is the center point of the component.
    * -The center point of (0, 0) represents the upper-left corner of the component.
    * -centerZ refers to the Z-axis anchor point. The default value of centerZ is 0.
@@ -4264,7 +4264,7 @@ declare class TransitionEffect<
    * -x: Horizontal component of the rotational vector.
    * -y: Vertical component of the rotational vector.
    * -z: Vertical component of the rotational vector.
-   * -centerX, centerY specify the rotation center point, with default values of "50%", 
+   * -centerX, centerY specify the rotation center point, with default values of "50%",
    * meaning that the default rotation center point is the center point of the component.
    * -The center point of (0, 0) represents the upper-left corner of the component.
    * -centerZ refers to the Z-axis anchor point. The default value of centerZ is 0.
@@ -4818,6 +4818,15 @@ declare enum PreDragStatus {
  * @atomicservice
  * @since 11
  */
+/**
+ * DragItemInfo object description
+ *
+ * @interface DragItemInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
 declare interface DragItemInfo {
   /**
    * Uses the pixelMap object for drawing.
@@ -4833,6 +4842,15 @@ declare interface DragItemInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Uses the pixelMap object for drawing.
+   *
+   * @type { ?PixelMap }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
    */
   pixelMap?: PixelMap;
 
@@ -4851,6 +4869,15 @@ declare interface DragItemInfo {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Uses the custom builder for drawing, if pixelMap is set, this value is ignored.
+   *
+   * @type { ?CustomBuilder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   builder?: CustomBuilder;
 
   /**
@@ -4867,6 +4894,15 @@ declare interface DragItemInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Sets the extra info for drag event.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
    */
   extraInfo?: string;
 }
@@ -6009,7 +6045,7 @@ declare enum BlurStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 13
  */
 declare enum BlurStyleActivePolicy {
   /**
@@ -6018,7 +6054,7 @@ declare enum BlurStyleActivePolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   FOLLOWS_WINDOW_ACTIVE_STATE = 0,
 
@@ -6028,7 +6064,7 @@ declare enum BlurStyleActivePolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   ALWAYS_ACTIVE = 1,
 
@@ -6038,7 +6074,7 @@ declare enum BlurStyleActivePolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   ALWAYS_INACTIVE = 2,
 }
@@ -6050,7 +6086,7 @@ declare enum BlurStyleActivePolicy {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 13
  */
 declare enum BlurType {
   /**
@@ -6059,7 +6095,7 @@ declare enum BlurType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   WITHIN_WINDOW = 0,
   /**
@@ -6068,7 +6104,7 @@ declare enum BlurType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   BEHIND_WINDOW = 1
 }
@@ -6292,7 +6328,7 @@ declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   policy?: BlurStyleActivePolicy;
 
@@ -6304,7 +6340,7 @@ declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   inactiveColor?: ResourceColor;
 
@@ -6316,7 +6352,7 @@ declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   type?: BlurType;
 }
@@ -6621,7 +6657,7 @@ declare interface BackgroundEffectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   policy?: BlurStyleActivePolicy;
 
@@ -6633,7 +6669,7 @@ declare interface BackgroundEffectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   inactiveColor?: ResourceColor;
 
@@ -6645,7 +6681,7 @@ declare interface BackgroundEffectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   type?: BlurType;
 }
@@ -9373,6 +9409,15 @@ declare type UniformDataType = import('../api/@ohos.data.uniformTypeDescriptor')
  * @atomicservice
  * @since 11
  */
+/**
+ * Enum for Drag Result.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
 declare enum DragResult {
   /**
    * If the drag is successful, return DragResult.DRAG_SUCCESSFUL.
@@ -9387,6 +9432,14 @@ declare enum DragResult {
    * @atomicservice
    * @since 11
    */
+  /**
+   * If the drag is successful, return DragResult.DRAG_SUCCESSFUL.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   DRAG_SUCCESSFUL = 0,
   /**
    * If drag fail, return DragResult.DRAG_FAILED.
@@ -9400,6 +9453,14 @@ declare enum DragResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * If drag fail, return DragResult.DRAG_FAILED.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
    */
   DRAG_FAILED = 1,
   /**
@@ -9460,7 +9521,7 @@ declare enum DragResult {
  */
 /**
  * Enum for BlendMode.
- * Blend modes for compositing current component 
+ * Blend modes for compositing current component
  * with overlapping content. Use overlapping content
  * as dst, current component as src.
  *
@@ -10094,6 +10155,15 @@ declare enum BlendApplyType {
  * @atomicservice
  * @since 11
  */
+/**
+ * DragEvent object description
+ *
+ * @interface DragEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
 declare interface DragEvent {
   /**
    * X coordinate of the touch point relative to the left edge of the device screen.
@@ -10109,6 +10179,15 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * X coordinate of the touch point relative to the left edge of the device screen.
+   *
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
    */
   getDisplayX(): number;
 
@@ -10127,6 +10206,15 @@ declare interface DragEvent {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Y coordinate of the touch point relative to the upper edge of the device screen.
+   *
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   getDisplayY(): number;
 
   /**
@@ -10144,6 +10232,15 @@ declare interface DragEvent {
    * @atomicservice
    * @since 11
    */
+  /**
+   * X coordinate of the touch point relative to the left edge of the current window.
+   *
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   getWindowX(): number;
 
   /**
@@ -10160,6 +10257,15 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Y coordinate of the touch point relative to the left edge of the current window.
+   *
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
    */
   getWindowY(): number;
 
@@ -10295,6 +10401,15 @@ declare interface DragEvent {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Set dragEvent result to DragEvent.
+   *
+   * @param { DragResult } dragResult - the return of dragEvent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   setResult(dragResult: DragResult): void;
 
   /**
@@ -10312,6 +10427,15 @@ declare interface DragEvent {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Get dragEvent result from DragEvent.
+   *
+   * @returns { DragResult } - dragResult Data.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   getResult(): DragResult;
 
   /**
@@ -10328,6 +10452,15 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Get the rectangle of drag window.
+   *
+   * @returns { Rectangle } - getPreview rectangle.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
    */
   getPreviewRect(): Rectangle;
 
@@ -10396,8 +10529,18 @@ declare interface DragEvent {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 12
+   */
+  /**
+   * Query the ModifierKey press state, support 'ctrl'|'alt'|'shift'|'fn'
+   *
+   * @param { Array<string> } keys - indicate the keys of the ModifierKey.
+   * @returns { boolean }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
    */
   getModifierKeyState?(keys: Array<string>): boolean;
 }
@@ -10682,8 +10825,18 @@ declare interface KeyEvent {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 12
+   */
+  /**
+   * Get the modifier keys press state, support 'ctrl'|'alt'|'shift'|'fn'
+   *
+   * @param { Array<string> } keys - indicate the modifier keys.
+   * @returns { boolean }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
    */
   getModifierKeyState?(keys: Array<string>): boolean;
 
@@ -11078,6 +11231,59 @@ declare enum ScrollSizeMode {
    * @since 12
    */
   CONTINUOUS = 1,
+}
+
+/**
+ * Define the mode of sheet how to avoid keyboard.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare enum SheetKeyboardAvoidMode {
+  /**
+   * Sheet will not aovid keyboard.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  NONE = 0,
+
+  /**
+   * Firstly sheet will avoid keyboard by changing its height.
+   * And then sheet will avoid by resizing after reaching its maximum height.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  TRANSLATE_AND_RESIZE = 1,
+
+  /**
+   * Sheet will only avoid keyboard by resizing the content.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  RESIZE_ONLY = 2,
+
+  /**
+   * Firstly sheet will avoid keyboard by changing its height.
+   * And then sheet will avoid keyboard by scrolling after reaching its maximum height.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  TRANSLATE_AND_SCROLL = 3,
 }
 
 /**
@@ -11559,6 +11765,18 @@ declare interface SheetOptions extends BindOptions {
    * @since 12
    */
   uiContext?: UIContext;
+
+  /**
+   * Determine the mode of sheet how to avoid keyboard.
+   *
+   * @type { ?SheetKeyboardAvoidMode }
+   * @default SheetKeyboardAvoidMode.TRANSLATE_AND_SCROLL
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  keyboardAvoidMode?: SheetKeyboardAvoidMode;
 }
 
 /**
@@ -13456,6 +13674,17 @@ declare interface ContextMenuOptions {
    * @since 12
    */
   aboutToDisappear?: () => void;
+  
+  /**
+   * The margin of menu's layoutRegion.
+   *
+   * @type { ?Margin }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  layoutRegionMargin?: Margin;
   
   /**
    * The preview animator options.
@@ -16691,6 +16920,20 @@ declare class CommonMethod<T> {
   * @since 12
   */
  focusScopeId(id: string, isGroup?: boolean): T;
+  /**
+  * Set container as a focus group with a specific identifier.
+  *
+  * @param { string } id - focus scope identifier.
+  * @param { boolean } [isGroup] - whether this scope is a focus group, the default value is false.
+  * @param { boolean } [arrowStepOut] - whether the arrow keys can move focus from inside the focus group to outside,
+  * only effective when isGroup is true, the default value is true.
+  * @returns { T }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 14
+  */
+ focusScopeId(id: string, isGroup?: boolean, arrowStepOut?: boolean): T;
 
   /**
   * Set the focus priority of component in a specific focus scope.
@@ -18582,6 +18825,17 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
+   * (To be triggered, press and hold for 170 milliseconds (ms))
+   *
+   * @param { function } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   onDragStart(event: (event: DragEvent, extraParams?: string) => CustomBuilder | DragItemInfo): T;
 
   /**
@@ -18600,6 +18854,16 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * After binding, a callback is triggered when the component is dragged to the range of the component.
+   *
+   * @param { function } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
    */
   onDragEnter(event: (event: DragEvent, extraParams?: string) => void): T;
 
@@ -18620,6 +18884,16 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * After binding, a callback is triggered when the drag moves within the range of a placeable component.
+   *
+   * @param { function } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   onDragMove(event: (event: DragEvent, extraParams?: string) => void): T;
 
   /**
@@ -18638,6 +18912,16 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * After binding, a callback is triggered when the component is dragged out of the component range.
+   *
+   * @param { function } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
    */
   onDragLeave(event: (event: DragEvent, extraParams?: string) => void): T;
 
@@ -18660,6 +18944,17 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * The component bound to this event can be used as the drag release target.
+   * This callback is triggered when the drag behavior is stopped within the scope of the component.
+   *
+   * @param { function } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   onDrop(event: (event: DragEvent, extraParams?: string) => void): T;
 
   /**
@@ -18678,6 +18973,16 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * This function is called when the drag event is end.
+   *
+   * @param { function } event - indicates the function to be called.
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
    */
   onDragEnd(event: (event: DragEvent, extraParams?: string) => void): T;
 
@@ -19177,7 +19482,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Add a blendMode effect to the current component
-   * 
+   *
    * @param { BlendMode } value - Different hybrid modes
    * @param { BlendApplyType } [type] - Different blend apply type
    * @returns { T }
@@ -19190,7 +19495,21 @@ declare class CommonMethod<T> {
   blendMode(value: BlendMode, type?: BlendApplyType): T;
 
   /**
-   * Whether to crop the sub components of the current component.
+   * Add a blendMode effect to the current component.Cannot be used together with the blendMode interface.
+   * 
+   * @param { BlendMode | Blender } effect - When the effect type is BlendMode type, define Different hybrid modes.
+   * When the effect type is Blender type, Define the corresponding blending effect.
+   * @param { BlendApplyType } [type] - Different blend apply type
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @form
+   * @since 13
+   */
+  advancedBlendMode(effect: BlendMode | Blender, type?: BlendApplyType): T;
+
+  /**
+   * Whether to crop the sub components beyond the current component range.
    *
    * @param { boolean } value
    * @returns { T }
@@ -19771,7 +20090,18 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  onVisibleAreaChange(ratios: Array<number>, event: (isVisible: boolean, currentRatio: number) => void): T;
+  /**
+   * Trigger a visible area change event.
+   *
+   * @param { Array<number> } ratios
+   * @param { VisibleAreaChangeCallback } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback): T;
 
   /**
    * Set the spherical effect of the component.
@@ -20025,6 +20355,32 @@ declare class CommonMethod<T> {
    * @since 12
    */
   accessibilityVirtualNode(builder: CustomBuilder): T;
+
+  /**
+   * Sets accessibilityChecked
+   *
+   * @param { boolean } isCheck - set accessibility checked status
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  accessibilityChecked(isCheck: boolean): T;
+
+  /**
+   * Sets accessibilitySelected
+   *
+   * @param { boolean } isSelect - set accessibility selected status
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  accessibilitySelected(isSelect: boolean): T;
 
   /**
    * Sets obscured
@@ -21897,17 +22253,6 @@ declare interface MeasureResult extends SizeResult {
 declare type NavDestinationInfo = import('../api/@ohos.arkui.observer').default.NavDestinationInfo;
 
 /**
- * The router page information.
- *
- * @typedef {import('../api/@ohos.arkui.observer').default.RouterPageInfo} RouterPageInfo
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12
- */
- declare type RouterPageInfo = import('../api/@ohos.arkui.observer').default.RouterPageInfo;
-
-/**
  * The navigation information.
  *
  * @typedef {import('../api/@ohos.arkui.observer').default.NavigationInfo} NavigationInfo
@@ -21917,6 +22262,17 @@ declare type NavDestinationInfo = import('../api/@ohos.arkui.observer').default.
  * @since 12
  */
 declare type NavigationInfo = import('../api/@ohos.arkui.observer').default.NavigationInfo;
+
+/**
+ * The router page information.
+ *
+ * @typedef {import('../api/@ohos.arkui.observer').default.RouterPageInfo} RouterPageInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type RouterPageInfo = import('../api/@ohos.arkui.observer').default.RouterPageInfo;
 
 /**
  * UIContext
@@ -21969,6 +22325,17 @@ declare type VisualEffect = import('../api/@ohos.graphics.uiEffect').default.Vis
  * @since 12
  */
 declare type Filter = import('../api/@ohos.graphics.uiEffect').default.Filter;
+
+/**
+ * Blender
+ *
+ * @typedef { import('../api/@ohos.graphics.uiEffect').default.Blender } Blender
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @form
+ * @since 13
+ */
+declare type Blender = import('../api/@ohos.graphics.uiEffect').default.Blender;
 
 /**
  * ComponentContent.
@@ -23472,7 +23839,7 @@ declare interface KeyframeAnimateParam {
   iterations?: number;
 
   /**
-   * Callback invoked when the whole keyframe animation is complete.
+   * Callback invoked when the whole keyframe animation is complete or the ability is about to enter the background.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -23480,7 +23847,7 @@ declare interface KeyframeAnimateParam {
    * @since 11
    */
   /**
-   * Callback invoked when the whole keyframe animation is complete.
+   * Callback invoked when the whole keyframe animation is complete or the ability is about to enter the background.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -23667,7 +24034,19 @@ declare interface VisibleAreaEventOptions {
  * @atomicservice
  * @since 12
  */
-declare type VisibleAreaChangeCallback = (isVisible: boolean, currentRatio: number) => void;
+/**
+ * Defines the callback type used in VisibleAreaChange events.
+ *
+ * @typedef { function } VisibleAreaChangeCallback
+ * @param { boolean } isExpanding - Indicates the ratio of the visible area to its own area compared to the last change.
+ * It is true as the ratio increases and false as the ratio decreases.
+ * @param { number } currentRatio - The value of currentRatio indicates the visibility ratio of the current component.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
+declare type VisibleAreaChangeCallback = (isExpanding: boolean, currentRatio: number) => void;
 
 /**
  * Defines a UICommonEvent which is used to set different common event to target component.
