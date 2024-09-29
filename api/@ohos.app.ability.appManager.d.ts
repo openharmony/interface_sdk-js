@@ -285,7 +285,7 @@ declare namespace appManager {
    * @since 12
    */
   function on(type: 'abilityFirstFrameState', observer: AbilityFirstFrameStateObserver, bundleName?: string): void;
-
+  
   /**
    * Unregister application state observer.
    *
@@ -355,7 +355,7 @@ declare namespace appManager {
    * @since 12
    */
   function off(type: 'abilityFirstFrameState', observer?: AbilityFirstFrameStateObserver): void;
-
+  
   /**
    * getForegroundApplications.
    *
@@ -846,7 +846,7 @@ declare namespace appManager {
 
   /**
    * Preload the target application, create process and initialize resources.
-   *
+   * 
    * @permission ohos.permission.PRELOAD_APPLICATION
    * @param { string } bundleName - The bundle name of the application to preload.
    * @param { number } userId - Indicates the user identification.
