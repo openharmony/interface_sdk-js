@@ -856,6 +856,18 @@ declare namespace text {
     loadFontSync(name: string, path: string | Resource): void;
 
     /**
+     * Load font.
+     * @param { string } name - The font name.
+     * @param { string | Resource } path - The path of the font file.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    loadFont(name: string, path: string | Resource): Promise<void>;
+
+    /**
      * Clear font caches.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1029,6 +1041,17 @@ declare namespace text {
      * @since 12
      */
     textHeightBehavior?: TextHeightBehavior;
+
+    /**
+     * Text tab of paragraph. Tab alignment does not take effect when text alignment is also set, Or when the ellipsis
+     * style is configured. When the tab is not set or the tab's location property is less than or equal to 0,
+     * it is the default space effect. And all tabs in the paragraph after the setting are aligned
+     * according to this tab effect.
+     * @type { ?TextTab }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    tab?: TextTab;
   }
 
   /**
@@ -1159,6 +1182,130 @@ declare namespace text {
   }
 
   /**
+   * An enumeration of system font types.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 14
+   */
+  enum SystemFontType {
+    /**
+     * All font types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    ALL = 1 << 0,
+
+    /**
+     * System generic font type.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    GENERIC = 1 << 1,
+
+    /**
+     * Stylish font type.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    STYLISH = 1 << 2,
+
+    /**
+     * Installed font types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    INSTALLED = 1 << 3,
+  }
+
+  /**
+   * Font descriptor
+   * @typedef FontDescriptor
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 14
+   */
+  interface FontDescriptor {
+    /**
+     * Font file path
+     * @type { ?string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    path?: string;
+
+    /**
+     * Font postScript name
+     * @type { ?string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    postScriptName?: string;
+
+    /**
+     * Full font name
+     * @type { ?string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    fullName?: string;
+
+    /**
+     * Font family name
+     * @type { ?string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    fontFamily?: string;
+
+    /**
+     * Font subfamily name
+     * @type { ?string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    fontSubfamily?: string;
+
+    /**
+     * Font weight
+     * @type { ?FontWeight }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    weight?: FontWeight;
+
+    /**
+     * Font width
+     * @type { ?number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    width?: number;
+
+    /**
+     * Font slant, non-0 means italic.
+     * @type { ?number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    italic?: number;
+
+    /**
+     * Whether the font is monospaced
+     * @type { ?boolean }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    monoSpace?: boolean;
+
+    /**
+     * Whether to support symbols
+     * @type { ?boolean }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    symbolic?: boolean;
+  }
+
+  /**
    * A paragraph retains the size and position of each glyph in the text and can be efficiently resized and painted.
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
@@ -1171,6 +1318,17 @@ declare namespace text {
      * @since 12
      */
     layoutSync(width: number): void;
+
+    /**
+     * Calculates the positioning of all the glyphs.
+     * @param { number } width - Control how wide the text is allowed to be.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    layout(width: number): Promise<void>;
 
     /**
      * Paint the laid out text onto the supplied canvas at (x, y).
@@ -1364,6 +1522,37 @@ declare namespace text {
      * @since 12
      */
     getLineMetrics(lineNumber: number): LineMetrics | undefined;
+  }
+
+  /**
+   * Provides the abilities to typeset by line.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 14
+   */
+  class LineTypeset {
+    /**
+     * Calculate the line breakpoint based on the width provided.
+     * @param { number } startIndex - The starting point for the line-break calculations.
+     * @param { number } width - The requested line-break width.
+     * @returns { number } A count of the characters from startIndex that would cause the line break.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    getLineBreak(startIndex: number, width: number): number;
+
+    /**
+     * Creates a text line object based on the text range provided.
+     * @param { number } startIndex - The starting index of the text range.
+     * @param { number } count - The characters count of the text range.
+     * @returns { TextLine } Text line object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    createLine(startIndex: number, count: number): TextLine;
   }
 
   /**
@@ -1566,12 +1755,60 @@ declare namespace text {
     build(): Paragraph;
 
     /**
+     * Create LineTypeset object.
+     * @returns { LineTypeset } The LineTypeset value returned to the caller.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    buildLineTypeset(): LineTypeset;
+
+    /**
      * Add symbolId.
      * @param { number } symbolId - Symbol Id
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     addSymbol(symbolId: number): void;
+  }
+
+  /**
+   * Provides the definition of the typographic bounds.
+   * @typedef TypographicBounds
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 14
+   */
+  interface TypographicBounds {
+    /**
+     * Distance Retained Above Baseline.
+     * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    ascent: number;
+
+    /**
+     * The distance that remains below the baseline.
+     * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    descent: number;
+
+    /**
+     * Line Spacing.
+     * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    leading: number;
+
+    /**
+     * The total width of the typesetting border.
+     * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    width: number;
   }
 
   /**
@@ -1613,6 +1850,80 @@ declare namespace text {
      * @since 12
      */
     paint(canvas: drawing.Canvas, x: number, y: number): void;
+
+    /**
+     * Creates a truncated text line object.
+     * @param { number } width - The width of the truncated line.
+     * @param { EllipsisMode } ellipsisMode - Text ellipsis mode, EllipsisMode:MIDDLE is not supported.
+     * @param { string } ellipsis - Text ellipsis.
+     * @returns { TextLine } Truncated text line object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    createTruncatedLine(width: number, ellipsisMode: EllipsisMode, ellipsis: string): TextLine;
+
+    /**
+     * Gets the text line typographic bounds.
+     * @returns { TypographicBounds } The text line of typographic bounds.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    getTypographicBounds(): TypographicBounds;
+
+    /**
+     * Gets the text line image bounds.
+     * @returns { common2D.Rect } Rect of text line.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    getImageBounds(): common2D.Rect;
+
+    /**
+     * Gets the tail space width.
+     * @returns { number } The tail space width.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    getTrailingSpaceWidth(): number;
+
+    /**
+     * Gets the string index of the given position.
+     * @param { common2D.Point } point - The given position.
+     * @returns { number } The string index for a given position.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    getStringIndexForPosition(point: common2D.Point): number;
+
+    /**
+     * Gets the offset of the given string index.
+     * @param { number } index - The given string index.
+     * @returns { number } The offset for a given string index.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    getOffsetForStringIndex(index: number): number;
+
+    /**
+     * Gets the text offset based on the given alignment factor and alignment width.
+     * @param { number } alignmentFactor - The coefficients that text needs to be aligned.
+     *                                     Less than or equal to 0 is left justified, 0.5 is center justified,
+     *                                     and greater than or equal to 1 is right justified.
+     * @param { number } alignmentWidth - The width of the text to be aligned.
+     *                                    Returns 0 if it is less than the actual width of the text.
+     * @returns { number } The offset of the aligned text.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    getAlignmentOffset(alignmentFactor: number, alignmentWidth: number): number;
   }
 
   /**
@@ -1638,12 +1949,36 @@ declare namespace text {
     getGlyphs(): Array<number>;
 
     /**
+     * Gets the range glyph identifier for each character.
+     * @param { Range } range of run, range.start is the starting index of the run block, starting from 0.
+     * range.end is run length, if range.start and range.end are set to 0, then get all of the current run.
+     * @returns { Array<number> } Glyph identifier or undefined.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    getGlyphs(range: Range): Array<number>;
+
+    /**
      * Gets the font position offset.
      * @returns { Array<common2D.Point> } The position of the font in the layout.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getPositions(): Array<common2D.Point>;
+
+    /**
+     * Gets the range font position offset.
+     * @param { Range } range of run, range.start is the starting index of the run block, starting from 0.
+     * range.end is run length, if range.start and range.end are set to 0, then get all of the current run.
+     * @returns { Array<common2D.Point> } The position of the font in the layout or undefined.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    getPositions(range: Range): Array<common2D.Point>;
 
 	  /**
      * Gets the font position offset array.
@@ -1670,6 +2005,42 @@ declare namespace text {
      * @since 12
      */
     paint(canvas: drawing.Canvas, x: number, y: number): void;
+
+    /**
+     * Gets the range of run glyph indices, the offset of the indices relative to the entire paragraph.
+     * @param { Range } range of run, range.start is the starting index of the run block, starting from 0.
+     * range.end is run length, if range.start range.and end are set to 0, then get all of the current run.
+     * @returns { Array<number> } The glyph indices or undefined.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    getStringIndices(range?: Range): Array<number>;
+
+    /**
+     * Gets the run glyph location and length.
+     * @returns { Range } The run of glyph location and length, Range.start is location, Range.end is length.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    getStringRange(): Range;
+
+    /**
+     * Gets the run typographic bounds.
+     * @returns { TypographicBounds } The run of typographic bounds.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    getTypographicBounds(): TypographicBounds;
+
+    /**
+     * Gets the run image bounds.
+     * @returns { common2D.Rect } The run rect bounds.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    getImageBounds(): common2D.Rect;
   }
 
   /**
@@ -1792,6 +2163,68 @@ declare namespace text {
      * @since 12
      */
     runMetrics: Map<number, RunMetrics>;
+  }
+
+  /**
+   * Obtain the corresponding font full names array based on the font type.
+   * @param { SystemFontType } fontType - System font type.
+   * @returns { Promise<Array<string>> } An array of font full names.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 14
+   */
+  function getSystemFontFullNamesByType(fontType: SystemFontType): Promise<Array<string>>;
+
+  /**
+   * Get font details according to the font full name and the font type, supporting generic fonts, stylish fonts, and
+   * installed fonts.
+   * @param { string } fullName - Font full name.
+   * @param { SystemFontType } fontType - System font type.
+   * @returns { Promise<FontDescriptor> } Returns the font descriptor.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 14
+   */
+  function getFontDescriptorByFullName(fullName: string, fontType: SystemFontType): Promise<FontDescriptor>;
+
+  /**
+   * Obtain all system font descriptive symbols that match the specified font descriptor.
+   * @param { FontDescriptor } desc - Custom font descriptor, where the 'path' fields are not
+   * considered as valid matching values. If all fields are default values, get all font descriptors.
+   * @returns { Promise<Array<FontDescriptor>> } List of font descriptors, and an empty array will be returned
+   * if the matching fails.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 14
+   */
+  function matchFontDescriptors(desc: FontDescriptor): Promise<Array<FontDescriptor>>;
+
+  /**
+   * Text tab contains alignment type and location in paragraph style.
+   * @typedef TextTab
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 14
+   */
+  interface TextTab {
+    /**
+     * The alignment of tab. Support left alignment right alignment center alignment,
+     * other enumeration values are left alignment effect.
+     * @type { TextAlign }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    alignment: TextAlign;
+    
+    /**
+     * The position of the tab relative to the start of the line.
+     * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    location: number;
   }
 }
 
