@@ -1812,6 +1812,21 @@ declare namespace text {
   }
 
   /**
+   * Offset callback function of caret.
+   *
+   * @typedef { function } CaretOffsetsCallback
+   * @param { number } offset - Character offset is traversed as an argument to the callback function.
+   * @param { number } index - Character index is traversed as an argument to the callback function.
+   * @param { boolean } leadingEdge - Whether the current offset is at the character front, as an argument to the
+   * callback function.
+   * @returns { boolean } The return value of the user-defined callback function. If false is returned, the traversal
+   * continues. If true is returned, the traversal stops.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 14
+   */
+  type CaretOffsetsCallback = (offset: number, index: number, leadingEdge: boolean) => boolean;
+
+  /**
    * The structure of text line that provides the basis of paragraph for graphics.
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
@@ -1909,6 +1924,16 @@ declare namespace text {
      * @since 14
      */
     getOffsetForStringIndex(index: number): number;
+
+    /**
+     * Enumerate caret offset and index in text lines.
+     * @param { CaretOffsetsCallback } callback - User-defined callback functions.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    enumerateCaretOffsets(callback: CaretOffsetsCallback): void;
 
     /**
      * Gets the text offset based on the given alignment factor and alignment width.
