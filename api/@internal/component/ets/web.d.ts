@@ -8506,7 +8506,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 12
    */
   keyboardAvoidMode(mode: WebKeyboardAvoidMode): WebAttribute;
-  
+
   /**
    * Set the custom text menu.
    *
