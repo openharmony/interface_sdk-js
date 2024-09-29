@@ -8506,7 +8506,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 12
    */
   keyboardAvoidMode(mode: WebKeyboardAvoidMode): WebAttribute;
-  
+
   /**
    * Set the custom text menu.
    *
@@ -8516,6 +8516,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 12
    */
   editMenuOptions(editMenu: EditMenuOptions): WebAttribute;
+
+  /**
+   * Enable or disable haptic feedback.
+   *
+   * @param { boolean } enabled - Default value is true, set false to disable haptic feedback.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 13
+   */
+  enableHapticFeedback(enabled: boolean): WebAttribute;
 }
 
 /**
