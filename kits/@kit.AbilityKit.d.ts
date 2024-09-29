@@ -101,9 +101,10 @@ import screenLockFileManager from '@ohos.ability.screenLockFileManager';
 import AtomicServiceOptions from '@ohos.app.ability.AtomicServiceOptions';
 import EmbeddableUIAbility from '@ohos.app.ability.EmbeddableUIAbility';
 import PhotoEditorExtensionAbility from '@ohos.app.ability.PhotoEditorExtensionAbility';
+import appDomainVerify from '@ohos.bundle.appDomainVerify';
 import shortcutManager from '@ohos.bundle.shortcutManager';
 import application from '@ohos.app.ability.application';
-import appDomainVerify from '@ohos.bundle.appDomainVerify';
+
 export {
   Ability, AbilityConstant, AbilityLifecycleCallback, AbilityStage, ActionExtensionAbility,
   ApplicationStateChangeCallback, AutoFillExtensionAbility, BundleStatusCallback, Callee,
@@ -120,5 +121,5 @@ export {
   overlay, particleAbility, quickFixManager, uriPermissionManager, wantAgent, wantConstant, privacyManager,
   EmbeddedUIExtensionAbility, StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager,
   screenLockFileManager, AtomicServiceOptions, EmbeddableUIAbility, ChildProcessArgs, ChildProcessOptions,
-  sendableContextManager, PhotoEditorExtensionAbility, shortcutManager, application, appDomainVerify
+  sendableContextManager, PhotoEditorExtensionAbility, shortcutManager, appDomainVerify, application
 };
