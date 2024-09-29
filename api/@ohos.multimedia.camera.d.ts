@@ -4837,13 +4837,15 @@ declare namespace camera {
     /**
      * Gets session functions.
      *
+     * @param { CameraOutputCapability } outputCapability - CameraOutputCapability to set.
      * @returns { Array<PhotoFunctions> } List of session functions.
      * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
-    getSessionFunctions(): Array<PhotoFunctions>;
+    getSessionFunctions(outputCapability: CameraOutputCapability): Array<PhotoFunctions>;
 
     /**
      * Gets session conflict functions.
@@ -5014,13 +5016,15 @@ declare namespace camera {
     /**
      * Gets session functions.
      *
+     * @param { CameraOutputCapability } outputCapability - CameraOutputCapability to set.
      * @returns { Array<VideoFunctions> } List of session functions.
      * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
-    getSessionFunctions(): Array<VideoFunctions>;
+    getSessionFunctions(outputCapability: CameraOutputCapability): Array<VideoFunctions>;
 
     /**
      * Gets session conflict functions.
@@ -5473,13 +5477,15 @@ declare namespace camera {
     /**
      * Gets session functions.
      *
+     * @param { CameraOutputCapability } outputCapability - CameraOutputCapability to set.
      * @returns { Array<PortraitPhotoFunctions> } List of session functions.
      * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
-    getSessionFunctions(): Array<PortraitPhotoFunctions>;
+    getSessionFunctions(outputCapability: CameraOutputCapability): Array<PortraitPhotoFunctions>;
 
     /**
      * Gets session conflict functions.
