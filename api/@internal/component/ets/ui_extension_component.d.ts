@@ -133,6 +133,16 @@ declare interface TerminationInfo {
 }
 
 /**
+ * Get Callback from @ohos.base.
+ *
+ * @typedef { import('../api/@ohos.base').Callback<Record<string, Object>> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 14
+ */
+declare type ReceiveCallback = import('../api/@ohos.base').Callback<Record<string, Object>>;
+
+/**
  * This interface is used for send data to the UIExtensionAbility.<br/>
  * It is returned from onRemoteReady callback of UIExtensionComponent<br/>
  * when UIExtensionAbility connects successfully
@@ -151,7 +161,15 @@ declare interface UIExtensionProxy {
    * @systemapi
    * @since 10
    */
-  send(data: { [key: string]: Object }): void;
+  /**
+   * This function is for sending data to the UIExtensionAbility.
+   *
+   * @param { Record<string, Object> } data
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 14
+   */
+  send(data: Record<string, Object>): void;
 
   /**
    * This function is for sending data to the UIExtensionAbility and waiting the result in blocking mode.
@@ -164,7 +182,18 @@ declare interface UIExtensionProxy {
    * @systemapi
    * @since 11
    */
-  sendSync(data: { [key: string]: Object }): { [key: string]: Object };
+  /**
+   * This function is for sending data to the UIExtensionAbility and waiting the result in blocking mode.
+   *
+   * @param { Record<string, Object> } data - Data send to the UIExtensionAbility.
+   * @returns { Record<string, Object> } data - Data transferred from the UIExtensionAbility.
+   * @throws { BusinessError } 100011 - No callback has been registered to response this request.
+   * @throws { BusinessError } 100012 - Transferring data failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 14
+   */
+  sendSync(data: Record<string, Object>): Record<string, Object>;
 
   /**
    * Register the listener that watches for async data receiver callback being registered by UIExtensionAbility.
@@ -175,7 +204,16 @@ declare interface UIExtensionProxy {
    * @systemapi
    * @since 11
    */
-  on(type: 'asyncReceiverRegister', callback: (proxy: UIExtensionProxy) => void): void;
+  /**
+   * Register the listener that watches for async data receiver callback being registered by UIExtensionAbility.
+   *
+   * @param { 'asyncReceiverRegister' } type - Indicates the type of event.
+   * @param { Callback<UIExtensionProxy> } callback - Callback of the listened event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 14
+   */
+  on(type: 'asyncReceiverRegister', callback: Callback<UIExtensionProxy>): void;
 
   /**
    * Register the listener that watches for sync data receiver callback being registered by UIExtensionAbility.
@@ -186,7 +224,16 @@ declare interface UIExtensionProxy {
    * @systemapi
    * @since 11
    */
-  on(type: 'syncReceiverRegister', callback: (proxy: UIExtensionProxy) => void): void;
+  /**
+   * Register the listener that watches for sync data receiver callback being registered by UIExtensionAbility.
+   *
+   * @param { 'syncReceiverRegister' } type - Indicates the type of event.
+   * @param { Callback<UIExtensionProxy> } callback - Callback of the listened event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 14
+   */
+  on(type: 'syncReceiverRegister', callback: Callback<UIExtensionProxy>): void;
 
   /**
    * Deregisters the listener that watches for async data receiver callback being registered by UIExtensionAbility.
@@ -197,7 +244,16 @@ declare interface UIExtensionProxy {
    * @systemapi
    * @since 11
    */
-  off(type: 'asyncReceiverRegister', callback?: (proxy: UIExtensionProxy) => void): void;
+  /**
+   * Deregisters the listener that watches for async data receiver callback being registered by UIExtensionAbility.
+   *
+   * @param { 'asyncReceiverRegister' } type - Type of the listened event.
+   * @param { Callback<UIExtensionProxy> } [callback] - Callback of the listened event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 14
+   */
+  off(type: 'asyncReceiverRegister', callback?: Callback<UIExtensionProxy>): void;
 
   /**
    * Deregisters the listener that watches for sync data receiver callback being registered by UIExtensionAbility.
@@ -208,7 +264,16 @@ declare interface UIExtensionProxy {
    * @systemapi
    * @since 11
    */
-  off(type: 'syncReceiverRegister', callback?: (proxy: UIExtensionProxy) => void): void;
+  /**
+   * Deregisters the listener that watches for sync data receiver callback being registered by UIExtensionAbility.
+   *
+   * @param { 'syncReceiverRegister' } type - Type of the listened event.
+   * @param { Callback<UIExtensionProxy> } [callback] - Callback of the listened event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 14
+   */
+  off(type: 'syncReceiverRegister', callback?: Callback<UIExtensionProxy>): void;
 }
 
 /**
@@ -278,9 +343,14 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
    * @systemapi
    * @since 10
    */
-  onReceive(
-    callback: import('../api/@ohos.base').Callback<{ [key: string]: Object }>
-  ): UIExtensionComponentAttribute;
+  /**
+   * @param { ReceiveCallback } callback - Called when data received from UIExtensionAbility
+   * @returns { UIExtensionComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 14
+   */
+  onReceive(callback: ReceiveCallback): UIExtensionComponentAttribute;
 
   /**
    * @param { import('../api/@ohos.base').Callback<{code: number;want?: import('../api/@ohos.app.ability.Want').default;}> } callback 
