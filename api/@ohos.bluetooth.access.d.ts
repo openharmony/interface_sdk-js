@@ -165,9 +165,7 @@ declare namespace access {
   /**
    * Obtains the Bluetooth status of a device.
    *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
    * @returns { BluetoothState } Returns the Bluetooth status.
-   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900099 - Operation failed.
