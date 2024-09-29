@@ -708,7 +708,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   cachedCount(count: number, show: boolean): GridAttribute;
 
