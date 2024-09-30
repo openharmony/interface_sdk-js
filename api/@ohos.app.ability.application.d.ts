@@ -88,7 +88,7 @@ declare namespace application {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   export function getApplicationContext(): ApplicationContext;
 }
