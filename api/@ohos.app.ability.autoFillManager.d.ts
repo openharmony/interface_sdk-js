@@ -295,7 +295,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 13
    */
   export type CustomData = _CustomData.default;
 

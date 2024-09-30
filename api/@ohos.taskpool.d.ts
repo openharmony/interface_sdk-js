@@ -751,7 +751,6 @@ declare namespace taskpool {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br>1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 10200003 - Worker initialization failed.
      * @throws { BusinessError } 10200006 - An exception occurred during serialization.
      * @throws { BusinessError } 10200025 - dependent task not allowed.
      * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
@@ -773,6 +772,43 @@ declare namespace taskpool {
    * @since 12
    */
   class LongTask extends Task {
+  }
+
+  /**
+   * The GenericsTask class provides an interface to create a task with generics.
+   *
+   * @extends Task
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 13
+   */
+  class GenericsTask<A extends Array<Object>, R> extends Task {
+    /**
+     * Create a GenericsTask instance.
+     *
+     * @param { (...args: A) => R | Promise<R> } func - Concurrent function to execute in taskpool.
+     * @param { A } args - The concurrent function arguments.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+     * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 13
+     */
+    constructor(func: (...args: A) => R | Promise<R>, ...args: A);
+
+    /**
+     * Create a GenericsTask instance.
+     *
+     * @param { string } name - The name of GenericsTask.
+     * @param { (...args: A) => R | Promise<R> } func - Concurrent function to execute in taskpool.
+     * @param { A } args - The concurrent function arguments.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+     * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 13
+     */
+    constructor(name: string, func: (...args: A) => R | Promise<R>, ...args: A);
   }
 
   /**
@@ -1116,7 +1152,39 @@ declare namespace taskpool {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Execute a concurrent function.
+   *
+   * @param { Function } func - func func Concurrent function want to execute.
+   * @param { Object[] } args - args args The concurrent function arguments.
+   * @returns { Promise<Object> }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types;
+   * 3.Parameter verification failed.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   function execute(func: Function, ...args: Object[]): Promise<Object>;
+
+  /**
+   * Execute a concurrent function with generics.
+   *
+   * @param { (...args: A) => R | Promise<R> } func - Concurrent function want to execute.
+   * @param { A } args - The concurrent function arguments.
+   * @returns { Promise<R> }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 13
+   */
+  function execute<A extends Array<Object>, R>(func: (...args: A) => R | Promise<R>, ...args: A): Promise<R>;
 
   /**
    * Execute a concurrent task.
@@ -1179,7 +1247,6 @@ declare namespace taskpool {
    * <br>1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types;
    * <br>3. Parameter verification failed.
-   * @throws { BusinessError } 10200003 - Worker initialization failed.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
    * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
@@ -1189,6 +1256,22 @@ declare namespace taskpool {
    * @since 12
    */
   function execute(task: Task, priority?: Priority): Promise<Object>;
+
+  /**
+   * Execute a concurrent task with generics.
+   *
+   * @param { GenericsTask<A, R> } task - The task want to execute.
+   * @param { Priority } [priority] - Task priority, MEDIUM is default.
+   * @returns { Promise<R> }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
+   * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 13
+   */
+  function execute<A extends Array<Object>, R>(task: GenericsTask<A, R>, priority?: Priority): Promise<R>;
 
   /**
    * Execute a concurrent task group.
@@ -1263,16 +1346,31 @@ declare namespace taskpool {
   function executeDelayed(delayTime: number, task: Task, priority?: Priority): Promise<Object>;
 
   /**
+   * Execute a concurrent task with generics after the specified time.
+   *
+   * @param { number } delayTime - The time want to delay.
+   * @param { GenericsTask<A, R> } task - The task want to execute.
+   * @param { Priority } [priority] - Task priority, MEDIUM is default.
+   * @returns { Promise<R> }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+   * @throws { BusinessError } 10200028 - The delayTime is less than zero.
+   * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 13
+   */
+  function executeDelayed<A extends Array<Object>, R>(delayTime: number, task: GenericsTask<A, R>, priority?: Priority): Promise<R>;
+
+  /**
    * Execute a concurrent task periodically.
    *
    * @param { number } period - The period in milliseconds for executing task.
    * @param { Task } task - The task want to execute.
    * @param { Priority } [priority] - Task priority, MEDIUM is default.
-   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types;
    * <br>3. Parameter verification failed.
-   * @throws { BusinessError } 10200003 - Worker initialization failed.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
    * @throws { BusinessError } 10200028 - The period is less than zero.
@@ -1283,6 +1381,23 @@ declare namespace taskpool {
    * @since 12
    */
   function executePeriodically(period: number, task: Task, priority?: Priority): void;
+
+  /**
+   * Execute a concurrent task with generics periodically.
+   *
+   * @param { number } period - The period in milliseconds for executing task.
+   * @param { GenericsTask<A, R> } task - The task want to execute.
+   * @param { Priority } [priority] - Task priority, MEDIUM is default.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
+   * @throws { BusinessError } 10200028 - The period is less than zero.
+   * @throws { BusinessError } 10200050 - The concurrent task has been executed and cannot be executed periodically.
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 13
+   */
+  function executePeriodically<A extends Array<Object>, R>(period: number, task: GenericsTask<A, R>, priority?: Priority): void;
 
   /**
    * Cancel a concurrent task.

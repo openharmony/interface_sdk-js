@@ -359,6 +359,28 @@ declare class TabsController {
    * @since 12
    */
   preloadItems(indices: Optional<Array<number>>): Promise<void>;
+
+  /**
+   * Set tab bar translate.
+   *
+   * @param { TranslateOptions } translate - translate options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  setTabBarTranslate(translate: TranslateOptions): void;
+
+  /**
+   * Set tab bar opacity.
+   *
+   * @param { number } opacity - opacity
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  setTabBarOpacity(opacity: number): void;
 }
 
 /**
@@ -1360,6 +1382,31 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @since 11
    */
   barBackgroundBlurStyle(value: BlurStyle): TabsAttribute;
+
+  /**
+   * Set the BlurStyle of the tab bar.
+   *
+   * @param { BlurStyle } style - style indicate the blur style for the tab bar
+   * @param { BackgroundBlurStyleOptions } options - options indicate the options for the tab bar
+   * @returns { TabsAttribute } the attribute of the tabs
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  barBackgroundBlurStyle(style: BlurStyle, options: BackgroundBlurStyleOptions): TabsAttribute;
+
+  /**
+   * Set the BackgroundEffect of the tab bar.
+   *
+   * @param { BackgroundEffectOptions } options - options indicate the options for the tab bar
+   * @returns { TabsAttribute } the attribute of the tabs
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  barBackgroundEffect(options: BackgroundEffectOptions): TabsAttribute;
 
   /**
    * Called when content will change.

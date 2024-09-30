@@ -618,6 +618,16 @@ declare namespace deviceInfo {
   const distributionOSApiVersion: number;
 
   /**
+   * Obtains the Distribution OS api name.
+   * <p>Independent Software Vendor (ISV) may distribute OHOS with their own OS api name.
+   * distributionOSApiName will return the ISV OS api name
+   *
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 13
+   */
+  const distributionOSApiName: string;
+
+  /**
    * Obtains the Distribution OS release type.
    * <p>Independent Software Vendor (ISV) may distribute OHOS with their own OS release type.
    * distributionOSVersion will return the ISV OS release type

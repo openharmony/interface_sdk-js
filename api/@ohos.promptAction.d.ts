@@ -224,6 +224,30 @@ declare namespace promptAction {
      * @since 12
      */
     shadow?: ShadowOptions | ShadowStyle;
+
+    /**
+     * Define whether to respond to the hover mode.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    enableHoverMode?: boolean;
+  
+    /**
+     * Defines the toast's diaplay area in hover mode.
+     *
+     * @type { ?HoverModeAreaType }
+     * @default HoverModeAreaType.BOTTOM_SCREEN
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    hoverModeArea?: HoverModeAreaType;
   }
 
   /**
@@ -264,14 +288,8 @@ declare namespace promptAction {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
-     */
-    /**
-     * Toast shows at the top.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 12
+     * @deprecated since 12
+     * @useinstead promptAction.ToastShowMode#DEFAULT
      */
     TOP_MOST = 1,
 
@@ -651,6 +669,30 @@ declare namespace promptAction {
      * @since 12
      */
     shadow?: ShadowOptions | ShadowStyle;
+
+    /**
+     * Defines whether to respond to the hover mode.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    enableHoverMode?: boolean;
+
+    /**
+     * Defines the dialog's display area in hover mode.
+     *
+     * @type { ?HoverModeAreaType }
+     * @default HoverModeAreaType.BOTTOM_SCREEN
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    hoverModeArea?: HoverModeAreaType;
   }
 
   /**
@@ -856,6 +898,42 @@ declare namespace promptAction {
      * @since 12
      */
     onWillDisappear?: () => void;
+
+    /**
+     * Defines the customDialog's keyboard avoid mode
+     *
+     * @type { ?KeyboardAvoidMode }
+     * @default KeyboardAvoidMode.DEFAULT
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    keyboardAvoidMode?: KeyboardAvoidMode;
+
+    /**
+     * Defines whether to respond to the hover mode.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    enableHoverMode?: boolean;
+
+    /**
+     * Defines the customDialog's display area in hover mode.
+     *
+     * @type { ?HoverModeAreaType }
+     * @default HoverModeAreaType.BOTTOM_SCREEN
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    hoverModeArea?: HoverModeAreaType;
   }
 
   /**
@@ -1214,7 +1292,7 @@ declare namespace promptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   function openToast(options: ShowToastOptions): Promise<number>;
 
@@ -1230,7 +1308,7 @@ declare namespace promptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   function closeToast(toastId: number): void;
 

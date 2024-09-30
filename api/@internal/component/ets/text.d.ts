@@ -19,6 +19,54 @@
  */
 
 /**
+ * Text overflow options.
+ *
+ * @interface TextOverflowOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 13
+ */
+declare interface TextOverflowOptions {
+  /**
+   * Text overflow option.
+   *
+   * @type { TextOverflow }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Text overflow option.
+   *
+   * @type { TextOverflow }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Text overflow option.
+   *
+   * @type { TextOverflow }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Text overflow option.
+   *
+   * @type { TextOverflow }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  overflow: TextOverflow;
+}
+
+/**
  * Provides an interface for writing texts.
  *
  * @interface TextInterface
@@ -141,6 +189,20 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 11
    */
   font(value: Font): TextAttribute;
+
+  /**
+   * Called when the font is set.
+   *
+   * @param { Font } fontValue - the text font size and weight and family and style.
+   * @param { FontSettingOptions } options - font setting options.
+   * @returns { TextAttribute } The attribute of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  font(fontValue: Font, options?: FontSettingOptions): TextAttribute;
 
   /**
    * Called when the font color is set.
@@ -405,6 +467,20 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   fontWeight(value: number | FontWeight | string): TextAttribute;
 
   /**
+   * Called when the font weight is set.
+   *
+   * @param { number | FontWeight | string } weight
+   * @param { FontSettingOptions } options - font setting options.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  fontWeight(weight: number | FontWeight | string, options?: FontSettingOptions): TextAttribute;
+
+  /**
    * Set font line spacing.
    *
    * @param { LengthMetrics } value
@@ -534,7 +610,18 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @atomicservice
    * @since 11
    */
-  textOverflow(value: { overflow: TextOverflow }): TextAttribute;
+  /**
+   * Called when the overflow mode of the font is set.
+   *
+   * @param { TextOverflowOptions } options - Text overflow options.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 13
+   */
+  textOverflow(options: TextOverflowOptions): TextAttribute;
 
   /**
    * Called when the font list of text is set.
@@ -1071,6 +1158,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
    */
@@ -1123,6 +1211,18 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 12
    */
   halfLeading(halfLeading: boolean): TextAttribute;
+
+  /**
+   * Enable or disable haptic feedback.
+   *
+   * @param { boolean } isEnabled - Default value is true, set false to disable haptic feedback.
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  enableHapticFeedback(isEnabled: boolean): TextAttribute;
 }
 
 /**

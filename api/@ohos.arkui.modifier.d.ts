@@ -120,6 +120,7 @@ export { DividerModifier } from './arkui/DividerModifier';
 /**
  * Export FormComponentModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @crossplatform
  * @since 12
  */

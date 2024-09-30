@@ -112,6 +112,16 @@ type OnOverrideUrlLoadingCallback = (webResourceRequest: WebResourceRequest) => 
 type OnIntelligentTrackingPreventionCallback = (details: IntelligentTrackingPreventionDetails) => void;
 
 /**
+ * The callback of onNativeEmbedVisibilityChange.
+ *
+ * @typedef { function } OnNativeEmbedVisibilityChangeCallback
+ * @param { NativeEmbedVisibilityInfo } nativeEmbedVisibilityInfo - callback information of onNativeEmbedVisibilityChange.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 12
+ */
+type OnNativeEmbedVisibilityChangeCallback = (nativeEmbedVisibilityInfo: NativeEmbedVisibilityInfo) => void;
+
+/**
  * The configuration of native media player.
  *
  * @typedef NativeMediaPlayerConfig
@@ -3412,6 +3422,19 @@ declare class WebResourceResponse {
   getResponseData(): string;
 
   /**
+   * Gets the response data.
+   *
+   * @returns { string | number | ArrayBuffer | Resource | undefined } Return the response data.
+   *                                                                   string type indicate string in HTML format.
+   *                                                                   number type indicate file handle.
+   *                                                                   Resource type indicate $rawfile resource.
+   *                                                                   ArrayBuffer type indicate binary data.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 13
+   */
+  getResponseDataEx(): string | number | ArrayBuffer | Resource | undefined;
+
+  /**
    * Gets the response encoding.
    *
    * @returns { string } Return the response encoding.
@@ -3679,6 +3702,15 @@ declare class WebResourceResponse {
    * @since 12
    */
   setResponseIsReady(IsReady: boolean): void;
+
+  /**
+   * Gets whether the response is ready.
+   *
+   * @returns { boolean } True indicates the response data is ready and false is not ready.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 13
+   */
+  getResponseIsReady(): boolean;
 }
 
 /**
@@ -4677,6 +4709,32 @@ declare interface NativeEmbedDataInfo {
    * @since 11
    */
   info?: NativeEmbedInfo;
+}
+
+/**
+ * Defines the Embed Visibility info.
+ *
+ * @typedef NativeEmbedVisibilityInfo
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 12
+ */
+declare interface NativeEmbedVisibilityInfo {
+  /**
+   * The embed visibility.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  visibility: boolean;
+  /**
+   * The embed id.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  embedId: string;
 }
 
 /**
@@ -7826,7 +7884,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 14
    */
   forceDisplayScrollBar(enabled: boolean): WebAttribute;
 
@@ -8279,7 +8337,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
-  nestedScroll(value: NestedScrollOptions): WebAttribute;
+  /**
+   * Called to setting the nested scroll options.
+   *
+   * @param { NestedScrollOptions | NestedScrollOptionsExt } value - options for
+   *     nested scrolling.
+   * @returns { WebAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 13
+   */
+  nestedScroll(value: NestedScrollOptions | NestedScrollOptionsExt): WebAttribute;
 
   /**
    * Sets the enable native embed mode for web.
@@ -8314,6 +8382,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   onNativeEmbedLifecycleChange(callback: (event: NativeEmbedDataInfo) => void): WebAttribute;
+
+  /**
+   * Triggered when embed visibility changes.
+   *
+   * @param { OnNativeEmbedVisibilityChangeCallback } callback - Callback triggered when embed visibility changes.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  onNativeEmbedVisibilityChange(callback: OnNativeEmbedVisibilityChangeCallback): WebAttribute;
 
   /**
    * Triggered when gesture effect on embed tag.
@@ -8460,6 +8538,26 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 12
    */
   keyboardAvoidMode(mode: WebKeyboardAvoidMode): WebAttribute;
+
+  /**
+   * Set the custom text menu.
+   *
+   * @param { EditMenuOptions } editMenu - Customize text menu options.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  editMenuOptions(editMenu: EditMenuOptions): WebAttribute;
+
+  /**
+   * Enable or disable haptic feedback.
+   *
+   * @param { boolean } enabled - Default value is true, set false to disable haptic feedback.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 13
+   */
+  enableHapticFeedback(enabled: boolean): WebAttribute;
 }
 
 /**
@@ -8613,4 +8711,49 @@ declare interface ExpandedMenuItemOptions {
    * @since 12
    */
   action: (selectedText: {plainText: string}) => void;
+}
+
+/**
+ * Define nested scroll options
+ *
+ * @interface NestedScrollOptionsExt
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 13
+ */
+declare interface NestedScrollOptionsExt {
+  /**
+   * Set NestedScrollMode when the scrollable component scrolls up
+   *
+   * @type { ?NestedScrollMode }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 13
+   */
+  scrollUp?: NestedScrollMode;
+
+  /**
+   * Set NestedScrollMode when the scrollable component scrolls down
+   *
+   * @type { ?NestedScrollMode }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 13
+   */
+  scrollDown?: NestedScrollMode;
+
+  /**
+   * Set NestedScrollMode when the scrollable component scrolls right
+   *
+   * @type { ?NestedScrollMode }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 13
+   */
+  scrollRight?: NestedScrollMode;
+
+  /**
+   * Set NestedScrollMode when the scrollable component scrolls left
+   *
+   * @type { ?NestedScrollMode }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 13
+   */
+  scrollLeft?: NestedScrollMode;
 }

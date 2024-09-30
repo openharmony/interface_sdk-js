@@ -71,7 +71,7 @@ declare namespace childProcessManager {
    *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000061 - Operation not supported.
-   * @throws { BusinessError } 16000062 - The number of child process exceeds upper bound.
+   * @throws { BusinessError } 16000062 - The number of child processes exceeds the upper limit.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 11
@@ -88,7 +88,7 @@ declare namespace childProcessManager {
    *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000061 - Operation not supported.
-   * @throws { BusinessError } 16000062 - The number of child process exceeds upper bound.
+   * @throws { BusinessError } 16000062 - The number of child processes exceeds the upper limit.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 11
@@ -111,7 +111,43 @@ declare namespace childProcessManager {
    * @stagemodelonly
    * @since 12
    */
+  /** 
+   * Start child process with the given args and options.
+   *
+   * @param { string } srcEntry - Indicates child process source file entrance to be started.
+   * @param { ChildProcessArgs } args - Indicates args to pass to child process.
+   * @param { ChildProcessOptions } [options] - Indicates options for starting child process.
+   * @returns { Promise<number> } Returns the started child process pid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000061 - Operation not supported. The API cannot be called in a child process.
+   * @throws { BusinessError } 16000062 - The number of child processes exceeds the upper limit.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 13
+   */
   function startArkChildProcess(srcEntry: string, args: ChildProcessArgs, options?: ChildProcessOptions): Promise<number>;
+
+  /** 
+   * Start native child process with the given args and options.
+   *
+   * @param { string } entryPoint - Indicates entry point of child process, consisting of library and entry function, such as "libEntry.so:Main".
+   * @param { ChildProcessArgs } args - Indicates args to pass to child process.
+   * @param { ChildProcessOptions } [options] - Indicates options for starting child process.
+   * @returns { Promise<number> } Returns the started child process pid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000061 - Operation not supported. The API cannot be called in a child process.
+   * @throws { BusinessError } 16000062 - The number of child processes exceeds the upper limit.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 13
+   */
+  function startNativeChildProcess(entryPoint: string, args: ChildProcessArgs, options?: ChildProcessOptions): Promise<number>;
 
 }
 

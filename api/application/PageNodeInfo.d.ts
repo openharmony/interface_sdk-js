@@ -27,7 +27,7 @@ import type AutoFillRect from './AutoFillRect';
  * @interface PageNodeInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
- * @StageModelOnly
+ * @stagemodelonly
  * @since 11
  */
 export default interface PageNodeInfo {
@@ -37,7 +37,7 @@ export default interface PageNodeInfo {
    * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   id: number;
@@ -48,7 +48,7 @@ export default interface PageNodeInfo {
    * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   depth: number;
@@ -59,7 +59,7 @@ export default interface PageNodeInfo {
    * @type { AutoFillType }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   autoFillType: AutoFillType;
@@ -70,7 +70,7 @@ export default interface PageNodeInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   tag: string;
@@ -81,7 +81,7 @@ export default interface PageNodeInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   value: string;
@@ -92,7 +92,7 @@ export default interface PageNodeInfo {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   placeholder?: string;
@@ -103,7 +103,7 @@ export default interface PageNodeInfo {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   passwordRules?: string;
@@ -114,7 +114,7 @@ export default interface PageNodeInfo {
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   enableAutoFill: boolean;
@@ -125,7 +125,7 @@ export default interface PageNodeInfo {
    * @type { AutoFillRect }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   rect: AutoFillRect;
@@ -136,8 +136,19 @@ export default interface PageNodeInfo {
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   isFocus: boolean;
+
+  /**
+   * The metadata of a node.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  metadata?: string;
 }

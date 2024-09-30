@@ -14,7 +14,7 @@
     "deprecatedVersion": "9",
     "useInstead": "ohos.app.ability.dataUriUtils/Test",
     "apiType": "Class",
-    "definedText": " export class test",
+    "definedText": "export class test",
     "pos": {
       "line": 23,
       "character": 1
@@ -23,6 +23,9 @@
     "modelLimitation": "",
     "decorators": [],
     "errorCodes": [],
-    "kitInfo": ""
+    "kitInfo": "NA",
+    "absolutePath": "",
+    "parentApiType": "SourceFile",
+    "isOptional": false
   }
 ]

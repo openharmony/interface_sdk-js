@@ -132,7 +132,7 @@ declare enum DataPanelType {
  * @atomicservice
  * @since 11
  */
-declare type ColorStop = {
+declare interface ColorStop {
   /**
    * Color property.
    * @type { ResourceColor } color - the color value.

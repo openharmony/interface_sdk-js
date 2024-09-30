@@ -12,11 +12,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { ApiResultSimpleInfo, ApiResultMessage, ApiBaseInfo } from '../../typedef/checker/result_type';
+import { ApiResultSimpleInfo, ApiResultMessage, ApiBaseInfo, checkEntryType } from '../../typedef/checker/result_type';
 import { Check } from './src/api_check_plugin';
 import { LogUtil } from '../../utils/logUtil';
 import { GenerateFile } from '../../utils/checkUtils';
-import { compositiveResult, compositiveLocalResult, apiCheckResult } from '../../utils/checkUtils';
+import { compositiveResult, compositiveLocalResult, apiCheckResult, hierarchicalRelationsSet } from '../../utils/checkUtils';
 import { DOC, DEFINE, CHANEGE } from './config/api_check_config.json';
 import { ApiChangeCheck } from './src/check_api_diff';
 
@@ -25,21 +25,48 @@ import { ApiChangeCheck } from './src/check_api_diff';
  */
 export class LocalEntry {
 
-  static checkEntryLocal(filePathArr: string[], fileRuleArr: string[], output: string, prId: string, excel: string): ApiResultMessage[] {
+  static checkEntryLocal(checkParam: checkEntryType): ApiResultMessage[] {
     let allResult: ApiResultMessage[] = apiCheckResult;
     try {
-      Check.scanEntry(filePathArr, prId, false);
-      LocalEntry.maskAlarm(compositiveResult, fileRuleArr);
+      Check.scanEntry(checkParam.filePathArr, checkParam.prId);
+      const incrementResult: ApiResultSimpleInfo[] = LocalEntry.filterIncrementResult(compositiveResult, checkParam.isIncrement);
+      LocalEntry.maskAlarm(incrementResult, checkParam.fileRuleArr);
     } catch (error) {
       LogUtil.e('API_CHECK_ERROR', error);
     } finally {
-      GenerateFile.writeFile(apiCheckResult, output, {});
-
-      if (excel === 'true') {
+      GenerateFile.writeFile(apiCheckResult, checkParam.output, {});
+      if (checkParam.isOutExcel === 'true') {
         GenerateFile.writeExcelFile(apiCheckResult);
       }
     }
     return allResult;
+  }
+
+  /**
+   * 过滤增量检查结果
+   *
+   * @param {ApiResultSimpleInfo[]} allResultInfo 所有apicheck结果
+   * @param {boolean} isIncrement 是否为命令配置的增量检查，默认为true
+   * @return {*}  {ApiResultSimpleInfo[]}
+   * @memberof LocalEntry
+   */
+  static filterIncrementResult(allResultInfo: ApiResultSimpleInfo[], isIncrement: boolean): ApiResultSimpleInfo[] {
+    // 不需要增量检查或者diff数据为空
+    if (!isIncrement || hierarchicalRelationsSet.size === 0) {
+      return allResultInfo;
+    }
+    return allResultInfo.filter((resultItem: ApiResultSimpleInfo) => {
+      return !Boolean(process.env.IS_INCREMENT_CHECK) || LocalEntry.hasHierarchicalRelations(resultItem);
+    });
+  }
+
+  static hasHierarchicalRelations(resultItem: ApiResultSimpleInfo): boolean {
+    if (process.env.NODE_ENV === 'development') {
+      return hierarchicalRelationsSet.has(resultItem.hierarchicalRelations);
+    } else if (process.env.NODE_ENV === 'production') {
+      return hierarchicalRelationsSet.has(resultItem.hierarchicalRelations);
+    }
+    return hierarchicalRelationsSet.has(resultItem.hierarchicalRelations);
   }
 
   static maskAlarm(allResultInfo: ApiResultSimpleInfo[], fileRuleArr: string[]): void {
@@ -130,16 +157,16 @@ export class LocalEntry {
     return '';
   }
 
-  static apiChangeCheckEntryLocal(prId: string, fileRuleArr: string[], output: string, excel: string): ApiResultMessage[] {
+  static apiChangeCheckEntryLocal(checkParam: checkEntryType): ApiResultMessage[] {
     let apiChangeCheckResult: ApiResultMessage[] = apiCheckResult;
     try {
-      ApiChangeCheck.checkApiChange(prId);
-      LocalEntry.maskAlarm(compositiveResult, fileRuleArr);
+      ApiChangeCheck.checkApiChange(checkParam.prId);
+      LocalEntry.maskAlarm(compositiveResult, checkParam.fileRuleArr);
     } catch (error) {
       LogUtil.e('API_CHECK_ERROR', error);
     } finally {
-      GenerateFile.writeFile(apiCheckResult, output, {});
-      if (excel === 'true') {
+      GenerateFile.writeFile(apiCheckResult, checkParam.output, {});
+      if (checkParam.isOutExcel === 'true') {
         GenerateFile.writeExcelFile(apiCheckResult);
       }
     }

@@ -19,6 +19,7 @@
  */
 
 import type Want from './@ohos.app.ability.Want';
+import type image from './@ohos.multimedia.image';
 
 /**
  * This module provides the capability to manage the security of the enterprise devices.
@@ -269,6 +270,43 @@ declare namespace securityManager {
    * @since 12
    */
   function getAppClipboardPolicy(admin: Want, tokenId?: number): string;
+
+  /**
+   * Sets the watermark image displayed during the application running.
+   * 
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } bundleName - the bundle name of the application to be set watermark.
+   * @param { string | image.PixelMap } source - watermark's pixelMap or its url.
+   * @param { number } accountId - indicates the accountID.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 14
+   */
+  function setWatermarkImage(admin: Want, bundleName: string, source: string | image.PixelMap, accountId: number): void;
+
+  /**
+   * Cancels the watermark image displayed during the application running.
+   * 
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } bundleName - the bundle name of the application to be set watermark.
+   * @param { number } accountId - indicates the accountID.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 14
+   */
+  function cancelWatermarkImage(admin: Want, bundleName: string, accountId: number): void;
 
   /**
    * Password policy.

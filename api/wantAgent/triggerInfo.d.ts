@@ -28,6 +28,14 @@ import StartOptions from '../@ohos.app.ability.StartOptions';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 7
  */
+/**
+ * Provides the information required for triggering a WantAgent.
+ *
+ * @typedef TriggerInfo
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @atomicservice
+ * @since 12
+ */
 export interface TriggerInfo {
   /**
    * Result code.
@@ -35,6 +43,14 @@ export interface TriggerInfo {
    * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
+   */
+  /**
+   * Result code.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 12
    */
   code: number;
 
@@ -50,6 +66,19 @@ export interface TriggerInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    */
+  /**
+   * Extra Want.
+   * If flags in WantAgentInfo contain CONSTANT_FLAG, this parameter is invalid.
+   * If flags contain REPLACE_ELEMENT, REPLACE_ACTION, REPLACE_URI, REPLACE_ENTITIES, and REPLACE_BUNDLE,
+   * the element, action, uri, entities, and bundleName attributes of the Want specified in this parameter
+   * will be used to replace the corresponding attributes in the original Want, respectively.
+   * If this parameter is null, the original Want remains unchanged.
+   *
+   * @type { ?Want }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 12
+   */
   want?: Want;
 
   /**
@@ -61,6 +90,16 @@ export interface TriggerInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    */
+  /**
+   * Permission required for a WantAgent recipient.
+   * This parameter is valid only when the WantAgent is triggered to send common events.
+   * If permission is null, no permission is required on the recipient.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 12
+   */
   permission?: string;
 
   /**
@@ -69,6 +108,14 @@ export interface TriggerInfo {
    * @type { ?object }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
+   */
+  /**
+   * Custom extra data you want to add for triggering a WantAgent.
+   *
+   * @type { ?object }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 12
    */
   extraInfo?: { [key: string]: any };
 
@@ -79,6 +126,15 @@ export interface TriggerInfo {
    * @type { ?Record<string, Object> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 11
+   */
+  /**
+   * Custom extra data you want to add for triggering a WantAgent.
+   * The ability of this property is same as extraInfo. If both are set, this property will be used.
+   *
+   * @type { ?Record<string, Object> }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 12
    */
   extraInfos?: Record<string, Object>;
 

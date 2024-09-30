@@ -485,6 +485,7 @@ inquired
 inspected
 inspectors
 instanced
+installpreexistingapp
 intercepted
 intercepting
 interchanged
@@ -500,6 +501,7 @@ ipaddr
 ipsec
 irnss
 irradiance
+isCameraOccluded
 isdn
 isim
 issuers
@@ -651,6 +653,7 @@ oaep
 obscured
 occluding
 occluder
+occluded
 ocsp
 ofb
 offhook
@@ -749,6 +752,7 @@ preconnectable
 preconnected
 preconnecting
 preempted
+preexisting
 preferentially
 prefetched
 prefetcher
@@ -996,6 +1000,7 @@ systembar
 systemsize
 systemui
 suspending
+tabletype
 tailoring
 talkback
 taskmanager

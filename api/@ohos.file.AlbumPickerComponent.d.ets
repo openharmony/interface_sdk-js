@@ -19,6 +19,7 @@
  */
 
 import { PickerColorMode } from '@ohos.file.PhotoPickerComponent';
+import photoAccessHelper from '@ohos.file.photoAccessHelper';
 
 /**
  * AlbumPickerComponent: can select a certain album and display the images in that album through PhotoPickerComponent
@@ -48,7 +49,27 @@ export declare struct AlbumPickerComponent {
    * @since 12
    */
   onAlbumClick?: (albumInfo: AlbumInfo) => boolean;
+
+  /**
+   * Callback when click the empty area of the album component
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 13
+   */
+  onEmptyAreaClick?: EmptyAreaClickCallback;
 }
+
+/**
+ * The callback of onEmptyAreaClick event
+ *
+ * @typedef { function } EmptyAreaClickCallback
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 13
+ */
+export type EmptyAreaClickCallback = () => void
 
 /**
  * AlbumPickerOptions Object
@@ -67,6 +88,16 @@ export declare class AlbumPickerOptions {
    * @since 12
    */
   themeColorMode?: PickerColorMode;
+
+  /**
+   * The type of the content displayed in the album
+   *
+   * @type { ?photoAccessHelper.PhotoViewMIMETypes }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 13
+   */
+  filterType?: photoAccessHelper.PhotoViewMIMETypes;
 }
 
 
@@ -87,4 +118,14 @@ export declare class AlbumInfo {
    * @since 12
    */
   uri?: string;
+
+  /**
+   * Album name
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 12
+   */
+  albumName?: string;
 }

@@ -983,6 +983,24 @@ declare namespace drawing {
      */
     drawShadow(path: Path, planeParams: common2D.Point3d, devLightPos: common2D.Point3d, lightRadius: number,
       ambientColor: common2D.Color, spotColor: common2D.Color, flag: ShadowFlag) : void;
+      
+    /**
+     * Draws an offset spot shadow and outlining ambient shadow for the given path with circular light.
+     * In this function, the input of the parameter 'ambientColor' and 'spotColor' should be number
+     * @param { Path } path - Indicates the Path object.
+     * @param { common2D.Point3d } planeParams - Represents z offset of the occluder from the canvas based on x and y.
+     * @param { common2D.Point3d } devLightPos - Represents the position of the light relative to the canvas.
+     * @param { number } lightRadius - The radius of the circular light.
+     * @param { number } ambientColor - Ambient shadow's color represented by ARGB color of hexadecimal format.
+     * @param { number } spotColor - Spot shadow's color represented by ARGB color of hexadecimal format.
+     * @param { ShadowFlag } flag - Indicates the flag to control opaque occluder, shadow, and light position.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 13
+     */
+    drawShadow(path: Path, planeParams: common2D.Point3d, devLightPos: common2D.Point3d, lightRadius: number,
+      ambientColor: number, spotColor: number, flag: ShadowFlag) : void;
 
     /**
      * If radius is zero or less, nothing is drawn. If circle is stroked, use pen to
@@ -1066,7 +1084,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 13
      */
     drawColor(color: number, blendMode?: BlendMode): void;
 
@@ -1266,6 +1284,16 @@ declare namespace drawing {
      * @since 12
      */
     clear(color: common2D.Color): void;
+
+    /**
+     * Clears a canvas by using a specified color represented by ARGB color of hexadecimal format.
+     * @param { number } color - Number must be ARGB color of hexadecimal format.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 13
+     */
+    clear(color: number): void;
 
     /**
      * Restores the canvas status (canvas matrix) saved on the top of the stack.
@@ -1985,6 +2013,43 @@ declare namespace drawing {
      * @since 12
      */
     getEdging(): FontEdging;
+    /**
+     * Create path object of specified Glyph.
+     * @param { number } index - the index of Glyphs.
+     * @returns { Path } The path object for specified glyph, undefined if not found.
+     * Note: Path use y-axis-goes-down system, y axis is inverted to the y-axis-goes-up system.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    createPathForGlyph(index: number): Path;
+    /**
+     * Retrieves the bounding rect for each glyph in glyphs.
+     * @param { Array<number> } glyphs - Indicates the array of glyph indices to be measured.
+     * @returns { Array<common2D.Rect> } Returns bounds for each glyph relative to (0, 0).
+     * Note: 1. Rect use y-axis-goes-down system, y axis is inverted to the y-axis-goes-up system.
+     * <br>2. Rect use two points(left-bottom & right-top) to describe the bound.
+     * <br>3. The bound rect will be snap to integral boundaries.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    getBounds(glyphs: Array<number>): Array<common2D.Rect>;
+    /**
+     * Get path of text.
+     * @param { string } text - Indicates the character storage encoded with text encoding.
+     * @param { number } byteLength - Indicates the byte length of the text.
+     * @param { number } x - Indicates X coordinate for the starting position of the text within the drawing area.
+     * @param { number } y - Indicates Y coordinate for the starting position of the text within the drawing area.
+     * @returns { Path } The path object for Glyph.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    getTextPath(text: string, byteLength: number, x: number, y: number): Path;
   }
 
   /**
@@ -2189,6 +2254,28 @@ declare namespace drawing {
      */
     static createImageLattice(xDivs: Array<number>, yDivs: Array<number>, fXCount: number, fYCount: number,
       fBounds?: common2D.Rect | null, fRectTypes?: Array<RectType> | null, fColors?: Array<common2D.Color> | null): Lattice;
+
+    /**
+     * Divide an image into a rectangular grid. Grid entries on even columns and even rows are fixed;
+     * these entries are always drawn at their original size if the destination is large enough. If the destination
+     * side is too small to hold the fixed entries, all fixed entries are scaled down to fit.
+     * The grid entries not on even columns and rows are scaled to fit the remaining space, if any.
+     * @param { Array<number> } xDivs - X coordinate of values used to divide the image.
+     * @param { Array<number> } yDivs - Y coordinate of values used to divide the image.
+     * @param { number } fXCount - Number of x coordinates. Must be >= 0.
+     * @param { number } fYCount - Number of y coordinates. Must be >= 0.
+     * @param { common2D.Rect | null } fBounds - Source bounds to draw from. The default value is null.
+     * @param { Array<RectType> | null } fRectTypes - Array of fill types. The default value is null.
+     * @param { Array<number> | null } fColors - Array of colors represented by ARGB color of hexadecimal format. The default value is null.
+     * @returns { Lattice } Lattice object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 13
+     */
+    static createImageLattice(xDivs: Array<number>, yDivs: Array<number>, fXCount: number, fYCount: number,
+      fBounds?: common2D.Rect | null, fRectTypes?: Array<RectType> | null, fColors?: Array<number> | null): Lattice;
   }
 
   /**
@@ -2441,7 +2528,7 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @static
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 13
      */
     static create(blurRadius: number, x: number, y: number, color: number): ShadowLayer;
   }
@@ -2475,7 +2562,7 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @static
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 13
      */
     static createBlendModeColorFilter(color: number, mode: BlendMode): ColorFilter;
 
@@ -2731,7 +2818,7 @@ declare namespace drawing {
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
     * @syscap SystemCapability.Graphics.Drawing
-    * @since 12
+    * @since 13
     */
     setColor(color: number): void;
 
@@ -2755,6 +2842,14 @@ declare namespace drawing {
      * @since 12
      */
     getColor(): common2D.Color;
+
+    /**
+     * Obtains the color of a pen. The color is used by the pen to outline a shape.
+     * @returns { number } Returns a 32-bit (ARGB) variable that describes the color of hexadecimal format.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 13
+     */
+    getHexColor(): number;
 
     /**
     * Sets the thickness of the pen used by the paint to outline the shape.
@@ -2993,7 +3088,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 13
      */
     setColor(color: number): void;
 
@@ -3017,6 +3112,14 @@ declare namespace drawing {
      * @since 12
      */
     getColor(): common2D.Color;
+
+    /**
+     * Obtains the color of a brush. The color is used by the brush to fill in a shape.
+     * @returns { number } Returns a 32-bit (ARGB) variable that describes the color of hexadecimal format.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 13
+     */
+    getHexColor(): number;
 
     /**
      * Requests, but does not require, that edge pixels draw opaque or with partial transparency.

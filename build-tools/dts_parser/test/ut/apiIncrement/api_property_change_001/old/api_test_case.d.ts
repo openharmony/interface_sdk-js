@@ -13,20 +13,11 @@
  * limitations under the License.
  */
 
-
 /**
- * @namespace abilityAccessCtrl
- * @syscap SystemCapability.Security.AccessToken
- * @since 8
+ * the ut for property about change type
+ *
  */
-/**
- * @namespace abilityAccessCtrl
- * @syscap SystemCapability.Security.AccessToken
- * @since 10
- */
-declare namespace abilityAccessCtrl {
-
-  interface AtManager {
-    requestPermissionsFromUser(context: Context, permissions: Array<Permissions>): Promise<PermissionRequestResult>;
-  }
+export interface Test {
+  str: string;
+  testProperty: string;
 }

@@ -410,12 +410,14 @@ export interface MessageEvents extends Event {
   /**
    * Data transferred when an exception occurs.
    *
+   * @type { any }
    * @syscap SystemCapability.Utils.Lang
    * @since 9
    */
   /**
    * Data transferred when an exception occurs.
    *
+   * @type { any }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -423,13 +425,14 @@ export interface MessageEvents extends Event {
   /**
    * Data transferred when an exception occurs.
    *
+   * @type { any }
    * @readonly
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  readonly data;
+  readonly data: any;
 }
 
 /**
@@ -2122,7 +2125,7 @@ declare namespace worker {
    *
    * @extends ThreadWorker
    * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
+   * @systemapi
    * @since 12
    */
   class RestrictedWorker extends ThreadWorker {
@@ -2152,7 +2155,7 @@ declare namespace worker {
      * @throws { BusinessError } 10200003 - Worker initialization failure.
      * @throws { BusinessError } 10200007 - The worker file patch is invalid path.
      * @syscap SystemCapability.Utils.Lang
-     * @atomicservice
+     * @systemapi
      * @since 12
      */
     constructor(scriptURL: string, options?: WorkerOptions);

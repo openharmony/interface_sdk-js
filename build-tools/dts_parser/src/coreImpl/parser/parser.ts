@@ -30,6 +30,11 @@ import * as ResultsInfo from '../../typedef/parser/ResultsInfo';
  * 解析d.ts工具类
  */
 export class Parser {
+  static needLib: boolean = false;
+  static cleanParserParamSDK() {
+    parserParam.setFileDir('');
+    parserParam.setSdkPath('');
+  }
   /**
    * 根据传入的文件目录，对目录下的d.ts文件进行解析，
    * 并将其整合到一个map对象中
@@ -39,24 +44,32 @@ export class Parser {
    * @returns { FilesMap } 返回解析后的map对象
    */
   static parseDir(fileDir: string, collectFile: string = ''): FilesMap {
+    Parser.cleanParserParamSDK();
     const files: Array<string> = FileUtils.readFilesInDir(fileDir, (name) => {
       return name.endsWith(StringConstant.DTS_EXTENSION) || name.endsWith(StringConstant.DETS_EXTENSION);
     });
-    if (Boolean(process.env.NEED_DETECTION)) {
-      parserParam.setFileDir(fileDir);
-      parserParam.setRootNames(files);
-    }
     const apiMap: FilesMap = new Map();
     let collectFiles: Array<string> = [];
     if (collectFile === '') {
+      parserParam.setSdkPath(fileDir);
       collectFiles = files;
     } else if (FileUtils.isDirectory(collectFile)) {
+      Parser.needLib = true;
+      parserParam.setSdkPath(collectFile);
       collectFiles = FileUtils.readFilesInDir(collectFile, (name) => {
         return name.endsWith(StringConstant.DTS_EXTENSION) || name.endsWith(StringConstant.DETS_EXTENSION);
       });
     } else if (FileUtils.isFile(collectFile)) {
+      Parser.needLib = true;
+      parserParam.setSdkPath(path.resolve(collectFile, '..'));
       collectFiles = [collectFile];
     }
+    parserParam.setFileDir(fileDir);
+    parserParam.setRootNames(collectFiles);
+    if (Parser.needLib) {
+      parserParam.setLibPath(path.resolve(FileUtils.getBaseDirName(), './libs'));
+    }
+    parserParam.setProgram();
     collectFiles.forEach((filePath: string) => {
       Parser.parseFile(fileDir, filePath, apiMap);
     });
@@ -75,26 +88,33 @@ export class Parser {
     if (!fs.existsSync(filePath)) {
       return new Map();
     }
-    if (Boolean(process.env.NEED_DETECTION)) {
-      parserParam.setFilePath(filePath);
+    NodeProcessorHelper.typeReferenceFileMap = new Map();
+    if (parserParam.getFileDir() === '') {
+      parserParam.setSdkPath(fileDir);
+      parserParam.setFileDir(path.resolve(fileDir, '..'));
+      parserParam.setRootNames([filePath]);
+      if (Parser.needLib) {
+        parserParam.setLibPath(path.resolve(FileUtils.getBaseDirName(), './libs'));
+      }
+      parserParam.setProgram();
     }
-    const fileContent: string = fs.readFileSync(filePath, StringConstant.UTF8);
+    parserParam.setFilePath(filePath);
     let relFilePath: string = '';
     relFilePath = path.relative(fileDir, filePath);
-    const fileName = path
-      .basename(filePath)
-      .replace(new RegExp(StringConstant.DTS_EXTENSION, 'g'), StringConstant.TS_EXTENSION)
-      .replace(new RegExp(StringConstant.DETS_EXTENSION, 'g'), StringConstant.ETS_EXTENSION);
-    const sourceFile: ts.SourceFile = ts.createSourceFile(fileName, fileContent, ts.ScriptTarget.ES2017, true);
+
+    const program = parserParam.getTsProgram();
+    program.getTypeChecker();
+    const canonicalFileName = parserParam.compilerHost.getCanonicalFileName(filePath.replace(/\\/g, '/'));
+    const sourceFile: ts.SourceFile | undefined = program.getSourceFileByPath(canonicalFileName as ts.Path);
+    if (!sourceFile) {
+      return new Map();
+    }
     const fileArr: Array<string> = [filePath];
     sourceFile.statements.forEach((statement: ts.Statement) => {
       if (ts.isImportDeclaration(statement) && statement.moduleSpecifier.getText().startsWith('./', 1)) {
         fileArr.push(path.resolve(filePath, '..', statement.moduleSpecifier.getText().replace(/'|"/g, '')));
       }
     });
-    if (Boolean(process.env.NEED_DETECTION)) {
-      parserParam.setProgram([fileDir]);
-    }
     const sourceFileInfo: ApiInfo = new ApiInfo(ApiType.SOURCE_FILE, sourceFile, undefined);
     sourceFileInfo.setFilePath(relFilePath);
     sourceFileInfo.setFileAbsolutePath(filePath);

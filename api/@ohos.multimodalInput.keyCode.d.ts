@@ -25,6 +25,14 @@
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9
  */
+/**
+ * KeyCode
+ *
+ * @enum { number }
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @atomicservice
+ * @since 12
+ */
 export declare enum KeyCode {
   /**
    * KEYCODE_FN
@@ -57,6 +65,14 @@ export declare enum KeyCode {
    * @since 9
    */
   KEYCODE_BACK = 2,
+
+  /**
+   * KEYCODE_SEARCH
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 13
+   */
+  KEYCODE_SEARCH = 9,
 
   /**
    * KEYCODE_MEDIA_PLAY_PAUSE

@@ -101,6 +101,46 @@ export declare struct PhotoPickerComponent {
   onPickerControllerReady?: () => void;
 
   /**
+   * Callback when photo browser change, will return browserItemInfo
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 12
+   */
+  onPhotoBrowserChanged?: (browserItemInfo: BaseItemInfo) => boolean;
+
+  /**
+   * Callback when selected items are deleted
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 13
+   */
+  onSelectedItemsDeleted?: ItemsDeletedCallback;
+
+  /**
+   * Callback when exceed max selected
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 13
+   */
+  onExceedMaxSelected?: ExceedMaxSelectedCallback;
+
+  /**
+   * Callback when the current album is deleted
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 13
+   */
+  onCurrentAlbumDeleted?: CurrentAlbumDeletedCallback
+
+  /**
    * PickerController
    *
    * @type { ?PickerController }
@@ -120,6 +160,39 @@ export declare struct PhotoPickerComponent {
    */
   build(): void;
 }
+
+
+/**
+ * The callback of onSelectedItemsDeleted event
+ *
+ * @typedef { function } ItemsDeletedCallback
+ * @param { Array<BaseItemInfo> }
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 13
+ */
+export type ItemsDeletedCallback = (baseItemInfos: Array<BaseItemInfo>) => void;
+
+/**
+ * The callback of onExceedMaxSelected event
+ *
+ * @typedef { function } ItemsDeletedCallback
+ * @param { MaxCountType }
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 13
+ */
+export type ExceedMaxSelectedCallback = (exceedMaxCountType: MaxCountType) => void;
+
+/**
+ * The callback of onCurrentAlbumDeleted event
+ *
+ * @typedef { function } CurrentAlbumDeletedCallback
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 13
+ */
+export type CurrentAlbumDeletedCallback = () => void;
 
 /**
  * The class for PickerController
@@ -150,6 +223,37 @@ export declare class PickerController {
    * @since 12
    */
   setMaxSelected(maxSelected: MaxSelected): void;
+
+  /**
+   * Set photo browser item to picker component.
+   *
+   * @param { string } uri - specify image uri for photo browsing
+   * @param { PhotoBrowserRange } photoBrowserRange - photo browser slide range
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 12
+   */
+  setPhotoBrowserItem(uri: string, photoBrowserRange?: PhotoBrowserRange): void;
+
+  /**
+   * Exit photo browser.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 13
+   */
+  exitPhotoBrowser(): void;
+
+  /**
+   * Sets whether other elements on the photo browser page are visible.
+   *
+   * @param { Array<PhotoBrowserUIElement> } elements - other elements on the photo browser page
+   * @param { boolean } isVisible - visible or not
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 13
+   */
+  setPhotoBrowserUIElementVisibility(elements: Array<PhotoBrowserUIElement>, isVisible: boolean): void;
 }
 
 /**
@@ -259,26 +363,36 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @since 12
    */
   maxVideoSelectNumber?: number;
+
+  /**
+   * Support to set sliding selection
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 13
+   */
+  isSlidingSelectionSupported?: boolean;
+
+  /**
+   * Support to set photo browser checkbox position
+   *
+   * @type { ?[number, number] }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 13
+   */
+  photoBrowserCheckboxPosition?: [number, number];
 }
 
 /**
- * ItemInfo
+ * BaseItemInfo
  *
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
  * @since 12
  */
-export declare class ItemInfo {
-  /**
-   * itemType. include CAMERA and THUMBNAIL.
-   *
-   * @type { ?ItemType }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 12
-   */
-  itemType?: ItemType;
-
+export declare class BaseItemInfo {
   /**
    * Uri. if the itemType is CAMERA, it will be null
    *
@@ -338,6 +452,26 @@ export declare class ItemInfo {
    * @since 12
    */
   duration?: number;
+}
+
+/**
+ * ItemInfo
+ *
+ * @extends BaseItemInfo
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 12
+ */
+export declare class ItemInfo extends BaseItemInfo {
+  /**
+   * itemType. include CAMERA and THUMBNAIL.
+   *
+   * @type { ?ItemType }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 12
+   */
+  itemType?: ItemType;
 }
 
 /**
@@ -656,4 +790,60 @@ export declare enum MaxCountType {
    * @since 12
    */
   VIDEO_MAX_COUNT = 2
+}
+
+/**
+ * PhotoBrowserRange. include ALL and SELECTED_ONLY
+ *
+ * @enum { number } PhotoBrowserRange
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 12
+ */
+export declare enum PhotoBrowserRange {
+  /**
+   * ALL. all photos or vedios
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 12
+   */
+  ALL = 0,
+
+  /**
+   * SELECTED_ONLY. only selected photos or vedios
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 12
+   */
+  SELECTED_ONLY = 1,
+}
+
+/**
+ * PhotoBrowserUIElement. include CHECKBOX and BACK_BUTTON
+ *
+ * @enum { number } PhotoBrowserUIElement
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 13
+ */
+export declare enum PhotoBrowserUIElement {
+  /**
+   * CHECKBOX. checkbox
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 13
+   */
+  CHECKBOX = 0,
+
+  /**
+   * BACK_BUTTON. back button
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 13
+   */
+  BACK_BUTTON = 1
 }

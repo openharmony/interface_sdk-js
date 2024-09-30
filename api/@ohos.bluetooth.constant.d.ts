@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023 Huawei Device Co., Ltd.
+ * Copyright (C) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -33,6 +33,15 @@
  * @atomicservice
  * @since 12
  */
+/**
+ * The definition of constant.
+ *
+ * @namespace constant
+ * @syscap SystemCapability.Communication.Bluetooth.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 13
+ */
 declare namespace constant {
   /**
    * The enum of profile id.
@@ -41,12 +50,27 @@ declare namespace constant {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10
    */
+  /**
+   * The enum of profile id.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @since 13
+   */
   export enum ProfileId {
     /**
      * A2DP profile.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * A2DP profile.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     PROFILE_A2DP_SOURCE = 1,
 
@@ -55,6 +79,13 @@ declare namespace constant {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * HFP profile.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     PROFILE_HANDSFREE_AUDIO_GATEWAY = 4,
 
@@ -90,6 +121,14 @@ declare namespace constant {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 12
    */
+  /**
+   * Enum for the profile's uuid
+   *
+   * @enum { string }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @since 13
+   */
   export enum ProfileUuids {
     /**
      * Hands-Free Profile: Audio Gateway
@@ -103,6 +142,13 @@ declare namespace constant {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12
+     */
+    /**
+     * Hands-Free Profile: Audio Gateway
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     PROFILE_UUID_HFP_AG = '0000111F-0000-1000-8000-00805F9B34FB',
     /**
@@ -118,6 +164,13 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12
      */
+    /**
+     * Hands-Free Profile: Hands Free
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     PROFILE_UUID_HFP_HF = '0000111E-0000-1000-8000-00805F9B34FB',
     /**
      * Headset Profile: Audio Gateway
@@ -131,6 +184,13 @@ declare namespace constant {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12
+     */
+    /**
+     * Headset Profile: Audio Gateway
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     PROFILE_UUID_HSP_AG = '00001112-0000-1000-8000-00805F9B34FB',
     /**
@@ -146,6 +206,13 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12
      */
+    /**
+     * Headset Profile: Headset
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     PROFILE_UUID_HSP_HS = '00001108-0000-1000-8000-00805F9B34FB',
     /**
      * Advanced Audio Distribution Profile: Source
@@ -159,6 +226,13 @@ declare namespace constant {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12
+     */
+    /**
+     * Advanced Audio Distribution Profile: Source
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     PROFILE_UUID_A2DP_SRC = '0000110A-0000-1000-8000-00805F9B34FB',
     /**
@@ -174,6 +248,13 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12
      */
+    /**
+     * Advanced Audio Distribution Profile: Sink
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     PROFILE_UUID_A2DP_SINK = '0000110B-0000-1000-8000-00805F9B34FB',
     /**
      * Audio/Video Remote Control Profile: Controller
@@ -187,6 +268,13 @@ declare namespace constant {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12
+     */
+    /**
+     * Audio/Video Remote Control Profile: Controller
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     PROFILE_UUID_AVRCP_CT = '0000110E-0000-1000-8000-00805F9B34FB',
     /**
@@ -202,6 +290,13 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12
      */
+    /**
+     * Audio/Video Remote Control Profile: Target
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     PROFILE_UUID_AVRCP_TG = '0000110C-0000-1000-8000-00805F9B34FB',
     /**
      * Human Interface Device Profile
@@ -216,6 +311,13 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12
      */
+    /**
+     * Human Interface Device Profile
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     PROFILE_UUID_HID = '00001124-0000-1000-8000-00805F9B34FB',
     /**
      * HID over GATT Profile
@@ -229,6 +331,13 @@ declare namespace constant {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 12
+     */
+    /**
+     * HID over GATT Profile
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     PROFILE_UUID_HOGP = '00001812-0000-1000-8000-00805F9B34FB'
   }
@@ -248,6 +357,15 @@ declare namespace constant {
    * @atomicservice
    * @since 12
    */
+  /**
+   * The enum of profile connection state.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   export enum ProfileConnectionState {
     /**
      * the current profile is disconnected
@@ -261,6 +379,14 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
+     */
+    /**
+     * the current profile is disconnected
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
      */
     STATE_DISCONNECTED = 0,
     /**
@@ -276,6 +402,14 @@ declare namespace constant {
      * @atomicservice
      * @since 12
      */
+    /**
+     * the current profile is being connected
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
     STATE_CONNECTING = 1,
     /**
      * the current profile is connected
@@ -289,6 +423,14 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since 12
+     */
+    /**
+     * the current profile is connected
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
      */
     STATE_CONNECTED = 2,
     /**
@@ -304,6 +446,14 @@ declare namespace constant {
      * @atomicservice
      * @since 12
      */
+    /**
+     * the current profile is being disconnected
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
     STATE_DISCONNECTING = 3
   }
 
@@ -313,6 +463,14 @@ declare namespace constant {
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10
+   */
+  /**
+   * The enum of major class of a bluetooth device.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @since 13
    */
   export enum MajorClass {
     /**
@@ -349,6 +507,13 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Audio or video device.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     MAJOR_AUDIO_VIDEO = 0x0400,
     /**
      * Peripheral device.
@@ -384,6 +549,13 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Health device.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     MAJOR_HEALTH = 0x0900,
     /**
      * Unclassified device.
@@ -401,6 +573,14 @@ declare namespace constant {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10
    */
+  /**
+   * The enum of major minor class of a bluetooth device.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @since 13
+   */
   export enum MajorMinorClass {
     /**
      * The Minor Device Class field
@@ -409,12 +589,27 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * The Minor Device Class field
+     * Computer Major Class
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     COMPUTER_UNCATEGORIZED = 0x0100,
     /**
      * Desktop computer.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Desktop computer.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     COMPUTER_DESKTOP = 0x0104,
     /**
@@ -423,12 +618,26 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Server.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     COMPUTER_SERVER = 0x0108,
     /**
      * Laptop.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Laptop.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     COMPUTER_LAPTOP = 0x010C,
     /**
@@ -437,6 +646,13 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Hand-held computer.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     COMPUTER_HANDHELD_PC_PDA = 0x0110,
     /**
      * Palmtop computer.
@@ -444,12 +660,26 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Palmtop computer.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     COMPUTER_PALM_SIZE_PC_PDA = 0x0114,
     /**
      * Wearable computer.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Wearable computer.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     COMPUTER_WEARABLE = 0x0118,
     /**
@@ -466,12 +696,26 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Phone Major Class
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     PHONE_UNCATEGORIZED = 0x0200,
     /**
      * Portable phone.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Portable phone.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     PHONE_CELLULAR = 0x0204,
     /**
@@ -480,12 +724,26 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Cordless phone.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     PHONE_CORDLESS = 0x0208,
     /**
      * Smartphone.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Smartphone.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     PHONE_SMART = 0x020C,
     /**
@@ -494,12 +752,26 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Modem or gateway phone.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     PHONE_MODEM_OR_GATEWAY = 0x0210,
     /**
      * ISDN phone.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * ISDN phone.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     PHONE_ISDN = 0x0214,
 
@@ -573,12 +845,26 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Wearable audio or video headset.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     AUDIO_VIDEO_WEARABLE_HEADSET = 0x0404,
     /**
      * Hands-free audio or video device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Hands-free audio or video device.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     AUDIO_VIDEO_HANDSFREE = 0x0408,
     /**
@@ -587,12 +873,26 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Audio or video microphone.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     AUDIO_VIDEO_MICROPHONE = 0x0410,
     /**
      * Audio or video loudspeaker.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Audio or video loudspeaker.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     AUDIO_VIDEO_LOUDSPEAKER = 0x0414,
     /**
@@ -601,12 +901,26 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Audio or video headphones.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     AUDIO_VIDEO_HEADPHONES = 0x0418,
     /**
      * Portable audio or video device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Portable audio or video device.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     AUDIO_VIDEO_PORTABLE_AUDIO = 0x041C,
     /**
@@ -615,12 +929,26 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * In-vehicle audio or video device.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     AUDIO_VIDEO_CAR_AUDIO = 0x0420,
     /**
      * Audio or video STB device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Audio or video STB device.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     AUDIO_VIDEO_SET_TOP_BOX = 0x0424,
     /**
@@ -629,12 +957,26 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * High-fidelity speaker device.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     AUDIO_VIDEO_HIFI_AUDIO = 0x0428,
     /**
      * Video cassette recording (VCR) device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Video cassette recording (VCR) device.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     AUDIO_VIDEO_VCR = 0x042C,
     /**
@@ -643,12 +985,26 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Camera.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     AUDIO_VIDEO_VIDEO_CAMERA = 0x0430,
     /**
      * Camcorder.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Camcorder.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     AUDIO_VIDEO_CAMCORDER = 0x0434,
     /**
@@ -657,12 +1013,26 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Audio or video monitor.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     AUDIO_VIDEO_VIDEO_MONITOR = 0x0438,
     /**
      * Video display or loudspeaker.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Video display or loudspeaker.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     AUDIO_VIDEO_VIDEO_DISPLAY_AND_LOUDSPEAKER = 0x043C,
     /**
@@ -671,12 +1041,26 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Video conferencing device.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     AUDIO_VIDEO_VIDEO_CONFERENCING = 0x0440,
     /**
      * Audio or video gaming toy.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Audio or video gaming toy.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     AUDIO_VIDEO_VIDEO_GAMING_TOY = 0x0448,
 
@@ -686,12 +1070,26 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Peripheral Major Class
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     PERIPHERAL_NON_KEYBOARD_NON_POINTING = 0x0500,
     /**
      * Keyboard device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Keyboard device.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     PERIPHERAL_KEYBOARD = 0x0540,
     /**
@@ -700,12 +1098,26 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Pointing peripheral device.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     PERIPHERAL_POINTING_DEVICE = 0x0580,
     /**
      * Keyboard pointing device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Keyboard pointing device.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     PERIPHERAL_KEYBOARD_POINTING = 0x05C0,
     /**
@@ -821,12 +1233,26 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Wearable Major Class
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     WEARABLE_UNCATEGORIZED = 0x0700,
     /**
      * Smart watch.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Smart watch.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     WEARABLE_WRIST_WATCH = 0x0704,
     /**
@@ -835,12 +1261,26 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Wearable pager.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     WEARABLE_PAGER = 0x0708,
     /**
      * Smart jacket.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Smart jacket.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     WEARABLE_JACKET = 0x070C,
     /**
@@ -849,12 +1289,26 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Wearable helmet.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     WEARABLE_HELMET = 0x0710,
     /**
      * Wearable glasses.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Wearable glasses.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     WEARABLE_GLASSES = 0x0714,
 
@@ -864,12 +1318,26 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Minor Device Class field - Toy Major Class
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     TOY_UNCATEGORIZED = 0x0800,
     /**
      * Toy robot.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Toy robot.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     TOY_ROBOT = 0x0804,
     /**
@@ -878,12 +1346,26 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Toy vehicle.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     TOY_VEHICLE = 0x0808,
     /**
      * Humanoid toy doll.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Humanoid toy doll.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     TOY_DOLL_ACTION_FIGURE = 0x080C,
     /**
@@ -892,12 +1374,26 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Toy controller.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     TOY_CONTROLLER = 0x0810,
     /**
      * Toy gaming device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Toy gaming device.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     TOY_GAME = 0x0814,
 
@@ -914,12 +1410,26 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Blood pressure device.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     HEALTH_BLOOD_PRESSURE = 0x0904,
     /**
      * Thermometer.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Thermometer.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     HEALTH_THERMOMETER = 0x0908,
     /**
@@ -928,12 +1438,26 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Body scale.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     HEALTH_WEIGHING = 0x090C,
     /**
      * Blood glucose monitor.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Blood glucose monitor.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     HEALTH_GLUCOSE = 0x0910,
     /**
@@ -942,6 +1466,13 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Pulse oximeter.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     HEALTH_PULSE_OXIMETER = 0x0914,
     /**
      * Heart rate monitor.
@@ -949,12 +1480,26 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
+    /**
+     * Heart rate monitor.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
+     */
     HEALTH_PULSE_RATE = 0x0918,
     /**
      * Health data display.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
+     */
+    /**
+     * Health data display.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 13
      */
     HEALTH_DATA_DISPLAY = 0x091C,
     /**

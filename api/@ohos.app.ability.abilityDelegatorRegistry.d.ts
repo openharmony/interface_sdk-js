@@ -21,6 +21,7 @@
 import { AbilityDelegator as _AbilityDelegator } from './application/AbilityDelegator';
 import { AbilityDelegatorArgs as _AbilityDelegatorArgs } from './application/abilityDelegatorArgs';
 import { AbilityMonitor as _AbilityMonitor } from './application/AbilityMonitor';
+import { AbilityStageMonitor as _AbilityStageMonitor } from './application/AbilityStageMonitor';
 import { ShellCmdResult as _ShellCmdResult } from './application/shellCmdResult';
 
 /**
@@ -334,6 +335,18 @@ declare namespace abilityDelegatorRegistry {
    * @since 11
    */
   export type ShellCmdResult = _ShellCmdResult;
+
+  /**
+   * Provide methods for matching monitored AbilityStage objects that meet specified conditions.
+   * The most recently matched AbilityStage objects will be saved in the AbilityStageMonitor object.
+   *
+   * @typedef { _AbilityStageMonitor }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  export type AbilityStageMonitor = _AbilityStageMonitor;
 }
 
 export default abilityDelegatorRegistry;

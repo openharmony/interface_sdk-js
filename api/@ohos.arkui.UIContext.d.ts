@@ -972,7 +972,7 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   openToast(options: promptAction.ShowToastOptions): Promise<number>;
 
@@ -988,7 +988,7 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   closeToast(toastId: number): void;
 
@@ -1813,6 +1813,7 @@ export class ComponentUtils {
    *
    * @param { string } id - ID of the component whose attributes are to be obtained.
    * @returns { componentUtils.ComponentInfo } the object of ComponentInfo.
+   * @throws { BusinessError } 100001 - UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -1821,6 +1822,7 @@ export class ComponentUtils {
    *
    * @param { string } id - ID of the component whose attributes are to be obtained.
    * @returns { componentUtils.ComponentInfo } the object of ComponentInfo.
+   * @throws { BusinessError } 100001 - UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -2047,6 +2049,26 @@ export class SwiperDynamicSyncScene extends DynamicSyncScene {
 }
 
 /**
+ * Represents a dynamic synchronization scene of Marquee.
+ * 
+ * @extends DynamicSyncScene
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 13
+ */
+export class MarqueeDynamicSyncScene extends DynamicSyncScene {
+  /**
+  * Type of the MarqueeDynamicSyncSceneType.
+  * @type { MarqueeDynamicSyncSceneType }
+  * @readonly
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @atomicservice
+  * @since 13
+  */
+  readonly type: MarqueeDynamicSyncSceneType;
+}
+
+/**
  * class DragController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 11
@@ -2240,6 +2262,17 @@ export class FocusController {
    * @since 12
    */
   requestFocus(key: string): void;
+
+  /**
+   * Activate focus style.
+   * @param { boolean } isActive - activate/deactivate the focus style.
+   * @param { boolean } [autoInactive] - deactivate the focus style when touch event or mouse event triggers, the default value is true.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  activate(isActive: boolean, autoInactive?: boolean): void;
 }
 
 /**
@@ -2320,7 +2353,18 @@ export abstract class FrameCallback {
    * @atomicservice
    * @since 12
    */
-  abstract onFrame(frameTimeInNano: number): void;
+  onFrame(frameTimeInNano: number): void;
+
+  /**
+   * Called at the end of the next idle frame. If there is no next frame, will request one automatically.
+   *
+   * @param { number } timeLeftInNano - The remaining time from the deadline for this frame.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onIdle(timeLeftInNano: number): void;
 }
 
 /**
@@ -2901,6 +2945,18 @@ export class UIContext {
   getFrameNodeById(id: string): FrameNode | null;
 
   /**
+   * Get the FrameNode attached to current window by id.
+   *
+   * @param { string } id - The id of FrameNode.
+   * @returns { FrameNode | null } The instance of FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  getAttachedFrameNodeById(id: string): FrameNode | null;
+
+  /**
    * Get FrameNode by uniqueId.
    *
    * @param { number } id - The uniqueId of the FrameNode.
@@ -3085,6 +3141,26 @@ export class UIContext {
    * @since 12
    */
   getWindowName(): string | undefined;
+  
+  /**
+   * Get the width breakpoint of current window.
+   *
+   * @returns { WidthBreakpoint } The width breakpoint of current window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  getWindowWidthBreakpoint(): WidthBreakpoint;
+  
+  /**
+   * Get the height breakpoint of current window.
+   *
+   * @returns { HeightBreakpoint } The height breakpoint of current window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice 
+   * @since 13
+   */
+  getWindowHeightBreakpoint(): HeightBreakpoint;
 
   /**
    * Open the BindSheet.
@@ -3191,6 +3267,78 @@ export class UIContext {
    * @since 12
    */
   clearResourceCache(): void;
+
+  /**
+   * Checks whether current font scale follows the system.
+   *
+   * @returns { boolean } Returns true if current font scale follows the system; returns false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  isFollowingSystemFontScale(): boolean;
+
+  /**
+   * Get the max font scale.
+   *
+   * @returns { number } The max font scale.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  getMaxFontScale(): number;
+
+  /**
+   * Bind tabs to scrollable container component to automatically hide tab bar.
+   *
+   * @param { TabsController } tabsController - The controller of the tabs.
+   * @param { Scroller } scroller - The controller of the scrollable container component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  bindTabsToScrollable(tabsController: TabsController, scroller: Scroller): void;
+
+  /**
+   * Unbind tabs from scrollable container component.
+   *
+   * @param { TabsController } tabsController - The controller of the tabs.
+   * @param { Scroller } scroller - The controller of the scrollable container component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  unbindTabsFromScrollable(tabsController: TabsController, scroller: Scroller): void;
+
+  /**
+   * Bind tabs to nested scrollable container components to automatically hide tab bar.
+   *
+   * @param { TabsController } tabsController - The controller of the tabs.
+   * @param { Scroller } parentScroller - The controller of the parent scrollable container component.
+   * @param { Scroller } childScroller - The controller of the child scrollable container component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  bindTabsToNestedScrollable(tabsController: TabsController, parentScroller: Scroller, childScroller: Scroller): void;
+
+  /**
+   * Unbind tabs from nested scrollable container components.
+   *
+   * @param { TabsController } tabsController - The controller of the tabs.
+   * @param { Scroller } parentScroller - The controller of the parent scrollable container component.
+   * @param { Scroller } childScroller - The controller of the child scrollable container component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  unbindTabsFromNestedScrollable(tabsController: TabsController, parentScroller: Scroller, childScroller: Scroller): void;
 }
 
 /**
@@ -3247,6 +3395,25 @@ export const enum SwiperDynamicSyncSceneType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   */
+  ANIMATION = 1
+}
+
+/**
+ * Enum of scene type for Marquee
+ * 
+ * @enum { number } MarqueeDynamicSyncSceneType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 13
+ */
+export const enum MarqueeDynamicSyncSceneType {
+  /**
+   * Scene type is ANIMATION.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
    */
   ANIMATION = 1
 }

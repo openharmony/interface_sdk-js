@@ -41,6 +41,8 @@ export interface CommonEventSubscriber {
    * Obtains the result code of the current ordered common event.
    *
    * @param { AsyncCallback<number> } callback - Indicate the callback function to receive the common event.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -48,6 +50,8 @@ export interface CommonEventSubscriber {
    * Obtains the result code of the current ordered common event.
    *
    * @param { AsyncCallback<number> } callback - Indicate the callback function to receive the common event.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11
@@ -93,6 +97,8 @@ export interface CommonEventSubscriber {
    *
    * @param { number } code - Indicates the custom result code to set. You can set it to any value.
    * @param { AsyncCallback<void> } callback - Indicate the callback function to receive the common event.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -101,6 +107,8 @@ export interface CommonEventSubscriber {
    *
    * @param { number } code - Indicates the custom result code to set. You can set it to any value.
    * @param { AsyncCallback<void> } callback - Indicate the callback function to receive the common event.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11
@@ -112,6 +120,8 @@ export interface CommonEventSubscriber {
    *
    * @param { number } code - Indicates the custom result code to set. You can set it to any value.
    * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -120,6 +130,8 @@ export interface CommonEventSubscriber {
    *
    * @param { number } code - Indicates the custom result code to set. You can set it to any value.
    * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11
@@ -151,6 +163,8 @@ export interface CommonEventSubscriber {
    * Obtains the result data of the current ordered common event.
    *
    * @param { AsyncCallback<string> } callback - Indicate the callback function to receive the common event.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -158,6 +172,8 @@ export interface CommonEventSubscriber {
    * Obtains the result data of the current ordered common event.
    *
    * @param { AsyncCallback<string> } callback - Indicate the callback function to receive the common event.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11
@@ -203,6 +219,8 @@ export interface CommonEventSubscriber {
    *
    * @param { string } data - Indicates the custom result data to set. You can set it to any character string.
    * @param { AsyncCallback<void> } callback - Indicate the callback function to receive the common event.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -211,6 +229,8 @@ export interface CommonEventSubscriber {
    *
    * @param { string } data - Indicates the custom result data to set. You can set it to any character string.
    * @param { AsyncCallback<void> } callback - Indicate the callback function to receive the common event.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11
@@ -222,6 +242,8 @@ export interface CommonEventSubscriber {
    *
    * @param { string } data - Indicates the custom result data to set. You can set it to any character string.
    * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -230,6 +252,8 @@ export interface CommonEventSubscriber {
    *
    * @param { string } data - Indicates the custom result data to set. You can set it to any character string.
    * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11
@@ -263,6 +287,8 @@ export interface CommonEventSubscriber {
    * @param { number } code - Indicates the custom result code to set. You can set it to any value.
    * @param { string } data - Indicates the custom result data to set. You can set it to any character string.
    * @param { AsyncCallback<void> } callback - Indicate the callback function to receive the common event.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -272,6 +298,8 @@ export interface CommonEventSubscriber {
    * @param { number } code - Indicates the custom result code to set. You can set it to any value.
    * @param { string } data - Indicates the custom result data to set. You can set it to any character string.
    * @param { AsyncCallback<void> } callback - Indicate the callback function to receive the common event.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11
@@ -284,6 +312,8 @@ export interface CommonEventSubscriber {
    * @param { number } code - Indicates the custom result code to set. You can set it to any value.
    * @param { string } data - Indicates the custom result data to set. You can set it to any character string.
    * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -293,6 +323,8 @@ export interface CommonEventSubscriber {
    * @param { number } code - Indicates the custom result code to set. You can set it to any value.
    * @param { string } data - Indicates the custom result data to set. You can set it to any character string.
    * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11
@@ -326,6 +358,8 @@ export interface CommonEventSubscriber {
    * Checks whether the current common event is an ordered common event.
    *
    * @param { AsyncCallback<boolean> } callback - Indicate the callback function to receive the common event.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -353,6 +387,8 @@ export interface CommonEventSubscriber {
    * Checks whether the current common event is a sticky common event.
    *
    * @param { AsyncCallback<boolean> } callback - Indicate the callback function to receive the common event.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -380,6 +416,8 @@ export interface CommonEventSubscriber {
    * Abort the current ordered common event.
    *
    * @param { AsyncCallback<void> } callback - Indicate the callback function to receive the common event.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -406,6 +444,8 @@ export interface CommonEventSubscriber {
    * Clears the abort state of the current ordered common event
    *
    * @param { AsyncCallback<void> } callback - Indicate the callback function to receive the common event.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -432,6 +472,8 @@ export interface CommonEventSubscriber {
    * Checks whether the current ordered common event should be aborted.
    *
    * @param { AsyncCallback<boolean> } callback - Indicate the callback function to receive the common event.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -459,6 +501,8 @@ export interface CommonEventSubscriber {
    * get the CommonEventSubscribeInfo of this CommonEventSubscriber.
    *
    * @param { AsyncCallback<CommonEventSubscribeInfo> } callback - Indicate callback function to receive common event.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -466,6 +510,8 @@ export interface CommonEventSubscriber {
    * get the CommonEventSubscribeInfo of this CommonEventSubscriber.
    *
    * @param { AsyncCallback<CommonEventSubscribeInfo> } callback - Indicate callback function to receive common event.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
@@ -512,6 +558,8 @@ export interface CommonEventSubscriber {
    * finish the current ordered common event.
    *
    * @param { AsyncCallback<void> } callback - Indicate the callback function after ordered common event is finished.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */

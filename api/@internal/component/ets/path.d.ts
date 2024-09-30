@@ -19,6 +19,114 @@
  */
 
 /**
+ * Define options used to construct a path.
+ *
+ * @interface PathOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 14
+ */
+declare interface PathOptions {
+  /**
+   * Width option.
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Width option.
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Width option.
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Width option.
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  width?: number | string;
+
+  /**
+   * Height option.
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Height option.
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Height option.
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Height option.
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  height?: number | string;
+
+  /**
+   * Commands option.
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Commands option.
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Commands option.
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Commands option.
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  commands?: string
+}
+
+/**
  * Provides the path drawing interface.
  *
  * @interface PathInterface
@@ -91,7 +199,18 @@ interface PathInterface {
    * @atomicservice
    * @since 11
    */
-  new (value?: { width?: number | string; height?: number | string; commands?: string }): PathAttribute;
+  /**
+   * Use new to create Path.
+   *
+   * @param { PathOptions } [options] - path options
+   * @returns { PathAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  new (options?: PathOptions): PathAttribute;
 
   /**
    * Called when drawing path.
@@ -131,7 +250,18 @@ interface PathInterface {
    * @atomicservice
    * @since 11
    */
-  (value?: { width?: number | string; height?: number | string; commands?: string }): PathAttribute;
+  /**
+   * Called when drawing path.
+   *
+   * @param { PathOptions } [options] - path options
+   * @returns { PathAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  (options?: PathOptions): PathAttribute;
 }
 
 /**

@@ -246,7 +246,7 @@ declare namespace cloudSync {
      * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Incorrect parameter types.
      * @throws { BusinessError } 22400001 - Cloud status not ready.
      * @throws { BusinessError } 22400002 - Network unavailable.
-     * @throws { BusinessError } 22400003 - Battery level warning.
+     * @throws { BusinessError } 22400003 - Low battery level.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 10
@@ -263,7 +263,7 @@ declare namespace cloudSync {
      * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 22400001 - Cloud status not ready.
      * @throws { BusinessError } 22400002 - Network unavailable.
-     * @throws { BusinessError } 22400003 - Battery level warning.
+     * @throws { BusinessError } 22400003 - Low battery level.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 10
@@ -625,7 +625,7 @@ declare namespace cloudSync {
      * @throws { BusinessError } 13600001 - IPC error.
      * @throws { BusinessError } 22400001 - Cloud status not ready.
      * @throws { BusinessError } 22400002 - Network unavailable.
-     * @throws { BusinessError } 22400003 - Battery level warning.
+     * @throws { BusinessError } 22400003 - Low battery level.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12
      */
@@ -638,7 +638,7 @@ declare namespace cloudSync {
      * @throws { BusinessError } 13600001 - IPC error.
      * @throws { BusinessError } 22400001 - Cloud status not ready.
      * @throws { BusinessError } 22400002 - Network unavailable.
-     * @throws { BusinessError } 22400003 - Battery level warning.
+     * @throws { BusinessError } 22400003 - Low battery level.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12
      */
@@ -736,7 +736,7 @@ declare namespace cloudSync {
      * @throws { BusinessError } 13600001 - IPC error.
      * @throws { BusinessError } 13900002 - No such file or directory.
      * @throws { BusinessError } 13900025 - No space left on device.
-     * @throws { BusinessError } 14000002 - Invalid uri.
+     * @throws { BusinessError } 14000002 - Invalid URI.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11
      */
@@ -751,7 +751,7 @@ declare namespace cloudSync {
      * @throws { BusinessError } 13600001 - IPC error.
      * @throws { BusinessError } 13900002 - No such file or directory.
      * @throws { BusinessError } 13900025 - No space left on device.
-     * @throws { BusinessError } 14000002 - Invalid uri.
+     * @throws { BusinessError } 14000002 - Invalid URI.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11
      */
@@ -765,7 +765,7 @@ declare namespace cloudSync {
      * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error.
      * @throws { BusinessError } 13900002 - No such file or directory.
-     * @throws { BusinessError } 14000002 - Invalid uri.
+     * @throws { BusinessError } 14000002 - Invalid URI.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11
      */
@@ -779,7 +779,7 @@ declare namespace cloudSync {
      * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error.
      * @throws { BusinessError } 13900002 - No such file or directory.
-     * @throws { BusinessError } 14000002 - Invalid uri.
+     * @throws { BusinessError } 14000002 - Invalid URI.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12
      */
@@ -793,7 +793,7 @@ declare namespace cloudSync {
      * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error.
      * @throws { BusinessError } 13900002 - No such file or directory.
-     * @throws { BusinessError } 14000002 - Invalid uri.
+     * @throws { BusinessError } 14000002 - Invalid URI.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11
      */
@@ -809,7 +809,7 @@ declare namespace cloudSync {
      * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error.
      * @throws { BusinessError } 13900002 - No such file or directory.
-     * @throws { BusinessError } 14000002 - Invalid uri.
+     * @throws { BusinessError } 14000002 - Invalid URI.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 11
@@ -896,7 +896,7 @@ declare namespace cloudSync {
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900002 - No such file or directory.
-   * @throws { BusinessError } 14000002 - Invalid uri.
+   * @throws { BusinessError } 14000002 - Invalid URI.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
    * @since 11
@@ -914,7 +914,7 @@ declare namespace cloudSync {
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900002 - No such file or directory.
-   * @throws { BusinessError } 14000002 - Invalid uri.
+   * @throws { BusinessError } 14000002 - Invalid URI.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
    * @since 11
@@ -934,7 +934,7 @@ declare namespace cloudSync {
    * @throws { BusinessError } 13900012 - Permission denied by the file system
    * @throws { BusinessError } 13900031 - Function not implemented
    * @throws { BusinessError } 13900042 - Unknown error 
-   * @throws { BusinessError } 14000002 - Invalid uri.
+   * @throws { BusinessError } 14000002 - Invalid URI.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
    * @since 12
@@ -951,7 +951,7 @@ declare namespace cloudSync {
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900002 - No such file or directory.
    * @throws { BusinessError } 13900012 - Permission denied
-   * @throws { BusinessError } 14000002 - Invalid uri.
+   * @throws { BusinessError } 14000002 - Invalid URI.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since 12
    */
@@ -965,7 +965,7 @@ declare namespace cloudSync {
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900002 - No such file or directory.
    * @throws { BusinessError } 13900012 - Permission denied
-   * @throws { BusinessError } 14000002 - Invalid uri.
+   * @throws { BusinessError } 14000002 - Invalid URI.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since 12
    */

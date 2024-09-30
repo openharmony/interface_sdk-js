@@ -2,7 +2,7 @@
   {
     "apiType": "Struct",
     "statusCode": 0,
-    "oldApiDefinedText": " struct MyComponent",
+    "oldApiDefinedText": "struct MyComponent",
     "newApiDefinedText": "",
     "oldApiName": "MyComponent",
     "newApiName": "",
@@ -26,19 +26,20 @@
       "line": -1,
       "character": -1
     },
-    "oldDescription": " struct MyComponent",
+    "oldDescription": "struct MyComponent",
     "newDescription": "",
     "oldSyscapField": "",
     "newSyscapField": "",
-    "oldKitInfo": "",
+    "oldKitInfo": "NA",
     "newKitInfo": "",
-    "isSystemapi": false
+    "isSystemapi": false,
+    "isSameNameFunction": false
   },
   {
     "apiType": "Struct",
     "statusCode": 3,
     "oldApiDefinedText": "",
-    "newApiDefinedText": " struct MyComponents",
+    "newApiDefinedText": "struct MyComponents",
     "oldApiName": "",
     "newApiName": "MyComponents",
     "oldDtsName": "",
@@ -62,11 +63,12 @@
       "character": 1
     },
     "oldDescription": "",
-    "newDescription": " struct MyComponents",
+    "newDescription": "struct MyComponents",
     "oldSyscapField": "",
     "newSyscapField": "",
     "oldKitInfo": "",
-    "newKitInfo": "",
-    "isSystemapi": false
+    "newKitInfo": "NA",
+    "isSystemapi": false,
+    "isSameNameFunction": false
   }
 ]

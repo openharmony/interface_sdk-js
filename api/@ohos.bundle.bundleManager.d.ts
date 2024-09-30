@@ -265,6 +265,23 @@ declare namespace bundleManager {
      * @since 12
      */
     GET_BUNDLE_INFO_ONLY_WITH_LAUNCHER_ABILITY = 0x00001000,
+    /**
+     * Used to obtain the bundleInfo only if any user installed
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    GET_BUNDLE_INFO_OF_ANY_USER = 0x00002000,
+    /**
+     * Used to return all applications that exclude app clone information.
+     * Only effective on {@link getAllBundleInfo}
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    GET_BUNDLE_INFO_EXCLUDE_CLONE = 0x00004000,
   }
 
   /**
@@ -1377,6 +1394,25 @@ declare namespace bundleManager {
   }
 
   /**
+   * This enumeration value is used to identify various flags of application
+   *
+   * @enum { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+  */
+  export enum ApplicationInfoFlag {
+    /**
+     * Indicates The application is currently installed for the calling user.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    FLAG_INSTALLED = 0x00000001,
+  }
+
+  /**
    * Obtains own bundleInfo.
    *
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
@@ -2396,6 +2432,19 @@ declare namespace bundleManager {
   function getLaunchWantForBundleSync(bundleName: string, userId?: number): Want;
 
   /**
+   * Obtains the Want for starting the main ability of own application.
+   * The main ability of an application is the ability that has the
+   * #ACTION_HOME and #ENTITY_HOME Want filters set in the application's <b>config.json</b> or <b>module.json</b> file.
+   *
+   * @returns { Want } the Want for starting the application's main ability.
+   * @throws { BusinessError } 17700072 - The launch want is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 13
+   */
+  function getLaunchWant(): Want;
+
+  /**
    * Obtains the profile designated by metadata name, abilityName and moduleName from the current application.
    *
    * @param { string } moduleName - Indicates the moduleName of the application.
@@ -3086,6 +3135,21 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 11
    */
+  /**
+   * Verifies the validity of .abc files. Only .abc files passed the verification can run on the restricted VM.
+   *
+   * @permission ohos.permission.RUN_DYN_CODE
+   * @param { Array<string> } abcPaths - The abc path.
+   * @param { boolean } deleteOriginalFiles - Used to decide whether to delete the original files.
+   * @param { AsyncCallback<void> } callback - Indicates the callback of verifyAbc result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 17700201 - Failed to verify the abc file.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
   function verifyAbc(abcPaths: Array<string>, deleteOriginalFiles: boolean, callback: AsyncCallback<void>): void;
 
   /**
@@ -3100,6 +3164,21 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700201 - Failed to verify the abc file.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 11
+   */
+  /**
+   * Verifies the validity of .abc files. Only .abc files passed the verification can run on the restricted VM.
+   *
+   * @permission ohos.permission.RUN_DYN_CODE
+   * @param { Array<string> } abcPaths - The abc path.
+   * @param { boolean } deleteOriginalFiles - Used to decide whether to delete the original files.
+   * @returns { Promise<void> } Returns verifyAbc result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 17700201 - Failed to verify the abc file.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
    */
   function verifyAbc(abcPaths: Array<string>, deleteOriginalFiles: boolean): Promise<void>;
 
@@ -3158,6 +3237,20 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700202 - Failed to delete the abc file.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 11
+   */
+  /**
+   * Delete the verified .abc file.
+   *
+   * @permission ohos.permission.RUN_DYN_CODE
+   * @param { string } abcPath - The abc path.
+   * @returns { Promise<void> } Returns deleteAbc result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 17700202 - Failed to delete the abc file.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
    */
   function deleteAbc(abcPath: string): Promise<void>;
 

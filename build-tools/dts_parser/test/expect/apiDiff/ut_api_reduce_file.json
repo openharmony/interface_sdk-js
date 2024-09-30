@@ -2,7 +2,7 @@
   {
     "apiType": "Namespace",
     "statusCode": 0,
-    "oldApiDefinedText": " export namespace test",
+    "oldApiDefinedText": "export namespace test",
     "newApiDefinedText": "",
     "oldApiName": "test",
     "newApiName": "",
@@ -26,13 +26,14 @@
       "line": -1,
       "character": -1
     },
-    "oldDescription": " export namespace test",
+    "oldDescription": "export namespace test",
     "newDescription": "",
     "oldSyscapField": "",
     "newSyscapField": "",
-    "oldKitInfo": "",
+    "oldKitInfo": "NA",
     "newKitInfo": "",
-    "isSystemapi": false
+    "isSystemapi": false,
+    "isSameNameFunction": false
   },
   {
     "apiType": "Method",
@@ -66,8 +67,9 @@
     "newDescription": "",
     "oldSyscapField": "",
     "newSyscapField": "",
-    "oldKitInfo": "",
+    "oldKitInfo": "NA",
     "newKitInfo": "",
-    "isSystemapi": false
+    "isSystemapi": false,
+    "isSameNameFunction": false
   }
 ]

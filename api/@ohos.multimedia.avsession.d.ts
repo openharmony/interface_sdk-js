@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+* Copyright (c) 2022-2024 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
@@ -86,6 +86,7 @@ declare namespace avSession {
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { AsyncCallback<Array<Readonly<AVSessionDescriptor>>> } callback - async callback for an array of AVSessionDescriptors.
    * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
@@ -98,6 +99,7 @@ declare namespace avSession {
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @returns { Promise<Array<Readonly<AVSessionDescriptor>>> } Promise for an array of AVSessionDescriptors
    * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
@@ -111,6 +113,8 @@ declare namespace avSession {
    * @param { number } maxSize - Specifies the maximum size of the returned value array.
    * @param { AsyncCallback<Array<Readonly<AVSessionDescriptor>>> } callback - async callback for an array of AVSessionDescriptors.
    * If provided '0' or not provided, the maximum value is determined by the system.
+   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App
    * @throws { BusinessError } 401 - parameter check failed. Possible causes: 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -126,6 +130,8 @@ declare namespace avSession {
    * @param { number } maxSize - Specifies the maximum size of the returned value array.
    * If provided '0' or not provided, the maximum value is determined by the system.
    * @returns { Promise<Array<Readonly<AVSessionDescriptor>>> } Promise for an array of AVSessionDescriptors
+   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -175,6 +181,7 @@ declare namespace avSession {
    * @param { AsyncCallback<AVSessionController> } callback - async callback for AVSessionController.
    * If provided 'default', the system will create a default controller, Used to control the system default session
    * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -192,6 +199,7 @@ declare namespace avSession {
    * If provided 'default', the system will create a default controller, Used to control the system default session
    * @returns { Promise<AVSessionController> } Promise for AVSessionController
    * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -210,6 +218,7 @@ declare namespace avSession {
    * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
    * 'all' means cast all the media audio of this device to remote.
    * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -229,6 +238,7 @@ declare namespace avSession {
    * @returns { Promise<void> } void promise when executed successfully
    * 'all' means cast all the media audio of this device to remote.
    * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -298,10 +308,9 @@ declare namespace avSession {
 
   /**
    * Register session create callback
-   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { 'sessionCreate' } type - Registration Type, 'sessionCreate'
    * @param { function } callback - Used to handle ('sessionCreate' command)
-   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -313,10 +322,9 @@ declare namespace avSession {
 
   /**
    * Register session destroy callback
-   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { 'sessionDestroy' } type - Registration Type, 'sessionDestroy'
    * @param { function } callback - Used to handle ('sessionDestroy' command)
-   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -328,10 +336,9 @@ declare namespace avSession {
 
   /**
    * Register top session changed callback
-   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { 'topSessionChange' } type - Registration Type, top priority session change, 'topSessionChange'
    * @param { function } callback - Used to handle ('topSessionChange' command)
-   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -343,10 +350,9 @@ declare namespace avSession {
 
   /**
    * Unregister session create callback
-   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { 'sessionCreate' } type - Registration Type, session creation, 'sessionCreate'
    * @param { function } callback - Used to unregister listener for ('sessionCreate') command
-   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -358,10 +364,9 @@ declare namespace avSession {
 
   /**
    * Unregister session destroy callback
-   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { 'sessionDestroy' } type - Registration Type, session deletion, 'sessionDestroy'
    * @param { function } callback - Used to unregister listener for ('sessionDestroy') command
-   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -373,10 +378,9 @@ declare namespace avSession {
 
   /**
    * Unregister top session changed callback
-   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { 'topSessionChange' } type - Registration Type, top priority session change, 'topSessionChange'
    * @param { function } callback - Used to unregister listener for ('topSessionChange') command
-   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -390,7 +394,7 @@ declare namespace avSession {
    * Register Session service death callback, notifying the application to clean up resources.
    * @param { 'sessionServiceDie' } type - Registration Type, 'sessionServiceDie'
    * @param { function } callback - Used to handle ('sessionServiceDie') command.
-   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -404,7 +408,7 @@ declare namespace avSession {
    * Unregister Session service death callback, notifying the application to clean up resources.
    * @param { 'sessionServiceDie' } type - Registration Type, 'sessionServiceDie'
    * @param { function } callback -  Used to unregister listener for ('sessionServiceDie') command.
-   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -420,6 +424,7 @@ declare namespace avSession {
    * @param { KeyEvent } event - The key event to be sent
    * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
    * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -436,6 +441,7 @@ declare namespace avSession {
    * @param { KeyEvent } event - The key event to be sent
    * @returns { Promise<void> } void promise when executed successfully
    * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -452,6 +458,7 @@ declare namespace avSession {
    * @param { AVControlCommand } command - The command to be sent. See {@link AVControlCommand}
    * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
    * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -469,6 +476,7 @@ declare namespace avSession {
    * @param { AVControlCommand } command - The command to be sent. See {@link AVControlCommand}
    * @returns { Promise<void> } void promise when executed successfully
    * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -545,6 +553,7 @@ declare namespace avSession {
   /**
    * Start device discovery.
    * @param { AsyncCallback<void> } callback a callback function
+   * @throws { BusinessError } 202 - Not System App.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 10
@@ -555,6 +564,7 @@ declare namespace avSession {
    * Start device discovery.
    * @param { number } filter device filter when discovering, can be an union of {@link ProtocolType}
    * @param { AsyncCallback<void> } callback a callback function
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -591,6 +601,7 @@ declare namespace avSession {
   /**
    * Stop device discovery.
    * @param { AsyncCallback<void> } callback a callback function
+   * @throws { BusinessError } 202 - Not System App.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 10
@@ -600,6 +611,7 @@ declare namespace avSession {
   /**
    * Stop device discovery.
    * @returns { Promise<void> } Promise for the result
+   * @throws { BusinessError } 202 - Not System App.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 10
@@ -610,6 +622,7 @@ declare namespace avSession {
    * Enable or disable device to be discoverable, used at sink side.
    * @param { boolean } enable true: can be discoverable, false: cannot be discoverable.
    * @param { AsyncCallback<void> } callback a callback function
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -622,6 +635,7 @@ declare namespace avSession {
    * Enable or disable device to be discoverable, used at sink side.
    * @param { boolean } enable true: can be discoverable, false: cannot be discoverable.
    * @returns { Promise<void> } Promise for the result
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -634,7 +648,7 @@ declare namespace avSession {
    * Register device discovery callback
    * @param { 'deviceAvailable' } type Registration Type
    * @param { function } callback Used to returns the device info
-   * @throws {BusinessError} 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws {BusinessError} 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -647,7 +661,7 @@ declare namespace avSession {
    * Unregister device discovery callback
    * @param { 'deviceAvailable' } type Registration Type
    * @param { function } callback Used to returns the device info
-   * @throws {BusinessError} 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws {BusinessError} 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -660,7 +674,7 @@ declare namespace avSession {
    * Register device offline callback
    * @param { 'deviceOffline' } type - Registration Type
    * @param { function } callback - Used to returns the device info
-   * @throws {BusinessError} 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws {BusinessError} 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -671,11 +685,9 @@ declare namespace avSession {
 
   /**
    * Unregister device offline callback
-   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { 'deviceOffline' } type - Registration Type
    * @param { function } callback - Used to returns the device info
-   * @throws {BusinessError} 201 - permission denied
-   * @throws {BusinessError} 202 - Not System App.
+   * @throws { BusinessError } 202 - Not System App.
    * @throws {BusinessError} 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -691,6 +703,7 @@ declare namespace avSession {
    * @param { string } sessionId Specifies the sessionId to get controller.
    * @param { AsyncCallback<AVCastController> } callback - async callback for the AVCastController.
    * @throws {BusinessError} 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Parameter verification failed.
    * @throws {BusinessError} 6600101 - Session service exception
@@ -708,6 +721,7 @@ declare namespace avSession {
    * @param { string } sessionId Specifies the sessionId to get controller.
    * @returns { Promise<AVCastController> } Promise for the AVCastController
    * @throws {BusinessError} 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Parameter verification failed.
    * @throws {BusinessError} 6600101 - server exception
@@ -725,6 +739,7 @@ declare namespace avSession {
    * @param { OutputDeviceInfo } device Specifies the device to cast.
    * @param { AsyncCallback<void> } callback A callback instance used to return when start casting.
    * @throws {BusinessError} 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws {BusinessError} 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 6600101 - Session service exception
@@ -742,6 +757,7 @@ declare namespace avSession {
    * @param { OutputDeviceInfo } device Specifies the device to cast.
    * @returns { Promise<void> } Promise for the result
    * @throws {BusinessError} 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
    * @throws {BusinessError} 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 6600101 - Session service exception
@@ -756,6 +772,7 @@ declare namespace avSession {
    * Stop current cast and disconnect device connection.
    * @param { SessionToken } session Specifies the sessionId which is to be stopped.
    * @param { AsyncCallback<void> } callback A callback instance used to return when cast stopped completed.
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 6600109 - The remote connection is not established
@@ -769,6 +786,7 @@ declare namespace avSession {
    * Stop current cast and disconnect device connection.
    * @param { SessionToken } session Specifies the sessionId which is to be stopped.
    * @returns { Promise<void> } Promise for the result
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 6600109 - The remote connection is not established
@@ -777,6 +795,91 @@ declare namespace avSession {
    * @since 10
    */
   function stopCasting(session: SessionToken): Promise<void>;
+
+  /**
+   * Begin to write device logs into a file descriptor for the purpose of problem locating.
+   * If the logs exceed max file size, no logs will be written and DEVICE_LOG_FULL event will be omitted.
+   * @param { string } url - The file descriptor to be written.
+   * @param { number } maxSize - The max size to be written in kilobyte.
+   * if not set, then written process will exit when there is no space to write.
+   * @returns { Promise<void> } Promise for the result
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 401 - Parameter check failed. 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types.
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @throws { BusinessError } 6600102 - The session does not exist.
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 13
+   */
+  function startDeviceLogging(url: string, maxSize?: number): Promise<void>;
+
+  /**
+   * Stop the current device written even the discovery is ongoing.
+   * @returns { Promise<void> } Promise for the result
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @throws { BusinessError } 6600102 - The session does not exist.
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 13
+   */
+  function stopDeviceLogging(): Promise<void>;
+
+  /**
+   * Register log event callback.
+   * @param { 'deviceLogEvent' } type - Command to register 'deviceLogEvent'.
+   * @param { Callback<DeviceLogEventCode> } callback - Used to handle ('deviceLogEvent') command
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 401 - Parameter check failed. 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types.
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @throws { BusinessError } 6600102 - The session does not exist.
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 13
+   */
+  function on(type: 'deviceLogEvent', callback: Callback<DeviceLogEventCode>): void;
+
+  /**
+   * UnRegister log event callback.
+   * @param { 'deviceLogEvent' } type - Command to register 'deviceLogEvent'.
+   * @param { Callback<DeviceLogEventCode> } callback - Used to handle ('deviceLogEvent') command
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 401 - Parameter check failed. 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types.
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @throws { BusinessError } 6600102 - The session does not exist.
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 13
+   */
+  function off(type: 'deviceLogEvent', callback?: Callback<DeviceLogEventCode>): void;
+
+  /**
+   * Enumerates device log event code.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 13
+   */
+  enum DeviceLogEventCode {
+    /**
+      * Log is full.
+      * @syscap SystemCapability.Multimedia.AVSession.AVCast
+      * @systemapi
+      * @since 13
+      */
+    DEVICE_LOG_FULL = 1,
+
+    /**
+      * Log is written with exception, such as the fd cannot be written and so on.
+      * @syscap SystemCapability.Multimedia.AVSession.AVCast
+      * @systemapi
+      * @since 13
+      */
+    DEVICE_LOG_EXCEPTION = 2,
+  }
 
   /**
    * Session type, support audio & video
@@ -2591,6 +2694,7 @@ declare namespace avSession {
      * Set a surface instance to display playing view, used at sink side.
      * @param { string } surfaceId - surface id, video player will use this id get a surface instance.
      * @param { AsyncCallback<void> } callback - A callback instance used to return when set surface completed.
+     * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
      * 2.Parameter verification failed.
      * @throws { BusinessError } 6600109 - The remote connection is not established
@@ -2604,6 +2708,7 @@ declare namespace avSession {
      * Set a surface instance to display playing view, used at sink side.
      * @param { string } surfaceId - surface id, video player will use this id get a surface instance.
      * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
      * 2.Parameter verification failed.
      * @throws { BusinessError } 6600109 - The remote connection is not established
@@ -3162,8 +3267,7 @@ declare namespace avSession {
      * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
-     * @systemapi
-     * @since 10
+     * @since 12
      */
     on(type: 'videoSizeChange', callback: (width: number, height: number) => void): void;
 
@@ -3174,8 +3278,7 @@ declare namespace avSession {
      * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
-     * @systemapi
-     * @since 10
+     * @since 12
      */
     off(type: 'videoSizeChange'): void;
 
@@ -3246,6 +3349,207 @@ declare namespace avSession {
      * @since 12
      */
     off(type: 'error'): void;
+
+    /**
+     * Register listeners for cast control generic error events.
+     * @param { 'castControlGenericError' } type Type of the 'castControlGenericError' to listen for.
+     * @param { ErrorCallback } callback Callback used to listen for the cast control error event.
+     * @throws { BusinessError } 401 - Parameter check failed. 1. Mandatory parameters are left unspecified.
+     * 2. Incorrect parameter types.
+     * @throws { BusinessError } 6611000 - The error code for cast control is unspecified.
+     * @throws { BusinessError } 6611001 - An unspecified error occurs in the remote player.
+     * @throws { BusinessError } 6611002 - The playback position falls behind the live window.
+     * @throws { BusinessError } 6611003 - The process of cast control times out.
+     * @throws { BusinessError } 6611004 - The runtime check failed.
+     * @throws { BusinessError } 6611100 - Cross-device data transmission is locked.
+     * @throws { BusinessError } 6611101 - The specified seek mode is not supported.
+     * @throws { BusinessError } 6611102 - The position to seek to is out of the range of the media asset
+     * or the specified seek mode is not supported.
+     * @throws { BusinessError } 6611103 - The specified playback mode is not supported.
+     * @throws { BusinessError } 6611104 - The specified playback speed is not supported.
+     * @throws { BusinessError } 6611105 - The action failed because either the media source device or the media sink device has been revoked.
+     * @throws { BusinessError } 6611106 - The parameter is invalid, for example, the url is illegal to play.
+     * @throws { BusinessError } 6611107 - Allocation of memory failed.
+     * @throws { BusinessError } 6611108 - Operation is not allowed.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    on(type: 'castControlGenericError', callback: ErrorCallback): void;
+
+    /**
+     * Unregister listeners for cast control generic error events.
+     * @param { 'castControlGenericError' } type Type of the 'castControlGenericError' to listen for.
+     * @param { ErrorCallback } callback Callback used to listen for the cast control error event.
+     * @throws { BusinessError } 401 - Parameter check failed. 1. Mandatory parameters are left unspecified.
+     * 2. Incorrect parameter types.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    off(type: 'castControlGenericError', callback?: ErrorCallback): void;
+
+    /**
+     * Register listeners for cast control input/output error events.
+     * @param { 'castControlIoError' } type Type of the 'castControlIoError' to listen for.
+     * @param { ErrorCallback } callback Callback used to listen for the cast control error event.
+     * @throws { BusinessError } 401 - Parameter check failed. 1. Mandatory parameters are left unspecified.
+     * 2. Incorrect parameter types.
+     * @throws { BusinessError } 6612000 - An unspecified input/output error occurs.
+     * @throws { BusinessError } 6612001 - Network connection failure.
+     * @throws { BusinessError } 6612002 - Network timeout.
+     * @throws { BusinessError } 6612003 - Invalid "Content-Type" HTTP header.
+     * @throws { BusinessError } 6612004 - The HTTP server returns an unexpected HTTP response status code.
+     * @throws { BusinessError } 6612005 - The file does not exist.
+     * @throws { BusinessError } 6612006 - No permission is granted to perform the IO operation.
+     * @throws { BusinessError } 6612007 - Access to cleartext HTTP traffic is not allowed by the app's network security configuration.
+     * @throws { BusinessError } 6612008 - Reading data out of the data bound.
+     * @throws { BusinessError } 6612100 - The media does not contain any contents that can be played.
+     * @throws { BusinessError } 6612101 - The media cannot be read, for example, because of dust or scratches.
+     * @throws { BusinessError } 6612102 - This resource is already in use.
+     * @throws { BusinessError } 6612103 - The content using the validity interval has expired.
+     * @throws { BusinessError } 6612104 - Using the requested content to play is not allowed.
+     * @throws { BusinessError } 6612105 - The use of the allowed content cannot be verified.
+     * @throws { BusinessError } 6612106 - The number of times this content has been used as requested has reached the maximum allowed number of uses.
+     * @throws { BusinessError } 6612107 - An error occurs when sending packet from source device to sink device.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    on(type: 'castControlIoError', callback: ErrorCallback): void;
+
+    /**
+     * Unregister listeners for cast control input/output error events.
+     * @param { 'castControlIoError' } type Type of the 'castControlIoError' to listen for.
+     * @param { ErrorCallback } callback Callback used to listen for the cast control error event.
+     * @throws { BusinessError } 401 - Parameter check failed. 1. Mandatory parameters are left unspecified.
+     * 2. Incorrect parameter types.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    off(type: 'castControlIoError', callback?: ErrorCallback): void;
+
+    /**
+     * Register listeners for cast control parsing error events.
+     * @param { 'castControlParsingError' } type Type of the 'castControlParsingError' to listen for.
+     * @param { ErrorCallback } callback Callback used to listen for the cast control error event.
+     * @throws { BusinessError } 401 - Parameter check failed. 1. Mandatory parameters are left unspecified.
+     * 2. Incorrect parameter types.
+     * @throws { BusinessError } 6613000 - Unspecified error related to content parsing.
+     * @throws { BusinessError } 6613001 - Parsing error associated with media container format bit streams.
+     * @throws { BusinessError } 6613002 - Parsing error associated with the media manifest.
+     * @throws { BusinessError } 6613003 - An error occurs when attempting to extract a file with an unsupported media container format
+     * or an unsupported media container feature.
+     * @throws { BusinessError } 6613004 - Unsupported feature in the media manifest.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    on(type: 'castControlParsingError', callback: ErrorCallback): void;
+
+    /**
+     * Unregister listeners for cast control parsing error events.
+     * @param { 'castControlParsingError' } type Type of the 'castControlParsingError' to listen for.
+     * @param { ErrorCallback } callback Callback used to listen for the cast control error event.
+     * @throws { BusinessError } 401 - Parameter check failed. 1. Mandatory parameters are left unspecified.
+     * 2. Incorrect parameter types.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    off(type: 'castControlParsingError', callback?: ErrorCallback): void;
+
+    /**
+     * Register listeners for cast control decoding error events.
+     * @param { 'castControlDecodingError' } type Type of the 'castControlDecodingError' to listen for.
+     * @param { ErrorCallback } callback Callback used to listen for the cast control error event.
+     * @throws { BusinessError } 401 - Parameter check failed. 1. Mandatory parameters are left unspecified.
+     * 2. Incorrect parameter types.
+     * @throws { BusinessError } 6614000 - Unspecified decoding error.
+     * @throws { BusinessError } 6614001 - Decoder initialization failed.
+     * @throws { BusinessError } 6614002 - Decoder query failed.
+     * @throws { BusinessError } 6614003 - Decoding the media samples failed.
+     * @throws { BusinessError } 6614004 - The format of the content to decode exceeds the capabilities of the device.
+     * @throws { BusinessError } 6614005 - The format of the content to decode is not supported.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    on(type: 'castControlDecodingError', callback: ErrorCallback): void;
+
+    /**
+     * Unregister listeners for cast control decoding error events.
+     * @param { 'castControlDecodingError' } type Type of the 'castControlDecodingError' to listen for.
+     * @param { ErrorCallback } callback Callback used to listen for the cast control error event.
+     * @throws { BusinessError } 401 - Parameter check failed. 1. Mandatory parameters are left unspecified.
+     * 2. Incorrect parameter types.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    off(type: 'castControlDecodingError', callback?: ErrorCallback): void;
+
+    /**
+     * Register listeners for cast control audio renderer error error events.
+     * @param { 'castControlAudioRendererError' } type Type of the 'castControlAudioRendererError' to listen for.
+     * @param { ErrorCallback } callback Callback used to listen for the cast control error event.
+     * @throws { BusinessError } 401 - Parameter check failed. 1. Mandatory parameters are left unspecified.
+     * 2. Incorrect parameter types.
+     * @throws { BusinessError } 6615000 - Unspecified errors related to the audio renderer.
+     * @throws { BusinessError } 6615001 - Initializing the audio renderer failed.
+     * @throws { BusinessError } 6615002 - The audio renderer fails to write data.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    on(type: 'castControlAudioRendererError', callback: ErrorCallback): void;
+
+    /**
+     * Unregister listeners for cast control audio renderer error events.
+     * @param { 'castControlAudioRendererError' } type Type of the 'castControlAudioRendererError' to listen for.
+     * @param { ErrorCallback } callback Callback used to listen for the cast control error event.
+     * @throws { BusinessError } 401 - Parameter check failed. 1. Mandatory parameters are left unspecified.
+     * 2. Incorrect parameter types.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    off(type: 'castControlAudioRendererError', callback?: ErrorCallback): void;
+
+    /**
+     * Register listeners for cast control drm error events.
+     * @param { 'castControlDrmError' } type Type of the 'castControlDrmError' to listen for.
+     * @param { ErrorCallback } callback Callback used to listen for the cast control error event.
+     * @throws { BusinessError } 401 - Parameter check failed. 1. Mandatory parameters are left unspecified.
+     * 2. Incorrect parameter types.
+     * @throws { BusinessError } 6616000 - Unspecified error related to DRM.
+     * @throws { BusinessError } 6616001 - The chosen DRM protection scheme is not supported by the device.
+     * @throws { BusinessError } 6616002 - Device provisioning failed.
+     * @throws { BusinessError } 6616003 - The DRM-protected content to play is incompatible.
+     * @throws { BusinessError } 6616004 - Failed to obtain a license.
+     * @throws { BusinessError } 6616005 - The operation is disallowed by the license policy.
+     * @throws { BusinessError } 6616006 - An error occurs in the DRM system.
+     * @throws { BusinessError } 6616007 - The device has revoked DRM privileges.
+     * @throws { BusinessError } 6616008 - The DRM license being loaded into the open DRM session has expired.
+     * @throws { BusinessError } 6616100 - An error occurs when the DRM processes the key response.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    on(type: 'castControlDrmError', callback: ErrorCallback): void;
+
+    /**
+     * Unregister listeners for cast control drm error events.
+     * @param { 'castControlDrmError' } type Type of the 'castControlDrmError' to listen for.
+     * @param { ErrorCallback } callback Callback used to listen for the cast control error event.
+     * @throws { BusinessError } 401 - Parameter check failed. 1. Mandatory parameters are left unspecified.
+     * 2. Incorrect parameter types.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    off(type: 'castControlDrmError', callback?: ErrorCallback): void;
 
     /**
      * Register listener for drm key request.
@@ -4818,6 +5122,33 @@ declare namespace avSession {
     deviceType: DeviceType;
 
     /**
+     * Device manufacturer.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    manufacturer?: string;
+
+    /**
+     * Device model name.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    modelName?: string;
+
+    /**
+     * Network id.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @systemapi
+     * @since 13
+     */
+    networkId?: string;
+
+    /**
      * device ip address if available.
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -4869,6 +5200,26 @@ declare namespace avSession {
      * @since 11
      */
     authenticationStatus?: number;
+
+    /**
+     * Indicates the current device is legacy or not.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @systemapi
+     * @since 13
+     */
+    isLegacy?: boolean;
+
+    /**
+     * Medium types used to discover devices.
+     * 1: BLE
+     * 2: COAP
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @systemapi
+     * @since 13
+     */
+    mediumTypes?: number;
   }
 
   /**
@@ -6883,6 +7234,447 @@ declare namespace avSession {
      * @since 12
      */
     ERR_CODE_REMOTE_CONNECTION_NOT_EXIST = 6600109,
+
+    /**
+     * The error code for cast control is unspecified.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_UNSPECIFIED = 6611000,
+
+    /**
+     * An unspecified error occurs in the remote player.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_REMOTE_ERROR = 6611001,
+
+    /**
+     * The playback position falls behind the live window.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_BEHIND_LIVE_WINDOW = 6611002,
+
+    /**
+     * The process of cast control times out.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_TIMEOUT = 6611003,
+
+    /**
+     * The runtime check failed.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_RUNTIME_CHECK_FAILED = 6611004,
+
+    /**
+     * Cross-device data transmission is locked.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_PLAYER_NOT_WORKING = 6611100,
+
+    /**
+     * The specified seek mode is not supported.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_SEEK_MODE_UNSUPPORTED = 6611101,
+
+    /**
+     * The position to seek to is out of the range of the media asset or the specified seek mode is not supported.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_ILLEGAL_SEEK_TARGET = 6611102,
+
+    /**
+     * The specified playback mode is not supported.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_PLAY_MODE_UNSUPPORTED = 6611103,
+
+    /**
+     * The specified playback speed is not supported.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_PLAY_SPEED_UNSUPPORTED = 6611104,
+
+    /**
+     * The action failed because either the media source device or the media sink device has been revoked.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_DEVICE_MISSING = 6611105,
+
+    /**
+     * The parameter is invalid, for example, the url is illegal to play.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_INVALID_PARAM = 6611106,
+
+    /**
+     * Allocation of memory failed.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_NO_MEMORY = 6611107,
+
+    /**
+     * Operation is not allowed.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_OPERATION_NOT_ALLOWED = 6611108,
+
+    /**
+     * An unspecified input/output error occurs.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_IO_UNSPECIFIED = 6612000,
+
+    /**
+     * Network connection failure.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_IO_NETWORK_CONNECTION_FAILED = 6612001,
+
+    /**
+     * Network timeout.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_IO_NETWORK_CONNECTION_TIMEOUT = 6612002,
+
+    /**
+     * Invalid "Content-Type" HTTP header.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_IO_INVALID_HTTP_CONTENT_TYPE = 6612003,
+
+    /**
+     * The HTTP server returns an unexpected HTTP response status code.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_IO_BAD_HTTP_STATUS = 6612004,
+
+    /**
+     * The file does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_IO_FILE_NOT_FOUND = 6612005,
+
+    /**
+     * No permission is granted to perform the IO operation.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_IO_NO_PERMISSION = 6612006,
+
+    /**
+     * Access to cleartext HTTP traffic is not allowed by the app's network security configuration.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_IO_CLEARTEXT_NOT_PERMITTED = 6612007,
+
+    /**
+     * Reading data out of the data bound.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_IO_READ_POSITION_OUT_OF_RANGE = 6612008,
+
+    /**
+     * The media does not contain any contents that can be played.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_IO_NO_CONTENTS = 6612100,
+
+    /**
+     * The media cannot be read, for example, because of dust or scratches.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_IO_READ_ERROR = 6612101,
+
+    /**
+     * This resource is already in use.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_IO_CONTENT_BUSY = 6612102,
+
+    /**
+     * The content using the validity interval has expired.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_IO_CONTENT_EXPIRED = 6612103,
+
+    /**
+     * Using the requested content to play is not allowed.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_IO_USE_FORBIDDEN = 6612104,
+
+    /**
+     * The use of the allowed content cannot be verified.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_IO_NOT_VERIFIED = 6612105,
+
+    /**
+     * The number of times this content has been used as requested has reached the maximum allowed number of uses.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_IO_EXHAUSTED_ALLOWED_USES = 6612106,
+
+    /**
+     * An error occurs when sending packet from source device to sink device.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_IO_NETWORK_PACKET_SENDING_FAILED = 6612107,
+
+    /**
+     * Unspecified error related to content parsing.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_PARSING_UNSPECIFIED = 6613000,
+
+    /**
+     * Parsing error associated with media container format bit streams.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_PARSING_CONTAINER_MALFORMED = 6613001,
+
+    /**
+     * Parsing error associated with the media manifest.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_PARSING_MANIFEST_MALFORMED = 6613002,
+
+    /**
+     * An error occurs when attempting to extract a file with an unsupported media container format
+     * or an unsupported media container feature.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_PARSING_CONTAINER_UNSUPPORTED = 6613003,
+
+    /**
+     * Unsupported feature in the media manifest.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_PARSING_MANIFEST_UNSUPPORTED = 6613004,
+
+    /**
+     * Unspecified decoding error.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_DECODING_UNSPECIFIED = 6614000,
+
+    /**
+     * Decoder initialization failed.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_DECODING_INIT_FAILED = 6614001,
+
+    /**
+     * Decoder query failed.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_DECODING_QUERY_FAILED = 6614002,
+
+    /**
+     * Decoding the media samples failed.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_DECODING_FAILED = 6614003,
+
+    /**
+     * The format of the content to decode exceeds the capabilities of the device.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_DECODING_FORMAT_EXCEEDS_CAPABILITIES = 6614004,
+
+    /**
+     * The format of the content to decode is not supported.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_DECODING_FORMAT_UNSUPPORTED = 6614005,
+
+    /**
+     * Unspecified errors related to the audio renderer.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_AUDIO_RENDERER_UNSPECIFIED = 6615000,
+
+    /**
+     * Initializing the audio renderer failed.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_AUDIO_RENDERER_INIT_FAILED = 6615001,
+
+    /**
+     * The audio renderer fails to write data.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_AUDIO_RENDERER_WRITE_FAILED = 6615002,
+
+    /**
+     * Unspecified error related to DRM.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_DRM_UNSPECIFIED = 6616000,
+
+    /**
+     * The chosen DRM protection scheme is not supported by the device.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_DRM_SCHEME_UNSUPPORTED = 6616001,
+
+    /**
+     * Device provisioning failed.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_DRM_PROVISIONING_FAILED = 6616002,
+
+    /**
+     * The DRM-protected content to play is incompatible.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_DRM_CONTENT_ERROR = 6616003,
+
+    /**
+     * Failed to obtain a license.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_DRM_LICENSE_ACQUISITION_FAILED = 6616004,
+
+    /**
+     * The operation is disallowed by the license policy.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_DRM_DISALLOWED_OPERATION = 6616005,
+
+    /**
+     * An error occurs in the DRM system.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_DRM_SYSTEM_ERROR = 6616006,
+
+    /**
+     * The device has revoked DRM privileges.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_DRM_DEVICE_REVOKED = 6616007,
+
+    /**
+     * The DRM license being loaded into the open DRM session has expired.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_DRM_LICENSE_EXPIRED = 6616008,
+
+    /**
+     * An error occurs when the DRM processes the key response.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 13
+     */
+    ERR_CODE_CAST_CONTROL_DRM_PROVIDE_KEY_RESPONSE_ERROR = 6616100,
   }
 }
 

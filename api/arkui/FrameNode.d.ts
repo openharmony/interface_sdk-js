@@ -632,6 +632,7 @@ export class FrameNode {
    * Mount ComponentContent to FrameNode.
    * 
    * @param { ComponentContent<T> } content - Newly added ComponentContent.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -644,6 +645,7 @@ export class FrameNode {
  * Used to define the FrameNode type.
  *
  * @interface TypedFrameNode
+ * @extends FrameNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -1234,6 +1236,388 @@ export namespace typeNode {
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'XComponent'): XComponent;
+
+  /**
+   * Create a FrameNode of XComponent type with options.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'XComponent' } nodeType - node type.
+   * @param { XComponentOptions } options - initialization parameters.
+   * @returns { XComponent } - Return XComponent type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  function createNode(context: UIContext, nodeType: 'XComponent', options: XComponentOptions): XComponent;
+
+  /**
+   * Define the FrameNode type for Checkbox.
+   *
+   * @typedef { TypedFrameNode<CheckboxInterface, CheckboxAttribute> } Checkbox
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  type Checkbox = TypedFrameNode<CheckboxInterface, CheckboxAttribute>;
+
+  /**
+   * Create a FrameNode of Checkbox type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Checkbox' } nodeType - node type.
+   * @returns { Checkbox } - Return Checkbox type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  function createNode(context: UIContext, nodeType: 'Checkbox'): Checkbox;
+
+  /**
+   * Define the FrameNode type for CheckboxGroup.
+   *
+   * @typedef { TypedFrameNode<CheckboxGroupInterface, CheckboxGroupAttribute> } CheckboxGroup
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  type CheckboxGroup = TypedFrameNode<CheckboxGroupInterface, CheckboxGroupAttribute>;
+
+  /**
+   * Create a FrameNode of CheckboxGroup type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'CheckboxGroup' } nodeType - node type.
+   * @returns { CheckboxGroup } - Return CheckboxGroup type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  function createNode(context: UIContext, nodeType: 'CheckboxGroup'): CheckboxGroup;
+
+  /**
+   * Define the FrameNode type for Radio.
+   *
+   * @typedef { TypedFrameNode<RadioInterface, RadioAttribute> } Radio
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  type Radio = TypedFrameNode<RadioInterface, RadioAttribute>;
+
+  /**
+   * Create a FrameNode of Radio type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Radio' } nodeType - node type.
+   * @returns { Radio } - Return Radio type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  function createNode(context: UIContext, nodeType: 'Radio'): Radio;
+
+  /**
+   * Define the FrameNode type for Rating.
+   *
+   * @typedef { TypedFrameNode<RatingInterface, RatingAttribute> } Rating
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  type Rating = TypedFrameNode<RatingInterface, RatingAttribute>;
+
+  /**
+   * Create a FrameNode of Rating type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Rating' } nodeType - node type.
+   * @returns { Rating } - Return Rating type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  function createNode(context: UIContext, nodeType: 'Rating'): Rating;
+
+  /**
+   * Define the FrameNode type for Select.
+   *
+   * @typedef { TypedFrameNode<SelectInterface, SelectAttribute> } Select
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  type Select = TypedFrameNode<SelectInterface, SelectAttribute>;
+
+  /**
+   * Create a FrameNode of Select type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Select' } nodeType - node type.
+   * @returns { Select } - Return Select type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  function createNode(context: UIContext, nodeType: 'Select'): Select;
+
+  /**
+   * Define the FrameNode type for Slider.
+   *
+   * @typedef { TypedFrameNode<SliderInterface, SliderAttribute> } Slider
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  type Slider = TypedFrameNode<SliderInterface, SliderAttribute>;
+
+  /**
+   * Create a FrameNode of Slider type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Slider' } nodeType - node type.
+   * @returns { Slider } - Return Slider type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  function createNode(context: UIContext, nodeType: 'Slider'): Slider;
+
+  /**
+   * Define the FrameNode type for Toggle.
+   *
+   * @typedef { TypedFrameNode<ToggleInterface, ToggleAttribute> } Toggle
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  type Toggle = TypedFrameNode<ToggleInterface, ToggleAttribute>;
+
+  /**
+   * Create a FrameNode of Toggle type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Toggle' } nodeType - node type.
+   * @param { ToggleOptions } options - ToggleOptions.
+   * @returns { Toggle } - Return Toggle type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  function createNode(context: UIContext, nodeType: 'Toggle', options?: ToggleOptions): Toggle;
+
+  /**
+   * Define the FrameNode type for Marquee.
+   *
+   * @typedef { TypedFrameNode<MarqueeInterface, MarqueeAttribute> } Marquee
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  type Marquee = TypedFrameNode<MarqueeInterface, MarqueeAttribute>;
+
+  /**
+   * Create a FrameNode of Marquee type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Marquee' } nodeType - node type.
+   * @returns { Marquee } - Return Marquee type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  function createNode(context: UIContext, nodeType: 'Marquee'): Marquee;
+
+  /**
+   * Define the FrameNode type for TextArea.
+   *
+   * @typedef { TypedFrameNode<TextAreaInterface, TextAreaAttribute> } TextArea
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  type TextArea = TypedFrameNode<TextAreaInterface, TextAreaAttribute>;
+
+  /**
+   * Create a FrameNode of TextArea type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'TextArea' } nodeType - node type.
+   * @returns { TextArea } - Return TextArea type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  function createNode(context: UIContext, nodeType: 'TextArea'): TextArea;
+
+  /**
+   * Define the FrameNode type for SymbolGlyph.
+   *
+   * @typedef { TypedFrameNode<SymbolGlyphInterface, SymbolGlyphAttribute> } SymbolGlyph
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  type SymbolGlyph = TypedFrameNode<SymbolGlyphInterface, SymbolGlyphAttribute>;
+
+  /**
+   * Create a FrameNode of SymbolGlyph type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'SymbolGlyph' } nodeType - node type.
+   * @returns { SymbolGlyph } - Return SymbolGlyph type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  function createNode(context: UIContext, nodeType: 'SymbolGlyph'): SymbolGlyph;
+
+  /**
+   * Define the FrameNode type for QRCode.
+   *
+   * @typedef { TypedFrameNode<QRCodeInterface, QRCodeAttribute> } QRCode
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  type QRCode = TypedFrameNode<QRCodeInterface, QRCodeAttribute>;
+
+  /**
+   * Create a FrameNode of QRCode type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'QRCode' } nodeType - node type.
+   * @returns { QRCode } - Return QRCode type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  function createNode(context: UIContext, nodeType: 'QRCode'): QRCode;
+
+  /**
+   * Define the FrameNode type for Badge.
+   *
+   * @typedef { TypedFrameNode<BadgeInterface, BadgeAttribute> } Badge
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  type Badge = TypedFrameNode<BadgeInterface, BadgeAttribute>;
+
+  /**
+   * Create a FrameNode of Badge type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Badge' } nodeType - node type.
+   * @returns { Badge } - Return Badge type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  function createNode(context: UIContext, nodeType: 'Badge'): Badge;
+
+  /**
+   * Define the FrameNode type for TextClock.
+   *
+   * @typedef { TypedFrameNode<TextClockInterface, TextClockAttribute> } TextClock
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  type TextClock = TypedFrameNode<TextClockInterface, TextClockAttribute>;
+
+  /**
+   * Create a FrameNode of TextClock type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'TextClock' } nodeType - node type.
+   * @returns { TextClock } - Return TextClock type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  function createNode(context: UIContext, nodeType: 'TextClock'): TextClock;
+
+  /**
+   * Define the FrameNode type for TextTimer.
+   *
+   * @typedef { TypedFrameNode<TextTimerInterface, TextTimerAttribute> } TextTimer
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  type TextTimer = TypedFrameNode<TextTimerInterface, TextTimerAttribute>;
+
+  /**
+   * Create a FrameNode of TextTimer type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'TextTimer' } nodeType - node type.
+   * @returns { TextTimer } - Return TextTimer type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  function createNode(context: UIContext, nodeType: 'TextTimer'): TextTimer;
+
+  /**
+   * Define the FrameNode type for Grid.
+   *
+   * @typedef { TypedFrameNode<GridInterface, GridAttribute> } Grid
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  type Grid = TypedFrameNode<GridInterface, GridAttribute>;
+
+  /**
+   * Create a FrameNode of Grid type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Grid' } nodeType - node type.
+   * @returns { Grid } - Return Grid type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  function createNode(context: UIContext, nodeType: 'Grid'): Grid;
+
+  /**
+   * Define the FrameNode type for GridItem.
+   *
+   * @typedef { TypedFrameNode<GridItemInterface, GridItemAttribute> } GridItem
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  type GridItem = TypedFrameNode<GridItemInterface, GridItemAttribute>;
+
+  /**
+   * Create a FrameNode of GridItem type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'GridItem' } nodeType - node type.
+   * @returns { GridItem } - Return GridItem type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  function createNode(context: UIContext, nodeType: 'GridItem'): GridItem;
 }
 
 /**

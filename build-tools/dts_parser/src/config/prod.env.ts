@@ -22,4 +22,5 @@ export default {
   DIR_NAME: path.resolve(__dirname, '..'), //打包之后文件根目录地址
   NEED_DETECTION: '',
   IS_OH: '',
+  IS_INCREMENT_CHECK: undefined,
 };

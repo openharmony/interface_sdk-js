@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,26 +14,10 @@
  */
 
 /**
- * @file
- * @kit ConnectivityKit
+ * the ut for property about change type
+ *
  */
-
-/**
- * @typedef StartBLEScanOptions
- * @syscap SystemCapability.Communication.Bluetooth.Lite
- * @since 12
- */
-export interface StartBLEScanOptions {
-  /**
-   * Initializes the connected NFC tag.
-   *
-   * @throws { BusinessError } 404 - Capability not supported.
-   * @throws { BusinessError } 3200101 - Connected NFC tag running state is abnormal in service.
-   * @syscap SystemCapability.Communication.ConnectedTag
-   * @since 12
-   */
-  initialize(): void;
+export interface Test {
+  str: string;
+  testPropertyAdd: string;
 }
-
-
-

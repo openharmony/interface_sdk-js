@@ -61,7 +61,7 @@ declare namespace missionManager {
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16300002 - Input error. The specified mission listener does not exist.
+   * @throws { BusinessError } 16300002 - The specified mission listener does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9
@@ -79,7 +79,7 @@ declare namespace missionManager {
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16300002 - Input error. The specified mission listener does not exist.
+   * @throws { BusinessError } 16300002 - The specified mission listener does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9

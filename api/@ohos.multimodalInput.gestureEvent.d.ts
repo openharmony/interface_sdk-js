@@ -137,6 +137,43 @@ export declare interface FourFingersSwipe {
 }
 
 /**
+ * Swipe Inward event on touchPad
+ *
+ * @interface SwipeInward
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @systemapi hide for inner use
+ * @since 12
+ */
+export declare interface SwipeInward {
+  /**
+   * Action type
+   * @type { ActionType }
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi hide for inner use
+   * @since 12
+   */
+  type: ActionType;
+
+  /**
+   * Coordinate x
+   * @type { number }
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi hide for inner use
+   * @since 12
+   */
+  x: number;
+
+  /**
+   * Coordinate y
+   * @type { number }
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi hide for inner use
+   * @since 12
+   */
+  y: number;
+}
+
+/**
  * Three fingers tap event on touchPad
  *
  * @interface ThreeFingersTap
@@ -152,6 +189,102 @@ export declare interface ThreeFingersTap {
    * @since 11
    */
   type: ActionType;
+}
+
+/**
+ * Defines a touchscreen gesture event.
+ *
+ * @interface TouchGestureEvent
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @systemapi hide for inner use
+ * @since 13
+ */
+export declare interface TouchGestureEvent {
+  /**
+   * Gesture action type.
+   *
+   * @type { TouchGestureAction }
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi hide for inner use
+   * @since 13
+   */
+  action: TouchGestureAction;
+  /**
+   * Collection of all touch points upon completion of the gesture.
+   *
+   * @type { Touch[] }
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi hide for inner use
+   * @since 13
+   */
+  touches: Touch[];
+}
+
+/**
+ * Enumerates touchscreen gesture action types.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @systemapi hide for inner use
+ * @since 13
+ */
+export declare enum TouchGestureAction {
+  /**
+   * Swiping down with multiple fingers.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi hide for inner use
+   * @since 13
+   */
+  SWIPE_DOWN = 0,
+  /**
+   * Swiping up with multiple fingers.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi hide for inner use
+   * @since 13
+   */
+  SWIPE_UP,
+  /**
+   * Swiping left with multiple fingers.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi hide for inner use
+   * @since 13
+   */
+  SWIPE_LEFT,
+  /**
+   * Swiping right with multiple fingers.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi hide for inner use
+   * @since 13
+   */
+  SWIPE_RIGHT,
+  /**
+   * Multi-finger pinching closed.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi hide for inner use
+   * @since 13
+   */
+  PINCH_CLOSED,
+  /**
+   * Multi-finger pinching opened.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi hide for inner use
+   * @since 13
+   */
+  PINCH_OPENED,
+  /**
+   * The gesture ends.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi hide for inner use
+   * @since 13
+   */
+  GESTURE_END
 }
   
 /**
