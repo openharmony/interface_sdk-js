@@ -20522,6 +20522,20 @@ declare class CommonMethod<T> {
    */
   onGestureRecognizerJudgeBegin(callback: GestureRecognizerJudgeBeginCallback): T;
 
+    /**
+   * When a gesture bound to this component will be accepted, a user-defined callback is triggered to get the result
+   *
+   * @param { GestureRecognizerJudgeBeginCallback } callback - A callback instance used when a gesture bound to this component will be accepted.
+   * @param { boolean } exposeInnerGesture - This parameter is a flag. This flag determines whether to expose internal gestures.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * 
+   * @since 14
+   */
+    onGestureRecognizerJudgeBegin(callback: GestureRecognizerJudgeBeginCallback, exposeInnerGesture: boolean): T;
+
   /**
    * In the touch test phase, the recognizer is selected to form a parallel relationship with other recognizers on the response chain.
    *
