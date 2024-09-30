@@ -18,7 +18,7 @@
  * @kit ImageKit
  */
 
-import { AsyncCallback, BusinessError } from './@ohos.base';
+import { AsyncCallback } from './@ohos.base';
 import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
 import type resourceManager from './@ohos.resourceManager';
 import type rpc from './@ohos.rpc';
@@ -8373,28 +8373,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     packing(source: ImageSource, option: PackingOption): Promise<ArrayBuffer>;
 
     /**
-     * Compresses or packs an image and uses a promise to return the result.
-     *
-     * @param { ImageSource } source Image to be processed.
-     * @param { PackingOption } option Option for image packing.
-     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the compressed or packed data.
-     * @throws { BusinessError } 401 - If the parameter is invalid.
-     * @throws { BusinessError } 62980096 - The Operation failed.
-     * @throws { BusinessError } 62980101 - The image data is abnormal.
-     * @throws { BusinessError } 62980106 - The image is too large.
-     * @throws { BusinessError } 62980113 - Unknown image format.
-     * @throws { BusinessError } 62980119 - If encoder occur error during encoding.
-     * @throws { BusinessError } 62980120 - Add pixelmap out of range.
-     * @throws { BusinessError } 62980172 - Failed to encode icc.
-     * @throws { BusinessError } 62980252 - Failed to create surface.
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @crossplatform
-     * @atomicservice
-     * @since 13
-     */
-    packToData(source: ImageSource, option: PackingOption): Promise<ArrayBuffer>;
-
-    /**
      * Compresses or packs an image and uses a callback to return the result.
      *
      * @param { PixelMap } source PixelMap to be processed.
@@ -8459,28 +8437,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     packing(source: PixelMap, option: PackingOption): Promise<ArrayBuffer>;
 
     /**
-     * Compresses or packs an image and uses a promise to return the result.
-     *
-     * @param { PixelMap } source PixelMap to be processed.
-     * @param { PackingOption } option Option for image packing.
-     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the compressed or packed data.
-     * @throws { BusinessError } 401 - If the parameter is invalid.
-     * @throws { BusinessError } 62980096 - The Operation failed.
-     * @throws { BusinessError } 62980101 - The image data is abnormal.
-     * @throws { BusinessError } 62980106 - The image is too large.
-     * @throws { BusinessError } 62980113 - Unknown image format.
-     * @throws { BusinessError } 62980119 - If encoder occur error during encoding.
-     * @throws { BusinessError } 62980120 - Add pixelmap out of range.
-     * @throws { BusinessError } 62980172 - Failed to encode icc.
-     * @throws { BusinessError } 62980252 - Failed to create surface.
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @crossplatform
-     * @atomicservice
-     * @since 13
-     */
-    packToData(source: PixelMap, option: PackingOption): Promise<ArrayBuffer>;
-
-    /**
      * Compresses or packs some images into an arraybuffer and uses a promise to return the result.
      *
      * @param { Array<PixelMap> } pixelmapSequence PixelMaps to be processed.
@@ -8498,15 +8454,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { number } fd ID of a file descriptor.
      * @param { PackingOption } options Options for image packing.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result.
-     * @throws { BusinessError } 401 - If the parameter is invalid.
-     * @throws { BusinessError } 62980096 - The Operation failed.
-     * @throws { BusinessError } 62980101 - The image data is abnormal.
-     * @throws { BusinessError } 62980106 - The image is too large.
-     * @throws { BusinessError } 62980113 - Unknown image format.
-     * @throws { BusinessError } 62980119 - If encoder occur error during encoding.
-     * @throws { BusinessError } 62980120 - Add pixelmap out of range.
-     * @throws { BusinessError } 62980172 - Failed to encode icc.
-     * @throws { BusinessError } 62980252 - Failed to create surface.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 11
@@ -8520,15 +8467,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { number } fd ID of a file descriptor.
      * @param { PackingOption } options Options for image packing.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
-     * @throws { BusinessError } 401 - If the parameter is invalid.
-     * @throws { BusinessError } 62980096 - The Operation failed.
-     * @throws { BusinessError } 62980101 - The image data is abnormal.
-     * @throws { BusinessError } 62980106 - The image is too large.
-     * @throws { BusinessError } 62980113 - Unknown image format.
-     * @throws { BusinessError } 62980119 - If encoder occur error during encoding.
-     * @throws { BusinessError } 62980120 - Add pixelmap out of range.
-     * @throws { BusinessError } 62980172 - Failed to encode icc.
-     * @throws { BusinessError } 62980252 - Failed to create surface.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 11
@@ -8542,15 +8480,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { number } fd ID of a file descriptor.
      * @param { PackingOption } options Options for image packing.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result.
-     * @throws { BusinessError } 401 - If the parameter is invalid.
-     * @throws { BusinessError } 62980096 - The Operation failed.
-     * @throws { BusinessError } 62980101 - The image data is abnormal.
-     * @throws { BusinessError } 62980106 - The image is too large.
-     * @throws { BusinessError } 62980113 - Unknown image format.
-     * @throws { BusinessError } 62980119 - If encoder occur error during encoding.
-     * @throws { BusinessError } 62980120 - Add pixelmap out of range.
-     * @throws { BusinessError } 62980172 - Failed to encode icc.
-     * @throws { BusinessError } 62980252 - Failed to create surface.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 11
@@ -8564,15 +8493,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { number } fd ID of a file descriptor.
      * @param { PackingOption } options Options for image packing.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
-     * @throws { BusinessError } 401 - If the parameter is invalid.
-     * @throws { BusinessError } 62980096 - The Operation failed.
-     * @throws { BusinessError } 62980101 - The image data is abnormal.
-     * @throws { BusinessError } 62980106 - The image is too large.
-     * @throws { BusinessError } 62980113 - Unknown image format.
-     * @throws { BusinessError } 62980119 - If encoder occur error during encoding.
-     * @throws { BusinessError } 62980120 - Add pixelmap out of range.
-     * @throws { BusinessError } 62980172 - Failed to encode icc.
-     * @throws { BusinessError } 62980252 - Failed to create surface.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 11
