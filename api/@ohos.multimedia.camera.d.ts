@@ -4362,7 +4362,16 @@ declare namespace camera {
      * @systemapi
      * @since 12
      */
-    MOON_CAPTURE_BOOST = 0
+    MOON_CAPTURE_BOOST = 0,
+
+    /**
+     * Feature for tripod detection.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    TRIPOD_DETECTION = 1,
   }
 
   /**
@@ -4395,6 +4404,74 @@ declare namespace camera {
      * @since 12
      */
     readonly detected: boolean;
+  }
+
+  /**
+   * Enum for tripod status.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 13
+   */
+  enum TripodStatus {
+    /**
+     * Invalid tripod status.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    INVALID = 0,
+
+    /**
+     * Tripod is active.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    ACTIVE = 1,
+
+    /**
+     * Enter tripod stabilization state.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    ENTERING = 2,
+
+    /**
+     * Exit tripod stabilization state.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    EXITING = 3,
+  }
+
+   /**
+   * Tripod detection result.
+   *
+   * @interface TripodDetectionResult
+   * @extends SceneFeatureDetectionResult
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 13
+   */
+  interface TripodDetectionResult extends SceneFeatureDetectionResult {
+    /**
+     * tripod status.
+     *
+     * @type { TripodStatus }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    readonly tripodStatus: TripodStatus;
   }
 
   /**
