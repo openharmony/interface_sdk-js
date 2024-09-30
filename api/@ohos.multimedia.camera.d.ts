@@ -546,7 +546,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     isCameraMuteSupported(): boolean;
 
@@ -843,7 +843,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     on(type: 'cameraMute', callback: AsyncCallback<boolean>): void;
 
@@ -864,7 +864,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     off(type: 'cameraMute', callback?: AsyncCallback<boolean>): void;
 
@@ -936,7 +936,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     prelaunch(): void;
 
@@ -1784,7 +1784,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     FLUORESCENCE_PHOTO = 17
   }
@@ -3511,7 +3511,7 @@ declare namespace camera {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since 12
+   * @since 13
    */
   enum UsageType {
     /**
@@ -3519,7 +3519,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     BOKEH = 0
   }
@@ -3787,7 +3787,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     setUsage(usage: UsageType, enabled: boolean): void;
 
@@ -3801,7 +3801,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     getCameraOutputCapabilities(camera: CameraDevice): Array<CameraOutputCapability>;
   }
@@ -4482,7 +4482,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     LOW_LIGHT_BOOST = 2
   }
@@ -4855,7 +4855,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     getSessionConflictFunctions(): Array<PhotoConflictFunctions>;
   }
@@ -5034,7 +5034,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     getSessionConflictFunctions(): Array<VideoConflictFunctions>;
   }
@@ -5495,7 +5495,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     getSessionConflictFunctions(): Array<PortraitPhotoConflictFunctions>;
   }
@@ -6974,7 +6974,7 @@ declare namespace camera {
    * @interface FluorescencePhotoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since 12
+   * @since 13
    */
   interface FluorescencePhotoSession extends Session, AutoExposure, Focus, Zoom {
     /**
@@ -6985,7 +6985,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -6997,7 +6997,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
@@ -7009,7 +7009,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
@@ -7021,7 +7021,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
   }
@@ -7033,7 +7033,7 @@ declare namespace camera {
    * @extends FlashQuery, AutoExposureQuery, ManualExposureQuery, FocusQuery, ZoomQuery, BeautyQuery, ColorEffectQuery, ColorManagementQuery, MacroQuery, SceneDetectionQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since 12
+   * @since 13
    */
   interface PhotoFunctions extends FlashQuery, AutoExposureQuery, ManualExposureQuery, FocusQuery, ZoomQuery, BeautyQuery, ColorEffectQuery, ColorManagementQuery, MacroQuery, SceneDetectionQuery {
   }
@@ -7045,7 +7045,7 @@ declare namespace camera {
    * @extends FlashQuery, AutoExposureQuery, ManualExposureQuery, FocusQuery, ZoomQuery, StabilizationQuery, BeautyQuery, ColorEffectQuery, ColorManagementQuery, MacroQuery, SceneDetectionQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since 12
+   * @since 13
    */
   interface VideoFunctions extends FlashQuery, AutoExposureQuery, ManualExposureQuery, FocusQuery, ZoomQuery, StabilizationQuery, BeautyQuery, ColorEffectQuery, ColorManagementQuery, MacroQuery, SceneDetectionQuery {
   }
@@ -7057,7 +7057,7 @@ declare namespace camera {
    * @extends FlashQuery, AutoExposureQuery, FocusQuery, ZoomQuery, BeautyQuery, ColorEffectQuery, ColorManagementQuery, PortraitQuery, ApertureQuery, SceneDetectionQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since 12
+   * @since 13
    */
   interface PortraitPhotoFunctions extends FlashQuery, AutoExposureQuery, FocusQuery, ZoomQuery, BeautyQuery, ColorEffectQuery, ColorManagementQuery, PortraitQuery, ApertureQuery, SceneDetectionQuery {
   }
@@ -7069,7 +7069,7 @@ declare namespace camera {
    * @extends ZoomQuery, MacroQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since 12
+   * @since 13
    */
   interface PhotoConflictFunctions extends ZoomQuery, MacroQuery {
   }
@@ -7081,7 +7081,7 @@ declare namespace camera {
    * @extends ZoomQuery, MacroQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since 12
+   * @since 13
    */
   interface VideoConflictFunctions extends ZoomQuery, MacroQuery {
   }
@@ -7093,7 +7093,7 @@ declare namespace camera {
    * @extends ZoomQuery, PortraitQuery, ApertureQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since 12
+   * @since 13
    */
   interface PortraitPhotoConflictFunctions extends ZoomQuery, PortraitQuery, ApertureQuery {
   }
@@ -7353,7 +7353,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     addDeferredSurface(surfaceId: string): void;
 
@@ -8350,7 +8350,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     isAutoHighQualityPhotoSupported(): boolean;
 
@@ -8364,7 +8364,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     enableAutoHighQualityPhoto(enabled: boolean): void;
 
