@@ -7684,6 +7684,18 @@ declare namespace camera {
     isMirrorSupported(): boolean;
 
     /**
+     * Enable mirror for photo capture.
+     *
+     * @param { boolean } enabled - enable photo mirror if TRUE.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 13
+     */
+    enableMirror(enabled: boolean): void;
+
+    /**
      * Subscribes capture start event callback.
      *
      * @param { 'captureStart' } type - Event type.
