@@ -2762,7 +2762,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600018 - the notification settings window is already displayed.
    * @syscap SystemCapability.Notification.NotificationSettings
    * @stagemodelonly
-   * @since 12
+   * @since 13
    */
   function openNotificationSettings(context: UIAbilityContext): Promise<void>;
 
