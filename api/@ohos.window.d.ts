@@ -4599,6 +4599,36 @@ declare namespace window {
     getWindowSystemBarProperties(): SystemBarProperties;
 
     /**
+     * Set whether to disable the gesture back function.
+     *
+     * @param { boolean } enabled - If true then enable the gesture back function, false then disable the gesture back function.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 13
+     */
+    setGestureBackEnabled(enabled: boolean): Promise<void>;
+
+    /**
+     * Get if the gesture back function is currently disabled.
+     * 
+     * @returns { boolean } enabled - If true then the gesture back function is currently enabled, false then the gesture back function is currently disabled.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 13
+     */
+    getGestureBackEnabled(): boolean;
+
+    /**
      * Set the preferred orientation config of the window
      *
      * @param { Orientation } orientation - The orientation config of the window
