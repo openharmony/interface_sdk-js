@@ -281,7 +281,7 @@ declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     enableNestedScroll(enabled: Optional<boolean>): ScrollBarAttribute;
 }
