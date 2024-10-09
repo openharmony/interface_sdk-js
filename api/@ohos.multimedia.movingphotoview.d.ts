@@ -236,7 +236,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * Sets whether to enable moving photo analyzer. If the value is true, the moving photo can
      * be analyzed by AI.
      *
-     * @param { boolean } isEnableAnalyzer - whether to enable moving photo analyzer
+     * @param { boolean } enabled - whether to enable moving photo analyzer
      * @returns { MovingPhotoViewAttribute }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
@@ -244,7 +244,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @uicomponent
      * @since 13
      */
-    enableAnalyzer(isEnableAnalyzer: boolean): MovingPhotoViewAttribute;
+    enableAnalyzer(enabled: boolean): MovingPhotoViewAttribute;
 }
 /**
  * Defines the MovingPhotoView controller.
