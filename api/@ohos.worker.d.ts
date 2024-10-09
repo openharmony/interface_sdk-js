@@ -2125,7 +2125,7 @@ declare namespace worker {
    *
    * @extends ThreadWorker
    * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
+   * @systemapi
    * @since 12
    */
   class RestrictedWorker extends ThreadWorker {
@@ -2155,7 +2155,7 @@ declare namespace worker {
      * @throws { BusinessError } 10200003 - Worker initialization failure.
      * @throws { BusinessError } 10200007 - The worker file patch is invalid path.
      * @syscap SystemCapability.Utils.Lang
-     * @atomicservice
+     * @systemapi
      * @since 12
      */
     constructor(scriptURL: string, options?: WorkerOptions);
