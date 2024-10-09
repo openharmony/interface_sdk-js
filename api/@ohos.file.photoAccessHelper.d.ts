@@ -5387,6 +5387,43 @@ declare namespace photoAccessHelper {
   }
 
   /**
+   * Enumeration of video enhancement type.
+   * 
+   * @enum { number } VideoEnhancementType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 13
+  */
+  enum VideoEnhancementType {
+    /**
+     * Quality enhancement local
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    QUALITY_ENHANCEMENT_LOCAL = 0,
+
+    /**
+     * Quality enhancement cloud
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    QUALITY_ENHANCEMENT_CLOUD = 1,
+
+    /**
+     * Quality enhancement local and cloud
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    QUALITY_ENHANCEMENT_LOCAL_AND_CLOUD = 2
+  }
+
+  /**
    * Defines the interface of media change request.
    *
    * @interface MediaChangeRequest
@@ -5797,6 +5834,22 @@ declare namespace photoAccessHelper {
      * @since 13
      */
     setOrientation(orientation: number): void;
+
+    /**
+     * Set video enhancement attribute
+     * 
+     * @param { VideoEnhancementType } videoEnhancementType - The type of video enhancement
+     * @param { string } photoId - The photo id of video
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @throws { BusinessError } 14000016 - Operation Not Support
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+    */
+    setVideoEnhancementAttr(videoEnhancementType: VideoEnhancementType, photoId: string): void;
   }
 
   /**
