@@ -15556,6 +15556,18 @@ declare class CommonMethod<T> {
   layoutWeight(value: number | string): T;
 
   /**
+   * chain Weight
+   *
+   * @param { ChainWeightOptions } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  chainWeight(value: ChainWeightOptions): T;
+
+  /**
    * Inner margin.
    *
    * @param { Padding | Length } value
