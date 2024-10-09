@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -58,7 +58,7 @@ export default class WorkSchedulerExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 13
    */
   startServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -69,7 +69,7 @@ export default class WorkSchedulerExtensionContext extends ExtensionContext {
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to stop target invisible service extension ability.
    * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    *
-   * @param { Want } want - Indicates the want info to start.
+   * @param { Want } want - Indicates the want info to stop.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -86,7 +86,7 @@ export default class WorkSchedulerExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 13
    */
   stopServiceExtensionAbility(want: Want): Promise<void>;
 }
