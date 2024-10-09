@@ -8376,7 +8376,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
      isAutoCloudImageEnhancementSupported(): boolean;
 
@@ -8389,7 +8389,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
      enableAutoCloudImageEnhancement(enabled: boolean): void;
 
