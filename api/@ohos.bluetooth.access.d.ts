@@ -127,6 +127,18 @@ declare namespace access {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Obtains the Bluetooth status of a device.
+   *
+   * @returns { BluetoothState } Returns the Bluetooth status.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   function getState(): BluetoothState;
 
   /**
