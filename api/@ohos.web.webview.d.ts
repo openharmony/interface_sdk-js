@@ -1420,7 +1420,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - Invalid url.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 13
+     * @since 14
      */
     static fetchCookie(url: string, incognito: boolean): Promise<string>;
 
@@ -1486,7 +1486,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100002 - Invalid url.
      * @throws { BusinessError } 17100005 - Invalid cookie value.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 13
+     * @since 14
      */
     static configCookieSync(url: string, value: string, incognito: boolean, includeHttpOnly: boolean): void;
 
@@ -1522,7 +1522,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100002 - Invalid url.
      * @throws { BusinessError } 17100005 - Invalid cookie value.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 13
+     * @since 14
      */
     static configCookie(url: string, value: string, incognito: boolean, includeHttpOnly: boolean): Promise<void>;
 
