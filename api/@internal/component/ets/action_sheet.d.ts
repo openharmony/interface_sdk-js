@@ -811,7 +811,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   enableHoverMode?: boolean;
 
@@ -823,7 +823,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   hoverModeArea?: HoverModeAreaType;
 }

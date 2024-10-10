@@ -24389,7 +24389,7 @@ declare enum KeyboardAvoidMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare enum HoverModeAreaType {
 
@@ -24399,7 +24399,7 @@ declare enum HoverModeAreaType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   TOP_SCREEN = 0,
 
@@ -24409,7 +24409,7 @@ declare enum HoverModeAreaType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   BOTTOM_SCREEN = 1,
 }

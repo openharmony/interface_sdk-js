@@ -1006,7 +1006,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   enableHoverMode?: boolean;
 
@@ -1018,7 +1018,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   hoverModeArea?: HoverModeAreaType;
 }
