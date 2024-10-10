@@ -2778,6 +2778,17 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 13
    */
   recoverable(recoverable: Optional<boolean>): NavigationAttribute;
+
+  /**
+   * Set dragbar event
+   * 
+   * @param { boolean } value - set dragbar event and disable divider drag event.
+   * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 14
+   */
+  enableDragBar(value: Optional<boolean>): NavigationAttribute;
 }
 
 /**
