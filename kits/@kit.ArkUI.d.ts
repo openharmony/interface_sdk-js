@@ -49,6 +49,7 @@ import {
   Popup, PopupButtonOptions, PopupIconOptions, PopupOptions, PopupTextOptions
 } from '@ohos.arkui.advanced.Popup';
 import { ProgressButton } from '@ohos.arkui.advanced.ProgressButton';
+import { Qrcode, QrcodeOptions, QrcodeState, CommonQrcodeOptions } from '@ohos.arkui.advanced.Qrcode';
 import {
   SegmentButton, SegmentButtonOptions, SegmentButtonItemOptionsArray, TabSegmentButtonOptions,
   TabSegmentButtonConstructionOptions, CapsuleSegmentButtonOptions, CapsuleSegmentButtonConstructionOptions,
@@ -192,6 +193,7 @@ export {
   screen, screenshot, uiAppearance, uiExtensionHost, uiObserver, window, windowAnimationManager, CustomContentDialog, PopoverDialog, PopoverOptions,
   AtomicServiceTabs, TabBarOptions, TabBarPosition, TabContentBuilder, OnContentWillChangeCallback,
   IconOptions, ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle, ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup,
+  Qrcode, QrcodeOptions, QrcodeState, CommonQrcodeOptions,
   Colors, CustomColors, Theme, ThemeControl, CustomTheme, ChipSymbolGlyphOptions,
   ExtraRegionPosition, ExpandedRegionLayoutOptions, HoverModeRegionLayoutOptions, FoldedRegionLayoutOptions, PresetSplitRatio, FoldSplitContainer,
   HoverModeStatus, OnHoverStatusChangeHandler,
