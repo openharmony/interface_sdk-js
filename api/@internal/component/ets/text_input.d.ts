@@ -2615,6 +2615,18 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 13
    */
   enableHapticFeedback(isEnabled: boolean): TextInputAttribute;
+
+  /**
+   * Set text mode of automatic case mode switching.
+   *
+   * @param { AutoCapitalizationMode } mode - Automatic case mode switching.
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 17
+   */
+  autoCapitalizationMode(mode: AutoCapitalizationMode): TextInputAttribute;
 }
 
 /**
