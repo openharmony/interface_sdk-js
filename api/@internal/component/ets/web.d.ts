@@ -8345,7 +8345,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute } the attribute of the scroll.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   nestedScroll(value: NestedScrollOptions | NestedScrollOptionsExt): WebAttribute;
 
@@ -8718,7 +8718,7 @@ declare interface ExpandedMenuItemOptions {
  *
  * @interface NestedScrollOptionsExt
  * @syscap SystemCapability.Web.Webview.Core
- * @since 13
+ * @since 14
  */
 declare interface NestedScrollOptionsExt {
   /**
@@ -8726,7 +8726,7 @@ declare interface NestedScrollOptionsExt {
    *
    * @type { ?NestedScrollMode }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 13
+   * @since 14
    */
   scrollUp?: NestedScrollMode;
 
@@ -8735,7 +8735,7 @@ declare interface NestedScrollOptionsExt {
    *
    * @type { ?NestedScrollMode }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 13
+   * @since 14
    */
   scrollDown?: NestedScrollMode;
 
@@ -8744,7 +8744,7 @@ declare interface NestedScrollOptionsExt {
    *
    * @type { ?NestedScrollMode }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 13
+   * @since 14
    */
   scrollRight?: NestedScrollMode;
 
@@ -8753,7 +8753,7 @@ declare interface NestedScrollOptionsExt {
    *
    * @type { ?NestedScrollMode }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 13
+   * @since 14
    */
   scrollLeft?: NestedScrollMode;
 }
