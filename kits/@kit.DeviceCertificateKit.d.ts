@@ -20,5 +20,6 @@
 
 import cert from '@ohos.security.cert';
 import certificateManager from '@ohos.security.certManager';
+import certificateManagerDialog from '@ohos.security.certManagerDialog';
 
-export { cert, certificateManager };
+export { cert, certificateManager, certificateManagerDialog };
