@@ -1203,6 +1203,24 @@ declare namespace installer {
      * @systemapi
      * @since 12
      */
+    /**
+     * Uninstall updates for a pre-installed application.
+     *
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
+     * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled updates.
+     * @param { InstallParam } installParam - Indicates other parameters required for the uninstall.
+     * @returns { Promise<void> }
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 17700001 - The specified bundle name is not found.
+     * @throws { BusinessError } 17700045 - Failed to uninstall because enterprise device management disallow uninstall.
+     * @throws { BusinessError } 17700057 - Failed to uninstall updates because the HAP is not pre-installed.
+     * @throws { BusinessError } 17700060 - The specified application cannot be uninstalled.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 13
+     */
     uninstallUpdates(bundleName: string, installParam?: InstallParam): Promise<void>;
 
     /**
