@@ -6707,6 +6707,502 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   }
 
   /**
+   * Picture instance.
+   *
+   * @typedef Picture
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 13
+   */
+  interface Picture {
+    /**
+     * Obtains the pixel map of the main image.
+     *
+     * @returns { PixelMap } Returns the pixel map.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    getMainPixelmap(): PixelMap;
+
+    /**
+     * Obtains the hdr pixel map. This method uses a promise to return the PixelMap object.
+     *
+     * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
+     * @throws { BusinessError } 7600901 - Unknown error.
+     * @throws { BusinessError } 7600201 - Unsupported operation.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    getHdrComposedPixelmap(): Promise<PixelMap>;
+
+    /**
+     * Obtains the gain map pixel map.
+     * @returns { PixelMap|null } Returns the pixel map if the operation is successful; returns null otherwise.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    getGainmapPixelmap(): PixelMap|null;
+
+    /**
+     * Set auxiliary picture.
+     *
+     * @param { AuxiliaryPictureType } type The type of auxiliary picture.
+     * @param { AuxiliaryPicture } auxiliaryPicture AuxiliaryPicture object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    setAuxiliaryPicture(type: AuxiliaryPictureType, auxiliaryPicture: AuxiliaryPicture): void;
+
+    /**
+     * Obtains the auxiliary picture based on type.
+     *
+     * @param { AuxiliaryPictureType } type The type of auxiliary picture.
+     * @returns { AuxiliaryPicture|null } Returns the auxiliary picture object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    getAuxiliaryPicture(type: AuxiliaryPictureType): AuxiliaryPicture|null;
+
+    /**
+     * Set the metadata of main picture.
+     *
+     * @param { MetadataType } metadataType The type of metadata.
+     * @param { Metadata } metadata The metadata of main picture.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: Unsupported metadata type.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    setMetadata(metadataType: MetadataType, metadata: Metadata): Promise<void>
+
+    /**
+     * Obtains the metadata of main picture.
+     *
+     * @param { MetadataType } metadataType The type of metadata.
+     * @returns { Promise<Metadata> } Return the metadata of main picture.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: Unsupported metadata type.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    getMetadata(metadataType: MetadataType): Promise<Metadata>
+
+    /**
+     * Marshalling picture and write into MessageSequence.
+     *
+     * @param { rpc.MessageSequence } sequence rpc.MessageSequence parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 62980097 - IPC error.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    marshalling(sequence: rpc.MessageSequence): void
+
+    /**
+     * Releases this Picture object.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    release(): void
+  }
+
+  /**
+   * Create a Picture object by the pixel map of the main image.
+   *
+   * @param { PixelMap } mainPixelmap The pixel map of the main image.
+   * @returns { Picture } Returns the Picture object.
+   * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 13
+   */
+  function createPicture(mainPixelmap : PixelMap): Picture;
+
+  /**
+   * Creates a Picture object based on MessageSequence parameter.
+   *
+   * @param { rpc.MessageSequence } sequence - rpc.MessageSequence parameter.
+   * @returns { Picture } Returns the Picture object.
+   * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 62980097 - IPC error.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 13
+   */
+  function createPictureFromParcel(sequence: rpc.MessageSequence): Picture;
+
+  /**
+   * Create a AuxiliaryPicture object by data buffer.
+   *
+   * @param { ArrayBuffer } buffer The image data buffer.
+   * @param { Size } size The size of auxiliary picture.
+   * @param { AuxiliaryPictureType } type The type of auxiliary picture.
+   * @returns { AuxiliaryPicture } The AuxiliaryPicture object.
+   * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 13
+   */
+  function createAuxiliaryPicture(buffer: ArrayBuffer, size: Size, type: AuxiliaryPictureType): AuxiliaryPicture
+
+  /**
+   * AuxiliaryPicture instance.
+   *
+   * @typedef AuxiliaryPicture
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 13
+   */
+  interface AuxiliaryPicture {
+    /**
+     * Reads auxiliary picture data in an ArrayBuffer and writes the data to a AuxiliaryPicture object. This method
+     * uses a promise to return the result.
+     *
+     * @param { ArrayBuffer } data A buffer from which the auxiliary picture data will be read.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an
+     * error message is returned.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 7600301 - Memory alloc failed.
+     * @throws { BusinessError } 7600302 - Memory copy failed.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    writePixelsFromBuffer(data: ArrayBuffer): Promise<void>;
+
+    /**
+     * Reads image pixel map data and writes the data to an ArrayBuffer. This method uses
+     * a promise to return the result.
+     *
+     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the pixel map data.
+     * @throws { BusinessError } 7600301 - Memory alloc failed.
+     * @throws { BusinessError } 7600302 - Memory copy failed.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    readPixelsToBuffer(): Promise<ArrayBuffer>;
+
+    /**
+     * Obtains the type of auxiliary picture.
+     *
+     * @returns { AuxiliaryPictureType } Returns the type of auxiliary picture.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    getType(): AuxiliaryPictureType;
+
+    /**
+     * Set the metadata of auxiliary picture.
+     *
+     * @param { MetadataType } metadataType The type of metadata.
+     * @param { Metadata } metadata The metadata of auxiliary picture.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
+     * metadata type does not match the auxiliary picture type.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    setMetadata(metadataType: MetadataType, metadata: Metadata): Promise<void>
+
+    /**
+     * Obtains the metadata of auxiliary picture.
+     *
+     * @param { MetadataType } metadataType The type of metadata.
+     * @returns { Promise<Metadata> } Return the metadata of auxiliary picture.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
+     * metadata type does not match the auxiliary picture type.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    getMetadata(metadataType: MetadataType): Promise<Metadata>
+
+    /**
+     * Obtains the information about this auxiliary picture.
+     *
+     * @returns { AuxiliaryPictureInfo } Returns the auxiliary picture information. If the operation fails, an error
+     * message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    getAuxiliaryPictureInfo(): AuxiliaryPictureInfo;
+
+    /**
+     * Set the information about this auxiliary picture.
+     *
+     * @param { AuxiliaryPictureInfo } info the auxiliary picture information.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    setAuxiliaryPictureInfo(info: AuxiliaryPictureInfo): void
+
+    /**
+     * Releases this AuxiliaryPicture object.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    release():void
+  }
+
+  /**
+   * Enumerates auxiliary picture type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 13
+   */
+  enum AuxiliaryPictureType {
+    /**
+     * Gain map.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    GAINMAP = 1,
+
+    /**
+     * Depth map.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    DEPTH_MAP = 2,
+
+    /**
+     * Unrefocus map.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    UNREFOCUS_MAP = 3,
+
+    /**
+     * Linear map.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    LINEAR_MAP = 4,
+
+    /**
+     * Fragment map.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    FRAGMENT_MAP = 5,
+  }
+
+  /**
+   * Enumerates metadata type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 13
+   */
+  enum MetadataType {
+    /**
+     * EXIF metadata.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    EXIF_METADATA = 1,
+
+    /**
+     * Fragment metadata. 
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    FRAGMENT_METADATA = 2,
+  }
+
+  /**
+   * Metadata instance.
+   *
+   * @typedef Metadata
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 13
+   */
+  interface Metadata {
+    /**
+     * Obtains the value of properties in an image. This method uses a promise to return the property values in array
+     * of records.
+     *
+     * @param { Array<string> } key Name of the properties whose value is to be obtained.
+     * @returns { Promise<Record<string, string|null>> } Array of Records instance used to return the property values.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
+     * metadata type does not match the auxiliary picture type.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    getProperties(key: Array<string>): Promise<Record<string, string|null>>
+
+    /**
+     * Modify the value of properties in an image with the specified keys.
+     *
+     * @param { Record<string, string|null> } records Array of the property Records whose values are to
+     * be modified.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
+     * metadata type does not match the auxiliary picture type.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    setProperties(records: Record<string, string|null>): Promise<void>
+
+    /**
+     * Obtains the value of all properties in an image. This method uses a promise to return the property values
+     * in array of records.
+     *
+     * @returns { Promise<Record<string, string|null>> } Array of Records instance used to return the property values.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    getAllProperties(): Promise<Record<string, string|null>>
+
+    /**
+     * Obtains a clone of metadata. This method uses a promise to return the metadata.
+     *
+     * @returns { Promise<Metadata> } A Promise instance used to return the metadata.
+     * @throws { BusinessError } 7600301 - Memory alloc failed.
+     * @throws { BusinessError } 7600302 - Memory copy failed.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    clone(): Promise<Metadata>
+  }
+
+  /**
+   * Enumerates fragment map information types of an image.
+   *
+   * @enum { string }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 13
+   */
+  enum FragmentMapPropertyKey {
+    /**
+     * The x-coordinate of the top left corner of the mark cup map in the original image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    X_IN_ORIGINAL = "XInOriginal",
+
+    /**
+     * The y-coordinate of the top left corner of the mark cup map in the original image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    Y_IN_ORIGINAL = "YInOriginal",
+
+    /**
+     * Mark cut map width.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    WIDTH = "FragmentImageWidth",
+
+    /**
+     * Mark cut map width.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    HEIGHT = "FragmentImageHeight"
+  }
+
+  /**
+   * Describes image decoding parameters.
+   *
+   * @typedef DecodingOptionsForPicture
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @since 13
+   */
+  interface DecodingOptionsForPicture {
+    /**
+     * Expected set of auxiliary picture types, default to decoding all auxiliary pictures.
+     *
+     * @type { Array<AuxiliaryPictureType> }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    desiredAuxiliaryPictures: Array<AuxiliaryPictureType>;
+  }
+
+   /**
+   * Describes auxiliary picture information.
+   *
+   * @typedef AuxiliaryPictureInfo
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 13
+   */
+  interface AuxiliaryPictureInfo {
+    /**
+     * Indicates auxiliary picture type.
+     *
+     * @type { AuxiliaryPictureType }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    auxiliaryPictureType: AuxiliaryPictureType;
+
+    /**
+     * Indicates image dimensions specified by a {@link Size} interface.
+     *
+     * @type { Size }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    size: Size;
+
+    /**
+     * The number of byte per row.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+    rowStride: number;
+
+    /**
+     * Indicates image format.
+     *
+     * @type { PixelMapFormat }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+     pixelFormat: PixelMapFormat;
+
+    /**
+     * Indicates color space for pixel map.
+     *
+     * @type { colorSpaceManager.ColorSpaceManager }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 13
+     */
+     colorSpace: colorSpaceManager.ColorSpaceManager;
+  }
+
+  /**
    * ImageSource instance.
    *
    * @typedef ImageSource
@@ -7709,6 +8205,35 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     release(): Promise<void>;
 
     /**
+     * Compresses or packs an image and uses a promise to return the result.
+     *
+     * @param { Picture } picture Picture to be processed.
+     * @param { PackingOption } options Option for image packing.
+     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the compressed or packed data.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 7800301 - Encode failed.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @since 13
+     */
+    packing(picture: Picture, options: PackingOption): Promise<ArrayBuffer>;
+
+    /**
+     * Compresses or packs an image into a file and uses a promise to return the result.
+     *
+     * @param { Picture } picture Picture to be processed.
+     * @param { number } fd ID of a file descriptor.
+     * @param { PackingOption } options Options for image packing.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 7800301 - Encode failed.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @since 13
+     */
+    packToFile(picture: Picture, fd: number, options: PackingOption): Promise<void>
+
+    /**
      * Supported image formats.
      *
      * @type { Array<string> }
@@ -7964,6 +8489,20 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 10
      */
     release(): Promise<void>;
+
+    /**
+     * Creates a Picture object based on image decoding parameters. This method uses a promise to
+     * return the object.
+     *
+     * @param { DecodingOptionsForPicture } options Image decoding parameters.
+     * @returns { Promise<Picture> } A Promise instance used to return the Picture object.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 7700301 - Decode failed.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 13
+     */
+    createPicture(options?: DecodingOptionsForPicture): Promise<Picture>
 
     /**
      * Supported image formats.
