@@ -2968,6 +2968,24 @@ declare class WebContextMenuParam {
    * @since 11
    */
   getEditStateFlags(): number;
+
+  /**
+   * Returns the selection menu preview width.
+   *
+   * @returns { number } The preview menu width.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 14
+   */
+  getPreviewWidth?(): number;
+
+  /**
+   * Returns the selection menu preview height.
+   *
+   * @returns { number } The preview menu height.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 14
+   */
+  getPreviewHeight?(): number;
 }
 
 /**
@@ -6127,6 +6145,85 @@ declare enum WebKeyboardAvoidMode {
 }
 
 /**
+ * Defines Web Elements type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 14
+ */
+declare enum WebElementType {
+  /**
+   * Image,corresponding HTML image type.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 14
+   */
+  IMAGE = 1,
+}
+
+/**
+ * ResponseType for contextMenu
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 14
+ */
+declare enum WebResponseType {
+  /**
+   * Long press.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 14
+   */
+  LONG_PRESS = 1,
+}
+
+/**
+ * Defines the selection menu options.
+ *
+ * @typedef SelectionMenuOptionsExt
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 14
+ */
+declare interface SelectionMenuOptionsExt {
+  /**
+   * Callback function when the selection menu appears.
+   *
+   * @type { ?Callback<void> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 14
+   */
+  onAppear?: Callback<void>;
+
+  /**
+   * Callback function when the selection menu disappears.
+   *
+   * @type { ?Callback<void> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 14
+   */
+  onDisappear?: Callback<void>;
+
+  /**
+   * The preview content of selection menu.
+   *
+   * @type { ?CustomBuilder }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 14
+   */
+  preview?: CustomBuilder;
+
+  /**
+   * Menu type, default value is MenuType.SELECTION_MENU.
+   *
+   * @type { ?MenuType }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 14
+   */
+  menuType?: MenuType;
+}
+
+/**
  * Defines the Web attribute functions.
  *
  * @extends CommonMethod<WebAttribute>
@@ -8558,6 +8655,20 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 13
    */
   enableHapticFeedback(enabled: boolean): WebAttribute;
+
+  /**
+   * Bind to the selection menu.
+   *
+   * @param { WebElementType } elementType - Indicates the type of selection menu.
+   * @param { CustomBuilder } content - Indicates the content of selection menu.
+   * @param { WebResponseType } responseType - Indicates response type of selection menu.
+   * @param { SelectionMenuOptionsExt } [options] - Indicates the options of selection menu.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 14
+   */
+  bindSelectionMenu?(elementType: WebElementType, content: CustomBuilder, responseType: WebResponseType,
+      options?: SelectionMenuOptionsExt): WebAttribute;
 }
 
 /**
