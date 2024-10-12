@@ -663,14 +663,6 @@ declare namespace bundleManager {
     INSIGHT_INTENT_UI = 22,
 
     /**
-     * Indicates extension info with type of fence
-     *
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 12
-     */
-    FENCE = 24,
-
-    /**
      * Indicates extension info with type of unspecified
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core

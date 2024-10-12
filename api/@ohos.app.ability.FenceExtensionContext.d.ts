@@ -26,7 +26,7 @@ import type Want from './@ohos.app.ability.Want';
  *
  * @extends ExtensionContext
  * @syscap SystemCapability.Location.Location.Geofence
- * @since 12
+ * @since 13
  */
 export default class FenceExtensionContext extends ExtensionContext {
   /**
@@ -38,7 +38,6 @@ export default class FenceExtensionContext extends ExtensionContext {
    *
    * @param { Want } want - Indicates the want info to start.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
@@ -56,7 +55,7 @@ export default class FenceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Location.Location.Geofence
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 13
    */
   startAbility(want: Want): Promise<void>;
 }
