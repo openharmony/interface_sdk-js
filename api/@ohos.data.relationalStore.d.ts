@@ -407,6 +407,15 @@ declare namespace relationalStore {
      * @since 12
      */
     haMode?: HAMode;
+
+    /**
+     * Specifies the cryptographic parameters used when opening an encrypted database.
+     *
+     * @type { ?CryptoParam }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    cryptoParam?: CryptoParam;
   }
 
   /**
@@ -435,6 +444,167 @@ declare namespace relationalStore {
      * @since 12
      */
     MAIN_REPLICA
+  }
+
+  /**
+   * Specifies the cryptographic parameters used when opening an encrypted database.
+   *
+   * @typedef CryptoParam
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 14
+   */
+  interface CryptoParam {
+    /**
+     * Specifies the key used when opening an encrypted database.
+     * When finished passing the key to the database, its content should be set to all-zero.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    encryptionKey: Uint8Array;
+
+    /**
+     * Specifies the number of KDF iterations used when opening an encrypted database.
+     * Default number is 10000.
+     * When the number is set to 0, use default iteration number and encryption algorithm.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    iterationCount?: number;
+
+    /**
+     * Specifies the encryption algorithm when opening an encrypted database.
+     * Default encryption algorithm is AES_256_GCM.
+     *
+     * @type { ?EncryptionAlgo }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    encryptionAlgo?: EncryptionAlgo;
+
+    /**
+     * Specifies the HMAC algorithm when opening an encrypted database.
+     * Default HMAC algorithm is SHA256.
+     *
+     * @type { ?HmacAlgo }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    hmacAlgo?: HmacAlgo;
+
+    /**
+     * Specifies the KDF algorithm when opening an encrypted database.
+     * Default KDF SHA algorithm is the same as HMAC algorithm.
+     *
+     * @type { ?KdfAlgo }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    kdfAlgo?: KdfAlgo;
+
+    /**
+     * Specifies the page size used when opening an encrypted database.
+     * Default crypto page size is 1024.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    cryptoPageSize?: number;
+  }
+
+  /**
+   * Enumerates the supported encryption algorithm when opening a database.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 14
+   */
+  enum EncryptionAlgo {
+    /**
+     * AES_256_GCM: Database is encrypted using AES_256_GCM.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    AES_256_GCM = 0,
+
+    /**
+     * AES_256_CBC: Database is encrypted using AES_256_CBC.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    AES_256_CBC
+  }
+
+  /**
+   * Enumerates the supported HMAC algorithm when opening a database.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 14
+   */
+  enum HmacAlgo {
+    /**
+     * SHA1: HMAC_SHA1 algorithm.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    SHA1 = 0,
+
+    /**
+     * SHA256: HMAC_SHA256 algorithm.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    SHA256,
+
+    /**
+     * SHA512: HMAC_SHA512 algorithm.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    SHA512
+  }
+
+  /**
+   * Enumerates the supported KDF algorithm when opening a database.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 14
+   */
+  enum KdfAlgo {
+    /**
+     * KDF_SHA1: PBKDF2_HMAC_SHA1 algorithm.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    KDF_SHA1 = 0,
+
+    /**
+     * KDF_SHA256: PBKDF2_HMAC_SHA256 algorithm.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    KDF_SHA256,
+
+    /**
+     * KDF_SHA512: PBKDF2_HMAC_SHA512 algorithm.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    KDF_SHA512
   }
 
   /**
