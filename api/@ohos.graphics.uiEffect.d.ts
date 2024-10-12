@@ -87,6 +87,21 @@ declare namespace uiEffect {
      * @since 12
      */
     flyInFlyOutEffect(degree: number, flyMode: FlyMode): Filter;
+
+    /**
+     * Set distort effect of the component.
+     *
+     * @param { number } distortionK - set the degree of distort effect, value range [-1, 1].
+     * If the value is 0, the component keep same,
+     * if the value is less than 0, the component is barrel distortion,
+     * if the value is more than 0, the component is pincussion distortion.
+     * @returns { Filter } - Returns distort Filter.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 14
+     */
+    distort(distortionK: number): Filter;
   }
 
   /**
@@ -199,7 +214,7 @@ declare namespace uiEffect {
      */
     TOP = 1,
   }
-  
+
   /**
    * The VisualEffect of Component.
    * @typedef VisualEffect
@@ -294,7 +309,7 @@ declare namespace uiEffect {
      * @since 12
      */
     positiveCoefficient: [number, number, number];
-    
+
     /**
      * Defines the negative adjustment coefficients in RGB channels based on the reference saturation.
      *
