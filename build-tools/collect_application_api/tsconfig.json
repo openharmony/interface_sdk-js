@@ -44,6 +44,8 @@
         "List",
         "ListItem",
         "ListItemGroup",
+        "ArcList",
+        "ArcListItem",
         "LoadingProgress",
         "Marquee",
         "MediaCachedImage",
@@ -293,6 +295,16 @@
             "name": "ListItemGroup",
             "type": "ListItemGroupAttribute",
             "instance": "ListItemGroupInstance"
+          },
+          {
+            "name": "ArcList",
+            "type": "ArcListAttribute",
+            "instance": "ArcListInstance"
+          },
+          {
+            "name": "ArcListItem",
+            "type": "ArcListItemAttribute",
+            "instance": "ArcListItemInstance"
           },
           {
             "name": "LoadingProgress",

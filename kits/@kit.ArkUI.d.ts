@@ -119,6 +119,7 @@ import SystemRouter, {
   RouterOptions, RouterState
 } from '@system.router';
 import { ArcAlphabetIndexer, ArcAlphabetIndexerAttribute } from '@ohos.arkui.ArcAlphabetIndexer';
+import { ArcList, ArcListItem, ArcListAttribute, ArcListItemAttribute } from '@ohos.arkui.ArcList';
 import { Colors, CustomColors, Theme, ThemeControl, CustomTheme } from '@ohos.arkui.theme';
 import {
   ExtraRegionPosition,
@@ -217,6 +218,6 @@ export {
   PixelMapDrawableDescriptor, AnimationOptions, AnimatedDrawableDescriptor, NodeAdapter, DownloadFileButton,
   DownloadLayoutDirection, DownloadIconStyle, DownloadDescription, DownloadContentOptions, DownloadStyleOptions,
   Rect, RoundRect, edgeColors, edgeWidths, borderStyles, borderRadiuses, ParticleModifier,
-  InnerFullScreenLaunchComponent, LaunchController,
-  ArcAlphabetIndexer, ArcAlphabetIndexerAttribute,
+  InnerFullScreenLaunchComponent, LaunchController, ArcAlphabetIndexer, ArcAlphabetIndexerAttribute,
+  ArcList, ArcListItem, ArcListAttribute, ArcListItemAttribute,
 };
