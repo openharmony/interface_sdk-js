@@ -238,6 +238,17 @@ declare namespace camera {
     readonly videoProfiles: Array<VideoProfile>;
 
     /**
+     * Depth profiles.
+     *
+     * @type { Array<DepthProfile> }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    readonly depthProfiles: Array<DepthProfile>;
+
+    /**
      * All the supported metadata Object Types.
      *
      * @type { Array<MetadataObjectType> }
@@ -762,6 +773,19 @@ declare namespace camera {
      * @since 12
      */
     createMetadataOutput(metadataObjectTypes: Array<MetadataObjectType>): MetadataOutput;
+
+    /**
+     * Creates a DepthDataOutput instance.
+     *
+     * @param { DepthProfile } profile - Depth data profile.
+     * @returns { DepthDataOutput } The DepthDataOutput instance.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    createDepthDataOutput(profile: DepthProfile): DepthDataOutput;
 
     /**
      * Gets a CaptureSession instance.
@@ -1856,7 +1880,25 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 13
      */
-    CAMERA_FORMAT_HEIC = 2003
+    CAMERA_FORMAT_HEIC = 2003,
+
+    /**
+     * Depth Data Format: float 16.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    CAMERA_FORMAT_DEPTH_16 = 3000,
+
+    /**
+     * Depth Data Format: float 32.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    CAMERA_FORMAT_DEPTH_32 = 3001
   }
 
   /**
@@ -7758,6 +7800,16 @@ declare namespace camera {
     raw?: image.Image;
 
     /**
+     * Depth data.
+     *
+     * @type { DepthData }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    depthData?: DepthData;
+
+    /**
      * Release Photo object.
      *
      * @returns { Promise<void> } Promise used to return the result.
@@ -7989,6 +8041,33 @@ declare namespace camera {
      * @since 11
      */
     deferImageDelivery(type: DeferredDeliveryImageType): void;
+
+    /**
+     * Check if the depth data delivery is supported.
+     *
+     * @returns { boolean } TRUE if the type of delivery image is enabled.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400104 - Session not running.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    isDepthDataDeliverySupported(): boolean;
+
+    /**
+     * Enable depth data delivery.
+     *
+     * @param { boolean } enabled - Target state for depth data delivery.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400104 - Session not running.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    enableDepthDataDelivery(enabled: boolean): void;
 
     /**
      * Get supported moving photo video codec types.
@@ -9855,6 +9934,264 @@ declare namespace camera {
      * @since 12
      */
     setTimeLapsePreviewType(type: TimeLapsePreviewType): void;
+  }
+  
+  /**
+   * Enum for Depth Data Accuracy.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 13
+   */
+  enum DepthDataAccuracy {
+    /**
+     * Relative accuracy depth data.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    DEPTH_DATA_ACCURACY_RELATIVE = 0,
+
+    /**
+     * Absolute accuracy depth data.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    DEPTH_DATA_ACCURACY_ABSOLUTE = 1
+  }
+
+  /**
+   * Enum for Depth Data Quality Level.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 13
+   */
+  enum DepthDataQualityLevel {
+    /**
+     * Depth data quality is bad.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    DEPTH_DATA_QUALITY_BAD = 0,
+
+    /**
+     * Depth data quality is fair.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    DEPTH_DATA_QUALITY_FAIR = 1,
+
+    /**
+     * Depth data quality is good.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    DEPTH_DATA_QUALITY_GOOD = 2
+  }
+
+  /**
+   * Depth Profile.
+   *
+   * @interface DepthProfile
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 13
+   */
+  interface DepthProfile {
+    /**
+     * Depth data format.
+     *
+     * @type { CameraFormat }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    readonly format: CameraFormat;
+
+    /**
+     * Depth data accuracy.
+     *
+     * @type { DepthDataAccuracy }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    readonly dataAccuracy: DepthDataAccuracy;
+
+    /**
+     * Depth data resolution.
+     *
+     * @type { Size }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    readonly size: Size;
+  }
+
+  /**
+   * Depth Data.
+   *
+   * @interface DepthData.
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 13
+   */
+  interface DepthData {
+    /**
+     * Depth data format.
+     *
+     * @type { CameraFormat }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    readonly format: CameraFormat;
+
+    /**
+     * Depth data map.
+     *
+     * @type { image.PixelMap }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    readonly depthMap: image.PixelMap;
+
+    /**
+     * Depth data quality level.
+     *
+     * @type { DepthDataQualityLevel }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    readonly qualityLevel: DepthDataQualityLevel;
+
+    /**
+     * Depth data accuracy.
+     *
+     * @type { DepthDataAccuracy }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    readonly dataAccuracy: DepthDataAccuracy;
+
+    /**
+     * Release depth data object.
+     *
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    release(): Promise<void>;
+  }
+
+  /**
+   * Depth Data Output object
+   *
+   * @interface DepthDataOutput
+   * @extends CameraOutput
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 13
+   */
+  interface DepthDataOutput extends CameraOutput {
+    /**
+     * Start depth data output.
+     *
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    start(): Promise<void>;
+
+    /**
+     * Stop depth data output.
+     *
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    stop(): Promise<void>;
+
+    /**
+     * Subscribes to depth data objects available event callback.
+     *
+     * @param { 'depthDataAvailable' } type - Event type.
+     * @param { AsyncCallback<DepthData> } callback - Callback used to get the available DepthData objects.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    on(type: 'depthDataAvailable', callback: AsyncCallback<DepthData>): void;
+
+    /**
+     * Unsubscribes from depth data objects available event callback.
+     *
+     * @param { 'depthDataAvailable' } type - Event type.
+     * @param { AsyncCallback<DepthData> } callback - Callback used to get the available DepthData objects.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    off(type: 'depthDataAvailable', callback?: AsyncCallback<DepthData>): void;
+
+    /**
+     * Subscribes to error events.
+     *
+     * @param { 'error' } type - Event type.
+     * @param { ErrorCallback } callback - Callback used to get the video output errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { 'error' } type - Event type.
+     * @param { ErrorCallback } callback - Callback used to get the video output errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    off(type: 'error', callback?: ErrorCallback): void;
   }
 }
 
