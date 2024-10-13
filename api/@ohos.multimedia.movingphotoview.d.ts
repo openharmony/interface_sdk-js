@@ -58,7 +58,7 @@ declare interface MovingPhotoViewOptions {
      * @crossplatform
      * @atomicservice
      * @uicomponent
-     * @since 13
+     * @since 14
      */
     imageAIOptions?: ImageAIOptions;
 }
@@ -242,7 +242,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @crossplatform
      * @atomicservice
      * @uicomponent
-     * @since 13
+     * @since 14
      */
     enableAnalyzer(enabled: boolean): MovingPhotoViewAttribute;
 }
