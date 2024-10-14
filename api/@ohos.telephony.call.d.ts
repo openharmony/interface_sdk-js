@@ -4242,7 +4242,7 @@ declare namespace call {
      * @since 9
      */
     dialType?: DialType;
-      /**
+    /**
      * Indicates the extra call parameters.
      *
      * @type { ?Record<string, Object> }
