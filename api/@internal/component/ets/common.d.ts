@@ -11240,7 +11240,7 @@ declare enum ScrollSizeMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 13
  */
 declare enum SheetKeyboardAvoidMode {
   /**
@@ -11249,7 +11249,7 @@ declare enum SheetKeyboardAvoidMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   NONE = 0,
 
@@ -11260,7 +11260,7 @@ declare enum SheetKeyboardAvoidMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   TRANSLATE_AND_RESIZE = 1,
 
@@ -11270,7 +11270,7 @@ declare enum SheetKeyboardAvoidMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   RESIZE_ONLY = 2,
 
@@ -11281,7 +11281,7 @@ declare enum SheetKeyboardAvoidMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   TRANSLATE_AND_SCROLL = 3,
 }
@@ -11774,7 +11774,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   keyboardAvoidMode?: SheetKeyboardAvoidMode;
 }
