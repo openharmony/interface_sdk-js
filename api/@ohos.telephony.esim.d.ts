@@ -34,12 +34,6 @@ declare namespace esim {
    *
    * @param { number } slotId - Indicates the card slot index number.
    * @returns { boolean } Returns {@code true} if the eSIM capability is supported; returns {@code false} otherwise.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 14
    */
