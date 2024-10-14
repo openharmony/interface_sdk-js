@@ -3362,6 +3362,16 @@ declare namespace call {
      * @since 12
      */
     numberMarkInfo?: NumberMarkInfo;
+
+    /**
+     * Indicates the extra call parameters.
+     *
+     * @type { ?Record<string, Object> }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    extraParams?: Record<string, Object>;
   }
 
   /**
@@ -4232,6 +4242,15 @@ declare namespace call {
      * @since 9
      */
     dialType?: DialType;
+      /**
+     * Indicates the extra call parameters.
+     *
+     * @type { ?Record<string, Object> }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    extraParams?: Record<string, Object>;
   }
 
   /**
