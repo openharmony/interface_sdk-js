@@ -6080,36 +6080,6 @@ declare enum BlurStyleActivePolicy {
 }
 
 /**
- * Enumerates the blur types.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 13
- */
-declare enum BlurType {
-  /**
-   * The blur is applied within the window.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 13
-   */
-  WITHIN_WINDOW = 0,
-  /**
-   * The blur is applied behind the window.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 13
-   */
-  BEHIND_WINDOW = 1
-}
-
-/**
  * enum color mode
  *
  * @enum { number }
@@ -6324,7 +6294,7 @@ declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
    * Defines the policy for activating the blur style.
    *
    * @type { ?BlurStyleActivePolicy }
-   * @default BlurStyleActivePolicy.FOLLOWS_WINDOW_ACTIVE_STATE
+   * @default BlurStyleActivePolicy.ALWAYS_ACTIVE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -6343,18 +6313,6 @@ declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
    * @since 13
    */
   inactiveColor?: ResourceColor;
-
-  /**
-   * Blur blending type.
-   *
-   * @type { ?BlurType }
-   * @default BlurType.WITHIN_WINDOW
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 13
-   */
-  type?: BlurType;
 }
 
 /**
@@ -6653,7 +6611,7 @@ declare interface BackgroundEffectOptions {
    * Defines the policy for activating the blur style.
    *
    * @type { ?BlurStyleActivePolicy }
-   * @default BlurStyleActivePolicy.FOLLOWS_WINDOW_ACTIVE_STATE
+   * @default BlurStyleActivePolicy.ALWAYS_ACTIVE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -6672,18 +6630,6 @@ declare interface BackgroundEffectOptions {
    * @since 13
    */
   inactiveColor?: ResourceColor;
-
-  /**
-   * Blur blending type.
-   *
-   * @type { ?BlurType }
-   * @default BlurType.WITHIN_WINDOW
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 13
-   */
-  type?: BlurType;
 }
 
 /**
