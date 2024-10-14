@@ -1111,6 +1111,7 @@ unpipe
 unpremultiplied
 unprepare
 unpressed
+unrefocus
 unregistered
 unregistering
 unregisters
