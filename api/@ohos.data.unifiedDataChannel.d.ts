@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -36,6 +36,15 @@ import Want from "./@ohos.app.ability.Want";
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
  * @atomicservice
  * @since 11
+ */
+/**
+ * Provide methods for sharing data between different applications across unified data channels.
+ *
+ * @namespace unifiedDataChannel
+ * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 13
  */
 declare namespace unifiedDataChannel {
   /**
@@ -80,6 +89,14 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Indicates type of value.
+   * @typedef {number | string | boolean | image.PixelMap | Want | ArrayBuffer | object | null | undefined}
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 13
    */
   type ValueType = number | string | boolean | image.PixelMap | Want | ArrayBuffer | object | null | undefined;
 
@@ -150,6 +167,14 @@ declare namespace unifiedDataChannel {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Describe the unified data.
+   *
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   class UnifiedData {
     /**
      * Create unified data with a record
@@ -170,6 +195,17 @@ declare namespace unifiedDataChannel {
      * @atomicservice
      * @since 11
      */
+     /**
+     * Create unified data with a record
+     *
+     * @param { UnifiedRecord } record - Record will add into unified data.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect Parameters types.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
     constructor(record: UnifiedRecord);
     /**
      * Create a empty unified data.
@@ -177,6 +213,14 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 12
+     */
+    /**
+     * Create a empty unified data.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
      */
     constructor();
     /**
@@ -198,6 +242,17 @@ declare namespace unifiedDataChannel {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Add a record into unified data
+     *
+     * @param { UnifiedRecord } record - Record will add into unified data.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect Parameters types.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
     addRecord(record: UnifiedRecord): void;
     /**
      * Get all records of unified data
@@ -214,6 +269,15 @@ declare namespace unifiedDataChannel {
      * @atomicservice
      * @since 11
      */
+     /**
+     * Get all records of unified data
+     *
+     * @returns { Array<UnifiedRecord> } Return the records of unified data
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
     getRecords(): Array<UnifiedRecord>;
 
     /**
@@ -226,6 +290,17 @@ declare namespace unifiedDataChannel {
      * @atomicservice
      * @since 12
      */
+    /**
+     * Checks whether there is a specified type of data in DataProperties.
+     * @param { string } type - indicates to query data type.
+     * @returns { boolean } if having mimeType in UnifiedData returns true, else returns false.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect Parameters types.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
     hasType(type: string): boolean;
 
     /**
@@ -234,6 +309,14 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 12
+     */
+    /**
+     * UTD types of all content in the UnifiedData.
+     * @returns { Array<string> } type of array
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
      */
     getTypes(): Array<string>;
 
@@ -306,6 +389,14 @@ declare namespace unifiedDataChannel {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Describe the unified record
+   *
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   class UnifiedRecord {
     /**
      * Get type of unified record
@@ -322,6 +413,15 @@ declare namespace unifiedDataChannel {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Get type of unified record
+     *
+     * @returns { string } Return the type of unified data
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
     getType(): string;
 
     /**
@@ -330,6 +430,14 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 12
+     */
+    /**
+     * Create unified record.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
      */
     constructor();
 
@@ -346,6 +454,19 @@ declare namespace unifiedDataChannel {
      * @atomicservice
      * @since 12
      */
+    /**
+     * Create unified record by type and value.
+     *
+     * @param { string } type - indicates to data type of unified record. It can not be empty. When type of value is object, parameter type must be pixel-map or want UTD type.
+     * @param { ValueType } value - indicates to value of unified record.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect Parameters types;
+     * <br>3.Parameter verification failed.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
     constructor(type: string, value: ValueType);
 
     /**
@@ -355,6 +476,15 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 12
+     */
+    /**
+     * Get the value of unified record.
+     *
+     * @returns { ValueType } Return the value of unified record.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
      */
     getValue(): ValueType;
   }
@@ -374,6 +504,15 @@ declare namespace unifiedDataChannel {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Describe the unified text data
+   *
+   * @extends UnifiedRecord
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   class Text extends UnifiedRecord {
     /**
      * Indicates the details of unified text
@@ -388,6 +527,15 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Indicates the details of unified text
+     *
+     * @type { ?Record<string, string> }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
      */
     details?: Record<string, string>;
   }
@@ -407,6 +555,15 @@ declare namespace unifiedDataChannel {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Describe the unified plain text data
+   *
+   * @extends Text
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   class PlainText extends Text {
     /**
      * Indicates the content of text
@@ -422,6 +579,15 @@ declare namespace unifiedDataChannel {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Indicates the content of text
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
     textContent: string;
     /**
      * Indicates the abstract of text
@@ -436,6 +602,15 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Indicates the abstract of text
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
      */
     abstract?: string;
   }
@@ -455,6 +630,15 @@ declare namespace unifiedDataChannel {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Describe the unified link data
+   *
+   * @extends Text
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   class Hyperlink extends Text {
     /**
      * Indicates the url of a link
@@ -470,6 +654,15 @@ declare namespace unifiedDataChannel {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Indicates the url of a link
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
     url: string;
     /**
      * Indicates the description of a link
@@ -484,6 +677,15 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Indicates the description of a link
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
      */
     description?: string;
   }
@@ -503,6 +705,15 @@ declare namespace unifiedDataChannel {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Describe the unified html data
+   *
+   * @extends Text
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   class HTML extends Text {
     /**
      * Indicates the content of html, with html tags
@@ -518,6 +729,15 @@ declare namespace unifiedDataChannel {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Indicates the content of html, with html tags
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
     htmlContent: string;
     /**
      * Indicates the plain content of html
@@ -532,6 +752,15 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Indicates the plain content of html
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
      */
     plainContent?: string;
   }
@@ -551,6 +780,15 @@ declare namespace unifiedDataChannel {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Describe the unified file data
+   *
+   * @extends UnifiedRecord
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   class File extends UnifiedRecord {
     /**
      * Indicates the details of unified File
@@ -566,6 +804,15 @@ declare namespace unifiedDataChannel {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Indicates the details of unified File
+     *
+     * @type { ?Record<string, string> }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
     details?: Record<string, string>;
     /**
      * Indicates the uri of file
@@ -580,6 +827,15 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Indicates the uri of file
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
      */
     uri: string;
   }
@@ -599,6 +855,15 @@ declare namespace unifiedDataChannel {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Describe the unified image data
+   *
+   * @extends File
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   class Image extends File {
     /**
      * Indicates the uri of image
@@ -613,6 +878,15 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Indicates the uri of image
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
      */
     imageUri: string;
   }
@@ -632,6 +906,15 @@ declare namespace unifiedDataChannel {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Describe the unified video data
+   *
+   * @extends File
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   class Video extends File {
     /**
      * Indicates the uri of video
@@ -646,6 +929,15 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Indicates the uri of video
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
      */
     videoUri: string;
   }
@@ -665,6 +957,15 @@ declare namespace unifiedDataChannel {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Describe the unified audio data
+   *
+   * @extends File
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   class Audio extends File {
     /**
      * Indicates the uri of audio
@@ -679,6 +980,15 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Indicates the uri of audio
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
      */
     audioUri: string;
   }
@@ -698,6 +1008,15 @@ declare namespace unifiedDataChannel {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Describe the unified folder data
+   *
+   * @extends File
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
   class Folder extends File {
     /**
      * Indicates the uri of folder
@@ -712,6 +1031,15 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Indicates the uri of folder
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
      */
     folderUri: string;
   }
