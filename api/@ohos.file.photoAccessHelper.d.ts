@@ -1951,7 +1951,15 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12
      */
-    THM_SIZE = 'thm_size'
+    THM_SIZE = 'thm_size',
+    /**
+     * Cloud enhancement status of the asset, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    CE_AVAILABLE = 'ce_available'
   }
 
   /**
@@ -2728,6 +2736,14 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     IMAGE = 1031,
+    /**
+     * Cloud Enhancement album
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    CLOUD_ENHANCEMENT = 1032,
     /**
      * Source album
      *
@@ -6072,6 +6088,316 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     setHighlightUserActionData(type: HighlightUserActionType, actionData: number): Promise<void>;
+  }
+
+  /**
+   * Cloud enhancement task stage.
+   * 
+   * @enum { number } CloudEnhancementTaskStage
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 13
+   */
+  enum CloudEnhancementTaskStage {
+    /**
+     * Cloud enhancement task exception stage.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    TASK_STAGE_EXCEPTION = -1,
+    /**
+     * Cloud enhancement task preparing stage.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    TASK_STAGE_PREPARING,
+    /**
+     * Cloud enhancement task uploading stage.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    TASK_STAGE_UPLOADING,
+    /**
+     * Cloud enhancement task executing stage.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    TASK_STAGE_EXECUTING,
+    /**
+     * Cloud enhancement task downloading stage.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    TASK_STAGE_DOWNLOADING,
+    /**
+     * Cloud enhancement task failed stage.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    TASK_STAGE_FAILED,
+    /**
+     * Cloud enhancement task completed stage.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    TASK_STAGE_COMPLETED
+  }
+
+  /**
+   * Task state of cloud enhancement.
+   * 
+   * @interface CloudEnhancementTaskState
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 13
+   */
+  interface CloudEnhancementTaskState {
+    /**
+     * Indicates the cloud enhancement task stage.
+     * 
+     * @type { CloudEnhancementTaskStage }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    readonly taskStage: CloudEnhancementTaskStage;
+    /**
+     * Indicates the transferred file size.
+     * 
+     * @type { ?number }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    readonly transferredFileSize?: number;
+    /**
+     * Indicates the total file size.
+     * 
+     * @type { ?number }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    readonly totalFileSize?: number;
+    /**
+     * Indicates the expected duration of cloud enhancement queue time.
+     * 
+     * @type { ?number }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    readonly expectedDuration?: number;
+    /**
+     * Status code when failed in cloud enhancement.
+     * 
+     * @type { ?number }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    readonly statusCode?: number;
+  }
+
+  /**
+   * Defines the class of cloud enhancement.
+   * 
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 13
+   */
+  class CloudEnhancement {
+    /**
+     * Get cloud enhancement instance.
+     * 
+     * @param { Context } context - Hap context information
+     * @returns { CloudEnhancement } Returns cloud enhancement instance
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    static getCloudEnhancementInstance(context: Context): CloudEnhancement;
+
+    /**
+     * Submit cloud enhancement tasks.
+     * 
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Array<PhotoAsset> } photoAssets - The photo assets requested
+     * @param { boolean } hasCloudWatermark - true: Persistent cloud watermark; false: Not persistent cloud watermark.
+     * @returns { Promise<void> } Returns void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    submitCloudEnhancementTasks(photoAssets: Array<PhotoAsset>, hasCloudWatermark: boolean): Promise<void>;
+
+    /**
+     * Prioritize cloud enhancement task.
+     * 
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { PhotoAsset } photoAsset - The photo asset requested
+     * @returns { Promise<void> } Returns void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    prioritizeCloudEnhancementTask(photoAsset: PhotoAsset): Promise<void>;
+
+    /**
+     * Cancel cloud enhancement tasks.
+     * 
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Array<PhotoAsset> } photoAssets - The photo assets requested
+     * @returns { Promise<void> } Returns void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    cancelCloudEnhancementTasks(photoAssets: Array<PhotoAsset>): Promise<void>;
+
+    /**
+     * Cancel all cloud enhancement tasks.
+     * 
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @returns { Promise<void> } Returns void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    cancelAllCloudEnhancementTasks(): Promise<void>;
+
+    /**
+     * Query cloud enhancement task state.
+     * 
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { PhotoAsset } photoAsset - The photo asset requested
+     * @returns { Promise<CloudEnhancementTaskState> } Returns cloud enhancement task state
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    queryCloudEnhancementTaskState(photoAsset: PhotoAsset): Promise<CloudEnhancementTaskState>;
+
+    /**
+     * Sync cloud enhancement task status.
+     * 
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @returns { Promise<void> } Returns void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    syncCloudEnhancementTaskStatus(): Promise<void>;
+
+    /**
+     * Get cloud enhancement pair.
+     * 
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { PhotoAsset } asset - The asset requested
+     * @returns { Promise<PhotoAsset> } Returns cloud-enhanced asset
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    getCloudEnhancementPair(asset: PhotoAsset): Promise<PhotoAsset>;
+  }
+
+  /**
+   * Cloud enhancement state.
+   * 
+   * @enum { number } CloudEnhancementState
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 13
+   */
+  enum CloudEnhancementState {
+    /**
+     * Cloud enhancement unavailable state.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    UNAVAILABLE = 0,
+    /**
+     * Cloud enhancement available state.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    AVAILABLE,
+    /**
+     * Cloud enhancement executing state.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    EXECUTING,
+    /**
+     * Cloud enhancement completed state.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    COMPLETED
   }
 }
 
