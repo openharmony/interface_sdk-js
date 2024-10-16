@@ -189,6 +189,24 @@ declare namespace uiExtensionHost {
      * @since 12
      */
     setWaterMarkFlag(enable: boolean): Promise<void>;
+
+    /**
+     * Hide the display content when snapshot.
+     *
+     * @param { boolean } shouldHide - Hide the display content of UIExtensionAbility when the host application takes snapshots if true, otherwise means the opposite.
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 1300002 - Abnormal state. Possible causes:
+     * <br> 1. The UIExtension window proxy is abnormal.
+     * <br> 2. Not the UIExtensionAbility process calling.
+     * @systemapi
+     * @since 13
+     */
+    hidePrivacyContentForHost(shouldHide: boolean): Promise<void>;
   }
 
   /**
