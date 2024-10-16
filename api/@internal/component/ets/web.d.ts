@@ -2976,7 +2976,7 @@ declare class WebContextMenuParam {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 14
    */
-  getPreviewWidth?(): number;
+  getPreviewWidth(): number;
 
   /**
    * Returns the selection menu preview height.
@@ -2985,7 +2985,7 @@ declare class WebContextMenuParam {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 14
    */
-  getPreviewHeight?(): number;
+  getPreviewHeight(): number;
 }
 
 /**
@@ -8667,7 +8667,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 14
    */
-  bindSelectionMenu?(elementType: WebElementType, content: CustomBuilder, responseType: WebResponseType,
+  bindSelectionMenu(elementType: WebElementType, content: CustomBuilder, responseType: WebResponseType,
       options?: SelectionMenuOptionsExt): WebAttribute;
 }
 
