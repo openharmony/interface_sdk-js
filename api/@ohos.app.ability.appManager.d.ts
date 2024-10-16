@@ -215,6 +215,109 @@ declare namespace appManager {
   }
 
   /**
+   * Indicates the type of keep-alive apps.
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @since 14
+   */
+    export enum KeepAliveAppType {
+      /**
+       * All apps.
+       *
+       * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+       * @systemapi
+       * @since 14
+       */
+      ALL = 0,
+  
+      /**
+       * 3rd party app.
+       *
+       * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+       * @systemapi
+       * @since 14
+       */
+      THIRD_PARTY = 1,
+  
+      /**
+       * System app.
+       *
+       * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+       * @systemapi
+       * @since 14
+       */
+      SYSTEM = 2
+    }
+  
+    /**
+     * Setter who sets the keep-alive flag for a bundle.
+     * @enum { number }
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @systemapi
+     * @since 14
+     */
+    export enum KeepAliveSetter {
+      /**
+       * Indicates the bundle is set keep-alive by system.
+       *
+       * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+       * @systemapi
+       * @since 14
+       */
+      SYSTEM = 0,
+  
+      /**
+       * Indicates the bundle is set keep-alive by user.
+       *
+       * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+       * @systemapi
+       * @since 14
+       */
+      USER = 1
+    }
+  
+    /**
+     * The class of keep-alive bundle information.
+     *
+     * @typedef KeepAliveBundleInfo
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 14
+     */
+    export interface KeepAliveBundleInfo {
+      /**
+       * The name of the bundle.
+       *
+       * @type { string }
+       * @syscap SystemCapability.Ability.AbilityRuntime.Core
+       * @systemapi
+       * @since 14
+       */
+      bundleName: string;
+  
+      /**
+       * App type.
+       *
+       * @type { KeepAliveAppType }
+       * @syscap SystemCapability.Ability.AbilityRuntime.Core
+       * @systemapi
+       * @since 14
+       */
+      type: KeepAliveAppType;
+  
+      /**
+       * The setter who sets the keep-alive flag.
+       *
+       * @type { KeepAliveSetter }
+       * @syscap SystemCapability.Ability.AbilityRuntime.Core
+       * @systemapi
+       * @since 14
+       */
+      setter: KeepAliveSetter;
+    }
+  
+  /**
    * Register application state observer.
    *
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
@@ -1060,6 +1163,49 @@ declare namespace appManager {
    * @since 13
    */
   function getSupportedProcessCachePids(bundleName : string): Promise<Array<number>>;
+
+  /**
+   * Set keep alive for the specified bundle.
+   *
+   * @permission ohos.permission.MANAGE_KEEP_ALIVE
+   * @param { string } bundleName - bundle name.
+   * @param { number } userId - user id.
+   * @param { boolean } enable - flag indicates whether the bundle should be kept alive.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16300005 - The target bundle does not exist.
+   * @throws { BusinessError } 16300008 - The target bundle has no MainAbility.
+   * @throws { BusinessError } 16300009 - The target bundle has no status-bar ability.
+   * @throws { BusinessError } 16300010 - The target application is not attached to status bar.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 14
+   */
+    function setKeepAliveForBundle(bundleName: string, userId: number, enable: boolean): Promise<void>;
+
+  /**
+   * Get keep-alive bundle information.
+   *
+   * @permission ohos.permission.MANAGE_KEEP_ALIVE
+   * @param { KeepAliveAppType } type - type of keep-alive apps to be quried.
+   * @param { number } [userId] - user id.
+   * @returns { Promise<Array<KeepAliveBundleInfo>> } Returns the list of KeepAliveBundleInfo.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 14
+   */
+  function getKeepAliveBundles(type: KeepAliveAppType, userId?: number): Promise<Array<KeepAliveBundleInfo>>;
 
   /**
    * The ability or extension state data.
