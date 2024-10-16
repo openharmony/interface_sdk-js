@@ -2433,6 +2433,19 @@ declare namespace bundleManager {
   function getLaunchWantForBundleSync(bundleName: string, userId?: number): Want;
 
   /**
+   * Obtains the Want for starting the main ability of own application.
+   * The main ability of an application is the ability that has the
+   * #ACTION_HOME and #ENTITY_HOME Want filters set in the application's <b>config.json</b> or <b>module.json</b> file.
+   *
+   * @returns { Want } the Want for starting the application's main ability.
+   * @throws { BusinessError } 17700072 - The launch want is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 13
+   */
+  function getLaunchWant(): Want;
+
+  /**
    * Obtains the profile designated by metadata name, abilityName and moduleName from the current application.
    *
    * @param { string } moduleName - Indicates the moduleName of the application.
