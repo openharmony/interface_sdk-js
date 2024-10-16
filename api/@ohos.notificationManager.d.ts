@@ -344,7 +344,6 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
    * @throws { BusinessError } 1600012 - No memory space.
-   * @throws { BusinessError } 1600014 - No permission.
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
    * @throws { BusinessError } 2300007 - Network unreachable.
@@ -380,7 +379,6 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
    * @throws { BusinessError } 1600012 - No memory space.
-   * @throws { BusinessError } 1600014 - No permission.
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
    * @throws { BusinessError } 2300007 - Network unreachable.
@@ -410,7 +408,6 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
    * @throws { BusinessError } 1600012 - No memory space.
-   * @throws { BusinessError } 1600014 - No permission.
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
    * @throws { BusinessError } 2300007 - Network unreachable.
