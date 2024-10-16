@@ -20,6 +20,8 @@
 
 import geolocation from '@ohos.geolocation';
 import geoLocationManager from '@ohos.geoLocationManager';
+import FenceExtensionAbility from '@ohos.app.ability.FenceExtensionAbility';
+import FenceExtensionContext from '@ohos.app.ability.FenceExtensionContext';
 import Geolocation, {
   GeolocationResponse, GetLocationOption, GetLocationTypeOption, GetLocationTypeResponse,
   SubscribeLocationOption
@@ -27,5 +29,6 @@ import Geolocation, {
 
 export {
   Geolocation, GeolocationResponse, GetLocationOption, GetLocationTypeOption,
-  GetLocationTypeResponse, SubscribeLocationOption, geoLocationManager, geolocation
+  GetLocationTypeResponse, SubscribeLocationOption, geoLocationManager, geolocation,
+  FenceExtensionAbility,FenceExtensionContext
 };
