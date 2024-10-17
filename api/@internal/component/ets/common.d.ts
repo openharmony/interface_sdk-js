@@ -12756,6 +12756,18 @@ declare interface PopupOptions {
    * @since 13
    */
   enableHoverMode?: boolean;
+
+  /**
+   * Determine if popup can follow the target node when it has rotation or scale.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  followTransformOfTarget?: boolean;
 }
 
 /**
@@ -13279,6 +13291,18 @@ declare interface CustomPopupOptions {
    * @since 13
    */
   enableHoverMode?: boolean;
+
+  /**
+   * Determine if popup can follow the target node when it has rotation or scale.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  followTransformOfTarget?: boolean;
 }
 
 /**
