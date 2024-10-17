@@ -161,6 +161,18 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @since 12
    */
+  /**
+   * Create MediaSource from url.
+   * @param { string } url : The location for the media source.
+   * @param { Record<string, string> } headers : Headers attached to network request while player request data.
+   * @returns { MediaSource } MediaSource instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+   * @throws { BusinessError } 5400101 - No memory.
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @atomicservice
+   * @since 13
+   */
   function createMediaSourceWithUrl(url: string, headers?: Record<string, string>): MediaSource;
 
   /**
