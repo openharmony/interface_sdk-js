@@ -25,7 +25,7 @@ import type { AsyncCallback } from './@ohos.base';
  * Includes methods defined by GSMA Spec (SGP.22) and customized methods.
  *
  * @namespace esim
- * @syscap SystemCapability.Telephony.CoreService
+ * @syscap SystemCapability.Telephony.CoreService.Esim
  * @since 14
  */
 declare namespace esim {
@@ -34,7 +34,7 @@ declare namespace esim {
    *
    * @param { number } slotId - Indicates the card slot index number.
    * @returns { boolean } Returns {@code true} if the eSIM capability is supported; returns {@code false} otherwise.
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @since 14
    */
   function isEsimSupported(slotId: number): boolean;
@@ -53,7 +53,7 @@ declare namespace esim {
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -73,7 +73,7 @@ declare namespace esim {
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -93,7 +93,7 @@ declare namespace esim {
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -118,7 +118,7 @@ declare namespace esim {
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -144,7 +144,7 @@ declare namespace esim {
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -171,7 +171,7 @@ declare namespace esim {
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -192,7 +192,7 @@ declare namespace esim {
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -213,7 +213,7 @@ declare namespace esim {
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -234,7 +234,7 @@ declare namespace esim {
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -258,7 +258,7 @@ declare namespace esim {
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @since 14
    */
   function switchToProfile(slotId: number, portIndex: number, iccid: string,
@@ -279,7 +279,7 @@ declare namespace esim {
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @since 14
    */
   function setProfileNickname(slotId: number, iccid: string, nickname: string): Promise<ResultState>;
@@ -299,7 +299,7 @@ declare namespace esim {
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -319,7 +319,7 @@ declare namespace esim {
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -340,7 +340,7 @@ declare namespace esim {
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -360,7 +360,7 @@ declare namespace esim {
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -384,7 +384,7 @@ declare namespace esim {
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -395,7 +395,7 @@ declare namespace esim {
    * Establishes a single UICC access rule pursuant to the GlobalPlatform Secure Element Access Control specification.
    *
    * @interface AccessRule
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -404,7 +404,7 @@ declare namespace esim {
      * Certificate hash hexadecimal string.
      * 
      * @type { string }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -414,7 +414,7 @@ declare namespace esim {
      * The name of package.
      * 
      * @type { string }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -424,7 +424,7 @@ declare namespace esim {
      * The type of access.
      * 
      * @type { number }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -435,7 +435,7 @@ declare namespace esim {
    * Information about a profile which is downloadable to an eUICC using.
    *
    * @interface DownloadableProfile
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -444,7 +444,7 @@ declare namespace esim {
      * Activation code. It may be empty.
      *
      * @type { string }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -454,7 +454,7 @@ declare namespace esim {
      * Confirmation code.
      * 
      * @type { string }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -464,7 +464,7 @@ declare namespace esim {
      * Carrier name.
      * 
      * @type { string }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -474,7 +474,7 @@ declare namespace esim {
      * Gets the accessRules.
      * 
      * @type { Array<AccessRule> }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -485,7 +485,7 @@ declare namespace esim {
    * Result the metadata for a downloadableProfile.
    *
    * @interface GetDownloadableProfileMetadataResult
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -494,7 +494,7 @@ declare namespace esim {
      * Information about a profile which is downloadable to an eUICC using.
      * 
      * @type { DownloadableProfile }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -504,7 +504,7 @@ declare namespace esim {
      * The type of profile policy rule.
      * 
      * @type { number }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -514,7 +514,7 @@ declare namespace esim {
      * The flag of profile policy rule.
      * 
      * @type { boolean }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -524,7 +524,7 @@ declare namespace esim {
      * Gets the solvable errors.
      * 
      * @type { SolvableErrors }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -534,7 +534,7 @@ declare namespace esim {
      * Gets the result of the operation.
      * 
      * @type { ResultState }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -545,7 +545,7 @@ declare namespace esim {
    * Result of a operation.
    *
    * @interface GetDownloadableProfilesResult
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -554,7 +554,7 @@ declare namespace esim {
      * Gets the result of the operation.
      * 
      * @type { ResultState }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -564,7 +564,7 @@ declare namespace esim {
      * Gets the downloadable Profiles with filled-in metadata.
      * 
      * @type { Array<DownloadableProfile> }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -575,7 +575,7 @@ declare namespace esim {
    * Result of a operation.
    *
    * @interface DownloadProfileResult
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -584,7 +584,7 @@ declare namespace esim {
      * Gets the result of the operation.
      * 
      * @type { ResultState }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -594,7 +594,7 @@ declare namespace esim {
      * Gets the solvable errors.
      * 
      * @type { SolvableErrors }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -604,7 +604,7 @@ declare namespace esim {
      * Gets the card Id. This value comes from EuiccService and is used when resolving solvable errors.
      * 
      * @type { number }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -615,7 +615,7 @@ declare namespace esim {
    * Result of a operation.
    *
    * @interface GetEuiccProfileInfoListResult
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -624,7 +624,7 @@ declare namespace esim {
      * Gets the result of the operation.
      * 
      * @type { ResultState }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -634,7 +634,7 @@ declare namespace esim {
      * Gets the profile list (only upon success).
      * 
      * @type { Array<EuiccProfile> }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -644,7 +644,7 @@ declare namespace esim {
      * Gets whether the eUICC can be removed.
      * 
      * @type { boolean }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -655,7 +655,7 @@ declare namespace esim {
    * Information about the eUICC chip/device.
    *
    * @interface OperatorId
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -664,7 +664,7 @@ declare namespace esim {
      * Mobile country code.
      * 
      * @type { string }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -674,7 +674,7 @@ declare namespace esim {
      * Mobile network code.
      * 
      * @type { string }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -684,7 +684,7 @@ declare namespace esim {
      * Group id level 1.
      * 
      * @type { string }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -694,7 +694,7 @@ declare namespace esim {
      * Group id level 2.
      * 
      * @type { string }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -705,7 +705,7 @@ declare namespace esim {
    * Information about an embedded profile (subscription) on an eUICC.
    *
    * @interface EuiccProfile
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -714,7 +714,7 @@ declare namespace esim {
      * The iccid of the profile.
      * 
      * @type { string }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -724,7 +724,7 @@ declare namespace esim {
      * An optional nickname for the profile.
      * 
      * @type { string }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -734,7 +734,7 @@ declare namespace esim {
      * The service provider name for the profile.
      * 
      * @type { string }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -744,7 +744,7 @@ declare namespace esim {
      * The profile name.
      * 
      * @type { string }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -754,7 +754,7 @@ declare namespace esim {
      * The profile state.
      *
      * @type { ProfileState }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -764,7 +764,7 @@ declare namespace esim {
      * Profile class for the profile.
      *
      * @type { ProfileClass }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -774,7 +774,7 @@ declare namespace esim {
      * The operator Id of the profile.
      * 
      * @type { OperatorId }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -784,7 +784,7 @@ declare namespace esim {
      * The policy rules of the profile.
      *
      * @type { PolicyRules }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -794,7 +794,7 @@ declare namespace esim {
      * Optional access rules that specify which apps can manage this profile. Default platform management when not set.
      * 
      * @type { Array<AccessRule> }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -805,7 +805,7 @@ declare namespace esim {
    * Information related to eUICC chips/devices.
    * 
    * @interface EuiccInfo
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -814,7 +814,7 @@ declare namespace esim {
      * Operating system version.
      * 
      * @type { string }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -825,7 +825,7 @@ declare namespace esim {
    * Options for resetting eUICC memory.
    *
    * @enum { number }
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -833,7 +833,7 @@ declare namespace esim {
     /**
      * Deletes all operational profiles on reset.
      *
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -842,7 +842,7 @@ declare namespace esim {
     /**
      * Deletes all field-loaded testing profiles on reset.
      *
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -851,7 +851,7 @@ declare namespace esim {
     /**
      * Resets the default SM-DP+ address on reset.
      *
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -862,7 +862,7 @@ declare namespace esim {
    * Euicc OS upgrade status.
    *
    * @enum { number }
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -870,7 +870,7 @@ declare namespace esim {
     /**
      * The OS upgrade is in progress.
      *
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -879,7 +879,7 @@ declare namespace esim {
     /**
      * The OS upgrade failed.
      *
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -888,7 +888,7 @@ declare namespace esim {
     /**
      * The OS upgrade successful.
      *
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -897,7 +897,7 @@ declare namespace esim {
     /**
      * The OS upgrade not needed since current eUICC OS is latest.
      *
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -906,7 +906,7 @@ declare namespace esim {
     /**
      * The OS upgrade status is unavailable since eUICC service is unavailable.
      *
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -917,7 +917,7 @@ declare namespace esim {
    * Result state.
    *
    * @enum { number }
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -925,7 +925,7 @@ declare namespace esim {
     /**
      * Indicates that the user must resolve a solveable error.
      *
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -934,7 +934,7 @@ declare namespace esim {
     /**
      * Indicates that the active profile must be disabled to perform the operation.
      *
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -943,7 +943,7 @@ declare namespace esim {
     /**
      * Operation succeeded.
      *
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -952,7 +952,7 @@ declare namespace esim {
     /**
      * undefinedError.
      *
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -963,7 +963,7 @@ declare namespace esim {
    * The reason for canceling a profile download session.
    *
    * @enum { number }
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -971,7 +971,7 @@ declare namespace esim {
     /**
      * The end user has rejected the download.
      *
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -980,7 +980,7 @@ declare namespace esim {
     /**
      * The download has been postponed and you can try again later.
      *
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -989,7 +989,7 @@ declare namespace esim {
     /**
      * The download has been timed out and you can try again later.
      *
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -998,7 +998,7 @@ declare namespace esim {
     /**
      * The profile to be downloaded cannot be installed because profile policy rules are not allowed.
      *
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -1009,7 +1009,7 @@ declare namespace esim {
    * Result of a operation.
    *
    * @interface ResponseEsimResult
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -1018,7 +1018,7 @@ declare namespace esim {
      * Gets the result of the operation.
      * 
      * @type { ResultState }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -1028,7 +1028,7 @@ declare namespace esim {
      * Gets the response results.
      * 
      * @type { string }
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -1039,7 +1039,7 @@ declare namespace esim {
    * The profile state.
    *
    * @enum { number }
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -1047,7 +1047,7 @@ declare namespace esim {
     /**
      * Profile state not specified.
      *
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -1056,7 +1056,7 @@ declare namespace esim {
     /**
      * Disabled profiles.
      *
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -1065,7 +1065,7 @@ declare namespace esim {
     /**
      * Enabled profile.
      *
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -1076,7 +1076,7 @@ declare namespace esim {
    * The Profile class.
    *
    * @enum { number }
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -1084,7 +1084,7 @@ declare namespace esim {
     /**
      * Profile class not specified.
      *
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -1093,7 +1093,7 @@ declare namespace esim {
     /**
      * Testing profiles.
      *
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -1102,7 +1102,7 @@ declare namespace esim {
     /**
      * Provisioning profiles that preloaded on the eUICC.
      *
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -1111,7 +1111,7 @@ declare namespace esim {
     /**
      * Operational profiles that can be preloaded or downloaded.
      *
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -1122,7 +1122,7 @@ declare namespace esim {
    * The policy rules of the profile.
    *
    * @enum { number }
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -1130,7 +1130,7 @@ declare namespace esim {
     /**
      * Disabling of this Profile is not allowed.
      *
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -1139,7 +1139,7 @@ declare namespace esim {
     /**
      * Deletion of this Profile is not allowed.
      *
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -1148,7 +1148,7 @@ declare namespace esim {
     /**
      * This profile should be deleted when disabled.
      *
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -1159,7 +1159,7 @@ declare namespace esim {
    * The solvable errors.
    *
    * @enum { number }
-   * @syscap SystemCapability.Telephony.CoreService
+   * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
@@ -1167,7 +1167,7 @@ declare namespace esim {
     /**
      * Indicates that the user needs to input a confirmation code during the download.
      *
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
@@ -1176,7 +1176,7 @@ declare namespace esim {
     /**
      * Indicates that the download process requires user consent to allow profile policy rules.
      *
-     * @syscap SystemCapability.Telephony.CoreService
+     * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
