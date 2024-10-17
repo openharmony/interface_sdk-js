@@ -3079,6 +3079,26 @@ export class UIContext {
   getWindowName(): string | undefined;
 
   /**
+   * Get the width breakpoint of current window.
+   *
+   * @returns { WidthBreakpoint } The width breakpoint of current window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  getWindowWidthBreakpoint(): WidthBreakpoint;
+  
+  /**
+   * Get the height breakpoint of current window.
+   *
+   * @returns { HeightBreakpoint } The height breakpoint of current window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice 
+   * @since 13
+   */
+  getWindowHeightBreakpoint(): HeightBreakpoint;
+
+  /**
    * Open the BindSheet.
    *
    * @param { ComponentContent<T> } bindSheetContent - The content of BindSheet.
