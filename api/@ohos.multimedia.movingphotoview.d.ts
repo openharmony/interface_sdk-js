@@ -27,6 +27,7 @@ import photoAccessHelper from './@ohos.file.photoAccessHelper';
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @crossplatform
  * @atomicservice
+ * @uicomponent
  * @since 12
  */
 declare interface MovingPhotoViewOptions {
@@ -37,6 +38,7 @@ declare interface MovingPhotoViewOptions {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
+     * @uicomponent
      * @since 12
      */
     movingPhoto: photoAccessHelper.MovingPhoto;
@@ -47,6 +49,7 @@ declare interface MovingPhotoViewOptions {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
+     * @uicomponent
      * @since 12
      */
     controller?: MovingPhotoViewController;
@@ -80,6 +83,7 @@ interface MovingPhotoViewInterface {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
+     * @uicomponent
      * @since 12
      */
     (options: MovingPhotoViewOptions): MovingPhotoViewAttribute;
@@ -92,6 +96,7 @@ interface MovingPhotoViewInterface {
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @crossplatform
  * @atomicservice
+ * @uicomponent
  * @since 12
  */
 declare type MovingPhotoViewEventCallback = () => void;
@@ -103,6 +108,7 @@ declare type MovingPhotoViewEventCallback = () => void;
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @crossplatform
  * @atomicservice
+ * @uicomponent
  * @since 12
  */
 declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttribute> {
@@ -114,6 +120,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
+     * @uicomponent
      * @since 12
      */
     muted(isMuted: boolean): MovingPhotoViewAttribute;
@@ -125,6 +132,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
+     * @uicomponent
      * @since 12
      */
     objectFit(value: ImageFit): MovingPhotoViewAttribute;
@@ -136,6 +144,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
+     * @uicomponent
      * @since 13
      */
     onComplete(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
@@ -147,6 +156,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
+     * @uicomponent
      * @since 12
      */
     onStart(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
@@ -158,6 +168,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
+     * @uicomponent
      * @since 12
      */
     onStop(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
@@ -169,6 +180,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
+     * @uicomponent
      * @since 12
      */
     onPause(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
@@ -180,6 +192,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
+     * @uicomponent
      * @since 12
      */
     onFinish(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
@@ -191,6 +204,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
+     * @uicomponent
      * @since 12
      */
     onError(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
@@ -204,6 +218,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
+     * @uicomponent
      * @since 13
      */
     autoPlayPeriod(startTime: number, endTime: number): MovingPhotoViewAttribute;
@@ -216,6 +231,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
+     * @uicomponent
      * @since 13
      */
     autoPlay(isAutoPlay: boolean): MovingPhotoViewAttribute;
@@ -228,6 +244,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
+     * @uicomponent
      * @since 13
      */
     repeatPlay(isRepeatPlay: boolean): MovingPhotoViewAttribute;
@@ -252,6 +269,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @crossplatform
  * @atomicservice
+ * @uicomponent
  * @since 12
  */
 export class MovingPhotoViewController {
@@ -261,6 +279,7 @@ export class MovingPhotoViewController {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
+     * @uicomponent
      * @since 12
      */
     constructor();
@@ -270,6 +289,7 @@ export class MovingPhotoViewController {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
+     * @uicomponent
      * @since 12
      */
     startPlayback();
@@ -279,6 +299,7 @@ export class MovingPhotoViewController {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
+     * @uicomponent
      * @since 12
      */
     stopPlayback();
@@ -289,6 +310,7 @@ export class MovingPhotoViewController {
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @crossplatform
  * @atomicservice
+ * @uicomponent
  * @since 12
  */
 declare const MovingPhotoView: MovingPhotoViewInterface;
@@ -298,6 +320,7 @@ declare const MovingPhotoView: MovingPhotoViewInterface;
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @crossplatform
  * @atomicservice
+ * @uicomponent
  * @since 12
  */
 declare const MovingPhotoViewInstance: MovingPhotoViewAttribute;
