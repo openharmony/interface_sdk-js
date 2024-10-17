@@ -159,6 +159,7 @@ declare namespace media {
    * <br>2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 5400101 - No memory.
    * @syscap SystemCapability.Multimedia.Media.Core
+   * @atomicservice
    * @since 12
    */
   function createMediaSourceWithUrl(url: string, headers?: Record<string, string>): MediaSource;
