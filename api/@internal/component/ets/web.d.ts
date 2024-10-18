@@ -5743,6 +5743,14 @@ declare interface OnSslErrorEventReceiveEvent {
    * @since 12
    */
   error: SslError;
+  /**
+   * Certificate chain data in DER format.
+   *
+   * @type { ?Array<Uint8Array> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 14
+   */
+  certChainData?: Array<Uint8Array>;
 }
 
 /**
