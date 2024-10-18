@@ -1389,6 +1389,190 @@ declare namespace media {
      * @since 12
      */
     AVERR_AUDIO_INTERRUPTED = 5400107,
+    /**
+     * Audio interrupted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_UNSUPPORTTED_REQUEST = 5411011,
+    /**
+     * Audio interrupted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_DATA_ABNORMAL = 5411012,
+    /**
+     * Audio interrupted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_FILE_ACCESS_DENIED = 5411013,
+    /**
+     * Audio interrupted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_FILE_BAD_HANDLE = 5411014,
+    /**
+     * Audio interrupted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_FILE_NOT_FOUND = 5411015,
+    /**
+     * Audio interrupted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_FILE_PERMISSION_DENIED = 5411016,
+    /**
+     * Audio interrupted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_AUDIO_DEC_FAILED = 5411017,
+    /**
+     * Audio interrupted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_AUDIO_DEC_INIT_FAILED = 5411018,
+    /**
+     * Audio interrupted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_AUDIO_DEC_UNAVAILABLE = 5411019,
+    /**
+     * Audio interrupted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_AUDIO_DEVICE_ERROR = 5411020,
+    /**
+     * Audio interrupted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_AUDIO_DEVICE_INVALID_STATE = 5411021,
+    /**
+     * Audio interrupted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_AUDIO_DEVICE_TIMEOUT = 5411022,
+    /**
+     * Audio interrupted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_AUDIO_DEVICE_UNAVAILABLE = 5411023,
+    /**
+     * Audio interrupted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_AUDIO_ENC_FAILED = 5411024,
+    /**
+     * Audio interrupted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_AUDIO_ENC_INIT_FAILED = 5411025,
+    /**
+     * Audio interrupted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_AUDIO_ENC_UNAVAILABLE = 5411026,
+    /**
+     * Audio interrupted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_VIDEO_DEC_FAILED = 5411027,
+    /**
+     * Audio interrupted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_VIDEO_DEC_INIT_FAILED = 5411028,
+    /**
+     * Audio interrupted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_VIDEO_DEC_UNAVAILABLE = 5411029,
+    /**
+     * Audio interrupted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_VIDEO_DEVICE_ERROR = 5411030,
+    /**
+     * Audio interrupted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_VIDEO_ENC_FAILED = 5411031,
+    /**
+     * Audio interrupted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_VIDEO_ENC_INIT_FAILED = 5411032,
+    /**
+     * Audio interrupted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_VIDEO_ENC_UNAVAILABLE = 5411033,
   }
 
   /**
