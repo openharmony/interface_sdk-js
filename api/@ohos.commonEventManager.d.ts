@@ -2213,6 +2213,18 @@ declare namespace commonEventManager {
      * @since 12
      */
     COMMON_EVENT_VPN_CONNECTION_STATUS_CHANGED = 'usual.event.VPN_CONNECTION_STATUS_CHANGED',
+
+    /**
+     * Indicates that an application begins to restored.
+     * To subscribe to this common event, your application must have the ohos.permission.START_RESTORE_NOTIFICATION
+     * permission.
+     * This is a protected common event that can only be sent by system.
+     * 
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @since 13
+     */
+    COMMON_EVENT_RESTORE_START = "usual.event.RESTORE_START",
   }
 
   /**
