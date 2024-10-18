@@ -1390,7 +1390,7 @@ declare namespace media {
      */
     AVERR_AUDIO_INTERRUPTED = 5400107,
     /**
-     * Audio interrupted.
+     * IO unsupported request.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1398,7 +1398,7 @@ declare namespace media {
      */
     AVERR_IO_UNSUPPORTTED_REQUEST = 5411011,
     /**
-     * Audio interrupted.
+     * IO data abnormal.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1406,7 +1406,7 @@ declare namespace media {
      */
     AVERR_IO_DATA_ABNORMAL = 5411012,
     /**
-     * Audio interrupted.
+     * IO file access denied.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1414,7 +1414,7 @@ declare namespace media {
      */
     AVERR_IO_FILE_ACCESS_DENIED = 5411013,
     /**
-     * Audio interrupted.
+     * IO file bad handle.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1422,7 +1422,7 @@ declare namespace media {
      */
     AVERR_IO_FILE_BAD_HANDLE = 5411014,
     /**
-     * Audio interrupted.
+     * IO file not found.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1430,7 +1430,7 @@ declare namespace media {
      */
     AVERR_IO_FILE_NOT_FOUND = 5411015,
     /**
-     * Audio interrupted.
+     * IO file permission denied.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1438,7 +1438,7 @@ declare namespace media {
      */
     AVERR_IO_FILE_PERMISSION_DENIED = 5411016,
     /**
-     * Audio interrupted.
+     * Audio decode failed.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1446,7 +1446,7 @@ declare namespace media {
      */
     AVERR_IO_AUDIO_DEC_FAILED = 5411017,
     /**
-     * Audio interrupted.
+     * Audio decode init failed.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1454,7 +1454,7 @@ declare namespace media {
      */
     AVERR_IO_AUDIO_DEC_INIT_FAILED = 5411018,
     /**
-     * Audio interrupted.
+     * Audio decode unavailable.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1462,7 +1462,7 @@ declare namespace media {
      */
     AVERR_IO_AUDIO_DEC_UNAVAILABLE = 5411019,
     /**
-     * Audio interrupted.
+     * Audio device error.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1470,7 +1470,7 @@ declare namespace media {
      */
     AVERR_IO_AUDIO_DEVICE_ERROR = 5411020,
     /**
-     * Audio interrupted.
+     * Audio device invalid state.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1478,7 +1478,7 @@ declare namespace media {
      */
     AVERR_IO_AUDIO_DEVICE_INVALID_STATE = 5411021,
     /**
-     * Audio interrupted.
+     * Audio device timeout.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1486,7 +1486,7 @@ declare namespace media {
      */
     AVERR_IO_AUDIO_DEVICE_TIMEOUT = 5411022,
     /**
-     * Audio interrupted.
+     * Audio device unavailable.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1494,7 +1494,7 @@ declare namespace media {
      */
     AVERR_IO_AUDIO_DEVICE_UNAVAILABLE = 5411023,
     /**
-     * Audio interrupted.
+     * Audio encode failed.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1502,7 +1502,7 @@ declare namespace media {
      */
     AVERR_IO_AUDIO_ENC_FAILED = 5411024,
     /**
-     * Audio interrupted.
+     * Audio encode init failed.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1510,7 +1510,7 @@ declare namespace media {
      */
     AVERR_IO_AUDIO_ENC_INIT_FAILED = 5411025,
     /**
-     * Audio interrupted.
+     * Audio encode unavailable.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1518,7 +1518,7 @@ declare namespace media {
      */
     AVERR_IO_AUDIO_ENC_UNAVAILABLE = 5411026,
     /**
-     * Audio interrupted.
+     * Video decode failed.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1526,7 +1526,7 @@ declare namespace media {
      */
     AVERR_IO_VIDEO_DEC_FAILED = 5411027,
     /**
-     * Audio interrupted.
+     * Video decode init failed.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1534,7 +1534,7 @@ declare namespace media {
      */
     AVERR_IO_VIDEO_DEC_INIT_FAILED = 5411028,
     /**
-     * Audio interrupted.
+     * Video decode unavailable.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1542,7 +1542,7 @@ declare namespace media {
      */
     AVERR_IO_VIDEO_DEC_UNAVAILABLE = 5411029,
     /**
-     * Audio interrupted.
+     * Video device error.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1550,7 +1550,7 @@ declare namespace media {
      */
     AVERR_IO_VIDEO_DEVICE_ERROR = 5411030,
     /**
-     * Audio interrupted.
+     * Video encode failed.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1558,7 +1558,7 @@ declare namespace media {
      */
     AVERR_IO_VIDEO_ENC_FAILED = 5411031,
     /**
-     * Audio interrupted.
+     * Video encode init failed.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1566,7 +1566,7 @@ declare namespace media {
      */
     AVERR_IO_VIDEO_ENC_INIT_FAILED = 5411032,
     /**
-     * Audio interrupted.
+     * Video encode unavailable.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
