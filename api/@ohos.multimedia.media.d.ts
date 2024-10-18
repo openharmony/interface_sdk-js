@@ -3413,7 +3413,7 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 13
+     * @since 12
      */
     preferredAudioLanguage?: string;
 
@@ -3422,7 +3422,7 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 13
+     * @since 12
      */
     preferredSubtitleLanguage?: string;
   }
@@ -7184,7 +7184,7 @@ declare namespace media {
      * Seek in continuous mode.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @systemapi
-     * @since 13
+     * @since 12
      */
     SEEK_CONTINUOUS = 3,
   }
