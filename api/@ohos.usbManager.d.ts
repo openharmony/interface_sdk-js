@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -342,6 +342,26 @@ declare namespace usbManager {
    */
   function setPortRoleTypes(portId: number, powerRole: PowerRoleType, dataRole: DataRoleType): Promise<void>;
 
+  /**
+   * Adds USB accessory access right.
+   *
+   * @permission ohos.permission.MANAGE_USB_CONFIG
+   * @param { number } tokenId - refers to application that require access permissions. It cannot be empty.
+   * @param { USBAccessory } accessory - USB accessory. It cannot be empty.
+   * @throws { BusinessError } 201 - The permission check failed.
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 14400004 - Service exception. Possible causes:
+   * <br>1. No accessory is plugged in.
+   * @throws { BusinessError } 14400005 - Database operation exception.
+   * @syscap SystemCapability.USB.USBManager
+   * @systemapi
+   * @since 14
+   */
+  function addAccessoryRight(tokenId: number, accessory: USBAccessory): void;
+
   /* usb pipe functions begin */
   /**
    * Claims a USB interface.
@@ -494,6 +514,100 @@ declare namespace usbManager {
    * @since 9
    */
   function closePipe(pipe: USBDevicePipe): number;
+
+  /**
+   * Checks whether the application has the right to access the USB accessory.
+   *
+   * @param { USBAccessory } accessory - USB accessory. It cannot be empty.
+   * @returns { boolean } indicates if the user has the right to access the USB accessory.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 14400004 - Service exception. Possible causes:
+   * <br>1. No accessory is plugged in.
+   * @throws { BusinessError } 14400005 - Database operation exception.
+   * @throws { BusinessError } 14401001 - The target USBAccessory not matched.
+   * @syscap SystemCapability.USB.USBManager
+   * @since 14
+   */
+  function hasAccessoryRight(accessory: USBAccessory): boolean;
+
+  /**
+   * Requests the right for a given application to access the USB accessory.
+   *
+   * @param { USBAccessory } accessory - USB accessory. It cannot be empty.
+   * @returns { Promise<boolean> } indicates if the USB accessory access right are granted.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 14400004 - Service exception. Possible causes:
+   * <br>1. No accessory is plugged in.
+   * @throws { BusinessError } 14400005 - Database operation exception.
+   * @throws { BusinessError } 14401001 - The target USBAccessory not matched.
+   * @syscap SystemCapability.USB.USBManager
+   * @since 14
+   */
+  function requestAccessoryRight(accessory: USBAccessory): Promise<boolean>;
+
+  /**
+   * Cancels the right for a given application to access the USB accessory.
+   *
+   * @param { USBAccessory } accessory - USB accessory. It cannot be empty.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 14400004 - Service exception. Possible causes:
+   * <br>1. No accessory is plugged in.
+   * @throws { BusinessError } 14400005 - Database operation exception.
+   * @throws { BusinessError } 14401001 - The target USBAccessory not matched.
+   * @syscap SystemCapability.USB.USBManager
+   * @since 14
+   */
+  function cancelAccessoryRight(accessory: USBAccessory): void;
+
+  /**
+   * Obtains the USB Accessory list.
+   *
+   * @returns { Array<Readonly<USBAccessory>> } USB accessory list.
+   * @throws { BusinessError } 14400004 - Service exception. Possible causes:
+   * <br>1. No accessory is plugged in.
+   * @syscap SystemCapability.USB.USBManager
+   * @since 14
+   */
+  function getAccessoryList(): Array<Readonly<USBAccessory>>;
+
+  /**
+   * Obtains the accessory handle and opens accessory file descriptor.
+   *
+   * @param { USBAccessory } accessory - accessory, which is used to determine the accessory. It cannot be empty.
+   * @returns { USBAccessoryHandle } returns the handle of the accessory.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 14400001 - Permission denied. Call requestAccessoryRight to get the right first.
+   * @throws { BusinessError } 14400004 - Service exception. Possible causes:
+   * <br>1. No accessory is plugged in.
+   * @throws { BusinessError } 14401001 - The target USBAccessory not matched.
+   * @throws { BusinessError } 14401002 - Failed to open the native accessory node.
+   * @throws { BusinessError } 14401003 - Cannot reopen the accessory.
+   * @syscap SystemCapability.USB.USBManager
+   * @since 14
+   */
+  function openAccessory(accessory: USBAccessory): USBAccessoryHandle;
+
+  /**
+   * Closes the accessory file descriptor.
+   *
+   * @param { USBAccessoryHandle } accessoryHandle - Accessory handle to be closed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 14400004 - Service exception. Possible causes:
+   * <br>1. No accessory is plugged in.
+   * @syscap SystemCapability.USB.USBManager
+   * @since 14
+   */
+  function closeAccessory(accessoryHandle: USBAccessoryHandle): void;
 
   /**
    * Represents the USB endpoint from which data is sent or received. You can obtain the USB endpoint through USBInterface.
@@ -1405,6 +1519,78 @@ declare namespace usbManager {
      * @since 9
      */
     NCM = 256
+  }
+
+  /**
+   * Represents a USB Accessory.
+   *
+   * @typedef USBAccessory
+   * @syscap SystemCapability.USB.USBManager
+   * @since 14
+   */
+  interface USBAccessory {
+    /**
+     * The manufacturer name of the accessory.
+     *
+     * @type { string }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 14
+     */
+    manufacturer: string;
+  
+    /**
+     * The product of the accessory.
+     *
+     * @type { string }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 14
+     */
+    product: string;
+
+    /**
+     * The user visible description of the accessory.
+     *
+     * @type { string }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 14
+     */
+    description: string;
+
+    /**
+     * The version of the accessory.
+     *
+     * @type { string }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 14
+     */
+    version: string;
+
+    /**
+     * The serial number of the accessory.
+     *
+     * @type { string }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 14
+     */
+    serialNumber: string;
+  }
+
+  /**
+   * Handle of accessory.
+   *
+   * @typedef USBAccessoryHandle
+   * @syscap SystemCapability.USB.USBManager
+   * @since 14
+   */
+  interface USBAccessoryHandle {
+    /**
+     * The file descriptor of the accessory.
+     *
+     * @type { number }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 14
+     */
+    accessoryFd: number;
   }
 }
 
