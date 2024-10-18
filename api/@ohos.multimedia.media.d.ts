@@ -4030,7 +4030,7 @@ declare namespace media {
      * @returns { Promise<boolean> } A Promise instance used to return true or false when the function is finished.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @systemapi
-     * @since 12
+     * @since 13
      */
     isWatermarkSupported(): Promise<boolean>;
     /**
@@ -4042,7 +4042,7 @@ declare namespace media {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @systemapi
-     * @since 12
+     * @since 13
      */
     setWatermark(watermark: image.PixelMap, config: WatermarkConfig): Promise<void>
     /**
@@ -4690,7 +4690,7 @@ declare namespace media {
    * @typedef WatermarkConfig
    * @syscap SystemCapability.Multimedia.Media.Core
    * @systemapi
-   * @since 12
+   * @since 13
    */
   interface WatermarkConfig {
     /**
@@ -4698,7 +4698,7 @@ declare namespace media {
      * @type { number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     top: number;
     /**
@@ -4706,7 +4706,7 @@ declare namespace media {
      * @type { number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     left: number;
   }
