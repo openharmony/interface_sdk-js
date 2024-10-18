@@ -2932,6 +2932,28 @@ declare namespace media {
      * @throws { BusinessError } 5411009 - IO SSL connect fail.
      * @throws { BusinessError } 5411010 - IO SSL server cert untrusted.
      * @throws { BusinessError } 5411011 - IO unsupported request.
+     * @throws { BusinessError } 5411012 - IO data abnormal.
+     * @throws { BusinessError } 5411013 - IO file access denied.
+     * @throws { BusinessError } 5411014 - IO file bad handle.
+     * @throws { BusinessError } 5411015 - IO file not found.
+     * @throws { BusinessError } 5411016 - IO file permission denied.
+     * @throws { BusinessError } 5411017 - IO decode failed.
+     * @throws { BusinessError } 5411018 - Audio decode init failed.
+     * @throws { BusinessError } 5411019 - Audio decode unavailable.
+     * @throws { BusinessError } 5411020 - Audio device error.
+     * @throws { BusinessError } 5411021 - Audio device invalid state.
+     * @throws { BusinessError } 5411022 - Audio device timeout.
+     * @throws { BusinessError } 5411023 - Audio device unavailable.
+     * @throws { BusinessError } 5411024 - Audio encode failed.
+     * @throws { BusinessError } 5411025 - Audio encode init failed.
+     * @throws { BusinessError } 5411026 - Audio encode unavailable.
+     * @throws { BusinessError } 5411027 - Video decode failed.
+     * @throws { BusinessError } 5411028 - Video decode init failed.
+     * @throws { BusinessError } 5411029 - Video decode unavailable.
+     * @throws { BusinessError } 5411030 - Video device error.
+     * @throws { BusinessError } 5411031 - Video encode failed.
+     * @throws { BusinessError } 5411032 - Video encode init failed.
+     * @throws { BusinessError } 5411033 - Video encode unavailable.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
