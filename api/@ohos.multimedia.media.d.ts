@@ -1521,27 +1521,6 @@ declare namespace media {
      * @atomicservice
      * @since 12
      */
-    /**
-     * Prepare audio/video playback, it will request resource for playing.
-     * @param { AsyncCallback<void> } callback - instance used to return when prepare completed.
-     * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
-     * @throws { BusinessError } 5400106 - Unsupport format. Return by callback.
-     * @throws { BusinessError } 5411001 - IO can not find host. Return by callback.
-     * @throws { BusinessError } 5411002 - IO connection timeout. Return by callback.
-     * @throws { BusinessError } 5411003 - IO network abnormal. Return by callback.
-     * @throws { BusinessError } 5411004 - IO network unavailable. Return by callback.
-     * @throws { BusinessError } 5411005 - IO no permission. Return by callback.
-     * @throws { BusinessError } 5411006 - IO request denied. Return by callback.
-     * @throws { BusinessError } 5411007 - IO resource not found. Return by callback.
-     * @throws { BusinessError } 5411008 - IO SSL client cert needed. Return by callback.
-     * @throws { BusinessError } 5411009 - IO SSL connect fail. Return by callback.
-     * @throws { BusinessError } 5411010 - IO SSL server cert untrusted. Return by callback.
-     * @throws { BusinessError } 5411011 - IO unsupported request. Return by callback.
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
     prepare(callback: AsyncCallback<void>): void;
 
     /**
