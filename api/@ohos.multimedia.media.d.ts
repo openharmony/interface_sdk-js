@@ -1390,7 +1390,7 @@ declare namespace media {
      */
     AVERR_AUDIO_INTERRUPTED = 5400107,
     /**
-     * IO can not find host.
+     * The address of server is incorrect, and IO can not find host.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1398,7 +1398,7 @@ declare namespace media {
      */
     AVERR_IO_CANNOT_FIND_HOST = 5411001,
     /**
-     * IO connection timeout.
+     * Network connection timeout.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1406,7 +1406,7 @@ declare namespace media {
      */
     AVERR_IO_CONNECTION_TIMEOUT = 5411002,
     /**
-     * IO network abnormal.
+     * Failed link due to abnormal network.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1414,7 +1414,7 @@ declare namespace media {
      */
     AVERR_IO_NETWORK_ABNORMAL = 5411003,
     /**
-     * IO network unavailable.
+     * Failed link due to unavailable network.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1422,7 +1422,7 @@ declare namespace media {
      */
     AVERR_IO_NETWORK_UNAVAILABLE = 5411004,
     /**
-     * IO no permission.
+     * Network permission dennied.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1430,7 +1430,7 @@ declare namespace media {
      */
     AVERR_IO_NO_PERMISSION = 5411005,
     /**
-     * IO request denied.
+     * The client request parameters are incorrect or exceed the processing capacity.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1438,7 +1438,7 @@ declare namespace media {
      */
     AVERR_IO_REQUEST_DENID = 5411006,
     /**
-     * IO resource not found.
+     * Cannot find available network resources.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1446,7 +1446,7 @@ declare namespace media {
      */
     AVERR_IO_RESOURE_NOT_FOUND = 5411007,
     /**
-     * IO SSL client cert needed.
+     * Client authentication failed and SSL client cert needed.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1470,7 +1470,7 @@ declare namespace media {
      */
     AVERR_IO_SSL_SERVER_CERT_UNTRUSTED = 5411010,
     /**
-     * IO SSL server cert untrusted.
+     * Unsupported request due to network protocols.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1478,7 +1478,7 @@ declare namespace media {
      */
     AVERR_IO_UNSUPPORTTED_REQUEST = 5411011,
     /**
-     * IO data abnormal.
+     * The file data is incorrect, and no specific data can be provided.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1486,7 +1486,7 @@ declare namespace media {
      */
     AVERR_IO_DATA_ABNORMAL = 5411012,
     /**
-     * IO file access denied.
+     * The file is occupied by other processes and cannot be accessed.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1494,7 +1494,7 @@ declare namespace media {
      */
     AVERR_IO_FILE_ACCESS_DENIED = 5411013,
     /**
-     * IO file bad handle.
+     * The file handle is incorrect.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1510,7 +1510,7 @@ declare namespace media {
      */
     AVERR_IO_FILE_NOT_FOUND = 5411015,
     /**
-     * IO file permission denied.
+     * IO file permission denied because API does not have permissions.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1518,7 +1518,7 @@ declare namespace media {
      */
     AVERR_IO_FILE_PERMISSION_DENIED = 5411016,
     /**
-     * Audio decode failed.
+     * Failed to decode the audio data.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1526,7 +1526,7 @@ declare namespace media {
      */
     AVERR_IO_AUDIO_DEC_FAILED = 5411017,
     /**
-     * Audio decode init failed.
+     * Fail to init the audio decoder.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1534,7 +1534,7 @@ declare namespace media {
      */
     AVERR_IO_AUDIO_DEC_INIT_FAILED = 5411018,
     /**
-     * Audio decode unavailable.
+     * The audio decoder is unavailable.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1550,7 +1550,7 @@ declare namespace media {
      */
     AVERR_IO_AUDIO_DEVICE_ERROR = 5411020,
     /**
-     * Audio device invalid state.
+     * The audio device state does not support the current operation.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1566,7 +1566,7 @@ declare namespace media {
      */
     AVERR_IO_AUDIO_DEVICE_TIMEOUT = 5411022,
     /**
-     * Audio device unavailable.
+     * Audio device unavailable, unable to create an audio device.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1574,7 +1574,7 @@ declare namespace media {
      */
     AVERR_IO_AUDIO_DEVICE_UNAVAILABLE = 5411023,
     /**
-     * Audio encode failed.
+     * Failed to encode the audio data.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1582,7 +1582,7 @@ declare namespace media {
      */
     AVERR_IO_AUDIO_ENC_FAILED = 5411024,
     /**
-     * Audio encode init failed.
+     * Fail to init the audio encoder.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1590,7 +1590,7 @@ declare namespace media {
      */
     AVERR_IO_AUDIO_ENC_INIT_FAILED = 5411025,
     /**
-     * Audio encode unavailable.
+     * The audio encoder is unavailable.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1598,7 +1598,7 @@ declare namespace media {
      */
     AVERR_IO_AUDIO_ENC_UNAVAILABLE = 5411026,
     /**
-     * Video decode failed.
+     * Failed to decode the video data.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1606,7 +1606,7 @@ declare namespace media {
      */
     AVERR_IO_VIDEO_DEC_FAILED = 5411027,
     /**
-     * Video decode init failed.
+     * Fail to init the video decoder.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1614,7 +1614,7 @@ declare namespace media {
      */
     AVERR_IO_VIDEO_DEC_INIT_FAILED = 5411028,
     /**
-     * Video decode unavailable.
+     * The video decoder is unavailable.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1630,7 +1630,7 @@ declare namespace media {
      */
     AVERR_IO_VIDEO_DEVICE_ERROR = 5411030,
     /**
-     * Video encode failed.
+     * Failed to encode the video data.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1638,7 +1638,7 @@ declare namespace media {
      */
     AVERR_IO_VIDEO_ENC_FAILED = 5411031,
     /**
-     * Video encode init failed.
+     * Failed to init the video encoder.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1646,7 +1646,7 @@ declare namespace media {
      */
     AVERR_IO_VIDEO_ENC_INIT_FAILED = 5411032,
     /**
-     * Video encode unavailable.
+     * The video encoder is unavailable.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
