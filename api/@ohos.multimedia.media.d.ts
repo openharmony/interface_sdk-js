@@ -1314,7 +1314,7 @@ declare namespace media {
      * @since 12
      * @deprecated since 14
      * @useinstead ohos.multimedia.media/media.AVErrorCode#from AVERR_IO_CANNOT_FIND_HOST
-     * @to AVERR_IO_VIDEO_ENC_UNAVAILABLE
+     *  to AVERR_IO_VIDEO_ENC_UNAVAILABLE
      */
     AVERR_IO = 5400103,
 
