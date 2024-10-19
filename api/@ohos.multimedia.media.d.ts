@@ -1312,6 +1312,7 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 14
      */
     AVERR_IO = 5400103,
 
