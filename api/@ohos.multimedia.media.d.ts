@@ -1436,7 +1436,7 @@ declare namespace media {
      * @atomicservice
      * @since 14
      */
-    AVERR_IO_REQUEST_DENID = 5411006,
+    AVERR_IO_NETWORK_ACCESS_DENIED = 5411006,
     /**
      * Cannot find available network resources.
      * @syscap SystemCapability.Multimedia.Media.Core
@@ -1446,7 +1446,8 @@ declare namespace media {
      */
     AVERR_IO_RESOURE_NOT_FOUND = 5411007,
     /**
-     * Client authentication failed and SSL client cert needed.
+     * The server failS to verify the client certificate because the certificate is not carried,
+     * the certificate is invalid, or the certificate is expired.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1454,7 +1455,8 @@ declare namespace media {
      */
     AVERR_IO_SSL_CLIENT_CERT_NEEDED = 5411008,
     /**
-     * IO SSL connect fail.
+     * The client fails to verify the server certificate because the certificate is not carried,
+     * the certificate is invalid, or the certificate expires.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1534,7 +1536,7 @@ declare namespace media {
      */
     AVERR_IO_AUDIO_DEC_INIT_FAILED = 5411018,
     /**
-     * The audio decoder is unavailable.
+     * The audio decoder is unavailable for handler incurrupt, or audio decoder subsystem abnormal.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1558,7 +1560,7 @@ declare namespace media {
      */
     AVERR_IO_AUDIO_DEVICE_INVALID_STATE = 5411021,
     /**
-     * Audio device timeout.
+     * Audio device timeout when calling audio render interface.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1590,7 +1592,7 @@ declare namespace media {
      */
     AVERR_IO_AUDIO_ENC_INIT_FAILED = 5411025,
     /**
-     * The audio encoder is unavailable.
+     * The audio encoder is unavailable for handler incurrupt, or audio encoder subsystem abnormal.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1614,7 +1616,7 @@ declare namespace media {
      */
     AVERR_IO_VIDEO_DEC_INIT_FAILED = 5411028,
     /**
-     * The video decoder is unavailable.
+     * The video decoder is unavailable for handler incurrupt, or video decoder subsystem abnormal.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
@@ -1646,7 +1648,7 @@ declare namespace media {
      */
     AVERR_IO_VIDEO_ENC_INIT_FAILED = 5411032,
     /**
-     * The video encoder is unavailable.
+     * The video encoder is unavailable for handler incurrupt, or video encoder subsystem abnormal.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
