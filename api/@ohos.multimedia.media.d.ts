@@ -1390,7 +1390,87 @@ declare namespace media {
      */
     AVERR_AUDIO_INTERRUPTED = 5400107,
     /**
-     * IO unsupported request.
+     * IO can not find host.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_CANNOT_FIND_HOST = 5411001,
+    /**
+     * IO connection timeout.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_CONNECTION_TIMEOUT = 5411002,
+    /**
+     * IO network abnormal.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_NETWORK_ABNORMAL = 5411003,
+    /**
+     * IO network unavailable.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_NETWORK_UNAVAILABLE = 5411004,
+    /**
+     * IO no permission.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_NO_PERMISSION = 5411005,
+    /**
+     * IO request denied.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_REQUEST_DENID = 5411006,
+    /**
+     * IO resource not found.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_RESOURE_NOT_FOUND = 5411007,
+    /**
+     * IO SSL client cert needed.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_SSL_CLIENT_CERT_NEEDED = 5411008,
+    /**
+     * IO SSL connect fail.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_SSL_CONNECT_FAIL = 5411009,
+    /**
+     * IO SSL server cert untrusted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_SSL_SERVER_CERT_UNTRUSTED = 5411010,
+    /**
+     * IO SSL server cert untrusted.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
