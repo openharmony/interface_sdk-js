@@ -3191,6 +3191,7 @@ declare namespace media {
      * @throws { BusinessError } 5400106 - Unsupport format.
      * @throws { BusinessError } 5411001 - IO can not find host.
      * @throws { BusinessError } 5411002 - IO connection timeout.
+     * @throws { BusinessError } 5411003 - IO network abnormal.
      * @throws { BusinessError } 5411004 - IO network unavailable.
      * @throws { BusinessError } 5411005 - IO no permission.
      * @throws { BusinessError } 5411006 - IO request denied.
