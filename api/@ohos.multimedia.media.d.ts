@@ -1456,7 +1456,7 @@ declare namespace media {
     AVERR_IO_SSL_CLIENT_CERT_NEEDED = 5411008,
     /**
      * The client fails to verify the server certificate because the certificate is not carried,
-     * the certificate is invalid, or the certificate expires.
+     * the certificate is invalid, or the certificate is expired.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
