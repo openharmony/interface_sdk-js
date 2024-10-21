@@ -488,7 +488,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): TimePickerAttribute;
 }
