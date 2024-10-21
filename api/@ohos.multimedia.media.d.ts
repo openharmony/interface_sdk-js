@@ -1399,7 +1399,7 @@ declare namespace media {
      * @atomicservice
      * @since 14
      */
-    AVERR_IO_CANNOT_FIND_HOST = 5411001,
+    AVERR_IO_HOST_NOT_FOUND = 5411001,
     /**
      * Network connection timeout.
      * @syscap SystemCapability.Multimedia.Media.Core
@@ -1439,7 +1439,7 @@ declare namespace media {
      * @atomicservice
      * @since 14
      */
-    AVERR_IO_NETWORK_ACCESS_DENIED = 5411006,
+    AVERR_IO_REQUEST_DENIED = 5411006,
     /**
      * Cannot find available network resources.
      * @syscap SystemCapability.Multimedia.Media.Core
@@ -1447,7 +1447,7 @@ declare namespace media {
      * @atomicservice
      * @since 14
      */
-    AVERR_IO_RESOURE_NOT_FOUND = 5411007,
+    AVERR_IO_RESOURCE_NOT_FOUND = 5411007,
     /**
      * The server failS to verify the client certificate because the certificate is not carried,
      * the certificate is invalid, or the certificate is expired.
@@ -1465,7 +1465,7 @@ declare namespace media {
      * @atomicservice
      * @since 14
      */
-    AVERR_IO_SSL_CONNECT_FAIL = 5411009,
+    AVERR_IO_SSL_CONNECTION_FAILED = 5411009,
     /**
      * IO SSL server cert untrusted.
      * @syscap SystemCapability.Multimedia.Media.Core
