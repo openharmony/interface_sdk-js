@@ -28,7 +28,7 @@ import { ColorMetrics } from '@ohos.arkui.node';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 16
  */
 export declare enum QrcodeState {
   /**
@@ -37,7 +37,7 @@ export declare enum QrcodeState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   NORMAL = 0,
   /**
@@ -46,7 +46,7 @@ export declare enum QrcodeState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   EXPIRED = 1,
   /**
@@ -55,7 +55,7 @@ export declare enum QrcodeState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   LOADING = 2
 }
@@ -67,7 +67,7 @@ export declare enum QrcodeState {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 16
  */
 interface CommonQrcodeOptions {
   /**
@@ -76,7 +76,7 @@ interface CommonQrcodeOptions {
    * @type { ?LengthMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   edgeLength?: LengthMetrics;
   /**
@@ -85,7 +85,7 @@ interface CommonQrcodeOptions {
    * @type { ?ColorMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   color?: ColorMetrics;
   /**
@@ -94,7 +94,7 @@ interface CommonQrcodeOptions {
    * @type { ?ColorMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   backgroundColor?: ColorMetrics;
   /**
@@ -103,7 +103,7 @@ interface CommonQrcodeOptions {
    * @type { ?ColorMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   textColor?: ColorMetrics;
   /**
@@ -112,7 +112,7 @@ interface CommonQrcodeOptions {
    * @type { ?string }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   textContent?: string;
   /**
@@ -121,7 +121,7 @@ interface CommonQrcodeOptions {
    * @type { ?LengthMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   borderRadius?: LengthMetrics;
   /**
@@ -130,7 +130,7 @@ interface CommonQrcodeOptions {
    * @type { ?(number | Resource) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   opacity?: number | Resource;
   /**
@@ -139,7 +139,7 @@ interface CommonQrcodeOptions {
    * @type { ?(Curve | string | ICurve) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   animationCurve?: Curve | string | ICurve;
   /**
@@ -148,7 +148,7 @@ interface CommonQrcodeOptions {
    * @type { ?number }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   animationDuration?: number;
   /**
@@ -157,7 +157,7 @@ interface CommonQrcodeOptions {
    * @type { ?LengthMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   qrcodeSideLength?: LengthMetrics;
   /**
@@ -166,7 +166,7 @@ interface CommonQrcodeOptions {
    * @type { ?LengthMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   expiredImageLength?: LengthMetrics;
   /**
@@ -175,7 +175,7 @@ interface CommonQrcodeOptions {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   textSize?: ResourceStr;
   /**
@@ -184,7 +184,7 @@ interface CommonQrcodeOptions {
    * @type { ?(number | FontWeight | string) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   textWeight?: number | FontWeight | string;
   /**
@@ -193,7 +193,7 @@ interface CommonQrcodeOptions {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   space?: ResourceStr;
   /**
@@ -202,7 +202,7 @@ interface CommonQrcodeOptions {
    * @type { ?LengthMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   loadingImageLength?: LengthMetrics;
 }
@@ -213,7 +213,7 @@ interface CommonQrcodeOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 16
  */
 @ObservedV2
 export declare class QrcodeOptions {
@@ -223,7 +223,7 @@ export declare class QrcodeOptions {
    * @type { ?LengthMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   edgeLength?: LengthMetrics;
   /**
@@ -232,7 +232,7 @@ export declare class QrcodeOptions {
    * @type { ?ColorMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   color?: ColorMetrics;
   /**
@@ -241,7 +241,7 @@ export declare class QrcodeOptions {
    * @type { ?ColorMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   backgroundColor?: ColorMetrics;
   /**
@@ -250,7 +250,7 @@ export declare class QrcodeOptions {
    * @type { ?ColorMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   textColor?: ColorMetrics;
   /**
@@ -259,7 +259,7 @@ export declare class QrcodeOptions {
    * @type { ?string }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   textContent?: string;
   /**
@@ -268,7 +268,7 @@ export declare class QrcodeOptions {
    * @type { ?LengthMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   borderRadius?: LengthMetrics;
   /**
@@ -277,7 +277,7 @@ export declare class QrcodeOptions {
    * @type { ?(number | Resource) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   opacity?: number | Resource;
   /**
@@ -286,7 +286,7 @@ export declare class QrcodeOptions {
    * @type { ?(Curve | string | ICurve) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   animationCurve?: Curve | string | ICurve;
   /**
@@ -295,7 +295,7 @@ export declare class QrcodeOptions {
    * @type { ?number }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   animationDuration?: number;
   /**
@@ -304,7 +304,7 @@ export declare class QrcodeOptions {
    * @type { ?LengthMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   qrcodeSideLength?: LengthMetrics;
   /**
@@ -313,7 +313,7 @@ export declare class QrcodeOptions {
    * @type { ?LengthMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   expiredImageLength?: LengthMetrics;
   /**
@@ -322,7 +322,7 @@ export declare class QrcodeOptions {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   textSize?: ResourceStr;
   /**
@@ -331,7 +331,7 @@ export declare class QrcodeOptions {
    * @type { ?(number | FontWeight | string) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   textWeight?: number | FontWeight | string;
   /**
@@ -340,7 +340,7 @@ export declare class QrcodeOptions {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   space?: ResourceStr;
   /**
@@ -349,7 +349,7 @@ export declare class QrcodeOptions {
    * @type { ?LengthMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   loadingImageLength?: LengthMetrics;
   /**
@@ -358,7 +358,7 @@ export declare class QrcodeOptions {
    * @param { CommonQrcodeOptions } options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   constructor(options: CommonQrcodeOptions);
 }
@@ -369,7 +369,7 @@ export declare class QrcodeOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 16
  */
 @ComponentV2
 export declare struct Qrcode {
@@ -380,7 +380,7 @@ export declare struct Qrcode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   @Require 
   @Param
@@ -392,7 +392,7 @@ export declare struct Qrcode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   @Require
   @Param
@@ -404,7 +404,7 @@ export declare struct Qrcode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 16
    */
   @Require
   @Param
