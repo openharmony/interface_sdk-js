@@ -229,6 +229,79 @@ declare namespace uniformDataStruct {
      */
     details?: Record<string, number | string | Uint8Array>;
   }
+
+  /**
+   * Describe content form uniform data struct.
+   *
+   * @interface ContentForm
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 14
+   */
+  interface ContentForm {
+    /**
+     * Indicates the uniform data type of this data struct.
+     *
+     * @type { 'general.content-form' }
+     * @readonly
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 14
+     */
+    readonly uniformDataType: 'general.content-form';
+
+    /**
+     * Indicates the thumb data of content form.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 14
+     */
+    thumbData?: Uint8Array;
+
+    /**
+     * Indicates the description of content form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 14
+     */
+    description?: string;
+
+    /**
+     * Indicates the title of content form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 14
+     */
+    title: string;
+
+    /**
+     * Indicates the app icon of content form.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 14
+     */
+    appIcon?: Uint8Array;
+
+    /**
+     * Indicates the app name of content form.
+     *
+     * @type { appName }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 14
+     */
+    appName?: string;
+
+    /**
+     * Indicates the link url of content form.
+     *
+     * @type { linkUri }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 14
+     */
+    linkUri?: string;
+  }
 }
 
 export default uniformDataStruct;
