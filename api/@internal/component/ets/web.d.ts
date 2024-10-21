@@ -2974,7 +2974,7 @@ declare class WebContextMenuParam {
    *
    * @returns { number } The preview menu width.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 14
+   * @since 13
    */
   getPreviewWidth(): number;
 
@@ -2983,7 +2983,7 @@ declare class WebContextMenuParam {
    *
    * @returns { number } The preview menu height.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 14
+   * @since 13
    */
   getPreviewHeight(): number;
 }
@@ -6157,14 +6157,14 @@ declare enum WebKeyboardAvoidMode {
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
- * @since 14
+ * @since 13
  */
 declare enum WebElementType {
   /**
    * Image,corresponding HTML image type.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 14
+   * @since 13
    */
   IMAGE = 1,
 }
@@ -6174,14 +6174,14 @@ declare enum WebElementType {
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
- * @since 14
+ * @since 13
  */
 declare enum WebResponseType {
   /**
    * Long press.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 14
+   * @since 13
    */
   LONG_PRESS = 1,
 }
@@ -6191,7 +6191,7 @@ declare enum WebResponseType {
  *
  * @typedef SelectionMenuOptionsExt
  * @syscap SystemCapability.Web.Webview.Core
- * @since 14
+ * @since 13
  */
 declare interface SelectionMenuOptionsExt {
   /**
@@ -6199,7 +6199,7 @@ declare interface SelectionMenuOptionsExt {
    *
    * @type { ?Callback<void> }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 14
+   * @since 13
    */
   onAppear?: Callback<void>;
 
@@ -6208,7 +6208,7 @@ declare interface SelectionMenuOptionsExt {
    *
    * @type { ?Callback<void> }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 14
+   * @since 13
    */
   onDisappear?: Callback<void>;
 
@@ -6217,7 +6217,7 @@ declare interface SelectionMenuOptionsExt {
    *
    * @type { ?CustomBuilder }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 14
+   * @since 13
    */
   preview?: CustomBuilder;
 
@@ -6226,7 +6226,7 @@ declare interface SelectionMenuOptionsExt {
    *
    * @type { ?MenuType }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 14
+   * @since 13
    */
   menuType?: MenuType;
 }
@@ -8673,7 +8673,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { SelectionMenuOptionsExt } [options] - Indicates the options of selection menu.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 14
+   * @since 13
    */
   bindSelectionMenu(elementType: WebElementType, content: CustomBuilder, responseType: WebResponseType,
       options?: SelectionMenuOptionsExt): WebAttribute;
