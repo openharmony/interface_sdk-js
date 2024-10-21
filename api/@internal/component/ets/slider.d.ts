@@ -1119,7 +1119,18 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @atomicservice
    * @since 11
    */
-  selectedColor(value: ResourceColor): SliderAttribute;
+  /**
+   * Called when the slider of the slider bar is set to slide over the area color.
+   *
+   * @param { ResourceColor | LinearGradient } value
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  selectedColor(value: ResourceColor | LinearGradient): SliderAttribute;
 
   /**
    * Called when the minimum label is set.
@@ -1515,6 +1526,18 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @since 12
    */
   slideRange(value: SlideRange): SliderAttribute;
+
+  /**
+   * Set the sensitivity of rotating crown.
+   *
+   * @param { Optional<CrownSensitivity> } sensitivity - The sensitivity of rotating crown, default value is { MEDIUM }.
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): SliderAttribute;
 }
 
 /**
