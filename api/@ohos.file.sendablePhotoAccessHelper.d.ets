@@ -587,6 +587,20 @@ declare namespace sendablePhotoAccessHelper {
      * @since 12
      */
     convertToPhotoAlbum(): photoAccessHelper.Album;
+    /**
+     * Get the faceId of the portrait album or group photo album.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @returns { Promise<string> } Returns tag_id if portrait album, Returns group_tag if group photo album,
+     * <br>Returns empty if not found.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    getFaceId(): Promise<string>;
   }
 
   /**
