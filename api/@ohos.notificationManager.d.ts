@@ -2164,7 +2164,7 @@ declare namespace notificationManager {
    * @since 12
    */
   function setSmartReminderEnabled(deviceType: string, enable: boolean): Promise<void>;
-  
+
   /**
    * Obtains whether an application supports smart reminders across devices.
    *
@@ -2186,7 +2186,7 @@ declare namespace notificationManager {
    * @since 12
    */
   function isSmartReminderEnabled(deviceType: string): Promise<boolean>;
-  
+
   /**
    * Obtains the remind modes of the notification.
    *
@@ -2766,6 +2766,26 @@ declare namespace notificationManager {
    * @since 13
    */
   function openNotificationSettings(context: UIAbilityContext): Promise<void>;
+
+  /**
+   * Get do not disturb profile by id.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { number } id - The id of profile.
+   * @returns { Promise<DoNotDisturbProfile> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600019 - profile not existed.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 13
+   */
+  function getDoNotDisturbProfile(id: number): Promise<DoNotDisturbProfile>;
 
   /**
    * Describes a button option for a triggering.
