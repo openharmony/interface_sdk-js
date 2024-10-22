@@ -1,5 +1,6 @@
 {
   "SysCaps": [
+"SystemCapability.Utils.Lang",
 "SystemCapability.ArkUI.ArkUI.Full",
 "SystemCapability.ArkUI.ArkUI.Napi",
 "SystemCapability.ArkUI.ArkUI.Libuv",
