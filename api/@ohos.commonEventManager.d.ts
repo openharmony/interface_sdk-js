@@ -2193,16 +2193,6 @@ declare namespace commonEventManager {
     COMMON_EVENT_DATA_SHARE_READY = 'usual.event.DATA_SHARE_READY',
 
     /**
-     * Indicates that the second mount is ready.
-     * This is a protected common event that can only be sent by system.
-     *
-     * @syscap SystemCapability.Notification.CommonEvent
-     * @atomicservice
-     * @since 12
-     */
-    COMMON_EVENT_SECOND_MOUNTED = 'usual.event.SECOND_MOUNTED',
-
-    /**
      * This common event means that vpn connection status has been changed.
      * This is a protected common event that can only be sent by system.
      *

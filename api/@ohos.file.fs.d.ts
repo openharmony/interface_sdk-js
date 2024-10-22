@@ -8718,7 +8718,7 @@ export interface WriteStreamOptions {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
-interface DfsListeners {
+export interface DfsListeners {
   /**
    * The Listener of Distributed File System status
    *
