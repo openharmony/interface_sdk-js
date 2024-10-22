@@ -1478,7 +1478,7 @@ declare namespace media {
      * @atomicservice
      * @since 14
      */
-    AVERR_IO_UNSUPPORTTED_REQUEST = 5411011,
+    AVERR_IO_UNSUPPORTED_REQUEST = 5411011,
     /**
      * The file data is incorrect, and no specific data can be provided.
      * @syscap SystemCapability.Multimedia.Media.Core
