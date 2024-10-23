@@ -245,6 +245,19 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @since 14
      */
     enableAnalyzer(enabled: boolean): MovingPhotoViewAttribute;
+
+    /**
+     * refresh moving photo data
+     *
+     * @param { photoAccessHelper.MovingPhoto } movingPhoto - the data need to refresh
+     * @returns { MovingPhotoViewAttribute }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @uicomponent
+     * @since 14
+     */
+    refresh(movingPhoto: photoAccessHelper.MovingPhoto): MovingPhotoViewAttribute;
 }
 /**
  * Defines the MovingPhotoView controller.
