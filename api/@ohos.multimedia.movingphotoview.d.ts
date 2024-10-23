@@ -257,7 +257,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @uicomponent
      * @since 14
      */
-    refresh(movingPhoto: photoAccessHelper.MovingPhoto): MovingPhotoViewAttribute;
+    refreshMovingPhoto(movingPhoto: photoAccessHelper.MovingPhoto): MovingPhotoViewAttribute;
 }
 /**
  * Defines the MovingPhotoView controller.
