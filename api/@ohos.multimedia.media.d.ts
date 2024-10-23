@@ -1401,6 +1401,272 @@ declare namespace media {
      * @since 12
      */
     AVERR_AUDIO_INTERRUPTED = 5400107,
+    /**
+     * The address of server is incorrect, and IO can not find host.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_HOST_NOT_FOUND = 5411001,
+    /**
+     * Network connection timeout.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_CONNECTION_TIMEOUT = 5411002,
+    /**
+     * Failed link due to abnormal network.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_NETWORK_ABNORMAL = 5411003,
+    /**
+     * Failed link due to unavailable network.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_NETWORK_UNAVAILABLE = 5411004,
+    /**
+     * Network permission dennied.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_NO_PERMISSION = 5411005,
+    /**
+     * The client request parameters are incorrect or exceed the processing capacity.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_REQUEST_DENIED = 5411006,
+    /**
+     * Cannot find available network resources.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_RESOURCE_NOT_FOUND = 5411007,
+    /**
+     * The server failS to verify the client certificate because the certificate is not carried,
+     * the certificate is invalid, or the certificate is expired.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_SSL_CLIENT_CERT_NEEDED = 5411008,
+    /**
+     * The client fails to verify the server certificate because the certificate is not carried,
+     * the certificate is invalid, or the certificate is expired.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_SSL_CONNECTION_FAILED = 5411009,
+    /**
+     * IO SSL server cert untrusted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_SSL_SERVER_CERT_UNTRUSTED = 5411010,
+    /**
+     * Unsupported request due to network protocols.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_UNSUPPORTED_REQUEST = 5411011,
+    /**
+     * The file data is incorrect, and no specific data can be provided.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_DATA_ABNORMAL = 5411012,
+    /**
+     * The file is occupied by other processes and cannot be accessed.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_FILE_ACCESS_DENIED = 5411013,
+    /**
+     * The file handle is incorrect.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_FILE_BAD_HANDLE = 5411014,
+    /**
+     * IO file not found.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_FILE_NOT_FOUND = 5411015,
+    /**
+     * IO file permission denied because API does not have permissions.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_FILE_PERMISSION_DENIED = 5411016,
+    /**
+     * Failed to decode the audio data.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_AUDIO_DEC_FAILED = 5411017,
+    /**
+     * Fail to init the audio decoder.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_AUDIO_DEC_INIT_FAILED = 5411018,
+    /**
+     * The audio decoder is unavailable for handler incurrupt, or audio decoder subsystem abnormal.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_AUDIO_DEC_UNAVAILABLE = 5411019,
+    /**
+     * Audio device error.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_AUDIO_DEVICE_ERROR = 5411020,
+    /**
+     * The audio device state does not support the current operation.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_AUDIO_DEVICE_INVALID_STATE = 5411021,
+    /**
+     * Audio device timeout when calling audio render interface.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_AUDIO_DEVICE_TIMEOUT = 5411022,
+    /**
+     * Audio device unavailable, unable to create an audio device.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_AUDIO_DEVICE_UNAVAILABLE = 5411023,
+    /**
+     * Failed to encode the audio data.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_AUDIO_ENC_FAILED = 5411024,
+    /**
+     * Fail to init the audio encoder.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_AUDIO_ENC_INIT_FAILED = 5411025,
+    /**
+     * The audio encoder is unavailable for handler incurrupt, or audio encoder subsystem abnormal.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_AUDIO_ENC_UNAVAILABLE = 5411026,
+    /**
+     * Failed to decode the video data.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_VIDEO_DEC_FAILED = 5411027,
+    /**
+     * Fail to init the video decoder.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_VIDEO_DEC_INIT_FAILED = 5411028,
+    /**
+     * The video decoder is unavailable for handler incurrupt, or video decoder subsystem abnormal.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_VIDEO_DEC_UNAVAILABLE = 5411029,
+    /**
+     * Video device error.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_VIDEO_DEVICE_ERROR = 5411030,
+    /**
+     * Failed to encode the video data.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_VIDEO_ENC_FAILED = 5411031,
+    /**
+     * Failed to init the video encoder.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_VIDEO_ENC_INIT_FAILED = 5411032,
+    /**
+     * The video encoder is unavailable for handler incurrupt, or video encoder subsystem abnormal.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_VIDEO_ENC_UNAVAILABLE = 5411033,
   }
 
   /**
@@ -2937,6 +3203,56 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 12
+     */
+    /**
+     * Register listens for playback error events.
+     * @param { 'error' } type - Type of the playback error event to listen for.
+     * @param { ErrorCallback } callback - Callback used to listen for the playback error event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 5400101 - No memory.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400104 - Time out.
+     * @throws { BusinessError } 5400105 - Service died.
+     * @throws { BusinessError } 5400106 - Unsupport format.
+     * @throws { BusinessError } 5411001 - IO can not find host.
+     * @throws { BusinessError } 5411002 - IO connection timeout.
+     * @throws { BusinessError } 5411003 - IO network abnormal.
+     * @throws { BusinessError } 5411004 - IO network unavailable.
+     * @throws { BusinessError } 5411005 - IO no permission.
+     * @throws { BusinessError } 5411006 - IO request denied.
+     * @throws { BusinessError } 5411007 - IO resource not found.
+     * @throws { BusinessError } 5411008 - IO SSL client cert needed.
+     * @throws { BusinessError } 5411009 - IO SSL connect fail.
+     * @throws { BusinessError } 5411010 - IO SSL server cert untrusted.
+     * @throws { BusinessError } 5411011 - IO unsupported request.
+     * @throws { BusinessError } 5411012 - IO data abnormal.
+     * @throws { BusinessError } 5411013 - IO file access denied.
+     * @throws { BusinessError } 5411014 - IO file bad handle.
+     * @throws { BusinessError } 5411015 - IO file not found.
+     * @throws { BusinessError } 5411016 - IO file permission denied.
+     * @throws { BusinessError } 5411017 - IO decode failed.
+     * @throws { BusinessError } 5411018 - Audio decode init failed.
+     * @throws { BusinessError } 5411019 - Audio decode unavailable.
+     * @throws { BusinessError } 5411020 - Audio device error.
+     * @throws { BusinessError } 5411021 - Audio device invalid state.
+     * @throws { BusinessError } 5411022 - Audio device timeout.
+     * @throws { BusinessError } 5411023 - Audio device unavailable.
+     * @throws { BusinessError } 5411024 - Audio encode failed.
+     * @throws { BusinessError } 5411025 - Audio encode init failed.
+     * @throws { BusinessError } 5411026 - Audio encode unavailable.
+     * @throws { BusinessError } 5411027 - Video decode failed.
+     * @throws { BusinessError } 5411028 - Video decode init failed.
+     * @throws { BusinessError } 5411029 - Video decode unavailable.
+     * @throws { BusinessError } 5411030 - Video device error.
+     * @throws { BusinessError } 5411031 - Video encode failed.
+     * @throws { BusinessError } 5411032 - Video encode init failed.
+     * @throws { BusinessError } 5411033 - Video encode unavailable.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @crossplatform
+     * @atomicservice
+     * @since 14
      */
     on(type: 'error', callback: ErrorCallback): void;
     /**
