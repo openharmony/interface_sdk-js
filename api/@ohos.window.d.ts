@@ -4616,7 +4616,7 @@ declare namespace window {
     setGestureBackEnabled(enabled: boolean): Promise<void>;
 
     /**
-     * Get if the gesture back function is currently disabled.
+     * Get whether the gesture back function is currently disabled.
      * 
      * @returns { boolean } enabled - If true then the gesture back function is currently enabled, false then the gesture back function is currently disabled.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
