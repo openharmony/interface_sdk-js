@@ -3407,6 +3407,24 @@ declare namespace media {
      * @since 12
      */
     mutedMediaType?: MediaType;
+
+    /**
+     * Audio language.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 13
+     */
+    preferredAudioLanguage?: string;
+
+    /**
+     * Subtitle language.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 13
+     */
+    preferredSubtitleLanguage?: string;
   }
 
   /**
@@ -7116,6 +7134,13 @@ declare namespace media {
      * @since 12
      */
     SEEK_CLOSEST = 2,
+    /**
+     * Seek in continuous mode.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @systemapi
+     * @since 13
+     */
+    SEEK_CONTINUOUS = 3,
   }
 
   /**
