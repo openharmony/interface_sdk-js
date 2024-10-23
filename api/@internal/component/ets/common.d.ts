@@ -15558,14 +15558,14 @@ declare class CommonMethod<T> {
   /**
    * chain Weight
    *
-   * @param { ChainWeightOptions } value
+   * @param { ChainWeightOptions } chainWeight
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 14
    */
-  chainWeight(value: ChainWeightOptions): T;
+  chainWeight(chainWeight: ChainWeightOptions): T;
 
   /**
    * Inner margin.
