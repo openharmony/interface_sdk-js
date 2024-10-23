@@ -3449,22 +3449,22 @@ declare interface ChainWeightOptions {
   /**
    * Horizontal ChainWeight.
    *
-   * @type { ?(number | string) }
+   * @type { ?(number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 14
    */
-  horizontal?: number | string;
+  horizontal?: number;
 
   /**
    * Vertical ChainWeight.
    *
-   * @type { ?(number | string) }
+   * @type { ?(number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 14
    */
-  vertical?: number | string;
+  vertical?: number;
 }
