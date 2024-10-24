@@ -29,7 +29,7 @@
  * @namespace drm
  * @syscap SystemCapability.Multimedia.Drm.Core
  * @atomicservice
- * @since 14
+ * @since 12
  */
 declare namespace drm {
 /**
