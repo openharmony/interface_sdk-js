@@ -20,6 +20,7 @@
 
 import { AsyncCallback, Callback } from './@ohos.base';
 import Context from './application/Context';
+import { window } from '@kit.ArkUI';
 
 /**
  * Provide the capabilities to use different pickers.
@@ -665,6 +666,16 @@ declare namespace picker {
      * @since 12
      */
     constructor(context: Context);
+
+    /**
+     * The constructor used to create a DocumentViewPicker object.
+     *
+     * @param { Context } context - represents the context.
+     * @param { window.Window } window - represents the window.
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 13
+     */
+    constructor(context: Context, window: window.Window);
 
     /**
      * Pull up the document picker based on the selection mode.
