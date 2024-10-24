@@ -4627,7 +4627,7 @@ declare namespace window {
      * @atomicservice
      * @since 14
      */
-    getGestureBackEnabled(): boolean;
+    isGestureBackEnabled(): boolean;
 
     /**
      * Set the preferred orientation config of the window
