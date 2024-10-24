@@ -2716,7 +2716,17 @@ declare interface GeometryTransitionOptions {
    * @default TransitionHierarchyStrategy.ADAPTIVE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @atomicservice
    * @since 12
+   */
+  /**
+   * Defines movement strategy of source and target in the hierarchy during geometry transition.
+   * 
+   * @type { ?TransitionHierarchyStrategy }
+   * @default TransitionHierarchyStrategy.ADAPTIVE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 13
    */
   hierarchyStrategy?: TransitionHierarchyStrategy
 }
@@ -2730,7 +2740,19 @@ declare interface GeometryTransitionOptions {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @atomicservice
  * @since 12
+ */
+/**
+ * Source and target are two matched elements during the geometry transition.
+ * The animation starts at the source and ends at the target.
+ * TransitionHierarchyStrategy enumeration defines how levels of source and target elements
+ * would be changed in the hierarchy during the geometry transition.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 13
  */
 declare enum TransitionHierarchyStrategy {
   /**
@@ -2739,7 +2761,16 @@ declare enum TransitionHierarchyStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @atomicservice
    * @since 12
+   */
+  /**
+   * None mode.
+   * Source and target staty in the original level in the hierarchy during geometry transition.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 13
    */
   NONE = 0,
 
@@ -2750,7 +2781,17 @@ declare enum TransitionHierarchyStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @atomicservice
    * @since 12
+   */
+  /**
+   * ADAPTIVE mode.
+   * Lower level one of source and target is elevated to higher level of both,
+   * indicating that two elements are in same high level.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 13
    */
   ADAPTIVE = 1,
 }
