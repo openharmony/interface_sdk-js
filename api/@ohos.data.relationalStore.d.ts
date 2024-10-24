@@ -1461,23 +1461,24 @@ declare namespace relationalStore {
     EXCLUSIVE
   }
 
-   /**
-   * Create transaction option.
+  /**
+   * Create transaction options.
    *
-   * @interface TransactionOption
+   * @interface TransactionOptions
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 14
    */
-  interface TransactionOption {
+  interface TransactionOptions {
     /**
      * The type of transaction.
      *
+     * @type { TransactionType }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 14
      */
-    transactionType: TransactionType;
+    transactionType?: TransactionType;
   }
-	
+
   /**
    * Manages relational database configurations.
    *
@@ -5717,8 +5718,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
-     * @deprecated since 14
-     * @useinstead ohos.data.relationalStore.RdbStore.createTransaction
      */
     beginTransaction(): void;
 
@@ -5792,8 +5791,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
-     * @deprecated since 14
-     * @useinstead ohos.data.relationalStore.Transaction.commit
      */
     commit(): void;
 
@@ -5867,8 +5864,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
-     * @deprecated since 14
-     * @useinstead ohos.data.relationalStore.Transaction.rollback
      */
     rollBack(): void;
 
@@ -7253,7 +7248,7 @@ declare namespace relationalStore {
     /**
      * create a transaction instance and begin.
      *
-     * @param { TransactionOption } The option for creating transactions。
+     * @param { TransactionOptions } options - The option for creating transactions.
      * @returns { Promise<Transaction> } The {@link Transaction} object if the operation is successful.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
@@ -7261,32 +7256,35 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
      * @throws { BusinessError } 14800029 - SQLite: The database is full.
      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 14
      */
-    createTransaction(option?: TransactionOption): Promise<Transaction>;
+    createTransaction(options?: TransactionOptions): Promise<Transaction>;
   }
 
+  /**
+   * Provides transactional methods for managing the relational database (RDB).
+   *
+   * @interface Transaction
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 14
+   */
   interface Transaction {
     /**
      * commit the transaction.
      *
+     * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
      * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
@@ -7300,13 +7298,12 @@ declare namespace relationalStore {
     /**
      * rollback the transaction.
      *
+     * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
      * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
@@ -7559,10 +7556,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -7587,7 +7582,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -7599,7 +7593,7 @@ declare namespace relationalStore {
      * Queries data in the database based on SQL statement.
      *
      * @param { string } sql - Indicates the SQL statement to execute.
-     * @param { Array<ValueType> } bindArgs - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
+     * @param { Array<ValueType> } args - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
      * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -7612,19 +7606,18 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 14
      */
-    querySql(sql: string, bindArgs?: Array<ValueType>): Promise<ResultSet>;
+    querySql(sql: string, args?: Array<ValueType>): Promise<ResultSet>;
 
     /**
      * Queries data in the database based on SQL statement with sync interface.
      *
      * @param { string } sql - Indicates the SQL statement to execute.
-     * @param { Array<ValueType> } bindArgs - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
+     * @param { Array<ValueType> } args - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
      * @returns { ResultSet } The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -7637,13 +7630,12 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
      * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 14
      */
-    querySqlSync(sql: string, bindArgs?: Array<ValueType>): ResultSet;
+    querySqlSync(sql: string, args?: Array<ValueType>): ResultSet;
 
     /**
      * Executes a SQL statement that contains specified parameters and returns a value of ValueType.
