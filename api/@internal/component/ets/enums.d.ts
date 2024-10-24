@@ -9728,3 +9728,95 @@ declare enum AccessibilityHoverType {
    */
   HOVER_CANCEL = 3,
 }
+
+/**
+ * Type of window width breakpoint.
+ *
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 13
+ */
+declare enum WidthBreakpoint {
+  /**
+   * Window width < 320vp type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  WIDTH_XS = 0,
+
+  /**
+   * Window width >= 320vp and < 600vp type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  WIDTH_SM = 1,
+
+  /**
+   * Window width >= 600vp and < 840vp type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  WIDTH_MD = 2,
+
+  /**
+   * Window width >= 840vp and < 1440vp type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  WIDTH_LG = 3,
+
+  /**
+   * Window width >= 1440vp type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  WIDTH_XL = 4,
+}
+
+/**
+ * Type of window height breakpoint.
+ *
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 13
+ */
+declare enum HeightBreakpoint {
+  /**
+   * Window aspectRatio < 0.8 type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  HEIGHT_SM = 0,
+
+  /**
+   * Window aspectRatio >= 0.8 and < 1.2 type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  HEIGHT_MD = 1,
+
+  /**
+   * Window aspectRatio >= 1.2 type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  HEIGHT_LG = 2,
+}
