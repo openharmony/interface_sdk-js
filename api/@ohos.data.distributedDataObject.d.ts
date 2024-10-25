@@ -291,7 +291,7 @@ declare namespace distributedDataObject {
      * @param {AsyncCallback<void>} callback - The callback of setSessionId.
      * @throws {BusinessError} 201 - Permission verification failed.
      * @throws {BusinessError} 401 - Parameter error. Incorrect parameter types.
-     * @throws {BusinessError} 15400001 - Create table failed.
+     * @throws {BusinessError} 15400001 - Failed to create the in-memory database.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9
      */
@@ -304,7 +304,7 @@ declare namespace distributedDataObject {
      * @throws {BusinessError} 201 - Permission verification failed.
      * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
      *     2. The sessionId allows only letters, digits, and underscores(_), and cannot exceed 128 in length.
-     * @throws {BusinessError} 15400001 - Create table failed.
+     * @throws {BusinessError} 15400001 - Failed to create the in-memory database.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 12
      */
@@ -317,7 +317,7 @@ declare namespace distributedDataObject {
      * @param {AsyncCallback<void>} callback - The callback of setSessionId.
      * @throws {BusinessError} 201 - Permission verification failed.
      * @throws {BusinessError} 401 - Parameter error. Incorrect parameter types.
-     * @throws {BusinessError} 15400001 - Create table failed.
+     * @throws {BusinessError} 15400001 - Failed to create the in-memory database.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9
      */
@@ -331,7 +331,7 @@ declare namespace distributedDataObject {
      * @returns {Promise<void>} - The promise returned by the function.
      * @throws {BusinessError} 201 - Permission verification failed.
      * @throws {BusinessError} 401 - Parameter error. Incorrect parameter types.
-     * @throws {BusinessError} 15400001 - Create table failed.
+     * @throws {BusinessError} 15400001 - Failed to create the in-memory database.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9
      */
@@ -344,7 +344,7 @@ declare namespace distributedDataObject {
      * @throws {BusinessError} 201 - Permission verification failed.
      * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
      *     2. The sessionId allows only letters, digits, and underscores(_), and cannot exceed 128 in length.
-     * @throws {BusinessError} 15400001 - Create table failed.
+     * @throws {BusinessError} 15400001 - Failed to create the in-memory database.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 12
      */
