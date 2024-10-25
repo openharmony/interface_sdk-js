@@ -4771,6 +4771,33 @@ declare interface ItemDragInfo {
 }
 
 /**
+ * Enum of using the effects template mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 14
+ */
+declare enum EffectType {
+  /**
+   * Define use the effects template defined by the parent effectComponent.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 14
+   */
+  DEFAULT = 0,
+  /**
+   * Define use the effects template defined by the window.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 14
+   */
+  WINDOW_EFFECT = 1,
+}
+
+/**
  * Defines the drag status before drag action.
  *
  * @enum { number }
@@ -17361,6 +17388,20 @@ declare class CommonMethod<T> {
    * @since 12
    */
   useShadowBatching(value: boolean): T;
+
+   /**
+   * Sets whether the component should apply the effects template defined by the parent effectComponent or window.
+   * If multiple parent effectComponents are found, the nearest one will be used.
+   * If no parent effectComponent is found, this method has no effect.
+   *
+   * @param { boolean } useEffect - true means the component should apply the effects template defined by the parent effectComponent or window.
+   * @param { EffectType } effectType - the effect type of the effects template, defined by the parent effectComponent or window.
+   * @returns { T } return the component attribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 14
+   */
+  useEffect(useEffect: boolean, effectType: EffectType): T;
 
   /**
    * Sets whether the component should apply the effects template defined by the parent effectComponent.
