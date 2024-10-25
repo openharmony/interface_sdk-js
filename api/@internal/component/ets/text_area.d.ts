@@ -607,6 +607,19 @@ declare enum ContentType {
 }
 
 /**
+ * Declare the event listener callback of the enter key.
+ *
+ * @typedef { function } TextAreaSubmitCallback
+ * @param { EnterKeyType } enterKeyType - The enter key type of soft keyboard.
+ * @param { SubmitEvent } [event] - Provides the method of keeping textArea editable state when submitted.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare type TextAreaSubmitCallback = (enterKeyType: EnterKeyType, event?: SubmitEvent) => void;
+
+/**
  * Defines the attribute functions of TextArea.
  *
  * @extends CommonMethod<TextAreaAttribute>
@@ -1013,6 +1026,17 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 12
    */
   onSubmit(callback: (enterKey: EnterKeyType) => void): TextAreaAttribute;
+  /**
+   * Called when submitted.
+   *
+   * @param { TextAreaSubmitCallback } callback - callback of the listened event.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onSubmit(callback: TextAreaSubmitCallback): TextAreaAttribute;
 
   /**
    * Called when the input changes.
