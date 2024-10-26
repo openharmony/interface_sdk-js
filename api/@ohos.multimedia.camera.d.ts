@@ -4870,30 +4870,6 @@ declare namespace camera {
     off(type: 'effectSuggestionChange', callback?: AsyncCallback<EffectSuggestionType>): void;
 
     /**
-     * Subscribes to lcd flash status.
-     *
-     * @param { 'lcdFlashStatus' } type - Event type.
-     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
-     * @throws { BusinessError } 202 - Not System Application.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 13
-     */
-    on(type: 'lcdFlashStatus', callback: AsyncCallback<LcdFlashStatus>): void;
-
-    /**
-     * Unsubscribes from lcd flash status.
-     *
-     * @param { 'lcdFlashStatus' } type - Event type.
-     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
-     * @throws { BusinessError } 202 - Not System Application.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 13
-     */
-    off(type: 'lcdFlashStatus', callback?: AsyncCallback<LcdFlashStatus>): void;
-
-    /**
      * Gets session functions.
      *
      * @param { CameraOutputCapability } outputCapability - CameraOutputCapability to set.
@@ -5071,30 +5047,6 @@ declare namespace camera {
      * @since 11
      */
     off(type: 'macroStatusChanged', callback?: AsyncCallback<boolean>): void;
-
-    /**
-     * Subscribes to lcd flash status.
-     *
-     * @param { 'lcdFlashStatus' } type - Event type.
-     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
-     * @throws { BusinessError } 202 - Not System Application.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 13
-     */
-    on(type: 'lcdFlashStatus', callback: AsyncCallback<LcdFlashStatus>): void;
-
-    /**
-     * Unsubscribes from lcd flash status.
-     *
-     * @param { 'lcdFlashStatus' } type - Event type.
-     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
-     * @throws { BusinessError } 202 - Not System Application.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 13
-     */
-    off(type: 'lcdFlashStatus', callback?: AsyncCallback<LcdFlashStatus>): void;
 
     /**
      * Gets session functions.
