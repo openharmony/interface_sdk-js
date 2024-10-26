@@ -8205,33 +8205,18 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     release(): Promise<void>;
 
     /**
-     * Compresses or packs an image and uses a promise to return the result.
+     * Creates a Picture object based on image decoding parameters. This method uses a promise to
+     * return the object.
      *
-     * @param { Picture } picture Picture to be processed.
-     * @param { PackingOption } options Option for image packing.
-     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the compressed or packed data.
+     * @param { DecodingOptionsForPicture } options Image decoding parameters.
+     * @returns { Promise<Picture> } A Promise instance used to return the Picture object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 7800301 - Encode failed.
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 7700301 - Decode failed.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 13
      */
-    packing(picture: Picture, options: PackingOption): Promise<ArrayBuffer>;
-
-    /**
-     * Compresses or packs an image into a file and uses a promise to return the result.
-     *
-     * @param { Picture } picture Picture to be processed.
-     * @param { number } fd ID of a file descriptor.
-     * @param { PackingOption } options Options for image packing.
-     * @returns { Promise<void> } A Promise instance used to return the operation result.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 7800301 - Encode failed.
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 13
-     */
-    packToFile(picture: Picture, fd: number, options: PackingOption): Promise<void>
+    createPicture(options?: DecodingOptionsForPicture): Promise<Picture>
 
     /**
      * Supported image formats.
@@ -8491,18 +8476,33 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     release(): Promise<void>;
 
     /**
-     * Creates a Picture object based on image decoding parameters. This method uses a promise to
-     * return the object.
+     * Compresses or packs an image and uses a promise to return the result.
      *
-     * @param { DecodingOptionsForPicture } options Image decoding parameters.
-     * @returns { Promise<Picture> } A Promise instance used to return the Picture object.
+     * @param { Picture } picture Picture to be processed.
+     * @param { PackingOption } options Option for image packing.
+     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the compressed or packed data.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 7700301 - Decode failed.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 7800301 - Encode failed.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 13
      */
-    createPicture(options?: DecodingOptionsForPicture): Promise<Picture>
+    packing(picture: Picture, options: PackingOption): Promise<ArrayBuffer>;
+
+    /**
+     * Compresses or packs an image into a file and uses a promise to return the result.
+     *
+     * @param { Picture } picture Picture to be processed.
+     * @param { number } fd ID of a file descriptor.
+     * @param { PackingOption } options Options for image packing.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 7800301 - Encode failed.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @since 13
+     */
+    packToFile(picture: Picture, fd: number, options: PackingOption): Promise<void>
 
     /**
      * Supported image formats.
