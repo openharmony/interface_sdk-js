@@ -288,6 +288,8 @@ declare namespace config {
    * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
    * @param { 'enabledAccessibilityExtensionListChange' } type Indicates the type of event.
    * @param { Callback<void> } callback Indicates the listener.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
@@ -305,6 +307,8 @@ declare namespace config {
    * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
    * @param { 'installedAccessibilityListChange' } type Indicates the type of event.
    * @param { Callback<void> } callback Indicates the listener.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
@@ -322,6 +326,8 @@ declare namespace config {
    * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
    * @param { 'enabledAccessibilityExtensionListChange' } type Indicates the type of event.
    * @param { Callback<void> } callback Indicates the listener.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
@@ -339,6 +345,8 @@ declare namespace config {
    * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
    * @param { 'installedAccessibilityListChange' } type Indicates the type of event.
    * @param { Callback<void> } callback Indicates the listener.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
@@ -414,8 +422,6 @@ declare namespace config {
      * Getting configuration value.
      *
      * @param { AsyncCallback<T> } callback
-     * @throws { BusinessError } 201 - Permission verification failed.
-     *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
@@ -446,6 +452,8 @@ declare namespace config {
      *
      * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
      * @param { Callback<T> } callback Indicates the listener.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
