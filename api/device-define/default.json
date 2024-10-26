@@ -70,7 +70,7 @@
     "SystemCapability.Multimedia.Media.AVRecorder",
     "SystemCapability.Multimedia.Media.AVMetadataExtractor",
     "SystemCapability.Multimedia.Media.AVImageGenerator",
-    "SystemCapability.Multimedia.Media.AVTransCoder",
+    "SystemCapability.Multimedia.Media.AVTranscoder",
     "SystemCapability.Multimedia.AVSession.Core",
     "SystemCapability.Multimedia.AVSession.Manager",
     "SystemCapability.Multimedia.AVSession.AVCast",
