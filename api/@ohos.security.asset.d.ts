@@ -66,12 +66,9 @@ declare namespace asset {
    */
   /**
    * Add an Asset.
-   * Permission ohos.permission.STORE_PERSISTENT_DATA is required when the Asset needs to be stored persistently
-   *     by setting {@link Tag.IS_PERSISTENT} tag.
    *
    * @param { AssetMap } attributes - a map object containing attributes of the Asset to be added.
    * @returns { Promise<void> } the promise object returned by the function.
-   * @throws { BusinessError } 201 - The caller doesn't have the permission.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -158,11 +155,8 @@ declare namespace asset {
    */
   /**
    * Add an Asset.
-   * Permission ohos.permission.STORE_PERSISTENT_DATA is required when the Asset needs to be stored persistently
-   *     by setting {@link Tag.IS_PERSISTENT} tag.
    *
    * @param { AssetMap } attributes - a map object containing attributes of the Asset to be added.
-   * @throws { BusinessError } 201 - The caller doesn't have the permission.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -1684,26 +1678,12 @@ declare namespace asset {
      * @syscap SystemCapability.Security.Asset
      * @since 11
      */
-    /**
-     * The error code indicates that the caller doesn't have the permission.
-     *
-     * @syscap SystemCapability.Security.Asset
-     * @atomicservice
-     * @since 14
-     */
     PERMISSION_DENIED = 201,
     /**
      * The error code indicates that the caller is not a system application.
      *
      * @syscap SystemCapability.Security.Asset
      * @since 12
-     */
-    /**
-     * The error code indicates that the caller is not a system application.
-     *
-     * @syscap SystemCapability.Security.Asset
-     * @atomicservice
-     * @since 14
      */
     NOT_SYSTEM_APPLICATION = 202,
     /**
