@@ -220,7 +220,7 @@ declare namespace unifiedDataChannel {
      * Checks whether there is a specified type of data in DataProperties.
      * @param { string } type - indicates to query data type.
      * @returns { boolean } if having mimeType in UnifiedData returns true, else returns false.
-     * @throws { BusinessError } 401 - Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
@@ -336,8 +336,7 @@ declare namespace unifiedDataChannel {
     /**
      * Create unified record by type and value.
      *
-     * @param { string } type - indicates to data type of unified record. It can not be empty.
-     * When type of value is object, parameter type must be pixel-map or want UTD type.
+     * @param { string } type - indicates to data type of unified record. It can not be empty. When type of value is object, parameter type must be pixel-map or want UTD type.
      * @param { ValueType } value - indicates to value of unified record.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
