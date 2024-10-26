@@ -59,6 +59,16 @@ export declare struct RecentPhotoComponent {
    * @since 12
    */
   onRecentPhotoClick: RecentPhotoClickCallback;
+
+  /**
+   * Callback when check whether photos or videos exists and return the recent photo info
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 13
+   */
+  onRecentPhotoCheckInfo?: RecentPhotoCheckInfoCallback;
 }
 
 /**
@@ -82,6 +92,18 @@ export type RecentPhotoCheckResultCallback = (recentPhotoExists: boolean) => voi
  * @since 12
  */
 export type RecentPhotoClickCallback = (recentPhotoInfo: BaseItemInfo) => boolean;
+
+/**
+ * The callback of onRecentPhotoCheckInfo event
+ *
+ * @typedef { function } RecentPhotoCheckInfoCallback
+ * @param { boolean } recentPhotoExists - Does the recent photo exist?
+ * @param { RecentPhotoInfo } info - the recent photo info
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 13
+ */
+export type RecentPhotoCheckInfoCallback = (recentPhotoExists: boolean, info: RecentPhotoInfo) => void;
 
 /**
  * RecentPhotoOptions Object
@@ -120,6 +142,35 @@ export declare class RecentPhotoOptions {
    * @since 12
    */
   photoSource?: PhotoSource;
+}
+
+/**
+ * Recent photo info
+ *
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 13
+ */
+export declare class RecentPhotoInfo {
+  /**
+   * The dateTaken of photos or videos
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 13
+   */
+  dateTaken?: number;
+
+  /**
+   * The identifier of photos or videos
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 13
+   */
+  identifier?: string;
 }
 
 /**
