@@ -50,7 +50,7 @@ export interface SystemTonePlayer {
    * @throws { BusinessError } 20700002 - Parameter check error. For example, value is outside [0,1].
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 12
+   * @since 13
    */
   setAudioVolumeScale(scale: number): void;
 
@@ -60,7 +60,7 @@ export interface SystemTonePlayer {
    * @throws { BusinessError } 202 - Caller is not a system application.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 12
+   * @since 13
    */
   getAudioVolumeScale(): number;
 
@@ -71,7 +71,7 @@ export interface SystemTonePlayer {
    * @throws { BusinessError } 20700003 - Unsupported operation.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 12
+   * @since 13
    */
   getSupportedHapticsFeatures(): Promise<Array<systemSoundManager.ToneHapticsFeature>>;
 
@@ -86,7 +86,7 @@ export interface SystemTonePlayer {
    * @throws { BusinessError } 20700003 - Unsupported operation.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 12
+   * @since 13
    */
   setHapticsFeature(hapticsFeature: systemSoundManager.ToneHapticsFeature): void;
 
@@ -97,7 +97,7 @@ export interface SystemTonePlayer {
    * @throws { BusinessError } 20700003 - Unsupported operation.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 12
+   * @since 13
    */
   getHapticsFeature(): systemSoundManager.ToneHapticsFeature;
 
