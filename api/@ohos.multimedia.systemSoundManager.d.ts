@@ -296,6 +296,29 @@ declare namespace systemSoundManager {
   function createCustomizedToneAttrs(): ToneAttrs;
 
   /**
+   * Definition of haptics feature in tone scenario.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 12
+   */
+  enum ToneHapticsFeature {
+    /**
+     * Standard haptics feature.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    STANDARD = 0,
+    /**
+     * Gentle haptics feature.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    GENTLE = 1,
+  }
+  /**
    * Gets system sound manager for all type sound.
    * @returns { SystemSoundManager } SystemSoundManager instance.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
