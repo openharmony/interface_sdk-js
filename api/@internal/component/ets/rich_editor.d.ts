@@ -1814,7 +1814,7 @@ declare interface RichEditorGesture {
    * @crossplatform
    * @since 11
    */
-   /**
+  /**
    * Trigger a click event when a click is clicked.
    *
    * @type { ?Callback<ClickEvent> }
@@ -1936,7 +1936,6 @@ declare interface RichEditorTextSpanOptions {
    */
   gesture?: RichEditorGesture;
 }
-
 /**
  * Defines the custom keyboard options of RichEditor.
  *
@@ -1946,7 +1945,7 @@ declare interface RichEditorTextSpanOptions {
  * @atomicservice
  * @since 12
  */
-declare interface KeyboardOptions {
+ declare interface KeyboardOptions {
   /**
    * Indicates whether to support custom keyboard avoidance.
    *
@@ -2713,7 +2712,7 @@ declare interface SelectionMenuOptions {
    */
   /**
    * Callback function when the selection menu disappears.
-   * 
+   *
    * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -3747,9 +3746,33 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @atomicservice
    * @since 12
    */
-    enableKeyboardOnFocus(isEnabled: boolean): RichEditorAttribute;
-}
+  enableKeyboardOnFocus(isEnabled: boolean): RichEditorAttribute;
 
+  /**
+   * Enable or disable haptic feedback.
+   *
+   * @param { boolean } isEnabled - Default value is true, set false to disable haptic feedback.
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  enableHapticFeedback(isEnabled: boolean): RichEditorAttribute;
+
+  /**
+   * Define bar state of the RichEditor.
+   *
+   * @param { BarState } state - bar state.
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  barState(state: BarState): RichEditorAttribute;
+}
+ 
 /**
  * the callback of cut event.
  * @interface CutEvent
@@ -3770,7 +3793,7 @@ declare interface CutEvent {
    */
   preventDefault?: Callback<void>;
 }
-
+ 
 /**
  * the callback of copy event.
  * @interface CopyEvent
