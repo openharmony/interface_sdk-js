@@ -4990,6 +4990,15 @@ declare namespace webview {
     static clearIntelligentTrackingPreventionBypassingList(): void;
 
     /**
+     * Get the default user agent.
+     *
+     * @returns {string} The default user agent string.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 14
+     */
+    static getDefaultUserAgent(): string;
+
+    /**
      * Register a callback to intercept web pages playing media.
      *
      * @param { CreateNativeMediaPlayerCallback } callback - Called everytime when web pages try to play media.
