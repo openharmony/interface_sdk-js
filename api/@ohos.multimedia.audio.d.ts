@@ -4374,6 +4374,22 @@ declare namespace audio {
     setVolumeWithFlag(volumeType: AudioVolumeType, volume: number, flags: number): Promise<void>;
 
     /**
+     * Obtains the active volume type in the calling moment. This method returns in sync mode.
+     * @param { number } uid - The target uid's active volume type or
+     * 0 which means the global active volume type.
+     * @returns { AudioVolumeType } Current active volume type.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters unspecified.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 13
+     */
+    getActiveVolumeTypeSync(uid: number): AudioVolumeType;
+
+    /**
      * Obtains the volume of a stream. This method uses an asynchronous callback to return the query result.
      * @param { AudioVolumeType } volumeType - Audio stream type.
      * @param { AsyncCallback<number> } callback - Callback used to return the volume.
