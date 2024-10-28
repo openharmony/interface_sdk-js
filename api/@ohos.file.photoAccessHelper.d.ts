@@ -5113,7 +5113,16 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 11
      */
-    PHOTO_PROXY = 3
+    PHOTO_PROXY = 3,
+
+    /**
+     * Private moving photo resource
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    PRIVATE_MOVING_PHOTO_RESOURCE = 4
   }
 
   /**
@@ -5168,7 +5177,25 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 12
      */
-    MULTI_EXPOSURE = 4
+    MULTI_EXPOSURE = 4,
+
+    /**
+     * Cinema graph
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    CINEMA_GRAPH = 5,
+
+    /**
+     * Image only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    IMAGE_ONLY = 10
   }
 
   /**
