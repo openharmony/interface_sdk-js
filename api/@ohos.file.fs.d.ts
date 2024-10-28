@@ -130,6 +130,7 @@ declare namespace fileIo {
   export { Stream };
   export { ReadStream };
   export { WriteStream };
+  export { AtomicFile };
   export { Watcher };
   export { WhenceType };
   export { TaskSignal };
@@ -7320,6 +7321,96 @@ declare class WriteStream extends stream.Writable {
    * @since 12
    */
   close(): void;
+}
+
+/**
+ * The AtomicFile class provides methods for performing atomic operations on files.
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 16
+ */
+export class AtomicFile {
+  /**
+   * The AtomicFile constructor.
+   * @param { string } path file path.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 16
+   */
+  constructor(path: string);
+
+  /**
+   * Get the File object from AtomicFile object.
+   * @returns { File } Returns the file object.
+   * @throws { BusinessError } 13900002 No such file or directory
+   * @throws { BusinessError } 13900005 IO error
+   * @throws { BusinessError } 13900012 Permission denied
+   * @throws { BusinessError } 13900042 Internal error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 16
+   */
+  getBaseFile(): File;
+
+  /**
+   * Create the file read stream.
+   * @returns { ReadStream } Returns the file read stream.
+   * @throws { BusinessError } 13900001 Operation not permitted
+   * @throws { BusinessError } 13900002 No such file or directory
+   * @throws { BusinessError } 13900012 Permission denied
+   * @throws { BusinessError } 13900042 Internal error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 16
+   */
+  openRead(): ReadStream;
+
+  /**
+   * Read the entire contents of the file.
+   * @returns { ArrayBuffer } Returns the ArrayBuffer of the file contents.
+   * @throws { BusinessError } 13900005 I/O error
+   * @throws { BusinessError } 13900042 Internal error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 16
+   */
+  readFully(): ArrayBuffer;
+
+  /**
+   * Create the file write stream.
+   * @returns { WriteStream } Returns the file write stream.
+   * @throws { BusinessError } 13900001 Operation not permitted
+   * @throws { BusinessError } 13900002 No such file or directory
+   * @throws { BusinessError } 13900012 Permission denied
+   * @throws { BusinessError } 13900027 Read-only file system
+   * @throws { BusinessError } 13900042 Internal error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 16
+   */
+  startWrite(): WriteStream;
+
+  /**
+   * If the file is written successfully, the file is closed.
+   * @throws { BusinessError } 13900042 Internal error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 16
+   */
+  finishWrite(): void;
+
+  /**
+   * If writing to the file fails, the file is rolled back.
+   * @throws { BusinessError } 13900042 Internal error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 16
+   */
+  failWrite(): void;
+
+  /**
+   * Delete all file.
+   * @throws { BusinessError } 13900001 Operation not permitted
+   * @throws { BusinessError } 13900002 No such file or directory
+   * @throws { BusinessError } 13900012 Permission denied
+   * @throws { BusinessError } 13900027 Read-only file system
+   * @throws { BusinessError } 13900042 Internal error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 16
+   */
+  delete(): void;
 }
 
 /**
