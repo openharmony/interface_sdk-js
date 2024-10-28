@@ -4055,6 +4055,26 @@ declare namespace media {
      */
     getInputMetaSurface(type: MetaSourceType): Promise<string>;
 
+        /**
+     * Check if the avrecorder has watermark capability.
+     * @returns { Promise<boolean> } A Promise instance used to return true or false when the function is finished.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @systemapi
+     * @since 13
+     */
+    isWatermarkSupported(): Promise<boolean>;
+    /**
+     * Set watermark image to recorder.
+     * @param { image.PixelMap } watermark : Watermark image.
+     * @param { WatermarkConfig } config : Configures of the watermark.
+     * @returns { Promise<void> } A Promise instance used to return when the function is finished.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @systemapi
+     * @since 13
+     */
+    setWatermark(watermark: image.PixelMap, config: WatermarkConfig): Promise<void>
     /**
      * Update the video orientation before recorder start.
      * @param { number } rotation - Rotation angle, should be [0, 90, 180, 270].
@@ -4693,6 +4713,32 @@ declare namespace media {
      * @since 12
      */
     longitude: number;
+  }
+  /**
+   * Set configures of a watermark to AVRecorder. The position starts at top left corner.
+   *
+   * @typedef WatermarkConfig
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @systemapi
+   * @since 13
+   */
+  interface WatermarkConfig {
+    /**
+     * Offset of the watermark to the top line of pixel.
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @systemapi
+     * @since 13
+     */
+    top: number;
+    /**
+     * Offset of the watermark to the left line of pixel.
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @systemapi
+     * @since 13
+     */
+    left: number;
   }
 
   /**
