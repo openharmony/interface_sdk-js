@@ -508,7 +508,21 @@ declare namespace a2dp {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 11
      */
-    CODEC_TYPE_L2HC = 2
+    CODEC_TYPE_L2HC = 2,
+    /**
+     * L2HCST.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 13
+     */
+    CODEC_TYPE_L2HCST = 3,
+    /**
+     * LDAC.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 13
+     */
+    CODEC_TYPE_LDAC = 4
   }
 
   /**
