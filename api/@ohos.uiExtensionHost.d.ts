@@ -189,7 +189,7 @@ declare namespace uiExtensionHost {
      * @since 12
      */
     setWaterMarkFlag(enable: boolean): Promise<void>;
-    
+
     /**
      * Hide the display content when snapshot.
      *
