@@ -20224,6 +20224,20 @@ declare class CommonMethod<T> {
   accessibilityGroup(value: boolean): T;
 
   /**
+   * Sets accessibilityGroup
+   *
+   * @param { boolean } isGroup - set group with accessibility
+   * @param { AccessibilityOptions } accessibilityOptions - accessibilityOptions for accessibility
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  accessibilityGroup(isGroup: boolean, accessibilityOptions: AccessibilityOptions): T;
+
+  /**
    * Sets accessibilityText
    *
    * @param { string } value - set accessibility text

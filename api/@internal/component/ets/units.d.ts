@@ -3468,3 +3468,25 @@ declare interface ChainWeightOptions {
    */
   vertical?: number;
 }
+
+/**
+ * Defines the struct of AccessibilityOptions.
+ *
+ * @interface AccessibilityOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare interface AccessibilityOptions {
+  /**
+   * accessibilityPreferred - Should accessibilityText be prioritized when contatenating child component strings.
+   *
+   * @type { ?(boolean) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  accessibilityPreferred?: boolean;
+}
