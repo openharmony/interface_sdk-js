@@ -1036,7 +1036,7 @@ declare class Path2D extends CanvasPath {
    * Adds a path according to the specified path variable.
    *
    * @param { Path2D } path - Indicates the path object to be added.
-   * @param { Matrix2D } transform - Transformation matrix of the new trail
+   * @param { Matrix2D } transform - Transformation matrix of the new trail. The default value is null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -1044,7 +1044,7 @@ declare class Path2D extends CanvasPath {
    * Adds a path according to the specified path variable.
    *
    * @param { Path2D } path - Indicates the path object to be added.
-   * @param { Matrix2D } transform - Transformation matrix of the new trail
+   * @param { Matrix2D } transform - Transformation matrix of the new trail. The default value is null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -1053,7 +1053,7 @@ declare class Path2D extends CanvasPath {
    * Adds a path according to the specified path variable.
    *
    * @param { Path2D } path - Indicates the path object to be added.
-   * @param { Matrix2D } transform - Transformation matrix of the new trail
+   * @param { Matrix2D } transform - Transformation matrix of the new trail. The default value is null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1063,7 +1063,7 @@ declare class Path2D extends CanvasPath {
    * Adds a path according to the specified path variable.
    *
    * @param { Path2D } path - Indicates the path object to be added.
-   * @param { Matrix2D } transform - Transformation matrix of the new trail
+   * @param { Matrix2D } transform - Transformation matrix of the new trail. The default value is null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -5142,13 +5142,13 @@ declare class CanvasRenderer extends CanvasPath {
   restoreLayer(): void;
 
   /**
-     * Clear the backing buffer, drawing state stack, any defined paths, and styles.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
+   * Clear the backing buffer, drawing state stack, any defined paths, and styles.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   reset(): void;
 }
 
