@@ -6537,7 +6537,7 @@ declare interface BackgroundEffectOptions {
    * Define the blurOptions of BackgroundEffect.
    *
    * @type { ?BlurOptions }
-   * @default { grayScale: [0,1] }
+   * @default { grayScale: [0,0] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
