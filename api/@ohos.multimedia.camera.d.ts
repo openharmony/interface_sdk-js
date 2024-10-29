@@ -909,7 +909,7 @@ declare namespace camera {
      *
      * @param { CameraDevice } camera - Camera device.
      * @returns { boolean } Whether prelaunch is supported.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -1640,7 +1640,7 @@ declare namespace camera {
      * @since 12
      */
     on(type: 'cameraOcclusionDetection', callback: AsyncCallback<CameraOcclusionDetectionResult>): void;
-    
+
     /**
      * Unsubscribes from camera occlusion detection results.
      *
@@ -1793,7 +1793,7 @@ declare namespace camera {
      * @since 12
      */
     PANORAMA_PHOTO = 15,
-    
+
     /**
      * Timelapse photo camera mode.
      *
@@ -1869,6 +1869,14 @@ declare namespace camera {
      * @since 11
      */
     CAMERA_FORMAT_YCRCB_P010,
+
+    /**
+     * HEIC Format.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 13
+     */
+    CAMERA_FORMAT_HEIC = 2003,
 
     /**
      * Depth Data Format: float 16.
@@ -4425,7 +4433,7 @@ declare namespace camera {
      * @since 12
      */
     PRECONFIG_720P = 0,
-  
+
     /**
      * 1080P output for preconfig.
      *
@@ -4433,7 +4441,7 @@ declare namespace camera {
      * @since 12
      */
     PRECONFIG_1080P = 1,
-  
+
     /**
      * 4K output for preconfig.
      *
@@ -4441,7 +4449,7 @@ declare namespace camera {
      * @since 12
      */
     PRECONFIG_4K = 2,
-  
+
     /**
      * high quality output for preconfig.
      *
@@ -4466,7 +4474,7 @@ declare namespace camera {
      * @since 12
      */
     PRECONFIG_RATIO_1_1 = 0,
-  
+
     /**
      * Aspect ratio 4:3 for preconfig.
      *
@@ -4474,7 +4482,7 @@ declare namespace camera {
      * @since 12
      */
     PRECONFIG_RATIO_4_3 = 1,
-  
+
     /**
      * Aspect ratio 16:9 for preconfig.
      *
@@ -4691,7 +4699,7 @@ declare namespace camera {
      * Must choose preconfig type from {@link PreconfigType}.
      *
      * @param { PreconfigType } preconfigType - preconfig type.
-     * @param { PreconfigRatio } preconfigRatio - the aspect ratio of surface for preconfig, 
+     * @param { PreconfigRatio } preconfigRatio - the aspect ratio of surface for preconfig,
      *                                            default value {@link PreconfigRatio#PRECONFIG_RATIO_4_3}.
      * @returns { boolean } Whether the choosed preconfig type can be used.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
@@ -6725,7 +6733,7 @@ declare namespace camera {
    * @systemapi
    * @since 12
    */
-   interface LightPaintingPhotoSession extends Session, Flash, Focus, Zoom, ColorEffect {
+  interface LightPaintingPhotoSession extends Session, Flash, Focus, Zoom, ColorEffect {
     /**
      * Subscribes to error events.
      *
@@ -6737,7 +6745,7 @@ declare namespace camera {
      * @since 12
      */
     on(type: 'error', callback: ErrorCallback): void;
-  
+
     /**
      * Unsubscribes from error events.
      *
@@ -6749,7 +6757,7 @@ declare namespace camera {
      * @since 12
      */
     off(type: 'error', callback?: ErrorCallback): void;
-  
+
     /**
      * Subscribes focus state change event callback.
      *
@@ -6761,7 +6769,7 @@ declare namespace camera {
      * @since 12
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
-  
+
     /**
      * Unsubscribes from focus state change event callback.
      *
@@ -6773,7 +6781,7 @@ declare namespace camera {
      * @since 12
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
-  
+
     /**
      * Subscribes zoom info event callback.
      *
@@ -6785,7 +6793,7 @@ declare namespace camera {
      * @since 12
      */
     on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
-  
+
     /**
      * Unsubscribes from zoom info event callback.
      *
@@ -6797,7 +6805,7 @@ declare namespace camera {
      * @since 12
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
-  
+
     /**
      * Gets the light painting type in use.
      *
@@ -6809,20 +6817,20 @@ declare namespace camera {
      * @since 12
      */
     getLightPaintingType(): LightPaintingType;
-  
+
     /**
      * Sets a light painting type for a camera device.
      *
      * @param { LightPaintingType } type - Light painting type to set.
      * @throws { BusinessError } 202 - Not System Application.
-     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect. 
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
      */
     setLightPaintingType(type: LightPaintingType): void;
-  
+
     /**
      * Gets supported light painting types.
      *
@@ -7839,6 +7847,30 @@ declare namespace camera {
     release(): Promise<void>;
   }
 
+  /**
+   * Enumerates the camera video codec type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @since 13
+   */
+  enum VideoCodecType {
+    /**
+     * Codec type AVC.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 13
+     */
+    AVC = 0,
+
+    /**
+     * Codec type HEVC.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 13
+     */
+    HEVC = 1
+  }
 
   /**
    * Photo output object.
@@ -7936,6 +7968,33 @@ declare namespace camera {
     confirmCapture();
 
     /**
+     * Confirm if the raw image delivery is supported
+     *
+     * @returns { boolean } TRUE if the type of delivery image is support.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400104 - Session not running.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    isRawDeliverySupported(): boolean;
+  
+    /**
+     * Enable raw image image delivery.
+     *
+     * @param { boolean } enabled - Target state for raw image delivery.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400104 - Session not running.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    enableRawDelivery(enabled: boolean): void;
+
+    /**
      * Confirm if the deferred image delivery supported in the specific device.
      *
      * @param { DeferredDeliveryImageType } type - Type of delivery image.
@@ -8005,6 +8064,26 @@ declare namespace camera {
      * @since 13
      */
     enableDepthDataDelivery(enabled: boolean): void;
+
+    /**
+     * Get supported moving photo video codec types.
+     *
+     * @returns { Array<VideoCodecType> } An array of supported video codec types for moving photo.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 13
+     */
+    getSupportedMovingPhotoVideoCodecTypes(): Array<VideoCodecType>;
+
+    /**
+     * Sets codec type for moving photo, default to AVC.
+     *
+     * @param { VideoCodecType } codecType - Codec type for moving photo.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 13
+     */
+    setMovingPhotoVideoCodecType(codecType: VideoCodecType): void;
 
     /**
      * Subscribes photo available event callback.
@@ -9330,11 +9409,23 @@ declare namespace camera {
      * Check whether camera is occluded.
      *
      * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
      */
     readonly isCameraOccluded: boolean;
+
+    /**
+     * Check whether camera lens is dirty.
+     *
+     * @type { boolean }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    readonly isCameraLensDirty: boolean;
   }
 
   /**
@@ -9471,7 +9562,7 @@ declare namespace camera {
      * @since 12
      */
     IDLE = 0,
- 
+
     /**
      * TimeLapse recording state.
      *
@@ -9499,7 +9590,7 @@ declare namespace camera {
      * @since 12
      */
     DARK = 1,
- 
+
     /**
      * TimeLapse Light preview.
      *
@@ -9529,7 +9620,7 @@ declare namespace camera {
      * @since 12
      */
     readonly isTryAEDone: boolean;
- 
+
     /**
      * Determine whether AE hint is needed.
      *
@@ -9540,7 +9631,7 @@ declare namespace camera {
      * @since 12
      */
     readonly isTryAEHintNeeded?: boolean;
- 
+
     /**
      * Timelapse preview type.
      *
@@ -9551,7 +9642,7 @@ declare namespace camera {
      * @since 12
      */
     readonly previewType?: TimeLapsePreviewType;
- 
+
     /**
      * Timelapse capture interval.
      *
@@ -9584,7 +9675,7 @@ declare namespace camera {
      * @since 12
      */
     on(type: 'error', callback: ErrorCallback): void;
- 
+
     /**
      * Unsubscribes from error events.
      *
@@ -9596,7 +9687,7 @@ declare namespace camera {
      * @since 12
      */
     off(type: 'error', callback?: ErrorCallback): void;
- 
+
     /**
      * Subscribes focus state change event callback.
      *
@@ -9608,7 +9699,7 @@ declare namespace camera {
      * @since 12
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
- 
+
     /**
      * Unsubscribes from focus state change event callback.
      *
@@ -9620,7 +9711,7 @@ declare namespace camera {
      * @since 12
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
- 
+
     /**
      * Subscribes ISO info event callback.
      *
@@ -9632,7 +9723,7 @@ declare namespace camera {
      * @since 12
      */
     on(type: 'isoInfoChange', callback: AsyncCallback<IsoInfo>): void;
- 
+
     /**
      * Unsubscribes from ISO info event callback.
      *
@@ -9644,7 +9735,7 @@ declare namespace camera {
      * @since 12
      */
     off(type: 'isoInfoChange', callback?: AsyncCallback<IsoInfo>): void;
- 
+
     /**
      * Subscribes exposure info event callback.
      *
@@ -9656,7 +9747,7 @@ declare namespace camera {
      * @since 12
      */
     on(type: 'exposureInfoChange', callback: AsyncCallback<ExposureInfo>): void;
- 
+
     /**
      * Unsubscribes from exposure info event callback.
      *
@@ -9668,7 +9759,7 @@ declare namespace camera {
      * @since 12
      */
     off(type: 'exposureInfoChange', callback?: AsyncCallback<ExposureInfo>): void;
- 
+
     /**
      * Subscribes lumination info event callback.
      *
@@ -9680,7 +9771,7 @@ declare namespace camera {
      * @since 12
      */
     on(type: 'luminationInfoChange', callback: AsyncCallback<LuminationInfo>): void;
- 
+
     /**
      * Unsubscribes from lumination info event callback.
      *
@@ -9692,7 +9783,7 @@ declare namespace camera {
      * @since 12
      */
     off(type: 'luminationInfoChange', callback?: AsyncCallback<LuminationInfo>): void;
- 
+
     /**
      * Check whether try AE is needed.
      *
@@ -9704,7 +9795,7 @@ declare namespace camera {
      * @since 12
      */
     isTryAENeeded(): boolean;
- 
+
     /**
      * Start try AE.
      *
@@ -9716,7 +9807,7 @@ declare namespace camera {
      * @since 12
      */
     startTryAE(): void;
- 
+
     /**
      * Stop try AE.
      *
@@ -9728,7 +9819,7 @@ declare namespace camera {
      * @since 12
      */
     stopTryAE(): void;
- 
+
     /**
      * Subscribes try AE info event callback.
      *
@@ -9740,7 +9831,7 @@ declare namespace camera {
      * @since 12
      */
     on(type: 'tryAEInfoChange', callback: AsyncCallback<TryAEInfo>): void;
- 
+
     /**
      * Unsubscribes from try AE info event callback.
      *
@@ -9752,7 +9843,7 @@ declare namespace camera {
      * @since 12
      */
     off(type: 'tryAEInfoChange', callback?: AsyncCallback<TryAEInfo>): void;
- 
+
     /**
      * Gets supported timelapse interval range.
      *
@@ -9764,7 +9855,7 @@ declare namespace camera {
      * @since 12
      */
     getSupportedTimeLapseIntervalRange(): Array<number>;
- 
+
     /**
      * Gets the timelapse interval in use.
      *
@@ -9776,7 +9867,7 @@ declare namespace camera {
      * @since 12
      */
     getTimeLapseInterval(): number;
- 
+
     /**
      * Sets a timelapse interval for a camera device.
      *
@@ -9789,7 +9880,7 @@ declare namespace camera {
      * @since 12
      */
     setTimeLapseInterval(interval: number): void;
- 
+
     /**
      * Gets the timelapse recording state in use.
      *
@@ -9801,7 +9892,7 @@ declare namespace camera {
      * @since 12
      */
     getTimeLapseRecordState(): TimeLapseRecordState;
- 
+
     /**
      * Sets a timelapse recording state.
      *
@@ -9814,7 +9905,7 @@ declare namespace camera {
      * @since 12
      */
     setTimeLapseRecordState(state: TimeLapseRecordState): void;
- 
+
     /**
      * Gets the timelapse preview type in use.
      *
@@ -9826,7 +9917,7 @@ declare namespace camera {
      * @since 12
      */
     getTimeLapsePreviewType(): TimeLapsePreviewType;
- 
+
     /**
      * Sets a timelapse preview type.
      *
@@ -9840,7 +9931,7 @@ declare namespace camera {
      */
     setTimeLapsePreviewType(type: TimeLapsePreviewType): void;
   }
-
+  
   /**
    * Enum for Depth Data Accuracy.
    *
