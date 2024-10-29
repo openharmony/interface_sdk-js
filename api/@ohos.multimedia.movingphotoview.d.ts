@@ -285,14 +285,13 @@ export class MovingPhotoViewController {
     /**
      * refresh moving photo data
      *
-     * @param { photoAccessHelper.MovingPhoto } movingPhoto - the data need to refresh
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
      * @uicomponent
      * @since 14
      */
-    refreshMovingPhoto(movingPhoto: photoAccessHelper.MovingPhoto);
+    refreshMovingPhoto();
 }
 /**
  * Defines MovingPhotoView Component.
