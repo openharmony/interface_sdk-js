@@ -1918,19 +1918,19 @@ declare namespace photoAccessHelper {
      */
     MOVING_PHOTO_EFFECT_MODE = 'moving_photo_effect_mode',
     /**
-     * Dynamic range type of the asset, read only
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 12
-     */
-    DYNAMIC_RANGE_TYPE = 'dynamic_range_type',
-    /**
      * Cover position of the asset, read only
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12
      */
     COVER_POSITION = 'cover_position',
+    /**
+     * Dynamic range type of the asset, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    DYNAMIC_RANGE_TYPE = 'dynamic_range_type',
     /**
      * Unique uuid of the burst photos, read only
      *
@@ -5948,7 +5948,7 @@ declare namespace photoAccessHelper {
      * Dismiss group photo album.
      *
      * @throws { BusinessError } 202 - Called by non-system application
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -6221,7 +6221,7 @@ declare namespace photoAccessHelper {
     subtype: PhotoSubtype;
     /**
      * Effect mode of moving photo
-     * 
+     *
      * @type { MovingPhotoEffectMode }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -6483,7 +6483,7 @@ declare namespace photoAccessHelper {
      */
     THM = 2
   }
-  
+
   /**
    * Defines the class of highlight album.
    *
