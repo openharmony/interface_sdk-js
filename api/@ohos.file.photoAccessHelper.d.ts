@@ -1809,7 +1809,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     getKeyFrameThumbnail(beginFrameTimeMs: number, type: ThumbnailType): Promise<image.PixelMap>;
   }
