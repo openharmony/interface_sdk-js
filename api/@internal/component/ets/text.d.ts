@@ -1099,6 +1099,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
    */
