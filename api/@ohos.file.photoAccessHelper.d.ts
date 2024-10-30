@@ -544,14 +544,14 @@ declare namespace photoAccessHelper {
    *
    * @enum { number } CompatibleMode
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @since 13
+   * @since 14
    */
   enum CompatibleMode {
     /**
      * Original format mode
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 13
+     * @since 14
      */
     ORIGINAL_FORMAT_MODE = 0,
 
@@ -559,7 +559,7 @@ declare namespace photoAccessHelper {
      * Compatible format mode.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 13
+     * @since 14
      */
     COMPATIBLE_FORMAT_MODE = 1
   }
@@ -569,7 +569,7 @@ declare namespace photoAccessHelper {
    *
    * @interface MediaAssetProgressHandler
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @since 13
+   * @since 14
    */
   interface MediaAssetProgressHandler {
     /**
@@ -577,7 +577,7 @@ declare namespace photoAccessHelper {
      *
      * @param { number } progress - the progress of required media asset data; from 0 to 100.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 13
+     * @since 14
      */
     onProgress(progress: number): void;
   }
@@ -817,7 +817,7 @@ declare namespace photoAccessHelper {
      *
      * @type { ?CompatibleMode }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 13
+     * @since 14
      */
     compatibleMode?: CompatibleMode;
 
@@ -826,7 +826,7 @@ declare namespace photoAccessHelper {
      *
      * @type { ?MediaAssetProgressHandler }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 13
+     * @since 14
      */
     mediaAssetProgressHandler?: MediaAssetProgressHandler;
   }
@@ -5912,7 +5912,7 @@ declare namespace photoAccessHelper {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 13
+     * @since 14
      */
     setOrientation(orientation: number): void;
 
