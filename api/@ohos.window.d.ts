@@ -3943,6 +3943,25 @@ declare namespace window {
     moveWindowToAsync(x: number, y: number): Promise<void>;
 
     /**
+     * Move window to the position relative to current screen.
+     * 
+     * @param { number } x - Indicate the X-coordinate of the window relative to current screen.
+     * @param { number } y - Indicate the Y-coordinate of the window relative to current screen.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types.
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300010 - The operation is not supported in full-screen mode.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 13
+     */
+    moveWindowToGlobal(x: number, y: number): Promise<void>;
+
+    /**
      * Set the size of a window .
      *
      * @param { number } width - Indicates the width of the window.
