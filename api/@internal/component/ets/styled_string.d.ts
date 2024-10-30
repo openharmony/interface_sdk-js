@@ -129,7 +129,6 @@ declare class StyledString {
      *
      * @param { StyledString } styledString - StyledString parameter.
      * @returns { ArrayBuffer }
-     * @throws { BusinessError } 202 - If the operation fails.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 13
@@ -141,7 +140,6 @@ declare class StyledString {
      *
      * @param { ArrayBuffer } buffer - The buffer will be deserialized to a StyledString.
      * @returns { Promise<StyledString> }
-     * @throws { BusinessError } 202 - If the operation fails.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
