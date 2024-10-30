@@ -20404,7 +20404,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   accessibilityChecked(isCheck: boolean): T;
 
@@ -20417,7 +20417,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   accessibilitySelected(isSelect: boolean): T;
 
