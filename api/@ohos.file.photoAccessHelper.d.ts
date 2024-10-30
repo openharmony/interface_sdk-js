@@ -2022,6 +2022,20 @@ declare namespace photoAccessHelper {
      */
     THM_SIZE = 'thm_size',
     /**
+     * Detail time of the asset, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 13
+     */
+    DETAIL_TIME = 'detail_time',
+    /**
+     * Date taken of the asset in milliseconds, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 13
+     */
+    DATE_TAKEN_MS = 'date_taken_ms',
+    /**
      * Cloud enhancement status of the asset, read only
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
