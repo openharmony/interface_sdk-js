@@ -745,7 +745,7 @@ declare namespace photoAccessHelper {
    * @enum { number } WatermarkType
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since 13
+   * @since 14
    */
   enum WatermarkType {
     /**
@@ -753,7 +753,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     DEFAULT = 0,
 
@@ -762,7 +762,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     BRAND_COMMON = 1,
 
@@ -771,7 +771,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     COMMON = 2,
 
@@ -780,7 +780,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     BRAND = 3,
   }
@@ -2191,7 +2191,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     SUPPORTED_WATERMARK_TYPE = 'supported_watermark_type'
   }
@@ -5942,7 +5942,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     setSupportedWatermarkType(watermarkType: WatermarkType): void;
   }
