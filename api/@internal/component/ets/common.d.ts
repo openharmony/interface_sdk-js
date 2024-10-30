@@ -12540,6 +12540,18 @@ declare interface PopupOptions {
    * @since 12
    */
   onWillDismiss?: boolean | Callback<DismissPopupAction>;
+
+  /**
+   * Determine if popup can follow the target node when it has rotation or scale.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  followTransformOfTarget?: boolean;
 }
 
 /**
@@ -13051,6 +13063,18 @@ declare interface CustomPopupOptions {
    * @since 12
   */
   onWillDismiss?: boolean | Callback<DismissPopupAction>;
+
+  /**
+   * Determine if popup can follow the target node when it has rotation or scale.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  followTransformOfTarget?: boolean;
 }
 
 /**
