@@ -159,7 +159,7 @@
     "SystemCapability.Security.CryptoFramework",
     "SystemCapability.Security.CryptoFramework.Key",
     "SystemCapability.Security.CryptoFramework.Key.SymKey",
-    "SystemCapability.Security.CryptoFramework.AsymKey",
+    "SystemCapability.Security.CryptoFramework.Key.AsymKey",
     "SystemCapability.Security.CryptoFramework.Signature",
     "SystemCapability.Security.CryptoFramework.Cipher",
     "SystemCapability.Security.CryptoFramework.KeyAgreement",
