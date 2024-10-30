@@ -429,7 +429,7 @@ declare namespace wifiManager {
   /**
    * Remove a specified candidate hotspot configuration, only the configuration which is added by ourself is allowed
    * to be removed.
-   * The app must be in the foreground
+   * The app must be in the foreground.
    * @permission ohos.permission.SET_WIFI_INFO
    * @param { number } networkId - Network ID which will be removed.
    * @param { AsyncCallback<void> } callback - Indicates call back of removeCandidateConfig.
