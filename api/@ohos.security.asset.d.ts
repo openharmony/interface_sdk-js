@@ -1118,14 +1118,6 @@ declare namespace asset {
    * @syscap SystemCapability.Security.Asset
    * @since 12
    */
-  /**
-   * An enum type indicates the additional action to be performed during operation.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Security.Asset
-   * @atomicservice
-   * @since 14
-   */
   enum OperationType {
     /**
      * Synchronization is required during operation.
@@ -1133,26 +1125,12 @@ declare namespace asset {
      * @syscap SystemCapability.Security.Asset
      * @since 12
      */
-    /**
-     * Synchronization is required during operation.
-     *
-     * @syscap SystemCapability.Security.Asset
-     * @atomicservice
-     * @since 14
-     */
     NEED_SYNC = 0,
     /**
      * Logout is required during operation.
      *
      * @syscap SystemCapability.Security.Asset
      * @since 12
-     */
-    /**
-     * Logout is required during operation.
-     *
-     * @syscap SystemCapability.Security.Asset
-     * @atomicservice
-     * @since 14
      */
     NEED_LOGOUT = 1,
   }
@@ -1631,13 +1609,6 @@ declare namespace asset {
      *
      * @syscap SystemCapability.Security.Asset
      * @since 12
-     */
-    /**
-     * A tag whose value is a 32-bit unsigned integer indicating the additional action to be performed during operation.
-     *
-     * @syscap SystemCapability.Security.Asset
-     * @atomicservice
-     * @since 14
      */
     OPERATION_TYPE = TagType.NUMBER | 0x46,
     /**
