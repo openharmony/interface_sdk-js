@@ -3484,6 +3484,79 @@ declare namespace camera {
   }
 
   /**
+   * Auto Device Switch Query object.
+   *
+   * @interface AutoDeviceSwitchQuery
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @since 13
+   */
+  interface AutoDeviceSwitchQuery {
+    /**
+     * Check whether auto device switch is supported.
+     *
+     * @returns { boolean } Is auto device switch supported.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 13
+     */
+    isAutoDeviceSwitchSupported(): boolean;
+  }
+
+  /**
+   * Auto Device Switch object.
+   *
+   * @interface AutoDeviceSwitch
+   * @extends AutoDeviceSwitchQuery
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @since 13
+   */
+  interface AutoDeviceSwitch extends AutoDeviceSwitchQuery {
+    /**
+     * Enable auto device switch for session.
+     *
+     * @param { boolean } enabled - enable auto device switch if TRUE.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
+     * 3. Parameters verification failed.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 13
+     */
+    enableAutoDeviceSwitch(enabled: boolean): void;
+  }
+
+  /**
+   * Auto Device Switch Status.
+   *
+   * @typedef AutoDeviceSwitchStatus
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @since 13
+   */
+  interface AutoDeviceSwitchStatus {
+    /**
+     * Notify whether device is switched.
+     *
+     * @type { boolean }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 13
+     */
+    readonly isDeviceSwitched: boolean;
+
+    /**
+     * Notify whether device capability is changed.
+     *
+     * @type { boolean }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 13
+     */
+    readonly isDeviceCapabilityChanged: boolean;
+  }
+
+  /**
    * Macro Query object.
    *
    * @interface MacroQuery
@@ -4690,10 +4763,19 @@ declare namespace camera {
    * Photo session object.
    *
    * @interface PhotoSession
+   * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorManagement
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 11
    */
-  interface PhotoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorManagement {
+  /**
+   * Photo session object.
+   *
+   * @interface PhotoSession
+   * @extends AutoDeviceSwitch
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @since 13
+   */
+  interface PhotoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorManagement, AutoDeviceSwitch {
     /**
      * Gets whether the choosed preconfig type can be used to configure photo session.
      * Must choose preconfig type from {@link PreconfigType}.
@@ -4878,6 +4960,26 @@ declare namespace camera {
     off(type: 'effectSuggestionChange', callback?: AsyncCallback<EffectSuggestionType>): void;
 
     /**
+     * Subscribes to auto device switch status event callback.
+     *
+     * @param { 'autoDeviceSwitchStatusChange' } type - Event type.
+     * @param { AsyncCallback<AutoDeviceSwitchStatus> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 13
+     */
+    on(type: 'autoDeviceSwitchStatusChange', callback: AsyncCallback<AutoDeviceSwitchStatus>): void;
+
+    /**
+     * Unsubscribes to auto device switch status event callback.
+     *
+     * @param { 'autoDeviceSwitchStatusChange' } type - Event type.
+     * @param { AsyncCallback<AutoDeviceSwitchStatus> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 13
+     */
+    off(type: 'autoDeviceSwitchStatusChange', callback?: AsyncCallback<AutoDeviceSwitchStatus>): void;
+
+    /**
      * Gets session functions.
      *
      * @param { CameraOutputCapability } outputCapability - CameraOutputCapability to set.
@@ -4917,10 +5019,19 @@ declare namespace camera {
    * Video session object.
    *
    * @interface VideoSession
+   * @extends Session, Flash, AutoExposure, Focus, Zoom, Stabilization, ColorManagement
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 11
    */
-  interface VideoSession extends Session, Flash, AutoExposure, Focus, Zoom, Stabilization, ColorManagement {
+  /**
+   * Video session object.
+   *
+   * @interface VideoSession
+   * @extends AutoDeviceSwitch
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @since 13
+   */
+  interface VideoSession extends Session, Flash, AutoExposure, Focus, Zoom, Stabilization, ColorManagement, AutoDeviceSwitch {
     /**
      * Gets whether the choosed preconfig type can be used to configure video session.
      * Must choose preconfig type from {@link PreconfigType}.
@@ -5055,6 +5166,26 @@ declare namespace camera {
      * @since 11
      */
     off(type: 'macroStatusChanged', callback?: AsyncCallback<boolean>): void;
+
+    /**
+     * Subscribes to auto device switch status event callback.
+     *
+     * @param { 'autoDeviceSwitchStatusChange' } type - Event type.
+     * @param { AsyncCallback<AutoDeviceSwitchStatus> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 13
+     */
+    on(type: 'autoDeviceSwitchStatusChange', callback: AsyncCallback<AutoDeviceSwitchStatus>): void;
+
+    /**
+     * Unsubscribes to auto device switch status event callback.
+     *
+     * @param { 'autoDeviceSwitchStatusChange' } type - Event type.
+     * @param { AsyncCallback<AutoDeviceSwitchStatus> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 13
+     */
+    off(type: 'autoDeviceSwitchStatusChange', callback?: AsyncCallback<AutoDeviceSwitchStatus>): void;
 
     /**
      * Gets session functions.
