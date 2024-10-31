@@ -3132,13 +3132,13 @@ declare namespace audio {
      */
     BLOCKED = 1,
   }
-  
+
   /**
    * Desribes audio device block status info.
    * @typedef DeviceBlockStatusInfo
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @since 13
-  */
+   */
   interface DeviceBlockStatusInfo {
     /**
      * Device block status.
@@ -3147,7 +3147,7 @@ declare namespace audio {
      * @since 13
      */
     blockStatus: DeviceBlockStatus;
-  
+
     /**
      * Audio device descriptors whose block status has changed.
      * @type {AudioDeviceDescriptors}
