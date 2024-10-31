@@ -99,7 +99,7 @@ declare namespace uiEffect {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 14
+     * @since 13
      */
     distort(distortionK: number): Filter;
   }
