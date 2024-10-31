@@ -367,7 +367,7 @@ declare class TabsController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   setTabBarTranslate(translate: TranslateOptions): void;
 
@@ -378,7 +378,7 @@ declare class TabsController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   setTabBarOpacity(opacity: number): void;
 }
