@@ -47,7 +47,8 @@ declare namespace eSIM {
    * Adds a single profile.
    *
    * @param { DownloadableProfile } profile - Bound profile package data returned by the SM-DP+ server.
-   * @returns { boolean } Returns {@code true} if the profile is added successfully; returns {@code false} otherwise.
+   * @returns { Promise<boolean> } Returns {@code true} if the profile is added successfully;
+   * returns {@code false} otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * 2. Incorrect parameter types. 3. Invalid parameter value.
    * @throws { BusinessError } 801 - Capability not supported.
