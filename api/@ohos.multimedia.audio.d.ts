@@ -3112,7 +3112,7 @@ declare namespace audio {
     interruptNode: number;
   }
 
-    /**
+  /**
    * Desribes audio device block status. By default, the device is consider as unblocked.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Device
