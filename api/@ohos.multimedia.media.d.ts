@@ -4055,7 +4055,7 @@ declare namespace media {
      */
     getInputMetaSurface(type: MetaSourceType): Promise<string>;
 
-        /**
+    /**
      * Check if the avrecorder has watermark capability.
      * @returns { Promise<boolean> } A Promise instance used to return true or false when the function is finished.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
