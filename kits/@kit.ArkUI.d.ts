@@ -23,6 +23,9 @@ import Animator, { AnimatorOptions, AnimatorResult } from '@ohos.animator';
 import WindowExtensionAbility, { WindowExtensionContext } from '@ohos.application.WindowExtensionAbility';
 import { AtomicServiceNavigation, NavDestinationBuilder } from '@ohos.atomicservice.AtomicServiceNavigation';
 import {
+    ArcButton, ArcButtonOptions, ArcButtonTypeMode, ArcButtonStyleMode, ArcButtonStatus, ArkButtonClickEffectStyle,
+} from '@ohos.arkui.advanced.ArcButton';
+import {
   Chip, ChipOptions, ChipSize, IconCommonOptions, LabelMarginOptions, LabelOptions, PrefixIconOptions,
   SuffixIconOptions, ChipSymbolGlyphOptions
 } from '@ohos.arkui.advanced.Chip';
@@ -167,6 +170,8 @@ export {
   AtomicServiceNavigation, NavDestinationBuilder,
   NavPushPathHelper,
   BackRouterOptions, BuilderNode, Button, ButtonOptions, CallbackParam,
+  ArcButton, ArcButtonOptions, ArcButtonTypeMode, ArcButtonStyleMode,
+  ArcButtonStatus, ArkButtonClickEffectStyle,
   CapsuleSegmentButtonConstructionOptions, CapsuleSegmentButtonOptions, Chip, ChipOptions, ChipSize, CircleShape, ComponentUtils,
   ComposeListItem, ComposeTitleBar, ComposeTitleBarMenuItem, Configuration, ConfirmDialog, ContentItem, ContextMenuController,
   CounterComponent, CounterOptions, CounterType, CursorController, DateData, DisableAlertBeforeBackPageOptions, DragController,
