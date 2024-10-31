@@ -3113,6 +3113,51 @@ declare namespace audio {
   }
 
   /**
+   * Desribes audio device block status. By default, the device is consider as unblocked.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @since 13
+   */
+  enum DeviceBlockStatus {
+    /**
+     * Device is unblocked.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 13
+     */
+    UNBLOCKED = 0,
+    /**
+     * Device is blocked.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 13
+     */
+    BLOCKED = 1,
+  }
+
+  /**
+   * Desribes audio device block status info.
+   * @typedef DeviceBlockStatusInfo
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @since 13
+   */
+  interface DeviceBlockStatusInfo {
+    /**
+     * Device block status.
+     * @type {DeviceBlockStatus}
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 13
+     */
+    blockStatus: DeviceBlockStatus;
+
+    /**
+     * Audio device descriptors whose block status has changed.
+     * @type {AudioDeviceDescriptors}
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 13
+     */
+    devices: AudioDeviceDescriptors;
+  }
+
+  /**
    * Implements audio router management.
    * @typedef AudioRoutingManager
    * @syscap SystemCapability.Multimedia.Audio.Device
@@ -3700,6 +3745,43 @@ declare namespace audio {
      * @since 12
      */
     getPreferredInputDeviceForCapturerInfoSync(capturerInfo: AudioCapturerInfo): AudioDeviceDescriptors;
+
+    /**
+     * Query whether microphone block detection is supported on current device.
+     * @returns { Promise<boolean> } Promise used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 13
+     */
+    isMicBlockDetectionSupported():Promise<boolean>;
+
+    /**
+     * Subscribes microphone blocked events. Before subscribing, users should query whether block detection is supported
+     * on current device. The caller will receive the callback only when it is recording and the used
+     * microphones' block status have changed. Currently, block detecting is only support for microphones located on
+     * the local device.
+     * @param { 'micBlockStatusChanged' } type - Type of the event to listen for.
+     * @param { Callback<DeviceBlockStatusInfo> } callback - Callback used to obtain the microphone block status.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 13
+     */
+    on(type: 'micBlockStatusChanged', callback: Callback<DeviceBlockStatusInfo>): void;
+
+    /**
+     * Unsubscribes microphone blocked events.
+     * @param { 'microphoneBlockStatusChanged' } type - Type of the event to listen for.
+     * @param { Callback<DeviceBlockStatusInfo> } callback - Callback used to obtain the microphone block status.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 13
+     */
+     off(type: 'micBlockStatusChanged', callback?: Callback<DeviceBlockStatusInfo>): void;
   }
 
   /**
@@ -4085,7 +4167,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @since 12
-     */  
+     */
     concurrencyMode: AudioConcurrencyMode;
   }
 
@@ -4103,9 +4185,9 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @since 12
-     */  
+     */
     reason: AudioSessionDeactivatedReason;
-  }  
+  }
 
   /**
    * Implements audio session management.
@@ -4164,7 +4246,7 @@ declare namespace audio {
      */
     on(type: 'audioSessionDeactivated', callback: Callback<AudioSessionDeactivatedEvent>): void;
 
-    /** 
+    /**
     * Unsubscribes to audio session deactivated event.
     * @param { 'audioSessionDeactivated' } type - Type of the event to listen for. Only the audioSessionDeactivated event is supported.
     * @param { Callback<AudioSessionDeactivatedEvent> } callback - Callback invoked for the audio session deactivated event.
@@ -7724,6 +7806,13 @@ declare namespace audio {
      * @since 12
      */
     SOURCE_TYPE_VOICE_MESSAGE = 10,
+
+    /**
+     * Camcorder source type.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 13
+     */
+    SOURCE_TYPE_CAMCORDER = 13,
   }
 
   /**
