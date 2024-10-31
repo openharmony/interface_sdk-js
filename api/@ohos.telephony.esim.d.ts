@@ -589,7 +589,7 @@ declare namespace eSIM {
   }
 
   /**
-   * Result of an operation.
+   * Result of downloadable Profile list.
    *
    * @interface GetDownloadableProfilesResult
    * @syscap SystemCapability.Telephony.CoreService.Esim
@@ -619,7 +619,7 @@ declare namespace eSIM {
   }
 
   /**
-   * Result of an operation.
+   * Result of the given downloadable Profile.
    *
    * @interface DownloadProfileResult
    * @syscap SystemCapability.Telephony.CoreService.Esim
@@ -659,7 +659,7 @@ declare namespace eSIM {
   }
 
   /**
-   * Result of an operation.
+   * Result of all eUICC profile information.
    *
    * @interface GetEuiccProfileInfoListResult
    * @syscap SystemCapability.Telephony.CoreService.Esim
