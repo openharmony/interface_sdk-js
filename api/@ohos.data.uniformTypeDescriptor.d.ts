@@ -1712,7 +1712,7 @@ declare namespace uniformTypeDescriptor {
    * @returns { Array<string> } Returns the uniform data type ID list corresponding to the given filename extension and the
    * <br>uniform data type it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type does not exist.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect Parameters types.
+   * <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 13
    */
@@ -1726,7 +1726,7 @@ declare namespace uniformTypeDescriptor {
    * @returns { Array<string> } Returns the uniform data type ID list corresponding to the given MIME type and the uniform data type
    * <br>it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type does not exist.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect Parameters types.
+   * <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 13
    */
