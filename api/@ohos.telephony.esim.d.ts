@@ -24,20 +24,39 @@ import type { AsyncCallback } from './@ohos.base';
  * This indicates that the eSIM card performs the profile management operation synchronously.
  * Includes methods defined by GSMA Spec (SGP.22) and customized methods.
  *
- * @namespace esim
+ * @namespace eSIM
  * @syscap SystemCapability.Telephony.CoreService.Esim
  * @since 14
  */
-declare namespace esim {
+declare namespace eSIM {
   /**
    * Whether embedded subscriptions are currently supported.
    *
    * @param { number } slotId - Indicates the card slot index number.
    * @returns { boolean } Returns {@code true} if the eSIM capability is supported; returns {@code false} otherwise.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 3120001 - Service connection failed.
+   * @throws { BusinessError } 3120002 - System internal error.
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @since 14
    */
-  function isEsimSupported(slotId: number): boolean;
+  function isSupported(slotId: number): boolean;
+
+  /**
+   * Adds a single profile.
+   *
+   * @param { DownloadableProfile } profile - Bound profile package data returned by the SM-DP+ server.
+   * @returns { boolean } Returns {@code true} if the profile is added successfully; returns {@code false} otherwise.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3120001 - Service connection failed.
+   * @throws { BusinessError } 3120002 - System internal error.
+   * @syscap SystemCapability.Telephony.CoreService.Esim
+   * @since 14
+   */
+  function addProfile(profile: DownloadableProfile): Promise<boolean>;
 
   /**
    * Returns the EID identifying for the eUICC hardware.
@@ -48,11 +67,10 @@ declare namespace esim {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
+   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3120001 - Service connection failed.
+   * @throws { BusinessError } 3120002 - System internal error.
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
@@ -60,7 +78,7 @@ declare namespace esim {
   function getEid(slotId: number): string;
 
   /**
-   * Returns the current status of eUICC OSU.
+   * Returns the current status of eUICC OS upgrade.
    * 
    * @permission ohos.permission.GET_TELEPHONY_ESIM_STATE
    * @param { number } slotId - Indicates the card slot index number.
@@ -68,11 +86,10 @@ declare namespace esim {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
+   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3120001 - Service connection failed.
+   * @throws { BusinessError } 3120002 - System internal error.
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
@@ -80,24 +97,23 @@ declare namespace esim {
   function getOsuStatus(slotId: number): Promise<OsuStatus>;
 
   /**
-   * Execute OSU if current OSU is not the latest one.
+   * Execute OS upgrade if current OS upgrade is not the latest one.
    * 
    * @permission ohos.permission.SET_TELEPHONY_ESIM_STATE
    * @param { number } slotId - Indicates the card slot index number.
-   * @returns { Promise<ResultState> } Return the status of OS upgrade when OSU status changed.
+   * @returns { Promise<OsuStatus> } Return the status of OS upgrade when OS upgrade status changed.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
+   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3120001 - Service connection failed.
+   * @throws { BusinessError } 3120002 - System internal error.
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
-  function startOsu(slotId: number): Promise<ResultState>;
+  function startOsu(slotId: number): Promise<OsuStatus>;
 
   /**
    * Fills in and gets the metadata for a downloadable profile.
@@ -113,11 +129,10 @@ declare namespace esim {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
+   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3120001 - Service connection failed.
+   * @throws { BusinessError } 3120002 - System internal error.
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
@@ -139,11 +154,10 @@ declare namespace esim {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
+   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3120001 - Service connection failed.
+   * @throws { BusinessError } 3120002 - System internal error.
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
@@ -166,11 +180,10 @@ declare namespace esim {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
+   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3120001 - Service connection failed.
+   * @throws { BusinessError } 3120002 - System internal error.
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
@@ -179,7 +192,7 @@ declare namespace esim {
       switchAfterDownload: boolean, forceDisableProfile: boolean): Promise<DownloadProfileResult>;
 
   /**
-   * Returns a list of all euiccProfile informations.
+   * Returns a list of all eUICC profile information.
    *
    * @permission ohos.permission.GET_TELEPHONY_ESIM_STATE
    * @param { number } slotId - Indicates the card slot index number.
@@ -187,11 +200,10 @@ declare namespace esim {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
+   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3120001 - Service connection failed.
+   * @throws { BusinessError } 3120002 - System internal error.
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
@@ -208,11 +220,10 @@ declare namespace esim {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
+   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3120001 - Service connection failed.
+   * @throws { BusinessError } 3120002 - System internal error.
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
@@ -225,20 +236,19 @@ declare namespace esim {
    * @permission ohos.permission.SET_TELEPHONY_ESIM_STATE
    * @param { number } slotId - Indicates the card slot index number.
    * @param { string } iccid - The iccid of the profile.
-   * @returns { Promise<ResultState> } Returns the response to deletes the given profile.
+   * @returns { Promise<ResultCode> } Returns the response to deletes the given profile.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
+   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3120001 - Service connection failed.
+   * @throws { BusinessError } 3120002 - System internal error.
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
-  function deleteProfile(slotId: number, iccid: string): Promise<ResultState>;
+  function deleteProfile(slotId: number, iccid: string): Promise<ResultCode>;
 
   /**
    * Switch to (enable) the given profile on the eUICC.
@@ -250,19 +260,20 @@ declare namespace esim {
    * @param { boolean } forceDisableProfile - If true, the active profile must be disabled in order to perform the
    * operation. Otherwise, the resultCode should return {@link RESULT_MUST_DISABLE_PROFILE} to allow
    * the user to agree to this operation first.
-   * @returns { Promise<ResultState> } Returns the response to switch profile.
+   * @returns { Promise<ResultCode> } Returns the response to switch profile.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
+   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3120001 - Service connection failed.
+   * @throws { BusinessError } 3120002 - System internal error.
    * @syscap SystemCapability.Telephony.CoreService.Esim
+   * @systemapi Hide this for inner system use.
    * @since 14
    */
   function switchToProfile(slotId: number, portIndex: number, iccid: string,
-    forceDisableProfile: boolean): Promise<ResultState>;
+    forceDisableProfile: boolean): Promise<ResultCode>;
 
   /**
    * Adds or updates the given profile nickname.
@@ -271,18 +282,19 @@ declare namespace esim {
    * @param { number } slotId - Indicates the card slot index number.
    * @param { string } iccid - The iccid of the profile.
    * @param { string } nickname - The nickname of the profile.
-   * @returns { Promise<ResultState> } Returns the result of the set nickname operation.
+   * @returns { Promise<ResultCode> } Returns the result of the set nickname operation.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
+   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3120001 - Service connection failed.
+   * @throws { BusinessError } 3120002 - System internal error.
    * @syscap SystemCapability.Telephony.CoreService.Esim
+   * @systemapi Hide this for inner system use.
    * @since 14
    */
-  function setProfileNickname(slotId: number, iccid: string, nickname: string): Promise<ResultState>;
+  function setProfileNickname(slotId: number, iccid: string, nickname: string): Promise<ResultCode>;
 
   /**
    * Erase all specific profiles and reset the eUICC.
@@ -290,40 +302,38 @@ declare namespace esim {
    * @permission ohos.permission.SET_TELEPHONY_ESIM_STATE
    * @param { number } slotId - Indicates the card slot index number.
    * @param { ResetOption } options - Options for resetting eUICC memory.
-   * @returns { Promise<ResultState> } Returns the result of the reset operation.
+   * @returns { Promise<ResultCode> } Returns the result of the reset operation.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
+   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3120001 - Service connection failed.
+   * @throws { BusinessError } 3120002 - System internal error.
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
-  function resetMemory(slotId: number, options?:ResetOption): Promise<ResultState>;
+  function resetMemory(slotId: number, options?:ResetOption): Promise<ResultCode>;
 
   /**
    * Ensure that profiles will be retained on the next factory reset.
    *
    * @permission ohos.permission.SET_TELEPHONY_ESIM_STATE
    * @param { number } slotId - Indicates the card slot index number.
-   * @returns { Promise<ResultState> } Returns the result code.
+   * @returns { Promise<ResultCode> } Returns the result code.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
+   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3120001 - Service connection failed.
+   * @throws { BusinessError } 3120002 - System internal error.
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
-  function reserveProfilesForFactoryRestore(slotId: number): Promise<ResultState>;
+  function reserveProfilesForFactoryRestore(slotId: number): Promise<ResultCode>;
 
   /**
    * Set or update the default SM-DP+ address stored in an eUICC.
@@ -331,20 +341,19 @@ declare namespace esim {
    * @permission ohos.permission.SET_TELEPHONY_ESIM_STATE
    * @param { number } slotId - Indicates the card slot index number.
    * @param { string } address -  The default SM-DP+ address to set.
-   * @returns { Promise<ResultState> } Returns the result code.
+   * @returns { Promise<ResultCode> } Returns the result code.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
+   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3120001 - Service connection failed.
+   * @throws { BusinessError } 3120002 - System internal error.
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
-  function setDefaultSmdpAddress(slotId: number, address: string): Promise<ResultState>;
+  function setDefaultSmdpAddress(slotId: number, address: string): Promise<ResultCode>;
 
   /**
    * Gets the default SM-DP+ address stored in an eUICC.
@@ -355,11 +364,10 @@ declare namespace esim {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
+   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3120001 - Service connection failed.
+   * @throws { BusinessError } 3120002 - System internal error.
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
@@ -375,21 +383,19 @@ declare namespace esim {
    * @param { number } slotId - Indicates the card slot index number.
    * @param { string } transactionId - The transaction ID returned by SM-DP+ server.
    * @param { CancelReason } cancelReason - The cancel reason.
-   * @returns { Promise<ResponseEsimResult> } Returns result code and cancel session response string.
+   * @returns { Promise<ResultCode> } Returns the result code.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
+   * 2. Incorrect parameter types. 3. Invalid parameter value.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3120001 - Service connection failed.
+   * @throws { BusinessError } 3120002 - System internal error.
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
    */
-  function cancelSession(slotId: number, transactionId: string,
-    cancelReason: CancelReason): Promise<ResponseEsimResult>;
+  function cancelSession(slotId: number, transactionId: string, cancelReason: CancelReason): Promise<ResultCode>;
 
   /**
    * Establishes a single UICC access rule pursuant to the GlobalPlatform Secure Element Access Control specification.
@@ -441,7 +447,7 @@ declare namespace esim {
    */
   export interface DownloadableProfile {
     /**
-     * Activation code. It may be empty.
+     * Activation code.
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
@@ -453,32 +459,32 @@ declare namespace esim {
     /**
      * Confirmation code.
      * 
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
-    confirmationCode: string;
+    confirmationCode?: string;
 
     /**
      * Carrier name.
      * 
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
-    carrierName: string;
+    carrierName?: string;
 
     /**
      * Gets the accessRules.
      * 
-     * @type { Array<AccessRule> }
+     * @type { ?Array<AccessRule> }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
-    accessRules: Array<AccessRule>;
+    accessRules?: Array<AccessRule>;
   }
 
   /**
@@ -521,6 +527,46 @@ declare namespace esim {
     pprFlag: boolean;
 
     /**
+     * The iccid of the profile.
+     * 
+     * @type { string }
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+     iccid: string;
+
+     /**
+      * The service provider name for the profile.
+      * 
+      * @type { string }
+      * @syscap SystemCapability.Telephony.CoreService.Esim
+      * @systemapi Hide this for inner system use.
+      * @since 14
+      */
+     serviceProviderName: string;
+
+     /**
+      * The profile name.
+      * 
+      * @type { string }
+      * @syscap SystemCapability.Telephony.CoreService.Esim
+      * @systemapi Hide this for inner system use.
+      * @since 14
+      */
+     profileName: string;
+
+     /**
+      * Profile class for the profile.
+      *
+      * @type { ProfileClass }
+      * @syscap SystemCapability.Telephony.CoreService.Esim
+      * @systemapi Hide this for inner system use.
+      * @since 14
+      */
+     profileClass: ProfileClass;
+
+    /**
      * Gets the solvable errors.
      * 
      * @type { SolvableErrors }
@@ -533,16 +579,16 @@ declare namespace esim {
     /**
      * Gets the result of the operation.
      * 
-     * @type { ResultState }
+     * @type { ResultCode }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
-    requestResponseResult: ResultState;
+    responseResult: ResultCode;
   }
 
   /**
-   * Result of a operation.
+   * Result of an operation.
    *
    * @interface GetDownloadableProfilesResult
    * @syscap SystemCapability.Telephony.CoreService.Esim
@@ -553,12 +599,12 @@ declare namespace esim {
     /**
      * Gets the result of the operation.
      * 
-     * @type { ResultState }
+     * @type { ResultCode }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
-    requestResponseResult: ResultState;
+    responseResult: ResultCode;
 
     /**
      * Gets the downloadable Profiles with filled-in metadata.
@@ -572,7 +618,7 @@ declare namespace esim {
   }
 
   /**
-   * Result of a operation.
+   * Result of an operation.
    *
    * @interface DownloadProfileResult
    * @syscap SystemCapability.Telephony.CoreService.Esim
@@ -583,12 +629,12 @@ declare namespace esim {
     /**
      * Gets the result of the operation.
      * 
-     * @type { ResultState }
+     * @type { ResultCode }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
-    requestResponseResult: ResultState;
+    responseResult: ResultCode;
 
     /**
      * Gets the solvable errors.
@@ -612,7 +658,7 @@ declare namespace esim {
   }
 
   /**
-   * Result of a operation.
+   * Result of an operation.
    *
    * @interface GetEuiccProfileInfoListResult
    * @syscap SystemCapability.Telephony.CoreService.Esim
@@ -623,12 +669,12 @@ declare namespace esim {
     /**
      * Gets the result of the operation.
      * 
-     * @type { ResultState }
+     * @type { ResultCode }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
-    requestResponseResult: ResultState;
+    responseResult: ResultCode;
 
     /**
      * Gets the profile list (only upon success).
@@ -874,7 +920,7 @@ declare namespace esim {
      * @systemapi Hide this for inner system use.
      * @since 14
      */
-    EUICC_UPGRAD_IN_PROGRESS = 1,
+    EUICC_UPGRADE_IN_PROGRESS = 1,
 
     /**
      * The OS upgrade failed.
@@ -883,7 +929,7 @@ declare namespace esim {
      * @systemapi Hide this for inner system use.
      * @since 14
      */
-    EUICC_UPGRAD_FAILED = 2,
+    EUICC_UPGRADE_FAILED = 2,
 
     /**
      * The OS upgrade successful.
@@ -892,7 +938,7 @@ declare namespace esim {
      * @systemapi Hide this for inner system use.
      * @since 14
      */
-    EUICC_UPGRAD_SUCCESSFUL = 3,
+    EUICC_UPGRADE_SUCCESSFUL = 3,
 
     /**
      * The OS upgrade not needed since current eUICC OS is latest.
@@ -901,7 +947,7 @@ declare namespace esim {
      * @systemapi Hide this for inner system use.
      * @since 14
      */
-    EUICC_UPGRAD_ALREADY_LATEST = 4,
+    EUICC_UPGRADE_ALREADY_LATEST = 4,
 
     /**
      * The OS upgrade status is unavailable since eUICC service is unavailable.
@@ -909,8 +955,8 @@ declare namespace esim {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
-     */
-    EUICC_UPGRAD_SERVICE_UNAVAILABLE = 5,
+          */
+    EUICC_UPGRADE_SERVICE_UNAVAILABLE = 5,
   }
 
   /**
@@ -921,9 +967,9 @@ declare namespace esim {
    * @systemapi Hide this for inner system use.
    * @since 14
    */
-  export enum ResultState {
+  export enum ResultCode {
     /**
-     * Indicates that the user must resolve a solveable error.
+     * Indicates that the user must resolve a solvable error.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -950,13 +996,292 @@ declare namespace esim {
     RESULT_OK = 0,
 
     /**
-     * undefinedError.
+     * Failed to obtain the EID.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
      */
-    RESULT_UNDEFINED_ERROR = 1,
+    RESULT_GET_EID_FAILED = 201,
+
+    /**
+     * The activation code is changed after the end user confirms the operation.
+     *
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    RESULT_ACTIVATION_CODE_CHANGED = 203,
+
+    /**
+     * The activation code is invalid.
+     *
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    RESULT_ACTIVATION_CODE_INVALID = 204,
+
+    /**
+     * The SM-DP+ server address is invalid.
+     *
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    RESULT_SMDP_ADDRESS_INVALID = 205,
+
+    /**
+     * Invalid eUICC information.
+     *
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    RESULT_EUICC_INFO_INVALID = 206,
+
+    /**
+     * TLS handshake fails.
+     *
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    RESULT_TLS_HANDSHAKE_FAILED = 207,
+
+    /**
+     * Certificate network connection error.
+     *
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    RESULT_CERTIFICATE_IO_ERROR = 208,
+
+    /**
+     * The certificate address is invalid or the response times out.
+     *
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+          */
+    RESULT_CERTIFICATE_RESPONSE_TIMEOUT = 209,
+
+    /**
+     * Authentication fails.
+     *
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    RESULT_AUTHENTICATION_FAILED = 210,
+
+    /**
+     * HTTP response fails.
+     *
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    RESULT_RESPONSE_HTTP_FAILED = 211,
+
+    /**
+     * Incorrect confirmation code.
+     *
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    RESULT_CONFIRMATION_CODE_INCORRECT = 212,
+
+    /**
+     * The maximum number of confirmation code attempts is reached.
+     *
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    RESULT_EXCEEDED_CONFIRMATION_CODE_TRY_LIMIT = 213,
+
+    /**
+     * There is no profile on the server for download.
+     *
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    RESULT_NO_PROFILE_ON_SERVER = 214,
+
+    /**
+     * The transaction ID is invalid.
+     *
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    RESULT_TRANSACTION_ID_INVALID = 215,
+
+    /**
+     * The server address is invalid.
+     *
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    RESULT_SERVER_ADDRESS_INVALID = 216,
+
+    /**
+     * Failed to obtain the bound profile package.
+     *
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    RESULT_GET_BOUND_PROFILE_PACKAGE_FAILED = 217,
+
+    /**
+     * The download is canceled by the end user.
+     *
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+         RESULT_USER_CANCEL_DOWNLOAD = 218,
+
+    /**
+     * The carrier server is unavailable.
+     *
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    RESULT_SERVER_UNAVAILABLE = 220,
+
+    /**
+     * The profile is attached to a non-delete profile policy rule.
+     *
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    RESULT_PROFILE_NON_DELETE = 223,
+
+    /**
+     * The authentication response server address does not match.
+     *
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    RESULT_SMDP_ADDRESS_INCORRECT = 226,
+
+    /**
+     * Failed to analyze the authentication server response.
+     *
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    RESULT_ANALYZE_AUTHENTICATION_SERVER_RESPONSE_FAILED = 228,
+
+    /**
+     * Failed to analyze the authentication client response.
+     *
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    RESULT_ANALYZE_AUTHENTICATION_CLIENT_RESPONSE_FAILED = 229,
+
+    /**
+     * Failed to analyze the authentication client response because the matching ID is rejected.
+     *
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    RESULT_ANALYZE_AUTHENTICATION_CLIENT_MATCHING_ID_REFUSED = 231,
+
+    /**
+     * Authentication stopped due to an error in the profile type.
+     *
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+          */
+    RESULT_PROFILE_TYPE_ERROR_AUTHENTICATION_STOPPED = 233,
+
+    /**
+     * The carrier server refused errors of which the reason code is 3.8.
+     *
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    RESULT_CARRIER_SERVER_REFUSED_ERRORS = 249,
+
+    /**
+     * The certificate is invalid.
+     *
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    RESULT_CERTIFICATE_INVALID = 251,
+
+    /**
+     * Profile installation failed due to insufficient memory.
+     *
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    RESULT_OUT_OF_MEMORY = 263,
+
+    /**
+     * The profile policy rule prohibits this operation during download.
+     *
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    RESULT_PPR_FORBIDDEN = 268,
+
+    /**
+     * The profile policy rule does not match.
+     *
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    RESULT_PPR_NOT_MATCH = 276,
+
+    /**
+     * This eSIM profile is already in use or is invalid.
+     *
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    RESULT_PROFILE_EID_INVALID = 284,
+
+    /**
+     * Download times out.
+     *
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    RESULT_DOWNLOAD_TIMEOUT = 287,
+
+    /**
+     * Other errors defined in SGP.22.
+     *
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    RESULT_SGP_22_OTHER = 400,
   }
 
   /**
@@ -1003,36 +1328,6 @@ declare namespace esim {
      * @since 14
      */
     CANCEL_REASON_PPR_NOT_ALLOWED = 3,
-  }
-
-  /**
-   * Result of a operation.
-   *
-   * @interface ResponseEsimResult
-   * @syscap SystemCapability.Telephony.CoreService.Esim
-   * @systemapi Hide this for inner system use.
-   * @since 14
-   */
-  export interface ResponseEsimResult {
-    /**
-     * Gets the result of the operation.
-     * 
-     * @type { ResultState }
-     * @syscap SystemCapability.Telephony.CoreService.Esim
-     * @systemapi Hide this for inner system use.
-     * @since 14
-     */
-    requestResponseResult: ResultState;
-
-    /**
-     * Gets the response results.
-     * 
-     * @type { string }
-     * @syscap SystemCapability.Telephony.CoreService.Esim
-     * @systemapi Hide this for inner system use.
-     * @since 14
-     */
-    response: string;
   }
 
   /**
@@ -1171,7 +1466,7 @@ declare namespace esim {
      * @systemapi Hide this for inner system use.
      * @since 14
      */
-    SOLVABLE_ERROR_NEEED_CONFIRMATION_CODE = 1 << 0,
+    SOLVABLE_ERROR_NEED_CONFIRMATION_CODE = 1 << 0,
 
     /**
      * Indicates that the download process requires user consent to allow profile policy rules.
@@ -1180,8 +1475,8 @@ declare namespace esim {
      * @systemapi Hide this for inner system use.
      * @since 14
      */
-    SOLVABLE_ERROR_NEEED_POLICY_RULE = 1 << 1,
+    SOLVABLE_ERROR_NEED_POLICY_RULE = 1 << 1,
   }
 }
 
-export default esim;
+export default eSIM;
