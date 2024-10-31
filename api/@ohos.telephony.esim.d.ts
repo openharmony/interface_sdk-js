@@ -955,7 +955,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
-          */
+     */
     EUICC_UPGRADE_SERVICE_UNAVAILABLE = 5,
   }
 
