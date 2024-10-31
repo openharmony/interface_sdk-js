@@ -44,7 +44,7 @@ declare namespace eSIM {
   function isSupported(slotId: number): boolean;
 
   /**
-   * Adds a single profile.
+   * Starts a page through an ability, on which users can touch the button to download a profile.
    *
    * @param { DownloadableProfile } profile - Bound profile package data returned by the SM-DP+ server.
    * @returns { Promise<boolean> } Returns {@code true} if the profile is added successfully;
