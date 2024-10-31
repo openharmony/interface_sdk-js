@@ -118,6 +118,17 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      */
     objectFit(value: ImageFit): MovingPhotoViewAttribute;
     /**
+     * Called when the image load completed.
+     *
+     * @param { MovingPhotoViewEventCallback } callback
+     * @returns { MovingPhotoViewAttribute }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    onComplete(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
+    /**
      * Called when the video is played.
      *
      * @param { MovingPhotoViewEventCallback } callback
@@ -172,6 +183,43 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @since 12
      */
     onError(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
+    /**
+     * Sets automatic play period, If not set, the moving photo plays in the full video duration.
+     * If set, the moving photo plays in the automatic play period.
+     *
+     * @param { number } startTime video plays start time
+     * @param { number } endTime   video plays end time
+     * @returns { MovingPhotoViewAttribute }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    autoPlayPeriod(startTime: number, endTime: number): MovingPhotoViewAttribute;
+    /**
+     * Sets whether to allow automatic play. If the value is true, the moving photo starts 
+     * automatic after the resource is loaded.
+     *
+     * @param { boolean } isAutoPlay  Whether to automatic play
+     * @returns { MovingPhotoViewAttribute }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    autoPlay(isAutoPlay: boolean): MovingPhotoViewAttribute;
+    /**
+     * Sets whether to allow repeat play. If the value is true, the moving photo plays 
+     * repeat after the resource is loaded.
+     *
+     * @param { boolean } isRepeatPlay  Whether to repeat play
+     * @returns { MovingPhotoViewAttribute }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 13
+     */
+    repeatPlay(isRepeatPlay: boolean): MovingPhotoViewAttribute;
 }
 /**
  * Defines the MovingPhotoView controller.
