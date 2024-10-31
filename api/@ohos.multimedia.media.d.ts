@@ -1793,7 +1793,7 @@ declare namespace media {
      * Prepare audio/video playback, it will request resource for playing.
      * @param { AsyncCallback<void> } callback - instance used to return when prepare completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
-     * @throws { BusinessError } 5400106 - Unsupport format. Return by callback.
+     * @throws { BusinessError } 5400106 - Unsupported format. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -1822,7 +1822,7 @@ declare namespace media {
      * Prepare audio/video playback, it will request resource for playing.
      * @returns { Promise<void> } A Promise instance used to return when prepare completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
-     * @throws { BusinessError } 5400106 - Unsupport format. Return by promise.
+     * @throws { BusinessError } 5400106 - Unsupported format. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -2294,7 +2294,7 @@ declare namespace media {
      * @atomicservice
      * @since 12
      */
-    setMediaMuted(mediaType: MediaType,  muted: boolean ): Promise<void>;
+    setMediaMuted(mediaType: MediaType, muted: boolean): Promise<void>;
 
     /**
      * Set playback start position and end position.
@@ -7971,7 +7971,7 @@ declare namespace media {
      */
     off(type: 'error', callback?: ErrorCallback): void;
   }
-  
+
   /**
    * Provides the video transcode configuration definitions
    * 
