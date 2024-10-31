@@ -3118,44 +3118,44 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @since 13
    */
-    enum DeviceBlockStatus{
-      /**
-       * Device is unblocked.
-       * @syscap SystemCapability.Multimedia.Audio.Device
-       * @since 13
-       */
-      UNBLOCKED = 0,
-      /**
-       * Device is blocked.
-       * @syscap SystemCapability.Multimedia.Audio.Device
-       * @since 13
-       */
-      BLOCKED = 1,
-    }
-  
+  enum DeviceBlockStatus {
     /**
-     * Desribes audio device block status info.
-     * @typedef DeviceBlockStatusInfo
+     * Device is unblocked.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 13
      */
-    interface DeviceBlockStatusInfo {
-      /**
-       * Device block status.
-       * @type {DeviceBlockStatus}
-       * @syscap SystemCapability.Multimedia.Audio.Device
-       * @since 13
-       */
-      blockStatus: DeviceBlockStatus;
+    UNBLOCKED = 0,
+    /**
+     * Device is blocked.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 13
+     */
+    BLOCKED = 1,
+  }
   
-      /**
-       * Audio device descriptors whose block status has changed.
-       * @type {AudioDeviceDescriptors}
-       * @syscap SystemCapability.Multimedia.Audio.Device
-       * @since 13
-       */
-      devices: AudioDeviceDescriptors;
-    }
+  /**
+   * Desribes audio device block status info.
+   * @typedef DeviceBlockStatusInfo
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @since 13
+  */
+  interface DeviceBlockStatusInfo {
+    /**
+     * Device block status.
+     * @type {DeviceBlockStatus}
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 13
+     */
+    blockStatus: DeviceBlockStatus;
+  
+    /**
+     * Audio device descriptors whose block status has changed.
+     * @type {AudioDeviceDescriptors}
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 13
+     */
+    devices: AudioDeviceDescriptors;
+  }
 
   /**
    * Implements audio router management.
