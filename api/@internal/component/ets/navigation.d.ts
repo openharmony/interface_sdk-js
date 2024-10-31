@@ -2038,6 +2038,18 @@ declare interface NavigationTitleOptions {
    * @since 13
    */
   subTitleModifier?: TextModifier;
+
+  /**
+   * Defines whether to respond to the hover mode.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  enableHoverMode?: boolean;
 }
 
 /**
@@ -2407,6 +2419,19 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   hideTitleBar(value: boolean): NavigationAttribute;
 
   /**
+   * Hide navigation title bar
+   *
+   * @param { boolean } hide
+   * @param { boolean } animated
+   * @returns { NavigationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  hideTitleBar(hide: boolean, animated: boolean): NavigationAttribute;
+
+  /**
    * Hide navigation back button
    *
    * @param { boolean } value
@@ -2557,6 +2582,19 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 11
    */
   hideToolBar(value: boolean): NavigationAttribute;
+
+  /**
+   * Hide tool bar
+   *
+   * @param { boolean } hide
+   * @param { boolean } animated
+   * @returns { NavigationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  hideToolBar(hide: boolean, animated: boolean): NavigationAttribute;
 
   /**
    * Trigger callback when title mode change finished at free mode.
