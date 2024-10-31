@@ -4187,7 +4187,7 @@ declare namespace audio {
      * @since 12
      */
     reason: AudioSessionDeactivatedReason;
-  }  
+  }
 
   /**
    * Implements audio session management.
