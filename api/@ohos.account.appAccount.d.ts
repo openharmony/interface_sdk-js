@@ -869,6 +869,23 @@ declare namespace appAccount {
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
      */
+    /**
+     * Gets information about all accounts of a specified account owner.
+     * This method applies to the following accounts:
+     * <br> Accounts of this application.
+     * <br> Accounts of third-party applications. To obtain such information,
+     * <br> your application must have gained authorization from the third-party applications or
+     * <br> have gained the ohos.permission.GET_ALL_APP_ACCOUNTS permission.
+     *
+     * @param { string } owner - Indicates the account owner of your application or third-party applications.
+     * @param { AsyncCallback<Array<AppAccountInfo>> } callback - Asynchronous callback interface. Returns a list of application accounts.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameter types.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid owner.
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 14
+     */
     getAccountsByOwner(owner: string, callback: AsyncCallback<Array<AppAccountInfo>>): void;
 
     /**
@@ -888,6 +905,23 @@ declare namespace appAccount {
      * @throws { BusinessError } 12400001 - Application not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
+     */
+    /**
+     * Gets information about all accounts of a specified account owner.
+     * This method applies to the following accounts:
+     * <br> Accounts of this application.
+     * <br> Accounts of third-party applications. To obtain such information,
+     * <br> your application must have gained authorization from the third-party applications or
+     * <br> have gained the ohos.permission.GET_ALL_APP_ACCOUNTS permission.
+     *
+     * @param { string } owner - Indicates the account owner of your application or third-party applications.
+     * @returns { Promise<Array<AppAccountInfo>> } Returns a list of application accounts.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameter types.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid owner.
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 14
      */
     getAccountsByOwner(owner: string): Promise<Array<AppAccountInfo>>;
 
@@ -1089,6 +1123,23 @@ declare namespace appAccount {
      * @throws { BusinessError } 12400001 - Application not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
+     */
+    /**
+     * Subscribes to the change events of accounts of the specified owners.
+     * <p>
+     * When the account owner updates the account, the subscriber will receive a notification
+     * about the account change event.
+     *
+     * @param { 'accountChange' } type - Event type.
+     * @param { Array<string> } owners - Indicates the account owners, which are specified
+     *        by {@link AppAccount#AppAccount(String name, String owner)}.
+     * @param { Callback<Array<AppAccountInfo>> } callback - Asynchronous callback interface.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameter types.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid type or owners.
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 14
      */
     on(type: 'accountChange', owners: Array<string>, callback: Callback<Array<AppAccountInfo>>): void;
 
@@ -1459,6 +1510,26 @@ declare namespace appAccount {
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
      */
+    /**
+     * Sets the auth token visibility of the specified authentication type to a third-party application.
+     * <p>
+     * Only the owner of the application account has the permission to call this method.
+     *
+     * @param { string } name - Indicates the account name of your application.
+     * @param { string } authType - Indicates the authentication type.
+     * @param { string } bundleName - Indicates the bundle name of the third-party application.
+     * @param { boolean } isVisible - Indicates the bool value of visibility.
+     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameter types.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid name, authType or bundleName.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300107 - AuthType not found.
+     * @throws { BusinessError } 12400005 - The size of authorization list reaches the upper limit.
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 14
+     */
     setAuthTokenVisibility(
       name: string,
       authType: string,
@@ -1487,6 +1558,26 @@ declare namespace appAccount {
      * @throws { BusinessError } 12400005 - The size of authorization list reaches the upper limit.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
+     */
+    /**
+     * Sets the auth token visibility of the specified authentication type to a third-party application.
+     * <p>
+     * Only the owner of the application account has the permission to call this method.
+     *
+     * @param { string } name - Indicates the account name of your application.
+     * @param { string } authType - Indicates the authentication type.
+     * @param { string } bundleName - Indicates the bundle name of the third-party application.
+     * @param { boolean } isVisible - Indicates the bool value of visibility.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameter types.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid name, authType or bundleName.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300107 - AuthType not found.
+     * @throws { BusinessError } 12400005 - The size of authorization list reaches the upper limit.
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 14
      */
     setAuthTokenVisibility(name: string, authType: string, bundleName: string, isVisible: boolean): Promise<void>;
 
