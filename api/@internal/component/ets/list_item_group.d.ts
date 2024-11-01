@@ -126,7 +126,7 @@ declare interface ListItemGroupOptions {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 13
+    * @since 14
     */
   headerComponent?: ComponentContent;
 
@@ -163,7 +163,7 @@ declare interface ListItemGroupOptions {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 13
+    * @since 14
     */
   footerComponent?: ComponentContent;
 

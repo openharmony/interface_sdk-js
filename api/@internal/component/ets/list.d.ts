@@ -831,7 +831,7 @@ declare class ListScroller extends Scroller {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   getVisibleListContentInfo(x: number, y: number): VisibleListContentInfo;
 }

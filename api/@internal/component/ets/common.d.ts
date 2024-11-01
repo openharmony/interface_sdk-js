@@ -14318,7 +14318,7 @@ declare interface ClickEffect {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare interface FadingEdgeOptions {
   /**
@@ -14329,7 +14329,7 @@ declare interface FadingEdgeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   fadingEdgeLength?: LengthMetrics;
 }
@@ -23320,7 +23320,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   fadingEdge(enabled: Optional<boolean>, options?: FadingEdgeOptions): T;
 
