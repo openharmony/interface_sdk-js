@@ -1654,6 +1654,20 @@ declare namespace photoAccessHelper {
      */
     getEditData(): Promise<MediaAssetEditData>;
     /**
+     * Clone asset.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { string } title - The title of asset.
+     * @returns { Promise<PhotoAsset> } Returns asset
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 14
+     */
+    clone(title: string): Promise<PhotoAsset>;
+    /**
      * Requests the read-only FD of the source asset.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
