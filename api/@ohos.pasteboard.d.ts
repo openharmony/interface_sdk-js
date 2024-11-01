@@ -1586,6 +1586,16 @@ declare namespace pasteboard {
      * @since 13
      */
     detectPatterns(patterns: Array<Pattern>): Promise<Array<Pattern>>;
+
+    /**
+     * Get the MIME types in the pasteboard.
+     * 
+     * @returns { Promise<Array<string>> } Promise used to return the MIME types.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 14
+     */
+    getMimeTypes(): Promise<Array<string>>;
   }
 }
 
