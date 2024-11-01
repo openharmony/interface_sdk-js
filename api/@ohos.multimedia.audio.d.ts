@@ -3062,7 +3062,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @since 12
-     */：、
+     */
     getSessionManager(): AudioSessionManager;
 
     /**
