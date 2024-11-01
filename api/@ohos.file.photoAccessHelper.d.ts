@@ -1656,7 +1656,7 @@ declare namespace photoAccessHelper {
     /**
      * Clone asset.
      *
-     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { string } title - The title of asset.
      * @returns { Promise<PhotoAsset> } Returns asset
      * @throws { BusinessError } 201 - Permission denied
