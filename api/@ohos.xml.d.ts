@@ -1282,6 +1282,21 @@ declare namespace xml {
      * @since 11
      */
     parse(option: ParseOptions): void;
+
+    /**
+     * Parse the XML file from XmlPullParser.
+     *
+     * @param { ParseOptions } option - Parse options for XmlPullParser, the interface including
+	   * two Boolean variables and three callback functions.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    parseXml(option: ParseOptions): void;
   }
 }
 export default xml;
