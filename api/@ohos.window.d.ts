@@ -4201,8 +4201,8 @@ declare namespace window {
      * Get the window rectangular area quadruple {left,top,weight,height}, left and top represent relative to screen coordinates 
      * and are affected by parent window scaling, weight and height are the scaling width and height.
      * 
-     * @returns { Rect } The quadruple {left,top,weight,height} represents respectively the X-coordinate of the window in screen,
-     * the Y-coordinate of the window relative to current screen, the scaled window width and scaled window height.
+     * @returns { Rect } The quadruple {left,top,weight,height} represents respectively the X-coordinate
+     * and Y-coordinate of the window relative to current screen, the scaled window width and scaled window height.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
