@@ -99,6 +99,18 @@ declare namespace display {
   function getDefaultDisplaySync(): Display;
 
   /**
+   * Obtain the primary display.
+   *
+   * @returns { Display } the result of primary display
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  function getPrimaryDisplaySync(): Display;
+
+  /**
    * Obtain the target display.
    *
    * @param { number } displayId Display id to query. This parameter should be greater than or equal to 0.
