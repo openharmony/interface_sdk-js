@@ -256,6 +256,26 @@ declare namespace screenshot {
      * @since 8
      */
     displayId?: number;
+    /**
+     * The capture action is need notification.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @atomicservice
+     * @since 14
+     */
+    isNotificationNeeded?: boolean;
+    /**
+     * The capture action is need pointer.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @atomicservice
+     * @since 14
+     */
+    isPointerNeeded?: boolean;
   }
 }
 
