@@ -86,7 +86,7 @@ declare interface UIExtensionOptions {
    * @type { ?Record<string, ComponentContent> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 13
+   * @since 14
    */
   areaChangePlaceholder?: Record<string, ComponentContent>;
 
