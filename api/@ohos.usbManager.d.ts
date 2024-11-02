@@ -1584,7 +1584,7 @@ declare namespace usbManager {
    */
   interface USBAccessoryHandle {
     /**
-     * The file descriptor of the accessory.
+     * The file descriptor of the accessory.The valid USBAccessoryHandle.accessoryFd is a positive value.
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
