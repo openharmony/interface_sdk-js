@@ -3198,7 +3198,7 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 5400104 - Time out.
      * @throws { BusinessError } 5400105 - Service died.
-     * @throws { BusinessError } 5400106 - Unsupport format.
+     * @throws { BusinessError } 5400106 - Unsupported format.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -3215,7 +3215,7 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @throws { BusinessError } 5400104 - Time out.
      * @throws { BusinessError } 5400105 - Service died.
-     * @throws { BusinessError } 5400106 - Unsupport format.
+     * @throws { BusinessError } 5400106 - Unsupported format.
      * @throws { BusinessError } 5411001 - IO can not find host.
      * @throws { BusinessError } 5411002 - IO connection timeout.
      * @throws { BusinessError } 5411003 - IO network abnormal.
@@ -3387,20 +3387,20 @@ declare namespace media {
      * Subscrips listener for audio playback amplitude update event.
      * In each event, an array of amplitude is reported, large index indicates closer to current time.
      * @param { 'amplitudeUpdate' } type - Type of the event to listen for.
-     * @param { Callback<Array<Number>> } callback - Callback used to listen amplitude update event.
+     * @param { Callback<Array<number>> } callback - Callback used to listen amplitude update event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 13
      */
-    on(type: 'amplitudeUpdate', callback: Callback<Array<Number>>): void
+    on(type: 'amplitudeUpdate', callback: Callback<Array<number>>): void
 
     /**
      * UnSubscrips listener for audio playback amplitude update event
      * @param { 'amplitudeUpdate' } type - Type of the event to listen for.
-     * @param { Callback<Array<Number>> } callback - Callback used to listen amplitude update event.
+     * @param { Callback<Array<number>> } callback - Callback used to listen amplitude update event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 13
      */
-    off(type: 'amplitudeUpdate', callback?: Callback<Array<Number>>): void
+    off(type: 'amplitudeUpdate', callback?: Callback<Array<number>>): void
   }
 
   /**
@@ -8150,7 +8150,7 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 5400104 - Time out.
      * @throws { BusinessError } 5400105 - Service died.
-     * @throws { BusinessError } 5400106 - Unsupport format.
+     * @throws { BusinessError } 5400106 - Unsupported format.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
      */
