@@ -5501,6 +5501,16 @@ declare namespace call {
      * @since 12
      */
     isCloud?: boolean;
+
+    /**
+     * Indicates the details of number mark.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    markDetails?: string;
   }
 
   /**
@@ -5609,7 +5619,16 @@ declare namespace call {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    MARK_TYPE_YELLOW_PAGE = 10
+    MARK_TYPE_YELLOW_PAGE = 10,
+
+    /**
+     * Indicates the mark is enterprise.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    MARK_TYPE_ENTERPRISE = 11
   }
 }
 
