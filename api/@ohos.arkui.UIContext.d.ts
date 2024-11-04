@@ -2054,7 +2054,7 @@ export class SwiperDynamicSyncScene extends DynamicSyncScene {
  * @extends DynamicSyncScene
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 13
+ * @since 14
  */
 export class MarqueeDynamicSyncScene extends DynamicSyncScene {
   /**
@@ -2063,7 +2063,7 @@ export class MarqueeDynamicSyncScene extends DynamicSyncScene {
   * @readonly
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
-  * @since 13
+  * @since 14
   */
   readonly type: MarqueeDynamicSyncSceneType;
 }
@@ -3442,7 +3442,7 @@ export const enum SwiperDynamicSyncSceneType {
  * @enum { number } MarqueeDynamicSyncSceneType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 13
+ * @since 14
  */
 export const enum MarqueeDynamicSyncSceneType {
   /**
@@ -3450,7 +3450,7 @@ export const enum MarqueeDynamicSyncSceneType {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   ANIMATION = 1
 }
