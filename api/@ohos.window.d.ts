@@ -7615,7 +7615,7 @@ declare namespace window {
     setWindowDecorVisible(isVisible: boolean): void;
 
     /**
-     * Set the window title move enable.
+     * Set whether window can be moved by drag title.
      *
      * @param { boolean } enable - Enable the window title move if true, otherwise means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
