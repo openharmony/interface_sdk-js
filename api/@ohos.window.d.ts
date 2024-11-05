@@ -7617,7 +7617,7 @@ declare namespace window {
     /**
      * Set whether window can be moved by drag title.
      *
-     * @param { boolean } enable - Enable the window title move if true, otherwise means the opposite.
+     * @param { boolean } enabled - Enable the window title move if true, otherwise means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -7627,7 +7627,7 @@ declare namespace window {
      * @atomicservice
      * @since 14
      */
-    setWindowTitleMoveEnabled(enable: boolean): void;
+    setWindowTitleMoveEnabled(enabled: boolean): void;
 
     /**
      * Set the modality of the window.
