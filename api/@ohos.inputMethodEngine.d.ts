@@ -1821,6 +1821,16 @@ declare namespace inputMethodEngine {
      * @since 12
      */
     isTextPreviewSupported: boolean;
+
+    /**
+     * Editor's bundle name.
+     *
+     * @type { ?string }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 14
+     */
+    readonly bundleName?: string;
   }
 
   /**
