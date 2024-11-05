@@ -5703,7 +5703,7 @@ declare namespace audio {
      * @since 14
      */
     getAudioEffectProperty(): Array<AudioEffectProperty>;
-   }
+  }
 
   /**
    * Connect type for device.
