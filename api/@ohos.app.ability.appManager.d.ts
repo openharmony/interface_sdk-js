@@ -424,7 +424,8 @@ declare namespace appManager {
   /**
    * Kill process with account.
    *
-   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.CLEAN_BACKGROUND_PROCESSES
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.KILL_APP_PROCESSES
+   *     or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.CLEAN_BACKGROUND_PROCESSES
    * @param { string } bundleName - The process bundle name.
    * @param { number } accountId - The account id.
    * @param { boolean } clearPageStack - The flag that indicates whether the page stack need to be cleared.
@@ -436,7 +437,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 13
+   * @since 14
    */
   function killProcessWithAccount(bundleName: string, accountId: number, clearPageStack: boolean, appIndex?: number):
     Promise<void>;
@@ -553,7 +554,7 @@ declare namespace appManager {
   /**
    * Kill processes by bundle name
    *
-   * @permission ohos.permission.CLEAN_BACKGROUND_PROCESSES
+   * @permission ohos.permission.KILL_APP_PROCESSES or ohos.permission.CLEAN_BACKGROUND_PROCESSES
    * @param { string } bundleName - bundle name.
    * @param { boolean } clearPageStack - The flag that indicates whether the page stack need to be cleared.
    * @param { number } [appIndex] - The application index.
@@ -564,7 +565,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 13
+   * @since 14
    */
   function killProcessesByBundleName(bundleName: string, clearPageStack: boolean, appIndex?: number): Promise<void>;
 

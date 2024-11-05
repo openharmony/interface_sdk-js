@@ -399,7 +399,7 @@ export default class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   killAllProcesses(clearPageStack: boolean): Promise<void>;
 
