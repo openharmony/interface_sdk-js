@@ -79,22 +79,15 @@ declare namespace sendablePhotoAccessHelper {
    * @enum { number } PhotoSubtype
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   enum PhotoSubtype {
     /**
      * Default Photo Type
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
-     * @since 13
-     */
-    /**
-     * Default Photo Type
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     DEFAULT = 0,
     /**
@@ -102,7 +95,7 @@ declare namespace sendablePhotoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     SCREENSHOT = 1,
     /**
@@ -110,7 +103,7 @@ declare namespace sendablePhotoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     MOVING_PHOTO = 3,
     /**
@@ -118,7 +111,7 @@ declare namespace sendablePhotoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     BURST = 4,
   }
@@ -128,21 +121,21 @@ declare namespace sendablePhotoAccessHelper {
    *
    * @enum { number } DynamicRangeType
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @since 13
+   * @since 14
    */
   enum DynamicRangeType {
     /**
      * SDR(Standard-Dynamic Range) format
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 13
+     * @since 14
      */
     SDR = 0,
     /**
      * HDR(High-Dynamic Range) format
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 13
+     * @since 14
      */
     HDR = 1
   }
@@ -153,7 +146,7 @@ declare namespace sendablePhotoAccessHelper {
    * @enum { number } Photo asset position, such as local device or cloud
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since 13
+   * @since 14
    */
   enum PositionType {
     /**
@@ -161,7 +154,7 @@ declare namespace sendablePhotoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     LOCAL = 1 << 0,
     /**
@@ -169,7 +162,7 @@ declare namespace sendablePhotoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     CLOUD = 1 << 1
   }
@@ -180,7 +173,7 @@ declare namespace sendablePhotoAccessHelper {
    * @enum { number } MovingPhotoEffectMode
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since 13
+   * @since 14
    */
   enum MovingPhotoEffectMode {
     /**
@@ -188,7 +181,7 @@ declare namespace sendablePhotoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     DEFAULT = 0,
 
@@ -197,7 +190,7 @@ declare namespace sendablePhotoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     BOUNCE_PLAY = 1,
 
@@ -206,7 +199,7 @@ declare namespace sendablePhotoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     LOOP_PLAY = 2,
 
@@ -215,7 +208,7 @@ declare namespace sendablePhotoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     LONG_EXPOSURE = 3,
 
@@ -224,7 +217,7 @@ declare namespace sendablePhotoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     MULTI_EXPOSURE = 4,
 
@@ -233,7 +226,7 @@ declare namespace sendablePhotoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     CINEMA_GRAPH = 5,
 
@@ -242,7 +235,7 @@ declare namespace sendablePhotoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     IMAGE_ONLY = 10
   }
@@ -725,7 +718,7 @@ declare namespace sendablePhotoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     getSharedPhotoAssets(options: photoAccessHelper.FetchOptions): Array<SharedPhotoAsset>;
   }
@@ -777,6 +770,20 @@ declare namespace sendablePhotoAccessHelper {
      * @since 12
      */
     convertToPhotoAlbum(): photoAccessHelper.Album;
+    /**
+     * Get the faceId of the portrait album or group photo album.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @returns { Promise<string> } Returns tag_id if portrait album, Returns group_tag if group photo album,
+     * <br>Returns empty if not found.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 13
+     */
+    getFaceId(): Promise<string>;
   }
 
   /**
@@ -785,7 +792,7 @@ declare namespace sendablePhotoAccessHelper {
    * @interface SharedPhotoAsset
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since 13
+   * @since 14
    */
   interface SharedPhotoAsset extends lang.ISendable {
     /**
@@ -794,7 +801,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     fileId: number;
     /**
@@ -803,7 +810,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     uri: string;
     /**
@@ -812,7 +819,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     data: string;
     /**
@@ -821,7 +828,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { PhotoType }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     mediaType: PhotoType;
     /**
@@ -830,7 +837,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     displayName: string;
     /**
@@ -839,7 +846,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     size: number;
     /**
@@ -848,7 +855,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     dateAdded: number;
     /**
@@ -857,7 +864,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     dateModified: number;
     /**
@@ -866,7 +873,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     duration: number;
     /**
@@ -875,7 +882,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     width: number;
     /**
@@ -884,7 +891,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     height: number;
     /**
@@ -893,7 +900,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     dateTaken: number;
     /**
@@ -902,7 +909,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     orientation: number;
     /**
@@ -911,7 +918,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     isFavorite: boolean;
     /**
@@ -920,7 +927,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     title: string;
     /**
@@ -929,7 +936,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { PositionType }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     position: PositionType;
     /**
@@ -938,7 +945,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     dateTrashed: number;
     /**
@@ -947,7 +954,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     hidden: boolean;
     /**
@@ -956,7 +963,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     userComment: string;
     /**
@@ -965,7 +972,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     cameraShotKey: string;
     /**
@@ -974,7 +981,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     dateYear: string;
     /**
@@ -983,7 +990,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     dateMonth: string;
     /**
@@ -992,7 +999,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     dateDay: string;
     /**
@@ -1001,7 +1008,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     pending: boolean;
     /**
@@ -1010,7 +1017,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     dateAddedMs: number;
     /**
@@ -1019,7 +1026,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     dateModifiedMs: number;
     /**
@@ -1028,7 +1035,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     dateTrashedMs: number;
     /**
@@ -1037,7 +1044,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { PhotoSubtype }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     subtype: PhotoSubtype;
     /**
@@ -1046,7 +1053,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { MovingPhotoEffectMode }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     movingPhotoEffectMode: MovingPhotoEffectMode;
     /**
@@ -1055,7 +1062,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { DynamicRangeType }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     dynamicRangeType: DynamicRangeType;
     /**
@@ -1064,7 +1071,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     thumbnailReady: boolean;
     /**
@@ -1073,7 +1080,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     lcdSize: string;
     /**
@@ -1082,7 +1089,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     thmSize: string;
     /**
@@ -1091,7 +1098,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     thumbnailModifiedMs: number;
     /**
@@ -1100,7 +1107,7 @@ declare namespace sendablePhotoAccessHelper {
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     thumbnailVisible: number;
   }
@@ -1270,7 +1277,7 @@ declare namespace sendablePhotoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     getSharedPhotoAssets(options: photoAccessHelper.FetchOptions): Array<SharedPhotoAsset>;
   }

@@ -6114,7 +6114,18 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
    * @atomicservice
    * @since 11
    */
-  onReady(event: () => void): CanvasAttribute;
+  /**
+   * Event notification after the canvas component is constructed. You can draw the canvas at this time.
+   *
+   * @param { VoidCallback } event
+   * @returns { CanvasAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  onReady(event: VoidCallback): CanvasAttribute;
 
   /**
    * Enable image analyzer for Canvas.

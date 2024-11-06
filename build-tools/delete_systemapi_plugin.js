@@ -592,6 +592,24 @@ function formatAllNodesImportDeclaration(node, statement, url, currReferencesMod
 }
 
 /**
+ * 
+ * 防止@file和@kit段注释丢失
+ * @param {string} fileFullText 
+ * @returns {string}
+ * 
+ */
+function getFileAndKitComment(fileFullText) {
+  let fileAndKitComment = '';
+  let pattern = /\/\*\*\s*\*\s*@file[\s\S]*?@kit[\s\S]*?\*\//;
+  let comment = fileFullText.match(pattern);
+  if (comment) {
+    fileAndKitComment = comment[0];
+  }
+  return fileAndKitComment;
+}
+
+
+/**
  * 每个文件处理前回调函数第一个
  * @callback deleteSystemApi
  * @param {string} url 文件路径
@@ -601,7 +619,9 @@ function deleteSystemApi(url) {
   return (context) => {
     return (node) => {
       const fullText = String(node.getFullText());
-      const copyrightMessage = fullText.replace(node.getText(), '').split(/\/\*\*/)[0];
+      //获取文件头部的注释信息--这里可能会涉及到@file和@kit段注释丢失
+      let fileAndKitComment = getFileAndKitComment(fullText);
+      const copyrightMessage = fullText.replace(node.getText(), '').split(/\/\*\*/)[0] + fileAndKitComment + '\n';
       let kitName = '';
       if (fullText.match(/\@kit (.*)\r?\n/g)) {
         kitName = RegExp.$1.replace(/\s/g, '');
@@ -960,7 +980,7 @@ function resolveCallback(url) {
     }
     function collectAllIdentifier(node) {
       if (isSystemapi(node)) {
-        return;
+        return node;
       }
       if (ts.isIdentifier(node)) {
         allReferencesIdentifierSet.add(node.escapedText.toString());

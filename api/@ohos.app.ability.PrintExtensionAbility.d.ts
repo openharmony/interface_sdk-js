@@ -26,55 +26,50 @@ import type print from './@ohos.print';
  *
  * @syscap SystemCapability.Print.PrintFramework
  * @stagemodelonly
- * @since 12
+ * @since 13
  */
 export default class PrintExtensionAbility {
 
   /**
    * Called once to initialize the extensionAbility.
    * @param { Want } want - call print page want params.
-   * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
-   * @since 12
+   * @since 13
    */
   onCreate(want: Want): void;
 
   /**
    * Called once to start to discover the printers connected with the device.
-   * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
-   * @since 12
+   * @since 13
    */
   onStartDiscoverPrinter(): void;
 
   /**
    * Called once to stop discovering the printer.
-   * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
-   * @since 12
+   * @since 13
    */
   onStopDiscoverPrinter(): void;
 
   /**
    * Called once to connect to the specific printer.
    * @param { number } printerId - connect the printerId.
-   * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
-   * @since 12
+   * @since 13
    */
   onConnectPrinter(printerId: number): void;
 
   /**
    * Called once to disconnect to the specific printer.
    * @param { number } printerId - connect the printerId.
-   * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
-   * @since 12
+   * @since 13
    */
   onDisconnectPrinter(printerId: number): void;
 
@@ -126,10 +121,9 @@ export default class PrintExtensionAbility {
 
   /**
    * Called once to finalize the extensionAbility.
-   * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
-   * @since 12
+   * @since 13
    */
   onDestroy(): void;
 }

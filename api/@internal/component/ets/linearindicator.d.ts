@@ -14,13 +14,18 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Defines the LinearIndicator Controller.
  *
  * @interface LinearIndicatorController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 16
  */
 declare class LinearIndicatorController {
   /**
@@ -29,7 +34,7 @@ declare class LinearIndicatorController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   constructor();
 
@@ -43,7 +48,7 @@ declare class LinearIndicatorController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   setProgress(index: number, progress: number): void;
 
@@ -54,7 +59,7 @@ declare class LinearIndicatorController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   start(options?: LinearIndicatorStartOptions): void;
 
@@ -65,7 +70,7 @@ declare class LinearIndicatorController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   pause(): void;
 
@@ -76,7 +81,7 @@ declare class LinearIndicatorController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   stop(): void;
 }
@@ -88,7 +93,7 @@ declare class LinearIndicatorController {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 16
  */
 declare interface LinearIndicatorStartOptions {
   /**
@@ -99,7 +104,7 @@ declare interface LinearIndicatorStartOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   interval?: number;
 
@@ -111,7 +116,7 @@ declare interface LinearIndicatorStartOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   duration?: number;
 }
@@ -123,7 +128,7 @@ declare interface LinearIndicatorStartOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 16
  */
 declare interface LinearIndicatorStyle {
   /**
@@ -134,7 +139,7 @@ declare interface LinearIndicatorStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   space?: LengthMetrics;
 
@@ -146,7 +151,7 @@ declare interface LinearIndicatorStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   strokeWidth?: LengthMetrics;
 
@@ -158,7 +163,7 @@ declare interface LinearIndicatorStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   strokeRadius?: LengthMetrics;
 
@@ -170,7 +175,7 @@ declare interface LinearIndicatorStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   trackBackgroundColor?: ColorMetrics;
 
@@ -182,7 +187,7 @@ declare interface LinearIndicatorStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   trackColor?: ColorMetrics;
 }
@@ -194,7 +199,7 @@ declare interface LinearIndicatorStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 16
  */
 interface LinearIndicatorInterface {
   /**
@@ -207,7 +212,7 @@ interface LinearIndicatorInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
    (count?: number, controller?: LinearIndicatorController): LinearIndicatorAttribute;
 }
@@ -219,7 +224,7 @@ interface LinearIndicatorInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 16
  */
 declare class LinearIndicatorAttribute extends CommonMethod<LinearIndicatorAttribute> {
   /**
@@ -230,7 +235,7 @@ declare class LinearIndicatorAttribute extends CommonMethod<LinearIndicatorAttri
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   indicatorStyle(style: Optional<LinearIndicatorStyle>): LinearIndicatorAttribute;
 
@@ -242,7 +247,7 @@ declare class LinearIndicatorAttribute extends CommonMethod<LinearIndicatorAttri
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   indicatorLoop(loop: Optional<boolean>): LinearIndicatorAttribute;
 
@@ -254,7 +259,7 @@ declare class LinearIndicatorAttribute extends CommonMethod<LinearIndicatorAttri
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   onChange(callback: Optional<OnLinearIndicatorChangeCallback>): LinearIndicatorAttribute;
 }
@@ -268,7 +273,7 @@ declare class LinearIndicatorAttribute extends CommonMethod<LinearIndicatorAttri
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 16
  */
 declare type OnLinearIndicatorChangeCallback = (index: number, progress: number) => void;
 
@@ -278,7 +283,7 @@ declare type OnLinearIndicatorChangeCallback = (index: number, progress: number)
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 16
  */
 declare const LinearIndicator: LinearIndicatorInterface;
 
@@ -288,6 +293,6 @@ declare const LinearIndicator: LinearIndicatorInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 16
  */
 declare const LinearIndicatorInstance: LinearIndicatorAttribute

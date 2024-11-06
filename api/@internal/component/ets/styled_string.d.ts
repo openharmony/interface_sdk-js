@@ -125,6 +125,22 @@ declare class StyledString {
     static fromHtml(html: string): Promise<StyledString>;
 
     /**
+     * Returns HTML string from the provided StyledString.
+     *
+     * @param { StyledString } styledString - the StyledString will be converted to a HTML string.
+     * @returns { string }
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    static toHtml(styledString: StyledString): string;
+
+    /**
      * Returns ArrayBuffer from the serialized styled string.
      *
      * @param { StyledString } styledString - StyledString parameter.
@@ -622,7 +638,7 @@ declare class TextShadowStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare class BackgroundColorStyle {
 
@@ -633,7 +649,7 @@ declare class BackgroundColorStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     constructor(textBackgroundStyle: TextBackgroundStyle);
 
@@ -645,7 +661,7 @@ declare class BackgroundColorStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     readonly textBackgroundStyle: TextBackgroundStyle;
 }
@@ -919,7 +935,7 @@ declare class LineHeightStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare class UrlStyle {
 
@@ -930,7 +946,7 @@ declare class UrlStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     constructor(url: string);
 
@@ -942,7 +958,7 @@ declare class UrlStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     readonly url: string;
 }
@@ -968,7 +984,7 @@ declare class UrlStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle |
 TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan |
@@ -1225,7 +1241,7 @@ declare enum StyledStringKey {
       * @syscap SystemCapability.ArkUI.ArkUI.Full
       * @crossplatform
       * @atomicservice
-      * @since 13
+      * @since 14
       */
      BACKGROUND_COLOR = 6,
 
@@ -1235,7 +1251,7 @@ declare enum StyledStringKey {
       * @syscap SystemCapability.ArkUI.ArkUI.Full
       * @crossplatform
       * @atomicservice
-      * @since 13
+      * @since 14
       */
      URL = 7,
 

@@ -2968,6 +2968,24 @@ declare class WebContextMenuParam {
    * @since 11
    */
   getEditStateFlags(): number;
+
+  /**
+   * Returns the selection menu preview width.
+   *
+   * @returns { number } The preview menu width.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 13
+   */
+  getPreviewWidth(): number;
+
+  /**
+   * Returns the selection menu preview height.
+   *
+   * @returns { number } The preview menu height.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 13
+   */
+  getPreviewHeight(): number;
 }
 
 /**
@@ -4000,6 +4018,16 @@ declare class EventResult {
    * @since 12
    */
   setGestureEventResult(result: boolean): void;
+
+  /**
+   * Set whether the event is consumed.
+   *
+   * @param { boolean } result - True if the event is consumed.
+   * @param { boolean } stopPropagation - Stops the propagation of events farther along.Default value is true.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 14
+   */
+  setGestureEventResult(result: boolean, stopPropagation: boolean): void;
 }
 
 /**
@@ -5725,6 +5753,14 @@ declare interface OnSslErrorEventReceiveEvent {
    * @since 12
    */
   error: SslError;
+  /**
+   * Certificate chain data in DER format.
+   *
+   * @type { ?Array<Uint8Array> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 14
+   */
+  certChainData?: Array<Uint8Array>;
 }
 
 /**
@@ -6124,6 +6160,85 @@ declare enum WebKeyboardAvoidMode {
    * @since 12
    */
   OVERLAYS_CONTENT = 2,
+}
+
+/**
+ * Defines Web Elements type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 13
+ */
+declare enum WebElementType {
+  /**
+   * Image,corresponding HTML image type.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 13
+   */
+  IMAGE = 1,
+}
+
+/**
+ * ResponseType for contextMenu
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 13
+ */
+declare enum WebResponseType {
+  /**
+   * Long press.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 13
+   */
+  LONG_PRESS = 1,
+}
+
+/**
+ * Defines the selection menu options.
+ *
+ * @typedef SelectionMenuOptionsExt
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 13
+ */
+declare interface SelectionMenuOptionsExt {
+  /**
+   * Callback function when the selection menu appears.
+   *
+   * @type { ?Callback<void> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 13
+   */
+  onAppear?: Callback<void>;
+
+  /**
+   * Callback function when the selection menu disappears.
+   *
+   * @type { ?Callback<void> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 13
+   */
+  onDisappear?: Callback<void>;
+
+  /**
+   * The preview content of selection menu.
+   *
+   * @type { ?CustomBuilder }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 13
+   */
+  preview?: CustomBuilder;
+
+  /**
+   * Menu type, default value is MenuType.SELECTION_MENU.
+   *
+   * @type { ?MenuType }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 13
+   */
+  menuType?: MenuType;
 }
 
 /**
@@ -8345,7 +8460,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute } the attribute of the scroll.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   nestedScroll(value: NestedScrollOptions | NestedScrollOptionsExt): WebAttribute;
 
@@ -8558,6 +8673,20 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 13
    */
   enableHapticFeedback(enabled: boolean): WebAttribute;
+
+  /**
+   * Bind to the selection menu.
+   *
+   * @param { WebElementType } elementType - Indicates the type of selection menu.
+   * @param { CustomBuilder } content - Indicates the content of selection menu.
+   * @param { WebResponseType } responseType - Indicates response type of selection menu.
+   * @param { SelectionMenuOptionsExt } [options] - Indicates the options of selection menu.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 13
+   */
+  bindSelectionMenu(elementType: WebElementType, content: CustomBuilder, responseType: WebResponseType,
+      options?: SelectionMenuOptionsExt): WebAttribute;
 }
 
 /**
@@ -8718,7 +8847,7 @@ declare interface ExpandedMenuItemOptions {
  *
  * @interface NestedScrollOptionsExt
  * @syscap SystemCapability.Web.Webview.Core
- * @since 13
+ * @since 14
  */
 declare interface NestedScrollOptionsExt {
   /**
@@ -8726,7 +8855,7 @@ declare interface NestedScrollOptionsExt {
    *
    * @type { ?NestedScrollMode }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 13
+   * @since 14
    */
   scrollUp?: NestedScrollMode;
 
@@ -8735,7 +8864,7 @@ declare interface NestedScrollOptionsExt {
    *
    * @type { ?NestedScrollMode }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 13
+   * @since 14
    */
   scrollDown?: NestedScrollMode;
 
@@ -8744,7 +8873,7 @@ declare interface NestedScrollOptionsExt {
    *
    * @type { ?NestedScrollMode }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 13
+   * @since 14
    */
   scrollRight?: NestedScrollMode;
 
@@ -8753,7 +8882,7 @@ declare interface NestedScrollOptionsExt {
    *
    * @type { ?NestedScrollMode }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 13
+   * @since 14
    */
   scrollLeft?: NestedScrollMode;
 }

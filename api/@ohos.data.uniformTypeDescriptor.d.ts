@@ -40,7 +40,7 @@
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare namespace uniformTypeDescriptor {
   /**
@@ -65,7 +65,7 @@ declare namespace uniformTypeDescriptor {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   enum UniformDataType {
     /**
@@ -111,7 +111,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     TEXT = 'general.text',
 
@@ -134,7 +134,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     PLAIN_TEXT = 'general.plain-text',
 
@@ -157,7 +157,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     HTML = 'general.html',
 
@@ -180,7 +180,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     HYPERLINK = 'general.hyperlink',
 
@@ -475,7 +475,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     IMAGE = 'general.image',
 
@@ -722,7 +722,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     VIDEO = 'general.video',
 
@@ -865,7 +865,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     AUDIO = 'general.audio',
 
@@ -1048,7 +1048,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     FILE = 'general.file',
 
@@ -1079,7 +1079,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     FOLDER = 'general.folder',
 
@@ -1548,7 +1548,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     OPENHARMONY_PIXEL_MAP = 'openharmony.pixel-map',
 
@@ -1810,7 +1810,7 @@ declare namespace uniformTypeDescriptor {
    * @returns { Array<string> } Returns the uniform data type ID list corresponding to the given filename extension and the
    * <br>uniform data type it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type does not exist.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect Parameters types.
+   * <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 13
    */
@@ -1824,7 +1824,7 @@ declare namespace uniformTypeDescriptor {
    * @returns { Array<string> } Returns the uniform data type ID list corresponding to the given MIME type and the uniform data type
    * <br>it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type does not exist.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect Parameters types.
+   * <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 13
    */

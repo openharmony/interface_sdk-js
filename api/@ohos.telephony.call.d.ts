@@ -3362,6 +3362,16 @@ declare namespace call {
      * @since 12
      */
     numberMarkInfo?: NumberMarkInfo;
+
+    /**
+     * Indicates the extra call parameters.
+     *
+     * @type { ?Record<string, Object> }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    extraParams?: Record<string, Object>;
   }
 
   /**
@@ -4038,42 +4048,6 @@ declare namespace call {
      * @since 12
      */
     EVENT_SHOW_FLOAT_WINDOW,
-
-    /**
-     * Indicates voip call muted.
-     *
-     * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
-     * @since 12
-     */
-    EVENT_CALL_MUTED = 7,
-
-    /**
-     * Indicates voip call unmuted.
-     *
-     * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
-     * @since 12
-     */
-    EVENT_CALL_UNMUTED = 8,
-
-    /**
-     * Indicates voip call speaker on.
-     *
-     * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
-     * @since 12
-     */
-    EVENT_CALL_SPEAKER_ON = 9,
-
-    /**
-     * Indicates voip call speaker off.
-     *
-     * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
-     * @since 12
-     */
-    EVENT_CALL_SPEAKER_OFF = 10,
   }
 
   /**
@@ -4232,6 +4206,15 @@ declare namespace call {
      * @since 9
      */
     dialType?: DialType;
+    /**
+     * Indicates the extra call parameters.
+     *
+     * @type { ?Record<string, Object> }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    extraParams?: Record<string, Object>;
   }
 
   /**

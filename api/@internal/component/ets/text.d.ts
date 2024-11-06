@@ -1040,6 +1040,30 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   selection(selectionStart: number, selectionEnd: number): TextAttribute;
 
   /**
+   * Set the caret color for the selected text.
+   *
+   * @param { ResourceColor } color - The color of the selected text caret.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  caretColor(color: ResourceColor): TextAttribute;
+
+  /**
+   * Set the selected background color of the text.
+   *
+   * @param { ResourceColor } color - The color of the selected text background.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  selectedBackgroundColor(color: ResourceColor): TextAttribute;
+
+  /**
    * Set the ellipsis mode.
    *
    * @param { EllipsisMode } value - The ellipsis mode.

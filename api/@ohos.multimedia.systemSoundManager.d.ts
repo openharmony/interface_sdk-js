@@ -300,21 +300,21 @@ declare namespace systemSoundManager {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 12
+   * @since 13
    */
   enum ToneHapticsFeature {
     /**
      * Standard haptics feature.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     STANDARD = 0,
     /**
      * Gentle haptics feature.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     GENTLE = 1,
   }

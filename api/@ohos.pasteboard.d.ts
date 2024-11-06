@@ -207,6 +207,18 @@ declare namespace pasteboard {
   function createData(mimeType: string, value: ValueType): PasteData;
 
   /**
+   * Creates a PasteData object with the specified MIME types and values.
+   * @param { Record<string, ValueType> } data - indicates the MEME types and values of the PasteData object to create.
+   * @returns { PasteData } Returns the PasteData object created.
+   * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+   *    2. Incorrect parameters types;
+   *    3. Parameter verification failed.
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @since 14
+   */
+  function createData(data: Record<string, ValueType>): PasteData;
+
+  /**
    * Creates a Record object for PasteData#MIMETYPE_TEXT_HTML.
    * @param { string } htmlText - To save the Html text content.
    * @returns { PasteDataRecord } The content of a new record
@@ -629,6 +641,42 @@ declare namespace pasteboard {
      * @since 11
      */
     toPlainText(): string;
+
+    /**
+     * Adds data to the PasteDataRecord object.
+     * @param { string } type - indicates MIME type of the value to add. It cannot exceed 1024 bytes.
+     * @param { ValueType } value - indicates the value of the data to add.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect parameters types;
+     *    3. Parameter verification failed.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 14
+     */
+    addEntry(type: string, value: ValueType): void;
+
+    /**
+     * Obtains the valid types in the PasteDataRecord object.
+     * @param { Array<string> } types - indicates an array of types from which the valid types are obtained.
+     * @returns { Array<string> } Returns the valid types obtained.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect parameters types;
+     *    3. Parameter verification failed.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 14
+     */
+    getValidTypes(types: Array<string>): Array<string>;
+
+    /**
+     * Obtains data of the specified type.
+     * @param { string } type - indicates the type of the data to obtain.
+     * @returns { Promise<ValueType> } Promise used to return the data obtained.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect parameters types;
+     *    3. Parameter verification failed.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 14
+     */
+    getData(type: string): Promise<ValueType>;
   }
 
   /**
@@ -1538,6 +1586,16 @@ declare namespace pasteboard {
      * @since 13
      */
     detectPatterns(patterns: Array<Pattern>): Promise<Array<Pattern>>;
+
+    /**
+     * Get the MIME types in the pasteboard.
+     * 
+     * @returns { Promise<Array<string>> } Promise used to return the MIME types.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 14
+     */
+    getMimeTypes(): Promise<Array<string>>;
   }
 }
 

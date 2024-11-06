@@ -46,8 +46,36 @@ declare namespace certificateManagerDialog {
      * @stagemodelonly
      * @since 13
      */
-    ERROR_GENERIC = 29700001
+    ERROR_GENERIC = 29700001,
+
+    /**
+     * Indicates the user cancels the operation.
+     *
+     * @syscap SystemCapability.Security.CertificateManagerDialog
+     * @stagemodelonly
+     * @since 14
+     */
+    ERROR_OPERATION_CANCELED = 29700002,
+    
+    /**
+     * Indicates that the user operation failed in the certificate manager dialog, such as install certificate failed.
+     *
+     * @syscap SystemCapability.Security.CertificateManagerDialog
+     * @stagemodelonly
+     * @since 14
+     */
+    ERROR_OPERATION_FAILED = 29700003,
+
+    /**
+     * Indicates that the API is not supported on this device.
+     *
+     * @syscap SystemCapability.Security.CertificateManagerDialog
+     * @stagemodelonly
+     * @since 14
+     */
+    ERROR_DEVICE_NOT_SUPPORTED = 29700004
   }
+
 
   /**
    * Enum for page type of certificate manager dialog
@@ -111,6 +139,69 @@ declare namespace certificateManagerDialog {
    * @since 13
    */
   function openCertificateManagerDialog(context: common.Context, pageType: CertificateDialogPageType): Promise<void>;
+
+
+
+  /**
+   * Enum for certificate type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.CertificateManagerDialog
+   * @stagemodelonly
+   * @since 14
+   */
+  export enum CertificateType {
+    /**
+     * Indicates CA certificate.
+     *
+     * @syscap SystemCapability.Security.CertificateManagerDialog
+     * @stagemodelonly
+     * @since 14
+     */
+    CA_CERT = 1
+  }
+
+  /**
+   * Enum for certificate scope
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.CertificateManagerDialog
+   * @stagemodelonly
+   * @since 14
+   */
+  export enum CertificateScope {
+    /**
+     * Indicates the certificate is for current user.
+     *
+     * @syscap SystemCapability.Security.CertificateManagerDialog
+     * @stagemodelonly
+     * @since 14
+     */
+    CURRENT_USER = 1
+  }
+
+  /**
+   * open install certificate dialog.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { common.Context } context - Hap context information
+   * @param { CertificateType } certType - Indicates the type of certificate to be installed.
+   * @param { CertificateScope } certScope - Indicates the user scope of certificate to be installed.
+   * @param { Uint8Array } cert - Indicates the contents of the certificate file to be installed.
+   * @returns { Promise<string> } The uri of installed certificate.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 29700001 - Internal error.
+   * @throws { BusinessError } 29700002 - The user cancels the installation operation.
+   * @throws { BusinessError } 29700003 - The user install certificate failed in the certificate manager dialog.
+   * @throws { BusinessError } 29700004 - The API is not supported on this device.
+   * @syscap SystemCapability.Security.CertificateManagerDialog
+   * @stagemodelonly
+   * @since 14
+   */
+  function openInstallCertificateDialog(context: common.Context, certType: CertificateType, certScope: CertificateScope, cert: Uint8Array): Promise<string>;
+
 }
 
 export default certificateManagerDialog;

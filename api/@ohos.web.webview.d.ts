@@ -1420,7 +1420,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - Invalid url.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 13
+     * @since 14
      */
     static fetchCookie(url: string, incognito: boolean): Promise<string>;
 
@@ -1486,7 +1486,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100002 - Invalid url.
      * @throws { BusinessError } 17100005 - Invalid cookie value.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 13
+     * @since 14
      */
     static configCookieSync(url: string, value: string, incognito: boolean, includeHttpOnly: boolean): void;
 
@@ -1522,7 +1522,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100002 - Invalid url.
      * @throws { BusinessError } 17100005 - Invalid cookie value.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 13
+     * @since 14
      */
     static configCookie(url: string, value: string, incognito: boolean, includeHttpOnly: boolean): Promise<void>;
 
@@ -4331,7 +4331,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     scrollTo(x: number, y: number, duration?: number): void;
 
@@ -4373,7 +4373,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     scrollBy(deltaX: number, deltaY: number, duration?: number): void;
 
@@ -4988,6 +4988,15 @@ declare namespace webview {
      * @since 12
      */
     static clearIntelligentTrackingPreventionBypassingList(): void;
+
+    /**
+     * Get the default user agent.
+     *
+     * @returns {string} The default user agent string.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 14
+     */
+    static getDefaultUserAgent(): string;
 
     /**
      * Register a callback to intercept web pages playing media.

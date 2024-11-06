@@ -48,10 +48,10 @@ declare namespace commonEventManager {
    * @param { AsyncCallback<void> } callback - The callback of publish.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500004 - not System services
-   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
-   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
-   * @throws { BusinessError } 1500009 - error obtaining system parameters
+   * @throws { BusinessError } 1500004 - A third-party application cannot send system common events.
+   * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
+   * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
+   * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
@@ -62,10 +62,10 @@ declare namespace commonEventManager {
    * @param { AsyncCallback<void> } callback - The callback of publish.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500004 - not System services
-   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
-   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
-   * @throws { BusinessError } 1500009 - error obtaining system parameters
+   * @throws { BusinessError } 1500004 - A third-party application cannot send system common events.
+   * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
+   * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
+   * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11
@@ -77,10 +77,10 @@ declare namespace commonEventManager {
    * @param { AsyncCallback<void> } callback - The callback of publish.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500004 - not System services
-   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
-   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
-   * @throws { BusinessError } 1500009 - error obtaining system parameters
+   * @throws { BusinessError } 1500004 - A third-party application cannot send system common events.
+   * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
+   * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
+   * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
@@ -97,10 +97,10 @@ declare namespace commonEventManager {
    * @param { AsyncCallback<void> } callback - The callback of publish.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500004 - not System services
-   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
-   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
-   * @throws { BusinessError } 1500009 - error obtaining system parameters
+   * @throws { BusinessError } 1500004 - A third-party application cannot send system common events.
+   * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
+   * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
+   * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
@@ -113,10 +113,10 @@ declare namespace commonEventManager {
    * @param { AsyncCallback<void> } callback - The callback of publish.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500004 - not System services
-   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
-   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
-   * @throws { BusinessError } 1500009 - error obtaining system parameters
+   * @throws { BusinessError } 1500004 - A third-party application cannot send system common events.
+   * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
+   * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
+   * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11
@@ -130,10 +130,10 @@ declare namespace commonEventManager {
    * @param { AsyncCallback<void> } callback - The callback of publish.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500004 - not System services
-   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
-   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
-   * @throws { BusinessError } 1500009 - error obtaining system parameters
+   * @throws { BusinessError } 1500004 - A third-party application cannot send system common events.
+   * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
+   * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
+   * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
@@ -150,10 +150,10 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500004 - not System services
-   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
-   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
-   * @throws { BusinessError } 1500009 - error obtaining system parameters
+   * @throws { BusinessError } 1500004 - A third-party application cannot send system common events.
+   * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
+   * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
+   * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 9
@@ -171,10 +171,10 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500004 - not System services or System app
-   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
-   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
-   * @throws { BusinessError } 1500009 - error obtaining system parameters
+   * @throws { BusinessError } 1500004 - A third-party application cannot send system common events.
+   * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
+   * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
+   * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 9
@@ -270,8 +270,8 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - capability not supported
-   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
-   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
+   * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
@@ -283,8 +283,8 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - capability not supported
-   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
-   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
+   * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
@@ -300,8 +300,8 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - capability not supported
-   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
-   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
+   * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
@@ -313,8 +313,8 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - capability not supported
-   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
-   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
+   * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
@@ -332,9 +332,9 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500004 - not system service
-   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
-   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @throws { BusinessError } 1500004 - A third-party application cannot send system common events.
+   * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
+   * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 10
@@ -351,9 +351,9 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500004 - not system service
-   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
-   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @throws { BusinessError } 1500004 - A third-party application cannot send system common events.
+   * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
+   * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 10
@@ -368,8 +368,8 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
-   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
+   * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi Hide this for inner system use.
    * @StageModelOnly
@@ -385,8 +385,8 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
-   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
+   * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi Hide this for inner system use.
    * @StageModelOnly
@@ -403,8 +403,8 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
-   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
+   * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi Hide this for inner system use.
    * @StageModelOnly
@@ -2213,6 +2213,18 @@ declare namespace commonEventManager {
      * @since 12
      */
     COMMON_EVENT_VPN_CONNECTION_STATUS_CHANGED = 'usual.event.VPN_CONNECTION_STATUS_CHANGED',
+
+    /**
+     * Indicates that an application begins to restored.
+     * To subscribe to this common event, your application must have the ohos.permission.START_RESTORE_NOTIFICATION
+     * permission.
+     * This is a protected common event that can only be sent by system.
+     * 
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @since 13
+     */
+    COMMON_EVENT_RESTORE_START = "usual.event.RESTORE_START",
   }
 
   /**

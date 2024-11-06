@@ -2716,7 +2716,17 @@ declare interface GeometryTransitionOptions {
    * @default TransitionHierarchyStrategy.ADAPTIVE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @atomicservice
    * @since 12
+   */
+  /**
+   * Defines movement strategy of source and target in the hierarchy during geometry transition.
+   * 
+   * @type { ?TransitionHierarchyStrategy }
+   * @default TransitionHierarchyStrategy.ADAPTIVE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 13
    */
   hierarchyStrategy?: TransitionHierarchyStrategy
 }
@@ -2730,7 +2740,19 @@ declare interface GeometryTransitionOptions {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @atomicservice
  * @since 12
+ */
+/**
+ * Source and target are two matched elements during the geometry transition.
+ * The animation starts at the source and ends at the target.
+ * TransitionHierarchyStrategy enumeration defines how levels of source and target elements
+ * would be changed in the hierarchy during the geometry transition.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 13
  */
 declare enum TransitionHierarchyStrategy {
   /**
@@ -2739,7 +2761,16 @@ declare enum TransitionHierarchyStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @atomicservice
    * @since 12
+   */
+  /**
+   * None mode.
+   * Source and target staty in the original level in the hierarchy during geometry transition.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 13
    */
   NONE = 0,
 
@@ -2750,7 +2781,17 @@ declare enum TransitionHierarchyStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @atomicservice
    * @since 12
+   */
+  /**
+   * ADAPTIVE mode.
+   * Lower level one of source and target is elevated to higher level of both,
+   * indicating that two elements are in same high level.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 13
    */
   ADAPTIVE = 1,
 }
@@ -4731,6 +4772,33 @@ declare interface ItemDragInfo {
 }
 
 /**
+ * Enum of using the effects template mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 14
+ */
+declare enum EffectType {
+  /**
+   * Define use the effects template defined by the parent effectComponent.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 14
+   */
+  DEFAULT = 0,
+  /**
+   * Define use the effects template defined by the window.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 14
+   */
+  WINDOW_EFFECT = 1,
+}
+
+/**
  * Defines the drag status before drag action.
  *
  * @enum { number }
@@ -6080,36 +6148,6 @@ declare enum BlurStyleActivePolicy {
 }
 
 /**
- * Enumerates the blur types.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 13
- */
-declare enum BlurType {
-  /**
-   * The blur is applied within the window.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 13
-   */
-  WITHIN_WINDOW = 0,
-  /**
-   * The blur is applied behind the window.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 13
-   */
-  BEHIND_WINDOW = 1
-}
-
-/**
  * enum color mode
  *
  * @enum { number }
@@ -6324,7 +6362,7 @@ declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
    * Defines the policy for activating the blur style.
    *
    * @type { ?BlurStyleActivePolicy }
-   * @default BlurStyleActivePolicy.FOLLOWS_WINDOW_ACTIVE_STATE
+   * @default BlurStyleActivePolicy.ALWAYS_ACTIVE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -6343,18 +6381,6 @@ declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
    * @since 13
    */
   inactiveColor?: ResourceColor;
-
-  /**
-   * Blur blending type.
-   *
-   * @type { ?BlurType }
-   * @default BlurType.WITHIN_WINDOW
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 13
-   */
-  type?: BlurType;
 }
 
 /**
@@ -6653,7 +6679,7 @@ declare interface BackgroundEffectOptions {
    * Defines the policy for activating the blur style.
    *
    * @type { ?BlurStyleActivePolicy }
-   * @default BlurStyleActivePolicy.FOLLOWS_WINDOW_ACTIVE_STATE
+   * @default BlurStyleActivePolicy.ALWAYS_ACTIVE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -6672,18 +6698,6 @@ declare interface BackgroundEffectOptions {
    * @since 13
    */
   inactiveColor?: ResourceColor;
-
-  /**
-   * Blur blending type.
-   *
-   * @type { ?BlurType }
-   * @default BlurType.WITHIN_WINDOW
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 13
-   */
-  type?: BlurType;
 }
 
 /**
@@ -11240,7 +11254,7 @@ declare enum ScrollSizeMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 13
  */
 declare enum SheetKeyboardAvoidMode {
   /**
@@ -11249,7 +11263,7 @@ declare enum SheetKeyboardAvoidMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   NONE = 0,
 
@@ -11260,7 +11274,7 @@ declare enum SheetKeyboardAvoidMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   TRANSLATE_AND_RESIZE = 1,
 
@@ -11270,7 +11284,7 @@ declare enum SheetKeyboardAvoidMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   RESIZE_ONLY = 2,
 
@@ -11281,7 +11295,7 @@ declare enum SheetKeyboardAvoidMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   TRANSLATE_AND_SCROLL = 3,
 }
@@ -11745,17 +11759,6 @@ declare interface SheetOptions extends BindOptions {
   onTypeDidChange?: Callback<SheetType>;
 
   /**
-   * Set whether sheet is allowed to expand safe area in embedded mode
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 13
-   */
-  expandSafeAreaInEmbeddedMode?: boolean;
-
-  /**
    * The UIContext that the sheet belongs to
    *
    * @type { ?UIContext }
@@ -11774,7 +11777,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   keyboardAvoidMode?: SheetKeyboardAvoidMode;
 }
@@ -12810,6 +12813,18 @@ declare interface PopupOptions {
    * @since 13
    */
   enableHoverMode?: boolean;
+
+  /**
+   * Determine if popup can follow the target node when it has rotation or scale.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  followTransformOfTarget?: boolean;
 }
 
 /**
@@ -13333,6 +13348,18 @@ declare interface CustomPopupOptions {
    * @since 13
    */
   enableHoverMode?: boolean;
+
+  /**
+   * Determine if popup can follow the target node when it has rotation or scale.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  followTransformOfTarget?: boolean;
 }
 
 /**
@@ -14318,7 +14345,7 @@ declare interface ClickEffect {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare interface FadingEdgeOptions {
   /**
@@ -14329,7 +14356,7 @@ declare interface FadingEdgeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   fadingEdgeLength?: LengthMetrics;
 }
@@ -15556,6 +15583,18 @@ declare class CommonMethod<T> {
   layoutWeight(value: number | string): T;
 
   /**
+   * chain Weight
+   *
+   * @param { ChainWeightOptions } chainWeight
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  chainWeight(chainWeight: ChainWeightOptions): T;
+
+  /**
    * Inner margin.
    *
    * @param { Padding | Length } value
@@ -15606,6 +15645,19 @@ declare class CommonMethod<T> {
    */
   padding(value: Padding | Length | LocalizedPadding): T;
 
+  /**
+   * Inner safeArea padding.
+   *
+   * @param { Padding | LengthMetrics | LocalizedPadding } paddingValue - Indicates safeArea padding values
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  safeAreaPadding(paddingValue: Padding | LengthMetrics | LocalizedPadding): T;
+  
   /**
    * Outer Margin.
    *
@@ -17621,6 +17673,20 @@ declare class CommonMethod<T> {
    * @since 12
    */
   useShadowBatching(value: boolean): T;
+
+   /**
+   * Sets whether the component should apply the effects template defined by the parent effectComponent or window.
+   * If multiple parent effectComponents are found, the nearest one will be used.
+   * If no parent effectComponent is found, this method has no effect.
+   *
+   * @param { boolean } useEffect - true means the component should apply the effects template defined by the parent effectComponent or window.
+   * @param { EffectType } effectType - the effect type of the effects template, defined by the parent effectComponent or window.
+   * @returns { T } return the component attribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 14
+   */
+  useEffect(useEffect: boolean, effectType: EffectType): T;
 
   /**
    * Sets whether the component should apply the effects template defined by the parent effectComponent.
@@ -20199,6 +20265,20 @@ declare class CommonMethod<T> {
   accessibilityGroup(value: boolean): T;
 
   /**
+   * Sets accessibilityGroup
+   *
+   * @param { boolean } isGroup - set group with accessibility
+   * @param { AccessibilityOptions } accessibilityOptions - accessibilityOptions for accessibility
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  accessibilityGroup(isGroup: boolean, accessibilityOptions: AccessibilityOptions): T;
+
+  /**
    * Sets accessibilityText
    *
    * @param { string } value - set accessibility text
@@ -20365,7 +20445,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   accessibilityChecked(isCheck: boolean): T;
 
@@ -20378,7 +20458,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   accessibilitySelected(isSelect: boolean): T;
 
@@ -20521,6 +20601,20 @@ declare class CommonMethod<T> {
    * @since 12
    */
   onGestureRecognizerJudgeBegin(callback: GestureRecognizerJudgeBeginCallback): T;
+
+    /**
+   * When a gesture bound to this component will be accepted, a user-defined callback is triggered to get the result
+   *
+   * @param { GestureRecognizerJudgeBeginCallback } callback - A callback instance used when a gesture bound to this component will be accepted.
+   * @param { boolean } exposeInnerGesture - This parameter is a flag. This flag determines whether to expose internal gestures.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * 
+   * @since 14
+   */
+    onGestureRecognizerJudgeBegin(callback: GestureRecognizerJudgeBeginCallback, exposeInnerGesture: boolean): T;
 
   /**
    * In the touch test phase, the recognizer is selected to form a parallel relationship with other recognizers on the response chain.
@@ -23149,6 +23243,47 @@ declare abstract class TextContentControllerBase {
 }
 
 /**
+ * Enum of scrollable containers' content clip mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare enum ContentClipMode {
+  /**
+   * Clip to content rect inside margin & padding.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  CONTENT_ONLY = 0,
+
+  /**
+   * Clip to scrollable's outer rect, including padding but inside margin.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  BOUNDARY = 1,
+
+  /**
+   * Clip to the safeArea of scrollable container.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  SAFE_AREA = 2,
+}
+
+/**
  * CommonScrollableMethod
  *
  * @extends CommonMethod<T>
@@ -23226,7 +23361,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   fadingEdge(enabled: Optional<boolean>, options?: FadingEdgeOptions): T;
 
@@ -23367,6 +23502,18 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @since 11
    */
   flingSpeedLimit(speedLimit: number): T;
+
+  /**
+   * Clip the content of the scrollable container, excluding background.
+   * 
+   * @param { ContentClipMode | RectShape } clip - A value from enum ContentClipMode or a customized clip rect.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  clipContent(clip: ContentClipMode | RectShape): T;
 }
 
 /**

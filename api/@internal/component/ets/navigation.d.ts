@@ -1157,6 +1157,26 @@ declare class NavPathStack {
   replacePath(info: NavPathInfo, options?: NavigationOptions): void;
 
   /**
+   * Replace the NavDestination into the stack.
+   *
+   * @param { NavPathInfo } info - Indicates the NavDestination to replace in stack.
+   * @param { NavigationOptions } [options] - Indicates options of stack operation.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameters types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100005 - Builder function not registered.
+   * @throws { BusinessError } 100006 - NavDestination not found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  replaceDestination(info: NavPathInfo, options?: NavigationOptions): Promise<void>;
+
+  /**
    * Replace the current NavDestination with the specific one.The current NavDestination will be destroyed.
    *
    * @param { string } name - Indicates name of the new NavDestination in top of stack.
@@ -2083,7 +2103,7 @@ declare interface NavigationTitleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   enableHoverMode?: boolean;
 }
@@ -2117,6 +2137,16 @@ declare enum BarStyle {
    * @since 12
    */
   STACK = 1,
+
+  /**
+   * SafeAreaPadding style means the bar height will be taken as content's safeAreaPadding.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  SAFE_AREA_PADDING = 2,
 }
 
 /**
@@ -2150,6 +2180,18 @@ declare interface NavigationToolbarOptions {
    * @since 11
    */
   backgroundBlurStyle?: BlurStyle;
+
+  /**
+   * Set tool bar style.
+   *
+   * @type { ?BarStyle }
+   * @default BarStyle.STANDARD
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+    barStyle?: BarStyle;
 }
 
 /**
@@ -2463,7 +2505,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   hideTitleBar(hide: boolean, animated: boolean): NavigationAttribute;
 
@@ -2628,7 +2670,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   hideToolBar(hide: boolean, animated: boolean): NavigationAttribute;
 
@@ -2778,6 +2820,18 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 13
    */
   recoverable(recoverable: Optional<boolean>): NavigationAttribute;
+
+  /**
+   * Enable dragbar
+   * 
+   * @param { Optional<boolean> } isEnabled - enable dragbar or disable dragbar.
+   * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  enableDragBar(isEnabled: Optional<boolean>): NavigationAttribute;
 }
 
 /**
