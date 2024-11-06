@@ -1615,12 +1615,6 @@ declare namespace asset {
      * A tag whose value is a bool indicating whether the attributes of an asset are required to be encrypted.
      *
      * @syscap SystemCapability.Security.Asset
-     * @since 14
-     */
-    /**
-     * A tag whose value is a bool indicating whether the attributes of an asset are required to be encrypted.
-     *
-     * @syscap SystemCapability.Security.Asset
      * @atomicservice
      * @since 14
      */
