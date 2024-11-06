@@ -430,7 +430,7 @@ declare namespace inputMethodEngine {
      *
      * @param { AsyncCallback<void> } callback - the callback of exitCurrentInputType.
      * @throws { BusinessError } 12800008 - input method manager service error.
-     * @throws { BusinessError } 12800010 - not default input method configured by system.
+     * @throws { BusinessError } 12800010 - not the preconfigured default input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
      */
@@ -441,7 +441,7 @@ declare namespace inputMethodEngine {
      *
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 12800008 - input method manager service error.
-     * @throws { BusinessError } 12800010 - not default input method configured by system.
+     * @throws { BusinessError } 12800010 - not the preconfigured default input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
      */
@@ -636,7 +636,7 @@ declare namespace inputMethodEngine {
      *
      * @param { 'privateCommand' } type - indicates the type of subscribe event.
      * @param { Callback<Record<string, CommandDataType>> } callback - indicates the callback of on('privateCommand').
-     * @throws { BusinessError } 12800010 - not default input method configured by system.
+     * @throws { BusinessError } 12800010 - not the preconfigured default input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
@@ -648,7 +648,7 @@ declare namespace inputMethodEngine {
      * @param { 'privateCommand' } type - indicates the type of subscribe event.
      * @param { Callback<Record<string, CommandDataType>> } [callback] - optional,
      * indicates the callback of off('privateCommand').
-     * @throws { BusinessError } 12800010 - not default input method configured by system.
+     * @throws { BusinessError } 12800010 - not the preconfigured default input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
@@ -658,7 +658,7 @@ declare namespace inputMethodEngine {
      * Get input method's security mode.
      *
      * @returns { SecurityMode } return security mode.
-     * @throws { BusinessError } 12800004 - not an input method extension.
+     * @throws { BusinessError } 12800004 - not an input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
      */
@@ -673,7 +673,7 @@ declare namespace inputMethodEngine {
      * @param { AsyncCallback<Panel> } callback - the callback of createPanel.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 
-     * @throws { BusinessError } 12800004 - not an input method extension.
+     * @throws { BusinessError } 12800004 - not an input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -688,7 +688,7 @@ declare namespace inputMethodEngine {
      * @returns { Promise<Panel> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
-     * @throws { BusinessError } 12800004 - not an input method extension.
+     * @throws { BusinessError } 12800004 - not an input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1322,7 +1322,7 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800010 - not default input method configured by system.
+     * @throws { BusinessError } 12800010 - not the preconfigured default input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
@@ -1333,7 +1333,7 @@ declare namespace inputMethodEngine {
      *
      * @returns { Promise<WindowInfo> } the promise returned by the function.
      * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800012 - input method panel doesn't exist.
+     * @throws { BusinessError } 12800012 - the input method panel does not exist.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
@@ -1349,7 +1349,7 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *    1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800011 - text preview is not supported.
+     * @throws { BusinessError } 12800011 - text preview not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
@@ -1363,7 +1363,7 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800011 - text preview is not supported.
+     * @throws { BusinessError } 12800011 - text preview not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
@@ -1374,7 +1374,7 @@ declare namespace inputMethodEngine {
      *
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800011 - text preview is not supported.
+     * @throws { BusinessError } 12800011 - text preview not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
@@ -1384,7 +1384,7 @@ declare namespace inputMethodEngine {
      * Finish the text preview.
      *
      * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800011 - text preview is not supported.
+     * @throws { BusinessError } 12800011 - text preview not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */

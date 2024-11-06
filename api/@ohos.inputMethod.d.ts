@@ -65,7 +65,7 @@ declare namespace inputMethod {
    * Input method setting
    *
    * @returns { InputMethodSetting } the object of InputMethodSetting.
-   * @throws { BusinessError } 12800007 - settings extension error.
+   * @throws { BusinessError } 12800007 - setter error.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -110,7 +110,7 @@ declare namespace inputMethod {
    * @throws { BusinessError } 201 - permissions check fails.
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-   * @throws { BusinessError } 12800005 - configuration persisting error.
+   * @throws { BusinessError } 12800005 - configuration persistence error.
    * @throws { BusinessError } 12800008 - input method manager service error.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
@@ -122,7 +122,7 @@ declare namespace inputMethod {
    * @param { AsyncCallback<boolean> } callback - the callback of switchInputMethod.
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-   * @throws { BusinessError } 12800005 - configuration persisting error.
+   * @throws { BusinessError } 12800005 - configuration persistence error.
    * @throws { BusinessError } 12800008 - input method manager service error.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11
@@ -138,7 +138,7 @@ declare namespace inputMethod {
    * @throws { BusinessError } 201 - permissions check fails.
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-   * @throws { BusinessError } 12800005 - configuration persisting error.
+   * @throws { BusinessError } 12800005 - configuration persistence error.
    * @throws { BusinessError } 12800008 - input method manager service error.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
@@ -150,7 +150,7 @@ declare namespace inputMethod {
    * @returns { Promise<boolean> } the promise returned by the function.
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-   * @throws { BusinessError } 12800005 - configuration persisting error.
+   * @throws { BusinessError } 12800005 - configuration persistence error.
    * @throws { BusinessError } 12800008 - input method manager service error.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11
@@ -175,7 +175,7 @@ declare namespace inputMethod {
    * @throws { BusinessError } 201 - permissions check fails.
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-   * @throws { BusinessError } 12800005 - configuration persisting error.
+   * @throws { BusinessError } 12800005 - configuration persistence error.
    * @throws { BusinessError } 12800008 - input method manager service error.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
@@ -189,7 +189,7 @@ declare namespace inputMethod {
    * @throws { BusinessError } 201 - permissions check fails.
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-   * @throws { BusinessError } 12800005 - configuration persisting error.
+   * @throws { BusinessError } 12800005 - configuration persistence error.
    * @throws { BusinessError } 12800008 - input method manager service error.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10
@@ -201,7 +201,7 @@ declare namespace inputMethod {
    * @param { AsyncCallback<boolean> } callback - the callback of switchCurrentInputMethodSubtype.
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-   * @throws { BusinessError } 12800005 - configuration persisting error.
+   * @throws { BusinessError } 12800005 - configuration persistence error.
    * @throws { BusinessError } 12800008 - input method manager service error.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11
@@ -217,7 +217,7 @@ declare namespace inputMethod {
    * @throws { BusinessError } 201 - permissions check fails.
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-   * @throws { BusinessError } 12800005 - configuration persisting error.
+   * @throws { BusinessError } 12800005 - configuration persistence error.
    * @throws { BusinessError } 12800008 - input method manager service error.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
@@ -231,7 +231,7 @@ declare namespace inputMethod {
    * @throws { BusinessError } 201 - permissions check fails.
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-   * @throws { BusinessError } 12800005 - configuration persisting error.
+   * @throws { BusinessError } 12800005 - configuration persistence error.
    * @throws { BusinessError } 12800008 - input method manager service error.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10
@@ -243,7 +243,7 @@ declare namespace inputMethod {
    * @returns { Promise<boolean> } the promise returned by the function.
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-   * @throws { BusinessError } 12800005 - configuration persisting error.
+   * @throws { BusinessError } 12800005 - configuration persistence error.
    * @throws { BusinessError } 12800008 - input method manager service error.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11
@@ -269,7 +269,7 @@ declare namespace inputMethod {
    * @throws { BusinessError } 201 - permissions check fails.
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-   * @throws { BusinessError } 12800005 - configuration persisting error.
+   * @throws { BusinessError } 12800005 - configuration persistence error.
    * @throws { BusinessError } 12800008 - input method manager service error.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
@@ -282,7 +282,7 @@ declare namespace inputMethod {
    * @param { AsyncCallback<boolean> } callback - the callback of switchCurrentInputMethodAndSubtype.
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-   * @throws { BusinessError } 12800005 - configuration persisting error.
+   * @throws { BusinessError } 12800005 - configuration persistence error.
    * @throws { BusinessError } 12800008 - input method manager service error.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11
@@ -303,7 +303,7 @@ declare namespace inputMethod {
    * @throws { BusinessError } 201 - permissions check fails.
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-   * @throws { BusinessError } 12800005 - configuration persisting error.
+   * @throws { BusinessError } 12800005 - configuration persistence error.
    * @throws { BusinessError } 12800008 - input method manager service error.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
@@ -316,7 +316,7 @@ declare namespace inputMethod {
    * @returns { Promise<boolean> } the promise returned by the function.
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-   * @throws { BusinessError } 12800005 - configuration persisting error.
+   * @throws { BusinessError } 12800005 - configuration persistence error.
    * @throws { BusinessError } 12800008 - input method manager service error.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11
@@ -338,7 +338,7 @@ declare namespace inputMethod {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-   * @throws { BusinessError } 12800005 - configuration persisting error.
+   * @throws { BusinessError } 12800005 - configuration persistence error.
    * @throws { BusinessError } 12800008 - input method manager service error.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @systemapi
@@ -451,7 +451,7 @@ declare namespace inputMethod {
      * @param { AsyncCallback<Array<InputMethodSubtype>> } callback - the callback of listInputMethodSubtype.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 12800001 - package manager error.
+     * @throws { BusinessError } 12800001 - bundle manager error.
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
@@ -468,7 +468,7 @@ declare namespace inputMethod {
      * @returns { Promise<Array<InputMethodSubtype>> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 12800001 - package manager error.
+     * @throws { BusinessError } 12800001 - bundle manager error.
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
@@ -479,7 +479,7 @@ declare namespace inputMethod {
      * List subtype of current input method
      *
      * @param { AsyncCallback<Array<InputMethodSubtype>> } callback - the callback of listCurrentInputMethodSubtype.
-     * @throws { BusinessError } 12800001 - package manager error.
+     * @throws { BusinessError } 12800001 - bundle manager error.
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
@@ -490,7 +490,7 @@ declare namespace inputMethod {
      * List subtype of current input method
      *
      * @returns { Promise<Array<InputMethodSubtype>> } the promise returned by the function.
-     * @throws { BusinessError } 12800001 - package manager error.
+     * @throws { BusinessError } 12800001 - bundle manager error.
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
@@ -506,7 +506,7 @@ declare namespace inputMethod {
      * @param { AsyncCallback<Array<InputMethodProperty>> } callback - the callback of getInputMethods.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12800001 - package manager error.
+     * @throws { BusinessError } 12800001 - bundle manager error.
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
@@ -522,7 +522,7 @@ declare namespace inputMethod {
      * @returns { Promise<Array<InputMethodProperty>> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *      1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12800001 - package manager error.
+     * @throws { BusinessError } 12800001 - bundle manager error.
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
@@ -677,7 +677,7 @@ declare namespace inputMethod {
      * @param { AsyncCallback<void> } callback - the callback of showTextInput.
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800008 - input method manager service error.
-     * @throws { BusinessError } 12800009 - input method client is detached.
+     * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -689,7 +689,7 @@ declare namespace inputMethod {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800008 - input method manager service error.
-     * @throws { BusinessError } 12800009 - input method client is detached.
+     * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -701,7 +701,7 @@ declare namespace inputMethod {
      * @param { AsyncCallback<void> } callback - the callback of hideTextInput.
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800008 - input method manager service error.
-     * @throws { BusinessError } 12800009 - input method client is detached.
+     * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -713,7 +713,7 @@ declare namespace inputMethod {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800008 - input method manager service error.
-     * @throws { BusinessError } 12800009 - input method client is detached.
+     * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -751,7 +751,7 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800008 - input method manager service error.
-     * @throws { BusinessError } 12800009 - input method client is detached.
+     * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -767,7 +767,7 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800008 - input method manager service error.
-     * @throws { BusinessError } 12800009 - input method client is detached.
+     * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -782,7 +782,7 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800008 - input method manager service error.
-     * @throws { BusinessError } 12800009 - input method client is detached.
+     * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -797,7 +797,7 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800008 - input method manager service error.
-     * @throws { BusinessError } 12800009 - input method client is detached.
+     * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -814,7 +814,7 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800008 - input method manager service error.
-     * @throws { BusinessError } 12800009 - input method client is detached.
+     * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -831,7 +831,7 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800008 - input method manager service error.
-     * @throws { BusinessError } 12800009 - input method client is detached.
+     * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -846,7 +846,7 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800008 - input method manager service error.
-     * @throws { BusinessError } 12800009 - input method client is detached.
+     * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -861,7 +861,7 @@ declare namespace inputMethod {
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800008 - input method manager service error.
-     * @throws { BusinessError } 12800009 - input method client is detached.
+     * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1026,7 +1026,7 @@ declare namespace inputMethod {
      *        Subscribers are expected to process the inserted text and update changes in editor by changeSelection and updateCursor as needed.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 12800009 - input method client is detached.
+     * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1053,7 +1053,7 @@ declare namespace inputMethod {
      *     to the left of the cursor and update changes in editor by changeSelection and updateCursor as needed.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 12800009 - input method client is detached.
+     * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1080,7 +1080,7 @@ declare namespace inputMethod {
      *     to the right of the cursor and update changes in editor by changeSelection and updateCursor as needed.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 12800009 - input method client is detached.
+     * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1105,7 +1105,7 @@ declare namespace inputMethod {
      *     The keyboardStatus is provided for this callback.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 12800009 - input method client is detached.
+     * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1131,7 +1131,7 @@ declare namespace inputMethod {
      *     corresponding task based on the value of functionKey.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 12800009 - input method client is detached.
+     * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1157,7 +1157,7 @@ declare namespace inputMethod {
      *     in editor by changeSelection and updateCursor.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 12800009 - input method client is detached.
+     * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1182,7 +1182,7 @@ declare namespace inputMethod {
      *     is provided for this callback.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 12800009 - input method client is detached.
+     * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1207,7 +1207,7 @@ declare namespace inputMethod {
      *     must be a synchronization method and will block the input method application.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 12800009 - input method client is detached.
+     * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1232,7 +1232,7 @@ declare namespace inputMethod {
      *     must be a synchronization method and will block the input method application.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 12800009 - input method client is detached.
+     * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1257,7 +1257,7 @@ declare namespace inputMethod {
      *     must be a synchronization method, and should return the text index at the cursor.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 12800009 - input method client is detached.
+     * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
