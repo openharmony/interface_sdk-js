@@ -799,7 +799,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @param { boolean } recoverable - set navdestination can be recovered.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 13
+   * @since 14
    */
   recoverable(recoverable: Optional<boolean>): NavDestinationAttribute;
 
