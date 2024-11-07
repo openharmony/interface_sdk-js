@@ -233,7 +233,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     enableHoverMode?: boolean;
   
@@ -245,7 +245,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     hoverModeArea?: HoverModeAreaType;
   }
@@ -684,7 +684,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     enableHoverMode?: boolean;
 
@@ -696,7 +696,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     hoverModeArea?: HoverModeAreaType;
   }
@@ -925,7 +925,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     enableHoverMode?: boolean;
 
@@ -937,7 +937,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     hoverModeArea?: HoverModeAreaType;
   }
