@@ -846,7 +846,7 @@ declare namespace hidebug {
    * @throws { BusinessError } 11400104 - Failed to get the application memory due to a remote exception.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   function getGraphicsMemory(): Promise<number>;
 
@@ -857,7 +857,7 @@ declare namespace hidebug {
    * @throws { BusinessError } 11400104 - Failed to get the application memory due to a remote exception.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   function getGraphicsMemorySync(): number;
 }

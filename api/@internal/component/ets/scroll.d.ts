@@ -702,7 +702,7 @@ declare class Scroller {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   getItemIndex(x: number, y: number): number;
 }

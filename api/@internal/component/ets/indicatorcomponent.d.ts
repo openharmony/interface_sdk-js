@@ -25,7 +25,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 13
+ * @since 16
  */
 declare class IndicatorComponentController {
   /**
@@ -35,7 +35,7 @@ declare class IndicatorComponentController {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   constructor();
 
@@ -46,7 +46,7 @@ declare class IndicatorComponentController {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   showNext():void;
 
@@ -57,7 +57,7 @@ declare class IndicatorComponentController {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   showPrevious():void;
 
@@ -71,7 +71,7 @@ declare class IndicatorComponentController {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   changeIndex(index: number, useAnimation?: boolean):void;
 }
@@ -84,7 +84,7 @@ declare class IndicatorComponentController {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 13
+ * @since 16
  */
 interface IndicatorComponentInterface {
    
@@ -97,7 +97,7 @@ interface IndicatorComponentInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   (controller?: IndicatorComponentController): IndicatorComponentAttribute;
 }
@@ -110,7 +110,7 @@ interface IndicatorComponentInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 13
+ * @since 16
  */
 declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponentAttribute> {
  /**
@@ -122,7 +122,7 @@ declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponen
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   initialIndex(index: number): IndicatorComponentAttribute;
 
@@ -135,7 +135,7 @@ declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponen
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   count(totalCount: number): IndicatorComponentAttribute;
 
@@ -148,7 +148,7 @@ declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponen
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   style(indicatorStyle: DotIndicator | DigitIndicator): IndicatorComponentAttribute;
 
@@ -161,7 +161,7 @@ declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponen
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   loop(isLoop: boolean): IndicatorComponentAttribute;
 
@@ -174,7 +174,7 @@ declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponen
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   vertical(isVertical: boolean): IndicatorComponentAttribute;
 
@@ -187,7 +187,7 @@ declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponen
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   onChange(event: Callback<number>): IndicatorComponentAttribute;
 }
@@ -200,7 +200,7 @@ declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponen
  * @crossplatform
  * @form
  * @atomicservice
- * @since 13
+ * @since 16
  */
 declare const IndicatorComponent: IndicatorComponentInterface;
 
@@ -212,6 +212,6 @@ declare const IndicatorComponent: IndicatorComponentInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 13
+ * @since 16
  */
 declare const IndicatorComponentInstance: IndicatorComponentAttribute;
