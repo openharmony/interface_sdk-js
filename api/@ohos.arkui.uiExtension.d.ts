@@ -170,6 +170,16 @@ declare namespace uiExtension {
      * @since 12
      */
      setWaterMarkFlag(enable: boolean): Promise<void>;
+
+    /**
+      * The properties of the UIExtension window
+      *
+      * @type { WindowProxyProperties } 
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @atomicservice
+      * @since 14
+      */
+    properties: WindowProxyProperties;
   }
 
   /**
@@ -200,6 +210,27 @@ declare namespace uiExtension {
      * @since 12
      */
     area: window.AvoidArea;
+  }
+
+  /**
+   * Properties of UIExtension window
+   *
+   * @interface WindowProxyProperties
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 14
+   * 
+   */
+  interface WindowProxyProperties {
+    /**
+     * The position and size of the UIExtension window
+     *
+     * @type { window.Rect } 
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 14
+     */
+    uiExtensionHostWindowProxyRect: window.Rect;
   }
 }
 
