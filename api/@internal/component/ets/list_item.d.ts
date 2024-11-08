@@ -267,6 +267,18 @@ declare interface SwipeActionItem {
   builder?: CustomBuilder;
 
   /**
+    * An action item that appears when a list item slides right (when list direction is Vertical) or
+    * slides down (when list direction Horizontal).
+    *
+    * @type { ?ComponentContent }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 17
+    */
+  builderComponent?: ComponentContent;
+
+  /**
    * Defines distance for the delete area.
    *
    * @type { ?Length }
