@@ -219,15 +219,6 @@ declare namespace screenshot {
    * @systemapi Hide this for inner system use.
    * @since 7
    */
-  /**
-   * Describes screenshot options.
-   *
-   * @interface ScreenshotOptions
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @systemapi Hide this for inner system use.
-   * @atomicservice
-   * @since 14
-   */
   interface ScreenshotOptions {
     /**
      * Region of the screen to capture. If this parameter is null, the full screen will be captured.
@@ -271,7 +262,6 @@ declare namespace screenshot {
      * @type { ?boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @atomicservice
      * @since 14
      */
     isNotificationNeeded?: boolean;
@@ -281,7 +271,6 @@ declare namespace screenshot {
      * @type { ?boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @atomicservice
      * @since 14
      */
     isPointerNeeded?: boolean;
