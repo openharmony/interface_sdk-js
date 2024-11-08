@@ -1220,6 +1220,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700045 - Failed to uninstall because enterprise device management disallow uninstall.
      * @throws { BusinessError } 17700057 - Failed to uninstall updates because the HAP is not pre-installed.
      * @throws { BusinessError } 17700060 - The specified application cannot be uninstalled.
+     * @throws { BusinessError } 17700067 - Failed to uninstall the HAP because uninstalling the native package failed.
      * @throws { BusinessError } 17700073 - Failed to install the HAP because an application with the same
      * <br>bundle name but different signature information exists on the device.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
