@@ -769,7 +769,7 @@ declare namespace photoAccessHelper {
    * @enum { number } WatermarkType
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since 13
+   * @since 14
    */
   enum WatermarkType {
     /**
@@ -777,7 +777,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     DEFAULT = 0,
 
@@ -786,7 +786,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     BRAND_COMMON = 1,
 
@@ -795,7 +795,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     COMMON = 2,
 
@@ -804,7 +804,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     BRAND = 3,
   }
@@ -916,6 +916,13 @@ declare namespace photoAccessHelper {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 11
+   */
+  /**
+   * Media asset manager
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14
    */
   class MediaAssetManager {
     /**
@@ -1070,6 +1077,21 @@ declare namespace photoAccessHelper {
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12
+     */
+    /**
+     * Load moving photo
+     *
+     * @param { Context } context - Hap context information
+     * @param { string } imageFileUri - image file uri of the moving photo to be loaded
+     * @param { string } videoFileUri - video file uri of the moving photo to be loaded
+     * @returns { Promise<MovingPhoto> } Returns moving photo
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 14
      */
     static loadMovingPhoto(
       context: Context,
@@ -2226,21 +2248,22 @@ declare namespace photoAccessHelper {
      */
     CE_AVAILABLE = 'ce_available',
     /**
+     * watermark type of the asset, read only
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    SUPPORTED_WATERMARK_TYPE = 'supported_watermark_type',
+    /**
      * visibility of thumbnails
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14
      */
-    THUMBNAIL_VISIBLE = 'thumbnail_visible',
-    /**
-     * watermark type of the asset, read only
-     * 
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
-     * @since 13
-     */
-    SUPPORTED_WATERMARK_TYPE = 'supported_watermark_type'
+    THUMBNAIL_VISIBLE = 'thumbnail_visible'
+
   }
 
   /**
@@ -6016,7 +6039,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     setSupportedWatermarkType(watermarkType: WatermarkType): void;
   }
