@@ -217,8 +217,16 @@ declare namespace screenshot {
    * @interface ScreenshotOptions
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @atomicservice
    * @since 7
+   */
+  /**
+   * Describes screenshot options.
+   *
+   * @interface ScreenshotOptions
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @atomicservice
+   * @since 14
    */
   interface ScreenshotOptions {
     /**
