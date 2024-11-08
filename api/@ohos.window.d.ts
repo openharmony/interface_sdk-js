@@ -7629,7 +7629,22 @@ declare namespace window {
      * @since 12
      */
     setWindowDecorVisible(isVisible: boolean): void;
-	
+
+    /**
+     * Set whether window can be moved by drag title.
+     *
+     * @param { boolean } enabled - Enable the window title move if true, otherwise means the opposite.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 14
+     */
+    setWindowTitleMoveEnabled(enabled: boolean): void;
+
     /**
      * Set the modality of the window.
      *
@@ -7800,15 +7815,14 @@ declare namespace window {
      * Start moving window.
      *
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300001 - Repeated operation.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use.
-     * @since 13
+     * @atomicservice
+     * @since 14
      */
     startMoving(): Promise<void>;
 
@@ -8998,6 +9012,23 @@ declare namespace window {
      * @since 14
      */
     removeStartingWindow(): Promise<void>;
+
+    /**
+     * Set the application modality of the windowStage.
+     *
+     * @param { boolean } isModal - Enable the window modal if true, otherwise means the opposite.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @StageModelOnly
+     * @atomicservice
+     * @since 14
+     */
+    setWindowModal(isModal: boolean): Promise<void>;
   }
 
   /**

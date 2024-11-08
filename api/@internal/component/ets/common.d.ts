@@ -11780,6 +11780,30 @@ declare interface SheetOptions extends BindOptions {
    * @since 13
    */
   keyboardAvoidMode?: SheetKeyboardAvoidMode;
+
+  /**
+   * Defines whether to respond to the hover mode.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  enableHoverMode?: boolean;
+
+  /**
+   * Defines the sheet's display area in hover mode.
+   *
+   * @type { ?HoverModeAreaType }
+   * @default HoverModeAreaType.BOTTOM_SCREEN
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  hoverModeArea?: HoverModeAreaType;
 }
 
 /**
@@ -24469,7 +24493,7 @@ declare enum KeyboardAvoidMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare enum HoverModeAreaType {
 
@@ -24479,7 +24503,7 @@ declare enum HoverModeAreaType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   TOP_SCREEN = 0,
 
@@ -24489,7 +24513,7 @@ declare enum HoverModeAreaType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   BOTTOM_SCREEN = 1,
 }

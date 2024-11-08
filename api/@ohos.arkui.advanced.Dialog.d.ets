@@ -844,7 +844,7 @@ export declare struct CustomContentDialog {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 @Component
 export declare struct PopoverDialog {
@@ -855,7 +855,7 @@ export declare struct PopoverDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   @Link
   visible: boolean;
@@ -866,7 +866,7 @@ export declare struct PopoverDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   @Require @Prop
   popover: PopoverOptions;
@@ -877,7 +877,7 @@ export declare struct PopoverDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   @Require @BuilderParam 
   targetBuilder: Callback<void>;
@@ -891,7 +891,7 @@ export declare struct PopoverDialog {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 export declare interface PopoverOptions extends CustomPopupOptions {
 }

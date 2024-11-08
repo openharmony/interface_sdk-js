@@ -282,6 +282,16 @@ export class MovingPhotoViewController {
      * @since 12
      */
     stopPlayback();
+    /**
+     * refresh moving photo data
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @uicomponent
+     * @since 14
+     */
+    refreshMovingPhoto();
 }
 /**
  * Defines MovingPhotoView Component.

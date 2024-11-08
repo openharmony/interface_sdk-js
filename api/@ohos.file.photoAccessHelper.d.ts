@@ -241,6 +241,30 @@ declare namespace photoAccessHelper {
   }
 
   /**
+   * Ability to access thumbnail
+   * 
+   * @enum { number } ThumbnailVisibilty
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 14
+   */
+  enum ThumbnailVisibility {
+    /**
+     * Unable to access thumbnail
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 14
+     */
+    THUMBNAIL_INVISIBLE = 0,
+    /**
+     * able to access thumbnail
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 14
+     */
+    THUMBNAIL_VISIBLE = 1
+  }
+
+  /**
    * Photo asset position
    *
    * @enum { number } Photo asset position, such as local device or cloud
@@ -6632,12 +6656,12 @@ declare namespace photoAccessHelper {
     /**
      * visibility of thumbnails
      *
-     * @type { number }
+     * @type { ThumbnailVisibility }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14
      */
-    thumbnailVisible: number;
+    thumbnailVisible: ThumbnailVisibility;
   }
 
   /**

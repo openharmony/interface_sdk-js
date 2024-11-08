@@ -190,7 +190,7 @@ declare namespace router {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
-     * @since 13
+     * @since 14
      */
     recoverable?: boolean;
   }
@@ -1015,7 +1015,7 @@ declare namespace router {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
-     * @since 13
+     * @since 14
      */
     recoverable?: boolean;
   }

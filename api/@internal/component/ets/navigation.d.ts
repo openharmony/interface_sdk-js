@@ -2817,7 +2817,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @param { boolean } recoverable - navigation can be recovered.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 13
+   * @since 14
    */
   recoverable(recoverable: Optional<boolean>): NavigationAttribute;
 

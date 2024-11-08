@@ -2224,7 +2224,7 @@ declare namespace commonEventManager {
      * @systemapi
      * @since 13
      */
-    COMMON_EVENT_RESTORE_START = "usual.event.RESTORE_START",
+    COMMON_EVENT_RESTORE_START = 'usual.event.RESTORE_START',
   }
 
   /**
