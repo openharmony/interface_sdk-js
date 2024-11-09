@@ -272,7 +272,7 @@ export interface BundleInfo {
 
   /**
    * Indicates the appIndex of application, only work in appClone mode
-   * 
+   *
    * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -516,8 +516,7 @@ export interface SignatureInfo {
  *
  * @typedef AppCloneIdentity
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @systemapi
- * @since 12
+ * @since 14
  */
 export interface AppCloneIdentity {
   /**
@@ -526,8 +525,7 @@ export interface AppCloneIdentity {
    * @type { string }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 12
+   * @since 14
    */
   readonly bundleName: string;
   /**
@@ -536,8 +534,7 @@ export interface AppCloneIdentity {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 12
+   * @since 14
    */
   readonly appIndex: number;
 }
