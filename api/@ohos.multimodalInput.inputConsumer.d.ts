@@ -25,7 +25,7 @@ import { Callback } from './@ohos.base';
  *
  * @namespace inputConsumer
  * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
- * @since 13
+ * @since 14
  */
 declare namespace inputConsumer {
   /**
@@ -93,7 +93,7 @@ declare namespace inputConsumer {
    *
    * @typedef HotkeyOptions
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since 13
+   * @since 14
    */
   interface HotkeyOptions {
     /**
@@ -101,7 +101,7 @@ declare namespace inputConsumer {
      *
      * @type { Array<number> }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @since 13
+     * @since 14
      */
     preKeys: Array<number>;
 
@@ -110,7 +110,7 @@ declare namespace inputConsumer {
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @since 13
+     * @since 14
      */
     finalKey: number;
 
@@ -119,7 +119,7 @@ declare namespace inputConsumer {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @since 13
+     * @since 14
      */
     isRepeat?: boolean;
   }
@@ -235,7 +235,7 @@ declare namespace inputConsumer {
    *
    * @Returns { Promise<Array<HotkeyOptions>> } All system hotkeys.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since 13
+   * @since 14
    */
   function getAllSystemHotkeys(): Promise<Array<HotkeyOptions>>;
 
@@ -251,7 +251,7 @@ declare namespace inputConsumer {
    * <br> GetAllSystemHotkeys} interface to query all system hotkeys.
    * @throws { BusinessError } 4200003 - The hotkey has been subscribed to by another.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since 13
+   * @since 14
    */
   function on(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback: Callback<HotkeyOptions>): void
 
@@ -264,7 +264,7 @@ declare namespace inputConsumer {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since 13
+   * @since 14
    */
   function off(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback?: Callback<HotkeyOptions>): void
 }

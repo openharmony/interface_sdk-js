@@ -197,7 +197,7 @@ export declare interface ThreeFingersTap {
  * @interface TouchGestureEvent
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi hide for inner use
- * @since 13
+ * @since 14
  */
 export declare interface TouchGestureEvent {
   /**
@@ -206,7 +206,7 @@ export declare interface TouchGestureEvent {
    * @type { TouchGestureAction }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
-   * @since 13
+   * @since 14
    */
   action: TouchGestureAction;
   /**
@@ -215,7 +215,7 @@ export declare interface TouchGestureEvent {
    * @type { Touch[] }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
-   * @since 13
+   * @since 14
    */
   touches: Touch[];
 }
@@ -226,7 +226,7 @@ export declare interface TouchGestureEvent {
  * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi hide for inner use
- * @since 13
+ * @since 14
  */
 export declare enum TouchGestureAction {
   /**
@@ -234,7 +234,7 @@ export declare enum TouchGestureAction {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
-   * @since 13
+   * @since 14
    */
   SWIPE_DOWN = 0,
   /**
@@ -242,7 +242,7 @@ export declare enum TouchGestureAction {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
-   * @since 13
+   * @since 14
    */
   SWIPE_UP,
   /**
@@ -250,7 +250,7 @@ export declare enum TouchGestureAction {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
-   * @since 13
+   * @since 14
    */
   SWIPE_LEFT,
   /**
@@ -258,7 +258,7 @@ export declare enum TouchGestureAction {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
-   * @since 13
+   * @since 14
    */
   SWIPE_RIGHT,
   /**
@@ -266,7 +266,7 @@ export declare enum TouchGestureAction {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
-   * @since 13
+   * @since 14
    */
   PINCH_CLOSED,
   /**
@@ -274,7 +274,7 @@ export declare enum TouchGestureAction {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
-   * @since 13
+   * @since 14
    */
   PINCH_OPENED,
   /**
@@ -282,7 +282,7 @@ export declare enum TouchGestureAction {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
-   * @since 13
+   * @since 14
    */
   GESTURE_END
 }
