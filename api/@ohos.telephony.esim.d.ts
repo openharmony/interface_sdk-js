@@ -1513,7 +1513,7 @@ declare namespace eSIM {
      */
     switchAfterDownload: boolean;
 
-	  /**
+    /**
      * If true, the active profile must be disabled in order to perform the
      * operation. Otherwise, the resultCode should return {@link RESULT_MUST_DISABLE_PROFILE} to allow
      * the user to agree to this operation first.
@@ -1523,9 +1523,9 @@ declare namespace eSIM {
      * @systemapi Hide this for inner system use.
      * @since 14
      */
-	  forceDisableProfile: boolean;
+    forceDisableProfile: boolean;
 
-	  /**
+    /**
      * Determine whether the user allows the service provider to enforce this Profile Policy Rule (PPR)
      * after being informed of its restrictions.
      *
