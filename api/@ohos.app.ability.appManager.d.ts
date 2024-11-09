@@ -1168,7 +1168,7 @@ declare namespace appManager {
   /**
    * Set keep alive for the specified bundle.
    *
-   * @permission ohos.permission.MANAGE_KEEP_ALIVE
+   * @permission ohos.permission.MANAGE_APP_KEEP_ALIVE
    * @param { string } bundleName - bundle name.
    * @param { number } userId - user id.
    * @param { boolean } enable - flag indicates whether the bundle should be kept alive.
@@ -1192,7 +1192,7 @@ declare namespace appManager {
   /**
    * Get keep-alive bundle information.
    *
-   * @permission ohos.permission.MANAGE_KEEP_ALIVE
+   * @permission ohos.permission.MANAGE_APP_KEEP_ALIVE
    * @param { KeepAliveAppType } type - type of keep-alive apps to be quried.
    * @param { number } [userId] - user id.
    * @returns { Promise<Array<KeepAliveBundleInfo>> } Returns the list of KeepAliveBundleInfo.
