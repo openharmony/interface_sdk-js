@@ -1241,6 +1241,16 @@ declare namespace window {
      * @since 12
      */
     windowStatusType: WindowStatusType;
+
+    /**
+     * Whether the window is focused. The default value is false.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi
+     * @since 14
+     */
+    isFocused: boolean;
   }
 
   /**
