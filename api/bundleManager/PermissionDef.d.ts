@@ -31,6 +31,7 @@ export interface PermissionDef {
    * Indicates the name of this permission
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
@@ -41,6 +42,7 @@ export interface PermissionDef {
    * Indicates the grant mode of this permission
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
@@ -51,6 +53,7 @@ export interface PermissionDef {
    * Indicates the labelId of this permission
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
@@ -61,6 +64,7 @@ export interface PermissionDef {
    * Indicates the descriptionId of this permission
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
