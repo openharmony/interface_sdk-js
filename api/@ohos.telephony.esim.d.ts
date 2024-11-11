@@ -1246,7 +1246,7 @@ declare namespace eSIM {
     RESULT_PPR_FORBIDDEN = 268,
 
     /**
-     * Nothing to delete.
+     * Nothing is to be deleted.
      * 
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1264,7 +1264,7 @@ declare namespace eSIM {
     RESULT_PPR_NOT_MATCH = 276,
 
     /**
-     * A proactive session ongoing.
+     * A session is ongoing.
      * 
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1495,7 +1495,7 @@ declare namespace eSIM {
   }
 
   /**
-   * Configuration information during downloading.
+   * Specifies the download configuration.
    *
    * @interface DownloadableProfile
    * @syscap SystemCapability.Telephony.CoreService.Esim
@@ -1504,7 +1504,7 @@ declare namespace eSIM {
    */
   export interface DownloadConfiguration {
     /**
-     * Indicates whether to enable profile after successful download.
+     * Specifies whether to enable the profile after successful download.
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
@@ -1514,9 +1514,9 @@ declare namespace eSIM {
     switchAfterDownload: boolean;
 
     /**
-     * If true, the active profile must be disabled in order to perform the
-     * operation. Otherwise, the resultCode should return {@link RESULT_MUST_DISABLE_PROFILE} to allow
-     * the user to agree to this operation first.
+     * Specifies whether to forcibly disable the profile. If true, the active profile is disabled in order to perform
+     * the operation. Otherwise, {@link RESULT_MUST_DISABLE_PROFILE} is returned in resultCode to ask for the user's
+     * agreement to the operation.
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
@@ -1526,7 +1526,7 @@ declare namespace eSIM {
     forceDisableProfile: boolean;
 
     /**
-     * Determine whether the user allows the service provider to enforce this Profile Policy Rule (PPR)
+     * Specifies whether the user allows the service provider to enforce this Profile Policy Rule (PPR)
      * after being informed of its restrictions.
      *
      * @type { string }
