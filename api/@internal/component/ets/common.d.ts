@@ -11804,6 +11804,16 @@ declare interface SheetOptions extends BindOptions {
    * @since 14
    */
   hoverModeArea?: HoverModeAreaType;
+
+  /**
+   * Sets the position offset of the bindSheet.
+   *
+   * @type { ?Position }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 14
+   */
+    offset?: Position
 }
 
 /**
