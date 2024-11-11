@@ -79,6 +79,7 @@ declare namespace distributedKVStore {
      * Max key length is 1024.
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -88,6 +89,7 @@ declare namespace distributedKVStore {
      * Max value length is 4194303.
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -97,6 +99,7 @@ declare namespace distributedKVStore {
      * Max device coordinate key length is 896.
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -106,6 +109,7 @@ declare namespace distributedKVStore {
      * Max store id length is 128.
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -115,6 +119,7 @@ declare namespace distributedKVStore {
      * Max query length is 512000.
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -124,6 +129,7 @@ declare namespace distributedKVStore {
      * Max batch operation size is 128.
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -2272,6 +2278,7 @@ declare namespace distributedKVStore {
    * into the database, the system automatically adds the ID of the device running the application to the key.
    *
    * @interface DeviceKVStore
+   * @extends SingleKVStore
    * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
    * @since 9
    */
