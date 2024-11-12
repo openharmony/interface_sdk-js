@@ -42,7 +42,7 @@ interface WindowSceneInterface {
 /**
  * Defines the attribute functions of WindowScene.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<WindowSceneAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
