@@ -127,6 +127,7 @@ declare namespace common2D {
    * Provides the definition of the point in 3D.
    *
    * @typedef Point3d
+   * @extends Point
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
