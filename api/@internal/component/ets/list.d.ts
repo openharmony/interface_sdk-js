@@ -844,7 +844,7 @@ declare class ListScroller extends Scroller {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 13
+ * @since 14
  */
 interface ListOptions {
   /**
@@ -1036,7 +1036,7 @@ interface ListInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   (options?: ListOptions): ListAttribute;
 }
@@ -1049,7 +1049,7 @@ interface ListInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare interface ListDividerOptions {
   /**
@@ -1493,7 +1493,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   divider(
     value: ListDividerOptions | null,
