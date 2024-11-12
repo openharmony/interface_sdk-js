@@ -393,7 +393,18 @@ declare namespace utils {
      * @atomicservice
      * @since 12
      */
-    function stringify(value: ISendable | null | undefined): string;
+    /**
+     * Converts an ArkTS value to a JavaScript Object Notation (JSON) string.
+     * Extra supports Map and Set.
+     *
+     * @param { Object | null | undefined } value - The value to stringify.
+     * @returns { string } The JSON string representation of the value.
+     * @throws { BusinessError } 401 - Parameter error. Invalid ArkTS value.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 15
+     */
+    function stringify(value: Object | null | undefined): string;
 
     /**
     * Enum defining modes for handling bigint.
