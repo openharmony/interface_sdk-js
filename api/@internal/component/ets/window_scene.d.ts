@@ -58,7 +58,7 @@ declare class WindowSceneAttribute extends CommonMethod<WindowSceneAttribute> {
    * @returns { WindowSceneAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 13
+   * @since 14
    */
   attractionEffect(destination: Position, fraction: number): WindowSceneAttribute;
 }

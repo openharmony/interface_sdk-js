@@ -31,7 +31,6 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  */
 declare namespace config {
   /**
-   * @constant
    * Indicates the configuration of daltonization state.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -40,7 +39,6 @@ declare namespace config {
    */
   const daltonizationState: Config<boolean>;
   /**
-   * @constant
    * Indicates the configuration of audio mono.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -49,7 +47,6 @@ declare namespace config {
    */
   const audioMono: Config<boolean>;
   /**
-   * @constant
    * Indicates the configuration of audio balance.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -361,7 +358,7 @@ declare namespace config {
   /**
    * Indicates setting, getting, and listening to changes in configuration.
    *
-   * @typedef Config
+   * @typedef Config<T>
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 9

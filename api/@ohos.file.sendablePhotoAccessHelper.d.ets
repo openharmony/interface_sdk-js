@@ -143,8 +143,9 @@ declare namespace sendablePhotoAccessHelper {
   /**
    * Ability to access thumbnail
    * 
-   * @enum { number } ThumbnailVisibilty
+   * @enum { number } ThumbnailVisibility
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
    * @since 14
    */
   enum ThumbnailVisibility {
@@ -152,16 +153,18 @@ declare namespace sendablePhotoAccessHelper {
      * Unable to access thumbnail
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
      * @since 14
      */
-    THUMBNAIL_INVISIBLE = 0,
+    INVISIBLE = 0,
     /**
      * able to access thumbnail
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
      * @since 14
      */
-    THUMBNAIL_VISIBLE = 1
+    VISIBLE = 1
   }
 
   /**

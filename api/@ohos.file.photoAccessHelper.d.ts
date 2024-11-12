@@ -256,7 +256,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 14
      */
-    THUMBNAIL_INVISIBLE = 0,
+    INVISIBLE = 0,
     /**
      * able to access thumbnail
      * 
@@ -264,7 +264,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 14
      */
-    THUMBNAIL_VISIBLE = 1
+    VISIBLE = 1
   }
 
   /**

@@ -1499,7 +1499,7 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   type QRCode = TypedFrameNode<QRCodeInterface, QRCodeAttribute>;
 
@@ -1511,7 +1511,7 @@ export namespace typeNode {
    * @returns { QRCode } - Return QRCode type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   function createNode(context: UIContext, nodeType: 'QRCode'): QRCode;
 
@@ -1522,7 +1522,7 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   type Badge = TypedFrameNode<BadgeInterface, BadgeAttribute>;
 
@@ -1534,7 +1534,7 @@ export namespace typeNode {
    * @returns { Badge } - Return Badge type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   function createNode(context: UIContext, nodeType: 'Badge'): Badge;
 
@@ -1545,7 +1545,7 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   type TextClock = TypedFrameNode<TextClockInterface, TextClockAttribute>;
 
@@ -1557,7 +1557,7 @@ export namespace typeNode {
    * @returns { TextClock } - Return TextClock type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   function createNode(context: UIContext, nodeType: 'TextClock'): TextClock;
 
@@ -1568,7 +1568,7 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   type TextTimer = TypedFrameNode<TextTimerInterface, TextTimerAttribute>;
 
@@ -1580,7 +1580,7 @@ export namespace typeNode {
    * @returns { TextTimer } - Return TextTimer type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   function createNode(context: UIContext, nodeType: 'TextTimer'): TextTimer;
 
@@ -1591,7 +1591,7 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   type Grid = TypedFrameNode<GridInterface, GridAttribute>;
 
@@ -1603,7 +1603,7 @@ export namespace typeNode {
    * @returns { Grid } - Return Grid type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   function createNode(context: UIContext, nodeType: 'Grid'): Grid;
 
@@ -1614,7 +1614,7 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   type GridItem = TypedFrameNode<GridItemInterface, GridItemAttribute>;
 
@@ -1626,7 +1626,7 @@ export namespace typeNode {
    * @returns { GridItem } - Return GridItem type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   function createNode(context: UIContext, nodeType: 'GridItem'): GridItem;
 }
