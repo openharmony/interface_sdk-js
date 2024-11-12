@@ -4673,7 +4673,7 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 14
+     * @since 13
      */
     setGestureBackEnabled(enabled: boolean): Promise<void>;
 
@@ -4687,7 +4687,7 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 14
+     * @since 13
      */
     isGestureBackEnabled(): boolean;
 
