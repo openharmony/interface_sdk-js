@@ -1500,62 +1500,6 @@ declare namespace media {
      */
     AVERR_IO_DATA_ABNORMAL = 5411012,
     /**
-     * The file is occupied by other processes and cannot be accessed.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_FILE_ACCESS_DENIED = 5411013,
-    /**
-     * The file handle is incorrect.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_FILE_BAD_HANDLE = 5411014,
-    /**
-     * IO file not found.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_FILE_NOT_FOUND = 5411015,
-    /**
-     * IO file permission denied because API does not have permissions.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_FILE_PERMISSION_DENIED = 5411016,
-    /**
-     * Failed to decode the audio data.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_AUDIO_DEC_FAILED = 5411017,
-    /**
-     * Fail to init the audio decoder.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_AUDIO_DEC_INIT_FAILED = 5411018,
-    /**
-     * The audio decoder is unavailable for handler incurrupt, or audio decoder subsystem abnormal.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_AUDIO_DEC_UNAVAILABLE = 5411019,
-    /**
      * Audio device error.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
@@ -1564,78 +1508,6 @@ declare namespace media {
      */
     AVERR_IO_AUDIO_DEVICE_ERROR = 5411020,
     /**
-     * The audio device state does not support the current operation.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_AUDIO_DEVICE_INVALID_STATE = 5411021,
-    /**
-     * Audio device timeout when calling audio render interface.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_AUDIO_DEVICE_TIMEOUT = 5411022,
-    /**
-     * Audio device unavailable, unable to create an audio device.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_AUDIO_DEVICE_UNAVAILABLE = 5411023,
-    /**
-     * Failed to encode the audio data.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_AUDIO_ENC_FAILED = 5411024,
-    /**
-     * Fail to init the audio encoder.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_AUDIO_ENC_INIT_FAILED = 5411025,
-    /**
-     * The audio encoder is unavailable for handler incurrupt, or audio encoder subsystem abnormal.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_AUDIO_ENC_UNAVAILABLE = 5411026,
-    /**
-     * Failed to decode the video data.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_VIDEO_DEC_FAILED = 5411027,
-    /**
-     * Fail to init the video decoder.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_VIDEO_DEC_INIT_FAILED = 5411028,
-    /**
-     * The video decoder is unavailable for handler incurrupt, or video decoder subsystem abnormal.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_VIDEO_DEC_UNAVAILABLE = 5411029,
-    /**
      * Video device error.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
@@ -1643,30 +1515,6 @@ declare namespace media {
      * @since 14
      */
     AVERR_IO_VIDEO_DEVICE_ERROR = 5411030,
-    /**
-     * Failed to encode the video data.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_VIDEO_ENC_FAILED = 5411031,
-    /**
-     * Failed to init the video encoder.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_VIDEO_ENC_INIT_FAILED = 5411032,
-    /**
-     * The video encoder is unavailable for handler incurrupt, or video encoder subsystem abnormal.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_VIDEO_ENC_UNAVAILABLE = 5411033,
   }
 
   /**
