@@ -11534,6 +11534,17 @@ declare interface SheetOptions extends BindOptions {
   showClose?: boolean | Resource;
 
   /**
+  * Defines sheet radius
+  * 
+  * @type { ?(LengthMetrics | BorderRadiuses | LocalizedBorderRadiuses) }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 14
+  */
+  radius?: LengthMetrics | BorderRadiuses | LocalizedBorderRadiuses;
+
+  /**
    * Defines the sheet prefer type
    *
    * @type { ?(SheetType.CENTER | SheetType.POPUP) }
