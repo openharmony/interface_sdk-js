@@ -33,7 +33,6 @@ import * as _AbilityStateData from './application/AbilityStateData';
  *
  * @namespace abilityManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @systemapi
  * @since 9
  */
 declare namespace abilityManager {
@@ -216,11 +215,9 @@ declare namespace abilityManager {
    *
    * @permission ohos.permission.GET_RUNNING_INFO
    * @returns { Promise<Array<AbilityRunningInfo>> } Returns the array of AbilityRunningInfo.
-   * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 9
+   * @since 14
    */
   function getAbilityRunningInfos(): Promise<Array<AbilityRunningInfo>>;
 
