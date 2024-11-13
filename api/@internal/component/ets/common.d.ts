@@ -17926,6 +17926,8 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 14
+   * @useinstead grid_col/GridColInterface and grid_row/GridRowInterface
    */
   gridSpan(value: number): T;
 
@@ -17958,6 +17960,8 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 14
+   * @useinstead grid_col/GridColInterface and grid_row/GridRowInterface
    */
   gridOffset(value: number): T;
 
