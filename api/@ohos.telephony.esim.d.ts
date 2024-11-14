@@ -1497,7 +1497,7 @@ declare namespace eSIM {
   /**
    * Specifies the download configuration.
    *
-   * @interface DownloadableProfile
+   * @interface DownloadConfiguration
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 14
@@ -1506,7 +1506,7 @@ declare namespace eSIM {
     /**
      * Specifies whether to enable the profile after successful download.
      *
-     * @type { string }
+     * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
@@ -1518,7 +1518,7 @@ declare namespace eSIM {
      * the operation. Otherwise, {@link RESULT_MUST_DISABLE_PROFILE} is returned in resultCode to ask for the user's
      * agreement to the operation.
      *
-     * @type { string }
+     * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
@@ -1529,7 +1529,7 @@ declare namespace eSIM {
      * Specifies whether the user allows the service provider to enforce this Profile Policy Rule (PPR)
      * after being informed of its restrictions.
      *
-     * @type { string }
+     * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 14
