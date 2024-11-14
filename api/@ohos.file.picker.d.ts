@@ -430,7 +430,7 @@ declare namespace picker {
    * Enumerates the picker's mode types.
    *
    * @enum { number } DocumentPickerMode
-   * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
+   * @syscap SystemCapability.FileManagement.UserFileService
    * @atomicservice
    * @since 12
    */
