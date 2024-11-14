@@ -34,6 +34,7 @@ import bundle from '../@ohos.bundle';
  * Can only be obtained through the ability.
  *
  * @interface Context
+ * @extends BaseContext
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @FAModelOnly
  * @since 6
