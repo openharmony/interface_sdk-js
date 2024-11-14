@@ -1251,7 +1251,7 @@ declare namespace window {
      * @systemapi
      * @since 14
      */
-    isFocused: boolean;
+    isFocused?: boolean;
   }
 
   /**
