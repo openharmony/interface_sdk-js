@@ -348,6 +348,19 @@ declare interface DividerOptions {
 }
 
 /**
+ * Callback of the listened scroll stop event.
+ *
+ * @typedef {function} TextPickerScrollStopCallback
+ * @param { string | string[] } value - Value of the selected item.
+ * @param { number | number[] } index - Index of the selected item.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare type TextPickerScrollStopCallback = (value: string | string[], index: number | number[]) => void;
+
+/**
  * Style the text selector.
  *
  * @extends CommonMethod<TextPickerAttribute>
@@ -536,6 +549,19 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @since 11
    */
   onChange(callback: (value: string | string[], index: number | number[]) => void): TextPickerAttribute;
+
+  /**
+   * This event is triggered when a TextPicker item is selected and scrolling has stopped.
+   * Only valid when only text is displayed. When picture or picture plus text is displayed, the value is "".
+   *
+   * @param { TextPickerScrollStopCallback } callback - the callback of onScrollStop.
+   * @returns { TextPickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onScrollStop(callback: TextPickerScrollStopCallback): TextPickerAttribute;
 
   /**
    * Set the selected indices.
@@ -891,6 +917,17 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @since 11
    */
   onChange?: (value: TextPickerResult) => void;
+
+  /**
+   * This event is triggered when a TextPicker text is selected and scrolling has stopped in dialog.
+   *
+   * @type { ?Callback<TextPickerResult> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onScrollStop?: Callback<TextPickerResult>;
 
   /**
    * Mask Region of dialog. The size cannot exceed the main window.
