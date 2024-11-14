@@ -1491,30 +1491,6 @@ declare namespace media {
      * @since 14
      */
     AVERR_IO_UNSUPPORTED_REQUEST = 5411011,
-    /**
-     * The file data is incorrect, and no specific data can be provided.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_DATA_ABNORMAL = 5411012,
-    /**
-     * Audio device error.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_AUDIO_DEVICE_ERROR = 5411020,
-    /**
-     * Video device error.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_VIDEO_DEVICE_ERROR = 5411030,
   }
 
   /**
@@ -3075,9 +3051,6 @@ declare namespace media {
      * @throws { BusinessError } 5411009 - IO SSL connect fail.
      * @throws { BusinessError } 5411010 - IO SSL server cert untrusted.
      * @throws { BusinessError } 5411011 - IO unsupported request.
-     * @throws { BusinessError } 5411012 - IO data abnormal.
-     * @throws { BusinessError } 5411020 - Audio device error.
-     * @throws { BusinessError } 5411030 - Video device error.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
