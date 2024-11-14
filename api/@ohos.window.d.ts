@@ -1246,7 +1246,7 @@ declare namespace window {
     /**
      * Whether the window is focused. The default value is false.
      *
-     * @type { boolean }
+     * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi
      * @since 14
