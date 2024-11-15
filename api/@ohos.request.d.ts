@@ -4820,6 +4820,19 @@ declare namespace request {
        * @since 11
        */
       stop(): Promise<void>;
+      /**
+       * Sets the maximum transfer speed of the task.
+       * The minimum value of the speed limit is 16,384 bytes per second(16 KB/s).
+       *
+       * @param { number } speed - the maximum transfer speed of the task, in bytes per second.
+       * @returns { Promise<void> } the promise returned by the function.
+       * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @throws { BusinessError } 13400003 - task service ability error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 16
+       */
+      setMaxSpeed(speed: number): Promise<void>;
     }
 
     /**
