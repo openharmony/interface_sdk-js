@@ -116,6 +116,39 @@ declare namespace uiExtension {
     off(type: 'windowSizeChange', callback?: Callback<window.Size>): void;
 
     /**
+     * Register the callback of windowRectChange
+     *
+     * @param { 'windowRectChange' } type - The value is fixed at 'windowRectChange', indicating the window rect change event.
+     * @param { Callback<window.RectChangeOptions> } callback - Callback used to return the RectChangeOptions.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
+    on(type: 'windowRectChange', callback: Callback<window.RectChangeOptions>): void;
+
+    /**
+     * Unregister the callback of windowRectChange
+     *
+     * @param { 'windowRectChange' } type - The value is fixed at 'windowRectChange', indicating the window rect change event.
+     * @param { Callback<window.RectChangeOptions> } callback - Callback used to return the RectChangeOptions.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     *                                                                  2. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
+    off(type: 'windowRectChange', callback?: Callback<window.RectChangeOptions>): void;
+
+    /**
      * Hide the non-secure windows.
      * When called by modal UIExtension and shouldHide == false, the "ohos.permission.ALLOW_SHOW_NON_SECURE_WINDOWS" permission is required.
      *
