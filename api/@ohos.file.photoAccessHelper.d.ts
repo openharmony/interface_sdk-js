@@ -7211,6 +7211,334 @@ declare namespace photoAccessHelper {
      */
     COMPLETED
   }
+
+  /**
+   * Cloud media asset task status.
+   * 
+   * @enum { number } CloudMediaAssetTaskStatus
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 14
+   */
+  enum CloudMediaAssetTaskStatus {
+    /**
+     * Cloud media asset task status of downloading.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    DOWNLOADING = 0,
+    /**
+     * Cloud media asset task status of paused.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    PAUSED = 1,
+    /**
+     * Cloud media asset task status of idle.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    IDLE = 2
+  }
+
+  /**
+   * Cloud media task pause cause.
+   * 
+   * @enum { number } CloudMediaTaskPauseCause
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 14
+   */
+  enum CloudMediaTaskPauseCause {
+    /**
+     * No pause.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    NO_PAUSE = 0,
+    /**
+     * Temperature limit.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    TEMPERATURE_LIMIT = 1,
+    /**
+     * Rom limit.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    ROM_LIMIT = 2,
+    /**
+     * Network flow limit.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    NETWORK_FLOW_LIMIT = 3,
+    /**
+     * Wifi unavailable.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    WIFI_UNAVAILABLE = 4,
+    /**
+     * Power limit.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    POWER_LIMIT = 5,
+    /**
+     * Background task unavailable.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    BACKGROUND_TASK_UNAVAILABLE = 6,
+    /**
+     * Frequent user requests.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    FREQUENT_USER_REQUESTS = 7,
+    /**
+     * cloud error.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    CLOUD_ERROR = 8,
+    /**
+     * User paused.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    USER_PAUSED = 9
+  }
+
+  /**
+   * Status of cloud media asset.
+   * 
+   * @interface CloudMediaAssetStatus
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 14
+   */
+  interface CloudMediaAssetStatus {
+    /**
+     * Indicates the cloud media asset task status.
+     * 
+     * @type { CloudMediaAssetTaskStatus }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    readonly taskStatus: CloudMediaAssetTaskStatus;
+    /**
+     * Indicates the downloading task info, including total count, total size, remain count and remain size.
+     * 
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    readonly taskInfo: string;
+    /**
+     * Indicates the cloud media task pause status.
+     * 
+     * @type { CloudMediaTaskPauseCause }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    readonly errorCode: CloudMediaTaskPauseCause;
+  }
+
+  /**
+   * Cloud media download type.
+   * 
+   * @enum { number } CloudMediaDownloadType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 14
+   */
+  enum CloudMediaDownloadType {
+    /**
+     * High-priority download policy, no background task required.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    DOWNLOAD_FORCE = 0,
+    /**
+     * Low-priority download policy, requiring background task.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    DOWNLOAD_GENTLE = 1
+  }
+
+  /**
+   * Cloud media retain type.
+   * 
+   * @enum { number } CloudMediaRetainType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 14
+   */
+  enum CloudMediaRetainType {
+    /**
+     * Delete native metadata and thumbnails of cloud-only media assets.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    RETAIN_FORCE = 0,
+    /**
+     * Retains native metadata and thumbnails of cloud-only media assets, and does not display them.
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    RETAIN_GENTLE = 1
+  }
+
+  /**
+   * Defines the class of cloud media asset manager.
+   * 
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 14
+   */
+  class CloudMediaAssetManager {
+    /**
+     * Get cloud media asset manager instance.
+     * 
+     * @param { Context } context - Hap context information
+     * @returns { CloudMediaAssetManager } Returns cloud media asset manager instance
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    static getCloudMediaAssetManagerInstance(context: Context): CloudMediaAssetManager;
+
+    /**
+     * Start or resume download cloud media.
+     * 
+     * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
+     * @param { CloudMediaDownloadType } downloadType - cloud media download type.
+     * @returns { Promise<void> } Returns void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    startDownloadCloudMedia(downloadType: CloudMediaDownloadType): Promise<void>;
+
+    /**
+     * Pause download cloud media.
+     * 
+     * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
+     * @returns { Promise<void> } Returns void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    pauseDownloadCloudMedia(): Promise<void>;
+
+    /**
+     * Cancel download cloud media.
+     * 
+     * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
+     * @returns { Promise<void> } Returns void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    cancelDownloadCloudMedia(): Promise<void>;
+
+    /**
+     * Retain cloud media asset.
+     * 
+     * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
+     * @param { CloudMediaRetainType } retainType - cloud media retain type.
+     * @returns { Promise<void> } Returns void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    retainCloudMediaAsset(retainType: CloudMediaRetainType): Promise<void>;
+
+    /**
+     * Get cloud media asset status.
+     * 
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @returns { Promise<CloudMediaAssetStatus> } Returns cloud media asset status
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    getCloudMediaAssetStatus(): Promise<CloudMediaAssetStatus>;
+  }
 }
 
 export default photoAccessHelper;
