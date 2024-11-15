@@ -374,8 +374,7 @@ declare namespace relationalStore {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @systemapi
-     * @since 12
+     * @since 16
      */
     vector?: boolean;
 
@@ -3269,8 +3268,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @systemapi
-     * @since 12
+     * @since 16
      */
     getFloat32Array(columnIndex: number): Float32Array;
 
@@ -7953,6 +7951,15 @@ declare namespace relationalStore {
    * @since 12
    */
   function deleteRdbStore(context: Context, config: StoreConfig): Promise<void>;
+
+  /**
+   * Checks whether the vector database is supported.
+   *
+   * @returns { boolean } Returns {@code true} if the vector database is supported; returns {@code false} otherwise.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 16
+   */
+  function isVectorSupported(): boolean;
 }
 
 export default relationalStore;
