@@ -2809,6 +2809,36 @@ declare namespace request {
     }
 
     /**
+     * Options of the custom notification of backend tasks.
+     *
+     * @typedef Notification
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 16
+     */
+    interface Notification {
+      /**
+       * The title of the notification.
+       * If not specified, use default style instead.
+       * The maximum size of title is 1024 bytes.
+       *
+       * @type { ?string }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 16
+       */
+      title?: string;
+      /**
+       * The text of the notification.
+       * If not specified, use the file name of the task instead.
+       * The maximum size of text is 3072 bytes.
+       *
+       * @type { ?string }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 16
+       */
+      text?: string;
+    }
+
+    /**
      * The configurations for a task.
      * Using a flexible configuration for clear upload and download functions.
      * If without emphasis, an option is for any task.
@@ -5208,6 +5238,79 @@ declare namespace request {
      * @since 10
      */
     function query(id: string): Promise<TaskInfo>;
+
+    /**
+     * The config of the task group.
+     * 
+     * @typedef GroupConfig
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 16
+     */
+    interface GroupConfig {
+      /**
+       * Sets display strategy for background task notifications.
+       * If true, progress, completed, and failed notifications will be displayed.
+       * If false, only completed or failed notifications will be displayed.
+       * 
+       * @type { ?boolean }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 16
+       */
+      gauge?: boolean;
+      /**
+       * Customizes the notification of the task group.
+       * 
+       * @type { Notification }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 16
+       */
+      notification: Notification;
+    }
+
+    /**
+     * Creates a background download task notification group.
+     * 
+     * @param { GroupConfig } config - config of the group.
+     * @returns { Promise<string> } the gid of the group.
+     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+     * @throws { BusinessError } 13400003 - task service ability error.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 16
+     */
+    function createGroup(config: GroupConfig): Promise<string>;
+
+    /**
+     * Adds a newly created background download task to the target group.
+     * 
+     * @param { string } gid - the gid of the target group.
+     * @param { string[] } tids - the tid list of tasks to be attached.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+     * @throws { BusinessError } 13400003 - task service ability error.
+     * @throws { BusinessError } 21900005 - task mode error.
+     * @throws { BusinessError } 21900007 - task state error.
+     * @throws { BusinessError } 21900008 - group deleted or not found.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 16
+     */
+    function attachGroup(gid: string, tids: string[]): Promise<void>;
+
+    /**
+     * Deletes the target group, no more new tasks can be added to this group.
+     * If all tasks in this group end, completed or failed notifications will be displayed.
+     * 
+     * @param { string } gid - the gid of the target group.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+     * @throws { BusinessError } 13400003 - task service ability error.
+     * @throws { BusinessError } 21900008 - group deleted or not found.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 16
+     */
+    function deleteGroup(gid: string): Promise<void>;
   }
 }
 
