@@ -34,7 +34,6 @@ declare namespace inputMethodEngine {
   /**
    * When "enter" key is pressed, there is no action
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -43,7 +42,6 @@ declare namespace inputMethodEngine {
   /**
    * When "enter" key is pressed, it means GO
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -52,7 +50,6 @@ declare namespace inputMethodEngine {
   /**
    * When "enter" key is pressed, it means SEARCH
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -61,7 +58,6 @@ declare namespace inputMethodEngine {
   /**
    * When "enter" key is pressed, it means SEND
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -70,7 +66,6 @@ declare namespace inputMethodEngine {
   /**
    * When "enter" key is pressed, it means NEXT
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -79,7 +74,6 @@ declare namespace inputMethodEngine {
   /**
    * When "enter" key is pressed, it means DONE
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -88,7 +82,6 @@ declare namespace inputMethodEngine {
   /**
    * When "enter" key is pressed, it means PREVIOUS
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -106,7 +99,6 @@ declare namespace inputMethodEngine {
   /**
    * Editor with no special function
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -115,7 +107,6 @@ declare namespace inputMethodEngine {
   /**
    * Editor of type TEXT
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -124,7 +115,6 @@ declare namespace inputMethodEngine {
   /**
    * Editor of type NUMBER
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -133,7 +123,6 @@ declare namespace inputMethodEngine {
   /**
    * Editor of type PHONE NUMBER
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -142,7 +131,6 @@ declare namespace inputMethodEngine {
   /**
    * Editor of type DATETIME
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -151,7 +139,6 @@ declare namespace inputMethodEngine {
   /**
    * Editor of type EMAIL
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -160,7 +147,6 @@ declare namespace inputMethodEngine {
   /**
    * Editor of type URI
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -169,7 +155,6 @@ declare namespace inputMethodEngine {
   /**
    * Editor of type PASSWORD
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -178,7 +163,6 @@ declare namespace inputMethodEngine {
   /**
    * Editor of type SCREEN LOCK PASSWORD
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11
    */
@@ -187,7 +171,6 @@ declare namespace inputMethodEngine {
   /**
    * Editor of type NUMBER PASSWORD
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11
    */
@@ -196,7 +179,6 @@ declare namespace inputMethodEngine {
   /**
    * Editor in SELECTING state
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -205,7 +187,6 @@ declare namespace inputMethodEngine {
   /**
    * Editor in SINGLE_LINE state
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -214,7 +195,6 @@ declare namespace inputMethodEngine {
   /**
    * The Editor displays in PART mode
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -223,7 +203,6 @@ declare namespace inputMethodEngine {
   /**
    * The Editor displays in FULL mode
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -232,7 +211,6 @@ declare namespace inputMethodEngine {
   /**
    * Allows ASCII to be inputted
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -241,7 +219,6 @@ declare namespace inputMethodEngine {
   /**
    * Do not specify Editor's input type
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -250,7 +227,6 @@ declare namespace inputMethodEngine {
   /**
    * Allows CHARACTERS to be inputted
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -259,7 +235,6 @@ declare namespace inputMethodEngine {
   /**
    * Allows SENTENCES to be inputted
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -268,7 +243,6 @@ declare namespace inputMethodEngine {
   /**
    * Allows WORDS to be inputted
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -277,7 +251,6 @@ declare namespace inputMethodEngine {
   /**
    * Allows MULTI_LINE to be inputted
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -286,7 +259,6 @@ declare namespace inputMethodEngine {
   /**
    * Half-screen mode
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -295,7 +267,6 @@ declare namespace inputMethodEngine {
   /**
    * The move direction of cursor: UP
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -304,7 +275,6 @@ declare namespace inputMethodEngine {
   /**
    * The move direction of cursor: DOWN
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -313,7 +283,6 @@ declare namespace inputMethodEngine {
   /**
    * The move direction of cursor: LEFT
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -322,7 +291,6 @@ declare namespace inputMethodEngine {
   /**
    * The move direction of cursor: RIGHT
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -331,7 +299,6 @@ declare namespace inputMethodEngine {
   /**
    * The window styles for input method ability.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -1799,6 +1766,7 @@ declare namespace inputMethodEngine {
      * Editor's pattern
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
@@ -1808,6 +1776,7 @@ declare namespace inputMethodEngine {
      * Editor's key type
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
@@ -1843,6 +1812,7 @@ declare namespace inputMethodEngine {
      * Key code
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
@@ -1852,6 +1822,7 @@ declare namespace inputMethodEngine {
      * Key action
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */

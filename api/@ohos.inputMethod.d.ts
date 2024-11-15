@@ -33,7 +33,6 @@ declare namespace inputMethod {
   /**
    * Keyboard max number
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -1309,6 +1308,7 @@ declare namespace inputMethod {
      * The name of input method
      *
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1318,6 +1318,7 @@ declare namespace inputMethod {
      * The id of input method
      *
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1327,6 +1328,7 @@ declare namespace inputMethod {
      * The label of input method
      *
      * @type { ?string }
+     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1336,6 +1338,7 @@ declare namespace inputMethod {
      * The label id of input method
      *
      * @type { ?number }
+     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1345,6 +1348,7 @@ declare namespace inputMethod {
      * The icon of input method
      *
      * @type { ?string }
+     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1354,6 +1358,7 @@ declare namespace inputMethod {
      * The icon id of input method
      *
      * @type { ?number }
+     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
