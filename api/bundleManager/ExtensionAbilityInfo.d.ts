@@ -43,6 +43,7 @@ export interface ExtensionAbilityInfo {
    * Indicates the name of the bundle
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -50,6 +51,7 @@ export interface ExtensionAbilityInfo {
    * Indicates the name of the bundle
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -60,6 +62,7 @@ export interface ExtensionAbilityInfo {
    * Indicates the name of the module
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -67,6 +70,7 @@ export interface ExtensionAbilityInfo {
    * Indicates the name of the module
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -77,6 +81,7 @@ export interface ExtensionAbilityInfo {
    * Indicates the name of the extension ability info
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -84,6 +89,7 @@ export interface ExtensionAbilityInfo {
    * Indicates the name of the extension ability info
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -94,6 +100,7 @@ export interface ExtensionAbilityInfo {
    * Indicates the label id of the extension ability info
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -101,6 +108,7 @@ export interface ExtensionAbilityInfo {
    * Indicates the label id of the extension ability info
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -111,6 +119,7 @@ export interface ExtensionAbilityInfo {
    * Indicates the description id of the extension ability info
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -118,6 +127,7 @@ export interface ExtensionAbilityInfo {
    * Indicates the description id of the extension ability info
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -128,6 +138,7 @@ export interface ExtensionAbilityInfo {
    * Indicates the icon id of the extension ability info
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -135,6 +146,7 @@ export interface ExtensionAbilityInfo {
    * Indicates the icon id of the extension ability info
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -145,6 +157,7 @@ export interface ExtensionAbilityInfo {
    * Indicates whether this ability can be called by other abilities
    *
    * @type { boolean }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -152,6 +165,7 @@ export interface ExtensionAbilityInfo {
    * Indicates whether this ability can be called by other abilities
    *
    * @type { boolean }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -162,6 +176,7 @@ export interface ExtensionAbilityInfo {
    * Enumerates types of the extension ability info
    *
    * @type { bundleManager.ExtensionAbilityType }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -169,6 +184,7 @@ export interface ExtensionAbilityInfo {
    * Enumerates types of the extension ability info
    *
    * @type { bundleManager.ExtensionAbilityType }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -190,6 +206,7 @@ export interface ExtensionAbilityInfo {
    * The permissions that others need to use this extension ability info
    *
    * @type { Array<string> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -197,6 +214,7 @@ export interface ExtensionAbilityInfo {
    * The permissions that others need to use this extension ability info
    *
    * @type { Array<string> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -207,6 +225,7 @@ export interface ExtensionAbilityInfo {
    * Obtains configuration information about an application
    *
    * @type { ApplicationInfo }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -214,6 +233,7 @@ export interface ExtensionAbilityInfo {
    * Obtains configuration information about an application
    *
    * @type { ApplicationInfo }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -224,6 +244,7 @@ export interface ExtensionAbilityInfo {
    * Indicates the metadata of bundle
    *
    * @type { Array<Metadata> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -231,6 +252,7 @@ export interface ExtensionAbilityInfo {
    * Indicates the metadata of bundle
    *
    * @type { Array<Metadata> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -241,6 +263,7 @@ export interface ExtensionAbilityInfo {
    * Indicates the src language to express extension ability info
    *
    * @type { boolean }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -248,6 +271,7 @@ export interface ExtensionAbilityInfo {
    * Indicates the src language to express extension ability info
    *
    * @type { boolean }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -258,6 +282,7 @@ export interface ExtensionAbilityInfo {
    * Indicates the read permission extension ability info
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -265,6 +290,7 @@ export interface ExtensionAbilityInfo {
    * Indicates the read permission extension ability info
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -275,6 +301,7 @@ export interface ExtensionAbilityInfo {
    * Indicates the write permission of extension ability info
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -282,6 +309,7 @@ export interface ExtensionAbilityInfo {
    * Indicates the write permission of extension ability info
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
