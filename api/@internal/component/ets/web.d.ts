@@ -6267,7 +6267,7 @@ declare interface SelectionMenuOptionsExt {
  */
 declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
-   * Sets whether the Web allows JavaScript scripts to execute.
+   * Sets whether the Web allows JavaScript scripts to execute. The default value is true.
    *
    * @param { boolean } javaScriptAccess - {@code true} means the Web can allows JavaScript scripts to execute; {@code false} otherwise.
    * @returns { WebAttribute }
@@ -6275,7 +6275,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Sets whether the Web allows JavaScript scripts to execute.
+   * Sets whether the Web allows JavaScript scripts to execute. The default value is true.
    *
    * @param { boolean } javaScriptAccess - {@code true} means the Web can allows JavaScript scripts to execute; {@code false} otherwise.
    * @returns { WebAttribute }
@@ -6284,7 +6284,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 10
    */
   /**
-   * Sets whether the Web allows JavaScript scripts to execute.
+   * Sets whether the Web allows JavaScript scripts to execute. The default value is true.
    *
    * @param { boolean } javaScriptAccess - {@code true} means the Web can allows JavaScript scripts to execute; {@code false} otherwise.
    * @returns { WebAttribute }
@@ -6296,7 +6296,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   javaScriptAccess(javaScriptAccess: boolean): WebAttribute;
 
   /**
-   * Sets whether enable local file system access in Web.
+   * Sets whether enable local file system access in Web. The default value is true.
    *
    * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
    * @returns { WebAttribute }
@@ -6304,13 +6304,22 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Sets whether enable local file system access in Web.
+   * Sets whether enable local file system access in Web. The default value is true.
    *
    * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Sets whether enable local file system access in Web. The default value is false.
+   *
+   * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
    */
   fileAccess(fileAccess: boolean): WebAttribute;
 
@@ -6336,7 +6345,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onlineImageAccess(onlineImageAccess: boolean): WebAttribute;
 
   /**
-   * Sets whether to enable the DOM Storage API permission.
+   * Sets whether to enable the DOM Storage API permission. The default value is false.
    *
    * @param { boolean } domStorageAccess - {@code true} means enable the DOM Storage API permission in Web; {@code false} otherwise.
    * @returns { WebAttribute }
@@ -6344,7 +6353,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Sets whether to enable the DOM Storage API permission.
+   * Sets whether to enable the DOM Storage API permission. The default value is false.
    *
    * @param { boolean } domStorageAccess - {@code true} means enable the DOM Storage API permission in Web; {@code false} otherwise.
    * @returns { WebAttribute }
@@ -6355,7 +6364,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   domStorageAccess(domStorageAccess: boolean): WebAttribute;
 
   /**
-   * Sets whether the Web can automatically load image resources.
+   * Sets whether the Web can automatically load image resources. The default value is true.
    *
    * @param { boolean } imageAccess - {@code true} means the Web can automatically load image resources; {@code false} otherwise.
    * @returns { WebAttribute }
@@ -6363,7 +6372,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Sets whether the Web can automatically load image resources.
+   * Sets whether the Web can automatically load image resources. The default value is true.
    *
    * @param { boolean } imageAccess - {@code true} means the Web can automatically load image resources; {@code false} otherwise.
    * @returns { WebAttribute }
@@ -6422,7 +6431,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   zoomAccess(zoomAccess: boolean): WebAttribute;
 
   /**
-   * Sets whether to allow access to geographical locations.
+   * Sets whether to allow access to geographical locations. The default value is true.
    *
    * @param { boolean } geolocationAccess - {@code true} means the Web allows access to geographical locations; {@code false} otherwise.
    * @returns { WebAttribute }
@@ -6430,7 +6439,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Sets whether to allow access to geographical locations.
+   * Sets whether to allow access to geographical locations. The default value is true.
    *
    * @param { boolean } geolocationAccess - {@code true} means the Web allows access to geographical locations; {@code false} otherwise.
    * @returns { WebAttribute }
