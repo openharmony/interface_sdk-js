@@ -2809,6 +2809,36 @@ declare namespace request {
     }
 
     /**
+     * Options of the custom notification of backend tasks.
+     *
+     * @typedef Notification
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 16
+     */
+    interface Notification {
+      /**
+       * The title of the notification.
+       * If not specified, use default style instead.
+       * The maximum size of title is 1024 bytes.
+       *
+       * @type { ?string }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 16
+       */
+      title?: string;
+      /**
+       * The text of the notification.
+       * If not specified, use the file name of the task instead.
+       * The maximum size of text is 3072 bytes.
+       *
+       * @type { ?string }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 16
+       */
+      text?: string;
+    }
+
+    /**
      * The configurations for a task.
      * Using a flexible configuration for clear upload and download functions.
      * If without emphasis, an option is for any task.
@@ -3341,6 +3371,14 @@ declare namespace request {
        * @since 11
        */
       extras?: object;
+      /**
+       * Customizes the notification of the backend task.
+       *
+       * @type { ?Notification }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 16
+       */
+      notification?: Notification;
     }
 
     /**
