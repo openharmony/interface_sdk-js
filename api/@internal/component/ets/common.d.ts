@@ -6113,7 +6113,7 @@ declare enum BlurStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare enum BlurStyleActivePolicy {
   /**
@@ -6122,7 +6122,7 @@ declare enum BlurStyleActivePolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   FOLLOWS_WINDOW_ACTIVE_STATE = 0,
 
@@ -6132,7 +6132,7 @@ declare enum BlurStyleActivePolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   ALWAYS_ACTIVE = 1,
 
@@ -6142,7 +6142,7 @@ declare enum BlurStyleActivePolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   ALWAYS_INACTIVE = 2,
 }
@@ -6366,7 +6366,7 @@ declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   policy?: BlurStyleActivePolicy;
 
@@ -6378,7 +6378,7 @@ declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   inactiveColor?: ResourceColor;
 }
@@ -6683,7 +6683,7 @@ declare interface BackgroundEffectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   policy?: BlurStyleActivePolicy;
 
@@ -6695,7 +6695,7 @@ declare interface BackgroundEffectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   inactiveColor?: ResourceColor;
 }
