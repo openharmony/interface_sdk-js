@@ -417,7 +417,8 @@ export class TagValueCheck {
       const throws401DescriptionOneIndexof: number = specialThrowsDescription.indexOf(throwsTagDescriptionArr[1]);
       const throws401DescriptionTwoIndexof: number = specialThrowsDescription.indexOf(throwsTagDescriptionArr[2]);
       const throws401DescriptionThreeIndexof: number = specialThrowsDescription.indexOf(throwsTagDescriptionArr[3]);
-      const hasDescriptionContent: boolean = throws401DescriptionOneIndexof !== -1 || throws401DescriptionTwoIndexof !== -1 || throws401DescriptionThreeIndexof !== -1;
+      const hasDescriptionContent: boolean = throws401DescriptionOneIndexof !== -1 || 
+        throws401DescriptionTwoIndexof !== -1 || throws401DescriptionThreeIndexof !== -1;
       const descriptionReg = new RegExp(`${throwsTagDescriptionArr[0]}|${throwsTagDescriptionArr[1]}|${throwsTagDescriptionArr[2]}|${throwsTagDescriptionArr[3]}|<br>`, 'g');
       const hasElseString: boolean = /[A-Za-z]+/.test(specialThrowsDescription.replace(descriptionReg, ''));
       if (throws401DescriptionStartIndexof === -1 || throws401DescriptionStartIndexof > 1 || !hasDescriptionContent ||

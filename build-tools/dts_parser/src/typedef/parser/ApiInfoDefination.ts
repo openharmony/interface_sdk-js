@@ -899,7 +899,7 @@ export class ParamInfo {
     this.objLocations = objLocations;
   }
 
-  setMethodApiInfo(methodApiInfo: MethodInfo | undefined) {
+  setMethodApiInfo(methodApiInfo: MethodInfo | undefined): void {
     this.methodApiInfo = methodApiInfo;
   }
 
@@ -1035,7 +1035,9 @@ export class ParserParam {
     };
     this.compilerHost = ts.createCompilerHost(compilerOption);
     // 设置别名
-    this.compilerHost.resolveModuleNames = (moduleNames: string[], containingFile: string, reusedNames: string[] | undefined, redirectedReference: ts.ResolvedProjectReference | undefined, compilerOptions: ts.CompilerOptions) => {
+    this.compilerHost.resolveModuleNames = (moduleNames: string[], containingFile: string,
+        reusedNames: string[] | undefined, redirectedReference: ts.ResolvedProjectReference | undefined,
+        compilerOptions: ts.CompilerOptions) => {
       return moduleNames.map(moduleName => {
         if (process.env.IS_OH === 'true') {
           return ts.resolveModuleName(moduleName, containingFile, compilerOptions, this.compilerHost).resolvedModule;
