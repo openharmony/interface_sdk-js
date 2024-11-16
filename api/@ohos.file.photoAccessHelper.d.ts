@@ -4220,24 +4220,6 @@ declare namespace photoAccessHelper {
      */
     cancelPhotoUriPermission(appid: string, uri: string, photoPermissionType: PhotoPermissionType): Promise<number>;
     /**
-     * Set force hideSensitiveType to an APP.
-     *
-     * @permission ohos.permission.READ_IMAGEVIDEO
-     * @@param { Array<string> } uriList - List of asset uris whose permission will be granted to an App,
-     * <br>the capacity of uriList is 1000.
-     * @param { HideSensitiveType } hideSensitiveType - Hide sensitive info type of accessing assets.
-     * @returns { Promise<number> } Returns result of cancel permission
-     * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 202 - Called by non-system application
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14000011 - Internal system error
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
-     * @since 14
-     */
-    setForceHideSensitiveType(uriList: Array<string>, hideSensitiveType: HideSensitiveType): Promise<number>;
-    /**
      * Provides the capability of thumbnail generation according to specified rules.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
