@@ -16148,7 +16148,7 @@ declare class CommonMethod<T> {
   opacity(value: number | Resource): T;
 
   /**
-   * Opacity
+   * Border
    * width:Border width;color:Border color;radius:Border radius;
    *
    * @param { BorderOptions } value
@@ -16157,7 +16157,7 @@ declare class CommonMethod<T> {
    * @since 7
    */
   /**
-   * Opacity
+   * Border
    * width:Border width;color:Border color;radius:Border radius;
    *
    * @param { BorderOptions } value
@@ -16167,7 +16167,7 @@ declare class CommonMethod<T> {
    * @since 9
    */
   /**
-   * Opacity
+   * Border
    * width:Border width;color:Border color;radius:Border radius;
    *
    * @param { BorderOptions } value
@@ -16178,7 +16178,7 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Opacity
+   * Border
    * width:Border width;color:Border color;radius:Border radius;
    *
    * @param { BorderOptions } value
