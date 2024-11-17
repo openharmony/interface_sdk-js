@@ -1199,6 +1199,24 @@ declare namespace appManager {
   function getKeepAliveBundles(type: KeepAliveAppType, userId?: number): Promise<Array<KeepAliveBundleInfo>>;
 
   /**
+   * Kill processes in batch.
+   *
+   * @permission ohos.permission.KILL_APP_PROCESSES
+   * @param { Array<number> } pids - The pids of the processes.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 14
+   */
+  function killProcessesInBatch(pids: Array<number>): Promise<void>;
+
+  /**
    * The ability or extension state data.
    *
    * @typedef { _AbilityStateData.default }
