@@ -1281,6 +1281,21 @@ declare namespace xml {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Starts parsing the XML file.
+     *
+     * @param { ParseOptions } option - Parse options for XmlPullParser, the interface including
+	   * two Boolean variables and three callback functions.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     * @deprecated since 14
+     * @useinstead ohos.xml.XmlPullParser.parseXml
+     */
     parse(option: ParseOptions): void;
   }
 }
