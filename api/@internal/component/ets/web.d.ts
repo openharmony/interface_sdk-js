@@ -6270,6 +6270,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets whether the Web allows JavaScript scripts to execute.
    *
    * @param { boolean } javaScriptAccess - {@code true} means the Web can allows JavaScript scripts to execute; {@code false} otherwise.
+   *    The default value is true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
@@ -6278,6 +6279,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets whether the Web allows JavaScript scripts to execute.
    *
    * @param { boolean } javaScriptAccess - {@code true} means the Web can allows JavaScript scripts to execute; {@code false} otherwise.
+   *    The default value is true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -6287,6 +6289,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets whether the Web allows JavaScript scripts to execute.
    *
    * @param { boolean } javaScriptAccess - {@code true} means the Web can allows JavaScript scripts to execute; {@code false} otherwise.
+   *    The default value is true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -6299,6 +6302,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets whether enable local file system access in Web.
    *
    * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
+   *    The default value is true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
@@ -6307,10 +6311,21 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets whether enable local file system access in Web.
    *
    * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
+   *    The default value is true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Sets whether enable local file system access in Web.
+   *
+   * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
+   *    The default value is false.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
    */
   fileAccess(fileAccess: boolean): WebAttribute;
 
@@ -6339,6 +6354,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets whether to enable the DOM Storage API permission.
    *
    * @param { boolean } domStorageAccess - {@code true} means enable the DOM Storage API permission in Web; {@code false} otherwise.
+   *    The default value is false.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
@@ -6347,6 +6363,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets whether to enable the DOM Storage API permission.
    *
    * @param { boolean } domStorageAccess - {@code true} means enable the DOM Storage API permission in Web; {@code false} otherwise.
+   *    The default value is false.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -6358,6 +6375,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets whether the Web can automatically load image resources.
    *
    * @param { boolean } imageAccess - {@code true} means the Web can automatically load image resources; {@code false} otherwise.
+   *    The default value is true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
@@ -6366,6 +6384,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets whether the Web can automatically load image resources.
    *
    * @param { boolean } imageAccess - {@code true} means the Web can automatically load image resources; {@code false} otherwise.
+   *    The default value is true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -6425,6 +6444,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets whether to allow access to geographical locations.
    *
    * @param { boolean } geolocationAccess - {@code true} means the Web allows access to geographical locations; {@code false} otherwise.
+   *    The default value is true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
@@ -6433,6 +6453,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets whether to allow access to geographical locations.
    *
    * @param { boolean } geolocationAccess - {@code true} means the Web allows access to geographical locations; {@code false} otherwise.
+   *    The default value is true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
