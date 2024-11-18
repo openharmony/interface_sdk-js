@@ -724,7 +724,16 @@ declare namespace userAuth {
      * @atomicservice
      * @since 12
      */
-    FINGERPRINT = 4
+    FINGERPRINT = 4,
+
+    /**
+     * Authentication type private pin.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    PRIVATE_PIN = 16
   }
 
   /**
@@ -1134,6 +1143,14 @@ declare namespace userAuth {
    * @atomicservice
    * @since 12
    */
+  /**
+   * The mode for reusing authentication result.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
+   * @since 14
+   */
   enum ReuseMode {
     /**
      * Authentication type relevant.The unlock authentication result can be reused only when the result is within
@@ -1153,7 +1170,28 @@ declare namespace userAuth {
      * @atomicservice
      * @since 12
      */
-    AUTH_TYPE_IRRELEVANT = 2
+    AUTH_TYPE_IRRELEVANT = 2,
+
+    /**
+     * Caller irrelevant authentication type relevant.The latest authentication result (not only unlock authentication
+     * result) can be reused only when the result is within valid duration as well as it comes from one of specified
+     * UserAuthTypes of the AuthParam.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 14
+     */
+    CALLER_IRRELEVANT_AUTH_TYPE_RELEVANT = 3,
+
+    /**
+     * Caller irrelevant authentication type irrelevant.The latest authentication result (not only unlock
+     * authentication result) can be reused as long as the result is within valid duration.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 14
+     */
+    CALLER_IRRELEVANT_AUTH_TYPE_IRRELEVANT = 4
   }
 
   /**
