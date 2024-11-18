@@ -111,6 +111,7 @@ declare namespace inputDeviceCooperate {
    * Enable or disable the mouse traversal.
    *
    * @param enable Whether to enable mouse traversal.
+   * @returns { Promise<void> } Promise returned by this function
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
@@ -121,6 +122,7 @@ declare namespace inputDeviceCooperate {
    * Enable or disable the mouse traversal.
    *
    * @param enable Whether to enable mouse traversal.
+   * @returns { Promise<void> } Promise returned by this function
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -166,6 +168,7 @@ declare namespace inputDeviceCooperate {
    *
    * @param { string } sinkDeviceDescriptor Descriptor of the target network for mouse traversal.
    * @param { number } srcInputDeviceId Identifier of the peripheral device for mouse traversal.
+   * @returns { Promise<void> } Promise returned by this function
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 4400001 - Incorrect descriptor for the target device.
@@ -179,6 +182,7 @@ declare namespace inputDeviceCooperate {
    *
    * @param { string } sinkDeviceDescriptor Descriptor of the target network for mouse traversal.
    * @param { number } srcInputDeviceId Identifier of the peripheral device for mouse traversal.
+   * @returns { Promise<void> } Promise returned by this function
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -215,14 +219,16 @@ declare namespace inputDeviceCooperate {
 
   /**
    * Stops mouse traversal.
-   *
+   * 
+   * @returns { Promise<void> } Promise returned by this function
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
    * @since 9
    */
   /**
    * Stops mouse traversal.
-   *
+   * 
+   * @returns { Promise<void> } Promise returned by this function
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
@@ -259,6 +265,7 @@ declare namespace inputDeviceCooperate {
    * Obtains the status of the mouse traversal switch.
    *
    * @param deviceDescriptor Descriptor of the target network for mouse traversal.
+   * @returns { Promise<{ state: boolean }> } A promise used by returning state
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
@@ -269,6 +276,7 @@ declare namespace inputDeviceCooperate {
    * Obtains the status of the mouse traversal switch.
    *
    * @param deviceDescriptor Descriptor of the target network for mouse traversal.
+   * @returns { Promise<{ state: boolean }> } A promise used by returning state
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -283,7 +291,6 @@ declare namespace inputDeviceCooperate {
    * 
    * @param { 'cooperation' } type Registration type.
    * @param { AsyncCallback<{ deviceDescriptor: string, eventMsg: EventMsg }> } callback Asynchronous callback used to receive mouse traversal events.
-   * @returns Callback for the input device event.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
@@ -295,7 +302,6 @@ declare namespace inputDeviceCooperate {
    * 
    * @param { 'cooperation' } type Registration type.
    * @param { AsyncCallback<{ deviceDescriptor: string, eventMsg: EventMsg }> } callback Asynchronous callback used to receive mouse traversal events.
-   * @returns Callback for the input device event.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
