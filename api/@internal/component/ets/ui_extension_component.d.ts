@@ -47,6 +47,34 @@ declare enum DpiFollowStrategy {
 }
 
 /**
+ * Enumeration of different types of WindowModeFollowStrategy.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 17
+ */
+declare enum WindowModeFollowStrategy {
+  /**
+   * Followed the host Window Mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 17
+   */
+  FOLLOW_HOST_WINDOW_MODE = 0,
+
+  /**
+   * Followed the UIExtensionAbility.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 17
+   */
+  FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE = 1,
+}
+
+/**
  * This interface is used to set the options for UIExtensionComponentAttribute during construction
  *
  * @interface UIExtensionOptions
@@ -100,6 +128,17 @@ declare interface UIExtensionOptions {
    * @since 12
    */
   dpiFollowStrategy?: DpiFollowStrategy;
+
+  /**
+   * Set UIExtensionComponent Content Window Mode Follow Strategy.
+   *
+   * @type { ?WindowModeFollowStrategy }
+   * @default WindowModeFollowStrategy.FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 17
+   */
+  windowModeFollowStrategy?: WindowModeFollowStrategy;
 }
 
 /**
