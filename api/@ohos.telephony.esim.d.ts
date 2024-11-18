@@ -1534,7 +1534,7 @@ declare namespace eSIM {
      * @systemapi Hide this for inner system use.
      * @since 14
      */
-    isAllowPpr: boolean;
+    isPprAllowed: boolean;
   }
 }
 
