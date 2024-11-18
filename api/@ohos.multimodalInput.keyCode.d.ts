@@ -2736,5 +2736,29 @@ export declare enum KeyCode {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
-  KEYCODE_BTN_9 = 3109
+  KEYCODE_BTN_9 = 3109,
+
+  /**
+   * KEYCODE_DAGGER_CLICK
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 16
+   */
+  KEYCODE_DAGGER_CLICK = 3211,
+
+  /**
+   * KEYCODE_DAGGER_DOUBLE_CLICK
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 16
+   */
+  KEYCODE_DAGGER_DOUBLE_CLICK = 3212,
+
+  /**
+   * KEYCODE_DAGGER_LONG_PRESS
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 16
+   */
+  KEYCODE_DAGGER_LONG_PRESS = 3213
 }
