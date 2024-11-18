@@ -124,11 +124,11 @@ declare namespace uiExtension {
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This UIExtension window proxy state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 14
      */
     on(type: 'windowRectChange', callback: Callback<window.RectChangeOptions>): void;
 
@@ -140,11 +140,11 @@ declare namespace uiExtension {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
      *                                                                  2. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This UIExtension window proxy state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 14
      */
     off(type: 'windowRectChange', callback?: Callback<window.RectChangeOptions>): void;
 
