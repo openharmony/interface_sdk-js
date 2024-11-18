@@ -429,7 +429,17 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12
      */
-    YCRCB_P010 = 12
+    YCRCB_P010 = 12,
+
+    /**
+     * The storage format is ASTC 4x4 format, and the memory usage is only 1/4 of RGBA_8888.
+     * This format is only used for direct display scenes and does not support pixel access or post-
+     * processing editing.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 14
+     */
+    ASTC_4x4 = 102
   }
 
   /**
