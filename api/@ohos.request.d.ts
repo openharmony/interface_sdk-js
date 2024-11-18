@@ -49,14 +49,12 @@ declare namespace request {
   /**
    * Error code 201 - the permissions check fails.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   /**
    * Error code 201 - the permissions check fails.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -65,14 +63,12 @@ declare namespace request {
   /**
    * Error code 401 - the parameters check fails.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   /**
    * Error code 401 - the parameters check fails.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -81,14 +77,12 @@ declare namespace request {
   /**
    * Error code 801 - call unsupported api.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   /**
    * Error code 801 - call unsupported api.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -97,14 +91,12 @@ declare namespace request {
   /**
    * Error code 13400001 - file operation error.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   /**
    * Error code 13400001 - file operation error.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -113,14 +105,12 @@ declare namespace request {
   /**
    * Error code 13400002 - bad file path.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   /**
    * Error code 13400002 - bad file path.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -129,14 +119,12 @@ declare namespace request {
   /**
    * Error code 13400003 - task service ability error.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   /**
    * Error code 13400003 - task service ability error.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -145,14 +133,12 @@ declare namespace request {
   /**
    * Error code 13499999 - others error.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   /**
    * Error code 13499999 - others error.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -162,14 +148,12 @@ declare namespace request {
   /**
    * Code 0x00000001 - Bit flag indicating download is allowed when using the cellular network.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 6
    */
   /**
    * Code 0x00000001 - Bit flag indicating download is allowed when using the cellular network.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -179,14 +163,12 @@ declare namespace request {
   /**
    * Code 0x00010000 - Bit flag indicating download is allowed when using the WLAN.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 6
    */
   /**
    * Code 0x00010000 - Bit flag indicating download is allowed when using the WLAN.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -196,14 +178,12 @@ declare namespace request {
   /**
    * Error code 0 - Indicates that the download cannot be resumed for network reasons.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Error code 0 - Indicates that the download cannot be resumed for network reasons.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -213,14 +193,12 @@ declare namespace request {
   /**
    * Error code 1 - Indicates that no storage device, such as an SD card, is found.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Error code 1 - Indicates that no storage device, such as an SD card, is found.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -230,14 +208,12 @@ declare namespace request {
   /**
    * Error code 2 - Indicates that files to be downloaded already exist, and that the download session cannot overwrite the existing files.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Error code 2 - Indicates that files to be downloaded already exist, and that the download session cannot overwrite the existing files.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -247,14 +223,12 @@ declare namespace request {
   /**
    * Error code 3 - Indicates that a file operation fails.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Error code 3 - Indicates that a file operation fails.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -264,14 +238,12 @@ declare namespace request {
   /**
    * Error code 4 - Indicates that the HTTP transmission fails.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Error code 4 - Indicates that the HTTP transmission fails.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -281,14 +253,12 @@ declare namespace request {
   /**
    * Error code 5 - Indicates insufficient storage space.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Error code 5 - Indicates insufficient storage space.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -298,14 +268,12 @@ declare namespace request {
   /**
    * Error code 6 - Indicates an error caused by too many network redirections.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Error code 6 - Indicates an error caused by too many network redirections.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -315,14 +283,12 @@ declare namespace request {
   /**
    * Error code 7 - Indicates an HTTP code that cannot be identified.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Error code 7 - Indicates an HTTP code that cannot be identified.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -332,14 +298,12 @@ declare namespace request {
   /**
    * Error code 8 - Indicates an undefined error.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Error code 8 - Indicates an undefined error.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -349,14 +313,12 @@ declare namespace request {
   /**
    * Error code 9 - Indicates network offline.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   /**
    * Error code 9 - Indicates network offline.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -366,14 +328,12 @@ declare namespace request {
   /**
    * Error code 10 - Indicates network type configuration error.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   /**
    * Error code 10 - Indicates network type configuration error.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -384,7 +344,6 @@ declare namespace request {
    * Paused code 0 - Indicates that the download is paused and waiting for a WLAN connection,
    * because the file size exceeds the maximum allowed for a session using the cellular network.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
@@ -392,7 +351,6 @@ declare namespace request {
    * Paused code 0 - Indicates that the download is paused and waiting for a WLAN connection,
    * because the file size exceeds the maximum allowed for a session using the cellular network.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -402,14 +360,12 @@ declare namespace request {
   /**
    * Paused code 1 - Indicates that the download is paused due to a network problem, for example, network disconnection.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Paused code 1 - Indicates that the download is paused due to a network problem, for example, network disconnection.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -419,14 +375,12 @@ declare namespace request {
   /**
    * Paused code 2 - Indicates that a network error occurs, and the download session will be retried.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Paused code 2 - Indicates that a network error occurs, and the download session will be retried.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -436,14 +390,12 @@ declare namespace request {
   /**
    * Paused code 3 - Indicates that the download is paused due to the user.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   /**
    * Paused code 3 - Indicates that the download is paused due to the user.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -453,14 +405,12 @@ declare namespace request {
   /**
    * Paused code 4 - Indicates that the download is paused for some reasons.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Paused code 4 - Indicates that the download is paused for some reasons.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -470,14 +420,12 @@ declare namespace request {
   /**
    * Session status code 0 - Indicates that the download session is completed.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Session status code 0 - Indicates that the download session is completed.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -487,14 +435,12 @@ declare namespace request {
   /**
    * Session status code 1 - Indicates that the download session is in progress.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Session status code 1 - Indicates that the download session is in progress.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -504,14 +450,12 @@ declare namespace request {
   /**
    * Session status code 2 - Indicates that the download session is being scheduled.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Session status code 2 - Indicates that the download session is being scheduled.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -521,14 +465,12 @@ declare namespace request {
   /**
    * Session status code 3 - Indicates that the download session has been paused.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Session status code 3 - Indicates that the download session has been paused.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -538,14 +480,12 @@ declare namespace request {
   /**
    * Session status code 4 - Indicates that the download session has failed and will not be retried.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Session status code 4 - Indicates that the download session has failed and will not be retried.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
