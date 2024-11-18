@@ -247,7 +247,7 @@ export interface SubMesh {
    * The axis aligned bounding box of the sub mesh.
    *
    * @type { Aabb }
-   * readonly
+   * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
@@ -277,7 +277,7 @@ export interface Mesh extends SceneResource {
    * The axis aligned bounding box of the mesh.
    *
    * @type { Aabb }
-   * readonly
+   * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
