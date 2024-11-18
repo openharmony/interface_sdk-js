@@ -33,6 +33,7 @@ declare namespace cloudExtension {
   /**
    * Provides interface for managing cloud assets.
    *
+   * @extends relationalStore.Asset
    * @interface CloudAsset
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
