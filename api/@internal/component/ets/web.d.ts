@@ -772,6 +772,33 @@ declare enum OverScrollMode {
 }
 
 /**
+ * Enum type supplied to {@link blurOnKeyboardHideMode} for setting the web blurOnKeyboardHide mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 14
+ */
+declare enum BlurOnKeyboardHideMode {
+  /**
+   * The focused input elements on webview will not blur when soft keyboard is hidden manually.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 14
+   */
+  SILENT,
+  /**
+   * The focused input elements on webview will blur when soft keyboard is hidden manually.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 14
+   */
+  BLUR
+}
+
+/**
  * Enum type supplied to {@link darkMode} for setting the web dark mode.
  *
  * @enum { number }
@@ -6635,6 +6662,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
     * @since 11
     */
   overScrollMode(mode: OverScrollMode): WebAttribute;
+  /**
+   * Sets the blur on for elements on webview when soft keyboard is hidden manually.
+   *
+   * @param { BlurOnKeyboardHideMode } mode - Default value is SILENT. Set BLUR to enable the blur on keyboard hide mode, which can be {@link BlurOnKeyboardHideMode}.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 14
+   */
+  blurOnKeyboardHideMode(mode: BlurOnKeyboardHideMode): WebAttribute;
   /**
    * Sets the ratio of the text zoom.
    *
