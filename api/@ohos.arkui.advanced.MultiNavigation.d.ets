@@ -70,6 +70,7 @@ export declare enum SplitPolicy {
  * @atomicservice
  * @since 14
  */
+@Component
 export declare struct MultiNavigation {
   /**
    * MultiNavigation path stack of the MultiNavigation.
@@ -80,6 +81,7 @@ export declare struct MultiNavigation {
    * @atomicservice
    * @since 14
    */
+  @State
   multiStack: MultiNavPathStack;
 
   /**
@@ -91,6 +93,7 @@ export declare struct MultiNavigation {
    * @atomicservice
    * @since 14
    */
+  @BuilderParam
   navDestination: NavDestinationBuildFunction;
 
   /**
@@ -151,6 +154,20 @@ export declare class MultiNavPathStack extends NavPathStack {
   pushPath(info: NavPathInfo, animated?: boolean, policy?: SplitPolicy): void;
 
   /**
+   * Pushes the NavDestination into the stack.
+   *
+   * @param { NavPathInfo } info - Indicates the NavDestination to be pushed.
+   * @param { NavigationOptions } [options] - Indicates options of stack operation.
+   * @param { SplitPolicy } [policy] - SplitPolicy of the NavDestination which is currently
+   *                                   pushed in stack. Default splitPolicy is DETAIL_PAGE.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  pushPath(info: NavPathInfo, options?: NavigationOptions, policy?: SplitPolicy): void;
+
+  /**
    * Pushes the NavDestination of specified name into the stack.
    *
    * @param { string } name - Indicates the name of the NavDestination to be pushed.
@@ -194,6 +211,19 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @since 14
    */
   replacePath(info: NavPathInfo, animated?: boolean): void;
+
+  /**
+   * Replace the current NavDestination with the one specificed by NavPathInfo.
+   * The current NavDestination will be destroyed.
+   *
+   * @param { NavPathInfo } info - Indicates the new NavDestination in top of the stack.
+   * @param { NavigationOptions } [options] - Indicates options of stack operation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  replacePath(info: NavPathInfo, options?: NavigationOptions): void;
 
   /**
    * Replace the current NavDestination with the one specificed by name.
@@ -252,7 +282,8 @@ export declare class MultiNavPathStack extends NavPathStack {
    *
    * @param { Object } [result] - Page Customization processing results.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * @returns { NavPathInfo | undefined } Returns the top NavPathInfo if the stack is not empty, otherwise returns undefined.
+   * @returns { NavPathInfo | undefined } Returns the top NavPathInfo if the stack is not empty,
+   *                                      otherwise returns undefined.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -367,7 +398,8 @@ export declare class MultiNavPathStack extends NavPathStack {
    * Obtains parameter information of the NavDestination page specified by index.
    *
    * @param { number } index - The index of NavDestination page.
-   * @returns { unknown | undefined } Returns the detailed parameter of the NavDestination if it exists in the stack, otherwise returns undefined;
+   * @returns { unknown | undefined } Returns the detailed parameter of the NavDestination
+   *                                  if it exists in the stack, otherwise returns undefined.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
