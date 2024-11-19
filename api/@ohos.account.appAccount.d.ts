@@ -344,6 +344,23 @@ declare namespace appAccount {
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
      */
+    /**
+     * Sets a third-party application with the specified bundle name to access the given application
+     * account for data query and listening.
+     *
+     * @param { string } name - Indicates the name of the application account.
+     * @param { string } bundleName - Indicates the bundle name of the third-party application.
+     * @param { boolean } isAccessible - Indicates the accessibility flag, true for accessible, false for inaccessible.
+     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameter types.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid name or bundleName.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12400005 - The size of authorization list reaches the upper limit.
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 14
+     */
     setAppAccess(name: string, bundleName: string, isAccessible: boolean, callback: AsyncCallback<void>): void;
 
     /**
@@ -362,6 +379,23 @@ declare namespace appAccount {
      * @throws { BusinessError } 12400001 - Application not found.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
+     */
+    /**
+     * Sets a third-party application with the specified bundle name to access the given application
+     * account for data query and listening.
+     *
+     * @param { string } name - Indicates the name of the application account.
+     * @param { string } bundleName - Indicates the bundle name of the third-party application.
+     * @param { boolean } isAccessible - Indicates the accessibility flag, true for accessible, false for inaccessible.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameter types.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid name or bundleName.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12400005 - The size of authorization list reaches the upper limit.
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 14
      */
     setAppAccess(name: string, bundleName: string, isAccessible: boolean): Promise<void>;
 
