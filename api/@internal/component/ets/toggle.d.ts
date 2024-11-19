@@ -258,7 +258,7 @@ declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfigur
  * @crossplatform
  * @form
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare interface ToggleOptions {
   /**
@@ -416,7 +416,7 @@ interface ToggleInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   (options: ToggleOptions): ToggleAttribute;
 }
