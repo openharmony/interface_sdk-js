@@ -233,7 +233,7 @@ declare namespace inputConsumer {
   /**
    * Obtains all system hotkeys. This API uses a promise to return the result.
    *
-   * @Returns { Promise<Array<HotkeyOptions>> } All system hotkeys.
+   * @returns { Promise<Array<HotkeyOptions>> } All system hotkeys.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 13
    */
