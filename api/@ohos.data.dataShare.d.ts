@@ -365,7 +365,7 @@ declare namespace dataShare {
 
     /**
      * Specifies the update sql of the template.
-     * The update is called after the predicates are called.
+     * The update is called after the predicates execution is complete.
      *
      * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
