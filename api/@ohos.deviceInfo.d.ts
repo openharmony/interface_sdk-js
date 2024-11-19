@@ -450,6 +450,15 @@ declare namespace deviceInfo {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Obtains the SDK API version number.
+   *
+   * 
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
   const sdkApiVersion: number;
 
   /**
