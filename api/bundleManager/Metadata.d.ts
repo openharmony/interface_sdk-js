@@ -120,4 +120,14 @@ export interface Metadata {
    * @since 11
    */
   resource: string;
+
+  /**
+   * Indicates the value id of the Metadata
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 16
+   */
+    readonly valueId: number;
 }
