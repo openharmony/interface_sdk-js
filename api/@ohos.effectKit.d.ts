@@ -70,16 +70,6 @@ declare namespace effectKit {
     blur(radius: number): Filter;
 
     /**
-    * A blur effect is added to the image.
-    * @param { number } radius - The degree of blur, the value is measured in pixels.
-    * @param { TileMode } tileMode - The tile mode of blur.
-    * @returns { Filter } Filters for the current effect have been added.
-    * @syscap SystemCapability.Multimedia.Image.Core
-    * @since 14
-    */
-    blur(radius: number, tileMode: TileMode): Filter;
-
-    /**
     * A Brightness effect is added to the image.
     * @param { number } bright - The degree of light and darkness,the value range is 0 to 1.
     * @returns { Filter } Filters for the current effect have been added.
@@ -472,47 +462,6 @@ declare namespace effectKit {
    * @since 12
    */
   function createColorPicker(source: image.PixelMap, region: Array<number>, callback: AsyncCallback<ColorPicker>): void;
-
-  /**
-   * TileMode enumeration description
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 14
-   */
-  enum TileMode {
-    /**
-     * Clamp mode.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 14
-     */
-    CLAMP = 0,
-
-    /**
-     * Repeat mode.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 14
-     */
-    REPEAT = 1,
-
-    /**
-     * Mirror mode.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 14
-     */
-    MIRROR = 2,
-
-    /**
-     * Decal mode.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 14
-     */
-    DECAL = 3,
-  }
 }
 
 export default effectKit;
