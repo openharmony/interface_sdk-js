@@ -490,7 +490,6 @@ declare namespace hidebug {
     /**
      * Ability Manager tag.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -498,7 +497,6 @@ declare namespace hidebug {
     /**
      * ARKUI development framework tag.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -506,7 +504,6 @@ declare namespace hidebug {
     /**
      * ARK tag.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -514,7 +511,6 @@ declare namespace hidebug {
     /**
      * Bluetooth tag.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -522,7 +518,6 @@ declare namespace hidebug {
     /**
      * Common library subsystem tag.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -530,7 +525,6 @@ declare namespace hidebug {
     /**
      * Distributed hardware device manager tag.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -538,7 +532,6 @@ declare namespace hidebug {
     /**
      * Distributed audio tag.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -546,7 +539,6 @@ declare namespace hidebug {
     /**
      * Distributed camera tag.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -554,7 +546,6 @@ declare namespace hidebug {
     /**
      * Distributed data manager module tag.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -562,7 +553,6 @@ declare namespace hidebug {
     /**
      * Distributed hardware framework tag.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -570,7 +560,6 @@ declare namespace hidebug {
     /**
      * Distributed input tag.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -578,7 +567,6 @@ declare namespace hidebug {
     /**
      * Distributed screen tag.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -586,7 +574,6 @@ declare namespace hidebug {
     /**
      * Distributed scheduler tag.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -594,7 +581,6 @@ declare namespace hidebug {
     /**
      * FFRT tasks.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -602,7 +588,6 @@ declare namespace hidebug {
     /**
      * File management tag.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -610,7 +595,6 @@ declare namespace hidebug {
     /**
      * Global resource manager tag.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -618,7 +602,6 @@ declare namespace hidebug {
     /**
      * Graphics module tag.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -626,7 +609,6 @@ declare namespace hidebug {
     /**
      * HDF subsystem tag.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -634,7 +616,6 @@ declare namespace hidebug {
     /**
      * MISC module tag.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -642,7 +623,6 @@ declare namespace hidebug {
     /**
      * Multimodal input module tag.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -650,7 +630,6 @@ declare namespace hidebug {
     /**
      * Net tag.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -658,7 +637,6 @@ declare namespace hidebug {
     /**
      * Notification module tag.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -666,7 +644,6 @@ declare namespace hidebug {
     /**
      * NWeb tag.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -674,7 +651,6 @@ declare namespace hidebug {
     /**
      * OHOS generic tag.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -682,7 +658,6 @@ declare namespace hidebug {
     /**
      * Power manager tag.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -690,7 +665,6 @@ declare namespace hidebug {
     /**
      * RPC tag.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -698,7 +672,6 @@ declare namespace hidebug {
     /**
      * SA tag.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -706,7 +679,6 @@ declare namespace hidebug {
     /**
      * Window manager tag.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -714,7 +686,6 @@ declare namespace hidebug {
     /**
      * Audio module tag.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -722,7 +693,6 @@ declare namespace hidebug {
     /**
      * Camera module tag.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -730,7 +700,6 @@ declare namespace hidebug {
     /**
      * Image module tag.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -738,7 +707,6 @@ declare namespace hidebug {
     /**
      * Media module tag.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
