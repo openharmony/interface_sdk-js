@@ -459,6 +459,7 @@ export interface NotificationRequest {
    * Notification source. enum SourceType
    *
    * @type { ?number }
+   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -487,6 +488,7 @@ export interface NotificationRequest {
    * The device ID of the notification source.
    *
    * @type { ?string }
+   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -497,6 +499,7 @@ export interface NotificationRequest {
    * Obtains the set of identifiers for the notification.
    *
    * @type { ?NotificationFlags }
+   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @since 8
    */
@@ -542,6 +545,7 @@ export interface NotificationRequest {
    * Proxy identity of creation notification.
    * 
    * @type { ?BundleOption }
+   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12
@@ -609,6 +613,7 @@ export interface DistributedOptions {
    * Obtains the remind mode of the notification. enum DeviceRemindType.
    *
    * @type { ?number }
+   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
