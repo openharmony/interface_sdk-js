@@ -236,6 +236,36 @@ declare namespace zlib {
   }
 
   /**
+   * ParallelStrategy
+   *
+   * @enum { number }
+   * @syscap SystemCapability.BundleManager.Zlib
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  export enum ParallelStrategy {
+    /**
+     * Indicates the sequential strategy, compress and decompress sequentially.
+     *
+     * @syscap SystemCapability.BundleManager.Zlib
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    PARALLEL_STRATEGY_SEQUENTIAL = 0,
+    /**
+     * Indicates the parallel decompress strategy.
+     *
+     * @syscap SystemCapability.BundleManager.Zlib
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    PARALLEL_STRATEGY_PARALLEL_DECOMPRESS = 1
+  }
+
+  /**
    * MemLevel
    *
    * @enum { number }
@@ -513,6 +543,16 @@ declare namespace zlib {
      * @since 11
      */
     strategy?: CompressStrategy;
+    /**
+     * Indicates the parallel strategy.
+     *
+     * @type { ?ParallelStrategy }
+     * @syscap SystemCapability.BundleManager.Zlib
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    parallel?: ParallelStrategy;
   }
 
   /**
