@@ -1328,6 +1328,17 @@ declare class ImageAttachment {
     constructor(value: ImageAttachmentInterface);
 
     /**
+     * constructor supported by AttachmentType.
+     *
+     * @param { Optional<AttachmentType> } attachment - image attachment object.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    constructor(attachment: Optional<AttachmentType>);
+
+    /**
      * Get the image content of the StyledString.
      *
      * @type { PixelMap } - the image content of the StyledString or undefined
@@ -1386,6 +1397,107 @@ declare class ImageAttachment {
      * @since 12
      */
     readonly layoutStyle?: ImageAttachmentLayoutStyle;
+
+    /**
+     * Get the imageAttachment colorFilter of the StyledString.
+     *
+     * @type { ?ColorFilterType } - the imageAttachment colorFilter of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    readonly colorFilter?: ColorFilterType;
+}
+
+/**
+ * Defines the ResourceImageAttachmentOptions.
+ *
+ * @interface ResourceImageAttachmentOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare interface ResourceImageAttachmentOptions {
+    /**
+     * The content of the ResourceImageAttachment.
+     *
+     * @type { Optional<ResourceStr> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    resourceValue: Optional<ResourceStr>;
+
+    /**
+     * size of the ResourceImage.
+     *
+     * @type { ?SizeOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    size?: SizeOptions;
+
+    /**
+     * Image vertical align.
+     *
+     * @type { ?ImageSpanAlignment }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    verticalAlign?: ImageSpanAlignment;
+
+    /**
+     * Sets the zoom type of the ImageAttachment.
+     *
+     * @type { ?ImageFit }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    objectFit?: ImageFit;
+
+    /**
+     * The Image Layout Style of the Resource Image.
+     *
+     * @type { ?ImageAttachmentLayoutStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    layoutStyle?: ImageAttachmentLayoutStyle;
+
+    /**
+     * Sets the color filter effect on the image attachment.
+     *
+     * @type { ?ColorFilterType } filter ColorFilter object.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    colorFilter?: ColorFilterType;
+
+    /**
+     * Sets the synchronous or asynchronous mode for image loading.
+     * The default parameter type is bool, and the default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    syncLoad?: boolean;
 }
 
 /**
@@ -1452,7 +1564,40 @@ declare interface ImageAttachmentInterface {
      * @since 12
      */
     layoutStyle?: ImageAttachmentLayoutStyle;
+
+    /**
+     * Sets the color filter effect on the image attachment.
+     *
+     * @type { ?ColorFilterType } filter ColorFilter object.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    colorFilter?: ColorFilterType;
 }
+
+/**
+ * Defines the Attachment Type.
+ *
+ * @typedef { ImageAttachmentInterface | ResourceImageAttachmentOptions } AttachmentType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare type AttachmentType = ImageAttachmentInterface | ResourceImageAttachmentOptions;
+
+/**
+ * Defines the ColorFilter Type.
+ *
+ * @typedef { ColorFilter | DrawingColorFilter } ColorFilterType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare type ColorFilterType = ColorFilter | DrawingColorFilter;
 
 /**
  * Defines the  ImageAttachment Layout Style.
