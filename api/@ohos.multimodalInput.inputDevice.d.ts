@@ -633,7 +633,7 @@ declare namespace inputDevice {
    *
    * @returns { Promise<number> } Promise used to return the interval since the last input.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 13
+   * @since 14
    */
   function getIntervalSinceLastInput(): Promise<number>;
 }
