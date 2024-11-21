@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 13
+ * @since 14
  */
 interface ColumnOptions {
   /**
@@ -156,7 +156,7 @@ interface ColumnInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   (options?: ColumnOptions): ColumnAttribute;
 }

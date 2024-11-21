@@ -35,7 +35,7 @@ declare type WindowStatusType = import('../api/@ohos.window').default.WindowStat
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 interface FolderStackOptions {
   /**
@@ -104,7 +104,7 @@ interface FolderStackInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   (options?: FolderStackOptions): FolderStackAttribute;
 }
