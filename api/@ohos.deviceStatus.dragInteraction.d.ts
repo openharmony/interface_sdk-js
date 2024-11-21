@@ -169,7 +169,7 @@ declare namespace dragInteraction {
    * @systemapi Hide this for inner system use.
    * @since 14
    */
-  function setDragEnabled(enabled: boolean): void;
+  function setDragSwitchState(enabled: boolean): void;
 
   /**
    * Sets the app switch for enhancing the drag capability.
@@ -182,7 +182,7 @@ declare namespace dragInteraction {
    * @systemapi Hide this for inner system use.
    * @since 14
    */
-  function setAppDragEnabled(enabled: boolean, pkgName: string): void;
+  function setAppDragSwitchState(enabled: boolean, pkgName: string): void;
 }
 
 export default dragInteraction;
