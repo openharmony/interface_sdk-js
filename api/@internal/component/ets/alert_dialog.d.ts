@@ -351,7 +351,7 @@ declare enum DialogButtonDirection {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare interface AlertDialogButtonBaseOptions {
   /**
@@ -498,7 +498,7 @@ declare interface AlertDialogButtonBaseOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   action: VoidCallback;
 }
@@ -527,7 +527,7 @@ declare interface AlertDialogButtonBaseOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare interface AlertDialogButtonOptions extends AlertDialogButtonBaseOptions {
   /**
@@ -715,7 +715,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   cancel?: VoidCallback;
 
@@ -1089,7 +1089,7 @@ declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   confirm?: AlertDialogButtonBaseOptions;
 }
@@ -1183,7 +1183,7 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   primaryButton: AlertDialogButtonBaseOptions;
 
@@ -1218,7 +1218,7 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   secondaryButton: AlertDialogButtonBaseOptions;
 }
