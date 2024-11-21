@@ -1821,6 +1821,1146 @@ declare function $r(value: string, ...params: any[]): Resource;
 declare function $rawfile(value: string): Resource;
 
 /**
+ * Enum for accessibility component type
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 16
+ */
+declare enum AccessibilityRoleType {
+  /**
+  * ActionSheet component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  ACTION_SHEET = 0,
+  /**
+  * AlertDialog component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  ALERT_DIALOG = 1,
+  /**
+  * AlphabetIndexer component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  INDEXER_COMPONENT = 2,
+  /**
+  * badge component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  BADGE_COMPONENT = 3,
+  /**
+  * blank component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  BLANK = 4,
+  /**
+  * button component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  BUTTON = 5,
+  /**
+  * button component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  BACK_BUTTON = 6,
+  /**
+  * sheet drag bar component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  SHEET_DRAG_BAR = 7,
+  /**
+  * calendar picker component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  CALENDAR_PICKER = 8,
+  /**
+  * calendar component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  CALENDAR = 9,
+  /**
+  * canvas component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  CANVAS = 10,
+  /**
+  * canvas gradient component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  CANVAS_GRADIENT = 11,
+  /**
+  * canvas pattern component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  CANVAS_PATTERN = 12,
+  /**
+  * checkbox component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  CHECKBOX = 13,
+  /**
+  * checkbox group component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  CHECKBOX_GROUP = 14,
+  /**
+  * circle component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  CIRCLE = 15,
+  /**
+  * column split component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  COLUMN_SPLIT = 16,
+  /**
+  * column component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  COLUMN = 17,
+  /**
+  * canvas rendering context 2d component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  CANVAS_RENDERING_CONTEXT_2D = 18,
+  /**
+  * chart component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  CHART = 19,
+  /**
+  * counter component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  COUNTER = 20,
+  /**
+  * counter modal component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  CONTAINER_MODAL = 21,
+  /**
+  * data panel component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  DATA_PANEL = 22,
+  /**
+  * data picker component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  DATE_PICKER = 23,
+  /**
+  * dialog component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  DIALOG = 24,
+  /**
+  * divider component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  DIVIDER = 25,
+  /**
+  * drag bar component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  DRAG_BAR = 26,
+  /**
+  * effect component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  EFFECT_COMPONENT = 27,
+  /**
+  * ellipse component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  ELLIPSE = 28,
+  /**
+  * flex component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  FLEX = 29,
+  /**
+  * flow item component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  FLOW_ITEM = 30,
+  /**
+  * form component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  FORM_COMPONENT = 31,
+  /**
+  * form link component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  FORM_LINK = 32,
+  /**
+  * gauge component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  GAUGE = 33,
+  /**
+  * grid component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  GRID = 34,
+  /**
+  * grid col component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  GRID_COL = 35,
+  /**
+  * grid container component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  GRID_CONTAINER = 36,
+  /**
+  * grid item component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  GRID_ITEM = 37,
+  /**
+  * grid row component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  GRID_ROW = 38,
+  /**
+  * hyperlink component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  HYPERLINK = 39,
+  /**
+  * image component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  IMAGE = 40,
+  /**
+  * image animator component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  IMAGE_ANIMATOR = 41,
+  /**
+  * image bitmap component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  IMAGE_BITMAP = 42,
+  /**
+  * image data component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  IMAGE_DATA = 43,
+  /**
+  * image span component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  IMAGE_SPAN = 44,
+  /**
+  * label component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  LABEL = 45,
+  /**
+  * line component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  LINE = 46,
+  /**
+  * list component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  LIST = 47,
+  /**
+  * list item component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  LIST_ITEM = 48,
+  /**
+  * list item group component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  LIST_ITEM_GROUP = 49,
+  /**
+  * loading progress component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  LOADING_PROGRESS = 50,
+  /**
+  * marquee component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  MARQUEE = 51,
+  /**
+  * matrix2d component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  MATRIX2D = 52,
+  /**
+  * menu component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  MENU = 53,
+  /**
+  * menu item component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  MENU_ITEM = 54,
+  /**
+  * menu item group component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  MENU_ITEM_GROUP = 55,
+  /**
+  * navdestination component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  NAV_DESTINATION = 56,
+  /**
+  * navrouter component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  NAV_ROUTER = 57,
+  /**
+  * navigation component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  NAVIGATION = 58,
+  /**
+  * navigation bar component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  NAVIGATION_BAR = 59,
+  /**
+  * navigation menu component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  NAVIGATION_MENU = 60,
+  /**
+  * navigator component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  NAVIGATOR = 61,
+  /**
+  * offscreen canvas component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  OFFSCREEN_CANVAS = 62,
+  /**
+  * offscreen canvas rendering context2d component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  OFFSCREEN_CANVAS_RENDERING_CONTEXT2D = 63,
+  /**
+  * option component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  OPTION = 64,
+  /**
+  * panel component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  PANEL = 65,
+  /**
+  * paper page component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  PAPER_PAGE = 66,
+  /**
+  * path component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  PATH = 67,
+  /**
+  * path 2d component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  PATH2D = 68,
+  /**
+  * pattern lock component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  PATTERN_LOCK = 69,
+  /**
+  * picker component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  PICKER = 70,
+  /**
+  * picker view component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  PICKER_VIEW = 71,
+  /**
+  * plugin component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  PLUGIN_COMPONENT = 72,
+  /**
+  * polygon component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  POLYGON = 73,
+  /**
+  * polyline component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  POLYLINE = 74,
+  /**
+  * pop up component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  POPUP = 75,
+  /**
+  * progress component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  PROGRESS = 76,
+  /**
+  * qr code component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  QRCODE = 77,
+  /**
+  * radio component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  RADIO = 78,
+  /**
+  * rating component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  RATING = 79,
+  /**
+  * rect component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  RECT = 80,
+  /**
+  * refresh component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  REFRESH = 81,
+  /**
+  * relative container component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  RELATIVE_CONTAINER = 82,
+  /**
+  * remote window component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  REMOTE_WINDOW = 83,
+  /**
+  * rich editor component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  RICH_EDITOR = 84,
+  /**
+  * rich text component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  RICH_TEXT = 85,
+  /**
+  * rolepager component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  ROLE_PAGER = 86,
+  /**
+  * row component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  ROW = 87,
+  /**
+  * row split component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  ROW_SPLIT = 88,
+  /**
+  * scroll component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  SCROLL = 89,
+  /**
+  * scroll bar component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  SCROLL_BAR = 90,
+  /**
+  * search component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  SEARCH = 91,
+  /**
+  * search field component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  SEARCH_FIELD = 92,
+  /**
+  * select component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  SELECT = 93,
+  /**
+  * shape component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  SHAPE = 94,
+  /**
+  * sidebar container component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  SIDEBAR_CONTAINER = 95,
+  /**
+  * slider component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  SLIDER = 96,
+  /**
+  * span component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  SPAN = 97,
+  /**
+  * stack component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  STACK = 98,
+  /**
+  * stepper component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  STEPPER = 99,
+  /**
+  * stepper item component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  STEPPER_ITEM = 100,
+  /**
+  * swiper component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  SWIPER = 101,
+  /**
+  * swiper indicator component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  SWIPER_INDICATOR = 102,
+  /**
+  * switch component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  SWITCH = 103,
+  /**
+  * symbol glyph component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  SYMBOL_GLYPH = 104,
+  /**
+  * tab content component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  TAB_CONTENT = 105,
+  /**
+  * tab bar component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  TAB_BAR = 106,
+  /**
+  * tabs component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  TABS = 107,
+  /**
+  * text component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  TEXT = 108,
+  /**
+  * text clock component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  TEXT_CLOCK = 109,
+  /**
+  * text entry component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  TEXT_ENTRY = 110,
+  /**
+  * text input component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  TEXT_INPUT = 111,
+  /**
+  * text picker component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  TEXT_PICKER = 112,
+  /**
+  * text timer component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  TEXT_TIMER = 113,
+  /**
+  * text area component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  TEXT_AREA = 114,
+  /**
+  * text field component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  TEXT_FIELD = 115,
+  /**
+  * time picker component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  TIME_PICKER = 116,
+  /**
+  * title bar component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  TITLE_BAR = 117,
+  /**
+  * toggler component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  TOGGLER = 118,
+  /**
+  * uiextensioncomponent component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  UI_EXTENSION_COMPONENT = 119,
+  /**
+  * video component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  VIDEO = 120,
+  /**
+  * water flow component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  WATER_FLOW = 121,
+  /**
+  * web component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  WEB = 122,
+  /**
+  * xcomponent component type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  XCOMPONENT = 123,
+}
+
+/**
+ * Defines the callback type used in accessibility focus. The value of isFocus indicates whether the current component is focused
+ * @typedef {function} AccessibilityFocusCallback
+ * @param {boolean} isFocus - if component is focused,isFocus will be true. else isFocus is false.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 16
+ */
+declare type AccessibilityFocusCallback = (isFocus: boolean) => void;
+
+/**
  * Enum for FinishCallbackType.
  *
  * @enum { number }
@@ -20388,6 +21528,30 @@ declare class CommonMethod<T> {
    * @since 12
    */
   accessibilityText(text: Resource): T;
+  
+  /**
+   * Sets accessibility role,role indicates the custom type of the component
+   * @param { AccessibilityRoleType } role - set accessibility component type
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityRole(role: AccessibilityRoleType): T;
+
+  /**
+   * Register accessibility focus callback,when the component is focused or out of focus,the callback will be executed
+   * @param { AccessibilityFocusCallback } callback - accessibility focus callback function
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  onAccessibilityFocus(callback: AccessibilityFocusCallback): T;
 
   /**
    * Sets accessibilityTextHint
