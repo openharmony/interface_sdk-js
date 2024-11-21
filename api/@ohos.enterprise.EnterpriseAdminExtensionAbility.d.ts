@@ -57,6 +57,17 @@ export default class EnterpriseAdminExtensionAbility {
   onBundleAdded(bundleName: string): void;
 
   /**
+   * Called back when a bundle is installed under an account.
+   *
+   * @param { string } bundleName - bundleName indicates the name of the bundle installed.
+   * @param { number } accountId - accountId indicates the account ID.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 14
+   */
+  onBundleAdded(bundleName: string, accountId: number): void;
+
+  /**
    * Called back when a bundle is uninstalled.
    *
    * @param { string } bundleName - bundleName indicates the name of the bundle uninstalled.
@@ -65,6 +76,17 @@ export default class EnterpriseAdminExtensionAbility {
    * @since 12
    */
   onBundleRemoved(bundleName: string): void;
+
+  /**
+   * Called back when a bundle is uninstalled under an account.
+   *
+   * @param { string } bundleName - bundleName indicates the name of the bundle installed.
+   * @param { number } accountId - accountId indicates the account ID.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 14
+   */
+  onBundleRemoved(bundleName: string, accountId: number): void;
 
   /**
    * Called back when an app is started.
