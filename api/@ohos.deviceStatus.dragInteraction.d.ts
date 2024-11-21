@@ -158,6 +158,31 @@ declare namespace dragInteraction {
    * @since 11
    */
   function getDataSummary(): Array<Summary>;
+
+  /**
+   * Sets the master switch for enhancing the drag capability.
+   *
+   * @param { boolean } enabled Switch status.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @syscap SystemCapability.Msdp.DeviceStatus.Drag
+   * @systemapi Hide this for inner system use.
+   * @since 14
+   */
+  function setDragEnabled(enabled: boolean): void;
+
+  /**
+   * Sets the app switch for enhancing the drag capability.
+   *
+   * @param { boolean } enabled Switch status.
+   * @param { string } pkgName App package name.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @syscap SystemCapability.Msdp.DeviceStatus.Drag
+   * @systemapi Hide this for inner system use.
+   * @since 14
+   */
+  function setAppDragEnabled(enabled: boolean, pkgName: string): void;
 }
 
 export default dragInteraction;
