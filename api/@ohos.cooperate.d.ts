@@ -293,6 +293,45 @@ declare namespace cooperate {
   }
 
   /**
+   * Cooperation options for peer device.
+   * @interface { CooperateOptions }
+   * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+   * @systemapi Hide this for inner system use.
+   * @since 16
+   */
+  interface CooperateOptions {
+     /**
+     * The mouse pointer is located at the X coordinate on the screen.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+     * @systemapi Hide this for inner system use.
+     * @since 16
+     */
+     displayX: number;
+
+     /**
+      * The mouse pointer is located at the Y coordinate on the screen.
+      *
+      * @type { number }
+      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+      * @systemapi Hide this for inner system use.
+      * @since 16
+      */
+     displayY: number;
+
+     /**
+      * Identifier of the peer device screen.
+      *
+      * @type { number }
+      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+      * @systemapi Hide this for inner system use.
+      * @since 16
+      */
+     displayId: number;
+  }
+
+  /**
    * Prepares for screen hopping.
    *
    * @param { AsyncCallback<void> } callback Asynchronous callback used to return the operation result.
@@ -469,7 +508,7 @@ declare namespace cooperate {
    *
    * @permission ohos.permission.COOPERATE_MANAGER
    * @param { string } targetNetworkId - Descriptor of the target device for screen hopping.
-   * @param { number }inputDeviceId - Identifier of the input device for screen hopping.
+   * @param { number } inputDeviceId - Identifier of the input device for screen hopping.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
@@ -481,6 +520,27 @@ declare namespace cooperate {
    * @since 11
    */
   function activateCooperate(targetNetworkId: string, inputDeviceId: number): Promise<void>;
+
+  /**
+   * Starts screen hopping with options.
+   *
+   * @permission ohos.permission.COOPERATE_MANAGER
+   * @param { string } targetNetworkId - Descriptor of the target device for screen hopping.
+   * @param { number } inputDeviceId - Identifier of the input device for screen hopping.
+   * @param { CooperateOptions } cooperateOptions - Cooperation options for peer device, optional.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.3.Parameter verification failed.
+   * @throws {BusinessError} 20900001 - Operation failed.
+   * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
+   * @systemapi Hide this for inner system use.
+   * @since 16
+   */
+  function activateCooperateWithOptions(targetNetworkId: string, inputDeviceId: number,
+    cooperateOptions?: CooperateOptions
+  ): Promise<void>;
 
   /**
    * Stops screen hopping.
