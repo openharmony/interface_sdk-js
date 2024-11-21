@@ -2504,6 +2504,25 @@ declare namespace osAccount {
     getProperty(request: GetPropertyRequest): Promise<ExecutorProperty>;
 
     /**
+     * Gets the executor property associated with the specified credential.
+     *
+     * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+     * @param { Uint8Array } credentialId - Indicates the id for getting the credential information.
+     * @param { Array<GetPropertyType> } keys - Indicates the array of property types to get.
+     * @returns { Promise<ExecutorProperty> } Returns an executor property.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameter types.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300102 - The credential does not exist.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    getPropertyByCredentialId(credentialId: Uint8Array, keys: Array<GetPropertyType>): Promise<ExecutorProperty>;
+
+    /**
      * Sets property that can be used to initialize algorithms.
      *
      * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
@@ -4010,7 +4029,25 @@ declare namespace osAccount {
      * @systemapi
      * @since 12
      */
-    UNLOCK = 1
+    UNLOCK = 1,
+
+    /**
+     * Indicates the intent of slient authentication.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 14
+     */
+    SILENT_AUTH = 2,
+
+    /**
+     * Indicates the intent of question authentication.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 14
+     */
+    QUESTION_AUTH = 3,
   }
 
   /**
@@ -4709,6 +4746,15 @@ declare namespace osAccount {
     RECOVERY_KEY = 8,
 
     /**
+     * Indicates the PRIVATE_PIN authentication type.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    PRIVATE_PIN = 16,
+
+    /**
      * Indicates the DOMAIN authentication type.
      *
      * @syscap SystemCapability.Account.OsAccount
@@ -4771,6 +4817,15 @@ declare namespace osAccount {
      * @since 12
      */
     PIN_PATTERN = 10004,
+
+    /**
+     * Indicates the question credential.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    PIN_QUESTION = 10005,
 
     /**
      * Indicates the 2D face credential.
