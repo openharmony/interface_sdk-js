@@ -323,8 +323,8 @@ export declare interface Touch {
 /**
  * TouchEvent
  *
- * @interface TouchEvent
  * @extends InputEvent
+ * @interface TouchEvent
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9
  */
