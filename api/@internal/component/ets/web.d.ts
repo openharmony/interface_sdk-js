@@ -6360,6 +6360,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets whether to allow image resources to be loaded from the network.
    *
    * @param { boolean } onlineImageAccess - {@code true} means the Web can allow image resources to be loaded from the network;
+   *    The default value is true.
    * {@code false} otherwise.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -6369,6 +6370,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets whether to allow image resources to be loaded from the network.
    *
    * @param { boolean } onlineImageAccess - {@code true} means the Web can allow image resources to be loaded from the network;
+   *    The default value is true.
    * {@code false} otherwise.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -6442,6 +6444,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets whether the Web supports zooming using gestures.
    *
    * @param { boolean } zoomAccess {@code true} means the Web supports zooming using gestures; {@code false} otherwise.
+   *    The default value is true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
@@ -6450,6 +6453,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets whether the Web supports zooming using gestures.
    *
    * @param { boolean } zoomAccess {@code true} means the Web supports zooming using gestures; {@code false} otherwise.
+   *    The default value is true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -6459,6 +6463,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets whether the Web supports zooming using gestures.
    *
    * @param { boolean } zoomAccess {@code true} means the Web supports zooming using gestures; {@code false} otherwise.
+   *    The default value is true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -6638,6 +6643,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets whether the Web access overview mode.
    *
    * @param { boolean } overviewModeAccess {@code true} means the Web access overview mode; {@code false} otherwise.
+   *    The default value is true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
@@ -6646,6 +6652,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets whether the Web access overview mode.
    *
    * @param { boolean } overviewModeAccess {@code true} means the Web access overview mode; {@code false} otherwise.
+   *    The default value is true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -6707,6 +6714,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets whether the Web access the database.
    *
    * @param { boolean } databaseAccess {@code true} means the Web access the database; {@code false} otherwise.
+   *    The default value is false.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
@@ -6715,6 +6723,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets whether the Web access the database.
    *
    * @param { boolean } databaseAccess {@code true} means the Web access the database; {@code false} otherwise.
+   *    The default value is false.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -7619,6 +7628,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Set whether media playback needs to be triggered by user gestures.
    *
    * @param { boolean } access True if it needs to be triggered manually by the user else false.
+   *    The default value is true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
@@ -7627,6 +7637,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Set whether media playback needs to be triggered by user gestures.
    *
    * @param { boolean } access True if it needs to be triggered manually by the user else false.
+   *    The default value is true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -7814,6 +7825,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Set whether multiple windows are supported.
    *
    * @param { boolean } multiWindow True if it needs to be triggered manually by the user else false.
+   *    The default value is false.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
@@ -7822,6 +7834,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Set whether multiple windows are supported.
    *
    * @param { boolean } multiWindow True if it needs to be triggered manually by the user else false.
+   *    The default value is false.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8084,6 +8097,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Set whether paint horizontal scroll bar.
    *
    * @param { boolean } horizontalScrollBar True if it needs to paint horizontal scroll bar.
+   *    The default value is true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
@@ -8092,6 +8106,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Set whether paint horizontal scroll bar.
    *
    * @param { boolean } horizontalScrollBar True if it needs to paint horizontal scroll bar.
+   *    The default value is true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -8104,6 +8119,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Set whether paint vertical scroll bar.
    *
    * @param { boolean } verticalScrollBar True if it needs to paint vertical scroll bar.
+   *    The default value is true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
@@ -8112,6 +8128,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Set whether paint vertical scroll bar.
    *
    * @param { boolean } verticalScrollBar True if it needs to paint vertical scroll bar.
+   *    The default value is true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
