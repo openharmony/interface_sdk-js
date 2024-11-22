@@ -6675,7 +6675,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the ratio of the text zoom.
    *
-   * @param { number } textZoomAtio The ratio of the text zoom.
+   * @param { number } textZoomAtio The ratio of the text zoom.  The default value is 100, ranging from 1 to +∞.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
@@ -6687,7 +6687,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the ratio of the text zoom.
    *
-   * @param { number } textZoomRatio The ratio of the text zoom.
+   * @param { number } textZoomRatio The ratio of the text zoom.  The default value is 100, ranging from 1 to +∞.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
@@ -6695,7 +6695,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the ratio of the text zoom.
    *
-   * @param { number } textZoomRatio The ratio of the text zoom.
+   * @param { number } textZoomRatio The ratio of the text zoom.  The default value is 100, ranging from 1 to +∞.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
