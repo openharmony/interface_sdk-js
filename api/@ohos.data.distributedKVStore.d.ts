@@ -2277,8 +2277,8 @@ declare namespace distributedKVStore {
    * data by device, and cannot modify data synchronized from remote devices. When an application writes a key-value pair entry
    * into the database, the system automatically adds the ID of the device running the application to the key.
    *
-   * @interface DeviceKVStore
    * @extends SingleKVStore
+   * @typedef DeviceKVStore
    * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
    * @since 9
    */
