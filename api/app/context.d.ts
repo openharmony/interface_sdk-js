@@ -33,8 +33,8 @@ import bundle from '../@ohos.bundle';
  * application-specific resources, request and verification permissions.
  * Can only be obtained through the ability.
  *
- * @interface Context
  * @extends BaseContext
+ * @interface Context
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @FAModelOnly
  * @since 6
