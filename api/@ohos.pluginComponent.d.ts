@@ -587,11 +587,11 @@ declare namespace pluginComponentManager {
    * Plugin component request event callback.
    *
    * @typedef { function } OnRequestEventCallback
+   * @returns { RequestEventResult } Returns the RequestEventResult.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
-
   type OnRequestEventCallback = (source: Want, name: string, data: KVObject) => RequestEventResult;
 
   /**
