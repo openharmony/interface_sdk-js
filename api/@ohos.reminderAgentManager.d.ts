@@ -644,8 +644,8 @@ declare namespace reminderAgentManager {
   /**
    * Calendar reminder information.
    *
-   * @interface ReminderRequestCalendar
    * @extends ReminderRequest
+   * @typedef ReminderRequestCalendar
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 9
    */
@@ -710,8 +710,8 @@ declare namespace reminderAgentManager {
   /**
    * Alarm reminder information.
    *
-   * @interface ReminderRequestAlarm
    * @extends ReminderRequest
+   * @typedef ReminderRequestAlarm
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 9
    */
@@ -747,8 +747,8 @@ declare namespace reminderAgentManager {
   /**
    * CountDown reminder information.
    *
-   * @interface ReminderRequestTimer
    * @extends ReminderRequest
+   * @typedef ReminderRequestTimer
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 9
    */
