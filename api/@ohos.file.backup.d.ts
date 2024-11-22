@@ -572,6 +572,22 @@ declare namespace backup {
      * @since 12
      */
     release(): Promise<void>;
+
+    /**
+     * cancel the application being backup.
+     *
+     * @permission ohos.permission.BACKUP
+     * @param { string } Set the bundleName of the application to be canceled.
+     * @returns { number } Return cancel result, 0 is success, 13500011 is fail, 13500012 is not have task. 
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @since 16
+     */
+    cancel(bundleName: string): number;
   }
 
   /**
@@ -747,6 +763,22 @@ declare namespace backup {
      * @since 12
      */
     release(): Promise<void>;
+
+    /**
+     * cancel the application being restore.
+     *
+     * @permission ohos.permission.BACKUP
+     * @param { string } Set the bundleName of the application to be canceled.
+     * @returns { number } Return cancel result, 0 is success, 13500011 is fail, 13500012 is not have task. 
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @since 16
+     */
+    cancel(bundleName: string): number;
   }
 
   /**
@@ -835,6 +867,22 @@ declare namespace backup {
      * @since 12
      */
     release(): Promise<void>;
+
+    /**
+     * cancel the application being incrementalBackup.
+     *
+     * @permission ohos.permission.BACKUP
+     * @param { string } Set the bundleName of the application to be canceled.
+     * @returns { number } Return cancel result, 0 is success, 13500011 is fail, 13500012 is not have task. 
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @since 16
+     */
+    cancel(bundleName: string): number;
   }
 }
 export default backup;
