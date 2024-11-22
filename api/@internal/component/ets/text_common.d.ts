@@ -423,6 +423,7 @@ declare interface TextBaseController {
 /**
  * Define the text extended editing controller.
  *
+ * @extends TextBaseController
  * @interface TextEditControllerEx
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
