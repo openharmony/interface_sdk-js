@@ -1529,36 +1529,54 @@ declare namespace window {
     displayId?: number;
   }
 
+  /**
+   * The decor button style of the window.
+   *
+   * @interface DecorButtonStyle
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 14
+   */
   interface DecorButtonStyle {
     /**
      * color mode.
      *
      * @type { ?colorMode }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14
      */
     colorMode?: ConfigurationConstant.ColorMode;
 
     /**
-     * button backplane size.
+     * button size.
      *
      * @type { ?number }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14
      */
-    buttonBackplaneSize? : number;
+    buttonSize? : number;
 
     /**
      * button spacing.
      *
      * @type { ?number }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14
      */
-    buttonSpacing? : number;
+    spacingBetweenButtons? : number;
+
+    /**
+     * close button right Margin.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 14
+     */
+    closeButtonRightMargin? : number;
   }
 
   /**
@@ -7777,9 +7795,10 @@ declare namespace window {
     /**
      * Get the style of the window decor.
      *
-     * @returns { number } - The height of window decor.
+     * @returns { DecorButtonStyle } - The style of window decor.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
