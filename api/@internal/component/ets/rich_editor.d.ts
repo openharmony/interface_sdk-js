@@ -2106,6 +2106,7 @@ declare interface PlaceholderStyle {
 /**
  * Defines span style option of RichEditor.
  *
+ * @extends RichEditorRange
  * @interface RichEditorSpanStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
@@ -2113,6 +2114,7 @@ declare interface PlaceholderStyle {
 /**
  * Defines span style option of RichEditor.
  *
+ * @extends RichEditorRange
  * @interface RichEditorSpanStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -2124,6 +2126,7 @@ declare interface RichEditorSpanStyleOptions extends RichEditorRange { }
 /**
  * Defines paragraph style option of RichEditor.
  *
+ * @extends RichEditorRange
  * @interface RichEditorParagraphStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -2132,6 +2135,7 @@ declare interface RichEditorSpanStyleOptions extends RichEditorRange { }
 /**
  * Defines paragraph style option of RichEditor.
  *
+ * @extends RichEditorRange
  * @interface RichEditorParagraphStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -2162,6 +2166,7 @@ declare interface RichEditorParagraphStyleOptions extends RichEditorRange {
 /**
  * Defines text span style option of RichEditor.
  *
+ * @extends RichEditorSpanStyleOptions
  * @interface RichEditorUpdateTextSpanStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
@@ -2169,6 +2174,7 @@ declare interface RichEditorParagraphStyleOptions extends RichEditorRange {
 /**
  * Defines text span style option of RichEditor.
  *
+ * @extends RichEditorSpanStyleOptions
  * @interface RichEditorUpdateTextSpanStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -2198,6 +2204,7 @@ declare interface RichEditorUpdateTextSpanStyleOptions extends RichEditorSpanSty
 /**
  * Defines image span style option of RichEditor.
  *
+ * @extends RichEditorSpanStyleOptions
  * @interface RichEditorUpdateImageSpanStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
@@ -2205,6 +2212,7 @@ declare interface RichEditorUpdateTextSpanStyleOptions extends RichEditorSpanSty
 /**
  * Defines image span style option of RichEditor.
  *
+ * @extends RichEditorSpanStyleOptions
  * @interface RichEditorUpdateImageSpanStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -2234,6 +2242,7 @@ declare interface RichEditorUpdateImageSpanStyleOptions extends RichEditorSpanSt
 /**
  * Defines symbol span style option of RichEditor.
  *
+ * @extends RichEditorSpanStyleOptions
  * @interface RichEditorUpdateSymbolSpanStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -2242,6 +2251,7 @@ declare interface RichEditorUpdateImageSpanStyleOptions extends RichEditorSpanSt
 /**
  * Defines symbol span style option of RichEditor.
  *
+ * @extends RichEditorSpanStyleOptions
  * @interface RichEditorUpdateSymbolSpanStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
