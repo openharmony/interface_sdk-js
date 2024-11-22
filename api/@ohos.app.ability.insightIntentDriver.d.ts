@@ -18,6 +18,7 @@
  * @kit AbilityKit
  */
 
+import Want from './@ohos.app.ability.Want';
 import type { AsyncCallback } from './@ohos.base';
 import type insightIntent from './@ohos.app.ability.insightIntent';
 
@@ -117,6 +118,31 @@ declare namespace insightIntentDriver {
      * @since 12
      */
     displayId?: number;
+
+    /**
+     * Indicates the URIs will be authorized to the insight intent executor.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 16
+     */
+    uris?: Array<string>;
+
+    /**
+     * Indicates the URIs read and write permissions which consistent with {@link Want#flags},
+     * flags must be one of {wantConstant.flags.FLAG_AUTH_READ_URI_PERMISSION
+     * wantConstant.flags.FLAG_AUTH_WRITE_URI_PERMISSION
+     * wantConstant.flags.FLAG_AUTH_READ_URI_PERMISSION|wantConstant.flags.FLAG_AUTH_WRITE_URI_PERMISSION}.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 16
+     */
+    flags?: number;
   }
 
   /**
