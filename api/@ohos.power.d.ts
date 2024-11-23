@@ -123,6 +123,20 @@ declare namespace power {
    * @systemapi
    * @since 9
    */
+  /**
+   * Wakes up the device to turn on the screen with permission.
+   *
+   * @permission ohos.permission.POWER_MANAGER
+   * @param { string } detail Indicates the detail information who request wakeup.
+   * detail parameter must be of type string.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+   * @throws { BusinessError } 4900101 - Failed to connect to the service.
+   * @syscap SystemCapability.PowerManager.PowerManager.Core
+   * @systemapi
+   * @since 16
+   */
   function wakeup(detail: string): void;
 
   /**
@@ -145,6 +159,19 @@ declare namespace power {
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
    * @since 10
+   */
+  /**
+   * Suspends the device to turn off the screen with permission.
+   *
+   * @permission ohos.permission.POWER_MANAGER
+   * @param { boolean } isImmediate Indicates whether suspend the device immediately.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
+   * @throws { BusinessError } 4900101 - Failed to connect to the service.
+   * @syscap SystemCapability.PowerManager.PowerManager.Core
+   * @systemapi
+   * @since 16
    */
   function suspend(isImmediate?: boolean): void;
 
@@ -203,29 +230,55 @@ declare namespace power {
   function isStandby(): boolean;
 
   /**
-  * hibernate the device.
-  *
-  * @param { boolean } clearMemory - Indicates whether to clear the memory before the device hibernates.
-  * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-  * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
-  * @throws { BusinessError } 4900101 - Failed to connect to the service.
-  * @syscap SystemCapability.PowerManager.PowerManager.Core
-  * @systemapi
-  * @since 12
-  */
+   * hibernate the device.
+   *
+   * @param { boolean } clearMemory - Indicates whether to clear the memory before the device hibernates.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
+   * @throws { BusinessError } 4900101 - Failed to connect to the service.
+   * @syscap SystemCapability.PowerManager.PowerManager.Core
+   * @systemapi
+   * @since 12
+   */
+  /**
+   * hibernate the device with permission.
+   *
+   * @permission ohos.permission.POWER_MANAGER
+   * @param { boolean } clearMemory - Indicates whether to clear the memory before the device hibernates.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
+   * @throws { BusinessError } 4900101 - Failed to connect to the service.
+   * @syscap SystemCapability.PowerManager.PowerManager.Core
+   * @systemapi
+   * @since 16
+   */
   function hibernate(clearMemory: boolean): void;
 
   /**
-  * Sets the timeout duration(ms) for turning off the screen.
-  *
-  * @param { number } timeout - Indicates duration(ms) for turning off the screen. The value -1 means restore the default value.
-  * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-  * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
-  * @throws { BusinessError } 4900101 - Failed to connect to the service.
-  * @syscap SystemCapability.PowerManager.PowerManager.Core
-  * @systemapi
-  * @since 12
-  */
+   * Sets the timeout duration(ms) for turning off the screen.
+   *
+   * @param { number } timeout - Indicates duration(ms) for turning off the screen. The value -1 means restore the default value.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
+   * @throws { BusinessError } 4900101 - Failed to connect to the service.
+   * @syscap SystemCapability.PowerManager.PowerManager.Core
+   * @systemapi
+   * @since 12
+   */
+  /**
+   * Sets the timeout duration(ms) for turning off the screen with permission.
+   *
+   * @permission ohos.permission.POWER_MANAGER
+   * @param { number } timeout - Indicates duration(ms) for turning off the screen. The value -1 means restore the default value.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
+   * @throws { BusinessError } 4900101 - Failed to connect to the service.
+   * @syscap SystemCapability.PowerManager.PowerManager.Core
+   * @systemapi
+   * @since 16
+   */
   function setScreenOffTime(timeout: number): void;
 
   /**
