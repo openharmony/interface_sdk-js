@@ -519,6 +519,17 @@ declare namespace taskpool {
     name: string;
 
     /**
+     * Task identity.
+     *
+     * @type { number }
+     * @default 0
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    taskId: number;
+
+    /**
      * Total duration of task execution.
      *
      * @type { number }
@@ -1469,6 +1480,22 @@ declare namespace taskpool {
    * @since 11
    */
   function cancel(group: TaskGroup): void;
+
+  /**
+   * Cancel a concurrent task.
+   *
+   * @param { number } taskId - The task want to cancel.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types;
+   * 3.Parameter verification failed.
+   * @throws { BusinessError } 10200015 - The task to cancel does not exist.
+   * @throws { BusinessError } 10200055 - The asyncRunner task has been canceled.
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 16
+   */
+  function cancel(taskId: number): void;
 
   /**
    * Get task pool internal information.
