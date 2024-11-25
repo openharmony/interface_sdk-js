@@ -3854,6 +3854,59 @@ declare namespace audio {
      * @since 13
      */
      off(type: 'micBlockStatusChanged', callback?: Callback<DeviceBlockStatusInfo>): void;
+
+    /**
+     * Exclude output devices. After calling this function successfully, audio will not be played on the specified
+     * devices. Note that only the external ouput device can be excluded by this function. Local output devices is not
+     * accepted.
+     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
+     * @param { AudioRendererFilter } filter - Filter for audio renderer.
+     * @param { AudioDeviceDescriptors } devices - The devices to be excluded.
+     * @returns { Promise<void> } Promise used to return result.
+     * @throws { BusinessError } 201 - Permisson denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 16
+     */
+    excludeOutputDevices(filter: AudioRendererFilter, devices: AudioDeviceDescriptors): Promise<void>;
+
+    /**
+     * Unexclude output devices.
+     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
+     * @param { AudioRendererFilter } filter - Filter for audio renderer.
+     * @param { AudioDeviceDescriptors } devices - The devices to be unexcluded.
+     * @returns { Promise<void> } Promise used to return result.
+     * @throws { BusinessError } 201 - Permisson denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 16
+     */
+    unexcludeOutputDevices(filter: AudioRendererFilter, devices: AudioDeviceDescriptors): Promise<void>;
+
+    /**
+     * Get excluded devices by filter.
+     * @param { AudioRendererFilter } filter - Filter for audio renderer.
+     * @returns { Promise<AudioDeviceDescriptors> } Promise used to return exclueded devices.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 16
+     */
+    getExcludedDevices(filter: AudioRendererFilter): Promise<AudioDeviceDescriptors>;
   }
 
   /**
