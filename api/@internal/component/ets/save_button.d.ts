@@ -244,7 +244,16 @@ declare enum SaveDescription {
    * @atomicservice
    * @since 12
    */
-  RESAVE_TO_GALLERY = 11
+  RESAVE_TO_GALLERY = 11,
+
+  /**
+   * Save all
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  SAVE_ALL = 12
 }
 
 /**
