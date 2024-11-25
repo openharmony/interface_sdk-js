@@ -506,6 +506,7 @@ declare interface AlertDialogButtonBaseOptions {
 /**
  * Base button param used for AlertDialogParamWithOptions.
  *
+ * @extends AlertDialogButtonBaseOptions
  * @interface AlertDialogButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -514,6 +515,7 @@ declare interface AlertDialogButtonBaseOptions {
 /**
  * Base button param used for AlertDialogParamWithOptions.
  *
+ * @extends AlertDialogButtonBaseOptions
  * @interface AlertDialogButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -523,6 +525,7 @@ declare interface AlertDialogButtonBaseOptions {
 /**
  * Button param used for AlertDialogParamWithOptions.
  *
+ * @extends AlertDialogButtonBaseOptions
  * @interface AlertDialogButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1036,6 +1039,7 @@ declare interface AlertDialogParam {
 /**
  * Defines the AlertDialog with confirm button.
  *
+ * @extends AlertDialogParam
  * @interface AlertDialogParamWithConfirm
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -1043,6 +1047,7 @@ declare interface AlertDialogParam {
 /**
  * Defines the AlertDialog with confirm button.
  *
+ * @extends AlertDialogParam
  * @interface AlertDialogParamWithConfirm
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1051,6 +1056,7 @@ declare interface AlertDialogParam {
 /**
  * Defines the AlertDialog with confirm button.
  *
+ * @extends AlertDialogParam
  * @interface AlertDialogParamWithConfirm
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1130,6 +1136,7 @@ declare interface DismissDialogAction {
 /**
  * Defines the dialog param with buttons.
  *
+ * @extends AlertDialogParam
  * @interface AlertDialogParamWithButtons
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -1137,6 +1144,7 @@ declare interface DismissDialogAction {
 /**
  * Defines the dialog param with buttons.
  *
+ * @extends AlertDialogParam
  * @interface AlertDialogParamWithButtons
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1145,6 +1153,7 @@ declare interface DismissDialogAction {
 /**
  * Defines the dialog param with buttons.
  *
+ * @extends AlertDialogParam
  * @interface AlertDialogParamWithButtons
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1226,6 +1235,7 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
 /**
  * Defines the dialog param with options.
  *
+ * @extends AlertDialogParam
  * @interface AlertDialogParamWithOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1234,6 +1244,7 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
 /**
  * Defines the dialog param with options.
  *
+ * @extends AlertDialogParam
  * @interface AlertDialogParamWithOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform

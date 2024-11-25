@@ -945,6 +945,7 @@ declare namespace promptAction {
   /**
    * Dialog's custom content options
    *
+   * @extends BaseDialogOptions
    * @interface CustomDialogOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -953,6 +954,7 @@ declare namespace promptAction {
   /**
    * Dialog's custom content options
    *
+   * @extends BaseDialogOptions
    * @interface CustomDialogOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

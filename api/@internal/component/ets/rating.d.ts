@@ -312,6 +312,7 @@ interface RatingInterface {
 /**
  * RatingConfiguration used by rating content modifier.
  *
+ * @extends CommonConfiguration<RatingConfiguration>
  * @interface RatingConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform

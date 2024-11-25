@@ -811,6 +811,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
 /**
  * MenuItemConfiguration used by menu item content modifier.
  *
+ * @extends CommonConfiguration<MenuItemConfiguration>
  * @interface MenuItemConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform

@@ -140,6 +140,7 @@ declare interface CheckboxOptions {
 /**
  * CheckBoxConfiguration used by content modifier.
  *
+ * @extends CommonConfiguration<CheckBoxConfiguration>
  * @interface CheckBoxConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
