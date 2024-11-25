@@ -9913,3 +9913,37 @@ declare enum AxisModel {
    */
   ABS_HAT0Y = 7,
 }
+
+/**
+ * Page flip mode of Swiper and Tabs on mouse wheel event.
+
+ * @enum { number } PageFlipMode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 14
+ */
+declare enum PageFlipMode {
+  /**
+   * Turn pages continuously according to the number of mouse wheel events.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  CONTINUOUS = 0,
+
+  /**
+   * The page-turning animation remains unresponsive to other mouse wheel events until it completes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  SINGLE = 1,
+}
