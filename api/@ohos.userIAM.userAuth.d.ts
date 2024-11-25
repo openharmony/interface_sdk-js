@@ -1143,14 +1143,6 @@ declare namespace userAuth {
    * @atomicservice
    * @since 12
    */
-  /**
-   * The mode for reusing authentication result.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @atomicservice
-   * @since 14
-   */
   enum ReuseMode {
     /**
      * Authentication type relevant.The unlock authentication result can be reused only when the result is within
