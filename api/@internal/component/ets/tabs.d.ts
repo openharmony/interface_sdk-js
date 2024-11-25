@@ -1325,6 +1325,18 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   onChange(event: Callback<number>): TabsAttribute;
 
   /**
+   * Called when a new tab becomes selected. Animation is not necessarily complete.
+   *
+   * @param { Callback<number> } event - callback to notify which index has been selected
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onSelected(event: Callback<number>): TabsAttribute;
+
+  /**
    * Called when the tab is clicked.
    *
    * @param { function } event

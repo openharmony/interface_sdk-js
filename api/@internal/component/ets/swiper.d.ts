@@ -1829,6 +1829,19 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   onChange(event: Callback<number>): SwiperAttribute;
 
   /**
+   * Called when a new index becomes selected. Animation is not necessarily complete.
+   *
+   * @param { Callback<number> } event - callback to notify which index has been selected
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  onSelected(event: Callback<number>): SwiperAttribute;
+
+  /**
    * Setting indicator style navigation.
    *
    * @param { IndicatorStyle } value
