@@ -102,4 +102,4 @@ declare namespace cacheDownload {
     function setFileCacheSize(bytes: number);
 }
 
-export default CacheDownload;
+export default cacheDownload;
