@@ -999,7 +999,7 @@ declare interface TextMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 17
+   * @since 16
    */
   labelInfo?: ResourceStr;
 }
