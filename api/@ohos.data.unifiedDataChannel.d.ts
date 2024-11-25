@@ -1409,6 +1409,13 @@ declare namespace unifiedDataChannel {
      * @StageModelOnly
      * @since 12
      */
+    /**
+     * Indicates the intention of drag
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @StageModelOnly
+     * @since 14
+     */
      DRAG = 'Drag'
   }
 
@@ -1664,6 +1671,21 @@ declare namespace unifiedDataChannel {
    * @StageModelOnly
    * @since 12
    */
+  /**
+   * Set app sharing options.
+   *
+   * @permission ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION
+   * @param { Intention } intention - Describe the sharing channel that UDMF support. Currently only supports DRAG intention.
+   * @param { ShareOptions } shareOptions - Types of scope that UnifiedData can be used.
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION".
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                                                   2. Incorrect parameter types;
+   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 20400001 - Settings already exist.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @StageModelOnly
+   * @since 14
+   */
    function setAppShareOptions(intention: Intention, shareOptions: ShareOptions): void;
 
    /**
@@ -1678,6 +1700,19 @@ declare namespace unifiedDataChannel {
     * @StageModelOnly
     * @since 12
     */
+  /**
+   * Remove app sharing options.
+   *
+   * @permission ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION
+   * @param { Intention } intention - Describe the sharing channel that UDMF support. Currently only supports DRAG intention.
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION".
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                                                   2. Incorrect parameter types;
+   *                                                                   3. Parameter verification failed.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @StageModelOnly
+   * @since 14
+   */
    function removeAppShareOptions(intention: Intention): void;
 }
 
