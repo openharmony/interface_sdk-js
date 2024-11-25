@@ -51,14 +51,14 @@ declare enum DpiFollowStrategy {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 17
+ * @since 16
  */
 declare enum WindowModeFollowStrategy {
     /**
      * Followed the host Window Mode.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 17
+     * @since 16
      */
     FOLLOW_HOST_WINDOW_MODE = 0,
 
@@ -66,7 +66,7 @@ declare enum WindowModeFollowStrategy {
      * Followed the UIExtensionAbility.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 17
+     * @since 16
      */
     FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE = 1,
 }
@@ -132,7 +132,7 @@ declare interface UIExtensionOptions {
      * @default WindowModeFollowStrategy.FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 17
+     * @since 16
      */
     windowModeFollowStrategy?: WindowModeFollowStrategy;
 }
