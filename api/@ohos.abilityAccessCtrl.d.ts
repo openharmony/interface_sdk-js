@@ -568,6 +568,22 @@ declare namespace abilityAccessCtrl {
      * @since 12
      */
     requestGlobalSwitch(context: Context, type: SwitchType): Promise<boolean>;
+
+    /**
+     * Starts the permission manager page of an application.
+     *
+     * @param { number } tokenID - Token ID of the application.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+     * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
+     * @throws { BusinessError } 12100007 - The service is abnormal.
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 16
+     */
+    requestPermissionOnApplicationSetting(tokenID: number): Promise<void>;
   }
 
   /**
