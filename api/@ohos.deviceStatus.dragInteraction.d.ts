@@ -175,14 +175,14 @@ declare namespace dragInteraction {
    * Sets the app switch for enhancing the drag capability.
    *
    * @param { boolean } enabled Switch state.
-   * @param { string } pkgName App package name.
+   * @param { string } bundleName App bundle name.
    * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
    * @since 14
    */
-  function setAppDragSwitchState(enabled: boolean, pkgName: string): void;
+  function setAppDragSwitchState(enabled: boolean, bundleName: string): void;
 }
 
 export default dragInteraction;
