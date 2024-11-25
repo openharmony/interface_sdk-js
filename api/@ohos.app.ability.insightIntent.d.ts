@@ -125,8 +125,8 @@ declare namespace insightIntent {
     /**
      * Indicates the URIs read and write permissions which consistent with {@link Want#flags},
      * flags must be one of {wantConstant.flags.FLAG_AUTH_READ_URI_PERMISSION
-     * wantConstant.flags.FLAG_AUTH_WRITE_URI_PERMISSION
-     * wantConstant.flags.FLAG_AUTH_READ_URI_PERMISSION|wantConstant.flags.FLAG_AUTH_WRITE_URI_PERMISSION}.
+     * wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
+     * wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION|wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION}.
      *
      * @type { ?number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
