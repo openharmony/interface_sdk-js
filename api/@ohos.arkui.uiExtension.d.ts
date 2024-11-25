@@ -116,6 +116,36 @@ declare namespace uiExtension {
     off(type: 'windowSizeChange', callback?: Callback<window.Size>): void;
 
     /**
+     * Register the callback of windowRectChange
+     *
+     * @param { 'windowRectChange' } type - The value is fixed at 'windowRectChange', indicating the window rect change event.
+     * @param { Callback<window.RectChangeOptions> } callback - Callback used to return the RectChangeOptions.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 14
+     */
+    on(type: 'windowRectChange', callback: Callback<window.RectChangeOptions>): void;
+
+    /**
+     * Unregister the callback of windowRectChange
+     *
+     * @param { 'windowRectChange' } type - The value is fixed at 'windowRectChange', indicating the window rect change event.
+     * @param { Callback<window.RectChangeOptions> } callback - Callback used to return the RectChangeOptions.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 14
+     */
+    off(type: 'windowRectChange', callback?: Callback<window.RectChangeOptions>): void;
+
+    /**
      * Hide the non-secure windows.
      * When called by modal UIExtension and shouldHide == false, the "ohos.permission.ALLOW_SHOW_NON_SECURE_WINDOWS" permission is required.
      *
