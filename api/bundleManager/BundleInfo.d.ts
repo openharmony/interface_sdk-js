@@ -536,7 +536,7 @@ export interface SignatureInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   readonly certificate?: string;
 }
