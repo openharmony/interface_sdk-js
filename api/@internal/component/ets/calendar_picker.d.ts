@@ -127,6 +127,28 @@ declare interface CalendarOptions {
    * @since 11
    */
   selected?: Date;
+
+  /**
+   * Defines the start date of the calendar date.
+   *
+   * @type { ?Date }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  start?: Date;
+
+  /**
+   * Defines the end date of the calendar date.
+   *
+   * @type { ?Date }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  end?: Date;
 }
 
 /**
