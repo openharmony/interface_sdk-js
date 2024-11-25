@@ -19,6 +19,7 @@
  */
 
 import Want from './@ohos.app.ability.Want';
+import wantConstant from './@ohos.app.ability.wantConstant';
 import type { AsyncCallback } from './@ohos.base';
 import type insightIntent from './@ohos.app.ability.insightIntent';
 
@@ -132,9 +133,10 @@ declare namespace insightIntentDriver {
 
     /**
      * Indicates the URIs read and write permissions which consistent with {@link Want#flags},
-     * flags must be one of {wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION
-     * wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
-     * wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION|wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION}.
+     * flags must be one of {@link wantConstant#Flags#FLAG_AUTH_READ_URI_PERMISSION},
+     * {@link wantConstant#Flags#FLAG_AUTH_WRITE_URI_PERMISSION},
+     * {@link wantConstant#Flags#FLAG_AUTH_READ_URI_PERMISSION}|
+     * {@link wantConstant#Flags#FLAG_AUTH_WRITE_URI_PERMISSION}.
      *
      * @type { ?number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core

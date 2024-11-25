@@ -19,6 +19,7 @@
  */
 
 import Want from './@ohos.app.ability.Want';
+import type wantConstant from './@ohos.app.ability.wantConstant';
 
 /**
  * interface of insightIntent.
@@ -124,9 +125,10 @@ declare namespace insightIntent {
 
     /**
      * Indicates the URIs read and write permissions which consistent with {@link Want#flags},
-     * flags must be one of {wantConstant.flags.FLAG_AUTH_READ_URI_PERMISSION
-     * wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
-     * wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION|wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION}.
+     * flags must be one of {@link wantConstant#Flags#FLAG_AUTH_READ_URI_PERMISSION},
+     * {@link wantConstant#Flags#FLAG_AUTH_WRITE_URI_PERMISSION},
+     * {@link wantConstant#Flags#FLAG_AUTH_READ_URI_PERMISSION}|
+     * {@link wantConstant#Flags#FLAG_AUTH_WRITE_URI_PERMISSION}.
      *
      * @type { ?number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
