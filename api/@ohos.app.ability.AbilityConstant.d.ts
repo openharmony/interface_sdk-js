@@ -961,6 +961,37 @@ declare namespace AbilityConstant {
      */
     REJECT = 1,
   }
+
+  /**
+   * PrepareTerminateAction indicates what to do prior to terminating process.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 16
+   */
+  export enum PrepareTermination {
+    /**
+     * Terminate process immediately.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 16
+     */
+    TERMINATE_IMMEDIATELY = 0,
+
+    /**
+     * Cancel terminate.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 16
+     */
+    CANCEL = 1
+  }
 }
 
 export default AbilityConstant;
