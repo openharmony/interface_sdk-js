@@ -1024,6 +1024,16 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
+  /**
+   * Check whether Wi-Fi hotspot is active on a device.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @returns { boolean } {@code true} if Wi-Fi hotspot is enabled, returns {@code false} otherwise.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2601000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.AP.Core
+   * @since 16
+   */
   function isHotspotActive(): boolean;
 
   /**
