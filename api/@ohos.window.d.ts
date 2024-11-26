@@ -1549,14 +1549,14 @@ declare namespace window {
     colorMode?: ConfigurationConstant.ColorMode;
 
     /**
-     * button size.
+     * button background size when hover.
      *
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14
      */
-    buttonSize? : number;
+    buttonBackgroundSize? : number;
 
     /**
      * button spacing.
