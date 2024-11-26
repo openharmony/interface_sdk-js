@@ -1459,6 +1459,236 @@ declare namespace unifiedDataChannel {
   };
 
   /**
+   * Defines the types of file conflict options when getting data from the UDMF.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @atomicservice
+   * @since 15
+   */
+  enum FileConflictOptions {
+    /**
+     * Overwrite when destUri has file with same name.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    OVERWRITE,
+
+    /**
+     * Skip when destUri has file with same name.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    SKIP
+  }
+
+  /**
+   * Defines the types of progress indicator when getting data from the UDMF.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @atomicservice
+   * @since 15
+   */
+  enum ProgressIndicator {
+    /**
+     * Getting data without system default progress indicator.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    NONE,
+
+    /**
+     * Getting data with system default progress indicator.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    DEFAULT
+  }
+
+  /**
+   * Defines the listener status of obtaining progress and data.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @atomicservice
+   * @since 15
+   */
+  enum ListenerStatus {
+    /**
+     * Indicates the finished status.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    FINISHED = 0,
+
+    /**
+     * Indicates that processing is still in progress.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    PROCESSING,
+
+    /**
+     * Indicates that the process has been canceled.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    CANCELED,
+
+    /**
+     * Indicates that an internal error has occurred.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    INNER_ERROR = 200,
+
+    /**
+     * Indicates that the GetDataParams contains invalid parameters.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    INVALID_PARAMETERS,
+
+    /**
+     * Indicates that no data is obtained.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    DATA_NOT_FOUND,
+
+    /**
+     * Indicates that an error occurred in the synchronization process.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    SYNC_FAILED,
+
+    /**
+     * Indicates that an error occurred during file copying.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    COPY_FILE_FAILED,
+  }
+
+  /**
+   * Indicates the progress information.
+   *
+   * @interface ProgressInfo
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @atomicservice
+   * @since 15
+   */
+  interface ProgressInfo {
+    /**
+     * Indicates the UDMF processing progress.
+     *
+     * @type { number }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    progress: number;
+
+    /**
+     * Indicates the status of obtaining progress and data.
+     *
+     * @type { ListenerStatus }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    status: ListenerStatus;
+  }
+
+  /**
+   * A listener callback function that fetches progress info and data.
+   *
+   * @typedef { function } DataProgressListener
+   * @param { ProgressInfo } progressInfo - the progress information.
+   * @param { UnifiedData | null } data - Data obtained when the progress reaches 100%.
+   * @syscap SystemCapbility.DistributedDataManager.UDMF.Core
+   * @atomicservice
+   * @since 15
+   */
+  type DataProgressListener = (progressInfo: ProgressInfo, data: UnifiedData | null) => void;
+
+  /**
+   * Represents the get data parameters when getting data from udmf.
+   *
+   * @interface GetDataParams
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @atomicservice
+   * @since 15
+   */
+  interface GetDataParams {
+    /**
+     * Indicates whether to use default system progress indicator.
+     *
+     * @type { ProgressIndicator }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    progressIndicator: ProgressIndicator;
+
+    /**
+     * Indicates progress and data listener when getting unified data.
+     *
+     * @type { DataProgressListener }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    dataProgressListener: DataProgressListener;
+
+    /**
+     * Indicates the dest path uri where copy file will be copied to sandbox of application.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    destUri?: string;
+
+    /**
+     * Indicates file conflict options when dest path has file with same name.
+     *
+     * @type { FileConflictOptions }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 15
+     */
+    fileConflictOptions?: FileConflictOptions;
+  }
+
+  /**
    * Insert data into unified data channel by Intention
    *
    * @param { Options } options - fill the intention field to indicate the target {@link Intention}.
