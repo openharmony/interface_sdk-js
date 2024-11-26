@@ -306,6 +306,57 @@ declare enum MenuType {
 }
 
 /**
+ * Declare the type of automatic case mode switching.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 17
+ */
+declare enum AutoCapitalizationMode {
+  /**
+   * The default status is invalid.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 17
+   */
+  NONE = 0,
+
+  /**
+   * Automatic case by words.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 17
+   */
+  WORDS = 1,
+
+  /**
+   * Automatic case by sentences.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 17
+   */
+  SENTENCES = 2,
+
+  /**
+   * Automatic case by full characters.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 17
+   */
+  ALL_CHARACTERS = 3,
+}
+
+/**
  * Provides an interface for deleting value from text.
  *
  * @interface DeleteValue
