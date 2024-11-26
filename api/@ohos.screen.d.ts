@@ -399,6 +399,21 @@ declare namespace screen {
     secondaryScreenOptions: MultiScreenPositionOptions): Promise<void>;
 
   /**
+   * Make unique screen.
+   *
+   * @param { Array<number> } screenIds Screen IDs required to make the screen unique.
+   * @returns { Promise<Array<number>> } Promise used to return the display IDs of unique screens.
+   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *                                                                   2. Incorrect parameter types.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 13
+   */
+  function makeUniqueScreen(screenIds: Array<number>): Promise<Array<number>>;
+
+  /**
    * Indicate the screen mode
    *
    * @enum { number }
@@ -687,6 +702,17 @@ declare namespace screen {
      * @since 10
      */
     readonly sourceMode: ScreenSourceMode;
+	
+	/**
+     * EdId of screen
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 13
+     */
+    readonly edId: string;
 
     /**
      * Set the orientation of the screen
