@@ -132,7 +132,17 @@ declare type RepeatItemBuilder<T> = (repeatItem: RepeatItem<T>) => void;
  * @atomicservice
  * @since 12
  */
-declare class RepeatAttribute<T> {
+/**
+ * Defines the Repeat component attribute functions.
+ *
+ * @extends DynamicNode<RepeatAttribute<T>>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 16
+ */
+declare class RepeatAttribute<T> extends DynamicNode<RepeatAttribute<T>> {
   /**
    * Executes itemGenerator of each item.
    *
