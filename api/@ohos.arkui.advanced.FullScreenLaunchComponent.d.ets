@@ -19,7 +19,7 @@
  */
 
 import AtomicServiceOptions from '@ohos.app.ability.AtomicServiceOptions';
-import Callback from '@ohos.base';
+import { Callback, ErrorCallback } from '@ohos.base';
 
 /**
  * Declare component FullScreenLaunchComponent
@@ -53,4 +53,20 @@ export declare struct FullScreenLaunchComponent {
    * @since 12
    */
   options?: AtomicServiceOptions;
+    /**
+    * Indicates the callback of onError.
+    * @type { ?ErrorCallback }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @atomicservice
+    * @since 16
+    */
+    onError?: ErrorCallback;
+    /**
+    * Indicates the callback of onTerminated.
+    * @type { ?Callback<TerminationInfo> }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @atomicservice
+    * @since 16
+    */
+    onTerminated?: Callback<TerminationInfo>;
 }
