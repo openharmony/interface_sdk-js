@@ -430,7 +430,7 @@ declare interface TextBaseController {
  * @atomicservice
  * @since 12
  */
-declare interface TextEditControllerEx extends TextBaseController{
+declare interface TextEditControllerEx extends TextBaseController {
   /**
    * Judge whether is in editing state
    * 
@@ -485,6 +485,38 @@ declare interface TextEditControllerEx extends TextBaseController{
    * @since 12
    */
   getPreviewText?(): PreviewText;
+}
+
+/**
+ * The previewText.
+ * @interface PreviewText
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface PreviewText {
+  /**
+   * Start offset of the previewText
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  offset: number;
+
+  /**
+   * Value of the previewText.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  value: string;
 }
 
 /**
@@ -919,38 +951,6 @@ declare class TextMenuItemId {
    * @since 13
    */
   static readonly AI_WRITER: TextMenuItemId;
-}
-
-/**
- * The previewText.
- * @interface PreviewText
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12
- */
-declare interface PreviewText {
-  /**
-   * Start offset of the previewText
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  offset: number;
-
-  /**
-   * Value of the previewText.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  value: string;
 }
 
 /**
