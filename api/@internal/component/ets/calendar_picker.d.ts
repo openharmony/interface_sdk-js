@@ -252,6 +252,7 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
 
 /**
  * Defines the DatePickerDialogOptions for Calendar Picker Dialog.
+ * @extends CalendarOptions
  * @interface CalendarDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -259,6 +260,7 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
  */
 /**
  * Defines the DatePickerDialogOptions for Calendar Picker Dialog.
+ * @extends CalendarOptions
  * @interface CalendarDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform

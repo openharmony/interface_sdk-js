@@ -13835,6 +13835,7 @@ declare interface ContextMenuOptions {
 /**
  * Defines the menu options.
  *
+ * @extends ContextMenuOptions
  * @interface MenuOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -13843,6 +13844,7 @@ declare interface ContextMenuOptions {
 /**
  * Defines the menu options.
  *
+ * @extends ContextMenuOptions
  * @interface MenuOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform

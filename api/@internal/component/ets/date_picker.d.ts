@@ -489,6 +489,7 @@ declare interface LunarSwitchStyle {
 /**
  * Defines the DatePickerDialogOptions for Data Picker Dialog.
  *
+ * @extends DatePickerOptions
  * @interface DatePickerDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
@@ -496,6 +497,7 @@ declare interface LunarSwitchStyle {
 /**
  * Defines the DatePickerDialogOptions for Data Picker Dialog.
  *
+ * @extends DatePickerOptions
  * @interface DatePickerDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -504,6 +506,7 @@ declare interface LunarSwitchStyle {
 /**
  * Defines the DatePickerDialogOptions for Data Picker Dialog.
  *
+ * @extends DatePickerOptions
  * @interface DatePickerDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform

@@ -816,6 +816,7 @@ declare type SliderTriggerChangeCallback = (value: number, mode: SliderChangeMod
 /**
  * SliderConfiguration used by slider content modifier
  *
+ * @extends CommonConfiguration<SliderConfiguration>
  * @interface SliderConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform

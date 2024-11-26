@@ -208,6 +208,7 @@ declare interface SwitchStyle {
 /**
  * ToggleConfiguration used by toggle Modifier
  *
+ * @extends CommonConfiguration<ToggleConfiguration>
  * @interface ToggleConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform

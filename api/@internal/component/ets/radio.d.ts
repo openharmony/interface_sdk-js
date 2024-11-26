@@ -501,6 +501,7 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
 /**
  * RadioConfiguration used by radio Configuration
  *
+ * @extends CommonConfiguration<RadioConfiguration>
  * @interface RadioConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
