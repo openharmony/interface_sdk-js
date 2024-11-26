@@ -17065,6 +17065,14 @@ declare enum DragPreviewMode {
    * @since 16
    */
   ENABLE_DRAG_ITEM_GRAY_EFFECT = 5,
+  /**
+   * Enable the tile effect for multi drag, each dragged graph is display in the original relative position.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  ENABLE_MULTI_TILE_EFFECT = 6,
 }
 
 /**
