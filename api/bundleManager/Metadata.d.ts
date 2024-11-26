@@ -124,10 +124,12 @@ export interface Metadata {
   /**
    * Indicates the value id of the metadata
    *
-   * @type { number }
+   * @type { ?number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
    * @since 16
    */
-   readonly valueId: number;
+   readonly valueId?: number;
 }
