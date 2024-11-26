@@ -2615,7 +2615,6 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
     * @returns { NavigationAttribute }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
-    * @form
     * @since 10
     */
   /**
@@ -2626,7 +2625,6 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
     * @returns { NavigationAttribute }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
-    * @form
     * @atomicservice
     * @since 11
     */
