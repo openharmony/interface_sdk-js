@@ -94,12 +94,12 @@ declare namespace uiEffect {
      * @param { number } distortionK - set the degree of distort effect, value range [-1, 1].
      * If the value is 0, the component keep same,
      * if the value is less than 0, the component is barrel distortion,
-     * if the value is more than 0, the component is pincussion distortion.
+     * if the value is more than 0, the component is pincushion distortion.
      * @returns { Filter } - Returns distort Filter.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 14
+     * @since 13
      */
     distort(distortionK: number): Filter;
   }
@@ -235,7 +235,7 @@ declare namespace uiEffect {
 
   /**
    * Defines the blending effect.
-   * @typedef Blender
+   * @typedef { BrightnessBlender }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @since 13

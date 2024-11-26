@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare interface StackOptions {
   /**
@@ -148,7 +148,7 @@ interface StackInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   (options?: StackOptions): StackAttribute;
 }

@@ -99,6 +99,18 @@ declare namespace display {
   function getDefaultDisplaySync(): Display;
 
   /**
+   * Obtain the primary display.
+   *
+   * @returns { Display } the result of primary display
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  function getPrimaryDisplaySync(): Display;
+
+  /**
    * Obtain the target display.
    *
    * @param { number } displayId Display id to query. This parameter should be greater than or equal to 0.
@@ -1070,6 +1082,7 @@ declare namespace display {
      * Indicates the size of left side curved area of the waterfall screen.
      *
      * @type { Rect }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -1077,6 +1090,7 @@ declare namespace display {
      * Indicates the size of left side curved area of the waterfall screen.
      *
      * @type { Rect }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1087,6 +1101,7 @@ declare namespace display {
      * Indicates the size of right side curved area of the waterfall screen.
      *
      * @type { Rect }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -1094,6 +1109,7 @@ declare namespace display {
      * Indicates the size of right side curved area of the waterfall screen.
      *
      * @type { Rect }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1104,6 +1120,7 @@ declare namespace display {
      * Indicates the size of top side curved area of the waterfall screen.
      *
      * @type { Rect }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -1111,6 +1128,7 @@ declare namespace display {
      * Indicates the size of top side curved area of the waterfall screen.
      *
      * @type { Rect }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1121,6 +1139,7 @@ declare namespace display {
      * Indicates the size of bottom side curved area of the waterfall screen.
      *
      * @type { Rect }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -1128,6 +1147,7 @@ declare namespace display {
      * Indicates the size of bottom side curved area of the waterfall screen.
      *
      * @type { Rect }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1155,6 +1175,7 @@ declare namespace display {
      * Bounding rectangles of the cutout areas of the display.
      *
      * @type { Array<Rect> }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -1162,6 +1183,7 @@ declare namespace display {
      * Bounding rectangles of the cutout areas of the display.
      *
      * @type { Array<Rect> }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1172,6 +1194,7 @@ declare namespace display {
      * Rectangles of curved parts on each side of a waterfall display.
      *
      * @type { WaterfallDisplayAreaRects }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -1179,6 +1202,7 @@ declare namespace display {
      * Rectangles of curved parts on each side of a waterfall display.
      *
      * @type { WaterfallDisplayAreaRects }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12

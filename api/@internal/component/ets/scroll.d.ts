@@ -440,7 +440,7 @@ declare class Scroller {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   scrollTo(options: ScrollOptions);
 
@@ -702,7 +702,7 @@ declare class Scroller {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   getItemIndex(x: number, y: number): number;
 }
@@ -714,7 +714,7 @@ declare class Scroller {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare interface ScrollOptions {
   /**
@@ -977,7 +977,7 @@ interface ScrollInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare type OnScrollEdgeCallback = (side: Edge) => void;
 
@@ -988,7 +988,7 @@ declare type OnScrollEdgeCallback = (side: Edge) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 interface OnScrollFrameBeginHandlerResult {
   /**
@@ -1028,7 +1028,7 @@ interface OnScrollFrameBeginHandlerResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare type OnScrollFrameBeginCallback = (offset: number, state: ScrollState) => OnScrollFrameBeginHandlerResult;
 
@@ -1178,7 +1178,7 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   onScrollEdge(event: OnScrollEdgeCallback): ScrollAttribute;
 
@@ -1217,7 +1217,7 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   onScrollStart(event: VoidCallback): ScrollAttribute;
 
@@ -1268,7 +1268,7 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   onScrollStop(event: VoidCallback): ScrollAttribute;
 
@@ -1424,7 +1424,7 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   onScrollFrameBegin(event: OnScrollFrameBeginCallback): ScrollAttribute;
 

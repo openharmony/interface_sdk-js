@@ -96,6 +96,15 @@ declare namespace wantConstant {
     DLP_PARAMS_INDEX = 'ohos.dlp.params.index',
 
     /**
+     * Indicates the type of hide sensitive information.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @systemapi
+     * @since 14
+     */
+    HIDE_SENSITIVE_TYPE = 'ohos.media.params.hideSensitiveType',
+
+    /**
      * Indicates the ability in this want can back to the current top ability even though they are not in the same
      * mission stack.
      *
@@ -316,6 +325,14 @@ declare namespace wantConstant {
     * @since 14
     */
      CREATE_APP_INSTANCE_KEY = 'ohos.extra.param.key.createAppInstance',
+
+    /**
+    * Indicates the app clone index of caller.
+    *
+    * @syscap SystemCapability.Ability.AbilityBase
+    * @since 14
+    */
+    CALLER_APP_CLONE_INDEX = 'ohos.param.callerAppCloneIndex',
   }
 
   /**

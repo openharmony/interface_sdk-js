@@ -24,11 +24,14 @@ import WindowExtensionAbility, { WindowExtensionContext } from '@ohos.applicatio
 import { AtomicServiceNavigation, NavDestinationBuilder } from '@ohos.atomicservice.AtomicServiceNavigation';
 import {
   Chip, ChipOptions, ChipSize, IconCommonOptions, LabelMarginOptions, LabelOptions, PrefixIconOptions,
-  SuffixIconOptions, ChipSymbolGlyphOptions
+  SuffixIconOptions, ChipSymbolGlyphOptions, AccessibilitySelectedType, AccessibilityOptions, CloseOptions,
+  ChipSuffixSymbolGlyphOptions
 } from '@ohos.arkui.advanced.Chip';
 import { NavPushPathHelper } from '@ohos.atomicservice.NavPushPathHelper';
 import {
-  IconOptions, LabelOptions as ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle, ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup
+  IconOptions, LabelOptions as ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle,
+  ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup, SuffixImageIconOptions,
+  SymbolItemOptions
 } from '@ohos.arkui.advanced.ChipGroup';
 import {
   ComposeListItem, ContentItem, IconType, OperateButton, OperateCheck, OperateIcon, OperateItem
@@ -160,6 +163,9 @@ import {
   InnerFullScreenLaunchComponent,
   LaunchController
 } from '@ohos.arkui.advanced.InnerFullScreenLaunchComponent';
+import {
+  SplitPolicy, MultiNavigation, MultiNavPathStack
+} from '@ohos.arkui.advanced.MultiNavigation';
 export {
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, App, AppResponse, AtomicServiceBar,
   AtomicServiceNavigation, NavDestinationBuilder,
@@ -214,5 +220,7 @@ export {
   PixelMapDrawableDescriptor, AnimationOptions, AnimatedDrawableDescriptor, NodeAdapter, DownloadFileButton,
   DownloadLayoutDirection, DownloadIconStyle, DownloadDescription, DownloadContentOptions, DownloadStyleOptions,
   Rect, RoundRect, edgeColors, edgeWidths, borderStyles, borderRadiuses, ParticleModifier,
-  InnerFullScreenLaunchComponent, LaunchController,
+  InnerFullScreenLaunchComponent, LaunchController, AccessibilitySelectedType, AccessibilityOptions, CloseOptions, ChipSuffixSymbolGlyphOptions,
+  SuffixImageIconOptions, SymbolItemOptions,
+  SplitPolicy, MultiNavigation, MultiNavPathStack,
 };

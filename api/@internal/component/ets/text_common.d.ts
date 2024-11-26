@@ -423,6 +423,7 @@ declare interface TextBaseController {
 /**
  * Define the text extended editing controller.
  *
+ * @extends TextBaseController
  * @interface TextEditControllerEx
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -651,7 +652,7 @@ declare interface LayoutManager {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   getRectsForRange(range: TextRange, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array<TextBox>;
 }
@@ -718,7 +719,7 @@ declare type LineMetrics = import('../api/@ohos.graphics.text').default.LineMetr
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare type RectWidthStyle = import('../api/@ohos.graphics.text').default.RectWidthStyle;
 
@@ -729,7 +730,7 @@ declare type RectWidthStyle = import('../api/@ohos.graphics.text').default.RectW
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare type RectHeightStyle = import('../api/@ohos.graphics.text').default.RectHeightStyle;
 
@@ -740,7 +741,7 @@ declare type RectHeightStyle = import('../api/@ohos.graphics.text').default.Rect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare type TextBox = import('../api/@ohos.graphics.text').default.TextBox;
 

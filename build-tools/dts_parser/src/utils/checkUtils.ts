@@ -410,7 +410,7 @@ export let apiCheckResult: ApiResultMessage[] = [];
 
 export let hierarchicalRelationsSet: Set<string> = new Set();
 
-export function cleanApiCheckResult() {
+export function cleanApiCheckResult(): void {
   apiCheckResult = [];
   compositiveResult = [];
   hierarchicalRelationsSet = new Set();

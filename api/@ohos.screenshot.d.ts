@@ -90,6 +90,23 @@ declare namespace screenshot {
   function save(options?: ScreenshotOptions): Promise<image.PixelMap>;
 
   /**
+   * Takes a capture and return as a PixelMap object.
+   *
+   * @permission ohos.permission.CUSTOM_CAPTURE_SCREEN
+   * @param { options } which consist of CaptureOption.
+   * @returns { Promise<image.PixelMap> } Promise used to return a PixelMap object.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *                                                                   2.Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @atomicservice
+   * @since 14
+   */
+  function capture(options?: CaptureOption): Promise<image.PixelMap>;
+
+  /**
    * Takes a screenshot and picks it as a PickInfo object.
    *
    * @returns { Promise<PickInfo> } Promise used to return a PickInfo object.
@@ -212,6 +229,26 @@ declare namespace screenshot {
   }
 
   /**
+   * Describes capture options.
+   *
+   * @interface CaptureOption
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @atomicservice
+   * @since 14
+   */
+  interface CaptureOption {
+    /**
+     * ID of the screen to be captured.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 14
+     */
+    displayId?: number;
+  }
+
+  /**
    * Describes screenshot options.
    *
    * @interface ScreenshotOptions
@@ -256,6 +293,24 @@ declare namespace screenshot {
      * @since 8
      */
     displayId?: number;
+    /**
+     * The capture action is need notification.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    isNotificationNeeded?: boolean;
+    /**
+     * The capture action is need pointer.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    isPointerNeeded?: boolean;
   }
 }
 

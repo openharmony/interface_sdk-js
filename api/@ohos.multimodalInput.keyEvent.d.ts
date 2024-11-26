@@ -155,6 +155,7 @@ export declare interface Key {
  * KeyEvent
  *
  * @typedef KeyEvent
+ * @extends InputEvent
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @atomicservice
  * @since 12

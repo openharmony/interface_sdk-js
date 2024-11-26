@@ -157,7 +157,17 @@ declare class SwiperController {
    * @atomicservice
    * @since 11
    */
-  finishAnimation(callback?: () => void);
+  /**
+   * Called when need to stop the swiper animation.
+   *
+   * @param { ?VoidCallback } callback
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  finishAnimation(callback?: VoidCallback);
 }
 
 /**
@@ -575,7 +585,16 @@ declare class DotIndicator extends Indicator<DotIndicator> {
  * @atomicservice
  * @since 11
  */
-declare type SwiperAutoFill = {
+/**
+ * Set Swiper column count adaptation.
+ *
+ * @typedef SwiperAutoFill
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
+ * @atomicservice
+ * @since 14
+ */
+declare interface SwiperAutoFill {
   /**
    * Set minSize size.
    *
@@ -586,13 +605,14 @@ declare type SwiperAutoFill = {
   /**
    * Set minSize size.
    *
+   * @type { VP }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    * @form
    */
   minSize: VP;
-};
+}
 
 /**
  * Define DigitIndicator, the indicator type is digit.
@@ -1219,6 +1239,48 @@ declare enum SwiperNestedScrollMode {
 }
 
 /**
+ * Defines a swiper callback when onAnimationStart.
+ *
+ * @typedef { function } OnSwiperAnimationStartCallback
+ * @param { number } index - The index value of the swiper page that when animation start.
+ * @param { number } targetIndex - The target index value of the swiper page that when animation start.
+ * @param { SwiperAnimationEvent } extraInfo - The extra callback info.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 14
+ */
+declare type OnSwiperAnimationStartCallback = (index: number, targetIndex: number, extraInfo: SwiperAnimationEvent) => void;
+
+/**
+ * Defines a swiper callback when onAnimationEnd.
+ *
+ * @typedef { function } OnSwiperAnimationEndCallback
+ * @param { number } index - The index value of the swiper page that when animation end.
+ * @param { SwiperAnimationEvent } extraInfo - The extra callback info.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 14
+ */
+declare type OnSwiperAnimationEndCallback = (index: number, extraInfo: SwiperAnimationEvent) => void;
+
+/**
+ * Defines a swiper callback when onGestureSwipe.
+ *
+ * @typedef { function } OnSwiperGestureSwipeCallback
+ * @param { number } index - The index value of the swiper page before gesture swipe.
+ * @param { SwiperAnimationEvent } extraInfo - The extra callback info.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare type OnSwiperGestureSwipeCallback = (index: number, extraInfo: SwiperAnimationEvent) => void;
+
+/**
  * Defines the swiper attribute functions.
  *
  * @extends CommonMethod<SwiperAttribute>
@@ -1378,7 +1440,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   indicator(controller: IndicatorComponentController): SwiperAttribute;
 
@@ -1753,7 +1815,18 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @atomicservice
    * @since 11
    */
-  onChange(event: (index: number) => void): SwiperAttribute;
+  /**
+   * Called when the index value changes.
+   *
+   * @param { Callback<number> } event
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  onChange(event: Callback<number>): SwiperAttribute;
 
   /**
    * Setting indicator style navigation.
@@ -1865,7 +1938,18 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @atomicservice
    * @since 11
    */
-  onAnimationStart(event: (index: number, targetIndex: number, extraInfo: SwiperAnimationEvent) => void): SwiperAttribute;
+  /**
+   * Called when the swiper animation start.
+   *
+   * @param { OnSwiperAnimationStartCallback } event
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  onAnimationStart(event: OnSwiperAnimationStartCallback): SwiperAttribute;
 
   /**
    * Called when the swiper animation end.
@@ -1900,7 +1984,18 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @atomicservice
    * @since 11
    */
-  onAnimationEnd(event: (index: number, extraInfo: SwiperAnimationEvent) => void): SwiperAttribute;
+  /**
+   * Called when the swiper animation end.
+   *
+   * @param { OnSwiperAnimationEndCallback } event
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  onAnimationEnd(event: OnSwiperAnimationEndCallback): SwiperAttribute;
 
   /**
    * Called when the swiper swipe with the gesture.
@@ -1925,7 +2020,17 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @atomicservice
    * @since 11
    */
-  onGestureSwipe(event: (index: number, extraInfo: SwiperAnimationEvent) => void): SwiperAttribute;
+  /**
+   * Called when the swiper swipe with the gesture.
+   *
+   * @param { OnSwiperGestureSwipeCallback } event
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onGestureSwipe(event: OnSwiperGestureSwipeCallback): SwiperAttribute;
 
   /**
    * Called to setting the nested scroll mode.

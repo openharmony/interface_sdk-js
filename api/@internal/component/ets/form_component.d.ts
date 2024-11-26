@@ -90,6 +90,24 @@ declare enum FormDimension {
    * @since 12
    */
   DIMENSION_6_4,
+
+  /**
+   * 2 x 3 cards used for wearable devices
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 14
+   */
+  DIMENSION_2_3 = 8,
+
+  /**
+   * 3 x 3 cards used for wearable devices
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 14
+   */
+  DIMENSION_3_3 = 9,
 }
 
 /**

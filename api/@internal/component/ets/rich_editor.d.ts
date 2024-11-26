@@ -1843,6 +1843,17 @@ declare interface RichEditorGesture {
    * @since 12
    */
   onLongPress?: Callback<GestureEvent>;
+
+  /**
+   * Trigger a gesture event when a double click event is complete.
+   *
+   * @type { ?Callback<GestureEvent> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @systemapi
+   * @since 14
+   */
+  onDoubleClick?: Callback<GestureEvent>;
 }
 
 /**
@@ -2030,6 +2041,17 @@ declare interface RichEditorImageSpanOptions {
    * @since 12
    */
   gesture?: RichEditorGesture;
+
+  /**
+   * RichEditor onHover.
+   *
+   * @type { ?OnHoverCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onHover?: OnHoverCallback;
 }
 
 /**
@@ -2106,6 +2128,7 @@ declare interface PlaceholderStyle {
 /**
  * Defines span style option of RichEditor.
  *
+ * @extends RichEditorRange
  * @interface RichEditorSpanStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
@@ -2113,6 +2136,7 @@ declare interface PlaceholderStyle {
 /**
  * Defines span style option of RichEditor.
  *
+ * @extends RichEditorRange
  * @interface RichEditorSpanStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -2124,6 +2148,7 @@ declare interface RichEditorSpanStyleOptions extends RichEditorRange { }
 /**
  * Defines paragraph style option of RichEditor.
  *
+ * @extends RichEditorRange
  * @interface RichEditorParagraphStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -2132,6 +2157,7 @@ declare interface RichEditorSpanStyleOptions extends RichEditorRange { }
 /**
  * Defines paragraph style option of RichEditor.
  *
+ * @extends RichEditorRange
  * @interface RichEditorParagraphStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -2162,6 +2188,7 @@ declare interface RichEditorParagraphStyleOptions extends RichEditorRange {
 /**
  * Defines text span style option of RichEditor.
  *
+ * @extends RichEditorSpanStyleOptions
  * @interface RichEditorUpdateTextSpanStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
@@ -2169,6 +2196,7 @@ declare interface RichEditorParagraphStyleOptions extends RichEditorRange {
 /**
  * Defines text span style option of RichEditor.
  *
+ * @extends RichEditorSpanStyleOptions
  * @interface RichEditorUpdateTextSpanStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -2198,6 +2226,7 @@ declare interface RichEditorUpdateTextSpanStyleOptions extends RichEditorSpanSty
 /**
  * Defines image span style option of RichEditor.
  *
+ * @extends RichEditorSpanStyleOptions
  * @interface RichEditorUpdateImageSpanStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
@@ -2205,6 +2234,7 @@ declare interface RichEditorUpdateTextSpanStyleOptions extends RichEditorSpanSty
 /**
  * Defines image span style option of RichEditor.
  *
+ * @extends RichEditorSpanStyleOptions
  * @interface RichEditorUpdateImageSpanStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -2234,6 +2264,7 @@ declare interface RichEditorUpdateImageSpanStyleOptions extends RichEditorSpanSt
 /**
  * Defines symbol span style option of RichEditor.
  *
+ * @extends RichEditorSpanStyleOptions
  * @interface RichEditorUpdateSymbolSpanStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -2242,6 +2273,7 @@ declare interface RichEditorUpdateImageSpanStyleOptions extends RichEditorSpanSt
 /**
  * Defines symbol span style option of RichEditor.
  *
+ * @extends RichEditorSpanStyleOptions
  * @interface RichEditorUpdateSymbolSpanStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -3853,6 +3885,19 @@ declare type MenuOnAppearCallback = (start: number, end: number) => void;
  * @since 12
  */
 declare type PasteEventCallback = (event?: PasteEvent) => void;
+
+/**
+ * callback of the on hover event.
+ *
+ * @typedef { function } OnHoverCallback
+ * @param { boolean } status - The hover status
+ * @param { HoverEvent } event - The event info for hover.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare type OnHoverCallback = (status: boolean, event: HoverEvent) => void;
 
 /**
  * Provides an interface for writing texts.

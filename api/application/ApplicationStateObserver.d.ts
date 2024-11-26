@@ -26,8 +26,7 @@ import * as _ProcessData from './ProcessData';
  * The application state observer.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @systemapi
- * @since 8
+ * @since 14
  */
 export default class ApplicationStateObserver {
   /**
@@ -35,8 +34,7 @@ export default class ApplicationStateObserver {
    *
    * @param { AppStateData } appStateData - State changed Application info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 8
+   * @since 14
    */
   onForegroundApplicationChanged(appStateData: AppStateData): void;
 
@@ -45,8 +43,7 @@ export default class ApplicationStateObserver {
    *
    * @param { AbilityStateData } abilityStateData - State changed ability info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 8
+   * @since 14
    */
   onAbilityStateChanged(abilityStateData: AbilityStateData): void;
 
@@ -55,8 +52,7 @@ export default class ApplicationStateObserver {
    *
    * @param { ProcessData } processData - Process info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 8
+   * @since 14
    */
   onProcessCreated(processData: ProcessData): void;
 
@@ -65,8 +61,7 @@ export default class ApplicationStateObserver {
    *
    * @param { ProcessData } processData - Process info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 8
+   * @since 14
    */
   onProcessDied(processData: ProcessData): void;
 
@@ -75,8 +70,7 @@ export default class ApplicationStateObserver {
    *
    * @param { ProcessData } processData - Process info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 9
+   * @since 14
    */
   onProcessStateChanged(processData: ProcessData): void;
 
@@ -85,8 +79,7 @@ export default class ApplicationStateObserver {
    *
    * @param { AppStateData } appStateData - State changed Application info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 12
+   * @since 14
    */
   onAppStarted(appStateData: AppStateData): void;
 
@@ -95,8 +88,7 @@ export default class ApplicationStateObserver {
    *
    * @param { AppStateData } appStateData - State changed Application info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 12
+   * @since 14
    */
   onAppStopped(appStateData: AppStateData): void;
 }
@@ -105,7 +97,6 @@ export default class ApplicationStateObserver {
  * The process data.
  * @typedef { _ProcessData.default }
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @systemapi
- * @since 9
+ * @since 14
  */
 export type ProcessData = _ProcessData.default;

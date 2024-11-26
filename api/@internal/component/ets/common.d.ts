@@ -4772,6 +4772,33 @@ declare interface ItemDragInfo {
 }
 
 /**
+ * Enum of using the effects template mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 14
+ */
+declare enum EffectType {
+  /**
+   * Define use the effects template defined by the parent effectComponent.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 14
+   */
+  DEFAULT = 0,
+  /**
+   * Define use the effects template defined by the window.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 14
+   */
+  WINDOW_EFFECT = 1,
+}
+
+/**
  * Defines the drag status before drag action.
  *
  * @enum { number }
@@ -6086,7 +6113,7 @@ declare enum BlurStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare enum BlurStyleActivePolicy {
   /**
@@ -6095,7 +6122,7 @@ declare enum BlurStyleActivePolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   FOLLOWS_WINDOW_ACTIVE_STATE = 0,
 
@@ -6105,7 +6132,7 @@ declare enum BlurStyleActivePolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   ALWAYS_ACTIVE = 1,
 
@@ -6115,7 +6142,7 @@ declare enum BlurStyleActivePolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   ALWAYS_INACTIVE = 2,
 }
@@ -6339,7 +6366,7 @@ declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   policy?: BlurStyleActivePolicy;
 
@@ -6351,7 +6378,7 @@ declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   inactiveColor?: ResourceColor;
 }
@@ -6656,7 +6683,7 @@ declare interface BackgroundEffectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   policy?: BlurStyleActivePolicy;
 
@@ -6668,7 +6695,7 @@ declare interface BackgroundEffectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   inactiveColor?: ResourceColor;
 }
@@ -11732,17 +11759,6 @@ declare interface SheetOptions extends BindOptions {
   onTypeDidChange?: Callback<SheetType>;
 
   /**
-   * Set whether sheet is allowed to expand safe area in embedded mode
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 13
-   */
-  expandSafeAreaInEmbeddedMode?: boolean;
-
-  /**
    * The UIContext that the sheet belongs to
    *
    * @type { ?UIContext }
@@ -11764,6 +11780,40 @@ declare interface SheetOptions extends BindOptions {
    * @since 13
    */
   keyboardAvoidMode?: SheetKeyboardAvoidMode;
+
+  /**
+   * Defines whether to respond to the hover mode.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  enableHoverMode?: boolean;
+
+  /**
+   * Defines the sheet's display area in hover mode.
+   *
+   * @type { ?HoverModeAreaType }
+   * @default HoverModeAreaType.BOTTOM_SCREEN
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  hoverModeArea?: HoverModeAreaType;
+
+  /**
+   * Sets the position offset of the bindSheet.
+   *
+   * @type { ?Position }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 14
+   */
+    offset?: Position
 }
 
 /**
@@ -12806,7 +12856,7 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   followTransformOfTarget?: boolean;
 }
@@ -13341,7 +13391,7 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   followTransformOfTarget?: boolean;
 }
@@ -14329,7 +14379,7 @@ declare interface ClickEffect {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare interface FadingEdgeOptions {
   /**
@@ -14340,7 +14390,7 @@ declare interface FadingEdgeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   fadingEdgeLength?: LengthMetrics;
 }
@@ -15567,6 +15617,18 @@ declare class CommonMethod<T> {
   layoutWeight(value: number | string): T;
 
   /**
+   * chain Weight
+   *
+   * @param { ChainWeightOptions } chainWeight
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  chainWeight(chainWeight: ChainWeightOptions): T;
+
+  /**
    * Inner margin.
    *
    * @param { Padding | Length } value
@@ -16101,7 +16163,7 @@ declare class CommonMethod<T> {
   opacity(value: number | Resource): T;
 
   /**
-   * Opacity
+   * Border
    * width:Border width;color:Border color;radius:Border radius;
    *
    * @param { BorderOptions } value
@@ -16110,7 +16172,7 @@ declare class CommonMethod<T> {
    * @since 7
    */
   /**
-   * Opacity
+   * Border
    * width:Border width;color:Border color;radius:Border radius;
    *
    * @param { BorderOptions } value
@@ -16120,7 +16182,7 @@ declare class CommonMethod<T> {
    * @since 9
    */
   /**
-   * Opacity
+   * Border
    * width:Border width;color:Border color;radius:Border radius;
    *
    * @param { BorderOptions } value
@@ -16131,7 +16193,7 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Opacity
+   * Border
    * width:Border width;color:Border color;radius:Border radius;
    *
    * @param { BorderOptions } value
@@ -16746,6 +16808,18 @@ declare class CommonMethod<T> {
    */
   focusable(value: boolean): T;
 
+  /**
+   * Set TabStop on component focus
+   *
+   * @param { boolean } isTabStop
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  tabStop(isTabStop: boolean): T;
+                
   /**
    * Trigger a event when got focus.
    *
@@ -17645,6 +17719,20 @@ declare class CommonMethod<T> {
    * @since 12
    */
   useShadowBatching(value: boolean): T;
+
+   /**
+   * Sets whether the component should apply the effects template defined by the parent effectComponent or window.
+   * If multiple parent effectComponents are found, the nearest one will be used.
+   * If no parent effectComponent is found, this method has no effect.
+   *
+   * @param { boolean } useEffect - true means the component should apply the effects template defined by the parent effectComponent or window.
+   * @param { EffectType } effectType - the effect type of the effects template, defined by the parent effectComponent or window.
+   * @returns { T } return the component attribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 14
+   */
+  useEffect(useEffect: boolean, effectType: EffectType): T;
 
   /**
    * Sets whether the component should apply the effects template defined by the parent effectComponent.
@@ -20223,6 +20311,20 @@ declare class CommonMethod<T> {
   accessibilityGroup(value: boolean): T;
 
   /**
+   * Sets accessibilityGroup
+   *
+   * @param { boolean } isGroup - set group with accessibility
+   * @param { AccessibilityOptions } accessibilityOptions - accessibilityOptions for accessibility
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  accessibilityGroup(isGroup: boolean, accessibilityOptions: AccessibilityOptions): T;
+
+  /**
    * Sets accessibilityText
    *
    * @param { string } value - set accessibility text
@@ -20389,7 +20491,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   accessibilityChecked(isCheck: boolean): T;
 
@@ -20402,7 +20504,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   accessibilitySelected(isSelect: boolean): T;
 
@@ -20546,7 +20648,7 @@ declare class CommonMethod<T> {
    */
   onGestureRecognizerJudgeBegin(callback: GestureRecognizerJudgeBeginCallback): T;
 
-    /**
+  /**
    * When a gesture bound to this component will be accepted, a user-defined callback is triggered to get the result
    *
    * @param { GestureRecognizerJudgeBeginCallback } callback - A callback instance used when a gesture bound to this component will be accepted.
@@ -20556,9 +20658,9 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @atomicservice
    * 
-   * @since 14
+   * @since 13
    */
-    onGestureRecognizerJudgeBegin(callback: GestureRecognizerJudgeBeginCallback, exposeInnerGesture: boolean): T;
+  onGestureRecognizerJudgeBegin(callback: GestureRecognizerJudgeBeginCallback, exposeInnerGesture: boolean): T;
 
   /**
    * In the touch test phase, the recognizer is selected to form a parallel relationship with other recognizers on the response chain.
@@ -23305,7 +23407,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   fadingEdge(enabled: Optional<boolean>, options?: FadingEdgeOptions): T;
 
@@ -24413,7 +24515,7 @@ declare enum KeyboardAvoidMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare enum HoverModeAreaType {
 
@@ -24423,7 +24525,7 @@ declare enum HoverModeAreaType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   TOP_SCREEN = 0,
 
@@ -24433,7 +24535,7 @@ declare enum HoverModeAreaType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   BOTTOM_SCREEN = 1,
 }

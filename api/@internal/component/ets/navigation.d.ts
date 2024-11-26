@@ -84,7 +84,7 @@ declare interface NavigationCommonTitle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   main: string | Resource;
 
@@ -119,7 +119,7 @@ declare interface NavigationCommonTitle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   sub: string | Resource;
 }
@@ -524,7 +524,7 @@ declare interface NavigationMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   value: string | Resource;
 
@@ -559,7 +559,7 @@ declare interface NavigationMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   icon?: string | Resource;
 
@@ -2103,7 +2103,7 @@ declare interface NavigationTitleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   enableHoverMode?: boolean;
 }
@@ -2505,7 +2505,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   hideTitleBar(hide: boolean, animated: boolean): NavigationAttribute;
 
@@ -2670,7 +2670,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   hideToolBar(hide: boolean, animated: boolean): NavigationAttribute;
 
@@ -2817,7 +2817,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @param { boolean } recoverable - navigation can be recovered.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 13
+   * @since 14
    */
   recoverable(recoverable: Optional<boolean>): NavigationAttribute;
 

@@ -324,7 +324,7 @@ declare namespace systemSoundManager {
    * @typedef {RingtoneType | SystemToneType} ToneHapticsType
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 13
+   * @since 14
    */
   type ToneHapticsType = RingtoneType | SystemToneType;
 
@@ -333,21 +333,21 @@ declare namespace systemSoundManager {
    * @enum {number}
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 13
+   * @since 14
    */
   enum ToneHapticsMode {
     /**
      * None haptics mode.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     NONE = 0,
     /**
      * Haptics is synchronized with tone.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     SYNC = 1,
 
@@ -355,7 +355,7 @@ declare namespace systemSoundManager {
      * Haptics is out of synchronize with tone.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     NON_SYNC = 2,
   }
@@ -364,7 +364,7 @@ declare namespace systemSoundManager {
    * @typedef ToneHapticsSettings
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 13
+   * @since 14
    */
   interface ToneHapticsSettings {
     /**
@@ -372,7 +372,7 @@ declare namespace systemSoundManager {
      * @type { ToneHapticsMode }
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     mode: ToneHapticsMode;
     /**
@@ -381,7 +381,7 @@ declare namespace systemSoundManager {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     hapticsUri?: string;
   }
@@ -391,7 +391,7 @@ declare namespace systemSoundManager {
    * @typedef ToneHapticsAttrs
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 13
+   * @since 14
    */
   interface ToneHapticsAttrs {
     /**
@@ -400,7 +400,7 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     getUri(): string;
 
@@ -410,7 +410,7 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     getTitle(): string;
 
@@ -420,7 +420,7 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     getFileName(): string;
   }
@@ -431,7 +431,7 @@ declare namespace systemSoundManager {
    * @typedef { Array<ToneHapticsAttrs> } ToneHapticsAttrsArray
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 13
+   * @since 14
    */
   type ToneHapticsAttrsArray = Array<ToneHapticsAttrs>;
 
@@ -868,7 +868,7 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 20700003 - Unsupported operation.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     getToneHapticsSettings(context: BaseContext, type: ToneHapticsType): Promise<ToneHapticsSettings>;
 
@@ -887,7 +887,7 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 20700003 - Unsupported operation.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     setToneHapticsSettings(context: BaseContext, type: ToneHapticsType, settings: ToneHapticsSettings): Promise<void>;
 
@@ -904,7 +904,7 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 20700003 - Unsupported operation.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     getToneHapticsList(context: BaseContext, isSynced: boolean): Promise<ToneHapticsAttrsArray>;
 
@@ -923,7 +923,7 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 20700003 - Unsupported operation.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     getHapticsAttrsSyncedWithTone(context: BaseContext, toneUri: string): Promise<ToneHapticsAttrs>;
 
@@ -941,7 +941,7 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 20700003 - Unsupported operation.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     openToneHaptics(context: BaseContext, hapticsUri: string): Promise<number>;
   }

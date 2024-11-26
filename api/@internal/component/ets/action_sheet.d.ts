@@ -126,7 +126,7 @@ interface SheetInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   action: VoidCallback;
 }
@@ -171,7 +171,7 @@ declare interface DismissDialogAction {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 interface ActionSheetButtonOptions {
   /**
@@ -300,7 +300,7 @@ interface ActionSheetButtonOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 interface ActionSheetOffset {
   /**
@@ -310,7 +310,7 @@ interface ActionSheetOffset {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   dx: number | string | Resource;
   /**
@@ -320,7 +320,7 @@ interface ActionSheetOffset {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   dy: number | string | Resource;
 }
@@ -451,7 +451,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   confirm?: ActionSheetButtonOptions;
 
@@ -486,7 +486,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   cancel?: VoidCallback;
 
@@ -599,7 +599,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   offset?: ActionSheetOffset;
 
@@ -811,7 +811,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   enableHoverMode?: boolean;
 
@@ -823,7 +823,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   hoverModeArea?: HoverModeAreaType;
 }

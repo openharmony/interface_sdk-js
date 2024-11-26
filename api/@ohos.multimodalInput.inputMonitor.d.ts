@@ -477,7 +477,7 @@ declare namespace inputMonitor {
    *                                 2.Incorrect parameter types.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 13
+   * @since 14
    */
   function on(type: 'touchscreenSwipe', fingers: number, receiver: Callback<TouchGestureEvent>): void;
 
@@ -495,7 +495,7 @@ declare namespace inputMonitor {
    *                                 2.Incorrect parameter types.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 13
+   * @since 14
    */
   function off(type: 'touchscreenSwipe', fingers: number, receiver?: Callback<TouchGestureEvent>): void;
 
@@ -513,7 +513,7 @@ declare namespace inputMonitor {
    *                                 2.Incorrect parameter types.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 13
+   * @since 14
    */
   function on(type: 'touchscreenPinch', fingers: number, receiver: Callback<TouchGestureEvent>): void;
 
@@ -531,7 +531,7 @@ declare namespace inputMonitor {
    *                                 2.Incorrect parameter types.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 13
+   * @since 14
    */
   function off(type: 'touchscreenPinch', fingers: number, receiver?: Callback<TouchGestureEvent>): void;
 }

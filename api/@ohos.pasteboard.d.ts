@@ -50,7 +50,7 @@ declare namespace pasteboard {
    * @atomicservice
    * @since 11
    */
-  const MAX_RECORD_NUM: number;
+  const MAX_RECORD_NUM = 512;
   /**
    * Indicates MIME types of HTML text.
    * @constant
@@ -64,7 +64,7 @@ declare namespace pasteboard {
    * @atomicservice
    * @since 11
    */
-  const MIMETYPE_TEXT_HTML: string;
+  const MIMETYPE_TEXT_HTML = 'text/html';
   /**
    * Indicates MIME types of wants.
    * @constant
@@ -78,7 +78,7 @@ declare namespace pasteboard {
    * @atomicservice
    * @since 11
    */
-  const MIMETYPE_TEXT_WANT: string;
+  const MIMETYPE_TEXT_WANT = 'text/want';
   /**
    * Indicates MIME types of plain text.
    * @constant
@@ -92,7 +92,7 @@ declare namespace pasteboard {
    * @atomicservice
    * @since 11
    */
-  const MIMETYPE_TEXT_PLAIN: string;
+  const MIMETYPE_TEXT_PLAIN = 'text/plain';
   /**
    * Indicates MIME types of URIs.
    * @constant
@@ -106,7 +106,7 @@ declare namespace pasteboard {
    * @atomicservice
    * @since 11
    */
-  const MIMETYPE_TEXT_URI: string;
+  const MIMETYPE_TEXT_URI = 'text/uri';
   /**
    * Indicates MIME type of PixelMap.
    * @constant
@@ -120,7 +120,7 @@ declare namespace pasteboard {
    * @atomicservice
    * @since 11
    */
-  const MIMETYPE_PIXELMAP: string;
+  const MIMETYPE_PIXELMAP = 'pixelMap';
 
   /**
    * Indicates type of value.
@@ -1586,6 +1586,16 @@ declare namespace pasteboard {
      * @since 13
      */
     detectPatterns(patterns: Array<Pattern>): Promise<Array<Pattern>>;
+
+    /**
+     * Get the MIME types in the pasteboard.
+     * 
+     * @returns { Promise<Array<string>> } Promise used to return the MIME types.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 14
+     */
+    getMimeTypes(): Promise<Array<string>>;
   }
 }
 

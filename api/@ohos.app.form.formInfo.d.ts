@@ -1226,6 +1226,24 @@ declare namespace formInfo {
      * @since 12
      */
     DIMENSION_6_4,
+
+    /**
+     * 2 x 3 form used for wearable devices
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 14
+     */
+    DIMENSION_2_3 = 8,
+
+    /**
+     * 3 x 3 form used for wearable devices
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 14
+     */
+    DIMENSION_3_3 = 9,
   }
 
    /**
@@ -1538,6 +1556,7 @@ declare namespace formInfo {
      * Obtains the id of the this form.
      *
      * @type { string }
+     * @readonly
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi
@@ -1549,6 +1568,7 @@ declare namespace formInfo {
      * Obtains the bundle name of the application to which this form belongs.
      *
      * @type { string }
+     * @readonly
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi
@@ -1560,6 +1580,7 @@ declare namespace formInfo {
      * Obtains the bundle name of the form host application.
      *
      * @type { string }
+     * @readonly
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi
@@ -1571,6 +1592,7 @@ declare namespace formInfo {
      * The location of this form.
      *
      * @type { FormLocation }
+     * @readonly
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi
@@ -1582,6 +1604,7 @@ declare namespace formInfo {
      * Obtains the visibility of this form.
      *
      * @type { VisibilityType }
+     * @readonly
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi
@@ -1593,6 +1616,7 @@ declare namespace formInfo {
      * Obtains the name of the application module to which this form belongs.
      *
      * @type { string }
+     * @readonly
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi
@@ -1604,6 +1628,7 @@ declare namespace formInfo {
      * Obtains the class name of the ability to which this form belongs.
      *
      * @type { string }
+     * @readonly
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi
@@ -1615,6 +1640,7 @@ declare namespace formInfo {
      * Obtains the name of this form.
      *
      * @type { string }
+     * @readonly
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi
@@ -1626,6 +1652,7 @@ declare namespace formInfo {
      * Obtains the grid style of this form.
      *
      * @type { number }
+     * @readonly
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi

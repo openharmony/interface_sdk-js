@@ -129,6 +129,7 @@ declare namespace windowAnimationManager {
     /**
      * The bundle name of the window animation target.
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -138,6 +139,7 @@ declare namespace windowAnimationManager {
     /**
     /* The ability name of the window animation target.
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -147,6 +149,7 @@ declare namespace windowAnimationManager {
     /**
     /* The window bounds of the window animation target.
      * @type { RRect }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -156,6 +159,7 @@ declare namespace windowAnimationManager {
     /**
     /* The mission id of the window animation target.
      * @type { number }  
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9

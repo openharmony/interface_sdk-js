@@ -30,6 +30,7 @@ export default interface InputMethodSubtype {
    * The label of input method subtype.
    *
    * @type { ?string }
+   * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -39,6 +40,7 @@ export default interface InputMethodSubtype {
    * The label id of input method subtype.
    *
    * @type { ?number }
+   * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10
    */
@@ -48,6 +50,7 @@ export default interface InputMethodSubtype {
    * The name of input method.
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -57,6 +60,7 @@ export default interface InputMethodSubtype {
    * The id of input method subtype.
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -66,6 +70,7 @@ export default interface InputMethodSubtype {
    * The mode of input method subtype.
    *
    * @type { ?('upper' | 'lower') }
+   * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -75,6 +80,7 @@ export default interface InputMethodSubtype {
    * The locale of input method subtype.
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -84,6 +90,7 @@ export default interface InputMethodSubtype {
    * The language of input method subtype.
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -93,6 +100,7 @@ export default interface InputMethodSubtype {
    * The icon of input method subtype.
    *
    * @type { ?string }
+   * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -102,6 +110,7 @@ export default interface InputMethodSubtype {
    * The icon id of input method subtype.
    *
    * @type { ?number }
+   * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */

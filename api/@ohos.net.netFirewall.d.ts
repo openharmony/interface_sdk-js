@@ -23,7 +23,8 @@
  * 
  * @namespace netFirewall
  * @syscap SystemCapability.Communication.NetManager.NetFirewall
- * @since 12
+ * @systemapi Hide this for inner system use.
+ * @since 14
  */
 declare namespace netFirewall {
   /**
@@ -44,7 +45,7 @@ declare namespace netFirewall {
    * @throws { BusinessError } 29400000 - The specified user does not exist.
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 14
    */
   function setNetFirewallPolicy(userId: number, policy: NetFirewallPolicy): Promise<void>;
 
@@ -63,7 +64,7 @@ declare namespace netFirewall {
    * @throws { BusinessError } 29400000 - The specified user does not exist.
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 14
    */
   function getNetFirewallPolicy(userId: number): Promise<NetFirewallPolicy>;
 
@@ -88,7 +89,7 @@ declare namespace netFirewall {
    * @throws { BusinessError } 29400007 - The dns rule is duplication.
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 14
    */
   function addNetFirewallRule(rule: NetFirewallRule): Promise<number>;
 
@@ -113,7 +114,7 @@ declare namespace netFirewall {
    * @throws { BusinessError } 29400007 - The dns rule is duplication.
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 14
    */
   function updateNetFirewallRule(rule: NetFirewallRule): Promise<void>;
 
@@ -134,7 +135,7 @@ declare namespace netFirewall {
    * @throws { BusinessError } 29400006 - The specified rule does not exist.
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 14
    */
   function removeNetFirewallRule(userId: number, ruleId: number): Promise<void>;
 
@@ -154,7 +155,7 @@ declare namespace netFirewall {
    * @throws { BusinessError } 29400000 - The specified user does not exist.
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 14
    */
   function getNetFirewallRules(userId: number, requestParam: RequestParam): Promise<FirewallRulePage>;
 
@@ -175,7 +176,7 @@ declare namespace netFirewall {
    * @throws { BusinessError } 29400006 - The specified rule does not exist.
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 14
    */
   function getNetFirewallRule(userId: number, ruleId: number): Promise<NetFirewallRule>;
 
@@ -195,7 +196,7 @@ declare namespace netFirewall {
    * @throws { BusinessError } 29400000 - The specified user does not exist.
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 14
    */
   function getInterceptedRecords(userId: number, requestParam: RequestParam): Promise<InterceptedRecordPage>;
 
@@ -205,7 +206,7 @@ declare namespace netFirewall {
    * @enum {number}
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 14
    */
   enum NetFirewallRuleDirection {
     /**
@@ -213,7 +214,7 @@ declare namespace netFirewall {
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     RULE_IN = 1,
     /**
@@ -221,7 +222,7 @@ declare namespace netFirewall {
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     RULE_OUT = 2
   }
@@ -232,7 +233,7 @@ declare namespace netFirewall {
    * @enum {number}
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 14
    */
   enum FirewallRuleAction {
     /**
@@ -240,7 +241,7 @@ declare namespace netFirewall {
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     RULE_ALLOW = 0,
     /**
@@ -248,7 +249,7 @@ declare namespace netFirewall {
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     RULE_DENY = 1
   }
@@ -259,7 +260,7 @@ declare namespace netFirewall {
    * @enum {number}
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 14
    */
   enum NetFirewallRuleType {
     /**
@@ -267,7 +268,7 @@ declare namespace netFirewall {
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     RULE_IP = 1,
     /**
@@ -275,7 +276,7 @@ declare namespace netFirewall {
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     RULE_DOMAIN = 2,
     /**
@@ -283,7 +284,7 @@ declare namespace netFirewall {
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     RULE_DNS = 3
   }
@@ -294,7 +295,7 @@ declare namespace netFirewall {
    * @enum {number}
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 14
    */
   enum NetFirewallOrderField {
     /**
@@ -302,7 +303,7 @@ declare namespace netFirewall {
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     ORDER_BY_RULE_NAME = 1,
     /**
@@ -310,7 +311,7 @@ declare namespace netFirewall {
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     ORDER_BY_RECORD_TIME = 100,
   }
@@ -321,7 +322,7 @@ declare namespace netFirewall {
    * @enum {number}
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 14
    */
   enum NetFirewallOrderType {
     /**
@@ -329,7 +330,7 @@ declare namespace netFirewall {
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     ORDER_ASC = 1,
     /**
@@ -337,7 +338,7 @@ declare namespace netFirewall {
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     ORDER_DESC = 100,
   }
@@ -348,7 +349,7 @@ declare namespace netFirewall {
    * @interface NetFirewallPolicy
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 14
    */
   interface NetFirewallPolicy {
     /**
@@ -357,7 +358,7 @@ declare namespace netFirewall {
      * @type {boolean}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     isOpen: boolean;
 
@@ -367,7 +368,7 @@ declare namespace netFirewall {
      * @type {FirewallRuleAction}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     inAction: FirewallRuleAction;
 
@@ -377,7 +378,7 @@ declare namespace netFirewall {
      * @type {FirewallRuleAction}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     outAction: FirewallRuleAction;
   }
@@ -388,7 +389,7 @@ declare namespace netFirewall {
    * @interface NetFirewallIpParams
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 14
    */
   interface NetFirewallIpParams {
     /**
@@ -397,7 +398,7 @@ declare namespace netFirewall {
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     type: number;
     /**
@@ -406,7 +407,7 @@ declare namespace netFirewall {
      * @type {?number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     family?: number;
     /**
@@ -415,7 +416,7 @@ declare namespace netFirewall {
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     address?: string;
     /**
@@ -424,7 +425,7 @@ declare namespace netFirewall {
      * @type {?number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     mask?: number;
     /**
@@ -433,7 +434,7 @@ declare namespace netFirewall {
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     startIp?: string;
     /**
@@ -442,7 +443,7 @@ declare namespace netFirewall {
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     endIp?: string;
   }
@@ -453,7 +454,7 @@ declare namespace netFirewall {
    * @interface NetFirewallPortParams
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 14
    */
   interface NetFirewallPortParams {
     /**
@@ -462,7 +463,7 @@ declare namespace netFirewall {
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     startPort: number;
     /**
@@ -471,7 +472,7 @@ declare namespace netFirewall {
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     endPort: number;
   }
@@ -482,7 +483,7 @@ declare namespace netFirewall {
    * @interface NetFirewallDomainParams
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 14
    */
   interface NetFirewallDomainParams {
     /**
@@ -491,7 +492,7 @@ declare namespace netFirewall {
      * @type {boolean}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     isWildcard: boolean;
     /**
@@ -501,7 +502,7 @@ declare namespace netFirewall {
      * @type {string}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     domain: string;
   }
@@ -512,7 +513,7 @@ declare namespace netFirewall {
    * @interface NetFirewallDnsParams
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 14
    */
   interface NetFirewallDnsParams {
     /**
@@ -521,7 +522,7 @@ declare namespace netFirewall {
      * @type {string}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     primaryDns: string;
     /**
@@ -530,7 +531,7 @@ declare namespace netFirewall {
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     standbyDns?: string;
   }
@@ -541,7 +542,7 @@ declare namespace netFirewall {
    * @interface NetFirewallRule
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 14
    */
   interface NetFirewallRule {
     /**
@@ -550,7 +551,7 @@ declare namespace netFirewall {
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     userId: number;
     /**
@@ -559,7 +560,7 @@ declare namespace netFirewall {
      * @type {string}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     name: string;
     /**
@@ -568,7 +569,7 @@ declare namespace netFirewall {
      * @type {NetFirewallRuleDirection}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     direction: NetFirewallRuleDirection;
     /**
@@ -577,7 +578,7 @@ declare namespace netFirewall {
      * @type {FirewallRuleAction}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     action: FirewallRuleAction;
     /**
@@ -586,7 +587,7 @@ declare namespace netFirewall {
      * @type {NetFirewallRuleType}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     type: NetFirewallRuleType;
     /**
@@ -595,7 +596,7 @@ declare namespace netFirewall {
      * @type {boolean}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     isEnabled: boolean;
     /**
@@ -604,7 +605,7 @@ declare namespace netFirewall {
      * @type {?number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     id?: number;
     /**
@@ -613,7 +614,7 @@ declare namespace netFirewall {
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     description?: string;
     /**
@@ -622,7 +623,7 @@ declare namespace netFirewall {
      * @type {?number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     appUid?: number;
     /**
@@ -631,7 +632,7 @@ declare namespace netFirewall {
      * @type {?Array<NetFirewallIpParams>}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     localIps?: Array<NetFirewallIpParams>;
     /**
@@ -640,7 +641,7 @@ declare namespace netFirewall {
      * @type {?Array<NetFirewallIpParams>}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     remoteIps?: Array<NetFirewallIpParams>;
     /**
@@ -649,7 +650,7 @@ declare namespace netFirewall {
      * @type {?number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     protocol?: number;
     /**
@@ -658,7 +659,7 @@ declare namespace netFirewall {
      * @type {?Array<NetFirewallPortParams>}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     localPorts?: Array<NetFirewallPortParams>;
     /**
@@ -667,7 +668,7 @@ declare namespace netFirewall {
      * @type {?Array<NetFirewallPortParams>}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     remotePorts?: Array<NetFirewallPortParams>;
     /**
@@ -676,7 +677,7 @@ declare namespace netFirewall {
      * @type {?Array<NetFirewallDomainParams>}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     domains?: Array<NetFirewallDomainParams>;
     /**
@@ -685,7 +686,7 @@ declare namespace netFirewall {
      * @type {?NetFirewallDnsParams}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     dns?: NetFirewallDnsParams;
   }
@@ -696,7 +697,7 @@ declare namespace netFirewall {
    * @interface InterceptedRecord
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 14
    */
   interface InterceptedRecord {
     /**
@@ -705,7 +706,7 @@ declare namespace netFirewall {
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     time: number;
     /**
@@ -714,7 +715,7 @@ declare namespace netFirewall {
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     localIp?: string;
     /**
@@ -723,7 +724,7 @@ declare namespace netFirewall {
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     remoteIp?: string;
     /**
@@ -732,7 +733,7 @@ declare namespace netFirewall {
      * @type {?number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     localPort?: number;
     /**
@@ -741,7 +742,7 @@ declare namespace netFirewall {
      * @type {?number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     remotePort?: number;
     /**
@@ -750,7 +751,7 @@ declare namespace netFirewall {
      * @type {?number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     protocol?: number;
     /**
@@ -759,7 +760,7 @@ declare namespace netFirewall {
      * @type {?number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     appUid?: number;
     /**
@@ -768,7 +769,7 @@ declare namespace netFirewall {
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     domain?: string;
   }
@@ -779,7 +780,7 @@ declare namespace netFirewall {
    * @interface RequestParam
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 14
    */
   interface RequestParam {
     /**
@@ -788,7 +789,7 @@ declare namespace netFirewall {
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     page: number;
     /**
@@ -797,7 +798,7 @@ declare namespace netFirewall {
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     pageSize: number;
     /**
@@ -806,7 +807,7 @@ declare namespace netFirewall {
      * @type {NetFirewallOrderField}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     orderField: NetFirewallOrderField;
     /**
@@ -815,7 +816,7 @@ declare namespace netFirewall {
      * @type {NetFirewallOrderType}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     orderType: NetFirewallOrderType;
   }
@@ -826,7 +827,7 @@ declare namespace netFirewall {
    * @interface FirewallRulePage
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 14
    */
   interface FirewallRulePage {
     /**
@@ -835,7 +836,7 @@ declare namespace netFirewall {
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     page: number;
     /**
@@ -844,7 +845,7 @@ declare namespace netFirewall {
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     pageSize: number;
     /**
@@ -853,7 +854,7 @@ declare namespace netFirewall {
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     totalPage: number;
     /**
@@ -862,7 +863,7 @@ declare namespace netFirewall {
      * @type {Array<NetFirewallRule> }
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     data: Array<NetFirewallRule>;
   }
@@ -873,7 +874,7 @@ declare namespace netFirewall {
    * @interface InterceptedRecordPage
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 14
    */
   interface InterceptedRecordPage {
     /**
@@ -882,7 +883,7 @@ declare namespace netFirewall {
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     page: number;
     /**
@@ -891,7 +892,7 @@ declare namespace netFirewall {
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     pageSize: number;
     /**
@@ -900,7 +901,7 @@ declare namespace netFirewall {
      * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     totalPage: number;
     /**
@@ -909,7 +910,7 @@ declare namespace netFirewall {
      * @type {Array<InterceptedRecord>}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     data: Array<InterceptedRecord>;
   }

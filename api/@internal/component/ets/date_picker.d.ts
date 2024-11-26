@@ -437,7 +437,7 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   onDateChange(callback: Callback<Date>): DatePickerAttribute;
 }
@@ -783,7 +783,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   onCancel?: VoidCallback;
 
@@ -822,7 +822,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   onDateAccept?: Callback<Date>;
 
@@ -850,7 +850,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   onDateChange?: Callback<Date>;
 
@@ -912,7 +912,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   onDidAppear?: VoidCallback;
 
@@ -932,7 +932,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   onDidDisappear?: VoidCallback;
 
@@ -952,7 +952,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   onWillAppear?: VoidCallback;
 
@@ -972,7 +972,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   onWillDisappear?: VoidCallback;
 
@@ -1006,7 +1006,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   enableHoverMode?: boolean;
 
@@ -1018,7 +1018,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   hoverModeArea?: HoverModeAreaType;
 }
