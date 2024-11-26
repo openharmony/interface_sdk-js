@@ -406,6 +406,16 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
    * @since 12
    */
   onTerminated(callback: Callback<TerminationInfo>): UIExtensionComponentAttribute;
+
+    /**
+     * Callback called when the UIExtensionAbility draw the first frame.
+     * @param { Callback<void> } callback
+     * @returns { UIExtensionComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 16
+     */
+    onDrawReady(callback: Callback<void>): UIExtensionComponentAttribute
 }
 
 /**
