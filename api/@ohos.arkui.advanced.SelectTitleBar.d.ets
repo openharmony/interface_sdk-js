@@ -99,6 +99,16 @@ export declare class SelectTitleBarMenuItem {
 }
 
 /**
+ * Defines the icon options.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+export type iconOptions = SymbolGlyphModifier;
+
+/**
  * Declaration of the selectable title bar.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
