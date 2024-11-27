@@ -498,6 +498,7 @@ declare interface BadgeParam {
 /**
  * Defines the badge param with count and maxCount.
  *
+ * @extends BadgeParam
  * @interface BadgeParamWithNumber
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -505,6 +506,7 @@ declare interface BadgeParam {
 /**
  * Defines the badge param with count and maxCount.
  *
+ * @extends BadgeParam
  * @interface BadgeParamWithNumber
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
@@ -513,6 +515,7 @@ declare interface BadgeParam {
 /**
  * Defines the badge param with count and maxCount.
  *
+ * @extends BadgeParam
  * @interface BadgeParamWithNumber
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -522,6 +525,7 @@ declare interface BadgeParam {
 /**
  * Defines the badge param with count and maxCount.
  *
+ * @extends BadgeParam
  * @interface BadgeParamWithNumber
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -606,6 +610,7 @@ declare interface BadgeParamWithNumber extends BadgeParam {
 /**
  * Defines the badge param with string value.
  *
+ * @extends BadgeParam
  * @interface BadgeParamWithString
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -613,6 +618,7 @@ declare interface BadgeParamWithNumber extends BadgeParam {
 /**
  * Defines the badge param with string value.
  *
+ * @extends BadgeParam
  * @interface BadgeParamWithString
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
@@ -621,6 +627,7 @@ declare interface BadgeParamWithNumber extends BadgeParam {
 /**
  * Defines the badge param with string value.
  *
+ * @extends BadgeParam
  * @interface BadgeParamWithString
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -630,6 +637,7 @@ declare interface BadgeParamWithNumber extends BadgeParam {
 /**
  * Defines the badge param with string value.
  *
+ * @extends BadgeParam
  * @interface BadgeParamWithString
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform

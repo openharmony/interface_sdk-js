@@ -25,7 +25,7 @@
  * Defines QRCode Modifier
  *
  * @extends QRCodeAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<QRCodeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

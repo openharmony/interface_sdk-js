@@ -25,7 +25,7 @@
  * Defines Progress Modifier
  *
  * @extends ProgressAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<ProgressAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

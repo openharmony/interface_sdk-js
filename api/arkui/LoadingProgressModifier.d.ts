@@ -25,7 +25,7 @@
  * Defines LoadingProgress Modifier
  *
  * @extends LoadingProgressAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<LoadingProgressAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
