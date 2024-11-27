@@ -1401,6 +1401,96 @@ declare namespace media {
      * @since 12
      */
     AVERR_AUDIO_INTERRUPTED = 5400107,
+    /**
+     * The address of server is incorrect, and IO can not find host.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_HOST_NOT_FOUND = 5411001,
+    /**
+     * Network connection timeout.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_CONNECTION_TIMEOUT = 5411002,
+    /**
+     * Failed link due to abnormal network.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_NETWORK_ABNORMAL = 5411003,
+    /**
+     * Failed link due to unavailable network.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_NETWORK_UNAVAILABLE = 5411004,
+    /**
+     * Network permission dennied.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_NO_PERMISSION = 5411005,
+    /**
+     * The client request parameters are incorrect or exceed the processing capacity.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_REQUEST_DENIED = 5411006,
+    /**
+     * Cannot find available network resources.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_RESOURCE_NOT_FOUND = 5411007,
+    /**
+     * The server failS to verify the client certificate because the certificate is not carried,
+     * the certificate is invalid, or the certificate is expired.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_SSL_CLIENT_CERT_NEEDED = 5411008,
+    /**
+     * The client fails to verify the server certificate because the certificate is not carried,
+     * the certificate is invalid, or the certificate is expired.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_SSL_CONNECTION_FAILED = 5411009,
+    /**
+     * IO SSL server cert untrusted.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_SSL_SERVER_CERT_UNTRUSTED = 5411010,
+    /**
+     * Unsupported request due to network protocols.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    AVERR_IO_UNSUPPORTED_REQUEST = 5411011,
   }
 
   /**
