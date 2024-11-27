@@ -2415,12 +2415,6 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 12
    */
-  /**
-   * Wi-Fi Category.
-   * @enum { number }
-   * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 16
-   */
   enum WifiCategory {
     /**
      * Default.
