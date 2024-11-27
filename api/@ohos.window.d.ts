@@ -7078,12 +7078,14 @@ declare namespace window {
      * Raise app sub window to app top
      *
      * @param { AsyncCallback<void> } callback - The callback of raiseToAppTop
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @throws { BusinessError } 1300009 - The parent window is invalid.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 14
+     * @systemapi Hide this for inner system use.
+     * @since 10
      */
     raiseToAppTop(callback: AsyncCallback<void>): void;
 
@@ -7303,6 +7305,7 @@ declare namespace window {
      *
      * @param { boolean } enable - Disable app sub window to raise itself by by click if false.
      * @param { AsyncCallback<void> } callback - The callback of setRaiseByClickEnabled.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -7311,7 +7314,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @throws { BusinessError } 1300009 - The parent window is invalid.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 14
+     * @systemapi Hide this for inner system use.
+     * @since 10
      */
     setRaiseByClickEnabled(enable: boolean, callback: AsyncCallback<void>): void;
 
