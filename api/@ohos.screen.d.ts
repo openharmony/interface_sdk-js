@@ -214,19 +214,19 @@ declare namespace screen {
   function stopMirror(mirrorScreen: Array<number>): Promise<void>;
   
   /**
-   * Make unique screens.
+   * Make screens as unique-screen
    *
-   * @param { Array<number> } screenIds Screen IDs required to make the screen unique.
+   * @param { Array<number> } uniqueScreen IDs of the unique screens. It's type should be int.
    * @returns { Promise<Array<number>> } Promise used to return the display IDs of unique screens.
    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *                                                                   2. Incorrect parameter types.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 13
    */
-  function makeUnique(screenIds: Array<number>): Promise<Array<number>>;
+  function makeUnique(uniqueScreen: Array<number>): Promise<Array<number>>;
 
   /**
    * Create virtual screen. if surfaceId is valid, this permission is necessary.
