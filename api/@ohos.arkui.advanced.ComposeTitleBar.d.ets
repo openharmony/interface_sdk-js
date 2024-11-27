@@ -87,6 +87,15 @@ export declare class ComposeTitleBarMenuItem {
    * @since 11
    */
   action?: () => void;
+
+  /**
+   * The accessibilityText of this menu item.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityText?: ResourceStr;
 }
 
 /**
