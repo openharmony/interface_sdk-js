@@ -24,7 +24,7 @@
  * Defines Common Modifier
  *
  * @extends CommonAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<CommonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

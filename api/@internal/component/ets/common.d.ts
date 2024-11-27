@@ -1441,6 +1441,7 @@ declare interface Configuration {
    * Set colorMode.
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1477,6 +1478,7 @@ declare interface Configuration {
    * Set fontScale.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -6351,6 +6353,7 @@ declare enum ModalTransition {
 /**
  * Defines the options of backgroundBlurStyle
  *
+ * @extends BlurStyleOption
  * @interface BackgroundBlurStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -6394,6 +6397,7 @@ declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
 /**
  * Defines the options of ForegroundBlurStyle
  *
+ * @extends BlurStyleOptions
  * @interface ForegroundBlurStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -22070,6 +22074,7 @@ declare interface LayoutChild {
 /**
  * Sub component layout info.
  *
+ * @extends SizeResult
  * @interface GeometryInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -24133,7 +24138,7 @@ declare interface KeyframeState {
 /**
  * Defines the basic callback.
  *
- * @typedef Callback
+ * @typedef Callback<T, V = void>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
