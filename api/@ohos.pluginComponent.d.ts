@@ -587,7 +587,7 @@ declare namespace pluginComponentManager {
    * Plugin component request event callback.
    *
    * @typedef { function } OnRequestEventCallback
-   * @returns { RequestEventResult } Returns the RequestEventResult.
+   * @returns { RequestEventResult } Returns the request event result.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
