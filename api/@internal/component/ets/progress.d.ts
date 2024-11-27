@@ -422,6 +422,7 @@ declare enum ProgressStatus {
 /**
  * Defines style options for progress component.
  *
+ * @extends CommonProgressStyleOptions
  * @interface ProgressStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
@@ -429,6 +430,7 @@ declare enum ProgressStatus {
 /**
  * Defines style options for progress component.
  *
+ * @extends CommonProgressStyleOptions
  * @interface ProgressStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
@@ -437,6 +439,7 @@ declare enum ProgressStatus {
 /**
  * Defines style options for progress component.
  *
+ * @extends CommonProgressStyleOptions
  * @interface ProgressStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -446,6 +449,7 @@ declare enum ProgressStatus {
 /**
  * Defines style options for progress component.
  *
+ * @extends CommonProgressStyleOptions
  * @interface ProgressStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -642,6 +646,7 @@ declare interface ScanEffectOptions {
 /**
  * Defines the Eclipse style Options.
  *
+ * @extends CommonProgressStyleOptions
  * @interface EclipseStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
@@ -649,6 +654,7 @@ declare interface ScanEffectOptions {
 /**
  * Defines the Eclipse style Options.
  *
+ * @extends CommonProgressStyleOptions
  * @interface EclipseStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -661,6 +667,7 @@ declare interface EclipseStyleOptions extends CommonProgressStyleOptions {
 /**
  * Defines the ScaleRing style Options.
  *
+ * @extends CommonProgressStyleOptions
  * @interface ScaleRingStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
@@ -668,6 +675,7 @@ declare interface EclipseStyleOptions extends CommonProgressStyleOptions {
 /**
  * Defines the ScaleRing style Options.
  *
+ * @extends CommonProgressStyleOptions
  * @interface ScaleRingStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -733,6 +741,7 @@ declare interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
 /**
  * Defines the ring style Options.
  *
+ * @extends ScanEffectOptions, CommonProgressStyleOptions
  * @interface RingStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
@@ -740,6 +749,7 @@ declare interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
 /**
  * Defines the ring style Options.
  *
+ * @extends ScanEffectOptions, CommonProgressStyleOptions
  * @interface RingStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -805,6 +815,7 @@ declare interface RingStyleOptions extends ScanEffectOptions, CommonProgressStyl
 /**
  * Defines the linear style Options.
  *
+ * @extends ScanEffectOptions, CommonProgressStyleOptions
  * @interface LinearStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
@@ -812,6 +823,7 @@ declare interface RingStyleOptions extends ScanEffectOptions, CommonProgressStyl
 /**
  * Defines the linear style Options.
  *
+ * @extends ScanEffectOptions, CommonProgressStyleOptions
  * @interface LinearStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -860,6 +872,7 @@ declare interface LinearStyleOptions extends ScanEffectOptions, CommonProgressSt
 /**
  * Defines the capsule style Options.
  *
+ * @extends ScanEffectOptions, CommonProgressStyleOptions
  * @interface CapsuleStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
@@ -867,6 +880,7 @@ declare interface LinearStyleOptions extends ScanEffectOptions, CommonProgressSt
 /**
  * Defines the capsule style Options.
  *
+ * @extends ScanEffectOptions, CommonProgressStyleOptions
  * @interface CapsuleStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1521,7 +1535,7 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @atomicservice
    * @since 12
    */
-    privacySensitive(isPrivacySensitiveMode: Optional<boolean>): ProgressAttribute<Type>;
+  privacySensitive(isPrivacySensitiveMode: Optional<boolean>): ProgressAttribute<Type>;
 
   /**
    * Set the contentModifier of progress.
@@ -1539,6 +1553,7 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
 /**
  * ProgressConfiguration used by progress contentModifier
  *
+ * @extends CommonConfiguration<ProgressConfiguration>
  * @interface ProgressConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
