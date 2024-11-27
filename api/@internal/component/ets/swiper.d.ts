@@ -132,6 +132,20 @@ declare class SwiperController {
   changeIndex(index: number, useAnimation?: boolean);
 
   /**
+   * Controlling Swiper to change to the specified subcomponent.
+   *
+   * @param { number } index - the index of item to be redirected.
+   * @param { SwiperAnimationMode | boolean } animationMode - animation mode for changeIndex,
+   * true is equivalent to SwiperAnimationMode.DEFAULT_ANIMATION, false is equivalent to SwiperAnimationMode.NO_ANIMATION
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  changeIndex(index: number, animationMode: SwiperAnimationMode | boolean);
+
+  /**
    * Called when need to stop the swiper animation.
    *
    * @param { function } callback
@@ -1236,6 +1250,52 @@ declare enum SwiperNestedScrollMode {
    * @since 11
    */
   SELF_FIRST = 1,
+}
+
+/**
+ * Declare the animation mode of SwiperController's changeIndex method.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 16
+ */
+declare enum SwiperAnimationMode {
+  /**
+   * Jump to target index without animation.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  NO_ANIMATION = 0,
+
+  /**
+   * Scroll to target index with animation.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  DEFAULT_ANIMATION = 1,
+
+  /**
+   * Jump to some index near the target index without animation,
+   * then scroll to target index with animation.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  FAST_ANIMATION = 2,
 }
 
 /**

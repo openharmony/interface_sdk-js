@@ -129,6 +129,26 @@ declare enum AnimationMode {
    * @since 12
    */
   NO_ANIMATION = 2,
+
+  /**
+   * Jump to some index near the target without animation, then start animation after tabcontent is fully measured.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  CONTENT_FIRST_WITH_JUMP = 3,
+
+  /**
+   * Jump to some index near the target without animation, then start animation before tabcontent is fully measured.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  ACTION_FIRST_WITH_JUMP = 4,
 }
 
 /**
