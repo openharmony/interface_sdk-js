@@ -383,6 +383,15 @@ export interface NodeParam {
     icon?: ResourceStr;
 
     /**
+     * Set the icon resource.
+     * @type { ?iconOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    symbolIcon?: iconOptions;
+
+    /**
      * Set selected icon resource.
      * @type { Resource }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -398,6 +407,15 @@ export interface NodeParam {
     selectedIcon?: ResourceStr;
 
     /**
+     * Set selected icon resource.
+     * @type { ?iconOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    symbolSelectedIcon?: iconOptions;
+
+    /**
      * Set edit icon resource.
      * @type { Resource }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -411,6 +429,15 @@ export interface NodeParam {
      * @since 11
      */
     editIcon?: ResourceStr;
+
+    /**
+     * Set edit icon resource.
+     * @type { ?iconOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    symbolEditIcon?: iconOptions;
 
     /**
      * Set primary title content.
@@ -457,6 +484,16 @@ export interface NodeParam {
      */
     container?: () => void;
 }
+
+/**
+ * Defines the icon options.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+export type iconOptions = SymbolGlyphModifier;
 
 /**
  * Declare TreeController
