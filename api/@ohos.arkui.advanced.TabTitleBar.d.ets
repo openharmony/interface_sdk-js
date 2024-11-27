@@ -50,6 +50,15 @@ export declare class TabTitleBarMenuItem {
   value: ResourceStr;
 
   /**
+   * Icon resource for this menu item.
+   * @type { ?iconOptions }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  symbolValue?: iconOptions;
+
+  /**
    * Icon label for this menu item.
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -130,7 +139,26 @@ export declare class TabTitleBarTabItem {
    * @since 11
    */
   icon?: ResourceStr;
+
+  /**
+   * Icon resource for this tab item.
+   * @type { ?iconOptions }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  symbolIcon?: iconOptions;
 }
+
+/**
+ * Defines the icon options.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+export type iconOptions = SymbolGlyphModifier;
 
 /**
  * Declaration of the tabbed title bar.
