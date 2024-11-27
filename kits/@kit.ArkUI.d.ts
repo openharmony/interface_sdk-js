@@ -121,6 +121,7 @@ import SystemRouter, {
   RouterOptions, RouterState
 } from '@system.router';
 import { ArcAlphabetIndexer, ArcAlphabetIndexerAttribute } from '@ohos.arkui.ArcAlphabetIndexer';
+import { ArcScrollBar, ArcScrollBarAttribute } from '@ohos.arkui.ArcScrollBar';
 import { Colors, CustomColors, Theme, ThemeControl, CustomTheme } from '@ohos.arkui.theme';
 import {
   ExtraRegionPosition,
@@ -226,5 +227,5 @@ export {
   ArcAlphabetIndexer, ArcAlphabetIndexerAttribute,
   SuffixImageIconOptions, SymbolItemOptions,
   SplitPolicy, MultiNavigation, MultiNavPathStack, OverlayManagerOptions,
-  ArcList, ArcListItem, ArcListAttribute, ArcListItemAttribute
+  ArcList, ArcListItem, ArcListAttribute, ArcListItemAttribute, ArcScrollBar, ArcScrollBarAttribute
 };
