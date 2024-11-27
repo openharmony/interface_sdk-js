@@ -1036,8 +1036,8 @@ export class ParserParam {
     this.compilerHost = ts.createCompilerHost(compilerOption);
     // 设置别名
     this.compilerHost.resolveModuleNames = (moduleNames: string[], containingFile: string,
-        reusedNames: string[] | undefined, redirectedReference: ts.ResolvedProjectReference | undefined,
-        compilerOptions: ts.CompilerOptions) => {
+      reusedNames: string[] | undefined, redirectedReference: ts.ResolvedProjectReference | undefined,
+      compilerOptions: ts.CompilerOptions): (ts.ResolvedModule | undefined)[] => {
       return moduleNames.map(moduleName => {
         if (process.env.IS_OH === 'true') {
           return ts.resolveModuleName(moduleName, containingFile, compilerOptions, this.compilerHost).resolvedModule;
