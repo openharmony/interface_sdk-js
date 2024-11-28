@@ -2277,8 +2277,8 @@ declare namespace osAccount {
   /**
    * Options to create an OS account for domain.
    *
-   * @interface CreateOsAccountForDomainOptions
    * @extends CreateOsAccountOptions
+   * @interface CreateOsAccountForDomainOptions
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
    * @since 12
