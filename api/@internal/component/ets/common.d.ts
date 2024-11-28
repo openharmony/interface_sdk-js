@@ -1417,6 +1417,7 @@ declare interface Configuration {
    * Set colorMode.
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -1424,6 +1425,7 @@ declare interface Configuration {
    * Set colorMode.
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -1432,6 +1434,7 @@ declare interface Configuration {
    * Set colorMode.
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1454,6 +1457,7 @@ declare interface Configuration {
    * Set fontScale.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -1461,6 +1465,7 @@ declare interface Configuration {
    * Set fontScale.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -1469,6 +1474,7 @@ declare interface Configuration {
    * Set fontScale.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -6345,6 +6351,7 @@ declare enum ModalTransition {
 /**
  * Defines the options of backgroundBlurStyle
  *
+ * @extends BlurStyleOption
  * @interface BackgroundBlurStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -6390,6 +6397,7 @@ declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
  * Defines the options of ForegroundBlurStyle
  *
  * @interface ForegroundBlurStyleOptions
+ * @extends BlurStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -22066,6 +22074,7 @@ declare interface LayoutChild {
 /**
  * Sub component layout info.
  *
+ * @extends SizeResult
  * @interface GeometryInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
