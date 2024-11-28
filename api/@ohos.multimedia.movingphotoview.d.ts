@@ -19,8 +19,31 @@
  */
 
 import photoAccessHelper from './@ohos.file.photoAccessHelper';
-import image from './@ohos.multimedia.image';
 
+declare enum PixelMapFormat {
+    /**
+     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
+     * and are stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 14
+     */
+    RGBA_8888 = 0,
+    /**
+     * Indicates that the storage order is to store Y first and then V U alternately each occupies 8 bits
+     * and are stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 14
+     */
+    NV21 = 1
+}
 /**
  * Defines the moving photo view options.
  *
@@ -65,12 +88,12 @@ declare interface MovingPhotoViewOptions {
     /**
      * format of MovingPhotoView.
      *
-     * @type { ?image.PixelMapFormat }
+     * @type { ?PixelMapFormat }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14
      */
-    movingPhotoFromat?: image.PixelMapFormat;
+    movingPhotoFromat?: PixelMapFormat;
 }
 /**
  * Defines the moving photo view interface.
