@@ -20,15 +20,21 @@
 
 import photoAccessHelper from './@ohos.file.photoAccessHelper';
 
+/**
+ * Enumerates pixel map formats.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @systemapi
+ * @since 14
+ */
 declare enum PixelMapFormat {
     /**
      * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
      * and are stored from the higher-order to the lower-order bits.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
+     * @systemapi
      * @since 14
      */
     RGBA_8888 = 0,
@@ -37,9 +43,7 @@ declare enum PixelMapFormat {
      * and are stored from the higher-order to the lower-order bits.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
+     * @systemapi
      * @since 14
      */
     NV21 = 1
