@@ -296,6 +296,7 @@ declare namespace socket {
    */
   /**
    * Defines other properties of the UDPSocket connection.
+   * @extends ExtraOptionsBase
    * @interface UDPExtraOptions
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
@@ -999,6 +1000,7 @@ declare namespace socket {
    */
   /**
    * Defines a UDP MulticastSocket connection.
+   * @extends UDPSocket
    * @interface MulticastSocket
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
@@ -2093,6 +2095,7 @@ declare namespace socket {
    */
   /**
    * Defines other properties of the TCPSocket connection.
+   * @extends ExtraOptionsBase
    * @interface TCPExtraOptions
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform

@@ -238,7 +238,7 @@ declare namespace ethernet {
   /**
    * Get the ethernet mac address list.
    * @permission ohos.permission.GET_ETHERNET_LOCAL_MAC
-   * @returns { Promise<Array<string>> } the promise returned by the function.
+   * @returns { Promise<Array<MacAddressInfo>> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
