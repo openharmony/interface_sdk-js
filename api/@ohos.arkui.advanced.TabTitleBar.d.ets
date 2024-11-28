@@ -154,7 +154,6 @@ export declare class TabTitleBarTabItem {
  * Defines the icon options.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @atomicservice
  * @since 16
  */
