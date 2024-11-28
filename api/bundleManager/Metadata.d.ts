@@ -127,7 +127,6 @@ export interface Metadata {
    * @type { ?number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
