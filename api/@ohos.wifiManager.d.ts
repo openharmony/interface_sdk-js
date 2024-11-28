@@ -1013,6 +1013,22 @@ declare namespace wifiManager {
   function isHotspotDualBandSupported(): boolean;
 
   /**
+   * Check whether Wi-Fi hotspot is can be operated under some situation. When the airplane mode is turned on
+   * and does not support the coexistence of softap and sta, nor does it support signal bridge,
+   * the hotspot switch cannot be operated.
+   * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.MANAGE_WIFI_HOTSPOT
+   * @returns { boolean } {@code true} if Wi-Fi hotspot can be operated, returns {@code false} otherwise.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2601000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.AP.Core
+   * @systemapi Hide this for inner system use.
+   * @since 16
+   */
+  function isOpenSoftApAllowed(): boolean;
+
+  /**
    * Check whether Wi-Fi hotspot is active on a device.
    * @permission ohos.permission.GET_WIFI_INFO
    * @returns { boolean } {@code true} if Wi-Fi hotspot is enabled, returns {@code false} otherwise.
