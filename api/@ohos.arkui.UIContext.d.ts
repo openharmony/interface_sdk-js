@@ -28,6 +28,7 @@ import router from './@ohos.router';
 import type componentUtils from './@ohos.arkui.componentUtils';
 import { ComponentContent, FrameNode } from './@ohos.arkui.node';
 import type { AnimatorOptions, AnimatorResult } from './@ohos.animator';
+import { SimpleAnimatorOptions } from './@ohos.animator';
 import type { Callback, AsyncCallback } from './@ohos.base';
 import { MeasureOptions } from './@ohos.measure';
 import type componentSnapshot from './@ohos.arkui.componentSnapshot';
@@ -2719,6 +2720,22 @@ export class UIContext {
    * @since 11
    */
   createAnimator(options: AnimatorOptions): AnimatorResult;
+
+  /**
+   * Create an animator object for custom animation.
+   *
+   * @param { AnimatorOptions | SimpleAnimatorOptions } options - Options.
+   * @returns { AnimatorResult }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  createAnimator(options: AnimatorOptions | SimpleAnimatorOptions): AnimatorResult;
 
   /**
    * Defining animation function
