@@ -5358,6 +5358,36 @@ declare namespace window {
     off(type: 'touchOutside', callback?: Callback<void>): void;
 
     /**
+     * Window DisplayId change callback on.
+     *
+     * @param { 'displayIdChange' } type - The value is fixed at 'displayIdChange', indicating the window DisplayId change.
+     * @param { Callback<number> } callback - Callback used to notify the window DisplayId change.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 14
+     */
+    on(type: 'displayIdChange', callback: Callback<number>): void;
+
+    /**
+     * Window DisplayId change callback on.
+     *
+     * @param { 'displayIdChange' } type - The value is fixed at 'displayIdChange', indicating the window DisplayId change.
+     * @param { Callback<number> } callback - Callback used to notify the window DisplayId change.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 14
+     */
+    off(type: 'displayIdChange', callback?: Callback<number>): void;
+
+    /**
      * Window visibility change callback on.
      *
      * @param { 'windowVisibilityChange' } type - The value is fixed at 'windowVisibilityChange', indicating the window visibility change.
@@ -5368,7 +5398,9 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @syscap SystemCapability.Window.SessionManager
+     * @syscap SystemCapability.Window.
+     * 
+     * 
      * @since 11
      */
     /**
