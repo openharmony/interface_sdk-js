@@ -51,12 +51,12 @@ export declare class SelectTitleBarMenuItem {
 
   /**
    * Icon resource for this menu item.
-   * @type { ?iconOptions }.
+   * @type { ?IconResource }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
    */
-  symbolValue?: iconOptions;
+  symbolValue?: IconResource;
 
   /**
    * Icon label for this menu item.
@@ -105,7 +105,7 @@ export declare class SelectTitleBarMenuItem {
  * @atomicservice
  * @since 16
  */
-export type iconOptions = SymbolGlyphModifier;
+export type IconResource = SymbolGlyphModifier;
 
 /**
  * Declaration of the selectable title bar.
