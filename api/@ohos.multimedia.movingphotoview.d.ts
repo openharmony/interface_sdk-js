@@ -65,12 +65,12 @@ declare interface MovingPhotoViewOptions {
     /**
      * format of MovingPhotoView.
      *
-     * @type { image.PixelMapFormat }
+     * @type { ?image.PixelMapFormat }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14
      */
-    movingPhotoFromat: image.PixelMapFormat;
+    movingPhotoFromat?: image.PixelMapFormat;
 }
 /**
  * Defines the moving photo view interface.
