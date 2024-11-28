@@ -451,6 +451,7 @@ export declare class ImageBitmap {
    * The height of the Image Bitmap object.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -468,6 +469,7 @@ export declare class ImageBitmap {
    * The width of the Image Bitmap object.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
