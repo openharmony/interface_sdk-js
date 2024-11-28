@@ -19,6 +19,7 @@
  */
 
 import photoAccessHelper from './@ohos.file.photoAccessHelper';
+import image from './@ohos.multimedia.image';
 
 /**
  * Defines the moving photo view options.
@@ -61,6 +62,15 @@ declare interface MovingPhotoViewOptions {
      * @since 14
      */
     imageAIOptions?: ImageAIOptions;
+    /**
+     * format of MovingPhotoView.
+     *
+     * @type { image.PixelMapFormat }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    movingPhotoFromat: image.PixelMapFormat;
 }
 /**
  * Defines the moving photo view interface.
