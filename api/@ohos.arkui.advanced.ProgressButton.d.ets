@@ -109,7 +109,7 @@ export declare struct ProgressButton {
   /**
    * Set Color options of the ProgressButton.
    *
-   * @type { ? ProgressButtonColorOptions }.
+   * @type { ?ProgressButtonColorOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
@@ -122,6 +122,7 @@ export declare struct ProgressButton {
  *
  * @interface ProgressButtonColorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 16
  */
 export declare interface ProgressButtonColorOptions {
