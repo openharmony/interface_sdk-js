@@ -129,6 +129,31 @@ export declare class OperationOption {
    * @since 11
    */
   action?: () => void;
+  /**
+   * The accessibilityText of this text or icon.
+   * @type { ?ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 17
+   */
+  accessibilityText?: ResourceStr;
+  /**
+   * The accessibilityDescription of this text or icon.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 17
+   */
+  accessibilityDescription?: ResourceStr;
+  /**
+   * The accessibilityLevel of this text or icon.
+   * @type { ?string }
+   * @default "auto"
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 17
+   */
+  accessibilityLevel?: string;
 }
 
 /**
