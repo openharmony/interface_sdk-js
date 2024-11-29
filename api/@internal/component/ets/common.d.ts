@@ -10557,6 +10557,17 @@ declare interface DragEvent {
    * @since 13
    */
   getModifierKeyState?(keys: Array<string>): boolean;
+
+  /**
+   * Drop animation which can be triggered in drop, it works only in useCustomDropAnimation set true.
+   *
+   * @param { Callback<void> } dropAnimation - the callback will be triggered in drop.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  setCustomDropAnimationFunc(dropAnimation: Callback<void>): void;
 }
 
 /**
