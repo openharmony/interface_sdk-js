@@ -134,7 +134,7 @@ export declare class OperationOption {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 17
+   * @since 16
    */
   accessibilityText?: ResourceStr;
   /**
@@ -142,7 +142,7 @@ export declare class OperationOption {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 17
+   * @since 16
    */
   accessibilityDescription?: ResourceStr;
   /**
@@ -151,7 +151,7 @@ export declare class OperationOption {
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 17
+   * @since 16
    */
   accessibilityLevel?: string;
 }
