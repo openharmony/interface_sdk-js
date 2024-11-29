@@ -624,6 +624,26 @@ declare namespace adminManager {
    * @since 12
    */
   function unsubscribeManagedEventSync(admin: Want, managedEvents: Array<ManagedEvent>): void;
+
+  /**
+   * replace old admin with new admin.
+   *
+   * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
+   * @param { Want } oldAdmin - oldAdmin indicates the old administrator ability information.
+   * @param { Want } newAdmin - newAdmin indicates the new administrator ability information.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.=
+   * @throws { BusinessError } 9200003 - The administrator ability component is invalid.
+   * @throws { BusinessError } 9200011 - Failed to replace the administrator application of the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 16
+   */
+  function replaceSuperAdmin(oldAdmin: Want, newAdmin: Want): void;
 }
 
 export default adminManager;
