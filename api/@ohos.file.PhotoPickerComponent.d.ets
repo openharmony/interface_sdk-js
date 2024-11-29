@@ -141,6 +141,16 @@ export declare struct PhotoPickerComponent {
   onCurrentAlbumDeleted?: CurrentAlbumDeletedCallback
 
   /**
+   * Callback when the video play state changed
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14
+   */
+  onVideoPlayStateChanged?: videoPlayStateChangedCallback
+
+  /**
    * PickerController
    *
    * @type { ?PickerController }
@@ -193,6 +203,16 @@ export type ExceedMaxSelectedCallback = (exceedMaxCountType: MaxCountType) => vo
  * @since 13
  */
 export type CurrentAlbumDeletedCallback = () => void;
+
+/**
+ * The callback of onVideoPlayStateChanged event
+ *
+ * @typedef { function } videoPlayStateChangedCallback
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 14
+ */
+export type videoPlayStateChangedCallback = (state: VideoPlayerState) => void;
 
 /**
  * The class for PickerController
@@ -846,4 +866,59 @@ export declare enum PhotoBrowserUIElement {
    * @since 13
    */
   BACK_BUTTON = 1
+}
+
+/**
+ * VideoPlayerState. include PLAYING, PAUSED, STOPPED, SEEK_START and SEEK_FINISH
+ *
+ * @enum { number } VideoPlayerState
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 14
+ */
+export declare enum VideoPlayerState {
+  /**
+   * PLAYING. video is playing
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14
+   */
+  PLAYING = 0,
+
+  /**
+   * PAUSED. video is paused
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14
+   */
+  PAUSED = 1,
+
+   /**
+   * STOPPED. video is stopped
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14
+   */
+  STOPPED = 2,
+
+   /**
+   * SEEK_START. seek drag is start
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14
+   */
+  SEEK_START = 3,
+
+   /**
+   * SEEK_FINISH. seek drag is finish
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14
+   */
+  SEEK_FINISH = 4
 }
