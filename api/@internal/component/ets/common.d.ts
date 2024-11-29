@@ -10566,13 +10566,13 @@ declare interface DragEvent {
    *   1. Please set useCustomDropAnimation to true as well when using this method.
    *   2. Do not implement the animation no-related logics in the callback.
    *
-   * @param { Callback<void> } dropAnimation - the callback will be triggered in drop.
+   * @param { Callback<void> } customDropAnimation - the custom drop animation function.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 16
    */
-  setCustomDropAnimationFunc(dropAnimation: Callback<void>): void;
+  executeDropAnimation(customDropAnimation: Callback<void>): void;
 }
 
 /**
