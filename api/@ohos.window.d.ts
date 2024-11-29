@@ -5368,8 +5368,9 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
      * @since 14
-     */
+     */   
     on(type: 'displayIdChange', callback: Callback<number>): void;
 
     /**
@@ -5383,6 +5384,7 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
      * @since 14
      */
     off(type: 'displayIdChange', callback?: Callback<number>): void;
