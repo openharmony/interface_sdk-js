@@ -14156,6 +14156,31 @@ declare interface SheetOptions extends BindOptions {
    * @since 16
    */
   detentSelection?: SheetSize | Length;
+
+  /**
+   * The placement of popup sheet type.
+   * Supports all positions defined in Placement.
+   *
+   * @type { ?Placement }
+   * @default Placement.Bottom
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  placement?: Placement;
+
+  /**
+   * placement On target node
+   *
+   * @type { ?boolean } 
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  placementOnTarget?: boolean;
 }
 
 /**
