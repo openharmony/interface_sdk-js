@@ -24,7 +24,7 @@
  * Defines Image Modifier
  *
  * @extends ImageAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<ImageAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

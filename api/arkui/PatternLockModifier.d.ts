@@ -25,7 +25,7 @@
  * Defines PatternLock Modifier
  *
  * @extends PatternLockAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<PatternLockAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

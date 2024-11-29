@@ -799,7 +799,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     getSelectedIndex(): number;
   }

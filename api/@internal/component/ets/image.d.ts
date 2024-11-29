@@ -37,7 +37,7 @@ declare type DrawableDescriptor = import ('../api/@ohos.arkui.drawableDescriptor
 /**
  * Import the DrawingColorFilter type object for image color filter setting.
  *
- * @typedef DrawingColorFilter
+ * @typedef { import('../api/@ohos.graphics.drawing').default.ColorFilter } DrawingColorFilter
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice

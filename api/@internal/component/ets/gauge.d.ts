@@ -236,6 +236,7 @@ interface GaugeInterface {
 /**
  * Defines the options of gauge track shadow.
  *
+ * @extends MultiShadowOptions
  * @interface GaugeShadowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -244,6 +245,7 @@ interface GaugeInterface {
 /**
  * Defines the options of gauge track shadow.
  *
+ * @extends MultiShadowOptions
  * @interface GaugeShadowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -317,6 +319,7 @@ declare interface GaugeIndicatorOptions {
 /**
  * GaugeConfiguration used by content modifier
  *
+ * @extends CommonConfiguration<GaugeConfiguration>
  * @interface GaugeConfiguration 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -659,7 +662,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @atomicservice
    * @since 12
    */
-    privacySensitive(isPrivacySensitiveMode: Optional<boolean>): GaugeAttribute;
+  privacySensitive(isPrivacySensitiveMode: Optional<boolean>): GaugeAttribute;
 
   /**
    * Set the content modifier of gauge.

@@ -207,6 +207,7 @@ declare class LinearGradient {
 /**
  * Defines the options of Shadow.
  *
+ * @extends MultiShadowOptions
  * @interface DataPanelShadowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -215,6 +216,7 @@ declare class LinearGradient {
 /**
  * Defines the options of Shadow.
  *
+ * @extends MultiShadowOptions
  * @interface DataPanelShadowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -467,6 +469,7 @@ interface DataPanelInterface {
 /**
  * DataPanelConfiguration used by dataPanel content modifier
  *
+ * @extends CommonConfiguration<DataPanelConfiguration>
  * @interface DataPanelConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
