@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -921,6 +921,34 @@ declare namespace AbilityConstant {
      * @since 11
      */
     INACTIVE = 1
+  }
+
+  /**
+   * Type of collaborate result.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 16
+   */
+  export enum CollaborateResult {
+    /**
+     * Accept to the result of Ability collaborate.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 16
+     */
+    ACCEPT = 0,
+
+    /**
+     * Reject to the result of Ability collaborate.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 16
+     */
+    REJECT = 1,
   }
 }
 
