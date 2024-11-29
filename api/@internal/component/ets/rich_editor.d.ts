@@ -444,6 +444,17 @@ declare interface RichEditorTextStyle {
   lineHeight?: number | string | Resource;
 
   /**
+   * Set the text with half leading.
+   *
+   * @type { ?(Optional<boolean>) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  halfLeading?: Optional<boolean>;
+
+  /**
    * Set font feature, advanced text styles and effects as designed by the font author.
    * The format is the like the CSS font-feature-settings attribute.
    *
@@ -1128,6 +1139,17 @@ declare interface RichEditorTextStyleResult {
    * @since 12
    */
   lineHeight?: number;
+
+  /**
+   * Set the text with half leading.
+   *
+   * @type { ?(Optional<boolean>) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  halfLeading?: Optional<boolean>;
 
   /**
    * Set font feature, advanced text styles and effects as designed by the font author.
