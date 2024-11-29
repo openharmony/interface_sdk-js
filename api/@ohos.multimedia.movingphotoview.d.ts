@@ -97,7 +97,7 @@ declare interface MovingPhotoViewOptions {
      * @systemapi
      * @since 14
      */
-    movingPhotoFromat?: PixelMapFormat;
+    movingPhotoFormat?: PixelMapFormat;
 }
 /**
  * Defines the moving photo view interface.
