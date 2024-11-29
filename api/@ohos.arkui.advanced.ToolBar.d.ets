@@ -120,18 +120,18 @@ export interface ToolBarSymbolGlyphOptions {
 @Observed
 export declare class ToolBarOption {
   /**
-   * Define text content.
-   * @type { ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
+  * Define text content.
+  * @type { ResourceStr }.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @since 10
+  */
   /**
-   * Define text content.
-   * @type { ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
+  * Define text content.
+  * @type { ResourceStr }.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @atomicservice
+  * @since 11
+  */
   content: ResourceStr;
   /**
    * Define the action event.
