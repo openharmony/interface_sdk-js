@@ -197,7 +197,7 @@ declare namespace appControl {
    * @typedef UninstallDisposedRule
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since 15
+   * @since 14
    */
   export interface UninstallDisposedRule {
     /**
@@ -206,7 +206,7 @@ declare namespace appControl {
      * @type { Want }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since 15
+     * @since 14
      */
     want: Want;
 
@@ -216,7 +216,7 @@ declare namespace appControl {
      * @type { ComponentType }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since 15
+     * @since 14
      */
     componentType: ComponentType;
 
@@ -226,7 +226,7 @@ declare namespace appControl {
      * @type { number }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since 15
+     * @since 14
      */
     priority: number;
   }
@@ -484,14 +484,14 @@ declare namespace appControl {
    * @throws { BusinessError } 17700074 - The specified appIdentifier is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since 15
+   * @since 14
    */
   function setUninstallDisposedRule(appIdentifier: string, rule: UninstallDisposedRule, appIndex?: number): void;
   
   /**
    * Obtains the uninstall disposed rule of a specified bundle.
    *
-   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
+   * @permission ohos.permission.GET_DISPOSED_APP_STATUS or ohos.permission.MANAGE_DISPOSED_APP_STATUS
    * @param { string } appIdentifier - Indicates the appIdentifier of the application.
    * @param { number } [appIndex] Indicates the index of clone app.
    * @returns { UninstallDisposedRule } Returns the uninstall disposed rule of a specified bundle.
@@ -503,7 +503,7 @@ declare namespace appControl {
    * @throws { BusinessError } 17700074 - The specified appIdentifier is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since 15
+   * @since 14
    */
   function getUninstallDisposedRule(appIdentifier: string, appIndex?: number): UninstallDisposedRule;
 
@@ -521,7 +521,7 @@ declare namespace appControl {
    * @throws { BusinessError } 17700074 - The specified appIdentifier is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since 15
+   * @since 14
    */
   function deleteUninstallDisposedRule(appIdentifier: string, appIndex?: number): void;
 }
