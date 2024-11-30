@@ -4979,6 +4979,139 @@ declare namespace cert {
    */
   function buildX509CertChain(param: CertChainBuildParameters): Promise<CertChainBuildResult>;
 
+    /**
+     * PKCS12 Data.
+     *
+     * @typedef PKCS12Data
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    interface PKCS12Data {
+      /**
+       * The private key.
+       *
+       * @type { ?(string | Uint8Array) }
+       * @syscap SystemCapability.Security.Cert
+       * @crossplatform
+       * @atomicservice
+       * @since 16
+       */
+      privateKey?: string | Uint8Array;
+
+      /**
+       * The certificate corresponding to the private key.
+       *
+       * @type { ?X509Cert }
+       * @syscap SystemCapability.Security.Cert
+       * @crossplatform
+       * @atomicservice
+       * @since 16
+       */
+      cert?: X509Cert;
+
+      /**
+       * Other certificates.
+       *
+       * @type { ?Array<X509Cert> }
+       * @syscap SystemCapability.Security.Cert
+       * @crossplatform
+       * @atomicservice
+       * @since 16
+       */
+      otherCerts?: Array<X509Cert>;
+  }
+
+  /**
+   * Configuration items for parsing PKCS12.
+   *
+   * @typedef ParsePKCS12Conf
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  interface ParsePKCS12Conf {
+      /**
+       * The password of PKCS12.
+       *
+       * @type { string }
+       * @syscap SystemCapability.Security.Cert
+       * @crossplatform
+       * @atomicservice
+       * @since 16
+       */
+      password: string;
+
+      /**
+       * Whether to get the private key.
+       *
+       * @type { ?boolean }
+       * @default true
+       * @syscap SystemCapability.Security.Cert
+       * @crossplatform
+       * @atomicservice
+       * @since 16
+       */
+      isGetPrivateKey?: boolean;
+
+      /**
+       * The output format of the private key.
+       *
+       * @type { ?string }
+       * @default PEM
+       * @syscap SystemCapability.Security.Cert
+       * @crossplatform
+       * @atomicservice
+       * @since 16
+       */
+      privateKeyFormat?: string;
+
+      /**
+       * Whether to get the certificate corresponding to the private key.
+       *
+       * @type { ?boolean }
+       * @default true
+       * @syscap SystemCapability.Security.Cert
+       * @crossplatform
+       * @atomicservice
+       * @since 16
+       */
+      isGetCert?: boolean;
+
+      /**
+       * Whether to get other certificates.
+       *
+       * @type { ?boolean }
+       * @default false
+       * @syscap SystemCapability.Security.Cert
+       * @crossplatform
+       * @atomicservice
+       * @since 16
+       */
+      isGetOtherCerts?: boolean;
+  }
+
+  /**
+   * Parse the PKCS12.
+   *
+   * @param { Uint8Array } keystore - indicates the PKCS12 keystore.
+   * @param { ParsePKCS12Conf } conf - indicates the configuration items for parsing PKCS12.
+   * @returns { PKCS12Data } the PKCS12 data by the function.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020002 - runtime error.
+   * @throws { BusinessError } 19030001 - crypto operation error.
+   * @throws { BusinessError } 19030008 - maybe wrong password.
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  function parsePKCS12(keystore: Uint8Array, conf: ParsePKCS12Conf): PKCS12Data;
+
   /**
    * Get trust anchor array from specified P12.
    *
