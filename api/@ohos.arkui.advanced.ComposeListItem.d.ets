@@ -193,7 +193,6 @@ export declare class OperateIcon {
  */
 export type IconResource = SymbolGlyphModifier;
 
-
 /**
  * Declare type OperateCheck
  * @syscap SystemCapability.ArkUI.ArkUI.Full
