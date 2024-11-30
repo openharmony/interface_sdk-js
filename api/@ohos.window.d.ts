@@ -5358,10 +5358,10 @@ declare namespace window {
     off(type: 'touchOutside', callback?: Callback<void>): void;
 
     /**
-     * Window DisplayId change callback on.
+     * Window displayId change callback on.
      *
-     * @param { 'displayIdChange' } type - The value is fixed at 'displayIdChange', indicating the window DisplayId change.
-     * @param { Callback<number> } callback - Callback used to notify the window DisplayId change.
+     * @param { 'displayIdChange' } type - The value is fixed at 'displayIdChange', indicating the Display this window is current showing has changed.
+     * @param { Callback<number> } callback - Callback used to notify the Display this window is current showing has changed.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -5374,10 +5374,10 @@ declare namespace window {
     on(type: 'displayIdChange', callback: Callback<number>): void;
 
     /**
-     * Window DisplayId change callback on.
+     * Window displayId change callback on.
      *
-     * @param { 'displayIdChange' } type - The value is fixed at 'displayIdChange', indicating the window DisplayId change.
-     * @param { Callback<number> } callback - Callback used to notify the window DisplayId change.
+     * @param { 'displayIdChange' } type - The value is fixed at 'displayIdChange', indicating the Display this window is current showing has changed.
+     * @param { Callback<number> } callback - Callback used to notify the Display this window is current showing has changed.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
