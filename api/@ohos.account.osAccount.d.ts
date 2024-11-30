@@ -605,6 +605,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300008 - Restricted Account.
+     * @throws { BusinessError } 12300010 - Service busy. Possible causes: The target account is being operated.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 7
@@ -625,6 +626,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300008 - Restricted Account.
+     * @throws { BusinessError } 12300010 - Service busy. Possible causes: The target account is being operated.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 7
