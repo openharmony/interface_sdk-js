@@ -5374,7 +5374,7 @@ declare namespace window {
     on(type: 'displayIdChange', callback: Callback<number>): void;
 
     /**
-     * Window displayId change callback on.
+     * Window displayId change callback off.
      *
      * @param { 'displayIdChange' } type - The value is fixed at 'displayIdChange', indicating the Display this window is current showing has changed.
      * @param { Callback<number> } callback - Callback used to notify the Display this window is current showing has changed.
