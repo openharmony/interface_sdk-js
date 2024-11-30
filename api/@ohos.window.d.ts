@@ -5378,9 +5378,8 @@ declare namespace window {
      *
      * @param { 'displayIdChange' } type - The value is fixed at 'displayIdChange', indicating the Display this window is current showing has changed.
      * @param { Callback<number> } callback - Callback used to notify the Display this window is current showing has changed.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types; 
-     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     *                                                                  2. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
