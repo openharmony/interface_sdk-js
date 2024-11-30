@@ -571,6 +571,198 @@ declare namespace i18n {
      * @since 12
      */
     static getUsingLocalDigit(): boolean;
+
+    /**
+     * Gets the equivalent simplest representation of input language id.
+     * When no parameter is passed in, current system language's simplest representation will be returned.
+     * If current system language is a dialect language, then system language's simplest representation will be returned;
+     * If current system language is not a dialect language, but it has a dialect language which is supported by system,
+     * then the dialect language's simplest representation will be returned;
+     * If current system language is not a dialect language, and it doesn't have a dialect language which is supported by system,
+     * then the system language's simplest representation will be returned;
+     *
+     * @param { string } [language] - The language code. It must be a valid language.
+     * @returns { string } The equivalent simplest representation of language.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 15
+     */
+    static getSimplifiedLanguage(language?: string): string;
+
+    /**
+     * Set user's preferrence for temperature type.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @param { TemperatureType } type - Indicates a temperature type.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 16
+     */
+    static setTemperatureType(type: TemperatureType): void;
+
+    /**
+     * Get user's preferrence for temperature type.
+     *
+     * @returns { TemperatureType } temperature type.
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 16
+     */
+    static getTemperatureType(): TemperatureType;
+
+    /**
+     * Get temperature name by TemperatureType.
+     *
+     * @param { TemperatureType } type - Indicates a temperature type.
+     * @returns { string } temperature name.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 16
+     */
+    static getTemperatureName(type: TemperatureType): string;
+
+    /**
+     * Set user's preferrence for first day of week.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @param { WeekDay } type - one of week days.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 16
+     */
+    static setFirstDayOfWeek(type: WeekDay): void;
+
+    /**
+     * Get user's preferrence for first day of week.
+     *
+     * @returns { WeekDay } one of week days.
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 16
+     */
+    static getFirstDayOfWeek(): WeekDay;
+  }
+
+  /**
+   * Enumerates the week day.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Global.I18n
+   * @atomicservice
+   * @since 16
+   */
+  export enum WeekDay {
+    /**
+     * Indicates Monday.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 16
+     */
+    MON = 1,
+
+    /**
+     * Indicates Tuesday.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 16
+     */
+    TUE = 2,
+
+    /**
+     * Indicates Wednesday.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 16
+     */
+    WED = 3,
+
+    /**
+     * Indicates Thursday.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 16
+     */
+    THU = 4,
+
+    /**
+     * Indicates Friday.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 16
+     */
+    FRI = 5,
+
+    /**
+     * Indicates Saturday.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 16
+     */
+    SAT = 6,
+
+    /**
+     * Indicates Sunday.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 16
+     */
+    SUN = 7
+  }
+
+  /**
+   * Enumerates the temperature types.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Global.I18n
+   * @atomicservice
+   * @since 16
+   */
+  export enum TemperatureType {
+    /**
+     * Celesius temperature type.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 16
+     */
+    CELSIUS = 1,
+
+    /**
+     * Fahrenheit temperature type.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 16
+     */
+    FAHRENHEIT = 2,
+
+    /**
+     * Kelvin temperature type.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 16
+     */
+    KELVIN = 3
   }
 
   /**
@@ -750,6 +942,24 @@ declare namespace i18n {
      * @since 12
      */
     static getThreeLetterRegion(locale: string): string;
+
+    /**
+     * Get the localized file path.
+     * Return the mirrored file path if the locale is RTL. Otherwise return the input file path.
+     * The default value of locale is current system locale.
+     *
+     * @param { string } path - the file path that needs to be localized.
+     * @param [ string ] delimiter - the file path's delimiter.
+     * @param [ intl.Locale ] locale - the locale object used to localized file path.
+     * @returns { string } the localized file path.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 16
+     */
+    static getUnicodeWrappedFilePath(path: string, delimiter?: string, locale?: intl.Locale): string;
   }
 
   /**
@@ -3366,5 +3576,176 @@ declare namespace i18n {
      */
     findEntityInfo(text: string): Array<EntityInfoItem>;
   }
+
+  /**
+   * Create a SimpleDateTimeFormat object by pattern and locale.
+   * The default value of locale is the current system locale.
+   *
+   * @param { string } pattern - the pattern used to create SimpleDateTimeFormat object.
+   * @param [ intl.Locale ] locale - the intl.Locale object used to create intl.DateTimeFormat object.
+   * @returns { SimpleDateTimeFormat } a SimpleDateTimeFormat object created from pattern.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+   * @syscap SystemCapability.Global.I18n
+   * @atomicservice
+   * @since 16
+   */
+  export function getSimpleDateTimeFormatByPattern(pattern: string, locale?: intl.Locale): SimpleDateTimeFormat;
+
+  /**
+   * Create a SimpleDateTimeFormat object by skeleton and locale. This method create a pattern by locale and skeleton, the pattern
+   * includes locale specific separators, and the fields'order will be adjust for that locale.
+   * The default value of locale is the current system locale.
+   *
+   * @param { string } skeleton - the skeleton used to create intl.DateTimeFormat object.
+   * @param [ intl.Locale ] locale - the intl.Locale object used to create intl.DateTimeFormat object.
+   * @returns { SimpleDateTimeFormat } a SimpleDateTimeFormat object created from skeleton.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+   * @syscap SystemCapability.Global.I18n
+   * @atomicservice
+   * @since 16
+   */
+  export function getSimpleDateTimeFormatBySkeleton(skeleton: string, locale?: intl.Locale): SimpleDateTimeFormat;
+
+  /**
+   * Provide a simple date time formatting interface.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @atomicservice
+   * @since 16
+   */
+  export class SimpleDateTimeFormat {
+    /**
+     * Obtains the formatted date strings.
+     *
+     * @param { Date } date - Indicates the Date object to be formatted.
+     * @returns { string } a date string formatted based on the specified locale.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 16
+     */
+    format(date: Date): string;
+ }
+
+  /**
+   * Create a SimpleNumberFormat object by pattern and locale.
+   * The default value of locale is the current system locale.
+   *
+   * @param { string } skeleton - the skeleton used to create SimpleNumberFormat object.
+   * @param [ intl.Locale ] locale - the intl.Locale object used to create SimpleNumberFormat object.
+   * @returns { SimpleNumberFormat } a SimpleNumberFormat object created from pattern.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+   * @syscap SystemCapability.Global.I18n
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  export function getNumberFormatBySkeleton(skeleton: string, locale?: intl.Locale): SimpleNumberFormat;
+
+  /**
+   * Provide a simple number formatting interface.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @atomicservice
+   * @since 16
+   */
+  export class SimpleNumberFormat {
+    /**
+     * Obtains the formatted number strings.
+     *
+     * @param { number } value - Indicates the number to be formatted.
+     * @returns { string } a number string formatted based on the specified locale.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 16
+     */
+    format(value: number): string;
+ }
+
+  /**
+   * Provide a number formatting interface which could format number to StyleString.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @atomicservice
+   * @since 16
+   */
+  export class StyledNumberFormat {
+    /**
+     * A constructor used to create a StyledNumberFormat object.
+     *
+     * @param { intl.NumberFormat | SimpleNumberFormat } numberFormat - Indicates the number format object that used to format number.
+     * @param { StyledNumberFormatOptions } [ options ] - Indicates the options used to format the number.
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 16
+     */
+    constructor(numberFormat: intl.NumberFormat | SimpleNumberFormat, options?: StyledNumberFormatOptions);
+
+    /**
+     * Obtains the formatted number strings.
+     *
+     * @param { number } value - Indicates the number to be formatted.
+     * @returns { StyledString } a styled number string formatted based on the specified locale.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 16
+     */
+    format(value: number): StyledString;
+ }
+
+  /**
+   * Provides the options of StyledNumberFormat.
+   *
+   * @interface StyledNumberFormatOptions
+   * @syscap SystemCapability.Global.I18n
+   * @atomicservice
+   * @since 16
+   */
+  export interface StyledNumberFormatOptions {
+    /**
+     * Indicates the integer part's style.
+     *
+     * @type { ?TextStyle }
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 16
+     */
+    integer?: TextStyle;
+
+    /**
+     * Indicates the decimal part's style.
+     *
+     * @type { ?TextStyle }
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 16
+     */
+    decimal?: TextStyle;
+
+    /**
+     * Indicates the fraction part's style.
+     *
+     * @type { ?FormatStyle }
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 16
+     */
+    fraction?: TextStyle;
+
+    /**
+     * Indicates the unit part's style.
+     *
+     * @type { ?TextStyle }
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 16
+     */
+    unit?: TextStyle;
+ }
 }
 export default i18n;
