@@ -255,14 +255,14 @@ declare namespace zlib {
      */
     PARALLEL_STRATEGY_SEQUENTIAL = 0,
     /**
-     * Indicates the parallel decompress strategy.
+     * Indicates the parallel decompression strategy.
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
      * @since 16
      */
-    PARALLEL_STRATEGY_PARALLEL_DECOMPRESS = 1
+    PARALLEL_STRATEGY_PARALLEL_DECOMPRESSION = 1
   }
 
   /**
