@@ -115,4 +115,23 @@ export default class PermissionRequestResult {
    * @since 12
    */
   dialogShownResults?: Array<boolean>;
+
+  /**
+   * Enumerates the return values of the permission request operation.
+   *   0  The operation is successful.
+   *   1  The permission name is invalid.
+   *   2  The requested permission has not been declared.
+   *   3  The conditions for requesting the permission are not met.
+   *   4  The user does not agree to the Privacy Statement.
+   *   5  The permission cannot be requested in a pop-up window.
+   *   12 The service is abnormal.
+   *
+   * @type { ?Array<number> }
+   * @syscap SystemCapability.Security.AccessToken
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  errorReasons?: Array<number>;
 }
