@@ -1867,7 +1867,25 @@ declare namespace userAuth {
      * @atomicservice
      * @since 12
      */
-    PIN_EXPIRED = 12500013
+    PIN_EXPIRED = 12500013,
+
+    /**
+     * Indicates that current operation failed because of authToken integrity check failed.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @systemapi Hide this for inner system use.
+     * @since 16
+     */
+    AUTH_TOKEN_CHECK_FAILED = 12500015,
+
+    /**
+     * Indicates that current operation failed because of authToken has expired.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @systemapi Hide this for inner system use.
+     * @since 16
+     */
+    AUTH_TOKEN_EXPIRED = 12500016
   }
 
   /**
