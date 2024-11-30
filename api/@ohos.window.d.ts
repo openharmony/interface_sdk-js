@@ -3960,6 +3960,8 @@ declare namespace window {
      * @atomicservice
      * @since 12
      */
+    moveWindowToAsync(x: number, y: number): Promise<void>;
+
     /**
      * Move window to the position.
      *
@@ -3997,6 +3999,8 @@ declare namespace window {
      * @atomicservice
      * @since 13
      */
+    moveWindowToGlobal(x: number, y: number): Promise<void>;
+
     /**
      * Move window to the position relative to current screen.
      * 
