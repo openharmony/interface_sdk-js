@@ -8781,7 +8781,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 /**
  * Defines Web Component.
  *
- * @constant
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -8798,7 +8797,6 @@ declare const Web: WebInterface;
 /**
  * Defines Web Component instance.
  *
- * @constant
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11
