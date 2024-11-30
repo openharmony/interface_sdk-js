@@ -480,6 +480,15 @@ export declare class OperateItem {
   image?: ResourceStr;
 
   /**
+   * Sets the image.
+   * @type { ?IconResource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  symbol?: IconResource;
+
+  /**
    * Sets the text.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
