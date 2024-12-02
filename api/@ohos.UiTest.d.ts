@@ -144,25 +144,7 @@ declare enum MatchPattern {
    * @since 11
    * @test
    */
-  ENDS_WITH = 3,
-  /**
-   * Matches the given value using a regular expression, which is case sensitive.
-   *
-   * @syscap SystemCapability.Test.UiTest
-   * @crossplatform
-   * @atomicservice
-   * @since 16
-   */
-  REG_EXP = 4,
-  /**
-   * Matches the given value using a regular expression, which is case insensitive.
-   *
-   * @syscap SystemCapability.Test.UiTest
-   * @crossplatform
-   * @atomicservice
-   * @since 16
-   */
-  REG_EXP_ICASE = 5,
+  ENDS_WITH = 3
 }
 
 /**
@@ -754,7 +736,7 @@ declare enum WindowMode {
    * @since 11
    * @test
    */
-  FLOATING = 3,
+  FLOATING = 3
 }
 
 /**
@@ -900,7 +882,7 @@ declare enum ResizeDirection {
    * @since 11
    * @test
    */
-  RIGHT_DOWN = 7,
+  RIGHT_DOWN = 7
 }
 
 /**
@@ -982,7 +964,7 @@ declare enum DisplayRotation {
    * @since 11
    * @test
    */
-  ROTATION_270 = 3,
+  ROTATION_270 = 3
 }
 
 /**
@@ -1566,7 +1548,7 @@ declare enum UiDirection {
    * @since 12
    * @test
    */
-  DOWN = 3,
+  DOWN = 3
 }
 
 /**
@@ -1632,7 +1614,7 @@ declare enum MouseButton {
    * @since 11
    * @test
    */
-  MOUSE_BUTTON_MIDDLE = 2,
+  MOUSE_BUTTON_MIDDLE = 2
 }
 
 /**
@@ -2159,48 +2141,6 @@ declare class On {
    * @test
    */
   description(val: string, pattern?: MatchPattern): On;
-  /**
-   * Specifies the id of the target Component.
-   *
-   * @param { string } id - the id value.
-   * @param { MatchPattern } pattern - the {@link MatchPattern} of the text value,Set it default {@link MatchPattern.EQUALS} if null or undefined.
-   * @returns { On } this {@link On} object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Test.UiTest
-   * @crossplatform
-   * @atomicservice
-   * @since 16
-   * @test
-   */
-  id(id: string, pattern: MatchPattern): On;
-  /**
-   * Specifies the type of the target Component.
-   *
-   * @param { string } tp - The type value.
-   * @param { MatchPattern } pattern - the {@link MatchPattern} of the text value,Set it default {@link MatchPattern.EQUALS} if null or undefined.
-   * @returns { On } this {@link On} object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Test.UiTest
-   * @crossplatform
-   * @atomicservice
-   * @since 16
-   * @test
-   */
-  type(tp: string, pattern: MatchPattern): On;
-  /**
-   * Specifies the hint for the target Component.
-   *
-   * @param { string } val - the hint value.
-   * @param { MatchPattern } [pattern] - the {@link MatchPattern} of the text value,Set it default {@link MatchPattern.EQUALS} if null or undefined.
-   * @returns { On } this {@link On} object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Test.UiTest
-   * @crossplatform
-   * @atomicservice
-   * @since 16
-   * @test
-   */
-  hint(val: string, pattern?: MatchPattern): On;
 }
 
 /**
@@ -3082,36 +3022,6 @@ declare class Component {
    * @test
    */
   getDescription(): Promise<string>;
-  /**
-   * Get the hint attribute value.
-   *
-   * @returns { Promise<string> } the hint value.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
-   * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
-   * @syscap SystemCapability.Test.UiTest
-   * @crossplatform
-   * @atomicservice
-   * @since 16
-   * @test
-   */
-  getHint(): Promise<string>;
-  /**
-   * Scroll on this {@link Component}to find matched {@link Component},applicable to scrollable one.
-   *
-   * @param { On } on - the attribute requirements of the target {@link Component}.
-   * @param { boolean } [vertical] - Whether the swipe direction is vertical, default is true.
-   * @param { number } [offset] - Offset from the swipe start/end point to the component border, default is 80.
-   * @returns { Promise<Component> } the found result,or undefined if not found.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
-   * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
-   * @syscap SystemCapability.Test.UiTest
-   * @crossplatform
-   * @atomicservice
-   * @since 16
-   * @test
-   */
-  scrollSearch(on: On, vertical?: boolean, offset?: number): Promise<Component>;
 }
 
 /**
