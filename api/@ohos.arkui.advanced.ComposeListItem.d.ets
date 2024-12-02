@@ -479,7 +479,7 @@ export declare class OperateItem {
   image?: ResourceStr;
 
   /**
-   * Sets the image.
+   * Sets the symbol.
    * @type { ?IconResource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
