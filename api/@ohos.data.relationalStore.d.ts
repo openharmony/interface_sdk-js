@@ -3313,10 +3313,12 @@ declare namespace relationalStore {
     getRow(): ValuesBucket;
 
     /**
-     * Obtains the values of all columns in the specified row.
-     * @param { number } maxCount - Indicates the max count will to get.
-     * @param { number } position - Indicates the position will goto.
-     * @returns { ValuesBucket } Indicates the obtained rows data {@link ValuesBucket}.
+     * Obtains the values of all columns in the specified rows.
+     * @param { number } maxCount - Indicates the maximum number of rows.
+     * @param { number } position - Indicates the start position to obtain the values.
+     * @returns { Promise<Array<ValuesBucket>> } Promise used to return the values obtained, in an{@link Array<ValuesBucket>}.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800012 - Row out of bounds.
@@ -3335,7 +3337,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 14
+     * @since 16
      */
     getRows(maxCount: number, position?: number): Promise<Array<ValuesBucket>>;
 
