@@ -3314,6 +3314,33 @@ declare namespace relationalStore {
 
     /**
      * Obtains the values of all columns in the specified row.
+     * @param { number } maxCount - Indicates the max count will to get.
+     * @param { number } position - Indicates the position will goto.
+     * @returns { ValuesBucket } Indicates the obtained rows data {@link ValuesBucket}.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800012 - Row out of bounds.
+     * @throws { BusinessError } 14800013 - Column out of bounds.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 14
+     */
+    getRows(maxCount: number, position?: number): Promise<Array<ValuesBucket>>;
+
+    /**
+     * Obtains the values of all columns in the specified row.
      *
      * @returns { sendableRelationalStore.ValuesBucket } Indicates the row of data
      *   {@link sendableRelationalStore.ValuesBucket} to be inserted into the table.

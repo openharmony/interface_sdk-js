@@ -612,7 +612,7 @@ declare namespace dataShare {
     /**
      * Subscribes to the change of the data specified by the given URI.
      *
-     * @param { 'dataChange' } event - Indicates the event type, which must be 'dataChange'.
+     * @param { 'dataChange' } type - Indicates the event type, which must be 'dataChange'.
      * @param { SubscriptionType } type - Indicates the subscription type, which is defined in {@link SubscriptionType}.
      * @param { string } uri - Indicates the path of the data to subscribe.
      * @param { AsyncCallback<ChangeInfo> } callback - Indicates the callback used to return the data change.
@@ -630,7 +630,7 @@ declare namespace dataShare {
     /**
      * Unsubscribes from the change of the data specified by the given URI.
      *
-     * @param { 'dataChange' } event - Indicates the event type, which must be 'dataChange'.
+     * @param { 'dataChange' } type - Indicates the event type, which must be 'dataChange'.
      * @param { SubscriptionType } type - Indicates the subscription type, which is defined in {@link SubscriptionType}.
      * @param { string } uri - Indicates the path of the data to unsubscribe.
      * @param { AsyncCallback<ChangeInfo> } callback - Indicates the callback to unsubscribe.
