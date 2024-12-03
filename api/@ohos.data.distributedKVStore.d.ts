@@ -1900,6 +1900,19 @@ declare namespace distributedKVStore {
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
+    /**
+     * Backs up a database in the specified filename.
+     *
+     * @param { string } file - Indicates the database backup filename, It can not be empty and
+     * The length must be less than {@code MAX_KEY_LENGTH}.
+     * @param { AsyncCallback<void> } callback - the callback of backup.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Parameter verification failed.
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 14
+     */
     backup(file: string, callback: AsyncCallback<void>): void;
 
     /**
@@ -1913,6 +1926,19 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
+     */
+    /**
+     * Backs up a database in the specified filename.
+     *
+     * @param { string } file - Indicates the database backup filename, It can not be empty and
+     * The length must be less than {@code MAX_KEY_LENGTH}.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Parameter verification failed.
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 14
      */
     backup(file: string): Promise<void>;
 
@@ -1928,6 +1954,19 @@ declare namespace distributedKVStore {
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
+    /**
+     * Restores a database from a specified database file.
+     *
+     * @param { string } file - Indicates the database backup filename, It can not be empty and
+     * The length must be less than {@code MAX_KEY_LENGTH}.
+     * @param { AsyncCallback<void> } callback - the callback of restore.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Parameter verification failed.
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 14
+     */
     restore(file: string, callback: AsyncCallback<void>): void;
 
     /**
@@ -1941,6 +1980,19 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
+     */
+    /**
+     * Restores a database from a specified database file.
+     *
+     * @param { string } file - Indicates the database backup filename, It can not be empty and
+     * The length must be less than {@code MAX_KEY_LENGTH}.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Parameter verification failed.
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 14
      */
     restore(file: string): Promise<void>;
 
@@ -3001,6 +3053,24 @@ declare namespace distributedKVStore {
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
+    /**
+     * Creates and obtains a KVStore database by specifying {@code Options} and {@code storeId}.
+     *
+     * @param { string } storeId - Identifies the KVStore database. The value of this parameter must be unique
+     * for the same application, and different applications can share the same value. The storeId can consist
+     * of only letters, digits, and underscores (_), and cannot exceed 128 characters.
+     * @param { Options } options - Indicates the {@code Options} object used for creating and
+     * obtaining the KVStore database.
+     * @param { AsyncCallback<T> } callback - {T}: the {@code SingleKVStore} or {@code DeviceKVStore} instance.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameters types;
+     * <br>3.Parameter verification failed.
+     * @throws { BusinessError } 15100002 - The options configuration changes when the API is called to obtain a KV store.
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100006 - Unable to open the database file.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 14
+     */
     getKVStore<T>(storeId: string, options: Options, callback: AsyncCallback<T>): void;
 
     /**
@@ -3019,6 +3089,24 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
+     */
+    /**
+     * Creates and obtains a KVStore database by specifying {@code Options} and {@code storeId}.
+     *
+     * @param { string } storeId - Identifies the KVStore database. The value of this parameter must be unique
+     * for the same application, and different applications can share the same value. The storeId can consist
+     * of only letters, digits, and underscores (_), and cannot exceed 128 characters.
+     * @param { Options } options - Indicates the {@code Options} object used for creating and
+     * obtaining the KVStore database.
+     * @returns { Promise<T> } {T}: the {@code SingleKVStore} or {@code DeviceKVStore} instance.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameters types;
+     * <br>3.Parameter verification failed.
+     * @throws { BusinessError } 15100002 - The options configuration changes when the API is called to obtain a KV store.
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100006 - Unable to open the database file.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 14
      */
     getKVStore<T>(storeId: string, options: Options): Promise<T>;
 
