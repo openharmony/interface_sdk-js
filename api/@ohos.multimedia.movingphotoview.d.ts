@@ -83,7 +83,7 @@ export declare enum PixelMapFormat {
     YCRCB_P010 = 5
 }
 /**
- * dynamic range mode of moving photo.
+ * Dynamic range mode of moving photo.
  *
  * @enum { number }
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
