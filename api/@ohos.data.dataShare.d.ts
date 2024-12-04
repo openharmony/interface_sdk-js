@@ -362,18 +362,6 @@ declare namespace dataShare {
      * @since 10
      */
     scheduler: string;
-
-    /**
-     * Specifies the update sql of the template.
-     * The update is called after the predicates execution is complete.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
-     * @systemapi
-     * @stagemodelonly
-     * @since 14
-     */
-    update?: string;
   }
   /**
    * Specifies the operation result structure.
