@@ -25,7 +25,7 @@
  * Defines TextPicker Modifier
  *
  * @extends TextPickerAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<TextPickerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

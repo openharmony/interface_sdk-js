@@ -25,7 +25,7 @@
  * Defines Toggle Modifier
  *
  * @extends ToggleAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<ToggleAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

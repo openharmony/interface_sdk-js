@@ -23,7 +23,7 @@
  * Defines Checkbox Modifier
  *
  * @extends CheckboxAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<CheckboxAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
