@@ -92,7 +92,7 @@ type OnFirstMeaningfulPaintCallback = (firstMeaningfulPaint: FirstMeaningfulPain
  *
  * @typedef { function } OnOverrideUrlLoadingCallback
  * @param { WebResourceRequest } webResourceRequest - callback information of onOverrideUrlLoading.
- * @returns { boolean } - Returning true causes the current Web to abort loading the URL, 
+ * @returns { boolean } - Returning true causes the current Web to abort loading the URL,
  *                        false causes the Web to continue loading the url as usual.
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
@@ -171,7 +171,7 @@ type OnRenderProcessNotRespondingCallback = (data : RenderProcessNotRespondingDa
 type OnRenderProcessRespondingCallback = () => void;
 
 /**
-* The callback of ViewportFit Changed.
+ * The callback of ViewportFit Changed.
  *
  * @typedef { function } OnViewportFitChangedCallback
  * @param { ViewportFit } viewportFit - details of OnViewportFitChangedCallback.
@@ -240,6 +240,7 @@ declare interface WebKeyboardOptions {
    * @since 12
    */
   useSystemKeyboard: boolean;
+
   /**
    * Set the enter key type when the system keyboard is used, the "enter" key related to the {@link inputMethodEngine}.
    *
@@ -249,6 +250,7 @@ declare interface WebKeyboardOptions {
    * @since 12
    */
   enterKeyType?: number;
+
   /**
    * Set the custom keyboard builder when the custom keyboard is used.
    *
@@ -285,6 +287,7 @@ declare class WebKeyboardController {
    * @since 12
    */
   insertText(text: string): void;
+
   /**
    * Delete text from back to front.
    *
@@ -293,6 +296,7 @@ declare class WebKeyboardController {
    * @since 12
    */
   deleteForward(length: number): void;
+
   /**
    * Delete text from front to back.
    *
@@ -301,6 +305,7 @@ declare class WebKeyboardController {
    * @since 12
    */
   deleteBackward(length: number): void;
+
   /**
    * Send the function of the key.
    *
@@ -309,6 +314,7 @@ declare class WebKeyboardController {
    * @since 12
    */
   sendFunctionKey(key: number): void;
+
   /**
    * Close the custom keyboard.
    *
@@ -336,6 +342,7 @@ declare interface WebKeyboardCallbackInfo {
    * @since 12
    */
   controller: WebKeyboardController;
+
   /**
    * The attributes of web input element.
    *
@@ -390,7 +397,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11
    */
-  Debug,
+  Debug = 0,
 
   /**
    * Error level.
@@ -406,7 +413,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11
    */
-  Error,
+  Error = 1,
 
   /**
    * Info level.
@@ -422,7 +429,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11
    */
-  Info,
+  Info = 2,
 
   /**
    * Log level.
@@ -438,7 +445,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11
    */
-  Log,
+  Log = 3,
 
   /**
    * Warn level.
@@ -454,7 +461,7 @@ declare enum MessageLevel {
    * @atomicservice
    * @since 11
    */
-  Warn,
+  Warn = 4
 }
 
 /**
@@ -486,7 +493,7 @@ declare enum MixedMode {
    * @atomicservice
    * @since 11
    */
-  All,
+  All = 0,
 
   /**
    * Allows sources Compatibly.
@@ -501,7 +508,7 @@ declare enum MixedMode {
    * @atomicservice
    * @since 11
    */
-  Compatible,
+  Compatible = 1,
 
   /**
    * Don't allow unsecure sources from a secure origin.
@@ -516,7 +523,7 @@ declare enum MixedMode {
    * @atomicservice
    * @since 11
    */
-  None,
+  None = 2
 }
 
 /**
@@ -559,7 +566,7 @@ declare enum HitTestType {
    * @atomicservice
    * @since 11
    */
-  EditText,
+  EditText = 0,
 
   /**
    * The email address.
@@ -574,7 +581,7 @@ declare enum HitTestType {
    * @atomicservice
    * @since 11
    */
-  Email,
+  Email = 1,
 
   /**
    * The HTML::a tag with src=http.
@@ -589,7 +596,7 @@ declare enum HitTestType {
    * @atomicservice
    * @since 11
    */
-  HttpAnchor,
+  HttpAnchor = 2,
 
   /**
    * The HTML::a tag with src=http + HTML::img.
@@ -604,7 +611,7 @@ declare enum HitTestType {
    * @atomicservice
    * @since 11
    */
-  HttpAnchorImg,
+  HttpAnchorImg = 3,
 
   /**
    * The HTML::img tag.
@@ -619,7 +626,7 @@ declare enum HitTestType {
    * @atomicservice
    * @since 11
    */
-  Img,
+  Img = 4,
 
   /**
    * The map address.
@@ -634,7 +641,7 @@ declare enum HitTestType {
    * @atomicservice
    * @since 11
    */
-  Map,
+  Map = 5,
 
   /**
    * The phone number.
@@ -649,7 +656,7 @@ declare enum HitTestType {
    * @atomicservice
    * @since 11
    */
-  Phone,
+  Phone = 6,
 
   /**
    * Other unknown HitTest.
@@ -664,7 +671,7 @@ declare enum HitTestType {
    * @atomicservice
    * @since 11
    */
-  Unknown,
+  Unknown = 7
 }
 
 /**
@@ -696,7 +703,7 @@ declare enum CacheMode {
    * @atomicservice
    * @since 11
    */
-  Default,
+  Default = 0,
 
   /**
    * load cache when they are available, otherwise load online.
@@ -711,7 +718,7 @@ declare enum CacheMode {
    * @atomicservice
    * @since 11
    */
-  None,
+  None = 1,
 
   /**
    * Load online and not cache.
@@ -726,7 +733,7 @@ declare enum CacheMode {
    * @atomicservice
    * @since 11
    */
-  Online,
+  Online = 2,
 
   /**
    * load cache and not online.
@@ -741,7 +748,7 @@ declare enum CacheMode {
    * @atomicservice
    * @since 11
    */
-  Only,
+  Only = 3
 }
 
 /**
@@ -760,7 +767,8 @@ declare enum OverScrollMode {
    * @atomicservice
    * @since 11
    */
-  NEVER,
+  NEVER = 0,
+
   /**
    * Enable the web over-scroll mode.
    *
@@ -768,7 +776,7 @@ declare enum OverScrollMode {
    * @atomicservice
    * @since 11
    */
-  ALWAYS
+  ALWAYS = 1
 }
 
 /**
@@ -787,7 +795,8 @@ declare enum BlurOnKeyboardHideMode {
    * @atomicservice
    * @since 14
    */
-  SILENT,
+  SILENT = 0,
+
   /**
    * The focused input elements on webview will blur when soft keyboard is hidden manually.
    *
@@ -795,7 +804,7 @@ declare enum BlurOnKeyboardHideMode {
    * @atomicservice
    * @since 14
    */
-  BLUR
+  BLUR = 1
 }
 
 /**
@@ -827,7 +836,7 @@ declare enum WebDarkMode {
    * @atomicservice
    * @since 11
    */
-  Off,
+  Off = 0,
 
   /**
    * Enable the web dark mode.
@@ -842,7 +851,7 @@ declare enum WebDarkMode {
    * @atomicservice
    * @since 11
    */
-  On,
+  On = 1,
 
   /**
    * Make web dark mode follow the system.
@@ -857,7 +866,7 @@ declare enum WebDarkMode {
    * @atomicservice
    * @since 11
    */
-  Auto,
+  Auto = 2
 }
 
 /**
@@ -887,7 +896,7 @@ declare enum WebCaptureMode {
    * @atomicservice
    * @since 11
    */
-  HOME_SCREEN = 0,
+  HOME_SCREEN = 0
 }
 
 /**
@@ -934,7 +943,7 @@ declare enum ThreatType {
    * @atomicservice
    * @since 11
    */
-  THREAT_WARNING = 3,
+  THREAT_WARNING = 3
 }
 
 /**
@@ -977,6 +986,7 @@ declare interface WebMediaOptions {
    * @since 11
    */
   resumeInterval?: number;
+
   /**
    * Whether the audio of each web is exclusive.
    *
@@ -1100,6 +1110,7 @@ declare interface FullScreenEnterEvent {
    * @since 12
    */
   handler: FullScreenExitHandler;
+
   /**
    * The intrinsic width of the video if the fullscreen element contains video element, expressed in CSS pixels.
    *
@@ -1109,6 +1120,7 @@ declare interface FullScreenEnterEvent {
    * @since 12
    */
   videoWidth?: number;
+
   /**
    * The intrinsic height of the video if the fullscreen element contains video element, expressed in CSS pixels.
    *
@@ -1160,7 +1172,7 @@ declare enum RenderExitReason {
    * @atomicservice
    * @since 11
    */
-  ProcessAbnormalTermination,
+  ProcessAbnormalTermination = 0,
 
   /**
    * SIGKILL or task manager kill.
@@ -1175,7 +1187,7 @@ declare enum RenderExitReason {
    * @atomicservice
    * @since 11
    */
-  ProcessWasKilled,
+  ProcessWasKilled = 1,
 
   /**
    * Segmentation fault.
@@ -1190,7 +1202,7 @@ declare enum RenderExitReason {
    * @atomicservice
    * @since 11
    */
-  ProcessCrashed,
+  ProcessCrashed = 2,
 
   /**
    * Out of memory.
@@ -1205,7 +1217,7 @@ declare enum RenderExitReason {
    * @atomicservice
    * @since 11
    */
-  ProcessOom,
+  ProcessOom = 3,
 
   /**
    * Unknown reason.
@@ -1220,18 +1232,18 @@ declare enum RenderExitReason {
    * @atomicservice
    * @since 11
    */
-  ProcessExitUnknown,
+  ProcessExitUnknown = 4
 }
 
-  /**
-   * The callback of custom hide of the context menu.
-   *
-   * @typedef { function } OnContextMenuHideCallback
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  type OnContextMenuHideCallback = () => void;
+/**
+ * The callback of custom hide of the context menu.
+ *
+ * @typedef { function } OnContextMenuHideCallback
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 11
+ */
+type OnContextMenuHideCallback = () => void;
 
 /**
  * Enum type supplied to {@link error} when onSslErrorEventReceive being called.
@@ -1262,7 +1274,7 @@ declare enum SslError {
    * @atomicservice
    * @since 11
    */
-  Invalid,
+  Invalid = 0,
 
   /**
    * Hostname mismatch.
@@ -1277,7 +1289,7 @@ declare enum SslError {
    * @atomicservice
    * @since 11
    */
-  HostMismatch,
+  HostMismatch = 1,
 
   /**
    * The certificate date is invalid.
@@ -1292,7 +1304,7 @@ declare enum SslError {
    * @atomicservice
    * @since 11
    */
-  DateInvalid,
+  DateInvalid = 2,
 
   /**
    * The certificate authority is not trusted.
@@ -1307,7 +1319,7 @@ declare enum SslError {
    * @atomicservice
    * @since 11
    */
-  Untrusted,
+  Untrusted = 3
 }
 
 /**
@@ -1341,7 +1353,7 @@ declare enum FileSelectorMode {
    * @atomicservice
    * @since 11
    */
-  FileOpenMode,
+  FileOpenMode = 0,
 
   /**
    * Allows multiple files to be selected.
@@ -1357,7 +1369,7 @@ declare enum FileSelectorMode {
    * @atomicservice
    * @since 11
    */
-  FileOpenMultipleMode,
+  FileOpenMultipleMode = 1,
 
   /**
    * Allows file folders to be selected.
@@ -1373,7 +1385,7 @@ declare enum FileSelectorMode {
    * @atomicservice
    * @since 11
    */
-  FileOpenFolderMode,
+  FileOpenFolderMode = 2,
 
   /**
    * Allows select files to save.
@@ -1389,7 +1401,7 @@ declare enum FileSelectorMode {
    * @atomicservice
    * @since 11
    */
-  FileSaveMode,
+  FileSaveMode = 3
 }
 
 /**
@@ -1408,7 +1420,7 @@ declare enum WebLayoutMode {
    * @atomicservice
    * @since 11
    */
-  NONE,
+  NONE = 0,
 
   /**
    * Adaptive web layout based on page size.
@@ -1417,7 +1429,7 @@ declare enum WebLayoutMode {
    * @atomicservice
    * @since 11
    */
-  FIT_CONTENT,
+  FIT_CONTENT = 1
 }
 
 /**
@@ -1434,7 +1446,7 @@ declare enum RenderProcessNotRespondingReason {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12
    */
-  INPUT_TIMEOUT,
+  INPUT_TIMEOUT = 0,
 
   /**
    * Timeout for navigation commit.
@@ -1442,7 +1454,7 @@ declare enum RenderProcessNotRespondingReason {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12
    */
-  NAVIGATION_COMMIT_TIMEOUT,
+  NAVIGATION_COMMIT_TIMEOUT = 1
 }
 
 /**
@@ -1477,51 +1489,51 @@ declare class FileSelectorParam {
   constructor();
 
   /**
-    * Gets the title of this file selector.
-    * @returns { string } Return the title of this file selector.
-    * @syscap SystemCapability.Web.Webview.Core
-    * @since 9
-    */
+   * Gets the title of this file selector.
+   * @returns { string } Return the title of this file selector.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 9
+   */
   /**
-    * Gets the title of this file selector.
-    * @returns { string } Return the title of this file selector.
-    * @syscap SystemCapability.Web.Webview.Core
-    * @crossplatform
-    * @atomicservice
-    * @since 11
-    */
+   * Gets the title of this file selector.
+   * @returns { string } Return the title of this file selector.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   getTitle(): string;
 
   /**
-    * Gets the FileSelectorMode of this file selector.
-    * @returns { FileSelectorMode } Return the FileSelectorMode of this file selector.
-    * @syscap SystemCapability.Web.Webview.Core
-    * @since 9
-    */
+   * Gets the FileSelectorMode of this file selector.
+   * @returns { FileSelectorMode } Return the FileSelectorMode of this file selector.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 9
+   */
   /**
-    * Gets the FileSelectorMode of this file selector.
-    * @returns { FileSelectorMode } Return the FileSelectorMode of this file selector.
-    * @syscap SystemCapability.Web.Webview.Core
-    * @crossplatform
-    * @atomicservice
-    * @since 11
-    */
+   * Gets the FileSelectorMode of this file selector.
+   * @returns { FileSelectorMode } Return the FileSelectorMode of this file selector.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   getMode(): FileSelectorMode;
 
   /**
-    * Gets an array of acceptable MIME type.
-    * @returns { Array<string> } Return an array of acceptable MIME type.
-    * @syscap SystemCapability.Web.Webview.Core
-    * @since 9
-    */
+   * Gets an array of acceptable MIME type.
+   * @returns { Array<string> } Return an array of acceptable MIME type.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 9
+   */
   /**
-    * Gets an array of acceptable MIME type.
-    * @returns { Array<string> } Return an array of acceptable MIME type.
-    * @syscap SystemCapability.Web.Webview.Core
-    * @crossplatform
-    * @atomicservice
-    * @since 11
-    */
+   * Gets an array of acceptable MIME type.
+   * @returns { Array<string> } Return an array of acceptable MIME type.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   getAcceptType(): Array<string>;
 
   /**
@@ -2302,7 +2314,7 @@ declare enum ContextMenuSourceType {
    * @atomicservice
    * @since 11
    */
-  None,
+  None = 0,
 
   /**
    * Mouse.
@@ -2317,7 +2329,7 @@ declare enum ContextMenuSourceType {
    * @atomicservice
    * @since 11
    */
-  Mouse,
+  Mouse = 1,
 
   /**
    * Long press.
@@ -2332,7 +2344,7 @@ declare enum ContextMenuSourceType {
    * @atomicservice
    * @since 11
    */
-  LongPress,
+  LongPress = 2
 }
 
 /**
@@ -2364,7 +2376,7 @@ declare enum ContextMenuMediaType {
    * @atomicservice
    * @since 11
    */
-  None,
+  None = 0,
 
   /**
    * Image.
@@ -2379,7 +2391,7 @@ declare enum ContextMenuMediaType {
    * @atomicservice
    * @since 11
    */
-  Image,
+  Image = 1
 }
 
 /**
@@ -2411,7 +2423,7 @@ declare enum ContextMenuInputFieldType {
    * @atomicservice
    * @since 11
    */
-  None,
+  None = 0,
 
   /**
    * The plain text type.
@@ -2426,7 +2438,7 @@ declare enum ContextMenuInputFieldType {
    * @atomicservice
    * @since 11
    */
-  PlainText,
+  PlainText = 1,
 
   /**
    * The password type.
@@ -2441,7 +2453,7 @@ declare enum ContextMenuInputFieldType {
    * @atomicservice
    * @since 11
    */
-  Password,
+  Password = 2,
 
   /**
    * The number type.
@@ -2456,7 +2468,7 @@ declare enum ContextMenuInputFieldType {
    * @atomicservice
    * @since 11
    */
-  Number,
+  Number = 3,
 
   /**
    * The telephone type.
@@ -2471,7 +2483,7 @@ declare enum ContextMenuInputFieldType {
    * @atomicservice
    * @since 11
    */
-  Telephone,
+  Telephone = 4,
 
   /**
    * Other types.
@@ -2486,7 +2498,7 @@ declare enum ContextMenuInputFieldType {
    * @atomicservice
    * @since 11
    */
-  Other,
+  Other = 5
 }
 
 /**
@@ -2498,7 +2510,6 @@ declare enum ContextMenuInputFieldType {
  * @since 11
  */
 declare enum NativeEmbedStatus {
-
   /**
    * The embed tag create.
    *
@@ -2542,7 +2553,7 @@ declare enum NativeEmbedStatus {
    * @atomicservice
    * @since 12
    */
-  LEAVE_BFCACHE = 4,
+  LEAVE_BFCACHE = 4
 }
 
 /**
@@ -2575,6 +2586,7 @@ declare enum ContextMenuEditStateFlags {
    * @since 11
    */
   NONE = 0,
+
   /**
    * Clipping is supported.
    *
@@ -2589,6 +2601,7 @@ declare enum ContextMenuEditStateFlags {
    * @since 11
    */
   CAN_CUT = 1 << 0,
+
   /**
    * Copies are supported.
    *
@@ -2603,6 +2616,7 @@ declare enum ContextMenuEditStateFlags {
    * @since 11
    */
   CAN_COPY = 1 << 1,
+
   /**
    * Support for pasting.
    *
@@ -2617,6 +2631,7 @@ declare enum ContextMenuEditStateFlags {
    * @since 11
    */
   CAN_PASTE = 1 << 2,
+
   /**
    * Select all is supported.
    *
@@ -2630,7 +2645,7 @@ declare enum ContextMenuEditStateFlags {
    * @atomicservice
    * @since 11
    */
-  CAN_SELECT_ALL = 1 << 3,
+  CAN_SELECT_ALL = 1 << 3
 }
 
 /**
@@ -2692,9 +2707,8 @@ declare enum WebNavigationType {
    * @atomicservice
    * @since 11
    */
-  NAVIGATION_TYPE_AUTO_SUBFRAME = 5,
+  NAVIGATION_TYPE_AUTO_SUBFRAME = 5
 }
-
 
 /**
  * Defines the web render mode, related to {@link RenderMode}.
@@ -2721,7 +2735,7 @@ declare enum RenderMode {
    * @atomicservice
    * @since 12
    */
-  SYNC_RENDER = 1,
+  SYNC_RENDER = 1
 }
 
 /**
@@ -2760,7 +2774,7 @@ declare enum ViewportFit {
    * @atomicservice
    * @since 12
    */
-  COVER = 2,
+  COVER = 2
 }
 
 /**
@@ -4275,7 +4289,7 @@ declare class WebController {
    * @deprecated since 9
    * @useinstead ohos.web.webview.WebCookieManager
    */
-  getCookieManager(): WebCookie
+  getCookieManager(): WebCookie;
 }
 
 /**
@@ -4337,6 +4351,7 @@ declare interface WebOptions {
    * @since 11
    */
   src: string | Resource;
+
   /**
    * Sets the controller of the Web.
    *
@@ -4350,7 +4365,7 @@ declare interface WebOptions {
    * @type { WebController | WebviewController }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
-  */
+   */
   /**
    * Sets the controller of the Web.
    *
@@ -4358,7 +4373,7 @@ declare interface WebOptions {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @since 10
-  */
+   */
   /**
    * Sets the controller of the Web.
    *
@@ -4367,7 +4382,7 @@ declare interface WebOptions {
    * @crossplatform
    * @atomicservice
    * @since 11
-  */
+   */
   controller: WebController | WebviewController;
 
   /**
@@ -4432,6 +4447,7 @@ declare interface ScriptItem {
    * @since 11
    */
   script: string;
+
   /**
    * Sets the rules of the JavaScript.
    *
@@ -4637,6 +4653,7 @@ declare interface NativeEmbedInfo {
    * @since 11
    */
   id?: string;
+
   /**
    * Only when enableEmbedMode is true and type is marked as native/xxx will be recognized as a same layer component.
    *
@@ -4646,6 +4663,7 @@ declare interface NativeEmbedInfo {
    * @since 11
    */
   type?: string;
+
   /**
    * The embed tag src.
    *
@@ -4655,6 +4673,7 @@ declare interface NativeEmbedInfo {
    * @since 11
    */
   src?: string;
+
   /**
    * The coordinate position of embed element relative to the webComponent.
    *
@@ -4664,6 +4683,7 @@ declare interface NativeEmbedInfo {
    * @since 12
    */
   position?: Position;
+
   /**
    * The embed tag width.
    *
@@ -4673,6 +4693,7 @@ declare interface NativeEmbedInfo {
    * @since 11
    */
   width?: number;
+
   /**
    * The embed tag height.
    *
@@ -4682,6 +4703,7 @@ declare interface NativeEmbedInfo {
    * @since 11
    */
   height?: number;
+
   /**
    * The embed tag url.
    *
@@ -4691,6 +4713,7 @@ declare interface NativeEmbedInfo {
    * @since 11
    */
   url?: string;
+
   /**
    * The embed tag name.
    *
@@ -4700,6 +4723,7 @@ declare interface NativeEmbedInfo {
    * @since 12
    */
   tag?: string;
+
   /**
    * The embed param list information used by object tag.
    *
@@ -4737,6 +4761,7 @@ declare interface NativeEmbedDataInfo {
    * @since 11
    */
   status?: NativeEmbedStatus;
+
   /**
    * The surface id.
    *
@@ -4746,6 +4771,7 @@ declare interface NativeEmbedDataInfo {
    * @since 11
    */
   surfaceId?: string;
+
   /**
    * The embed id.
    *
@@ -4755,6 +4781,7 @@ declare interface NativeEmbedDataInfo {
    * @since 11
    */
   embedId?: string;
+
   /**
    * The embed info.
    *
@@ -4782,6 +4809,7 @@ declare interface NativeEmbedVisibilityInfo {
    * @since 12
    */
   visibility: boolean;
+
   /**
    * The embed id.
    *
@@ -4818,6 +4846,7 @@ declare interface NativeEmbedTouchInfo {
    * @since 11
    */
   embedId?: string;
+
   /**
    * An event sent when the state of contacts with a touch-sensitive surface changes.
    *
@@ -4827,6 +4856,7 @@ declare interface NativeEmbedTouchInfo {
    * @since 11
    */
   touchEvent?: TouchEvent;
+
   /**
    * Handle the user's touch result.
    *
@@ -4838,14 +4868,14 @@ declare interface NativeEmbedTouchInfo {
   result?: EventResult;
 }
 
-  /**
-   * Defines the first content paint rendering of web page.
-   *
-   * @typedef FirstMeaningfulPaint
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
+/**
+ * Defines the first content paint rendering of web page.
+ *
+ * @typedef FirstMeaningfulPaint
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
 declare interface FirstMeaningfulPaint {
   /**
    * Start time of navigation.
@@ -4885,7 +4915,7 @@ declare interface LargestContentfulPaint {
    * @atomicservice
    * @since 12
    */
- navigationStartTime?: number;
+  navigationStartTime?: number;
 
   /**
    * Paint time of largest image.
@@ -4897,44 +4927,44 @@ declare interface LargestContentfulPaint {
    */
   largestImagePaintTime?: number;
 
-    /**
-     * Paint time of largest text.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 12
-     */
+  /**
+   * Paint time of largest text.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
   largestTextPaintTime?: number;
 
-    /**
-     * Bits per pixel of image.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 12
-     */
+  /**
+   * Bits per pixel of image.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
   imageBPP?: number;
 
-    /**
-     * Load start time of largest image.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 12
-     */
+  /**
+   * Load start time of largest image.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
   largestImageLoadStartTime?: number;
 
-    /**
-     * Load end time of largest image.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 12
-     */
+  /**
+   * Load end time of largest image.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
   largestImageLoadEndTime?: number;
 }
 
@@ -5082,6 +5112,7 @@ declare interface OnGeolocationShowEvent {
    * @since 12
    */
   origin: string;
+
   /**
    * Defines the js geolocation request.
    *
@@ -5114,6 +5145,7 @@ declare interface OnAlertEvent {
    * @since 12
    */
   url: string;
+
   /**
    * The message of alert dialog.
    *
@@ -5124,6 +5156,7 @@ declare interface OnAlertEvent {
    * @since 12
    */
   message: string;
+
   /**
    *  Handle the user's JavaScript result.
    *
@@ -5154,6 +5187,7 @@ declare interface OnBeforeUnloadEvent {
    * @since 12
    */
   url: string;
+
   /**
    * The message of confirm dialog.
    *
@@ -5163,6 +5197,7 @@ declare interface OnBeforeUnloadEvent {
    * @since 12
    */
   message: string;
+
   /**
    *  Handle the user's JavaScript result.
    *
@@ -5194,6 +5229,7 @@ declare interface OnConfirmEvent {
    * @since 12
    */
   url: string;
+
   /**
    * The message of confirm dialog.
    *
@@ -5204,6 +5240,7 @@ declare interface OnConfirmEvent {
    * @since 12
    */
   message: string;
+
   /**
    *  Handle the user's JavaScript result.
    *
@@ -5236,6 +5273,7 @@ declare interface OnPromptEvent {
    * @since 12
    */
   url: string;
+
   /**
    * The message of prompt dialog.
    *
@@ -5246,6 +5284,7 @@ declare interface OnPromptEvent {
    * @since 12
    */
   message: string;
+
   /**
    * The value of prompt dialog.
    *
@@ -5256,6 +5295,7 @@ declare interface OnPromptEvent {
    * @since 12
    */
   value: string;
+
   /**
    *  Handle the user's JavaScript result.
    *
@@ -5310,6 +5350,7 @@ declare interface OnErrorReceiveEvent {
    * @since 12
    */
   request: WebResourceRequest;
+
   /**
    * The information of error.
    *
@@ -5342,6 +5383,7 @@ declare interface OnHttpErrorReceiveEvent {
    * @since 12
    */
   request: WebResourceRequest;
+
   /**
    *  Web resource response of event.
    *
@@ -5374,6 +5416,7 @@ declare interface OnDownloadStartEvent {
    * @since 12
    */
   url: string;
+
   /**
    * The userAgent of page.
    *
@@ -5384,6 +5427,7 @@ declare interface OnDownloadStartEvent {
    * @since 12
    */
   userAgent: string;
+
   /**
    * The contentDisposition of page.
    *
@@ -5393,6 +5437,7 @@ declare interface OnDownloadStartEvent {
    * @since 12
    */
   contentDisposition: string;
+
   /**
    * The mimetype of page.
    *
@@ -5403,6 +5448,7 @@ declare interface OnDownloadStartEvent {
    * @since 12
    */
   mimetype: string;
+
   /**
    * The contentLength of page.
    *
@@ -5433,6 +5479,7 @@ declare interface OnRefreshAccessedHistoryEvent {
    * @since 12
    */
   url: string;
+
   /**
    * If true, the page is being reloaded, otherwise,  means that the page is newly loaded.
    *
@@ -5484,6 +5531,7 @@ declare interface OnShowFileSelectorEvent {
    * @since 11
    */
   result: FileSelectorResult;
+
   /**
    * Encompassed message information as parameters to fileSelector.
    *
@@ -5536,6 +5584,7 @@ declare interface OnScaleChangeEvent {
    * @since 12
    */
   oldScale: number;
+
   /**
    * New scale of the page.
    *
@@ -5568,6 +5617,7 @@ declare interface OnHttpAuthRequestEvent {
    * @since 12
    */
   handler: HttpAuthHandler;
+
   /**
    * Host of the page.
    *
@@ -5578,6 +5628,7 @@ declare interface OnHttpAuthRequestEvent {
    * @since 12
    */
   host: string;
+
   /**
    * realm of the page.
    *
@@ -5672,6 +5723,7 @@ declare interface OnContextMenuShowEvent {
    * @since 12
    */
   param: WebContextMenuParam;
+
   /**
    * The menu corresponding event is passed to the kernel.
    *
@@ -5701,6 +5753,7 @@ declare interface OnSearchResultReceiveEvent {
    * @since 12
    */
   activeMatchOrdinal: number;
+
   /**
    * The number of all matched keywords.
    *
@@ -5710,6 +5763,7 @@ declare interface OnSearchResultReceiveEvent {
    * @since 12
    */
   numberOfMatches: number;
+
   /**
    * Indicates whether the current in-page search operation is complete. The method may be called back multiple times until isDoneCounting is true.
    *
@@ -5741,6 +5795,7 @@ declare interface OnScrollEvent {
    * @since 12
    */
   xOffset: number;
+
   /**
    * The Y offset of the scroll.
    *
@@ -5771,6 +5826,7 @@ declare interface OnSslErrorEventReceiveEvent {
    * @since 12
    */
   handler: SslErrorHandler;
+
   /**
    * Error codes.
    *
@@ -5780,6 +5836,7 @@ declare interface OnSslErrorEventReceiveEvent {
    * @since 12
    */
   error: SslError;
+
   /**
    * Certificate chain data in DER format.
    *
@@ -5808,6 +5865,7 @@ declare interface OnClientAuthenticationEvent {
    * @since 12
    */
   handler : ClientAuthenticationHandler;
+
   /**
    * The hostname of the requesting certificate server.
    *
@@ -5817,6 +5875,7 @@ declare interface OnClientAuthenticationEvent {
    * @since 12
    */
   host : string;
+
   /**
    * The port number of the request certificate server.
    *
@@ -5826,6 +5885,7 @@ declare interface OnClientAuthenticationEvent {
    * @since 12
    */
   port : number;
+
   /**
    * Acceptable asymmetric key types.
    *
@@ -5835,6 +5895,7 @@ declare interface OnClientAuthenticationEvent {
    * @since 12
    */
   keyTypes : Array<string>;
+
   /**
    * Certificates that match the private key are acceptable to the issuer.
    *
@@ -5864,6 +5925,7 @@ declare interface OnWindowNewEvent {
    * @since 12
    */
   isAlert: boolean;
+
   /**
    * true indicates that it is triggered by the user, and false indicates that it is triggered by a non-user.
    *
@@ -5873,6 +5935,7 @@ declare interface OnWindowNewEvent {
    * @since 12
    */
   isUserTrigger: boolean;
+
   /**
    * Destination URL.
    *
@@ -5882,6 +5945,7 @@ declare interface OnWindowNewEvent {
    * @since 12
    */
   targetUrl: string;
+
   /**
    * Lets you set the WebviewController instance for creating a new window.
    *
@@ -5911,6 +5975,7 @@ declare interface OnTouchIconUrlReceivedEvent {
    * @since 12
    */
   url: string;
+
   /**
    * Corresponding to whether apple-touch-icon is precomposited.
    *
@@ -6022,6 +6087,7 @@ declare interface OnFirstContentfulPaintEvent {
    * @since 12
    */
   navigationStartTick: number;
+
   /**
    * The time it takes to draw content for the first time from navigation, expressed in milliseconds.
    *
@@ -6073,6 +6139,7 @@ declare interface OnOverScrollEvent {
    * @since 12
    */
   xOffset: number;
+
   /**
    * Based on the top of the page, the vertical scroll offset is over.
    *
@@ -6102,6 +6169,7 @@ declare interface JavaScriptProxy {
    * @since 12
    */
   object: object;
+
   /**
    * The name of the registered object, which is consistent with the
    *                          object name called in the window.
@@ -6112,6 +6180,7 @@ declare interface JavaScriptProxy {
    * @since 12
    */
   name: string;
+
   /**
    * The method of the application side JavaScript object participating
    *                                       in the registration.
@@ -6122,6 +6191,7 @@ declare interface JavaScriptProxy {
    * @since 12
    */
   methodList: Array<string>;
+
   /**
    * Controller.
    *
@@ -6131,6 +6201,7 @@ declare interface JavaScriptProxy {
    * @since 12
    */
   controller: WebController | WebviewController;
+
   /**
    * The async method of the application side JavaScript object participating in the registration.
    *
@@ -6140,6 +6211,7 @@ declare interface JavaScriptProxy {
    * @since 12
    */
   asyncMethodList?: Array<string>;
+
   /**
    * permission configuration defining web page URLs that can access JavaScriptProxy methods.
    * The configuration can be defined at two levels, object level and method level.
@@ -6186,7 +6258,7 @@ declare enum WebKeyboardAvoidMode {
    * @atomicservice
    * @since 12
    */
-  OVERLAYS_CONTENT = 2,
+  OVERLAYS_CONTENT = 2
 }
 
 /**
@@ -6203,7 +6275,7 @@ declare enum WebElementType {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13
    */
-  IMAGE = 1,
+  IMAGE = 1
 }
 
 /**
@@ -6220,7 +6292,7 @@ declare enum WebResponseType {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13
    */
-  LONG_PRESS = 1,
+  LONG_PRESS = 1
 }
 
 /**
@@ -6659,16 +6731,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   overviewModeAccess(overviewModeAccess: boolean): WebAttribute;
+
   /**
-    * Sets the over-scroll mode for web
-    *
-    * @param { OverScrollMode } mode - The over-scroll mode, which can be {@link OverScrollMode}.
-    * @returns { WebAttribute }
-    * @syscap SystemCapability.Web.Webview.Core
-    * @atomicservice
-    * @since 11
-    */
+   * Sets the over-scroll mode for web
+   *
+   * @param { OverScrollMode } mode - The over-scroll mode, which can be {@link OverScrollMode}.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
   overScrollMode(mode: OverScrollMode): WebAttribute;
+
   /**
    * Sets the blur on for elements on webview when soft keyboard is hidden manually.
    *
@@ -6679,6 +6753,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 14
    */
   blurOnKeyboardHideMode(mode: BlurOnKeyboardHideMode): WebAttribute;
+
   /**
    * Sets the ratio of the text zoom.
    *
@@ -7995,7 +8070,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   defaultFixedFontSize(size: number): WebAttribute;
 
   /**
-  * Set the default font value of webview. The default value is 16, ranging from 1 to 72.
+   * Set the default font value of webview. The default value is 16, ranging from 1 to 72.
    *
    * @param { number } size Font size.
    * @returns { WebAttribute }
@@ -8003,7 +8078,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-  * Set the default font value of webview. The default value is 16, ranging from 1 to 72.
+   * Set the default font value of webview. The default value is 16, ranging from 1 to 72.
    *
    * @param { number } size Font size.
    * @returns { WebAttribute }
@@ -8014,7 +8089,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   defaultFontSize(size: number): WebAttribute;
 
   /**
-  * Set the minimum value of webview font. The default value is 8, ranging from 1 to 72.
+   * Set the minimum value of webview font. The default value is 8, ranging from 1 to 72.
    *
    * @param { number } size Font size.
    * @returns { WebAttribute }
@@ -8022,7 +8097,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-  * Set the minimum value of webview font. The default value is 8, ranging from 1 to 72.
+   * Set the minimum value of webview font. The default value is 8, ranging from 1 to 72.
    *
    * @param { number } size Font size.
    * @returns { WebAttribute }
@@ -8034,7 +8109,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   minFontSize(size: number): WebAttribute;
 
   /**
-  * Set the logical minimum value of webview font. The default value is 8, ranging from 1 to 72.
+   * Set the logical minimum value of webview font. The default value is 8, ranging from 1 to 72.
    *
    * @param { number } size Font size.
    * @returns { WebAttribute }
@@ -8042,7 +8117,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-  * Set the logical minimum value of webview font. The default value is 8, ranging from 1 to 72.
+   * Set the logical minimum value of webview font. The default value is 8, ranging from 1 to 72.
    *
    * @param { number } size Font size.
    * @returns { WebAttribute }
@@ -8648,7 +8723,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 12
    */
-   enableSmoothDragResize(mode: boolean): WebAttribute;
+  enableSmoothDragResize(mode: boolean): WebAttribute;
 
   /**
    * Triggered when render process not responding.
@@ -8658,7 +8733,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12
    */
-   onRenderProcessNotResponding(callback: OnRenderProcessNotRespondingCallback): WebAttribute;
+  onRenderProcessNotResponding(callback: OnRenderProcessNotRespondingCallback): WebAttribute;
 
   /**
    * Triggered when the unresponsive render process becomes responsive.
@@ -8668,7 +8743,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12
    */
-   onRenderProcessResponding(callback: OnRenderProcessRespondingCallback): WebAttribute;
+  onRenderProcessResponding(callback: OnRenderProcessRespondingCallback): WebAttribute;
 
   /**
    * Set the custom text menu.
@@ -8678,17 +8753,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12
    */
-   selectionMenuOptions(expandedMenuOptions: Array<ExpandedMenuItemOptions>): WebAttribute;
+  selectionMenuOptions(expandedMenuOptions: Array<ExpandedMenuItemOptions>): WebAttribute;
 
   /**
-  * Triggered when the viewport-fit meta is detected for web page.
-  *
-  * @param { OnViewportFitChangedCallback } callback - The callback for onViewportFitChanged.
-  * @returns { WebAttribute }
-  * @syscap SystemCapability.Web.Webview.Core
-  * @atomicservice
-  * @since 12
-  */
+   * Triggered when the viewport-fit meta is detected for web page.
+   *
+   * @param { OnViewportFitChangedCallback } callback - The callback for onViewportFitChanged.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
   onViewportFitChanged(callback: OnViewportFitChangedCallback): WebAttribute;
 
   /**
@@ -8762,6 +8837,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   bindSelectionMenu(elementType: WebElementType, content: CustomBuilder, responseType: WebResponseType,
       options?: SelectionMenuOptionsExt): WebAttribute;
+
+  /**
+   * Sets whether to follow the system font weight.
+   *
+   * @param { boolean} follow The value true means to follow the system font weight, and false means the opposite.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 16
+   */
+  enableFollowSystemFontWeight(follow: boolean): WebAttribute;
 }
 
 /**
@@ -8820,7 +8906,8 @@ declare interface SslErrorEvent {
    * @atomicservice
    * @since 12
    */
-  handler: SslErrorHandler,
+  handler: SslErrorHandler;
+
   /**
    * Error codes.
    *
@@ -8829,7 +8916,8 @@ declare interface SslErrorEvent {
    * @atomicservice
    * @since 12
    */
-  error: SslError
+  error: SslError;
+
   /**
    * Request url.
    *
@@ -8839,6 +8927,7 @@ declare interface SslErrorEvent {
    * @since 12
    */
   url: string;
+
   /**
    * Original url.
    *
@@ -8848,6 +8937,7 @@ declare interface SslErrorEvent {
    * @since 12
    */
   originalUrl: string;
+
   /**
    * Referrer.
    *
@@ -8857,6 +8947,7 @@ declare interface SslErrorEvent {
    * @since 12
    */
   referrer: string;
+
   /**
    * Whether the error is fatal.
    *
@@ -8866,6 +8957,7 @@ declare interface SslErrorEvent {
    * @since 12
    */
   isFatalError: boolean;
+
   /**
    * Whether the request is main frame.
    *
@@ -8895,6 +8987,7 @@ declare interface ExpandedMenuItemOptions {
    * @since 12
    */
   content: ResourceStr;
+
   /**
    * Customize the icon before the menu displays content.
    *
@@ -8904,6 +8997,7 @@ declare interface ExpandedMenuItemOptions {
    * @since 12
    */
   startIcon?: ResourceStr;
+
   /**
    * Get the selected text information.
    *
