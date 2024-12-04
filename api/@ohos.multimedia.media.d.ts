@@ -3725,7 +3725,7 @@ declare namespace media {
      * pos - The stream position player want get start, and is an optional parameter.
      * When fileSize set to -1, this parameter is not used.
      * Returns length of the data to be filled, Return -1 to indicate that the end of the stream is reached,
-     * Return -2 to indicate that an irreversible error has been encountered.
+     * Return -2 to indicate that an unrecoverable error has been encountered.
      * @type { function }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
