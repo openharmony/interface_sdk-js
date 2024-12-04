@@ -1027,7 +1027,7 @@ declare namespace audio {
      * @crossplatform
      * @since 12
      */
-    CHANNEL_1 = 0x1 << 0,
+    CHANNEL_1 = 1,
     /**
      * Channel 2.
      * @syscap SystemCapability.Multimedia.Audio.Core
@@ -1039,7 +1039,7 @@ declare namespace audio {
      * @crossplatform
      * @since 12
      */
-    CHANNEL_2 = 0x1 << 1,
+    CHANNEL_2 = 2,
     /**
      * Channel 3.
      * @syscap SystemCapability.Multimedia.Audio.Core
