@@ -1562,6 +1562,20 @@ declare namespace pasteboard {
      * @systemapi
      * @since 12
      */
+    /**
+     * Sets a unified ShareOptions for your application, so that the PasteData copied from your application is applicable to this ShareOptions.
+     * 
+     * @permission ohos.permission.MANAGE_PASTEBOARD_APP_SHARE_OPTION
+     * @param { ShareOption } shareOptions - Scope that PasteData can be pasted.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+     *     permission required to call the API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                   2. Incorrect parameter types;
+     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 12900006 - Settings already exist.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 14
+     */
     setAppShareOptions(shareOptions: ShareOption): void;
 
     /**
@@ -1571,6 +1585,15 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @systemapi
      * @since 12
+     */
+    /**
+     * Removes the unified ShareOptions of your application.
+     *
+     * @permission ohos.permission.MANAGE_PASTEBOARD_APP_SHARE_OPTION
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+     *    permission required to call the API.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 14
      */
     removeAppShareOptions(): void;
 
