@@ -1151,7 +1151,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 13
+   * @since 14
    */
   function getSupportedProcessCachePids(bundleName : string): Promise<Array<number>>;
 
