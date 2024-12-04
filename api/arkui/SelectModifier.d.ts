@@ -25,7 +25,7 @@
  * Defines Select Modifier
  *
  * @extends SelectAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<SelectAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

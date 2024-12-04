@@ -25,7 +25,7 @@
  * Defines TimePicker Modifier
  *
  * @extends TimePickerAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<TimePickerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
