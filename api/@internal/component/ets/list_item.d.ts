@@ -274,7 +274,7 @@ declare interface SwipeActionItem {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 17
+    * @since 16
     */
   builderComponent?: ComponentContent;
 
