@@ -33,7 +33,7 @@ export default class FenceExtensionAbility {
    *
    * @type { FenceExtensionContext }
    * @syscap SystemCapability.Location.Location.Geofence
-   * @since 13
+   * @since 14
    */
   context: FenceExtensionContext;
 
