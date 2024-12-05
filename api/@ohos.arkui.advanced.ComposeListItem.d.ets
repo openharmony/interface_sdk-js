@@ -470,13 +470,13 @@ export declare class OperateItem {
   image?: ResourceStr;
 
   /**
-   * Sets the symbol.
+   * Sets the symbolStyle.
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
    */
-  symbol?: SymbolGlyphModifier;
+  symbolStyle?: SymbolGlyphModifier;
 
   /**
    * Sets the text.
