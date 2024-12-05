@@ -580,15 +580,15 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Asymmetric key encoding options.
+   * Asymmetric key encoding configuration.
    *
-   * @typedef KeyEncodingOptions
+   * @typedef KeyEncodingConfig
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
    * @since 16
    */
-  interface KeyEncodingOptions {
+  interface KeyEncodingConfig {
     /**
      * The password to encrypt the private key.
      *
@@ -906,11 +906,13 @@ declare namespace cryptoFramework {
      * @atomicservice
      * @since 12
      */
+    getEncodedPem(format: string): string;
+
     /**
      * Encode the private key object to string in PEM format.
      *
      * @param { string } format - indicates the encoding format.
-     * @param { KeyEncodingOptions } [options] - indicates the encoding options.
+     * @param { KeyEncodingConfig } config - indicates the encoding configuration.
      * @returns { string } the string of the key object in PEM format.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -921,7 +923,7 @@ declare namespace cryptoFramework {
      * @atomicservice
      * @since 16
      */
-    getEncodedPem(format: string, options?: KeyEncodingOptions): string;
+    getEncodedPem(format: string, config: KeyEncodingConfig): string;
   }
 
   /**
@@ -1675,12 +1677,14 @@ declare namespace cryptoFramework {
      * @atomicservice
      * @since 12
      */
+    convertPemKey(pubKey: string | null, priKey: string | null): Promise<KeyPair>;
+
     /**
      * Used to convert asymmetric key in PEM format to keypair object.
      *
      * @param { string | null } pubKey - the public key string in PEM format.
      * @param { string | null } priKey - the private key string in PEM format.
-     * @param { string } [password] - the password of private key.
+     * @param { string } password - the password of private key.
      * @returns { Promise<KeyPair> } return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1691,7 +1695,7 @@ declare namespace cryptoFramework {
      * @atomicservice
      * @since 16
      */
-    convertPemKey(pubKey: string | null, priKey: string | null, password?: string): Promise<KeyPair>;
+    convertPemKey(pubKey: string | null, priKey: string | null, password: string): Promise<KeyPair>;
 
     /**
      * Used to convert asymmetric key in PEM format to keypair object.
@@ -1708,12 +1712,14 @@ declare namespace cryptoFramework {
      * @atomicservice
      * @since 12
      */
+    convertPemKeySync(pubKey: string | null, priKey: string | null): KeyPair;
+
     /**
      * Used to convert asymmetric key in PEM format to keypair object.
      *
      * @param { string | null } pubKey - the public key string in PEM format.
      * @param { string | null } priKey - the private key string in PEM format.
-     * @param { string } [password] - the password of private key.
+     * @param { string } password - the password of private key.
      * @returns { KeyPair } return keypair.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1724,7 +1730,7 @@ declare namespace cryptoFramework {
      * @atomicservice
      * @since 16
      */
-    convertPemKeySync(pubKey: string | null, priKey: string | null, password?: string): KeyPair;
+    convertPemKeySync(pubKey: string | null, priKey: string | null, password: string): KeyPair;
 
     /**
      * The algName of the AsyKeyGenerator.
