@@ -468,7 +468,7 @@ declare interface RichEditorTextStyle {
    * @atomicservice
    * @since 16
    */
-    textBackgroundStyle?: TextBackgroundStyle;
+  textBackgroundStyle?: TextBackgroundStyle;
 }
 
 
