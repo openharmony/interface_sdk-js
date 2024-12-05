@@ -209,7 +209,6 @@ declare namespace backup {
    * @returns { string } Return the backupVersion.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-   * <br>2. Incorrect parameter types. 3.Parameter verification failed.
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
    * @since 16
