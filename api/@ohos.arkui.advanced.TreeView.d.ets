@@ -389,7 +389,7 @@ export interface NodeParam {
      * @atomicservice
      * @since 16
      */
-    symbolIcon?: SymbolGlyphModifier;
+    symbolIconStyle?: SymbolGlyphModifier;
 
     /**
      * Set selected icon resource.
@@ -413,7 +413,7 @@ export interface NodeParam {
      * @atomicservice
      * @since 16
      */
-    symbolSelectedIcon?: SymbolGlyphModifier;
+    symbolSelectedIconStyle?: SymbolGlyphModifier;
 
     /**
      * Set edit icon resource.
@@ -437,7 +437,7 @@ export interface NodeParam {
      * @atomicservice
      * @since 16
      */
-    symbolEditIcon?: SymbolGlyphModifier;
+    symbolEditIconStyle?: SymbolGlyphModifier;
 
     /**
      * Set primary title content.
