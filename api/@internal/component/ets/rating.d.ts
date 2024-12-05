@@ -376,6 +376,18 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
 }
 
 /**
+ * Callback of the star rating of the operation scoring bar changes event.
+ * 
+ * @typedef {function} OnRatingChangeCallback
+ * @param {number} rating - The rating of the rating bar.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+  declare type OnRatingChangeCallback = (rating: number) => void;
+
+/**
  * Defines the rating attribute functions.
  *
  * @extends CommonMethod<RatingAttribute>
@@ -451,6 +463,19 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
   stars(value: number): RatingAttribute;
 
   /**
+   * Called when the total number of stars is set.
+   *
+   * @param { Optional<number> } starNum
+   * @returns { RatingAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */  
+  stars(starNum: Optional<number>): RatingAttribute;
+
+  /**
    * Called when the step size of the operation rating.
    *
    * @param { number } value
@@ -489,6 +514,19 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @since 11
    */
   stepSize(value: number): RatingAttribute;
+
+  /**
+   * Called when the step size of the operation rating.
+   *
+   * @param { Optional<number> } size
+   * @returns { RatingAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */  
+  stepSize(size: Optional<number>): RatingAttribute;
 
   /**
    * Called when a picture is set.
@@ -542,6 +580,19 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
   starStyle(options: StarStyleOptions): RatingAttribute;
 
   /**
+   * Called when a picture is set.
+   *
+   * @param { Optional<StarStyleOptions> } options - star style options
+   * @returns { RatingAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */  
+  starStyle(options: Optional<StarStyleOptions>): RatingAttribute;
+
+  /**
    * Called when the star rating of the operation scoring bar changes.
    *
    * @param { function } callback
@@ -582,6 +633,19 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
   onChange(callback: (value: number) => void): RatingAttribute;
 
   /**
+   * Called when the star rating of the operation scoring bar changes.
+   *
+   * @param { Optional<OnRatingChangeCallback> } callback
+   * @returns { RatingAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */  
+  onChange(callback: Optional<OnRatingChangeCallback>): RatingAttribute;
+
+  /**
    * Set the content modifier of rating.
    *
    * @param { ContentModifier<RatingConfiguration> } modifier - The content modifier of rating.
@@ -592,6 +656,18 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @since 12
    */
   contentModifier(modifier: ContentModifier<RatingConfiguration>): RatingAttribute;
+
+  /**
+   * Set the content modifier of rating.
+   *
+   * @param { Optional<ContentModifier<RatingConfiguration>> } modifier - The content modifier of rating.
+   * @returns { RatingAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  contentModifier(modifier: Optional<ContentModifier<RatingConfiguration>>): RatingAttribute;
 }
 
 /**
