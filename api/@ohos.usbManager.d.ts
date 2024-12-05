@@ -276,6 +276,8 @@ declare namespace usbManager {
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.  
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @throws { BusinessError } 14400002 - Permission denied. The HDC is disabled by the system.
+   * @throws { BusinessError } 14400006 - Unsupported operation. The function is not supported.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 12
