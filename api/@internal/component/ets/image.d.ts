@@ -67,6 +67,17 @@ declare type ResolutionQuality  = import('../api/@ohos.multimedia.image').defaul
 declare type DrawingLattice  = import('../api/@ohos.graphics.drawing').default.Lattice;
 
 /**
+ * Object matrix used for setting image transformations.
+ *
+ * @typedef { import('../api/@ohos.matrix4').default.Matrix4Transit } Matrix4Transit
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare type ImageMatrix = import ('../api/@ohos.matrix4').default.Matrix4Transit;
+
+/**
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -846,6 +857,18 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 11
    */
   objectFit(value: ImageFit): ImageAttribute;
+
+  /**
+   * Sets the matrix for the image.
+   *
+   * @param { ImageMatrix } matrix
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  imageMatrix(matrix: ImageMatrix): ImageAttribute;
 
   /**
    * Set the repeat style of the picture

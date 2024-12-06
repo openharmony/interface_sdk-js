@@ -886,6 +886,16 @@ declare enum ImageFit {
    * @since 12
    */
   BOTTOM_END = 15,
+
+  /**
+   * Matrix of Image.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  MATRIX = 16,
 }
 
 /**
