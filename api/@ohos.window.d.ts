@@ -3518,6 +3518,26 @@ declare namespace window {
   }
 
   /**
+   * the optional move configuration used in moveWindowToAsync/moveWindowToGlobal
+   *
+   * @interface MoveConfiguration
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 14
+   */
+  interface MoveConfiguration {
+    /**
+     * The display id of the screen
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 14
+     */
+    displayId?: number;
+  }
+
+  /**
    * Specific system bar type.
    *
    * @syscap SystemCapability.Window.SessionManager
@@ -3994,6 +4014,26 @@ declare namespace window {
     moveWindowToAsync(x: number, y: number): Promise<void>;
 
     /**
+     * Move window to the position.
+     *
+     * @param { number } x - Indicate the X-coordinate of the window.
+     * @param { number } y - Indicate the Y-coordinate of the window.
+     * @param { ?MoveConfiguration } moveConfiguration - Indicate the window move configuration.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types.
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 14
+     */
+    moveWindowToAsync(x: number, y: number, moveConfiguration?: MoveConfiguration): Promise<void>;
+
+    /**
      * Move window to the position relative to current screen.
      * 
      * @param { number } x - Indicate the X-coordinate of the window relative to current screen.
@@ -4011,6 +4051,26 @@ declare namespace window {
      * @since 13
      */
     moveWindowToGlobal(x: number, y: number): Promise<void>;
+
+    /**
+     * Move window to the position relative to current screen.
+     * 
+     * @param { number } x - Indicate the X-coordinate of the window relative to current screen.
+     * @param { number } y - Indicate the Y-coordinate of the window relative to current screen.
+     * @param { ?MoveConfiguration } moveConfiguration - Indicate the window move configuration.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types.
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 14
+     */
+    moveWindowToGlobal(x: number, y: number, moveConfiguration?: MoveConfiguration): Promise<void>;
 
     /**
      * Set the size of a window .
