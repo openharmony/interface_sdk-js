@@ -1636,6 +1636,36 @@ declare enum MouseButton {
 }
 
 /**
+ * Additional options touchpad multi-finger swipe gestures.
+ * @interface TouchPadSwipeOptions
+ * @syscap SystemCapability.Test.UiTest
+ * @atomicservice
+ * @since 16
+ * @test
+ */
+declare interface TouchPadSwipeOptions {
+  /**
+   * Whether stay for 1 second and lift up after swipe, default is false.
+   * @type { ?boolean }
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 16
+   * @test
+   */
+  stay?: boolean;
+
+  /**
+   * Speed(pixels per second) of touchpad multi-finger swipe, default is 2000, the value ranges from 200 to 40000,set it 2000 if out of range.
+   * @type { ?number }
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 16
+   * @test
+   */
+  speed?: number;
+}
+
+/**
  * Describes the attribute requirements for the target Components.
  *
  * @syscap SystemCapability.Test.UiTest
@@ -3106,7 +3136,6 @@ declare class Component {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
-   * @crossplatform
    * @atomicservice
    * @since 16
    * @test
@@ -4233,6 +4262,93 @@ declare class Driver {
    * @test
    */
   inputText(p: Point, text: string): Promise<void>;
+
+  /**
+   * Simulate touchpad multi-finger swipe gestures.
+   * @param { number } fingers Finger count of touchpad multi-finger swipe, ranges from 3 to 4.
+   * @param { UiDirection } direction Direction of touchpad multi-finger swipe.
+   * @param { TouchPadSwipeOptions } [options] Additional options touchpad multi-finger swipe gestures, set its parameters to default values if null or undefined.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 17000002 The async function is not called with await.
+   * @throws { BusinessError } 17000005 This device can not support this action.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 16
+   * @test
+   */
+  touchPadMultiFingerSwipe(fingers: number, direction: UiDirection, options?: TouchPadSwipeOptions): Promise<void>;
+
+  /**
+   * Simulate pen click operation.
+   * @param { Point } point Coordinate of the specified location.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 17000002 The async function is not called with await.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 16
+   * @test
+   */
+  penClick(point: Point): Promise<void>;
+
+  /**
+   * Simulate pen long click operation.
+   * @param { Point } point Coordinate of the specified location.
+   * @param { number } [pressure] Pressure of pen long click operation, default is 1.0, the value ranges from 0.0 to 1.0.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 17000002 The async function is not called with await.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 16
+   * @test
+   */
+  penLongClick(point: Point, pressure?: number): Promise<void>;
+
+  /**
+   * Simulate pen double click operation.
+   * @param { Point } point Coordinate of the specified location.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 17000002 The async function is not called with await.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 16
+   * @test
+   */
+  penDoubleClick(point: Point): Promise<void>;
+
+  /**
+   * Simulate pen swipe operation.
+   * @param { Point } startPoint Coordinate of the specified location.
+   * @param { Point } endPoint Coordinate of the specified location.
+   * @param { number } [speed] Speed(pixels per second) of pen swipe, default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @param { number } [pressure] Pressure of pen swipe operation, default is 1.0, the value ranges from 0.0 to 1.0.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 17000002 The async function is not called with await.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 16
+   * @test
+   */
+  penSwipe(startPoint: Point, endPoint: Point, speed?: number, pressure?: number): Promise<void>;
+
+  /**
+   * Inject pen multi-pointer action on the device display.
+   * @param { PointerMatrix } pointers The two-dimensional array of pointers to inject.
+   * @param { number } [speed] Speed(pixels per second) of inject pen pointer action, default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @param { number } [pressure] Pressure of inject pen pointer action operation, default is 1.0, the value ranges from 0.0 to 1.0.
+   * @returns { Promise<void> }
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 17000002 The async function is not called with await.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 16
+   * @test
+   */
+  injectPenPointerAction(pointers: PointerMatrix, speed?: number, pressure?: number): Promise<void>;
 }
 
 /**
@@ -4737,5 +4853,6 @@ export {
   UiDirection,
   MouseButton,
   UIElementInfo,
-  UIEventObserver
+  UIEventObserver,
+  TouchPadSwipeOptions
 };
