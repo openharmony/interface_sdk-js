@@ -375,7 +375,7 @@ interface XComponentInterface {
  * @atomicservice
  * @since 14
  */
-declare type OnNativeLoadCallback = (event?: object) => void
+declare type OnNativeLoadCallback = (event?: object) => void;
 
 /**
  * Defines XComponentAttribute.
