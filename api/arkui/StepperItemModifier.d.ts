@@ -25,7 +25,7 @@
  * Defines StepperItem Modifier
  *
  * @extends StepperItemAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<StepperItemAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

@@ -11011,6 +11011,7 @@ declare interface DismissContentCoverAction {
 /**
  * Component content cover options
  *
+ * @extends BindOptions
  * @interface ContentCoverOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -11019,6 +11020,7 @@ declare interface DismissContentCoverAction {
 /**
  * Component content cover options
  *
+ * @extends BindOptions
  * @interface ContentCoverOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -11409,6 +11411,7 @@ declare interface SpringBackAction {
 /**
  * Component sheet options
  *
+ * @extends BindOptions
  * @interface SheetOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -11417,6 +11420,7 @@ declare interface SpringBackAction {
 /**
  * Component sheet options
  *
+ * @extends BindOptions
  * @interface SheetOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
