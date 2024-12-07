@@ -5685,6 +5685,7 @@ declare namespace audio {
     /**
      * Device network id.
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 9
@@ -5694,6 +5695,7 @@ declare namespace audio {
     /**
      * Volume group id.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 9
@@ -5703,6 +5705,7 @@ declare namespace audio {
     /**
      * Volume mapping group id.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 9
@@ -5712,6 +5715,7 @@ declare namespace audio {
     /**
      * Volume group name.
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 9
@@ -5721,6 +5725,7 @@ declare namespace audio {
     /**
      * Connect type of device for this group.
      * @type { ConnectType }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 9
@@ -5775,6 +5780,7 @@ declare namespace audio {
     /**
      * Audio stream unique id.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12
@@ -5784,6 +5790,7 @@ declare namespace audio {
     /**
      * Uid for audio renderer client application.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @systemapi
      * @since 9
@@ -5799,6 +5806,7 @@ declare namespace audio {
     /**
      * Audio renderer information.
      * @type { AudioRendererInfo }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12
@@ -5808,6 +5816,7 @@ declare namespace audio {
     /**
      * Audio state.
      * @type { AudioState }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @systemapi
      * @since 9
@@ -5823,6 +5832,7 @@ declare namespace audio {
     /**
      * Audio output devices.
      * @type { AudioDeviceDescriptors }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12
@@ -5868,6 +5878,7 @@ declare namespace audio {
     /**
      * Audio stream unique id.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12
@@ -5877,6 +5888,7 @@ declare namespace audio {
     /**
      * Uid for audio capturer client application.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
      * @since 9
@@ -5892,6 +5904,7 @@ declare namespace audio {
     /**
      * Audio capturer information.
      * @type { AudioCapturerInfo }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12
@@ -5901,6 +5914,7 @@ declare namespace audio {
     /**
      * Audio state.
      * @type { AudioState }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
      * @since 9
@@ -5916,6 +5930,7 @@ declare namespace audio {
     /**
      * Audio input devices.
      * @type { AudioDeviceDescriptors }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12
@@ -5931,6 +5946,7 @@ declare namespace audio {
     /**
      * Audio capturer muted status.
      * @type { ?boolean }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12
@@ -5962,6 +5978,7 @@ declare namespace audio {
     /**
      * Audio device role.
      * @type { DeviceRole }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
@@ -5978,6 +5995,7 @@ declare namespace audio {
     /**
      * Audio device type.
      * @type { DeviceType }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
@@ -5994,6 +6012,7 @@ declare namespace audio {
     /**
      * Audio device id.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
@@ -6010,6 +6029,7 @@ declare namespace audio {
     /**
      * Audio device name.
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
@@ -6026,6 +6046,7 @@ declare namespace audio {
     /**
      * Audio device address.
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
@@ -6042,6 +6063,7 @@ declare namespace audio {
     /**
      * Supported sampling rates.
      * @type { Array<number> }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
@@ -6058,6 +6080,7 @@ declare namespace audio {
     /**
      * Supported channel counts.
      * @type { Array<number> }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
@@ -6074,6 +6097,7 @@ declare namespace audio {
     /**
      * Supported channel masks.
      * @type { Array<number> }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
@@ -6083,6 +6107,7 @@ declare namespace audio {
     /**
      * Device network id
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
      * @since 9
@@ -6091,6 +6116,7 @@ declare namespace audio {
     /**
      * Interrupt group id
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
      * @since 9
@@ -6099,6 +6125,7 @@ declare namespace audio {
     /**
      * Volume group id
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
      * @since 9
@@ -6113,6 +6140,7 @@ declare namespace audio {
     /**
      * Name used to display, considering distributed device situation.
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
@@ -6129,6 +6157,7 @@ declare namespace audio {
     /**
      * Supported encoding types.
      * @type { ?Array<AudioEncodingType> }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
@@ -6604,6 +6633,7 @@ declare namespace audio {
     /**
      * Defines the current render state.
      * @type { AudioState }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12
@@ -8054,6 +8084,7 @@ declare namespace audio {
     /**
      * Defines the current capture state.
      * @type { AudioState }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12

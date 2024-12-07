@@ -139,7 +139,6 @@ declare namespace systemSoundManager {
 
   /**
    * Define the ringtone category.
-   * @constant
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 12
@@ -148,7 +147,6 @@ declare namespace systemSoundManager {
 
   /**
    * Define the text message tone category.
-   * @constant
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 12
@@ -157,7 +155,6 @@ declare namespace systemSoundManager {
 
   /**
    * Define the notification tone category.
-   * @constant
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 12
@@ -166,7 +163,6 @@ declare namespace systemSoundManager {
 
   /**
    * Define the alarm tone category.
-   * @constant
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 12
