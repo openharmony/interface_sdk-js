@@ -18,7 +18,7 @@
  * @kit BasicServicesKit
  */
 
-import {AsyncCallback} from './@ohos.base';
+import { AsyncCallback } from './@ohos.base';
 import image from './@ohos.multimedia.image';
 
 /**
@@ -98,6 +98,106 @@ declare namespace wallpaper {
      * @since 7
      */
     WALLPAPER_LOCKSCREEN
+  }
+
+  /**
+   * WallpaperInfo definition including folding status, rotation status, and resource path.
+   *
+   * @typedef WallpaperInfo
+   * @syscap SystemCapability.MiscServices.Wallpaper
+   * @systemapi Hide this for inner system use.
+   * @since 14
+   */
+  interface WallpaperInfo {
+    /**
+     * Indicates the folding status for wallpaper.
+     * 
+     * @type { FoldState }
+     * @syscap SystemCapability.MiscServices.Wallpaper
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    foldState: FoldState;
+    /**
+     * Indicates the rotation status for wallpaper.
+     * 
+     * @type { RotateState }
+     * @syscap SystemCapability.MiscServices.Wallpaper
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    rotateState: RotateState;
+    /**
+     * Indicates the resource path for wallpaper.
+     * 
+     * @type { string }
+     * @syscap SystemCapability.MiscServices.Wallpaper
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    source: string;
+  }
+
+  /**
+   * Define the folding state of wallpaper
+   *
+   * @enum { number } FoldState
+   * @syscap SystemCapability.MiscServices.Wallpaper
+   * @systemapi Hide this for inner system use.
+   * @since 14
+   */
+  enum FoldState {
+    /**
+     * Indicates the device type is normal device.
+     *
+     * @syscap SystemCapability.MiscServices.Wallpaper
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    NORMAL = 0,
+    /**
+     * Indicates the once unfold state.
+     *
+     * @syscap SystemCapability.MiscServices.Wallpaper
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    UNFOLD_ONCE_STATE = 1,
+    /**
+     * Indicates the secondary unfold state.
+     *
+     * @syscap SystemCapability.MiscServices.Wallpaper
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    UNFOLD_TWICE_STATE = 2
+  }
+
+  /**
+   * Define the rotation state of wallpaper
+   *
+   * @enum { number } RotateState
+   * @syscap SystemCapability.MiscServices.Wallpaper
+   * @systemapi Hide this for inner system use.
+   * @since 14
+   */
+  enum RotateState {
+    /**
+     * Indicates the screen type is vertical screen.
+     *
+     * @syscap SystemCapability.MiscServices.Wallpaper
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    PORTRAIT = 0,
+    /**
+     * Indicates the screen type is horizontal screen.
+     *
+     * @syscap SystemCapability.MiscServices.Wallpaper
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    LANDSCAPE = 1
   }
 
   /**
@@ -640,6 +740,47 @@ declare namespace wallpaper {
     type: 'wallpaperChange',
     callback?: (wallpaperType: WallpaperType, resourceType: WallpaperResourceType, uri?: string) => void
   ): void;
+
+  /**
+ * Set wallpapers for all forms of devices.
+ *
+ * @permission ohos.permission.SET_WALLPAPER
+ * @param { Array<WallpaperInfo> } wallpaperInfos - indicates the current device wallpaper type object.
+ * among them, NORMAL and PORTRAIT are mandatory.
+ * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
+ * @returns { Promise<void> } the promise returned by the function.
+ * @throws { BusinessError } 401 - parameter error. Possible causes:
+ *         1.Mandatory parameters are left unspecified.
+ *         2.The first parameter type must be Array<WallpaperInfo>. The second type must be WallpaperType.
+ *         3.The first parameter type must be Array<WallpaperInfo>, must include wallpaper with FoldState NORMAL and RotateState PORTRAIT.
+ * @throws { BusinessError } 201 - permission denied.
+ * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+ * @syscap SystemCapability.MiscServices.Wallpaper
+ * @systemapi Hide this for inner system use.
+ * @since 14
+ */
+  function setAllWallpapers(wallpaperInfos: Array<WallpaperInfo>, wallpaperType: WallpaperType): Promise<void>;
+
+  /**
+   * Obtains the default pixel map of a wallpaper of the specified  device type. Returns the default pixel map.
+   * Only the static wallpaper set by using setAllWallpapers can be obtained.
+   * @permission ohos.permission.GET_WALLPAPER
+   * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
+   * @param { FoldState } foldState - indicates the folding status for wallpaper.
+   * @param { RotateState } rotateState - indicates the rotation status for wallpaper.
+   * @returns { Promise<image.PixelMap> } the promise returned by the function.
+   * @throws { BusinessError } 401 - parameter error. Possible causes:
+   *         1.Mandatory parameters are left unspecified.
+   *         2.The type must be WallpaperType, parameter range must be WALLPAPER_LOCKSCREEN or WALLPAPER_SYSTEM.
+   *         3.The type must be FoldState, parameter range must be NORMAL or UNFOLD_ONCE_STATE or UNFOLD_TWICE_STATE.
+   *         4.The type must be RotateState, parameter range must be PORTRAIT or LANDSCAPE.
+   * @throws { BusinessError } 201 - permission denied.
+   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @syscap SystemCapability.MiscServices.Wallpaper
+   * @systemapi Hide this for inner system use.
+   * @since 14
+   */
+  function getWallpaperByState(wallpaperType: WallpaperType, foldState: FoldState, rotateState: RotateState): Promise<image.PixelMap>;
 }
 
 export default wallpaper;

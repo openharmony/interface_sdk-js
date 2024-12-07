@@ -1219,6 +1219,24 @@ declare namespace calendarManager {
      * @since 12
      */
     role?: AttendeeRole;
+
+    /**
+     * Type of the Attendee.
+     * @type { ?AttendeeType }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 14
+     */
+    type?: AttendeeType;
+
+    /**
+     * Status of the Attendee.
+     * @type { ?AttendeeStatus }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 14
+     */
+    status?: AttendeeStatus;
   }
 
   /**
@@ -1244,6 +1262,88 @@ declare namespace calendarManager {
      * @since 12
      */
     PARTICIPANT = 'participant'
+  }
+
+  /**
+   * Enum for the attendee type
+   * @enum { number }
+   * @syscap SystemCapability.Applications.CalendarData
+   * @atomicservice
+   * @since 14
+   */
+  export enum AttendeeType {
+    /**
+     * A mailbox user who is a required attendee to the meeting.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 14
+     */
+    REQUIRED = 1,
+
+    /**
+     * A mailbox user who is an optional attendee to the meeting.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 14
+     */
+    OPTIONAL = 2,
+
+    /**
+     * A resource such as a TV or projector that is scheduled for use in the meeting.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 14
+     */
+    RESOURCE = 3
+  }
+
+  /**
+   * Enum for the attendee states
+   * @enum { number }
+   * @syscap SystemCapability.Applications.CalendarData
+   * @atomicservice
+   * @since 14
+   */
+  export enum AttendeeStatus {
+    /**
+     * The acceptance status of the participant is unknown.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 14
+     */
+    UNKNOWN = 0,
+
+    /**
+     * The acceptance status of the participant is tentative.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 14
+     */
+    TENTATIVE = 1,
+
+    /**
+     * The acceptance status of the participant is accepted.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 14
+     */
+    ACCEPTED = 2,
+
+    /**
+     * The acceptance status of the participant is declined.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 14
+     */
+    DECLINED = 3,
+
+    /**
+     * The acceptance status of the participant is unresponsive.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 14
+     */
+    UNRESPONSIVE = 4,
   }
 
   /**

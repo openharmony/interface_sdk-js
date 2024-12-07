@@ -997,14 +997,14 @@ interface FingerInfo {
 /**
  * Defines the Gesture Type.
  *
- * @typedef { TapGestureInterface | LongPressGestureInterface | PanGestureInterface | PinchGestureInterface | SwipeGestureInterface | RotationGestureInterface | GestureGroupInterface } PointerStyle
+ * @typedef { TapGestureInterface | LongPressGestureInterface | PanGestureInterface | PinchGestureInterface | SwipeGestureInterface | RotationGestureInterface | GestureGroupInterface } GestureType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the Gesture Type.
  *
- * @typedef { TapGestureInterface | LongPressGestureInterface | PanGestureInterface | PinchGestureInterface | SwipeGestureInterface | RotationGestureInterface | GestureGroupInterface } PointerStyle
+ * @typedef { TapGestureInterface | LongPressGestureInterface | PanGestureInterface | PinchGestureInterface | SwipeGestureInterface | RotationGestureInterface | GestureGroupInterface } GestureType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -1012,7 +1012,7 @@ interface FingerInfo {
 /**
  * Defines the Gesture Type.
  *
- * @typedef { TapGestureInterface | LongPressGestureInterface | PanGestureInterface | PinchGestureInterface | SwipeGestureInterface | RotationGestureInterface | GestureGroupInterface } PointerStyle
+ * @typedef { TapGestureInterface | LongPressGestureInterface | PanGestureInterface | PinchGestureInterface | SwipeGestureInterface | RotationGestureInterface | GestureGroupInterface } GestureType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -1030,6 +1030,7 @@ declare type GestureType =
 /**
  * Defines the gesture base event.
  *
+ * @extends BaseEvent
  * @interface BaseGestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1038,6 +1039,7 @@ declare type GestureType =
 /**
  * Defines the gesture base event.
  *
+ * @extends BaseEvent
  * @interface BaseGestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1068,6 +1070,7 @@ interface BaseGestureEvent extends BaseEvent {
 /**
  * Defines event info for tap gesture.
  *
+ * @extends BaseGestureEvent
  * @interface TapGestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1076,6 +1079,7 @@ interface BaseGestureEvent extends BaseEvent {
 /**
  * Defines event info for tap gesture.
  *
+ * @extends BaseGestureEvent
  * @interface TapGestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1088,6 +1092,7 @@ interface TapGestureEvent extends BaseGestureEvent {
 /**
  * Defines event info for long press gesture.
  *
+ * @extends BaseGestureEvent
  * @interface LongPressGestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1096,6 +1101,7 @@ interface TapGestureEvent extends BaseGestureEvent {
 /**
  * Defines event info for long press gesture.
  *
+ * @extends BaseGestureEvent
  * @interface LongPressGestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1126,6 +1132,7 @@ interface LongPressGestureEvent extends BaseGestureEvent {
 /**
  * Defines event info for pan gesture.
  *
+ * @extends BaseGestureEvent
  * @interface PanGestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1134,6 +1141,7 @@ interface LongPressGestureEvent extends BaseGestureEvent {
 /**
  * Defines event info for pan gesture.
  *
+ * @extends BaseGestureEvent
  * @interface PanGestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1238,6 +1246,7 @@ interface PanGestureEvent extends BaseGestureEvent {
 /**
  * Defines event info for pinch gesture.
  *
+ * @extends BaseGestureEvent
  * @interface PinchGestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1246,6 +1255,7 @@ interface PanGestureEvent extends BaseGestureEvent {
 /**
  * Defines event info for pinch gesture.
  *
+ * @extends BaseGestureEvent
  * @interface PinchGestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1318,6 +1328,7 @@ interface PinchGestureEvent extends BaseGestureEvent {
 /**
  * Defines event info for rotation gesture.
  *
+ * @extends BaseGestureEvent
  * @interface RotationGestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1326,6 +1337,7 @@ interface PinchGestureEvent extends BaseGestureEvent {
 /**
  * Defines event info for rotation gesture.
  *
+ * @extends BaseGestureEvent
  * @interface RotationGestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1358,6 +1370,7 @@ interface RotationGestureEvent extends BaseGestureEvent {
 /**
  * Defines event info for swipe gesture.
  *
+ * @extends BaseGestureEvent
  * @interface SwipeGestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1366,6 +1379,7 @@ interface RotationGestureEvent extends BaseGestureEvent {
 /**
  * Defines event info for swipe gesture.
  *
+ * @extends BaseGestureEvent
  * @interface SwipeGestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1419,6 +1433,7 @@ interface SwipeGestureEvent extends BaseGestureEvent {
 /**
  * Defines event info for gesture.
  *
+ * @extends BaseEvent
  * @interface GestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -1426,6 +1441,7 @@ interface SwipeGestureEvent extends BaseGestureEvent {
 /**
  * Defines event info for gesture.
  *
+ * @extends BaseEvent
  * @interface GestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1434,6 +1450,7 @@ interface SwipeGestureEvent extends BaseGestureEvent {
 /**
  * Defines event info for gesture.
  *
+ * @extends BaseEvent
  * @interface GestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1852,6 +1869,7 @@ declare interface TapGestureParameters {
 /**
  * Defines TapGesture interface.
  *
+ * @extends GestureInterface<TapGestureInterface>
  * @interface TapGestureInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -1859,6 +1877,7 @@ declare interface TapGestureParameters {
 /**
  * Defines TapGesture interface.
  *
+ * @extends GestureInterface<TapGestureInterface>
  * @interface TapGestureInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1867,6 +1886,7 @@ declare interface TapGestureParameters {
 /**
  * Defines TapGesture interface extends GestureInterface<TapGestureInterface>.
  *
+ * @extends GestureInterface<TapGestureInterface>
  * @interface TapGestureInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1953,6 +1973,7 @@ interface TapGestureInterface extends GestureInterface<TapGestureInterface> {
 /**
  * Defines LongPressGesture interface.
  *
+ * @extends GestureInterface<LongPressGestureInterface>
  * @interface LongPressGestureInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -1960,6 +1981,7 @@ interface TapGestureInterface extends GestureInterface<TapGestureInterface> {
 /**
  * Defines LongPressGesture interface.
  *
+ * @extends GestureInterface<LongPressGestureInterface>
  * @interface LongPressGestureInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1968,6 +1990,7 @@ interface TapGestureInterface extends GestureInterface<TapGestureInterface> {
 /**
  * Defines LongPressGesture interface extends GestureInterface<LongPressGestureInterface>.
  *
+ * @extends GestureInterface<LongPressGestureInterface>
  * @interface LongPressGestureInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -2242,6 +2265,7 @@ declare class PanGestureOptions {
 /**
  * Defines the PanGesture interface.
  *
+ * @extends GestureInterface<PanGestureInterface>
  * @interface PanGestureInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -2249,6 +2273,7 @@ declare class PanGestureOptions {
 /**
  * Defines the PanGesture interface.
  *
+ * @extends GestureInterface<PanGestureInterface>
  * @interface PanGestureInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -2257,6 +2282,7 @@ declare class PanGestureOptions {
 /**
  * Defines PanGesture interface extends GestureInterface<PanGestureInterface>.
  *
+ * @extends GestureInterface<PanGestureInterface>
  * @interface PanGestureInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -2413,6 +2439,7 @@ interface PanGestureInterface extends GestureInterface<PanGestureInterface> {
 /**
  * Defines the SwipeGesture interface.
  *
+ * @extends GestureInterface<SwipeGestureInterface>
  * @interface SwipeGestureInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
@@ -2420,6 +2447,7 @@ interface PanGestureInterface extends GestureInterface<PanGestureInterface> {
 /**
  * Defines the SwipeGesture interface.
  *
+ * @extends GestureInterface<SwipeGestureInterface>
  * @interface SwipeGestureInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -2428,6 +2456,7 @@ interface PanGestureInterface extends GestureInterface<PanGestureInterface> {
 /**
  * Defines SwipeGesture interface extends GestureInterface<SwipeGestureInterface>.
  *
+ * @extends GestureInterface<SwipeGestureInterface>
  * @interface SwipeGestureInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -2497,6 +2526,7 @@ interface SwipeGestureInterface extends GestureInterface<SwipeGestureInterface> 
 /**
  * Defines the PinchGesture interface.
  *
+ * @extends GestureInterface<PinchGestureInterface>
  * @interface PinchGestureInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -2504,6 +2534,7 @@ interface SwipeGestureInterface extends GestureInterface<SwipeGestureInterface> 
 /**
  * Defines the PinchGesture interface.
  *
+ * @extends GestureInterface<PinchGestureInterface>
  * @interface PinchGestureInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -2512,6 +2543,7 @@ interface SwipeGestureInterface extends GestureInterface<SwipeGestureInterface> 
 /**
  * Defines PinchGesture interface extends GestureInterface<PinchGestureInterface>.
  *
+ * @extends GestureInterface<PinchGestureInterface>
  * @interface PinchGestureInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -2668,6 +2700,7 @@ interface PinchGestureInterface extends GestureInterface<PinchGestureInterface> 
 /**
  * Defines the RotationGesture interface.
  *
+ * @extends GestureInterface<RotationGestureInterface>
  * @interface RotationGestureInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -2675,6 +2708,7 @@ interface PinchGestureInterface extends GestureInterface<PinchGestureInterface> 
 /**
  * Defines the RotationGesture interface.
  *
+ * @extends GestureInterface<RotationGestureInterface>
  * @interface RotationGestureInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -2683,6 +2717,7 @@ interface PinchGestureInterface extends GestureInterface<PinchGestureInterface> 
 /**
  * Defines RotationGesture interface extends GestureInterface<RotationGestureInterface>.
  *
+ * @extends GestureInterface<RotationGestureInterface>
  * @interface RotationGestureInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform

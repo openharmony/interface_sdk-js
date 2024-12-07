@@ -348,6 +348,19 @@ declare interface DividerOptions {
 }
 
 /**
+ * Callback of the listened scroll stop event.
+ *
+ * @typedef {function} TextPickerScrollStopCallback
+ * @param { string | string[] } value - Value of the selected item.
+ * @param { number | number[] } index - Index of the selected item.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare type TextPickerScrollStopCallback = (value: string | string[], index: number | number[]) => void;
+
+/**
  * Style the text selector.
  *
  * @extends CommonMethod<TextPickerAttribute>
@@ -538,6 +551,19 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
   onChange(callback: (value: string | string[], index: number | number[]) => void): TextPickerAttribute;
 
   /**
+   * This event is triggered when a TextPicker item is selected and scrolling has stopped.
+   * Only valid when only text is displayed. When picture or picture plus text is displayed, the value is "".
+   *
+   * @param { TextPickerScrollStopCallback } callback - the callback of onScrollStop.
+   * @returns { TextPickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onScrollStop(callback: TextPickerScrollStopCallback): TextPickerAttribute;
+
+  /**
    * Set the selected indices.
    * The array size is the total number of columns.
    *
@@ -668,6 +694,7 @@ declare interface TextPickerResult {
 /**
  * Defines the TextPickerDialogOptions for Text Picker Dialog.
  *
+ * @extends TextPickerOptions
  * @interface TextPickerDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
@@ -675,6 +702,7 @@ declare interface TextPickerResult {
 /**
  * Defines the TextPickerDialogOptions for Text Picker Dialog.
  *
+ * @extends TextPickerOptions
  * @interface TextPickerDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -683,6 +711,7 @@ declare interface TextPickerResult {
 /**
  * Defines the TextPickerDialogOptions for Text Picker Dialog.
  *
+ * @extends TextPickerOptions
  * @interface TextPickerDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -893,6 +922,17 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
   onChange?: (value: TextPickerResult) => void;
 
   /**
+   * This event is triggered when a TextPicker text is selected and scrolling has stopped in dialog.
+   *
+   * @type { ?Callback<TextPickerResult> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onScrollStop?: Callback<TextPickerResult>;
+
+  /**
    * Mask Region of dialog. The size cannot exceed the main window.
    *
    * @type { ?Rectangle }
@@ -1054,7 +1094,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   enableHoverMode?: boolean;
 
@@ -1066,7 +1106,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   hoverModeArea?: HoverModeAreaType;
 }

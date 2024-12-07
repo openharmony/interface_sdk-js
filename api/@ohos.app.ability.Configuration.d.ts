@@ -166,6 +166,16 @@ export interface Configuration {
   hasPointerDevice?: boolean;
 
   /**
+   * Indicates the font id.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @atomicservice
+   * @since 14
+   */
+  fontId?: string;
+
+  /**
    * Indicates the font size scale.
    *
    * @type { ?number }

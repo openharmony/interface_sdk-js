@@ -42,6 +42,7 @@ export interface BundleInfo {
    * Indicates the name of this bundle
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -49,6 +50,7 @@ export interface BundleInfo {
    * Indicates the name of this bundle
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -59,6 +61,7 @@ export interface BundleInfo {
    * Indicates the bundle vendor
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -66,6 +69,7 @@ export interface BundleInfo {
    * Indicates the bundle vendor
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -76,6 +80,7 @@ export interface BundleInfo {
    * Indicates the version code of the bundle
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -83,6 +88,7 @@ export interface BundleInfo {
    * Indicates the version code of the bundle
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -93,6 +99,7 @@ export interface BundleInfo {
    * Indicates the version name of the bundle
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -100,6 +107,7 @@ export interface BundleInfo {
    * Indicates the version name of the bundle
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -110,6 +118,7 @@ export interface BundleInfo {
    * Indicates the **minimum ** version compatible with the bundle
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -117,6 +126,7 @@ export interface BundleInfo {
    * Indicates the **minimum ** version compatible with the bundle
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -127,6 +137,7 @@ export interface BundleInfo {
    * Indicates the target version number of the bundle
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -134,6 +145,7 @@ export interface BundleInfo {
    * Indicates the target version number of the bundle
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -144,6 +156,7 @@ export interface BundleInfo {
    * Obtains configuration information about an application
    *
    * @type { ApplicationInfo }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -151,6 +164,7 @@ export interface BundleInfo {
    * Obtains configuration information about an application
    *
    * @type { ApplicationInfo }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -161,6 +175,7 @@ export interface BundleInfo {
    * Obtains configuration information about a module
    *
    * @type { Array<HapModuleInfo> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -168,6 +183,7 @@ export interface BundleInfo {
    * Obtains configuration information about a module
    *
    * @type { Array<HapModuleInfo> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -178,6 +194,7 @@ export interface BundleInfo {
    * Indicates the required permissions details defined in the bundle
    *
    * @type { Array<ReqPermissionDetail> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -185,6 +202,7 @@ export interface BundleInfo {
    * Indicates the required permissions details defined in the bundle
    *
    * @type { Array<ReqPermissionDetail> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -195,6 +213,7 @@ export interface BundleInfo {
    * Indicates the grant state of required permissions
    *
    * @type { Array<bundleManager.PermissionGrantState> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -202,6 +221,7 @@ export interface BundleInfo {
    * Indicates the grant state of required permissions
    *
    * @type { Array<bundleManager.PermissionGrantState> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -212,6 +232,7 @@ export interface BundleInfo {
    * Indicates the SignatureInfo of the bundle
    *
    * @type { SignatureInfo }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -219,6 +240,7 @@ export interface BundleInfo {
    * Indicates the SignatureInfo of the bundle
    *
    * @type { SignatureInfo }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -229,6 +251,7 @@ export interface BundleInfo {
    * Indicates the hap install time
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -236,6 +259,7 @@ export interface BundleInfo {
    * Indicates the hap install time
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -246,6 +270,7 @@ export interface BundleInfo {
    * Indicates the hap update time
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -253,6 +278,7 @@ export interface BundleInfo {
    * Indicates the hap update time
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -272,7 +298,7 @@ export interface BundleInfo {
 
   /**
    * Indicates the appIndex of application, only work in appClone mode
-   * 
+   *
    * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -455,6 +481,7 @@ export interface SignatureInfo {
    * The application ID uniquely identifies an application. It is determined by the bundle name and signature
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -463,6 +490,7 @@ export interface SignatureInfo {
    * The application ID uniquely identifies an application. It is determined by the bundle name and signature
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -473,6 +501,7 @@ export interface SignatureInfo {
    * Indicates the fingerprint of the certificate
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -480,6 +509,7 @@ export interface SignatureInfo {
    * Indicates the fingerprint of the certificate
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -506,7 +536,7 @@ export interface SignatureInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   readonly certificate?: string;
 }
@@ -516,8 +546,7 @@ export interface SignatureInfo {
  *
  * @typedef AppCloneIdentity
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @systemapi
- * @since 12
+ * @since 14
  */
 export interface AppCloneIdentity {
   /**
@@ -526,8 +555,7 @@ export interface AppCloneIdentity {
    * @type { string }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 12
+   * @since 14
    */
   readonly bundleName: string;
   /**
@@ -536,8 +564,7 @@ export interface AppCloneIdentity {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 12
+   * @since 14
    */
   readonly appIndex: number;
 }

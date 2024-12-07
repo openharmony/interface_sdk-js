@@ -156,7 +156,7 @@ declare enum ButtonType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   ROUNDED_RECTANGLE = 3,
 }
@@ -289,6 +289,7 @@ declare type ButtonTriggerClickCallback = (xPos: number, yPos: number) => void;
 /**
  * ButtonConfiguration used by button content modifier.
  *
+ * @extends CommonConfiguration<ButtonConfiguration>
  * @interface ButtonConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform

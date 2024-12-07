@@ -233,7 +233,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     enableHoverMode?: boolean;
   
@@ -245,7 +245,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     hoverModeArea?: HoverModeAreaType;
   }
@@ -288,8 +288,14 @@ declare namespace promptAction {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
-     * @deprecated since 12
-     * @useinstead promptAction.ToastShowMode#DEFAULT
+      */
+    /**
+     * Toast shows at the top.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     TOP_MOST = 1,
 
@@ -381,7 +387,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 12
      */
     primary?: boolean;
   }
@@ -678,7 +684,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     enableHoverMode?: boolean;
 
@@ -690,7 +696,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     hoverModeArea?: HoverModeAreaType;
   }
@@ -919,7 +925,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     enableHoverMode?: boolean;
 
@@ -931,7 +937,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     hoverModeArea?: HoverModeAreaType;
   }
@@ -939,6 +945,7 @@ declare namespace promptAction {
   /**
    * Dialog's custom content options
    *
+   * @extends BaseDialogOptions
    * @interface CustomDialogOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -947,6 +954,7 @@ declare namespace promptAction {
   /**
    * Dialog's custom content options
    *
+   * @extends BaseDialogOptions
    * @interface CustomDialogOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

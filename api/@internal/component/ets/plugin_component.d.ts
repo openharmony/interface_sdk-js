@@ -72,7 +72,7 @@ declare interface PluginComponentOptions {
    * @systemapi
    * @since 9
    */
-  data: any
+  data: any;
 }
 
 /**
@@ -112,7 +112,7 @@ declare interface PluginErrorData {
  * @systemapi
  * @since 14
  */
-declare type PluginErrorCallback = (info: PluginErrorData) => void
+declare type PluginErrorCallback = (info: PluginErrorData) => void;
 
 /**
  * Provides plugin component.

@@ -638,7 +638,7 @@ declare class TextShadowStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare class BackgroundColorStyle {
 
@@ -649,7 +649,7 @@ declare class BackgroundColorStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     constructor(textBackgroundStyle: TextBackgroundStyle);
 
@@ -661,7 +661,7 @@ declare class BackgroundColorStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     readonly textBackgroundStyle: TextBackgroundStyle;
 }
@@ -935,7 +935,7 @@ declare class LineHeightStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare class UrlStyle {
 
@@ -946,7 +946,7 @@ declare class UrlStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     constructor(url: string);
 
@@ -958,7 +958,7 @@ declare class UrlStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     readonly url: string;
 }
@@ -984,7 +984,7 @@ declare class UrlStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle |
 TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan |
@@ -1241,7 +1241,7 @@ declare enum StyledStringKey {
       * @syscap SystemCapability.ArkUI.ArkUI.Full
       * @crossplatform
       * @atomicservice
-      * @since 13
+      * @since 14
       */
      BACKGROUND_COLOR = 6,
 
@@ -1251,7 +1251,7 @@ declare enum StyledStringKey {
       * @syscap SystemCapability.ArkUI.ArkUI.Full
       * @crossplatform
       * @atomicservice
-      * @since 13
+      * @since 14
       */
      URL = 7,
 

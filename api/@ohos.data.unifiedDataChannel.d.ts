@@ -44,7 +44,7 @@ import Want from "./@ohos.app.ability.Want";
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare namespace unifiedDataChannel {
   /**
@@ -96,7 +96,7 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   type ValueType = number | string | boolean | image.PixelMap | Want | ArrayBuffer | object | null | undefined;
 
@@ -173,7 +173,7 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   class UnifiedData {
     /**
@@ -204,7 +204,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     constructor(record: UnifiedRecord);
     /**
@@ -220,7 +220,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     constructor();
     /**
@@ -251,7 +251,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     addRecord(record: UnifiedRecord): void;
     /**
@@ -276,7 +276,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     getRecords(): Array<UnifiedRecord>;
 
@@ -299,7 +299,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     hasType(type: string): boolean;
 
@@ -316,7 +316,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     getTypes(): Array<string>;
 
@@ -395,7 +395,7 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   class UnifiedRecord {
     /**
@@ -420,7 +420,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     getType(): string;
 
@@ -437,7 +437,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     constructor();
 
@@ -464,7 +464,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     constructor(type: string, value: ValueType);
 
@@ -483,7 +483,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     getValue(): ValueType;
   }
@@ -510,7 +510,7 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   class Text extends UnifiedRecord {
     /**
@@ -534,7 +534,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     details?: Record<string, string>;
   }
@@ -561,7 +561,7 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   class PlainText extends Text {
     /**
@@ -585,7 +585,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     textContent: string;
     /**
@@ -609,7 +609,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     abstract?: string;
   }
@@ -636,7 +636,7 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   class Hyperlink extends Text {
     /**
@@ -660,7 +660,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     url: string;
     /**
@@ -684,7 +684,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     description?: string;
   }
@@ -711,7 +711,7 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   class HTML extends Text {
     /**
@@ -735,7 +735,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     htmlContent: string;
     /**
@@ -759,7 +759,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     plainContent?: string;
   }
@@ -786,7 +786,7 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   class File extends UnifiedRecord {
     /**
@@ -810,7 +810,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     details?: Record<string, string>;
     /**
@@ -834,7 +834,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     uri: string;
   }
@@ -861,7 +861,7 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   class Image extends File {
     /**
@@ -885,7 +885,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     imageUri: string;
   }
@@ -912,7 +912,7 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   class Video extends File {
     /**
@@ -936,7 +936,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     videoUri: string;
   }
@@ -963,7 +963,7 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   class Audio extends File {
     /**
@@ -987,7 +987,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     audioUri: string;
   }
@@ -1014,7 +1014,7 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   class Folder extends File {
     /**
@@ -1038,7 +1038,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since 14
      */
     folderUri: string;
   }
@@ -1409,6 +1409,13 @@ declare namespace unifiedDataChannel {
      * @StageModelOnly
      * @since 12
      */
+    /**
+     * Indicates the intention of drag
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @StageModelOnly
+     * @since 14
+     */
      DRAG = 'Drag'
   }
 
@@ -1664,6 +1671,21 @@ declare namespace unifiedDataChannel {
    * @StageModelOnly
    * @since 12
    */
+  /**
+   * Set app sharing options.
+   *
+   * @permission ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION
+   * @param { Intention } intention - Describe the sharing channel that UDMF support. Currently only supports DRAG intention.
+   * @param { ShareOptions } shareOptions - Types of scope that UnifiedData can be used.
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION".
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                                                   2. Incorrect parameter types;
+   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 20400001 - Settings already exist.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @StageModelOnly
+   * @since 14
+   */
    function setAppShareOptions(intention: Intention, shareOptions: ShareOptions): void;
 
    /**
@@ -1678,6 +1700,19 @@ declare namespace unifiedDataChannel {
     * @StageModelOnly
     * @since 12
     */
+  /**
+   * Remove app sharing options.
+   *
+   * @permission ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION
+   * @param { Intention } intention - Describe the sharing channel that UDMF support. Currently only supports DRAG intention.
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION".
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                                                   2. Incorrect parameter types;
+   *                                                                   3. Parameter verification failed.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @StageModelOnly
+   * @since 14
+   */
    function removeAppShareOptions(intention: Intention): void;
 }
 

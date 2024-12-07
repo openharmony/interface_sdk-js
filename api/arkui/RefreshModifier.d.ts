@@ -25,7 +25,7 @@
  * Defines Refresh Modifier
  *
  * @extends RefreshAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<RefreshAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice

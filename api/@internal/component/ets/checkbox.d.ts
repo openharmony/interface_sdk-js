@@ -140,6 +140,7 @@ declare interface CheckboxOptions {
 /**
  * CheckBoxConfiguration used by content modifier.
  *
+ * @extends CommonConfiguration<CheckBoxConfiguration>
  * @interface CheckBoxConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -270,7 +271,7 @@ interface CheckboxInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare type OnCheckboxChangeCallback  = (value: boolean) => void;
 
@@ -501,7 +502,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   onChange(callback: OnCheckboxChangeCallback): CheckboxAttribute;
 

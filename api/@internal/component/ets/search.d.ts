@@ -662,6 +662,19 @@ interface CancelButtonSymbolOptions {
 }
 
 /**
+ * Declare the event listener callback of the enter key.
+ *
+ * @typedef { function } SearchSubmitCallback
+ * @param { string } searchContent - The submitted content of search.
+ * @param { SubmitEvent } [event] - Provides the method of keeping Search editable state when submitted.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare type SearchSubmitCallback = (searchContent: string, event?: SubmitEvent) => void;
+
+/**
  * The attribute function of search
  *
  * @extends CommonMethod<SearchAttribute>
@@ -1008,6 +1021,17 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 14
    */
   onSubmit(callback: Callback<string>): SearchAttribute;
+  /**
+   * Call the function when clicked the search button.
+   *
+   * @param { SearchSubmitCallback } callback - callback of the listened event.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onSubmit(callback: SearchSubmitCallback): SearchAttribute;
 
   /**
    * Call the function when editing the input text

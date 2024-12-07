@@ -217,7 +217,6 @@ declare namespace fileAccess {
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @type { string }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -229,7 +228,6 @@ declare namespace fileAccess {
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @type { string }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -241,7 +239,6 @@ declare namespace fileAccess {
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @type { string }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -253,7 +250,6 @@ declare namespace fileAccess {
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @type { number }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -265,7 +261,6 @@ declare namespace fileAccess {
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @type { number }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -277,7 +272,6 @@ declare namespace fileAccess {
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @type { number }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -289,7 +283,6 @@ declare namespace fileAccess {
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @type { string }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -462,7 +455,6 @@ declare namespace fileAccess {
     /**
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @type { number }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -472,7 +464,6 @@ declare namespace fileAccess {
     /**
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @type { string }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -484,7 +475,6 @@ declare namespace fileAccess {
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @type { string }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -494,7 +484,6 @@ declare namespace fileAccess {
     /**
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @type { string }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -504,7 +493,6 @@ declare namespace fileAccess {
     /**
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @type { number }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -670,6 +658,7 @@ declare namespace fileAccess {
    * @interface CopyResult
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
+   * @stagemodelonly
    * @since 10
    */
   interface CopyResult {
@@ -678,10 +667,9 @@ declare namespace fileAccess {
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @type { string }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @stagemodeonly
+     * @stagemodelonly
      * @since 10
      */
     sourceUri: string;
@@ -690,10 +678,9 @@ declare namespace fileAccess {
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @type { string }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @stagemodeonly
+     * @stagemodelonly
      * @since 10
      */
     destUri: string;
@@ -702,10 +689,9 @@ declare namespace fileAccess {
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @type { number }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @stagemodeonly
+     * @stagemodelonly
      * @since 10
      */
     errCode: number;
@@ -714,10 +700,9 @@ declare namespace fileAccess {
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @type { string }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
-     * @stagemodeonly
+     * @stagemodelonly
      * @since 10
      */
     errMsg: string;
@@ -921,7 +906,6 @@ declare namespace fileAccess {
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @type { NotifyType }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -934,7 +918,6 @@ declare namespace fileAccess {
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @type { Array<string> }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -958,7 +941,6 @@ declare namespace fileAccess {
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @type { string }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -971,7 +953,6 @@ declare namespace fileAccess {
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @type { string }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -984,7 +965,6 @@ declare namespace fileAccess {
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @type { number }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly
@@ -997,7 +977,6 @@ declare namespace fileAccess {
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @type { string }
-     * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
      * @StageModelOnly

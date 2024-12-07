@@ -68,7 +68,7 @@ interface SegmentButtonTextItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   accessibilityLevel?: string;
 
@@ -80,7 +80,7 @@ interface SegmentButtonTextItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   accessibilityDescription?: ResourceStr;
 }
@@ -130,7 +130,7 @@ interface SegmentButtonIconItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   iconAccessibilityText?: ResourceStr;
 
@@ -161,7 +161,7 @@ interface SegmentButtonIconItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   selectedIconAccessibilityText?: ResourceStr;
 
@@ -173,7 +173,7 @@ interface SegmentButtonIconItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   accessibilityLevel?: string;
 
@@ -185,7 +185,7 @@ interface SegmentButtonIconItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   accessibilityDescription?: ResourceStr;
 }
@@ -235,7 +235,7 @@ interface SegmentButtonIconTextItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   iconAccessibilityText?: ResourceStr;
 
@@ -266,7 +266,7 @@ interface SegmentButtonIconTextItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   selectedIconAccessibilityText?: ResourceStr;
 
@@ -297,7 +297,7 @@ interface SegmentButtonIconTextItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   accessibilityLevel?: string;
 
@@ -309,7 +309,7 @@ interface SegmentButtonIconTextItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   accessibilityDescription?: ResourceStr;
 }
@@ -908,7 +908,7 @@ interface SegmentButtonItemOptionsConstructorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   iconAccessibilityText?: ResourceStr;
 
@@ -939,7 +939,7 @@ interface SegmentButtonItemOptionsConstructorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   selectedIconAccessibilityText?: ResourceStr;
 
@@ -970,7 +970,7 @@ interface SegmentButtonItemOptionsConstructorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   accessibilityLevel?: string;
 
@@ -982,7 +982,7 @@ interface SegmentButtonItemOptionsConstructorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   accessibilityDescription?: ResourceStr;
 }
@@ -1031,7 +1031,7 @@ declare class SegmentButtonItemOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   iconAccessibilityText?: ResourceStr;
 
@@ -1062,7 +1062,7 @@ declare class SegmentButtonItemOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   selectedIconAccessibilityText?: ResourceStr;
 
@@ -1093,7 +1093,7 @@ declare class SegmentButtonItemOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   accessibilityLevel?: string;
 
@@ -1105,7 +1105,7 @@ declare class SegmentButtonItemOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   accessibilityDescription?: ResourceStr;
 

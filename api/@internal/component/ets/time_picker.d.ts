@@ -484,6 +484,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
 /**
  * Defines the TimePickerDialogOptions for Data Picker Dialog.
  *
+ * @extends TimePickerOptions
  * @interface TimePickerDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
@@ -491,6 +492,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
 /**
  * Defines the TimePickerDialogOptions for Data Picker Dialog.
  *
+ * @extends TimePickerOptions
  * @interface TimePickerDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -499,6 +501,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
 /**
  * Defines the TimePickerDialogOptions for Data Picker Dialog.
  *
+ * @extends TimePickerOptions
  * @interface TimePickerDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -862,7 +865,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   enableHoverMode?: boolean;
 
@@ -874,7 +877,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   hoverModeArea?: HoverModeAreaType;
 }

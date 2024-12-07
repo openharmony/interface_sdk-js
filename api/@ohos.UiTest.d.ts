@@ -996,6 +996,7 @@ declare interface Point {
    * The x-coordinate of the coordinate point.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    */
@@ -1003,6 +1004,7 @@ declare interface Point {
    * The x-coordinate of the coordinate point.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @since 10
@@ -1011,6 +1013,7 @@ declare interface Point {
    * The x-coordinate of the coordinate point.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
@@ -1021,6 +1024,7 @@ declare interface Point {
    * The y-coordinate of the coordinate point.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    */
@@ -1028,6 +1032,7 @@ declare interface Point {
    * The y-coordinate of the coordinate point.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @since 10
@@ -1036,6 +1041,7 @@ declare interface Point {
    * The y-coordinate of the coordinate point.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
@@ -1073,6 +1079,7 @@ declare interface Rect {
    * The x-coordinate of the top left corner of the rectangle.
    *
    * @type { number }
+   * @readonly 
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    */
@@ -1080,6 +1087,7 @@ declare interface Rect {
    * The x-coordinate of the top left corner of the rectangle.
    *
    * @type { number }
+   * @readonly 
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11
@@ -1088,6 +1096,7 @@ declare interface Rect {
    * The x-coordinate of the top left corner of the rectangle.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
@@ -1098,6 +1107,7 @@ declare interface Rect {
    * The y-coordinate of the top left corner of the rectangle.
    *
    * @type { number }
+   * @readonly 
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    */
@@ -1105,6 +1115,7 @@ declare interface Rect {
    * The y-coordinate of the top left corner of the rectangle.
    *
    * @type { number }
+   * @readonly 
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11
@@ -1113,6 +1124,7 @@ declare interface Rect {
    * The y-coordinate of the top left corner of the rectangle.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
@@ -1123,6 +1135,7 @@ declare interface Rect {
    * The x-coordinate at the bottom right corner of the rectangle.
    *
    * @type { number }
+   * @readonly 
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    */
@@ -1130,6 +1143,7 @@ declare interface Rect {
    * The x-coordinate at the bottom right corner of the rectangle.
    *
    * @type { number }
+   * @readonly 
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11
@@ -1138,6 +1152,7 @@ declare interface Rect {
    * The x-coordinate at the bottom right corner of the rectangle.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
@@ -1148,6 +1163,7 @@ declare interface Rect {
    * The y-coordinate at the bottom right corner of the rectangle.
    *
    * @type { number }
+   * @readonly 
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    */
@@ -1155,6 +1171,7 @@ declare interface Rect {
    * The y-coordinate at the bottom right corner of the rectangle.
    *
    * @type { number }
+   * @readonly 
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11
@@ -1163,6 +1180,7 @@ declare interface Rect {
    * The y-coordinate at the bottom right corner of the rectangle.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
@@ -1288,6 +1306,7 @@ declare interface UIElementInfo {
   /**
    * The bundle name of the host application.
    * @type { string }
+   * @readonly 
    * @syscap SystemCapability.Test.UiTest
    * @since 10
    * @test
@@ -1295,6 +1314,7 @@ declare interface UIElementInfo {
   /**
    * The bundle name of the host application.
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11
@@ -1304,6 +1324,7 @@ declare interface UIElementInfo {
   /**
    * The component type, set it as 'window' if it's a window.
    * @type { string }
+   * @readonly 
    * @syscap SystemCapability.Test.UiTest
    * @since 10
    * @test
@@ -1311,6 +1332,7 @@ declare interface UIElementInfo {
   /**
    * The component type, set it as 'window' if it's a window.
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11
@@ -1320,6 +1342,7 @@ declare interface UIElementInfo {
   /**
    * The text of component, set it as window's title if it's a window.
    * @type { string }
+   * @readonly 
    * @syscap SystemCapability.Test.UiTest
    * @since 10
    * @test
@@ -1327,6 +1350,7 @@ declare interface UIElementInfo {
   /**
    * The text of component, set it as window's title if it's a window.
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11

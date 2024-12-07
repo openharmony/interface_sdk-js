@@ -1491,182 +1491,6 @@ declare namespace media {
      * @since 14
      */
     AVERR_IO_UNSUPPORTED_REQUEST = 5411011,
-    /**
-     * The file data is incorrect, and no specific data can be provided.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_DATA_ABNORMAL = 5411012,
-    /**
-     * The file is occupied by other processes and cannot be accessed.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_FILE_ACCESS_DENIED = 5411013,
-    /**
-     * The file handle is incorrect.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_FILE_BAD_HANDLE = 5411014,
-    /**
-     * IO file not found.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_FILE_NOT_FOUND = 5411015,
-    /**
-     * IO file permission denied because API does not have permissions.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_FILE_PERMISSION_DENIED = 5411016,
-    /**
-     * Failed to decode the audio data.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_AUDIO_DEC_FAILED = 5411017,
-    /**
-     * Fail to init the audio decoder.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_AUDIO_DEC_INIT_FAILED = 5411018,
-    /**
-     * The audio decoder is unavailable for handler incurrupt, or audio decoder subsystem abnormal.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_AUDIO_DEC_UNAVAILABLE = 5411019,
-    /**
-     * Audio device error.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_AUDIO_DEVICE_ERROR = 5411020,
-    /**
-     * The audio device state does not support the current operation.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_AUDIO_DEVICE_INVALID_STATE = 5411021,
-    /**
-     * Audio device timeout when calling audio render interface.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_AUDIO_DEVICE_TIMEOUT = 5411022,
-    /**
-     * Audio device unavailable, unable to create an audio device.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_AUDIO_DEVICE_UNAVAILABLE = 5411023,
-    /**
-     * Failed to encode the audio data.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_AUDIO_ENC_FAILED = 5411024,
-    /**
-     * Fail to init the audio encoder.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_AUDIO_ENC_INIT_FAILED = 5411025,
-    /**
-     * The audio encoder is unavailable for handler incurrupt, or audio encoder subsystem abnormal.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_AUDIO_ENC_UNAVAILABLE = 5411026,
-    /**
-     * Failed to decode the video data.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_VIDEO_DEC_FAILED = 5411027,
-    /**
-     * Fail to init the video decoder.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_VIDEO_DEC_INIT_FAILED = 5411028,
-    /**
-     * The video decoder is unavailable for handler incurrupt, or video decoder subsystem abnormal.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_VIDEO_DEC_UNAVAILABLE = 5411029,
-    /**
-     * Video device error.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_VIDEO_DEVICE_ERROR = 5411030,
-    /**
-     * Failed to encode the video data.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_VIDEO_ENC_FAILED = 5411031,
-    /**
-     * Failed to init the video encoder.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_VIDEO_ENC_INIT_FAILED = 5411032,
-    /**
-     * The video encoder is unavailable for handler incurrupt, or video encoder subsystem abnormal.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    AVERR_IO_VIDEO_ENC_UNAVAILABLE = 5411033,
   }
 
   /**
@@ -1793,7 +1617,7 @@ declare namespace media {
      * Prepare audio/video playback, it will request resource for playing.
      * @param { AsyncCallback<void> } callback - instance used to return when prepare completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
-     * @throws { BusinessError } 5400106 - Unsupport format. Return by callback.
+     * @throws { BusinessError } 5400106 - Unsupported format. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -1822,7 +1646,7 @@ declare namespace media {
      * Prepare audio/video playback, it will request resource for playing.
      * @returns { Promise<void> } A Promise instance used to return when prepare completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
-     * @throws { BusinessError } 5400106 - Unsupport format. Return by promise.
+     * @throws { BusinessError } 5400106 - Unsupported format. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -2294,7 +2118,7 @@ declare namespace media {
      * @atomicservice
      * @since 12
      */
-    setMediaMuted(mediaType: MediaType,  muted: boolean ): Promise<void>;
+    setMediaMuted(mediaType: MediaType, muted: boolean): Promise<void>;
 
     /**
      * Set playback start position and end position.
@@ -3198,7 +3022,7 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 5400104 - Time out.
      * @throws { BusinessError } 5400105 - Service died.
-     * @throws { BusinessError } 5400106 - Unsupport format.
+     * @throws { BusinessError } 5400106 - Unsupported format.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -3215,7 +3039,7 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @throws { BusinessError } 5400104 - Time out.
      * @throws { BusinessError } 5400105 - Service died.
-     * @throws { BusinessError } 5400106 - Unsupport format.
+     * @throws { BusinessError } 5400106 - Unsupported format.
      * @throws { BusinessError } 5411001 - IO can not find host.
      * @throws { BusinessError } 5411002 - IO connection timeout.
      * @throws { BusinessError } 5411003 - IO network abnormal.
@@ -3227,28 +3051,6 @@ declare namespace media {
      * @throws { BusinessError } 5411009 - IO SSL connect fail.
      * @throws { BusinessError } 5411010 - IO SSL server cert untrusted.
      * @throws { BusinessError } 5411011 - IO unsupported request.
-     * @throws { BusinessError } 5411012 - IO data abnormal.
-     * @throws { BusinessError } 5411013 - IO file access denied.
-     * @throws { BusinessError } 5411014 - IO file bad handle.
-     * @throws { BusinessError } 5411015 - IO file not found.
-     * @throws { BusinessError } 5411016 - IO file permission denied.
-     * @throws { BusinessError } 5411017 - IO decode failed.
-     * @throws { BusinessError } 5411018 - Audio decode init failed.
-     * @throws { BusinessError } 5411019 - Audio decode unavailable.
-     * @throws { BusinessError } 5411020 - Audio device error.
-     * @throws { BusinessError } 5411021 - Audio device invalid state.
-     * @throws { BusinessError } 5411022 - Audio device timeout.
-     * @throws { BusinessError } 5411023 - Audio device unavailable.
-     * @throws { BusinessError } 5411024 - Audio encode failed.
-     * @throws { BusinessError } 5411025 - Audio encode init failed.
-     * @throws { BusinessError } 5411026 - Audio encode unavailable.
-     * @throws { BusinessError } 5411027 - Video decode failed.
-     * @throws { BusinessError } 5411028 - Video decode init failed.
-     * @throws { BusinessError } 5411029 - Video decode unavailable.
-     * @throws { BusinessError } 5411030 - Video device error.
-     * @throws { BusinessError } 5411031 - Video encode failed.
-     * @throws { BusinessError } 5411032 - Video encode init failed.
-     * @throws { BusinessError } 5411033 - Video encode unavailable.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -3387,20 +3189,20 @@ declare namespace media {
      * Subscrips listener for audio playback amplitude update event.
      * In each event, an array of amplitude is reported, large index indicates closer to current time.
      * @param { 'amplitudeUpdate' } type - Type of the event to listen for.
-     * @param { Callback<Array<Number>> } callback - Callback used to listen amplitude update event.
+     * @param { Callback<Array<number>> } callback - Callback used to listen amplitude update event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 13
      */
-    on(type: 'amplitudeUpdate', callback: Callback<Array<Number>>): void
+    on(type: 'amplitudeUpdate', callback: Callback<Array<number>>): void
 
     /**
      * UnSubscrips listener for audio playback amplitude update event
      * @param { 'amplitudeUpdate' } type - Type of the event to listen for.
-     * @param { Callback<Array<Number>> } callback - Callback used to listen amplitude update event.
+     * @param { Callback<Array<number>> } callback - Callback used to listen amplitude update event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 13
      */
-    off(type: 'amplitudeUpdate', callback?: Callback<Array<Number>>): void
+    off(type: 'amplitudeUpdate', callback?: Callback<Array<number>>): void
   }
 
   /**
@@ -3922,7 +3724,8 @@ declare namespace media {
      * length - The stream length player want to get.
      * pos - The stream position player want get start, and is an optional parameter.
      * When fileSize set to -1, this parameter is not used.
-     * Returns length of the data to be filled.
+     * Returns length of the data to be filled, Return -1 to indicate that the end of the stream is reached,
+     * Return -2 to indicate that an unrecoverable error has been encountered.
      * @type { function }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -4376,7 +4179,7 @@ declare namespace media {
      * @returns { Promise<boolean> } A Promise instance used to return true or false when the function is finished.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @systemapi
-     * @since 12
+     * @since 13
      */
     isWatermarkSupported(): Promise<boolean>;
     /**
@@ -4388,7 +4191,7 @@ declare namespace media {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @systemapi
-     * @since 12
+     * @since 13
      */
     setWatermark(watermark: image.PixelMap, config: WatermarkConfig): Promise<void>
     /**
@@ -5036,7 +4839,7 @@ declare namespace media {
    * @typedef WatermarkConfig
    * @syscap SystemCapability.Multimedia.Media.Core
    * @systemapi
-   * @since 12
+   * @since 13
    */
   interface WatermarkConfig {
     /**
@@ -5044,7 +4847,7 @@ declare namespace media {
      * @type { number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     top: number;
     /**
@@ -5052,7 +4855,7 @@ declare namespace media {
      * @type { number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @systemapi
-     * @since 12
+     * @since 13
      */
     left: number;
   }
@@ -7343,7 +7146,16 @@ declare namespace media {
      * @atomicservice
      * @since 12
      */
-    url: string;
+    /**
+     * File output uri, support a kind of uri now.
+     * format like: "fd://" + "context".
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    url?: string;
 
     /**
      * Mode of creating recorder file, details see @FileGenerationMode.
@@ -7962,7 +7774,7 @@ declare namespace media {
      */
     off(type: 'error', callback?: ErrorCallback): void;
   }
-  
+
   /**
    * Provides the video transcode configuration definitions
    * 
@@ -8141,7 +7953,7 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 5400104 - Time out.
      * @throws { BusinessError } 5400105 - Service died.
-     * @throws { BusinessError } 5400106 - Unsupport format.
+     * @throws { BusinessError } 5400106 - Unsupported format.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
      */

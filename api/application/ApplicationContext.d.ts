@@ -399,7 +399,7 @@ export default class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   killAllProcesses(clearPageStack: boolean): Promise<void>;
 
@@ -580,7 +580,7 @@ export default class ApplicationContext extends Context {
   /**
    * Get all running app instance key for current bundle
    *
-   * @returns { Array<string> } Returns the array of all running app instance keys.
+   * @returns { Promise<Array<string>> } Returns the array of all running app instance keys.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000078 - The multi-instance is not supported.

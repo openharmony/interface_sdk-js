@@ -31,6 +31,7 @@ export interface BundlePackInfo {
    * This contains package information in pack.info
    *
    * @type { Array<PackageConfig> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -41,6 +42,7 @@ export interface BundlePackInfo {
    * This contains bundle summary information in pack.info
    *
    * @type { PackageSummary }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -61,6 +63,7 @@ export interface PackageConfig {
    * Indicates the device types of this package
    *
    * @type { Array<string> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -71,6 +74,7 @@ export interface PackageConfig {
    * Indicates the name of this package
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -81,6 +85,7 @@ export interface PackageConfig {
    * Indicates the module type of this package
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -91,6 +96,7 @@ export interface PackageConfig {
    * Indicates whether this package is delivery and install
    *
    * @type { boolean }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -111,6 +117,7 @@ export interface PackageSummary {
    * Indicates the bundle config info of this package
    *
    * @type { BundleConfigInfo }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -121,6 +128,7 @@ export interface PackageSummary {
    * Indicates the modules config info of this package
    *
    * @type { Array<ModuleConfigInfo> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -141,6 +149,7 @@ export interface BundleConfigInfo {
    * Indicates the name of this bundle
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -151,6 +160,7 @@ export interface BundleConfigInfo {
    * Indicates the bundle version
    *
    * @type { Version }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -171,6 +181,7 @@ export interface ExtensionAbility {
    * Indicates the name of this extension ability
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -181,6 +192,7 @@ export interface ExtensionAbility {
    * Indicates the ability forms info
    *
    * @type { Array<AbilityFormInfo> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -201,6 +213,7 @@ export interface ModuleConfigInfo {
    * Indicates the name of main ability
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -211,6 +224,7 @@ export interface ModuleConfigInfo {
    * Indicates the api version
    *
    * @type { ApiVersion }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -221,6 +235,7 @@ export interface ModuleConfigInfo {
    * Indicates the devices type
    *
    * @type { Array<string> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -231,6 +246,7 @@ export interface ModuleConfigInfo {
    * Indicates the module distro info
    *
    * @type { ModuleDistroInfo }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -241,6 +257,7 @@ export interface ModuleConfigInfo {
    * Indicates the abilities info of this module
    *
    * @type { Array<ModuleAbilityInfo> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -251,6 +268,7 @@ export interface ModuleConfigInfo {
    * Indicates extension abilities info of this module
    *
    * @type { Array<ExtensionAbility> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -271,6 +289,7 @@ export interface ModuleDistroInfo {
    * Indicates whether this package is delivered with install
    *
    * @type { boolean }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -281,6 +300,7 @@ export interface ModuleDistroInfo {
    * Indicates whether this package is free install
    *
    * @type { boolean }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -291,6 +311,7 @@ export interface ModuleDistroInfo {
    * Indicates the module name
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -301,6 +322,7 @@ export interface ModuleDistroInfo {
    * Indicates the module type
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -321,6 +343,7 @@ export interface ModuleAbilityInfo {
    * Indicates the name of this module ability
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -331,6 +354,7 @@ export interface ModuleAbilityInfo {
    * Indicates the label of this module ability
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -341,6 +365,7 @@ export interface ModuleAbilityInfo {
    * Indicates whether this ability can be called by other abilities
    *
    * @type { boolean }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -351,6 +376,7 @@ export interface ModuleAbilityInfo {
    * Indicates the ability forms info
    *
    * @type { Array<AbilityFormInfo> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -371,6 +397,7 @@ export interface AbilityFormInfo {
    * Indicates the name of this ability
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -381,6 +408,7 @@ export interface AbilityFormInfo {
    * Indicates the type of this ability
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -391,6 +419,7 @@ export interface AbilityFormInfo {
    * Indicates whether this form is enabled update
    *
    * @type { boolean }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -401,6 +430,7 @@ export interface AbilityFormInfo {
    * Indicates the scheduled update time
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -411,6 +441,7 @@ export interface AbilityFormInfo {
    * Indicates the update duration
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -421,6 +452,7 @@ export interface AbilityFormInfo {
    * Indicates the ability support dimensions
    *
    * @type { Array<string> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -431,6 +463,7 @@ export interface AbilityFormInfo {
    * Indicates the ability default dimension
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -451,6 +484,7 @@ export interface Version {
    * Indicates the min compatible code of this version
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -461,6 +495,7 @@ export interface Version {
    * Indicates the name of this version
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -471,6 +506,7 @@ export interface Version {
    * Indicates the code of this version
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -491,6 +527,7 @@ export interface ApiVersion {
    * Indicates the release type of the api
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -501,6 +538,7 @@ export interface ApiVersion {
    * Indicates the compatible version code of the api
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -511,6 +549,7 @@ export interface ApiVersion {
    * Indicates the target version code of the api
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9

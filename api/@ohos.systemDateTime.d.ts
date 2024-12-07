@@ -360,7 +360,7 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 13000001 - Network connection error or OS error.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
-   * @since 13
+   * @since 14
    */
   function updateNtpTime(): Promise<void>;
 
@@ -372,7 +372,7 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 13000002 - updateNtpTime() is not called successfully.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
-   * @since 13
+   * @since 14
    */
   function getNtpTime(): number;
 }

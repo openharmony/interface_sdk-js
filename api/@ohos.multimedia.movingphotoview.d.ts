@@ -21,6 +21,102 @@
 import photoAccessHelper from './@ohos.file.photoAccessHelper';
 
 /**
+ * Enumerates pixel map formats.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @systemapi
+ * @since 14
+ */
+export declare enum PixelMapFormat {
+    /**
+     * Indicates an unknown format.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    UNKNOWN = 0,
+    /**
+     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
+     * and are stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    RGBA_8888 = 1,
+    /**
+     * Indicates that the storage order is to store Y first and then V U alternately each occupies 8 bits
+     * and are stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    NV21 = 2,
+    /**
+     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：
+     * R(10bits), G(10bits), B(10bits), A(2bits) and are stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 14
+     */
+    RGBA_1010102 = 3,
+
+    /**
+     * Indicates that the storage order is to store Y first and then U V alternately each occupies 10 bits
+     * and are stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 14
+     */
+    YCBCR_P010 = 4,
+
+    /**
+     * Indicates that the storage order is to store Y first and then V U alternately each occupies 10 bits
+     * and are stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 14
+     */
+    YCRCB_P010 = 5
+}
+/**
+ * Dynamic range mode of moving photo.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @systemapi
+ * @since 14
+ */
+export declare enum DynamicRangeMode {
+    /**
+     * Allow image content to use an unrestricted extended range
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    HIGH = 0,
+    /**
+     * Allow image content to use some extended range
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    CONSTRAINT = 1,
+    /**
+     * Restrict the image content to dynamic range to the standard range
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    STANDARD = 2,
+}
+/**
  * Defines the moving photo view options.
  *
  * @interface MovingPhotoViewOptions
@@ -61,6 +157,24 @@ declare interface MovingPhotoViewOptions {
      * @since 14
      */
     imageAIOptions?: ImageAIOptions;
+    /**
+     * format of MovingPhotoView.
+     *
+     * @type { ?PixelMapFormat }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    movingPhotoFormat?: PixelMapFormat;
+    /**
+     * range mode of MovingPhotoView.
+     *
+     * @type { ?DynamicRangeMode }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    dynamicRangeMode?: DynamicRangeMode;
 }
 /**
  * Defines the moving photo view interface.
@@ -282,6 +396,16 @@ export class MovingPhotoViewController {
      * @since 12
      */
     stopPlayback();
+    /**
+     * refresh moving photo data
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @uicomponent
+     * @since 14
+     */
+    refreshMovingPhoto();
 }
 /**
  * Defines MovingPhotoView Component.

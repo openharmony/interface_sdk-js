@@ -25,7 +25,7 @@
  * Defines DataPanel Modifier
  *
  * @extends DataPanelAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<DataPanelAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

@@ -115,8 +115,8 @@ declare class TextClockController {
 /**
  * TextClockConfiguration used by text clock content modifier
  *
- * @interface TextClockConfiguration
  * @extends CommonConfiguration<TextClockConfiguration>
+ * @interface TextClockConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice

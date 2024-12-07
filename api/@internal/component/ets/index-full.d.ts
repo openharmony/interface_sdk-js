@@ -112,7 +112,6 @@
 /// <reference path="./stepper.d.ts" />
 /// <reference path="./stepper_item.d.ts" />
 /// <reference path="./swiper.d.ts" />
-/// <reference path="./indicatorcomponent.d.ts" />
 /// <reference path="./symbolglyph.d.ts" />
 /// <reference path="./symbol_span.d.ts" />
 /// <reference path="./tabs.d.ts" />

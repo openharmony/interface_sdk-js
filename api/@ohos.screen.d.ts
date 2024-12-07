@@ -369,6 +369,7 @@ declare namespace screen {
    * @param { number } primaryScreenId - primary screen id.
    * @param { number } secondaryScreenId - secondary screen id.
    * @param { MultiScreenMode } secondaryScreenMode - secondary screen mode.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *                                                                   2. Incorrect parameter types.
@@ -385,6 +386,7 @@ declare namespace screen {
    *
    * @param { MultiScreenPositionOptions } mainScreenOptions - main screen position.
    * @param { MultiScreenPositionOptions } secondaryScreenOptions - secondary screen position.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *                                                                   2. Incorrect parameter types.
@@ -624,6 +626,7 @@ declare namespace screen {
      * Screen id
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -634,6 +637,7 @@ declare namespace screen {
      * Group id
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -644,6 +648,7 @@ declare namespace screen {
      * Mode supported by the screen
      *
      * @type { Array<ScreenModeInfo> }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -654,6 +659,7 @@ declare namespace screen {
      * Currently active mode
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -664,6 +670,7 @@ declare namespace screen {
      * Orientation of the screen
      *
      * @type { Orientation }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -674,6 +681,7 @@ declare namespace screen {
      * Source mode of the screen
      *
      * @type { ScreenSourceMode }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10

@@ -35,6 +35,7 @@ import pasteboard from '@ohos.pasteboard';
 import power from '@ohos.power';
 import print from '@ohos.print';
 import request from '@ohos.request';
+import cacheDownload from '@ohos.request.cacheDownload';
 import runningLock from '@ohos.runningLock';
 import screenLock from '@ohos.screenLock';
 import settings from '@ohos.settings';
@@ -76,7 +77,7 @@ export {
   OnDownloadCompleteResponse, PrintExtensionAbility, Request, RequestData, RequestFile,
   SetBrightnessModeOptions, SetBrightnessOptions, SetKeepScreenOnOptions, UploadRequestOptions,
   UploadResponse, WallpaperExtensionAbility, appAccount, batteryInfo, batteryStats, brightness, charger, configPolicy,
-  customConfig, deviceAttest, deviceInfo, distributedAccount, osAccount, pasteboard, power, print, request, runningLock,
+  customConfig, deviceAttest, deviceInfo, distributedAccount, osAccount, pasteboard, power, print, request, cacheDownload, runningLock,
   screenLock, settings, systemCapability, systemDateTime, systemParameter, systemParameterEnhance, systemTime,
   systemTimer, thermal, update, usb, usbManager, wallpaper, zlib, commonEventManager, emitter, StaticSubscriberExtensionAbility,
   StaticSubscriberExtensionContext, systemLoad, intelligentVoice

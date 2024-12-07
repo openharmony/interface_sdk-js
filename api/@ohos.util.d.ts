@@ -3841,6 +3841,7 @@ declare namespace util {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 14
      */
     isBooleanObject(value: Object): boolean;
     /**
@@ -3869,6 +3870,7 @@ declare namespace util {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 14
      */
     isBoxedPrimitive(value: Object): boolean;
     /**
@@ -4298,6 +4300,7 @@ declare namespace util {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 14
      */
     isNumberObject(value: Object): boolean;
     /**
@@ -4497,6 +4500,7 @@ declare namespace util {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 14
      */
     isStringObject(value: Object): boolean;
     /**
@@ -4525,6 +4529,7 @@ declare namespace util {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 14
      */
     isSymbolObject(value: Object): boolean;
     /**

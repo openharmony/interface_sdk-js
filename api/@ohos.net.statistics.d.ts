@@ -29,7 +29,7 @@ import type connection from './@ohos.net.connection';
  */
 declare namespace statistics {
   /**
-   * @typedef NetBearType
+   * @typedef {connection.NetBearType}
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 12
    */

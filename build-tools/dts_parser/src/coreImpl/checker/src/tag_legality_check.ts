@@ -255,7 +255,7 @@ export class LegalityCheck {
    * systemapi and atomicservice cannot exist at the same time
    * @param apiJsdoc 
    */
-  static checkSystemapiAtomicservice(apiJsdoc: Comment.JsDocInfo, apiLegalityCheckResult: ErrorTagFormat[]) {
+  static checkSystemapiAtomicservice(apiJsdoc: Comment.JsDocInfo, apiLegalityCheckResult: ErrorTagFormat[]): void {
     const apiSystemapiAtomicservice: ErrorTagFormat = {
       state: true,
       errorInfo: '',
@@ -263,12 +263,12 @@ export class LegalityCheck {
     const tagsName: string[] = [];
     apiJsdoc.tags?.forEach((tag: Comment.CommentTag) => {
       tagsName.push(tag.tag);
-    })
+    });
     const hasSystemapi: boolean = tagsName.includes('systemapi');
     const hasAtomicservice: boolean = tagsName.includes('atomicservice');
     if (hasSystemapi && hasAtomicservice) {
-      apiSystemapiAtomicservice.state=false;
-      apiSystemapiAtomicservice.errorInfo=ErrorMessage.ERROR_ERROR_SYSTEMAPI_ATOMICSERVICE;
+      apiSystemapiAtomicservice.state = false;
+      apiSystemapiAtomicservice.errorInfo = ErrorMessage.ERROR_ERROR_SYSTEMAPI_ATOMICSERVICE;
     }
     apiLegalityCheckResult.push(apiSystemapiAtomicservice);
   }

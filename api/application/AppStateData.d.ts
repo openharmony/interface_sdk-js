@@ -22,8 +22,7 @@
  * The application state data.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @systemapi
- * @since 8
+ * @since 14
  */
 export default class AppStateData {
   /**
@@ -31,8 +30,7 @@ export default class AppStateData {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 8
+   * @since 14
    */
   bundleName: string;
 
@@ -41,8 +39,7 @@ export default class AppStateData {
    *
    * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 8
+   * @since 14
    */
   uid: number;
 
@@ -51,8 +48,7 @@ export default class AppStateData {
    *
    * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 8
+   * @since 14
    */
   state: number;
 
@@ -61,8 +57,7 @@ export default class AppStateData {
    *
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 11
+   * @since 14
    */
   isSplitScreenMode: boolean;
 
@@ -71,8 +66,7 @@ export default class AppStateData {
    *
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 11
+   * @since 14
    */
   isFloatingWindowMode: boolean;
 }
