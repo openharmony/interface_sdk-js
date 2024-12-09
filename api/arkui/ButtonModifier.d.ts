@@ -24,7 +24,7 @@
  * Defines Button Modifier
  *
  * @extends ButtonAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<ButtonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

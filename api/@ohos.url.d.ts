@@ -1036,6 +1036,7 @@ declare namespace url {
      * Gets the read-only serialization of the URL's origin.
      *
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -1210,6 +1211,7 @@ declare namespace url {
      * the URL instance. To replace the entire query parameter for a URL, use url.searchsetter.
      *
      * @type { URLParams }
+     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice

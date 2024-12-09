@@ -1420,7 +1420,8 @@ interface ParticleInterface {
    */
   /**
    * create a particle array.
-   * @param { Particles<PARTICLE, COLOR_UPDATER, OPACITY_UPDATER, SCALE_UPDATER, ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER, SPIN_UPDATER> } particles - Array of particles.
+   * @param { Particles<PARTICLE, COLOR_UPDATER, OPACITY_UPDATER, SCALE_UPDATER, ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER,
+   *          SPIN_UPDATER> } particles - Array of particles.
    * @returns { ParticleAttribute } Returns the particle attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

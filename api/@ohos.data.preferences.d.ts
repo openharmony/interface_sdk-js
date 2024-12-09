@@ -268,8 +268,8 @@ declare namespace preferences {
    *                                                                   2. Incorrect parameter types;
    *                                                                   3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 15501001 - Only supported in stage mode.
-   * @throws { BusinessError } 15501002 - The data group id is not valid.
+   * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
+   * @throws { BusinessError } 15501002 - Invalid dataGroupId.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @since 10
@@ -288,8 +288,8 @@ declare namespace preferences {
    *                                                                   3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15500000 - Inner error.
-   * @throws { BusinessError } 15501001 - Only supported in stage mode.
-   * @throws { BusinessError } 15501002 - The data group id is not valid.
+   * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
+   * @throws { BusinessError } 15501002 - Invalid dataGroupId.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
@@ -357,8 +357,8 @@ declare namespace preferences {
    *                                                                   2. Incorrect parameter types;
    *                                                                   3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 15501001 - Only supported in stage mode.
-   * @throws { BusinessError } 15501002 - The data group id is not valid.
+   * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
+   * @throws { BusinessError } 15501002 - Invalid dataGroupId.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @since 10
@@ -376,8 +376,8 @@ declare namespace preferences {
    *                                                                   3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15500000 - Inner error.
-   * @throws { BusinessError } 15501001 - Only supported in stage mode.
-   * @throws { BusinessError } 15501002 - The data group id is not valid.
+   * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
+   * @throws { BusinessError } 15501002 - Invalid dataGroupId.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
@@ -398,8 +398,8 @@ declare namespace preferences {
    *                                                                   2. Incorrect parameter types;
    *                                                                   3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 15501001 - Only supported in stage mode.
-   * @throws { BusinessError } 15501002 - The data group id is not valid.
+   * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
+   * @throws { BusinessError } 15501002 - Invalid dataGroupId.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @since 10
@@ -418,8 +418,8 @@ declare namespace preferences {
    *                                                                   3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15500000 - Inner error.
-   * @throws { BusinessError } 15501001 - Only supported in stage mode.
-   * @throws { BusinessError } 15501002 - The data group id is not valid.
+   * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
+   * @throws { BusinessError } 15501002 - Invalid dataGroupId.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
@@ -441,7 +441,7 @@ declare namespace preferences {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                                                   2. Incorrect parameter types;
    *                                                                   3. Parameter verification failed.
-   * @throws { BusinessError } 15500010 - Failed to delete preferences file.
+   * @throws { BusinessError } 15500010 - Failed to delete the user preferences persistence file.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @since 9
    */
@@ -459,7 +459,7 @@ declare namespace preferences {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                                                   2. Incorrect parameter types;
    *                                                                   3. Parameter verification failed.
-   * @throws { BusinessError } 15500010 - Failed to delete preferences file.
+   * @throws { BusinessError } 15500010 - Failed to delete the user preferences persistence file.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @since 10
@@ -479,7 +479,7 @@ declare namespace preferences {
    *                                                                   2. Incorrect parameter types;
    *                                                                   3. Parameter verification failed.
    * @throws { BusinessError } 15500000 - Inner error.
-   * @throws { BusinessError } 15500010 - Failed to delete preferences file.
+   * @throws { BusinessError } 15500010 - Failed to delete the user preferences persistence file.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
@@ -502,9 +502,9 @@ declare namespace preferences {
    *                                                                   2. Incorrect parameter types;
    *                                                                   3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 15500010 - Failed to delete preferences file.
-   * @throws { BusinessError } 15501001 - Only supported in stage mode.
-   * @throws { BusinessError } 15501002 - The data group id is not valid.
+   * @throws { BusinessError } 15500010 - Failed to delete the user preferences persistence file.
+   * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
+   * @throws { BusinessError } 15501002 - Invalid dataGroupId.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @since 10
@@ -525,9 +525,9 @@ declare namespace preferences {
    *                                                                   3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15500000 - Inner error.
-   * @throws { BusinessError } 15500010 - Failed to delete preferences file.
-   * @throws { BusinessError } 15501001 - Only supported in stage mode.
-   * @throws { BusinessError } 15501002 - The data group id is not valid.
+   * @throws { BusinessError } 15500010 - Failed to delete the user preferences persistence file.
+   * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
+   * @throws { BusinessError } 15501002 - Invalid dataGroupId.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
@@ -549,7 +549,7 @@ declare namespace preferences {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                                                   2. Incorrect parameter types;
    *                                                                   3. Parameter verification failed.
-   * @throws { BusinessError } 15500010 - Failed to delete preferences file.
+   * @throws { BusinessError } 15500010 - Failed to delete the user preferences persistence file.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @since 9
    */
@@ -567,7 +567,7 @@ declare namespace preferences {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                                                   2. Incorrect parameter types;
    *                                                                   3. Parameter verification failed.
-   * @throws { BusinessError } 15500010 - Failed to delete preferences file.
+   * @throws { BusinessError } 15500010 - Failed to delete the user preferences persistence file.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @since 10
@@ -587,7 +587,7 @@ declare namespace preferences {
    *                                                                   2. Incorrect parameter types;
    *                                                                   3. Parameter verification failed.
    * @throws { BusinessError } 15500000 - Inner error.
-   * @throws { BusinessError } 15500010 - Failed to delete preferences file.
+   * @throws { BusinessError } 15500010 - Failed to delete the user preferences persistence file.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
@@ -610,9 +610,9 @@ declare namespace preferences {
    *                                                                   2. Incorrect parameter types;
    *                                                                   3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 15500010 - Failed to delete preferences file.
-   * @throws { BusinessError } 15501001 - Only supported in stage mode.
-   * @throws { BusinessError } 15501002 - The data group id is not valid.
+   * @throws { BusinessError } 15500010 - Failed to delete the user preferences persistence file.
+   * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
+   * @throws { BusinessError } 15501002 - Invalid dataGroupId.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @since 10
@@ -633,9 +633,9 @@ declare namespace preferences {
    *                                                                   3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15500000 - Inner error.
-   * @throws { BusinessError } 15500010 - Failed to delete preferences file.
-   * @throws { BusinessError } 15501001 - Only supported in stage mode.
-   * @throws { BusinessError } 15501002 - The data group id is not valid.
+   * @throws { BusinessError } 15500010 - Failed to delete the user preferences persistence file.
+   * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
+   * @throws { BusinessError } 15501002 - Invalid dataGroupId.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
@@ -711,8 +711,8 @@ declare namespace preferences {
    *                                                                   2. Incorrect parameter types;
    *                                                                   3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 15501001 - Only supported in stage mode.
-   * @throws { BusinessError } 15501002 - The data group id is not valid.
+   * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
+   * @throws { BusinessError } 15501002 - Invalid dataGroupId.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @since 10
@@ -732,8 +732,8 @@ declare namespace preferences {
    *                                                                   3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15500000 - Inner error.
-   * @throws { BusinessError } 15501001 - Only supported in stage mode.
-   * @throws { BusinessError } 15501002 - The data group id is not valid.
+   * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
+   * @throws { BusinessError } 15501002 - Invalid dataGroupId.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
@@ -809,8 +809,8 @@ declare namespace preferences {
    *                                                                   2. Incorrect parameter types;
    *                                                                   3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 15501001 - Only supported in stage mode.
-   * @throws { BusinessError } 15501002 - The data group id is not valid.
+   * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
+   * @throws { BusinessError } 15501002 - Invalid dataGroupId.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @since 10
@@ -830,8 +830,8 @@ declare namespace preferences {
    *                                                                   3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15500000 - Inner error.
-   * @throws { BusinessError } 15501001 - Only supported in stage mode.
-   * @throws { BusinessError } 15501002 - The data group id is not valid.
+   * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
+   * @throws { BusinessError } 15501002 - Invalid dataGroupId.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
@@ -888,8 +888,8 @@ declare namespace preferences {
    *                                                                   2. Incorrect parameter types;
    *                                                                   3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 15501001 - Only supported in stage mode.
-   * @throws { BusinessError } 15501002 - The data group id is not valid.
+   * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
+   * @throws { BusinessError } 15501002 - Invalid dataGroupId.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @since 10
@@ -908,8 +908,8 @@ declare namespace preferences {
    *                                                                   3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15500000 - Inner error.
-   * @throws { BusinessError } 15501001 - Only supported in stage mode.
-   * @throws { BusinessError } 15501002 - The data group id is not valid.
+   * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
+   * @throws { BusinessError } 15501002 - Invalid dataGroupId.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
@@ -1707,7 +1707,7 @@ declare namespace preferences {
     flush(): Promise<void>;
 
     /**
-     * Asynchronously saves the {@link Preferences} object to the file.
+     * Saves the {@link Preferences} object to the file.
      *
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -1764,7 +1764,7 @@ declare namespace preferences {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *                                                                   2. Incorrect parameter types;
      *                                                                   3. Parameter verification failed.
-     * @throws { BusinessError } 15500019 - Failed to obtain subscription service.
+     * @throws { BusinessError } 15500019 - Failed to obtain the subscription service.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @since 10
      */
@@ -1777,7 +1777,7 @@ declare namespace preferences {
      *                                                                   2. Incorrect parameter types;
      *                                                                   3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
-     * @throws { BusinessError } 15500019 - Failed to obtain subscription service.
+     * @throws { BusinessError } 15500019 - Failed to obtain the subscription service.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 11

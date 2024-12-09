@@ -172,6 +172,7 @@ declare namespace backup {
   /**
    * Corresponds to an incremental application, including its last incremental time and incremental list.
    *
+   * @extends IncrementalBackupTime, FileManifestData, BackupParams, BackupPriority
    * @interface IncrementalBackupData
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
@@ -183,6 +184,7 @@ declare namespace backup {
    * Corresponding to a file, including its metadata and data.
    * File is useful when doing IPC with the backup service.
    *
+   * @extends FileMeta, FileData, FileManifestData
    * @interface File
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
@@ -192,6 +194,7 @@ declare namespace backup {
    * Corresponds to a file, including its metadata and data and the file's manifest data.
    * Files are useful as IPC and backup services.
    *
+   * @extends FileMeta, FileData, FileManifestData
    * @interface File
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi

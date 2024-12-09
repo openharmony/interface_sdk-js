@@ -1417,6 +1417,7 @@ declare interface Configuration {
    * Set colorMode.
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -1424,6 +1425,7 @@ declare interface Configuration {
    * Set colorMode.
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -1432,6 +1434,7 @@ declare interface Configuration {
    * Set colorMode.
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1441,6 +1444,7 @@ declare interface Configuration {
    * Set colorMode.
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1453,6 +1457,7 @@ declare interface Configuration {
    * Set fontScale.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -1460,6 +1465,7 @@ declare interface Configuration {
    * Set fontScale.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -1468,6 +1474,7 @@ declare interface Configuration {
    * Set fontScale.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1477,6 +1484,7 @@ declare interface Configuration {
    * Set fontScale.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -6113,7 +6121,7 @@ declare enum BlurStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare enum BlurStyleActivePolicy {
   /**
@@ -6122,7 +6130,7 @@ declare enum BlurStyleActivePolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   FOLLOWS_WINDOW_ACTIVE_STATE = 0,
 
@@ -6132,7 +6140,7 @@ declare enum BlurStyleActivePolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   ALWAYS_ACTIVE = 1,
 
@@ -6142,7 +6150,7 @@ declare enum BlurStyleActivePolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   ALWAYS_INACTIVE = 2,
 }
@@ -6343,6 +6351,7 @@ declare enum ModalTransition {
 /**
  * Defines the options of backgroundBlurStyle
  *
+ * @extends BlurStyleOption
  * @interface BackgroundBlurStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -6351,6 +6360,7 @@ declare enum ModalTransition {
 /**
  * Defines the options of backgroundBlurStyle
  *
+ * @extends BlurStyleOption
  * @interface BackgroundBlurStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -6366,7 +6376,7 @@ declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   policy?: BlurStyleActivePolicy;
 
@@ -6378,7 +6388,7 @@ declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   inactiveColor?: ResourceColor;
 }
@@ -6387,6 +6397,7 @@ declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
  * Defines the options of ForegroundBlurStyle
  *
  * @interface ForegroundBlurStyleOptions
+ * @extends BlurStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -6394,6 +6405,7 @@ declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
 /**
  * Defines the options of ForegroundBlurStyle
  *
+ * @extends BlurStyleOptions
  * @interface ForegroundBlurStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -6683,7 +6695,7 @@ declare interface BackgroundEffectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   policy?: BlurStyleActivePolicy;
 
@@ -6695,7 +6707,7 @@ declare interface BackgroundEffectOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   inactiveColor?: ResourceColor;
 }
@@ -8206,6 +8218,7 @@ declare interface BorderImageOption {
 /**
  * The tap action triggers this method invocation.
  *
+ * @extends BaseEvent
  * @interface ClickEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -8213,6 +8226,7 @@ declare interface BorderImageOption {
 /**
  * The tap action triggers this method invocation.
  *
+ * @extends BaseEvent
  * @interface ClickEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
@@ -8221,6 +8235,7 @@ declare interface BorderImageOption {
 /**
  * The tap action triggers this method invocation.
  *
+ * @extends BaseEvent
  * @interface ClickEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -8230,6 +8245,7 @@ declare interface BorderImageOption {
 /**
  * The tap action triggers this method invocation.
  *
+ * @extends BaseEvent
  * @interface ClickEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -8423,6 +8439,7 @@ declare interface ClickEvent extends BaseEvent {
 /**
  * The hover action triggers this method invocation.
  *
+ * @extends BaseEvent
  * @interface HoverEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
@@ -8430,6 +8447,7 @@ declare interface ClickEvent extends BaseEvent {
 /**
  * The hover action triggers this method invocation.
  *
+ * @extends BaseEvent
  * @interface HoverEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -8457,6 +8475,7 @@ declare interface HoverEvent extends BaseEvent {
 /**
  * The mouse click action triggers this method invocation.
  *
+ * @extends BaseEvent
  * @interface MouseEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
@@ -8464,6 +8483,7 @@ declare interface HoverEvent extends BaseEvent {
 /**
  * The mouse click action triggers this method invocation.
  *
+ * @extends BaseEvent
  * @interface MouseEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -8649,8 +8669,8 @@ declare interface MouseEvent extends BaseEvent {
 /**
  * The accessibility hover action triggers this method invocation.
  *
- * @typedef AccessibilityHoverEvent
  * @extends BaseEvent
+ * @typedef AccessibilityHoverEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
@@ -9053,6 +9073,7 @@ declare interface HistoricalPoint {
 /**
  * Touch Action Function Parameters
  *
+ * @extends BaseEvent
  * @interface TouchEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -9060,6 +9081,7 @@ declare interface HistoricalPoint {
 /**
  * Touch Action Function Parameters
  *
+ * @extends BaseEvent
  * @interface TouchEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -9068,6 +9090,7 @@ declare interface HistoricalPoint {
 /**
  * Touch Action Function Parameters
  *
+ * @extends BaseEvent
  * @interface TouchEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -11804,6 +11827,16 @@ declare interface SheetOptions extends BindOptions {
    * @since 14
    */
   hoverModeArea?: HoverModeAreaType;
+
+  /**
+   * Sets the position offset of the bindSheet.
+   *
+   * @type { ?Position }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 14
+   */
+    offset?: Position
 }
 
 /**
@@ -13825,6 +13858,7 @@ declare interface ContextMenuOptions {
 /**
  * Defines the menu options.
  *
+ * @extends ContextMenuOptions
  * @interface MenuOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -13833,6 +13867,7 @@ declare interface ContextMenuOptions {
 /**
  * Defines the menu options.
  *
+ * @extends ContextMenuOptions
  * @interface MenuOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -16153,7 +16188,7 @@ declare class CommonMethod<T> {
   opacity(value: number | Resource): T;
 
   /**
-   * Opacity
+   * Border
    * width:Border width;color:Border color;radius:Border radius;
    *
    * @param { BorderOptions } value
@@ -16162,7 +16197,7 @@ declare class CommonMethod<T> {
    * @since 7
    */
   /**
-   * Opacity
+   * Border
    * width:Border width;color:Border color;radius:Border radius;
    *
    * @param { BorderOptions } value
@@ -16172,7 +16207,7 @@ declare class CommonMethod<T> {
    * @since 9
    */
   /**
-   * Opacity
+   * Border
    * width:Border width;color:Border color;radius:Border radius;
    *
    * @param { BorderOptions } value
@@ -16183,7 +16218,7 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Opacity
+   * Border
    * width:Border width;color:Border color;radius:Border radius;
    *
    * @param { BorderOptions } value
@@ -16798,6 +16833,18 @@ declare class CommonMethod<T> {
    */
   focusable(value: boolean): T;
 
+  /**
+   * Set TabStop on component focus
+   *
+   * @param { boolean } isTabStop
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  tabStop(isTabStop: boolean): T;
+                
   /**
    * Trigger a event when got focus.
    *
@@ -17926,6 +17973,8 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 14
+   * @useinstead grid_col/GridColInterface and grid_row/GridRowInterface
    */
   gridSpan(value: number): T;
 
@@ -17958,6 +18007,8 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 14
+   * @useinstead grid_col/GridColInterface and grid_row/GridRowInterface
    */
   gridOffset(value: number): T;
 
@@ -20626,7 +20677,7 @@ declare class CommonMethod<T> {
    */
   onGestureRecognizerJudgeBegin(callback: GestureRecognizerJudgeBeginCallback): T;
 
-    /**
+  /**
    * When a gesture bound to this component will be accepted, a user-defined callback is triggered to get the result
    *
    * @param { GestureRecognizerJudgeBeginCallback } callback - A callback instance used when a gesture bound to this component will be accepted.
@@ -20636,9 +20687,9 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @atomicservice
    * 
-   * @since 14
+   * @since 13
    */
-    onGestureRecognizerJudgeBegin(callback: GestureRecognizerJudgeBeginCallback, exposeInnerGesture: boolean): T;
+  onGestureRecognizerJudgeBegin(callback: GestureRecognizerJudgeBeginCallback, exposeInnerGesture: boolean): T;
 
   /**
    * In the touch test phase, the recognizer is selected to form a parallel relationship with other recognizers on the response chain.
@@ -22038,6 +22089,7 @@ declare interface LayoutChild {
 /**
  * Sub component layout info.
  *
+ * @extends SizeResult
  * @interface GeometryInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -22046,6 +22098,7 @@ declare interface LayoutChild {
 /**
  * Sub component layout info.
  *
+ * @extends SizeResult
  * @interface GeometryInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -24109,7 +24162,7 @@ declare interface KeyframeState {
 /**
  * Defines the basic callback.
  *
- * @typedef Callback
+ * @typedef Callback<T, V = void>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -24134,7 +24187,7 @@ declare interface Callback<T, V = void> {
  * The value of isHover indicates whether the mouse is hovering over the component.
  * The value of event contains information about HoverEvent.
  *
- * @typedef HoverCallback
+ * @typedef { function } HoverCallback
  * @param { boolean } isHover
  * @param { HoverEvent} event
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -24149,7 +24202,7 @@ declare type HoverCallback = (isHover: boolean, event: HoverEvent) => void
  * The value of isHover indicates whether the touch is hovering over the component.
  * The value of event contains information about AccessibilityHoverEvent.
  *
- * @typedef { function }
+ * @typedef { function } AccessibilityCallback
  * @param { boolean } isHover
  * @param { AccessibilityHoverEvent } event
  * @syscap SystemCapability.ArkUI.ArkUI.Full

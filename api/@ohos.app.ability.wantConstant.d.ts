@@ -96,6 +96,15 @@ declare namespace wantConstant {
     DLP_PARAMS_INDEX = 'ohos.dlp.params.index',
 
     /**
+     * Indicates the type of hide sensitive information.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @systemapi
+     * @since 14
+     */
+    HIDE_SENSITIVE_TYPE = 'ohos.media.params.hideSensitiveType',
+
+    /**
      * Indicates the ability in this want can back to the current top ability even though they are not in the same
      * mission stack.
      *

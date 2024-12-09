@@ -440,7 +440,7 @@ declare class Scroller {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   scrollTo(options: ScrollOptions);
 
@@ -479,6 +479,7 @@ declare class Scroller {
    * @since 12
    */
   scrollEdge(value: Edge, options?: ScrollEdgeOptions);
+
 
   /**
    * Fling the scroll view.
@@ -708,13 +709,45 @@ declare class Scroller {
 }
 
 /**
+ * Define scroll page options
+ * @interface ScrollPageOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 14
+ */
+declare interface ScrollPageOptions {
+  /**
+   * Control whether to scroll to the next page or the previous page.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  next: boolean;
+
+  /**
+   * Set whether the scrollPage have animate.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  animation?: boolean;
+}
+
+/**
  * Define scroll options.
  *
  * @interface ScrollOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare interface ScrollOptions {
   /**
@@ -785,38 +818,6 @@ declare interface ScrollOptions {
    * @since 12
    */
   animation?: ScrollAnimationOptions | boolean;
-}
-
-/**
- * Define scroll page options
- * @interface ScrollPageOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 14
- */
-declare interface ScrollPageOptions {
-  /**
-   * Control whether to scroll to the next page or the previous page.
-   *
-   * @type { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 14
-   */
-  next: boolean;
-
-  /**
-   * Set whether the scrollPage have animate.
-   *
-   * @type { ?boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 14
-   */
-  animation?: boolean;
 }
 
 /**
@@ -977,7 +978,7 @@ interface ScrollInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare type OnScrollEdgeCallback = (side: Edge) => void;
 
@@ -988,7 +989,7 @@ declare type OnScrollEdgeCallback = (side: Edge) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 interface OnScrollFrameBeginHandlerResult {
   /**
@@ -1028,7 +1029,7 @@ interface OnScrollFrameBeginHandlerResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare type OnScrollFrameBeginCallback = (offset: number, state: ScrollState) => OnScrollFrameBeginHandlerResult;
 
@@ -1178,7 +1179,7 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   onScrollEdge(event: OnScrollEdgeCallback): ScrollAttribute;
 
@@ -1217,7 +1218,7 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   onScrollStart(event: VoidCallback): ScrollAttribute;
 
@@ -1268,7 +1269,7 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   onScrollStop(event: VoidCallback): ScrollAttribute;
 
@@ -1424,7 +1425,7 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   onScrollFrameBegin(event: OnScrollFrameBeginCallback): ScrollAttribute;
 

@@ -106,6 +106,17 @@ declare interface CircleStyleOptions {
    * @since 12
    */
   enableWaveEffect?: boolean;
+
+  /**
+   * Enable the activity circle style displayed in the foreground.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+    enableForeground?: boolean;
 }
 
 /**
@@ -594,6 +605,18 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @since 12
    */
   activateCircleStyle(options: Optional<CircleStyleOptions>): PatternLockAttribute;
+
+  /**
+   * Skip unselected point that the path passes through.
+   *
+   * @param { boolean } skipped
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  skipUnselectedPoint(skipped: boolean): PatternLockAttribute;
 }
 
 /**

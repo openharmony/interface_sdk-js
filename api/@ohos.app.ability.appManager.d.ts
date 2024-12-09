@@ -325,13 +325,11 @@ declare namespace appManager {
    * @param { ApplicationStateObserver } observer - The application state observer.
    * @returns { number } Returns the number code of the observer.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 9
+   * @since 14
    */
   function on(type: 'applicationState', observer: ApplicationStateObserver): number;
 
@@ -344,13 +342,11 @@ declare namespace appManager {
    * @param { Array<string> } bundleNameList - The list of bundleName. The max length is 128.
    * @returns { number } Returns the number code of the observer.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 9
+   * @since 14
    */
   function on(type: 'applicationState', observer: ApplicationStateObserver, bundleNameList: Array<string>): number;
 
@@ -415,13 +411,11 @@ declare namespace appManager {
    * @param { number } observerId - Indicates the number code of the observer.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 9
+   * @since 14
    */
   function off(type: 'applicationState', observerId: number): Promise<void>;
 
@@ -520,7 +514,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since 14
    */
   function killProcessWithAccount(bundleName: string, accountId: number): Promise<void>;
 
@@ -576,7 +570,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since 14
    */
   function killProcessWithAccount(bundleName: string, accountId: number, callback: AsyncCallback<void>): void;
 
@@ -650,7 +644,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since 14
    */
   function killProcessesByBundleName(bundleName: string): Promise<void>;
 
@@ -663,11 +657,9 @@ declare namespace appManager {
    * @param { number } [appIndex] - The application index.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
    * @since 14
    */
   function killProcessesByBundleName(bundleName: string, clearPageStack: boolean, appIndex?: number): Promise<void>;
@@ -700,7 +692,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since 14
    */
   function killProcessesByBundleName(bundleName: string, callback: AsyncCallback<void>);
 
@@ -1099,14 +1091,12 @@ declare namespace appManager {
   * @param { number } [appCloneIndex] - app clone index
   * @returns { Promise<boolean> } Returns the bundle running result. The result is true if running, false otherwise.
   * @throws { BusinessError } 201 - Permission denied.
-  * @throws { BusinessError } 202 - Not system application.
   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
   * 2. Incorrect parameter types; 3. Parameter verification failed.
   * @throws { BusinessError } 16000050 - Internal error.
   * @throws { BusinessError } 16000073 - The app clone index is invalid.
   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  * @systemapi
-  * @since 12
+  * @since 14
   */
   function isAppRunning(bundleName: string, appCloneIndex?: number): Promise<boolean>;
 
@@ -1161,14 +1151,14 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 13
+   * @since 14
    */
   function getSupportedProcessCachePids(bundleName : string): Promise<Array<number>>;
 
   /**
    * Set keep alive for the specified bundle.
    *
-   * @permission ohos.permission.MANAGE_KEEP_ALIVE
+   * @permission ohos.permission.MANAGE_APP_KEEP_ALIVE
    * @param { string } bundleName - bundle name.
    * @param { number } userId - user id.
    * @param { boolean } enable - flag indicates whether the bundle should be kept alive.
@@ -1192,7 +1182,7 @@ declare namespace appManager {
   /**
    * Get keep-alive bundle information.
    *
-   * @permission ohos.permission.MANAGE_KEEP_ALIVE
+   * @permission ohos.permission.MANAGE_APP_KEEP_ALIVE
    * @param { KeepAliveAppType } type - type of keep-alive apps to be quried.
    * @param { number } [userId] - user id.
    * @returns { Promise<Array<KeepAliveBundleInfo>> } Returns the list of KeepAliveBundleInfo.
@@ -1207,6 +1197,24 @@ declare namespace appManager {
    * @since 14
    */
   function getKeepAliveBundles(type: KeepAliveAppType, userId?: number): Promise<Array<KeepAliveBundleInfo>>;
+
+  /**
+   * Kill processes in batch.
+   *
+   * @permission ohos.permission.KILL_APP_PROCESSES
+   * @param { Array<number> } pids - The pids of the processes.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 14
+   */
+  function killProcessesInBatch(pids: Array<number>): Promise<void>;
 
   /**
    * The ability or extension state data.
@@ -1233,8 +1241,7 @@ declare namespace appManager {
    *
    * @typedef { _ApplicationStateObserver.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 9
+   * @since 14
    */
   export type ApplicationStateObserver = _ApplicationStateObserver.default;
 

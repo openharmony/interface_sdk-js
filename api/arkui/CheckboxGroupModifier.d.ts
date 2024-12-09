@@ -24,7 +24,7 @@
  * Defines CheckboxGroup Modifier
  *
  * @extends CheckboxGroupAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<CheckboxGroupAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

@@ -570,7 +570,7 @@ export class NodeProcessorHelper {
    */
   static getCurrentEnumValue(enumInfo: BasicApiInfo): string {
     if (!(enumInfo instanceof EnumInfo)) {
-      return "";
+      return '';
     }
     const length: number = enumInfo.getChildApis().length;
     if (length === 0) {
@@ -799,7 +799,7 @@ export class NodeProcessorHelper {
     paramInfo: ParamInfo,
     isParam: boolean = true
   ): void {
-    let typeNodeName: string = "";
+    let typeNodeName: string = '';
     const typeArguments: ts.NodeArray<ts.TypeNode> | undefined = typeNode.typeArguments;
     typeArguments?.forEach((typeArgument: ts.TypeNode) => {
       NodeProcessorHelper.processFunctionTypeNode(typeArgument, methodInfo, paramInfo, isParam);
@@ -838,12 +838,13 @@ export class NodeProcessorHelper {
         const baseApiInfo: ApiInfo[] = currentMap.get(StringConstant.SELF) as ApiInfo[];
         const apiInfo: ApiInfo = baseApiInfo[0];
         NodeProcessorHelper.typeReferenceFileMap.set(typeNodeName, apiInfo);
-        if (apiInfo) {
-          if (isParam) {
-            paramInfo.addTypeLocations(apiInfo);
-          } else {
-            methodInfo.addTypeLocations(apiInfo);
-          }
+        if (!apiInfo) {
+          return;
+        }
+        if (isParam) {
+          paramInfo.addTypeLocations(apiInfo);
+        } else {
+          methodInfo.addTypeLocations(apiInfo);
         }
       }
     } catch (error) {

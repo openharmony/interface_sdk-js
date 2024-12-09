@@ -1008,6 +1008,21 @@ declare namespace geoLocationManager {
   function getLocationIconStatus(): LocationIconStatus;
 
   /**
+   * Obtains the BSSID of the connected Wi-Fi hotspot.
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @returns {string} Returns the BSSID of the connected Wi-Fi hotspot.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getCurrentWifiBssidForLocating()} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @throws { BusinessError } 3301900 - Failed to obtain the BSSID of the Wi-Fi hotspot. The Wi-Fi network is not connected.
+   * @syscap SystemCapability.Location.Location.Core
+   * @crossplatform
+   * @since 14
+   */
+  function getCurrentWifiBssidForLocating(): string;
+
+  /**
    * Configuration parameters for simulating reverse geocoding.
    *
    * @typedef ReverseGeocodingMockInfo

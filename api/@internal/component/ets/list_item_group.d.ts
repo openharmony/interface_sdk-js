@@ -126,7 +126,7 @@ declare interface ListItemGroupOptions {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 14
+    * @since 13
     */
   headerComponent?: ComponentContent;
 
@@ -163,7 +163,7 @@ declare interface ListItemGroupOptions {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 14
+    * @since 13
     */
   footerComponent?: ComponentContent;
 
@@ -342,7 +342,7 @@ declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   divider(
     value: ListDividerOptions | null,

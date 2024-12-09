@@ -1226,7 +1226,7 @@ export namespace DiffProcessorHelper {
         return false;
       }
 
-      let newApiInfos: BasicApiInfo[] | PropertyInfo[] = []
+      let newApiInfos: BasicApiInfo[] | PropertyInfo[] = [];
       if (newApiInfo.getApiType() === ApiType.TYPE_ALIAS) {
         newApiInfos = (newApiInfo as TypeAliasInfo).getTypeLiteralApiInfos();
       } else if (newApiInfo.getApiType() === ApiType.INTERFACE) {

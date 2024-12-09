@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare interface RatingOptions {
   /**
@@ -110,7 +110,7 @@ declare interface RatingOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 13
+ * @since 14
  */
 declare interface StarStyleOptions {
   /**
@@ -304,7 +304,7 @@ interface RatingInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   (options?: RatingOptions): RatingAttribute;
 }
@@ -312,6 +312,7 @@ interface RatingInterface {
 /**
  * RatingConfiguration used by rating content modifier.
  *
+ * @extends CommonConfiguration<RatingConfiguration>
  * @interface RatingConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -537,7 +538,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   starStyle(options: StarStyleOptions): RatingAttribute;
 

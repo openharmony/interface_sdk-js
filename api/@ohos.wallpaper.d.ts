@@ -112,7 +112,7 @@ declare namespace wallpaper {
     /**
      * Indicates the folding status for wallpaper.
      * 
-     * @type { enum }
+     * @type { FoldState }
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @systemapi Hide this for inner system use.
      * @since 14
@@ -121,7 +121,7 @@ declare namespace wallpaper {
     /**
      * Indicates the rotation status for wallpaper.
      * 
-     * @type { enum }
+     * @type { RotateState }
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @systemapi Hide this for inner system use.
      * @since 14
@@ -765,6 +765,9 @@ declare namespace wallpaper {
    * Obtains the default pixel map of a wallpaper of the specified  device type. Returns the default pixel map.
    * Only the static wallpaper set by using setAllWallpapers can be obtained.
    * @permission ohos.permission.GET_WALLPAPER
+   * @param { WallpaperType } wallpaperType - indicates the wallpaper type.
+   * @param { FoldState } foldState - indicates the folding status for wallpaper.
+   * @param { RotateState } rotateState - indicates the rotation status for wallpaper.
    * @returns { Promise<image.PixelMap> } the promise returned by the function.
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *         1.Mandatory parameters are left unspecified.

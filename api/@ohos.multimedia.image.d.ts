@@ -429,7 +429,17 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12
      */
-    YCRCB_P010 = 12
+    YCRCB_P010 = 12,
+
+    /**
+     * The storage format is ASTC 4x4 format, and the memory usage is only 1/4 of RGBA_8888.
+     * This format is only used for direct display scenes and does not support pixel access or post-
+     * processing editing.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 14
+     */
+    ASTC_4x4 = 102
   }
 
   /**
@@ -2523,12 +2533,27 @@ declare namespace image {
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 12
    */
+  /**
+   * Enumerates the anti-aliasing level.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @atomicservice
+   * @since 14
+   */
   enum AntiAliasingLevel {
     /**
      * Nearest-neighbor interpolation algorithm.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12
+     */
+    /**
+     * Nearest-neighbor interpolation algorithm.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @atomicservice
+     * @since 14
      */
     NONE = 0,
 
@@ -2538,6 +2563,13 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12
      */
+    /**
+     * Bilinear interpolation algorithm.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @atomicservice
+     * @since 14
+     */
     LOW = 1,
 
     /**
@@ -2546,6 +2578,13 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12
      */
+    /**
+     * Bilinear interpolation algorithm with mipmap linear filtering.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @atomicservice
+     * @since 14
+     */
     MEDIUM = 2,
 
     /**
@@ -2553,6 +2592,13 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12
+     */
+    /**
+     * Cubic interpolation algorithm.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @atomicservice
+     * @since 14
      */
     HIGH = 3,
   }
@@ -7189,7 +7235,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Expected set of auxiliary picture types, default to decoding all auxiliary pictures.
      *
      * @type { Array<AuxiliaryPictureType> }
-     * @syscap SystemCapability.Multimedia.Image.Core
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 13
      */
     desiredAuxiliaryPictures: Array<AuxiliaryPictureType>;
@@ -8316,6 +8362,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { AsyncCallback<ArrayBuffer> } callback Callback used to return the packed data.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 6
+     * @deprecated since 13
+     * @useinstead image.ImagePacker#packToData
      */
     /**
      * Compresses or packs an image and uses a callback to return the result.
@@ -8326,6 +8374,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 10
+     * @deprecated since 13
+     * @useinstead image.ImagePacker#packToData
      */
     /**
      * Compresses or packs an image and uses a callback to return the result.
@@ -8337,6 +8387,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 13
+     * @useinstead image.ImagePacker#packToData
      */
     packing(source: ImageSource, option: PackingOption, callback: AsyncCallback<ArrayBuffer>): void;
 
@@ -8348,6 +8400,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<ArrayBuffer> } A Promise instance used to return the compressed or packed data.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 6
+     * @deprecated since 13
+     * @useinstead image.ImagePacker#packToData
      */
     /**
      * Compresses or packs an image and uses a promise to return the result.
@@ -8358,6 +8412,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 10
+     * @deprecated since 13
+     * @useinstead image.ImagePacker#packToData
      */
     /**
      * Compresses or packs an image and uses a promise to return the result.
@@ -8369,6 +8425,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 13
+     * @useinstead image.ImagePacker#packToData
      */
     packing(source: ImageSource, option: PackingOption): Promise<ArrayBuffer>;
 
@@ -8402,6 +8460,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { AsyncCallback<ArrayBuffer> } callback Callback used to return the packed data.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 8
+     * @deprecated since 13
+     * @useinstead image.ImagePacker#packToData
      */
     /**
      * Compresses or packs an image and uses a callback to return the result.
@@ -8412,6 +8472,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 10
+     * @deprecated since 13
+     * @useinstead image.ImagePacker#packToData
      */
     /**
      * Compresses or packs an image and uses a callback to return the result.
@@ -8423,6 +8485,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 13
+     * @useinstead image.ImagePacker#packToData
      */
     packing(source: PixelMap, option: PackingOption, callback: AsyncCallback<ArrayBuffer>): void;
 
@@ -8434,6 +8498,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<ArrayBuffer> } A Promise instance used to return the compressed or packed data.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 8
+     * @deprecated since 13
+     * @useinstead image.ImagePacker#packToData
      */
     /**
      * Compresses or packs an image and uses a promise to return the result.
@@ -8444,6 +8510,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 10
+     * @deprecated since 13
+     * @useinstead image.ImagePacker#packToData
      */
     /**
      * Compresses or packs an image and uses a promise to return the result.
@@ -8455,6 +8523,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 13
+     * @useinstead image.ImagePacker#packToData
      */
     packing(source: PixelMap, option: PackingOption): Promise<ArrayBuffer>;
 

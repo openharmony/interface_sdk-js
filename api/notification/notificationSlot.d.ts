@@ -143,6 +143,7 @@ export interface NotificationSlot {
    * Read-only enabled status in this notification slot.
    *
    * @type { ?boolean }
+   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */

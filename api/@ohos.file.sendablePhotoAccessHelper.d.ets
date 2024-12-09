@@ -1296,7 +1296,7 @@ declare namespace sendablePhotoAccessHelper {
      *
      * @permission ohos.permission.ACCESS_MEDIALIB_THUMB_DB
      * @param { FetchOptions } options - Fetch options.
-     * @returns { Array<SharedPhotoAsset> } Returns the shared photo assets
+     * @returns { Array<SharedPhotoAsset> } Returns the shared photo assets 
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;

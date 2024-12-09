@@ -26,30 +26,35 @@
 export interface GeolocationResponse {
   /**
    * Longitude.
+   * @type { number }
    * @since 3
    */
   longitude: number;
 
   /**
    * Latitude.
+   * @type { number }
    * @since 3
    */
   latitude: number;
 
   /**
    * Altitude.
+   * @type { number }
    * @since 3
    */
   altitude: number;
 
   /**
    * Location accuracy.
+   * @type { number }
    * @since 3
    */
   accuracy: number;
 
   /**
    * Time when the location is obtained.
+   * @type { number }
    * @since 3
    */
   time: number;
@@ -69,6 +74,7 @@ export interface GetLocationOption {
    * The timeout duration is necessary in case no result is returned if the request to obtain the geographic location is rejected for the lack of the required permission, weak positioning signal, or incorrect location settings. After the timeout duration expires, the fail function will be called.
    * The value is a 32-digit positive integer.
    * If the value set is less than or equal to 0, the default value will be used.
+   * @type { ?number }
    * @since 3
    */
   timeout?: number;
@@ -76,24 +82,28 @@ export interface GetLocationOption {
   /**
    * Coordinate system type. Available types can be obtained using getSupportedCoordTypes.
    * The default type is wgs84.
+   * @type { ?string }
    * @since 3
    */
   coordType?: string;
 
   /**
    * Called when the geographic location is obtained.
+   * @type { ?function }
    * @since 3
    */
   success?: (data: GeolocationResponse) => void;
 
   /**
    * Called when the location types fail to be obtained
+   * @type { ?function }
    * @since 3
    */
   fail?: (data: string, code: number) => void;
 
   /**
    * Called when the execution is completed.
+   * @type { ?function }
    * @since 3
    */
   complete?: () => void;
@@ -105,6 +115,7 @@ export interface GetLocationOption {
  */
 export interface GetLocationTypeResponse {
   /**
+   * @type { Array<string> }
    * @since 3
    */
   types: Array<string>;
@@ -117,18 +128,21 @@ export interface GetLocationTypeResponse {
 export interface GetLocationTypeOption {
   /**
    * Called when the location types are obtained.
+   * @type { ?function }
    * @since 3
    */
   success?: (data: GetLocationTypeResponse) => void;
 
   /**
    * Called when the location types fail to be obtained.
+   * @type { ?function }
    * @since 3
    */
   fail?: (data: string, code: number) => void;
 
   /**
    * Called when the execution is completed.
+   * @type { ?function }
    * @since 3
    */
   complete?: () => void;
@@ -144,18 +158,21 @@ export interface SubscribeLocationOption {
   /**
    * Coordinate system type. Available types can be obtained using getSupportedCoordTypes.
    * The default type is wgs84.
+   * @type { ?string }
    * @since 3
    */
   coordType?: string;
 
   /**
    * Called whenever the geographical location changes.
+   * @type { ?function }
    * @since 3
    */
   success: (data: GeolocationResponse) => void;
 
   /**
    * Called when the listening fails.
+   * @type { ?function }
    * @since 3
    */
   fail?: (data: string, code: number) => void;

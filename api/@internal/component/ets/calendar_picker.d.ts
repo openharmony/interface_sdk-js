@@ -245,13 +245,14 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   onChange(callback: Callback<Date>): CalendarPickerAttribute;
 }
 
 /**
  * Defines the DatePickerDialogOptions for Calendar Picker Dialog.
+ * @extends CalendarOptions
  * @interface CalendarDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -259,6 +260,7 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
  */
 /**
  * Defines the DatePickerDialogOptions for Calendar Picker Dialog.
+ * @extends CalendarOptions
  * @interface CalendarDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -287,7 +289,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   onAccept?: Callback<Date>;
 
@@ -312,7 +314,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   onCancel?: VoidCallback;
 
@@ -337,7 +339,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   onChange?: Callback<Date>;
 
@@ -421,7 +423,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   onDidAppear?: VoidCallback;
 
@@ -441,7 +443,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   onDidDisappear?: VoidCallback;
 
@@ -461,7 +463,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   onWillAppear?: VoidCallback;
 
@@ -481,7 +483,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   onWillDisappear?: VoidCallback;
 

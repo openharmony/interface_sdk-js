@@ -25,7 +25,7 @@
  * Defines ImageAnimator Modifier
  *
  * @extends ImageAnimatorAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<ImageAnimatorAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

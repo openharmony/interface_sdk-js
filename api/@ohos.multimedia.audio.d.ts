@@ -1027,7 +1027,7 @@ declare namespace audio {
      * @crossplatform
      * @since 12
      */
-    CHANNEL_1 = 0x1 << 0,
+    CHANNEL_1 = 1,
     /**
      * Channel 2.
      * @syscap SystemCapability.Multimedia.Audio.Core
@@ -1039,7 +1039,7 @@ declare namespace audio {
      * @crossplatform
      * @since 12
      */
-    CHANNEL_2 = 0x1 << 1,
+    CHANNEL_2 = 2,
     /**
      * Channel 3.
      * @syscap SystemCapability.Multimedia.Audio.Core
@@ -1910,7 +1910,7 @@ declare namespace audio {
    * @typedef AudioCapturerFilter
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @systemapi
-   * @since 12
+   * @since 14
    */
   interface AudioCapturerFilter {
     /**
@@ -1918,7 +1918,7 @@ declare namespace audio {
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 12
+     * @since 14
      */
     uid?: number;
     /**
@@ -1926,7 +1926,7 @@ declare namespace audio {
      * @type { ?AudioCapturerInfo }
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 12
+     * @since 14
      */
     capturerInfo?: AudioCapturerInfo;
   }
@@ -3518,7 +3518,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 12
+     * @since 14
      */
     selectInputDeviceByFilter(filter: AudioCapturerFilter, inputAudioDevices: AudioDeviceDescriptors): Promise<void>;
 
@@ -3611,7 +3611,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 12
+     * @since 14
      */
     getPreferredOutputDeviceByFilter(filter: AudioRendererFilter): AudioDeviceDescriptors;
 
@@ -3736,7 +3736,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 12
+     * @since 14
      */
     getPreferredInputDeviceByFilter(filter: AudioCapturerFilter): AudioDeviceDescriptors;
 

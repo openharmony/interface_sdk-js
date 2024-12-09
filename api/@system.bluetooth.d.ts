@@ -27,6 +27,7 @@ export interface StartBLEScanOptions {
   /**
    * Time of delay for reporting the scan result
    *
+   * @type { number }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
    * @since 6
    */
@@ -34,6 +35,7 @@ export interface StartBLEScanOptions {
   /**
    * StartBLEScanOptions success
    *
+   * @type { function }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
    * @since 6
    */
@@ -41,6 +43,7 @@ export interface StartBLEScanOptions {
   /**
    * StartBLEScanOptions failed
    *
+   * @type { function }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
    * @since 6
    */
@@ -48,6 +51,7 @@ export interface StartBLEScanOptions {
   /**
    * StartBLEScanOptions completed
    *
+   * @type { function }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
    * @since 6
    */
@@ -63,6 +67,7 @@ export interface StopBLEScanOptions {
   /**
    * StopBLEScanOptions success
    *
+   * @type { function }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
    * @since 6
    */
@@ -70,6 +75,7 @@ export interface StopBLEScanOptions {
   /**
    * StopBLEScanOptions failed
    *
+   * @type { function }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
    * @since 6
    */
@@ -77,6 +83,7 @@ export interface StopBLEScanOptions {
   /**
    * StopBLEScanOptions completed
    *
+   * @type { function }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
    * @since 6
    */
@@ -92,6 +99,7 @@ export interface BluetoothDevice {
   /**
    * The addrType of address, may be public or random
    *
+   * @type { 'public' | 'random' }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
    * @since 6
    */
@@ -99,6 +107,7 @@ export interface BluetoothDevice {
   /**
    * Address of BluetoothDevice
    *
+   * @type { string }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
    * @since 6
    */
@@ -106,6 +115,7 @@ export interface BluetoothDevice {
   /**
    * RSSI of the remote device
    *
+   * @type { number }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
    * @since 6
    */
@@ -113,6 +123,7 @@ export interface BluetoothDevice {
   /**
    * Transmission power level for advertising
    *
+   * @type { string }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
    * @since 6
    */
@@ -120,6 +131,7 @@ export interface BluetoothDevice {
   /**
    * The data of BluetoothDevice
    *
+   * @type { string }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
    * @since 6
    */
@@ -135,6 +147,7 @@ export interface BLEFoundResponse {
   /**
    * The devices of BLEFoundResponse
    *
+   * @type { Array<BluetoothDevice> }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
    * @since 6
    */
@@ -150,6 +163,7 @@ export interface SubscribeBLEFoundOptions {
   /**
    * SubscribeBLEFoundOptions success
    *
+   * @type { function }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
    * @since 6
    */
@@ -157,6 +171,7 @@ export interface SubscribeBLEFoundOptions {
   /**
    * SubscribeBLEFoundOptions failed
    *
+   * @type { function }
    * @syscap SystemCapability.Communication.Bluetooth.Lite
    * @since 6
    */

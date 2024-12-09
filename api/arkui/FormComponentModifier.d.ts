@@ -25,7 +25,7 @@
  * Defines FormComponent Modifier
  *
  * @extends FormComponentAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<FormComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 12

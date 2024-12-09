@@ -22,8 +22,7 @@
  * The process data.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @systemapi
- * @since 8
+ * @since 14
  */
 export default class ProcessData {
   /**
@@ -31,8 +30,7 @@ export default class ProcessData {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 8
+   * @since 14
    */
   bundleName: string;
 
@@ -41,8 +39,7 @@ export default class ProcessData {
    *
    * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 8
+   * @since 14
    */
   pid: number;
 
@@ -51,8 +48,7 @@ export default class ProcessData {
    *
    * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 8
+   * @since 14
    */
   uid: number;
 
@@ -61,8 +57,7 @@ export default class ProcessData {
    *
    * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 9
+   * @since 14
    */
   state: number;
 
@@ -71,8 +66,7 @@ export default class ProcessData {
    *
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 9
+   * @since 14
    */
   isContinuousTask: boolean;
 
@@ -81,8 +75,7 @@ export default class ProcessData {
    *
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 9
+   * @since 14
    */
   isKeepAlive: boolean;
 }

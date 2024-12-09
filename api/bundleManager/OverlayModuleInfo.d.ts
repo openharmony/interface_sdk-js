@@ -30,6 +30,7 @@ export interface OverlayModuleInfo {
    * Indicates the name of the bundle
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 10
    */
@@ -39,6 +40,7 @@ export interface OverlayModuleInfo {
    * Indicates the name of the .hap package to which the capability belongs
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 10
    */
@@ -48,6 +50,7 @@ export interface OverlayModuleInfo {
    * Indicates the name of target module which is overlaid by the overlay module
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 10
    */
@@ -57,6 +60,7 @@ export interface OverlayModuleInfo {
    * Indicates the priority of the overlay module
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 10
    */
@@ -66,6 +70,7 @@ export interface OverlayModuleInfo {
    * Indicates the state of the overlay module
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 10
    */

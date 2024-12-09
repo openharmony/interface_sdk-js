@@ -4756,11 +4756,21 @@ declare namespace camera {
    * Photo session object for system hap.
    *
    * @interface PhotoSessionForSys
+   * @extends PhotoSession, Beauty, ColorEffect, ColorManagement, Macro, SceneDetection, EffectSuggestion
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 11
    */
-  interface PhotoSessionForSys extends PhotoSession, Beauty, ColorEffect, ColorManagement, Macro, SceneDetection, EffectSuggestion {
+  /**
+   * Photo session object for system hap.
+   *
+   * @interface PhotoSessionForSys
+   * @extends PhotoSession, Beauty, ColorEffect, ColorManagement, Macro, SceneDetection, EffectSuggestion, DepthFusion
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 14
+   */
+  interface PhotoSessionForSys extends PhotoSession, Beauty, ColorEffect, ColorManagement, Macro, SceneDetection, EffectSuggestion, DepthFusion {
   }
 
   /**
@@ -6638,11 +6648,21 @@ declare namespace camera {
    * Macro photo session object.
    *
    * @interface MacroPhotoSession
+   * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12
    */
-  interface MacroPhotoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus {
+  /**
+   * Macro photo session object.
+   *
+   * @interface MacroPhotoSession
+   * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus, DepthFusion
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 14
+   */
+  interface MacroPhotoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus, DepthFusion {
     /**
      * Subscribes to error events.
      *
@@ -10323,6 +10343,77 @@ declare namespace camera {
      * @since 13
      */
     off(type: 'error', callback?: ErrorCallback): void;
+  }
+
+  /**
+   * Depth Fusion Query object.
+   *
+   * @interface DepthFusionQuery
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 14
+   */
+  interface DepthFusionQuery {
+    /**
+     * Checks whether a depth fusion is supported.
+     *
+     * @returns { boolean } Is the depth fusion supported.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 14
+     */
+    isDepthFusionSupported(): boolean;
+
+    /**
+     * Query the depth fusion threshold.
+     *
+     * @returns { Array<number> } The depth fusion threshold.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 14
+     */
+    getDepthFusionThreshold(): Array<number>;
+  }
+
+  /**
+   * Depth Fusion object.
+   *
+   * @interface DepthFusion
+   * @extends DepthFusionQuery
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 14
+   */
+  interface DepthFusion extends DepthFusionQuery {
+    /**
+     * Confirm if the depth fusion enabled.
+     *
+     * @returns { boolean } TRUE if the depth fusion is enable.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 14
+     */
+    isDepthFusionEnabled(): boolean;
+
+    /**
+     * Enable depth fusion.
+     *
+     * @param { boolean } enabled - Target state for depth fusion.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 14
+     */
+    enableDepthFusion(enabled: boolean): void;
   }
 }
 
