@@ -1018,6 +1018,37 @@ declare namespace drawing {
      * @since 12
      */
     drawImage(pixelmap: image.PixelMap, left: number, top: number, samplingOptions?: SamplingOptions): void;
+    
+    /**
+     * Divides the image into a grid by lattice.
+     * Draws each seciont of the image onto the area of destination rectangle on canvas.
+     * @param { image.PixelMap } pixelmap - The source image.
+     * @param { Lattice } lattice - The area of source image.
+     * @param { common2D.Rect } dstRect - The area of destination canvas.
+     * @param { FilterMode } filterMode - Storage filter mode.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    drawImageLattice(pixelmap: image.PixelMap, lattice: Lattice, dstRect: common2D.Rect,
+      filterMode: FilterMode): void;
+    
+    /**
+     * Divides the image into a grid with nine sections: four sides, four corners, and the center.
+     * Draws the specified section of the image onto the canvas, corners are unmodified or scaled down if they exceed
+     * the destination rectangle, center and four sides are scaled to fit remaining space.
+     * @param { image.PixelMap } pixelmap - The source image.
+     * @param { common2D.Rect } center - The rect used to divide the source image.
+     * @param { common2D.Rect } dstRect - The area of destination rectangle on canvas.
+     * @param { FilterMode } filterMode - Storage filter mode.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    drawImageNine(pixelmap: image.PixelMap, center: common2D.Rect, dstRect: common2D.Rect,
+      filterMode: FilterMode): void;
 
     /**
      * Draws the specified source image onto the canvas,
@@ -1094,6 +1125,19 @@ declare namespace drawing {
      * @since 12
      */
     drawArc(arc: common2D.Rect, startAngle: number, sweepAngle: number): void;
+
+    /**
+     * Draws an arc with use center.
+     * @param { common2D.Rect } arc - The bounds of the arc is described by a rect.
+     * @param { number } startAngle - Indicates the startAngle of the arc.
+     * @param { number } sweepAngle - Indicates the sweepAngle of the arc.
+     * @param { boolean } useCenter - If true, include the center of the oval in the arc, and close it if it is being stroked.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    drawArcWithCenter(arc: common2D.Rect, startAngle: number, sweepAngle: number, useCenter: boolean): void;
 
     /**
      * Draw a point.
@@ -1443,6 +1487,28 @@ declare namespace drawing {
      * @since 12
      */
     resetMatrix(): void;
+
+    /**
+     * Determines whether path is intersect with current clip area.
+     * @param { Path } path - Path to draw.
+     * @returns { boolean } Returns true if path is not intersect; returns false otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    quickRejectPath(path: Path): boolean;
+
+    /**
+     * Determines whether rect is intersect with current clip area.
+     * @param { common2D.Rect } rect - Rectangle to determines.
+     * @returns { boolean } Returns true if rect and region is not intersect; returns false otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    quickRejectRect(rect: common2D.Rect): boolean;
   }
 
   /**
