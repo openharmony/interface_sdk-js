@@ -504,7 +504,15 @@ declare namespace certificateManager {
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11
      */
-    CM_DIGEST_SHA512 = 6
+    CM_DIGEST_SHA512 = 6,
+
+    /**
+     * Indicates that key digest is SM3.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 16
+     */
+    CM_DIGEST_SM3 = 7
   }
 
   /**
