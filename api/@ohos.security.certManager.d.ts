@@ -1031,6 +1031,97 @@ declare namespace certificateManager {
    * @since 13
    */
   function getPrivateCertificates(): Promise<CMResult>;
+
+  /**
+   * Enum for certificate type managed by Certificate Manager.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 16
+   */
+  export enum CertType {
+    /**
+     * Indicates that ca certificate that installed by HarmonyOS system.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 16
+     */
+    CA_CERT_SYSTEM = 0,
+
+    /**
+     * Indicates that ca certificate that installed by user.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 16
+     */
+    CA_CERT_USER = 1
+  }
+
+  /**
+   * Enum for the scope of user ca certificate.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 16
+   */
+  export enum CertScope {
+
+    /**
+     * Indicates that the user ca certificate for a current user.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 16
+     */
+    CURRENT_USER = 1,
+
+    /**
+     * Indicates that the user ca certificate for all users.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 16
+     */
+    GLOBAL_USER = 2
+  }
+
+ /**
+   * Provides the certificate file store property type.
+   *
+   * @typedef CertStoreProperty
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 16
+   */
+  export interface CertStoreProperty {
+    /**
+     * Indicates the certificate type managed by Certificate Manager.
+     *
+     * @type { CertType }
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 16
+     */
+    certType: CertType;
+
+    /**
+     * Indicates the scope of user ca certificate. This parameter is valid only when certType is set to CA_CERT_USER.
+     *
+     * @type { ?CertScope }
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 16
+     */
+    certScope?: CertScope;
+  }
+
+  /**
+   * Get the certificate file store path.
+   *
+   * @param { CertStoreProperty } property - Indicates the certificate file store path property.
+   * @returns { string } the certificate file store path.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 17500001 - Internal error.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 16
+   */
+  function getCertificateStorePath(property: CertStoreProperty): string;
 }
 
 export default certificateManager;
