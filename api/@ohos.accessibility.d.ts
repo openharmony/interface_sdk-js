@@ -20,6 +20,7 @@
 
 import type { AsyncCallback } from './@ohos.base';
 import type { Callback } from './@ohos.base';
+import { Resource } from './global/resource';
 
 /**
  * Accessibility
@@ -228,6 +229,14 @@ declare namespace accessibility {
   function isOpenTouchGuideSync(): boolean;
 
   /**
+   * Checks screen reader ability (which is used by talkback) is enabled.
+   * @returns { boolean } Returns true if the screen reader is enabled; return false otherwise.
+   * @syscap syscap SystemCapability.BarrierFree.Accessibility.Vision
+   * @since 16
+   */
+  function isScreenReaderOpenSync(): boolean;
+
+  /**
    * Queries the list of accessibility abilities.
    *
    * @param { AbilityType } abilityType The type of the accessibility ability. {@code AbilityType} eg.spoken
@@ -389,6 +398,20 @@ declare namespace accessibility {
   function on(type: 'touchGuideStateChange', callback: Callback<boolean>): void;
 
   /**
+   * Register the observe of the screen reader state changed.
+   *
+   * @param { 'screenReaderStateChange' } type state event type.
+   * @param { Callback<boolean> } callback Asynchronous callback interface.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;
+   *     3. Parameter verification failed.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Vision
+   * @since 16
+   */
+  function on(type: 'screenReaderStateChange', callback: Callback<boolean>): void;
+
+  /**
    * Unregister the observe of the accessibility state changed.
    *
    * @param { 'accessibilityStateChange' } type state event type
@@ -415,6 +438,20 @@ declare namespace accessibility {
    * @since 7
    */
   function off(type: 'touchGuideStateChange', callback?: Callback<boolean>): void;
+
+  /**
+   * Unregister the observe of the screen reader state changed.
+   *
+   * @param { 'screenReaderStateChange' } type state event type
+   * @param { Callback<boolean> } callback Asynchronous callback interface.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;
+   *     3. Parameter verification failed.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 16
+   */
+    function off(type: 'screenReaderStateChange', callback?: Callback<boolean>): void;
 
   /**
    * Get the captions manager.
@@ -832,6 +869,14 @@ declare namespace accessibility {
      * @since 12
      */
     textAnnouncedForAccessibility?: string;
+
+    /**
+     * The content of announce accessibility text.
+     * @type { ?Resource }
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @since 16
+     */
+    textResourceAnnouncedForAccessibility?: Resource;
 
     /**
      * The customized element id.
