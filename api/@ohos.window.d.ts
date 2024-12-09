@@ -8011,7 +8011,7 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since 13
+     * @since 14
      */
     enableDrag(enable: boolean): Promise<void>;
 
