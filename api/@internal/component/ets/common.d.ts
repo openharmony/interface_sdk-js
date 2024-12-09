@@ -6009,6 +6009,15 @@ declare enum PreDragStatus {
    * @since 12
    */
   ACTION_CANCELED_BEFORE_DRAG = 6,
+
+  /**
+   * Define the status for user to sense the availability of drag in advance.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  PREPARING_FOR_DRAG_DETECTION = 7,
 }
 
 /**
