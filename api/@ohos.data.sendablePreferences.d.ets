@@ -410,6 +410,16 @@ declare namespace sendablePreferences {
     flush(): Promise<void>;
 
     /**
+     * Flushes the {@link Preferences} object to the file.
+     *
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @atomicservice
+     * @since 14
+     */
+    flushSync(): void;
+
+    /**
      * Registers an observer to listen for the change of a {@link Preferences} object.
      *
      * @param { 'change' } type - Indicates the type of the event to observe.
