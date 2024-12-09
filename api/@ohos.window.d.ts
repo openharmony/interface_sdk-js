@@ -2886,6 +2886,23 @@ declare namespace window {
   function getSnapshot(windowId: number): Promise<image.PixelMap>;
 
   /**
+   * Get windows by coordinate.
+   *
+   * @param { number } displayId - Indicate the id of display.
+   * @param { number } windowNumber - Indicate the Number of query windows.
+   * @param { number } x - Indicate the X-coordinate of the window.
+   * @param { number } y - Indicate the Y-coordinate of the window.
+   * @returns { Promise<Array<Window>> } Promise used to return the window.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 14
+   */
+  function getWindowsByCoordinate(displayId: number, windowNumber?: number, x?: number, y?: number): Promise<Array<Window>>;
+
+  /**
    * Register the callback of systemBarTintChange
    *
    * @param { 'systemBarTintChange' } type - The value is fixed at 'systemBarTintChange', indicating the property change event of the system bar.
