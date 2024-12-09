@@ -25,7 +25,7 @@
  * Defines ListItemGroup Modifier
  *
  * @extends ListItemGroupAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<ListItemGroupAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
