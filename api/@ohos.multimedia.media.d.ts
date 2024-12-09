@@ -2280,6 +2280,7 @@ declare namespace media {
     /**
      * Current playback position.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -2301,6 +2302,7 @@ declare namespace media {
     /**
      * Playback duration, When the data source does not support seek, it returns - 1, such as a live broadcast scenario.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -2316,6 +2318,7 @@ declare namespace media {
     /**
      * Playback state.
      * @type { AVPlayerState }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -2352,6 +2355,7 @@ declare namespace media {
     /**
      * Video width, valid after prepared.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -2367,6 +2371,7 @@ declare namespace media {
     /**
      * Video height, valid after prepared.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
