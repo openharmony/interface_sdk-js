@@ -3872,6 +3872,837 @@ declare interface GeometryTransitionOptions {
 }
 
 /**
+ * Defines the options of linear gradient.
+ *
+ * @interface LinearGradientOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 16
+ */
+declare interface LinearGradientOptions {
+  /**
+   * angle: Angle of Linear Gradient. The default value is 180;
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * angle: Angle of Linear Gradient. The default value is 180;
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * angle: Angle of Linear Gradient. The default value is 180;
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * angle: Angle of Linear Gradient. The default value is 180;
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * angle: Angle of Linear Gradient. The default value is 180;
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  /**
+   * Defines starting angle of linear gradient.
+   *
+   * Anonymous Object Rectification.
+   * @type { ?(number | string) }
+   * @default 180
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  angle?: number | string;
+  /**
+   * direction: Direction of Linear Gradient. The default value is GradientDirection.Bottom;
+   *
+   * @type { ?GradientDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * direction: Direction of Linear Gradient. The default value is GradientDirection.Bottom;
+   *
+   * @type { ?GradientDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * direction: Direction of Linear Gradient. The default value is GradientDirection.Bottom;
+   *
+   * @type { ?GradientDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * direction: Direction of Linear Gradient. The default value is GradientDirection.Bottom;
+   *
+   * @type { ?GradientDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * direction: Direction of Linear Gradient. The default value is GradientDirection.Bottom;
+   *
+   * @type { ?GradientDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  /**
+   * Defines the direction of linear gradient.
+   *
+   * Anonymous Object Rectification.
+   * @type { ?GradientDirection }
+   * @default GradientDirection.Bottom
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  direction?: GradientDirection;
+  /**
+   * colors: Color description for gradients.
+   *
+   * @type { Array<[ResourceColor, number]> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * colors: Color description for gradients.
+   *
+   * @type { Array<[ResourceColor, number]> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * colors: Color description for gradients.
+   *
+   * @type { Array<[ResourceColor, number]> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * colors: Color description for gradients.
+   *
+   * @type { Array<[ResourceColor, number]> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * colors: Color description for gradients.
+   *
+   * @type { Array<[ResourceColor, number]> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  /**
+   * Defines color description for gradients.
+   *
+   * Anonymous Object Rectification.
+   * @type { Array<[ResourceColor, number]> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  colors: Array<[ResourceColor, number]>;
+  /**
+   * repeating: repeating. The default value is false
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * repeating: repeating. The default value is false
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * repeating: repeating. The default value is false
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * repeating: repeating. The default value is false
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * repeating: repeating. The default value is false
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  /**
+   * Defines gradient colors with repeated coloring.
+   *
+   * Anonymous Object Rectification.
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  repeating?: boolean;
+}
+
+/**
+ * Defines the options of radial gradient.
+ *
+ * @interface SweepGradientOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 16
+ */
+declare interface SweepGradientOptions {
+  /**
+   * center:is the center point of the angle gradient
+   *
+   * @type { [Length, Length] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * center:is the center point of the angle gradient
+   *
+   * @type { [Length, Length] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * center:is the center point of the angle gradient
+   *
+   * @type { [Length, Length] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * center:is the center point of the angle gradient
+   *
+   * @type { [Length, Length] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * center:is the center point of the angle gradient
+   *
+   * @type { [Length, Length] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  /**
+   * Defines center point for angle gradient.
+   *
+   * Anonymous Object Rectification.
+   * @type { [Length, Length] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  center: [Length, Length];
+  /**
+   * start:Start point of angle gradient. The default value is 0
+   *
+   * @param { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * start:Start point of angle gradient. The default value is 0
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Angle Gradient
+   * start:Start point of angle gradient. The default value is 0
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * start:Start point of angle gradient. The default value is 0
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * start:Start point of angle gradient. The default value is 0
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  /**
+   * Defines the starting point of angle gradient.
+   *
+   * Anonymous Object Rectification.
+   * @type { ?(number | string) }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  start?: number | string;
+  /**
+   * end:End point of angle gradient. The default value is 0
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * end:End point of angle gradient. The default value is 0
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * end:End point of angle gradient. The default value is 0
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * end:End point of angle gradient. The default value is 0
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * end:End point of angle gradient. The default value is 0
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  /**
+   * Defines end point of angle gradient.
+   *
+   * Anonymous Object Rectification.
+   * @type { ?(number | string) }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  end?: number | string;
+  /**
+   * rotating:rotating. The default value is 0
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * rotating:rotating. The default value is 0
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * rotating:rotating. The default value is 0
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * rotating:rotating. The default value is 0
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * rotating:rotating. The default value is 0
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  /**
+   * Defines the rotation angle of the gradient.
+   *
+   * Anonymous Object Rectification.
+   * @type { ?(number | string) }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  rotation?: number | string;
+  /**
+   * colors:Color description for gradients
+   *
+   * @type { Array<[ResourceColor, number]> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * colors:Color description for gradients
+   *
+   * @type { Array<[ResourceColor, number]> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * colors:Color description for gradients
+   *
+   * @type { Array<[ResourceColor, number]> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * colors:Color description for gradients
+   *
+   * @type { Array<[ResourceColor, number]> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * colors:Color description for gradients
+   *
+   * @type { Array<[ResourceColor, number]> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  /**
+   * Defines color description for gradients.
+   *
+   * Anonymous Object Rectification.
+   * @type { Array<[ResourceColor, number]> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  colors: Array<[ResourceColor, number]>;
+  /**
+   * repeating:repeating. The default value is false
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * repeating:repeating. The default value is false
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * repeating:repeating. The default value is false
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * repeating:repeating. The default value is false
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * repeating:repeating. The default value is false
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  /**
+   * Defines gradient colors with repeated coloring.
+   *
+   * Anonymous Object Rectification.
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  repeating?: boolean;
+}
+
+/**
+ * Defines the options of radial gradient.
+ *
+ * @interface RadialGradientOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 16
+ */
+declare interface RadialGradientOptions {
+  /**
+   * center:Center point of radial gradient
+   *
+   * @type { [Length, Length] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * center:Center point of radial gradient
+   *
+   * @type { [Length, Length] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * center:Center point of radial gradient
+   *
+   * @type { [Length, Length] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * center:Center point of radial gradient
+   *
+   * @type { [Length, Length] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * center:Center point of radial gradient
+   *
+   * @type { [Length, Length] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  /**
+   * Defines center point for radial gradient.
+   *
+   * Anonymous Object Rectification.
+   * @type { [Length, Length] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  center: [Length, Length];
+  /**
+   * radius:Radius of Radial Gradient. value range [0, +∞)
+   *
+   * @type { number | string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * radius:Radius of Radial Gradient. value range [0, +∞)
+   *
+   * @type { number | string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * radius:Radius of Radial Gradient. value range [0, +∞)
+   *
+   * @type { number | string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * radius:Radius of Radial Gradient. value range [0, +∞)
+   *
+   * @type { number | string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * radius:Radius of Radial Gradient. value range [0, +∞)
+   *
+   * @type { number | string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  /**
+   * Defines radius of the radial gradient.
+   *
+   * Anonymous Object Rectification.
+   * @type { number | string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  radius: number | string;
+  /**
+   * colors:Color description for gradients
+   *
+   * @type { Array<[ResourceColor, number]> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * colors:Color description for gradients
+   *
+   * @type { Array<[ResourceColor, number]> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * colors:Color description for gradients
+   *
+   * @type { Array<[ResourceColor, number]> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * colors:Color description for gradients
+   *
+   * @type { Array<[ResourceColor, number]> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * colors:Color description for gradients
+   *
+   * @type { Array<[ResourceColor, number]> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  /**
+   * Defines color description for gradients.
+   *
+   * Anonymous Object Rectification.
+   * @type { Array<[ResourceColor, number]> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  colors: Array<[ResourceColor, number]>;
+  /**
+   * repeating: Refill. The default value is false
+   *
+   * @type { ?boolean } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * repeating: Refill. The default value is false
+   *
+   * @type { ?boolean } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * repeating: Refill. The default value is false
+   *
+   * @type { ?boolean } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * repeating: Refill. The default value is false
+   *
+   * @type { ?boolean } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * repeating: Refill. The default value is false
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  /**
+   * Defines gradient colors with repeated coloring.
+   *
+   * Anonymous Object Rectification.
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  repeating?: boolean;
+}
+
+/**
  * Source and target are two matched elements during the geometry transition.
  * The animation starts at the source and ends at the target.
  * TransitionHierarchyStrategy enumeration defines how levels of source and target elements
@@ -16967,6 +17798,19 @@ declare class CommonMethod<T> {
   backgroundColor(value: ResourceColor): T;
 
   /**
+   * Background color
+   *
+   * @param { Optional<ResourceColor> } color
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  backgroundColor(color: Optional<ResourceColor>): T;
+
+  /**
    * PixelRound
    *
    * @param { PixelRoundPolicy } value - indicates the pixel round policy.
@@ -17162,6 +18006,21 @@ declare class CommonMethod<T> {
    */
   backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions): T;
 
+  /**
+   * Background blur style.
+   * blurStyle:Blur style type.
+   *
+   * @param { Optional<BlurStyle> } style
+   * @param { BackgroundBlurStyleOptions } [options]
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  backgroundBlurStyle(style: Optional<BlurStyle>, options?: BackgroundBlurStyleOptions): T;
+
    /**
    * options:background effect options.
    *
@@ -17182,6 +18041,18 @@ declare class CommonMethod<T> {
    * @since 12
    */
   backgroundEffect(options: BackgroundEffectOptions): T;
+
+  /**
+   * options:background effect options.
+   *
+   * @param { Optional<BackgroundEffectOptions> } options - options indicates the effect options.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  backgroundEffect(options: Optional<BackgroundEffectOptions>): T;
 
   /**
    * Background image resizable.
@@ -17283,6 +18154,20 @@ declare class CommonMethod<T> {
   foregroundBlurStyle(value: BlurStyle, options?: ForegroundBlurStyleOptions): T;
 
   /**
+   * Foreground blur style.
+   * blurStyle:Blur style type.
+   *
+   * @param { Optional<BlurStyle> } style
+   * @param { ForegroundBlurStyleOptions } [options]
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  foregroundBlurStyle(style: Optional<BlurStyle>, options?: ForegroundBlurStyleOptions): T;
+
+  /**
    * Opacity
    *
    * @param { number | Resource } value
@@ -17321,6 +18206,19 @@ declare class CommonMethod<T> {
    * @since 11
    */
   opacity(value: number | Resource): T;
+
+  /**
+   * Opacity
+   *
+   * @param { Optional<number | Resource> } opacity
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  opacity(opacity: Optional<number | Resource>): T;
 
   /**
    * Border
@@ -17617,6 +18515,20 @@ declare class CommonMethod<T> {
   outline(value: OutlineOptions): T;
 
   /**
+   * Outline
+   * width:Outline width;color:Outline color;radius:Outline radius;style:Outline style;
+   *
+   * @param { Optional<OutlineOptions> } options
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  outline(options: Optional<OutlineOptions>): T;
+
+  /**
    * Outline style
    * The input parameter default value is OutlineStyle.SOLID
    *
@@ -17639,6 +18551,19 @@ declare class CommonMethod<T> {
    * @since 12
    */
   outlineStyle(value: OutlineStyle | EdgeOutlineStyles): T;
+
+  /**
+   * Outline style
+   *
+   * @param { Optional<OutlineStyle | EdgeOutlineStyles> } style
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  outlineStyle(style: Optional<OutlineStyle | EdgeOutlineStyles>): T;
 
   /**
    * Outline width
@@ -17665,6 +18590,19 @@ declare class CommonMethod<T> {
   outlineWidth(value: Dimension | EdgeOutlineWidths): T;
 
   /**
+   * Outline width
+   *
+   * @param { Optional<Dimension | EdgeOutlineWidths> } width
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  outlineWidth(width: Optional<Dimension | EdgeOutlineWidths>): T;
+
+  /**
    * Outline color
    * The input parameter default value is Color.Black
    *
@@ -17687,6 +18625,19 @@ declare class CommonMethod<T> {
    * @since 12
    */
   outlineColor(value: ResourceColor | EdgeColors | LocalizedEdgeColors): T;
+
+  /**
+   * Outline color
+   *
+   * @param { Optional<ResourceColor | EdgeColors | LocalizedEdgeColors> } color
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  outlineColor(color: Optional<ResourceColor | EdgeColors | LocalizedEdgeColors>): T;
 
   /**
    * Outline radius
@@ -17713,6 +18664,19 @@ declare class CommonMethod<T> {
   outlineRadius(value: Dimension | OutlineRadiuses): T;
 
   /**
+   * Outline radius
+   *
+   * @param { Optional<Dimension | OutlineRadiuses> } radius
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  outlineRadius(radius: Optional<Dimension | OutlineRadiuses>): T;
+
+  /**
    * Provides the general foreground color capability of UI components, and assigns color values
    * according to the characteristics of components.
    *
@@ -17734,6 +18698,19 @@ declare class CommonMethod<T> {
    * @since 11
    */
   foregroundColor(value: ResourceColor | ColoringStrategy): T;
+
+  /**
+   * Provides the general foreground color capability of UI components, and assigns color values
+   * according to the characteristics of components.
+   *
+   * @param { Optional<ResourceColor | ColoringStrategy> } color - indicates the color or color selection strategy
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  foregroundColor(color: Optional<ResourceColor | ColoringStrategy>): T;
 
   /**
    * Trigger a click event when a click is clicked.
@@ -18455,6 +19432,22 @@ declare class CommonMethod<T> {
   blur(value: number, options?: BlurOptions): T;
 
   /**
+   * Adds the content blurring effect for the current component. The input parameter is the blurring radius.
+   * The larger the blurring radius, the more blurring the content.
+   * If the value is 0, the content blurring effect is not blurring.
+   *
+   * @param { Optional<number> } blurRadius - value indicates radius of backdrop blur.
+   * @param { BlurOptions } [options] - options indicates blur options.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  blur(blurRadius: Optional<number>, options?: BlurOptions): T;
+
+  /**
    * Adds the content linear gradient blurring effect for the current component. The input parameter is the blurring radius.
    *
    * @param { number } value - the blurring radius.
@@ -18468,6 +19461,19 @@ declare class CommonMethod<T> {
   linearGradientBlur(value: number, options: LinearGradientBlurOptions): T;
 
   /**
+   * Adds the content linear gradient blurring effect for the current component. The input parameter is the blurring radius.
+   *
+   * @param { Optional<number> } blurRadius - the blurring radius.
+   * The larger the blurring radius, the more blurring the content, and if the value is 0, the content blurring effect is not blurring.
+   * @param { Optional<LinearGradientBlurOptions> } options - the linear gradient blur options.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  linearGradientBlur(blurRadius: Optional<number>, options: Optional<LinearGradientBlurOptions>): T;
+
+  /**
    * Component motion blur interface.
    * 
    * @param { MotionBlurOptions } value - the attributes of motion blur.
@@ -18478,6 +19484,18 @@ declare class CommonMethod<T> {
    * @since 12
    */
   motionBlur(value: MotionBlurOptions):T;
+
+  /**
+   * Component motion blur interface.
+   *
+   * @param { Optional<MotionBlurOptions> } motionBlur - the attributes of motion blur.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  motionBlur(motionBlur: Optional<MotionBlurOptions>):T;
 
   /**
    * Adds a highlight effect to the current component.
@@ -18528,6 +19546,21 @@ declare class CommonMethod<T> {
   brightness(value: number): T;
 
   /**
+   * Adds a highlight effect to the current component.
+   * The input parameter is the highlight proportion. 0 indicates no highlight effect, and 1 indicates the maximum highlight proportion.
+   * The component is displayed as all white (percentage).
+   *
+   * @param { Optional<number> } brightness
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  brightness(brightness: Optional<number>): T;
+
+  /**
    * Adds a contrast effect to the current component. The input parameter is the contrast value.
    * A larger contrast value indicates a sharper image. When the contrast value is 0, the image becomes gray. (%)
    *
@@ -18570,6 +19603,20 @@ declare class CommonMethod<T> {
    * @since 11
    */
   contrast(value: number): T;
+
+  /**
+   * Adds a contrast effect to the current component. The input parameter is the contrast value.
+   * A larger contrast value indicates a sharper image. When the contrast value is 0, the image becomes gray. (%)
+   *
+   * @param { Optional<number> } contrast
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  contrast(contrast: Optional<number>): T;
 
   /**
    * Adds a grayscale effect to the current component.
@@ -18620,6 +19667,21 @@ declare class CommonMethod<T> {
   grayscale(value: number): T;
 
   /**
+   * Adds a grayscale effect to the current component.
+   * The value is the gray scale conversion ratio. If the input parameter is 1.0, the gray scale image is completely converted to the gray scale image. If the input parameter is 0.0, the image does not change.
+   * If the input parameter is between 0.0 and 1.0, the effect changes. (Percentage)
+   *
+   * @param { Optional<number> } grayscale
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  grayscale(grayscale: Optional<number>): T;
+
+  /**
    * Adds a color overlay effect for the current component. The input parameter is the superimposed color.
    *
    * @param { Color | string | Resource } value
@@ -18658,6 +19720,19 @@ declare class CommonMethod<T> {
    * @since 11
    */
   colorBlend(value: Color | string | Resource): T;
+
+  /**
+   * Adds a color overlay effect for the current component. The input parameter is the superimposed color.
+   *
+   * @param { Optional<Color | string | Resource> } color
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  colorBlend(color: Optional<Color | string | Resource>): T;
 
   /**
    * Adds a saturation effect to the current component.
@@ -18712,6 +19787,22 @@ declare class CommonMethod<T> {
   saturate(value: number): T;
 
   /**
+   * Adds a saturation effect to the current component.
+   * The saturation is the ratio of the color-containing component to the achromatic component (gray).
+   * The larger the color-containing component, the greater the saturation.
+   * The larger the achromatic component, the smaller the saturation. (Percentage)
+   *
+   * @param { Optional<number> } saturate
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  saturate(saturate: Optional<number>): T;
+
+  /**
    * Converts the image to sepia. Value defines the scale of the conversion.
    * A value of 1 is completely sepia, and a value of 0 does not change the image. (Percentage)
    *
@@ -18756,6 +19847,20 @@ declare class CommonMethod<T> {
   sepia(value: number): T;
 
   /**
+   * Converts the image to sepia. Value defines the scale of the conversion.
+   * A value of 1 is completely sepia, and a value of 0 does not change the image. (Percentage)
+   *
+   * @param { Optional<number> } sepia
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  sepia(sepia: Optional<number>): T;
+
+  /**
    * Invert the input image. Value defines the scale of the conversion. 100% of the value is a complete reversal.
    * A value of 0% does not change the image. (Percentage)
    *
@@ -18798,6 +19903,20 @@ declare class CommonMethod<T> {
    * @since 11
    */
   invert(value: number | InvertOptions): T;
+
+  /**
+   * Invert the input image. Value defines the scale of the conversion. 100% of the value is a complete reversal.
+   * A value of 0% does not change the image. (Percentage)
+   *
+   * @param { Optional<number | InvertOptions> } options - value indicates the scale of the conversion or the options of invert.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  invert(options: Optional<number | InvertOptions>): T;
 
   /**
    * Sets system bar effect to the component.
@@ -18858,6 +19977,21 @@ declare class CommonMethod<T> {
   hueRotate(value: number | string): T;
 
   /**
+   * Adds the hue rotation effect to the current component.
+   * The input parameter is the rotation angle. When the input parameter is 0deg, the image does not change (the default value is 0deg), and the input parameter does not have a maximum value.
+   * If the value exceeds 360deg, the image is circled again.
+   *
+   * @param { Optional<number | string> } rotation
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  hueRotate(rotation: Optional<number | string>): T;
+
+  /**
    * Add an attribute to control whether the shadows of the child nodes overlap each other.
    *
    * @param { boolean } value - true means the shadows of the child nodes overlap each other effect and drawn in batches.
@@ -18880,6 +20014,19 @@ declare class CommonMethod<T> {
    */
   useShadowBatching(value: boolean): T;
 
+  /**
+   * Add an attribute to control whether the shadows of the child nodes overlap each other.
+   *
+   * @param { Optional<boolean> } use - true means the shadows of the child nodes overlap each other effect and drawn in batches.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  useShadowBatching(use: Optional<boolean>): T;
+
    /**
    * Sets whether the component should apply the effects template defined by the parent effectComponent or window.
    * If multiple parent effectComponents are found, the nearest one will be used.
@@ -18893,6 +20040,20 @@ declare class CommonMethod<T> {
    * @since 14
    */
   useEffect(useEffect: boolean, effectType: EffectType): T;
+
+  /**
+   * Sets whether the component should apply the effects template defined by the parent effectComponent or window.
+   * If multiple parent effectComponents are found, the nearest one will be used.
+   * If no parent effectComponent is found, this method has no effect.
+   *
+   * @param { Optional<boolean> } useEffect - true means the component should apply the effects template defined by the parent effectComponent or window.
+   * @param { EffectType } [effectType] - the effect type of the effects template, defined by the parent effectComponent or window.
+   * @returns { T } return the component attribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  useEffect(useEffect: Optional<boolean>, effectType?: EffectType): T;
 
   /**
    * Sets whether the component should apply the effects template defined by the parent effectComponent.
@@ -18953,6 +20114,21 @@ declare class CommonMethod<T> {
   backdropBlur(value: number, options?: BlurOptions): T;
 
   /**
+   * Adds the background blur effect for the current component. The input parameter is the blur radius.
+   * The larger the blur radius, the more blurred the background. If the value is 0, the background blur is not blurred.
+   *
+   * @param { Optional<number> } radius - value indicates radius of backdrop blur.
+   * @param { BlurOptions } [options] - options indicates the backdrop blur options.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  backdropBlur(radius: Optional<number>, options?: BlurOptions): T;
+
+  /**
    * Composite the contents of this view and its children into an offscreen cache before display in the screen.
    *
    * @param { boolean } value - if this view and its children need to composite into an offscreen cache.
@@ -18985,6 +20161,19 @@ declare class CommonMethod<T> {
   renderGroup(value: boolean): T;
 
   /**
+   * Composite the contents of this view and its children into an offscreen cache before display in the screen.
+   *
+   * @param { Optional<boolean> } render - if this view and its children need to composite into an offscreen cache.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  renderGroup(render: Optional<boolean>): T;
+
+  /**
    * Sets whether the component should remain stationary, reusing the results of the current frame's off-screen rendering.
    * If the input parameter is true, the component and subcomponent changes do not affect the display.
    *
@@ -18995,6 +20184,18 @@ declare class CommonMethod<T> {
    * @since 12
    */
   freeze(value: boolean): T;
+
+  /**
+   * Sets whether the component should remain stationary, reusing the results of the current frame's off-screen rendering.
+   * If the input parameter is true, the component and subcomponent changes do not affect the display.
+   *
+   * @param { Optional<boolean> } freeze - true means the component should remain stationary.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  freeze(freeze: Optional<boolean>): T;
 
   /**
    * Sets the translation effect during page transition.
@@ -19043,6 +20244,19 @@ declare class CommonMethod<T> {
   translate(value: TranslateOptions): T;
 
   /**
+   * Set component translation.
+   *
+   * @param { Optional<TranslateOptions> } translate default:{x:0,y:0,z:0}
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  translate(translate: Optional<TranslateOptions>): T;
+
+  /**
    * Sets the zoom effect during page transition. The value is the start point of entry and end point of exit.
    *
    * @param { ScaleOptions } value
@@ -19081,6 +20295,19 @@ declare class CommonMethod<T> {
    * @since 11
    */
   scale(value: ScaleOptions): T;
+
+  /**
+   * Set component scaling.
+   *
+   * @param { Optional<ScaleOptions> } options default:{x:1,y:1,z:1,centerX:'50%',centerY:'50%'}
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  scale(options: Optional<ScaleOptions>): T;
 
   /**
    * Default number of occupied columns, indicating the number of occupied grid columns when the number of columns (span) of the corresponding size is not set in the useSizeType attribute.
@@ -19187,6 +20414,19 @@ declare class CommonMethod<T> {
   rotate(value: RotateOptions): T;
 
   /**
+   * Set component rotation.
+   *
+   * @param { Optional<RotateOptions> } options default:{x:0,y:0,z:0,centerX:'50%',centerY:'50%',centerZ:0,perspective:0}
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  rotate(options: Optional<RotateOptions>): T;
+
+  /**
    * Sets the transformation matrix for the current component.
    *
    * @param { object } value
@@ -19214,6 +20454,18 @@ declare class CommonMethod<T> {
    * @since 11
    */
   transform(value: object): T;
+
+  /**
+   * Sets the transformation matrix for the current component.
+   *
+   * @param { Optional<object> } transform
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  transform(transform: Optional<object>): T;
 
   /**
    * This callback is triggered when a component mounts a display.
@@ -20079,6 +21331,18 @@ declare class CommonMethod<T> {
   clickEffect(value: ClickEffect | null): T;
 
   /**
+   * The click effect level and scale number.
+   *
+   * @param { Optional<ClickEffect | null> } effect
+   * @returns { T } return the component attribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  clickEffect(effect: Optional<ClickEffect | null>): T;
+
+  /**
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
    * (To be triggered, press and hold for 170 milliseconds (ms))
    *
@@ -20484,12 +21748,40 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 12
    */
-  linearGradient(value: {
-    angle?: number | string;
-    direction?: GradientDirection;
-    colors: Array<[ResourceColor, number]>;
-    repeating?: boolean;
-  }): T;
+  /**
+   * Linear Gradient
+   * angle: Angle of Linear Gradient. The default value is 180;
+   * direction: Direction of Linear Gradient. The default value is GradientDirection.Bottom; 
+   * colors: Color description for gradients.
+   * repeating: repeating. The default value is false
+   *
+   * Anonymous Object Rectification.
+   * @param { LinearGradientOptions } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  linearGradient(value: LinearGradientOptions): T;
+
+  /**
+   * Linear Gradient
+   * angle: Angle of Linear Gradient. The default value is 180;
+   * direction: Direction of Linear Gradient. The default value is GradientDirection.Bottom;
+   * colors: Color description for gradients.
+   * repeating: repeating. The default value is false
+   *
+   * @param { Optional<LinearGradientOptions> } options
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  linearGradient(options: Optional<LinearGradientOptions>): T;
 
   /**
    * Angle Gradient
@@ -20575,14 +21867,44 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 12
    */
-  sweepGradient(value: {
-    center: [Length, Length];
-    start?: number | string;
-    end?: number | string;
-    rotation?: number | string;
-    colors: Array<[ResourceColor, number]>;
-    repeating?: boolean;
-  }): T;
+  /**
+   * Angle Gradient
+   * center:is the center point of the angle gradient
+   * start:Start point of angle gradient. The default value is 0
+   * end:End point of angle gradient. The default value is 0
+   * rotating:rotating. The default value is 0
+   * colors:Color description for gradients
+   * repeating:repeating. The default value is false
+   *
+   * Anonymous Object Rectification.
+   * @param { SweepGradientOptions } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  sweepGradient(value: SweepGradientOptions): T;
+
+  /**
+   * Angle Gradient
+   * center:is the center point of the angle gradient
+   * start:Start point of angle gradient. The default value is 0
+   * end:End point of angle gradient. The default value is 0
+   * rotating:rotating. The default value is 0
+   * colors:Color description for gradients
+   * repeating:repeating. The default value is false
+   *
+   * @param { Optional<SweepGradientOptions> } options
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  sweepGradient(options: Optional<SweepGradientOptions>): T;
 
   /**
    * Radial Gradient
@@ -20653,12 +21975,40 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 12
    */
-  radialGradient(value: {
-    center: [Length, Length];
-    radius: number | string;
-    colors: Array<[ResourceColor, number]>;
-    repeating?: boolean;
-  }): T;
+  /**
+   * Radial Gradient
+   * center:Center point of radial gradient
+   * radius:Radius of Radial Gradient. value range [0, +∞)
+   * colors:Color description for gradients
+   * repeating: Refill. The default value is false
+   *
+   * Anonymous Object Rectification.
+   * @param { RadialGradientOptions } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  radialGradient(value: RadialGradientOptions): T;
+
+  /**
+   * Radial Gradient
+   * center:Center point of radial gradient
+   * radius:Radius of Radial Gradient. value range [0, +∞)
+   * colors:Color description for gradients
+   * repeating: Refill. The default value is false
+   *
+   * @param { Optional<RadialGradientOptions> } options
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  radialGradient(options: Optional<RadialGradientOptions>): T;
 
   /**
    * Set the motion path of the component
@@ -20742,6 +22092,19 @@ declare class CommonMethod<T> {
   shadow(value: ShadowOptions | ShadowStyle): T;
 
   /**
+   * Add a shadow effect to the current component
+   *
+   * @param { Optional<ShadowOptions | ShadowStyle> } options
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  shadow(options: Optional<ShadowOptions | ShadowStyle>): T;
+
+  /**
    * Add a blendMode effect to the current component
    * 
    * @param { BlendMode } value - Different hybrid modes
@@ -20765,6 +22128,20 @@ declare class CommonMethod<T> {
    * @since 12
    */
   blendMode(value: BlendMode, type?: BlendApplyType): T;
+
+  /**
+   * Add a blendMode effect to the current component
+   *
+   * @param { Optional<BlendMode> } mode - Different hybrid modes
+   * @param { BlendApplyType } [type] - Different blend apply type
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  blendMode(mode: Optional<BlendMode>, type?: BlendApplyType): T;
 
   /**
    * Add a blendMode effect to the current component.Cannot be used together with the blendMode interface.
@@ -20792,6 +22169,19 @@ declare class CommonMethod<T> {
    * @since 12
    */
   clip(value: boolean): T;
+
+  /**
+   * Whether to crop the sub components beyond the current component range.
+   *
+   * @param { Optional<boolean> } clip
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  clip(clip: Optional<boolean>): T;
 
   /**
    * When the parameter is of the Shape type, the current component is cropped according to the specified shape.
@@ -20853,6 +22243,19 @@ declare class CommonMethod<T> {
   clipShape(value: CircleShape | EllipseShape | PathShape | RectShape): T;
 
   /**
+  * The current component is cropped according to the specified shape.
+  *
+  * @param { Optional<CircleShape | EllipseShape | PathShape | RectShape> } shape - indicates the shape of the clip.
+  * @returns { T }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  clipShape(shape: Optional<CircleShape | EllipseShape | PathShape | RectShape>): T;
+
+  /**
    * Sets the mask of the current component.
    *
    * @param { ProgressMask } value
@@ -20863,6 +22266,18 @@ declare class CommonMethod<T> {
    * @since 12
    */
   mask(value: ProgressMask): T;
+
+  /**
+   * Sets the mask of the current component.
+   *
+   * @param { Optional<ProgressMask> } mask
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  mask(mask: Optional<ProgressMask>): T;
 
   /**
    * Applies a mask of the specified shape to the current assembly.
@@ -20918,6 +22333,19 @@ declare class CommonMethod<T> {
    * @since 12
    */
   maskShape(value: CircleShape | EllipseShape | PathShape | RectShape): T;
+
+  /**
+   * Applies a mask of the specified shape to the current assembly.
+   *
+   * @param { Optional<CircleShape | EllipseShape | PathShape | RectShape> } shape - indicates the shape of the mask.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  maskShape(shape: Optional<CircleShape | EllipseShape | PathShape | RectShape>): T;
 
   /**
    * Key. User can set an key to the component to identify it.
@@ -21389,6 +22817,19 @@ declare class CommonMethod<T> {
   sphericalEffect(value: number): T;
 
   /**
+   * Set the spherical effect of the component.
+   *
+   * @param { Optional<number> } effect - set the degree of spherical effect, value range [0, 1].
+   * If the value is 0, the component keep same, else the value is 1, component are fully spherical.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  sphericalEffect(effect: Optional<number>): T;
+
+  /**
    * Set the light up effect of the component
    *
    * @param { number } value - set the degree to which the component lights up, value range [0, 1].
@@ -21402,6 +22843,19 @@ declare class CommonMethod<T> {
   lightUpEffect(value: number): T;
 
   /**
+   * Set the light up effect of the component
+   *
+   * @param { Optional<number> } degree - set the degree to which the component lights up, value range [0, 1].
+   * The color brightness in the component rendering content area is greater than the value and can be displayed, otherwise it will not be displayed.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  lightUpEffect(degree: Optional<number>): T;
+
+  /**
    * Set the edge pixel stretch effect of the Component.
    *
    * @param { PixelStretchEffectOptions } options
@@ -21412,6 +22866,18 @@ declare class CommonMethod<T> {
    * @since 12
    */
   pixelStretchEffect(options: PixelStretchEffectOptions): T;
+
+  /**
+   * Set the edge pixel stretch effect of the Component.
+   *
+   * @param { Optional<PixelStretchEffectOptions> } options
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  pixelStretchEffect(options: Optional<PixelStretchEffectOptions>): T;
 
   /**
    * Sets hot keys
@@ -21756,6 +23222,18 @@ declare class CommonMethod<T> {
   renderFit(fitMode: RenderFit): T;
 
   /**
+   * Sets how content is drawn within nodes during animation
+   *
+   * @param { Optional<RenderFit> } fitMode - The render fit mode of content.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  renderFit(fitMode: Optional<RenderFit>): T;
+
+  /**
    * Sets the attribute modifier.
    *
    * @param { AttributeModifier<T> } modifier
@@ -21798,6 +23276,17 @@ declare class CommonMethod<T> {
    * @since 12
    */
   backgroundBrightness(params: BackgroundBrightnessOptions): T;
+
+  /**
+   * Adds a background dynamic light up effect to the current component.
+   *
+   * @param { Optional<BackgroundBrightnessOptions> } options - params indicates BackgroundBrightnessOptions
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  backgroundBrightness(options: Optional<BackgroundBrightnessOptions>): T;
 
   /**
    * When a gesture bound to this component will be accepted, a user-defined callback is triggered to get the result
