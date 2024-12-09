@@ -182,6 +182,24 @@ declare namespace screen {
   function makeMirror(mainScreen: number, mirrorScreen: Array<number>): Promise<number>;
 
   /**
+   * Make screens as mirror-screen
+   *
+   * @param { number } mainScreen ID of the primary screen. It's type should be int.
+   * @param { Array<number> } mirrorScreen IDs of secondary screens
+   * @param { Rect } mainScreenRegion mirror screen region
+   * @returns { Promise<number> } Promise used to return the group ID of the secondary screens
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @atomicservice
+   * @since 15
+   */
+  function makeMirrorWithRegion(mainScreen: number, mirrorScreen: Array<number>, mainScreenRegion: Rect): Promise<number>;
+
+  /**
    * Stop mirror screens
    *
    * @param { Array<number> } mirrorScreen IDs of mirror screens to stop. The size of the mirrorScreen Array should not
@@ -882,6 +900,61 @@ declare namespace screen {
      * @since 9
      */
     refreshRate: number;
+  }
+
+  /**
+   * Rectangle
+   *
+   * @interface Rect
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @atomicservice
+   * @since 15
+   */
+  interface Rect {
+    /**
+     * The X-axis coordinate of the upper left vertex of the rectangle, in pixels.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @atomicservice
+     * @since 15
+     */
+    left: number;
+
+    /**
+     * The Y-axis coordinate of the upper left vertex of the rectangle, in pixels.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @atomicservice
+     * @since 15
+     */
+    top: number;
+
+    /**
+     * Width of the rectangle, in pixels.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @atomicservice
+     * @since 15
+     */
+    width: number;
+
+    /**
+     * Height of the rectangle, in pixels.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @atomicservice
+     * @since 15
+     */
+    height: number;
   }
 }
 
