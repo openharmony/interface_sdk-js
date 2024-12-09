@@ -3439,6 +3439,14 @@ declare namespace window {
      * @since 12
      */
     ENTER_IMMERSIVE = 2,
+    /**
+     * The value means enter immersive state and the title bar and dock bar cannot be shown, when the mouse hovers over hot area.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 14
+     */
+    ENTER_IMMERSIVE_DISABLE_TITLE_AND_DOCK_HOVER = 3,
   }
 
   /**
@@ -7927,6 +7935,23 @@ declare namespace window {
      * @since 12
      */
     createSubWindowWithOptions(name: string, options: SubWindowOptions): Promise<Window>;
+
+    /**
+     * Set whether the title bar and dock bar will show, when the mouse hovers over hot area.
+     *
+     * @param { boolean } isTitleHoverShown - The value true means to display the title bar, and false means the opposite.
+     * @param { boolean } isDockHoverShown - The value true means to display the dock bar, and false means the opposite.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 14
+     */
+    setTitleAndDockHoverShown(isTitleHoverShown?: boolean, isDockHoverShown?: boolean): Promise<void>;
   }
 
   /**
