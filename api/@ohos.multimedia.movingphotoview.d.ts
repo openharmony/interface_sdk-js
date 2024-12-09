@@ -410,8 +410,16 @@ export class MovingPhotoViewController {
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @crossplatform
  * @atomicservice
- * @uicomponent
  * @since 12
+ */
+/**
+ * Defines MovingPhotoView Component.
+ *
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @crossplatform
+ * @atomicservice
+ * @uicomponent
+ * @since 14
  */
 declare const MovingPhotoView: MovingPhotoViewInterface;
 /**
