@@ -201,6 +201,21 @@ declare namespace uiExtension {
      */
      setWaterMarkFlag(enable: boolean): Promise<void>;
 
+     /**
+      * Set events that only meed to be handled by the UIExtension provider
+      *
+      * @param { EventFlag } eventFlags - The events to be set.
+      * @returns { Promise<void> } - The promise returned by the function
+      * @throws { BusinessError } 401 - Parameter error. Possible cause: 
+      * <br> 1. Mandatory parameters are left unspecified.
+      * <br> 2. Incorrect parameters types.
+      * <br> 3. Parameter verification failed.
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @atomicservice
+      * @since 16
+      */
+     occupyEvents(eventFlags: number): Promise<void>;
+
     /**
       * The properties of the UIExtension window
       *
@@ -210,6 +225,57 @@ declare namespace uiExtension {
       * @since 14
       */
     properties: WindowProxyProperties;
+  }
+
+  /**
+   * Used to set events that only meed to be handled by the UIExtension provider
+   *
+   * @enum { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  enum EventFlag {
+    /**
+     * Used to set the default behavior
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    NONE = 0x00000000,
+    /**
+     * Used to set click gesture events to be handled only by the provider
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    GESTURE_CLICK = 0x00000001,
+    /**
+     * Used to set long press gesture events to be handled only by the provider
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    GESTURE_LONG_PRESS = 0x00000002,
+    /**
+     * Used to set the vertical pan gesture events to be handled only by the provider
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    GESTURE_PAN_GESTURE_VERTICAL = 0x00000003,
+    /**
+     * Used to set horizontal pan gesture events to be handled only by the provider
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    GESTURE_PAN_GESTURE_HORIZONTAL = 0x00000004,
   }
 
   /**
