@@ -7565,6 +7565,20 @@ declare namespace window {
     recover(): Promise<void>;
 
     /**
+     * After the app main window is minimized, if the Ability is not in the background state, you can restore app main window.
+     *
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 14
+     */
+    restore(): Promise<void>;
+
+    /**
      * Set the visibility of the window decor.
      *
      * @param { boolean } - Enable the decor visible if true, otherwise means the opposite.
