@@ -969,6 +969,18 @@ declare class TextMenuItemId {
    * @since 13
    */
   static readonly AI_WRITER: TextMenuItemId;
+
+  /**
+   * Indicates the TextMenuItemId to search the selected content.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  static readonly SEARCH: TextMenuItemId;
 }
 
 /**
