@@ -709,7 +709,7 @@ declare namespace photoAccessHelper {
    * @enum { number } CompleteButtonText
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 12
+   * @since 14
    */
   enum CompleteButtonText {
     /**
@@ -717,7 +717,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 12
+     * @since 14
      */
     TEXT_DONE = 0,
     /**
@@ -725,7 +725,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 12
+     * @since 14
      */
     TEXT_SEND = 1,
 
@@ -734,7 +734,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 12
+     * @since 14
      */
     TEXT_ADD = 2,
   }
@@ -5043,7 +5043,7 @@ declare namespace photoAccessHelper {
      * @type { ?CompleteButtonText }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 12
+     * @since 14
      */
     completeButtonText?: CompleteButtonText;
   }
