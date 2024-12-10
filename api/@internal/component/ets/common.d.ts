@@ -2946,6 +2946,15 @@ declare enum AccessibilityRoleType {
   * @since 16
   */
   XCOMPONENT = 123,
+  /**
+  * none component type: screen reader will not broadcast the component type.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  ROLE_NONE = 124,
 }
 
 /**
