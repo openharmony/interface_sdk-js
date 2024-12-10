@@ -4528,6 +4528,7 @@ declare namespace media {
     /**
      * Recorder state.
      * @type { AVRecorderState }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
@@ -5487,6 +5488,7 @@ declare namespace media {
     /**
      * video recorder state.
      * @type { VideoRecordState }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -6485,6 +6487,7 @@ declare namespace media {
     /**
      * Indicates the audio bit rate.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -6494,6 +6497,7 @@ declare namespace media {
     /**
      * Indicates the number of audio channels.
      * @type { number }
+     * @abstract
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -6503,6 +6507,7 @@ declare namespace media {
     /**
      * Indicates the audio encoding format.
      * @type { CodecMimeType }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -6512,6 +6517,7 @@ declare namespace media {
     /**
      * Indicates the audio sampling rate.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -6521,6 +6527,7 @@ declare namespace media {
     /**
      * Indicates the output file format.
      * @type { ContainerFormatType }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -6530,6 +6537,7 @@ declare namespace media {
     /**
      * Indicates the video bit rate.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -6539,6 +6547,7 @@ declare namespace media {
     /**
      * Indicates the video encoding format.
      * @type { CodecMimeType }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -6548,6 +6557,7 @@ declare namespace media {
     /**
      * Indicates the video width.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -6557,6 +6567,7 @@ declare namespace media {
     /**
      * Indicates the video height.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -6566,6 +6577,7 @@ declare namespace media {
     /**
      * Indicates the video frame rate.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
