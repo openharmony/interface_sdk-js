@@ -1220,7 +1220,6 @@ declare namespace tag {
    * different tags based on the supported technology.
    *
    * @typedef TagInfo
-   * @permission ohos.permission.NFC_TAG
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 7
    */
@@ -1230,7 +1229,6 @@ declare namespace tag {
    * different tags based on the supported technology.
    *
    * @typedef TagInfo
-   * @permission ohos.permission.NFC_TAG
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
