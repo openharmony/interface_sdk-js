@@ -56,6 +56,17 @@ declare namespace dataShare {
      * @since 10
      */
     isProxy?: boolean;
+    /**
+     * Specifies the time to wait for connecting extension, in seconds.
+     *
+     * @type { ?number }
+     * @default 2
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 16
+     */
+    waitTime?: number;
   }
 
   /**
