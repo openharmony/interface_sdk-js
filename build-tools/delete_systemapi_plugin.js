@@ -834,9 +834,9 @@ function processVisitEachChild(context, node) {
   return ts.visitEachChild(node, processAllNodes, context); // 遍历所有子节点
   function processAllNodes(node) {
     if (ts.isInterfaceDeclaration(node)) {
-      processInterfaceDeclaration(node);
+      node = processInterfaceDeclaration(node);
     } else if (ts.isClassDeclaration(node)) {
-      processClassDeclaration(node);
+      node = processClassDeclaration(node);
     } else if (ts.isModuleDeclaration(node) && node.body && ts.isModuleBlock(node.body)) {
       const newStatements = [];
       node.body.statements.forEach((statement) => {
@@ -852,15 +852,17 @@ function processVisitEachChild(context, node) {
         newModuleBody
       );
     } else if (ts.isEnumDeclaration(node)) {
-      processEnumDeclaration(node);
+      node = processEnumDeclaration(node);
     } else if (ts.isStructDeclaration(node)) {
-      processStructDeclaration(node);
+      node = processStructDeclaration(node);
     }
     return ts.visitEachChild(node, processAllNodes, context);
   }
 }
 
-
+/**
+ * 处理interface子节点 
+ */
 function processInterfaceDeclaration(node) {
   const newMembers = [];
   node.members.forEach((member) => {
@@ -876,7 +878,12 @@ function processInterfaceDeclaration(node) {
     node.heritageClauses,
     newMembers
   );
+  return node;
 }
+
+/**
+ * 处理class子节点 
+ */
 function processClassDeclaration(node) {
   const newMembers = [];
   node.members.forEach((member) => {
@@ -892,8 +899,12 @@ function processClassDeclaration(node) {
     node.heritageClauses,
     newMembers
   );
+  return node;
 }
 
+/**
+ * 处理enum子节点 
+ */
 function processEnumDeclaration(node) {
   const newMembers = [];
   node.members.forEach((member) => {
@@ -907,8 +918,12 @@ function processEnumDeclaration(node) {
     node.name,
     newMembers
   );
+  return node;
 }
 
+/**
+ * 处理struct子节点 
+ */
 function processStructDeclaration(node) {
   const newMembers = [];
   node.members.forEach((member, index) => {
@@ -924,6 +939,7 @@ function processStructDeclaration(node) {
     node.heritageClauses,
     newMembers
   );
+  return node;
 }
 
 /**
