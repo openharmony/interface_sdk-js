@@ -813,7 +813,7 @@ declare namespace picker {
      * Obtain the saving type selected by the user.
      *
      * @returns { number } Returns the index of the suffix array fileSuffixChoices configured by the user in DocumentSaveOptions.
-     * @syscap SystemCapability.FileManagement.UserFileService
+     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
      * @crossplatform
      * @atomicservice
      * @since 14
