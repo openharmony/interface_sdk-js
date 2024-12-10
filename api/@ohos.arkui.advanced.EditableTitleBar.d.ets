@@ -87,6 +87,31 @@ export declare class EditableTitleBarMenuItem {
    * @since 11
    */
   action?: () => void;
+  /**
+   * The accessibilityText of this menu item.
+   * @type { ?ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityText?: ResourceStr;
+  /**
+   * The accessibilityDescription of this menu item.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityDescription?: ResourceStr;
+  /**
+   * The accessibilityLevel of this menu item.
+   * @type { ?string }
+   * @default "auto"
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityLevel?: string;
 }
 
 /**
