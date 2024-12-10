@@ -2221,6 +2221,17 @@ export class MeasureUtils {
   * @since 14
   */
   setAutoFocusTransfer(isAutoFocusTransfer: boolean): void;
+  
+  /**
+   * Activate focus style.
+   * @param { boolean } isActive - activate/deactivate the focus style.
+   * @param { boolean } [autoInactive] - deactivate the focus style when touch event or mouse event triggers, the default value is true.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  activate(isActive: boolean, autoInactive?: boolean): void;
 }
 
 /**
