@@ -405,6 +405,16 @@ declare enum TextAreaType {
    * @since 12
    */
   URL = 13,
+
+  /**
+   * One time code mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  ONE_TIME_CODE = 14,
 }
 
 /**
