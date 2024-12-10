@@ -122,7 +122,8 @@ declare namespace insightIntentDriver {
   /**
    * Execute insight intent.
    * If the caller application is in foreground, you can use this method to execute insight intent;
-   * If the caller application is in background, you need to apply for permission: ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the caller application is in background, you need to apply for permission: ohos.permission.START_ABILITIES_FROM_BACKGROUND;
+   * If the execute mode is UI_ABILITY_BACKGROUND, you need to apply for permission: ohos.permission.ABILITY_BACKGROUND_COMMUNICATION.
    *
    * @permission ohos.permission.EXECUTE_INSIGHT_INTENT
    * @param { ExecuteParam } param - Execute parameter.
@@ -155,7 +156,8 @@ declare namespace insightIntentDriver {
   /**
    * Execute insight intent.
    * If the caller application is in foreground, you can use this method to execute insight intent;
-   * If the caller application is in background, you need to apply for permission: ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the caller application is in background, you need to apply for permission: ohos.permission.START_ABILITIES_FROM_BACKGROUND;
+   * If the execute mode is UI_ABILITY_BACKGROUND, you need to apply for permission: ohos.permission.ABILITY_BACKGROUND_COMMUNICATION.
    *
    * @permission ohos.permission.EXECUTE_INSIGHT_INTENT
    * @param { ExecuteParam } param - Execute parameter.
