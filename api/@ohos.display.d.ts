@@ -934,10 +934,6 @@ declare namespace display {
     /**
      *The screen shape is rectangle.
      *
-<<<<<<< HEAD
-=======
-     * @enum { number }
->>>>>>> a9d35c0e4b19aa057b1d1784b45f8d70c7574869
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 16
@@ -946,10 +942,6 @@ declare namespace display {
     /**
      *The screen shape is round.
      *
-<<<<<<< HEAD
-=======
-     * @enum { number }
->>>>>>> a9d35c0e4b19aa057b1d1784b45f8d70c7574869
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 16
