@@ -237,7 +237,7 @@ declare namespace uiExtension {
    */
   enum EventFlag {
     /**
-     * Used to set the default behavior
+     * None gesture event
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
@@ -245,7 +245,7 @@ declare namespace uiExtension {
      */
     NONE = 0x00000000,
     /**
-     * Used to set click gesture events to be handled only by the provider
+     * Click gesture events
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
@@ -253,7 +253,7 @@ declare namespace uiExtension {
      */
     GESTURE_CLICK = 0x00000001,
     /**
-     * Used to set long press gesture events to be handled only by the provider
+     * Long press gesture events
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
@@ -261,21 +261,21 @@ declare namespace uiExtension {
      */
     GESTURE_LONG_PRESS = 0x00000002,
     /**
-     * Used to set the vertical pan gesture events to be handled only by the provider
+     * Vertical pan gesture events
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 16
      */
-    GESTURE_PAN_GESTURE_VERTICAL = 0x00000003,
+    GESTURE_PAN_GESTURE_VERTICAL = 0x00000004,
     /**
-     * Used to set horizontal pan gesture events to be handled only by the provider
+     * Horizontal pan gesture events
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 16
      */
-    GESTURE_PAN_GESTURE_HORIZONTAL = 0x00000004,
+    GESTURE_PAN_GESTURE_HORIZONTAL = 0x00000008,
   }
 
   /**
