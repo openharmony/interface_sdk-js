@@ -1696,6 +1696,18 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 17
    */
   autoCapitalizationMode(mode: AutoCapitalizationMode): TextAreaAttribute;
+
+  /**
+   * Set the ellipsis mode.
+   *
+   * @param { EllipsisMode } mode - The ellipsis mode.
+   * @returns { TextAreaAttribute } The attribute of TextArea.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  ellipsisMode(mode: Optional<EllipsisMode>): TextAreaAttribute;
 }
 
 /**
