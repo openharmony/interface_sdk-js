@@ -6757,7 +6757,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the ratio of the text zoom.
    *
-   * @param { number } textZoomAtio The ratio of the text zoom.  The default value is 100, ranging from 1 to +âˆž.
+   * @param { number } textZoomAtio The ratio of the text zoom.  The default value is 100, ranging from 1 to +âˆ?.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
@@ -6769,7 +6769,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the ratio of the text zoom.
    *
-   * @param { number } textZoomRatio The ratio of the text zoom.  The default value is 100, ranging from 1 to +âˆž.
+   * @param { number } textZoomRatio The ratio of the text zoom.  The default value is 100, ranging from 1 to +âˆ?.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
@@ -6777,7 +6777,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the ratio of the text zoom.
    *
-   * @param { number } textZoomRatio The ratio of the text zoom.  The default value is 100, ranging from 1 to +âˆž.
+   * @param { number } textZoomRatio The ratio of the text zoom.  The default value is 100, ranging from 1 to +âˆ?.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8848,6 +8848,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 16
    */
   enableFollowSystemFontWeight(follow: boolean): WebAttribute;
+
+  /**
+   * Sets whether to enable AVSession for web pages.
+   *
+   * @param { boolean } enabled Whether to enable AVSession. The value true means to enable AVSession, and false means the opposite.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 16
+   */
+  enableWebAVSession(enabled: boolean): WebAttribute;
 }
 
 /**
