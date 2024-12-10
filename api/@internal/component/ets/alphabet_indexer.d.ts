@@ -251,7 +251,7 @@ interface AlphabetIndexerInterface {
  * @atomicservice
  * @since 14
  */
-declare type OnAlphabetIndexerSelectCallback  = (index: number) => void;
+declare type OnAlphabetIndexerSelectCallback = (index: number) => void;
 
 /**
  * Defines an AlphabetIndexer callback when onPopupSelect.
@@ -263,7 +263,7 @@ declare type OnAlphabetIndexerSelectCallback  = (index: number) => void;
  * @atomicservice
  * @since 14
  */
-declare type OnAlphabetIndexerPopupSelectCallback  = (index: number) => void;
+declare type OnAlphabetIndexerPopupSelectCallback = (index: number) => void;
 
 /**
  * Defines an AlphabetIndexer callback when onRequestPopupData.
@@ -276,7 +276,7 @@ declare type OnAlphabetIndexerPopupSelectCallback  = (index: number) => void;
  * @atomicservice
  * @since 14
  */
-declare type OnAlphabetIndexerRequestPopupDataCallback  = (index: number) => Array<string>;
+declare type OnAlphabetIndexerRequestPopupDataCallback = (index: number) => Array<string>;
 
 /**
  * Defines the alphabet index bar attribute functions.
