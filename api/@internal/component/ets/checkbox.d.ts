@@ -273,7 +273,7 @@ interface CheckboxInterface {
  * @atomicservice
  * @since 14
  */
-declare type OnCheckboxChangeCallback  = (value: boolean) => void;
+declare type OnCheckboxChangeCallback = (value: boolean) => void;
 
 /**
  * Defines the attribute functions of Checkbox.
