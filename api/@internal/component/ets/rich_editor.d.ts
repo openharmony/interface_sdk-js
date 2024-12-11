@@ -458,6 +458,17 @@ declare interface RichEditorTextStyle {
    * @since 12
    */
   fontFeature?: string;
+
+  /**
+   * Text background style.
+   *
+   * @type { ?TextBackgroundStyle } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  textBackgroundStyle?: TextBackgroundStyle;
 }
 
 
@@ -1144,6 +1155,17 @@ declare interface RichEditorTextStyleResult {
    * @since 12
    */
   fontFeature?: string;
+
+  /**
+   * Text background style.
+   *
+   * @type { ?TextBackgroundStyle } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  textBackgroundStyle?: TextBackgroundStyle;
 }
 
 /**
