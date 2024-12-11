@@ -4047,7 +4047,7 @@ declare namespace osAccount {
      * @systemapi
      * @since 14
      */
-    QUESTION_AUTH = 3,
+    QUESTION_AUTH = 4,
   }
 
   /**
