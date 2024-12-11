@@ -26,21 +26,21 @@
  * @since 15
  */
 declare namespace keyManager {
-    /**
-     * Initiate the unintallation of el3, el4, and el5 level key for the specified user
-     *
-     * @permission ohos.permission.STORAGE_MANAGER_CRYPT
-     * @param { number } userId
-     * @throws { BusinessError } 201 - Permission verification failed.
-     * @throws { BusinessError } 202 - The caller is not a system application.
-     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
-  parameters are left unspecified;
-     * @throws { BusinessError } 13600001 - IPC error.
-     * @syscap SystemCapability.FileManagement.StorageService.Encryption
-     * @systemapi
-     * @since 15
-     */
-    function inactiveUserKeySync(userId: number):void;
-  }
-  
-  export default keyManager;
+   /**
+    * Initiate the unintallation of el3, el4, and el5 level key for the specified user
+    *
+    * @permission ohos.permission.STORAGE_MANAGER_CRYPT
+    * @param { number } userId
+    * @throws { BusinessError } 201 - Permission verification failed.
+    * @throws { BusinessError } 202 - The caller is not a system application.
+    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
+ parameters are left unspecified;
+    * @throws { BusinessError } 13600001 - IPC error.
+    * @syscap SystemCapability.FileManagement.StorageService.Encryption
+    * @systemapi
+    * @since 15
+    */
+   function deactivateUserKeySync(userId: number):void;
+ }
+ 
+ export default keyManager;
