@@ -2866,8 +2866,19 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11
+       * @deprecated since 16
+       * @useinstead ohos.request.agent.FileSpec.contentType
        */
       mimeType?: string;
+      /**
+       * Sets the content-type field of the part.
+       * The default is obtained by the suffix of the filename.
+       *
+       * @type { ?string }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 16
+       */
+      contentType?: string;
       /**
        * The filename, the default is obtained by path.
        *
