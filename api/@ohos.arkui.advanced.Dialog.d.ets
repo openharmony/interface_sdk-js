@@ -837,3 +837,61 @@ export declare struct CustomContentDialog {
    */
   themeColorMode?: ThemeColorMode;
 }
+
+/**
+ * Declare struct PopoverDialog
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+@Component
+export declare struct PopoverDialog {
+  /**
+   * Sets the PopoverDialog Visible Status.
+   * 
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  @Link
+  visible: boolean;
+  /**
+   * Sets the PopoverDialog options.
+   * 
+   * @type { PopoverOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  @Require @Prop
+  popover: PopoverOptions;
+  /**
+   * Sets the targetBuilder content.
+   * 
+   * @type { Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  @Require @BuilderParam 
+  targetBuilder: Callback<void>;
+}
+
+/**
+ * Defines PopoverDialog Options
+ * 
+ * @typedef PopoverOptions
+ * @extends CustomPopupOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+export declare interface PopoverOptions extends CustomPopupOptions {
+}
