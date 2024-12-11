@@ -183,6 +183,7 @@ declare namespace camera {
   /**
    * Video profile.
    *
+   * @extends Profile
    * @typedef VideoProfile
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 10
@@ -1955,6 +1956,7 @@ declare namespace camera {
      * Check whether lcd flash is needed.
      *
      * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
@@ -1965,6 +1967,7 @@ declare namespace camera {
      * Compensate value for lcd flash.
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
@@ -2036,6 +2039,7 @@ declare namespace camera {
   /**
    * Flash object.
    *
+   * @extends FlashQuery
    * @interface Flash
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 11
@@ -2219,6 +2223,7 @@ declare namespace camera {
   /**
    * AutoExposure object.
    *
+   * @extends AutoExposureQuery
    * @interface AutoExposure
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 11
@@ -2448,6 +2453,7 @@ declare namespace camera {
   /**
    * Focus object.
    *
+   * @extends FocusQuery
    * @interface Focus
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 11
@@ -2676,6 +2682,7 @@ declare namespace camera {
   /**
    * WhiteBalance object.
    *
+   * @extends WhiteBalanceQuery
    * @interface WhiteBalance
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
@@ -2770,6 +2777,7 @@ declare namespace camera {
   /**
    * ManualIso object.
    *
+   * @extends ManualIsoQuery
    * @interface ManualIso
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
@@ -3062,6 +3070,7 @@ declare namespace camera {
   /**
    * Stabilization object.
    *
+   * @extends StabilizationQuery
    * @interface Stabilization
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 11
@@ -3195,6 +3204,7 @@ declare namespace camera {
   /**
    * Beauty object.
    *
+   * @extends BeautyQuery
    * @interface Beauty
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
@@ -3405,6 +3415,7 @@ declare namespace camera {
   /**
    * Color effect object.
    *
+   * @extends ColorEffectQuery
    * @interface ColorEffect
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
@@ -3458,6 +3469,7 @@ declare namespace camera {
   /**
    * Color Management object.
    *
+   * @extends ColorManagementQuery
    * @interface ColorManagement
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 12
@@ -3509,8 +3521,8 @@ declare namespace camera {
   /**
    * Auto Device Switch object.
    *
-   * @interface AutoDeviceSwitch
    * @extends AutoDeviceSwitchQuery
+   * @interface AutoDeviceSwitch
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 13
    */
@@ -3594,6 +3606,7 @@ declare namespace camera {
   /**
    * Macro object.
    *
+   * @extends MacroQuery
    * @interface Macro
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
@@ -4687,8 +4700,8 @@ declare namespace camera {
    /**
    * Tripod detection result.
    *
-   * @interface TripodDetectionResult
    * @extends SceneFeatureDetectionResult
+   * @interface TripodDetectionResult
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13
@@ -4732,6 +4745,7 @@ declare namespace camera {
   /**
    * Scene detection.
    *
+   * @extends SceneDetectionQuery
    * @interface SceneDetection
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
@@ -4755,8 +4769,8 @@ declare namespace camera {
   /**
    * Photo session object for system hap.
    *
-   * @interface PhotoSessionForSys
    * @extends PhotoSession, Beauty, ColorEffect, ColorManagement, Macro, SceneDetection, EffectSuggestion
+   * @interface PhotoSessionForSys
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 11
@@ -4764,8 +4778,8 @@ declare namespace camera {
   /**
    * Photo session object for system hap.
    *
-   * @interface PhotoSessionForSys
    * @extends PhotoSession, Beauty, ColorEffect, ColorManagement, Macro, SceneDetection, EffectSuggestion, DepthFusion
+   * @interface PhotoSessionForSys
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 14
@@ -4776,14 +4790,14 @@ declare namespace camera {
   /**
    * Photo session object.
    *
-   * @interface PhotoSession
    * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorManagement
+   * @interface PhotoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 11
    */
   /**
    * Photo session object.
-   *
+   * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorManagement, AutoDeviceSwitch
    * @interface PhotoSession
    * @extends AutoDeviceSwitch
    * @syscap SystemCapability.Multimedia.Camera.Core
@@ -5021,6 +5035,7 @@ declare namespace camera {
   /**
    * Video session object for system hap.
    *
+   * @extends VideoSession, Beauty, ColorEffect, ColorManagement, Macro
    * @interface VideoSessionForSys
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
@@ -5032,8 +5047,8 @@ declare namespace camera {
   /**
    * Video session object.
    *
-   * @interface VideoSession
    * @extends Session, Flash, AutoExposure, Focus, Zoom, Stabilization, ColorManagement
+   * @interface VideoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 11
    */
@@ -5336,6 +5351,7 @@ declare namespace camera {
   /**
    * Portrait object.
    *
+   * @extends PortraitQuery
    * @interface Portrait
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
@@ -5566,6 +5582,7 @@ declare namespace camera {
   /**
      * Portrait Photo session object.
      *
+     * @extends Session, Flash, AutoExposure, Focus, Zoom, Beauty, ColorEffect, ColorManagement, Portrait, Aperture
      * @interface PortraitPhotoSession
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -5690,8 +5707,8 @@ declare namespace camera {
   /**
      * Aperture video session object.
      *
-     * @interface ApertureVideoSession
      * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, Aperture
+     * @interface ApertureVideoSession
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
@@ -5807,6 +5824,7 @@ declare namespace camera {
   /**
    * ManualExposure object.
    *
+   * @extends ManualExposureQuery
    * @interface ManualExposure
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
@@ -5863,6 +5881,7 @@ declare namespace camera {
   /**
    * Night photo session object.
    *
+   * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, Beauty, ColorManagement, ManualExposure
    * @interface NightPhotoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
@@ -6225,6 +6244,7 @@ declare namespace camera {
   /**
    * Professional video session object.
    *
+   * @extends Session, AutoExposure, ManualExposure, Focus, ManualFocus, WhiteBalance, ManualIso, Flash, Zoom, ColorEffect, Aperture
    * @interface ProfessionalVideoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
@@ -6458,6 +6478,7 @@ declare namespace camera {
   /**
    * Slow motion video session object.
    *
+   * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect
    * @interface SlowMotionVideoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
@@ -6589,6 +6610,7 @@ declare namespace camera {
   /**
    * High resolution session object.
    *
+   * @extends Session, AutoExposure, Focus
    * @interface HighResolutionPhotoSession 
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
@@ -6647,8 +6669,8 @@ declare namespace camera {
   /**
    * Macro photo session object.
    *
-   * @interface MacroPhotoSession
    * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus
+   * @interface MacroPhotoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12
@@ -6656,6 +6678,7 @@ declare namespace camera {
   /**
    * Macro photo session object.
    *
+   * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus, DepthFusion
    * @interface MacroPhotoSession
    * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus, DepthFusion
    * @syscap SystemCapability.Multimedia.Camera.Core
@@ -6739,6 +6762,7 @@ declare namespace camera {
   /**
    * Macro video session object.
    *
+   * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus
    * @interface MacroVideoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
@@ -6821,6 +6845,7 @@ declare namespace camera {
   /**
    * Secure camera session object.
    *
+   * @extends Session, Flash, AutoExposure, Focus, Zoom
    * @interface SecureSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 12
@@ -6882,8 +6907,8 @@ declare namespace camera {
   /**
    * Light painting photo session object.
    *
-   * @interface LightPaintingPhotoSession
    * @extends Session, Flash, Focus, Zoom, ColorEffect
+   * @interface LightPaintingPhotoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12
@@ -7002,8 +7027,8 @@ declare namespace camera {
   /**
    * Quick shot photo session object.
    *
-   * @interface QuickShotPhotoSession
    * @extends Session, AutoExposure, ColorEffect, ColorManagement, EffectSuggestion, Flash, Focus, Zoom
+   * @interface QuickShotPhotoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12
@@ -7109,8 +7134,8 @@ declare namespace camera {
   /**
    * Panorama photo session object.
    *
-   * @interface PanoramaPhotoSession
    * @extends Session, Focus, AutoExposure, WhiteBalance, ColorEffect
+   * @interface PanoramaPhotoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12
@@ -7168,6 +7193,7 @@ declare namespace camera {
   /**
    * Fluorescence photo session object.
    *
+   * @extends Session, AutoExposure, Focus, Zoom
    * @interface FluorescencePhotoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
@@ -7226,8 +7252,8 @@ declare namespace camera {
   /**
    * Photo Functions object.
    *
-   * @interface PhotoFunctions
    * @extends FlashQuery, AutoExposureQuery, ManualExposureQuery, FocusQuery, ZoomQuery, BeautyQuery, ColorEffectQuery, ColorManagementQuery, MacroQuery, SceneDetectionQuery
+   * @interface PhotoFunctions
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13
@@ -7238,8 +7264,8 @@ declare namespace camera {
   /**
    * Video Functions object.
    *
-   * @interface VideoFunctions
    * @extends FlashQuery, AutoExposureQuery, ManualExposureQuery, FocusQuery, ZoomQuery, StabilizationQuery, BeautyQuery, ColorEffectQuery, ColorManagementQuery, MacroQuery, SceneDetectionQuery
+   * @interface VideoFunctions
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13
@@ -7250,8 +7276,8 @@ declare namespace camera {
   /**
    * Portrait Photo Functions object.
    *
-   * @interface PortraitPhotoFunctions
    * @extends FlashQuery, AutoExposureQuery, FocusQuery, ZoomQuery, BeautyQuery, ColorEffectQuery, ColorManagementQuery, PortraitQuery, ApertureQuery, SceneDetectionQuery
+   * @interface PortraitPhotoFunctions
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13
@@ -7262,8 +7288,8 @@ declare namespace camera {
   /**
    * Photo Conflict Functions object.
    *
-   * @interface PhotoConflictFunctions
    * @extends ZoomQuery, MacroQuery
+   * @interface PhotoConflictFunctions
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13
@@ -7274,8 +7300,8 @@ declare namespace camera {
   /**
    * Video Conflict Functions object.
    *
-   * @interface VideoConflictFunctions
    * @extends ZoomQuery, MacroQuery
+   * @interface VideoConflictFunctions
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13
@@ -7358,6 +7384,7 @@ declare namespace camera {
   /**
    * Preview output object.
    *
+   * @extends CameraOutput
    * @interface PreviewOutput
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 10
@@ -8030,6 +8057,7 @@ declare namespace camera {
   /**
    * Photo output object.
    *
+   * @extends CameraOutput
    * @interface PhotoOutput
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 10
@@ -9813,6 +9841,7 @@ declare namespace camera {
   /**
    * Timelapse photo session object.
    *
+   * @extends Session, Focus, ManualFocus, AutoExposure, ManualExposure, ManualIso, WhiteBalance, Zoom, ColorEffect
    * @interface TimeLapsePhotoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
@@ -10263,8 +10292,8 @@ declare namespace camera {
   /**
    * Depth Data Output object
    *
-   * @interface DepthDataOutput
    * @extends CameraOutput
+   * @interface DepthDataOutput
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13
@@ -10382,8 +10411,8 @@ declare namespace camera {
   /**
    * Depth Fusion object.
    *
-   * @interface DepthFusion
    * @extends DepthFusionQuery
+   * @interface DepthFusion
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 14
