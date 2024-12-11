@@ -489,7 +489,7 @@ declare namespace pointer {
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since
      */
-    pixelMap: image.pixelMap;
+    pixelMap: image.PixelMap;
     /**
      * focusX - focus x.
      * @type {number}
