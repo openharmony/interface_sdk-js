@@ -7784,7 +7784,7 @@ declare namespace window {
     setTitleButtonVisible(isMaximizeVisible: boolean, isMinimizeVisible: boolean, isSplitVisible: boolean): void;
     
     /**
-     * Set whether to display the maximize, minimize buttons of main window.
+     * Set whether to display the maximize, minimize, close buttons of main window.
      *
      * @param { boolean } isMaximizeButtonVisible - Display maximize button if true, or hide maximize button if false.
      * @param { boolean } isMinimizeButtonVisible - Display minimize button if true, or hide minimize button if false.
@@ -7798,7 +7798,7 @@ declare namespace window {
      * @atomicservice
      * @since 14
      */
-    setWindowTitleButtonVisible(isMaximizeButtonVisible: boolean, isMinimizeButtonVisible: boolean, isCloseButtonVisible: boolean): void;
+    setWindowTitleButtonVisible(isMaximizeButtonVisible: boolean, isMinimizeButtonVisible: boolean, isCloseButtonVisible?: boolean): void;
         
     /**
      * Enable landscape multiWindow
