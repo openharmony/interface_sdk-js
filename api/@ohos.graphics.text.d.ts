@@ -1215,6 +1215,13 @@ declare namespace text {
      * @since 14
      */
     INSTALLED = 1 << 3,
+
+    /**
+     * Customized font types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    CUSTOMIZED = 1 << 4,
   }
 
   /**
