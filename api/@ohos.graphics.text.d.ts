@@ -157,6 +157,13 @@ declare namespace text {
      * @since 12
      */
     BREAK_WORD,
+
+    /**
+     * Breaks word by hyphen.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    HYPHEN,
   }
 
   /**
