@@ -254,6 +254,32 @@ export declare class PickerController {
    * @since 13
    */
   setPhotoBrowserUIElementVisibility(elements: Array<PhotoBrowserUIElement>, isVisible: boolean): void;
+
+  /**
+   * Save the photo after edit.
+   *
+   * @param { string } originalUri - Original uri 
+   * @param { string } replaceUri - Replaced uri
+   * @param { AsyncCallback<void> } callback - Returns void
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14
+   */
+  replacePhotoPickerPreview(originalUri: string, replaceUri: string, callback: AsyncCallback<void>): void;
+
+  /**
+   * Save the uris returned by replacePhotoPickerPreview.
+   *
+   * @param { Array<string> } trustedUris - Uris need to be saved
+   * @param { AsyncCallback<Array<string>> } callback - Returns the uri list
+   * @param { PhotoCreationConfig } configs - Photo asset creation configs
+   * @param { SaveMode } saveMode - Mode of save
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14
+   */
+  saveTrustedPhotoAssets(trustedUris: Array<string>, callback: AsyncCallback<Array<string>>,
+    configs?: PhotoCreationConfig, saveMode?: SaveMode): void;
 }
 
 /**
@@ -847,3 +873,32 @@ export declare enum PhotoBrowserUIElement {
    */
   BACK_BUTTON = 1
 }
+
+
+/**
+ * Enumeration type of save mode.
+ *
+ * @enum { number } SaveMode
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @systemapi
+ * @since 14
+ */
+export declare enum SaveMode {
+  /**
+   * Save as a new photo/video.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 14
+   */
+  SHORT_AS_NEW = 0,
+
+  /**
+   * Overwrite and save.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 14
+   */
+  SHORT_AS_REPLACE = 1
+} 

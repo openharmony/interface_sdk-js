@@ -4322,6 +4322,7 @@ declare namespace photoAccessHelper {
      * @since 14
      */
     requestPhotoUrisReadPermission(srcFileUris: Array<string>): Promise<Array<string>>;
+
     /**
      * Get the index of the asset in the album
      *
