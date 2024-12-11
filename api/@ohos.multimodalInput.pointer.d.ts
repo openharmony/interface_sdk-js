@@ -475,13 +475,51 @@ declare namespace pointer {
     TOUCHPAD_TWO_FINGER_TAP = 3,
   }
 
+  /**
+   * Represents a custom cursor.
+   *
+   * @interface CustomCursor
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since
+   */
   interface CustomCursor {
+    /**
+     * pixelMap - The pixelMap of the cursor.
+     * @type {image.PixelMap}
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since
+     */
     pixelMap: image.pixelMap;
+    /**
+     * focusX - focus x.
+     * @type {number}
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since
+     */
     focusX?: number;
+    /**
+     * focusY - focus Y.
+     * @type {number}
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since
+     */
 	focusY?: number;
   }
   
+  /**
+   * Represents cursor options.
+   *
+   * @interface CursorOption
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since
+   */
   interface CursorOption {
+    /**
+     * isFollowSystem - Whether to adjust following the system.
+     * @type {boolean}
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since
+     */
     isFollowSystem : boolean;
   }
 
