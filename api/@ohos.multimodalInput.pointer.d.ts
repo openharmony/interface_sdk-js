@@ -1458,6 +1458,43 @@ declare namespace pointer {
    * @since 11
    */
   function setCustomCursorSync(windowId: number, pixelMap: image.PixelMap, focusX?: number, focusY?: number): void;
+
+  /**
+   * Sets the custom Mouse cursor.
+   *
+   * @param { number } windowId - Window ID.
+   * @param { image.PixelMap } pixelMap - the cursor of pixelMap.
+   * @param { number } focusX - focus x.
+   * @param { number } focusY - focus y.
+   * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } -1 - Other errors.
+   * @throws { BusinessError }  2 - Abnormal windowId parameter passed in.
+   * @throws { BusinessError }  3 - Abnormal pixelMap parameter passed in.
+   * @throws { BusinessError }  4 - Abnormal focusX parameter passed in.
+   * @throws { BusinessError }  5 - Abnormal focusY parameter passed in.
+   * @throws { BusinessError }  0 - Parameters are normal, call succeeded.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since
+   */
+  function setCustomMouseCursor(windowId: number, pixelMap: image.PixelMap, focusX?: number, focusY?: number): Promise<void>;
+
+  /**
+   * Sets the custom Mouse cursor through sync mode.
+   *
+   * @param { number } windowId - Window ID.
+   * @param { image.PixelMap } pixelMap - the cursor of pixelMap.
+   * @param { number } focusX - focus x.
+   * @param { number } focusY - focus y.
+   * @throws { BusinessError } -1 - Other errors.
+   * @throws { BusinessError }  2 - Abnormal windowId parameter passed in.
+   * @throws { BusinessError }  3 - Abnormal pixelMap parameter passed in.
+   * @throws { BusinessError }  4 - Abnormal focusX parameter passed in.
+   * @throws { BusinessError }  5 - Abnormal focusY parameter passed in.
+   * @throws { BusinessError }  0 - Parameters are normal, call succeeded.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since
+   */
+  function setCustomMouseCursorSync(windowId: number, pixelMap: image.PixelMap, focusX?: number, focusY?: number): void;
 }
 
 export default pointer;
