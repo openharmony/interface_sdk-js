@@ -34,6 +34,13 @@ declare namespace infraredEmitter {
    * @systemapi hide for inner use
    * @since 12
    */
+  /**
+   * Infrared frequency range supported by the IR emitter.
+   *
+   * @interface InfraredFrequency
+   * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
+   * @since 16
+   */
   interface InfraredFrequency {
     /**
      * Maximum frequency.
@@ -42,6 +49,13 @@ declare namespace infraredEmitter {
      * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
      * @systemapi hide for inner use
      * @since 12
+     */
+    /**
+     * Maximum frequency.
+     *
+     * @type { number }
+     * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
+     * @since 16
      */
     max: number;
 
@@ -52,6 +66,13 @@ declare namespace infraredEmitter {
      * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
      * @systemapi hide for inner use
      * @since 12
+     */
+    /**
+     * Minimum frequency.
+     *
+     * @type { number }
+     * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
+     * @since 16
      */
     min: number;
   }
@@ -70,6 +91,18 @@ declare namespace infraredEmitter {
    * @systemapi hide for inner use
    * @since 12
    */
+  /**
+   * Transmitted IR signal.
+   *
+   * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
+   * @param { number} infraredFrequency - IR infrared frequency, in Hz.
+   * @param { Array<number>} pattern - Pattern of signal transmission in alternate on/off mode, in microseconds.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
+   * @since 16
+   */
   function transmitInfrared(infraredFrequency: number, pattern: Array<number>): void;
 
   /**
@@ -82,6 +115,15 @@ declare namespace infraredEmitter {
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
    * @systemapi hide for inner use
    * @since 12
+   */
+  /**
+   * Obtains the infrared frequency supported by the IR emitter.
+   *
+   * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
+   * @returns { Array<InfraredFrequency> } The return value is an array of InfraredFrequency objects, indicating the infrared frequency ranges supported by the IR emitter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
+   * @since 16
    */
   function getInfraredFrequencies(): Array<InfraredFrequency>;
 }
