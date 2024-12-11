@@ -475,6 +475,16 @@ declare namespace pointer {
     TOUCHPAD_TWO_FINGER_TAP = 3,
   }
 
+  interface CustomCursor {
+    pixelMap: image.pixelMap;
+    focusX?: number;
+	focusY?: number;
+  }
+  
+  interface CursorOption {
+    isFollowSystem : boolean;
+  }
+
   /**
    * Sets the pointer moving speed.
    *
@@ -1460,41 +1470,35 @@ declare namespace pointer {
   function setCustomCursorSync(windowId: number, pixelMap: image.PixelMap, focusX?: number, focusY?: number): void;
 
   /**
-   * Sets the custom Mouse cursor, without scale.
+   * Set a custom cursor that does not scale with the system settings, with a maximum cursor size of 256*256.
    *
    * @param { number } windowId - Window ID.
-   * @param { image.PixelMap } pixelMap - the pixelMap of cursor.
-   * @param { number } focusX - focus x.
-   * @param { number } focusY - focus y.
-   * @returns { Promise<void> } Returns the result through a promise.
-   * @throws { BusinessError } -1 - Other errors.
-   * @throws { BusinessError }  0 - Parameters are normal, call succeeded.
-   * @throws { BusinessError }  1 - Abnormal windowId parameter passed in.
-   * @throws { BusinessError }  2 - Abnormal pixelMap parameter passed in.
-   * @throws { BusinessError }  3 - Abnormal focusX parameter passed in.
-   * @throws { BusinessError }  4 - Abnormal focusY parameter passed in.
+   * @param { CustomCursor } CustomCursor.pixelMap - the pixelMap of cursor, CustomCursor.focusX - focus x,
+   * <br>CustomCursor.focusY - focus Y.
+   * @param { CursorOption } CursorOption.isFollowSystem - Whether to adjust following the system.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: -1. Other errors; 0. Parameters are normal,
+   * <br>call succeeded; 1. Abnormal windowId parameter passed in; 2.Abnormal pixelMap parameter passed in;
+   * <br>3. Abnormal focusX parameter passed in; 4. Abnormal focusY parameter passed in.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since
    */
-  function setCustomMouseCursor(windowId: number, pixelMap: image.PixelMap, focusX?: number, focusY?: number): Promise<void>;
+  function setCustomMouseCursor(windowId: number, cursor: CustomCursor, option: CursorOption): Promise<void>;
 
   /**
-   * Sets the custom Mouse cursor through sync mode, without scale.
+   * Set a custom cursor through sync mode, with the cursor size not scaling with the system settings,
+   * <br>and a maximum cursor size of 256*256.
    *
    * @param { number } windowId - Window ID.
-   * @param { image.PixelMap } pixelMap - the pixelMap of cursor.
-   * @param { number } focusX - focus x.
-   * @param { number } focusY - focus y.
-   * @throws { BusinessError } -1 - Other errors.
-   * @throws { BusinessError }  0 - Parameters are normal, call succeeded.
-   * @throws { BusinessError }  1 - Abnormal windowId parameter passed in.
-   * @throws { BusinessError }  2 - Abnormal pixelMap parameter passed in.
-   * @throws { BusinessError }  3 - Abnormal focusX parameter passed in.
-   * @throws { BusinessError }  4 - Abnormal focusY parameter passed in.
+   * @param { CustomCursor } CustomCursor.pixelMap - the pixelMap of cursor, CustomCursor.focusX - focus x,
+   * <br>CustomCursor.focusY - focus Y.
+   * @param { CursorOption } CursorOption.isFollowSystem - Whether to adjust following the system.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: -1. Other errors; 0. Parameters are normal,
+   * <br>call succeeded; 1. Abnormal windowId parameter passed in; 2.Abnormal pixelMap parameter passed in;
+   * <br>3. Abnormal focusX parameter passed in; 4. Abnormal focusY parameter passed in.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since
    */
-  function setCustomMouseCursorSync(windowId: number, pixelMap: image.PixelMap, focusX?: number, focusY?: number): void;
+  function setCustomMouseCursorSync(windowId: number, cursor: CustomCursor, option: CursorOption): void;
 }
 
 export default pointer;
