@@ -57,7 +57,7 @@ export declare struct ProgressButtonV2 {
    * @crossplatform
    * @since 16
    */
-  @param @once progressButtonWidth?: Length;
+  @Param @Once progressButtonWidth?: Length;
 
   /**
    * Sets the ProgressButtonV2 clickCallback.
