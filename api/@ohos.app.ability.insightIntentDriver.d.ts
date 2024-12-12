@@ -126,7 +126,7 @@ declare namespace insightIntentDriver {
      * @type { ?Array<string> }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 16
      */
     uris?: Array<string>;
@@ -141,7 +141,7 @@ declare namespace insightIntentDriver {
      * @type { ?number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 16
      */
     flags?: number;
