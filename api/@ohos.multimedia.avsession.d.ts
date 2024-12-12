@@ -925,6 +925,7 @@ declare namespace avSession {
     /**
      * unique session Id
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
@@ -940,6 +941,7 @@ declare namespace avSession {
     /**
      * Get current session type
      * @type { AVSessionType }
+     * @readonly
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
@@ -5706,6 +5708,7 @@ declare namespace avSession {
     /**
      * Unique session Id
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
