@@ -202,7 +202,7 @@ declare namespace uiExtension {
      setWaterMarkFlag(enable: boolean): Promise<void>;
 
      /**
-      * Set events that only meed to be handled by the UIExtension provider
+      * Set events that only need to be handled by the UIExtension provider
       *
       * @param { EventFlag } eventFlags - The events to be set.
       * @returns { Promise<void> } - The promise returned by the function
@@ -210,6 +210,7 @@ declare namespace uiExtension {
       * <br> 1. Mandatory parameters are left unspecified.
       * <br> 2. Incorrect parameters types.
       * <br> 3. Parameter verification failed.
+      * @throws { BusinessError } 1300002 - This window state is abnormal.
       * @syscap SystemCapability.ArkUI.ArkUI.Full
       * @atomicservice
       * @since 16
@@ -228,7 +229,7 @@ declare namespace uiExtension {
   }
 
   /**
-   * Used to set events that only meed to be handled by the UIExtension provider
+   * Gesture event type
    *
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -243,7 +244,39 @@ declare namespace uiExtension {
      * @atomicservice
      * @since 16
      */
-    NONE = 0x00000000,
+    EVENT_NONE = 0x00000000,
+    /**
+     * Pan gesture left events
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    EVENT_PAN_GESTURE_LEFT = 0x00000001,
+    /**
+     * Pan gesture right events
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    EVENT_PAN_GESTURE_RIGHT = 0x00000002,
+    /**
+     * Pan gesture up events
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    EVENT_PAN_GESTURE_UP = 0x00000004,
+    /**
+     * Pan gesture down events
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    EVENT_PAN_GESTURE_DOWN = 0x00000008,
     /**
      * Click gesture events
      *
@@ -251,7 +284,7 @@ declare namespace uiExtension {
      * @atomicservice
      * @since 16
      */
-    GESTURE_CLICK = 0x00000001,
+    EVENT_CLICK = 0x00000100,
     /**
      * Long press gesture events
      *
@@ -259,23 +292,7 @@ declare namespace uiExtension {
      * @atomicservice
      * @since 16
      */
-    GESTURE_LONG_PRESS = 0x00000002,
-    /**
-     * Vertical pan gesture events
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 16
-     */
-    GESTURE_PAN_GESTURE_VERTICAL = 0x00000004,
-    /**
-     * Horizontal pan gesture events
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 16
-     */
-    GESTURE_PAN_GESTURE_HORIZONTAL = 0x00000008,
+    EVENT_LONG_PRESS = 0x00000200,
   }
 
   /**
