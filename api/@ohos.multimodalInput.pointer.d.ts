@@ -518,7 +518,7 @@ declare namespace pointer {
      * followSystem - 是否跟随系统设置调整大小.
      * @type { boolean }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since
+     * @since 14
      */
     followSystem : boolean;
   }
