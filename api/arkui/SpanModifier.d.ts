@@ -25,7 +25,7 @@
  * Defines Span Modifier
  *
  * @extends SpanAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<SpanAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
