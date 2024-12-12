@@ -476,51 +476,51 @@ declare namespace pointer {
   }
 
   /**
-   * Represents a custom cursor.
+   * 自定义光标.
    *
    * @interface CustomCursor
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since
+   * @since 14
    */
   interface CustomCursor {
     /**
-     * pixelMap - The pixelMap of the cursor.
-     * @type {image.PixelMap}
+     * pixelMap - 自定义光标资源.
+     * @type { image.PixelMap }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since
+     * @since 14
      */
     pixelMap: image.PixelMap;
     /**
-     * focusX - focus x.
-     * @type {number}
+     * focusX - 自定义光标的焦点横坐标.
+     * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since
+     * @since 14
      */
     focusX?: number;
     /**
-     * focusY - focus Y.
-     * @type {number}
+     * focusY - 自定义光标的焦点纵坐标.
+     * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since
+     * @since 14
      */
 	focusY?: number;
   }
   
   /**
-   * Represents cursor options.
+   * 自定义光标设置.
    *
    * @interface CursorOption
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since
+   * @since 14
    */
   interface CursorOption {
     /**
-     * isFollowSystem - Whether to adjust following the system.
-     * @type {boolean}
+     * followSystem - 是否跟随系统设置调整大小.
+     * @type { boolean }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since
      */
-    isFollowSystem : boolean;
+    followSystem : boolean;
   }
 
   /**
@@ -1508,35 +1508,18 @@ declare namespace pointer {
   function setCustomCursorSync(windowId: number, pixelMap: image.PixelMap, focusX?: number, focusY?: number): void;
 
   /**
-   * Set a custom cursor that does not scale with the system settings, with a maximum cursor size of 256*256.
+   * 设置自定义光标，光标大小可设置是否跟随系统设置，光标最大可以设置256*256.
    *
    * @param { number } windowId - Window ID.
-   * @param { CustomCursor } CustomCursor.pixelMap - the pixelMap of cursor, CustomCursor.focusX - focus x,
-   * <br>CustomCursor.focusY - focus Y.
-   * @param { CursorOption } CursorOption.isFollowSystem - Whether to adjust following the system.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: -1. Other errors; 0. Parameters are normal,
-   * <br>call succeeded; 1. Abnormal windowId parameter passed in; 2.Abnormal pixelMap parameter passed in;
-   * <br>3. Abnormal focusX parameter passed in; 4. Abnormal focusY parameter passed in.
+   * @param { CustomCursor } CustomCursor - 自定义光标，包含自定义光标资源、焦点位置.
+   * @param { CursorOption } CursorOption - 自定义光标设置.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Abnormal windowId parameter passed in;
+   * <br>2. Abnormal pixelMap parameter passed in; 3. Abnormal focusX parameter passed in;
+   * <br>4. Abnormal focusY parameter passed in.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since
    */
-  function setCustomMouseCursor(windowId: number, cursor: CustomCursor, option: CursorOption): Promise<void>;
-
-  /**
-   * Set a custom cursor through sync mode, with the cursor size not scaling with the system settings,
-   * <br>and a maximum cursor size of 256*256.
-   *
-   * @param { number } windowId - Window ID.
-   * @param { CustomCursor } CustomCursor.pixelMap - the pixelMap of cursor, CustomCursor.focusX - focus x,
-   * <br>CustomCursor.focusY - focus Y.
-   * @param { CursorOption } CursorOption.isFollowSystem - Whether to adjust following the system.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: -1. Other errors; 0. Parameters are normal,
-   * <br>call succeeded; 1. Abnormal windowId parameter passed in; 2.Abnormal pixelMap parameter passed in;
-   * <br>3. Abnormal focusX parameter passed in; 4. Abnormal focusY parameter passed in.
-   * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since
-   */
-  function setCustomMouseCursorSync(windowId: number, cursor: CustomCursor, option: CursorOption): void;
+  function setCustomCursor(windowId: number, cursor: CustomCursor, option: CursorOption): Promise<void>;
 }
 
 export default pointer;
