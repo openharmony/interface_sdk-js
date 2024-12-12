@@ -225,6 +225,28 @@ declare interface TimePickerOptions {
    * @since 12
    */
   format?: TimePickerFormat;
+  
+  /**
+   * Defines the start time of the time picker.
+   *
+   * @type { ?Date }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  start?: Date;
+
+  /**
+   * Defines the end time of the time picker.
+   *
+   * @type { ?Date }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  end?: Date;
 }
 
 /**
