@@ -4799,7 +4799,6 @@ declare namespace camera {
    * Photo session object.
    * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorManagement, AutoDeviceSwitch
    * @interface PhotoSession
-   * @extends AutoDeviceSwitch
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 13
    */
