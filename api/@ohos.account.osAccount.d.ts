@@ -1162,11 +1162,9 @@ declare namespace osAccount {
      * Gets the local ID of the foreground OS account.
      *
      * @returns { Promise<number> } Returns local ID of the foreground OS account.
-     * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 14
      */
     getForegroundOsAccountLocalId(): Promise<number>;
 
@@ -1489,6 +1487,22 @@ declare namespace osAccount {
      * @since 7
      */
     queryOsAccountById(localId: number): Promise<OsAccountInfo>;
+
+    /**
+     * Gets the domain account information associated with the specified OS account.
+     *
+     * @permission ohos.permission.GET_DOMAIN_ACCOUNTS and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @param { number } localId - Indicates the local ID of the specified OS account.
+     * @returns { Promise<DomainAccountInfo> } Returns the domain account information.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameter types.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300003 - OS account not found.
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 14
+     */
+    getOsAccountDomainInfo(localId: number): Promise<DomainAccountInfo>;
 
     /**
      * Obtains the type of this OS account from the current process.
