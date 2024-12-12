@@ -1693,7 +1693,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 17
+   * @since 16
    */
   autoCapitalizationMode(mode: AutoCapitalizationMode): TextAreaAttribute;
 }

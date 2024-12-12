@@ -312,7 +312,7 @@ declare enum MenuType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 17
+ * @since 16
  */
 declare enum AutoCapitalizationMode {
   /**
@@ -321,7 +321,7 @@ declare enum AutoCapitalizationMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 17
+   * @since 16
    */
   NONE = 0,
 
@@ -331,7 +331,7 @@ declare enum AutoCapitalizationMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 17
+   * @since 16
    */
   WORDS = 1,
 
@@ -341,7 +341,7 @@ declare enum AutoCapitalizationMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 17
+   * @since 16
    */
   SENTENCES = 2,
 
@@ -351,7 +351,7 @@ declare enum AutoCapitalizationMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 17
+   * @since 16
    */
   ALL_CHARACTERS = 3,
 }
