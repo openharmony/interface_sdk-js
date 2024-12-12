@@ -25,7 +25,7 @@
  * @crossplatform
  * @since 16
  */
-@Component
+@ComponentV2
 export declare struct ProgressButtonV2 {
   /**
    * Sets the ProgressButton progress.
@@ -78,4 +78,78 @@ export declare struct ProgressButtonV2 {
    * @since 16
    */
   @Param readonly enable: boolean;
+
+  /**
+   * Set Color options of the ProgressButton.
+   *
+   * @type { ?ProgressButtonColorOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @crossplatform
+   * @since 16
+   */
+  @Param colorOptions?: ProgressButtonV2ColorOptions;
+}
+
+/**
+ * Declare Color options of the ProgressButton.
+ *
+ * @interface ProgressButtonColorOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @crossplatform
+ * @since 16
+ */
+@ObservedV2
+export declare class ProgressButtonV2ColorOptions {
+  /**
+   * Set progress color of the ProgressButton.
+   *
+   * @type { ?ResourceColor }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @crossplatform
+   * @since 16
+   */
+  @Trace progressColor?: ResourceColor;
+
+  /**
+   * Set border color of the ProgressButton.
+   *
+   * @type { ?ResourceColor }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @crossplatform
+   * @since 16
+   */
+  @Trace borderColor?: ResourceColor;
+
+  /**
+   * Set text color of the ProgressButton.
+   *
+   * @type { ?ResourceColor }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @crossplatform
+   * @since 16
+   */
+  @Trace textColor?: ResourceColor;
+
+  /**
+   * Set background color of the ProgressButton.
+   *
+   * @type { ?ResourceColor }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @crossplatform
+   * @since 16
+   */
+  @Trace backgroundColor?: ResourceColor;
+
+  constructor (progressColor: ResourceColor, borderColor: ResourceColor, textColor: ResourceColor, backgroundColor: ResourceColor) {
+    this.progressColor = progressColor;
+    this.borderColor = borderColor;
+    this.textColor = textColor;
+    this.backgroundColor = backgroundColor;
+  }
 }

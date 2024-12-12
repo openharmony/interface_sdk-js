@@ -53,6 +53,7 @@ import {
 } from '@ohos.arkui.advanced.Popup';
 import { ProgressButton } from '@ohos.arkui.advanced.ProgressButton';
 import { ProgressButtonV2 } from '@ohos.arkui.advanced.ProgressButtonV2';
+import { ProgressButtonV2ColorOptions } from '@ohos.arkui.advanced.ProgressButtonV2';
 import {
   SegmentButton, SegmentButtonOptions, SegmentButtonItemOptionsArray, TabSegmentButtonOptions,
   TabSegmentButtonConstructionOptions, CapsuleSegmentButtonOptions, CapsuleSegmentButtonConstructionOptions,
@@ -184,7 +185,7 @@ export {
   LabelOptions, LayeredDrawableDescriptor, LoadingDialog, LocaleResponse, MarginType, Matrix4, MeasureOptions, MeasureText,
   MediaQuery, MediaQueryEvent, MediaQueryList, NodeController, NodeParam, NodeRenderType, Offset, OperateButton, OperateCheck, OperateIcon,
   OperateItem, OperationOption, OperationType, OverlayManager, PathShape, PiPWindow, Pivot, Popup, PopupButtonOptions, PopupIconOptions, PopupOptions,
-  PopupTextOptions, Position, PrefixIconOptions, ProgressButton, ProgressButtonV2, Prompt, PromptAction, PromptOptions, RectShape, RenderNode, RenderOptions, BuildOptions,
+  PopupTextOptions, Position, PrefixIconOptions, ProgressButton, ProgressButtonV2, ProgressButtonV2ColorOptions, Prompt, PromptAction, PromptOptions, RectShape, RenderNode, RenderOptions, BuildOptions,
   RequestFullWindowOptions, Rotation, Router, RouterOptions, RouterState, Scale, ScreenOnVisibleOptions, SegmentButton, SegmentButtonItemOptionsArray,
   SegmentButtonOptions, SelectDialog, SelectOptions, SelectTitleBar, SelectTitleBarMenuItem, SelectionMenu,
   SelectionMenuOptions, ShapeMask, ShapeClip, ShowActionMenuOptions, ShowDialogOptions, ShowDialogSuccessResponse,
