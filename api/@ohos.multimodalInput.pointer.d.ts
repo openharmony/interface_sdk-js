@@ -1511,8 +1511,8 @@ declare namespace pointer {
    * 设置自定义光标，光标大小可设置是否跟随系统设置，光标最大可以设置256*256.
    *
    * @param { number } windowId - Window ID.
-   * @param { CustomCursor } CustomCursor - 自定义光标，包含自定义光标资源、焦点位置.
-   * @param { CursorOption } CursorOption - 自定义光标设置.
+   * @param { CustomCursor } cursor - 自定义光标，包含自定义光标资源、焦点位置.
+   * @param { CursorOption } option - 自定义光标设置.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Abnormal windowId parameter passed in;
    * <br>2. Abnormal pixelMap parameter passed in; 3. Abnormal focusX parameter passed in;
    * <br>4. Abnormal focusY parameter passed in.
