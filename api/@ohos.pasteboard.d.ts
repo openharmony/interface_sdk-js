@@ -1106,6 +1106,158 @@ declare namespace pasteboard {
   }
 
   /**
+   * Enumerates the types of file conflict options when getting data from the Pastedboard.
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 15
+   */
+  enum FileConflictOption {
+    /**
+     * OVERWRITE overwrite when destUri has file with same name.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 15
+     */
+    OVERWRITE,
+
+    /**
+     * SKIP skip when destUri has file with same name.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 15
+     */
+    SKIP
+  }
+
+  /**
+   * Enumerates the types of progress indicator when getting data from the Pastedboard.
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 15
+   */
+  enum ProgressIndicator {
+    /**
+     * NONE getting data without system default progress indicator.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 15
+     */
+    NONE,
+
+    /**
+     * DEFALUT getting data with system default progress indicator.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 15
+     */
+    DEFAULT
+  }
+
+  /**
+   * Notifies progress when getting PasteData.
+   * @interface ProgressInfo
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 15
+   */
+  interface ProgressInfo {
+    /**
+     * Progress when getting PasteData without using default system progress.
+     * @type { number }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 15
+     */
+    progress: number;
+  }
+
+  /**
+   * Indicates progress of getting PasteData.
+   * @typedef { function } ProgressListener
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 15
+   */
+  type ProgressListener = (progress: ProgressInfo) => void;
+
+  /**
+   * Indicates the signals to process default system progress task.
+   * @class ProgressSignal
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 15
+   */
+  export class ProgressSignal {
+    /**
+     * Cancel the paste in progress.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 15
+     */
+    cancel(): void;
+  }
+
+  /**
+   * Represents the get data parameters when getting PasteData from Pasteboard.
+   * @interface GetDataParams
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 15
+   */
+  interface GetDataParams {
+    /**
+     * DestUri indicates the uri of dest path where copy files will be copied to sandbox of Application.
+     * @type { ?string }
+     * @default -
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 15
+     */
+    destUri?: string;
+
+    /**
+     * FileConflictOptions indicates fileConflictOptions when dest path has file with same name.
+     * @type { ?FileConflictOption }
+     * @default FileConflictOption.OVERWRITE
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 15
+     */
+    fileConflictOption?: FileConflictOption;
+
+    /**
+     * ProgressIndicator indicates whether to use default system progress indicator.
+     * @type { ProgressIndicator }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 15
+     */
+    progressIndicator: ProgressIndicator;
+
+    /**
+     * ProgressListener indicates progress listener when getting PasteDate without using default system progress.
+     * @type { ?ProgressListener }
+     * @default -
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 15
+     */
+    progressListener?: ProgressListener;
+
+    /**
+     * Progress signal when getting PasteData with system progress indacator.
+     * @type { ?ProgressSignal }
+     * @default -
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 15
+     */
+    progressSignal?: ProgressSignal;
+  }
+
+  /**
    * Classes for system pasteboard.
    * @interface SystemPasteboard
    * @syscap SystemCapability.MiscServices.Pasteboard
@@ -1619,6 +1771,26 @@ declare namespace pasteboard {
      * @since 14
      */
     getMimeTypes(): Promise<Array<string>>;
+
+    /**
+     * Gets pastedata from the system pasteboard with system progress.
+     *
+     * @permission ohos.permission.READ_PASTEBOARD
+     * @param { GetDataParams } params - Indicates the {@link GetDataParams}.
+     * @returns { Promise<PasteData> } The promise returned by the getData.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+     *     permission required to call the API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 12900003 - Another copy or paste operation is in progress.
+     * @throws { BusinessError } 12900007 - Copy file failed.
+     * @throws { BusinessError } 12900008 - Failed to start progress.
+     * @throws { BusinessError } 12900009 - Progress exits abnormally.
+     * @throws { BusinessError } 12900010 - Get pasteData error.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 15
+     */
+    getDataWithProgress(params: GetDataParams): Promise<PasteData>;
   }
 }
 
