@@ -1517,7 +1517,7 @@ declare namespace pointer {
    * <br>2. Abnormal pixelMap parameter passed in; 3. Abnormal focusX parameter passed in;
    * <br>4. Abnormal focusY parameter passed in.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since
+   * @since 14
    */
   function setCustomCursor(windowId: number, cursor: CustomCursor, option: CursorOption): Promise<void>;
 }
