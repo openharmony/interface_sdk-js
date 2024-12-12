@@ -6679,7 +6679,6 @@ declare namespace camera {
    *
    * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus, DepthFusion
    * @interface MacroPhotoSession
-   * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus, DepthFusion
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 14
