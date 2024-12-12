@@ -300,6 +300,14 @@ declare namespace wantConstant {
      * @since 12
      */
     SUB_PACKAGE_NAME = 'ohos.param.atomicservice.subpackageName',
+
+    /**
+    * Indicates the app clone index of caller.
+    *
+    * @syscap SystemCapability.Ability.AbilityBase
+    * @since 14
+    */
+    CALLER_APP_CLONE_INDEX = 'ohos.param.callerAppCloneIndex',
   }
 
   /**
