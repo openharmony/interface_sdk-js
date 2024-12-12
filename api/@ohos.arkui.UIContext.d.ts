@@ -3316,7 +3316,25 @@ export const enum KeyboardAvoidMode {
    * @atomicservice
    * @since 11
    */
-  RESIZE = 1
+  RESIZE = 1,
+
+  /**
+  * Offset Type, offset the whole page when caret position or keyboard height changed.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 14
+  */
+  OFFSET_WITH_CARET = 2,
+
+  /**
+  * Resize Type, resize the whole page when when caret position or keyboard height changed.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 14
+  */
+  RESIZE_WITH_CARET = 3,
 }
 
 /**
