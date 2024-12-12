@@ -119,6 +119,7 @@ declare namespace insightIntent {
      * @type { ?Array<string> }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
+     * @atomicservice
      * @since 16
      */
     uris?: Array<string>;
@@ -133,6 +134,7 @@ declare namespace insightIntent {
      * @type { ?number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
+     * @atomicservice
      * @since 16
      */
     flags?: number;
