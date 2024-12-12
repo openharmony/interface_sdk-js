@@ -1458,7 +1458,6 @@ declare namespace pointer {
    * @since 11
    */
   function setCustomCursorSync(windowId: number, pixelMap: image.PixelMap, focusX?: number, focusY?: number): void;
-}
 
   /**
    * Set touchpad double tap and drag state.
@@ -1511,5 +1510,5 @@ declare namespace pointer {
    * @since 14
    */
   function getTouchpadDoubleTapAndDragState(): Promise<boolean>;
-
+}
 export default pointer;
