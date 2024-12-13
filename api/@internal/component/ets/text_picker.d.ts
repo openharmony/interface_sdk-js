@@ -348,6 +348,51 @@ declare interface DividerOptions {
 }
 
 /**
+ * Provide an interface for the text style of the text picker.
+ *
+ * @extends PickerTextStyle
+ * @interface TextPickerTextStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 15
+ */
+declare interface TextPickerTextStyle extends PickerTextStyle {
+  /**
+   * Defines the minimum font size of the text.
+   *
+   * @type { ?(number | string | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  minFontSize?: number | string | Resource;
+
+  /**
+   * Defines the maximum font size of the text.
+   *
+   * @type { ?(number | string | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  maxFontSize?: number | string | Resource;
+
+  /**
+   * Defines the overflow mode of the text.
+   *
+   * @type { ?TextOverflow }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  overflow?: TextOverflow;
+}
+
+/**
  * Callback of the listened scroll stop event.
  *
  * @typedef {function} TextPickerScrollStopCallback
@@ -496,6 +541,30 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @since 11
    */
   selectedTextStyle(value: PickerTextStyle): TextPickerAttribute;
+
+  /**
+   * Defines whether to disable the text style animation.
+   *
+   * @param { boolean } disabled
+   * @returns { TextPickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  disableTextStyleAnimation(disabled: boolean): TextPickerAttribute;
+
+  /**
+   * Defines to set the default text style for options.
+   *
+   * @param { TextPickerTextStyle } style
+   * @returns { TextPickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  defaultTextStyle(style: TextPickerTextStyle): TextPickerAttribute;
 
   /**
    * Called when the pop-up value is returned.
@@ -843,6 +912,29 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @since 11
    */
   selectedTextStyle?: PickerTextStyle;
+
+  /**
+   * Defines whether to disable the text style animation.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  disableTextStyleAnimation?: boolean;
+
+  /**
+   * Defines to set the default text style for options.
+   *
+   * @type { ?TextPickerTextStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  defaultTextStyle?: TextPickerTextStyle;
+
   /**
    * Called when the OK button in the dialog is clicked.
    *
