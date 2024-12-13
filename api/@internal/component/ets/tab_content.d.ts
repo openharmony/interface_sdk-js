@@ -1230,7 +1230,7 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
    * @atomicservice
    * @since 16
    */
-  tabBar(content: ComponentContent | SubTabBarStyle | BottomTabBarStyle | string | Resource | CustomBuilder |
+  tabBar(content: ComponentContent | SubTabBarStyle | BottomTabBarStyle | string | Resource | CustomBuilder | 
     TabBarOptions): TabContentAttribute;
 
   /**
