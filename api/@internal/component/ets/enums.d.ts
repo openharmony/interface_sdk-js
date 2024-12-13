@@ -8576,6 +8576,7 @@ declare enum XComponentType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   * @deprecated since 20
    */
   NODE,
 }
