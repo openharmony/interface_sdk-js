@@ -25,7 +25,7 @@
  * Defines NavRouter Modifier
  *
  * @extends NavRouterAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<NavRouterAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

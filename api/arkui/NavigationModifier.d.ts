@@ -25,7 +25,7 @@
  * Defines Navigation Modifier
  *
  * @extends NavigationAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<NavigationAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
