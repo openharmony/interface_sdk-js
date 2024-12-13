@@ -40,7 +40,7 @@ declare namespace keyManager {
     * @systemapi
     * @since 15
     */
-   function deactivateUserKeySync(userId: number):void;
+   function deactivateUserKey(userId: number):void;
  }
  
  export default keyManager;
