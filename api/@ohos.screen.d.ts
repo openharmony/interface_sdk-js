@@ -706,7 +706,7 @@ declare namespace screen {
     readonly sourceMode: ScreenSourceMode;
 	
 	/**
-     * EDID of screen
+     * EDID of the screen
      *
      * @type { ArrayBuffer }
      * @readonly
