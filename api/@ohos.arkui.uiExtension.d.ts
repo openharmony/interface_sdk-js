@@ -211,6 +211,7 @@ declare namespace uiExtension {
       * <br> 2. Incorrect parameters types.
       * <br> 3. Parameter verification failed.
       * @throws { BusinessError } 1300002 - This window state is abnormal.
+      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
       * @syscap SystemCapability.ArkUI.ArkUI.Full
       * @atomicservice
       * @since 16
