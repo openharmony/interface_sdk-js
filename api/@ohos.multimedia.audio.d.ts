@@ -7067,6 +7067,31 @@ declare namespace audio {
    */
   type AudioRendererWriteDataCallback = (data: ArrayBuffer) => AudioDataCallbackResult | void;
 
+
+  /**
+   * Audio timestamp info.
+   * @typedef AudioTimeStampInfo
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @since 16
+   */
+  interface AudioTimeStampInfo {
+    /**
+     * Frame position.
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 16
+     */
+    readonly framePos: number;
+
+    /**
+     * Timestamp when frame in {@link AudioTimeStampInfo#framePos} was rendered or captured.
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 16
+     */
+    readonly timestamp: number;
+  }
+
   /**
    * Provides audio playback APIs.
    * @typedef AudioRenderer
@@ -7342,6 +7367,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12
+     * @deprecated since 16
+     * @useinstead ohos.multimedia.audio.AudioRenderer#getAudioTimeStampInfo
      */
     getAudioTime(callback: AsyncCallback<number>): void;
     /**
@@ -7358,6 +7385,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12
+     * @deprecated since 16
+     * @useinstead ohos.multimedia.audio.AudioRenderer#getAudioTimeStampInfo
      */
     getAudioTime(): Promise<number>;
     /**
@@ -7372,8 +7401,28 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12
+     * @deprecated since 16
+     * @useinstead ohos.multimedia.audio.AudioRenderer#getAudioTimeStampInfoSync
      */
     getAudioTimeSync(): number;
+
+    /**
+     * Obtains the timestamp info.
+     *
+     * @returns { Promise<AudioTimeStampInfo> } The Promise used to return timestamp info.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 16
+     */
+    getAudioTimeStampInfo(): Promise<AudioTimeStampInfo>;
+
+    /**
+     * Obtains the timestamp info.
+     *
+     * @returns { AudioTimeStampInfo } The returned timestamp info.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 16
+     */
+    getAudioTimeStampInfoSync(): AudioTimeStampInfo;
 
     /**
      * Drains the playback buffer. This method uses an asynchronous callback to return the result.
@@ -8811,6 +8860,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12
+     * @deprecated since 16
+     * @useinstead ohos.multimedia.audio.Capturer#getAudioTimeStampInfo
      */
     getAudioTime(callback: AsyncCallback<number>): void;
     /**
@@ -8827,6 +8878,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12
+     * @deprecated since 16
+     * @useinstead ohos.multimedia.audio.Capturer#getAudioTimeStampInfo
      */
     getAudioTime(): Promise<number>;
     /**
@@ -8841,8 +8894,28 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12
+     * @deprecated since 16
+     * @useinstead ohos.multimedia.audio.Capturer#getAudioTimeStampInfoSync
      */
     getAudioTimeSync(): number;
+
+    /**
+     * Obtains the timestamp info.
+     *
+     * @returns { Promise<AudioTimeStampInfo> } The Promise used to return timestamp info.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 16
+     */
+    getAudioTimeStampInfo(): Promise<AudioTimeStampInfo>;
+
+     /**
+      * Obtains the timestamp info.
+      *
+      * @returns { AudioTimeStampInfo } The returned timestamp info.
+      * @syscap SystemCapability.Multimedia.Audio.Capturer
+      * @since 16
+      */
+    getAudioTimeStampInfoSync(): AudioTimeStampInfo;
 
     /**
      * Stops capturing. This method uses an asynchronous callback to return the result.
