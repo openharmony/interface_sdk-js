@@ -3335,6 +3335,15 @@ export const enum KeyboardAvoidMode {
   * @since 14
   */
   RESIZE_WITH_CARET = 3,
+
+  /**
+  * None Type, nothing to do when keyboard height changed.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 14
+  */
+  NONE = 4,
 }
 
 /**
