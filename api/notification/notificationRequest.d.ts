@@ -135,6 +135,15 @@ export interface NotificationRequest {
   isUnremovable?: boolean;
 
   /**
+   * Whether the notification can only be updated.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 16
+   */
+  updateOnly?: boolean;
+
+  /**
    * Time when the notification is sent.
    *
    * @type { ?number }
