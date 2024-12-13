@@ -2922,6 +2922,17 @@ declare class RichEditorBaseController implements TextEditControllerEx {
    * @since 12
    */
   getPreviewText(): PreviewText;
+
+  /**
+   * Get CaretRect.
+   *
+   * @returns { RectResult | undefined } - Return the caret rect or undefined value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  getCaretRect(): RectResult | undefined;
 }
 
 /**
