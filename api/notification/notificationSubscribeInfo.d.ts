@@ -60,7 +60,7 @@ export interface NotificationSubscribeInfo {
   deviceType?: string;
 
   /**
-   * Subscribing to Notifications Synchronized to Slot of Specified Types.
+   * Specifies the scope of notification slots for subscription.
    *
    * @type { ?Array<notificationManager.SlotType> }
    * @syscap SystemCapability.Notification.Notification
