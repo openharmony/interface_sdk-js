@@ -8861,6 +8861,20 @@ declare namespace window {
      * @since 12
      */
     setDefaultDensityEnabled(enabled: boolean): void;
+
+    /**
+     * Remove the starting window, it must be used with configuration "enable.remove.starting.window".
+     *
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @StageModelOnly
+     * @atomicservice
+     * @since 14
+     */
+    removeStartingWindow(): Promise<void>;
   }
 }
 
