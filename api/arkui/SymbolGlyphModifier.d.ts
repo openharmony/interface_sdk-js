@@ -22,7 +22,7 @@
  * Defines SymbolGlyph Modifier
  *
  * @extends SymbolGlyphAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<SymbolGlyphAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

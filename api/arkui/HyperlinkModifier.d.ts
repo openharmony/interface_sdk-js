@@ -24,7 +24,7 @@
  * Defines Hyperlink Modifier
  *
  * @extends HyperlinkAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<HyperlinkAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

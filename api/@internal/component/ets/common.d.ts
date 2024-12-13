@@ -10889,6 +10889,37 @@ declare interface KeyEvent {
 }
 
 /**
+ * Focus axis event object description.
+ *
+ * @extends BaseEvent
+ * @interface FocusAxisEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 15
+ */
+declare interface FocusAxisEvent extends BaseEvent {
+  /**
+   * The axis values of axis event.
+   *
+   * @type { Map<AxisModel, number> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  axisMap: Map<AxisModel, number>;
+
+  /**
+   * The blocking event pops up.
+   *
+   * @type { Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  stopPropagation: Callback<void>;
+}
+
+/**
  * Overlay module options
  *
  * @interface BindOptions
@@ -11022,6 +11053,7 @@ declare interface DismissContentCoverAction {
 /**
  * Component content cover options
  *
+ * @extends BindOptions
  * @interface ContentCoverOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -11030,6 +11062,7 @@ declare interface DismissContentCoverAction {
 /**
  * Component content cover options
  *
+ * @extends BindOptions
  * @interface ContentCoverOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -11420,6 +11453,7 @@ declare interface SpringBackAction {
 /**
  * Component sheet options
  *
+ * @extends BindOptions
  * @interface SheetOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -11428,6 +11462,7 @@ declare interface SpringBackAction {
 /**
  * Component sheet options
  *
+ * @extends BindOptions
  * @interface SheetOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -16803,6 +16838,17 @@ declare class CommonMethod<T> {
    * @since 12
    */
   onKeyPreIme(event: Callback<KeyEvent, boolean>): T;
+
+  /**
+   * Trigger a FocusAxisEvent.
+   *
+   * @param { Callback<FocusAxisEvent> } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  onFocusAxisEvent(event: Callback<FocusAxisEvent>): T;
 
   /**
    * Set focusable.

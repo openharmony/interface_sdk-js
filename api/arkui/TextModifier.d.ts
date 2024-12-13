@@ -25,7 +25,7 @@
  * Defines Text Modifier
  *
  * @extends TextAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<TextAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

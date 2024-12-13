@@ -77,7 +77,7 @@ declare interface VelocityOptions {
 /**
  * Defines acceleration options.
  *
- * @typedef AccelerationOptions
+ * @typedef AccelerationOptions<ACC_SPEED_UPDATER extends ParticleUpdater, ACC_ANGLE_UPDATER extends ParticleUpdater>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -518,7 +518,7 @@ interface EmitterProperty {
 /**
  * Defines parameters of particles used by emitters.
  *
- * @typedef EmitterParticleOptions
+ * @typedef EmitterParticleOptions<PARTICLE extends ParticleType>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -836,7 +836,7 @@ interface ParticlePropertyUpdaterConfigs<T> {
 /**
  * Defines the particle updater options.
  *
- * @typedef ParticleUpdaterOptions
+ * @typedef ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -960,7 +960,7 @@ interface ParticleColorOptions {
 /**
  * Defines the particle color updater options.
  *
- * @typedef ParticleColorUpdaterOptions
+ * @typedef ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice

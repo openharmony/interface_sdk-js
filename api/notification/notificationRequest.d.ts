@@ -402,6 +402,8 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12
+   * @deprecated since 15
+   * @useinstead NotificationRequest#appInstanceKey
    */
   readonly creatorInstanceKey?: number;
 
@@ -571,6 +573,17 @@ export interface NotificationRequest {
    * @since 12
    */
   notificationControlFlags?: number;
+
+  /**
+   * Application instance key.
+   *
+   * @type { ?string }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 15
+   */
+  readonly appInstanceKey?: string;
 }
 
 /**
