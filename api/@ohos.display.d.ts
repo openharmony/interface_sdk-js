@@ -1727,6 +1727,26 @@ declare namespace display {
     sourceMode?: DisplaySourceMode;
  
     /**
+     * Coordinates of the top-left corner of the display relative to the main display.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 16
+     */
+    top?: number;
+  
+    /**
+     * Coordinates of the top-left corner of the display relative to the main display.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 16
+     */
+    left?: number;
+
+    /**
      * Obtain the cutout info of the display.
      *
      * @param { AsyncCallback<CutoutInfo> } callback
