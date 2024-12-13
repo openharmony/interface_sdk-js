@@ -324,7 +324,8 @@ declare namespace screen {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @since 16
    */

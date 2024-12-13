@@ -953,7 +953,7 @@ declare namespace display {
    * Indicate the source mode of the display
    *
    * @enum { number }
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 16
    */
@@ -961,7 +961,7 @@ declare namespace display {
     /**
      * Indicate that the display is not in use.
      *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 16
      */
@@ -970,7 +970,7 @@ declare namespace display {
     /**
      * Indicate that the display is the main display.
      *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 16
      */
@@ -979,7 +979,7 @@ declare namespace display {
     /**
      * Indicate that the display is in mirror mode.
      *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 16
      */
@@ -988,7 +988,7 @@ declare namespace display {
     /**
      * Indicate that the display is in extend mode.
      *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 16
      */
@@ -997,7 +997,7 @@ declare namespace display {
     /**
      * Indicate that the display stands alone.
      *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 16
      */
@@ -1720,7 +1720,7 @@ declare namespace display {
      * The source mode of display
      *
      * @type { ?DisplaySourceMode }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 16
      */
@@ -1730,7 +1730,7 @@ declare namespace display {
      * Coordinates of the top-left corner of the display relative to the main display.
      *
      * @type { ?number }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 16
      */
@@ -1740,7 +1740,7 @@ declare namespace display {
      * Coordinates of the top-left corner of the display relative to the main display.
      *
      * @type { ?number }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 16
      */
