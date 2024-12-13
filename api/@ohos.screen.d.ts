@@ -706,7 +706,7 @@ declare namespace screen {
     readonly sourceMode: ScreenSourceMode;
 	
 	/**
-     * EdId of screen
+     * EDID of screen
      *
      * @type { ArrayBuffer }
      * @readonly
@@ -714,7 +714,7 @@ declare namespace screen {
      * @systemapi Hide this for inner system use.
      * @since 16
      */
-    readonly edId?: ArrayBuffer;
+    readonly edid?: ArrayBuffer;
 
     /**
      * Set the orientation of the screen
