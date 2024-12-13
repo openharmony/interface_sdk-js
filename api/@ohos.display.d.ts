@@ -954,7 +954,7 @@ declare namespace display {
    *
    * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform
+   * @atomicservice
    * @since 16
    */
   enum DisplaySourceMode {
@@ -962,46 +962,46 @@ declare namespace display {
      * Indicate that the display is not in use.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
+     * @atomicservice
      * @since 16
      */
-    DISPLAY_NONE = 0,
+    NONE = 0,
  
     /**
      * Indicate that the display is the main display.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
+     * @atomicservice
      * @since 16
      */
-    DISPLAY_MAIN = 1,
+    MAIN = 1,
 
     /**
      * Indicate that the display is in mirror mode.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
+     * @atomicservice
      * @since 16
      */
-    DISPLAY_MIRROR = 2,
+    MIRROR = 2,
 
     /**
      * Indicate that the display is in extend mode.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
+     * @atomicservice
      * @since 16
      */
-    DISPLAY_EXTEND = 3,
+    EXTEND = 3,
 
     /**
      * Indicate that the display stands alone.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
+     * @atomicservice
      * @since 16
      */
-    DISPLAY_ALONE = 4
+    ALONE = 4
   }
 
   /**
