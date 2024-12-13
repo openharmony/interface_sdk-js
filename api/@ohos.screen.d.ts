@@ -714,7 +714,7 @@ declare namespace screen {
      * @systemapi Hide this for inner system use.
      * @since 16
      */
-    readonly edid?: ArrayBuffer;
+    readonly EDID?: ArrayBuffer;
 
     /**
      * Set the orientation of the screen
