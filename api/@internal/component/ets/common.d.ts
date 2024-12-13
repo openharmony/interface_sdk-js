@@ -15338,6 +15338,19 @@ declare class CommonMethod<T> {
   padding(value: Padding | Length | LocalizedPadding): T;
 
   /**
+   * Inner safeArea padding.
+   *
+   * @param { Padding | LengthMetrics | LocalizedPadding } paddingValue - Indicates safeArea padding values
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  safeAreaPadding(paddingValue: Padding | LengthMetrics | LocalizedPadding): T;
+  
+  /**
    * Outer Margin.
    *
    * @param { Margin | Length } value
