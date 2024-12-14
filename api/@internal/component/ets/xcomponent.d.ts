@@ -442,6 +442,17 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @since 13
    */
   enableSecure(isSecure: boolean): XComponentAttribute;
+
+  /**
+   * Set hdrBrightness for XComponent.
+   *
+   * @param { number } brightness - control the brightness of HDR video
+   * @returns { XComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 14
+   */
+  hdrBrightness(brightness: number): XComponentAttribute;
 }
 
 /**
