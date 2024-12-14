@@ -3948,6 +3948,7 @@ declare interface LinearGradientOptions {
    * @since 16
    */
   angle?: number | string;
+
   /**
    * direction: Direction of Linear Gradient. The default value is GradientDirection.Bottom;
    *
@@ -4005,6 +4006,7 @@ declare interface LinearGradientOptions {
    * @since 16
    */
   direction?: GradientDirection;
+
   /**
    * colors: Color description for gradients.
    *
@@ -4061,6 +4063,7 @@ declare interface LinearGradientOptions {
    * @since 16
    */
   colors: Array<[ResourceColor, number]>;
+
   /**
    * repeating: repeating. The default value is false
    *
@@ -4187,6 +4190,7 @@ declare interface SweepGradientOptions {
    * @since 16
    */
   center: [Length, Length];
+
   /**
    * start:Start point of angle gradient. The default value is 0
    *
@@ -4245,6 +4249,7 @@ declare interface SweepGradientOptions {
    * @since 16
    */
   start?: number | string;
+
   /**
    * end:End point of angle gradient. The default value is 0
    * @type { ?(number | string) }
@@ -4301,6 +4306,7 @@ declare interface SweepGradientOptions {
    * @since 16
    */
   end?: number | string;
+
   /**
    * rotating:rotating. The default value is 0
    *
@@ -4358,6 +4364,7 @@ declare interface SweepGradientOptions {
    * @since 16
    */
   rotation?: number | string;
+
   /**
    * colors:Color description for gradients
    *
@@ -4414,6 +4421,7 @@ declare interface SweepGradientOptions {
    * @since 16
    */
   colors: Array<[ResourceColor, number]>;
+
   /**
    * repeating:repeating. The default value is false
    *
@@ -4540,6 +4548,7 @@ declare interface RadialGradientOptions {
    * @since 16
    */
   center: [Length, Length];
+
   /**
    * radius:Radius of Radial Gradient. value range [0, +∞)
    *
@@ -4596,6 +4605,7 @@ declare interface RadialGradientOptions {
    * @since 16
    */
   radius: number | string;
+
   /**
    * colors:Color description for gradients
    *
@@ -4652,6 +4662,7 @@ declare interface RadialGradientOptions {
    * @since 16
    */
   colors: Array<[ResourceColor, number]>;
+
   /**
    * repeating: Refill. The default value is false
    *
@@ -20126,7 +20137,7 @@ declare class CommonMethod<T> {
    * Adds the background blur effect for the current component. The input parameter is the blur radius.
    * The larger the blur radius, the more blurred the background. If the value is 0, the background blur is not blurred.
    *
-   * @param { Optional<number> } radius - value indicates radius of backdrop blur.
+   * @param { Optional<number> } value - value indicates radius of backdrop blur.
    * @param { BlurOptions } [options] - options indicates the backdrop blur options.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -20135,7 +20146,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 16
    */
-  backdropBlur(radius: Optional<number>, options?: BlurOptions): T;
+  backdropBlur(value: Optional<number>, options?: BlurOptions): T;
 
   /**
    * Composite the contents of this view and its children into an offscreen cache before display in the screen.
@@ -20172,7 +20183,7 @@ declare class CommonMethod<T> {
   /**
    * Composite the contents of this view and its children into an offscreen cache before display in the screen.
    *
-   * @param { Optional<boolean> } render - if this view and its children need to composite into an offscreen cache.
+   * @param { Optional<boolean> } value - if this view and its children need to composite into an offscreen cache.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -20180,7 +20191,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 16
    */
-  renderGroup(render: Optional<boolean>): T;
+  renderGroup(value: Optional<boolean>): T;
 
   /**
    * Sets whether the component should remain stationary, reusing the results of the current frame's off-screen rendering.
