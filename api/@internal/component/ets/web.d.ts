@@ -1553,6 +1553,14 @@ declare class FileSelectorParam {
    * @since 11
    */
   isCapture(): boolean;
+
+  /**
+   * Gets an array of raw acceptable MIME type.
+   * @returns { Array<string> } Return an array of raw acceptable MIME type.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 16
+   */
+  getMimeTypes(): Array<string>;
 }
 
 /**
