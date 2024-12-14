@@ -2841,7 +2841,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 15
    */
   enableModeChangeAnimation(isEnabled: Optional<boolean>): NavigationAttribute;
 }
