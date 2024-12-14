@@ -703,6 +703,34 @@ declare namespace photoAccessHelper {
     SHORT_TIME_AUTHORIZATION = 0
   }
 
+    /**
+   * Enumeration type of save mode.
+   *
+   * @enum { number } SaveMode
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 14
+   */
+    enum SaveMode {
+      /**
+       * Save as a new photo/video.
+       *
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @systemapi
+       * @since 14
+       */
+      SHORT_AS_NEW = 0,
+
+      /**
+       * Overwrite and save.
+       *
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @systemapi
+       * @since 14
+       */
+      SHORT_AS_REPLACE = 1,
+    }  
+
   /**
    * Enum: complete button text
    *
@@ -4323,6 +4351,45 @@ declare namespace photoAccessHelper {
      */
     requestPhotoUrisReadPermission(srcFileUris: Array<string>): Promise<Array<string>>;
 
+<<<<<<< HEAD
+=======
+    /**
+     * Save the photo after edit.
+     *
+     * @param { string } originalUri - Original uri 
+     * @param { string } replaceUri - Replaced uri
+     * @param { AsyncCallback<void> } callback - Returns void
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types
+     * @throws { BusinessError } 13900002 - No such file
+     * @throws { BusinessError } 14000001 - Invalid uri
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 14
+     */
+    replacePhotoPickerPreview(originalUri: string, replaceUri: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Save the uris returned by replacePhotoPickerPreview.
+     *
+     * @param { Array<string> } trustedUris - Uris need to be saved
+     * @param { AsyncCallback<Array<string>> } callback - Returns the uri list
+     * @param { PhotoCreationConfig } configs - Photo asset creation configs
+     * @param { SaveMode } saveMode - Mode of save
+     * @returns { Promise<Array<string>> } - Returns the authorized uri list
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14000002 - Invalid uri
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 14
+     */
+    saveTrustedPhotoAssets(trustedUris: Array<string>, callback: AsyncCallback<Array<string>>,
+      configs?: PhotoCreationConfig, saveMode?: SaveMode): void;
+
+>>>>>>> fb8b5e17f682222cdb93cf9393ce3fd4d124aebc
     /**
      * Get the index of the asset in the album
      *
