@@ -4045,6 +4045,16 @@ declare class EventResult {
    * @since 12
    */
   setGestureEventResult(result: boolean): void;
+
+  /**
+   * Set whether the event is consumed.
+   *
+   * @param { boolean } result - True if the event is consumed.
+   * @param { boolean } stopPropagation - Stops the propagation of events farther along.Default value is true.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 14
+   */
+  setGestureEventResult(result: boolean, stopPropagation: boolean): void;
 }
 
 /**
