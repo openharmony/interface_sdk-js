@@ -92,7 +92,7 @@ type OnFirstMeaningfulPaintCallback = (firstMeaningfulPaint: FirstMeaningfulPain
  *
  * @typedef { function } OnOverrideUrlLoadingCallback
  * @param { WebResourceRequest } webResourceRequest - callback information of onOverrideUrlLoading.
- * @returns { boolean } - Returning true causes the current Web to abort loading the URL, 
+ * @returns { boolean } - Returning true causes the current Web to abort loading the URL,
  *                        false causes the Web to continue loading the url as usual.
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
@@ -8746,13 +8746,43 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Sets whether to optimize parser budget to reduce FCP time
-   * 
+   *
    * @param { boolean} optimizeParserBudget Default value is false, set true to enable optimize parser budget.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 15
    */
   optimizeParserBudget(optimizeParserBudget: boolean): WebAttribute;
+
+  /**
+   * Injects the JavaScripts that will be run just after document object has been created.
+   *
+   * @param { Array<ScriptItem> } scripts - The JavaScripts executed in array order.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 15
+   */
+  runJavaScriptOnDocumentStart(scripts: Array<ScriptItem>): WebAttribute;
+
+  /**
+   * Injects the JavaScripts that will be run after document has been parsed finished.
+   *
+   * @param { Array<ScriptItem> } scripts - The JavaScripts executed in array order.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 15
+   */
+  runJavaScriptOnDocumentEnd(scripts: Array<ScriptItem>): WebAttribute;
+
+  /**
+   * Injects the JavaScripts that will be run after head element has been parsed finished.
+   *
+   * @param { Array<ScriptItem> } scripts - The JavaScripts executed in array order.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 15
+   */
+  runJavaScriptOnHeadEnd(scripts: Array<ScriptItem>): WebAttribute;
 }
 
 /**
