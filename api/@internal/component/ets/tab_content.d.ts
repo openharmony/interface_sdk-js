@@ -1220,6 +1220,20 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
   tabBar(value: SubTabBarStyle | BottomTabBarStyle): TabContentAttribute;
 
   /**
+   * Set the content of the tab bar.
+   *
+   * @param { ComponentContent | SubTabBarStyle | BottomTabBarStyle | string | Resource | CustomBuilder | TabBarOptions } content
+   * Set the content of the tab bar.
+   * @returns { TabContentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  tabBar(content: ComponentContent | SubTabBarStyle | BottomTabBarStyle | string | Resource | CustomBuilder | 
+    TabBarOptions): TabContentAttribute;
+
+  /**
    * Called when the tab content will show.
    * @param { VoidCallback  } event
    * @returns { TabContentAttribute }
