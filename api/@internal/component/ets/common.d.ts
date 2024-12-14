@@ -11519,6 +11519,30 @@ declare interface SheetOptions extends BindOptions {
    * @since 13
    */
   keyboardAvoidMode?: SheetKeyboardAvoidMode;
+
+  /**
+   * Defines whether to respond to the hover mode.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  enableHoverMode?: boolean;
+
+  /**
+   * Defines the sheet's display area in hover mode.
+   *
+   * @type { ?HoverModeAreaType }
+   * @default HoverModeAreaType.BOTTOM_SCREEN
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  hoverModeArea?: HoverModeAreaType;
 }
 
 /**
@@ -15313,6 +15337,19 @@ declare class CommonMethod<T> {
    */
   padding(value: Padding | Length | LocalizedPadding): T;
 
+  /**
+   * Inner safeArea padding.
+   *
+   * @param { Padding | LengthMetrics | LocalizedPadding } paddingValue - Indicates safeArea padding values
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  safeAreaPadding(paddingValue: Padding | LengthMetrics | LocalizedPadding): T;
+  
   /**
    * Outer Margin.
    *
@@ -23904,4 +23941,36 @@ declare enum KeyboardAvoidMode {
    * @since 12
    */
   NONE = 1,
+}
+
+/**
+ * Enumerates the type of area in hover mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare enum HoverModeAreaType {
+
+  /**
+   * Layout top half screen when the phone in hover mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  TOP_SCREEN = 0,
+
+  /**
+   * Layout bottom half screen when the phone in hover mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  BOTTOM_SCREEN = 1,
 }

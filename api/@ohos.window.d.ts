@@ -2886,6 +2886,23 @@ declare namespace window {
   function getSnapshot(windowId: number): Promise<image.PixelMap>;
 
   /**
+   * Get windows by coordinate.
+   *
+   * @param { number } displayId - Indicate the id of display.
+   * @param { number } windowNumber - Indicate the Number of query windows.
+   * @param { number } x - Indicate the X-coordinate of the window.
+   * @param { number } y - Indicate the Y-coordinate of the window.
+   * @returns { Promise<Array<Window>> } Promise used to return the window.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 14
+   */
+  function getWindowsByCoordinate(displayId: number, windowNumber?: number, x?: number, y?: number): Promise<Array<Window>>;
+
+  /**
    * Register the callback of systemBarTintChange
    *
    * @param { 'systemBarTintChange' } type - The value is fixed at 'systemBarTintChange', indicating the property change event of the system bar.
@@ -7608,6 +7625,23 @@ declare namespace window {
     setSubWindowModal(isModal: boolean): Promise<void>;
 
     /**
+     * Set the modality of the window.
+     *
+     * @param { boolean } isModal - Enable the window modal if true, otherwise means the opposite.
+     * @param { ModalityType } modalityType - Set modality type when the window modal is true. 
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 14
+     */
+    setSubWindowModal(isModal: boolean, modalityType: ModalityType): Promise<void>;
+
+    /**
      * Set the height of the window decor.
      *
      * @param { number } - The height of window decor.
@@ -8078,6 +8112,34 @@ declare namespace window {
      */
     PAUSED
   }
+
+  /**
+   * Enum for window modality Type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 14
+   */
+  enum ModalityType {
+    /**
+     * The value means window modality.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 14
+     */
+    WINDOW_MODALITY = 0,
+    /**
+     * The value means application modality.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 14
+     */
+    APPLICATION_MODALITY = 1,
+  }
+
   /**
    * Options for subwindow creation
    * 
@@ -8144,6 +8206,15 @@ declare namespace window {
      * @since 12
      */
     isTopmost?: boolean;
+    /**
+     * Indicates modality type of subwindow
+     * 
+     * @type { ?ModalityType }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 14
+     */
+    modalityType?: ModalityType;
   }
   /**
    * WindowStage
@@ -8790,6 +8861,20 @@ declare namespace window {
      * @since 12
      */
     setDefaultDensityEnabled(enabled: boolean): void;
+
+    /**
+     * Remove the starting window, it must be used with configuration "enable.remove.starting.window".
+     *
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @StageModelOnly
+     * @atomicservice
+     * @since 14
+     */
+    removeStartingWindow(): Promise<void>;
 
     /**
      * Set to automatically save the window rect.

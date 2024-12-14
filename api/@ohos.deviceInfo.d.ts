@@ -171,6 +171,16 @@ declare namespace deviceInfo {
   const productModel: string;
 
   /**
+   * Obtains the product model alias represented by a string.
+   *
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  const productModelAlias: string;
+
+  /**
    * Obtains the software model represented by a string.
    *
    * @constant

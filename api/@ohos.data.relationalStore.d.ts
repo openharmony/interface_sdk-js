@@ -407,6 +407,15 @@ declare namespace relationalStore {
      * @since 12
      */
     haMode?: HAMode;
+
+    /**
+     * Specifies the cryptographic parameters used when opening an encrypted database.
+     *
+     * @type { ?CryptoParam }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    cryptoParam?: CryptoParam;
   }
 
   /**
@@ -435,6 +444,167 @@ declare namespace relationalStore {
      * @since 12
      */
     MAIN_REPLICA
+  }
+
+  /**
+   * Specifies the cryptographic parameters used when opening an encrypted database.
+   *
+   * @typedef CryptoParam
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 14
+   */
+  interface CryptoParam {
+    /**
+     * Specifies the key used when opening an encrypted database.
+     * When finished passing the key to the database, its content should be set to all-zero.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    encryptionKey: Uint8Array;
+
+    /**
+     * Specifies the number of KDF iterations used when opening an encrypted database.
+     * Default number is 10000.
+     * When the number is set to 0, use default iteration number and encryption algorithm.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    iterationCount?: number;
+
+    /**
+     * Specifies the encryption algorithm when opening an encrypted database.
+     * Default encryption algorithm is AES_256_GCM.
+     *
+     * @type { ?EncryptionAlgo }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    encryptionAlgo?: EncryptionAlgo;
+
+    /**
+     * Specifies the HMAC algorithm when opening an encrypted database.
+     * Default HMAC algorithm is SHA256.
+     *
+     * @type { ?HmacAlgo }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    hmacAlgo?: HmacAlgo;
+
+    /**
+     * Specifies the KDF algorithm when opening an encrypted database.
+     * Default KDF SHA algorithm is the same as HMAC algorithm.
+     *
+     * @type { ?KdfAlgo }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    kdfAlgo?: KdfAlgo;
+
+    /**
+     * Specifies the page size used when opening an encrypted database.
+     * Default crypto page size is 1024.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    cryptoPageSize?: number;
+  }
+
+  /**
+   * Enumerates the supported encryption algorithm when opening a database.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 14
+   */
+  enum EncryptionAlgo {
+    /**
+     * AES_256_GCM: Database is encrypted using AES_256_GCM.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    AES_256_GCM = 0,
+
+    /**
+     * AES_256_CBC: Database is encrypted using AES_256_CBC.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    AES_256_CBC
+  }
+
+  /**
+   * Enumerates the supported HMAC algorithm when opening a database.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 14
+   */
+  enum HmacAlgo {
+    /**
+     * SHA1: HMAC_SHA1 algorithm.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    SHA1 = 0,
+
+    /**
+     * SHA256: HMAC_SHA256 algorithm.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    SHA256,
+
+    /**
+     * SHA512: HMAC_SHA512 algorithm.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    SHA512
+  }
+
+  /**
+   * Enumerates the supported KDF algorithm when opening a database.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 14
+   */
+  enum KdfAlgo {
+    /**
+     * KDF_SHA1: PBKDF2_HMAC_SHA1 algorithm.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    KDF_SHA1 = 0,
+
+    /**
+     * KDF_SHA256: PBKDF2_HMAC_SHA256 algorithm.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    KDF_SHA256,
+
+    /**
+     * KDF_SHA512: PBKDF2_HMAC_SHA512 algorithm.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    KDF_SHA512
   }
 
   /**
@@ -1256,6 +1426,57 @@ declare namespace relationalStore {
      * @since 12
      */
     REPAIRED
+  }
+
+  /**
+   * Enumerates the type of transaction.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 14
+   */
+  enum TransactionType {
+    /**
+     * The DEFERRED transaction.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    DEFERRED,
+
+    /**
+     * The IMMEDIATE transaction.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    IMMEDIATE,
+
+    /**
+     * The EXCLUSIVE transaction.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    EXCLUSIVE
+  }
+
+  /**
+   * Create transaction options.
+   *
+   * @interface TransactionOptions
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 14
+   */
+  interface TransactionOptions {
+    /**
+     * The type of transaction.
+     *
+     * @type { TransactionType }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    transactionType?: TransactionType;
   }
 
   /**
@@ -7023,6 +7244,455 @@ declare namespace relationalStore {
      * @since 12
      */
     unlockCloudContainer(): Promise<void>;
+
+    /**
+     * create a transaction instance and begin.
+     *
+     * @param { TransactionOptions } options - The option for creating transactions.
+     * @returns { Promise<Transaction> } The {@link Transaction} object if the operation is successful.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 14
+     */
+    createTransaction(options?: TransactionOptions): Promise<Transaction>;
+  }
+
+  /**
+   * Provides transactional methods for managing the relational database (RDB).
+   *
+   * @interface Transaction
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 14
+   */
+  interface Transaction {
+    /**
+     * commit the transaction.
+     *
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 14
+     */
+    commit(): Promise<void>;
+
+    /**
+     * rollback the transaction.
+     *
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 14
+     */
+    rollback(): Promise<void>;
+
+    /**
+     * Inserts a row of data into the target table.
+     *
+     * @param { string } table - Indicates the target table.
+     * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
+     * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
+     * @returns { Promise<number> } The row ID if the operation is successful. return -1 otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 14
+     */
+    insert(table: string, values: ValuesBucket, conflict?: ConflictResolution): Promise<number>;
+
+    /**
+     * Inserts a row of data into the target table with sync interface, just use in TaskPool or Worker.
+     *
+     * @param { string } table - Indicates the target table.
+     * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
+     * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
+     * @returns { number } The row ID if the operation is successful. return -1 otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 14
+     */
+    insertSync(table: string, values: ValuesBucket | sendableRelationalStore.ValuesBucket, conflict?: ConflictResolution): number;
+
+    /**
+     * Inserts a batch of data into the target table.
+     *
+     * @param { string } table - Indicates the target table.
+     * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
+     * @returns { Promise<number> } The number of values that were inserted if the operation is successful. returns -1 otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 14
+     */
+    batchInsert(table: string, values: Array<ValuesBucket>): Promise<number>;
+
+    /**
+     * Inserts a batch of data into the target table.
+     *
+     * @param { string } table - Indicates the target table.
+     * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
+     * @returns { number } The number of values that were inserted if the operation is successful. returns -1 otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 14
+     */
+    batchInsertSync(table: string, values: Array<ValuesBucket>): number;
+
+    /**
+     * Updates data in the database based on a specified instance object of RdbPredicates.
+     *
+     * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
+     *                         The key-value pairs are associated with column names of the database table.
+     * @param { RdbPredicates } predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
+     * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
+     * @returns { Promise<number> } The number of affected rows.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 14
+     */
+    update(values: ValuesBucket, predicates: RdbPredicates, conflict?: ConflictResolution): Promise<number>;
+
+    /**
+     * Updates data in the database based on a specified instance object of RdbPredicates with sync interface.
+     *
+     * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
+     *                         The key-value pairs are associated with column names of the database table.
+     * @param { RdbPredicates } predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
+     * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
+     * @returns { number } The number of affected rows.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 14
+     */
+    updateSync(values: ValuesBucket, predicates: RdbPredicates, conflict?: ConflictResolution): number;
+
+    /**
+     * Deletes data from the database based on a specified instance object of RdbPredicates.
+     *
+     * @param { RdbPredicates } predicates - The specified delete condition by the instance object of {@link RdbPredicates}.
+     * @returns { Promise<number> } return the number of affected rows.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 14
+     */
+    delete(predicates: RdbPredicates): Promise<number>;
+
+    /**
+     * Deletes data from the database based on a specified instance object of RdbPredicates with sync interface.
+     *
+     * @param { RdbPredicates } predicates - The specified delete condition by the instance object of {@link RdbPredicates}.
+     * @returns { number } return the number of affected rows.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 14
+     */
+    deleteSync(predicates: RdbPredicates): number;
+
+    /**
+     * Queries data in the database based on specified conditions.
+     *
+     * @param { RdbPredicates } predicates - The specified query condition by the instance object of {@link RdbPredicates}.
+     * @param { Array<string> } columns - The columns to query. If the value is null, the query applies to all columns.
+     * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 14
+     */
+    query(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
+
+    /**
+     * Queries data in the database based on specified conditions with sync function.
+     *
+     * @param { RdbPredicates } predicates - The specified query condition by the instance object of {@link RdbPredicates}.
+     * @param { Array<string> } columns - The columns to query. If the value is empty array, the query applies to all columns.
+     * @returns { ResultSet } The {@link ResultSet} object if the operation is successful.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 14
+     */
+    querySync(predicates: RdbPredicates, columns?: Array<string>): ResultSet;
+
+    /**
+     * Queries data in the database based on SQL statement.
+     *
+     * @param { string } sql - Indicates the SQL statement to execute.
+     * @param { Array<ValueType> } args - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
+     * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 14
+     */
+    querySql(sql: string, args?: Array<ValueType>): Promise<ResultSet>;
+
+    /**
+     * Queries data in the database based on SQL statement with sync interface.
+     *
+     * @param { string } sql - Indicates the SQL statement to execute.
+     * @param { Array<ValueType> } args - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
+     * @returns { ResultSet } The {@link ResultSet} object if the operation is successful.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 14
+     */
+    querySqlSync(sql: string, args?: Array<ValueType>): ResultSet;
+
+    /**
+     * Executes a SQL statement that contains specified parameters and returns a value of ValueType.
+     *
+     * @param { string } sql - Indicates the SQL statement to execute.
+     * @param { Array<ValueType> } args - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
+     * @returns { Promise<ValueType> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    execute(sql: string, args?: Array<ValueType>): Promise<ValueType>;
+
+    /**
+     * Executes a SQL statement that contains specified parameters and returns a value of ValueType with sync interface.
+     *
+     * @param { string } sql - Indicates the SQL statement to execute.
+     * @param { Array<ValueType> } args - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
+     * @returns { ValueType } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 14
+     */
+    executeSync(sql: string, args?: Array<ValueType>): ValueType;
   }
 
   /**
