@@ -235,6 +235,17 @@ declare interface TextPickerOptions {
    * @since 11
    */
   selected?: number | number[];
+  
+  /**
+   * Defines the column width of the text picker.
+   *
+   * @type { ?LengthMetrics[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  columnWidths?: LengthMetrics[];
 }
 
 /**
