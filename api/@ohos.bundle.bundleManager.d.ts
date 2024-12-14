@@ -2076,6 +2076,25 @@ declare namespace bundleManager {
   function cleanBundleCacheFiles(bundleName: string): Promise<void>;
 
   /**
+   * Clears cache data of a specified application.
+   *
+   * @permission ohos.permission.REMOVE_CACHE_FILES
+   * @param { string } bundleName - Indicates the bundle name of the application whose cache data is to be cleaned.
+   * @param { number } appIndex - Indicates the index of clone app.
+   * @returns { Promise<void> } Clean bundle cache files result
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700030 - The specified bundle does not support clearing of cache files.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 15
+   */
+  function cleanBundleCacheFiles(bundleName: string, appIndex: number): Promise<void>;
+
+  /**
    * Sets whether to enable a specified application.
    *
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
