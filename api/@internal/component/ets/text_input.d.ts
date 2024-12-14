@@ -2639,6 +2639,18 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   enableHapticFeedback(isEnabled: boolean): TextInputAttribute;
 
   /**
+   * Set the text with half leading.
+   *
+   * @param { Optional<boolean> } halfLeading
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  halfLeading(halfLeading: Optional<boolean>): TextInputAttribute;
+
+  /**
    * Set text mode of automatic case mode switching.
    *
    * @param { AutoCapitalizationMode } mode - Automatic case mode switching.
