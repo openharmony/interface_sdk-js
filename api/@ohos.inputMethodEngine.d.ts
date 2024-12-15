@@ -1855,7 +1855,19 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    FLG_FLOATING
+    FLG_FLOATING,
+
+    /**
+     * Candidate style.
+     * <p>It's provided for the panel with type of SOFT_KEYBOARD.
+     * When the flag is set, the soft keyboard is a candidate window which will show the possible characters when user types a input code.
+     * Panel with candidate style will not be automatically shown or hidden by input method service.
+     * Input method application developers are supposed to control the panel status on their own.</p>
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    FLAG_CANDIDATE
   }
 
   /**
