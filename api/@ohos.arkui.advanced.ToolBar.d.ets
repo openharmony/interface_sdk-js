@@ -25,13 +25,13 @@ import { SymbolGlyphModifier, DividerModifier } from './@ohos.arkui.modifier';
 import { LengthMetrics } from './@ohos.arkui.node';
 /**
  * Declare enum ItemState
- * @enum { ItemState }
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 /**
  * Declare enum ItemState
- * @enum { ItemState }
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
@@ -135,13 +135,13 @@ export declare class ToolBarOption {
   content: ResourceStr;
   /**
    * Define the action event.
-   * @type { ?() => void }.
+   * @type { ?function }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Define the action event.
-   * @type { ?() => void }.
+   * @type { ?function }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -216,15 +216,45 @@ export declare class ToolBarOption {
    * @since 13
    */
   toolBarSymbolOptions?: ToolBarSymbolGlyphOptions;
+  /**
+   * The accessibilityText of item.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityText?: ResourceStr;
+  /**
+   * The accessibilityDescription of item.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityDescription?: ResourceStr;
+  /**
+   * The accessibilityLevel of item.
+   *
+   * @type { ?string }
+   * @default "auto"
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityLevel?: string;
 }
 
 /**
  * Declare ToolBarOptions use in ToolBar
+ * @extends Array<ToolBarOption>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 /**
  * Declare ToolBarOptions use in ToolBar
+ * @extends Array<ToolBarOption>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
@@ -284,11 +314,13 @@ export declare class ToolBarModifier {
 
 /**
  * Declare Component ToolBar
+ * @struct { ToolBar }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 /**
  * Declare Component ToolBar
+ * @struct { ToolBar }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
