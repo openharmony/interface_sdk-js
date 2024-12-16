@@ -18,6 +18,9 @@
  * @kit ArkUI
  */
 
+import { LengthMetrics } from './@ohos.arkui.node';
+import { ColorMetrics } from './@ohos.arkui.node';
+
 /**
  * Declare Component ProgressButtonV2
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -51,13 +54,13 @@ export declare struct ProgressButtonV2 {
 
   /**
    * Sets the ProgressButtonV2 progressButtonWidth.
-   * @type { ?Length }.
+   * @type { ?LengthMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @crossplatform
    * @since 16
    */
-  @Param @Once progressButtonWidth?: Length;
+  @Param @Once progressButtonWidth?: LengthMetrics;
 
   /**
    * Sets the ProgressButtonV2 clickCallback.
@@ -104,46 +107,46 @@ export declare class ProgressButtonV2Color {
   /**
    * Set progress color of the ProgressButtonV2.
    *
-   * @type { ?ResourceColor }.
+   * @type { ?ColorMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @crossplatform
    * @since 16
    */
-  @Trace progressColor?: ResourceColor;
+  @Trace progressColor?: ColorMetrics;
 
   /**
    * Set border color of the ProgressButtonV2.
    *
-   * @type { ?ResourceColor }.
+   * @type { ?ColorMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @crossplatform
    * @since 16
    */
-  @Trace borderColor?: ResourceColor;
+  @Trace borderColor?: ColorMetrics;
 
   /**
    * Set text color of the ProgressButtonV2.
    *
-   * @type { ?ResourceColor }.
+   * @type { ?ColorMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @crossplatform
    * @since 16
    */
-  @Trace textColor?: ResourceColor;
+  @Trace textColor?: ColorMetrics;
 
   /**
    * Set background color of the ProgressButtonV2.
    *
-   * @type { ?ResourceColor }.
+   * @type { ?ColorMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @crossplatform
    * @since 16
    */
-  @Trace backgroundColor?: ResourceColor;
+  @Trace backgroundColor?: ColorMetrics;
 
   constructor (options: ProgressButtonV2ColorOptions);
 }
@@ -161,44 +164,44 @@ export declare interface ProgressButtonV2ColorOptions {
   /**
    * Set progress color of the ProgressButtonV2.
    *
-   * @type { ?ResourceColor }.
+   * @type { ?ColorMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @crossplatform
    * @since 16
    */
-   progressColor?: ResourceColor;
+   progressColor?: ColorMetrics;
 
   /**
    * Set border color of the ProgressButtonV2.
    *
-   * @type { ?ResourceColor }.
+   * @type { ?ColorMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @crossplatform
    * @since 16
    */
-   borderColor?: ResourceColor;
+   borderColor?: ColorMetrics;
 
   /**
    * Set text color of the ProgressButtonV2.
    *
-   * @type { ?ResourceColor }.
+   * @type { ?ColorMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @crossplatform
    * @since 16
    */
-   textColor?: ResourceColor;
+   textColor?: ColorMetrics;
 
   /**
    * Set background color of the ProgressButtonV2.
    *
-   * @type { ?ResourceColor }.
+   * @type { ?ColorMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @crossplatform
    * @since 16
    */
-   backgroundColor?: ResourceColor;
+   backgroundColor?: ColorMetrics;
 }
