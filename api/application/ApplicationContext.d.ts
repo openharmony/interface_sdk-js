@@ -413,6 +413,20 @@ export default class ApplicationContext extends Context {
   killAllProcesses(callback: AsyncCallback<void>);
 
   /**
+   * Kill all processes of the application
+   *
+   * @param { boolean } clearPageStack - The flag that indicates whether the page stack need to be cleared.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 14
+   */
+  killAllProcesses(clearPageStack: boolean): Promise<void>;
+
+  /**
    * Set colorMode of the application
    *
    * @param { ConfigurationConstant.ColorMode } colorMode - Color mode.
