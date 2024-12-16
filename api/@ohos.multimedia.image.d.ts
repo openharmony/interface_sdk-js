@@ -3954,6 +3954,7 @@ declare namespace image {
      * Component type.
      *
      * @type { ComponentType }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
@@ -3963,6 +3964,7 @@ declare namespace image {
      * Row stride.
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
@@ -3972,6 +3974,7 @@ declare namespace image {
      * Pixel stride.
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
@@ -3981,6 +3984,7 @@ declare namespace image {
      * Component buffer.
      *
      * @type { ArrayBuffer }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
@@ -5168,6 +5172,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Whether the image pixel map can be edited.
      *
      * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 7
      */
@@ -5175,6 +5180,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Whether the image pixel map can be edited.
      *
      * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
@@ -5183,6 +5189,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Whether the image pixel map can be edited.
      *
      * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -5192,6 +5199,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Whether the image pixel map can be edited.
      *
      * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -8315,6 +8323,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Supported image formats.
      *
      * @type { Array<string> }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 6
      */
@@ -8322,6 +8331,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Supported image formats.
      *
      * @type { Array<string> }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -8735,6 +8745,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Supported image formats.
      *
      * @type { Array<string> }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 6
      */
@@ -8742,6 +8753,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Supported image formats.
      *
      * @type { Array<string> }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 10
@@ -8770,6 +8782,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Image size.
      *
      * @type { Size }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
@@ -8779,6 +8792,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Image format.
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
@@ -8788,6 +8802,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Image timestamp.
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12
      */
@@ -8844,6 +8859,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Image size.
      *
      * @type { Size }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9
      */
@@ -8853,6 +8869,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Image capacity.
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9
      */
@@ -8862,6 +8879,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Image format.
      *
      * @type { ImageFormat }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9
      */
@@ -8974,6 +8992,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Image capacity.
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @since 9
      */
@@ -8983,6 +9002,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Image format.
      *
      * @type { ImageFormat }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @since 9
      */
