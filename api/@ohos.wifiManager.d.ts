@@ -2634,6 +2634,14 @@ declare namespace wifiManager {
    * @atomicservice
    * @since 12
    */
+
+  /**
+   * Wi-Fi device configuration information.
+   * @typedef WifiDeviceConfig
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @atomicservice
+   * @since 16
+   */
   interface WifiDeviceConfig {
     /** 
      * Wi-Fi SSID: the maximum length is 32.
@@ -2815,6 +2823,15 @@ declare namespace wifiManager {
      * @since 12
      */
     configStatus?: number;
+
+    /**
+     * Allow auto connect config: false - not, true - yes.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 16
+     */
+    isAllowAutoConnect?: boolean;
   }
 
   /**
