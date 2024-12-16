@@ -64,13 +64,13 @@ export declare struct ProgressButtonV2 {
 
   /**
    * Sets the ProgressButtonV2 clickCallback.
-   * @type { () => void }.
+   * @type { ClickCallBack }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @crossplatform
    * @since 16
    */
-  @Param readonly clickCallback: () => void;
+  @Param readonly clickCallback: ClickCallBack;
 
   /**
    * Sets the ProgressButtonV2 enable state.
@@ -150,6 +150,16 @@ export declare class ProgressButtonV2Color {
 
   constructor (options: ProgressButtonV2ColorOptions);
 }
+
+/**
+ * Defines clickCallback of the ProgressButtonV2.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @crossplatform
+ * @since 16
+ */
+export type ClickCallBack = () => void;
 
 /**
  * Declare Color options interface of the ProgressButtonV2.
