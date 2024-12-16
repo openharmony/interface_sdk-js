@@ -1219,7 +1219,7 @@ declare namespace text {
     /**
      * Customized font types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 16
      */
     CUSTOMIZED = 1 << 4,
   }
