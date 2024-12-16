@@ -70,7 +70,7 @@ export declare struct ProgressButtonV2 {
    * @crossplatform
    * @since 16
    */
-  @Param readonly clickCallback: ClickCallBack;
+  @Param readonly onClicked: ClickCallBack;
 
   /**
    * Sets the ProgressButtonV2 enable state.
