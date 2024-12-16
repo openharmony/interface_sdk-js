@@ -2188,7 +2188,7 @@ declare interface SwiperContentTransitionProxy {
 /**
  * The callback of onContentDidScroll.
  * 
- * @typedef { Function } ContentDidScrollCallback
+ * @typedef { function } ContentDidScrollCallback
  * @param { number } selectedIndex - the index value of the swiper content selected before animation start.
  * @param { number } index - the index value of the swiper content.
  * @param { number } position - the moving ratio of the swiper content from the start position of the swiper main axis.
