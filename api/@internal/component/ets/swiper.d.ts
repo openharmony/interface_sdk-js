@@ -1229,6 +1229,31 @@ declare interface SwiperAnimationEvent {
 }
 
 /**
+ * Define autoPlay related options.
+ *
+ * @interface AutoPlayOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 16
+ */
+declare interface AutoPlayOptions {
+  /**
+   * Set whether to stop autoplay immediately on touch down event.
+   *
+   * @type { boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  stopWhenTouched: boolean;
+}
+
+/**
  * Swiper nested scroll nested mode
 
  * @enum { number } SwiperNestedScrollMode
@@ -1386,6 +1411,20 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 11
    */
   autoPlay(value: boolean): SwiperAttribute;
+
+  /**
+   * Set whether the subcomponent plays automatically.
+   *
+   * @param { boolean } autoPlay - whether the subcomponent plays automatically
+   * @param { AutoPlayOptions } options - autoPlay related options
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  autoPlay(autoPlay: boolean, options: AutoPlayOptions): SwiperAttribute;
 
   /**
    * Called when the time interval for automatic playback is set.
