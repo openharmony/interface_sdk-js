@@ -43,14 +43,14 @@ export declare struct ProgressButtonV2 {
 
   /**
    * Sets the ProgressButtonV2 content.
-   * @type { string }.
+   * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @crossplatform
    * @since 16
    */
   @Require
-  @Param readonly content: string;
+  @Param readonly content: ResourceStr;
 
   /**
    * Sets the ProgressButtonV2 progressButtonWidth.
