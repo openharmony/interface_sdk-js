@@ -340,6 +340,7 @@ declare namespace wantConstant {
     * be a system application and have applied for the ohos.permission.SET_LAUNCH_REASON_MESSAGE permission.
     *
     * @syscap SystemCapability.Ability.AbilityBase
+    * @atomicservice
     * @since 16
     */
     LAUNCH_REASON_MESSAGE = 'ohos.params.launchReasonMessage',
