@@ -63,7 +63,7 @@ export declare struct ProgressButtonV2 {
   @Param @Once progressButtonWidth?: LengthMetrics;
 
   /**
-   * Sets the ProgressButtonV2 clickCallback.
+   * Sets the ProgressButtonV2 onClicked.
    * @type { ClickCallBack }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
