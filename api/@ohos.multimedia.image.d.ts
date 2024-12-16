@@ -113,6 +113,15 @@ declare namespace image {
     UNKNOWN = 0,
 
     /**
+     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：R(8bits), G(8bits), B(8bits), A(8bits)
+     * and are stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 16
+     */
+    ARGB_8888 = 1,
+
+    /**
      * Indicates that each pixel is stored on 16 bits. Only the R, G, and B components are encoded
      * from the higher-order to the lower-order bits: red is stored with 5 bits of precision,
      * green is stored with 6 bits of precision, and blue is stored with 5 bits of precision.
@@ -6788,6 +6797,34 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 13
      */
     setMemoryNameSync(name: string): void;
+
+    /**
+     * Clone pixelmap from current pixelmap.
+     * 
+     * @returns { PixelMap } A instance used to return the PixelMap object.
+     * @throws { BusinessError } 501 - Resource unavailable.
+     * @throws { BusinessError } 62980102 - Image malloc abnormal.
+     * @throws { BusinessError } 62980103 - Image types are not supported.
+     * @throws { BusinessError } 62980104 - Image initialization abnormal.
+     * @throws { BusinessError } 62980106 - The image data is to large.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 16
+     */
+    cloneSync(): PixelMap;    
+
+    /**
+     * Clone pixelmap from current pixelmap.
+     * 
+     * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
+     * @throws { BusinessError } 501 - Resource unavailable.
+     * @throws { BusinessError } 62980102 - Image malloc abnormal.
+     * @throws { BusinessError } 62980103 - Image types are not supported.
+     * @throws { BusinessError } 62980104 - Image initialization abnormal.
+     * @throws { BusinessError } 62980106 - The image data is to large.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 16
+     */
+    clone(): Promise<PixelMap>;
 
     /**
      * Set metadata.
