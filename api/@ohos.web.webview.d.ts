@@ -3009,6 +3009,16 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Enables debugging of web contents.
+     * @param { boolean } webDebuggingAccess {@code true} enables debugging of web contents; {@code false} otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
     static setWebDebuggingAccess(webDebuggingAccess: boolean): void;
 
     /**
@@ -3447,6 +3457,17 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Let the Web zoom in.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100004 - Function not enabled.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
     zoomIn(): void;
 
     /**
@@ -3467,6 +3488,17 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Let the Web zoom out.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100004 - Function not enabled.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
      */
     zoomOut(): void;
 
@@ -3505,6 +3537,16 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Gets the id for the current Web.
+     * @returns { number } Returns the index value of the current Web component.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
      */
     getWebId(): number;
 
@@ -4105,6 +4147,21 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Scroll the contents of this Webview up by half the view size.
+     *
+     * @param { boolean } top - Whether to jump to the top of the page, if set to false,
+     *                          the page content will scroll up half the size of the viewframe,
+     *                          and when set to true, it will jump to the top of the page.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
     pageUp(top: boolean): void;
 
     /**
@@ -4133,6 +4190,21 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Scroll the contents of this Webview down by half the view size.
+     *
+     * @param { boolean } bottom - Whether to jump to the top of the page, if set to false,
+     *                             the page content will scroll up half the size of the viewframe,
+     *                             and when set to true, it will jump to the top of the page.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
     pageDown(bottom: boolean): void;
 
     /**
@@ -4151,6 +4223,16 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Gets the original url of current Web page.
+     * @returns { string } Return the original url of the current page.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
      */
     getOriginalUrl(): string;
 
@@ -4672,6 +4754,21 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Loads the URL use "POST" method with post data.
+     *
+     * @param { string } url - Request the URL use "POST" method.
+     * @param { ArrayBuffer } postData - This data will passed to "POST" request.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
      */
     postUrl(url: string, postData: ArrayBuffer): void;
 
