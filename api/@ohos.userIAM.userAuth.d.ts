@@ -1292,6 +1292,16 @@ declare namespace userAuth {
      * @since 12
      */
     reuseUnlockResult?: ReuseUnlockResult;
+
+    /**
+     * The user id to authenticate.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @systemapi Hide this for inner system use.
+     * @since 16
+     */
+    userId?: number;
   }
 
   /**
@@ -1354,6 +1364,17 @@ declare namespace userAuth {
      * @since 10
      */
     windowMode?: WindowModeType;
+
+    /**
+     * Display the authentication dialog in modal application mode. This mode is supported only on PC. Without this
+     * parameter or on other kind of devices, the authentication dialog would be displayed in modal system mode.
+     *
+     * @type { ?Context }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 16
+     */
+    uiContext?: Context;
   }
 
   /**
