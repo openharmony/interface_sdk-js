@@ -1174,6 +1174,13 @@ declare namespace webview {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Provides a method for managing web geographic location permissions.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   class GeolocationPermissions {
     /**
      * Allow geolocation permissions for specifies source.
@@ -1194,6 +1201,19 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Allow geolocation permissions for specifies source.
+     * @param { string } origin - Url source.
+     * @param { boolean } incognito - {@code true} Allow geolocation permissions for specifies source
+     *                                in incognito mode; {@code false} otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
      */
     static allowGeolocation(origin: string, incognito?: boolean): void;
 
@@ -1217,6 +1237,19 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Delete geolocation permissions for specifies source.
+     * @param { string } origin - Url source.
+     * @param { boolean } incognito - {@code true} delete geolocation permissions for specifies source
+     *                                in incognito mode; {@code false} otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
     static deleteGeolocation(origin: string, incognito?: boolean): void;
 
     /**
@@ -1233,6 +1266,16 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Delete all geolocation permissions.
+     *
+     * @param { boolean } incognito - {@code true} delete all geolocation in incognito mode;
+     *                                {@code false} otherwise.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
      */
     static deleteAllGeolocation(incognito?: boolean): void;
 
@@ -1265,6 +1308,24 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Gets the geolocation permission status of the specified source.
+     * @param { string } origin - Url source.
+     * @param { boolean } incognito - {@code true} gets the geolocation permission status of the
+     *                                specified source in incognito mode; {@code false} otherwise.
+     * @returns { Promise<boolean> } A Promise instance that obtains the permission
+     *                               status of the specified source and obtains successfully,
+     *                               true for authorization, false for access denial. Failed
+     *                               to get, indicating that the permission status of the
+     *                               specified source does not exist.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
      */
     static getAccessibleGeolocation(origin: string, incognito?: boolean): Promise<boolean>;
 
@@ -1300,6 +1361,25 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Gets the geolocation permission status of the specified source.
+     * @param { string } origin - Url source.
+     * @param { AsyncCallback<boolean> } callback - Returns the geolocation permission status for
+     *                                              the specified source. Successful acquisition,
+     *                                              true means authorized, false means access is
+     *                                              denied. Failed to get, indicating that the
+     *                                              permission status of the specified source does
+     *                                              not exist.
+     * @param { boolean } incognito - {@code true} gets the geolocation permission status of the
+     *                                specified source in incognito mode; {@code false} otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
     static getAccessibleGeolocation(origin: string, callback: AsyncCallback<boolean>, incognito?: boolean): void;
 
     /**
@@ -1323,6 +1403,19 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Get all stored geolocation permission url source.
+     * @param { boolean } incognito - {@code true} get all stored geolocation permission url source
+     *                                in incognito mode; {@code false} otherwise.
+     * @returns { Promise<Array<string>> } A Promise instance that gets all source information about
+     *                                     the stored geolocation permission state.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
     static getStoredGeolocation(incognito?: boolean): Promise<Array<string>>;
 
     /**
@@ -1344,6 +1437,19 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Get all stored geolocation permission url source.
+     * @param { AsyncCallback<Array<string>> } callback - Returns all source information for
+     *                                                    stored geolocation permission states.
+     * @param { boolean } incognito - {@code true} gets all stored geolocation permission url
+     *                                source in incognito mode; {@code false} otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
      */
     static getStoredGeolocation(callback: AsyncCallback<Array<string>>, incognito?: boolean): void;
   }
