@@ -10603,6 +10603,16 @@ declare interface KeyEvent {
    * @since 13
    */
   getModifierKeyState?(keys: Array<string>): boolean;
+
+  /**
+   * Unicode of a key
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 14
+   */
+  unicode?: number;
 }
 
 /**
