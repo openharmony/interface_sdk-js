@@ -1508,7 +1508,7 @@ declare namespace pointer {
   function setCustomCursorSync(windowId: number, pixelMap: image.PixelMap, focusX?: number, focusY?: number): void;
 
   /**
-   * 设置自定义光标，光标大小可设置是否跟随系统设置，光标最大可以设置256*256.
+   * 设置自定义光标，光标大小可设置是否跟随系统设置.
    *
    * @param { number } windowId - Window ID.
    * @param { CustomCursor } cursor - 自定义光标，包含自定义光标资源、焦点位置.
