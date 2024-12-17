@@ -19,7 +19,7 @@
  */
 
 
-
+import { SymbolGlyphModifier } from './@ohos.arkui.modifier';
 
 
 /**
@@ -48,6 +48,15 @@ export declare class EditableTitleBarMenuItem {
    * @since 11
    */
   value: ResourceStr;
+
+  /**
+   * Symbol style for this menu item.
+   * @type { ?SymbolGlyphModifier }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  symbolStyle?: SymbolGlyphModifier;
 
   /**
    * Icon label for this menu item.
