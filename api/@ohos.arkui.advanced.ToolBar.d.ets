@@ -25,13 +25,13 @@ import { SymbolGlyphModifier, DividerModifier } from './@ohos.arkui.modifier';
 import { LengthMetrics } from './@ohos.arkui.node';
 /**
  * Declare enum ItemState
- * @enum { number }
+ * @enum { ItemState }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 /**
  * Declare enum ItemState
- * @enum { number }
+ * @enum { ItemState }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
@@ -135,13 +135,13 @@ export declare class ToolBarOption {
   content: ResourceStr;
   /**
    * Define the action event.
-   * @type { ?function }.
+   * @type { ?() => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Define the action event.
-   * @type { ?function }.
+   * @type { ?() => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -248,13 +248,11 @@ export declare class ToolBarOption {
 
 /**
  * Declare ToolBarOptions use in ToolBar
- * @extends Array<ToolBarOption>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 /**
  * Declare ToolBarOptions use in ToolBar
- * @extends Array<ToolBarOption>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
