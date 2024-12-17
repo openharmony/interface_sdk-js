@@ -4755,8 +4755,8 @@ declare namespace camera {
   /**
    * Photo session object for system hap.
    *
-   * @interface PhotoSessionForSys
    * @extends PhotoSession, Beauty, ColorEffect, ColorManagement, Macro, SceneDetection, EffectSuggestion
+   * @interface PhotoSessionForSys
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 11
@@ -4764,8 +4764,8 @@ declare namespace camera {
   /**
    * Photo session object for system hap.
    *
-   * @interface PhotoSessionForSys
    * @extends PhotoSession, Beauty, ColorEffect, ColorManagement, Macro, SceneDetection, EffectSuggestion, DepthFusion
+   * @interface PhotoSessionForSys
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 14
@@ -6647,8 +6647,8 @@ declare namespace camera {
   /**
    * Macro photo session object.
    *
-   * @interface MacroPhotoSession
    * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus
+   * @interface MacroPhotoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12
@@ -6656,8 +6656,8 @@ declare namespace camera {
   /**
    * Macro photo session object.
    *
-   * @interface MacroPhotoSession
    * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus, DepthFusion
+   * @interface MacroPhotoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 14
@@ -10382,8 +10382,8 @@ declare namespace camera {
   /**
    * Depth Fusion object.
    *
-   * @interface DepthFusion
    * @extends DepthFusionQuery
+   * @interface DepthFusion
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 14
