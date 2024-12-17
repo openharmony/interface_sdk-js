@@ -567,6 +567,17 @@ export interface AbilityInfo {
    * @since 12
    */
   readonly appIndex: number;
+
+  /**
+   * Indicates the orientation id of the ability
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 14
+   */
+  readonly orientationId: number;
 }
 
 /**
