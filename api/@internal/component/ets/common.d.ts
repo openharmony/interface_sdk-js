@@ -20137,7 +20137,7 @@ declare class CommonMethod<T> {
    * Adds the background blur effect for the current component. The input parameter is the blur radius.
    * The larger the blur radius, the more blurred the background. If the value is 0, the background blur is not blurred.
    *
-   * @param { Optional<number> } value - value indicates radius of backdrop blur.
+   * @param { Optional<number> } radius - value indicates radius of backdrop blur.
    * @param { BlurOptions } [options] - options indicates the backdrop blur options.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -20146,7 +20146,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 16
    */
-  backdropBlur(value: Optional<number>, options?: BlurOptions): T;
+  backdropBlur(radius: Optional<number>, options?: BlurOptions): T;
 
   /**
    * Composite the contents of this view and its children into an offscreen cache before display in the screen.
