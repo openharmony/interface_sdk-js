@@ -25,7 +25,7 @@
  * Defines Rect Modifier
  *
  * @extends RectAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<RectAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

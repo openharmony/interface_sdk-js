@@ -1327,6 +1327,7 @@ declare interface TextMetrics {
    *    the rectangular boundary of the rendered text.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -1335,6 +1336,7 @@ declare interface TextMetrics {
    *    the rectangular boundary of the rendered text.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -1344,6 +1346,7 @@ declare interface TextMetrics {
    *    the rectangular boundary of the rendered text.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1354,6 +1357,7 @@ declare interface TextMetrics {
    *    the rectangular boundary of the rendered text.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1367,6 +1371,7 @@ declare interface TextMetrics {
    *    the rectangular boundary of the rendered text.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -1375,6 +1380,7 @@ declare interface TextMetrics {
    *    the rectangular boundary of the rendered text.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -1384,6 +1390,7 @@ declare interface TextMetrics {
    *    the rectangular boundary of the rendered text.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1394,6 +1401,7 @@ declare interface TextMetrics {
    *    the rectangular boundary of the rendered text.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1407,6 +1415,7 @@ declare interface TextMetrics {
    *    the left of the text rectangle boundary.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -1415,6 +1424,7 @@ declare interface TextMetrics {
    *    the left of the text rectangle boundary.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -1424,6 +1434,7 @@ declare interface TextMetrics {
    *    the left of the text rectangle boundary.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1434,6 +1445,7 @@ declare interface TextMetrics {
    *    the left of the text rectangle boundary.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1447,6 +1459,7 @@ declare interface TextMetrics {
    *    the right of the text rectangle boundary.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -1455,6 +1468,7 @@ declare interface TextMetrics {
    *    the right of the text rectangle boundary.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -1464,6 +1478,7 @@ declare interface TextMetrics {
    *    the right of the text rectangle boundary.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1474,6 +1489,7 @@ declare interface TextMetrics {
    *    the right of the text rectangle boundary.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1487,6 +1503,7 @@ declare interface TextMetrics {
    *    the wireframe.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -1495,6 +1512,7 @@ declare interface TextMetrics {
    *    the wireframe.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -1504,6 +1522,7 @@ declare interface TextMetrics {
    *    the wireframe.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1514,6 +1533,7 @@ declare interface TextMetrics {
    *    the wireframe.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1527,6 +1547,7 @@ declare interface TextMetrics {
    *    em square in the wireframe.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -1535,6 +1556,7 @@ declare interface TextMetrics {
    *    em square in the wireframe.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -1544,6 +1566,7 @@ declare interface TextMetrics {
    *    em square in the wireframe.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1554,6 +1577,7 @@ declare interface TextMetrics {
    *    em square in the wireframe.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1567,6 +1591,7 @@ declare interface TextMetrics {
    *    em box in the wireframe.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -1575,6 +1600,7 @@ declare interface TextMetrics {
    *    em box in the wireframe.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -1584,6 +1610,7 @@ declare interface TextMetrics {
    *    em box in the wireframe.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1594,6 +1621,7 @@ declare interface TextMetrics {
    *    em box in the wireframe.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1607,6 +1635,7 @@ declare interface TextMetrics {
    *    highest rectangle boundary of all fonts rendering text.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -1615,6 +1644,7 @@ declare interface TextMetrics {
    *    highest rectangle boundary of all fonts rendering text.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -1624,6 +1654,7 @@ declare interface TextMetrics {
    *    highest rectangle boundary of all fonts rendering text.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1634,6 +1665,7 @@ declare interface TextMetrics {
    *    highest rectangle boundary of all fonts rendering text.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1647,6 +1679,7 @@ declare interface TextMetrics {
    *   rectangular boundary of all fonts rendering text.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -1655,6 +1688,7 @@ declare interface TextMetrics {
    *   rectangular boundary of all fonts rendering text.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -1664,6 +1698,7 @@ declare interface TextMetrics {
    *   rectangular boundary of all fonts rendering text.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1674,6 +1709,7 @@ declare interface TextMetrics {
    *   rectangular boundary of all fonts rendering text.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1687,6 +1723,7 @@ declare interface TextMetrics {
    *    the hanging baseline of the wireframe.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -1695,6 +1732,7 @@ declare interface TextMetrics {
    *    the hanging baseline of the wireframe.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -1704,6 +1742,7 @@ declare interface TextMetrics {
    *    the hanging baseline of the wireframe.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1714,6 +1753,7 @@ declare interface TextMetrics {
    *    the hanging baseline of the wireframe.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1727,6 +1767,7 @@ declare interface TextMetrics {
    *    the ideographic baseline of the wireframe.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -1735,6 +1776,7 @@ declare interface TextMetrics {
    *    the ideographic baseline of the wireframe.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -1744,6 +1786,7 @@ declare interface TextMetrics {
    *    the ideographic baseline of the wireframe.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1754,6 +1797,7 @@ declare interface TextMetrics {
    *    the ideographic baseline of the wireframe.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1766,6 +1810,7 @@ declare interface TextMetrics {
    * Indicates the width of a character string. The value is of the double type.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -1773,6 +1818,7 @@ declare interface TextMetrics {
    * Indicates the width of a character string. The value is of the double type.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -1781,6 +1827,7 @@ declare interface TextMetrics {
    * Indicates the width of a character string. The value is of the double type.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1790,6 +1837,7 @@ declare interface TextMetrics {
    * Indicates the width of a character string. The value is of the double type.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1802,6 +1850,7 @@ declare interface TextMetrics {
    * Indicates the height of a character string. The value is of the double type.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -1809,6 +1858,7 @@ declare interface TextMetrics {
    * Indicates the height of a character string. The value is of the double type.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -1817,6 +1867,7 @@ declare interface TextMetrics {
    * Indicates the height of a character string. The value is of the double type.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1826,6 +1877,7 @@ declare interface TextMetrics {
    * Indicates the height of a character string. The value is of the double type.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1870,6 +1922,7 @@ declare class ImageBitmap {
    * Indicates the height of the CSS pixel unit of ImageData.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -1877,6 +1930,7 @@ declare class ImageBitmap {
    * Indicates the height of the CSS pixel unit of ImageData.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -1885,6 +1939,7 @@ declare class ImageBitmap {
    * Indicates the height of the CSS pixel unit of ImageData.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1894,6 +1949,7 @@ declare class ImageBitmap {
    * Indicates the height of the CSS pixel unit of ImageData.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1906,6 +1962,7 @@ declare class ImageBitmap {
    * Indicates the width of the CSS pixel unit of ImageData.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -1913,6 +1970,7 @@ declare class ImageBitmap {
    * Indicates the width of the CSS pixel unit of ImageData.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -1921,6 +1979,7 @@ declare class ImageBitmap {
    * Indicates the width of the CSS pixel unit of ImageData.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1930,6 +1989,7 @@ declare class ImageBitmap {
    * Indicates the width of the CSS pixel unit of ImageData.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -2093,6 +2153,7 @@ declare class ImageData {
    * Array containing image pixel data
    *
    * @type { Uint8ClampedArray }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -2100,6 +2161,7 @@ declare class ImageData {
    * Array containing image pixel data
    *
    * @type { Uint8ClampedArray }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -2108,6 +2170,7 @@ declare class ImageData {
    * Array containing image pixel data
    *
    * @type { Uint8ClampedArray }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -2117,6 +2180,7 @@ declare class ImageData {
    * Array containing image pixel data
    *
    * @type { Uint8ClampedArray }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -2129,6 +2193,7 @@ declare class ImageData {
    * Width of the image.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -2136,6 +2201,7 @@ declare class ImageData {
    * Width of the image.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -2144,6 +2210,7 @@ declare class ImageData {
    * Width of the image.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -2153,6 +2220,7 @@ declare class ImageData {
    * Width of the image.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -2165,6 +2233,7 @@ declare class ImageData {
    * Height of the image.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -2172,6 +2241,7 @@ declare class ImageData {
    * Height of the image.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -2180,6 +2250,7 @@ declare class ImageData {
    * Height of the image.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -2189,6 +2260,7 @@ declare class ImageData {
    * Height of the image.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -5191,6 +5263,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * The default value is 0, which is bound to the height of the specified canvas. The value is read-only.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -5198,6 +5271,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * The default value is 0, which is bound to the height of the specified canvas. The value is read-only.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -5206,6 +5280,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * The default value is 0, which is bound to the height of the specified canvas. The value is read-only.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -5215,6 +5290,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * The default value is 0, which is bound to the height of the specified canvas. The value is read-only.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -5227,6 +5303,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * The default value is 0, which is bound to the width of the specified canvas. The value is read-only.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -5234,6 +5311,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * The default value is 0, which is bound to the width of the specified canvas. The value is read-only.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
@@ -5242,6 +5320,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * The default value is 0, which is bound to the width of the specified canvas. The value is read-only.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -5251,6 +5330,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * The default value is 0, which is bound to the width of the specified canvas. The value is read-only.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -5263,6 +5343,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * Frame node of the canvas. The default value is null.
    *
    * @type { FrameNode }
+   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
