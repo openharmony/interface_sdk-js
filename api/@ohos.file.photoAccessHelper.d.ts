@@ -4617,6 +4617,18 @@ declare namespace photoAccessHelper {
      * @since 13
      */
     getSharedPhotoAssets(options: FetchOptions): Array<SharedPhotoAsset>;
+    /**
+     * Get the list of image or video suffixes supported by the media library.
+     *
+     * @param { PhotoType } photoType - Photo type.
+     * @returns { Promise<Array<string>> } - Return the list of image or video suffixes supported by the media library
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 14
+     */
+    getSupportedPhotoFormats(photoType: PhotoType): Promise<Array<string>>;
   }
 
   /**
