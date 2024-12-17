@@ -18,8 +18,6 @@
  * @kit ArkUI
  */
 
-import { SymbolGlyphModifier } from './@ohos.arkui.modifier';
-
 /**
  * Control margin status of  ExceptionPrompt.
  * @enum { number }
