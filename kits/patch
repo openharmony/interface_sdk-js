@@ -1,0 +1,47 @@
+
+    /**
+     * Confirm if the current photoOutput supports offlineOutput.
+     *
+     * @returns { boolean } TRUE if the type of offlineOutput is support.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 15
+     */
+    isOfflineSupported(): boolean;
+
+    /**
+     * Enable offlineOutput.
+     *
+     * @param { boolean } enabled - enable offline Output.
+     * @throws { BusinessError } 201 - permission denied.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    enableOffline(): void;
+
+    /**
+     * Subscribes to from camera offline Delivery finished events..
+     * This method is valid only after enableOffline() is called.
+     *
+     * @param { '‘offlineDeliveryFinished’' } type - Event type.
+     * @param { callback?: AsyncCallback<void>  } callback - Callback used to get offline Delivery finished events.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 15
+     */
+    on(type: ‘offlineDeliveryFinished’, callback: AsyncCallback<void>): void;
+
+    /**
+     * Unsubscribes from camera offline Delivery finished events.
+     * This method is valid only after enableOffline() is called.
+     *
+     * @param { '‘offlineDeliveryFinished’' } type - Event type.
+     * @param { callback?: AsyncCallback<void> } callback - Callback used to get offline Delivery finished events.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 15
+     */
+    off(type: ‘offlineDeliveryFinished’, callback?: AsyncCallback<void>): void
