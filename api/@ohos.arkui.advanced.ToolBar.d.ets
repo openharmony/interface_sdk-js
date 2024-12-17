@@ -352,6 +352,34 @@ export declare class ToolBarOption {
    * @since 16
    */
   toolBarSymbolOptions?: ToolBarSymbolGlyphOptions;
+  /**
+   * The accessibilityText of item.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityText?: ResourceStr;
+  /**
+   * The accessibilityDescription of item.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityDescription?: ResourceStr;
+  /**
+   * The accessibilityLevel of item.
+   *
+   * @type { ?string }
+   * @default "auto"
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityLevel?: string;
 }
 
 /**
