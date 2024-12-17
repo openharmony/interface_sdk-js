@@ -550,4 +550,29 @@ export default class ApplicationContext extends Context {
    * @since 13
    */
   setFontSizeScale(fontSizeScale: number): void;
+
+  /**
+   * Get current app key of current running app instance.
+   *
+   * @returns { string } Returns the key of current running app instance.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000078 - The multi-instance is not supported.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 14
+   */
+  getCurrentInstanceKey(): string;
+
+  /**
+   * Get all running app instance key for current bundle
+   *
+   * @returns { Promise<Array<string>> } Returns the array of all running app instance keys.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000078 - The multi-instance is not supported.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 14
+   */
+    getAllRunningInstanceKeys(): Promise<Array<string>>;
 }
