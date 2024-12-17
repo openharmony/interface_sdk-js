@@ -18,6 +18,8 @@
  * @kit ArkUI
  */
 
+import { SymbolGlyphModifier } from './@ohos.arkui.modifier';
+
 /**
  * Control margin status of  ExceptionPrompt.
  * @enum { number }
@@ -97,6 +99,15 @@ export interface PromptOptions {
    * @since 12
    */
   icon?: ResourceStr;
+
+  /**
+   * SymbolGlyphModifier of PromptOptions.
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  symbolStyle?: SymbolGlyphModifier;
 
   /**
    * Tip text of PromptOptions.
