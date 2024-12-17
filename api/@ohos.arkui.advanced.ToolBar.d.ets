@@ -314,13 +314,11 @@ export declare class ToolBarModifier {
 
 /**
  * Declare Component ToolBar
- * @struct { ToolBar }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 /**
  * Declare Component ToolBar
- * @struct { ToolBar }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
