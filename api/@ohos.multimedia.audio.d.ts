@@ -7070,22 +7070,24 @@ declare namespace audio {
 
   /**
    * Audio timestamp info.
-   * @typedef AudioTimeStampInfo
+   * @typedef AudioTimestampInfo
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 16
    */
-  interface AudioTimeStampInfo {
+  interface AudioTimestampInfo {
     /**
      * Frame position.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 16
      */
     readonly framePos: number;
 
     /**
-     * Timestamp when frame in {@link AudioTimeStampInfo#framePos} was rendered or captured.
+     * Timestamp when frame in {@link AudioTimestampInfo#framePos} was rendered or captured.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 16
      */
@@ -7368,7 +7370,7 @@ declare namespace audio {
      * @crossplatform
      * @since 12
      * @deprecated since 16
-     * @useinstead ohos.multimedia.audio.AudioRenderer#getAudioTimeStampInfo
+     * @useinstead ohos.multimedia.audio.AudioRenderer#getAudioTimestampInfo
      */
     getAudioTime(callback: AsyncCallback<number>): void;
     /**
@@ -7386,7 +7388,7 @@ declare namespace audio {
      * @crossplatform
      * @since 12
      * @deprecated since 16
-     * @useinstead ohos.multimedia.audio.AudioRenderer#getAudioTimeStampInfo
+     * @useinstead ohos.multimedia.audio.AudioRenderer#getAudioTimestampInfo
      */
     getAudioTime(): Promise<number>;
     /**
@@ -7402,27 +7404,29 @@ declare namespace audio {
      * @crossplatform
      * @since 12
      * @deprecated since 16
-     * @useinstead ohos.multimedia.audio.AudioRenderer#getAudioTimeStampInfoSync
+     * @useinstead ohos.multimedia.audio.AudioRenderer#getAudioTimestampInfoSync
      */
     getAudioTimeSync(): number;
 
     /**
      * Obtains the timestamp info.
      *
-     * @returns { Promise<AudioTimeStampInfo> } The Promise used to return timestamp info.
+     * @returns { Promise<AudioTimestampInfo> } The Promise used to return timestamp info.
+     * @throws  { BusinessError } 6800103 - Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 16
      */
-    getAudioTimeStampInfo(): Promise<AudioTimeStampInfo>;
+    getAudioTimestampInfo(): Promise<AudioTimestampInfo>;
 
     /**
      * Obtains the timestamp info.
      *
-     * @returns { AudioTimeStampInfo } The returned timestamp info.
+     * @returns { AudioTimestampInfo } The returned timestamp info.
+     * @throws { BusinessError } 6800103 - Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 16
      */
-    getAudioTimeStampInfoSync(): AudioTimeStampInfo;
+    getAudioTimestampInfoSync(): AudioTimestampInfo;
 
     /**
      * Drains the playback buffer. This method uses an asynchronous callback to return the result.
@@ -8861,7 +8865,7 @@ declare namespace audio {
      * @crossplatform
      * @since 12
      * @deprecated since 16
-     * @useinstead ohos.multimedia.audio.Capturer#getAudioTimeStampInfo
+     * @useinstead ohos.multimedia.audio.Capturer#getAudioTimestampInfo
      */
     getAudioTime(callback: AsyncCallback<number>): void;
     /**
@@ -8879,7 +8883,7 @@ declare namespace audio {
      * @crossplatform
      * @since 12
      * @deprecated since 16
-     * @useinstead ohos.multimedia.audio.Capturer#getAudioTimeStampInfo
+     * @useinstead ohos.multimedia.audio.Capturer#getAudioTimestampInfo
      */
     getAudioTime(): Promise<number>;
     /**
@@ -8895,27 +8899,29 @@ declare namespace audio {
      * @crossplatform
      * @since 12
      * @deprecated since 16
-     * @useinstead ohos.multimedia.audio.Capturer#getAudioTimeStampInfoSync
+     * @useinstead ohos.multimedia.audio.Capturer#getAudioTimestampInfoSync
      */
     getAudioTimeSync(): number;
 
     /**
      * Obtains the timestamp info.
      *
-     * @returns { Promise<AudioTimeStampInfo> } The Promise used to return timestamp info.
+     * @returns { Promise<AudioTimestampInfo> } The Promise used to return timestamp info.
+     * @throws { BusinessError } 6800103 - Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 16
      */
-    getAudioTimeStampInfo(): Promise<AudioTimeStampInfo>;
+    getAudioTimestampInfo(): Promise<AudioTimestampInfo>;
 
      /**
       * Obtains the timestamp info.
       *
-      * @returns { AudioTimeStampInfo } The returned timestamp info.
+      * @returns { AudioTimestampInfo } The returned timestamp info.
+      * @throws { BusinessError } 6800103 - Operation not permit at current state.
       * @syscap SystemCapability.Multimedia.Audio.Capturer
       * @since 16
       */
-    getAudioTimeStampInfoSync(): AudioTimeStampInfo;
+    getAudioTimestampInfoSync(): AudioTimestampInfo;
 
     /**
      * Stops capturing. This method uses an asynchronous callback to return the result.
