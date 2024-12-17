@@ -202,13 +202,13 @@ declare namespace uiExtension {
      setWaterMarkFlag(enable: boolean): Promise<void>;
 
     /**
-      * The properties of the UIExtension window
-      *
-      * @type { WindowProxyProperties } 
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @atomicservice
-      * @since 14
-      */
+     * The properties of the UIExtension window
+     *
+     * @type { WindowProxyProperties } 
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 14
+     */
     properties: WindowProxyProperties;
   }
 
