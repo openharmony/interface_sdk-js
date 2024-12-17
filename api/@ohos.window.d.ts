@@ -8496,6 +8496,15 @@ declare namespace window {
      * @since 14
      */
     modalityType?: ModalityType;
+    /**
+     * Indicates position and size of subwindow
+     * 
+     * @type { ?Rect }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    windowRect?: Rect;
   }
   /**
    * WindowStage
