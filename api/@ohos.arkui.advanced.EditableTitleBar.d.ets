@@ -19,7 +19,7 @@
  */
 
 
-import { SymbolGlyphModifier } from './@ohos.arkui.modifier';
+
 
 
 /**
