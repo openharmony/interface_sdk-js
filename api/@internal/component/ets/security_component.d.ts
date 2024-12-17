@@ -594,4 +594,82 @@ declare class SecurityComponentMethod<T> {
    * @since 16
    */
   chainMode(direction: Axis, style: ChainStyle): T;
+  
+  /**
+   * Sets the minimum font scale factor for text.
+   *
+   * @param { number | Resource } scale Minimum font scale factor to set.
+   * @returns { T } Returns the attributes of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  minFontScale(scale: number | Resource): T;
+
+  /**
+   * Sets the maximum font scale factor for text.
+   *
+   * @param { number | Resource  } scale Maximum font scale factor to set.
+   * @returns { T } Returns the attributes of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  maxFontScale(scale: number | Resource): T;
+
+  /**
+   * Called when the maximum number of lines of text is set.
+   *
+   * @param { number } line
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  maxLines(line: number): T;
+
+  /**
+   * Called when the minimum font size of the font is set.
+   *
+   * @param { number | string | Resource } minSize
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  minFontSize(minSize: number | string | Resource): T;
+
+  /**
+   * Called when the maximum font size of the font is set.
+   *
+   * @param { number | string | Resource } maxSize
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  maxFontSize(maxSize: number | string | Resource): T;
+
+  /**
+   * Called when the height adaptive policy is set.
+   *
+   * @param { TextHeightAdaptivePolicy } policy - The height adaptive policy.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  heightAdaptivePolicy(policy: TextHeightAdaptivePolicy): T;
+
+  /**
+   * If the value is true, the component is available and can respond to operations such as clicking.
+   *  If it is set to false, click operations are not responded.
+   *
+   * @param { boolean } respond - Indicates whether the button is responded to.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  enabled(respond: boolean): T;
 }
