@@ -153,7 +153,6 @@ declare interface MovingPhotoViewOptions {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @uicomponent
      * @since 14
      */
     imageAIOptions?: ImageAIOptions;
@@ -355,7 +354,6 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @uicomponent
      * @since 14
      */
     enableAnalyzer(enabled: boolean): MovingPhotoViewAttribute;
@@ -402,7 +400,6 @@ export class MovingPhotoViewController {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @uicomponent
      * @since 14
      */
     refreshMovingPhoto();
@@ -413,6 +410,7 @@ export class MovingPhotoViewController {
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @crossplatform
  * @atomicservice
+ * @uicomponent
  * @since 12
  */
 declare const MovingPhotoView: MovingPhotoViewInterface;
