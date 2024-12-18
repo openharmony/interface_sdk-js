@@ -160,6 +160,15 @@ export declare class OperateIcon {
   value: ResourceStr;
 
   /**
+   * The content of text or the address of symbol.
+   * @type { ?SymbolGlyphModifier }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  symbolStyle?: SymbolGlyphModifier;
+
+  /**
    * Callback function when operate the icon.
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -382,6 +391,15 @@ export declare class ContentItem {
   icon?: ResourceStr;
 
   /**
+   * Sets the symbol.
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  symbolStyle?: SymbolGlyphModifier;
+
+  /**
    * Sets the primaryText.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -543,6 +561,15 @@ export declare class OperateItem {
    * @since 11
    */
   image?: ResourceStr;
+
+  /**
+   * Sets the symbolStyle.
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  symbolStyle?: SymbolGlyphModifier;
 
   /**
    * Sets the text.
