@@ -10200,7 +10200,7 @@ declare namespace audio {
   /**
    * Enumerates audio effect flags.
    * @enum { number }
-   * @syscap SystemCapability.Multimedia.Audio.xxx
+   * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 14
    */
   enum EffectFlag {
