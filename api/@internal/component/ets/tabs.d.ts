@@ -1646,7 +1646,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 15
    */
   pageFlipMode(mode: Optional<PageFlipMode>): TabsAttribute;
 
