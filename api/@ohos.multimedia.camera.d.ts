@@ -3049,7 +3049,7 @@ declare namespace camera {
      * Check whether the specified video stabilization mode is supported.
      *
      * @param { VideoStabilizationMode } vsMode - Video Stabilization mode.
-     * @returns { boolean } Is flash mode supported.
+     * @returns { boolean } Is video stabilization mode supported.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
@@ -3059,7 +3059,7 @@ declare namespace camera {
      * Move to StabilizationQuery interface from Stabilization since 12.
      *
      * @param { VideoStabilizationMode } vsMode - Video Stabilization mode.
-     * @returns { boolean } Is flash mode supported.
+     * @returns { boolean } Is video stabilization mode supported.
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
