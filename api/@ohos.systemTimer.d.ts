@@ -242,6 +242,18 @@ declare namespace systemTimer {
      * @since 7
      */
     callback?: () => void;
+
+    /**
+     * Indicates whether the timer is restored after the system restarts.
+     * True indicates the timer is restored, and false indicates the timer is not restored.
+     * The default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.MiscServices.Time
+     * @systemapi
+     * @since 16
+     */
+    autoRestore?: boolean;
   }
 }
 

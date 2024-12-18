@@ -20,7 +20,7 @@
 
 /**
  * Declare enum IconType
- * @enum { IconType }
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
@@ -28,7 +28,7 @@
 
 /**
  * Declare enum IconType
- * @enum { IconType }
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
@@ -161,18 +161,49 @@ export declare class OperateIcon {
 
   /**
    * Callback function when operate the icon.
-   * @type { ?() => void }.
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Callback function when operate the icon.
-   * @type { ?() => void }.
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
   action?: () => void;
+
+  /**
+   * The accessibilityText of the icon.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityText?: ResourceStr;
+
+  /**
+   * The accessibilityDescription of the icon.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityDescription?: ResourceStr;
+
+  /**
+   * The accessibilityLevel of the icon.
+   *
+   * @type { ?string }
+   * @default "auto"
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityLevel?: string;
 }
 
 /**
@@ -204,18 +235,49 @@ export declare class OperateCheck {
 
   /**
    * Callback function when operate the checkbox/switch/radio.
-   * @type { ?() => void }.
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Callback function when operate the checkbox/switch/radio.
-   * @type { ?() => void }.
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
   onChange?: (value: boolean) => void;
+
+  /**
+   * The accessibilityText of the checkbox/switch/radio.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityText?: ResourceStr;
+
+  /**
+   * The accessibilityDescription of the checkbox/switch/radio.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityDescription?: ResourceStr;
+
+  /**
+   * The accessibilityLevel of the checkbox/switch/radio.
+   *
+   * @type { ?string }
+   * @default "auto"
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityLevel?: string;
 }
 
 /**
@@ -244,6 +306,37 @@ export declare class OperateButton {
    * @since 11
    */
   text?: ResourceStr;
+
+  /**
+   * The accessibilityText of the button.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityText?: ResourceStr;
+
+  /**
+   * The accessibilityDescription of the button.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityDescription?: ResourceStr;
+
+  /**
+   * The accessibilityLevel of the button.
+   *
+   * @type { ?string }
+   * @default "auto"
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityLevel?: string;
 }
 
 /**
@@ -468,13 +561,13 @@ export declare class OperateItem {
 
   /**
    * Sets the arrow.
-   * @type { ?ResourceStr }
+   * @type { ?OperateIcon }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Sets the arrow.
-   * @type { ?ResourceStr }
+   * @type { ?OperateIcon }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -484,11 +577,15 @@ export declare class OperateItem {
 
 /**
  * Declare ComposeListItem
+ *
+ * @struct { ComposeListItem }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 /**
  * Declare ComposeListItem
+ *
+ * @struct { ComposeListItem }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11

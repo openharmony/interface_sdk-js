@@ -25,7 +25,7 @@
  * Defines Search Modifier
  *
  * @extends SearchAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<SearchAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

@@ -156,6 +156,7 @@
 "SystemCapability.Test.UiTest",
 "SystemCapability.Web.Webview.Core",
 "SystemCapability.Security.CertificateManager",
+"SystemCapability.Security.CertificateManagerDialog",
 "SystemCapability.Security.CryptoFramework",
 "SystemCapability.Security.CryptoFramework.Key",
 "SystemCapability.Security.CryptoFramework.Key.SymKey",

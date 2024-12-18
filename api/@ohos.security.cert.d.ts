@@ -4980,6 +4980,170 @@ declare namespace cert {
   function buildX509CertChain(param: CertChainBuildParameters): Promise<CertChainBuildResult>;
 
   /**
+   * The encoding base format.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  enum EncodingBaseFormat {
+    /**
+     * PEM format.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    PEM = 0,
+
+    /**
+     * DER format.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    DER = 1,
+  }
+
+  /**
+   * PKCS12 data.
+   *
+   * @typedef Pkcs12Data
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  interface Pkcs12Data {
+    /**
+     * The private key.
+     *
+     * @type { ?(string | Uint8Array) }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    privateKey?: string | Uint8Array;
+
+    /**
+     * The certificate corresponding to the private key.
+     *
+     * @type { ?X509Cert }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    cert?: X509Cert;
+
+    /**
+     * The other certificates.
+     *
+     * @type { ?Array<X509Cert> }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    otherCerts?: Array<X509Cert>;
+  }
+
+  /**
+   * PKCS12 parsing config.
+   *
+   * @typedef Pkcs12ParsingConfig
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  interface Pkcs12ParsingConfig {
+    /**
+     * The password of the PKCS12.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    password: string;
+
+    /**
+     * Whether to get the private key.
+     *
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    needsPrivateKey?: boolean;
+
+    /**
+     * The output format of the private key.
+     *
+     * @type { ?EncodingBaseFormat }
+     * @default EncodingBaseFormat.PEM
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    privateKeyFormat?: EncodingBaseFormat;
+
+    /**
+     * Whether to get the certificate corresponding to the private key.
+     *
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    needsCert?: boolean;
+
+    /**
+     * Whether to get other certificates.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    needsOtherCerts?: boolean;
+  }
+
+  /**
+   * Parse PKCS12.
+   *
+   * @param { Uint8Array } data - the PKCS12 data.
+   * @param { Pkcs12ParsingConfig } config - the configuration for parsing PKCS12.
+   * @returns { Pkcs12Data } the Pkcs12Data.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020002 - runtime error.
+   * @throws { BusinessError } 19030001 - crypto operation error.
+   * @throws { BusinessError } 19030008 - maybe wrong password.
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  function parsePkcs12(data: Uint8Array, config: Pkcs12ParsingConfig): Pkcs12Data;
+
+  /**
    * Get trust anchor array from specified P12.
    *
    * @param { Uint8Array } keystore - the file path of the P12.

@@ -1204,6 +1204,8 @@ declare namespace usbManager {
    * @typedef USBControlParams
    * @syscap SystemCapability.USB.USBManager
    * @since 9
+   * @deprecated since 16
+   * @useinstead ohos.usbManager/usbManager#USBDeviceRequestParams
    */
   interface USBControlParams {
     /**
@@ -1212,6 +1214,7 @@ declare namespace usbManager {
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 9
+     * @deprecated since 16
      */
     request: number;
 
@@ -1221,6 +1224,7 @@ declare namespace usbManager {
      * @type { USBRequestTargetType }
      * @syscap SystemCapability.USB.USBManager
      * @since 9
+     * @deprecated since 16
      */
     target: USBRequestTargetType;
 
@@ -1230,6 +1234,7 @@ declare namespace usbManager {
      * @type { USBControlRequestType }
      * @syscap SystemCapability.USB.USBManager
      * @since 9
+     * @deprecated since 16
      */
     reqType: USBControlRequestType;
 
@@ -1239,6 +1244,7 @@ declare namespace usbManager {
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 9
+     * @deprecated since 16
      */
     value: number;
 
@@ -1248,6 +1254,7 @@ declare namespace usbManager {
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 9
+     * @deprecated since 16
      */
     index: number;
 
@@ -1257,6 +1264,7 @@ declare namespace usbManager {
      * @type { Uint8Array }
      * @syscap SystemCapability.USB.USBManager
      * @since 9
+     * @deprecated since 16
      */
     data: Uint8Array;
   }

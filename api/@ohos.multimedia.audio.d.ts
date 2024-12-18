@@ -3076,6 +3076,16 @@ declare namespace audio {
     getSpatializationManager(): AudioSpatializationManager;
 
     /**
+     * Obtains an {@link AudioEffectManager} instance.
+     * @returns { AudioEffectManager } AudioEffectManager instance.
+     * @throws { BusinessError } 202 - Not system App.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 14
+     */
+    getEffectManager(): AudioEffectManager;
+
+    /**
      * user disable the safe media volume state.
      * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
      * @returns { Promise<void> } Promise used to return the result.
@@ -3886,6 +3896,7 @@ declare namespace audio {
      * @since 12
      */
     getCurrentAudioRendererInfoArray(callback: AsyncCallback<AudioRendererChangeInfoArray>): void;
+    
     /**
      * Get information of current existing audio renderers.
      * @returns { Promise<AudioRendererChangeInfoArray> } Promise used to return the information of current
@@ -3902,6 +3913,7 @@ declare namespace audio {
      * @since 12
      */
     getCurrentAudioRendererInfoArray(): Promise<AudioRendererChangeInfoArray>;
+
     /**
      * Get information of current existing audio renderers.
      * @returns { AudioRendererChangeInfoArray } The information of current existing audio renderers.
@@ -3933,6 +3945,7 @@ declare namespace audio {
      * @since 12
      */
     getCurrentAudioCapturerInfoArray(callback: AsyncCallback<AudioCapturerChangeInfoArray>): void;
+
     /**
      * Get information of current existing audio capturers.
      * @returns { Promise<AudioCapturerChangeInfoArray> } Promise used to return the information of current existing
@@ -3949,6 +3962,7 @@ declare namespace audio {
      * @since 12
      */
     getCurrentAudioCapturerInfoArray(): Promise<AudioCapturerChangeInfoArray>;
+
     /**
      * Get information of current existing audio capturers.
      * @returns { AudioCapturerChangeInfoArray } The information of current existing audio capturers.
@@ -3976,6 +3990,7 @@ declare namespace audio {
      * @since 10
      */
     getAudioEffectInfoArray(usage: StreamUsage, callback: AsyncCallback<AudioEffectInfoArray>): void;
+
     /**
      * Gets information of audio effects.
      * @param { StreamUsage } usage - Stream usage.
@@ -3988,6 +4003,7 @@ declare namespace audio {
      * @since 10
      */
     getAudioEffectInfoArray(usage: StreamUsage): Promise<AudioEffectInfoArray>;
+
     /**
      * Gets information of audio effects.
      * @param { StreamUsage } usage - Stream usage.
@@ -5650,6 +5666,62 @@ declare namespace audio {
   }
 
   /**
+   * Implements audio effect management.
+   * @typedef AudioEffectManager
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @systemapi
+   * @since 14
+   */
+  interface AudioEffectManager {
+    /**
+     * Gets supported audio effect properties based on current devices.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
+     * @returns { Array<AudioEffectProperty> } Array of supported audio effect properties.
+     * @throws { BusinessError } 201 - Permission denied. 
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800301 - System error.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 14
+     */
+    getSupportedAudioEffectProperty(): Array<AudioEffectProperty>;
+
+    /**
+     * Sets current audio effect properties.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
+     * @param { Array<AudioEffectProperty> } propertyArray - array of audio effect property to be set. 
+     * Notice that only one effect property name in each effect property category should be set.
+     * @throws { BusinessError } 201 - Permission denied. 
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed. Possible causes:
+     *                                 1. More than one effect property name of the same effect property category are in the input array.
+     *                                 2. The input audioEffectProperties are not supported by the current device.
+     *                                 3. The name or catergory of the input audioEffectProperties is incorrect.
+     * @throws { BusinessError } 6800301 - System error.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 14
+     */
+    setAudioEffectProperty(propertyArray: Array<AudioEffectProperty>): void;
+
+    /**
+     * Gets current audio effect properties.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
+     * @returns { Array<AudioEffectProperty> } Array of current audio effect properties.
+     * @throws { BusinessError } 201 - Permission denied. 
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800301 - System error.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 14
+     */
+    getAudioEffectProperty(): Array<AudioEffectProperty>;
+  }
+
+  /**
    * Connect type for device.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -5685,6 +5757,7 @@ declare namespace audio {
     /**
      * Device network id.
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 9
@@ -5694,6 +5767,7 @@ declare namespace audio {
     /**
      * Volume group id.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 9
@@ -5703,6 +5777,7 @@ declare namespace audio {
     /**
      * Volume mapping group id.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 9
@@ -5712,6 +5787,7 @@ declare namespace audio {
     /**
      * Volume group name.
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 9
@@ -5721,6 +5797,7 @@ declare namespace audio {
     /**
      * Connect type of device for this group.
      * @type { ConnectType }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 9
@@ -5775,6 +5852,7 @@ declare namespace audio {
     /**
      * Audio stream unique id.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12
@@ -5784,6 +5862,7 @@ declare namespace audio {
     /**
      * Uid for audio renderer client application.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @systemapi
      * @since 9
@@ -5799,6 +5878,7 @@ declare namespace audio {
     /**
      * Audio renderer information.
      * @type { AudioRendererInfo }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12
@@ -5808,6 +5888,7 @@ declare namespace audio {
     /**
      * Audio state.
      * @type { AudioState }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @systemapi
      * @since 9
@@ -5823,6 +5904,7 @@ declare namespace audio {
     /**
      * Audio output devices.
      * @type { AudioDeviceDescriptors }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12
@@ -5868,6 +5950,7 @@ declare namespace audio {
     /**
      * Audio stream unique id.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12
@@ -5877,6 +5960,7 @@ declare namespace audio {
     /**
      * Uid for audio capturer client application.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
      * @since 9
@@ -5892,6 +5976,7 @@ declare namespace audio {
     /**
      * Audio capturer information.
      * @type { AudioCapturerInfo }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12
@@ -5901,6 +5986,7 @@ declare namespace audio {
     /**
      * Audio state.
      * @type { AudioState }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
      * @since 9
@@ -5916,6 +6002,7 @@ declare namespace audio {
     /**
      * Audio input devices.
      * @type { AudioDeviceDescriptors }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12
@@ -5931,6 +6018,7 @@ declare namespace audio {
     /**
      * Audio capturer muted status.
      * @type { ?boolean }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12
@@ -5962,6 +6050,7 @@ declare namespace audio {
     /**
      * Audio device role.
      * @type { DeviceRole }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
@@ -5978,6 +6067,7 @@ declare namespace audio {
     /**
      * Audio device type.
      * @type { DeviceType }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
@@ -5994,6 +6084,7 @@ declare namespace audio {
     /**
      * Audio device id.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
@@ -6010,6 +6101,7 @@ declare namespace audio {
     /**
      * Audio device name.
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
@@ -6026,6 +6118,7 @@ declare namespace audio {
     /**
      * Audio device address.
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
@@ -6042,6 +6135,7 @@ declare namespace audio {
     /**
      * Supported sampling rates.
      * @type { Array<number> }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
@@ -6058,6 +6152,7 @@ declare namespace audio {
     /**
      * Supported channel counts.
      * @type { Array<number> }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
@@ -6074,6 +6169,7 @@ declare namespace audio {
     /**
      * Supported channel masks.
      * @type { Array<number> }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
@@ -6083,6 +6179,7 @@ declare namespace audio {
     /**
      * Device network id
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
      * @since 9
@@ -6091,6 +6188,7 @@ declare namespace audio {
     /**
      * Interrupt group id
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
      * @since 9
@@ -6099,6 +6197,7 @@ declare namespace audio {
     /**
      * Volume group id
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
      * @since 9
@@ -6113,6 +6212,7 @@ declare namespace audio {
     /**
      * Name used to display, considering distributed device situation.
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
@@ -6129,6 +6229,7 @@ declare namespace audio {
     /**
      * Supported encoding types.
      * @type { ?Array<AudioEncodingType> }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
@@ -6604,6 +6705,7 @@ declare namespace audio {
     /**
      * Defines the current render state.
      * @type { AudioState }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12
@@ -7880,6 +7982,14 @@ declare namespace audio {
     SOURCE_TYPE_VOICE_MESSAGE = 10,
 
     /**
+     * Source type for voice transcription and processing.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 14
+     */
+    SOURCE_TYPE_VOICE_TRANSCRIPTION = 12,
+
+    /**
      * Camcorder source type.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 13
@@ -8054,6 +8164,7 @@ declare namespace audio {
     /**
      * Defines the current capture state.
      * @type { AudioState }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12
@@ -10084,6 +10195,66 @@ declare namespace audio {
      * @since 11
      */
     CH_LAYOUT_AMB_ORDER3_FUMA = 0x100000000103
+  }
+
+  /**
+   * Enumerates audio effect flags.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.xxx
+   * @since 14
+   */
+  enum EffectFlag {
+    /**
+     * Audio render effect.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 14
+     */
+    RENDER_EFFECT_FLAG = 0,
+  
+    /**
+     * Audio capture effect.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 14
+     */
+    CAPTURE_EFFECT_FLAG = 1
+  }
+
+  /**
+   * Describes an audio effect property.
+   * @typedef AudioEffectProperty
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @systemapi
+   * @since 14
+   */
+  interface AudioEffectProperty {
+    /**
+     * Name of effect property.
+     * @type { string }
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 14
+     */
+    name: string;
+
+    /**
+     * Effect category this effect property belongs to.
+     * @type { string }
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 14
+     */
+    category: string;
+
+    /**
+     * Effect flag of this effect property.
+     * @type { EffectFlag }
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 14
+     */
+    flag: EffectFlag;
   }
 }
 

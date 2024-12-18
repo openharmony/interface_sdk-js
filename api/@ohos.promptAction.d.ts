@@ -238,7 +238,7 @@ declare namespace promptAction {
     enableHoverMode?: boolean;
   
     /**
-     * Defines the toast's diaplay area in hover mode.
+     * Defines the toast's display area in hover mode.
      *
      * @type { ?HoverModeAreaType }
      * @default HoverModeAreaType.BOTTOM_SCREEN

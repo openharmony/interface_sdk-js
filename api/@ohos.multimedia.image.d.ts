@@ -3450,7 +3450,7 @@ declare namespace image {
    *
    * @typedef PackingOptionsForSequence
    * @syscap SystemCapability.Multimedia.Image.ImagePacker
-   * @since 13
+   * @since 14
    */
   interface PackingOptionsForSequence {
     /**
@@ -3458,7 +3458,7 @@ declare namespace image {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 13
+     * @since 14
      */
     frameCount: number;
 
@@ -3468,7 +3468,7 @@ declare namespace image {
      *
      * @type { Array<number> }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 13
+     * @since 14
      */
     delayTimeList: Array<number>;
 
@@ -3477,7 +3477,7 @@ declare namespace image {
      *
      * @type { ?Array<number> }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 13
+     * @since 14
      */
     disposalTypes?: Array<number>;
 
@@ -3487,7 +3487,7 @@ declare namespace image {
      *
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 13
+     * @since 14
      */
     loopCount?: number;
   }
@@ -3954,6 +3954,7 @@ declare namespace image {
      * Component type.
      *
      * @type { ComponentType }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
@@ -3963,6 +3964,7 @@ declare namespace image {
      * Row stride.
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
@@ -3972,6 +3974,7 @@ declare namespace image {
      * Pixel stride.
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
@@ -3981,6 +3984,7 @@ declare namespace image {
      * Component buffer.
      *
      * @type { ArrayBuffer }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
@@ -5168,6 +5172,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Whether the image pixel map can be edited.
      *
      * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 7
      */
@@ -5175,6 +5180,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Whether the image pixel map can be edited.
      *
      * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
@@ -5183,6 +5189,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Whether the image pixel map can be edited.
      *
      * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -5192,6 +5199,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Whether the image pixel map can be edited.
      *
      * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -8315,6 +8323,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Supported image formats.
      *
      * @type { Array<string> }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 6
      */
@@ -8322,6 +8331,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Supported image formats.
      *
      * @type { Array<string> }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -8556,10 +8566,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { Array<PixelMap> } pixelmapSequence PixelMaps to be processed.
      * @param { PackingOptionsForSequence } options Options for image packing.
      * @returns { Promise<ArrayBuffer> } A Promise instance used to return the operation result.
+     * @throws { BusinessError } 401 - If the parameter is invalid.
+     * @throws { BusinessError } 62980101 - The image data is abnormal.
+     * @throws { BusinessError } 62980106 - The image is too large.
+     * @throws { BusinessError } 62980119 - If encoder occur error during encoding.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 13
+     * @since 14
      */
-    packing(pixelmapSequence: Array<PixelMap>, options: PackingOptionsForSequence): Promise<ArrayBuffer>;
+    packToData(pixelmapSequence: Array<PixelMap>, options: PackingOptionsForSequence): Promise<ArrayBuffer>;
 
     /**
      * Compresses or packs an image into a file and uses a callback to return the result.
@@ -8656,8 +8670,11 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { number } fd ID of a file descriptor.
      * @param { PackingOptionsForSequence } options Options for image packing.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @throws { BusinessError } 401 - If the parameter is invalid.
+     * @throws { BusinessError } 62980101 - The image data is abnormal.
+     * @throws { BusinessError } 62980119 - If encoder occur error during encoding.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 13
+     * @since 14
      */
     packToFile(pixelmapSequence: Array<PixelMap>, fd: number, options: PackingOptionsForSequence): Promise<void>;
 
@@ -8728,6 +8745,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Supported image formats.
      *
      * @type { Array<string> }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 6
      */
@@ -8735,6 +8753,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Supported image formats.
      *
      * @type { Array<string> }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 10
@@ -8763,6 +8782,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Image size.
      *
      * @type { Size }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
@@ -8772,6 +8792,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Image format.
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
@@ -8781,6 +8802,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Image timestamp.
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12
      */
@@ -8837,6 +8859,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Image size.
      *
      * @type { Size }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9
      */
@@ -8846,6 +8869,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Image capacity.
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9
      */
@@ -8855,6 +8879,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Image format.
      *
      * @type { ImageFormat }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9
      */
@@ -8967,6 +8992,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Image capacity.
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @since 9
      */
@@ -8976,6 +9002,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Image format.
      *
      * @type { ImageFormat }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @since 9
      */

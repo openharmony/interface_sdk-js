@@ -99,6 +99,15 @@ export interface PromptOptions {
   icon?: ResourceStr;
 
   /**
+   * SymbolGlyphModifier of PromptOptions.
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  symbolStyle?: SymbolGlyphModifier;
+
+  /**
    * Tip text of PromptOptions.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

@@ -25,7 +25,7 @@
  * Defines Grid Modifier
  *
  * @extends GridAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<GridAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
