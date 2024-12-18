@@ -148,6 +148,15 @@ export declare class ProgressButtonV2Color {
    */
   @Trace backgroundColor?: ColorMetrics;
 
+  /**
+   * The constructor of ProgressButtonV2
+   *
+   * @param options { ProgressButtonV2ColorOptions } the options of the ProgressButtonV2
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   constructor (options: ProgressButtonV2ColorOptions);
 }
 
