@@ -7794,6 +7794,21 @@ declare namespace window {
     setWindowTitleMoveEnabled(enabled: boolean): void;
 
     /**
+     * Set the title bar name of the window
+     * 
+     * @param { string } titleName - The name of the title bar that needs to be set
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    setWindowTitle(titleName: string): Promise<void>;
+
+    /**
      * Set the modality of the window.
      *
      * @param { boolean } isModal - Enable the window modal if true, otherwise means the opposite.
