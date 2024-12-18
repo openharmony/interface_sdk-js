@@ -27,6 +27,7 @@ import audio from './@ohos.multimedia.audio';
 import { AVCastPickerState, AVCastPickerColorMode } from './@ohos.multimedia.avCastPickerParam';
 import type media from './@ohos.multimedia.media';
 import type Context from './application/BaseContext';
+import type hdrCapability from './@ohos.graphics.hdrCapability';
 
 /**
  * @namespace avSession
@@ -2748,6 +2749,49 @@ declare namespace avSession {
     getAVPlaybackState(): Promise<AVPlaybackState>;
 
     /**
+     * Get supported decoders of remote player.
+     * @returns { Promise<Array<DecoderType>> } (DecoderType) returned through promise
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 18
+     */
+    getSupportedDecoders(): Promise<Array<DecoderType>>;
+
+    /**
+     * Get recommended resolution of remote player based on each decoder.
+     * @param { DecoderType } decoderType - The decoder type.
+     * @returns { Promise<ResolutionLevel> } ResolutionLevel returned through promise
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Parameter verification failed.
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 18
+     */
+    getRecommendedResolutionLevel(decoderType: DecoderType): Promise<ResolutionLevel>;
+
+    /**
+     * Get supported hdr capabilities of remote player.
+     * @returns { Promise<Array<hdrCapability.HDRFormat>> } HDRFormat returned through promise
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 18
+     */
+    getSupportedHdrCapabilities(): Promise<Array<hdrCapability.HDRFormat>>;
+
+    /**
+     * Get supported speed of remote player.
+     * @returns { Promise<Array<number>> } supported speed returned through promise
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 18
+     */
+    getSupportedPlaySpeeds(): Promise<Array<number>>;
+
+    /**
      * Send control commands to remote player
      * @param { AVCastControlCommand } command The command to be send.
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
@@ -3820,6 +3864,88 @@ declare namespace avSession {
      * @since 11
      */
     TAG_AUDIO_VIVID = 1,
+  }
+
+  /**
+   * The defination of decoder type.
+   * @enum { string }
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @atomicservice
+   * @since 18
+   */
+  enum DecoderType {
+    /**
+     * Defination of avc codec type.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 18
+     */
+    OH_AVCODEC_MIMETYPE_VIDEO_AVC = "video/avc",
+
+    /**
+     * Defination of hevc codec type.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 18
+     */
+    OH_AVCODEC_MIMETYPE_VIDEO_HEVC = "video/hevc",
+
+    /**
+     * Defination of audio vivid codec type.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 18
+     */
+    OH_AVCODEC_MIMETYPE_AUDIO_VIVID = "audio/av3a",
+  }
+
+  /**
+   * The defination of suggested resolution.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @atomicservice
+   * @since 18
+   */
+  enum ResolutionLevel {
+    /**
+     * Defination of 480P which typically resolution is 640*480.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 18
+     */
+    RESOLUTION_480P = 0,
+
+    /**
+     * Defination of 720P which typically resolution is 1280*720.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 18
+     */
+    RESOLUTION_720P = 1,
+
+    /**
+     * Defination of 1080P which typically resolution is 1920*1080.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 18
+     */
+    RESOLUTION_1080P = 2,
+
+    /**
+     * Defination of 2K which typically resolution is 2560*1440.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 18
+     */
+    RESOLUTION_2K = 3,
+
+    /**
+     * Defination of 4K which typically resolution is 4096*3840.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 18
+     */
+    RESOLUTION_4K = 4,
   }
 
   /**
