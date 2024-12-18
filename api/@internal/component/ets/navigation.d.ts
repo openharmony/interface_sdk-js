@@ -2191,7 +2191,19 @@ declare interface NavigationToolbarOptions {
    * @atomicservice
    * @since 14
    */
-    barStyle?: BarStyle;
+  barStyle?: BarStyle;
+
+  /**
+   * Set whether toolbar displays text.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  hideItemValue?: boolean
 }
 
 /**
@@ -2673,6 +2685,18 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 13
    */
   hideToolBar(hide: boolean, animated: boolean): NavigationAttribute;
+
+  /**
+   * Enable tool bar adaptation
+   *
+   * @param { Optional<boolean> } enable - Enable or disable tool bar adaptation.
+   * @returns { NavigationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  enableToolBarAdaptation(enable: Optional<boolean>): NavigationAttribute;
 
   /**
    * Trigger callback when title mode change finished at free mode.
