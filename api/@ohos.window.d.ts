@@ -7582,6 +7582,20 @@ declare namespace window {
     recover(): Promise<void>;
 
     /**
+     * After the app main window is minimized, if the Ability is not in the background state, you can restore app main window.
+     *
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 14
+     */
+    restore(): Promise<void>;
+
+    /**
      * Set the visibility of the window decor.
      *
      * @param { boolean } - Enable the decor visible if true, otherwise means the opposite.
@@ -8795,6 +8809,40 @@ declare namespace window {
     off(eventType: 'windowStageEvent', callback?: Callback<WindowStageEventType>): void;
 
     /**
+     * Window stage close callback on.
+     * 
+     * @param { 'windowStageClose' } eventType The value is fixed at 'windowStageClose', indicating the window stage close event.
+     * @param { Callback<void> } callback Callback function requires a boolean return value to determine whether to close the current main window.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 14
+     */
+    on(eventType: 'windowStageClose', callback: Callback<void>): void;
+
+    /**
+     * Window stage close callback off.
+     *
+     * @param { 'windowStageClose' } eventType The value is fixed at 'windowStageClose', indicating the window stage close event.
+     * @param { Callback<void> } callback Callback function requires a boolean return value to determine whether to close the current main window.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 14
+     */
+    off(eventType: 'windowStageClose', callback?: Callback<void>): void;
+
+    /**
      * Disable window decoration. It must be called before loadContent.
      *
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -8892,6 +8940,37 @@ declare namespace window {
      * @since 14
      */
     setWindowModal(isModal: boolean): Promise<void>;
+
+    /**
+     * Set to automatically save the window rect.
+     *
+     * @param { boolean } enabled - Enable the window rect auto-save if true, otherwise means the opposite.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @StageModelOnly
+     * @atomicservice
+     * @since 14
+     */
+    setWindowRectAutoSave(enabled: boolean): Promise<void>;
+
+    /**
+     * Whether the window supports the window rect auto-save.
+     *
+     * @returns { Promise<boolean> } Promise used to return the result.
+     *  The value true means that the window rect auto-save is supported, and false means the opposite.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @StageModelOnly
+     * @atomicservice
+     * @since 14
+     */
+    isWindowRectAutoSave(): Promise<boolean>;
   }
 }
 

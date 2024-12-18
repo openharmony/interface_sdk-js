@@ -8022,6 +8022,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   defaultTextEncodingFormat(textEncodingFormat: string): WebAttribute;
 
   /**
+   * Whether force display the scroll bar.
+   *
+   * @param { boolean } enabled {@code true} means show; {@code false} otherwise.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 14
+   */
+  forceDisplayScrollBar(enabled: boolean): WebAttribute;
+
+  /**
    * Whether web component can load resource from network.
    *
    * @param { boolean } block {@code true} means it can't load resource from network; {@code false} otherwise.

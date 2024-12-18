@@ -19,6 +19,7 @@
  */
 
 import contextConstant from "./@ohos.app.ability.contextConstant";
+import image from "./@ohos.multimedia.image";
 
 /**
  * StartOptions is the basic communication component of the system.
@@ -152,4 +153,24 @@ export default class StartOptions {
    * @since 12
    */
   startupVisibility?: contextConstant.StartupVisibility;
+
+  /**
+   * The start window Icon.
+   *
+   * @type { ?image.PixelMap }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 14
+   */
+    startWindowIcon?: image.PixelMap;
+
+  /**
+   * The start window backgroundColor.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 14
+   */
+  startWindowBackgroundColor?: string;
 }

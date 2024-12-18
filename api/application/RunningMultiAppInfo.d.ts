@@ -20,6 +20,7 @@
 
 import { MultiAppMode } from './MultiAppMode';
 import { RunningAppClone } from './RunningAppClone';
+import { RunningMultiInstanceInfo } from './RunningMultiInstanceInfo';
 
 /**
  * The class of running multi app information.
@@ -51,6 +52,16 @@ export interface RunningMultiAppInfo {
    * @since 12
    */
   mode: MultiAppMode;
+
+  /**
+   * All running instance info for bundle if mode is {@link MULTI_INSTANCE}.
+   *
+   * @type { ?Array<RunningMultiInstanceInfo> }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 14
+   */
+  runningMultiInstances?: Array<RunningMultiInstanceInfo>;
 
   /**
    * All running app info for bundle if mode is {@link APP_CLONE}.

@@ -838,5 +838,27 @@ declare namespace hidebug {
    * @since 12
    */
   function isDebugState(): boolean;
+
+  /**
+   * Get the graphics memory of application
+   *
+   * @returns { Promise<number> } Returns the graphics memory of application, in kilobyte.
+   * @throws { BusinessError } 11400104 - Failed to get the application memory due to a remote exception.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @atomicservice
+   * @since 14
+   */
+  function getGraphicsMemory(): Promise<number>;
+
+  /**
+   * Get the graphics memory of application
+   *
+   * @returns { number } Returns the graphics memory of application, in kilobyte.
+   * @throws { BusinessError } 11400104 - Failed to get the application memory due to a remote exception.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @atomicservice
+   * @since 14
+   */
+  function getGraphicsMemorySync(): number;
 }
 export default hidebug;

@@ -1153,7 +1153,28 @@ declare namespace userAuth {
      * @atomicservice
      * @since 12
      */
-    AUTH_TYPE_IRRELEVANT = 2
+    AUTH_TYPE_IRRELEVANT = 2,
+
+    /**
+     * Caller irrelevant authentication type relevant.The latest authentication result (not only unlock authentication
+     * result) can be reused only when the result is within valid duration as well as it comes from one of specified
+     * UserAuthTypes of the AuthParam.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 14
+     */
+    CALLER_IRRELEVANT_AUTH_TYPE_RELEVANT = 3,
+
+    /**
+     * Caller irrelevant authentication type irrelevant.The latest authentication result (not only unlock
+     * authentication result) can be reused as long as the result is within valid duration.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 14
+     */
+    CALLER_IRRELEVANT_AUTH_TYPE_IRRELEVANT = 4
   }
 
   /**
