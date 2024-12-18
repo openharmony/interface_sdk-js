@@ -321,7 +321,7 @@ declare namespace userAuth {
      * If the authentication fails, the remaining authentication times are returned in extraInfo,
      * If the authentication executor is locked, the freezing time is returned in extraInfo.
      *
-     * @type { function } 
+     * @type { function }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
      * @deprecated since 9
@@ -1644,7 +1644,7 @@ declare namespace userAuth {
    * @returns { UserAuthInstance } Returns an authentication instance with widget.
    * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
    * <br>1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 
+   * <br>2. Incorrect parameter types.
    * <br>3. Parameter verification failed.
    * @throws { BusinessError } 12500002 - General operation error.
    * @throws { BusinessError } 12500005 - The authentication type is not supported.
@@ -1897,7 +1897,25 @@ declare namespace userAuth {
      * @atomicservice
      * @since 12
      */
-    PIN_EXPIRED = 12500013
+    PIN_EXPIRED = 12500013,
+
+    /**
+     * Indicates that current operation failed because of authToken integrity check failed.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @systemapi Hide this for inner system use.
+     * @since 16
+     */
+    AUTH_TOKEN_CHECK_FAILED = 12500015,
+
+    /**
+     * Indicates that current operation failed because of authToken has expired.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @systemapi Hide this for inner system use.
+     * @since 16
+     */
+    AUTH_TOKEN_EXPIRED = 12500016
   }
 
   /**
