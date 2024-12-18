@@ -1485,6 +1485,18 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 13
    */
   enableHapticFeedback(isEnabled: boolean): TextAreaAttribute;
+
+  /**
+   * Set the text with half leading.
+   *
+   * @param { Optional<boolean> } halfLeading
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  halfLeading(halfLeading: Optional<boolean>): TextAreaAttribute;
 }
 
 /**

@@ -1586,6 +1586,18 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 13
    */
   enableHapticFeedback(isEnabled: boolean): SearchAttribute;
+
+  /**
+   * Set the text with half leading.
+   *
+   * @param { Optional<boolean> } halfLeading
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  halfLeading(halfLeading: Optional<boolean>): SearchAttribute;
 }
 
 /**
