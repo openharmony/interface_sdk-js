@@ -391,6 +391,31 @@ declare namespace webview {
   }
 
   /**
+   * The memory pressure level that can be set.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 14
+   */
+  enum PressureLevel {
+    /**
+     * Modules are advised to free buffers that are cheap to re-allocate and not immediately needed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 14
+     */
+    MEMORY_PRESSURE_LEVEL_MODERATE = 1,
+
+    /**
+     * At this level, modules are advised to free all possible memory.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 14
+     */
+    MEMORY_PRESSURE_LEVEL_CRITICAL = 2
+  }
+
+  /**
    * Defines the hit test value, related to {@link getHitTestValue} method.
    *
    * @interface HitTestValue
@@ -4293,7 +4318,22 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
-    scrollTo(x: number, y: number): void;
+    /**
+     * Scroll to the position.
+     *
+     * @param { number } x - the x of the position.
+     * @param { number } y - the y of the position.
+     * @param { number } duration - the scroll animation duration. Unit: millisecond.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    scrollTo(x: number, y: number, duration?: number): void;
 
     /**
      * Scroll by the delta position.
@@ -4320,7 +4360,22 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
-    scrollBy(deltaX: number, deltaY: number): void;
+    /**
+     * Scroll by the delta position.
+     *
+     * @param { number } deltaX - the delta x of the position.
+     * @param { number } deltaY - the delta y of the position.
+     * @param { number } duration - the scroll animation duration. Unit: millisecond.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    scrollBy(deltaX: number, deltaY: number, duration?: number): void;
 
     /**
      * Slide by the speed.
@@ -5236,6 +5291,18 @@ declare namespace webview {
      * @since 12
      */
     scrollByWithResult(deltaX: number, deltaY: number): boolean;
+
+    /**
+     * Trim memory by different memory pressure level.
+     *
+     * @param { PressureLevel } level - The memory pressure level for the ArkWeb.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Parameter string is too long. 3.Parameter verification failed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 14
+     */
+    static trimMemoryByPressureLevel(level: PressureLevel): void;
   }
 
   /**
