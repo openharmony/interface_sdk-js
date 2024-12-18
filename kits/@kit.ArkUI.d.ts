@@ -120,6 +120,7 @@ import SystemRouter, {
   BackRouterOptions, DisableAlertBeforeBackPageOptions, EnableAlertBeforeBackPageOptions,
   RouterOptions, RouterState
 } from '@system.router';
+import { ArcAlphabetIndexer, ArcAlphabetIndexerAttribute } from '@ohos.arkui.ArcAlphabetIndexer';
 import { Colors, CustomColors, Theme, ThemeControl, CustomTheme } from '@ohos.arkui.theme';
 import {
   ExtraRegionPosition,
@@ -221,6 +222,7 @@ export {
   DownloadLayoutDirection, DownloadIconStyle, DownloadDescription, DownloadContentOptions, DownloadStyleOptions,
   Rect, RoundRect, edgeColors, edgeWidths, borderStyles, borderRadiuses, ParticleModifier,
   InnerFullScreenLaunchComponent, LaunchController, AccessibilitySelectedType, AccessibilityOptions, CloseOptions, ChipSuffixSymbolGlyphOptions,
+  ArcAlphabetIndexer, ArcAlphabetIndexerAttribute,
   SuffixImageIconOptions, SymbolItemOptions,
   SplitPolicy, MultiNavigation, MultiNavPathStack,
 };
