@@ -916,13 +916,31 @@ declare namespace installer {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
+     * @throws { BusinessError } 17700073 - Failed to install the HAP because an application with the same
+     * <br>bundle name but different signature information exists on the device.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 13
+     */
+    /**
+     * Recover an application.
+     *
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.RECOVER_BUNDLE
+     * @param { string } bundleName - Indicates the bundle name of the application to be recovered.
+     * @param { InstallParam } installParam - Indicates other parameters required for the recover.
+     * @param { AsyncCallback<void> } callback - The callback of recovering application result.
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.RECOVER_BUNDLE'.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 17700001 - The specified bundle name is not found.
+     * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700058 - Failed to install the HAP because this application is prohibited
      * <br>from being installed on this device or by specified users.
      * @throws { BusinessError } 17700073 - Failed to install the HAP because an application with the same
      * <br>bundle name but different signature information exists on the device.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     recover(bundleName: string, installParam: InstallParam, callback: AsyncCallback<void>): void;
 
@@ -950,13 +968,29 @@ declare namespace installer {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
+     * @throws { BusinessError } 17700073 - Failed to install the HAP because an application with the same
+     * <br>bundle name but different signature information exists on the device.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 13
+     */
+    /**
+     * Recover an application.
+     *
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.RECOVER_BUNDLE
+     * @param { string } bundleName - Indicates the bundle name of the application to be recovered.
+     * @param { AsyncCallback<void> } callback - The callback of recovering application result.
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.RECOVER_BUNDLE'.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @throws { BusinessError } 17700058 - Failed to install the HAP because this application is prohibited
      * <br>from being installed on this device or by specified users.
      * @throws { BusinessError } 17700073 - Failed to install the HAP because an application with the same
      * <br>bundle name but different signature information exists on the device.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     recover(bundleName: string, callback: AsyncCallback<void>): void;
 
@@ -988,13 +1022,31 @@ declare namespace installer {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
+     * @throws { BusinessError } 17700073 - Failed to install the HAP because an application with the same
+     * <br>bundle name but different signature information exists on the device.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 13
+     */
+    /**
+     * Recover an application.
+     *
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.RECOVER_BUNDLE
+     * @param { string } bundleName - Indicates the bundle name of the application to be recovered.
+     * @param { InstallParam } installParam - Indicates other parameters required for the recover.
+     * @returns { Promise<void> }
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.RECOVER_BUNDLE'.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 17700001 - The specified bundle name is not found.
+     * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700058 - Failed to install the HAP because this application is prohibited
      * <br>from being installed on this device or by specified users.
      * @throws { BusinessError } 17700073 - Failed to install the HAP because an application with the same
      * <br>bundle name but different signature information exists on the device.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     recover(bundleName: string, installParam?: InstallParam): Promise<void>;
 
@@ -1413,7 +1465,7 @@ declare namespace installer {
      * <br>from being installed on this device or by specified users.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
      installPreexistingApp(bundleName: string, userId?: number): Promise<void>;
   }
