@@ -8720,7 +8720,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { boolean } mode - True if it needs to enable window drag smooth.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 16
+   * @atomicservice
+   * @since 12
    */
   enableSmoothDragResize(mode: boolean): WebAttribute;
 
@@ -8840,9 +8841,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets whether to follow the system font weight.
    *
-   * @param { boolean } follow The value true means to follow the system font weight, and false means the opposite.
+   * @param { boolean} follow The value true means to follow the system font weight, and false means the opposite.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 16
    */
   enableFollowSystemFontWeight(follow: boolean): WebAttribute;
