@@ -7995,6 +7995,13 @@ declare namespace audio {
      * @since 13
      */
     SOURCE_TYPE_CAMCORDER = 13,
+
+    /**
+     * Unprocessed source type.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 14
+     */
+    SOURCE_TYPE_UNPROCESSED = 14
   }
 
   /**
