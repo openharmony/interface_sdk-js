@@ -8843,7 +8843,6 @@ declare namespace camera {
      *
      * @returns { boolean } Is video mirror supported.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
      * @since 16
      */
     isMirrorSupported(): boolean;
