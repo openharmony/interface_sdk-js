@@ -10201,13 +10201,14 @@ declare namespace audio {
    * Enumerates audio effect flags.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Core
+   * @systemapi
    * @since 14
    */
   enum EffectFlag {
     /**
      * Audio render effect.
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @crossplatform
+     * @systemapi
      * @since 14
      */
     RENDER_EFFECT_FLAG = 0,
@@ -10215,7 +10216,7 @@ declare namespace audio {
     /**
      * Audio capture effect.
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @crossplatform
+     * @systemapi
      * @since 14
      */
     CAPTURE_EFFECT_FLAG = 1
