@@ -36,10 +36,11 @@ import uniformDataStruct from '@ohos.data.uniformDataStruct';
 import { ValueType, ValuesBucket } from '@ohos.data.ValuesBucket';
 import sendablePreferences from '@ohos.data.sendablePreferences';
 import sendableRelationalStore from '@ohos.data.sendableRelationalStore';
+import graphStore from '@ohos.data.graphStore';
 
 export {
   DataShareExtensionAbility, DataShareResultSet, DataType, ValueType, ValuesBucket, cloudData, cloudExtension, 
   commonType, dataShare, dataSharePredicates, distributedDataObject, distributedKVStore, preferences,
   relationalStore, unifiedDataChannel, uniformTypeDescriptor, uniformDataStruct, sendablePreferences, dataAbility,
-  sendableRelationalStore
+  sendableRelationalStore, graphStore
 };
