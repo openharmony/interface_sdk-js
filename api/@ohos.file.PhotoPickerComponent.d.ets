@@ -891,7 +891,7 @@ export declare enum SaveMode {
    * @atomicservice
    * @since 14
    */
-  SHORT_AS_NEW = 0,
+  SAVA_AS_NEW = 0,
 
   /**
    * Overwrite and save.
@@ -900,5 +900,5 @@ export declare enum SaveMode {
    * @atomicservice
    * @since 14
    */
-  SHORT_AS_REPLACE = 1
+  SAVA_AS_REPLACE = 1
 } 
