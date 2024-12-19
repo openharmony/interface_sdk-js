@@ -4858,6 +4858,15 @@ declare enum PreDragStatus {
  * @atomicservice
  * @since 11
  */
+/**
+ * DragItemInfo object description
+ *
+ * @interface DragItemInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
 declare interface DragItemInfo {
   /**
    * Uses the pixelMap object for drawing.
@@ -4873,6 +4882,15 @@ declare interface DragItemInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Uses the pixelMap object for drawing.
+   *
+   * @type { ?PixelMap }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
    */
   pixelMap?: PixelMap;
 
@@ -4891,6 +4909,15 @@ declare interface DragItemInfo {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Uses the custom builder for drawing, if pixelMap is set, this value is ignored.
+   *
+   * @type { ?CustomBuilder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
   builder?: CustomBuilder;
 
   /**
@@ -4907,6 +4934,15 @@ declare interface DragItemInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Sets the extra info for drag event.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
    */
   extraInfo?: string;
 }
@@ -9270,6 +9306,15 @@ declare type UniformDataType = import('../api/@ohos.data.uniformTypeDescriptor')
  * @atomicservice
  * @since 11
  */
+/**
+ * Enum for Drag Result.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
 declare enum DragResult {
   /**
    * If the drag is successful, return DragResult.DRAG_SUCCESSFUL.
@@ -9284,6 +9329,14 @@ declare enum DragResult {
    * @atomicservice
    * @since 11
    */
+  /**
+   * If the drag is successful, return DragResult.DRAG_SUCCESSFUL.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
   DRAG_SUCCESSFUL = 0,
   /**
    * If drag fail, return DragResult.DRAG_FAILED.
@@ -9297,6 +9350,14 @@ declare enum DragResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * If drag fail, return DragResult.DRAG_FAILED.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
    */
   DRAG_FAILED = 1,
   /**
@@ -9991,6 +10052,15 @@ declare enum BlendApplyType {
  * @atomicservice
  * @since 11
  */
+/**
+ * DragEvent object description
+ *
+ * @interface DragEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
 declare interface DragEvent {
   /**
    * X coordinate of the touch point relative to the left edge of the device screen.
@@ -10006,6 +10076,15 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * X coordinate of the touch point relative to the left edge of the device screen.
+   *
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
    */
   getDisplayX(): number;
 
@@ -10024,6 +10103,15 @@ declare interface DragEvent {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Y coordinate of the touch point relative to the upper edge of the device screen.
+   *
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
   getDisplayY(): number;
 
   /**
@@ -10041,6 +10129,15 @@ declare interface DragEvent {
    * @atomicservice
    * @since 11
    */
+  /**
+   * X coordinate of the touch point relative to the left edge of the current window.
+   *
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
   getWindowX(): number;
 
   /**
@@ -10057,6 +10154,15 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Y coordinate of the touch point relative to the left edge of the current window.
+   *
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
    */
   getWindowY(): number;
 
@@ -10192,6 +10298,15 @@ declare interface DragEvent {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Set dragEvent result to DragEvent.
+   *
+   * @param { DragResult } dragResult - the return of dragEvent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
   setResult(dragResult: DragResult): void;
 
   /**
@@ -10209,6 +10324,15 @@ declare interface DragEvent {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Get dragEvent result from DragEvent.
+   *
+   * @returns { DragResult } - dragResult Data.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
   getResult(): DragResult;
 
   /**
@@ -10225,6 +10349,15 @@ declare interface DragEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Get the rectangle of drag window.
+   *
+   * @returns { Rectangle } - getPreview rectangle.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
    */
   getPreviewRect(): Rectangle;
 
@@ -18589,6 +18722,17 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
+   * (To be triggered, press and hold for 170 milliseconds (ms))
+   *
+   * @param { function } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
   onDragStart(event: (event: DragEvent, extraParams?: string) => CustomBuilder | DragItemInfo): T;
 
   /**
@@ -18607,6 +18751,16 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * After binding, a callback is triggered when the component is dragged to the range of the component.
+   *
+   * @param { function } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
    */
   onDragEnter(event: (event: DragEvent, extraParams?: string) => void): T;
 
@@ -18627,6 +18781,16 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * After binding, a callback is triggered when the drag moves within the range of a placeable component.
+   *
+   * @param { function } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
   onDragMove(event: (event: DragEvent, extraParams?: string) => void): T;
 
   /**
@@ -18645,6 +18809,16 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * After binding, a callback is triggered when the component is dragged out of the component range.
+   *
+   * @param { function } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
    */
   onDragLeave(event: (event: DragEvent, extraParams?: string) => void): T;
 
@@ -18667,6 +18841,17 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * The component bound to this event can be used as the drag release target.
+   * This callback is triggered when the drag behavior is stopped within the scope of the component.
+   *
+   * @param { function } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
   onDrop(event: (event: DragEvent, extraParams?: string) => void): T;
 
   /**
@@ -18685,6 +18870,16 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * This function is called when the drag event is end.
+   *
+   * @param { function } event - indicates the function to be called.
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
    */
   onDragEnd(event: (event: DragEvent, extraParams?: string) => void): T;
 
