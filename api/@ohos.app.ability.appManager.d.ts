@@ -560,6 +560,27 @@ declare namespace appManager {
   function killProcessWithAccount(bundleName: string, accountId: number, callback: AsyncCallback<void>): void;
 
   /**
+   * Kill process with account.
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.KILL_APP_PROCESSES
+   *     or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.CLEAN_BACKGROUND_PROCESSES
+   * @param { string } bundleName - The process bundle name.
+   * @param { number } accountId - The account id.
+   * @param { boolean } clearPageStack - The flag that indicates whether the page stack need to be cleared.
+   * @param { number } [appIndex] - The application index.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 14
+   */
+  function killProcessWithAccount(bundleName: string, accountId: number, clearPageStack: boolean, appIndex?: number):
+    Promise<void>
+
+  /**
    * Is user running in stability test.
    *
    * @param { AsyncCallback<boolean> } callback - The callback is used to return true if user is running stability test.
@@ -664,6 +685,24 @@ declare namespace appManager {
    * @since 14
    */
   function killProcessesByBundleName(bundleName: string, callback: AsyncCallback<void>);
+
+  /**
+   * Kill processes by bundle name
+   *
+   * @permission ohos.permission.KILL_APP_PROCESSES or ohos.permission.CLEAN_BACKGROUND_PROCESSES
+   * @param { string } bundleName - bundle name.
+   * @param { boolean } clearPageStack - The flag that indicates whether the page stack need to be cleared.
+   * @param { number } [appIndex] - The application index.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 14
+   */
+  function killProcessesByBundleName(bundleName: string, clearPageStack: boolean, appIndex?: number): Promise<void>;
 
   /**
    * Clear up application data by bundle name
