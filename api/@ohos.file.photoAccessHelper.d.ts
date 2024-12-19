@@ -4290,7 +4290,7 @@ declare namespace photoAccessHelper {
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { string } bundleName - BundleName of the application which called the save dialog
      * @param { string } appName - AppName of the application which called the save dialog
-     * @param { string } appId - AppId of the application which called the save dialog
+     * @param { number } tokenId - TokenId of the application which called the save dialog
      * @param { Array<PhotoCreationConfig> } photoCreationConfigs - List of the photo asset creation configs
      * @returns { Promise<Array<string>> } - Returns the media library file uri list to application which has been authorized
      * @throws { BusinessError } 201 - Permission denied
@@ -4300,9 +4300,9 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 12
+     * @since 15
      */
-    createAssetsForApp(bundleName: string, appName: string, appId: string, photoCreationConfigs: Array<PhotoCreationConfig>): Promise<Array<string>>;
+    createAssetsForApp(bundleName: string, appName: string, tokenId: number, photoCreationConfigs: Array<PhotoCreationConfig>): Promise<Array<string>>;
     /**
      * Create asset and grant short term permission to the application.
      *
@@ -4516,7 +4516,7 @@ declare namespace photoAccessHelper {
      * Grant permission of assets to an APP.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { string } appid - App Id
+     * @param { number } tokenId - App TokenId
      * @param { Array<string> } uriList - List of asset uris whose permission will be granted to an App,
      * <br>the capacity of uriList is 1000.
      * @param { PhotoPermissionType } photoPermissionType - Permission type of accessing assets.
@@ -4529,14 +4529,14 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 12
+     * @since 15
      */
-    grantPhotoUrisPermission(appid: string, uriList: Array<string>, photoPermissionType: PhotoPermissionType, hideSensitiveType: HideSensitiveType): Promise<number>;
+    grantPhotoUrisPermission(tokenId: number, uriList: Array<string>, photoPermissionType: PhotoPermissionType, hideSensitiveType: HideSensitiveType): Promise<number>;
     /**
      * Grant permission of asset to an APP.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { string } appid - App Id
+     * @param { number } tokenId - App TokenId
      * @param { string } uri - Asset uri whose permission will be granted to an App.
      * @param { PhotoPermissionType } photoPermissionType - Permission type of accessing assets.
      * @param { HideSensitiveType } hideSensitiveType - Hide sensitive info type of accessing assets.
@@ -4548,15 +4548,15 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 12
+     * @since 15
      */
-    grantPhotoUriPermission(appid: string, uri: string, photoPermissionType: PhotoPermissionType, hideSensitiveType: HideSensitiveType): Promise<number>;
+    grantPhotoUriPermission(tokenId: number, uri: string, photoPermissionType: PhotoPermissionType, hideSensitiveType: HideSensitiveType): Promise<number>;
     /**
      * Cancel permission of asset to an APP.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { string } appid - App Id
-     * @param { string } uri - Asset uri whose permission will be granted to an App.
+     * @param { number } tokenId - App TokenId
+     * @param { string } uri - Asset uri whose permission will be cancel to an App.
      * @param { PhotoPermissionType } photoPermissionType - Permission type of accessing assets.
      * @returns { Promise<number> } Returns result of cancel permission
      * @throws { BusinessError } 201 - Permission denied
@@ -4566,9 +4566,9 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 12
+     * @since 15
      */
-    cancelPhotoUriPermission(appid: string, uri: string, photoPermissionType: PhotoPermissionType): Promise<number>;
+    cancelPhotoUriPermission(tokenId: number, uri: string, photoPermissionType: PhotoPermissionType): Promise<number>;
     /**
      * Provides the capability of thumbnail generation according to specified rules.
      *
