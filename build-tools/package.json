@@ -11,6 +11,6 @@
   "dependencies": {
     "fs": "^0.0.1-security",
     "path": "^0.12.7",
-    "typescript": "npm:ohos-typescript@4.2.3-r5"
+    "typescript": "npm:ohos-typescript@4.9.5-r5"
   }
 }

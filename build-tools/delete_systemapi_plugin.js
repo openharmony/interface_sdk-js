@@ -155,7 +155,7 @@ function processKitImportDeclaration(statement, needDeleteMap, needDeleteExportN
         element.propertyName.escapedText.toString() :
         element.name.escapedText.toString();
       if (!currImportInfo.exportName.has(exportName)) {
-        importNodeNamedBindings.push(factory.createImportSpecifier(element.propertyName, element.name));
+        importNodeNamedBindings.push(factory.createImportSpecifier(false, element.propertyName, element.name));
       } else {
         needDeleteExportName.add(element.name.escapedText.toString());
       }
@@ -163,7 +163,6 @@ function processKitImportDeclaration(statement, needDeleteMap, needDeleteExportN
   }
   if (defaultName !== '' || importNodeNamedBindings.length !== 0) {
     const newImportNode = factory.createImportDeclaration(
-      undefined,
       undefined,
       factory.createImportClause(
         false,
@@ -395,7 +394,7 @@ function formatImportDeclaration(url, copyrightMessage = '', isCopyrightDeleted 
         }
         writeFile(url, result);
       }
-      return node;
+      return ts.factory.createSourceFile([], ts.SyntaxKind.EndOfFileToken, ts.NodeFlags.None);
     };
     function collectAllIdentifier(node) {
       if (ts.isSourceFile(node) && node.statements) {
@@ -438,7 +437,6 @@ function formatAllNodes(url, node, allIdentifierSet, copyrightMessage = '', isCo
       } else if (ts.isStructDeclaration(statement)) {
         statement = ts.factory.updateStructDeclaration(
           statement,
-          statement.decorators,
           statement.modifiers,
           statement.name,
           statement.typeParameters,
@@ -644,7 +642,7 @@ function deleteSystemApi(url) {
           transformers: { before: [formatImportDeclaration(url, copyrightMessage, deleteNode.isCopyrightDeleted)] },
         });
       }
-      return node;
+      return ts.factory.createSourceFile([], ts.SyntaxKind.EndOfFileToken, ts.NodeFlags.None);
     };
   };
 }
@@ -836,37 +834,9 @@ function processVisitEachChild(context, node) {
   return ts.visitEachChild(node, processAllNodes, context); // 遍历所有子节点
   function processAllNodes(node) {
     if (ts.isInterfaceDeclaration(node)) {
-      const newMembers = [];
-      node.members.forEach((member) => {
-        if (!isSystemapi(member)) {
-          newMembers.push(member);
-        }
-      });
-      node = ts.factory.updateInterfaceDeclaration(
-        node,
-        node.decorators,
-        node.modifiers,
-        node.name,
-        node.typeParameters,
-        node.heritageClauses,
-        newMembers
-      );
+      node = processInterfaceDeclaration(node);
     } else if (ts.isClassDeclaration(node)) {
-      const newMembers = [];
-      node.members.forEach((member) => {
-        if (!isSystemapi(member)) {
-          newMembers.push(member);
-        }
-      });
-      node = ts.factory.updateClassDeclaration(
-        node,
-        node.decorators,
-        node.modifiers,
-        node.name,
-        node.typeParameters,
-        node.heritageClauses,
-        newMembers
-      );
+      node = processClassDeclaration(node);
     } else if (ts.isModuleDeclaration(node) && node.body && ts.isModuleBlock(node.body)) {
       const newStatements = [];
       node.body.statements.forEach((statement) => {
@@ -875,34 +845,101 @@ function processVisitEachChild(context, node) {
         }
       });
       const newModuleBody = ts.factory.updateModuleBlock(node.body, newStatements);
-      node = ts.factory.updateModuleDeclaration(node, node.decorators, node.modifiers, node.name, newModuleBody);
-    } else if (ts.isEnumDeclaration(node)) {
-      const newMembers = [];
-      node.members.forEach((member) => {
-        if (!isSystemapi(member)) {
-          newMembers.push(member);
-        }
-      });
-      node = ts.factory.updateEnumDeclaration(node, node.decorators, node.modifiers, node.name, newMembers);
-    } else if (ts.isStructDeclaration(node)) {
-      const newMembers = [];
-      node.members.forEach((member, index) => {
-        if (index >= 1 && !isSystemapi(member)) {
-          newMembers.push(member);
-        }
-      });
-      node = ts.factory.updateStructDeclaration(
+      node = ts.factory.updateModuleDeclaration(
         node,
-        node.decorators,
         node.modifiers,
         node.name,
-        node.typeParameters,
-        node.heritageClauses,
-        newMembers
+        newModuleBody
       );
+    } else if (ts.isEnumDeclaration(node)) {
+      node = processEnumDeclaration(node);
+    } else if (ts.isStructDeclaration(node)) {
+      node = processStructDeclaration(node);
     }
     return ts.visitEachChild(node, processAllNodes, context);
   }
+}
+
+/**
+ * 处理interface子节点 
+ */
+function processInterfaceDeclaration(node) {
+  const newMembers = [];
+  node.members.forEach((member) => {
+    if (!isSystemapi(member)) {
+      newMembers.push(member);
+    }
+  });
+  node = ts.factory.updateInterfaceDeclaration(
+    node,
+    node.modifiers,
+    node.name,
+    node.typeParameters,
+    node.heritageClauses,
+    newMembers
+  );
+  return node;
+}
+
+/**
+ * 处理class子节点 
+ */
+function processClassDeclaration(node) {
+  const newMembers = [];
+  node.members.forEach((member) => {
+    if (!isSystemapi(member)) {
+      newMembers.push(member);
+    }
+  });
+  node = ts.factory.updateClassDeclaration(
+    node,
+    node.modifiers,
+    node.name,
+    node.typeParameters,
+    node.heritageClauses,
+    newMembers
+  );
+  return node;
+}
+
+/**
+ * 处理enum子节点 
+ */
+function processEnumDeclaration(node) {
+  const newMembers = [];
+  node.members.forEach((member) => {
+    if (!isSystemapi(member)) {
+      newMembers.push(member);
+    }
+  });
+  node = ts.factory.updateEnumDeclaration(
+    node,
+    node.modifiers,
+    node.name,
+    newMembers
+  );
+  return node;
+}
+
+/**
+ * 处理struct子节点 
+ */
+function processStructDeclaration(node) {
+  const newMembers = [];
+  node.members.forEach((member, index) => {
+    if (index >= 1 && !isSystemapi(member)) {
+      newMembers.push(member);
+    }
+  });
+  node = ts.factory.updateStructDeclaration(
+    node,
+    node.modifiers,
+    node.name,
+    node.typeParameters,
+    node.heritageClauses,
+    newMembers
+  );
+  return node;
 }
 
 /**
