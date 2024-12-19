@@ -993,6 +993,16 @@ declare interface TextMenuItem {
    * @since 12
    */
   id: TextMenuItemId;
+  /**
+   * Customize what the menu item shortcut displays.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  labelInfo?: ResourceStr;
 }
 
 /**
