@@ -1159,6 +1159,130 @@ declare namespace text {
   }
 
   /**
+   * An enumeration of system font types.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 14
+   */
+  enum SystemFontType {
+    /**
+     * All font types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    ALL = 1 << 0,
+
+    /**
+     * System generic font type.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    GENERIC = 1 << 1,
+
+    /**
+     * Stylish font type.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    STYLISH = 1 << 2,
+
+    /**
+     * Installed font types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    INSTALLED = 1 << 3,
+  }
+
+  /**
+   * Font descriptor
+   * @typedef FontDescriptor
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 14
+   */
+  interface FontDescriptor {
+    /**
+     * Font file path
+     * @type { ?string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    path?: string;
+
+    /**
+     * Font postScript name
+     * @type { ?string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    postScriptName?: string;
+
+    /**
+     * Full font name
+     * @type { ?string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    fullName?: string;
+
+    /**
+     * Font family name
+     * @type { ?string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    fontFamily?: string;
+
+    /**
+     * Font subfamily name
+     * @type { ?string }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    fontSubfamily?: string;
+
+    /**
+     * Font weight
+     * @type { ?FontWeight }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    weight?: FontWeight;
+
+    /**
+     * Font width
+     * @type { ?number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    width?: number;
+
+    /**
+     * Font slant, non-0 means italic.
+     * @type { ?number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    italic?: number;
+
+    /**
+     * Whether the font is monospaced
+     * @type { ?boolean }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    monoSpace?: boolean;
+
+    /**
+     * Whether to support symbols
+     * @type { ?boolean }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    symbolic?: boolean;
+  }
+
+  /**
    * A paragraph retains the size and position of each glyph in the text and can be efficiently resized and painted.
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
@@ -1793,6 +1917,30 @@ declare namespace text {
      */
     runMetrics: Map<number, RunMetrics>;
   }
+
+  /**
+   * Obtain the corresponding font full names array based on the font type.
+   * @param { SystemFontType } fontType - System font type.
+   * @returns { Promise<Array<string>> } An array of font full names.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 14
+   */
+  function getSystemFontFullNamesByType(fontType: SystemFontType): Promise<Array<string>>;
+
+  /**
+   * Get font details according to the font full name and the font type, supporting generic fonts, stylish fonts, and
+   * installed fonts.
+   * @param { string } fullName - Font full name.
+   * @param { SystemFontType } fontType - System font type.
+   * @returns { Promise<FontDescriptor> } Returns the font descriptor.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 14
+   */
+  function getFontDescriptorByFullName(fullName: string, fontType: SystemFontType): Promise<FontDescriptor>;
 }
 
 export default text;
