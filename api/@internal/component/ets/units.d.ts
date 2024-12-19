@@ -3435,3 +3435,36 @@ declare interface DividerStyleOptions {
    */
   endMargin?: LengthMetrics;
 }
+
+/**
+ * Defines the ChainWeightOptions interface.
+ *
+ * @interface ChainWeightOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare interface ChainWeightOptions {
+  /**
+   * Horizontal ChainWeight.
+   *
+   * @type { ?(number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  horizontal?: number;
+
+  /**
+   * Vertical ChainWeight.
+   *
+   * @type { ?(number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  vertical?: number;
+}
