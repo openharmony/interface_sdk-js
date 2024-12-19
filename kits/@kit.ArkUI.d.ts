@@ -36,7 +36,7 @@ import {
 import { ComposeTitleBar, ComposeTitleBarMenuItem } from '@ohos.arkui.advanced.ComposeTitleBar';
 import { CounterComponent, CounterOptions, CounterType, DateData } from '@ohos.arkui.advanced.Counter';
 import {
-  AlertDialog, ButtonOptions, ConfirmDialog, LoadingDialog, SelectDialog, TipsDialog, CustomContentDialog
+  AlertDialog, ButtonOptions, ConfirmDialog, LoadingDialog, SelectDialog, TipsDialog, CustomContentDialog, PopoverDialog, PopoverOptions,
 } from '@ohos.arkui.advanced.Dialog';
 import {
   EditableLeftIconType, EditableTitleBar, EditableTitleBarMenuItem, EditableTitleBarItem, EditableTitleBarOptions,
@@ -191,7 +191,7 @@ export {
   font, inspector, matrix4, mediaquery, performanceMonitor, pluginComponentManager, PluginComponentTemplate, prompt, promptAction, router,
   AtomicServiceWeb, OnMessageEvent, OnErrorReceiveEvent, OnHttpErrorReceiveEvent, OnPageBeginEvent, OnPageEndEvent,
   AtomicServiceWebController, OnLoadInterceptEvent, OnProgressChangeEvent, OnLoadInterceptCallback, WebHeader,
-  screen, screenshot, uiAppearance, uiExtensionHost, uiObserver, window, windowAnimationManager, CustomContentDialog,
+  screen, screenshot, uiAppearance, uiExtensionHost, uiObserver, window, windowAnimationManager, CustomContentDialog, PopoverDialog, PopoverOptions,
   AtomicServiceTabs, TabBarOptions, TabBarPosition, TabContentBuilder, OnContentWillChangeCallback,
   IconOptions, ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle, ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup,
   Colors, CustomColors, Theme, ThemeControl, CustomTheme, ChipSymbolGlyphOptions,
