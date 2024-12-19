@@ -3894,6 +3894,23 @@ declare namespace audio {
     unexcludeOutputDevices(usage: DeviceUsage, devices: AudioDeviceDescriptors): Promise<void>;
 
     /**
+     * Unexclude output devices. This function will unexclude all output devices belong to specific usage.
+     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
+     * @param { DeviceUsage } usage - Device usage, only output device usages can be accepted.
+     * @returns { Promise<void> } Promise used to return result.
+     * @throws { BusinessError } 201 - Permisson denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 16
+     */
+     unexcludeOutputDevices(usage: DeviceUsage): Promise<void>;
+
+    /**
      * Get excluded devices by filter.
      * @param { DeviceUsage } usage - Device usage, only output device usages can be accepted.
      * @returns { AudioDeviceDescriptors } Exclueded devices.
