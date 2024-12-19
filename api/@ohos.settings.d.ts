@@ -1329,18 +1329,6 @@ declare namespace settings {
    * Open the network manager settings page.
    *
    * @param { Context } context - Indicates Context instance.
-   * @param { AsyncCallback<boolean> } [callback] - The callback is used to return the result.
-   * @throws { BusinessError } 14800000 - Parameter error.
-   * @throws { BusinessError } 14800010 - Original service error.
-   * @atomicservice
-   * @since 16
-   */
-  function openNetworkManagerSettings(context: Context, callback: AsyncCallback<boolean>): void;
-
-  /**
-   * Open the network manager settings page.
-   *
-   * @param { Context } context - Indicates Context instance.
    * @returns { Promise<boolean> } The promise returned by the function.
    * @throws { BusinessError } 14800000 - Parameter error.
    * @throws { BusinessError } 14800010 - Original service error.
