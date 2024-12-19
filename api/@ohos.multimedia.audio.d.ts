@@ -3896,7 +3896,7 @@ declare namespace audio {
     /**
      * Get excluded devices by filter.
      * @param { DeviceUsage } usage - Device usage, only output device usages can be accepted.
-     * @returns { Promise<AudioDeviceDescriptors> } Promise used to return exclueded devices.
+     * @returns { AudioDeviceDescriptors } Exclueded devices.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -3906,7 +3906,7 @@ declare namespace audio {
      * @systemapi
      * @since 16
      */
-    getExcludedDevices(usage: DeviceUsage): Promise<AudioDeviceDescriptors>;
+    getExcludedDevices(usage: DeviceUsage): AudioDeviceDescriptors;
   }
 
   /**
