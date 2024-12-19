@@ -24,6 +24,7 @@ import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
 import { ElementName } from './bundleManager/ElementName';
 import image from './@ohos.multimedia.image';
 import audio from './@ohos.multimedia.audio';
+import { AVCastPickerState, AVCastPickerColorMode } from './@ohos.multimedia.avCastPickerParam';
 import type media from './@ohos.multimedia.media';
 import type Context from './application/BaseContext';
 
@@ -924,6 +925,7 @@ declare namespace avSession {
     /**
      * unique session Id
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
@@ -939,6 +941,7 @@ declare namespace avSession {
     /**
      * Get current session type
      * @type { AVSessionType }
+     * @readonly
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
@@ -3579,6 +3582,83 @@ declare namespace avSession {
   }
 
   /**
+   * A helper to enable a picker to select output devices
+   *
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @atomicservice
+   * @since 14
+   */
+  class AVCastPickerHelper {
+    /**
+     * The constructor used to create a AVCastPickerHelper object.
+     *
+     * @param { Context } context - represents the context.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 14
+     */
+    constructor(context: Context);
+
+    /**
+     * Pull up the avcastpicker based on the options.
+     *
+     * @param { AVCastPickerOptions } [options] - represents the options provided to  the picker.
+     * @returns { Promise<void> } void promise when executed successfully
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * 2. Incorrect parameter types.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 14
+     */
+    select(options?: AVCastPickerOptions): Promise<void>;
+
+    /**
+     * Register picker state change callback.
+     * @param { 'pickerStateChange' } type - 'pickerStateChange'
+     * @param { Callback<AVCastPickerState> } callback - The callback used to handle picker state changed event.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * 2. Incorrect parameter types.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 14
+     */
+    on(type: 'pickerStateChange', callback: Callback<AVCastPickerState>) : void;
+
+    /**
+     * Unregister picker state change callback.
+     * @param { 'pickerStateChange' } type - 'pickerStateChange'
+     * @param { Callback<AVCastPickerState> } callback - The callback used to handle picker state changed event.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * 2. Incorrect parameter types.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 14
+     */
+    off(type: 'pickerStateChange', callback?: Callback<AVCastPickerState>) : void;
+  }
+
+  /**
+   * An option to make different picker usage
+   *
+   * @typedef AVCastPickerOptions
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @atomicservice
+   * @since 14
+   */
+  interface AVCastPickerOptions {
+    /**
+     * Indicates current session type to show different picker ui.
+     * If not set, default value is 'audio'.
+     *
+     * @type { ? AVSessionType }
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 14
+     */
+    sessionType?: AVSessionType;
+  }
+
+  /**
    * The callback of key request.
    *
    * @typedef { function } KeyRequestCallback
@@ -5628,6 +5708,7 @@ declare namespace avSession {
     /**
      * Unique session Id
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12

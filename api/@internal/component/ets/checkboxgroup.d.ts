@@ -414,7 +414,7 @@ interface CheckboxGroupInterface {
  * @atomicservice
  * @since 14
  */
-declare type OnCheckboxGroupChangeCallback  = (value: CheckboxGroupResult) => void;
+declare type OnCheckboxGroupChangeCallback = (value: CheckboxGroupResult) => void;
 
 /**
  * Defines the attribute functions of CheckboxGroup.

@@ -334,6 +334,7 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
 /**
  * LoadingProgressConfiguration used by LoadingProgress contentModifier
  *
+ * @extends CommonConfiguration<LoadingProgressConfiguration>
  * @interface LoadingProgressConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform

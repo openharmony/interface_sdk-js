@@ -316,8 +316,21 @@ export interface BadgeNumberCallbackData {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12
+   * @deprecated since 15
+   * @useinstead BadgeNumberCallbackData#appInstanceKey
    */
   readonly instanceKey?: number;
+
+  /**
+   * Application instance key.
+   *
+   * @type { ?string }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 15
+   */
+  readonly appInstanceKey?: string;
 }
 
 /**

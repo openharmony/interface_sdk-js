@@ -95,8 +95,8 @@ declare namespace buffer {
   /**
    * TypedArray inherits the features and methods of Int8Array
    * 
-   * @interface TypedArray
    * @extends Int8Array
+   * @typedef TypedArray
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice

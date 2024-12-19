@@ -423,13 +423,14 @@ declare interface TextBaseController {
 /**
  * Define the text extended editing controller.
  *
+ * @extends TextBaseController
  * @interface TextEditControllerEx
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 12
  */
-declare interface TextEditControllerEx extends TextBaseController{
+declare interface TextEditControllerEx extends TextBaseController {
   /**
    * Judge whether is in editing state
    * 
@@ -484,6 +485,38 @@ declare interface TextEditControllerEx extends TextBaseController{
    * @since 12
    */
   getPreviewText?(): PreviewText;
+}
+
+/**
+ * The previewText.
+ * @interface PreviewText
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface PreviewText {
+  /**
+   * Start offset of the previewText
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  offset: number;
+
+  /**
+   * Value of the previewText.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  value: string;
 }
 
 /**
@@ -918,38 +951,18 @@ declare class TextMenuItemId {
    * @since 13
    */
   static readonly AI_WRITER: TextMenuItemId;
-}
-
-/**
- * The previewText.
- * @interface PreviewText
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12
- */
-declare interface PreviewText {
-  /**
-   * Start offset of the previewText
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  offset: number;
 
   /**
-   * Value of the previewText.
+   * Indicates the TextMenuItemId to search the selected content.
    *
-   * @type { string }
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 16
    */
-  value: string;
+  static readonly SEARCH: TextMenuItemId;
 }
 
 /**
@@ -992,6 +1005,16 @@ declare interface TextMenuItem {
    * @since 12
    */
   id: TextMenuItemId;
+  /**
+   * Customize what the menu item shortcut displays.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  labelInfo?: ResourceStr;
 }
 
 /**

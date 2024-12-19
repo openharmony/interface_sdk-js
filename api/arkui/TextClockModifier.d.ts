@@ -25,7 +25,7 @@
  * Defines TextClock Modifier
  *
  * @extends TextClockAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<TextClockAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

@@ -52,6 +52,7 @@ declare namespace hfp {
   /**
    * Manager hfp source profile.
    *
+   * @extends BaseProfile
    * @typedef HandsFreeAudioGatewayProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10

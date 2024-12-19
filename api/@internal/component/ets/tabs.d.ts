@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -1622,7 +1622,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   barBackgroundBlurStyle(style: BlurStyle, options: BackgroundBlurStyleOptions): TabsAttribute;
 
@@ -1634,9 +1634,21 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   barBackgroundEffect(options: BackgroundEffectOptions): TabsAttribute;
+
+  /**
+   * Setting page flip mode on mouse wheel event.
+   *
+   * @param { Optional<PageFlipMode> } mode - page flip mode on mouse wheel event. The default value is PageFlipMode.CONTINUOUS.
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  pageFlipMode(mode: Optional<PageFlipMode>): TabsAttribute;
 
   /**
    * Called when content will change.

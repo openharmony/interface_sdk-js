@@ -655,8 +655,8 @@ export class FrameNode {
 /**
  * Used to define the FrameNode type.
  *
- * @interface TypedFrameNode
  * @extends FrameNode
+ * @interface TypedFrameNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -1430,7 +1430,7 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   type Marquee = TypedFrameNode<MarqueeInterface, MarqueeAttribute>;
 
@@ -1442,7 +1442,7 @@ export namespace typeNode {
    * @returns { Marquee } - Return Marquee type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   function createNode(context: UIContext, nodeType: 'Marquee'): Marquee;
 
@@ -1453,7 +1453,7 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   type TextArea = TypedFrameNode<TextAreaInterface, TextAreaAttribute>;
 
@@ -1465,7 +1465,7 @@ export namespace typeNode {
    * @returns { TextArea } - Return TextArea type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   function createNode(context: UIContext, nodeType: 'TextArea'): TextArea;
 
@@ -1476,7 +1476,7 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   type SymbolGlyph = TypedFrameNode<SymbolGlyphInterface, SymbolGlyphAttribute>;
 
@@ -1488,7 +1488,7 @@ export namespace typeNode {
    * @returns { SymbolGlyph } - Return SymbolGlyph type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   function createNode(context: UIContext, nodeType: 'SymbolGlyph'): SymbolGlyph;
 

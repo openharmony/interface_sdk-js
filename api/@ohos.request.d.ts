@@ -4786,7 +4786,7 @@ declare namespace request {
      */
     /**
      * Creates a task for upload or download and enqueue it.
-     * When an application enters the background, the frontend tasks associated.
+     * When an application enters the background, the frontend tasks associated
      * with it will gradually be paused until the application returns to the foreground. 
      *
      * @permission ohos.permission.INTERNET

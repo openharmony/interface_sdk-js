@@ -358,6 +358,73 @@ declare namespace applicationManager {
    * @since 12
    */
   function getAutoStartApps(admin: Want): Array<Want>;
+
+  /**
+   * Adds the keep alive applications.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *              The admin must have the corresponding permission.
+   * @param { Array<string> } bundleNames - bundleNames indicates the bundle names of applications added to the keep
+   *              alive list.
+   * @param { number } accountId - accountId indicates the local ID of the OS account.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200010 - A conflict policy has been configured.
+   * @throws { BusinessError } 9201005 - Add keep alive applications failed.
+   * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
+   *              required to call the API
+   * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified;
+   *              2.Incorrect parameter types;3.Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 14
+   */
+  function addKeepAliveApps(admin: Want, bundleNames: Array<string>, accountId: number): void;
+
+  /**
+   * Removes the keep alive applications.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *              The admin must have the corresponding permission.
+   * @param { Array<string> } bundleNames - bundleNames indicates the bundle names of applications removed from the keep
+   *              alive list.
+   * @param { number } accountId - accountId indicates the local ID of the OS account.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
+   *              required to call the API
+   * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified;
+   *              2.Incorrect parameter types;3.Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 14
+   */
+  function removeKeepAliveApps(admin: Want, bundleNames: Array<string>, accountId: number): void;
+
+  /**
+   * Gets the keep alive applications.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *              The admin must have the corresponding permission.
+   * @param { number } accountId - accountId indicates the local ID of the OS account.
+   * @returns { Array<string> } the bundle names of keep alive applications.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
+   *              required to call the API
+   * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified;
+   *              2.Incorrect parameter types;3.Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 14
+   */
+  function getKeepAliveApps(admin: Want, accountId: number): Array<string>;
 }
 
 export default applicationManager;

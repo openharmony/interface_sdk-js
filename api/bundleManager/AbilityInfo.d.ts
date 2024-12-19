@@ -631,7 +631,7 @@ export interface AbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   readonly orientationId: number;
 }

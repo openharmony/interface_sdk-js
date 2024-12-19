@@ -1340,6 +1340,17 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @since 12
    */
   analyzerConfig(config: ImageAnalyzerConfig): VideoAttribute;
+
+  /**
+   * Set background color of the surface holden by Video(only support Color.Black and Color.Transparent). The default value is Color.Black.
+   *
+   * @param { ColorMetrics } color
+   * @returns { VideoAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 16
+   */
+  surfaceBackgroundColor(color: ColorMetrics): VideoAttribute;
 }
 
 /**

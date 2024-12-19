@@ -1430,19 +1430,6 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 11
    */
   indicator(value: DotIndicator | DigitIndicator | boolean): SwiperAttribute;
-  
-  /**
-   * Use indicator component controller.
-   *
-   * @param { IndicatorComponentController } controller - indicator component controller.
-   * @returns { SwiperAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 16
-   */
-  indicator(controller: IndicatorComponentController): SwiperAttribute;
 
   /**
    * Set arrow is enabled, or set the arrow style.
@@ -2083,6 +2070,19 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 12
    */
   indicatorInteractive(value: boolean): SwiperAttribute;
+
+  /**
+   * Setting page flip mode on mouse wheel event.
+   *
+   * @param { Optional<PageFlipMode> } mode - page flip mode on mouse wheel event. The default value is PageFlipMode.CONTINUOUS.
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  pageFlipMode(mode: Optional<PageFlipMode>): SwiperAttribute;
 }
 
 /**
@@ -2188,7 +2188,7 @@ declare interface SwiperContentTransitionProxy {
 /**
  * The callback of onContentDidScroll.
  * 
- * @typedef { Function } ContentDidScrollCallback
+ * @typedef { function } ContentDidScrollCallback
  * @param { number } selectedIndex - the index value of the swiper content selected before animation start.
  * @param { number } index - the index value of the swiper content.
  * @param { number } position - the moving ratio of the swiper content from the start position of the swiper main axis.

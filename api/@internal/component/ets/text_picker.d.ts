@@ -694,6 +694,7 @@ declare interface TextPickerResult {
 /**
  * Defines the TextPickerDialogOptions for Text Picker Dialog.
  *
+ * @extends TextPickerOptions
  * @interface TextPickerDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
@@ -701,6 +702,7 @@ declare interface TextPickerResult {
 /**
  * Defines the TextPickerDialogOptions for Text Picker Dialog.
  *
+ * @extends TextPickerOptions
  * @interface TextPickerDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -709,6 +711,7 @@ declare interface TextPickerResult {
 /**
  * Defines the TextPickerDialogOptions for Text Picker Dialog.
  *
+ * @extends TextPickerOptions
  * @interface TextPickerDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform

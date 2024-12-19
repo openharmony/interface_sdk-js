@@ -238,7 +238,7 @@ declare namespace promptAction {
     enableHoverMode?: boolean;
   
     /**
-     * Defines the toast's diaplay area in hover mode.
+     * Defines the toast's display area in hover mode.
      *
      * @type { ?HoverModeAreaType }
      * @default HoverModeAreaType.BOTTOM_SCREEN
@@ -387,7 +387,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 12
      */
     primary?: boolean;
   }
@@ -945,6 +945,7 @@ declare namespace promptAction {
   /**
    * Dialog's custom content options
    *
+   * @extends BaseDialogOptions
    * @interface CustomDialogOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -953,6 +954,7 @@ declare namespace promptAction {
   /**
    * Dialog's custom content options
    *
+   * @extends BaseDialogOptions
    * @interface CustomDialogOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

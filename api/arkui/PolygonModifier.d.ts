@@ -25,7 +25,7 @@
  * Defines Polygon Modifier
  *
  * @extends PolygonAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<PolygonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

@@ -3239,6 +3239,39 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
+    /**
+     * Obtains the value of the specified column in the current row.
+     * The implementation class determines whether to throw an exception if the value of the specified column
+     * in the current row is null or the specified column is not of the Assets type.
+     * Inserting an empty blob, after API14 and API14, the obtained value is an empty blob; Before API 14,
+     * the obtained value was null.
+     *
+     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @returns { ValueType } The value of the specified column.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800012 - Row out of bounds.
+     * @throws { BusinessError } 14800013 - Column out of bounds.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
     getValue(columnIndex: number): ValueType;
 
     /**
@@ -3309,6 +3342,35 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
+     */
+    /**
+     * Obtains the values of all columns in the specified row.
+     * Inserting an empty blob, after API14 and API14, the obtained value is an empty blob; Before API 14,
+     * the obtained value was null.
+     *
+     * @returns { ValuesBucket } Indicates the row of data {@link ValuesBucket} to be inserted into the table.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800012 - Row out of bounds.
+     * @throws { BusinessError } 14800013 - Column out of bounds.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 14
      */
     getRow(): ValuesBucket;
 
@@ -7757,6 +7819,34 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 12
    */
+  /**
+   * Obtains a RDB store.
+   * You can set parameters of the RDB store as required. In general, this method is recommended
+   * to obtain a rdb store.
+   *
+   * @param { Context } context - Indicates the context of an application or ability.
+   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+   * @param { AsyncCallback<RdbStore> } callback - The RDB store {@link RdbStore}.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 14800000 - Inner error.
+   * @throws { BusinessError } 14800010 - Invalid database path.
+   * @throws { BusinessError } 14800011 - Database corrupted.
+   * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
+   * @throws { BusinessError } 14801002 - Invalid data ground ID.
+   * @throws { BusinessError } 14800017 - Config changed.
+   * @throws { BusinessError } 14800020 - The secret key is corrupted or lost.
+   * @throws { BusinessError } 14800021 - SQLite: Generic error.
+   * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+   * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+   * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+   * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+   * @throws { BusinessError } 14800029 - SQLite: The database is full.
+   * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 14
+   */
   function getRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback<RdbStore>): void;
 
   /**
@@ -7818,6 +7908,34 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 12
+   */
+  /**
+   * Obtains a RDB store.
+   * You can set parameters of the RDB store as required. In general, this method is recommended
+   * to obtain a rdb store.
+   *
+   * @param { Context } context - Indicates the context of an application or ability.
+   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+   * @returns { Promise<RdbStore> } The RDB store {@link RdbStore}.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 14800000 - Inner error.
+   * @throws { BusinessError } 14800010 - Invalid database path.
+   * @throws { BusinessError } 14800011 - Database corrupted.
+   * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
+   * @throws { BusinessError } 14801002 - Invalid data ground ID.
+   * @throws { BusinessError } 14800017 - Config changed.
+   * @throws { BusinessError } 14800020 - The secret key is corrupted or lost.
+   * @throws { BusinessError } 14800021 - SQLite: Generic error.
+   * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+   * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+   * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+   * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+   * @throws { BusinessError } 14800029 - SQLite: The database is full.
+   * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 14
    */
   function getRdbStore(context: Context, config: StoreConfig): Promise<RdbStore>;
 
