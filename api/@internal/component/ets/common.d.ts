@@ -23921,7 +23921,6 @@ declare interface SelectionOptions {
    */
   menuPolicy?: MenuPolicy;
 }
-
 /**
  * enum keyboard avoid mode
  *
