@@ -1323,6 +1323,7 @@ declare namespace settings {
    * @since 11
    */
   function unregisterKeyObserver(context: Context, name: string, domainName: string): boolean;
+  function
 }
 
 export default settings;
