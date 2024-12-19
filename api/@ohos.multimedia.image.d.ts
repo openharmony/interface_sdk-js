@@ -4762,6 +4762,34 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   function createPixelMapFromSurfaceSync(surfaceId: string, region: Region): PixelMap;
 
   /**
+   * Creates a PixelMap object from surface id.
+   *
+   * @param { string } surfaceId - surface id.
+   * @returns { Promise<PixelMap> } Returns the instance if the operation is successful;Otherwise, an exception will be thrown.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types. 3.Parameter verification failed.
+   * @throws { BusinessError } 62980105 - Failed to get the data.
+   * @throws { BusinessError } 62980178 - Failed to create the PixelMap.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 16
+   */
+  function createPixelMapFromSurface(surfaceId: string): Promise<PixelMap>;
+
+  /**
+   * Creates a PixelMap object from surface id.
+   *
+   * @param { string } surfaceId - surface id.
+   * @returns { PixelMap } Returns the instance if the operation is successful;Otherwise, an exception will be thrown.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types. 3.Parameter verification failed.
+   * @throws { BusinessError } 62980105 - Failed to get the data.
+   * @throws { BusinessError } 62980178 - Failed to create the PixelMap.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 16
+   */
+  function createPixelMapFromSurfaceSync(surfaceId: string): PixelMap;
+
+  /**
    * Creates an ImageSource instance based on the URI.
    *
    * @param { string } uri Image source URI.
@@ -6121,6 +6149,36 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 12
      */
     scaleSync(x: number, y: number, level: AntiAliasingLevel): void;
+
+    /**
+     * Create a new scaled pixelmap based on this image zoom in width and height with anti-aliasing. This method uses a promise to return the information.
+     *
+     * @param { number } x The zoom value of width.
+     * @param { number } y The zoom value of height.
+     * @param { AntiAliasingLevel } level The anti-aliasing algorithm to be used.
+     * @returns { Promise<PixelMap> } A Promise instance used to return the new scaled pixelmap. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 16
+     */
+    createScaledPixelMap(x: number, y: number, level?: AntiAliasingLevel): Promise<PixelMap>;
+
+    /**
+     * Create a new scaled pixelmap based on this image zoom in width and height with anti-aliasing.
+     *
+     * @param { number } x The zoom value of width.
+     * @param { number } y The zoom value of height.
+     * @param { AntiAliasingLevel } level The anti-aliasing algorithm to be used.
+     * @returns { PixelMap } return the new scaled pixelmap. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 16
+     */
+    createScaledPixelMapSync(x: number, y: number, level?: AntiAliasingLevel): PixelMap;
 
     /**
      * Image position transformation. This method uses a callback to return the operation result.
