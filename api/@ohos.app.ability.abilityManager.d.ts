@@ -33,7 +33,6 @@ import * as _AbilityStateData from './application/AbilityStateData';
  *
  * @namespace abilityManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @systemapi
  * @since 9
  */
 declare namespace abilityManager {
@@ -42,16 +41,14 @@ declare namespace abilityManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 9
+   * @since 14
    */
   export enum AbilityState {
     /**
      * Ability is initialized.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
+     * @since 14
      */
     INITIAL = 0,
 
@@ -59,8 +56,7 @@ declare namespace abilityManager {
      * Ability is in the state of getting focus.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
+     * @since 14
      */
     FOCUS = 2,
 
@@ -68,8 +64,7 @@ declare namespace abilityManager {
      * Ability is in the foreground state.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
+     * @since 14
      */
     FOREGROUND = 9,
 
@@ -77,8 +72,7 @@ declare namespace abilityManager {
      * Ability is in the background state.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
+     * @since 14
      */
     BACKGROUND = 10,
 
@@ -86,8 +80,7 @@ declare namespace abilityManager {
      * Ability is in the process of scheduling at the foreground.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
+     * @since 14
      */
     FOREGROUNDING = 11,
 
@@ -95,8 +88,7 @@ declare namespace abilityManager {
      * Ability is in the process of scheduling in the background.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
+     * @since 14
      */
     BACKGROUNDING = 12
   }
@@ -216,11 +208,9 @@ declare namespace abilityManager {
    *
    * @permission ohos.permission.GET_RUNNING_INFO
    * @returns { Promise<Array<AbilityRunningInfo>> } Returns the array of AbilityRunningInfo.
-   * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 9
+   * @since 14
    */
   function getAbilityRunningInfos(): Promise<Array<AbilityRunningInfo>>;
 

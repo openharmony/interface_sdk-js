@@ -26,8 +26,7 @@ import abilityManager from '../@ohos.app.ability.abilityManager';
  *
  * @typedef AbilityRunningInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @systemapi
- * @since 8
+ * @since 14
  */
 export interface AbilityRunningInfo {
   /**
@@ -36,8 +35,7 @@ export interface AbilityRunningInfo {
    * @type { ElementName }
    * @default ability element name
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 8
+   * @since 14
    */
   /**
    * Ability matching information.
@@ -45,8 +43,7 @@ export interface AbilityRunningInfo {
    * @type { ElementName }
    * @default the ohos.bundleManager.ElementName object of the ability.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 12
+   * @since 14
    */
   ability: ElementName;
 
@@ -56,8 +53,7 @@ export interface AbilityRunningInfo {
    * @type { number }
    * @default process id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 8
+   * @since 14
    */
   pid: number;
 
@@ -67,8 +63,7 @@ export interface AbilityRunningInfo {
    * @type { number }
    * @default user id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 8
+   * @since 14
    */
   uid: number;
 
@@ -78,8 +73,7 @@ export interface AbilityRunningInfo {
    * @type { string }
    * @default the name of the process
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 8
+   * @since 14
    */
   processName: string;
 
@@ -89,8 +83,7 @@ export interface AbilityRunningInfo {
    * @type { number }
    * @default ability start time
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 8
+   * @since 14
    */
   startTime: number;
 
@@ -100,8 +93,7 @@ export interface AbilityRunningInfo {
    * @type { abilityManager.AbilityState }
    * @default Enumerates state of the ability state info
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 8
+   * @since 14
    */
   abilityState: abilityManager.AbilityState;
 }
