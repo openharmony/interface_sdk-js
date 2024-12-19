@@ -1734,7 +1734,7 @@ declare namespace display {
      * @atomicservice
      * @since 16
      */
-    top?: number;
+    x?: number;
   
     /**
      * Coordinates of the top-left corner of the display relative to the main display.
@@ -1744,7 +1744,7 @@ declare namespace display {
      * @atomicservice
      * @since 16
      */
-    left?: number;
+    y?: number;
 
     /**
      * Obtain the cutout info of the display.
