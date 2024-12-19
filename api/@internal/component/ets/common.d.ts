@@ -16477,6 +16477,18 @@ declare class CommonMethod<T> {
   focusable(value: boolean): T;
 
   /**
+   * Set TabStop on component focus
+   *
+   * @param { boolean } isTabStop
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  tabStop(isTabStop: boolean): T;
+                
+  /**
    * Trigger a event when got focus.
    *
    * @param { function } event
