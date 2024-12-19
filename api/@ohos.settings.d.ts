@@ -27,6 +27,7 @@ import Context from './application/Context';
  *
  * @namespace settings
  * @syscap SystemCapability.Applications.Settings.Core
+ * @atomicservice
  * @since 7
  */
 declare namespace settings {
