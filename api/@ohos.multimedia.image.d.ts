@@ -437,7 +437,7 @@ declare namespace image {
      * processing editing.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 14
+     * @since 16
      */
     ASTC_4x4 = 102
   }
