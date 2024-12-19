@@ -25,7 +25,7 @@
  * Defines ColumnSplit Modifier
  *
  * @extends ColumnSplitAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<ColumnSplitAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

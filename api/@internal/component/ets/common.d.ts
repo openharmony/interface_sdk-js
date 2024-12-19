@@ -22397,6 +22397,7 @@ declare interface SizeResult {
 /**
  * Sub component MeasureResult info.
  *
+ * @extends SizeResult
  * @interface MeasureResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -22405,6 +22406,7 @@ declare interface SizeResult {
 /**
  * Sub component MeasureResult info.
  *
+ * @extends SizeResult
  * @interface MeasureResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform

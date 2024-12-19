@@ -25,7 +25,7 @@
  * Defines RowSplit Modifier
  *
  * @extends RowSplitAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<RowSplitAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
