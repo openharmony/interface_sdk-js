@@ -433,6 +433,50 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
 }
 
 /**
+ * Provide an interface for the lunar switch style of DatePickerDialog
+ *
+ * @interface LunarSwitchStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare interface LunarSwitchStyle {
+  /**
+   * Define the selected color of lunar switch.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  selectedColor?: ResourceColor;
+
+  /**
+   * Define the unselected color of lunar switch.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  unselectedColor?: ResourceColor;
+
+  /**
+   * Define the stroke color of lunar switch.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  strokeColor?: ResourceColor;
+}
+
+/**
  * Defines the DatePickerDialogOptions for Data Picker Dialog.
  *
  * @interface DatePickerDialogOptions
@@ -501,6 +545,17 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @since 11
    */
   lunarSwitch?: boolean;
+
+  /**
+   * Describes the lunar switch color.
+   *
+   * @type { ?LunarSwitchStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  lunarSwitchStyle?: LunarSwitchStyle;
 
   /**
    * Indicates whether to show the time selector.
