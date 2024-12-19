@@ -7388,31 +7388,14 @@ declare namespace window {
      *
      * @param { boolean } enable - Disable window to resize by drag if false.
      * @param { AsyncCallback<void> } callback - The callback of setResizeByDragEnabled.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
-     * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use.
-     * @since 10
-     */
-    /**
-     * Set whether to enable a window to resize by drag.
-     *
-     * @param { boolean } enable - Disable window to resize by drag if false.
-     * @param { AsyncCallback<void> } callback - The callback of setResizeByDragEnabled.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use.
-     * @since 11
+     * @atomicservice
+     * @since 14
      */
     setResizeByDragEnabled(enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -7421,15 +7404,14 @@ declare namespace window {
      *
      * @param { boolean } enable - Disable window to resize by drag if false.
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use.
-     * @since 10
+     * @atomicservice
+     * @since 14
      */
     setResizeByDragEnabled(enable: boolean): Promise<void>;
 
