@@ -256,7 +256,7 @@ export declare class PickerController {
   setPhotoBrowserUIElementVisibility(elements: Array<PhotoBrowserUIElement>, isVisible: boolean): void;
 
   /**
-   * Save the photo after edit.
+   * Display the photo after edit.
    *
    * @param { string } originalUri - Original uri 
    * @param { string } replaceUri - Replaced uri
@@ -268,7 +268,7 @@ export declare class PickerController {
   replacePhotoPickerPreview(originalUri: string, replaceUri: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Save the uris returned by replacePhotoPickerPreview.
+   * Save the photo assets of uris.
    *
    * @param { Array<string> } trustedUris - Uris need to be saved
    * @param { AsyncCallback<Array<string>> } callback - Returns the uri list
@@ -880,7 +880,7 @@ export declare enum PhotoBrowserUIElement {
  *
  * @enum { number } SaveMode
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
- * @systemapi
+ * @atomicservice
  * @since 14
  */
 export declare enum SaveMode {
@@ -888,7 +888,7 @@ export declare enum SaveMode {
    * Save as a new photo/video.
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @systemapi
+   * @atomicservice
    * @since 14
    */
   SHORT_AS_NEW = 0,
@@ -897,7 +897,7 @@ export declare enum SaveMode {
    * Overwrite and save.
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @systemapi
+   * @atomicservice
    * @since 14
    */
   SHORT_AS_REPLACE = 1
