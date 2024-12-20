@@ -3361,6 +3361,16 @@ export class UIContext {
    * @since 13
    */
   unbindTabsFromNestedScrollable(tabsController: TabsController, parentScroller: Scroller, childScroller: Scroller): void;
+
+  /**
+   * whether to enable or disable swipe to back event.
+   *
+   * @param { Optional<boolean> } enabled - enable or disable swipe to back event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @atomicservice
+   * @since 16
+   */
+  enableSwipeBack(enabled: Optional<boolean>): void;
 }
 
 /**
