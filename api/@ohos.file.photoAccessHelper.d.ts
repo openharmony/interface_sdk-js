@@ -1167,6 +1167,7 @@ declare namespace photoAccessHelper {
      * Photo type, image or video
      *
      * @type { PhotoType }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -1174,6 +1175,7 @@ declare namespace photoAccessHelper {
      * Photo type, image or video
      *
      * @type { PhotoType }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
@@ -1183,6 +1185,7 @@ declare namespace photoAccessHelper {
      * Display name (with a file name extension) of the asset.
      *
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -1190,6 +1193,7 @@ declare namespace photoAccessHelper {
      * Display name (with a file name extension) of the asset.
      *
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
@@ -3194,6 +3198,7 @@ declare namespace photoAccessHelper {
      * Album type
      *
      * @type { AlbumType }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -3201,6 +3206,7 @@ declare namespace photoAccessHelper {
      * Album type
      *
      * @type { AlbumType }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
@@ -3210,6 +3216,7 @@ declare namespace photoAccessHelper {
      * Album subtype
      *
      * @type { AlbumSubtype }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -3217,6 +3224,7 @@ declare namespace photoAccessHelper {
      * Album subtype
      *
      * @type { AlbumSubtype }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
@@ -3242,6 +3250,7 @@ declare namespace photoAccessHelper {
      * Album uri.
      *
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -3249,6 +3258,7 @@ declare namespace photoAccessHelper {
      * Album uri.
      *
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
@@ -3258,6 +3268,7 @@ declare namespace photoAccessHelper {
      * Number of assets in the album
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -3265,6 +3276,7 @@ declare namespace photoAccessHelper {
      * Number of assets in the album
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
@@ -3274,6 +3286,7 @@ declare namespace photoAccessHelper {
      * Cover uri for the album
      *
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -3360,6 +3373,7 @@ declare namespace photoAccessHelper {
    * Defines the album.
    *
    * @interface Album
+   * @extends AbsAlbum
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 10
    */
@@ -3367,6 +3381,7 @@ declare namespace photoAccessHelper {
    * Defines the album.
    *
    * @interface Album
+   * @extends AbsAlbum
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @crossplatform
    * @since 12
