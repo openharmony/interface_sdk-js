@@ -14165,6 +14165,29 @@ declare interface ClickEffect {
 }
 
 /**
+ * Defines the fadingEdge options.
+ *
+ * @typedef FadingEdgeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare interface FadingEdgeOptions {
+  /**
+   * The length of FadingEdge.
+   *
+   * @type { LengthMetrics }
+   * @default 32vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  fadingEdgeLength?: LengthMetrics;
+}
+
+/**
  * Define nested scroll options
  *
  * @interface NestedScrollOptions
@@ -22982,6 +23005,19 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @since 11
    */
   edgeEffect(edgeEffect: EdgeEffect, options?: EdgeEffectOptions): T;
+
+  /**
+   * Called when setting whether to enable fading Edge effect.
+   *
+   * @param { Optional<boolean> } enabled - Whether to turn on the edge fade effect
+   * @param { FadingEdgeOptions } [options] - The options of fadingEdge.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  fadingEdge(enabled: Optional<boolean>, options?: FadingEdgeOptions): T;
 
   /**
    * Nested scrolling options.
