@@ -148,7 +148,7 @@ export declare struct PhotoPickerComponent {
    * @atomicservice
    * @since 14
    */
-  onVideoPlayStateChanged?: videoPlayStateChangedCallback
+  onVideoPlayStateChanged?: videoPlayStateChangedCallback;
 
   /**
    * PickerController
