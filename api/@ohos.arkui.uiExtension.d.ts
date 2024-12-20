@@ -292,7 +292,6 @@ declare namespace uiExtension {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 14
-   * 
    */
   interface RectChangeOptions {
     /**
