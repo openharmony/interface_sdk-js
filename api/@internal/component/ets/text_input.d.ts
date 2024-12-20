@@ -2355,7 +2355,6 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { CancelButtonSymbolOptions } symbolOptions - indicates the style of the cancel button.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 14
    */

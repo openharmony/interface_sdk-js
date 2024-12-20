@@ -117,7 +117,6 @@ export declare enum ItemState {
  *
  * @interface ToolBarSymbolGlyphOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @atomicservice
  * @since 16
  */
@@ -136,7 +135,6 @@ export interface ToolBarSymbolGlyphOptions {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -155,7 +153,6 @@ export interface ToolBarSymbolGlyphOptions {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -347,7 +344,6 @@ export declare class ToolBarOption {
    *
    * @type { ?ToolBarSymbolGlyphOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */

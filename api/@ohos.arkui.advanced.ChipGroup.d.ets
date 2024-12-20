@@ -163,7 +163,6 @@ export interface ChipGroupItemOptions {
      *
      * @type { ?ChipSymbolGlyphOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -209,7 +208,6 @@ export interface ChipGroupItemOptions {
      *
      * @type { ?ChipSymbolGlyphOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -458,7 +456,6 @@ export interface IconItemOptions {
  *
  * @interface SymbolItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @atomicservice
  * @since 14
  */
@@ -468,7 +465,6 @@ export interface SymbolItemOptions {
      *
      * @type { ?SymbolGlyphModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @atomicservice
      * @since 14
      */

@@ -33,7 +33,6 @@ export declare class SymbolGlyphModifier extends SymbolGlyphAttribute implements
      * 
      * @param { Resource } src
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -44,7 +43,6 @@ export declare class SymbolGlyphModifier extends SymbolGlyphAttribute implements
      * 
      * @param { SymbolGlyphAttribute } instance
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @atomicservice
      * @since 12
      */
