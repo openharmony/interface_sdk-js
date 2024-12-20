@@ -287,7 +287,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
   /**
    * Support set gridMargin
    *
-   * @type { ?string }
+   * @type { ?Margin }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 14
@@ -297,7 +297,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
   /**
    * Support set photoBrowserMargin
    *
-   * @type { ?string }
+   * @type { ?Margin }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 14
