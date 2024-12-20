@@ -2767,6 +2767,18 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 12
    */
   systemBarStyle(style: Optional<SystemBarStyle>): NavigationAttribute;
+
+  /**
+   * Enable dragbar
+   * 
+   * @param { Optional<boolean> } isEnabled - enable dragbar or disable dragbar.
+   * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+    enableDragBar(isEnabled: Optional<boolean>): NavigationAttribute;
 }
 
 /**
