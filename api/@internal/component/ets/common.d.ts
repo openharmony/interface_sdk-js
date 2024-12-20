@@ -22598,15 +22598,6 @@ declare class CustomComponent extends BaseCustomComponent {
    * @atomicservice
    * @since 11
    */
-  /**
-   * aboutToReuse Method for @Component, it is executed when moving instance of custom component to RecyclePool.
-   *
-   * @param { object } params - Custom component init params, it is executed when moving instance of custom component to RecyclePool.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 16
-   */
   aboutToReuse?(params: { [key: string]: unknown }): void;
 
   /**
