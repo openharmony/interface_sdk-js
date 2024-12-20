@@ -18,6 +18,7 @@
  * @kit AbilityKit
  */
 
+import ApplicationContext from './application/ApplicationContext';
 import Context from './application/Context';
 
 /**
@@ -78,6 +79,18 @@ declare namespace application {
    * @since 12
    */
   export function createBundleContext(context: Context, bundleName: string): Promise<Context>;
+
+  /**
+   * Get application context.
+   *
+   * @returns { ApplicationContext } Returns the application context.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 14
+   */
+  export function getApplicationContext(): ApplicationContext;
 }
 
 export default application;
