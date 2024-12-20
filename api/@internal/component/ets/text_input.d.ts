@@ -2649,6 +2649,18 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 16
    */
   halfLeading(halfLeading: Optional<boolean>): TextInputAttribute;
+  
+  /**
+   * Set the ellipsis mode.
+   *
+   * @param { EllipsisMode } mode - The ellipsis mode.
+   * @returns { TextInputAttribute } The attribute of TextInput.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  ellipsisMode(mode: Optional<EllipsisMode>): TextInputAttribute;
 }
 
 /**
