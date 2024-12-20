@@ -130,7 +130,7 @@ declare namespace uiExtension {
      * @atomicservice
      * @since 14
      */
-    on(type: 'rectChange', reasons, callback: Callback<RectChangeOptions>): void;
+    on(type: 'rectChange', reasons: number, callback: Callback<RectChangeOptions>): void;
 
     /**
      * Unregister the callback of rectChange
@@ -146,7 +146,7 @@ declare namespace uiExtension {
      * @atomicservice
      * @since 14
      */
-    off(type: 'rectChange', reasons, callback?: Callback<RectChangeOptions>): void;
+    off(type: 'rectChange', callback?: Callback<RectChangeOptions>): void;
 
     /**
      * Hide the non-secure windows.
@@ -308,7 +308,6 @@ declare namespace uiExtension {
     /**
      * Rect change reason
      *
-     * @type { window.Rect } 
      * @type { RectChangeReason }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
