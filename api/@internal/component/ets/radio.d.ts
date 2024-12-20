@@ -350,6 +350,17 @@ interface RadioInterface {
 }
 
 /**
+ * Callback of radio box selection status changes event.
+ * 
+ * @typedef {function} OnRadioChangeCallback
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare type OnRadioChangeCallback = (isChecked: boolean) => void;
+
+/**
  * Provides methods for radio method component.
  *
  * @extends CommonMethod<RadioAttribute>
@@ -425,6 +436,19 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
   checked(value: boolean): RadioAttribute;
 
   /**
+   * Called when the radio box is selected.
+   *
+   * @param { Optional<boolean> } isChecked
+   * @returns { RadioAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */  
+  checked(isChecked: Optional<boolean>): RadioAttribute;
+
+  /**
    * Called when the radio box selection status changes.
    *
    * @param { function } callback
@@ -465,6 +489,19 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
   onChange(callback: (isChecked: boolean) => void): RadioAttribute;
 
   /**
+   * Called when the radio box selection status changes.
+   *
+   * @param { Optional<OnRadioChangeCallback> } callback
+   * @returns { RadioAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */  
+  onChange(callback: Optional<OnRadioChangeCallback>): RadioAttribute;
+
+  /**
    * Set the radio style.
    *
    * @param { RadioStyle } value - the radio style.
@@ -496,6 +533,18 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * @since 12
    */
   contentModifier(modifier: ContentModifier<RadioConfiguration>): RadioAttribute;
+
+    /**
+   * Set the Configuration of radio.
+   *
+   * @param { Optional<ContentModifier<RadioConfiguration>> } modifier - The contentModifier of radio.
+   * @returns { RadioAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  contentModifier(modifier: Optional<ContentModifier<RadioConfiguration>>): RadioAttribute;
 }
 
 /**
