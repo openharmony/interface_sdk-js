@@ -476,7 +476,7 @@ declare namespace pointer {
   }
 
   /**
-   * 自定义光标.
+   * Defines a custom cursor.
    *
    * @interface CustomCursor
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
@@ -484,21 +484,21 @@ declare namespace pointer {
    */
   interface CustomCursor {
     /**
-     * pixelMap - 自定义光标资源.
+     * pixelMap - Custom cursor resource.
      * @type { image.PixelMap }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 14
      */
     pixelMap: image.PixelMap;
     /**
-     * focusX - 自定义光标的焦点横坐标.
+     * focusX - Horizontal coordinate of the focus of the custom cursor.
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 14
      */
     focusX?: number;
     /**
-     * focusY - 自定义光标的焦点纵坐标.
+     * focusY - Vertical coordinate of the focus of the custom cursor.
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 14
@@ -507,7 +507,7 @@ declare namespace pointer {
   }
   
   /**
-   * 自定义光标设置.
+   * Specifies custom cursor options.
    *
    * @interface CursorOption
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
@@ -515,7 +515,7 @@ declare namespace pointer {
    */
   interface CursorOption {
     /**
-     * followSystem - 是否跟随系统设置调整大小.
+     * followSystem - Whether to adjust the cursor size based on the system settings.
      * @type { boolean }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 14
@@ -1508,11 +1508,11 @@ declare namespace pointer {
   function setCustomCursorSync(windowId: number, pixelMap: image.PixelMap, focusX?: number, focusY?: number): void;
 
   /**
-   * 设置自定义光标，光标大小可设置是否跟随系统设置.
+   * Sets the custom cursor. You can set whether to adjust the cursor size based on the system settings.
    *
    * @param { number } windowId - Window ID.
-   * @param { CustomCursor } cursor - 自定义光标，包含自定义光标资源、焦点位置.
-   * @param { CursorOption } option - 自定义光标设置.
+   * @param { CustomCursor } cursor - Custom cursor, including the custom cursor resource and focus position.
+   * @param { CursorOption } option - Custom cursor option.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Abnormal windowId parameter passed in;
    * <br>2. Abnormal pixelMap parameter passed in; 3. Abnormal focusX parameter passed in;
    * <br>4. Abnormal focusY parameter passed in.
