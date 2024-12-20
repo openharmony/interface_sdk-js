@@ -3372,16 +3372,16 @@ declare namespace photoAccessHelper {
   /**
    * Defines the album.
    *
-   * @interface Album
    * @extends AbsAlbum
+   * @interface Album
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 10
    */
   /**
    * Defines the album.
    *
-   * @interface Album
    * @extends AbsAlbum
+   * @interface Album
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @crossplatform
    * @since 12
