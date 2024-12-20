@@ -36,6 +36,7 @@ declare namespace keyManager {
     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
  parameters are left unspecified;
     * @throws { BusinessError } 13600001 - IPC error.
+
     * @syscap SystemCapability.FileManagement.StorageService.Encryption
     * @systemapi
     * @since 15
