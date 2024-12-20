@@ -27,7 +27,7 @@
  */
 declare namespace keyManager {
    /**
-    * Initiate the unintallation of el3, el4, and el5 level key for the specified user
+    * Initiate the uninstallation of el3, el4, and el5 level key for the specified user
     *
     * @permission ohos.permission.STORAGE_MANAGER_CRYPT
     * @param { number } userId
@@ -36,7 +36,10 @@ declare namespace keyManager {
     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
  parameters are left unspecified;
     * @throws { BusinessError } 13600001 - IPC error.
-
+    * @throws { BusinessError } 13600009 - User ID out of range.
+    * @throws { BusinessError } 13900002 - No such file or directory.
+    * @throws { BusinessError } 13900010 - Try again.
+    * @throws { BusinessError } 13900013 - Bad address.
     * @syscap SystemCapability.FileManagement.StorageService.Encryption
     * @systemapi
     * @since 15
