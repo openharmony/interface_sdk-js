@@ -568,7 +568,6 @@ declare interface NavigationMenuItem {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1910,7 +1909,6 @@ declare interface ToolbarItem {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1978,7 +1976,6 @@ declare interface ToolbarItem {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 12
    */

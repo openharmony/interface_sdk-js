@@ -601,7 +601,6 @@ interface CancelButtonOptions {
  *
  * @interface CancelButtonSymbolOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @atomicservice
  * @since 12
  */
@@ -611,7 +610,6 @@ interface CancelButtonSymbolOptions {
    *
    * @type { ?CancelButtonStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -622,7 +620,6 @@ interface CancelButtonSymbolOptions {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 12
    */

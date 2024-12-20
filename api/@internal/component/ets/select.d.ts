@@ -100,7 +100,6 @@ declare interface SelectOption {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -845,7 +844,6 @@ declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConf
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
