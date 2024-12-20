@@ -3597,6 +3597,25 @@ declare namespace drawing {
      */
     FAST = 1
   }
+
+  /**
+   * The Tool class for drawing.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 16
+   */
+  class Tool {
+    /**
+     * Make a common2D.Color variable that describes the color from ResourceColor.
+     * @param { ResourceColor } resourceColor - ResourceColor.
+     * @returns { common2D.Color } Returns a 32-bit (ARGB) variable that describes the color.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    static makeColorFromResourceColor(resourceColor: ResourceColor): common2D.Color;
+  }
 }
 
 export default drawing;
