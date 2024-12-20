@@ -7142,7 +7142,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Expected set of auxiliary picture types, default to decoding all auxiliary pictures.
      *
      * @type { Array<AuxiliaryPictureType> }
-     * @syscap SystemCapability.Multimedia.Image.Core
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 13
      */
     desiredAuxiliaryPictures: Array<AuxiliaryPictureType>;
