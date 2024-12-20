@@ -3802,6 +3802,30 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 13
    */
   barState(state: BarState): RichEditorAttribute;
+
+  /**
+   * Define the max length content of the richEditor.
+   *
+   * @param { Optional<number> } maxLength - The maximun length content of the richEditor.
+   * @returns { RichEditorAttribute }  returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  maxLength(maxLength: Optional<number>): RichEditorAttribute;
+
+  /**
+   * Define max lines of the richEditor.
+   *
+   * @param { Optional<number> } maxLines - The maximun Lines of the richEditor.
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  maxLines(maxLines: Optional<number>): RichEditorAttribute;
 }
 
 /**
