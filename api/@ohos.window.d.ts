@@ -2338,7 +2338,7 @@ declare namespace window {
      * System density
      *
      * @type { number }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 16
      */
@@ -2348,7 +2348,7 @@ declare namespace window {
      * Default density
      *
      * @type { number }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 16
      */
@@ -2358,7 +2358,7 @@ declare namespace window {
      * Custom density
      *
      * @type { number }
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 16
      */
@@ -4845,7 +4845,7 @@ declare namespace window {
     isGestureBackEnabled(): boolean;
 
     /**
-     * Set whether to disable the gesture back function.
+     * Get the window density of current window.
      *
      * @returns { WindowDensityInfo } Return system density, default density and custom density of window.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
