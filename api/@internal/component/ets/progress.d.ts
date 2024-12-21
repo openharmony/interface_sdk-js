@@ -997,6 +997,18 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    * @since 11
    */
   showDefaultPercentage?: boolean;
+
+  /**
+   * Set border rounded corner radius.
+   *
+   * @type { ?LengthMetrics }
+   * @default height / 2
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  borderRadius?: LengthMetrics;
 }
 
 /**
