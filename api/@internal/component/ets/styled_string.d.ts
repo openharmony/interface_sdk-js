@@ -633,6 +633,40 @@ declare class TextShadowStyle {
 }
 
 /**
+ * Defines Sets the property string background color.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare class BackgroundColorStyle {
+
+    /**
+     * constructor.
+     *
+     * @param { TextBackgroundStyle } textBackgroundStyle - textBackgroundStyle value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    constructor(textBackgroundStyle: TextBackgroundStyle);
+
+    /**
+     * Get the textBackgroundStyle value of the StyledString.
+     *
+     * @type { TextBackgroundStyle } - the textBackgroundStyle value of the StyledString
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    readonly textBackgroundStyle: TextBackgroundStyle;
+}
+
+/**
  * Defines GestureStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -895,17 +929,66 @@ declare class LineHeightStyle {
 }
 
 /**
+ * Defines the URLStyle hyperlink that allows setting a URL string. When clicking on the text to
+ * which the span is attached, the URLStyle will try to open the URL.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare class UrlStyle {
+
+    /**
+     * Constructor.
+     *
+     * @param { string } url - URL value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    constructor(url: string);
+
+    /**
+     * Get the URL value of the StyledString.
+     *
+     * @type { string } - the URL value of the StyledString
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    readonly url: string;
+}
+
+/**
  * Defines the Span Type.
  *
- * @typedef { TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle | 
- * GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | CustomSpan | UserDataSpan} StyledStringValue
+ * @typedef { TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle |
+ * GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | CustomSpan |
+ * UserDataSpan } StyledStringValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 12
  */
-declare type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle | 
-GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | CustomSpan | UserDataSpan;
+
+/**
+ * Defines the Span Type.
+ *
+ * @typedef { TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle |
+ * GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan |
+ * UserDataSpan | BackgroundColorStyle } StyledStringValue
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle |
+TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan |
+UserDataSpan | BackgroundColorStyle;
 
 /**
  * MutableStyledString
@@ -1151,6 +1234,26 @@ declare enum StyledStringKey {
       * @since 12
       */
      LINE_HEIGHT = 5,
+
+     /**
+      * The key of BackgroundColorStyle.
+      *
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @atomicservice
+      * @since 14
+      */
+     BACKGROUND_COLOR = 6,
+
+     /**
+      * The key of UrlStyle.
+      *
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @atomicservice
+      * @since 14
+      */
+     URL = 7,
 
     /**
      * The key of GestureStyle.

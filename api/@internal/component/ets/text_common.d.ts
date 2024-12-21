@@ -673,6 +673,19 @@ declare interface LayoutManager {
    * @since 12
    */
   getLineMetrics(lineNumber: number): LineMetrics;
+
+  /**
+   * Get the rects for range.
+   * @param { TextRange } range - The range to set.
+   * @param { RectWidthStyle } widthStyle - Width style to set.
+   * @param { RectHeightStyle } heightStyle - Height style to set.
+   * @returns { Array<TextBox> } The rects for range.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  getRectsForRange(range: TextRange, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array<TextBox>;
 }
 
 /**
@@ -728,7 +741,41 @@ declare type Affinity = import('../api/@ohos.graphics.text').default.Affinity;
  * @atomicservice
  * @since 12
  */
-declare type LineMetrics = import('../api/@ohos.graphics.text').default.LineMetrics; 
+declare type LineMetrics = import('../api/@ohos.graphics.text').default.LineMetrics;
+
+/**
+ * Define the RectWidthStyle type.
+ *
+ * @typedef { import('../api/@ohos.graphics.text').default.RectWidthStyle } RectWidthStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare type RectWidthStyle = import('../api/@ohos.graphics.text').default.RectWidthStyle;
+
+/**
+ * Define the RectHeightStyle type.
+ *
+ * @typedef { import('../api/@ohos.graphics.text').default.RectHeightStyle } RectHeightStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare type RectHeightStyle = import('../api/@ohos.graphics.text').default.RectHeightStyle;
+
+/**
+ * Define the TextBox type.
+ *
+ * @typedef { import('../api/@ohos.graphics.text').default.TextBox } TextBox
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare type TextBox = import('../api/@ohos.graphics.text').default.TextBox;
+
 
 /**
  * Defines the cursor style
