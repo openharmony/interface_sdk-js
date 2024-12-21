@@ -337,6 +337,61 @@ declare namespace utils {
        */
       reason: T
     }
+
+    /**
+     * Object used for thread synchronization.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    @Sendable
+    class ConditionVariable {
+      /**
+       * Default constructor.
+       *
+       * @syscap SystemCapability.Utils.Lang
+       * @atomicservice
+       * @since 16
+       */
+      constructor()
+      /**
+       * Waits for the condition variable to be released.
+       *
+       * @returns { Promise<void> } Promise that will be resolved after the callback gets executed or rejected.
+       * @syscap SystemCapability.Utils.Lang
+       * @atomicservice
+       * @since 16
+       */
+      wait(): Promise<void>
+      /**
+       * Waits for the condition variable to be released until a specified time.
+       *
+       * @param { number } timeout - Timeout interval for waiting for condition variables to be released.
+       * @returns { Promise<void> } Promise that will be resolved after the callback gets executed or
+       * rejected or timeout.
+       * @syscap SystemCapability.Utils.Lang
+       * @atomicservice
+       * @since 16
+       */
+      waitFor(timeout: number): Promise<void>
+      /**
+       * Notify all waiting thread.
+       *
+       * @syscap SystemCapability.Utils.Lang
+       * @atomicservice
+       * @since 16
+       */
+      notify(): void
+      /**
+       * Notify one waiting thread.
+       *
+       * @syscap SystemCapability.Utils.Lang
+       * @atomicservice
+       * @since 16
+       */
+      notifyOne(): void
+    }
   }
   /**
    * ArkTS JSON utils.
@@ -496,6 +551,210 @@ declare namespace utils {
       */
       parseReturnType: ParseReturnType;
     }
+  }
+
+  /**
+  * Object used for store least recently used sendable Object.
+  *
+  * @syscap SystemCapability.Utils.Lang
+  * @atomicservice
+  * @since 16
+  */
+  @Sendable
+  class SendableLruCache<K, V> {
+    /**
+     * The length of the SendableLruCache.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    readonly length: number;
+    /**
+     * Default constructor.
+     *
+     * @param { number } capacity - The capacity of the SendableLruCache.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    constructor(capacity?: number);
+    /**
+     * Update the capacity of the SendableLruCache.
+     *
+     * @param { number } newCapacity - The new capacity of the SendableLruCache.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    updateCapacity(newCapacity: number): void;
+    /**
+     * Get the value associated with a specified key in the SendableLruCache.
+     *
+     * @param { K } key - The key to query.
+     * @returns { V | undefined } The value associated with the key if the specified key is present;
+     * returns undefined otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    get(key: K): V | undefined;
+    /**
+     * Adds a key-value pair to the SendableLruCache.
+     *
+     * @param { K } key - The key to add.
+     * @param { V } value - The value associated with the key to add.
+     * @returns { V } The value associated with the added key or the original value
+     * if the key to add already exists.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    put(key: K, value: V): V;
+    /**
+     * Remove a specified key and its associated value from the SendableLruCache.
+     *
+     * @param { K } key - The key to delete.
+     * @returns { V | undefined } The deleted value or undefined.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    remove(key: K): V | undefined;
+    /**
+     * Check whether the given key exists in the SendableLruCache. If exists, returns true; otherwise, returns false.
+     *
+     * @param { K } key - The key to check.
+     * @returns { boolean } The result of the checked.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    contains(key: K): boolean;
+    /**
+     * Get the number of times createDefault in the SendableLruCache.
+     *
+     * @returns { number } The number of times createDefault.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    getCreateCount(): number;
+    /**
+     * Get the number of times that the queried values are not matched in the SendableLruCache.
+     *
+     * @returns { number } The number of times that the queried values are unmatched.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    getMissCount(): number;
+    /**
+     * Get the number of times that values are removed from the SendableLruCache.
+     *
+     * @returns { number } The number of times that values are removed.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    getRemoveCount(): number;
+    /**
+     * Get the number of times that the queried values are matched in the SendableLruCache.
+     *
+     * @returns { number } The number of times that the queried values are matched.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    getMatchCount(): number;
+    /**
+     * Get the number of times that values are added to SendableLruCache.
+     *
+     * @returns { number } The number of times that values are added.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    getPutCount(): number;
+    /**
+     * Get the Capacity of the SendableLruCache.
+     *
+     * @returns { number } The Capacity of the SendableLruCache.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    getCapacity(): number;
+    /**
+     * Clear all key-value pairs from the SendableLruCache.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    clear(): void;
+    /**
+     * Checks whether the SendableLruCache is empty.
+     *
+     * @returns { boolean } true if the SendableLruCache is empty, otherwise false.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    isEmpty(): boolean;
+    /**
+     * Returns a string which repesents all elements in SendableLruCache in the format "key: value".
+     *
+     * @returns { string } A new string contains all elements.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    toString(): string;
+    /**
+     * Returns a list of all values in the SendableLruCache.
+     *
+     * @returns { V[] } An array of all values.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    values(): V[];
+    /**
+     * Returns a list of all keys in the SendableLruCache.
+     *
+     * @returns { K[] } An array of all keys.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    keys(): K[];
+    /**
+     * Returns an iterable of key-value pairs for each element in the SendableLruCache.
+     *
+     * @returns { IterableIterator<[K, V]> } A new iterable iterator object.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    entries(): IterableIterator<[K, V]>;
   }
 
   /**
