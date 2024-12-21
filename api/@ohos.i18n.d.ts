@@ -19,6 +19,7 @@
  */
 
 import { BusinessError } from './@ohos.base';
+import intl from '@ohos.intl';
 
 /**
  * Provides international settings related APIs.
