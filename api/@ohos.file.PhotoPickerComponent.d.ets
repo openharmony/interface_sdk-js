@@ -272,14 +272,14 @@ export declare class PickerController {
    *
    * @param { Array<string> } trustedUris - Uris need to be saved
    * @param { AsyncCallback<Array<string>> } callback - Returns the uri list
-   * @param { PhotoCreationConfig } configs - Photo asset creation configs
+   * @param { Array<PhotoCreationConfig> } configs - Photo asset creation configs
    * @param { SaveMode } saveMode - Mode of save
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 14
    */
   saveTrustedPhotoAssets(trustedUris: Array<string>, callback: AsyncCallback<Array<string>>,
-    configs?: PhotoCreationConfig, saveMode?: SaveMode): void;
+    configs?: Array<PhotoCreationConfig>, saveMode?: SaveMode): void;
 }
 
 /**
