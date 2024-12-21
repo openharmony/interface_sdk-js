@@ -163,7 +163,7 @@ declare namespace text {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 16
      */
-    HYPHEN,
+    BREAK_HYPHEN,
   }
 
   /**
