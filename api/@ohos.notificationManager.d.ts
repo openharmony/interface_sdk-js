@@ -2802,6 +2802,23 @@ declare namespace notificationManager {
   function getDoNotDisturbProfile(id: number): Promise<DoNotDisturbProfile>;
 
   /**
+   * Set target device status.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { string } deviceType - The device.
+   * @param { number } status - The device status.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
+  function setTargetDeviceStatus(deviceType: string, status: number): Promise<void>;
+
+  /**
    * Describes a button option for a triggering.
    *
    * @typedef ButtonOptions
