@@ -328,6 +328,7 @@ declare namespace restrictions {
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    * @param { string } feature - feature indicates the specific feature to be disallowed or allowed.
    * @param { boolean } disallow - true if disallow the specific feature of device, otherwise false.
+   * @param { number } accountId - accountId indicates the account ID to be queried.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200010 - A conflict policy has been configured.
