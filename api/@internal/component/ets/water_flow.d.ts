@@ -276,6 +276,17 @@ declare interface WaterFlowOptions {
   footer?: CustomBuilder;
 
   /**
+   * Describes the water flow footer.
+   *
+   * @type { ?ComponentContent }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  footerContent?: ComponentContent;
+
+  /**
    * Describes the water flow scroller.
    *
    * @type { ?Scroller }
