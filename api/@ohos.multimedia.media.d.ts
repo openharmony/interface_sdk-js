@@ -2132,12 +2132,11 @@ declare namespace media {
      *                             currently support SeekMode.SEEK_PREV_SYNC and SeekMode.SEEK_CLOSEST,
      *                             other values are invalid, the default value is SeekMode.SEEK_PREV_SYNC.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 202 - Called from Non-System applications. Return by promise.
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @systemapi
-     * @since 12
+     * @atomicservice
+     * @since 16
      */
     setPlaybackRange(startTimeMs: number, endTimeMs: number, mode?: SeekMode) : Promise<void>;
 
@@ -3550,7 +3549,7 @@ declare namespace media {
     preferredSubtitleLanguage?: string;
 
     /**
-     * Controls whether the first frame of the video is displayed after Prepare.
+     * Show first frame on prepare.
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
