@@ -414,12 +414,14 @@ declare namespace uri {
     /**
      * Gets the protocol part of the URI.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Gets the protocol part of the URI.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -427,6 +429,7 @@ declare namespace uri {
     /**
      * Gets the protocol part of the URI.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -435,6 +438,7 @@ declare namespace uri {
     /**
      * Gets/Sets the protocol part of the URI.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -445,12 +449,14 @@ declare namespace uri {
     /**
      * Obtains the user information part of the URI.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Obtains the user information part of the URI.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -458,6 +464,7 @@ declare namespace uri {
     /**
      * Obtains the user information part of the URI.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -466,6 +473,7 @@ declare namespace uri {
     /**
      * Gets/Sets Obtains the user information part of the URI.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -476,12 +484,14 @@ declare namespace uri {
     /**
      * Gets the hostname portion of the URI without a port.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Gets the hostname portion of the URI without a port.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -489,6 +499,7 @@ declare namespace uri {
     /**
      * Gets the hostname portion of the URI without a port.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -499,12 +510,14 @@ declare namespace uri {
     /**
      * Gets the port portion of the URI.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Gets the port portion of the URI.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -512,6 +525,7 @@ declare namespace uri {
     /**
      * Gets the port portion of the URI.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -522,12 +536,14 @@ declare namespace uri {
     /**
      * Gets the path portion of the URI.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Gets the path portion of the URI.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -535,6 +551,7 @@ declare namespace uri {
     /**
      * Gets the path portion of the URI.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -543,6 +560,7 @@ declare namespace uri {
     /**
      * Gets/Sets the path portion of the URI.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -553,12 +571,14 @@ declare namespace uri {
     /**
      * Gets the query portion of the URI
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Gets the query portion of the URI
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -566,6 +586,7 @@ declare namespace uri {
     /**
      * Gets the query portion of the URI
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -574,6 +595,7 @@ declare namespace uri {
     /**
      * Gets/Sets the query portion of the URI
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -584,12 +606,14 @@ declare namespace uri {
     /**
      * Gets the fragment part of the URI.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Gets the fragment part of the URI.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -597,6 +621,7 @@ declare namespace uri {
     /**
      * Gets the fragment part of the URI.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -605,6 +630,7 @@ declare namespace uri {
     /**
      * Gets/Sets the fragment part of the URI.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -615,12 +641,14 @@ declare namespace uri {
     /**
      * Gets the decoding permission component part of this URI.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Gets the decoding permission component part of this URI.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -628,6 +656,7 @@ declare namespace uri {
     /**
      * Gets the decoding permission component part of this URI.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -636,6 +665,7 @@ declare namespace uri {
     /**
      * Gets/Sets the decoding permission component part of this URI.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -646,12 +676,14 @@ declare namespace uri {
     /**
      * Gets the decoding scheme-specific part of the URI.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      */
     /**
      * Gets the decoding scheme-specific part of the URI.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -659,6 +691,7 @@ declare namespace uri {
     /**
      * Gets the decoding scheme-specific part of the URI.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
