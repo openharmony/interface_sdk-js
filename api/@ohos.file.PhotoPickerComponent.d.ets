@@ -19,6 +19,7 @@
  */
 
 import photoAccessHelper from '@ohos.file.photoAccessHelper';
+import { AsyncCallback } from '@kit.BasicServicesKit';
 
 /**
  * Declare struct PhotoPickerComponent
@@ -279,7 +280,7 @@ export declare class PickerController {
    * @since 14
    */
   saveTrustedPhotoAssets(trustedUris: Array<string>, callback: AsyncCallback<Array<string>>,
-    configs?: Array<PhotoCreationConfig>, saveMode?: SaveMode): void;
+    configs?: Array<photoAccessHelper.PhotoCreationConfig>, saveMode?: SaveMode): void;
 }
 
 /**
