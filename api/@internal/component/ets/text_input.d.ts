@@ -2407,6 +2407,28 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   maxFontSize(value: number | string | Resource): TextInputAttribute;
 
   /**
+   * Called when the minimum font scale of the font is set.
+   *
+   * @param { Optional<number|Resource> } scale
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  minFontScale(scale: Optional<number|Resource>): TextInputAttribute;
+
+  /**
+   * Called when the maximum font scale of the font is set.
+   *
+   * @param { Optional<number|Resource> } scale
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  maxFontScale(scale: Optional<number|Resource>): TextInputAttribute;
+  
+  /**
    * Called when the height adaptive policy is set.
    *
    * @param { TextHeightAdaptivePolicy } value - The height adaptive policy.
