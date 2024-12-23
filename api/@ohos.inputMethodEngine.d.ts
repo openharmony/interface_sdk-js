@@ -1366,6 +1366,7 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1. Incorrect parameter types. 2. Incorrect parameter length.
      * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800009 - input method client detached.
      * @throws { BusinessError } 12800014 - the input method is in basic mode.
      * @throws { BusinessError } 12800015 - the other side does not accept the request.
      * @throws { BusinessError } 12800016 - input method client is not editable.
