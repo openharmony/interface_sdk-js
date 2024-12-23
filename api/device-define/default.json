@@ -234,7 +234,6 @@
     "SystemCapability.Graphic.Vulkan",
     "SystemCapability.Multimedia.Image.ImageCreator",
     "SystemCapability.Ability.AppStartup",
-    "SystemCapability.Ability.AppExtension.PhotoEditorExtension",
-    "SystemCapability.FileManagement.AppFileService.FolderAuthorization"
+    "SystemCapability.Ability.AppExtension.PhotoEditorExtension"
   ]
 }
