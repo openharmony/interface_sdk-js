@@ -9598,8 +9598,8 @@ declare namespace camera {
    * @systemapi
    * @since 14
    */
-    interface MetadataBarcodeObject extends MetadataObject {
-    }
+  interface MetadataBarcodeObject extends MetadataObject {
+  }
 
   /**
    * Camera Occlusion Detection Result.
