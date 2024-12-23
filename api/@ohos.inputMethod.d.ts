@@ -966,6 +966,34 @@ declare namespace inputMethod {
     hideSoftKeyboard(): Promise<void>;
 
     /**
+     * Send message to input method.
+     *
+     * @param { string } msgId - the identifier of the message. Max size is 256B.
+     * @param { ?ArrayBuffer } [msgParam] - the param of the custom message. Max size is 128KB.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     *     1. Incorrect parameter types. 2. Incorrect parameter length.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800009 - input method client detached.
+     * @throws { BusinessError } 12800014 - the input method is in basic mode.
+     * @throws { BusinessError } 12800015 - the other side does not accept the request.
+     * @throws { BusinessError } 12800016 - input method client is not editable.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 16
+     */
+    sendMessage(msgId: string, msgParam?: ArrayBuffer): Promise<void>;
+
+    /**
+     * Start receiving message from input method.
+     *
+     * @param { ?MessageHandler } [msgHandler] - optional, the handler of the custom message.
+     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Incorrect parameter types.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 16
+     */
+    recvMessage(msgHandler?: MessageHandler): void;
+
+    /**
      * Register a callback and when IME sends select event with range of selection,
      * the callback will be invoked.
      *
@@ -1898,6 +1926,34 @@ declare namespace inputMethod {
      * @since 10
      */
     height: number;
+  }
+
+  /**
+   * <p>Custom message handler.</p>
+   * <p>Implement this interface to respond to custem messages.</p>
+   * 
+   * @interface MessageHandler
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 16
+   */
+  interface MessageHandler {
+    /**
+     * This method is called when a custom message is received.
+     * 
+     * @param { string } msgId - the identifier of the message.
+     * @param { ?ArrayBuffer } [msgParam] - the parameter of the custom message.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 16
+     */
+    onMessage(msgId: string, msgParam?: ArrayBuffer): void;
+
+    /**
+     * This method is called when a new message handler is set.
+     * 
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 16
+     */
+    onTerminated(): void;
   }
 }
 
