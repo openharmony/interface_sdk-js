@@ -36,6 +36,7 @@ export interface NotificationSubscriber {
   /**
    * The callback function that receives a new notification.
    *
+   * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -45,6 +46,7 @@ export interface NotificationSubscriber {
   /**
    * The callback function that cancels the notification.
    *
+   * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -54,6 +56,7 @@ export interface NotificationSubscriber {
   /**
    * The callback function that updates the sort of notifications.
    *
+   * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -63,6 +66,7 @@ export interface NotificationSubscriber {
   /**
    * The callback function of the completed subscription.
    *
+   * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -72,6 +76,7 @@ export interface NotificationSubscriber {
   /**
    * The callback function to unsubscribe.
    *
+   * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -81,6 +86,7 @@ export interface NotificationSubscriber {
   /**
    * The callback function that service disconnected.
    *
+   * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -90,6 +96,7 @@ export interface NotificationSubscriber {
   /**
    * Callback when the Do Not Disturb setting changed.
    *
+   * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -111,6 +118,7 @@ export interface NotificationSubscriber {
   /**
    * Callback when the notification permission is changed.
    *
+   * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -120,6 +128,7 @@ export interface NotificationSubscriber {
   /**
    * Callback when badge number changed.
    *
+   * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 10
@@ -129,6 +138,7 @@ export interface NotificationSubscriber {
   /**
    * Callback when badge enabled state changed.
    *
+   * @type { ?BadgeEnabledChangedCallback }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12
@@ -306,8 +316,21 @@ export interface BadgeNumberCallbackData {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12
+   * @deprecated since 15
+   * @useinstead BadgeNumberCallbackData#appInstanceKey
    */
   readonly instanceKey?: number;
+
+  /**
+   * Application instance key.
+   *
+   * @type { ?string }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 15
+   */
+  readonly appInstanceKey?: string;
 }
 
 /**

@@ -22,7 +22,6 @@
  * MissionCallback registered by app.
  *
  * @interface MissionCallback
- * @permission ohos.permission.MANAGE_MISSIONS
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
  * @since 9

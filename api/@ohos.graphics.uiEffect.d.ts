@@ -64,13 +64,44 @@ declare namespace uiEffect {
      * @param { number } waveCount - The number of waves when the water ripples. The maximum count of waves is 3, the minimum value is 1,  default is 2.
      * @param { number } x - Represents the X-axis position of center point  where the water ripple first appears on the screen.
      * @param { number } y - Represents the Y-axis position of center point  where the water ripple first appears on the screen.
+     * @param { WaterRippleMode } rippleMode - Set the mode of water ripple,
+     * 0 for mobile to desktop(Receive), 1 for mobile to desktop(Send), 2 for mobile to mobile.
      * @returns { Filter } - Returns  water ripple Filter.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12
      */
-    waterRipple(progress: number, waveCount: number, x: number, y: number): Filter;
+    waterRipple(progress: number, waveCount: number, x: number, y: number, rippleMode: WaterRippleMode): Filter;
+
+    /**
+     * Set the fly in or fly out effect of the component.
+     *
+     * @param { number } degree - set the degree of fly in or fly out effect, value range [0, 1].
+     * @param { FlyMode } flyMode - set the location of stretching when fly in or out
+     * If the value is 0, the component keep same, else the value is 1, component are fully fly out or fly in.
+     * @returns { Filter } - Returns  fly in fly out Filter.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 12
+     */
+    flyInFlyOutEffect(degree: number, flyMode: FlyMode): Filter;
+
+    /**
+     * Set distort effect of the component.
+     *
+     * @param { number } distortionK - set the degree of distort effect, value range [-1, 1].
+     * If the value is 0, the component keep same,
+     * if the value is less than 0, the component is barrel distortion,
+     * if the value is more than 0, the component is pincushion distortion.
+     * @returns { Filter } - Returns distort Filter.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 13
+     */
+    distort(distortionK: number): Filter;
   }
 
   /**
@@ -118,7 +149,72 @@ declare namespace uiEffect {
      */
     DECAL = 3,
   }
-  
+
+  /**
+   * WaterRippleMode enumeration description
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @since 12
+   */
+  enum WaterRippleMode {
+    /**
+     * SMALL2MEDIUM_RECV mode.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 12
+     */
+    SMALL2MEDIUM_RECV = 0,
+
+    /**
+     * SMALL2MEDIUM_SEND mode.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 12
+     */
+    SMALL2MEDIUM_SEND = 1,
+
+    /**
+     * SMALL2SMALL mode.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 12
+     */
+    SMALL2SMALL = 2,
+  }
+
+  /**
+   * FlyMode enumeration description
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @since 12
+   */
+  enum FlyMode {
+    /**
+     * BOTTOM fly mode.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 12
+     */
+    BOTTOM = 0,
+
+    /**
+     * TOP fly mode.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 12
+     */
+    TOP = 1,
+  }
+
   /**
    * The VisualEffect of Component.
    * @typedef VisualEffect
@@ -136,6 +232,15 @@ declare namespace uiEffect {
     */
     backgroundColorBlender(blender: BrightnessBlender): VisualEffect;
   }
+
+  /**
+   * Defines the blending effect.
+   * @typedef { BrightnessBlender }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @since 13
+   */
+  type Blender = BrightnessBlender;
 
   /**
    * The Blender of backgroundColorEffect.
@@ -204,7 +309,7 @@ declare namespace uiEffect {
      * @since 12
      */
     positiveCoefficient: [number, number, number];
-    
+
     /**
      * Defines the negative adjustment coefficients in RGB channels based on the reference saturation.
      *

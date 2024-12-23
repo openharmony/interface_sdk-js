@@ -372,6 +372,15 @@ export class RenderNode {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Set frame position of the RenderNode.
+   *
+   * @param { Position } position - The position of the RenderNode frame.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   set position(position: Position);
 
   /**
@@ -851,6 +860,7 @@ export class RenderNode {
    * @param { Edges<BorderStyle> } style - the border style of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   set borderStyle(style: Edges<BorderStyle>);
@@ -861,6 +871,7 @@ export class RenderNode {
    * @returns { Edges<BorderStyle> } - Returns the border style of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   get borderStyle(): Edges<BorderStyle>;
@@ -871,6 +882,7 @@ export class RenderNode {
    * @param { Edges<number> } width - the border width of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   set borderWidth(width: Edges<number>);
@@ -882,6 +894,7 @@ export class RenderNode {
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   get borderWidth(): Edges<number>;
@@ -892,6 +905,7 @@ export class RenderNode {
    * @param { Edges<number> } color - the border color of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   set borderColor(color: Edges<number>);
@@ -903,6 +917,7 @@ export class RenderNode {
    * @default 0XFF000000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   get borderColor(): Edges<number>;
@@ -913,6 +928,7 @@ export class RenderNode {
    * @param { BorderRadiuses } radius - the border radius of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   set borderRadius(radius: BorderRadiuses);
@@ -924,6 +940,7 @@ export class RenderNode {
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   get borderRadius(): BorderRadiuses;
@@ -934,6 +951,7 @@ export class RenderNode {
    * @param { ShapeMask } shapeMask - the shape mask of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   set shapeMask(shapeMask: ShapeMask);
@@ -944,6 +962,7 @@ export class RenderNode {
    * @returns { ShapeMask } - Returns the shape mask of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   get shapeMask(): ShapeMask;
@@ -976,6 +995,7 @@ export class RenderNode {
    * @param { boolean } isNodeGroup - The parameter indicates whether to preferentially draw the node and its children.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   set markNodeGroup(isNodeGroup: boolean);
@@ -987,6 +1007,7 @@ export class RenderNode {
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   get markNodeGroup(): boolean;
@@ -1032,6 +1053,7 @@ export class RenderNode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   dispose(): void;
@@ -1042,6 +1064,7 @@ export class RenderNode {
    * @param { LengthMetricsUnit } unit - The length metrics unit of RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   set lengthMetricsUnit(unit: LengthMetricsUnit);
@@ -1053,6 +1076,7 @@ export class RenderNode {
    * @default LengthMetricsUnit.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   get lengthMetricsUnit(): LengthMetricsUnit;

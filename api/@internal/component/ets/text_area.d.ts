@@ -391,6 +391,7 @@ declare enum TextAreaType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   NUMBER_DECIMAL = 12,
@@ -407,203 +408,17 @@ declare enum TextAreaType {
 }
 
 /**
- * Declare the content type of input box
+ * Declare the event listener callback of the enter key.
  *
- * @enum { number }
+ * @typedef { function } TextAreaSubmitCallback
+ * @param { EnterKeyType } enterKeyType - The enter key type of soft keyboard.
+ * @param { SubmitEvent } [event] - Provides the method of keeping textArea editable state when submitted.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 14
  */
-declare enum ContentType {
-  /**
-   * User name content type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  USER_NAME = 0,
-
-  /**
-   * Password content type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  PASSWORD = 1,
-
-  /**
-   * New password content type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  NEW_PASSWORD = 2,
-
-  /**
-   * Full street address content type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  FULL_STREET_ADDRESS = 3,
-
-  /**
-   * House number content type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  HOUSE_NUMBER = 4,
-
-  /**
-   * District address content type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  DISTRICT_ADDRESS = 5,
-
-  /**
-   * City address content type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  CITY_ADDRESS = 6,
-
-  /**
-   * Province address content type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  PROVINCE_ADDRESS = 7,
-
-  /**
-   * Country address content type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  COUNTRY_ADDRESS = 8,
-
-  /**
-   * Person full name content type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  PERSON_FULL_NAME = 9,
-
-  /**
-   * Person last name content type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  PERSON_LAST_NAME = 10,
-
-  /**
-   * Person first name content type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  PERSON_FIRST_NAME = 11,
-
-  /**
-   * Phone number content type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  PHONE_NUMBER = 12,
-
-  /**
-   * Phone country code content type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  PHONE_COUNTRY_CODE = 13,
-
-  /**
-   * Full phone number content type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  FULL_PHONE_NUMBER = 14,
-
-  /**
-   * Email address content type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  EMAIL_ADDRESS = 15,
-
-  /**
-   * Bank card number content type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  BANK_CARD_NUMBER = 16,
-
-  /**
-   * ID card number content type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  ID_CARD_NUMBER = 17,
-
-  /**
-   * Nickname content type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  NICKNAME = 23,
-
-  /**
-   * Detail info without street content type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  DETAIL_INFO_WITHOUT_STREET = 24,
-
-  /**
-   * Format address content type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  FORMAT_ADDRESS = 25
-}
+declare type TextAreaSubmitCallback = (enterKeyType: EnterKeyType, event?: SubmitEvent) => void;
 
 /**
  * Defines the attribute functions of TextArea.
@@ -919,6 +734,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   textOverflow(value: TextOverflow): TextAreaAttribute;
@@ -930,6 +746,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   textIndent(value: Dimension): TextAreaAttribute;
@@ -973,6 +790,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   caretStyle(value: CaretStyle): TextAreaAttribute;
@@ -984,6 +802,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   selectedBackgroundColor(value: ResourceColor): TextAreaAttribute;
@@ -1008,6 +827,17 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 12
    */
   onSubmit(callback: (enterKey: EnterKeyType) => void): TextAreaAttribute;
+  /**
+   * Called when submitted.
+   *
+   * @param { TextAreaSubmitCallback } callback - callback of the listened event.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onSubmit(callback: TextAreaSubmitCallback): TextAreaAttribute;
 
   /**
    * Called when the input changes.
@@ -1361,6 +1191,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   minFontSize(value: number | string | Resource): TextAreaAttribute;
@@ -1372,6 +1203,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   maxFontSize(value: number | string | Resource): TextAreaAttribute;
@@ -1383,6 +1215,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   heightAdaptivePolicy(value: TextHeightAdaptivePolicy): TextAreaAttribute;
@@ -1414,6 +1247,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   wordBreak(value: WordBreak): TextAreaAttribute;
@@ -1425,6 +1259,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute } The attribute of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   lineBreakStrategy(strategy: LineBreakStrategy): TextAreaAttribute;
@@ -1467,6 +1302,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   decoration(value: TextDecorationOptions): TextAreaAttribute;
@@ -1478,6 +1314,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   letterSpacing(value: number | string | Resource): TextAreaAttribute;
@@ -1489,6 +1326,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   lineSpacing(value: LengthMetrics): TextAreaAttribute;
@@ -1500,6 +1338,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   lineHeight(value: number | string | Resource): TextAreaAttribute;
@@ -1558,6 +1397,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   fontFeature(value: string): TextAreaAttribute;
@@ -1569,6 +1409,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onWillInsert(callback: Callback<InsertValue, boolean>): TextAreaAttribute;
@@ -1580,6 +1421,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onDidInsert(callback: Callback<InsertValue>): TextAreaAttribute;
@@ -1591,6 +1433,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onWillDelete(callback: Callback<DeleteValue, boolean>): TextAreaAttribute;
@@ -1602,6 +1445,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onDidDelete(callback: Callback<DeleteValue>): TextAreaAttribute;
@@ -1629,6 +1473,18 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 12
    */
   enablePreviewText(enable: boolean): TextAreaAttribute;
+
+  /**
+   * Enable or disable haptic feedback.
+   *
+   * @param { boolean } isEnabled - Default value is true, set false to disable haptic feedback.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  enableHapticFeedback(isEnabled: boolean): TextAreaAttribute;
 }
 
 /**

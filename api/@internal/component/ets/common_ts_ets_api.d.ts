@@ -51,6 +51,7 @@ declare class AppStorage {
    * return undefined otherwise
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   static ref<T>(propName: string): AbstractProperty<T> | undefined;
@@ -66,6 +67,7 @@ declare class AppStorage {
    * @returns { AbstractProperty<T> } AbstractProperty object
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   static setAndRef<T>(propName: string, defaultValue: T): AbstractProperty<T>;
@@ -671,6 +673,7 @@ declare class AppStorage {
  * @interface AbstractProperty<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface AbstractProperty<T> {
@@ -680,6 +683,7 @@ declare interface AbstractProperty<T> {
   * @returns { T } value of the referenced AppStorage/LocalStorage property.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
+  * @atomicservice
   * @since 12
   */
   get(): T;
@@ -691,6 +695,7 @@ declare interface AbstractProperty<T> {
    * @param { T } newValue new value set to AppStorage/LocalStorage
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   set(newValue: T): void;
@@ -701,6 +706,7 @@ declare interface AbstractProperty<T> {
    * @returns { string } name of the referenced property
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   info(): string;
@@ -778,6 +784,7 @@ declare abstract class SubscribedAbstractProperty<T> {
   /**
    * Private user ID.
    *
+   * @type { any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7
@@ -787,6 +794,7 @@ declare abstract class SubscribedAbstractProperty<T> {
   /**
    * Private user information.
    *
+   * @type { ?any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7
@@ -1059,6 +1067,7 @@ interface IPropertySubscriber {
  * Defines the state value.
  *
  * @extends SubscribedAbstractProperty<T>
+ * @implements ISinglePropertyChangeSubscriber<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 7
@@ -1070,6 +1079,7 @@ declare class SyncedPropertyTwoWay<T>
   /**
    * Sources of synchronization attributes bidirectionally.
    *
+   * @type { any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7
@@ -1133,6 +1143,7 @@ declare class SyncedPropertyTwoWay<T>
  * Defines the prop state value.
  *
  * @extends SubscribedAbstractProperty<T>
+ * @implements ISinglePropertyChangeSubscriber<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 7
@@ -1144,6 +1155,7 @@ declare class SyncedPropertyOneWay<T>
   /**
    * Pack value for single-item binding.
    *
+   * @type { any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7
@@ -1153,6 +1165,7 @@ declare class SyncedPropertyOneWay<T>
   /**
    * Sources of synchronization attributes bidirectionally.
    *
+   * @type { any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7
@@ -1215,6 +1228,7 @@ declare class SyncedPropertyOneWay<T>
 /**
  * Defines the subscriber.
  *
+ * @extends IPropertySubscriber
  * @interface ISinglePropertyChangeSubscriber
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -1243,6 +1257,7 @@ declare abstract class SubscribaleAbstract {
   /**
    * Returns the ownership attribute set by the.
    *
+   * @type { Set<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7
@@ -1855,6 +1870,7 @@ declare class LocalStorage {
    * return undefined otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
    public ref<T>(propName: string): AbstractProperty<T> | undefined;
@@ -1870,6 +1886,7 @@ declare class LocalStorage {
     * @returns { AbstractProperty<T> } AbstractProperty object
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
+    * @atomicservice
     * @since 12
     */
    public setAndRef<T>(propName: string, defaultValue: T): AbstractProperty<T>;

@@ -205,7 +205,7 @@ export class Router {
    *
    * @param { router.RouterOptions } options - Options.
    * @param { AsyncCallback<void> } callback - the callback of pushUrl.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -221,7 +221,7 @@ export class Router {
    *
    * @param { router.RouterOptions } options - Options.
    * @param { AsyncCallback<void> } callback - the callback of pushUrl.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -240,7 +240,7 @@ export class Router {
    *
    * @param { router.RouterOptions } options - Options.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -256,7 +256,7 @@ export class Router {
    *
    * @param { router.RouterOptions } options - Options.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -276,7 +276,7 @@ export class Router {
    * @param { router.RouterOptions } options - Options.
    * @param { router.RouterMode } mode - RouterMode.
    * @param { AsyncCallback<void> } callback - the callback of pushUrl.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -293,7 +293,7 @@ export class Router {
    * @param { router.RouterOptions } options - Options.
    * @param { router.RouterMode } mode - RouterMode.
    * @param { AsyncCallback<void> } callback - the callback of pushUrl.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -313,7 +313,7 @@ export class Router {
    * @param { router.RouterOptions } options - Options.
    * @param { router.RouterMode } mode - RouterMode.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -330,7 +330,7 @@ export class Router {
    * @param { router.RouterOptions } options - Options.
    * @param { router.RouterMode } mode - RouterMode.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -349,7 +349,7 @@ export class Router {
    *
    * @param { router.RouterOptions } options - Options.
    * @param { AsyncCallback<void> } callback - the callback of replaceUrl.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -364,7 +364,7 @@ export class Router {
    *
    * @param { router.RouterOptions } options - Options.
    * @param { AsyncCallback<void> } callback - the callback of replaceUrl.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -382,7 +382,7 @@ export class Router {
    *
    * @param { router.RouterOptions } options - Options.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -397,7 +397,7 @@ export class Router {
    *
    * @param { router.RouterOptions } options - Options.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -416,7 +416,7 @@ export class Router {
    * @param { router.RouterOptions } options - Options.
    * @param { router.RouterMode } mode - RouterMode.
    * @param { AsyncCallback<void> } callback - the callback of replaceUrl.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -432,7 +432,7 @@ export class Router {
    * @param { router.RouterOptions } options - Options.
    * @param { router.RouterMode } mode - RouterMode.
    * @param { AsyncCallback<void> } callback - the callback of replaceUrl.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -451,7 +451,7 @@ export class Router {
    * @param { router.RouterOptions } options - Options.
    * @param { router.RouterMode } mode - RouterMode.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -467,7 +467,7 @@ export class Router {
    * @param { router.RouterOptions } options - Options.
    * @param { router.RouterMode } mode - RouterMode.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -594,7 +594,7 @@ export class Router {
    * Pop up alert dialog to ask whether to back.
    *
    * @param { router.EnableAlertOptions } options - Options.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -607,7 +607,7 @@ export class Router {
    * Pop up alert dialog to ask whether to back.
    *
    * @param { router.EnableAlertOptions } options - Options.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -659,7 +659,7 @@ export class Router {
    * Navigates to a specified page in the application based on the page URL and parameters.
    * @param { router.NamedRouterOptions } options - Options.
    * @param { AsyncCallback<void> } callback - the callback of pushNamedRoute.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -674,7 +674,7 @@ export class Router {
    * Navigates to a specified page in the application based on the page URL and parameters.
    * @param { router.NamedRouterOptions } options - Options.
    * @param { AsyncCallback<void> } callback - the callback of pushNamedRoute.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -692,7 +692,7 @@ export class Router {
    * Navigates to a specified page in the application based on the page URL and parameters.
    * @param { router.NamedRouterOptions } options - Options.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -707,7 +707,7 @@ export class Router {
    * Navigates to a specified page in the application based on the page URL and parameters.
    * @param { router.NamedRouterOptions } options - Options.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -726,7 +726,7 @@ export class Router {
    * @param { router.NamedRouterOptions } options - Options.
    * @param { router.RouterMode } mode - RouterMode.
    * @param { AsyncCallback<void> } callback - the callback of pushNamedRoute.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -742,7 +742,7 @@ export class Router {
    * @param { router.NamedRouterOptions } options - Options.
    * @param { router.RouterMode } mode - RouterMode.
    * @param { AsyncCallback<void> } callback - the callback of pushNamedRoute.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -761,7 +761,7 @@ export class Router {
    * @param { router.NamedRouterOptions } options - Options.
    * @param { router.RouterMode } mode - RouterMode.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -777,7 +777,7 @@ export class Router {
    * @param { router.NamedRouterOptions } options - Options.
    * @param { router.RouterMode } mode - RouterMode.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -795,7 +795,7 @@ export class Router {
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
    * @param { router.NamedRouterOptions } options - Options.
    * @param { AsyncCallback<void> } callback - the callback of replaceNamedRoute.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -809,7 +809,7 @@ export class Router {
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
    * @param { router.NamedRouterOptions } options - Options.
    * @param { AsyncCallback<void> } callback - the callback of replaceNamedRoute.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -826,7 +826,7 @@ export class Router {
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
    * @param { router.NamedRouterOptions } options - Options.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -855,7 +855,7 @@ export class Router {
    * @param { router.NamedRouterOptions } options - Options.
    * @param { router.RouterMode } mode - RouterMode.
    * @param { AsyncCallback<void> } callback - the callback of replaceNamedRoute.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -885,7 +885,7 @@ export class Router {
    * @param { router.NamedRouterOptions } options - Options.
    * @param { router.RouterMode } mode - RouterMode.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -900,7 +900,7 @@ export class Router {
    * @param { router.NamedRouterOptions } options - Options.
    * @param { router.RouterMode } mode - RouterMode.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -934,7 +934,7 @@ export class PromptAction {
    * Displays the notification text.
    *
    * @param { promptAction.ShowToastOptions } options - Options.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -947,7 +947,7 @@ export class PromptAction {
    * Displays the notification text.
    *
    * @param { promptAction.ShowToastOptions } options - Options.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -972,7 +972,7 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   openToast(options: promptAction.ShowToastOptions): Promise<number>;
 
@@ -988,7 +988,7 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   closeToast(toastId: number): void;
 
@@ -997,7 +997,7 @@ export class PromptAction {
    *
    * @param { promptAction.ShowDialogOptions } options - Options.
    * @param { AsyncCallback<promptAction.ShowDialogSuccessResponse> } callback - the callback of showDialog.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -1011,7 +1011,7 @@ export class PromptAction {
    *
    * @param { promptAction.ShowDialogOptions } options - Options.
    * @param { AsyncCallback<promptAction.ShowDialogSuccessResponse> } callback - the callback of showDialog.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -1043,7 +1043,7 @@ export class PromptAction {
    *
    * @param { promptAction.ShowDialogOptions } options - Options.
    * @returns { Promise<promptAction.ShowDialogSuccessResponse> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -1057,7 +1057,7 @@ export class PromptAction {
    *
    * @param { promptAction.ShowDialogOptions } options - Options.
    * @returns { Promise<promptAction.ShowDialogSuccessResponse> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -1074,7 +1074,7 @@ export class PromptAction {
    *
    * @param { promptAction.ActionMenuOptions } options - Options.
    * @param { promptAction.ActionMenuSuccessResponse } callback - the callback of showActionMenu.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -1092,7 +1092,7 @@ export class PromptAction {
    *
    * @param { promptAction.ActionMenuOptions } options - Options.
    * @param { AsyncCallback<promptAction.ActionMenuSuccessResponse> } callback - the callback of showActionMenu.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -1109,7 +1109,7 @@ export class PromptAction {
    *
    * @param { promptAction.ActionMenuOptions } options - Options.
    * @returns { Promise<promptAction.ActionMenuSuccessResponse> } callback - the callback of showActionMenu.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -1123,7 +1123,7 @@ export class PromptAction {
    *
    * @param { promptAction.ActionMenuOptions } options - Options.
    * @returns { Promise<promptAction.ActionMenuSuccessResponse> } callback - the callback of showActionMenu.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -1141,7 +1141,7 @@ export class PromptAction {
    * @param { ComponentContent<T> } dialogContent - the content of custom dialog.
    * @param { promptAction.BaseDialogOptions } options - Options.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -1152,7 +1152,7 @@ export class PromptAction {
    * @atomicservice
    * @since 12
    */
-    openCustomDialog<T extends Object>(dialogContent: ComponentContent<T>, options?: promptAction.BaseDialogOptions): Promise<void>;
+  openCustomDialog<T extends Object>(dialogContent: ComponentContent<T>, options?: promptAction.BaseDialogOptions): Promise<void>;
 
   /**
    * Update the custom dialog with frameNode.
@@ -1160,7 +1160,7 @@ export class PromptAction {
    * @param { ComponentContent<T> } dialogContent - the content of custom dialog.
    * @param { promptAction.BaseDialogOptions } options - Options.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -1171,32 +1171,65 @@ export class PromptAction {
    * @atomicservice
    * @since 12
    */
-    updateCustomDialog<T extends Object>(dialogContent: ComponentContent<T>, options: promptAction.BaseDialogOptions): Promise<void>;
+  updateCustomDialog<T extends Object>(dialogContent: ComponentContent<T>, options: promptAction.BaseDialogOptions): Promise<void>;
 
-    /**
-     * Close the custom dialog with frameNode.
-     *
-     * @param { ComponentContent<T> } dialogContent - the content of custom dialog.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
-     * @throws { BusinessError } 103303 - the ComponentContent cannot be found.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
-    closeCustomDialog<T extends Object>(dialogContent: ComponentContent<T>): Promise<void>;
+  /**
+   * Close the custom dialog with frameNode.
+   *
+   * @param { ComponentContent<T> } dialogContent - the content of custom dialog.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - the ComponentContent cannot be found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+  */
+  closeCustomDialog<T extends Object>(dialogContent: ComponentContent<T>): Promise<void>;
+
+  /**
+   * Open the custom dialog.
+   *
+   * @param { promptAction.CustomDialogOptions } options - Options.
+   * @returns { Promise<number> } return the dialog id that will be used by closeCustomDialog.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  openCustomDialog(options: promptAction.CustomDialogOptions): Promise<number>;
+
+  /**
+   * Close the custom dialog.
+   *
+   * @param { number } dialogId - the dialog id that returned by openCustomDialog.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  closeCustomDialog(dialogId: number): void;
 }
 
 /**
  * Defines the callback type used in UIObserver watch click event.
  * The value of event indicates the information of ClickEvent.
  * The value of node indicates the frameNode which will receive the event.
- * 
+ *
  * @typedef { function } ClickEventListenerCallback
  * @param { ClickEvent } event - the information of ClickEvent
  * @param { FrameNode } [node] - the information of frameNode
@@ -1211,7 +1244,7 @@ declare type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) 
  * Defines the callback type used in UIObserver watch gesture.
  * The value of event indicates the information of gesture.
  * The value of node indicates the frameNode which will receive the event.
- * 
+ *
  * @typedef { function } GestureEventListenerCallback
  * @param { GestureEvent } event - the information of GestureEvent
  * @param { FrameNode } [node] - the information of frameNode
@@ -1228,10 +1261,11 @@ declare type GestureEventListenerCallback = (event: GestureEvent, node?: FrameNo
  * frameNode does not have router page information. And the value of navDestinationInfo indicates
  * the information of the navDestination, or undefined if the frameNode does not have navDestination
  * information.
- * 
+ *
  * @interface PageInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export interface PageInfo {
@@ -1240,6 +1274,7 @@ export interface PageInfo {
    *
    * @type { ?observer.RouterPageInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   routerPageInfo?: observer.RouterPageInfo;
@@ -1249,6 +1284,7 @@ export interface PageInfo {
    *
    * @type { ?observer.NavDestinationInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   navDestinationInfo?: observer.NavDestinationInfo;
@@ -1361,7 +1397,7 @@ export class UIObserver {
    * @since 12
    */
   off(type: 'navDestinationUpdate', callback?: Callback<observer.NavDestinationInfo>): void;
-  
+
   /**
    * Registers a callback function to be called when the scroll event start or stop.
    *
@@ -1537,7 +1573,8 @@ export class UIObserver {
    * Registers a callback function to be called when the navigation switched to a new navDestination.
    *
    * @param { 'navDestinationSwitch' } type - The type of event to listen for. Must be 'navDestinationSwitch'.
-   * @param { Callback<observer.NavDestinationSwitchInfo> } callback - The callback function to be called when the navigation switched to a new navDestination.
+   * @param { Callback<observer.NavDestinationSwitchInfo> } callback - The callback function to be called when
+   *                                                                   the navigation switched to a new navDestination.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1552,8 +1589,8 @@ export class UIObserver {
    * Removes a callback function that was previously registered with `on()`.
    *
    * @param { 'navDestinationSwitch' } type - The type of event to remove the listener for. Must be 'navDestinationSwitch'.
-   * @param { Callback<observer.NavDestinationSwitchInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
-   *                                                               will be removed.
+   * @param { Callback<observer.NavDestinationSwitchInfo> } [callback] - The callback function to remove. If not provided,
+   *                                                                     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1569,7 +1606,8 @@ export class UIObserver {
    *
    * @param { 'navDestinationSwitch' } type - The type of event to listen for. Must be 'navDestinationSwitch'.
    * @param { observer.NavDestinationSwitchObserverOptions } observerOptions - Options.
-   * @param { Callback<observer.NavDestinationSwitchInfo> } callback - The callback function to be called when the navigation switched to a new navDestination.
+   * @param { Callback<observer.NavDestinationSwitchInfo> } callback - The callback function to be called when the
+   *                                                                   navigation switched to a new navDestination.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1586,8 +1624,8 @@ export class UIObserver {
    *
    * @param { 'navDestinationSwitch' } type - The type of event to remove the listener for. Must be 'navDestinationSwitch'.
    * @param { observer.NavDestinationSwitchObserverOptions } observerOptions - Options.
-   * @param { Callback<observer.NavDestinationSwitchInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
-   *                                                               will be removed.
+   * @param { Callback<observer.NavDestinationSwitchInfo> } [callback] - The callback function to remove. If not provided,
+   *                                                                     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1777,6 +1815,7 @@ export class ComponentUtils {
    *
    * @param { string } id - ID of the component whose attributes are to be obtained.
    * @returns { componentUtils.ComponentInfo } the object of ComponentInfo.
+   * @throws { BusinessError } 100001 - UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -1785,6 +1824,7 @@ export class ComponentUtils {
    *
    * @param { string } id - ID of the component whose attributes are to be obtained.
    * @returns { componentUtils.ComponentInfo } the object of ComponentInfo.
+   * @throws { BusinessError } 100001 - UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -2011,6 +2051,26 @@ export class SwiperDynamicSyncScene extends DynamicSyncScene {
 }
 
 /**
+ * Represents a dynamic synchronization scene of Marquee.
+ * 
+ * @extends DynamicSyncScene
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 14
+ */
+export class MarqueeDynamicSyncScene extends DynamicSyncScene {
+  /**
+  * Type of the MarqueeDynamicSyncSceneType.
+  * @type { MarqueeDynamicSyncSceneType }
+  * @readonly
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @atomicservice
+  * @since 14
+  */
+  readonly type: MarqueeDynamicSyncSceneType;
+}
+
+/**
  * class DragController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 11
@@ -2026,9 +2086,9 @@ export class DragController {
    * Execute a drag event.
    * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
    * @param { dragController.DragInfo } dragInfo - Information about the drag event.
-   * @param { AsyncCallback<{ event: DragEvent, extraParams: string }> } callback - Callback that contains 
+   * @param { AsyncCallback<{ event: DragEvent, extraParams: string }> } callback - Callback that contains
    * the drag event information.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -2042,7 +2102,7 @@ export class DragController {
    * @param { dragController.DragInfo } dragInfo - Information about the drag event.
    * @param { AsyncCallback<dragController.DragEventParam> } callback - Callback that contains 
    * the drag event information.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -2059,7 +2119,7 @@ export class DragController {
    * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
    * @param { dragController.DragInfo } dragInfo - Information about the drag event.
    * @returns { Promise<{ event: DragEvent, extraParams: string }> } A Promise with the drag event information.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -2089,7 +2149,7 @@ export class DragController {
    * @param { Array<CustomBuilder | DragItemInfo> } customArray - Objects used for prompts displayed when the objects are dragged.
    * @param { dragController.DragInfo } dragInfo - Information about the drag event.
    * @returns { dragController.DragAction } one drag action object
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -2102,7 +2162,7 @@ export class DragController {
    * @param { Array<CustomBuilder | DragItemInfo> } customArray - Objects used for prompts displayed when the objects are dragged.
    * @param { dragController.DragInfo } dragInfo - Information about the drag event.
    * @returns { dragController.DragAction } one drag action object
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -2129,16 +2189,17 @@ export class DragController {
   getDragPreview(): dragController.DragPreview;
 
   /**
-   * Enable drag event strict reporting for drag enter and leave notification in nested situation. 
-   * For example, the parent and child both register the onDragEnter/onDragLeave events, if this 
-   * flag is enabled, the parent will be notified with leave event, and the child will notified with 
-   * enter event at the same time, when user drag action is passing through the parent and enter the 
+   * Enable drag event strict reporting for drag enter and leave notification in nested situation.
+   * For example, the parent and child both register the onDragEnter/onDragLeave events, if this
+   * flag is enabled, the parent will be notified with leave event, and the child will notified with
+   * enter event at the same time, when user drag action is passing through the parent and enter the
    * scope of the child.
-   * Please be noted, the default value of the flag is false, it means, for the same situation, the 
-   * parent will not receive the leave notification, just the child can get the enter event, which is 
+   * Please be noted, the default value of the flag is false, it means, for the same situation, the
+   * parent will not receive the leave notification, just the child can get the enter event, which is
    * not fully strict.
    * @param { boolean } enable - Indicating enable drag event strict reporting or not.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   setDragEventStrictReportingEnabled(enable: boolean): void;
@@ -2183,7 +2244,7 @@ export class MeasureUtils {
  * @atomicservice
  * @since 12
  */
-export class FocusController {
+ export class FocusController {
   /**
    * clear focus to the root container.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2203,6 +2264,27 @@ export class FocusController {
    * @since 12
    */
   requestFocus(key: string): void;
+
+  /**
+   * Activate focus style.
+   * @param { boolean } isActive - activate/deactivate the focus style.
+   * @param { boolean } [autoInactive] - deactivate the focus style when touch event or mouse event triggers, the default value is true.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  activate(isActive: boolean, autoInactive?: boolean): void;
+
+  /**
+  * Set whether to enable autofocus transfer.
+  * @param { boolean } isAutoFocusTransfer - A Boolean value that indicates whether autofocus transfer is enabled.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 14
+  */
+  setAutoFocusTransfer(isAutoFocusTransfer: boolean): void;
 }
 
 /**
@@ -2226,7 +2308,7 @@ export type PointerStyle = pointer.PointerStyle;
 export class CursorController {
   /**
    * Restore default cursor.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -2235,7 +2317,7 @@ export class CursorController {
   restoreDefault(): void;
   /**
    * Set cursor style.
-   * 
+   *
    * @param { PointerStyle } value - cursor style enum.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2256,7 +2338,7 @@ export class CursorController {
 export class ContextMenuController {
   /**
    * Close context menu.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -2276,20 +2358,32 @@ export class ContextMenuController {
 export abstract class FrameCallback {
   /**
    * Call when a new display frame is being rendered.
-   * 
+   *
    * @param { number } frameTimeInNano - The frame time in nanoseconds.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  abstract onFrame(frameTimeInNano: number): void;
+  onFrame(frameTimeInNano: number): void;
+
+  /**
+   * Called at the end of the next idle frame. If there is no next frame, will request one automatically.
+   *
+   * @param { number } timeLeftInNano - The remaining time from the deadline for this frame.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onIdle(timeLeftInNano: number): void;
 }
 
 /**
  * The base context of an ability or an application. It allows access to
  * application-specific resources.
  *
+ * @typedef { common.Context } Context
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
  * @crossplatform
@@ -2354,6 +2448,8 @@ export class ComponentSnapshot {
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - The builder is not a valid build function.
+   * @throws { BusinessError } 160001 - An image component in builder is not ready for taking a snapshot. The check for
+   * the ready state is required when the checkImageStatus option is enabled.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -2375,6 +2471,8 @@ export class ComponentSnapshot {
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - The builder is not a valid build function.
+   * @throws { BusinessError } 160001 - An image component in builder is not ready for taking a snapshot. The check for
+   * the ready state is required when the checkImageStatus option is enabled.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -2382,6 +2480,27 @@ export class ComponentSnapshot {
    */
   createFromBuilder(builder: CustomBuilder, delay?: number,
     checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
+
+  /**
+   * Take a screenshot of the specified component in synchronous mode,
+   * this mode will block the main thread, please use it with caution, the maximum
+   * waiting time of the interface is 3s, if it does not return after 3s, an exception will be thrown.
+   *
+   * @param { string } id - Target component ID, set by developer through .id attribute.
+   * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
+   * @returns { image.PixelMap } The snapshot result in PixelMap format.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Invalid ID.
+   * @throws { BusinessError } 160002 - Timeout.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  getSync(id: string, options?: componentSnapshot.SnapshotOptions): image.PixelMap;
 }
 
 /**
@@ -2459,7 +2578,7 @@ export class UIContext {
    * get the filtered attributes of the component tree.
    * @param { Array<string> } [filters] - the list of filters used to filter out component tree to be obtained.
    * @returns { string } the specified attributes of the component tree in json string.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -2476,7 +2595,7 @@ export class UIContext {
    * @param { number } depth - depth of the component tree to be obtained.
    * @param { Array<string> } [filters] - the list of filters used to filter out component tree to be obtained.
    * @returns { string } the specified attributes of the component tree in json string.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -2577,7 +2696,7 @@ export class UIContext {
    *
    * @param { AnimatorOptions } options - Options.
    * @returns { AnimatorResult }
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -2590,7 +2709,7 @@ export class UIContext {
    *
    * @param { AnimatorOptions } options - Options.
    * @returns { AnimatorResult }
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -2814,6 +2933,15 @@ export class UIContext {
   keyframeAnimateTo(param: KeyframeAnimateParam, keyframes: Array<KeyframeState>): void;
 
   /**
+   * Get FocusController.
+   * @returns { FocusController } the FocusController
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  getFocusController(): FocusController;
+
+  /**
    * Define animation functions for immediate distribution.
    *
    * @param { AnimateParam } param - Set animation effect parameters.
@@ -2838,6 +2966,18 @@ export class UIContext {
   getFrameNodeById(id: string): FrameNode | null;
 
   /**
+   * Get the FrameNode attached to current window by id.
+   *
+   * @param { string } id - The id of FrameNode.
+   * @returns { FrameNode | null } The instance of FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  getAttachedFrameNodeById(id: string): FrameNode | null;
+
+  /**
    * Get FrameNode by uniqueId.
    *
    * @param { number } id - The uniqueId of the FrameNode.
@@ -2856,7 +2996,7 @@ export class UIContext {
    * @returns { PageInfo } - The page information of the frameNode with the target uniqueId, includes
    * navDestination and router page information. If the frame node does not have navDestination and
    * router page information, it will return an empty object.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -2869,7 +3009,7 @@ export class UIContext {
    * @param { number } id - The uniqueId of the target FrameNode.
    * @returns { observer.NavigationInfo | undefined } - The navigation information of the frameNode with the
    * target uniqueId, or undefined if the frameNode is not existed or does not have navigation information.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -2877,13 +3017,16 @@ export class UIContext {
   getNavigationInfoByUniqueId(id: number): observer.NavigationInfo | undefined;
 
   /**
-   * Get FocusController.
-   * @returns { FocusController } the FocusController
+   * Dynamic dimming.
+   *
+   * @param { string } id - The id of FrameNode.
+   * @param { number } value - Compared to the original level of dimming.value range [0,1],
+   * set values less than 0 to 0 and values greater than 1 to 1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
+   * @systemapi
    * @since 12
    */
-  getFocusController(): FocusController;
+  setDynamicDimming(id: string, value: number): void;
 
   /**
    * Get object cursor controller.
@@ -3001,18 +3144,6 @@ export class UIContext {
   getHostContext(): Context | undefined;
 
   /**
-   * Dynamic dimming.
-   *
-   * @param { string } id - The id of FrameNode.
-   * @param { number } value - Compared to the original level of dimming.value range [0,1],
-   * set values less than 0 to 0 and values greater than 1 to 1.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 12
-   */
-  setDynamicDimming(id: string, value: number): void;
-
-  /**
    * Get the name of current window.
    *
    * @returns { string | undefined } The name of current window, or undefined if the window doesn't exist.
@@ -3022,6 +3153,26 @@ export class UIContext {
    * @since 12
    */
   getWindowName(): string | undefined;
+  
+  /**
+   * Get the width breakpoint of current window.
+   *
+   * @returns { WidthBreakpoint } The width breakpoint of current window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  getWindowWidthBreakpoint(): WidthBreakpoint;
+  
+  /**
+   * Get the height breakpoint of current window.
+   *
+   * @returns { HeightBreakpoint } The height breakpoint of current window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice 
+   * @since 13
+   */
+  getWindowHeightBreakpoint(): HeightBreakpoint;
 
   /**
    * Open the BindSheet.
@@ -3128,12 +3279,103 @@ export class UIContext {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Clear the cache generated by using $r/$rawfile to retrieve resources. This cache is used to accelerate the process
+   * of repeatedly loading resources. Clearing this cache may slow down the loading speed of resources during page overload.
+   *
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 13
+   */
   clearResourceCache(): void;
+
+  /**
+   * Checks whether current font scale follows the system.
+   *
+   * @returns { boolean } Returns true if current font scale follows the system; returns false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  isFollowingSystemFontScale(): boolean;
+
+  /**
+   * Get the max font scale.
+   *
+   * @returns { number } The max font scale.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  getMaxFontScale(): number;
+
+  /**
+   * Bind tabs to scrollable container component to automatically hide tab bar.
+   *
+   * @param { TabsController } tabsController - The controller of the tabs.
+   * @param { Scroller } scroller - The controller of the scrollable container component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  bindTabsToScrollable(tabsController: TabsController, scroller: Scroller): void;
+
+  /**
+   * Unbind tabs from scrollable container component.
+   *
+   * @param { TabsController } tabsController - The controller of the tabs.
+   * @param { Scroller } scroller - The controller of the scrollable container component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  unbindTabsFromScrollable(tabsController: TabsController, scroller: Scroller): void;
+
+  /**
+   * Bind tabs to nested scrollable container components to automatically hide tab bar.
+   *
+   * @param { TabsController } tabsController - The controller of the tabs.
+   * @param { Scroller } parentScroller - The controller of the parent scrollable container component.
+   * @param { Scroller } childScroller - The controller of the child scrollable container component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  bindTabsToNestedScrollable(tabsController: TabsController, parentScroller: Scroller, childScroller: Scroller): void;
+
+  /**
+   * Unbind tabs from nested scrollable container components.
+   *
+   * @param { TabsController } tabsController - The controller of the tabs.
+   * @param { Scroller } parentScroller - The controller of the parent scrollable container component.
+   * @param { Scroller } childScroller - The controller of the child scrollable container component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  unbindTabsFromNestedScrollable(tabsController: TabsController, parentScroller: Scroller, childScroller: Scroller): void;
+
+  /**
+   * whether to enable or disable swipe to back event.
+   *
+   * @param { Optional<boolean> } enabled - enable or disable swipe to back event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @atomicservice
+   * @since 16
+   */
+  enableSwipeBack(enabled: Optional<boolean>): void;
 }
 
 /**
  * Enum of KeyBoardAvoidMethodType
- * 
+ *
  * @enum { number } KeyBoardAvoidMethodType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -3158,7 +3400,34 @@ export const enum KeyboardAvoidMode {
    * @atomicservice
    * @since 11
    */
-  RESIZE = 1
+  RESIZE = 1,
+
+  /**
+  * Offset Type, offset the whole page when caret position or keyboard height changed.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 14
+  */
+  OFFSET_WITH_CARET = 2,
+
+  /**
+  * Resize Type, resize the whole page when when caret position or keyboard height changed.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 14
+  */
+  RESIZE_WITH_CARET = 3,
+
+  /**
+  * None Type, nothing to do when keyboard height changed.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 14
+  */
+  NONE = 4,
 }
 
 /**
@@ -3185,6 +3454,25 @@ export const enum SwiperDynamicSyncSceneType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   */
+  ANIMATION = 1
+}
+
+/**
+ * Enum of scene type for Marquee
+ * 
+ * @enum { number } MarqueeDynamicSyncSceneType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 14
+ */
+export const enum MarqueeDynamicSyncSceneType {
+  /**
+   * Scene type is ANIMATION.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 14
    */
   ANIMATION = 1
 }

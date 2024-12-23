@@ -101,6 +101,7 @@ declare interface SelectOption {
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   symbolIcon?: SymbolGlyphModifier;
@@ -737,6 +738,16 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @since 11
    */
+  /**
+   * set the menu's background color
+   *
+   * @param { ResourceColor } value - The backgroundColor of menu.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   menuBackgroundColor(value: ResourceColor): SelectAttribute;
 
   /**
@@ -748,6 +759,16 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @since 11
    */
+  /**
+   * set menu background blur Style
+   *
+   * @param { BlurStyle } value - The BackgroundBlurStyle of menu.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   menuBackgroundBlurStyle(value: BlurStyle): SelectAttribute;
 
   /**
@@ -757,6 +778,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @returns { SelectAttribute } the attribute of the select.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   controlSize(value: ControlSize): SelectAttribute;
@@ -768,6 +790,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @returns { SelectAttribute } the attribute of the select.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   menuItemContentModifier(modifier: ContentModifier<MenuItemConfiguration>): SelectAttribute;
@@ -779,6 +802,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @returns { SelectAttribute } the attribute of the select.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   divider(options: Optional<DividerOptions> | null): SelectAttribute;
@@ -787,9 +811,11 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
 /**
  * MenuItemConfiguration used by menu item content modifier.
  *
+ * @extends CommonConfiguration<MenuItemConfiguration>
  * @interface MenuItemConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConfiguration>{
@@ -799,6 +825,7 @@ declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConf
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   value: ResourceStr;
@@ -809,6 +836,7 @@ declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConf
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   icon?: ResourceStr;
@@ -819,6 +847,7 @@ declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConf
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   symbolIcon?: SymbolGlyphModifier;
@@ -829,6 +858,7 @@ declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConf
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   selected: boolean;
@@ -839,6 +869,7 @@ declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConf
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   index: number;
@@ -850,6 +881,7 @@ declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConf
    * @param { string } value - The value of menu item text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   triggerSelect(index: number, value: string): void;

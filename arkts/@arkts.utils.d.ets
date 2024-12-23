@@ -177,7 +177,7 @@ declare namespace utils {
     enum AsyncLockMode {
       /**
        * Shared lock operation.
-       * The operation could reenter in the same thread if this mode is specified. 
+       * The operation could reenter if this mode is specified. 
        *
        * @syscap SystemCapability.Utils.Lang
        * @atomicservice
@@ -365,6 +365,7 @@ declare namespace utils {
     * @param { ISendable | undefined | null } value - The value of the parsed key value pair.
     * @returns { ISendable | undefined | null } Return the modified ISendable or undefined or null.
     * @syscap SystemCapability.Utils.Lang
+    * @atomicservice
     * @since 12
     */
     type Transformer = (this: ISendable, key: string,
@@ -392,7 +393,19 @@ declare namespace utils {
      * @atomicservice
      * @since 12
      */
-    function stringify(value: ISendable | null | undefined): string;
+    /**
+     * Converts an ArkTS value to a JavaScript Object Notation (JSON) string.
+     * Extra supports Map and Set.
+     *
+     * @param { Object | null | undefined } value - The value to stringify.
+     * @returns { string } The JSON string representation of the value.
+     * @throws { BusinessError } 401 - Parameter error. Invalid ArkTS value.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @crossplatform
+     * @since 16
+     */
+    function stringify(value: Object | null | undefined): string;
 
     /**
     * Enum defining modes for handling bigint.
@@ -451,7 +464,7 @@ declare namespace utils {
       *
       * @syscap SystemCapability.Utils.Lang
       * @atomicservice
-      * @since 12
+      * @since 13
       */
       MAP = 1,
     }
@@ -484,5 +497,17 @@ declare namespace utils {
       parseReturnType: ParseReturnType;
     }
   }
+
+  /**
+  * Checks whether an ArkTS value is sendable.
+  * 
+  * @param { Object | null | undefined } value - The value to check.
+  * @returns { boolean } True if the value is sendable, false otherwise.
+  * @syscap SystemCapability.Utils.Lang
+  * @stagemodelonly
+  * @atomicservice
+  * @since 12
+  */
+  function isSendable(value: Object | null | undefined): boolean;
 }
 export default utils;

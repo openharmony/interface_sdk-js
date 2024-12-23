@@ -33,6 +33,7 @@ import bundle from './../@ohos.bundle';
  */
 export interface AbilityInfo {
   /**
+   * @type { string }
    * @default Indicates the name of the bundle containing the ability
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -41,6 +42,7 @@ export interface AbilityInfo {
   readonly bundleName: string;
 
   /**
+   * @type { string }
    * @default Ability simplified class name
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -49,6 +51,7 @@ export interface AbilityInfo {
   readonly name: string;
 
   /**
+   * @type { string }
    * @default Indicates the label of the ability
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -57,6 +60,7 @@ export interface AbilityInfo {
   readonly label: string;
 
   /**
+   * @type { string }
    * @default Describes the ability
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -65,6 +69,7 @@ export interface AbilityInfo {
   readonly description: string;
 
   /**
+   * @type { string }
    * @default Indicates the icon of the ability
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -73,6 +78,7 @@ export interface AbilityInfo {
   readonly icon: string;
 
   /**
+   * @type { number }
    * @default Indicates the label id of the ability
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -81,6 +87,7 @@ export interface AbilityInfo {
   readonly labelId: number;
 
   /**
+   * @type { number }
    * @default Indicates the description id of the ability
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -89,6 +96,7 @@ export interface AbilityInfo {
   readonly descriptionId: number;
 
   /**
+   * @type { number }
    * @default Indicates the icon id of the ability
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -97,6 +105,7 @@ export interface AbilityInfo {
   readonly iconId: number;
 
   /**
+   * @type { string }
    * @default Indicates the name of the .hap package to which the capability belongs
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -105,6 +114,7 @@ export interface AbilityInfo {
   readonly moduleName: string;
 
   /**
+   * @type { string }
    * @default Process of ability, if user do not set it ,the value equal application process
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -113,6 +123,7 @@ export interface AbilityInfo {
   readonly process: string;
 
   /**
+   * @type { string }
    * @default Info about which ability is this nick point to
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @FAModelOnly
@@ -122,6 +133,7 @@ export interface AbilityInfo {
   readonly targetAbility: string;
 
   /**
+   * @type { number }
    * @default Indicates the background service addressing a specific usage scenario
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @FAModelOnly
@@ -131,6 +143,7 @@ export interface AbilityInfo {
   readonly backgroundModes: number;
 
   /**
+   * @type { boolean }
    * @default Indicates whether an ability can be called by other abilities
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -139,6 +152,7 @@ export interface AbilityInfo {
   readonly isVisible: boolean;
 
   /**
+   * @type { boolean }
    * @default Indicates whether the ability provides the embedded card capability
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @FAModelOnly
@@ -148,6 +162,7 @@ export interface AbilityInfo {
   readonly formEnabled: boolean;
 
   /**
+   * @type { bundle.AbilityType }
    * @default Enumerates types of templates that can be used by an ability
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @FAModelOnly
@@ -157,6 +172,7 @@ export interface AbilityInfo {
   readonly type: bundle.AbilityType;
 
   /**
+   * @type { bundle.AbilitySubType }
    * @default Enumerates the subType of templates used by an ability
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @FAModelOnly
@@ -166,6 +182,7 @@ export interface AbilityInfo {
   readonly subType: bundle.AbilitySubType;
 
   /**
+   * @type { bundle.DisplayOrientation }
    * @default Enumerates ability display orientations
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -174,6 +191,7 @@ export interface AbilityInfo {
   readonly orientation: bundle.DisplayOrientation;
 
   /**
+   * @type { bundle.LaunchMode }
    * @default Enumerates ability launch modes
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -182,6 +200,7 @@ export interface AbilityInfo {
   readonly launchMode: bundle.LaunchMode;
 
   /**
+   * @type { Array<string> }
    * @default The permissions that others need to launch this ability
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -190,6 +209,7 @@ export interface AbilityInfo {
   readonly permissions: Array<string>;
 
   /**
+   * @type { Array<string> }
    * @default The device types that this ability can run on
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -198,6 +218,7 @@ export interface AbilityInfo {
   readonly deviceTypes: Array<string>;
 
   /**
+   * @type { Array<string> }
    * @default The device capability that this ability needs
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -206,6 +227,7 @@ export interface AbilityInfo {
   readonly deviceCapabilities: Array<string>;
 
   /**
+   * @type { string }
    * @default Indicates the permission required for reading ability data
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @FAModelOnly
@@ -215,6 +237,7 @@ export interface AbilityInfo {
   readonly readPermission: string;
 
   /**
+   * @type { string }
    * @default Indicates the permission required for writing data to the ability
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @FAModelOnly
@@ -224,6 +247,7 @@ export interface AbilityInfo {
   readonly writePermission: string;
 
   /**
+   * @type { ApplicationInfo }
    * @default Obtains configuration information about an application
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -232,6 +256,7 @@ export interface AbilityInfo {
   readonly applicationInfo: ApplicationInfo;
 
   /**
+   * @type { string }
    * @default Uri of ability
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @FAModelOnly
@@ -241,6 +266,7 @@ export interface AbilityInfo {
   readonly uri: string;
 
   /**
+   * @type { Array<CustomizeData> }
    * @default Indicates the metadata of ability
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 8
@@ -249,6 +275,7 @@ export interface AbilityInfo {
   readonly metaData: Array<CustomizeData>;
 
   /**
+   * @type { boolean }
    * @default Indicates whether the ability is enabled
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 8

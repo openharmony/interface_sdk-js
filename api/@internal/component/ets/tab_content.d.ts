@@ -442,6 +442,7 @@ declare interface LabelStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   selectedColor?: ResourceColor;
@@ -452,6 +453,7 @@ declare interface LabelStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   unselectedColor?: ResourceColor;
@@ -463,6 +465,7 @@ declare interface LabelStyle {
  * @interface TabBarIconStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface TabBarIconStyle {
@@ -472,6 +475,7 @@ declare interface TabBarIconStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   selectedColor?: ResourceColor;
@@ -482,6 +486,7 @@ declare interface TabBarIconStyle {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   unselectedColor?: ResourceColor;
@@ -492,6 +497,7 @@ declare interface TabBarIconStyle {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare class TabBarSymbol {
@@ -501,6 +507,7 @@ declare class TabBarSymbol {
    * @type { SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   normal: SymbolGlyphModifier;
@@ -511,10 +518,75 @@ declare class TabBarSymbol {
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   selected?: SymbolGlyphModifier;
 }
+
+/**
+ * Icon and text for TabBar.
+ *
+ * @typedef TabBarOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare interface TabBarOptions {
+  /**
+   * TabBar icon.
+   *
+   * @type { ?(string | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * TabBar icon.
+   *
+   * @type { ?(string | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * TabBar icon.
+   *
+   * @type { ?(string | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  icon?: string | Resource;
+
+  /**
+   * TabBar text.
+   *
+   * @type { ?(string | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * TabBar text.
+   *
+   * @type { ?(string | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * TabBar text.
+   *
+   * @type { ?(string | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  text?: string | Resource
+}
+
 /**
  * Define SubTabBarStyle, the style is text and underline.
  *
@@ -988,6 +1060,7 @@ declare class BottomTabBarStyle {
    * @returns { BottomTabBarStyle } the style of the bottom tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   iconStyle(style: TabBarIconStyle): BottomTabBarStyle;
@@ -1105,8 +1178,17 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
    * @atomicservice
    * @since 11
    */
-  tabBar(value: string | Resource | CustomBuilder |
-  { icon?: string | Resource; text?: string | Resource }): TabContentAttribute;
+  /**
+   * Called when tabbar is entered.
+   *
+   * @param { string | Resource | CustomBuilder | TabBarOptions } options - TabBar options.
+   * @returns { TabContentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  tabBar(options: string | Resource | CustomBuilder | TabBarOptions): TabContentAttribute;
 
   /**
    * Called when tabbar is entered.

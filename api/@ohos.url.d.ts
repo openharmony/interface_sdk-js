@@ -916,12 +916,14 @@ declare namespace url {
     /**
      * Gets and sets the fragment portion of the URL.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 7
      */
     /**
      * Gets and sets the fragment portion of the URL.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -929,6 +931,7 @@ declare namespace url {
     /**
      * Gets and sets the fragment portion of the URL.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -939,12 +942,14 @@ declare namespace url {
     /**
      * Gets and sets the host portion of the URL.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 7
      */
     /**
      * Gets and sets the host portion of the URL.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -952,6 +957,7 @@ declare namespace url {
     /**
      * Gets and sets the host portion of the URL.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -962,12 +968,14 @@ declare namespace url {
     /**
      * Gets and sets the host name portion of the URL，not include the port.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 7
      */
     /**
      * Gets and sets the host name portion of the URL，not include the port.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -975,6 +983,7 @@ declare namespace url {
     /**
      * Gets and sets the host name portion of the URL，not include the port.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -985,12 +994,14 @@ declare namespace url {
     /**
      * Gets and sets the serialized URL.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 7
      */
     /**
      * Gets and sets the serialized URL.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -998,6 +1009,7 @@ declare namespace url {
     /**
      * Gets and sets the serialized URL.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -1008,12 +1020,14 @@ declare namespace url {
     /**
      * Gets the read-only serialization of the URL's origin.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 7
      */
     /**
      * Gets the read-only serialization of the URL's origin.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -1021,6 +1035,8 @@ declare namespace url {
     /**
      * Gets the read-only serialization of the URL's origin.
      *
+     * @type { string }
+     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -1031,12 +1047,14 @@ declare namespace url {
     /**
      * Gets and sets the password portion of the URL.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 7
      */
     /**
      * Gets and sets the password portion of the URL.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -1044,6 +1062,7 @@ declare namespace url {
     /**
      * Gets and sets the password portion of the URL.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -1054,12 +1073,14 @@ declare namespace url {
     /**
      * Gets and sets the path portion of the URL.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 7
      */
     /**
      * Gets and sets the path portion of the URL.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -1067,6 +1088,7 @@ declare namespace url {
     /**
      * Gets and sets the path portion of the URL.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -1077,12 +1099,14 @@ declare namespace url {
     /**
      * Gets and sets the port portion of the URL.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 7
      */
     /**
      * Gets and sets the port portion of the URL.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -1090,6 +1114,7 @@ declare namespace url {
     /**
      * Gets and sets the port portion of the URL.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -1100,12 +1125,14 @@ declare namespace url {
     /**
      * Gets and sets the protocol portion of the URL.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 7
      */
     /**
      * Gets and sets the protocol portion of the URL.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -1113,6 +1140,7 @@ declare namespace url {
     /**
      * Gets and sets the protocol portion of the URL.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -1123,12 +1151,14 @@ declare namespace url {
     /**
      * Gets and sets the serialized query portion of the URL.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 7
      */
     /**
      * Gets and sets the serialized query portion of the URL.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -1136,6 +1166,7 @@ declare namespace url {
     /**
      * Gets and sets the serialized query portion of the URL.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -1160,6 +1191,7 @@ declare namespace url {
      * This property is read-only, but URLParams provides an object that can be used to change
      * the URL instance. To replace the entire query parameter for a URL, use url.searchsetter.
      *
+     * @type { URLParams }
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
@@ -1168,6 +1200,7 @@ declare namespace url {
      * This property is read-only, but URLParams provides an object that can be used to change
      * the URL instance. To replace the entire query parameter for a URL, use url.searchsetter.
      *
+     * @type { URLParams }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -1177,6 +1210,8 @@ declare namespace url {
      * This property is read-only, but URLParams provides an object that can be used to change
      * the URL instance. To replace the entire query parameter for a URL, use url.searchsetter.
      *
+     * @type { URLParams }
+     * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -1187,12 +1222,14 @@ declare namespace url {
     /**
      * Gets and sets the username portion of the URL.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 7
      */
     /**
      * Gets and sets the username portion of the URL.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -1200,6 +1237,7 @@ declare namespace url {
     /**
      * Gets and sets the username portion of the URL.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice

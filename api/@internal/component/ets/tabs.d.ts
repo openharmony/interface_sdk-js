@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -359,6 +359,117 @@ declare class TabsController {
    * @since 12
    */
   preloadItems(indices: Optional<Array<number>>): Promise<void>;
+
+  /**
+   * Set tab bar translate.
+   *
+   * @param { TranslateOptions } translate - translate options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  setTabBarTranslate(translate: TranslateOptions): void;
+
+  /**
+   * Set tab bar opacity.
+   *
+   * @param { number } opacity - opacity
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  setTabBarOpacity(opacity: number): void;
+}
+
+/**
+ * Options used to create Tabs.
+ *
+ * @typedef TabsOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare interface TabsOptions {
+  /**
+   * Set the tab location for Tabs.
+   *
+   * @type { ?BarPosition }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Set the tab location for Tabs.
+   *
+   * @type { ?BarPosition }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Set the tab location for Tabs.
+   *
+   * @type { ?BarPosition }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  barPosition?: BarPosition;
+
+  /**
+   * Set the index of the currently displayed tab.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Set the index of the currently displayed tab.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Set the index of the currently displayed tab.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  index?: number;
+
+  /**
+   * Set the Tabs controller.
+   *
+   * @type { ?TabsController }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Set the Tabs controller.
+   *
+   * @type { ?TabsController }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Set the Tabs controller.
+   *
+   * @type { ?TabsController }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  controller?: TabsController
 }
 
 /**
@@ -413,7 +524,17 @@ interface TabsInterface {
    * @atomicservice
    * @since 11
    */
-  (value?: { barPosition?: BarPosition; index?: number; controller?: TabsController }): TabsAttribute;
+  /**
+   * Called when the view is switched.
+   *
+   * @param { TabsOptions } [options] - Tabs options.
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  (options?: TabsOptions): TabsAttribute;
 }
 
 /**
@@ -773,6 +894,76 @@ interface ScrollableBarModeOptions {
 }
 
 /**
+ * Defines a tabs callback when onAnimationStart.
+ *
+ * @typedef { function } OnTabsAnimationStartCallback
+ * @param { number } index - The index value of the tab that when animation start.
+ * @param { number } targetIndex - The target index value of the tab that when animation start.
+ * @param { TabsAnimationEvent } extraInfo - The extra callback info.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare type OnTabsAnimationStartCallback = (index: number, targetIndex: number, extraInfo: TabsAnimationEvent) => void;
+
+/**
+ * Defines a tabs callback when onAnimationEnd.
+ *
+ * @typedef { function } OnTabsAnimationEndCallback
+ * @param { number } index - The index value of the tab that when animation end.
+ * @param { TabsAnimationEvent } extraInfo - The extra callback info.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare type OnTabsAnimationEndCallback = (index: number, extraInfo: TabsAnimationEvent) => void;
+
+/**
+ * Defines a tabs callback when onGestureSwipe.
+ *
+ * @typedef { function } OnTabsGestureSwipeCallback
+ * @param { number } index - The index value of the tab before gesture swipe.
+ * @param { TabsAnimationEvent } extraInfo - The extra callback info.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare type OnTabsGestureSwipeCallback = (index: number, extraInfo: TabsAnimationEvent) => void;
+
+/**
+ * Defines a tabs callback when customContentTransition.
+ *
+ * @typedef { function } TabsCustomContentTransitionCallback
+ * @param { number } from - The index value of the current tab when the animation begins.
+ * @param { number } to - The index value of the target tab when the animation begins.
+ * @returns { TabContentAnimatedTransition | undefined } Returns animated transition options of tab or undefined.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare type TabsCustomContentTransitionCallback = (from: number, to: number) => TabContentAnimatedTransition | undefined;
+
+/**
+ * Defines a tabs callback when onContentWillChange.
+ *
+ * @typedef { function } OnTabsContentWillChangeCallback
+ * @param { number } currentIndex - The index value of the current tab.
+ * @param { number } comingIndex - The index value of the tab that will change.
+ * @returns { boolean }
+ * Tabs can change from currentIndex to comingIndex if function return true.
+ * Tabs can not change from currentIndex to comingIndex if function return false.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare type OnTabsContentWillChangeCallback = (currentIndex: number, comingIndex: number) => boolean;
+
+/**
  * Defines the tabs attribute functions.
  *
  * @extends CommonMethod<TabsAttribute>
@@ -1121,7 +1312,17 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @atomicservice
    * @since 11
    */
-  onChange(event: (index: number) => void): TabsAttribute;
+  /**
+   * Called when the tab is switched.
+   *
+   * @param { Callback<number> } event
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onChange(event: Callback<number>): TabsAttribute;
 
   /**
    * Called when the tab is clicked.
@@ -1142,7 +1343,17 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @atomicservice
    * @since 11
    */
-  onTabBarClick(event: (index: number) => void): TabsAttribute;
+  /**
+   * Called when the tab is clicked.
+   *
+   * @param { Callback<number> } event
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onTabBarClick(event: Callback<number>): TabsAttribute;
 
   /**
    * Called when the tab content flip animation start.
@@ -1169,7 +1380,17 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @atomicservice
    * @since 12
    */
-  onAnimationStart(handler: (index: number, targetIndex: number, event: TabsAnimationEvent) => void): TabsAttribute;
+  /**
+   * Called when the tab content flip animation start.
+   *
+   * @param { OnTabsAnimationStartCallback } handler
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onAnimationStart(handler: OnTabsAnimationStartCallback): TabsAttribute;
 
   /**
    * Called when the tab content flip animation end.
@@ -1194,7 +1415,17 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @atomicservice
    * @since 12
    */
-  onAnimationEnd(handler: (index: number, event: TabsAnimationEvent) => void): TabsAttribute;
+  /**
+   * Called when the tab content flip animation end.
+   *
+   * @param { OnTabsAnimationEndCallback } handler
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onAnimationEnd(handler: OnTabsAnimationEndCallback): TabsAttribute;
 
   /**
    * Called when swiping the tab content with the gesture.
@@ -1219,7 +1450,17 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @atomicservice
    * @since 12
    */
-  onGestureSwipe(handler: (index: number, event: TabsAnimationEvent) => void): TabsAttribute;
+  /**
+   * Called when swiping the tab content with the gesture.
+   *
+   * @param { OnTabsGestureSwipeCallback } handler
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onGestureSwipe(handler: OnTabsGestureSwipeCallback): TabsAttribute;
 
   /**
    * Set whether the edges of tab bar are fading.
@@ -1332,8 +1573,8 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @returns { TabsAttribute } the attribute of the tabs
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Custom tab content transition animation.
@@ -1343,11 +1584,22 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @returns { TabsAttribute } the attribute of the tabs
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
-  customContentTransition(delegate: (from: number, to: number) => TabContentAnimatedTransition | undefined): TabsAttribute;
+  /**
+   * Custom tab content transition animation.
+   * When undefined is set, this interface does not take effect.
+   *
+   * @param { TabsCustomContentTransitionCallback } delegate - Custom content transition animation.
+   * @returns { TabsAttribute } The attribute of the tabs.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  customContentTransition(delegate: TabsCustomContentTransitionCallback): TabsAttribute;
 
   /**
    * Set the BlurStyle of the tab bar.
@@ -1360,6 +1612,43 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @since 11
    */
   barBackgroundBlurStyle(value: BlurStyle): TabsAttribute;
+
+  /**
+   * Set the BlurStyle of the tab bar.
+   *
+   * @param { BlurStyle } style - style indicate the blur style for the tab bar
+   * @param { BackgroundBlurStyleOptions } options - options indicate the options for the tab bar
+   * @returns { TabsAttribute } the attribute of the tabs
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  barBackgroundBlurStyle(style: BlurStyle, options: BackgroundBlurStyleOptions): TabsAttribute;
+
+  /**
+   * Set the BackgroundEffect of the tab bar.
+   *
+   * @param { BackgroundEffectOptions } options - options indicate the options for the tab bar
+   * @returns { TabsAttribute } the attribute of the tabs
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  barBackgroundEffect(options: BackgroundEffectOptions): TabsAttribute;
+
+  /**
+   * Setting page flip mode on mouse wheel event.
+   *
+   * @param { Optional<PageFlipMode> } mode - page flip mode on mouse wheel event. The default value is PageFlipMode.CONTINUOUS.
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  pageFlipMode(mode: Optional<PageFlipMode>): TabsAttribute;
 
   /**
    * Called when content will change.
@@ -1375,7 +1664,17 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @atomicservice
    * @since 12
    */
-  onContentWillChange(handler: (currentIndex: number, comingIndex: number) => boolean): TabsAttribute;
+  /**
+   * Called when content will change.
+   *
+   * @param { OnTabsContentWillChangeCallback } handler
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onContentWillChange(handler: OnTabsContentWillChangeCallback): TabsAttribute;
 }
 
 /**
@@ -1384,8 +1683,8 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
  * @interface TabContentAnimatedTransition
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
  * @form
+ * @since 11
  */
 /**
  * Defines the Tab Content animated transition options.
@@ -1393,9 +1692,9 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
  * @interface TabContentAnimatedTransition
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 12
- * @form
  */
 declare interface TabContentAnimatedTransition {
   /**
@@ -1406,8 +1705,8 @@ declare interface TabContentAnimatedTransition {
    * @default 1000 ms
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Defines the timeout of custom content transition animation. The unit is ms.
@@ -1417,9 +1716,9 @@ declare interface TabContentAnimatedTransition {
    * @default 1000 ms
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   timeout?: number;
 
@@ -1429,8 +1728,8 @@ declare interface TabContentAnimatedTransition {
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Called when custom content transition animation start.
@@ -1438,11 +1737,21 @@ declare interface TabContentAnimatedTransition {
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
-  transition: (proxy: TabContentTransitionProxy) => void;
+  /**
+   * Called when custom content transition animation start.
+   *
+   * @type { Callback<TabContentTransitionProxy> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  transition: Callback<TabContentTransitionProxy>;
 }
 
 /**
@@ -1451,8 +1760,8 @@ declare interface TabContentAnimatedTransition {
  * @interface TabContentTransitionProxy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
  * @form
+ * @since 11
  */
 /**
  *  The proxy of TabContentAnimatedTransition.
@@ -1460,9 +1769,9 @@ declare interface TabContentAnimatedTransition {
  * @interface TabContentTransitionProxy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 12
- * @form
  */
 declare interface TabContentTransitionProxy {
   /**
@@ -1471,8 +1780,8 @@ declare interface TabContentTransitionProxy {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * The index of current tab content.
@@ -1480,9 +1789,9 @@ declare interface TabContentTransitionProxy {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   from: number;
 
@@ -1492,8 +1801,8 @@ declare interface TabContentTransitionProxy {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * The index of target tab content.
@@ -1501,9 +1810,9 @@ declare interface TabContentTransitionProxy {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
   to: number;
 
@@ -1512,17 +1821,17 @@ declare interface TabContentTransitionProxy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   /**
    * Notifies Tabs component the custom content transition animation is complete.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
-   * @since 112
    * @form
+   * @atomicservice
+   * @since 12
    */
   finishTransition(): void;
 }

@@ -277,6 +277,7 @@ export declare enum ToolType {
 /**
  * MouseEvent
  *
+ * @extends InputEvent
  * @interface MouseEvent
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9
@@ -341,7 +342,7 @@ export declare interface MouseEvent extends InputEvent {
 
   /**
    * Button that is currently pressed or released
-   *
+   * @type { Button }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
@@ -397,7 +398,7 @@ export declare interface MouseEvent extends InputEvent {
 
   /**
    * Whether logoKey is being pressed
-   *
+   * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */

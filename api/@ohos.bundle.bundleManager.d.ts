@@ -256,6 +256,32 @@ declare namespace bundleManager {
      * @since 12
      */
     GET_BUNDLE_INFO_WITH_SKILL = 0x00000800,
+    /**
+     * Used to return only the applications that have an icon displayed on the homescreen.
+     * Only effective on {@link getAllBundleInfo}
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    GET_BUNDLE_INFO_ONLY_WITH_LAUNCHER_ABILITY = 0x00001000,
+    /**
+     * Used to obtain the bundleInfo only if any user installed
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    GET_BUNDLE_INFO_OF_ANY_USER = 0x00002000,
+    /**
+     * Used to return all applications that exclude app clone information.
+     * Only effective on {@link getAllBundleInfo}
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    GET_BUNDLE_INFO_EXCLUDE_CLONE = 0x00004000,
   }
 
   /**
@@ -1368,6 +1394,25 @@ declare namespace bundleManager {
   }
 
   /**
+   * This enumeration value is used to identify various flags of application
+   *
+   * @enum { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+  */
+  export enum ApplicationInfoFlag {
+    /**
+     * Indicates The application is currently installed for the calling user.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    FLAG_INSTALLED = 0x00000001,
+  }
+
+  /**
    * Obtains own bundleInfo.
    *
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
@@ -1431,25 +1476,23 @@ declare namespace bundleManager {
   function getBundleInfoForSelfSync(bundleFlags: number): BundleInfo;
 
   /**
-   * Obtains bundleInfo based on bundleName, bundleFlags. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   * Obtains bundleInfo based on bundleName, bundleFlags. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @param { AsyncCallback<BundleInfo> } callback - The callback of getting bundle info result.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 9
+   * @since 14
    */
   function getBundleInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;
 
   /**
-   * Obtains bundleInfo based on bundleName, bundleFlags and userId. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   * Obtains bundleInfo based on bundleName, bundleFlags and userId. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
@@ -1457,20 +1500,18 @@ declare namespace bundleManager {
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @param { AsyncCallback<BundleInfo> } callback - The callback of getting bundle info result.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 9
+   * @since 14
    */
   function getBundleInfo(bundleName: string,
     bundleFlags: number, userId: number, callback: AsyncCallback<BundleInfo>): void;
 
   /**
-   * Obtains bundleInfo based on bundleName, bundleFlags and userId. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   * Obtains bundleInfo based on bundleName, bundleFlags and userId. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
@@ -1478,14 +1519,12 @@ declare namespace bundleManager {
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @returns { Promise<BundleInfo> } The result of getting the bundle info.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 9
+   * @since 14
    */
   function getBundleInfo(bundleName: string, bundleFlags: number, userId?: number): Promise<BundleInfo>;
 
@@ -1907,50 +1946,44 @@ declare namespace bundleManager {
     userId?: number): Array<ExtensionAbilityInfo>;
 
   /**
-   * Obtains bundle name by the given uid.
+   * Obtains bundle name by the given uid. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { number } uid - Indicates the UID of an application.
    * @param { AsyncCallback<string> } callback - The callback of getting bundle name.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700021 - The uid is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 9
+   * @since 14
    */
   function getBundleNameByUid(uid: number, callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains bundle name by the given uid.
+   * Obtains bundle name by the given uid. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { number } uid - Indicates the UID of an application.
    * @returns { Promise<string> } Returns the bundle name.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700021 - The uid is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 9
+   * @since 14
    */
   function getBundleNameByUid(uid: number): Promise<string>;
 
   /**
-   * Obtains bundle name by the given uid.
+   * Obtains bundle name by the given uid. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { number } uid - Indicates the UID of an application.
    * @returns { string } Returns the bundle name.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700021 - The uid is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 10
+   * @since 14
    */
   function getBundleNameByUidSync(uid: number): string;
 
@@ -2387,6 +2420,19 @@ declare namespace bundleManager {
   function getLaunchWantForBundleSync(bundleName: string, userId?: number): Want;
 
   /**
+   * Obtains the Want for starting the main ability of own application.
+   * The main ability of an application is the ability that has the
+   * #ACTION_HOME and #ENTITY_HOME Want filters set in the application's <b>config.json</b> or <b>module.json</b> file.
+   *
+   * @returns { Want } the Want for starting the application's main ability.
+   * @throws { BusinessError } 17700072 - The launch want is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 13
+   */
+  function getLaunchWant(): Want;
+
+  /**
    * Obtains the profile designated by metadata name, abilityName and moduleName from the current application.
    *
    * @param { string } moduleName - Indicates the moduleName of the application.
@@ -2746,7 +2792,7 @@ declare namespace bundleManager {
   function getApplicationInfoSync(bundleName: string, applicationFlags: number): ApplicationInfo;
 
   /**
-   * Obtains bundleInfo based on bundleName, bundleFlags and userId.
+   * Obtains bundleInfo based on bundleName, bundleFlags and userId. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
@@ -2754,32 +2800,28 @@ declare namespace bundleManager {
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @returns { BundleInfo } - Returns the BundleInfo object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 9
+   * @since 14
    */
   function getBundleInfoSync(bundleName: string, bundleFlags: number, userId: number): BundleInfo;
 
   /**
-   * Obtains bundleInfo based on bundleName, bundleFlags.
+   * Obtains bundleInfo based on bundleName, bundleFlags. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo object that will be returned.
    * @returns { BundleInfo } - Returns the BundleInfo object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 9
+   * @since 14
    */
   function getBundleInfoSync(bundleName: string, bundleFlags: number): BundleInfo;
 
@@ -3077,6 +3119,21 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 11
    */
+  /**
+   * Verifies the validity of .abc files. Only .abc files passed the verification can run on the restricted VM.
+   *
+   * @permission ohos.permission.RUN_DYN_CODE
+   * @param { Array<string> } abcPaths - The abc path.
+   * @param { boolean } deleteOriginalFiles - Used to decide whether to delete the original files.
+   * @param { AsyncCallback<void> } callback - Indicates the callback of verifyAbc result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 17700201 - Failed to verify the abc file.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
   function verifyAbc(abcPaths: Array<string>, deleteOriginalFiles: boolean, callback: AsyncCallback<void>): void;
 
   /**
@@ -3091,6 +3148,21 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700201 - Failed to verify the abc file.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 11
+   */
+  /**
+   * Verifies the validity of .abc files. Only .abc files passed the verification can run on the restricted VM.
+   *
+   * @permission ohos.permission.RUN_DYN_CODE
+   * @param { Array<string> } abcPaths - The abc path.
+   * @param { boolean } deleteOriginalFiles - Used to decide whether to delete the original files.
+   * @returns { Promise<void> } Returns verifyAbc result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 17700201 - Failed to verify the abc file.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
    */
   function verifyAbc(abcPaths: Array<string>, deleteOriginalFiles: boolean): Promise<void>;
 
@@ -3149,6 +3221,20 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700202 - Failed to delete the abc file.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 11
+   */
+  /**
+   * Delete the verified .abc file.
+   *
+   * @permission ohos.permission.RUN_DYN_CODE
+   * @param { string } abcPath - The abc path.
+   * @returns { Promise<void> } Returns deleteAbc result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 17700202 - Failed to delete the abc file.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
    */
   function deleteAbc(abcPath: string): Promise<void>;
 
@@ -3271,18 +3357,16 @@ declare namespace bundleManager {
   function getAllAppCloneBundleInfo(bundleName: string, bundleFlags: number, userId?: number): Promise<Array<BundleInfo>>;
 
   /**
-   * Obtains AppCloneIdentity contains bundleName and appIndex by the given uid.
+   * Obtains AppCloneIdentity contains bundleName and appIndex by the given uid. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { number } uid - Indicates the UID of an application.
    * @returns { Promise<AppCloneIdentity> } Returns the clone Identity contains bundleName and appIndex.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700021 - The uid is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 12
+   * @since 14
    */
   function getAppCloneIdentity(uid: number): Promise<AppCloneIdentity>;
 
@@ -3605,16 +3689,6 @@ declare namespace bundleManager {
   export type RecoverableApplicationInfo = _RecoverableApplicationInfo;
 
   /**
-   * Indicates the information of preinstalled application.
-   *
-   * @typedef { _PreinstalledApplicationInfo  }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 12
-   */
-  export type PreinstalledApplicationInfo = _PreinstalledApplicationInfo;
-
-  /**
    * Obtains configuration information about an skill
    *
    * @typedef { _Skill.Skill }
@@ -3633,6 +3707,16 @@ declare namespace bundleManager {
    * @since 12
    */
   export type SkillUrl = _Skill.SkillUri;
+
+  /**
+   * Indicates the information of preinstalled application.
+   *
+   * @typedef { _PreinstalledApplicationInfo  }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  export type PreinstalledApplicationInfo = _PreinstalledApplicationInfo;
 }
 
 export default bundleManager;

@@ -25,8 +25,9 @@
  * Defines RichEditor Modifier
  *
  * @extends RichEditorAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<RichEditorAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class RichEditorModifier extends RichEditorAttribute implements AttributeModifier<RichEditorAttribute> {
@@ -37,6 +38,7 @@ export declare class RichEditorModifier extends RichEditorAttribute implements A
    * @param { RichEditorAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: RichEditorAttribute): void;

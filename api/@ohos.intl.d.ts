@@ -478,6 +478,7 @@ declare namespace intl {
     /**
      * Indicates the language of the locale.
      *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
@@ -510,6 +511,7 @@ declare namespace intl {
     /**
      * Indicates the script of the locale.
      *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
@@ -542,6 +544,7 @@ declare namespace intl {
     /**
      * Indicates the region of the locale.
      *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
@@ -578,6 +581,7 @@ declare namespace intl {
      * Indicates the basic locale information, which is returned as a substring of
      * a complete locale string.
      *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
@@ -610,6 +614,7 @@ declare namespace intl {
     /**
      * Indicates the case first style of the locale.
      *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
@@ -642,6 +647,7 @@ declare namespace intl {
     /**
      * Indicates the calendar.
      *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
@@ -674,6 +680,7 @@ declare namespace intl {
     /**
      * Indicates the collation.
      *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
@@ -706,6 +713,7 @@ declare namespace intl {
     /**
      * Indicates the hour cycle.
      *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
@@ -738,6 +746,7 @@ declare namespace intl {
     /**
      * Indicates the numbering system.
      *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
@@ -770,6 +779,7 @@ declare namespace intl {
     /**
      * Indicates whether it is numeric.
      *
+     * @type { boolean }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
@@ -2619,6 +2629,37 @@ declare namespace intl {
      * @since 12
      */
     maximumSignificantDigits?: number;
+
+    /**
+     * Indicates the priority of rounding when FractionDigits options conflicts with SignificantDigits options.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 16
+     */
+    roundingPriority?: string;
+
+    /**
+     * Indicates the increment at which rounding should take place relative to the calculated rounding magnitude.
+     * Possible value are 1, 2, 5, 10, 20, 25, 50, 100, 200, 250, 500, 1000, 2000, 2500, and 5000. Default value is 1.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 16
+     */
+    roundingIncrement?: number;
+
+    /**
+     * Indicates the rounding mode.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 16
+     */
+    roundingMode?: string;
   }
 
   /**
@@ -2726,6 +2767,18 @@ declare namespace intl {
      * @since 12
      */
     format(number: number): string;
+
+    /**
+     * Obtains the formatted number range string.
+     *
+     * @param { number } startRange Indicates the starting number of range.
+     * @param { number } endRange Indicates the ending number of range.
+     * @returns { string } a number range string formatted based on the specified locale.
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 16
+     */
+    formatRange(startRange: number, endRange: number): string;
 
     /**
      * Obtains the options of the NumberFormat object.
@@ -3771,6 +3824,7 @@ declare namespace intl {
     /**
      * The BCP 47 language tag for the locale actually used.
      *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
@@ -3797,6 +3851,7 @@ declare namespace intl {
      * The length of the internationalized message.
      * Possible values are: long, short, narrow
      *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
@@ -3823,6 +3878,7 @@ declare namespace intl {
      * The format of output message.
      * Possible values are: always, auto
      *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
@@ -3846,6 +3902,7 @@ declare namespace intl {
     /**
      * The value requested using the Unicode extension key "nu" or filled in as a default.
      *
+     * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice

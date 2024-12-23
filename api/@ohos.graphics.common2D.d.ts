@@ -122,6 +122,25 @@ declare namespace common2D {
      */
     y: number;
   }
+
+  /**
+   * Provides the definition of the point in 3D.
+   *
+   * @typedef Point3d
+   * @extends Point
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  interface Point3d extends Point {
+    /**
+     * Z-axis coordinate.
+     * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    z: number;
+  }
+  
 }
 
 export default common2D;

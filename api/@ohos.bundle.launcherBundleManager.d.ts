@@ -175,6 +175,26 @@ declare namespace launcherBundleManager {
    */
   function getShortcutInfoSync(bundleName: string): Array<ShortcutInfo>;
 
+
+  /**
+   * Obtains shortcut info based on bundleName and userId.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @param { number } userId - Indicates the user ID.
+   * @returns { Array<ShortcutInfo> } the LauncherShortcutInfo object.
+   * @throws { BusinessError } 201 - Verify permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not support.
+   * @throws { BusinessError } 17700001 - The specified bundle name is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 13
+   */
+  function getShortcutInfoSync(bundleName: string, userId: number): Array<ShortcutInfo>;
+
   /**
    * Starts shortcut.
    *
@@ -196,6 +216,7 @@ declare namespace launcherBundleManager {
   /**
    * Contains basic launcher Ability information, which uniquely identifies an LauncherAbilityInfo.
    *
+   * @typedef { _LauncherAbilityInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 9
@@ -205,6 +226,7 @@ declare namespace launcherBundleManager {
   /**
    * Provides information about a shortcut, including the shortcut ID and label.
    *
+   * @typedef { _ShortcutInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 9
@@ -213,6 +235,7 @@ declare namespace launcherBundleManager {
   /**
    * Obtains information about the ability that a shortcut will start.
    *
+   * @typedef { _ShortcutWant }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 9

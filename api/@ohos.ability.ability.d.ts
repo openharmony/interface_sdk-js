@@ -45,6 +45,7 @@ declare namespace ability {
   /**
    * DataAbilityHelper
    *
+   * @typedef { _DataAbilityHelper }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 9
@@ -54,6 +55,7 @@ declare namespace ability {
   /**
    * Defines a PacMap object for storing a series of values.
    *
+   * @typedef { _PacMap }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 9
@@ -61,6 +63,7 @@ declare namespace ability {
   /**
    * Defines a PacMap object for storing a series of values.
    *
+   * @typedef { _PacMap }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @since 11
    */
@@ -70,6 +73,7 @@ declare namespace ability {
    * DataAbilityOperation secondary module.Define the DataAbility data operation method,
    * which can be used as an input parameter for [executeBatch] to manipulate database information.
    *
+   * @typedef { _DataAbilityOperation }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 9
@@ -81,6 +85,7 @@ declare namespace ability {
    * When operating the database through [executeBatch], the operation result is returned
    * using the DataAbility Result object.
    *
+   * @typedef { _DataAbilityResult }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 9
@@ -93,6 +98,7 @@ declare namespace ability {
    * up and exited can be obtained through [startAbilityForResult], and the ability object pulled up
    * by startAbilityForResult can be returned through [terminateSelfWithResult].
    *
+   * @typedef { _AbilityResult }
    * @syscap SystemCapability.Ability.AbilityBase
    * @FAModelOnly
    * @since 9
@@ -103,6 +109,7 @@ declare namespace ability {
    * ConnectOptions secondary module.As an input parameter when connecting to a specified backend service,
    * used to receive state changes during the connection process
    *
+   * @typedef { _ConnectOptions }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
    * @since 9

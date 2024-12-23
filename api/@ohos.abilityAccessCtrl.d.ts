@@ -504,6 +504,29 @@ declare namespace abilityAccessCtrl {
     ): void;
 
     /**
+     * Registers a permission state callback so that the application can be notified upon specified permission state changes.
+     *
+     * @param { 'selfPermissionStateChange' } type - Event type.
+     * @param { Array<Permissions> } permissionList - A list of permissions that specify the permissions to be listened on. The value in the list can be:
+     * <br> {@code empty} - Indicates that the application can be notified if any permission state changes.
+     * <br> {@code non-empty} - Indicates that the application can only be notified if the specified permission state changes.
+     * @param { Callback<PermissionStateChangeInfo> } callback - Callback for the result from registering permissions.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The permissionName exceeds 256 characters.
+     * @throws { BusinessError } 12100004 - The API is used repeatedly with the same input.
+     * @throws { BusinessError } 12100005 - The registration time has exceeded the limitation.
+     * @throws { BusinessError } 12100007 - The service is abnormal.
+     * @syscap SystemCapability.Security.AccessToken
+     * @atomicservice
+     * @since 16
+     */
+    on(
+      type: 'selfPermissionStateChange',
+      permissionList: Array<Permissions>,
+      callback: Callback<PermissionStateChangeInfo>
+    ): void;
+
+    /**
      * Unregisters a permission state callback so that the specified applications cannot be notified upon specified permissions state changes anymore.
      *
      * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS
@@ -532,11 +555,32 @@ declare namespace abilityAccessCtrl {
     ): void;
 
     /**
+     * Unregisters a permission state callback so that the application cannot be notified upon specified permissions state changes anymore.
+     *
+     * @param { 'selfPermissionStateChange' } type - Event type.
+     * @param { Array<Permissions> } permissionList - A list of permissions that specify the permissions to be listened on.
+     *  It should correspond to the value registered by function of "on", whose type is "selfPermissionStateChange".
+     * @param { Callback<PermissionStateChangeInfo> } callback - Callback for the result from unregistering permissions.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The permissionNames in the list are all invalid.
+     * @throws { BusinessError } 12100004 - The API is not used in pair with 'on'.
+     * @throws { BusinessError } 12100007 - The service is abnormal.
+     * @syscap SystemCapability.Security.AccessToken
+     * @atomicservice
+     * @since 16
+     */
+    off(
+      type: 'selfPermissionStateChange',
+      permissionList: Array<Permissions>,
+      callback?: Callback<PermissionStateChangeInfo>
+    ): void;
+
+    /**
      * Requests certain permissions on setting from the user.
      *
      * @param { Context } context - The context that initiates the permission request.
      * <br> The context must belong to the Stage model and only supports UIAbilityContext and UIExtensionContext.
-     * @param { Array<Permissions> } permissionNameList - Indicates the list of permission to be requested. This parameter cannot be null or empty.
+     * @param { Array<Permissions> } permissionList - Indicates the list of permission to be requested. This parameter cannot be null or empty.
      * @returns { Promise<Array<GrantStatus>> } Returns the list of status of the specified permission.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 12100001 - Invalid parameter. Possible causes: 1. The context is invalid because it does not belong to the application itself;
@@ -549,7 +593,7 @@ declare namespace abilityAccessCtrl {
      * @atomicservice
      * @since 12
      */
-    requestPermissionOnSetting(context: Context, permissionNameList: Array<Permissions>): Promise<Array<GrantStatus>>;
+    requestPermissionOnSetting(context: Context, permissionList: Array<Permissions>): Promise<Array<GrantStatus>>;
 
     /**
      * Requests certain global switch status on setting from the user.
@@ -646,24 +690,24 @@ declare namespace abilityAccessCtrl {
    *
    * @enum { number }
    * @syscap SystemCapability.Security.AccessToken
-   * @systemapi
-   * @since 9
+   * @atomicservice
+   * @since 16
    */
   export enum PermissionStateChangeType {
     /**
      * A granted user_grant permission is revoked.
      *
      * @syscap SystemCapability.Security.AccessToken
-     * @systemapi
-     * @since 9
+     * @atomicservice
+     * @since 16
      */
     PERMISSION_REVOKED_OPER = 0,
     /**
      * A user_grant permission is granted.
      *
      * @syscap SystemCapability.Security.AccessToken
-     * @systemapi
-     * @since 9
+     * @atomicservice
+     * @since 16
      */
     PERMISSION_GRANTED_OPER = 1
   }
@@ -700,8 +744,8 @@ declare namespace abilityAccessCtrl {
    *
    * @interface PermissionStateChangeInfo
    * @syscap SystemCapability.Security.AccessToken
-   * @systemapi
-   * @since 9
+   * @atomicservice
+   * @since 16
    * @name PermissionStateChangeInfo
    */
   interface PermissionStateChangeInfo {
@@ -710,8 +754,8 @@ declare namespace abilityAccessCtrl {
      *
      * @type { PermissionStateChangeType }
      * @syscap SystemCapability.Security.AccessToken
-     * @systemapi
-     * @since 9
+     * @atomicservice
+     * @since 16
      */
     change: PermissionStateChangeType;
 
@@ -720,8 +764,8 @@ declare namespace abilityAccessCtrl {
      *
      * @type { number }
      * @syscap SystemCapability.Security.AccessToken
-     * @systemapi
-     * @since 9
+     * @atomicservice
+     * @since 16
      */
     tokenID: number;
 
@@ -730,8 +774,8 @@ declare namespace abilityAccessCtrl {
      *
      * @type { Permissions }
      * @syscap SystemCapability.Security.AccessToken
-     * @systemapi
-     * @since 9
+     * @atomicservice
+     * @since 16
      */
     permissionName: Permissions;
   }
@@ -828,6 +872,7 @@ export { Permissions };
 /**
  * PermissionRequestResult interface.
  *
+ * @typedef { _PermissionRequestResult }
  * @syscap SystemCapability.Security.AccessToken
  * @stagemodelonly
  * @crossplatform
@@ -836,6 +881,7 @@ export { Permissions };
 /**
  * PermissionRequestResult interface.
  *
+ * @typedef { _PermissionRequestResult }
  * @syscap SystemCapability.Security.AccessToken
  * @stagemodelonly
  * @crossplatform
@@ -846,6 +892,7 @@ export type PermissionRequestResult = _PermissionRequestResult;
 /**
  * Context interface.
  *
+ * @typedef { _Context }
  * @syscap SystemCapability.Security.AccessToken
  * @stagemodelonly
  * @crossplatform
@@ -854,6 +901,7 @@ export type PermissionRequestResult = _PermissionRequestResult;
 /**
  * Context interface.
  *
+ * @typedef { _Context }
  * @syscap SystemCapability.Security.AccessToken
  * @stagemodelonly
  * @crossplatform

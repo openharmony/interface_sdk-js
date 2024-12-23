@@ -25,8 +25,9 @@
  * Defines WaterFlow Modifier
  *
  * @extends WaterFlowAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<WaterFlowAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class WaterFlowModifier extends WaterFlowAttribute implements AttributeModifier<WaterFlowAttribute> {
@@ -37,6 +38,7 @@ export declare class WaterFlowModifier extends WaterFlowAttribute implements Att
    * @param { WaterFlowAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: WaterFlowAttribute): void;

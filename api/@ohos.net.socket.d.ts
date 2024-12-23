@@ -296,6 +296,7 @@ declare namespace socket {
    */
   /**
    * Defines other properties of the UDPSocket connection.
+   * @extends ExtraOptionsBase
    * @interface UDPExtraOptions
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
@@ -999,6 +1000,7 @@ declare namespace socket {
    */
   /**
    * Defines a UDP MulticastSocket connection.
+   * @extends UDPSocket
    * @interface MulticastSocket
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
@@ -2093,6 +2095,7 @@ declare namespace socket {
    */
   /**
    * Defines other properties of the TCPSocket connection.
+   * @extends ExtraOptionsBase
    * @interface TCPExtraOptions
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
@@ -3560,6 +3563,14 @@ declare namespace socket {
      * @since 10
      */
     cipherSuite?: string;
+
+    /**
+     * Used to set up bidirectional authentication. The default value is false.
+     * @type {?boolean}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 12
+     */
+    isBidirectionalAuthentication?: boolean;
   }
 
   /**
@@ -3620,6 +3631,14 @@ declare namespace socket {
      * @since 10
      */
     ALPNProtocols?: Array<string>;
+
+    /**
+     * Skip identity verification for remote servers. The default value is false.
+     * @type {?boolean}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 12
+     */
+    skipRemoteValidation?: boolean;
   }
 
   /**

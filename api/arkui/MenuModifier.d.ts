@@ -25,8 +25,9 @@
  * Defines Menu Modifier
  *
  * @extends MenuAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<MenuAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class MenuModifier extends MenuAttribute implements AttributeModifier<MenuAttribute> {
@@ -37,6 +38,7 @@ export declare class MenuModifier extends MenuAttribute implements AttributeModi
    * @param { MenuAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: MenuAttribute): void;

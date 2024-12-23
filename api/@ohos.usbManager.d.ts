@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -240,7 +240,9 @@ declare namespace usbManager {
    * @permission ohos.permission.MANAGE_USB_CONFIG
    * @param { string } funcs - descriptor of the supported function list. It cannot be empty.
    * @returns { number } the numeric mask combination of the function list.
-   * @throws { BusinessError } 401 - Parameter error. No parameters are required.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1.Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types. 
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
@@ -274,6 +276,8 @@ declare namespace usbManager {
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.  
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @throws { BusinessError } 14400002 - Permission denied. The HDC is disabled by the system.
+   * @throws { BusinessError } 14400006 - Unsupported operation. The function is not supported.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 12
@@ -333,11 +337,32 @@ declare namespace usbManager {
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.  
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @throws { BusinessError } 14400003 - Unsupported operation. The current device does not support port role switching.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 12
    */
   function setPortRoleTypes(portId: number, powerRole: PowerRoleType, dataRole: DataRoleType): Promise<void>;
+
+  /**
+   * Adds USB accessory access right.
+   *
+   * @permission ohos.permission.MANAGE_USB_CONFIG
+   * @param { number } tokenId - refers to application that require access permissions. It cannot be empty.
+   * @param { USBAccessory } accessory - USB accessory. It cannot be empty.
+   * @throws { BusinessError } 201 - The permission check failed.
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 14400004 - Service exception. Possible causes:
+   * <br>1. No accessory is plugged in.
+   * @throws { BusinessError } 14400005 - Database operation exception.
+   * @syscap SystemCapability.USB.USBManager
+   * @systemapi
+   * @since 14
+   */
+  function addAccessoryRight(tokenId: number, accessory: USBAccessory): void;
 
   /* usb pipe functions begin */
   /**
@@ -361,6 +386,9 @@ declare namespace usbManager {
    * @param { USBDevicePipe } pipe - device pipe, which is used to determine the bus number and device address. It cannot be empty.
    * @param { USBInterface } iface - USB interface, which is used to determine the interface to release. It cannot be empty.
    * @returns { number } returns **0** if the USB interface is successfully released; returns an error code otherwise.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1.Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types. 
    * @syscap SystemCapability.USB.USBManager
    * @since 9
    */
@@ -433,8 +461,26 @@ declare namespace usbManager {
    * <br>2.Incorrect parameter types.  
    * @syscap SystemCapability.USB.USBManager
    * @since 9
+   * @deprecated since 12
+   * @useinstead ohos.usbManager/usbManager#usbControlTransfer
    */
   function controlTransfer(pipe: USBDevicePipe, controlparam: USBControlParams, timeout?: number): Promise<number>;
+
+  /**
+   * Performs usb control transfer.
+   *
+   * @param { USBDevicePipe } pipe - device pipe, which is used to determine the USB device. It cannot be empty.
+   * @param { USBDeviceRequestParams } requestparam - control transfer parameters. It cannot be empty.
+   * @param { number } [timeout] - timeout duration. This parameter is optional. The default value is **0**, indicating no timeout. 
+   * @returns { Promise<number> } returns the size of the transmitted or received data block if the control transfer is successful;
+   * return -1 if an exception occurs.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1.Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.  
+   * @syscap SystemCapability.USB.USBManager
+   * @since 12
+   */
+  function usbControlTransfer(pipe: USBDevicePipe, requestparam: USBDeviceRequestParams, timeout?: number): Promise<number>;
 
   /**
    * Performs bulk transfer.
@@ -470,6 +516,100 @@ declare namespace usbManager {
    * @since 9
    */
   function closePipe(pipe: USBDevicePipe): number;
+
+  /**
+   * Checks whether the application has the right to access the USB accessory.
+   *
+   * @param { USBAccessory } accessory - USB accessory. It cannot be empty.
+   * @returns { boolean } indicates if the user has the right to access the USB accessory.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 14400004 - Service exception. Possible causes:
+   * <br>1. No accessory is plugged in.
+   * @throws { BusinessError } 14400005 - Database operation exception.
+   * @throws { BusinessError } 14401001 - The target USBAccessory not matched.
+   * @syscap SystemCapability.USB.USBManager
+   * @since 14
+   */
+  function hasAccessoryRight(accessory: USBAccessory): boolean;
+
+  /**
+   * Requests the right for a given application to access the USB accessory.
+   *
+   * @param { USBAccessory } accessory - USB accessory. It cannot be empty.
+   * @returns { Promise<boolean> } indicates if the USB accessory access right are granted.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 14400004 - Service exception. Possible causes:
+   * <br>1. No accessory is plugged in.
+   * @throws { BusinessError } 14400005 - Database operation exception.
+   * @throws { BusinessError } 14401001 - The target USBAccessory not matched.
+   * @syscap SystemCapability.USB.USBManager
+   * @since 14
+   */
+  function requestAccessoryRight(accessory: USBAccessory): Promise<boolean>;
+
+  /**
+   * Cancels the right for a given application to access the USB accessory.
+   *
+   * @param { USBAccessory } accessory - USB accessory. It cannot be empty.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 14400004 - Service exception. Possible causes:
+   * <br>1. No accessory is plugged in.
+   * @throws { BusinessError } 14400005 - Database operation exception.
+   * @throws { BusinessError } 14401001 - The target USBAccessory not matched.
+   * @syscap SystemCapability.USB.USBManager
+   * @since 14
+   */
+  function cancelAccessoryRight(accessory: USBAccessory): void;
+
+  /**
+   * Obtains the USB Accessory list.
+   *
+   * @returns { Array<Readonly<USBAccessory>> } USB accessory list.
+   * @throws { BusinessError } 14400004 - Service exception. Possible causes:
+   * <br>1. No accessory is plugged in.
+   * @syscap SystemCapability.USB.USBManager
+   * @since 14
+   */
+  function getAccessoryList(): Array<Readonly<USBAccessory>>;
+
+  /**
+   * Obtains the accessory handle and opens accessory file descriptor.
+   *
+   * @param { USBAccessory } accessory - accessory, which is used to determine the accessory. It cannot be empty.
+   * @returns { USBAccessoryHandle } returns the handle of the accessory.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 14400001 - Permission denied. Call requestAccessoryRight to get the right first.
+   * @throws { BusinessError } 14400004 - Service exception. Possible causes:
+   * <br>1. No accessory is plugged in.
+   * @throws { BusinessError } 14401001 - The target USBAccessory not matched.
+   * @throws { BusinessError } 14401002 - Failed to open the native accessory node.
+   * @throws { BusinessError } 14401003 - Cannot reopen the accessory.
+   * @syscap SystemCapability.USB.USBManager
+   * @since 14
+   */
+  function openAccessory(accessory: USBAccessory): USBAccessoryHandle;
+
+  /**
+   * Closes the accessory file descriptor.
+   *
+   * @param { USBAccessoryHandle } accessoryHandle - Accessory handle to be closed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 14400004 - Service exception. Possible causes:
+   * <br>1. No accessory is plugged in.
+   * @syscap SystemCapability.USB.USBManager
+   * @since 14
+   */
+  function closeAccessory(accessoryHandle: USBAccessoryHandle): void;
 
   /**
    * Represents the USB endpoint from which data is sent or received. You can obtain the USB endpoint through USBInterface.
@@ -1064,6 +1204,8 @@ declare namespace usbManager {
    * @typedef USBControlParams
    * @syscap SystemCapability.USB.USBManager
    * @since 9
+   * @deprecated since 16
+   * @useinstead ohos.usbManager/usbManager#USBDeviceRequestParams
    */
   interface USBControlParams {
     /**
@@ -1072,6 +1214,7 @@ declare namespace usbManager {
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 9
+     * @deprecated since 16
      */
     request: number;
 
@@ -1081,6 +1224,7 @@ declare namespace usbManager {
      * @type { USBRequestTargetType }
      * @syscap SystemCapability.USB.USBManager
      * @since 9
+     * @deprecated since 16
      */
     target: USBRequestTargetType;
 
@@ -1090,6 +1234,7 @@ declare namespace usbManager {
      * @type { USBControlRequestType }
      * @syscap SystemCapability.USB.USBManager
      * @since 9
+     * @deprecated since 16
      */
     reqType: USBControlRequestType;
 
@@ -1099,6 +1244,7 @@ declare namespace usbManager {
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 9
+     * @deprecated since 16
      */
     value: number;
 
@@ -1108,6 +1254,7 @@ declare namespace usbManager {
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 9
+     * @deprecated since 16
      */
     index: number;
 
@@ -1117,6 +1264,70 @@ declare namespace usbManager {
      * @type { Uint8Array }
      * @syscap SystemCapability.USB.USBManager
      * @since 9
+     * @deprecated since 16
+     */
+    data: Uint8Array;
+  }
+
+  /**
+   * Represents control transfer parameters.
+   *
+   * @typedef USBDeviceRequestParams
+   * @syscap SystemCapability.USB.USBManager
+   * @since 12
+   */
+  interface USBDeviceRequestParams {
+    /**
+     * Bit map request type
+     *
+     * @type { number }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 12
+     */
+    bmRequestType: number;
+
+    /**
+     * Byte request
+     *
+     * @type { number }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 12
+     */
+    bRequest: number;
+
+    /**
+     * Request parameter word value
+     *
+     * @type { number }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 12
+     */
+    wValue: number;
+
+    /**
+     * Word index of the parameter value
+     *
+     * @type { number }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 12
+     */
+    wIndex: number;
+
+    /**
+     * Word length of the parameter value
+     *
+     * @type { number }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 12
+     */
+    wLength: number;
+
+    /**
+     * Data written to or read from the buffer
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 12
      */
     data: Uint8Array;
   }
@@ -1318,6 +1529,78 @@ declare namespace usbManager {
      * @since 9
      */
     NCM = 256
+  }
+
+  /**
+   * Represents a USB Accessory.
+   *
+   * @typedef USBAccessory
+   * @syscap SystemCapability.USB.USBManager
+   * @since 14
+   */
+  interface USBAccessory {
+    /**
+     * The manufacturer name of the accessory.
+     *
+     * @type { string }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 14
+     */
+    manufacturer: string;
+  
+    /**
+     * The product of the accessory.
+     *
+     * @type { string }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 14
+     */
+    product: string;
+
+    /**
+     * The user visible description of the accessory.
+     *
+     * @type { string }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 14
+     */
+    description: string;
+
+    /**
+     * The version of the accessory.
+     *
+     * @type { string }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 14
+     */
+    version: string;
+
+    /**
+     * The serial number of the accessory.
+     *
+     * @type { string }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 14
+     */
+    serialNumber: string;
+  }
+
+  /**
+   * Handle of accessory.
+   *
+   * @typedef USBAccessoryHandle
+   * @syscap SystemCapability.USB.USBManager
+   * @since 14
+   */
+  interface USBAccessoryHandle {
+    /**
+     * The file descriptor of the accessory.The valid USBAccessoryHandle.accessoryFd is a positive value.
+     *
+     * @type { number }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 14
+     */
+    accessoryFd: number;
   }
 }
 

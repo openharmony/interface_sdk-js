@@ -23,8 +23,9 @@
  * Defines Checkbox Modifier
  *
  * @extends CheckboxAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<CheckboxAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class CheckboxModifier extends CheckboxAttribute implements AttributeModifier<CheckboxAttribute> {
@@ -35,6 +36,7 @@ export declare class CheckboxModifier extends CheckboxAttribute implements Attri
    * @param { CheckboxAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: CheckboxAttribute): void;

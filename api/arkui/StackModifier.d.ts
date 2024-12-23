@@ -25,8 +25,9 @@
  * Defines Stack Modifier
  *
  * @extends StackAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<StackAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class StackModifier extends StackAttribute implements AttributeModifier<StackAttribute> {
@@ -37,6 +38,7 @@ export declare class StackModifier extends StackAttribute implements AttributeMo
    * @param { StackAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: StackAttribute): void;

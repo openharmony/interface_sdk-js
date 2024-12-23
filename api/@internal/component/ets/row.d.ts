@@ -19,6 +19,54 @@
  */
 
 /**
+ * Define options used to construct a row.
+ *
+ * @interface RowOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 14
+ */
+declare interface RowOptions {
+  /**
+   * Row spacing.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Row spacing.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Row spacing.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Row spacing.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  space?: string | number;
+}
+
+/**
  * The components are laid out horizontally
  *
  * @interface RowInterface
@@ -30,8 +78,8 @@
  *
  * @interface RowInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * The components are laid out horizontally
@@ -39,8 +87,8 @@
  * @interface RowInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * The components are laid out horizontally
@@ -48,9 +96,9 @@
  * @interface RowInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 interface RowInterface {
   /**
@@ -67,8 +115,8 @@ interface RowInterface {
    * @param { object } value
    * @returns { RowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the layout is set in the horizontal direction.
@@ -77,8 +125,8 @@ interface RowInterface {
    * @returns { RowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the layout is set in the horizontal direction.
@@ -87,11 +135,22 @@ interface RowInterface {
    * @returns { RowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
-  (value?: { space?: string | number }): RowAttribute;
+  /**
+   * Called when the layout is set in the horizontal direction.
+   *
+   * @param { ?RowOptions } options - row options
+   * @returns { RowAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  (options?: RowOptions): RowAttribute;
 }
 
 /**
@@ -106,8 +165,8 @@ interface RowInterface {
  *
  * @extends CommonMethod<RowAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines the row attribute functions.
@@ -115,8 +174,8 @@ interface RowInterface {
  * @extends CommonMethod<RowAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines the row attribute functions.
@@ -124,9 +183,9 @@ interface RowInterface {
  * @extends CommonMethod<RowAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class RowAttribute extends CommonMethod<RowAttribute> {
   /**
@@ -143,8 +202,8 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
    * @param { VerticalAlign } value
    * @returns { RowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the vertical alignment is set.
@@ -153,8 +212,8 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
    * @returns { RowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the vertical alignment is set.
@@ -163,9 +222,9 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
    * @returns { RowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   alignItems(value: VerticalAlign): RowAttribute;
 
@@ -183,8 +242,8 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
    * @param { FlexAlign } value
    * @returns { RowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Called when the horizontal alignment is set.
@@ -193,8 +252,8 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
    * @returns { RowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Called when the horizontal alignment is set.
@@ -203,9 +262,9 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
    * @returns { RowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
   justifyContent(value: FlexAlign): RowAttribute;
   /**
@@ -218,6 +277,18 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
    * @since 11
    */
   pointLight(value: PointLightStyle): RowAttribute;
+  /**
+   * Called when the Main-Axis's direction is set reversed or not
+   *
+   * @param { Optional<boolean> } isReversed - If the main axis is reversed.
+   * @returns { RowAttribute } The attribute of the row.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  reverse(isReversed: Optional<boolean>): RowAttribute;
 }
 
 /**
@@ -230,25 +301,25 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
  * Defines Row Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines Row Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines Row Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const Row: RowInterface;
 
@@ -262,24 +333,24 @@ declare const Row: RowInterface;
  * Defines Row Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines Row Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines Row Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const RowInstance: RowAttribute;

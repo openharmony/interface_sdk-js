@@ -79,6 +79,47 @@ export declare enum ChipSize {
 }
 
 /**
+ * Enum for AccessibilitySelectedType
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+export declare enum AccessibilitySelectedType {
+  /**
+   * Default type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  CLICKED = 0,
+
+  /**
+   * Checked type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  CHECKED = 1,
+
+  /**
+   * Selected type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  SELECTED = 2
+}
+
+/**
  * Defines the icon common option.
  *
  * @interface IconCommonOptions
@@ -160,6 +201,7 @@ export interface IconCommonOptions {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   activatedFillColor?: ResourceColor;
@@ -204,6 +246,40 @@ export interface SuffixIconOptions extends IconCommonOptions {
    * @since 12
    */
   action?: () => void;
+
+  /**
+   * Set accessibility text for icon.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  accessibilityText?: ResourceStr;
+
+  /**
+   * Set accessibility description for icon.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  accessibilityDescription?: ResourceStr;
+
+  /**
+   * Set accessibility level for icon.
+   *
+   * @type { ?string }
+   * @default "auto"
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  accessibilityLevel?: string;
 }
 
 /**
@@ -228,11 +304,68 @@ export interface SuffixIconOptions extends IconCommonOptions {
 export interface PrefixIconOptions extends IconCommonOptions {}
 
 /**
+ * Defines accessibility icon options.
+ *
+ * @interface AccessibilityOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+export interface AccessibilityOptions {
+  /**
+   * Set accessibility level for accessibility icon.
+   *
+   * @type { ?string }
+   * @default "auto"
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  accessibilityLevel?: string;
+
+  /**
+   * Set accessibility text for accessibility icon.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  accessibilityText?: ResourceStr;
+
+  /**
+   * Set accessibility description for accessibility icon.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  accessibilityDescription?: ResourceStr;
+}
+
+/**
+ * Defines accessibility options of default close icon.
+ *
+ * @interface CloseOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+export interface CloseOptions extends AccessibilityOptions {}
+
+/**
  * Defines chip symbolglyph options.
  *
  * @interface ChipSymbolGlyphOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export interface ChipSymbolGlyphOptions {
@@ -243,6 +376,7 @@ export interface ChipSymbolGlyphOptions {
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   normal?: SymbolGlyphModifier;
@@ -253,9 +387,54 @@ export interface ChipSymbolGlyphOptions {
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   activated?: SymbolGlyphModifier;
+}
+
+/**
+ * Defines accessibility options of suffix symbol.
+ *
+ * @interface ChipSuffixSymbolGlyphOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+export interface ChipSuffixSymbolGlyphOptions {
+  /**
+   * Set normal accessibility options for suffix symbol.
+   *
+   * @type { ?AccessibilityOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  normalAccessibility?: AccessibilityOptions;
+
+  /**
+   * Set activated accessibility options for suffix symbol.
+   *
+   * @type { ?AccessibilityOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  activatedAccessibility?: AccessibilityOptions;
+
+  /**
+   * Called when the suffix symbol is clicked.
+   *
+   * @type { ?VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  action?: VoidCallback;
 }
 
 /**
@@ -322,6 +501,7 @@ export interface LabelMarginOptions {
  * @interface LocalizedLabelMarginOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export interface LocalizedLabelMarginOptions {
@@ -332,6 +512,7 @@ export interface LocalizedLabelMarginOptions {
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
    start?: LengthMetrics;
@@ -342,6 +523,7 @@ export interface LocalizedLabelMarginOptions {
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   end?: LengthMetrics;
@@ -429,6 +611,7 @@ export interface LabelOptions {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   activatedFontColor?: ResourceColor;
@@ -477,6 +660,7 @@ export interface LabelOptions {
    * @type { ?LocalizedLabelMarginOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   localizedLabelMargin?: LocalizedLabelMarginOptions;
@@ -525,6 +709,7 @@ export interface ChipOptions {
    * @type { ?ChipSymbolGlyphOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   prefixSymbol?: ChipSymbolGlyphOptions;
@@ -573,9 +758,21 @@ export interface ChipOptions {
    * @type { ?ChipSymbolGlyphOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   suffixSymbol?: ChipSymbolGlyphOptions;
+
+  /**
+   * Set options for suffix symbol.
+   *
+   * @type { ?ChipSuffixSymbolGlyphOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  suffixSymbolOptions?: ChipSuffixSymbolGlyphOptions;
 
   /**
    * Show close icon.
@@ -595,6 +792,17 @@ export interface ChipOptions {
    * @since 12
    */
   allowClose?: boolean;
+
+  /**
+   * Set options for default close icon when 'allowaClose' is true.
+   *
+   * @type { ?CloseOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  closeOptions?: CloseOptions;
 
   /**
    * Enable chip.
@@ -621,6 +829,7 @@ export interface ChipOptions {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   activated?: boolean;
@@ -650,6 +859,7 @@ export interface ChipOptions {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   activatedBackgroundColor?: ResourceColor;
@@ -717,6 +927,7 @@ export interface ChipOptions {
    * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onClicked?: Callback<void>;
@@ -727,9 +938,44 @@ export interface ChipOptions {
    * @type { ?Direction }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
    direction?: Direction;
+
+  /**
+   * Set accessibility description for Chip.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  accessibilityDescription?: ResourceStr;
+
+  /**
+   * Set accessibility level for Chip.
+   *
+   * @type { ?string }
+   * @default "auto"
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  accessibilityLevel?: string;
+
+  /**
+   * Set accessibility selected type for Chip.
+   *
+   * @type { ?AccessibilitySelectedType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  accessibilitySelectedType?: AccessibilitySelectedType;
 }
 
 /**

@@ -14,7 +14,7 @@
     "deprecatedVersion": "",
     "useInstead": "",
     "apiType": "Class",
-    "definedText": " export class test",
+    "definedText": "export class test",
     "pos": {
       "line": 21,
       "character": 1
@@ -23,6 +23,9 @@
     "modelLimitation": "stagemodelonly",
     "decorators": [],
     "errorCodes": [],
-    "kitInfo": ""
+    "kitInfo": "NA",
+    "absolutePath": "",
+    "parentApiType": "SourceFile",
+    "isOptional": false
   }
 ]

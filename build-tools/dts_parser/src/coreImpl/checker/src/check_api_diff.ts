@@ -20,7 +20,7 @@ import { DiffHelper } from '../../diff/diff';
 import { FileUtils } from '../../../utils/FileUtils';
 import { BasicDiffInfo } from '../../../typedef/diff/ApiInfoDiff';
 import { AddErrorLogs } from './compile_info';
-import { compositiveResult, compositiveLocalResult, CommonFunctions } from '../../../utils/checkUtils';
+import { compositiveResult, compositiveLocalResult, CommonFunctions, hierarchicalRelationsSet } from '../../../utils/checkUtils';
 import {
   ErrorType,
   ErrorID,
@@ -44,9 +44,13 @@ export class ApiChangeCheck {
     const localDir: string = path.resolve(FileUtils.getBaseDirName(), prId);
 
     if (fs.existsSync(onlineDir)) {
+      process.env.IS_INCREMENT_CHECK = 'true';
       rootDir = onlineDir;
     } else if (fs.existsSync(localDir)) {
+      process.env.IS_INCREMENT_CHECK = 'true';
       rootDir = localDir;
+    } else {
+      process.env.IS_INCREMENT_CHECK = undefined;
     }
     const oldFileDir: string = path.resolve(rootDir, './old');
     const newFileDir: string = path.resolve(rootDir, './new');
@@ -65,6 +69,8 @@ export class ApiChangeCheck {
       diffInfos = DiffHelper.diffSDK(oldSDKApiMap, newSDKApiMap, false, true);
     }
     diffInfos.forEach((diffInfo: BasicDiffInfo) => {
+      hierarchicalRelationsSet.add(diffInfo.oldHierarchicalRelations.join('|'))
+        .add(diffInfo.newHierarchicalRelations.join('|'));
       if (diffInfo.getIsCompatible() !== false) {
         return;
       }
@@ -93,7 +99,7 @@ export class ApiChangeCheck {
       } else {
         const dtsName = path.basename(diffInfo.getNewDtsName());
         let apiInfoDiff: ApiCheckInfo = new ApiCheckInfo();
-        const hierarchicalRelations: string[] = diffInfo.getOldHierarchicalRelations();
+        const hierarchicalRelations: string[] = diffInfo.getNewHierarchicalRelations();
         const parentModuleName: string = hierarchicalRelations[hierarchicalRelations.length - 1];
         apiInfoDiff
           .setErrorID(ErrorID.API_CHANGE_ERRORS_ID)
@@ -107,7 +113,7 @@ export class ApiChangeCheck {
           .setApiType(diffInfo.getApiType())
           .setApiText(diffInfo.getNewApiDefinedText())
           .setErrorInfo(errorInfo as string)
-          .setHierarchicalRelations(diffInfo.getOldHierarchicalRelations().join('|'))
+          .setHierarchicalRelations(diffInfo.getNewHierarchicalRelations().join('|'))
           .setParentModuleName(parentModuleName);
         AddErrorLogs.addAPICheckErrorLogs(apiInfoDiff, compositiveResult, compositiveLocalResult);
       }

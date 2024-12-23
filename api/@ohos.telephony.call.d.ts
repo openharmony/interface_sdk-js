@@ -19,6 +19,7 @@
  */
 
 import type { AsyncCallback, Callback } from './@ohos.base';
+import type Context from './application/BaseContext';
 import type image from './@ohos.multimedia.image';
 
 /**
@@ -216,6 +217,22 @@ declare namespace call {
    * @since 11
    */
   function makeCall(phoneNumber: string): Promise<void>;
+
+  /**
+   * Go to the dial screen and the called number is displayed.
+   *
+   * @param { Context } context - Indicates the context.
+   * @param { string } phoneNumber - Indicates the called number.
+   * @returns { Promise<void> } The promise returned by the makeCall.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * 2. Incorrect parameters types;
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @syscap SystemCapability.Applications.Contacts
+   * @atomicservice
+   * @since 12
+   */
+  function makeCall(context: Context, phoneNumber: string): Promise<void>;
 
   /**
    * Checks whether a call is ongoing.
@@ -3345,6 +3362,16 @@ declare namespace call {
      * @since 12
      */
     numberMarkInfo?: NumberMarkInfo;
+
+    /**
+     * Indicates the extra call parameters.
+     *
+     * @type { ?Record<string, Object> }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    extraParams?: Record<string, Object>;
   }
 
   /**
@@ -3425,6 +3452,26 @@ declare namespace call {
      * @since 12
      */
     showBannerForIncomingCall?: boolean;
+  
+    /**
+     * Indicates whether the VoIP call is a conference call. Default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    isConferenceCall?: boolean;
+  
+    /**
+     * Indicates whether the VoIP incoming video call is support voice answer. Default value is true.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    isVoiceAnswerSupported?: boolean;
   }
 
   /**
@@ -4159,6 +4206,15 @@ declare namespace call {
      * @since 9
      */
     dialType?: DialType;
+    /**
+     * Indicates the extra call parameters.
+     *
+     * @type { ?Record<string, Object> }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    extraParams?: Record<string, Object>;
   }
 
   /**
@@ -5464,6 +5520,16 @@ declare namespace call {
      * @since 12
      */
     isCloud?: boolean;
+
+    /**
+     * Indicates the details of number mark.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    markDetails?: string;
   }
 
   /**
@@ -5572,7 +5638,16 @@ declare namespace call {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    MARK_TYPE_YELLOW_PAGE = 10
+    MARK_TYPE_YELLOW_PAGE = 10,
+
+    /**
+     * Indicates the mark is enterprise.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    MARK_TYPE_ENTERPRISE = 11
   }
 }
 

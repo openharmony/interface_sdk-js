@@ -32,6 +32,7 @@ import { ElementName } from './elementName';
  */
 export interface RemoteAbilityInfo {
   /**
+   * @type { ElementName }
    * @default Indicates the ability information
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
@@ -41,6 +42,7 @@ export interface RemoteAbilityInfo {
   readonly elementName: ElementName;
 
   /**
+   * @type { string }
    * @default Indicates the label of the ability
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
@@ -50,6 +52,7 @@ export interface RemoteAbilityInfo {
   readonly label: string;
 
   /**
+   * @type { string }
    * @default Indicates the icon of the ability
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi

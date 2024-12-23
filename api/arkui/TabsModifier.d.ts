@@ -25,8 +25,9 @@
  * Defines Tabs Modifier
  *
  * @extends TabsAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<TabsAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class TabsModifier extends TabsAttribute implements AttributeModifier<TabsAttribute> {
@@ -37,6 +38,7 @@ export declare class TabsModifier extends TabsAttribute implements AttributeModi
    * @param { TabsAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: TabsAttribute): void;

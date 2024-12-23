@@ -401,6 +401,17 @@ declare class SecurityComponentMethod<T> {
   borderRadius(value: Dimension): T;
 
   /**
+   * Radius of the border.
+   *
+   * @param { Dimension | BorderRadiuses } radius - Indicates the border radius of the security component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  borderRadius(radius: Dimension | BorderRadiuses): T;
+
+  /**
    * Padding between the background border and icon/inner text.
    *
    * @param { Padding | Dimension } value - Indicates the padding of the security component.
@@ -458,6 +469,15 @@ declare class SecurityComponentMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
+  /**
+   * Sets the width of the component.
+   *
+   * @param { Length } value - Indicates the width of the security component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   width(value: Length): T;
 
   /**
@@ -468,6 +488,15 @@ declare class SecurityComponentMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
+  /**
+   * Sets the height of the component.
+   *
+   * @param { Length } value - Indicates the height of the security component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   height(value: Length): T;
 
   /**
@@ -477,6 +506,15 @@ declare class SecurityComponentMethod<T> {
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
+   */
+  /**
+   * The size of the component.
+   *
+   * @param { SizeOptions } value - Indicates the size of the security component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
    */
   size(value: SizeOptions): T;
 
@@ -489,5 +527,71 @@ declare class SecurityComponentMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
+  /**
+   * constraint Size:
+   * minWidth: minimum Width, maxWidth: maximum Width, minHeight: minimum Height, maxHeight: maximum Height.
+   *
+   * @param { ConstraintSizeOptions } value - Indicates the constraint size of the security component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
   constraintSize(value: ConstraintSizeOptions): T;
+
+  /**
+   * align
+   *
+   * @param { Alignment } alignType - Indicates the align type of the security component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  align(alignType: Alignment): T;
+
+  /**
+   * Specifies the alignRules of relative container
+   *
+   * @param { AlignRuleOption } alignRule
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  alignRules(alignRule: AlignRuleOption): T;
+
+  /**
+   * Specifies the localized alignRules of relative container
+   *
+   * @param { LocalizedAlignRuleOptions } alignRule
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  alignRules(alignRule: LocalizedAlignRuleOptions): T;
+
+  /**
+   * Id. User can set an id to the component to identify it.
+   *
+   * @param { string } description
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  id(description: string): T;
+
+  /**
+   * Specifies the direction and style of chain in relative container
+   *
+   * @param { Axis } direction - Indicates direction of the chain
+   * @param { ChainStyle } style - Indicates style of the chain
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  chainMode(direction: Axis, style: ChainStyle): T;
 }

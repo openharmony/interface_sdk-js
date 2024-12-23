@@ -34,7 +34,6 @@ declare namespace inputMethodEngine {
   /**
    * When "enter" key is pressed, there is no action
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -43,7 +42,6 @@ declare namespace inputMethodEngine {
   /**
    * When "enter" key is pressed, it means GO
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -52,7 +50,6 @@ declare namespace inputMethodEngine {
   /**
    * When "enter" key is pressed, it means SEARCH
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -61,7 +58,6 @@ declare namespace inputMethodEngine {
   /**
    * When "enter" key is pressed, it means SEND
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -70,7 +66,6 @@ declare namespace inputMethodEngine {
   /**
    * When "enter" key is pressed, it means NEXT
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -79,7 +74,6 @@ declare namespace inputMethodEngine {
   /**
    * When "enter" key is pressed, it means DONE
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -88,16 +82,23 @@ declare namespace inputMethodEngine {
   /**
    * When "enter" key is pressed, it means PREVIOUS
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
   const ENTER_KEY_TYPE_PREVIOUS: number;
 
   /**
-   * Editor with no special function
+   * When "enter" key is pressed, it means NEWLINE
    *
    * @constant
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 12
+   */
+  const ENTER_KEY_TYPE_NEWLINE: 8;
+
+  /**
+   * Editor with no special function
+   *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -106,7 +107,6 @@ declare namespace inputMethodEngine {
   /**
    * Editor of type TEXT
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -115,7 +115,6 @@ declare namespace inputMethodEngine {
   /**
    * Editor of type NUMBER
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -124,7 +123,6 @@ declare namespace inputMethodEngine {
   /**
    * Editor of type PHONE NUMBER
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -133,7 +131,6 @@ declare namespace inputMethodEngine {
   /**
    * Editor of type DATETIME
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -142,7 +139,6 @@ declare namespace inputMethodEngine {
   /**
    * Editor of type EMAIL
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -151,7 +147,6 @@ declare namespace inputMethodEngine {
   /**
    * Editor of type URI
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -160,7 +155,6 @@ declare namespace inputMethodEngine {
   /**
    * Editor of type PASSWORD
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -169,7 +163,6 @@ declare namespace inputMethodEngine {
   /**
    * Editor of type SCREEN LOCK PASSWORD
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11
    */
@@ -178,7 +171,6 @@ declare namespace inputMethodEngine {
   /**
    * Editor of type NUMBER PASSWORD
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11
    */
@@ -187,7 +179,6 @@ declare namespace inputMethodEngine {
   /**
    * Editor in SELECTING state
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -196,7 +187,6 @@ declare namespace inputMethodEngine {
   /**
    * Editor in SINGLE_LINE state
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -205,7 +195,6 @@ declare namespace inputMethodEngine {
   /**
    * The Editor displays in PART mode
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -214,7 +203,6 @@ declare namespace inputMethodEngine {
   /**
    * The Editor displays in FULL mode
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -223,7 +211,6 @@ declare namespace inputMethodEngine {
   /**
    * Allows ASCII to be inputted
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -232,7 +219,6 @@ declare namespace inputMethodEngine {
   /**
    * Do not specify Editor's input type
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -241,7 +227,6 @@ declare namespace inputMethodEngine {
   /**
    * Allows CHARACTERS to be inputted
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -250,7 +235,6 @@ declare namespace inputMethodEngine {
   /**
    * Allows SENTENCES to be inputted
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -259,7 +243,6 @@ declare namespace inputMethodEngine {
   /**
    * Allows WORDS to be inputted
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -268,7 +251,6 @@ declare namespace inputMethodEngine {
   /**
    * Allows MULTI_LINE to be inputted
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -277,7 +259,6 @@ declare namespace inputMethodEngine {
   /**
    * Half-screen mode
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
    */
@@ -286,7 +267,6 @@ declare namespace inputMethodEngine {
   /**
    * The move direction of cursor: UP
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -295,7 +275,6 @@ declare namespace inputMethodEngine {
   /**
    * The move direction of cursor: DOWN
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -304,7 +283,6 @@ declare namespace inputMethodEngine {
   /**
    * The move direction of cursor: LEFT
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -313,7 +291,6 @@ declare namespace inputMethodEngine {
   /**
    * The move direction of cursor: RIGHT
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -322,7 +299,6 @@ declare namespace inputMethodEngine {
   /**
    * The window styles for input method ability.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -421,7 +397,7 @@ declare namespace inputMethodEngine {
      *
      * @param { AsyncCallback<void> } callback - the callback of exitCurrentInputType.
      * @throws { BusinessError } 12800008 - input method manager service error.
-     * @throws { BusinessError } 12800010 - not default input method configured by system.
+     * @throws { BusinessError } 12800010 - not the preconfigured default input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
      */
@@ -432,7 +408,7 @@ declare namespace inputMethodEngine {
      *
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 12800008 - input method manager service error.
-     * @throws { BusinessError } 12800010 - not default input method configured by system.
+     * @throws { BusinessError } 12800010 - not the preconfigured default input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
      */
@@ -627,7 +603,7 @@ declare namespace inputMethodEngine {
      *
      * @param { 'privateCommand' } type - indicates the type of subscribe event.
      * @param { Callback<Record<string, CommandDataType>> } callback - indicates the callback of on('privateCommand').
-     * @throws { BusinessError } 12800010 - not default input method configured by system.
+     * @throws { BusinessError } 12800010 - not the preconfigured default input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
@@ -639,7 +615,7 @@ declare namespace inputMethodEngine {
      * @param { 'privateCommand' } type - indicates the type of subscribe event.
      * @param { Callback<Record<string, CommandDataType>> } [callback] - optional,
      * indicates the callback of off('privateCommand').
-     * @throws { BusinessError } 12800010 - not default input method configured by system.
+     * @throws { BusinessError } 12800010 - not the preconfigured default input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
@@ -649,7 +625,7 @@ declare namespace inputMethodEngine {
      * Get input method's security mode.
      *
      * @returns { SecurityMode } return security mode.
-     * @throws { BusinessError } 12800004 - not an input method extension.
+     * @throws { BusinessError } 12800004 - not an input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
      */
@@ -664,7 +640,7 @@ declare namespace inputMethodEngine {
      * @param { AsyncCallback<Panel> } callback - the callback of createPanel.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 
-     * @throws { BusinessError } 12800004 - not an input method extension.
+     * @throws { BusinessError } 12800004 - not an input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -679,7 +655,7 @@ declare namespace inputMethodEngine {
      * @returns { Promise<Panel> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
-     * @throws { BusinessError } 12800004 - not an input method extension.
+     * @throws { BusinessError } 12800004 - not an input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1313,7 +1289,7 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800010 - not default input method configured by system.
+     * @throws { BusinessError } 12800010 - not the preconfigured default input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
@@ -1324,7 +1300,7 @@ declare namespace inputMethodEngine {
      *
      * @returns { Promise<WindowInfo> } the promise returned by the function.
      * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800012 - input method panel doesn't exist.
+     * @throws { BusinessError } 12800012 - the input method panel does not exist.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
@@ -1340,7 +1316,7 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *    1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800011 - text preview is not supported.
+     * @throws { BusinessError } 12800011 - text preview not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
@@ -1354,7 +1330,7 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800011 - text preview is not supported.
+     * @throws { BusinessError } 12800011 - text preview not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
@@ -1365,7 +1341,7 @@ declare namespace inputMethodEngine {
      *
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800011 - text preview is not supported.
+     * @throws { BusinessError } 12800011 - text preview not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
@@ -1375,7 +1351,7 @@ declare namespace inputMethodEngine {
      * Finish the text preview.
      *
      * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800011 - text preview is not supported.
+     * @throws { BusinessError } 12800011 - text preview not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
@@ -1790,6 +1766,7 @@ declare namespace inputMethodEngine {
      * Editor's pattern
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
@@ -1799,6 +1776,7 @@ declare namespace inputMethodEngine {
      * Editor's key type
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
@@ -1812,6 +1790,16 @@ declare namespace inputMethodEngine {
      * @since 12
      */
     isTextPreviewSupported: boolean;
+
+    /**
+     * Editor's bundle name.
+     *
+     * @type { ?string }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 14
+     */
+    readonly bundleName?: string;
   }
 
   /**
@@ -1824,6 +1812,7 @@ declare namespace inputMethodEngine {
      * Key code
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
@@ -1833,6 +1822,7 @@ declare namespace inputMethodEngine {
      * Key action
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */

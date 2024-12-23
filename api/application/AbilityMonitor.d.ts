@@ -212,6 +212,7 @@ export interface AbilityMonitor {
   /**
    * Called back when an ability window stage is created.
    *
+   * @type { ?function }.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice

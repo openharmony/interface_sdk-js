@@ -25,8 +25,9 @@
  * Defines TextInput Modifier
  *
  * @extends TextInputAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<TextInputAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class TextInputModifier extends TextInputAttribute implements AttributeModifier<TextInputAttribute> {
@@ -37,6 +38,7 @@ export declare class TextInputModifier extends TextInputAttribute implements Att
    * @param { TextInputAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: TextInputAttribute): void;

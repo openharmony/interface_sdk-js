@@ -25,8 +25,9 @@
  * Defines Marquee Modifier
  *
  * @extends MarqueeAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<MarqueeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class MarqueeModifier extends MarqueeAttribute implements AttributeModifier<MarqueeAttribute> {
@@ -37,6 +38,7 @@ export declare class MarqueeModifier extends MarqueeAttribute implements Attribu
    * @param { MarqueeAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: MarqueeAttribute): void;

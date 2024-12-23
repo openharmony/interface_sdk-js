@@ -410,6 +410,7 @@ declare namespace webSocket {
      * @param { AsyncCallback<boolean> } callback - the callback of connect.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2302999 - Websocket other unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
@@ -421,10 +422,28 @@ declare namespace webSocket {
      * @param { AsyncCallback<boolean> } callback - the callback of connect.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2302999 - Websocket other unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Initiates a WebSocket request to establish a WebSocket connection to a given URL.
+     * @permission ohos.permission.INTERNET
+     * @param { string } url URL for establishing a WebSocket connection.
+     * @param { AsyncCallback<boolean> } callback - the callback of connect.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2302001 - Websocket url error.
+     * @throws { BusinessError } 2302002 - Websocket certificate file does not exist.
+     * @throws { BusinessError } 2302003 - Websocket connection already exists.
+     * @throws { BusinessError } 2302998 - It is not allowed to access this domain.
+     * @throws { BusinessError } 2302999 - Websocket other unknown error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     connect(url: string, callback: AsyncCallback<boolean>): void;
 
@@ -447,6 +466,7 @@ declare namespace webSocket {
      * @param { AsyncCallback<boolean> } callback - the callback of connect.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2302999 - Websocket other unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
@@ -459,10 +479,29 @@ declare namespace webSocket {
      * @param { AsyncCallback<boolean> } callback - the callback of connect.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2302999 - Websocket other unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Initiates a WebSocket request to establish a WebSocket connection to a given URL.
+     * @permission ohos.permission.INTERNET
+     * @param { string } url URL for establishing a WebSocket connection.
+     * @param { WebSocketRequestOptions } options - Optional parameters {@link WebSocketRequestOptions}.
+     * @param { AsyncCallback<boolean> } callback - the callback of connect.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2302001 - Websocket url error.
+     * @throws { BusinessError } 2302002 - Websocket certificate file does not exist.
+     * @throws { BusinessError } 2302003 - Websocket connection already exists.
+     * @throws { BusinessError } 2302998 - It is not allowed to access this domain.
+     * @throws { BusinessError } 2302999 - Websocket other unknown error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     connect(url: string, options: WebSocketRequestOptions, callback: AsyncCallback<boolean>): void;
 
@@ -485,6 +524,7 @@ declare namespace webSocket {
      * @returns { Promise<boolean> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2302999 - Websocket other unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
@@ -497,10 +537,29 @@ declare namespace webSocket {
      * @returns { Promise<boolean> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2302999 - Websocket other unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Initiates a WebSocket request to establish a WebSocket connection to a given URL.
+     * @permission ohos.permission.INTERNET
+     * @param { string } url URL for establishing a WebSocket connection.
+     * @param { WebSocketRequestOptions } options - Optional parameters {@link WebSocketRequestOptions}.
+     * @returns { Promise<boolean> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2302001 - Websocket url error.
+     * @throws { BusinessError } 2302002 - Websocket certificate file does not exist.
+     * @throws { BusinessError } 2302003 - Websocket connection already exists.
+     * @throws { BusinessError } 2302998 - It is not allowed to access this domain.
+     * @throws { BusinessError } 2302999 - Websocket other unknown error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     connect(url: string, options?: WebSocketRequestOptions): Promise<boolean>;
 

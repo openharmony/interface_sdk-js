@@ -34,6 +34,7 @@
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @deprecated since 13
  */
 declare interface RouteInfo {
   /**
@@ -52,6 +53,7 @@ declare interface RouteInfo {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 13
    */
   name: string;
 
@@ -71,6 +73,7 @@ declare interface RouteInfo {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 13
    */
   param?: unknown;
 }
@@ -98,6 +101,7 @@ declare interface RouteInfo {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @deprecated since 13
  */
 declare interface NavRouterInterface {
   /**
@@ -123,6 +127,7 @@ declare interface NavRouterInterface {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 13
    */
   (): NavRouterAttribute;
 
@@ -144,6 +149,7 @@ declare interface NavRouterInterface {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 13
    */
   (value: RouteInfo): NavRouterAttribute;
 }
@@ -164,6 +170,7 @@ declare interface NavRouterInterface {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @deprecated since 13
  */
 declare enum NavRouteMode {
   /**
@@ -180,6 +187,7 @@ declare enum NavRouteMode {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 13
    */
   PUSH_WITH_RECREATE,
 
@@ -197,6 +205,7 @@ declare enum NavRouteMode {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 13
    */
   PUSH,
 
@@ -214,6 +223,7 @@ declare enum NavRouteMode {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 13
    */
   REPLACE
 }
@@ -241,6 +251,7 @@ declare enum NavRouteMode {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @deprecated since 13
  */
 declare class NavRouterAttribute extends CommonMethod<NavRouterAttribute> {
   /**
@@ -269,6 +280,7 @@ declare class NavRouterAttribute extends CommonMethod<NavRouterAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 13
    */
   onStateChange(callback: (isActivated: boolean) => void): NavRouterAttribute;
 
@@ -290,6 +302,7 @@ declare class NavRouterAttribute extends CommonMethod<NavRouterAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 13
    */
   mode(mode: NavRouteMode): NavRouterAttribute;
 }
@@ -314,6 +327,7 @@ declare class NavRouterAttribute extends CommonMethod<NavRouterAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @deprecated since 13
  */
 declare const NavRouter: NavRouterInterface;
 
@@ -337,5 +351,6 @@ declare const NavRouter: NavRouterInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @deprecated since 13
  */
 declare const NavRouterInstance: NavRouterAttribute;

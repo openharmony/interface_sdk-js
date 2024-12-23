@@ -471,6 +471,7 @@ declare namespace usageStatistics {
    * <p> boolean value is true mean the application is idle in a particular period; false mean otherwise.
    * The time range of the particular period is defined by the system, which may be hours or days.</p>
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -494,6 +495,7 @@ declare namespace usageStatistics {
    * <p> boolean value is true mean the application is idle in a particular period; false mean otherwise.
    * The time range of the particular period is defined by the system, which may be hours or days.</p>
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -517,6 +519,7 @@ declare namespace usageStatistics {
    * <p> boolean value is true mean the application is idle in a particular period; false mean otherwise.
    * The time range of the particular period is defined by the system, which may be hours or days.</p>
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -536,6 +539,7 @@ declare namespace usageStatistics {
    * <p>The priority defined in a priority group restricts the resource usage of an application,
    * for example, restricting the running of background tasks. </p>
    *
+   * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { AsyncCallback<number> } callback - the callback of queryAppGroup.
    * <p> Returns the app group of the calling application.</p>
    * @throws { BusinessError } 201 - Permission denied.
@@ -560,6 +564,7 @@ declare namespace usageStatistics {
    * <p>The priority defined in a priority group restricts the resource usage of an application,
    * for example, restricting the running of background tasks. </p>
    *
+   * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @returns { Promise<number> } the promise returned by queryAppGroup.
    * <p> Returns the app group of the calling application.</p>
    * @throws { BusinessError } 201 - Permission denied.
@@ -584,6 +589,7 @@ declare namespace usageStatistics {
    * <p>The priority defined in a priority group restricts the resource usage of an application,
    * for example, restricting the running of background tasks. </p>
    *
+   * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @returns { number } Returns the app group of the calling application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
@@ -912,7 +918,6 @@ declare namespace usageStatistics {
    * @param { number } end - Indicates the end time of the query period, in milliseconds.
    * @param { AsyncCallback<Array<BundleEvents>> } callback - the callback of queryCurrentBundleEvents.
    * <p> the {@link BundleEvents} object Array containing the state data of the current bundle.</p>
-   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
@@ -936,7 +941,6 @@ declare namespace usageStatistics {
    * @param { number } end - Indicates the end time of the query period, in milliseconds.
    * @returns { Promise<Array<BundleEvents>> } the promise returned by queryCurrentBundleEvents.
    * <p> the {@link BundleEvents} object Array containing the state data of the current bundle.</p>
-   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.

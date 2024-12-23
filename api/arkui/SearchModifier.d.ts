@@ -25,8 +25,9 @@
  * Defines Search Modifier
  *
  * @extends SearchAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<SearchAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class SearchModifier extends SearchAttribute implements AttributeModifier<SearchAttribute> {
@@ -37,6 +38,7 @@ export declare class SearchModifier extends SearchAttribute implements Attribute
    * @param { SearchAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: SearchAttribute): void;

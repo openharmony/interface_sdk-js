@@ -48,6 +48,7 @@ declare namespace dataShare {
      * Specifies whether the {@link DataShareHelper} in proxy mode.
      * If value is true, the {@link DataShareHelper} to be created is in proxy mode, and all operations will not open provider APP as possible
      *
+     * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
@@ -55,6 +56,17 @@ declare namespace dataShare {
      * @since 10
      */
     isProxy?: boolean;
+    /**
+     * Specifies the time to wait for connecting extension, in seconds.
+     *
+     * @type { ?number }
+     * @default 2
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 16
+     */
+    waitTime?: number;
   }
 
   /**
@@ -177,6 +189,7 @@ declare namespace dataShare {
      * Specifies the id of subscriber, who process the callback
      * Same as subscriberId in {@link DataShareHelper#addTemplate}
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -187,6 +200,7 @@ declare namespace dataShare {
      * Specifies the bundleName of template owner, who create the template
      * Same as the caller's bundleName of {@link DataShareHelper#addTemplate}
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -208,6 +222,7 @@ declare namespace dataShare {
     /**
      * Specifies the key of the published data
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -218,6 +233,7 @@ declare namespace dataShare {
      * Specifies the published data
      * If the data is large, use ArrayBuffer.
      *
+     * @type { string | ArrayBuffer }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -227,6 +243,7 @@ declare namespace dataShare {
     /**
      * Specifies the subscriber id
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -248,6 +265,7 @@ declare namespace dataShare {
     /**
      * Specifies the uri of the callback.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -257,6 +275,7 @@ declare namespace dataShare {
     /**
      * Specifies the templateId of the callback.
      *
+     * @type { TemplateId }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -268,6 +287,7 @@ declare namespace dataShare {
      * every node is a json, json's key is [key of {@link Template#predicates}
      * and value is the query result from rdb store query by value of{@link Template#predicates}].
      *
+     * @type { Array<string> }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -289,6 +309,7 @@ declare namespace dataShare {
     /**
      * Specifies the bundleName of the callback.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -298,6 +319,7 @@ declare namespace dataShare {
     /**
      * Specifies the datas of the callback.
      *
+     * @type { Array<PublishedItem> }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -344,12 +366,25 @@ declare namespace dataShare {
      * Specifies the scheduler sql of the template.
      * When modify the subscribed uri's data, scheduler is auto called.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
      * @since 10
      */
     scheduler: string;
+
+    /**
+     * Specifies the update sql of the template.
+     * The update is called after the predicates execution is complete.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 16
+     */
+    update?: string;
   }
   /**
    * Specifies the operation result structure.
@@ -364,6 +399,7 @@ declare namespace dataShare {
     /**
      * Specifies the key of the operation result.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -374,6 +410,7 @@ declare namespace dataShare {
     /**
      * Specifies the operation result.
      *
+     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -395,6 +432,7 @@ declare namespace dataShare {
     /**
      * Indicates the data to update.
      * 
+     * @type { ValuesBucket }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -405,6 +443,7 @@ declare namespace dataShare {
     /**
      * Indicates filter criteria.
      * 
+     * @type { dataSharePredicates.DataSharePredicates }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -486,6 +525,7 @@ declare namespace dataShare {
       /**
        * Type of the data change.
        *
+       * @type { ChangeType }
        * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
        * @systemapi
        * @stagemodelonly
@@ -496,6 +536,7 @@ declare namespace dataShare {
       /**
        * URI of the data changed.
        *
+       * @type { string }
        * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
        * @systemapi
        * @stagemodelonly
@@ -505,6 +546,7 @@ declare namespace dataShare {
       /**
         * Data changed.
         *
+        * @type { Array<ValuesBucket> }
         * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
         * @systemapi
         * @stagemodelonly
@@ -581,7 +623,7 @@ declare namespace dataShare {
     /**
      * Subscribes to the change of the data specified by the given URI.
      *
-     * @param { 'dataChange' } type - Indicates the event type, which must be 'dataChange'.
+     * @param { 'dataChange' } event - Indicates the event type, which must be 'dataChange'.
      * @param { SubscriptionType } type - Indicates the subscription type, which is defined in {@link SubscriptionType}.
      * @param { string } uri - Indicates the path of the data to subscribe.
      * @param { AsyncCallback<ChangeInfo> } callback - Indicates the callback used to return the data change.
@@ -599,7 +641,7 @@ declare namespace dataShare {
     /**
      * Unsubscribes from the change of the data specified by the given URI.
      *
-     * @param { 'dataChange' } type - Indicates the event type, which must be 'dataChange'.
+     * @param { 'dataChange' } event - Indicates the event type, which must be 'dataChange'.
      * @param { SubscriptionType } type - Indicates the subscription type, which is defined in {@link SubscriptionType}.
      * @param { string } uri - Indicates the path of the data to unsubscribe.
      * @param { AsyncCallback<ChangeInfo> } callback - Indicates the callback to unsubscribe.

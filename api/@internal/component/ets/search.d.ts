@@ -117,6 +117,7 @@ declare class SearchController extends TextContentControllerBase {
    * @param { SelectionOptions } [options] - Indicates the options of the text selection.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   setTextSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
@@ -283,6 +284,7 @@ declare enum SearchType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   NUMBER_DECIMAL = 12,
@@ -296,6 +298,92 @@ declare enum SearchType {
    * @since 12
    */
   URL = 13,
+}
+
+/**
+ * Options used to construct the search.
+ *
+ * @typedef SearchOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare interface SearchOptions {
+  /**
+   * Text input in the search text box.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Text input in the search text box.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
+  value?: string;
+
+  /**
+   * Text displayed when there is no input.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Text displayed when there is no input.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  /**
+   * Text displayed when there is no input.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
+  placeholder?: ResourceStr;
+
+  /**
+   * Path to the search icon.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Path to the search icon.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
+  icon?: string;
+
+  /**
+   * Controller of the <Search> component.
+   *
+   * @type { ?SearchController }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Controller of the <Search> component.
+   *
+   * @type { ?SearchController }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
+  controller?: SearchController;
 }
 
 /**
@@ -350,82 +438,17 @@ interface SearchInterface {
    * @atomicservice
    * @since 11
    */
-  (options?: {
-    /**
-     * Text input in the search text box
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */
-    /**
-     * Text input in the search text box
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 11
-     */
-    value?: string;
-
-    /**
-     * Text displayed when there is no input
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */
-    /**
-     * Text displayed when there is no input
-     *
-     * @type { ?ResourceStr }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 10
-     */
-    /**
-     * Text displayed when there is no input
-     *
-     * @type { ?ResourceStr }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 11
-     */
-    placeholder?: ResourceStr;
-
-    /**
-     * Path to the search icon
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */
-    /**
-     * Path to the search icon
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 11
-     */
-    icon?: string;
-
-    /**
-     * Controller of the <Search> component
-     *
-     * @type { ?SearchController }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */
-    /**
-     * Controller of the <Search> component
-     *
-     * @type { ?SearchController }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 11
-     */
-    controller?: SearchController
-  }): SearchAttribute;
+  /**
+   * The options of SearchInterface.
+   *
+   * @param { SearchOptions } [options] - Search options.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  (options?: SearchOptions): SearchAttribute;
 }
 
 /**
@@ -559,6 +582,17 @@ interface SearchButtonOptions {
    * @since 11
    */
   fontColor?: ResourceColor;
+
+  /**
+   * Automatically disables the search button before the user enters text
+   *
+   * @type { ?Boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  autoDisable?: Boolean;
 }
 
 /**
@@ -626,6 +660,19 @@ interface CancelButtonSymbolOptions {
    */
   icon?: SymbolGlyphModifier;
 }
+
+/**
+ * Declare the event listener callback of the enter key.
+ *
+ * @typedef { function } SearchSubmitCallback
+ * @param { string } searchContent - The submitted content of search.
+ * @param { SubmitEvent } [event] - Provides the method of keeping Search editable state when submitted.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare type SearchSubmitCallback = (searchContent: string, event?: SubmitEvent) => void;
 
 /**
  * The attribute function of search
@@ -774,6 +821,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @returns { SearchAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   textIndent(value: Dimension): SearchAttribute;
@@ -786,6 +834,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   inputFilter(value: ResourceStr, error?: Callback<string>): SearchAttribute;
@@ -797,6 +846,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onEditChange(callback: Callback<boolean>): SearchAttribute;
@@ -808,6 +858,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   selectedBackgroundColor(value: ResourceColor): SearchAttribute;
@@ -927,6 +978,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   enterKeyType(value: EnterKeyType): SearchAttribute;
@@ -958,7 +1010,28 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @atomicservice
    * @since 11
    */
-  onSubmit(callback: (value: string) => void): SearchAttribute;
+  /**
+   * Call the function when clicked the search button.
+   *
+   * @param { Callback<string> } callback
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onSubmit(callback: Callback<string>): SearchAttribute;
+  /**
+   * Call the function when clicked the search button.
+   *
+   * @param { SearchSubmitCallback } callback - callback of the listened event.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onSubmit(callback: SearchSubmitCallback): SearchAttribute;
 
   /**
    * Call the function when editing the input text
@@ -1018,7 +1091,17 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @atomicservice
    * @since 11
    */
-  onTextSelectionChange(callback: (selectionStart: number, selectionEnd: number) => void): SearchAttribute;
+  /**
+   * Called when the text selection changes.
+   *
+   * @param { OnTextSelectionChangeCallback } callback - Callback of the listened event.
+   * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onTextSelectionChange(callback: OnTextSelectionChangeCallback): SearchAttribute;
 
   /**
    * Called when the content scrolls.
@@ -1039,7 +1122,17 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @atomicservice
    * @since 11
    */
-  onContentScroll(callback: (totalOffsetX: number, totalOffsetY: number) => void): SearchAttribute;
+  /**
+   * Called when the content scrolls.
+   *
+   * @param { OnContentScrollCallback } callback - Callback of the listened event.
+   * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onContentScroll(callback: OnContentScrollCallback): SearchAttribute;
 
   /**
    * Called when using the Clipboard menu
@@ -1068,7 +1161,17 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @atomicservice
    * @since 11
    */
-  onCopy(callback: (value: string) => void): SearchAttribute;
+  /**
+   * Called when using the Clipboard menu.
+   *
+   * @param { Callback<string> } callback
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onCopy(callback: Callback<string>): SearchAttribute;
 
   /**
    * Called when using the Clipboard menu
@@ -1097,7 +1200,17 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @atomicservice
    * @since 11
    */
-  onCut(callback: (value: string) => void): SearchAttribute;
+  /**
+   * Called when using the Clipboard menu.
+   *
+   * @param { Callback<string> } callback
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onCut(callback: Callback<string>): SearchAttribute;
 
   /**
    * Called when using the Clipboard menu
@@ -1129,7 +1242,17 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @atomicservice
    * @since 11
    */
-  onPaste(callback: (value: string, event: PasteEvent) => void): SearchAttribute;
+  /**
+   * Called when using the Clipboard menu.
+   *
+   * @param { OnPasteCallback } callback - Executed when a paste operation is performed.
+   * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onPaste(callback: OnPasteCallback): SearchAttribute;
 
   /**
    * Called when the copy option is set.
@@ -1259,6 +1382,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   minFontSize(value: number | string | Resource): SearchAttribute;
@@ -1270,6 +1394,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   maxFontSize(value: number | string | Resource): SearchAttribute;
@@ -1312,6 +1437,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   decoration(value: TextDecorationOptions): SearchAttribute;
@@ -1323,6 +1449,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   letterSpacing(value: number | string | Resource): SearchAttribute;
@@ -1334,6 +1461,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   lineHeight(value: number | string | Resource): SearchAttribute;
@@ -1370,6 +1498,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   fontFeature(value: string): SearchAttribute;
@@ -1381,6 +1510,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onWillInsert(callback: Callback<InsertValue, boolean>): SearchAttribute;
@@ -1392,6 +1522,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onDidInsert(callback: Callback<InsertValue>): SearchAttribute;
@@ -1403,6 +1534,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onWillDelete(callback: Callback<DeleteValue, boolean>): SearchAttribute;
@@ -1414,6 +1546,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onDidDelete(callback: Callback<DeleteValue>): SearchAttribute;
@@ -1441,6 +1574,18 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 12
    */
   enablePreviewText(enable: boolean): SearchAttribute;
+
+  /**
+   * Enable or disable haptic feedback.
+   *
+   * @param { boolean } isEnabled - Default value is true, set false to disable haptic feedback.
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 13
+   */
+  enableHapticFeedback(isEnabled: boolean): SearchAttribute;
 }
 
 /**

@@ -141,6 +141,32 @@ export interface RenderOptions {
   surfaceId?: string;
 }
 
+
+/**
+ * BuildOptions info.
+ *
+ * @interface BuildOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+export interface BuildOptions {
+
+  /**
+   * Build type of the Builder.
+   * @type { ?boolean } nestingBuilderSupported - Build type of the Builder.
+   * Indicates whether support the type that WrappedBuilder contains builder used different params.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  nestingBuilderSupported?: boolean;
+
+}
+
 /**
  * Defines BuilderNode.
  *
@@ -198,6 +224,19 @@ export class BuilderNode<Args extends Object[]> {
    * @since 12
    */
   build(builder: WrappedBuilder<Args>, arg?: Object): void;
+
+  /**
+   * Build the BuilderNode with the builder.Support the type that WrappedBuilder contains builder used different params.
+   *
+   * @param { WrappedBuilder<Args> } builder - Defined the builder will be called to build the node.
+   * @param { Object } arg - Defined the args will be used in the builder.
+   * @param { BuildOptions } options - Defined the options will be used when build.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  build(builder: WrappedBuilder<Args>, arg: Object, options: BuildOptions): void;
 
   /**
    * Update the BuilderNode based on the provided parameters.
@@ -274,6 +313,7 @@ export class BuilderNode<Args extends Object[]> {
    * @param { Object } [param] - Parameters for reusing BuilderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   reuse(param?: Object): void;
@@ -283,7 +323,18 @@ export class BuilderNode<Args extends Object[]> {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   recycle(): void;
+
+  /**
+   * Notify BuilderNode to update the configuration to trigger a reload of the BuilderNode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+   updateConfiguration(): void;
 }

@@ -178,6 +178,95 @@ declare enum SideBarPosition {
 }
 
 /**
+ * ButtonStyle icons.
+ *
+ * @typedef ButtonIconOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare interface ButtonIconOptions {
+  /**
+   * Defines whether an icon is shown.
+   *
+   * @type { string | PixelMap | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Defines whether an icon is shown.
+   *
+   * @type { string | PixelMap | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Defines whether an icon is shown.
+   *
+   * @type { string | PixelMap | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  shown: string | PixelMap | Resource;
+
+  /**
+   * Defines whether an icon is hidden.
+   *
+   * @type { string | PixelMap | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Defines whether an icon is hidden.
+   *
+   * @type { string | PixelMap | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Defines whether an icon is hidden.
+   *
+   * @type { string | PixelMap | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  hidden: string | PixelMap | Resource;
+
+  /**
+   * Defines whether an icon is switching.
+   *
+   * @type { ?(string | PixelMap | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Defines whether an icon is switching.
+   *
+   * @type { ?(string | PixelMap | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Defines whether an icon is switching.
+   *
+   * @type { ?(string | PixelMap | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  switching?: string | PixelMap | Resource;
+}
+
+/**
  * Sets the control button style
  *
  * @interface ButtonStyle
@@ -321,15 +410,14 @@ declare interface ButtonStyle {
   /**
    * Set the button icon when sidebar status has changed
    *
-   * @type { ?({shown: string | PixelMap | Resource;
-   * hidden: string | PixelMap | Resource;
-   * switching?: string | PixelMap | Resource;}) }
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Set the button icon when sidebar status has changed
    *
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -337,16 +425,22 @@ declare interface ButtonStyle {
   /**
    * Set the button icon when sidebar status has changed
    *
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  icons?: {
-    shown: string | PixelMap | Resource;
-    hidden: string | PixelMap | Resource;
-    switching?: string | PixelMap | Resource;
-  };
+  /**
+   * Set the button icon when sidebar status has changed
+   *
+   * @type { ?ButtonIconOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  icons?: ButtonIconOptions;
 }
 
 /**

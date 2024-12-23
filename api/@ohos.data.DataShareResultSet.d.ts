@@ -95,6 +95,7 @@ export default interface DataShareResultSet {
    * The column or key names are returned as a string array, in which the strings are in the same order
    * as the columns or keys in the result set.
    *
+   * @type { Array<string> }
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @StageModelOnly
@@ -106,6 +107,7 @@ export default interface DataShareResultSet {
    * Obtains the number of columns or keys in the result set.
    * The returned number is equal to the length of the string array returned by the columnCount method.
    *
+   * @type { number }
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @StageModelOnly
@@ -116,6 +118,7 @@ export default interface DataShareResultSet {
   /**
    * Obtains the number of rows in the result set.
    *
+   * @type { number }
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @StageModelOnly
@@ -127,6 +130,7 @@ export default interface DataShareResultSet {
    * Checks whether the current result set is closed.
    * If the result set is closed by calling the close method, true will be returned.
    *
+   * @type { boolean }
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @StageModelOnly

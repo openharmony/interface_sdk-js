@@ -273,7 +273,18 @@ interface ScrollBarInterface {
  * @atomicservice
  * @since 11
  */
-declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {}
+declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
+    /**
+     * Called when setting whether to enable nested scroll.
+     * @param { Optional<boolean> } enabled - Whether to enable nested scroll.
+     * @returns { ScrollBarAttribute } The attribute of the scroll bar
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    enableNestedScroll(enabled: Optional<boolean>): ScrollBarAttribute;
+}
 
 /**
  * Defines ScrollBar Component.

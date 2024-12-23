@@ -142,7 +142,7 @@ declare namespace drawing {
      */
     DARKEN = 16,
     /**
-     * Choose a lighter background and source color. 
+     * Choose a lighter background and source color.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
@@ -166,7 +166,7 @@ declare namespace drawing {
      */
     HARD_LIGHT = 20,
     /**
-     * Lightens or Darkens the colors, depending on the source. 
+     * Lightens or Darkens the colors, depending on the source.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
@@ -274,6 +274,33 @@ declare namespace drawing {
   }
 
   /**
+  * Enumerate path measure flags for matrix.
+  * @enum { number }
+  * @syscap SystemCapability.Graphics.Drawing
+  * @since 12
+  */
+  enum PathMeasureMatrixFlags {
+    /**
+     * Gets position.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    GET_POSITION_MATRIX = 0,
+    /**
+     * Gets tangent.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    GET_TANGENT_MATRIX = 1,
+    /**
+     * Gets both position and tangent.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    GET_POSITION_AND_TANGENT_MATRIX = 2,
+  }
+
+  /**
    * Provides the definition of the roundRect.
    *
    * @syscap SystemCapability.Graphics.Drawing
@@ -291,15 +318,107 @@ declare namespace drawing {
      * @since 12
      */
     constructor(rect: common2D.Rect, xRadii: number, yRadii: number);
+
+    /**
+     * Sets the radiusX and radiusY for a specific corner position.
+     * @param { CornerPos } pos - Indicates the corner radius position.
+     * @param { number } x - Indicates the corner radius on x-axis.
+     * @param { number } y - Indicates the corner radius on y-axis.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    setCorner(pos: CornerPos, x: number, y: number): void;
+
+    /**
+     * Gets a point with the values of x-axis and y-axis of the selected corner radius.
+     * @param { CornerPos } pos - Indicates the corner radius position.
+     * @returns { common2D.Point } Returns a point with the values of x-axis and y-axis of the corner radius.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getCorner(pos: CornerPos): common2D.Point;
+
+    /**
+     * Translates round rect by (dx, dy).
+     * @param { number } dx - Indicates the offsets added to rect left and rect right.
+     * @param { number } dy - Indicates the offsets added to rect top and rect bottom.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    offset(dx: number, dy: number): void;
+  }
+
+  /**
+   * Enumerates of operations when two paths are combined.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  enum PathOp {
+    /**
+     * Difference operation.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    DIFFERENCE = 0,
+
+    /**
+     * Intersect operation.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    INTERSECT = 1,
+
+    /**
+     * Union operation.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    UNION = 2,
+
+    /**
+     * Xor operation.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    XOR = 3,
+
+    /**
+     * Reverse difference operation.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    REVERSE_DIFFERENCE = 4,
   }
 
   /**
    * Describes a path object.
-   * 
+   *
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
   class Path {
+    /**
+     * Creates a Path.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    constructor();
+
+    /**
+     * Creates a Path from other path.
+     * @param { Path } path - the path to copy content from.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    constructor(path: Path);
+
     /**
      * Sets the start point of a path
      * @param { number } x - Indicates the x coordinate of the start point.
@@ -325,7 +444,7 @@ declare namespace drawing {
     /**
      * This is done by using angle arc mode. In this mode, a rectangle that encloses an ellipse is specified first,
      * and then a start angle and a sweep angle are specified.
-     * The arc is a portion of the ellipse defined by the start angle and the sweep angle. 
+     * The arc is a portion of the ellipse defined by the start angle and the sweep angle.
      * By default, a line segment from the last point of the path to the start point of the arc is also added.
      * @param { number } x1 - Indicates the x coordinate of the upper left corner of the rectangle.
      * @param { number } y1 - Indicates the y coordinate of the upper left corner of the rectangle.
@@ -354,6 +473,20 @@ declare namespace drawing {
     quadTo(ctrlX: number, ctrlY: number, endX: number, endY: number): void;
 
     /**
+     * Draws a conic from the last point of a path to the target point.
+     * @param { number } ctrlX - Indicates the x coordinate of the control point.
+     * @param { number } ctrlY - Indicates the y coordinate of the control point.
+     * @param { number } endX - Indicates the x coordinate of the target point.
+     * @param { number } endY - Indicates the y coordinate of the target point.
+     * @param { number } weight - Indicates the weight of added conic.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    conicTo(ctrlX: number, ctrlY: number, endX: number, endY: number, weight: number): void;
+
+    /**
      * Draws a cubic Bezier curve from the last point of a path to the target point.
      * @param { number } ctrlX1 - Indicates the x coordinate of the first control point.
      * @param { number } ctrlY1 - Indicates the y coordinate of the first control point.
@@ -367,6 +500,93 @@ declare namespace drawing {
      * @since 11
      */
     cubicTo(ctrlX1: number, ctrlY1: number, ctrlX2: number, ctrlY2: number, endX: number, endY: number): void;
+
+    /**
+     * Sets the relative starting point of a path.
+     * @param { number } dx - Indicates the x coordinate of the relative starting point.
+     * @param { number } dy - Indicates the y coordinate of the relative starting point.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    rMoveTo(dx: number, dy: number): void;
+
+    /**
+     * Draws a line segment from the last point of a path to the relative target point.
+     * @param { number } dx - Indicates the x coordinate of the relative target point.
+     * @param { number } dy - Indicates the y coordinate of the relative target point.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    rLineTo(dx: number, dy: number): void;
+
+    /**
+     * Draws a quadratic bezier curve from the last point of a path to the relative target point.
+     * @param { number } dx1 - Indicates the x coordinate of the relative control point.
+     * @param { number } dy1 - Indicates the y coordinate of the relative control point.
+     * @param { number } dx2 - Indicates the x coordinate of the relative target point.
+     * @param { number } dy2 - Indicates the y coordinate of the relative target point.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    rQuadTo(dx1: number, dy1: number, dx2: number, dy2: number): void;
+
+    /**
+     * Draws a conic from the last point of a path to the relative target point.
+     * @param { number } ctrlX - Indicates the x coordinate of the relative control point.
+     * @param { number } ctrlY - Indicates the y coordinate of the relative control point.
+     * @param { number } endX - Indicates the x coordinate of the relative target point.
+     * @param { number } endY - Indicates the y coordinate of the relative target point.
+     * @param { number } weight - Indicates the weight of added conic.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    rConicTo(ctrlX: number, ctrlY: number, endX: number, endY: number, weight: number): void;
+
+    /**
+     * Draws a cubic bezier curve from the last point of a path to the relative target point.
+     * @param { number } ctrlX1 - Indicates the x coordinate of the first relative control point.
+     * @param { number } ctrlY1 - Indicates the y coordinate of the first relative control point.
+     * @param { number } ctrlX2 - Indicates the x coordinate of the second relative control point.
+     * @param { number } ctrlY2 - Indicates the y coordinate of the second relative control point.
+     * @param { number } endX - Indicates the x coordinate of the relative target point.
+     * @param { number } endY - Indicates the y coordinate of the relative target point.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    rCubicTo(ctrlX1: number, ctrlY1: number, ctrlX2: number, ctrlY2: number, endX: number, endY: number): void;
+
+    /**
+     * Adds contour created from point array, adding (count - 1) line segments.
+     * @param { Array<common2D.Point> } points - Indicates the point array.
+     * @param { boolean } close - Indicates Whether to add lines that connect the end and start.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    addPolygon(points: Array<common2D.Point>, close: boolean): void;
+
+    /**
+     * Combines two paths.
+     * @param { Path } path - Indicates the Path object.
+     * @param { PathOp } pathOp - Indicates the operator to apply path.
+     * @returns { boolean } boolean - Returns true if constructed path is not empty; returns false otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    op(path: Path, pathOp: PathOp): boolean;
 
     /**
      * Appends arc to path, as the start of new contour.
@@ -487,6 +707,18 @@ declare namespace drawing {
     close(): void;
 
     /**
+     * Offsets point array by (dx, dy). Path is replaced by offset data.
+     * @param { number } dx - Indicates offset added to dst path x-axis coordinates.
+     * @param { number } dy - Indicates offset added to dst path y-axis coordinates.
+     * @returns { Path } Returns a new Path object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    offset(dx: number, dy: number): Path;
+
+    /**
      * Resets path data.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
@@ -501,6 +733,55 @@ declare namespace drawing {
      * @since 12
      */
     getLength(forceClosed: boolean): number;
+
+    /**
+     * Gets the position and tangent of the distance from the starting position of the path.
+     * 
+     * @param { boolean } forceClosed - Whether to close the path.
+     * @param { number } distance - The distance from the start of the path, should be greater than 0 and less than 'GetLength()'
+     * @param { common2D.Point } position - Sets to the position of distance from the starting position of the path.
+     * @param { common2D.Point } tangent - Sets to the tangent of distance from the starting position of the path.
+     * @returns { boolean } - Returns true if succeeded, otherwise false.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getPositionAndTangent(forceClosed: boolean, distance: number, position: common2D.Point, tangent: common2D.Point): boolean;
+
+    /**
+     * Determines whether the current contour is closed.
+     * 
+     * @returns { boolean } - Returns true if the current contour is closed, otherwise false.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    isClosed(): boolean;
+
+    /**
+     * Computes the corresponding matrix at the specified distance.
+     * 
+     * @param { boolean } forceClosed - Whether to close the path.
+     * @param { number } distance - The distance from the start of the path.
+     * @param { Matrix } matrix - Indicates the pointer to an Matrix object.
+     * @param { PathMeasureMatrixFlags } flags - Indicates what should be returned in the matrix.
+     * @returns { boolean } - Returns false if there is no path, or a zero-length path was specified, in which case matrix is unchanged.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+    */
+    getMatrix(forceClosed: boolean, distance: number, matrix: Matrix, flags: PathMeasureMatrixFlags): boolean;
+
+    /**
+     * Parses the SVG format string that describes the drawing path, and sets the path.
+     *
+     * @param { string } str - A string in SVG format that describes the drawing path.
+     * @returns { boolean } true if build succeeded, otherwise false.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    buildFromSvgString(str: string): boolean;
   }
 
   /**
@@ -553,6 +834,42 @@ declare namespace drawing {
      * @since 12
      */
     FILTER_MODE_LINEAR = 1,
+  }
+
+  /**
+   * Enumerates of shadow flags.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  enum ShadowFlag {
+    /**
+     * Use no shadow flags.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    NONE = 0,
+
+    /**
+     * The occluding object is transparent.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    TRANSPARENT_OCCLUDER = 1,
+
+    /**
+     * No need to analyze shadows.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    GEOMETRIC_ONLY = 2,
+
+    /**
+     * Use all shadow flags.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    ALL = 3,
   }
 
   /**
@@ -620,6 +937,54 @@ declare namespace drawing {
     drawRect(left: number, top: number, right: number, bottom: number): void;
 
     /**
+     * Draws a RoundRect.
+     * @param { RoundRect } roundRect - Indicates the RectRound object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    drawRoundRect(roundRect: RoundRect): void;
+
+    /**
+     * Draws a nested RoundRect.
+     * @param { RoundRect } outer - Indicates the outer RectRound object.
+     * @param { RoundRect } inner - Indicates the inner RectRound object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    drawNestedRoundRect(outer: RoundRect, inner: RoundRect): void;
+
+    /**
+     * Fills clipped canvas area with brush.
+     * @param { Brush } brush - Indicates the Brush object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    drawBackground(brush: Brush): void;
+
+    /**
+     * Draws an offset spot shadow and outlining ambient shadow for the given path with circular light.
+     * @param { Path } path - Indicates the Path object.
+     * @param { common2D.Point3d } planeParams - Represents z offset of the occluder from the canvas based on x and y.
+     * @param { common2D.Point3d } devLightPos - Represents the position of the light relative to the canvas.
+     * @param { number } lightRadius - The radius of the circular light.
+     * @param { common2D.Color } ambientColor - Ambient shadow's color.
+     * @param { common2D.Color } spotColor - Spot shadow's color.
+     * @param { ShadowFlag } flag - Indicates the flag to control opaque occluder, shadow, and light position.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    drawShadow(path: Path, planeParams: common2D.Point3d, devLightPos: common2D.Point3d, lightRadius: number,
+      ambientColor: common2D.Color, spotColor: common2D.Color, flag: ShadowFlag) : void;
+
+    /**
      * If radius is zero or less, nothing is drawn. If circle is stroked, use pen to
      * stroke width describes the line thickness, else use brush to fill the circle.
      * @param { number } x - X coordinate of the circle center.
@@ -653,6 +1018,35 @@ declare namespace drawing {
      * @since 12
      */
     drawImage(pixelmap: image.PixelMap, left: number, top: number, samplingOptions?: SamplingOptions): void;
+
+    /**
+     * Draws the specified source image onto the canvas,
+     * scaled and translated to the destination rectangle.
+     * @param { image.PixelMap } pixelmap - The source image.
+     * @param { common2D.Rect } dstRect - The area of destination canvas.
+     * @param { SamplingOptions } samplingOptions - SamplingOptions used to describe the sampling mode.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    drawImageRect(pixelmap: image.PixelMap, dstRect: common2D.Rect, samplingOptions?: SamplingOptions): void;
+
+    /**
+     * Draws the specified source rectangle of the image onto the canvas,
+     * scaled and translated to the destination rectangle.
+     * @param { image.PixelMap } pixelmap - The source image.
+     * @param { common2D.Rect } srcRect - The area of source image.
+     * @param { common2D.Rect } dstRect - The area of destination canvas.
+     * @param { SamplingOptions } samplingOptions - SamplingOptions used to describe the sampling mode.
+     * @param { SrcRectConstraint } constraint - Constraint type. The default value is STRICT.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    drawImageRectWithSrc(pixelmap: image.PixelMap, srcRect: common2D.Rect, dstRect: common2D.Rect,
+      samplingOptions?: SamplingOptions, constraint?: SrcRectConstraint): void;
 
     /**
      * Fills clip with color color. Mode determines how ARGB is combined with destination.
@@ -846,7 +1240,7 @@ declare namespace drawing {
      * @param { common2D.Rect | null} rect - Optional layer size. The default value is null.
      * @param { Brush | null} brush - Optional brush effect used to draw the layer. The default value is null.
      * @returns { number } Return the number of saved states before this call.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -902,6 +1296,22 @@ declare namespace drawing {
      * @since 12
      */
     getHeight(): number;
+
+    /**
+     * Gets the bounds of clip of a canvas.
+     * @returns { common2D.Rect } Rect object.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getLocalClipBounds(): common2D.Rect;
+
+    /**
+     * Gets a 3x3 matrix of the transform from local coordinates to 'device'.
+     * @returns { Matrix } Matrix object.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getTotalMatrix(): Matrix;
 
     /**
      * Scales by sx on the x-axis and sy on the y-axis.
@@ -985,6 +1395,39 @@ declare namespace drawing {
     concatMatrix(matrix: Matrix): void;
 
     /**
+     * Replace the clipping area with the intersection or difference of the
+     * current clipping area and Region, and use a clipping edge that is aliased or anti-aliased.
+     * @param { Region } region - Region object.
+     * @param { ClipOp } clipOp - Indicates the operation to apply to clip. The default value is intersect.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    clipRegion(region: Region, clipOp?: ClipOp): void;
+
+    /**
+     * Replaces the clipping area with the intersection or difference between the
+     * current clipping area and RoundRect, and use a clipping edge that is aliased or anti-aliased.
+     * @param { RoundRect } roundRect - To combine with clipping area.
+     * @param { ClipOp } clipOp - Indicates the operation to apply to clip. The default value is intersect.
+     * @param { boolean } doAntiAlias - True if clip is to be anti-aliased. The default value is false.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    clipRoundRect(roundRect: RoundRect, clipOp?: ClipOp, doAntiAlias?: boolean): void;
+
+    /**
+     * Checks whether the drawable area is empty.
+     * @returns { boolean } Returns true if drawable area is empty.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    isClipEmpty(): boolean;
+
+    /**
      * Sets matrix of canvas.
      * @param { Matrix } matrix - Declares functions related to the matrix object in the drawing module.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -993,6 +1436,13 @@ declare namespace drawing {
      * @since 12
      */
     setMatrix(matrix: Matrix): void;
+
+    /**
+     * Sets matrix of canvas to the identity matrix.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    resetMatrix(): void;
   }
 
   /**
@@ -1083,7 +1533,7 @@ declare namespace drawing {
 
   /**
    * Provide a description of the text
-   * 
+   *
    * class TextBlob
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
@@ -1102,6 +1552,21 @@ declare namespace drawing {
      * @since 11
      */
     static makeFromString(text: string, font: Font, encoding?: TextEncoding): TextBlob;
+
+    /**
+     * Create a textblob from a string, each element of which is located at the given positions.
+     * @param { string } text - Drawn glyph content.
+     * @param { number } len - string length, value must equal to points length.
+     * @param { common2D.Point[] } points - Position coordinates of a textblob elements.
+     * @param { Font } font - Specify text size, font, text scale, etc.
+     * @returns { TextBlob } TextBlob object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    static makeFromPosText(text: string, len: number, points: common2D.Point[], font: Font): TextBlob;
 
     /**
      * Creating a textblob object based on RunBuffer information
@@ -1124,11 +1589,19 @@ declare namespace drawing {
      * @since 11
      */
     bounds(): common2D.Rect;
+
+    /**
+     * Returns an unique identifier for a textblob.
+     * @returns { number } Unique ID.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    uniqueID(): number;
   }
-  
+
   /**
    * The Typeface class specifies the typeface and intrinsic style of a font.
-   * 
+   *
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
@@ -1222,7 +1695,7 @@ declare namespace drawing {
 
   /**
    * Font controls options applied when drawing and measuring text.
-   * 
+   *
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
@@ -1373,6 +1846,171 @@ declare namespace drawing {
      * @since 12
      */
     countText(text: string): number;
+
+    /**
+     * Sets whether the font baselines and pixels alignment when the transformation matrix is ​​axis aligned.
+     * @param { boolean } isBaselineSnap - Indicates whether the font baselines and pixels alignment.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    setBaselineSnap(isBaselineSnap: boolean): void;
+
+    /**
+     * Gets whether the font baselines and pixels alignment when the transformation matrix is ​​axis aligned.
+     * @returns { boolean } Returns true if the font baselines and pixels alignment; returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    isBaselineSnap(): boolean;
+
+    /**
+     * Sets whether to use bitmaps instead of outlines in the object.
+     * @param { boolean } isEmbeddedBitmaps - Indicates whether to use bitmaps instead of outlines.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    setEmbeddedBitmaps(isEmbeddedBitmaps: boolean): void;
+
+    /**
+     * Gets whether to use bitmaps instead of outlines in the object.
+     * @returns { boolean } if using bitmaps instead of outlines; returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    isEmbeddedBitmaps(): boolean;
+
+    /**
+     * Sets whether the font outline is automatically adjusted.
+     * @param { boolean } isForceAutoHinting - Indicates whether the font outline is automatically adjusted.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    setForceAutoHinting(isForceAutoHinting: boolean): void;
+
+    /**
+     * Gets whether the font outline is automatically adjusted.
+     * @returns { boolean } Returns true if the font outline is automatically adjusted; returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    isForceAutoHinting(): boolean;
+
+    /**
+     * Retrieves the advance for each glyph in glyphs.
+     * @param { Array<number> } glyphs - Array of glyph indices to be measured.
+     * @returns { Array<number> } Returns the width of each character in a string.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getWidths(glyphs: Array<number>): Array<number>;
+
+    /**
+     * Gets storage for glyph indexes.
+     * @param { string } text - Indicates the character storage encoded with text encoding.
+     * @param { number } glyphCount - The number of glyph. The default value is the result of calling countText.
+     * @returns { Array<number> } Returns the storage for glyph indices.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    textToGlyphs(text: string, glyphCount?: number): Array<number>;
+
+    /**
+     * Returns true if glyphs may be drawn at sub-pixel offsets.
+     * @returns { boolean } True if glyphs may be drawn at sub-pixel offsets.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    isSubpixel(): boolean;
+    /**
+     * Returns true if font and glyph metrics are requested to be linearly scalable.
+     * @returns { boolean } True if font and glyph metrics are requested to be linearly scalable.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    isLinearMetrics(): boolean;
+    /**
+     * Returns text skew on x-axis.
+     * @returns { number } Additional shear on x-axis relative to y-axis.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getSkewX(): number;
+    /**
+     * Gets whether to increase the stroke width to approximate bold fonts.
+     * @returns { boolean } Returns true to increase the stroke width to approximate bold fonts; 
+     * returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    isEmbolden(): boolean;
+    /**
+     * Returns text scale on x-axis.
+     * @returns { number } Text horizontal scale.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getScaleX(): number;
+    /**
+     * Gets font hinting pattern.
+     * @returns { FontHinting } Font hinting level.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getHinting(): FontHinting;
+    /**
+     * Gets font edge pixels pattern.
+     * @returns { FontEdging } Edge pixels pattern.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getEdging(): FontEdging;
+    /**
+     * Create path object of specified Glyph.
+     * @param { number } index - the index of Glyphs.
+     * @returns { Path } The path object for specified glyph, undefined if not found.
+     * Note: Path use y-axis-goes-down system, y axis is inverted to the y-axis-goes-up system.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    createPathForGlyph(index: number): Path;
+    /**
+     * Retrieves the bounding rect for each glyph in glyphs.
+     * @param { Array<number> } glyphs - Indicates the array of glyph indices to be measured.
+     * @returns { Array<common2D.Rect> } Returns bounds for each glyph relative to (0, 0).
+     * Note: 1. Rect use y-axis-goes-down system, y axis is inverted to the y-axis-goes-up system.
+     * <br>2. Rect use two points(left-bottom & right-top) to describe the bound.
+     * <br>3. The bound rect will be snap to integral boundaries.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    getBounds(glyphs: Array<number>): Array<common2D.Rect>;
+    /**
+     * Get path of text.
+     * @param { string } text - Indicates the character storage encoded with text encoding.
+     * @param { number } byteLength - Indicates the byte length of the text.
+     * @param { number } x - Indicates X coordinate for the starting position of the text within the drawing area.
+     * @param { number } y - Indicates Y coordinate for the starting position of the text within the drawing area.
+     * @returns { Path } The path object for Glyph.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 14
+     */
+    getTextPath(text: string, byteLength: number, x: number, y: number): Path;
   }
 
   /**
@@ -1395,7 +2033,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    UNDERLINE_POSITION_VALID  = 1 << 1,
+    UNDERLINE_POSITION_VALID = 1 << 1,
 
     /**
      * Set if strikethroughThickness of FontMetrics is valid.
@@ -1409,14 +2047,14 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    STRIKETHROUGH_POSITION_VALID  = 1 << 3,
+    STRIKETHROUGH_POSITION_VALID = 1 << 3,
 
     /**
      * set if top, bottom, xMin, xMax of FontMetrics invalid.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    BOUNDS_INVALID               = 1 << 4,
+    BOUNDS_INVALID = 1 << 4,
   }
 
   /**
@@ -1664,6 +2302,138 @@ declare namespace drawing {
   }
 
   /**
+   * Describes a shader effect object.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  class ShaderEffect {
+    /**
+     * Creates an ShaderEffect object that generates a shader with single color.
+     * @param { number } color - Indicates the color used by the shader.
+     * @returns { ShaderEffect } Returns the shader with single color ShaderEffect object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    static createColorShader(color: number): ShaderEffect;
+
+    /**
+     * Creates an ShaderEffect object that generates a linear gradient between the two specified points.
+     * @param { common2D.Point } startPt - Indicates the start point for the gradient.
+     * @param { common2D.Point } endPt - Indicates the end point for the gradient.
+     * @param { Array<number> } colors - Indicates the colors to be distributed between the two points.
+     * @param { TileMode } mode - Indicates the tile mode.
+     * @param { Array<number> | null } pos - Indicates the relative position of each corresponding color
+     * <br> in the colors array. The default value is empty for uniform distribution.
+     * @param { Matrix | null } matrix - Indicates the Matrix object. The default value is null.
+     * @returns { ShaderEffect } Returns a linear gradient ShaderEffect object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    static createLinearGradient(startPt: common2D.Point, endPt: common2D.Point, colors: Array<number>,
+      mode: TileMode, pos?: Array<number> | null, matrix?: Matrix | null): ShaderEffect;
+
+    /**
+     * Creates an ShaderEffect object that generates a radial gradient given the center and radius.
+     * @param { common2D.Point } centerPt - Indicates the center of the circle for the gradient.
+     * @param { number } radius - Indicates the radius of the circle for this gradient.
+     * @param { Array<number> } colors - Indicates the colors to be distributed between the two points.
+     * @param { TileMode } mode - Indicates the tile mode.
+     * @param { Array<number> | null } pos - Indicates the relative position of each corresponding color
+     * <br> in the colors array. The default value is empty for uniform distribution.
+     * @param { Matrix | null } matrix - Indicates the Matrix object. The default value is null.
+     * @returns { ShaderEffect } Returns a radial gradient ShaderEffect object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    static createRadialGradient(centerPt: common2D.Point, radius: number, colors: Array<number>,
+      mode: TileMode, pos?: Array<number> | null, matrix?: Matrix | null): ShaderEffect;
+
+    /**
+     * Creates an ShaderEffect object that generates a sweep gradient given a center.
+     * @param { common2D.Point } centerPt - Indicates the center of the circle for the gradient.
+     * @param { Array<number> } colors - Indicates the colors to be distributed between the two points.
+     * @param { TileMode } mode - Indicates the tile mode.
+     * @param { number } startAngle - The starting angle of the gradient.
+     * @param { number } endAngle - The ending angle of the gradient.
+     * @param { Array<number> | null } pos - Indicates the relative position of each corresponding color
+     * <br> in the colors array. The default value is empty for uniform distribution.
+     * @param { Matrix | null } matrix - Indicates the Matrix object. The default value is null.
+     * @returns { ShaderEffect } Returns a sweep gradient ShaderEffect object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    static createSweepGradient(centerPt: common2D.Point, colors: Array<number>,
+      mode: TileMode, startAngle: number, endAngle: number, pos?: Array<number> | null,
+      matrix?: Matrix | null): ShaderEffect;
+
+    /**
+     * Creates an ShaderEffect object that generates a conical gradient given two circles.
+     * @param { common2D.Point } startPt - Indicates the center of the start circle for the gradient.
+     * @param { number } startRadius - Indicates the radius of the start circle for this gradient.
+     * @param { common2D.Point } endPt - Indicates the center of the end circle for the gradient.
+     * @param { number } endRadius - Indicates the radius of the end circle for this gradient.
+     * @param { Array<number> } colors - Indicates the colors to be distributed between the two points.
+     * @param { TileMode } mode - Indicates the tile mode.
+     * @param { Array<number> | null } pos - Indicates the relative position of each corresponding color
+     * <br> in the colors array. The default value is empty for uniform distribution.
+     * @param { Matrix | null } matrix - Indicates the Matrix object. The default value is null.
+     * @returns { ShaderEffect } Returns a conical gradient ShaderEffect object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    static createConicalGradient(startPt: common2D.Point, startRadius: number, endPt: common2D.Point,
+      endRadius: number, colors: Array<number>, mode: TileMode,
+      pos?: Array<number> | null, matrix?: Matrix | null): ShaderEffect;
+  }
+
+  /**
+   * Enumerates tile modes that describe an image or texture.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  enum TileMode {
+    /**
+     * Replicate the edge color if the shader effect draws outside of its original bounds.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    CLAMP = 0,
+
+    /**
+     * Repeat the shader effect image horizontally and vertically.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    REPEAT = 1,
+
+    /**
+     * Repeat the shader effect image horizontally and vertically, alternating mirror images
+     * so that adjacent images always seam.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    MIRROR = 2,
+
+    /**
+     * Only draw within the original domain, return transparent-black everywhere else.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    DECAL = 3,
+  }
+
+  /**
    * Defines a ShadowLayer, which is used to specify the color, blur radius, and offset of the shadow.
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
@@ -1688,7 +2458,7 @@ declare namespace drawing {
 
   /**
    * ColorFilters are optional objects in the drawing pipeline.
-   * 
+   *
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
@@ -1705,6 +2475,7 @@ declare namespace drawing {
      * @since 11
      */
     static createBlendModeColorFilter(color: common2D.Color, mode: BlendMode): ColorFilter;
+
     /**
      * Create a color filter consisting of two filters.
      * @param { ColorFilter } outer - The filter is used next.
@@ -1717,6 +2488,7 @@ declare namespace drawing {
      * @since 11
      */
     static createComposeColorFilter(outer: ColorFilter, inner: ColorFilter): ColorFilter;
+
     /**
      * Makes a color filter that converts between linear colors and sRGB colors.
      * @returns { ColorFilter } Colorfilter object.
@@ -1725,6 +2497,7 @@ declare namespace drawing {
      * @since 11
      */
     static createLinearToSRGBGamma(): ColorFilter;
+
     /**
      * Makes a color filter that converts between sRGB colors and linear colors.
      * @returns { ColorFilter } Colorfilter object.
@@ -1733,6 +2506,7 @@ declare namespace drawing {
      * @since 11
      */
     static createSRGBGammaToLinear(): ColorFilter;
+
     /**
      * Makes a color filter that multiplies the luma of its input into the alpha channel,
      * and sets the red, green, and blue channels to zero.
@@ -1742,8 +2516,55 @@ declare namespace drawing {
      * @since 11
      */
     static createLumaColorFilter(): ColorFilter;
+    /**
+     * Makes a color filter with a 5x4 color matrix
+     * @param { Array<number> } matrix - Indicates the matrix, which is represented as a number array of length 20.
+     * @returns { ColorFilter } Colorfilter object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    static createMatrixColorFilter(matrix: Array<number>): ColorFilter;
   }
 
+  /**
+   * ImageFilters are optional objects in the drawing pipeline.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  class ImageFilter {
+    /**
+     * Makes an ImageFilter object that blurs its input by the separate X and Y sigmas.
+     * @param { number } sigmaX - Indicates the Gaussian sigma value for blurring along the X axis. Must be > 0.
+     * @param { number } sigmaY - Indicates the Gaussian sigma value for blurring along the Y axis. Must be > 0.
+     * @param { TileMode } tileMode - Indicates the tile mode applied at edges.
+     * @param { ImageFilter | null } imageFilter - Indicates the input filter that is blurred,
+     * uses source bitmap if this is null.
+     * @returns { ImageFilter } ImageFilter object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    static createBlurImageFilter(sigmaX: number, sigmaY: number,
+      tileMode: TileMode, imageFilter?: ImageFilter | null): ImageFilter;
+    /**
+     * Makes an ImageFilter object that applies the color filter to the input.
+     * @param { ColorFilter } colorFilter - Indicates the color filter that transforms the input image.
+     * @param { ImageFilter | null } imageFilter - Indicates the input filter, or uses the source bitmap if this is null.
+     * @returns { ImageFilter } ImageFilter object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    static createFromColorFilter(colorFilter: ColorFilter, imageFilter?: ImageFilter | null): ImageFilter;
+  }
   /**
    * Enumerate join styles. The join style defines the shape of the joins of a
    * polyline segment drawn by the pen.
@@ -1850,14 +2671,60 @@ declare namespace drawing {
    */
   class Pen {
     /**
+     * Constructor for the pen.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    constructor();
+
+    /**
+     * Constructor for the pen from an existing pen object pen.
+     * @param { Pen } pen - Indicates the Pen object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    constructor(pen: Pen);
+
+    /**
+     * Sets the stroke miter limit for a polyline drawn by a pen.
+     * @param { number } miter - Indicates a variable that describes the miter limit.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    setMiterLimit(miter: number): void;
+
+    /**
+     * Obtains the stroke miter limit of a polyline drawn by a pen.
+     * @returns { number } Returns the miter limit.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getMiterLimit(): number;
+
+    /**
+     * Sets the shaderEffect for a pen.
+     * @param { ShaderEffect } shaderEffect - Indicates the ShaderEffect object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    setShaderEffect(shaderEffect: ShaderEffect): void;
+
+    /**
     * Set the color of the pen.
     * @param { common2D.Color } color - The range of color channels must be [0, 255].
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
     * @syscap SystemCapability.Graphics.Drawing
     * @since 11
     */
     setColor(color: common2D.Color): void;
+
     /**
     * Set the AGRB color of the pen.
      * @param { number } alpha - Alpha channel of color. The range of alpha must be [0, 255].
@@ -1870,45 +2737,99 @@ declare namespace drawing {
     * @since 12
     */
     setColor(alpha: number, red: number, green: number, blue: number): void;
+
+    /**
+     * Obtains the color of a pen. The color is used by the pen to outline a shape.
+     * @returns { common2D.Color } Returns a 32-bit (ARGB) variable that describes the color.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getColor(): common2D.Color;
+
     /**
     * Sets the thickness of the pen used by the paint to outline the shape.
-    * 
+    *
     * @param { number } width - Zero thickness for hairline; greater than zero for pen thickness.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+    * <br>2. Incorrect parameter types.
     * @syscap SystemCapability.Graphics.Drawing
     * @since 11
     */
     setStrokeWidth(width: number): void;
+
+    /**
+     * Obtains the thickness of a pen. This thickness determines the width of the outline of a shape.
+     * @returns { number } Returns the thickness.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getWidth(): number;
+
     /**
     * Requests, but does not require, that edge pixels draw opaque or with partial transparency.
+    *
     * @param { boolean } aa - Setting for antialiasing.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+    * <br>2. Incorrect parameter types.
     * @syscap SystemCapability.Graphics.Drawing
     * @since 11
     */
     setAntiAlias(aa: boolean): void;
+
+    /**
+     * Checks whether anti-aliasing is enabled for a pen. If anti-aliasing is enabled,
+     * edges will be drawn with partial transparency.
+     * @returns { boolean } Returns true if the anti-aliasing is enabled; returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    isAntiAlias(): boolean;
+
     /**
     * Replaces alpha, leaving RGB
-    * 
+    *
     * @param { number } alpha - Alpha channel of color. The range of alpha must be [0, 255].
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
     * @syscap SystemCapability.Graphics.Drawing
     * @since 11
     */
     setAlpha(alpha: number): void;
+
+    /**
+     * Obtains the alpha of a pen. The alpha is used by the pen to outline a shape.
+     * @returns { number } Returns a 8-bit variable that describes the alpha.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getAlpha(): number;
+
     /**
     * Sets ColorFilter to pen
-    * 
+    *
     * @param { ColorFilter } filter - ColorFilter to apply to subsequent draw.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+    * <br>2. Incorrect parameter types.
     * @syscap SystemCapability.Graphics.Drawing
     * @since 11
     */
     setColorFilter(filter: ColorFilter): void;
+    /**
+     * Gets ColorFilter of pen
+     * @returns { ColorFilter } ColorFilter.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getColorFilter(): ColorFilter;
+    /**
+     * Sets ImageFilter to pen
+     * @param { ImageFilter | null } filter - ImageFilter to apply to subsequent draw.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    setImageFilter(filter: ImageFilter | null): void;
     /**
      * Sets MaskFilter to pen.
      *
@@ -1919,6 +2840,7 @@ declare namespace drawing {
      * @since 12
      */
     setMaskFilter(filter: MaskFilter): void;
+
     /**
      * Sets PathEffect to pen.
      *
@@ -1929,6 +2851,7 @@ declare namespace drawing {
      * @since 12
      */
     setPathEffect(effect: PathEffect): void;
+
     /**
      * Sets ShadowLayer to pen.
      *
@@ -1939,26 +2862,29 @@ declare namespace drawing {
      * @since 12
      */
     setShadowLayer(shadowLayer: ShadowLayer): void;
+
     /**
     * Sets a blender that implements the specified blendmode enum.
-    * 
+    *
     * @param { BlendMode } mode - Blendmode.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
     * @syscap SystemCapability.Graphics.Drawing
     * @since 11
     */
     setBlendMode(mode: BlendMode): void;
+
     /**
     * Request color distribution error.
-    * 
+    *
     * @param { boolean } dither - Whether the color is distributed incorrectly.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+    * <br>2. Incorrect parameter types.
     * @syscap SystemCapability.Graphics.Drawing
     * @since 11
     */
     setDither(dither: boolean): void;
+
     /**
      * Sets the JoinStyle for a pen.
      *
@@ -1969,6 +2895,7 @@ declare namespace drawing {
      * @since 12
      */
     setJoinStyle(style: JoinStyle): void;
+
     /**
      * Obtains the JoinStyle of a pen.
      *
@@ -1977,6 +2904,7 @@ declare namespace drawing {
      * @since 12
      */
     getJoinStyle(): JoinStyle;
+
     /**
      * Sets the CapStyle for a pen.
      *
@@ -1987,6 +2915,7 @@ declare namespace drawing {
      * @since 12
      */
     setCapStyle(style: CapStyle): void;
+
     /**
      * Obtains the CapStyle of a pen.
      *
@@ -1995,6 +2924,25 @@ declare namespace drawing {
      * @since 12
      */
     getCapStyle(): CapStyle;
+
+    /**
+     * Resets all pen contents to their initial values.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    reset(): void;
+    /**
+     * Obtains the filled equivalent of the src path.
+     *
+     * @param { Path } src - The path read to create a filled version.
+     * @param { Path } dst - The resulting path (may be the same as src).
+     * @returns { boolean } true if the path should be filled, or false if it should be drawn with a hairline (width == 0)
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getFillPath(src: Path, dst: Path): boolean;
   }
 
   /**
@@ -2004,6 +2952,23 @@ declare namespace drawing {
    */
   class Brush {
     /**
+     * Constructor for the Brush.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    constructor();
+
+    /**
+     * Constructor for the Brush from an existing brush object brush.
+     * @param { Brush } brush - Indicates the Brush object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    constructor(brush: Brush);
+
+    /**
      * Set the color of the brush.
      * @param { common2D.Color } color - The range of color channels must be [0, 255].
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2012,6 +2977,7 @@ declare namespace drawing {
      * @since 11
      */
     setColor(color: common2D.Color): void;
+
     /**
      * Set the ARGB color of the brush.
      * @param { number } alpha - Alpha channel of color. The range of alpha must be [0, 255].
@@ -2024,6 +2990,15 @@ declare namespace drawing {
      * @since 12
      */
     setColor(alpha: number, red: number, green: number, blue: number): void;
+
+    /**
+     * Obtains the color of a brush. The color is used by the brush to fill in a shape.
+     * @returns { common2D.Color } Returns a 32-bit (ARGB) variable that describes the color.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getColor(): common2D.Color;
+
     /**
      * Requests, but does not require, that edge pixels draw opaque or with partial transparency.
      * @param { boolean } aa - Setting for antialiasing.
@@ -2033,6 +3008,16 @@ declare namespace drawing {
      * @since 11
      */
     setAntiAlias(aa: boolean): void;
+
+    /**
+     * Checks whether anti-aliasing is enabled for a brush. If anti-aliasing is enabled,
+     * edges will be drawn with partial transparency.
+     * @returns { boolean } Returns true if anti-aliasing is enabled; returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    isAntiAlias(): boolean;
+
     /**
      * Replaces alpha, leaving RGB
      * @param { number } alpha - Alpha channel of color. The range of alpha must be [0, 255].
@@ -2042,6 +3027,15 @@ declare namespace drawing {
      * @since 11
      */
     setAlpha(alpha: number): void;
+
+    /**
+     * Obtains the alpha of a brush. The alpha is used by the brush to fill in a shape.
+     * @returns { number } Returns a 8-bit variable that describes the alpha.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getAlpha(): number;
+
     /**
      * Sets ColorFilter to brush
      * @param { ColorFilter } filter - ColorFilter to apply to subsequent draw.
@@ -2051,6 +3045,23 @@ declare namespace drawing {
      * @since 11
      */
     setColorFilter(filter: ColorFilter): void;
+
+    /**
+     * Gets ColorFilter of brush
+     * @returns { ColorFilter } ColorFilter.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getColorFilter(): ColorFilter;
+    /**
+     * Sets ImageFilter to brush
+     * @param { ImageFilter | null } filter - ImageFilter to apply to subsequent draw.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    setImageFilter(filter: ImageFilter | null): void;
     /**
      * Sets MaskFilter to brush.
      * @param { MaskFilter } filter - MaskFilter to apply to subsequent draw.
@@ -2060,6 +3071,7 @@ declare namespace drawing {
      * @since 12
      */
     setMaskFilter(filter: MaskFilter): void;
+
     /**
      * Sets ShadowLayer to brush.
      *
@@ -2070,6 +3082,17 @@ declare namespace drawing {
      * @since 12
      */
     setShadowLayer(shadowLayer: ShadowLayer): void;
+
+    /**
+     * Sets the shaderEffect for a brush.
+     * @param { ShaderEffect } shaderEffect - Indicates the ShaderEffect object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    setShaderEffect(shaderEffect: ShaderEffect): void;
+
     /**
      * Sets a blender that implements the specified blendmode enum.
      * @param { BlendMode } mode - Blendmode.
@@ -2079,6 +3102,13 @@ declare namespace drawing {
      * @since 11
      */
     setBlendMode(mode: BlendMode): void;
+
+    /**
+     * Resets all brush contents to their initial values.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    reset(): void;
   }
 
   /**
@@ -2189,6 +3219,187 @@ declare namespace drawing {
      * @since 12
      */
     isIdentity(): Boolean;
+
+    /**
+     * Get one matrix value. Index is between the range of 0-8.
+     * @param { number } index - one of 0-8
+     * @returns { number } Returns value corresponding to index.Returns 0 if out of range.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getValue(index: number): number;
+    /**
+     * Sets matrix to matrix multiplied by matrix constructed from rotating by degrees around pivot point (px, py).
+     * This can be thought of as rotating around a pivot point after applying matrix.
+     * @param { number } degree - Indicates the angle of axes relative to upright axes.
+     * @param { number } px - Indicates the pivot on x-axis.
+     * @param { number } py - Indicates the pivot on y-axis.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    postRotate(degree: number, px: number, py: number): void;
+    /**
+     * Sets matrix to matrix multiplied by matrix constructed from scaling by (sx, sy) relative to pivot point (px, py).
+     * This can be thought of as scaling relative to a pivot point after applying matrix.
+     * @param { number } sx - Indicates the horizontal scale factor.
+     * @param { number } sy - Indicates the vertical scale factor.
+     * @param { number } px - Indicates the pivot on x-axis.
+     * @param { number } py - Indicates the pivot on y-axis.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    postScale(sx: number, sy: number, px: number, py: number): void;
+    /**
+     * Sets matrix to matrix multiplied by matrix constructed from translation (dx, dy).
+     * This can be thought of as moving the point to be mapped after applying matrix.
+     * @param { number } dx - Indicates the horizontal translation.
+     * @param { number } dy - Indicates the vertical translation.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    postTranslate(dx: number, dy: number): void;
+    /**
+     * Sets matrix to matrix multiplied by matrix constructed from rotating by degrees around pivot point (px, py).
+     * This can be thought of as rotating around a pivot point before applying matrix.
+     * @param { number } degree - Indicates the angle of axes relative to upright axes.
+     * @param { number } px - Indicates the pivot on x-axis.
+     * @param { number } py - Indicates the pivot on y-axis.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    preRotate(degree: number, px: number, py: number): void;
+    /**
+     * Sets matrix to matrix multiplied by matrix constructed from scaling by (sx, sy) relative to pivot point (px, py).
+     * This can be thought of as scaling relative to a pivot point before applying matrix.
+     * @param { number } sx - Indicates the horizontal scale factor.
+     * @param { number } sy - Indicates the vertical scale factor.
+     * @param { number } px - Indicates the pivot on x-axis.
+     * @param { number } py - Indicates the pivot on y-axis.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    preScale(sx: number, sy: number, px: number, py: number): void;
+    /**
+     * Sets matrix to matrix multiplied by matrix constructed from translation (dx, dy).
+     * This can be thought of as moving the point to be mapped before applying matrix.
+     * @param { number } dx - Indicates the horizontal translation.
+     * @param { number } dy - Indicates the vertical translation.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    preTranslate(dx: number, dy: number): void;
+    /**
+     * Reset matrix to identity.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    reset(): void;
+    /**
+     * Maps src array of length count to dst array of equal or greater length.
+     * This can be thought of as moving the point to be mapped before applying matrix.
+     * @param { Array<common2D.Point> } src - points to transform.
+     * @returns { Array<common2D.Point> } Return mapped points array.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    mapPoints(src: Array<common2D.Point>): Array<common2D.Point>;
+    /**
+     * Return nine scalar values contained by Matrix.
+     * @returns { Array<number> } nine scalar values contained by Matrix.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getAll(): Array<number>;
+    /**
+     * Sets dst to bounds of src corners mapped by matrix transformation.
+     * @param { common2D.Rect } dst - Rect to map from.
+     * @param { common2D.Rect } src - Rect to map to.
+     * @returns { boolean } Returns true if the mapped src is equal to the dst; returns false is not equal.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    mapRect(dst: common2D.Rect, src: common2D.Rect): boolean;
+    /**
+     * Sets matrix to scale and translate src rect to dst rect.
+     * @param { common2D.Rect } src - Rect to map from.
+     * @param { common2D.Rect } dst - Rect to map to.
+     * @param { ScaleToFit } scaleToFit - Describes how matrix is constructed to map one rect to another.
+     * @returns { boolean } Returns true if dst is empty, and sets matrix to:
+               | 0 0 0 |
+               | 0 0 0 |
+               | 0 0 1 |.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    setRectToRect(src: common2D.Rect, dst: common2D.Rect, scaleToFit: ScaleToFit): boolean;
+    /**
+     * Sets Matrix to map src to dst. Count must be zero or greater, and four or less.
+     * @param { Array<common2D.Point> } src - Point to map from
+     * @param { Array<common2D.Point> } dst - Point to map to
+     * @param { number } count - Number of Point in src and dst
+     * @returns { boolean } Returns true if Matrix was constructed successfully
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    setPolyToPoly(src: Array<common2D.Point>, dst: Array<common2D.Point>, count: number): boolean;
+  }
+
+  /**
+   * Describes a scale-to-fit values.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  enum ScaleToFit {
+    /**
+     * Scales in x and y to fill destination Rect.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    FILL_SCALE_TO_FIT = 0,
+
+    /**
+     * Scales and aligns to left and top.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    START_SCALE_TO_FIT = 1,
+
+    /**
+     * Scales and aligns to center.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    CENTER_SCALE_TO_FIT = 2,
+
+    /**
+     * Scales and aligns to right and bottom.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    END_SCALE_TO_FIT = 3
   }
 
   /**
@@ -2322,6 +3533,88 @@ declare namespace drawing {
      * @since 12
      */
     REPLACE = 5
+  }
+
+  /**
+   * Enumerates of corner radius position.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  enum CornerPos {
+    /**
+     * Index of top-left corner radius.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    TOP_LEFT_POS = 0,
+
+    /**
+     * Index of top-right corner radius.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    TOP_RIGHT_POS = 1,
+
+    /**
+     * Index of bottom-right corner radius.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    BOTTOM_RIGHT_POS = 2,
+
+    /**
+     * Index of bottom-left corner radius.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    BOTTOM_LEFT_POS = 3
+  }
+
+  /**
+   * Enumeration defines the constraint type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  enum SrcRectConstraint {
+
+    /**
+     * Using sampling only inside bounds in a slower manner.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    STRICT = 0,
+
+    /**
+     * Using sampling outside bounds in a faster manner.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    FAST = 1
+  }
+
+  /**
+   * The Tool class for drawing.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 16
+   */
+  class Tool {
+    /**
+     * Make a common2D.Color variable that describes the color from ResourceColor.
+     * @param { ResourceColor } resourceColor - ResourceColor.
+     * @returns { common2D.Color } Returns a 32-bit (ARGB) variable that describes the color.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    static makeColorFromResourceColor(resourceColor: ResourceColor): common2D.Color;
   }
 }
 

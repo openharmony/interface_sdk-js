@@ -135,6 +135,15 @@ export interface NotificationRequest {
   isUnremovable?: boolean;
 
   /**
+   * Whether the notification can only be updated.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 16
+   */
+  updateOnly?: boolean;
+
+  /**
    * Time when the notification is sent.
    *
    * @type { ?number }
@@ -402,6 +411,8 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12
+   * @deprecated since 15
+   * @useinstead NotificationRequest#appInstanceKey
    */
   readonly creatorInstanceKey?: number;
 
@@ -459,6 +470,7 @@ export interface NotificationRequest {
    * Notification source. enum SourceType
    *
    * @type { ?number }
+   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -487,6 +499,7 @@ export interface NotificationRequest {
    * The device ID of the notification source.
    *
    * @type { ?string }
+   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -497,6 +510,7 @@ export interface NotificationRequest {
    * Obtains the set of identifiers for the notification.
    *
    * @type { ?NotificationFlags }
+   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @since 8
    */
@@ -529,16 +543,6 @@ export interface NotificationRequest {
   badgeNumber?: number;
 
   /**
-   * Notification control flags.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 12
-   */
-  notificationControlFlags?: number;
-
-  /**
    * Whether the notification need to be agent display.
    *
    * @type { ?BundleOption }
@@ -552,6 +556,7 @@ export interface NotificationRequest {
    * Proxy identity of creation notification.
    * 
    * @type { ?BundleOption }
+   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12
@@ -567,6 +572,27 @@ export interface NotificationRequest {
    * @since 12
    */
   unifiedGroupInfo?: UnifiedGroupInfo;
+
+  /**
+   * Notification control flags.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  notificationControlFlags?: number;
+
+  /**
+   * Application instance key.
+   *
+   * @type { ?string }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 15
+   */
+  readonly appInstanceKey?: string;
 }
 
 /**
@@ -609,6 +635,7 @@ export interface DistributedOptions {
    * Obtains the remind mode of the notification. enum DeviceRemindType.
    *
    * @type { ?number }
+   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8

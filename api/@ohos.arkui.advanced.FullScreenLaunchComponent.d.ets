@@ -24,6 +24,7 @@ import Callback from '@ohos.base';
 /**
  * Declare component FullScreenLaunchComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
  */
 @Component
@@ -32,6 +33,7 @@ export declare struct FullScreenLaunchComponent {
    * Sets the component content.
    * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   @BuilderParam content: Callback<void>;
@@ -39,6 +41,7 @@ export declare struct FullScreenLaunchComponent {
    * Indicates atomic service appId.
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   appId: string;
@@ -46,6 +49,7 @@ export declare struct FullScreenLaunchComponent {
    * Indicates the atomic service start options.
    * @type { ?AtomicServiceOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   options?: AtomicServiceOptions;

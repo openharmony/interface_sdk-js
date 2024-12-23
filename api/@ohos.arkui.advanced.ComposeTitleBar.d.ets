@@ -50,6 +50,24 @@ export declare class ComposeTitleBarMenuItem {
   value: ResourceStr;
 
   /**
+   * Symbol resource for this menu item.
+   * @type { ?SymbolGlyphModifier }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  symbolStyle?: SymbolGlyphModifier;
+
+  /**
+   * Icon label for this menu item.
+   * @type { ?ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 13
+   */
+  label?: ResourceStr;
+
+  /**
    * Whether to enable this menu item.
    * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -78,6 +96,39 @@ export declare class ComposeTitleBarMenuItem {
    * @since 11
    */
   action?: () => void;
+
+  /**
+   * The accessibilityText of this menu item.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityText?: ResourceStr;
+
+  /**
+   * The accessibilityDescription of this menu item.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityDescription?: ResourceStr;
+
+  /**
+   * The accessibilityLevel of this menu item.
+   * @type { ?string }
+   * @default "auto".The options are as follows:<br/>
+   *     "auto":The value is converted to "yes" or "no" based on the component.
+   *     "yes": the current component is selectable for the accessibility service.
+   *     "no": The current component is not selectable for the accessibility service.
+   *     "no-hide-descendants":The current component and all its child components are not selectable<br/>
+   *     for the accessibility service.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityLevel?: string;
 }
 
 /**

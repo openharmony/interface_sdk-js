@@ -15,12 +15,14 @@
 
 import { ErrorTagFormat, ErrorMessage, PermissionData } from '../../../typedef/checker/result_type';
 import { Comment } from '../../../typedef/parser/Comment';
-import { CommonFunctions } from '../../../utils/checkUtils';
+import { CommonFunctions, throwsTagDescriptionArr } from '../../../utils/checkUtils';
 import { ApiInfo, ApiType, ClassInfo, GenericInfo, TypeAliasInfo, TypeAliasType, TypeParamInfo } from '../../../typedef/parser/ApiInfoDefination';
 import { MethodInfo, PropertyInfo, ParamInfo } from '../../../typedef/parser/ApiInfoDefination';
 import { PunctuationMark } from '../../../utils/Constant';
 import { SystemCapability } from '../config/syscapConfigFile.json';
 import { module } from '../config/permissionConfigFile.json';
+import { toNumber } from 'lodash';
+import { ApiMaxVersion } from '../config/api_check_version.json';
 
 export class TagValueCheck {
   /**
@@ -47,7 +49,7 @@ export class TagValueCheck {
       };
       switch (tag.tag) {
         case 'since':
-          errorTagInfo = TagValueCheck.sinceTagValueCheck(tag);
+          errorTagInfo = TagValueCheck.sinceTagValueCheck(singleApi, tag);
           break;
         case 'extends':
         case 'implements':
@@ -107,17 +109,28 @@ export class TagValueCheck {
    * @param { Comment.CommentTag } tag
    * @returns { ErrorTagFormat }
    */
-  static sinceTagValueCheck(tag: Comment.CommentTag): ErrorTagFormat {
+  static sinceTagValueCheck(singleApi: ApiInfo, tag: Comment.CommentTag): ErrorTagFormat {
     const sinceValueCheckResult: ErrorTagFormat = {
       state: true,
       errorInfo: '',
     };
     const sinceValue: string = CommonFunctions.getSinceVersion(tag.name);
     const sinceValueIsNumber: boolean = /^\d+$/.test(sinceValue);
-
+    const allSinceValue: string[] = [];
+    singleApi.getJsDocInfos().forEach((tagInfo: Comment.JsDocInfo) => {
+      allSinceValue.push(tagInfo.since);
+    });
+    const newSinceValueArr = Array.from(new Set(allSinceValue));
     if (!sinceValueIsNumber) {
       sinceValueCheckResult.state = false;
       sinceValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_SINCE;
+    } else if (toNumber(sinceValue) > toNumber(ApiMaxVersion)) {
+      sinceValueCheckResult.state = false;
+      sinceValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_SINCE_NUMBER;
+    }
+    if (allSinceValue.length !== newSinceValueArr.length) {
+      sinceValueCheckResult.state = false;
+      sinceValueCheckResult.errorInfo = sinceValueCheckResult.errorInfo + ErrorMessage.ERROR_INFO_VALUE_SINCE_JSDOC;
     }
     return sinceValueCheckResult;
   }
@@ -133,11 +146,11 @@ export class TagValueCheck {
       state: true,
       errorInfo: '',
     };
-    let extendsTagValue: string = tag.name;
+    let extendsTagValue: string = tag.name + tag.description;
     if (singleApi.getApiType() === ApiType.CLASS || singleApi.getApiType() === ApiType.INTERFACE) {
       const extendsApiValue: string = CommonFunctions.getExtendsApiValue(singleApi);
       const ImplementsApiValue: string = CommonFunctions.getImplementsApiValue(singleApi);
-      if (tag.tag === 'extends' && extendsTagValue !== extendsApiValue) {
+      if (tag.tag === 'extends' && extendsTagValue.replace(/\s/g, '') !== extendsApiValue) {
         extendsValueCheckResult.state = false;
         extendsValueCheckResult.errorInfo = ErrorMessage.ERROR_INFO_VALUE_EXTENDS;
       }
@@ -186,7 +199,7 @@ export class TagValueCheck {
     }
     const spacealCase: string[] = CommonFunctions.judgeSpecialCase((singleApi as MethodInfo).returnValueType);
     if (singleApi.getApiType() === ApiType.TYPE_ALIAS) {
-      returnsApiValue.push((singleApi as TypeAliasInfo).getReturnType());
+      returnsApiValue.push((singleApi as TypeAliasInfo).getReturnType().join());
     } else {
       returnsApiValue = spacealCase.length > 0 ? spacealCase : (singleApi as MethodInfo).getReturnValue();
     }
@@ -392,11 +405,27 @@ export class TagValueCheck {
       throwsValueCheckResult.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_INFO_VALUE1_THROWS, [
         JSON.stringify(throwsIndex),
       ]);
-    } else if (!isNumber) {
+    }
+    if (!isNumber) {
       throwsValueCheckResult.state = false;
       throwsValueCheckResult.errorInfo = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_INFO_VALUE2_THROWS, [
         JSON.stringify(throwsIndex),
       ]);
+    } else if (throwsTagName === '401') {
+      const specialThrowsDescription: string = tag.description;
+      const throws401DescriptionStartIndexof: number = specialThrowsDescription.indexOf(throwsTagDescriptionArr[0]);
+      const throws401DescriptionOneIndexof: number = specialThrowsDescription.indexOf(throwsTagDescriptionArr[1]);
+      const throws401DescriptionTwoIndexof: number = specialThrowsDescription.indexOf(throwsTagDescriptionArr[2]);
+      const throws401DescriptionThreeIndexof: number = specialThrowsDescription.indexOf(throwsTagDescriptionArr[3]);
+      const hasDescriptionContent: boolean = throws401DescriptionOneIndexof !== -1 || 
+        throws401DescriptionTwoIndexof !== -1 || throws401DescriptionThreeIndexof !== -1;
+      const descriptionReg = new RegExp(`${throwsTagDescriptionArr[0]}|${throwsTagDescriptionArr[1]}|${throwsTagDescriptionArr[2]}|${throwsTagDescriptionArr[3]}|<br>`, 'g');
+      const hasElseString: boolean = /[A-Za-z]+/.test(specialThrowsDescription.replace(descriptionReg, ''));
+      if (throws401DescriptionStartIndexof === -1 || throws401DescriptionStartIndexof > 1 || !hasDescriptionContent ||
+        hasElseString) {
+        throwsValueCheckResult.state = false;
+        throwsValueCheckResult.errorInfo = throwsValueCheckResult.errorInfo + ErrorMessage.ERROR_INFO_VALUE3_THROWS;
+      }
     }
     const allTagName: string[] = [];
     tagsName?.forEach((tag: Comment.CommentTag) => {

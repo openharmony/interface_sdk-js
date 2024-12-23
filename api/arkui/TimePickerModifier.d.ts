@@ -25,8 +25,9 @@
  * Defines TimePicker Modifier
  *
  * @extends TimePickerAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<TimePickerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class TimePickerModifier extends TimePickerAttribute implements AttributeModifier<TimePickerAttribute> {
@@ -37,6 +38,7 @@ export declare class TimePickerModifier extends TimePickerAttribute implements A
    * @param { TimePickerAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: TimePickerAttribute): void;

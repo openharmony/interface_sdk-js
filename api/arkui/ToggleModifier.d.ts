@@ -25,8 +25,9 @@
  * Defines Toggle Modifier
  *
  * @extends ToggleAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<ToggleAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class ToggleModifier extends ToggleAttribute implements AttributeModifier<ToggleAttribute> {
@@ -37,6 +38,7 @@ export declare class ToggleModifier extends ToggleAttribute implements Attribute
    * @param { ToggleAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: ToggleAttribute): void;

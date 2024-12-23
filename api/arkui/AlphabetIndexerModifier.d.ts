@@ -24,8 +24,9 @@
  * Defines AlphabetIndexer Modifier
  *
  * @extends AlphabetIndexerAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<AlphabetIndexerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class AlphabetIndexerModifier extends AlphabetIndexerAttribute implements AttributeModifier<AlphabetIndexerAttribute> {
@@ -36,6 +37,7 @@ export declare class AlphabetIndexerModifier extends AlphabetIndexerAttribute im
    * @param { AlphabetIndexerAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: AlphabetIndexerAttribute): void;

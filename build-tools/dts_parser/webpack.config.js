@@ -14,9 +14,36 @@
  */
 
 const path = require('path');
+const fs = require('fs');
 const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
 const packageInfo = require('./package.json');
+const archiver = require('archiver');
+const { copyESLibs } = require('./scripts/copylibs');
+
+class PackPlugin {
+  apply(compiler) {
+    compiler.hooks.done.tap('PackPlugin', (stats) => {
+      const bundleName = `${packageInfo.name}.js`;
+      const bundlejsPath = path.resolve(__dirname, 'package', bundleName);
+      if (!fs.existsSync(bundlejsPath)) {
+        console.error(`${bundleName} not found`);
+        return;
+      }
+      copyESLibs();
+      const libsPath = path.resolve(__dirname, 'libs');
+      const readme = path.resolve(__dirname, 'README_zh.md');
+      const outputName = path.resolve(__dirname, 'package', `${packageInfo.name}-${packageInfo.version}.zip`);
+      const outputZipStream = fs.createWriteStream(outputName);
+      const archive = archiver('zip');
+      archive.pipe(outputZipStream);
+      archive.file(bundlejsPath, { name: bundleName });
+      archive.file(readme, { name: 'README.md' });
+      archive.directory(libsPath, 'libs');
+      archive.finalize();
+    });
+  }
+}
 
 module.exports = (env, argv) => {
   const config = {
@@ -49,7 +76,7 @@ module.exports = (env, argv) => {
       extensions: ['.js', '.ts', '.json'],
     },
     output: {
-      filename: 'JS_API_OPTIMIZE_PLUGIN.js',
+      filename: `${packageInfo.name}.js`,
       path: path.resolve(__dirname, './package'),
     },
     optimization: {
@@ -62,6 +89,7 @@ module.exports = (env, argv) => {
         raw: false,
         entryOnly: true,
       }),
+      new PackPlugin(),
     ],
   };
   return config;

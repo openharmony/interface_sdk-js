@@ -278,6 +278,93 @@ declare enum PlaybackSpeed {
 }
 
 /**
+ * Fullscreen information of the video.
+ *
+ * @typedef FullscreenInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+interface FullscreenInfo {
+  /**
+   * The flag whether play in full screen.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * The flag whether play in full screen.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  fullscreen: boolean;
+}
+
+/**
+ * Prepared information of the video.
+ *
+ * @typedef PreparedInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+interface PreparedInfo {
+  /**
+   * The duration of the current video, in seconds.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * The duration of the current video, in seconds.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  duration: number;
+}
+
+/**
+ * Playback information of the video.
+ *
+ * @typedef PlaybackInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+interface PlaybackInfo {
+  /**
+   * The current video playback progress, expressed in seconds.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * The current video playback progress, expressed in seconds.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  time: number;
+}
+
+/**
  * Defines the video options.
  *
  * @interface VideoOptions
@@ -420,6 +507,7 @@ declare interface VideoOptions {
    *
    * @type { ?ImageAIOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   imageAIOptions?: ImageAIOptions;
@@ -647,6 +735,7 @@ declare class VideoController {
    * Provide the reset method of video playback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   reset(): void;
@@ -904,7 +993,17 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @atomicservice
    * @since 11
    */
-  onStart(event: () => void): VideoAttribute;
+  /**
+   * Called when the video is played.
+   *
+   * @param { VoidCallback } event
+   * @returns { VideoAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onStart(event: VoidCallback): VideoAttribute;
 
   /**
    * Called when the video is paused.
@@ -933,7 +1032,17 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @atomicservice
    * @since 11
    */
-  onPause(event: () => void): VideoAttribute;
+  /**
+   * Called when the video is paused.
+   *
+   * @param { VoidCallback } event
+   * @returns { VideoAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onPause(event: VoidCallback): VideoAttribute;
 
   /**
    * Called when the video playback ends.
@@ -962,7 +1071,17 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @atomicservice
    * @since 11
    */
-  onFinish(event: () => void): VideoAttribute;
+  /**
+   * Called when the video playback ends.
+   *
+   * @param { VoidCallback } event
+   * @returns { VideoAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onFinish(event: VoidCallback): VideoAttribute;
 
   /**
    * Called when the video enters and exits the full screen.
@@ -991,24 +1110,17 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @atomicservice
    * @since 11
    */
-  onFullscreenChange(callback: (event: {
-    /**
-     * Play the flag in full screen.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Play the flag in full screen.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    fullscreen: boolean
-  }) => void): VideoAttribute;
+  /**
+   * Called when the video enters and exits the full screen.
+   *
+   * @param { Callback<FullscreenInfo> } callback
+   * @returns { VideoAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onFullscreenChange(callback: Callback<FullscreenInfo>): VideoAttribute;
 
   /**
    * Called when the video preparation is complete.
@@ -1037,24 +1149,17 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @atomicservice
    * @since 11
    */
-  onPrepared(callback: (event: {
-    /**
-     * Playback duration.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Playback duration.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    duration: number
-  }) => void): VideoAttribute;
+  /**
+   * Called when the video preparation is complete.
+   *
+   * @param { Callback<PreparedInfo> } callback
+   * @returns { VideoAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onPrepared(callback: Callback<PreparedInfo>): VideoAttribute;
 
   /**
    * Called when the time information is reported when the progress bar process is operated.
@@ -1083,24 +1188,17 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @atomicservice
    * @since 11
    */
-  onSeeking(callback: (event: {
-    /**
-     * Play time.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Play time.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    time: number
-  }) => void): VideoAttribute;
+  /**
+   * Called when the time information is reported when the progress bar process is operated.
+   *
+   * @param { Callback<PlaybackInfo> } callback
+   * @returns { VideoAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onSeeking(callback: Callback<PlaybackInfo>): VideoAttribute;
 
   /**
    * Called when the playback time information is reported after the operation progress bar is completed.
@@ -1129,24 +1227,17 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @atomicservice
    * @since 11
    */
-  onSeeked(callback: (event: {
-    /**
-     * Play time.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Play time.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    time: number
-  }) => void): VideoAttribute;
+  /**
+   * Called when the playback time information is reported after the operation progress bar is completed.
+   *
+   * @param { Callback<PlaybackInfo> } callback
+   * @returns { VideoAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onSeeked(callback: Callback<PlaybackInfo>): VideoAttribute;
 
   /**
    * Called when the playback progress changes.
@@ -1175,24 +1266,17 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @atomicservice
    * @since 11
    */
-  onUpdate(callback: (event: {
-    /**
-     * Play time.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Play time.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    time: number
-  }) => void): VideoAttribute;
+  /**
+   * Called when the playback progress changes.
+   *
+   * @param { Callback<PlaybackInfo> } callback
+   * @returns { VideoAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onUpdate(callback: Callback<PlaybackInfo>): VideoAttribute;
 
   /**
    * Called when playback fails.
@@ -1230,6 +1314,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onStop(event: Callback<void>): VideoAttribute;
@@ -1240,6 +1325,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { boolean } enable
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   enableAnalyzer(enable: boolean): VideoAttribute;
@@ -1250,9 +1336,36 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @param { ImageAnalyzerConfig } config
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   analyzerConfig(config: ImageAnalyzerConfig): VideoAttribute;
+
+  /**
+   * Set background color of the surface holden by Video(only support Color.Black and Color.Transparent). The default value is Color.Black.
+   *
+   * @param { ColorMetrics } color
+   * @returns { VideoAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 16
+   */
+  surfaceBackgroundColor(color: ColorMetrics): VideoAttribute;
+
+  /**
+   * Indicates whether to response shortcut key. The default value is false.
+   * If the value is true, video will respond to the shortcut keys as follows:
+   * Space key: play/pause the video.
+   * Up/Down arrow key: turn up/down volume of the video.
+   * Right/Left arrow key: fast forward/backward the video.
+   *
+   * @param { boolean } enabled
+   * @returns { VideoAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  enableShortcutKey(enabled: boolean): VideoAttribute;
 }
 
 /**

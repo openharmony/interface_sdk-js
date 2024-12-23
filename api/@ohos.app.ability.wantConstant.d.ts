@@ -96,6 +96,15 @@ declare namespace wantConstant {
     DLP_PARAMS_INDEX = 'ohos.dlp.params.index',
 
     /**
+     * Indicates the type of hide sensitive information.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @systemapi
+     * @since 14
+     */
+    HIDE_SENSITIVE_TYPE = 'ohos.media.params.hideSensitiveType',
+
+    /**
      * Indicates the ability in this want can back to the current top ability even though they are not in the same
      * mission stack.
      *
@@ -246,6 +255,15 @@ declare namespace wantConstant {
      * @since 12
      */
     APP_CLONE_INDEX_KEY = 'ohos.extra.param.key.appCloneIndex',
+  
+    /**
+     * Indicates the param of caller's request code.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 12
+     */
+    CALLER_REQUEST_CODE = 'ohos.extra.param.key.callerRequestCode',
 
     /**
      * Indicates the param of page path.
@@ -291,6 +309,41 @@ declare namespace wantConstant {
      * @since 12
      */
     SUB_PACKAGE_NAME = 'ohos.param.atomicservice.subpackageName',
+
+    /**
+     * Indicates the param of app instance key.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @since 14
+     */
+    APP_INSTANCE_KEY = 'ohos.extra.param.key.appInstance',
+
+    /**
+    * Indicates the param of creating a new instance.
+    *
+    * @syscap SystemCapability.Ability.AbilityBase
+    * @since 14
+    */
+     CREATE_APP_INSTANCE_KEY = 'ohos.extra.param.key.createAppInstance',
+
+    /**
+    * Indicates the app clone index of caller.
+    *
+    * @syscap SystemCapability.Ability.AbilityBase
+    * @since 14
+    */
+    CALLER_APP_CLONE_INDEX = 'ohos.param.callerAppCloneIndex',
+
+    /**
+    * Indicates the key of launch reason message.
+    * If the caller needs to set the launch reason through this field when initiating the callee, the caller must
+    * be a system application and have applied for the ohos.permission.SET_LAUNCH_REASON_MESSAGE permission.
+    *
+    * @syscap SystemCapability.Ability.AbilityBase
+    * @atomicservice
+    * @since 16
+    */
+    LAUNCH_REASON_MESSAGE = 'ohos.params.launchReasonMessage',
   }
 
   /**

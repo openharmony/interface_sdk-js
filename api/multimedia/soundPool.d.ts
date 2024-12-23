@@ -134,7 +134,7 @@ export interface SoundPool {
    * @returns {Promise<number>} Promise a sound ID. This value can be used to play or unload the sound.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
    * @throws { BusinessError } 5400103 - I/O error. Return by promise.
-   * @throws { BusinessError } 5400105 - Service died. Return by Promise.
+   * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */

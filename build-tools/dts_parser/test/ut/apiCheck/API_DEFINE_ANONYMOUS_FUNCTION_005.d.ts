@@ -27,9 +27,8 @@
  */
 declare namespace abilityAccessCtrl {
   /**
-   * @constant
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 11
+   * @since 12
    */
   const daltonizationState: () => void;
 }

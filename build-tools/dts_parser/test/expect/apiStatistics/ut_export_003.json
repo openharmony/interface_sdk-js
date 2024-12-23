@@ -23,7 +23,10 @@
     "modelLimitation": "",
     "decorators": [],
     "errorCodes": [],
-    "kitInfo": ""
+    "kitInfo": "NA",
+    "absolutePath": "",
+    "parentApiType": "SourceFile",
+    "isOptional": false
   },
   {
     "filePath": "ut_export_003.d.ts",
@@ -31,7 +34,7 @@
     "parentModuleName": "global",
     "syscap": "",
     "permissions": "",
-    "since": "",
+    "since": "-1",
     "isForm": false,
     "isCrossPlatForm": false,
     "isAutomicService": false,
@@ -49,6 +52,9 @@
     "modelLimitation": "",
     "decorators": [],
     "errorCodes": [],
-    "kitInfo": ""
+    "kitInfo": "NA",
+    "absolutePath": "",
+    "parentApiType": "SourceFile",
+    "isOptional": false
   }
 ]

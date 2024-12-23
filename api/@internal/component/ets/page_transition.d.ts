@@ -235,6 +235,7 @@ declare enum SlideEffect {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   START = 5,
@@ -244,6 +245,7 @@ declare enum SlideEffect {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   END = 6,
@@ -350,7 +352,17 @@ declare class CommonTransition<T> {
    * @atomicservice
    * @since 11
    */
-  translate(value: { x?: number | string; y?: number | string; z?: number | string }): T;
+  /**
+   * Called when the translation effect of page transition is set.
+   *
+   * @param { TranslateOptions } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  translate(value: TranslateOptions): T;
 
   /**
    * Called when setting the zoom effect of page transition.
@@ -379,7 +391,17 @@ declare class CommonTransition<T> {
    * @atomicservice
    * @since 11
    */
-  scale(value: { x?: number; y?: number; z?: number; centerX?: number | string; centerY?: number | string }): T;
+  /**
+   * Called when setting the zoom effect of page transition.
+   *
+   * @param { ScaleOptions } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  scale(value: ScaleOptions): T;
 
   /**
    * Called when the transparency value of the starting point of entry or the ending point of exit is set.
@@ -507,9 +529,9 @@ declare interface PageTransitionOptions {
   curve?: Curve | string | ICurve;
   /**
    * PageTransition animation delay time, in ms.
+   * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @type { ?number }
    * @since 7
    */
   /**
@@ -531,10 +553,24 @@ declare interface PageTransitionOptions {
    */
   delay?: number;
 }
- 
+
+/**
+ * Callback used to report page trasition events.
+ *
+ * @typedef { function } PageTransitionCallback
+ * @param { RouteType } type - transition route type
+ * @param { number } progress - transition progess
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare type PageTransitionCallback = (type: RouteType, progress: number) => void;
+
 /**
  * Provides an interface for page rotation mode.
  *
+ * @extends CommonTransition<PageTransitionEnterInterface>
  * @interface PageTransitionEnterInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -542,6 +578,7 @@ declare interface PageTransitionOptions {
 /**
  * Provides an interface to set transition style when a page enters.
  *
+ * @extends CommonTransition<PageTransitionEnterInterface>
  * @interface PageTransitionEnterInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -550,6 +587,7 @@ declare interface PageTransitionOptions {
 /**
  * Provides an interface to set transition style when a page enters.
  *
+ * @extends CommonTransition<PageTransitionEnterInterface>
  * @interface PageTransitionEnterInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -615,12 +653,24 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
    * @atomicservice
    * @since 11
    */
-  onEnter(event: (type: RouteType, progress: number) => void): PageTransitionEnterInterface;
+  /**
+   * Called frame by frame to customize pageTransition animation when the page enters.
+   * The incoming parameter is the normalized progress of the current incoming animation.
+   *
+   * @param { PageTransitionCallback } event - animation callback frame by frame
+   * @returns { PageTransitionEnterInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onEnter(event: PageTransitionCallback): PageTransitionEnterInterface;
 }
 
 /**
  * Provide an interface to exit the transition.
  *
+ * @extends CommonTransition<PageTransitionExitInterface>
  * @interface PageTransitionExitInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -628,6 +678,7 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
 /**
  * Provide an interface to set transition style when a page exits.
  *
+ * @extends CommonTransition<PageTransitionExitInterface>
  * @interface PageTransitionExitInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -636,6 +687,7 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
 /**
  * Provide an interface to set transition style when a page exits.
  *
+ * @extends CommonTransition<PageTransitionExitInterface>
  * @interface PageTransitionExitInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -701,7 +753,18 @@ interface PageTransitionExitInterface extends CommonTransition<PageTransitionExi
    * @atomicservice
    * @since 11
    */
-  onExit(event: (type: RouteType, progress: number) => void): PageTransitionExitInterface;
+  /**
+   * Called frame by frame to customize pageTransition animation when the page exits.
+   * The input parameter is the normalized progress of the current exit animation.
+   *
+   * @param { PageTransitionCallback } event
+   * @returns { PageTransitionExitInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onExit(event: PageTransitionCallback): PageTransitionExitInterface;
 }
 
 /**

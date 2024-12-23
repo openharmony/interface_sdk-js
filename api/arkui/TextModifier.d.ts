@@ -25,8 +25,9 @@
  * Defines Text Modifier
  *
  * @extends TextAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<TextAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class TextModifier extends TextAttribute implements AttributeModifier<TextAttribute> {
@@ -37,6 +38,7 @@ export declare class TextModifier extends TextAttribute implements AttributeModi
    * @param { TextAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: TextAttribute): void;

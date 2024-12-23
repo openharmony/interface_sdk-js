@@ -25,8 +25,9 @@
  * Defines GridRow Modifier
  *
  * @extends GridRowAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<GridRowAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class GridRowModifier extends GridRowAttribute implements AttributeModifier<GridRowAttribute> {
@@ -37,6 +38,7 @@ export declare class GridRowModifier extends GridRowAttribute implements Attribu
    * @param { GridRowAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: GridRowAttribute): void;

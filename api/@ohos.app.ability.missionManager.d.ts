@@ -28,7 +28,6 @@ import StartOptions from './@ohos.app.ability.StartOptions';
  * This module provides the capability to manage abilities and obtaining system task information.
  *
  * @namespace missionManager
- * @permission ohos.permission.MANAGE_MISSIONS
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
  * @since 9
@@ -62,7 +61,7 @@ declare namespace missionManager {
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16300002 - Input error. The specified mission listener does not exist.
+   * @throws { BusinessError } 16300002 - The specified mission listener does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9
@@ -80,7 +79,7 @@ declare namespace missionManager {
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16300002 - Input error. The specified mission listener does not exist.
+   * @throws { BusinessError } 16300002 - The specified mission listener does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9
@@ -500,7 +499,7 @@ declare namespace missionManager {
   /**
    * Mission information corresponding to ability.
    *
-   * @permission ohos.permission.MANAGE_MISSIONS
+   * @typedef { _MissionInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9
@@ -510,7 +509,7 @@ declare namespace missionManager {
   /**
    * MissionListener registered by app.
    *
-   * @permission ohos.permission.MANAGE_MISSIONS
+   * @typedef { _MissionListener }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9
@@ -520,7 +519,7 @@ declare namespace missionManager {
   /**
    * Mission snapshot corresponding to mission.
    *
-   * @permission ohos.permission.MANAGE_MISSIONS
+   * @typedef { _MissionSnapshot }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9

@@ -50,7 +50,7 @@ declare namespace pasteboard {
    * @atomicservice
    * @since 11
    */
-  const MAX_RECORD_NUM: number;
+  const MAX_RECORD_NUM = 512;
   /**
    * Indicates MIME types of HTML text.
    * @constant
@@ -64,7 +64,7 @@ declare namespace pasteboard {
    * @atomicservice
    * @since 11
    */
-  const MIMETYPE_TEXT_HTML: string;
+  const MIMETYPE_TEXT_HTML = 'text/html';
   /**
    * Indicates MIME types of wants.
    * @constant
@@ -78,7 +78,7 @@ declare namespace pasteboard {
    * @atomicservice
    * @since 11
    */
-  const MIMETYPE_TEXT_WANT: string;
+  const MIMETYPE_TEXT_WANT = 'text/want';
   /**
    * Indicates MIME types of plain text.
    * @constant
@@ -92,7 +92,7 @@ declare namespace pasteboard {
    * @atomicservice
    * @since 11
    */
-  const MIMETYPE_TEXT_PLAIN: string;
+  const MIMETYPE_TEXT_PLAIN = 'text/plain';
   /**
    * Indicates MIME types of URIs.
    * @constant
@@ -106,7 +106,7 @@ declare namespace pasteboard {
    * @atomicservice
    * @since 11
    */
-  const MIMETYPE_TEXT_URI: string;
+  const MIMETYPE_TEXT_URI = 'text/uri';
   /**
    * Indicates MIME type of PixelMap.
    * @constant
@@ -120,7 +120,7 @@ declare namespace pasteboard {
    * @atomicservice
    * @since 11
    */
-  const MIMETYPE_PIXELMAP: string;
+  const MIMETYPE_PIXELMAP = 'pixelMap';
 
   /**
    * Indicates type of value.
@@ -130,6 +130,7 @@ declare namespace pasteboard {
    */
   /**
    * Indicates type of value.
+   * @typedef { string | image.PixelMap | Want | ArrayBuffer }
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 11
@@ -206,6 +207,18 @@ declare namespace pasteboard {
   function createData(mimeType: string, value: ValueType): PasteData;
 
   /**
+   * Creates a PasteData object with the specified MIME types and values.
+   * @param { Record<string, ValueType> } data - indicates the MEME types and values of the PasteData object to create.
+   * @returns { PasteData } Returns the PasteData object created.
+   * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+   *    2. Incorrect parameters types;
+   *    3. Parameter verification failed.
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @since 14
+   */
+  function createData(data: Record<string, ValueType>): PasteData;
+
+  /**
    * Creates a Record object for PasteData#MIMETYPE_TEXT_HTML.
    * @param { string } htmlText - To save the Html text content.
    * @returns { PasteDataRecord } The content of a new record
@@ -265,7 +278,7 @@ declare namespace pasteboard {
    * @param { string } mimeType - indicates MIME type of value, its size cannot be greater than 1024 bytes.
    * @param { ValueType } value - content to be saved.
    * @returns { PasteDataRecord } a new PasteDataRecord object which contains mimeType and value.
-   * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
    *    2. Incorrect parameters types;
    *    3. Parameter verification failed.
    * @syscap SystemCapability.MiscServices.Pasteboard
@@ -341,6 +354,34 @@ declare namespace pasteboard {
      */
     CROSSDEVICE
   }
+
+  /**
+   * Enumerates the patterns allowed in the system pasteboard.
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @since 13
+   */
+  enum Pattern {
+    /**
+     * URL pattern.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 13
+     */
+    URL = 0,
+    /**
+     * Number pattern.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 13
+     */
+    NUMBER = 1,
+    /**
+     * Email address pattern.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 13
+     */
+    EMAIL_ADDRESS = 2,
+  }
+
 
   /**
    * Paste data property.
@@ -600,6 +641,42 @@ declare namespace pasteboard {
      * @since 11
      */
     toPlainText(): string;
+
+    /**
+     * Adds data to the PasteDataRecord object.
+     * @param { string } type - indicates MIME type of the value to add. It cannot exceed 1024 bytes.
+     * @param { ValueType } value - indicates the value of the data to add.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect parameters types;
+     *    3. Parameter verification failed.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 14
+     */
+    addEntry(type: string, value: ValueType): void;
+
+    /**
+     * Obtains the valid types in the PasteDataRecord object.
+     * @param { Array<string> } types - indicates an array of types from which the valid types are obtained.
+     * @returns { Array<string> } Returns the valid types obtained.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect parameters types;
+     *    3. Parameter verification failed.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 14
+     */
+    getValidTypes(types: Array<string>): Array<string>;
+
+    /**
+     * Obtains data of the specified type.
+     * @param { string } type - indicates the type of the data to obtain.
+     * @returns { Promise<ValueType> } Promise used to return the data obtained.
+     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+     *    2. Incorrect parameters types;
+     *    3. Parameter verification failed.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 14
+     */
+    getData(type: string): Promise<ValueType>;
   }
 
   /**
@@ -676,7 +753,7 @@ declare namespace pasteboard {
      * @param { string } mimeType - indicates the MIME type of value, its size cannot be greater than 1024 bytes.
      * @param { ValueType } value - content to be saved.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types; 
+     *    2. Incorrect parameters types;
      *    3. Parameter verification failed.
      * @throws { BusinessError } 12900002 - The number of records exceeds the upper limit.
      * @syscap SystemCapability.MiscServices.Pasteboard
@@ -1012,6 +1089,20 @@ declare namespace pasteboard {
      * @since 11
      */
     replaceRecord(index: number, record: PasteDataRecord): void;
+
+    /**
+     * Utilized to notify pasteboard service while reading PasteData, in this case, the service will help to preserve the context and resources
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 12
+     */
+    pasteStart(): void;
+
+    /**
+     * Invoked to notify pasteboard service the utilization of PasteData has completed and occupied resources can be released for further usage
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 12
+     */
+    pasteComplete(): void;
   }
 
   /**
@@ -1471,17 +1562,63 @@ declare namespace pasteboard {
      * @systemapi
      * @since 12
      */
+    /**
+     * Sets a unified ShareOptions for your application, so that the PasteData copied from your application is applicable to this ShareOptions.
+     * 
+     * @permission ohos.permission.MANAGE_PASTEBOARD_APP_SHARE_OPTION
+     * @param { ShareOption } shareOptions - Scope that PasteData can be pasted.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+     *     permission required to call the API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                   2. Incorrect parameter types;
+     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 12900006 - Settings already exist.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 14
+     */
     setAppShareOptions(shareOptions: ShareOption): void;
 
     /**
      * Removes the unified ShareOptions of your application.
-     * 
+     *
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @systemapi
      * @since 12
      */
+    /**
+     * Removes the unified ShareOptions of your application.
+     *
+     * @permission ohos.permission.MANAGE_PASTEBOARD_APP_SHARE_OPTION
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+     *    permission required to call the API.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 14
+     */
     removeAppShareOptions(): void;
+
+    /**
+     * Detects the patterns in the pasteboard.
+     * 
+     * @param { Array<Pattern> } patterns - Patterns to detect.
+     * @returns { Promise<Array<Pattern>> } Promise used to return the patterns detected.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                   2. Incorrect parameter types;
+     *                                                                   3. Parameter verification failed.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 13
+     */
+    detectPatterns(patterns: Array<Pattern>): Promise<Array<Pattern>>;
+
+    /**
+     * Get the MIME types in the pasteboard.
+     * 
+     * @returns { Promise<Array<string>> } Promise used to return the MIME types.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 14
+     */
+    getMimeTypes(): Promise<Array<string>>;
   }
 }
 

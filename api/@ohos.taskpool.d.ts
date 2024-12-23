@@ -360,6 +360,22 @@ declare namespace taskpool {
      * @atomicservice
      * @since 12
      */
+    /**
+     * Add dependencies on the task array for this task.
+     *
+     * @param { Task[] } tasks - An array of dependent tasks.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
+     * @throws { BusinessError } 10200026 - There is a circular dependency.
+     * @throws { BusinessError } 10200052 - The periodic task cannot have a dependency.
+     * @throws { BusinessError } 10200056 - The task has been executed by the AsyncRunner.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
     addDependency(...tasks: Task[]): void;
 
     /**
@@ -390,6 +406,22 @@ declare namespace taskpool {
      * @crossplatform
      * @atomicservice
      * @since 12
+     */
+    /**
+     * Remove dependencies on the task array for this task.
+     *
+     * @param { Task[] } tasks - An array of dependent tasks.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
+     * @throws { BusinessError } 10200027 - The dependency does not exist.
+     * @throws { BusinessError } 10200052 - The periodic task cannot have a dependency.
+     * @throws { BusinessError } 10200056 - The task has been executed by the AsyncRunner.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 16
      */
     removeDependency(...tasks: Task[]): void;
 
@@ -459,12 +491,14 @@ declare namespace taskpool {
     /**
      * Concurrent function to execute in taskpool.
      *
+     * @type { Function }
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
     /**
      * Concurrent function to execute in taskpool.
      *
+     * @type { Function }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -472,6 +506,7 @@ declare namespace taskpool {
     /**
      * Concurrent function to execute in taskpool.
      *
+     * @type { Function }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -507,6 +542,7 @@ declare namespace taskpool {
     /**
      * Task name.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -672,11 +708,28 @@ declare namespace taskpool {
      * @atomicservice
      * @since 12
      */
+    /**
+     * Add a Task into TaskGroup.
+     *
+     * @param { Task } task - The task want to add in task group.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
+     * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
+     * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
+     * @throws { BusinessError } 10200057 - The task cannot be executed by two APIs.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
     addTask(task: Task): void;
 
     /**
      * TaskGroup name.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -746,14 +799,30 @@ declare namespace taskpool {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br>1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 10200003 - Worker initialization failed.
      * @throws { BusinessError } 10200006 - An exception occurred during serialization.
-     * @throws { BusinessError } 10200025 - A dependent task cannot be added to SequenceRunner.
+     * @throws { BusinessError } 10200025 - dependent task not allowed.
      * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12
+     */
+    /**
+     * Execute a concurrent function.
+     *
+     * @param { Task } task - The task want to execute.
+     * @returns { Promise<Object> }
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types;
+     * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+     * @throws { BusinessError } 10200025 - dependent task not allowed.
+     * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
+     * @throws { BusinessError } 10200057 - The task cannot be executed by two APIs.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 16
      */
     execute(task: Task): Promise<Object>;
   }
@@ -768,6 +837,43 @@ declare namespace taskpool {
    * @since 12
    */
   class LongTask extends Task {
+  }
+
+  /**
+   * The GenericsTask class provides an interface to create a task with generics.
+   *
+   * @extends Task
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 13
+   */
+  class GenericsTask<A extends Array<Object>, R> extends Task {
+    /**
+     * Create a GenericsTask instance.
+     *
+     * @param { (...args: A) => R | Promise<R> } func - Concurrent function to execute in taskpool.
+     * @param { A } args - The concurrent function arguments.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+     * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 13
+     */
+    constructor(func: (...args: A) => R | Promise<R>, ...args: A);
+
+    /**
+     * Create a GenericsTask instance.
+     *
+     * @param { string } name - The name of GenericsTask.
+     * @param { (...args: A) => R | Promise<R> } func - Concurrent function to execute in taskpool.
+     * @param { A } args - The concurrent function arguments.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+     * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 13
+     */
+    constructor(name: string, func: (...args: A) => R | Promise<R>, ...args: A);
   }
 
   /**
@@ -1111,7 +1217,39 @@ declare namespace taskpool {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Execute a concurrent function.
+   *
+   * @param { Function } func - func func Concurrent function want to execute.
+   * @param { Object[] } args - args args The concurrent function arguments.
+   * @returns { Promise<Object> }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types;
+   * 3.Parameter verification failed.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   function execute(func: Function, ...args: Object[]): Promise<Object>;
+
+  /**
+   * Execute a concurrent function with generics.
+   *
+   * @param { (...args: A) => R | Promise<R> } func - Concurrent function want to execute.
+   * @param { A } args - The concurrent function arguments.
+   * @returns { Promise<R> }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 13
+   */
+  function execute<A extends Array<Object>, R>(func: (...args: A) => R | Promise<R>, ...args: A): Promise<R>;
 
   /**
    * Execute a concurrent task.
@@ -1174,7 +1312,6 @@ declare namespace taskpool {
    * <br>1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types;
    * <br>3. Parameter verification failed.
-   * @throws { BusinessError } 10200003 - Worker initialization failed.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
    * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
@@ -1183,7 +1320,57 @@ declare namespace taskpool {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Execute a concurrent task.
+   *
+   * @param { Task } task - The task want to execute.
+   * @param { Priority } [priority] - Task priority, MEDIUM is default.
+   * @returns { Promise<Object> }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
+   * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
+   * @throws { BusinessError } 10200057 - The task cannot be executed by two APIs.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   function execute(task: Task, priority?: Priority): Promise<Object>;
+
+  /**
+   * Execute a concurrent task with generics.
+   *
+   * @param { GenericsTask<A, R> } task - The task want to execute.
+   * @param { Priority } [priority] - Task priority, MEDIUM is default.
+   * @returns { Promise<R> }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
+   * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 13
+   */
+  /**
+   * Execute a concurrent task with generics.
+   *
+   * @param { GenericsTask<A, R> } task - The task want to execute.
+   * @param { Priority } [priority] - Task priority, MEDIUM is default.
+   * @returns { Promise<R> }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
+   * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
+   * @throws { BusinessError } 10200057 - The task cannot be executed by two APIs.
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 16
+   */
+  function execute<A extends Array<Object>, R>(task: GenericsTask<A, R>, priority?: Priority): Promise<R>;
 
   /**
    * Execute a concurrent task group.
@@ -1246,6 +1433,8 @@ declare namespace taskpool {
    * <br>1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types;
    * <br>3. Parameter verification failed.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
    * @throws { BusinessError } 10200028 - The delayTime is less than zero.
    * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
    * @syscap SystemCapability.Utils.Lang
@@ -1253,7 +1442,59 @@ declare namespace taskpool {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Execute a concurrent task after the specified time.
+   *
+   * @param { number } delayTime - The time want to delay.
+   * @param { Task } task - The task want to execute.
+   * @param { Priority } [priority] - Task priority, MEDIUM is default.
+   * @returns { Promise<Object> }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
+   * @throws { BusinessError } 10200028 - The delayTime is less than zero.
+   * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
+   * @throws { BusinessError } 10200057 - The task cannot be executed by two APIs.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   function executeDelayed(delayTime: number, task: Task, priority?: Priority): Promise<Object>;
+
+  /**
+   * Execute a concurrent task with generics after the specified time.
+   *
+   * @param { number } delayTime - The time want to delay.
+   * @param { GenericsTask<A, R> } task - The task want to execute.
+   * @param { Priority } [priority] - Task priority, MEDIUM is default.
+   * @returns { Promise<R> }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+   * @throws { BusinessError } 10200028 - The delayTime is less than zero.
+   * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 13
+   */
+  /**
+   * Execute a concurrent task with generics after the specified time.
+   *
+   * @param { number } delayTime - The time want to delay.
+   * @param { GenericsTask<A, R> } task - The task want to execute.
+   * @param { Priority } [priority] - Task priority, MEDIUM is default.
+   * @returns { Promise<R> }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+   * @throws { BusinessError } 10200028 - The delayTime is less than zero.
+   * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
+   * @throws { BusinessError } 10200057 - The task cannot be executed by two APIs.
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 16
+   */
+  function executeDelayed<A extends Array<Object>, R>(delayTime: number, task: GenericsTask<A, R>, priority?: Priority): Promise<R>;
 
   /**
    * Execute a concurrent task periodically.
@@ -1261,11 +1502,10 @@ declare namespace taskpool {
    * @param { number } period - The period in milliseconds for executing task.
    * @param { Task } task - The task want to execute.
    * @param { Priority } [priority] - Task priority, MEDIUM is default.
-   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types;
    * <br>3. Parameter verification failed.
-   * @throws { BusinessError } 10200003 - Worker initialization failed.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
    * @throws { BusinessError } 10200028 - The period is less than zero.
@@ -1275,7 +1515,60 @@ declare namespace taskpool {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Execute a concurrent task periodically.
+   *
+   * @param { number } period - The period in milliseconds for executing task.
+   * @param { Task } task - The task want to execute.
+   * @param { Priority } [priority] - Task priority, MEDIUM is default.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
+   * @throws { BusinessError } 10200028 - The period is less than zero.
+   * @throws { BusinessError } 10200050 - The concurrent task has been executed and cannot be executed periodically.
+   * @throws { BusinessError } 10200057 - The task cannot be executed by two APIs.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   function executePeriodically(period: number, task: Task, priority?: Priority): void;
+
+  /**
+   * Execute a concurrent task with generics periodically.
+   *
+   * @param { number } period - The period in milliseconds for executing task.
+   * @param { GenericsTask<A, R> } task - The task want to execute.
+   * @param { Priority } [priority] - Task priority, MEDIUM is default.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
+   * @throws { BusinessError } 10200028 - The period is less than zero.
+   * @throws { BusinessError } 10200050 - The concurrent task has been executed and cannot be executed periodically.
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 13
+   */
+  /**
+   * Execute a concurrent task with generics periodically.
+   *
+   * @param { number } period - The period in milliseconds for executing task.
+   * @param { GenericsTask<A, R> } task - The task want to execute.
+   * @param { Priority } [priority] - Task priority, MEDIUM is default.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
+   * @throws { BusinessError } 10200028 - The period is less than zero.
+   * @throws { BusinessError } 10200050 - The concurrent task has been executed and cannot be executed periodically.
+   * @throws { BusinessError } 10200057 - The task cannot be executed by two APIs.
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 16
+   */
+  function executePeriodically<A extends Array<Object>, R>(period: number, task: GenericsTask<A, R>, priority?: Priority): void;
 
   /**
    * Cancel a concurrent task.
@@ -1316,6 +1609,21 @@ declare namespace taskpool {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Cancel a concurrent task.
+   *
+   * @param { Task } task - task task The task want to cancel.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types;
+   * 3.Parameter verification failed.
+   * @throws { BusinessError } 10200015 - The task to cancel does not exist.
+   * @throws { BusinessError } 10200055 - The asyncRunner task has been canceled.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   function cancel(task: Task): void;
 
@@ -1397,6 +1705,61 @@ declare namespace taskpool {
    * @since 12
    */
     function isConcurrent(func: Function): boolean;
+
+  /**
+   * The AsyncRunner class provides an interface to create an async runner.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 16
+   */
+  export class AsyncRunner {
+    /**
+     * Create a AsyncRunner instance.
+     *
+     * @param { number } runningCapacity - The maximum task execution capacity.
+     * @param { ?number } waitingCapacity - The waiting task capacity, 0 is default, means no limit on waiting task capacity.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    constructor(runningCapacity: number, waitingCapacity?: number);
+
+    /**
+     * Create or get a AsyncRunner instance by name.
+     *
+     * @param { string } name - AsyncRunner name, if name is the same, will return the same asyncRunner.
+     * @param { number } runningCapacity - The maximum task execution capacity.
+     * @param { ?number } waitingCapacity - The waiting task capacity, 0 is default, means no limit on waiting task capacity.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    constructor(name: string, runningCapacity: number, waitingCapacity?: number);
+
+    /**
+     * Execute a concurrent function.
+     *
+     * @param { Task } task - The task want to execute.
+     * @param { ?Priority } priority - Task execution priority, MEDIUM is default.
+     * @returns { Promise<Object> }
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+     * @throws { BusinessError } 10200025 - dependent task not allowed.
+     * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
+     * @throws { BusinessError } 10200054 - The asyncRunner task is discarded.
+     * @throws { BusinessError } 10200057 - The task cannot be executed by two APIs.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    execute(task: Task, priority?: Priority): Promise<Object>;
+  }
 }
 
 export default taskpool;

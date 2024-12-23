@@ -31,9 +31,10 @@
     "newDescription": "",
     "oldSyscapField": "",
     "newSyscapField": "",
-    "oldKitInfo": "",
+    "oldKitInfo": "NA",
     "newKitInfo": "",
-    "isSystemapi": false
+    "isSystemapi": false,
+    "isSameNameFunction": false
   },
   {
     "apiType": "Property",
@@ -48,7 +49,7 @@
     "diffMessage": "新增API",
     "changeLogUrl": "",
     "changeLogs": [],
-    "isCompatible": true,
+    "isCompatible": false,
     "oldHierarchicalRelations": [],
     "newHierarchicalRelations": [
       "ut_struct_child_name_change.d.ets",
@@ -68,7 +69,8 @@
     "oldSyscapField": "",
     "newSyscapField": "",
     "oldKitInfo": "",
-    "newKitInfo": "",
-    "isSystemapi": false
+    "newKitInfo": "NA",
+    "isSystemapi": false,
+    "isSameNameFunction": false
   }
 ]

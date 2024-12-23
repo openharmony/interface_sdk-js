@@ -137,4 +137,15 @@ export default class BackupExtensionAbility {
     * @since 12
     */
   getBackupInfo(): string;
+
+  /**
+    * Callback to be called when getting backup/restore process info.
+    * Developer could override this method to provide the backup/restore process info.
+    * 
+    * @returns { string } Return the backup/restore process info.
+    * @syscap SystemCapability.FileManagement.StorageService.Backup
+    * @StageModelOnly
+    * @since 12
+    */
+  onProcess(): string;
 }

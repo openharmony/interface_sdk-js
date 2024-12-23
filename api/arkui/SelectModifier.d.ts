@@ -25,8 +25,9 @@
  * Defines Select Modifier
  *
  * @extends SelectAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<SelectAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class SelectModifier extends SelectAttribute implements AttributeModifier<SelectAttribute> {
@@ -37,6 +38,7 @@ export declare class SelectModifier extends SelectAttribute implements Attribute
    * @param { SelectAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: SelectAttribute): void;

@@ -104,6 +104,17 @@ declare namespace AbilityConstant {
     launchReason: LaunchReason;
 
     /**
+     * Indicates launch detailed reason.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 16
+     */
+    launchReasonMessage?: string;
+
+    /**
      * Indicates last exit reason.
      *
      * @type { LastExitReason }
@@ -660,7 +671,6 @@ declare namespace AbilityConstant {
      * Full screen mode.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
      * @stagemodelonly
      * @since 12
      */

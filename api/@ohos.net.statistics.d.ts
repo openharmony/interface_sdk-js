@@ -29,7 +29,7 @@ import type connection from './@ohos.net.connection';
  */
 declare namespace statistics {
   /**
-   * @typedef NetBearType
+   * @typedef {connection.NetBearType}
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 12
    */
@@ -610,7 +610,7 @@ declare namespace statistics {
    */
   export type UidNetStatsInfo = {
     [uid: number]: NetStatsInfo;
-  };
+  }
 
   /**
    * Parameters for obtaining detailed information on specified network traffic usage.

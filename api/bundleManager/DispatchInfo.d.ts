@@ -30,6 +30,8 @@ export interface DispatchInfo {
   /**
    * Indicates the dispatchInfo version
    *
+   * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -39,6 +41,8 @@ export interface DispatchInfo {
   /**
    * Indicates the free install interface version
    *
+   * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9

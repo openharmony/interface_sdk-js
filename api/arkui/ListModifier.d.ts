@@ -25,8 +25,9 @@
  * Defines List Modifier
  *
  * @extends ListAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<ListAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class ListModifier extends ListAttribute implements AttributeModifier<ListAttribute> {
@@ -37,6 +38,7 @@ export declare class ListModifier extends ListAttribute implements AttributeModi
    * @param { ListAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: ListAttribute): void;

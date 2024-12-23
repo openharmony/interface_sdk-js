@@ -30,6 +30,7 @@
  */
 export interface PermissionDef {
   /**
+   * @type { string }
    * @default Indicates the name of this permission
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi
@@ -39,6 +40,7 @@ export interface PermissionDef {
   permissionName: string;
 
   /**
+   * @type { number }
    * @default Indicates the grant mode of this permission
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi
@@ -48,6 +50,7 @@ export interface PermissionDef {
   grantMode: number;
 
   /**
+   * @type { number }
    * @default Indicates the labelId of this permission
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi
@@ -57,6 +60,7 @@ export interface PermissionDef {
   labelId: number;
 
   /**
+   * @type { number }
    * @default Indicates the descriptionId of this permission
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi

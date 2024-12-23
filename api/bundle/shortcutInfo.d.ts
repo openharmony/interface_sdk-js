@@ -31,6 +31,7 @@
  */
 export interface ShortcutWant {
   /**
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
    * @since 7
@@ -38,6 +39,7 @@ export interface ShortcutWant {
    */
   readonly targetBundle: string;
   /**
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
    * @since 7
@@ -56,60 +58,70 @@ export interface ShortcutWant {
  */
 export interface ShortcutInfo {
   /**
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
    */
   readonly id: string;
   /**
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
    */
   readonly bundleName: string;
   /**
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
    */
   readonly hostAbility: string;
   /**
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
    */
   readonly icon: string;
   /**
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 8
    * @deprecated since 9
    */
   readonly iconId: number;
   /**
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
    */
   readonly label: string;
   /**
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 8
    * @deprecated since 9
    */
   readonly labelId: number;
   /**
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
    */
   readonly disableMessage: string;
   /**
+   * @type { Array<ShortcutWant> }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
    * @deprecated since 9
    */
   readonly wants: Array<ShortcutWant>;
   /**
+   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -117,6 +129,7 @@ export interface ShortcutInfo {
    */
   readonly isStatic?: boolean;
   /**
+   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7
@@ -124,6 +137,7 @@ export interface ShortcutInfo {
    */
   readonly isHomeShortcut?: boolean;
   /**
+   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7

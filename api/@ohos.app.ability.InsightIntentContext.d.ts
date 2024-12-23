@@ -40,7 +40,7 @@ export default class InsightIntentContext {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -51,7 +51,7 @@ export default class InsightIntentContext {
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16000061 - Can not start component belongs to other bundle.
+   * @throws { BusinessError } 16000061 - Operation not supported.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
@@ -70,7 +70,7 @@ export default class InsightIntentContext {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -81,7 +81,7 @@ export default class InsightIntentContext {
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
-   * @throws { BusinessError } 16000061 - Can not start component belongs to other bundle.
+   * @throws { BusinessError } 16000061 - Operation not supported.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly

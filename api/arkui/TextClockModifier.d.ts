@@ -25,8 +25,9 @@
  * Defines TextClock Modifier
  *
  * @extends TextClockAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<TextClockAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class TextClockModifier extends TextClockAttribute implements AttributeModifier<TextClockAttribute> {
@@ -37,6 +38,7 @@ export declare class TextClockModifier extends TextClockAttribute implements Att
    * @param { TextClockAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: TextClockAttribute): void;

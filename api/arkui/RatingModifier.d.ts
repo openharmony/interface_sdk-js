@@ -25,8 +25,9 @@
  * Defines Rating Modifier
  *
  * @extends RatingAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<RatingAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class RatingModifier extends RatingAttribute implements AttributeModifier<RatingAttribute> {
@@ -37,6 +38,7 @@ export declare class RatingModifier extends RatingAttribute implements Attribute
    * @param { RatingAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: RatingAttribute): void;

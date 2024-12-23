@@ -58,7 +58,7 @@ declare namespace errorManager {
    * @returns { number } Returns the number code of the observer.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000003 - Id does not exist.
+   * @throws { BusinessError } 16000003 - The specified ID does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11
@@ -85,7 +85,7 @@ declare namespace errorManager {
    * @param { AsyncCallback<void> } callback - The callback of off.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000003 - Id does not exist.
+   * @throws { BusinessError } 16000003 - The specified ID does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11
@@ -112,12 +112,151 @@ declare namespace errorManager {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000003 - Id does not exist.
+   * @throws { BusinessError } 16000003 - The specified ID does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11
    */
   function off(type: 'error', observerId: number): Promise<void>;
+
+  /**
+   * Register an error observer for all VM instances include worker and taskpool.
+   * @param { 'globalErrorOccurred'} type - globalErrorOccurred
+   * @param { GlobalObserver } observer - the global error observer.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16200001 - If the caller is invalid.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 16
+   */
+  function on(type: 'globalErrorOccurred', observer: GlobalObserver): void;
+
+  /**
+   * Register a rejection observer for all VM instances include worker and taskpool.
+   * @param { 'globalUnhandledRejectionDetected'} type - globalUnhandledRejectionDetected.
+   * @param { GlobalObserver } observer - the global error observer.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16200001 - If the caller is invalid.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 16
+   */
+  function on(type: 'globalUnhandledRejectionDetected', observer: GlobalObserver): void;
+
+  /**
+   * Unregister the error observer for all VM instance include worker and taskpool.
+   * @param { 'globalErrorOccurred'} type - globalErrorOccurred.
+   * @param { GlobalObserver } observer - the global error observer.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16200001 - If the caller is invalid.
+   * @throws { BusinessError } 16300004 - If the observer does not exist
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 16
+   */
+  function off(type: 'globalErrorOccurred', observer?: GlobalObserver): void;
+
+  /**
+   * Unregister the rejection observer for all VM instance include worker and taskpool.
+   * @param { 'globalUnhandledRejectionDetected'} type - globalUnhandledRejectionDetected.
+   * @param { GlobalObserver } observer - the global error observer.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16200001 - If the caller is invalid.
+   * @throws { BusinessError } 16300004 - If the observer does not exist
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 16
+   */
+  function off(type: 'globalUnhandledRejectionDetected', observer?: GlobalObserver): void;
+
+  /**
+   * The observer will be called by system when an error or unhandled rejection occurs
+   * from all VM instances include worker and taskpool.
+   * @typedef { function }
+   * { GlobalError } reason - the reason of the error or rejection.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 16
+   */
+  export type GlobalObserver = (reason: GlobalError) => void;
+
+  /**
+   * Defines GlobalError.
+   * 
+   * @extends Error
+   * @typedef GlobalError
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 16
+   */
+  export interface GlobalError extends Error {
+    /**
+     * Define the instance name of VM.
+     * @type { string } instanceName
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @atomicservice
+     * @since 16
+     */
+    instanceName: string;
+
+    /**
+     * Define the instance type of VM.
+     * @type { InstanceType } instanceType
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @atomicservice
+     * @since 16
+     */
+    instanceType: InstanceType;
+  }
+
+  /**
+   * Define the instance type of VM.
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @atomicservice
+   * @since 16
+   */
+  export enum InstanceType {
+    /**
+     * Indicates it is the main VM instance.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @atomicservice
+     * @since 16
+     */
+    MAIN = 0,
+
+    /**
+     * Indicates it is the worker VM instance.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @atomicservice
+     * @since 16
+     */
+     WORKER = 1,
+
+    /**
+     * Indicates it is the taskpool VM instance.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @atomicservice
+     * @since 16
+     */
+    TASKPOOL = 2,
+
+    /**
+     * Indicates it is a VM instance created by napi_create_ark_runtime from native code by user.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @atomicservice
+     * @since 16
+     */
+    CUSTOM = 3,
+  }
 
   /**
    * Register loop observer. This function can only by called from main thread,
@@ -186,6 +325,7 @@ declare namespace errorManager {
   /**
    * The observer will be called by system when an error occurs.
    *
+   * @typedef { _ErrorObserver.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11
@@ -194,6 +334,7 @@ declare namespace errorManager {
   /**
    * The observer will be called when application main thread execute timeout.
    *
+   * @typedef { _LoopObserver }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12
@@ -202,6 +343,7 @@ declare namespace errorManager {
   /**
    * The observer will be called by system when an unhandled rejection occurs.
    *
+   * @typedef { function }
    * { Error | any } reason - the reason of the rejection, typically of Error type
    * { Promise<any> } promise - the promise that is rejected
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

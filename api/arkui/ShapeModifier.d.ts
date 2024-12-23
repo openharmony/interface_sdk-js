@@ -25,8 +25,9 @@
  * Defines Shape Modifier
  *
  * @extends ShapeAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<ShapeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class ShapeModifier extends ShapeAttribute implements AttributeModifier<ShapeAttribute> {
@@ -37,6 +38,7 @@ export declare class ShapeModifier extends ShapeAttribute implements AttributeMo
    * @param { ShapeAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: ShapeAttribute): void;

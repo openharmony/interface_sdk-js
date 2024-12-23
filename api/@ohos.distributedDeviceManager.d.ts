@@ -38,7 +38,10 @@ declare namespace distributedDeviceManager {
    */
   interface DeviceBasicInfo {
     /**
-     * Device unique identifier, The actual value is the udid-hash confused with the appid based on sha256.
+     * Device identifier. The actual value is udid-hash confused with appid and salt value based on sha256.
+     * This id remains unchanged after application installation. If the application is uninstalled and reinstalled,
+     * the obtained ID will change.
+     * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
@@ -46,6 +49,7 @@ declare namespace distributedDeviceManager {
 
     /**
      * Device name.
+     * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
@@ -62,6 +66,7 @@ declare namespace distributedDeviceManager {
 
     /**
      * Device network id.
+     * @type { ?string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
@@ -221,7 +226,9 @@ declare namespace distributedDeviceManager {
      * Get the device id of the local device.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @returns { string } - Returns local device id.
+     * @returns { string } - Device identifier. The actual value is udid-hash confused with appid and salt value based on sha256.
+     * This id remains unchanged after application installation. If the application is uninstalled and reinstalled,
+     * the obtained ID will change.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
@@ -319,11 +326,8 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { string } deviceId - id of device to bind.
      * @param { object } bindParam - parameters of device to bind, The parameter type is map,such as:
-     *      "bindType" : 1-4,         - This value is type of bind, the values are as follows:
+     *      "bindType" : 1,           - This value is type of bind, the values are as follows:
      *                                  1 - The bind type is pin code .
-     *                                  2 - The bind type is QR code.
-     *                                  3 - The bind type is nfc.
-     *                                  4 - The bind type is no_interaction.
 
      *      "targetPkgName" : "xxxx", - The package name of binding target.
      *      "appName" : "xxxx",       - The app name that try to bind the target.

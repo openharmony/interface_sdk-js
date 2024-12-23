@@ -165,7 +165,7 @@ export default class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12  
+   * @since 12
    */
   off(type: 'abilityLifecycle', callbackId: number): Promise<void>;
 
@@ -399,7 +399,7 @@ export default class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 14
    */
   killAllProcesses(clearPageStack: boolean): Promise<void>;
 
@@ -484,7 +484,7 @@ export default class ApplicationContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
-   * @throws { BusinessError } 16000063 - The target to restart does not belong to the current app or is not a UIAbility.
+   * @throws { BusinessError } 16000063 - The target to restart does not belong to the current application or is not a UIAbility.
    * @throws { BusinessError } 16000064 - Restart too frequently. Try again at least 10s later.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -504,7 +504,7 @@ export default class ApplicationContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -553,4 +553,40 @@ export default class ApplicationContext extends Context {
    * @since 12
    */
   getCurrentAppCloneIndex(): number;
+
+  /**
+   * Set font size scale.
+   * @param {number} fontSizeScale - Font size scale.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 13
+   */
+  setFontSizeScale(fontSizeScale: number): void;
+
+  /**
+   * Get current app key of current running app instance.
+   *
+   * @returns { string } Returns the key of current running app instance.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000078 - The multi-instance is not supported.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 14
+   */
+  getCurrentInstanceKey(): string;
+
+  /**
+   * Get all running app instance key for current bundle
+   *
+   * @returns { Promise<Array<string>> } Returns the array of all running app instance keys.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000078 - The multi-instance is not supported.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 14
+   */
+    getAllRunningInstanceKeys(): Promise<Array<string>>;
 }

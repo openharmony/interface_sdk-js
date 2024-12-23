@@ -47,7 +47,6 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
-   * @form
    */
   /**
    * NavDestination state.
@@ -57,7 +56,6 @@ declare namespace uiObserver {
    * @crossplatform
    * @atomicservice
    * @since 12
-   * @form
    */
   export enum NavDestinationState {
     /**
@@ -66,7 +64,6 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
-     * @form
      */
     /**
      * When the NavDestination is displayed.
@@ -75,7 +72,6 @@ declare namespace uiObserver {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @form
      */
     ON_SHOWN = 0,
 
@@ -85,7 +81,6 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
-     * @form
      */
     /**
      * When the NavDestination is hidden.
@@ -94,7 +89,6 @@ declare namespace uiObserver {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @form
      */
     ON_HIDDEN = 1,
 
@@ -105,7 +99,6 @@ declare namespace uiObserver {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @form
      */
     ON_APPEAR = 2,
 
@@ -116,7 +109,6 @@ declare namespace uiObserver {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @form
      */
     ON_DISAPPEAR = 3,
 
@@ -125,7 +117,6 @@ declare namespace uiObserver {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -136,7 +127,6 @@ declare namespace uiObserver {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -147,7 +137,6 @@ declare namespace uiObserver {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -158,7 +147,6 @@ declare namespace uiObserver {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -171,7 +159,6 @@ declare namespace uiObserver {
      * @crossplatform
      * @atomicservice
      * @since 12
-     * @form
      */
     ON_BACKPRESS = 100
   }

@@ -48,6 +48,73 @@ interface PluginComponentTemplate {
 }
 
 /**
+ * Define options used to construct a plugin component.
+ *
+ * @interface PluginComponentOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 14
+ */
+declare interface PluginComponentOptions {
+  /**
+   * Plugin component template.
+   * @type { PluginComponentTemplate }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 9
+   */
+  template: PluginComponentTemplate;
+
+  /**
+   * Plugin component data.
+   * @type { any }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 9
+   */
+  data: any;
+}
+
+/**
+ * Data provided when an error occurs.
+ *
+ * @interface PluginErrorData
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 14
+ */
+declare interface PluginErrorData {
+  /**
+   * Error code.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 9
+   */
+  errcode: number;
+
+  /**
+   * Error message.
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 9
+   */
+  msg: string;
+}
+
+/**
+ * Callback invoked when an error occurs.
+ *
+ * @typedef { function } PluginErrorCallback
+ * @param { PluginErrorData } info - Plugin error data
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 14
+ */
+declare type PluginErrorCallback = (info: PluginErrorData) => void;
+
+/**
  * Provides plugin component.
  *
  * @interface PluginComponentInterface
@@ -65,7 +132,16 @@ interface PluginComponentInterface {
    * @systemapi
    * @since 9
    */
-  (value: { template: PluginComponentTemplate; data: any }): PluginComponentAttribute;
+  /**
+   * Called when setting the plugin.
+   *
+   * @param { PluginComponentOptions } options - Plugin component options
+   * @returns { PluginComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 14
+   */
+  (options: PluginComponentOptions): PluginComponentAttribute;
 }
 
 /**
@@ -86,7 +162,16 @@ declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttri
    * @systemapi
    * @since 9
    */
-  onComplete(callback: () => void): PluginComponentAttribute;
+  /**
+   * PluginComponent onComplete callback
+   *
+   * @param { VoidCallback } callback
+   * @returns { PluginComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 14
+   */
+  onComplete(callback: VoidCallback): PluginComponentAttribute;
 
   /**
    * pluginComponent onError callback,
@@ -97,7 +182,16 @@ declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttri
    * @systemapi
    * @since 9
    */
-  onError(callback: (info: { errcode: number; msg: string }) => void): PluginComponentAttribute;
+  /**
+   * PluginComponent onError callback
+   *
+   * @param { PluginErrorCallback } callback
+   * @returns { PluginComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 14
+   */
+  onError(callback: PluginErrorCallback): PluginComponentAttribute;
 }
 
 /**

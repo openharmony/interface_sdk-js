@@ -19,6 +19,90 @@
  */
 
 /**
+ * Ellipse constructor options.
+ *
+ * @interface EllipseOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 14
+ */
+interface EllipseOptions {
+  /**
+   * Set width.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Set width.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Set width.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Set width.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  width?: string | number;
+
+  /**
+   * Set height.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Set height.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  /**
+   * Set height.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 10
+   */
+  /**
+   * Set height.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  height?: string | number;
+}
+
+/**
  * Ellipse drawing.
  *
  * @interface EllipseInterface
@@ -30,8 +114,8 @@
  *
  * @interface EllipseInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Ellipse drawing.
@@ -39,8 +123,8 @@
  * @interface EllipseInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Ellipse drawing.
@@ -48,9 +132,9 @@
  * @interface EllipseInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 interface EllipseInterface {
   /**
@@ -67,8 +151,8 @@ interface EllipseInterface {
    * @param { object } value
    * @returns { EllipseAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * use new function to set the value.
@@ -77,8 +161,8 @@ interface EllipseInterface {
    * @returns { EllipseAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * use new function to set the value.
@@ -87,11 +171,22 @@ interface EllipseInterface {
    * @returns { EllipseAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
-  new (value?: { width?: string | number; height?: string | number }): EllipseAttribute;
+  /**
+   * use new function to set the value.
+   *
+   * @param { EllipseOptions } [options] - ellipse options
+   * @returns { EllipseAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  new (options?: EllipseOptions): EllipseAttribute;
 
   /**
    * Set the value.
@@ -107,8 +202,8 @@ interface EllipseInterface {
    * @param { object } value
    * @returns { EllipseAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 9
-   * @form
    */
   /**
    * Set the value.
@@ -117,8 +212,8 @@ interface EllipseInterface {
    * @returns { EllipseAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
-   * @form
    */
   /**
    * Set the value.
@@ -127,11 +222,22 @@ interface EllipseInterface {
    * @returns { EllipseAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
    */
-  (value?: { width?: string | number; height?: string | number }): EllipseAttribute;
+  /**
+   * Set the value.
+   *
+   * @param { EllipseOptions } [options] - ellipse options
+   * @returns { EllipseAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 14
+   */
+  (options?: EllipseOptions): EllipseAttribute;
 }
 
 /**
@@ -142,23 +248,23 @@ interface EllipseInterface {
 /**
  * @extends CommonShapeMethod<EllipseAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * @extends CommonShapeMethod<EllipseAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * @extends CommonShapeMethod<EllipseAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare class EllipseAttribute extends CommonShapeMethod<EllipseAttribute> {}
 
@@ -172,25 +278,25 @@ declare class EllipseAttribute extends CommonShapeMethod<EllipseAttribute> {}
  * Defines Ellipse Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines Ellipse Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines Ellipse Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const Ellipse: EllipseInterface;
 
@@ -204,24 +310,24 @@ declare const Ellipse: EllipseInterface;
  * Defines Ellipse Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
  * @since 9
- * @form
  */
 /**
  * Defines Ellipse Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @since 10
- * @form
  */
 /**
  * Defines Ellipse Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11
- * @form
  */
 declare const EllipseInstance: EllipseAttribute;

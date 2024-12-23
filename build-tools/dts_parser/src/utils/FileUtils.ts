@@ -41,6 +41,9 @@ export class FileUtils {
    */
   static readFilesInDir(dirName: string, filter?: (name: string) => boolean): Array<string> {
     const files: Array<string> = [];
+    if (!fs.existsSync(dirName)) {
+      return files;
+    }
     fs.readdirSync(dirName, { withFileTypes: true }).forEach((dir) => {
       if (dir.name === StringConstant.NOT_SCAN_DIR) {
         return;

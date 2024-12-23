@@ -298,6 +298,7 @@ interface TextPickerInterface {
  * @interface DividerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface DividerOptions {
@@ -307,6 +308,7 @@ declare interface DividerOptions {
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   strokeWidth?: Dimension;
@@ -317,6 +319,7 @@ declare interface DividerOptions {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   color?: ResourceColor;
@@ -327,6 +330,7 @@ declare interface DividerOptions {
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   startMargin?: Dimension;
@@ -337,10 +341,69 @@ declare interface DividerOptions {
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   endMargin?: Dimension;
 }
+
+/**
+ * Provide an interface for the text style of the text picker.
+ *
+ * @extends PickerTextStyle
+ * @interface TextPickerTextStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 15
+ */
+declare interface TextPickerTextStyle extends PickerTextStyle {
+  /**
+   * Defines the minimum font size of the text.
+   *
+   * @type { ?(number | string | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  minFontSize?: number | string | Resource;
+
+  /**
+   * Defines the maximum font size of the text.
+   *
+   * @type { ?(number | string | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  maxFontSize?: number | string | Resource;
+
+  /**
+   * Defines the overflow mode of the text.
+   *
+   * @type { ?TextOverflow }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  overflow?: TextOverflow;
+}
+
+/**
+ * Callback of the listened scroll stop event.
+ *
+ * @typedef {function} TextPickerScrollStopCallback
+ * @param { string | string[] } value - Value of the selected item.
+ * @param { number | number[] } index - Index of the selected item.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare type TextPickerScrollStopCallback = (value: string | string[], index: number | number[]) => void;
 
 /**
  * Style the text selector.
@@ -480,6 +543,30 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
   selectedTextStyle(value: PickerTextStyle): TextPickerAttribute;
 
   /**
+   * Defines whether to disable the text style animation.
+   *
+   * @param { boolean } disabled
+   * @returns { TextPickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  disableTextStyleAnimation(disabled: boolean): TextPickerAttribute;
+
+  /**
+   * Defines to set the default text style for options.
+   *
+   * @param { TextPickerTextStyle } style
+   * @returns { TextPickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  defaultTextStyle(style: TextPickerTextStyle): TextPickerAttribute;
+
+  /**
    * Called when the pop-up value is returned.
    *
    * @param { function } callback
@@ -533,6 +620,19 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
   onChange(callback: (value: string | string[], index: number | number[]) => void): TextPickerAttribute;
 
   /**
+   * This event is triggered when a TextPicker item is selected and scrolling has stopped.
+   * Only valid when only text is displayed. When picture or picture plus text is displayed, the value is "".
+   *
+   * @param { TextPickerScrollStopCallback } callback - the callback of onScrollStop.
+   * @returns { TextPickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onScrollStop(callback: TextPickerScrollStopCallback): TextPickerAttribute;
+
+  /**
    * Set the selected indices.
    * The array size is the total number of columns.
    *
@@ -562,6 +662,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   divider(value: DividerOptions | null): TextPickerAttribute;
@@ -573,6 +674,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   gradientHeight(value: Dimension): TextPickerAttribute;
@@ -661,6 +763,7 @@ declare interface TextPickerResult {
 /**
  * Defines the TextPickerDialogOptions for Text Picker Dialog.
  *
+ * @extends TextPickerOptions
  * @interface TextPickerDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
@@ -668,6 +771,7 @@ declare interface TextPickerResult {
 /**
  * Defines the TextPickerDialogOptions for Text Picker Dialog.
  *
+ * @extends TextPickerOptions
  * @interface TextPickerDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -676,6 +780,7 @@ declare interface TextPickerResult {
 /**
  * Defines the TextPickerDialogOptions for Text Picker Dialog.
  *
+ * @extends TextPickerOptions
  * @interface TextPickerDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -773,6 +878,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @type { ?PickerDialogButtonStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   acceptButtonStyle?: PickerDialogButtonStyle;
@@ -783,6 +889,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @type { ?PickerDialogButtonStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   cancelButtonStyle?: PickerDialogButtonStyle;
@@ -805,6 +912,29 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @since 11
    */
   selectedTextStyle?: PickerTextStyle;
+
+  /**
+   * Defines whether to disable the text style animation.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  disableTextStyleAnimation?: boolean;
+
+  /**
+   * Defines to set the default text style for options.
+   *
+   * @type { ?TextPickerTextStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  defaultTextStyle?: TextPickerTextStyle;
+
   /**
    * Called when the OK button in the dialog is clicked.
    *
@@ -882,6 +1012,17 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @since 11
    */
   onChange?: (value: TextPickerResult) => void;
+
+  /**
+   * This event is triggered when a TextPicker text is selected and scrolling has stopped in dialog.
+   *
+   * @type { ?Callback<TextPickerResult> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onScrollStop?: Callback<TextPickerResult>;
 
   /**
    * Mask Region of dialog. The size cannot exceed the main window.
@@ -1010,6 +1151,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onWillAppear?: () => void;
@@ -1020,6 +1162,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onWillDisappear?: () => void;
@@ -1030,9 +1173,34 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @type { ?(ShadowOptions | ShadowStyle) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   shadow?: ShadowOptions | ShadowStyle; 
+
+  /**
+   * Defines whether to respond to the hover mode.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  enableHoverMode?: boolean;
+
+  /**
+   * Defines the dialog's display area in hover mode.
+   *
+   * @type { ?HoverModeAreaType }
+   * @default HoverModeAreaType.BOTTOM_SCREEN
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  hoverModeArea?: HoverModeAreaType;
 }
 
 /**

@@ -56,6 +56,7 @@ export interface WorkerOptions {
   /**
    * Mode in which the worker executes the script.
    *
+   * @type { ?('classic' | 'module') }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -79,6 +80,7 @@ export interface WorkerOptions {
   /**
    * Name of the worker.
    *
+   * @type { ?string }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -102,12 +104,69 @@ export interface WorkerOptions {
   /**
    * Whether the worker is shared.
    *
+   * @type { ?boolean }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12
    */
   shared?: boolean;
+
+  /**
+   * Priority of the worker.
+   *
+   * @type { ?ThreadWorkerPriority }
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 16
+   */
+  priority?: ThreadWorkerPriority;
+}
+
+/**
+ * The ThreadWorkerPriority defines the worker priority.
+ *
+ * @enum { number } ThreadWorkerPriority
+ * @syscap SystemCapability.Utils.Lang
+ * @atomicservice
+ * @since 16
+ */
+export enum ThreadWorkerPriority {
+  /**
+   * set worker priority to high.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 16
+   */
+  HIGH = 0,
+
+  /**
+   * set worker priority to medium.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 16
+   */
+  MEDIUM = 1,
+
+  /**
+   * set worker priority to low.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 16
+   */
+  LOW = 2,
+
+  /**
+   * set worker priority to idle.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 16
+   */
+  IDLE = 3
 }
 
 /**
@@ -148,6 +207,8 @@ export interface Event {
   /**
    * Type of the Event.
    *
+   * @type { string }
+   * @readonly
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -171,6 +232,8 @@ export interface Event {
   /**
    * Timestamp(accurate to millisecond) when the event is created.
    *
+   * @type { number }
+   * @readonly
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -180,21 +243,22 @@ export interface Event {
 }
 
 /**
- * @typedef ErrorEvent
  * Provides detailed information about the exception occurred during worker execution.
+ * @typedef ErrorEvent
  * @syscap SystemCapability.Utils.Lang
  * @since 7
  */
 /**
- * @typedef ErrorEvent
  * Provides detailed information about the exception occurred during worker execution.
+ * @typedef ErrorEvent
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @since 10
  */
 /**
- * @typedef ErrorEvent
  * Provides detailed information about the exception occurred during worker execution.
+ * @typedef ErrorEvent
+ * @extends Event
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
@@ -217,6 +281,8 @@ export interface ErrorEvent extends Event {
   /**
    * Information about the exception.
    *
+   * @type { string }
+   * @readonly
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -240,6 +306,8 @@ export interface ErrorEvent extends Event {
   /**
    * File where the exception is located.
    *
+   * @type { string }
+   * @readonly
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -263,6 +331,8 @@ export interface ErrorEvent extends Event {
   /**
    * Number of the line where the exception is located.
    *
+   * @type { number }
+   * @readonly
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -286,6 +356,8 @@ export interface ErrorEvent extends Event {
   /**
    * Number of the column where the exception is located.
    *
+   * @type { number }
+   * @readonly
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -309,6 +381,8 @@ export interface ErrorEvent extends Event {
   /**
    * Type of the exception.
    *
+   * @type { Object }
+   * @readonly
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -318,21 +392,22 @@ export interface ErrorEvent extends Event {
 }
 
 /**
- * @typedef MessageEvent<T>
  * Holds the data transferred between worker threads.
+ * @typedef MessageEvent<T>
  * @syscap SystemCapability.Utils.Lang
  * @since 7
  */
 /**
- * @typedef MessageEvent<T>
  * Holds the data transferred between worker threads.
+ * @typedef MessageEvent<T>
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @since 10
  */
 /**
- * @typedef MessageEvent<T>
  * Holds the data transferred between worker threads.
+ * @typedef MessageEvent<T>
+ * @extends Event
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
@@ -355,6 +430,8 @@ export interface MessageEvent<T> extends Event {
   /**
    * Data transferred when an exception occurs.
    *
+   * @type { T }
+   * @readonly
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -364,21 +441,22 @@ export interface MessageEvent<T> extends Event {
 }
 
 /**
- * @typedef MessageEvents
  * Saves the data transferred between worker thread and host thread.
+ * @typedef MessageEvents
  * @syscap SystemCapability.Utils.Lang
  * @since 9
  */
 /**
- * @typedef MessageEvents
  * Saves the data transferred between worker thread and host thread.
+ * @typedef MessageEvents
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @since 10
  */
 /**
- * @typedef MessageEvents
  * Saves the data transferred between worker thread and host thread.
+ * @typedef MessageEvents
+ * @extends Event
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
@@ -388,12 +466,14 @@ export interface MessageEvents extends Event {
   /**
    * Data transferred when an exception occurs.
    *
+   * @type { any }
    * @syscap SystemCapability.Utils.Lang
    * @since 9
    */
   /**
    * Data transferred when an exception occurs.
    *
+   * @type { any }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -401,12 +481,14 @@ export interface MessageEvents extends Event {
   /**
    * Data transferred when an exception occurs.
    *
+   * @type { any }
+   * @readonly
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  readonly data;
+  readonly data: any;
 }
 
 /**
@@ -450,6 +532,7 @@ export interface PostMessageOptions {
   /**
    * ArrayBuffer array used to transfer the ownership.
    *
+   * @type { ?Object[] }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -868,21 +951,22 @@ declare interface WorkerGlobalScope extends EventTarget {
 }
 
 /**
- * @typedef GlobalScope
  * The environment Specified in which worker threads run, which is isolated from the host thread environment.
+ * @typedef GlobalScope
  * @syscap SystemCapability.Utils.Lang
  * @since 9
  */
 /**
- * @typedef GlobalScope
  * The environment Specified in which worker threads run, which is isolated from the host thread environment.
+ * @typedef GlobalScope
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @since 10
  */
 /**
- * @typedef GlobalScope
  * The environment Specified in which worker threads run, which is isolated from the host thread environment.
+ * @typedef GlobalScope
+ * @extends WorkerEventTarget
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
@@ -905,6 +989,8 @@ declare interface GlobalScope extends WorkerEventTarget {
   /**
    * Name of Worker specified when there is a new worker.
    *
+   * @type { string }
+   * @readonly
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -934,6 +1020,7 @@ declare interface GlobalScope extends WorkerEventTarget {
    * the event handler to be called when an exception occurs during worker execution.
    * The event handler is executed in the worker thread.
    *
+   * @type { ?function }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -956,6 +1043,8 @@ declare interface GlobalScope extends WorkerEventTarget {
   /**
    * Specify the type attribute for self.
    *
+   * @type { GlobalScope & typeof globalThis }
+   * @readonly
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -1045,21 +1134,22 @@ export interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
 }
 
 /**
- * @typedef ThreadWorkerGlobalScope
  * Specifies the thread-worker running environment, which is isolated from the host-thread environment
+ * @typedef ThreadWorkerGlobalScope
  * @syscap SystemCapability.Utils.Lang
  * @since 9
  */
 /**
- * @typedef ThreadWorkerGlobalScope
  * Specifies the thread-worker running environment, which is isolated from the host-thread environment
+ * @typedef ThreadWorkerGlobalScope
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @since 10
  */
 /**
- * @typedef ThreadWorkerGlobalScope
  * Specifies the thread-worker running environment, which is isolated from the host-thread environment
+ * @typedef ThreadWorkerGlobalScope
+ * @extends GlobalScope
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
@@ -1097,6 +1187,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * the host thread through worker postMessage.
    * The event handler is executed in the worker thread.
    *
+   * @type { ?function }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
    * @throws { BusinessError } 10200004 - The Worker instance is not running.
    * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
@@ -1135,6 +1226,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * to be called then the worker receives a message that cannot be deserialized.
    * The event handler is executed in the worker thread.
    *
+   * @type { ?function }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
    * @throws { BusinessError } 10200004 - The Worker instance is not running.
    * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
@@ -1372,6 +1464,7 @@ declare namespace worker {
   /**
    * The ThreadWorker class contains all Worker functions.
    *
+   * @implements WorkerEventTarget
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -1449,6 +1542,7 @@ declare namespace worker {
      * The onexit attribute of the worker specifies the event handler to be called
      * when the worker exits. The handler is executed in the host thread.
      *
+     * @type { ?function }
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200004 - The Worker instance is not running.
      * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
@@ -1486,6 +1580,7 @@ declare namespace worker {
      * when an exception occurs during worker execution.
      * The event handler is executed in the host thread.
      *
+     * @type { ?function }
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200004 - The Worker instance is not running.
      * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
@@ -1526,6 +1621,7 @@ declare namespace worker {
      * and sent by the worker through the parentPort.postMessage.
      * The event handler is executed in the host thread.
      *
+     * @type { ?function }
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200004 - The Worker instance is not running.
      * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
@@ -1563,6 +1659,7 @@ declare namespace worker {
      * when the worker receives a message that cannot be serialized.
      * The event handler is executed in the host thread.
      *
+     * @type { ?function }
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200004 - The Worker instance is not running.
      * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
@@ -2084,7 +2181,7 @@ declare namespace worker {
    *
    * @extends ThreadWorker
    * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
+   * @systemapi
    * @since 12
    */
   class RestrictedWorker extends ThreadWorker {
@@ -2114,7 +2211,7 @@ declare namespace worker {
      * @throws { BusinessError } 10200003 - Worker initialization failure.
      * @throws { BusinessError } 10200007 - The worker file patch is invalid path.
      * @syscap SystemCapability.Utils.Lang
-     * @atomicservice
+     * @systemapi
      * @since 12
      */
     constructor(scriptURL: string, options?: WorkerOptions);
@@ -2294,7 +2391,6 @@ declare namespace worker {
   /**
    * The object used by the worker thread to communicate with the host thread.
    *
-   * @constant
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice

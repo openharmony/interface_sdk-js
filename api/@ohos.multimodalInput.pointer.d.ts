@@ -486,6 +486,18 @@ declare namespace pointer {
    * @systemapi hide for inner use
    * @since 9
    */
+  /**
+   * Sets the pointer moving speed.
+   *
+   * @param { number } speed - Pointer moving speed, which is any number.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use
+   * @since 12
+   */
   function setPointerSpeed(speed: number, callback: AsyncCallback<void>): void;
 
   /**
@@ -498,6 +510,18 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
    * @since 9
+   */
+  /**
+   * Sets the pointer moving speed.
+   *
+   * @param { number } speed - Pointer moving speed, which is any number.
+   * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use
+   * @since 12
    */
   function setPointerSpeed(speed: number): Promise<void>;
 
@@ -524,6 +548,17 @@ declare namespace pointer {
    * @systemapi hide for inner use
    * @since 9
    */
+  /**
+   * Queries the pointer moving speed.
+   *
+   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use
+   * @since 12
+   */
   function getPointerSpeed(callback: AsyncCallback<number>): void;
 
   /**
@@ -533,6 +568,15 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
    * @since 9
+   */
+  /**
+   * Queries the pointer moving speed.
+   *
+   * @returns { Promise<number> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use
+   * @since 12
    */
   function getPointerSpeed(): Promise<number>;
 
@@ -1414,6 +1458,57 @@ declare namespace pointer {
    * @since 11
    */
   function setCustomCursorSync(windowId: number, pixelMap: image.PixelMap, focusX?: number, focusY?: number): void;
-}
 
+  /**
+   * Set touchpad double tap and drag state.
+   *
+   * @param { boolean } isOpen - Indicates whether the touchpad double tap and drag is enabled
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 14
+   */
+  function setTouchpadDoubleTapAndDragState(isOpen: boolean, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set touchpad double tap and drag state.
+   *
+   * @param { boolean } isOpen - Indicates whether the touchpad double tap and drag is enabled
+   * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 14
+   */
+  function setTouchpadDoubleTapAndDragState(isOpen: boolean): Promise<void>;
+
+  /**
+   * Get touchpad double tap and drag state.
+   *
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 14
+   */
+  function getTouchpadDoubleTapAndDragState(callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Get touchpad double tap and drag state.
+   *
+   * @returns { Promise<boolean> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 14
+   */
+  function getTouchpadDoubleTapAndDragState(): Promise<boolean>;
+}
 export default pointer;

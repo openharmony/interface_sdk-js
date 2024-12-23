@@ -169,6 +169,7 @@ declare namespace socket {
     /**
      * Indicates the UUID in the SDP record.
      *
+     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
@@ -176,6 +177,7 @@ declare namespace socket {
     /**
      * Indicates secure channel or not
      *
+     * @type { boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
@@ -183,6 +185,7 @@ declare namespace socket {
     /**
      * Spp link type
      *
+     * @type { SppType }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */

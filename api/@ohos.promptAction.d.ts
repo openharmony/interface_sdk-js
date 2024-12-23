@@ -170,6 +170,7 @@ declare namespace promptAction {
      * @type { ?Alignment }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     alignment?: Alignment;
@@ -179,9 +180,74 @@ declare namespace promptAction {
      * @type { ?Offset }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     offset?: Offset;
+    /**
+     * Background color of toast.
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    backgroundColor?: ResourceColor;
+    /**
+     * Text color of toast.
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    textColor?: ResourceColor;
+    /**
+     * Background blur Style of toast.
+     *
+     * @type { ?BlurStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    backgroundBlurStyle?: BlurStyle;
+    /**
+     * Shadow of toast.
+     *
+     * @type { ?(ShadowOptions | ShadowStyle) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    shadow?: ShadowOptions | ShadowStyle;
+
+    /**
+     * Define whether to respond to the hover mode.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    enableHoverMode?: boolean;
+  
+    /**
+     * Defines the toast's display area in hover mode.
+     *
+     * @type { ?HoverModeAreaType }
+     * @default HoverModeAreaType.BOTTOM_SCREEN
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    hoverModeArea?: HoverModeAreaType;
   }
 
   /**
@@ -222,7 +288,7 @@ declare namespace promptAction {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
-     */
+      */
     /**
      * Toast shows at the top.
      *
@@ -238,7 +304,6 @@ declare namespace promptAction {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @atomicservice
      * @since 12
      */
     SYSTEM_TOP_MOST = 2
@@ -322,7 +387,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 12
      */
     primary?: boolean;
   }
@@ -583,6 +648,7 @@ declare namespace promptAction {
      * @default Color.Transparent
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     backgroundColor?: ResourceColor;
@@ -594,6 +660,7 @@ declare namespace promptAction {
      * @default BlurStyle.COMPONENT_ULTRA_THICK
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     backgroundBlurStyle?: BlurStyle;
@@ -604,9 +671,34 @@ declare namespace promptAction {
      * @type { ?(ShadowOptions | ShadowStyle) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     shadow?: ShadowOptions | ShadowStyle;
+
+    /**
+     * Defines whether to respond to the hover mode.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    enableHoverMode?: boolean;
+
+    /**
+     * Defines the dialog's display area in hover mode.
+     *
+     * @type { ?HoverModeAreaType }
+     * @default HoverModeAreaType.BOTTOM_SCREEN
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    hoverModeArea?: HoverModeAreaType;
   }
 
   /**
@@ -731,6 +823,7 @@ declare namespace promptAction {
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     autoCancel?: boolean;
@@ -741,6 +834,7 @@ declare namespace promptAction {
      * @type { ?TransitionEffect }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     transition?: TransitionEffect;
@@ -751,6 +845,7 @@ declare namespace promptAction {
      * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     maskColor?: ResourceColor;
@@ -761,6 +856,7 @@ declare namespace promptAction {
     * @type { ?Callback<DismissDialogAction> }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
+    * @atomicservice
     * @since 12
     */
     onWillDismiss?: Callback<DismissDialogAction>;
@@ -771,6 +867,7 @@ declare namespace promptAction {
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     onDidAppear?: () => void;
@@ -781,6 +878,7 @@ declare namespace promptAction {
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     onDidDisappear?: () => void;
@@ -791,6 +889,7 @@ declare namespace promptAction {
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     onWillAppear?: () => void;
@@ -801,14 +900,52 @@ declare namespace promptAction {
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     onWillDisappear?: () => void;
+
+    /**
+     * Defines the customDialog's keyboard avoid mode
+     *
+     * @type { ?KeyboardAvoidMode }
+     * @default KeyboardAvoidMode.DEFAULT
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    keyboardAvoidMode?: KeyboardAvoidMode;
+
+    /**
+     * Defines whether to respond to the hover mode.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    enableHoverMode?: boolean;
+
+    /**
+     * Defines the customDialog's display area in hover mode.
+     *
+     * @type { ?HoverModeAreaType }
+     * @default HoverModeAreaType.BOTTOM_SCREEN
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    hoverModeArea?: HoverModeAreaType;
   }
 
   /**
    * Dialog's custom content options
    *
+   * @extends BaseDialogOptions
    * @interface CustomDialogOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -817,6 +954,7 @@ declare namespace promptAction {
   /**
    * Dialog's custom content options
    *
+   * @extends BaseDialogOptions
    * @interface CustomDialogOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -849,6 +987,7 @@ declare namespace promptAction {
      * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     backgroundColor?: ResourceColor;
@@ -859,6 +998,7 @@ declare namespace promptAction {
      * @type { ?(Dimension | BorderRadiuses) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     cornerRadius?: Dimension | BorderRadiuses;
@@ -869,6 +1009,7 @@ declare namespace promptAction {
      * @type { ?Dimension }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     width?: Dimension;
@@ -879,6 +1020,7 @@ declare namespace promptAction {
      * @type { ?Dimension }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     height?: Dimension;
@@ -889,6 +1031,7 @@ declare namespace promptAction {
      * @type { ?(Dimension | EdgeWidths) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     borderWidth?: Dimension | EdgeWidths;
@@ -899,6 +1042,7 @@ declare namespace promptAction {
      * @type { ?(ResourceColor | EdgeColors) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     borderColor?: ResourceColor | EdgeColors;
@@ -909,6 +1053,7 @@ declare namespace promptAction {
      * @type { ?(BorderStyle | EdgeStyles) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     borderStyle?: BorderStyle | EdgeStyles;
@@ -919,6 +1064,7 @@ declare namespace promptAction {
      * @type { ?(ShadowOptions | ShadowStyle) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     shadow?: ShadowOptions | ShadowStyle;
@@ -930,6 +1076,7 @@ declare namespace promptAction {
      * @default BlurStyle.COMPONENT_ULTRA_THICK
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     backgroundBlurStyle?: BlurStyle;
@@ -1031,6 +1178,7 @@ declare namespace promptAction {
      * The array structure is {text:'button', color: '#666666'}.
      * One to six buttons are supported.
      *
+     * @type { [Button, Button?, Button?, Button?, Button?, Button?] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 9
      */
@@ -1039,6 +1187,7 @@ declare namespace promptAction {
      * The array structure is {text:'button', color: '#666666'}.
      * One to six buttons are supported.
      *
+     * @type { [Button, Button?, Button?, Button?, Button?, Button?] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
@@ -1048,6 +1197,7 @@ declare namespace promptAction {
      * The array structure is {text:'button', color: '#666666'}.
      * One to six buttons are supported.
      *
+     * @type { [Button, Button?, Button?, Button?, Button?, Button?] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
@@ -1064,6 +1214,16 @@ declare namespace promptAction {
      * @crossplatform
      * @since 11
      */
+    /**
+     * Whether to display in the sub window.
+     * 
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     showInSubWindow?: boolean;
 
     /**
@@ -1073,6 +1233,15 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
+     */
+    /**
+     * Whether it is a modal dialog
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     isModal?: boolean;         
   }
@@ -1131,7 +1300,7 @@ declare namespace promptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   function openToast(options: ShowToastOptions): Promise<number>;
 
@@ -1147,7 +1316,7 @@ declare namespace promptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 13
    */
   function closeToast(toastId: number): void;
 
@@ -1394,6 +1563,7 @@ declare namespace promptAction {
  * @interface DismissDialogAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface DismissDialogAction {
@@ -1403,6 +1573,7 @@ declare interface DismissDialogAction {
    * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   dismiss: Callback<void>;
@@ -1413,6 +1584,7 @@ declare interface DismissDialogAction {
    * @type { DismissReason }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   reason: DismissReason;

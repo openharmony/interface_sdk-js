@@ -24,8 +24,9 @@
  * Defines Image Modifier
  *
  * @extends ImageAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<ImageAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class ImageModifier extends ImageAttribute implements AttributeModifier<ImageAttribute> {
@@ -36,6 +37,7 @@ export declare class ImageModifier extends ImageAttribute implements AttributeMo
    * @param { ImageAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: ImageAttribute): void;

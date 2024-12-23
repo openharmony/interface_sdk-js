@@ -33,6 +33,7 @@ export declare class GesturePath {
    * @param { number } durationTime - Indicates the duration of the gesture.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
+   * @deprecated since 12
    */
   constructor(durationTime: number);
   /**

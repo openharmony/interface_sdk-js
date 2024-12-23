@@ -22,7 +22,7 @@
  * Defines ContainerSpan modifier, the base class for quick use modifier ability
  * 
  * @extends ContainerSpanAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<ContainerSpanAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice

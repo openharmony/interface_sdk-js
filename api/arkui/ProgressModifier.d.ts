@@ -25,8 +25,9 @@
  * Defines Progress Modifier
  *
  * @extends ProgressAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<ProgressAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
 */
 export declare class ProgressModifier extends ProgressAttribute implements AttributeModifier<ProgressAttribute> {
@@ -37,6 +38,7 @@ export declare class ProgressModifier extends ProgressAttribute implements Attri
    * @param { ProgressAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   applyNormalAttribute?(instance: ProgressAttribute): void;
