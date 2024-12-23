@@ -2819,6 +2819,25 @@ declare namespace notificationManager {
   function setTargetDeviceStatus(deviceType: string, status: number): Promise<void>;
 
   /**
+   * Disabling notifications based on the application list.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { boolean } disabled - The switch of disableNotification.
+   * @param { Array<string> } bundleList - The bundles of disableNotification.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
+  function disableNotificationFeature(disabled:boolean, bundleList: Array<string>): Promise<void>;
+
+  /**
    * Describes a button option for a triggering.
    *
    * @typedef ButtonOptions
