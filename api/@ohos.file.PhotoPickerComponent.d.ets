@@ -260,13 +260,13 @@ export declare class PickerController {
    * Display the photo after edit.
    *
    * @param { string } originalUri - Original uri 
-   * @param { string } replaceUri - Replaced uri
+   * @param { string } newUri - New uri
    * @param { AsyncCallback<void> } callback - Returns void
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 14
    */
-  replacePhotoPickerPreview(originalUri: string, replaceUri: string, callback: AsyncCallback<void>): void;
+  replacePhotoPickerPreview(originalUri: string, newUri: string, callback: AsyncCallback<void>): void;
 
   /**
    * Save the photo assets of uris.
