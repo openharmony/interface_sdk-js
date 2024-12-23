@@ -23614,7 +23614,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @since 14
    */
   clipContent(clip: ContentClipMode | RectShape): T;
-  
+
   /**
    * Set the sensitivity of rotating crown.
    *
