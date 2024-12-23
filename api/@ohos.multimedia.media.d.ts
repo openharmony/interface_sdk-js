@@ -3548,6 +3548,15 @@ declare namespace media {
      * @since 13
      */
     preferredSubtitleLanguage?: string;
+
+    /**
+     * Controls whether the first frame of the video is displayed after Prepare.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 16
+     */
+    showFirstFrameOnPrepare?: boolean;
   }
 
   /**
