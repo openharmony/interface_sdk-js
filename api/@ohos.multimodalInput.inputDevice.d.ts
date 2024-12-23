@@ -636,6 +636,28 @@ declare namespace inputDevice {
    * @since 14
    */
   function getIntervalSinceLastInput(): Promise<number>;
+  
+  /**
+   * Enabling and disabling the TP device node.
+   *
+   * @permission ohos.permission.INPUT_DEVICE_CONTROLLER
+   * @param { number } deviceId - Device id.
+   * @param { boolean } enabled - TP device node status.
+   * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API
+   * @throws { BusinessError } 202 - Permission verification failed. 
+   *     A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 3900001 - The specified device does not exist.
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @systemapi
+   * @since 16
+   */
+  function setInputDeviceEnabled(deviceId: number, enabled: boolean): Promise<void>;
 }
 
 export default inputDevice;
