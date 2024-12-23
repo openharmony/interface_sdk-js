@@ -9157,6 +9157,16 @@ declare enum WordBreak {
    * @since 11
    */
   BREAK_WORD = 2,
+
+  /**
+   * For supported languages, line breaks can be performed by syllables.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  HYPHENATION = 3,
 }
 
 /**
@@ -9922,7 +9932,7 @@ declare enum AxisModel {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 15
  */
 declare enum PageFlipMode {
   /**
@@ -9932,7 +9942,7 @@ declare enum PageFlipMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 15
    */
   CONTINUOUS = 0,
 
@@ -9943,7 +9953,7 @@ declare enum PageFlipMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 15
    */
   SINGLE = 1,
 }

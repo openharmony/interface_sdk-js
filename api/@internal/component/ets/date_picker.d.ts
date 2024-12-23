@@ -336,6 +336,18 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
   lunar(value: boolean): DatePickerAttribute;
 
   /**
+   * Date selector: true: displays the lunar calendar. false: The lunar calendar is not displayed.
+   *
+   * @param { Optional<boolean> } isLunar
+   * @returns { DatePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  lunar(isLunar: Optional<boolean>): DatePickerAttribute;
+
+  /**
    * Sets the text style of disappearing items
    *
    * @param { PickerTextStyle } value - indicates the text style of disappearing items.
@@ -355,6 +367,18 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @since 11
    */
   disappearTextStyle(value: PickerTextStyle): DatePickerAttribute;
+
+  /**
+   * Sets the text style of disappearing items
+   *
+   * @param { Optional<PickerTextStyle> } style - indicates the text style of disappearing items.
+   * @returns { DatePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  disappearTextStyle(style: Optional<PickerTextStyle>): DatePickerAttribute;
 
   /**
    * Sets the text style of normal items
@@ -378,6 +402,18 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
   textStyle(value: PickerTextStyle): DatePickerAttribute;
 
   /**
+   * Sets the text style of normal items
+   *
+   * @param { Optional<PickerTextStyle> } style - indicates the text style of normal items.
+   * @returns { DatePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  textStyle(style: Optional<PickerTextStyle>): DatePickerAttribute;
+
+  /**
    * Sets the text style of selected items
    *
    * @param { PickerTextStyle } value - indicates the text style of selected items.
@@ -397,6 +433,18 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @since 11
    */
   selectedTextStyle(value: PickerTextStyle): DatePickerAttribute;
+
+  /**
+   * Sets the text style of selected items
+   *
+   * @param { Optional<PickerTextStyle> } style - indicates the text style of selected items.
+   * @returns { DatePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  selectedTextStyle(style: Optional<PickerTextStyle>): DatePickerAttribute;
 
   /**
    * This event is triggered when a DatePicker date or time is selected.
@@ -440,6 +488,18 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @since 14
    */
   onDateChange(callback: Callback<Date>): DatePickerAttribute;
+
+  /**
+   * This event is triggered when a DatePicker date or time is selected.
+   *
+   * @param { Optional<Callback<Date>> } callback
+   * @returns { DatePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  onDateChange(callback: Optional<Callback<Date>>): DatePickerAttribute;
 }
 
 /**

@@ -135,6 +135,37 @@ declare namespace abilityManager {
   }
 
   /**
+   * The class of an embedded atomic service open rule.
+   *
+   * @typedef AtomicServiceStartupRule
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 16
+   */
+  export interface AtomicServiceStartupRule {
+    /**
+     * the flag indicated whether openning atomic service is allowed.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 16
+     */
+    isOpenAllowed: boolean;
+
+    /**
+     * the flag indicated whether embedded atomic service is allowed.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 16
+     */
+    isEmbeddedAllowed: boolean;
+  }
+
+  /**
    * Register Ability foreground or background state observer.
    *
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
@@ -465,6 +496,23 @@ declare namespace abilityManager {
    * @since 12
    */
   function setResidentProcessEnabled(bundleName: string, enable: boolean): Promise<void>;
+
+  /**
+   * Query the rule to open embedded atomic service.
+   *
+   * @param { Context } context - The context that initiates the query request.
+   * @param { string } appId - Globally unique identifier of an application, which is allocated by the cloud.
+   * @returns { Promise<AtomicServiceStartupRule> } Returns the result in the form of callback.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 16
+   */
+  function queryAtomicServiceStartupRule(context: Context, appId: string): Promise<AtomicServiceStartupRule>;
 
   /**
    * The class of an ability running information.

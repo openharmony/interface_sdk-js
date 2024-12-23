@@ -168,6 +168,24 @@ declare class SwiperController {
    * @since 14
    */
   finishAnimation(callback?: VoidCallback);
+
+  /**
+   * Called when need to preload specified child.
+   *
+   * @param { Optional<Array<number>> } indices - Indices of swiper child to be preloaded.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter invalid. Possible causes:
+   * <br> 1. The parameter type is not Array<number>.
+   * <br> 2. The parameter is an empty array.
+   * <br> 3. The parameter contains an invalid index.
+   * @throws { BusinessError } 100004 - Controller not bound to component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  preloadItems(indices: Optional<Array<number>>): Promise<void>;
 }
 
 /**
@@ -1638,6 +1656,20 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   cachedCount(value: number): SwiperAttribute;
 
   /**
+   * Sets the number of child components to be preloaded(cached).
+   *
+   * @param { number } count - Number of child components to be preloaded (cached).
+   * @param { boolean } isShown - whether to show the nodes in the cache.
+   * @returns { SwiperAttribute } the attribute of the swiper.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  cachedCount(count: number, isShown: boolean): SwiperAttribute;
+
+  /**
    * Sets the number of elements to display per page.
    *
    * @param { number | string } value
@@ -2080,7 +2112,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 15
    */
   pageFlipMode(mode: Optional<PageFlipMode>): SwiperAttribute;
 }

@@ -606,6 +606,21 @@ declare namespace hiAppEvent {
   function setEventParam(params: Record<string, ParamType>, domain: string, name?: string): Promise<void>;
 
   /**
+   * Set the config for the os event.
+   *
+   * @param { string } name The name of the os event.
+   * @param { Record<string, ParamType> } config The config info of the os event.
+   * @returns { Promise<void> } Return Promise.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types.3.Parameter verification failed.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 16
+   */
+  function setEventConfig(name: string, config: Record<string, ParamType>): Promise<void>;
+
+  /**
    * Definition of the read event package.
    *
    * @interface AppEventPackage
