@@ -326,6 +326,16 @@ export interface AbilityInfo {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Process of ability, if user do not set it, the value equal application process
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   readonly process: string;
 
   /**
@@ -344,6 +354,16 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates whether this ability can be called by other abilities
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   readonly exported: boolean;
 
@@ -374,6 +394,16 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Enumerates ability display orientations
+   *
+   * @type { bundleManager.DisplayOrientation }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   readonly orientation: bundleManager.DisplayOrientation;
 
@@ -422,6 +452,16 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * The permissions that others need to launch this ability
+   *
+   * @type { Array<string> }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   readonly permissions: Array<string>;
 
@@ -474,6 +514,16 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * The device types that this ability can run on
+   *
+   * @type { Array<string> }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   readonly deviceTypes: Array<string>;
 
@@ -552,6 +602,16 @@ export interface AbilityInfo {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Indicates whether the ability is enabled
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   readonly enabled: boolean;
 
   /**
@@ -571,6 +631,16 @@ export interface AbilityInfo {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Indicates which window mode is supported
+   *
+   * @type { Array<bundleManager.SupportWindowMode> }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   readonly supportWindowModes: Array<bundleManager.SupportWindowMode>;
 
   /**
@@ -589,6 +659,16 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates window size
+   *
+   * @type { WindowSize }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   readonly windowSize: WindowSize;
 
@@ -651,6 +731,15 @@ export interface AbilityInfo {
  * @atomicservice
  * @since 11
  */
+/**
+ * Indicates the window size.
+ *
+ * @typedef WindowSize
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
 export interface WindowSize {
   /**
    * Indicates maximum ratio of width over height of window under free window status.
@@ -668,6 +757,16 @@ export interface WindowSize {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates maximum ratio of width over height of window under free window status.
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   readonly maxWindowRatio: number;
 
@@ -688,6 +787,16 @@ export interface WindowSize {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Indicates minimum ratio of width over height of window under free window status.
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   readonly minWindowRatio: number;
 
   /**
@@ -706,6 +815,16 @@ export interface WindowSize {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates maximum width of window under free window status.
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   readonly maxWindowWidth: number;
 
@@ -726,6 +845,16 @@ export interface WindowSize {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Indicates minimum width of window under free window status.
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   readonly minWindowWidth: number;
 
   /**
@@ -745,6 +874,16 @@ export interface WindowSize {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Indicates maximum height of window under free window status.
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   readonly maxWindowHeight: number;
 
   /**
@@ -763,6 +902,16 @@ export interface WindowSize {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates minimum height of window under free window status.
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   readonly minWindowHeight: number;
 }
