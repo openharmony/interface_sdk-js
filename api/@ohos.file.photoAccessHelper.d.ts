@@ -688,6 +688,7 @@ declare namespace photoAccessHelper {
   }
 
   /**
+<<<<<<< HEAD
    * Enumeration type of watermarktypes of photos
    *
    * @enum { number } WatermarkType
@@ -731,6 +732,41 @@ declare namespace photoAccessHelper {
      * @since 14
      */
     BRAND = 3,
+=======
+   * Enum: complete button text
+   *
+   * @enum { number } CompleteButtonText
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14
+   */
+  enum CompleteButtonText {
+    /**
+     * Complete button text: done
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 14
+     */
+    TEXT_DONE = 0,
+    /**
+     * Complete button text: send
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 14
+     */
+    TEXT_SEND = 1,
+
+    /**
+     * Complete button text: add
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 14
+     */
+    TEXT_ADD = 2,
+>>>>>>> 9499c3b5e (CompleteButtonText API上库2)
   }
 
   /**
@@ -4985,6 +5021,16 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     themeColor?: CustomColors;
+
+    /**
+     * Complete button text
+     *
+     * @type { ?CompleteButtonText }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 14
+     */
+    completeButtonText?: CompleteButtonText;
   }
 
   /**
