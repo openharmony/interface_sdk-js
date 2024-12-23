@@ -260,7 +260,7 @@ export declare class PickerController {
    * Display the photo after edit.
    *
    * @param { string } originalUri - Original uri 
-   * @param { string } newUri - New uri
+   * @param { string } newUri - New uri after replacement
    * @param { AsyncCallback<void> } callback - Returns void
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
