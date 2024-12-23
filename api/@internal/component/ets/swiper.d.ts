@@ -2080,7 +2080,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 15
    */
   pageFlipMode(mode: Optional<PageFlipMode>): SwiperAttribute;
 }

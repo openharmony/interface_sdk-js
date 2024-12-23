@@ -9922,7 +9922,7 @@ declare enum AxisModel {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 15
  */
 declare enum PageFlipMode {
   /**
@@ -9932,7 +9932,7 @@ declare enum PageFlipMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 15
    */
   CONTINUOUS = 0,
 
@@ -9943,7 +9943,7 @@ declare enum PageFlipMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 15
    */
   SINGLE = 1,
 }
