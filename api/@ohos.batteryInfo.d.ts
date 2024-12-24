@@ -95,7 +95,6 @@ declare namespace batteryInfo {
   /**
    * Battery state of charge (SoC) of the current device, in percent.
    *
-   * @constant
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @atomicservice
    * @since 12
@@ -112,7 +111,6 @@ declare namespace batteryInfo {
   /**
    * Battery charging status of the current device.
    *
-   * @constant
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @atomicservice
    * @since 12
@@ -122,7 +120,6 @@ declare namespace batteryInfo {
   /**
    * Battery health state of the current device.
    *
-   * @constant
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 6
    */
@@ -131,7 +128,6 @@ declare namespace batteryInfo {
   /**
    * Charger type of the current device.
    *
-   * @constant
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 6
    */
@@ -140,7 +136,6 @@ declare namespace batteryInfo {
   /**
    * Battery voltage of the current device, in µV.
    *
-   * @constant
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 6
    */
@@ -149,7 +144,6 @@ declare namespace batteryInfo {
   /**
    * Battery technology of the current device.
    *
-   * @constant
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 6
    */
@@ -158,7 +152,6 @@ declare namespace batteryInfo {
   /**
    * Battery temperature of the current device, in 0.1℃.
    *
-   * @constant
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 6
    */
@@ -167,7 +160,6 @@ declare namespace batteryInfo {
   /**
    * Battery present state of the current device.
    *
-   * @constant
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 7
    */
@@ -176,7 +168,6 @@ declare namespace batteryInfo {
   /**
    * Battery capacity level of the current device.
    *
-   * @constant
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 9
    */
@@ -185,7 +176,6 @@ declare namespace batteryInfo {
   /**
    * Estimated remaining time for the current device to be fully charged, in ms.
    *
-   * @constant
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
    * @since 9
@@ -195,7 +185,6 @@ declare namespace batteryInfo {
   /**
    * Battery total energy of the current device, in mAh.
    *
-   * @constant
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
    * @since 9
@@ -205,7 +194,6 @@ declare namespace batteryInfo {
   /**
    * Battery immediate current of the current device, in mA.
    *
-   * @constant
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 12
    */
@@ -214,7 +202,6 @@ declare namespace batteryInfo {
   /**
    * Battery remaining energy of the current device, in mAh.
    *
-   * @constant
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
    * @since 9
