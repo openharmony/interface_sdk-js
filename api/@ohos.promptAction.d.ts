@@ -940,6 +940,17 @@ declare namespace promptAction {
      * @since 14
      */
     hoverModeArea?: HoverModeAreaType;
+
+    /**
+     * Defines the distance between the customDialog and system keyboard.
+     *
+     * @type { ?LengthMetrics }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    keyboardAvoidDistance?: LengthMetrics
   }
 
   /**
