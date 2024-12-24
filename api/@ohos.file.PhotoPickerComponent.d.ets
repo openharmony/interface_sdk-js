@@ -19,6 +19,7 @@
  */
 
 import photoAccessHelper from '@ohos.file.photoAccessHelper';
+import { AsyncCallback } from '@kit.BasicServicesKit';
 
 /**
  * Declare struct PhotoPickerComponent
@@ -274,6 +275,32 @@ export declare class PickerController {
    * @since 13
    */
   setPhotoBrowserUIElementVisibility(elements: Array<PhotoBrowserUIElement>, isVisible: boolean): void;
+
+  /**
+   * Display the photo after edit.
+   *
+   * @param { string } originalUri - Original uri 
+   * @param { string } newUri - New uri after replacement
+   * @param { AsyncCallback<void> } callback - Returns void
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14
+   */
+  replacePhotoPickerPreview(originalUri: string, newUri: string, callback: AsyncCallback<void>): void;
+
+  /**
+   * Save the photo assets of uris.
+   *
+   * @param { Array<string> } trustedUris - Uris need to be saved
+   * @param { AsyncCallback<Array<string>> } callback - Returns the uri list
+   * @param { Array<PhotoCreationConfig> } [configs] - Photo asset creation configs
+   * @param { SaveMode } [saveMode] - Mode of save
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14
+   */
+  saveTrustedPhotoAssets(trustedUris: Array<string>, callback: AsyncCallback<Array<string>>,
+    configs?: Array<photoAccessHelper.PhotoCreationConfig>, saveMode?: SaveMode): void;
 }
 
 /**
@@ -886,6 +913,34 @@ export declare enum PhotoBrowserUIElement {
    * @since 13
    */
   BACK_BUTTON = 1
+}
+
+/**
+ * Enumeration type of save mode.
+ *
+ * @enum { number } SaveMode
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 14
+ */
+export declare enum SaveMode {
+  /**
+   * Save as a new photo/video.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14
+   */
+  SAVE_AS = 0,
+
+  /**
+   * Overwrite and save.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14
+   */
+   OVERWRITE = 1
 }
 
 /**
