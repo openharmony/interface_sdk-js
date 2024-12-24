@@ -25,62 +25,51 @@ import type print from './@ohos.print';
  * class of print extensionAbility.
  *
  * @syscap SystemCapability.Print.PrintFramework
- * @systemapi Hide this for inner system use.
- * @StageModelOnly
- * @since 10
+ * @stagemodelonly
+ * @since 14
  */
 export default class PrintExtensionAbility {
 
   /**
    * Called once to initialize the extensionAbility.
    * @param { Want } want - call print page want params.
-   * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
-   * @StageModelOnly
-   * @since 10
+   * @stagemodelonly
+   * @since 14
    */
   onCreate(want: Want): void;
 
   /**
    * Called once to start to discover the printers connected with the device.
-   * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
-   * @StageModelOnly
-   * @since 10
+   * @stagemodelonly
+   * @since 14
    */
   onStartDiscoverPrinter(): void;
 
   /**
    * Called once to stop discovering the printer.
-   * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
-   * @StageModelOnly
-   * @since 10
+   * @stagemodelonly
+   * @since 14
    */
   onStopDiscoverPrinter(): void;
 
   /**
    * Called once to connect to the specific printer.
    * @param { number } printerId - connect the printerId.
-   * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
-   * @StageModelOnly
-   * @since 10
+   * @stagemodelonly
+   * @since 14
    */
   onConnectPrinter(printerId: number): void;
 
   /**
    * Called once to disconnect to the specific printer.
    * @param { number } printerId - connect the printerId.
-   * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
-   * @StageModelOnly
-   * @since 10
+   * @stagemodelonly
+   * @since 14
    */
   onDisconnectPrinter(printerId: number): void;
 
@@ -90,7 +79,7 @@ export default class PrintExtensionAbility {
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   onStartPrintJob(jobInfo: print.PrintJob): void;
@@ -101,7 +90,7 @@ export default class PrintExtensionAbility {
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   onCancelPrintJob(jobInfo: print.PrintJob): void;
@@ -113,7 +102,7 @@ export default class PrintExtensionAbility {
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   onRequestPrinterCapability(printerId: number): print.PrinterCapability;
@@ -125,18 +114,16 @@ export default class PrintExtensionAbility {
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   onRequestPreview(jobInfo: print.PrintJob): string;
 
   /**
    * Called once to finalize the extensionAbility.
-   * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
-   * @StageModelOnly
-   * @since 10
+   * @stagemodelonly
+   * @since 14
    */
   onDestroy(): void;
 }

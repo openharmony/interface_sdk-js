@@ -2217,6 +2217,292 @@ declare namespace print {
    * @since 12
    */
   function notifyPrintServiceEvent(event: ApplicationEvent): Promise<void>;
+
+  /**
+   * New printers have been found and notify Print SA.
+   * @permission ohos.permission.PRINT
+   * @param { PrinterInformation } printerInformation - Indicates new arrived printer lists.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 14
+   */
+  function addPrinterToDiscovery(printerInformation: PrinterInformation): Promise<void>;
+
+  /**
+   * Update the information of the specific printer.
+   * @permission ohos.permission.PRINT
+   * @param { PrinterInformation } printerInformation - Indicates to be updated printer lists.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 14
+   */
+  function updatePrinterInDiscovery(printerInformation: PrinterInformation): Promise<void>;
+
+  /**
+   * Notify Print SA to remove printer.
+   * @permission ohos.permission.PRINT
+   * @param { string } printerId - Indicates the lost printer lists.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 14
+   */
+  function removePrinterFromDiscovery(printerId: string): Promise<void>;
+
+  /**
+   * Get printerInformation by printer id.
+   * @permission ohos.permission.PRINT
+   * @param { string } printerId - Indicates id of the printer.
+   * @returns { Promise<PrinterInformation> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 14
+   */
+  function getPrinterInformationById(printerId: string): Promise<PrinterInformation>;
+
+  /**
+   * defines printer information.
+   * @typedef PrinterInformation
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 14
+   */
+  interface PrinterInformation {
+    /**
+     * Printer id.
+     * @type { string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 14
+     */
+    printerId: string;
+
+    /**
+     * Printer name.
+     * @type { string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 14
+     */
+    printerName: string;
+
+    /**
+     * Current printer status.
+     * @type { PrinterStatus }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 14
+     */
+    printerStatus: PrinterStatus;
+
+    /**
+     * Printer description.
+     * @type { ?string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 14
+     */
+    description?: string;
+
+    /**
+     * Printer capabilities.
+     * @type { ?PrinterCapabilities }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 14
+     */
+    capability?: PrinterCapabilities;
+
+    /**
+     * Printer uri.
+     * @type { ?string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 14
+     */
+    uri?: string;
+
+    /**
+     * Printer make.
+     * @type { ?string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 14
+     */
+    printerMake?: string;
+
+    /**
+     * Detail information in json format.
+     * @type { ?string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 14
+     */
+    options?: string;
+  }
+
+  /**
+   * defines printer capabilities.
+   * @typedef PrinterCapabilities
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 14
+   */
+  interface PrinterCapabilities {
+    /**
+     * The page size list supported by the printer.
+     * @type { Array<PrintPageSize> }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 14
+     */
+    supportedPageSizes: Array<PrintPageSize>;
+
+    /**
+     * Array of supported color mode.
+     * @type { Array<PrintColorMode> }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 14
+     */
+    supportedColorModes: Array<PrintColorMode>;
+
+    /**
+     * Array of supported duplex mode.
+     * @type { Array<PrintDuplexMode> }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 14
+     */
+    supportedDuplexModes: Array<PrintDuplexMode>;
+
+    /**
+     * Array of supported print media types.
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 14
+     */
+    supportedMediaTypes?: Array<string>;
+
+    /**
+     * Array of supported print quality.
+     * @type { ?Array<PrintQuality> }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 14
+     */
+    supportedQualities?: Array<PrintQuality>;
+
+    /**
+     * Array of supported print orientation.
+     * @type { ?Array<PrintOrientationMode> }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 14
+     */
+    supportedOrientations?: Array<PrintOrientationMode>;
+
+    /**
+     * Advanced capability in json format.
+     * @type { ?string }
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 14
+     */
+    options?: string;
+  }
+
+  /**
+   * Enumeration of Print Quality.
+   * @enum { number } PrintQuality
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 14
+   */
+  enum PrintQuality {
+    /**
+     * Draft quality mode.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 14
+     */
+    QUALITY_DRAFT = 3,
+
+    /**
+     * Normal quality mode.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 14
+     */
+    QUALITY_NORMAL = 4,
+
+    /**
+     * High quality mode.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 14
+     */
+    QUALITY_HIGH = 5,
+  }
+
+  /**
+   * Enumeration of Print OrientationMode.
+   * @enum { number } PrintOrientationMode
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 14
+   */
+  enum PrintOrientationMode {
+    /**
+     * Portrait mode.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 14
+     */
+    ORIENTATION_MODE_PORTRAIT = 0,
+
+    /**
+     * Landscape mode.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 14
+     */
+    ORIENTATION_MODE_LANDSCAPE= 1,
+
+    /**
+     * Reverse landscape mode.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 14
+     */
+    ORIENTATION_MODE_REVERSE_LANDSCAPE = 2,
+
+    /**
+     * Reverse portrait mode.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 14
+     */
+    ORIENTATION_MODE_REVERSE_PORTRAIT = 3,
+
+    /**
+     * Not specified.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 14
+     */
+    ORIENTATION_MODE_NONE = 4,
+  }
+
+  /**
+   * Enumeration of Printer Status.
+   * @enum { number } PrinterStatus
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 14
+   */
+  enum PrinterStatus {
+    /**
+     * Printer idle.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 14
+     */
+    PRINTER_IDLE = 0,
+
+    /**
+     * Printer busy.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 14
+     */
+    PRINTER_BUSY = 1,
+
+    /**
+     * Printer not available.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 14
+     */
+    PRINTER_UNAVAILABLE = 2,
+  }
+
 }
 
 export default print;
