@@ -6016,7 +6016,6 @@ declare class DrawingRenderingContext {
    * @param { LengthMetricsUnit } [unit] - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @form
    * @atomicservice
    * @since 12
    */
