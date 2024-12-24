@@ -1406,7 +1406,7 @@ declare namespace unifiedDataChannel {
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 12
      */
     /**
@@ -1668,7 +1668,7 @@ declare namespace unifiedDataChannel {
    * @throws { BusinessError } 20400001 - Settings already exist.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 12
    */
   /**
@@ -1697,7 +1697,7 @@ declare namespace unifiedDataChannel {
     *                                                                   2. Incorrect parameter types.
     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
     * @systemapi
-    * @stagemodelonly
+    * @StageModelOnly
     * @since 12
     */
   /**
