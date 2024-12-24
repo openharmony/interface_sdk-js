@@ -747,6 +747,14 @@ declare namespace bundleManager {
     INSIGHT_INTENT_UI = 22,
 
     /**
+     * Indicates extension info with type of asset acceleration
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 16
+     */
+    ASSET_ACCELERATION = 26,
+
+    /**
      * Indicates extension info with type of unspecified
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
