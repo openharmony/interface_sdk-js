@@ -517,7 +517,7 @@ export interface NotificationCapsule {
 /**
  * Describes a system live view button with icon.
  *
- * @typedef NotificationCapsule
+ * @typedef NotificationIconButton
  * @syscap SystemCapability.Notification.Notification
  * @since 16
  */
