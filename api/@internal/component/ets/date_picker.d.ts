@@ -512,6 +512,17 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @since 16
    */
   digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): DatePickerAttribute;
+  
+  /**
+   * Enable or disable haptic feedback.
+   *
+   * @param { Optional<boolean> } enable - Default value is true, set false to disable haptic feedback.
+   * @returns { DatePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  enableHapticFeedback(enable: Optional<boolean>): DatePickerAttribute;
 }
 
 /**
@@ -1096,6 +1107,17 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @since 14
    */
   hoverModeArea?: HoverModeAreaType;
+
+  /**
+   * Enable or disable haptic feedback.
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  enableHapticFeedback?: boolean;
 }
 
 /**
