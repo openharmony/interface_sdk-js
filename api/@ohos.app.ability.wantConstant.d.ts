@@ -415,6 +415,14 @@ declare namespace wantConstant {
     FLAG_INSTALL_ON_DEMAND = 0x00000800,
 
     /**
+     * Collaborative target applications in the distributed scheduling system can be pulled up.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @since 16
+     */
+    FLAG_ABILITY_ON_COLLABORATE = 0x00002000,
+
+    /**
      * Indicates that if implicit start ability couldn't match any application, no tip dialog will be pulled up.
      *
      * @syscap SystemCapability.Ability.AbilityBase
