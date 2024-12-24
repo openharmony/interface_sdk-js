@@ -985,6 +985,24 @@ declare namespace drawing {
       ambientColor: common2D.Color, spotColor: common2D.Color, flag: ShadowFlag) : void;
 
     /**
+     * Draws an offset spot shadow and outlining ambient shadow for the given path with circular light.
+     * In this function, the input of the parameter 'ambientColor' and 'spotColor' should be number
+     * @param { Path } path - Indicates the Path object.
+     * @param { common2D.Point3d } planeParams - Represents z offset of the occluder from the canvas based on x and y.
+     * @param { common2D.Point3d } devLightPos - Represents the position of the light relative to the canvas.
+     * @param { number } lightRadius - The radius of the circular light.
+     * @param { number } ambientColor - Ambient shadow's color represented by ARGB color of hexadecimal format.
+     * @param { number } spotColor - Spot shadow's color represented by ARGB color of hexadecimal format.
+     * @param { ShadowFlag } flag - Indicates the flag to control opaque occluder, shadow, and light position.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    drawShadow(path: Path, planeParams: common2D.Point3d, devLightPos: common2D.Point3d, lightRadius: number,
+      ambientColor: number, spotColor: number, flag: ShadowFlag) : void;
+
+    /**
      * If radius is zero or less, nothing is drawn. If circle is stroked, use pen to
      * stroke width describes the line thickness, else use brush to fill the circle.
      * @param { number } x - X coordinate of the circle center.
@@ -1072,6 +1090,17 @@ declare namespace drawing {
      * @since 12
      */
     drawColor(alpha: number, red: number, green: number, blue: number, blendMode?: BlendMode): void;
+
+    /**
+     * Fills clip with the specified ARGB color of hexadecimal format.
+     * @param { number } color - Number must be ARGB color of hexadecimal format.
+     * @param { BlendMode } blendMode - Used to combine source color and destination. The default value is SRC_OVER.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    drawColor(color: number, blendMode?: BlendMode): void;
 
     /**
      * Draws an oval.
@@ -1255,6 +1284,16 @@ declare namespace drawing {
      * @since 12
      */
     clear(color: common2D.Color): void;
+
+    /**
+     * Clears a canvas by using a specified color represented by ARGB color of hexadecimal format.
+     * @param { number } color - Number must be ARGB color of hexadecimal format.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    clear(color: number): void;
 
     /**
      * Restores the canvas status (canvas matrix) saved on the top of the stack.
@@ -2215,6 +2254,28 @@ declare namespace drawing {
      */
     static createImageLattice(xDivs: Array<number>, yDivs: Array<number>, fXCount: number, fYCount: number,
       fBounds?: common2D.Rect | null, fRectTypes?: Array<RectType> | null, fColors?: Array<common2D.Color> | null): Lattice;
+
+    /**
+     * Divide an image into a rectangular grid. Grid entries on even columns and even rows are fixed;
+     * these entries are always drawn at their original size if the destination is large enough. If the destination
+     * side is too small to hold the fixed entries, all fixed entries are scaled down to fit.
+     * The grid entries not on even columns and rows are scaled to fit the remaining space, if any.
+     * @param { Array<number> } xDivs - X coordinate of values used to divide the image.
+     * @param { Array<number> } yDivs - Y coordinate of values used to divide the image.
+     * @param { number } fXCount - Number of x coordinates. Must be >= 0.
+     * @param { number } fYCount - Number of y coordinates. Must be >= 0.
+     * @param { common2D.Rect | null } fBounds - Source bounds to draw from. The default value is null.
+     * @param { Array<RectType> | null } fRectTypes - Array of fill types. The default value is null.
+     * @param { Array<number> | null } fColors - Array of colors represented by ARGB color of hexadecimal format. The default value is null.
+     * @returns { Lattice } Lattice object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    static createImageLattice(xDivs: Array<number>, yDivs: Array<number>, fXCount: number, fYCount: number,
+      fBounds?: common2D.Rect | null, fRectTypes?: Array<RectType> | null, fColors?: Array<number> | null): Lattice;
   }
 
   /**
@@ -2454,6 +2515,22 @@ declare namespace drawing {
      * @since 12
      */
     static create(blurRadius: number, x: number, y: number, color: common2D.Color): ShadowLayer;
+    
+    /**
+     * Makes a new ShadowLayer with the specified ARGB color of hexadecimal format.
+     *
+     * @param { number } blurRadius - The blur radius of the shadow. The blur radius must be greater than 0.
+     * @param { number } x - The offset point on x-axis.
+     * @param { number } y - The offset point on y-axis.
+     * @param { number } color - The shadow color. Number must be ARGB color of hexadecimal format.
+     * @returns { ShadowLayer } ShadowLayer object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    static create(blurRadius: number, x: number, y: number, color: number): ShadowLayer;
   }
 
   /**
@@ -2475,6 +2552,19 @@ declare namespace drawing {
      * @since 11
      */
     static createBlendModeColorFilter(color: common2D.Color, mode: BlendMode): ColorFilter;
+
+    /**
+     * Makes a color filter with the given ARGB color of hexadecimal format and blend mode.
+     * @param { number } color - Number must be ARGB color of hexadecimal format.
+     * @param { BlendMode } mode - BlendMode.
+     * @returns { ColorFilter } Colorfilter object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    static createBlendModeColorFilter(color: number, mode: BlendMode): ColorFilter;
 
     /**
      * Create a color filter consisting of two filters.
@@ -2739,12 +2829,30 @@ declare namespace drawing {
     setColor(alpha: number, red: number, green: number, blue: number): void;
 
     /**
+    * Set the specified ARGB color of hexadecimal format to the pen.
+    * @param { number } color - Number must be ARGB color of hexadecimal format.
+    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+    * @syscap SystemCapability.Graphics.Drawing
+    * @since 16
+    */
+    setColor(color: number): void;
+
+    /**
      * Obtains the color of a pen. The color is used by the pen to outline a shape.
      * @returns { common2D.Color } Returns a 32-bit (ARGB) variable that describes the color.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getColor(): common2D.Color;
+
+    /**
+     * Obtains the color of a pen. The color is used by the pen to outline a shape.
+     * @returns { number } Returns a 32-bit (ARGB) variable that describes the color of hexadecimal format.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    getHexColor(): number;
 
     /**
     * Sets the thickness of the pen used by the paint to outline the shape.
@@ -2992,12 +3100,30 @@ declare namespace drawing {
     setColor(alpha: number, red: number, green: number, blue: number): void;
 
     /**
+     * Set the specified ARGB color of hexadecimal format to the brush.
+     * @param { number } color - Number must be ARGB color of hexadecimal format.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    setColor(color: number): void;
+
+    /**
      * Obtains the color of a brush. The color is used by the brush to fill in a shape.
      * @returns { common2D.Color } Returns a 32-bit (ARGB) variable that describes the color.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getColor(): common2D.Color;
+
+    /**
+     * Obtains the color of a brush. The color is used by the brush to fill in a shape.
+     * @returns { number } Returns a 32-bit (ARGB) variable that describes the color of hexadecimal format.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    getHexColor(): number;
 
     /**
      * Requests, but does not require, that edge pixels draw opaque or with partial transparency.
