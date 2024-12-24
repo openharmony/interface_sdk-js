@@ -414,6 +414,7 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
    *
    * @type { ?Array<NotificationIconButton> }
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @since 16
    */
   cardButton?: Array<NotificationIconButton>;
@@ -526,6 +527,7 @@ export interface NotificationIconButton {
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @since 16
    */
   name: string;
@@ -535,6 +537,7 @@ export interface NotificationIconButton {
    *
    * @type { Resource }
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @since 16
    */
   iconsResource: Resource;
@@ -544,6 +547,7 @@ export interface NotificationIconButton {
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @since 16
    */
   text?: string;
