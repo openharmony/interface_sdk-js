@@ -9552,6 +9552,18 @@ declare namespace camera {
   }
 
   /**
+   * Metadata object for barcode.
+   *
+   * @extends MetadataObject
+   * @typedef MetadataBarcodeObject
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 14
+   */
+  interface MetadataBarcodeObject extends MetadataObject {
+  }
+
+  /**
    * Camera Occlusion Detection Result.
    *
    * @typedef CameraOcclusionDetectionResult
