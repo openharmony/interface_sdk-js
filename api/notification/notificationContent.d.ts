@@ -436,6 +436,14 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
    */
   progress?: NotificationProgress;
 
+  /**
+   * task type of a system live view notification.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
   liveViewType?: number;
 }
 
