@@ -2357,7 +2357,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   cancelButton(symbolOptions: CancelButtonSymbolOptions): TextInputAttribute;
 
