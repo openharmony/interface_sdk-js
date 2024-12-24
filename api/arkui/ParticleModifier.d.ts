@@ -21,8 +21,8 @@
 /**
  * Defines Panel Modifier
  *
- * @extends PanelAttribute
- * @implements AttributeModifier
+ * @extends ParticleAttribute
+ * @implements AttributeModifier<ParticleAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

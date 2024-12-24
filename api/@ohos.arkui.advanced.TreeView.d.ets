@@ -383,6 +383,15 @@ export interface NodeParam {
     icon?: ResourceStr;
 
     /**
+     * Set the symbol resource.
+     * @type { ?SymbolGlyphModifier }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    symbolIconStyle?: SymbolGlyphModifier;
+
+    /**
      * Set selected icon resource.
      * @type { Resource }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -398,6 +407,15 @@ export interface NodeParam {
     selectedIcon?: ResourceStr;
 
     /**
+     * Set selected symbol resource.
+     * @type { ?SymbolGlyphModifier }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    symbolSelectedIconStyle?: SymbolGlyphModifier;
+
+    /**
      * Set edit icon resource.
      * @type { Resource }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -411,6 +429,15 @@ export interface NodeParam {
      * @since 11
      */
     editIcon?: ResourceStr;
+
+    /**
+     * Set edit symbol resource.
+     * @type { ?SymbolGlyphModifier }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    symbolEditIconStyle?: SymbolGlyphModifier;
 
     /**
      * Set primary title content.

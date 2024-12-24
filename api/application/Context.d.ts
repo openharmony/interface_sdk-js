@@ -380,6 +380,18 @@ export default class Context extends BaseContext {
   area: contextConstant.AreaMode;
 
   /**
+   * Indicates process name.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  processName: string;
+
+  /**
    * Create a bundle context
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
@@ -563,4 +575,31 @@ export default class Context extends BaseContext {
    * @since 11
    */
   createModuleResourceManager(bundleName: string, moduleName: string): resmgr.ResourceManager;
+
+  /**
+   * Create a area mode context.This context uses the same resourceManager as the original context.
+   *
+   * @param { contextConstant.AreaMode } areaMode - Indicates the area mode.
+   * @returns { Context } Returns the context with the specified area mode.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 16
+   */
+  createAreaModeContext(areaMode: contextConstant.AreaMode): Context;
+
+  /**
+   * Create a context by displayId. This Context updates the density and direction properties based on the displayId,
+   * while other property values remain the same as in the original Context.
+   *
+   * @param { number } displayId - Indicates the displayId.
+   * @returns { Context } Returns the context with the specified displayId.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 16
+   */
+  createDisplayContext(displayId: number): Context;
 }

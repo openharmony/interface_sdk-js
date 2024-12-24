@@ -492,6 +492,19 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
   selectAll(value: boolean): CheckboxGroupAttribute;
 
   /**
+   * setting whether all checkbox is selected.
+   *
+   * @param { Optional<boolean> } isAllSelected
+   * @returns { CheckboxGroupAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */  
+  selectAll(isAllSelected: Optional<boolean>): CheckboxGroupAttribute;
+
+  /**
    * setting the display color of checkbox.
    *
    * @param { ResourceColor } value
@@ -532,6 +545,19 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
   selectedColor(value: ResourceColor): CheckboxGroupAttribute;
 
   /**
+   * setting the display color of checkbox.
+   *
+   * @param { Optional<ResourceColor> } resColor
+   * @returns { CheckboxGroupAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  selectedColor(resColor: Optional<ResourceColor>): CheckboxGroupAttribute;
+
+  /**
    * Set the display border color of unselected checkbox.
    *
    * @param { ResourceColor } value - The color of border when checkboxgroup unselected.
@@ -553,6 +579,18 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
   unselectedColor(value: ResourceColor): CheckboxGroupAttribute;
 
   /**
+   * Set the display border color of unselected checkbox.
+   *
+   * @param { Optional<ResourceColor> } resColor - The color of border when checkboxgroup unselected.
+   * @returns { CheckboxGroupAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  unselectedColor(resColor: Optional<ResourceColor>): CheckboxGroupAttribute;
+
+  /**
    * Set the mark style of checkbox.
    *
    * @param { MarkStyle } value - The style configuration of checkboxgroup mark.
@@ -572,6 +610,18 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @since 11
    */
   mark(value: MarkStyle): CheckboxGroupAttribute;
+
+  /**
+   * Set the mark style of checkbox.
+   *
+   * @param { Optional<MarkStyle> } style - The style configuration of checkboxgroup mark.
+   * @returns { CheckboxGroupAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  mark(style: Optional<MarkStyle>): CheckboxGroupAttribute;
 
   /**
    * Called when the selection status changes.
@@ -625,6 +675,19 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
   onChange(callback: OnCheckboxGroupChangeCallback): CheckboxGroupAttribute;
 
   /**
+   * Called when the selection status changes.
+   *
+   * @param { Optional<OnCheckboxGroupChangeCallback> } callback
+   * @returns { CheckboxGroupAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  onChange(callback: Optional<OnCheckboxGroupChangeCallback>): CheckboxGroupAttribute;
+
+  /**
    * Setting the shape of checkbox group.
    *
    * @param { CheckBoxShape } value - The configuration of checkbox group shape.
@@ -636,6 +699,19 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @since 12
    */
   checkboxShape(value: CheckBoxShape): CheckboxGroupAttribute;
+
+  /**
+   * Setting the shape of checkbox group.
+   *
+   * @param { Optional<CheckBoxShape> } shape - The configuration of checkbox group shape.
+   * @returns { CheckboxGroupAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */  
+  checkboxShape(shape: Optional<CheckBoxShape>): CheckboxGroupAttribute;
 }
 
 /**

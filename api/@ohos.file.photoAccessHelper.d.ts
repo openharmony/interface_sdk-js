@@ -241,6 +241,33 @@ declare namespace photoAccessHelper {
   }
 
   /**
+   * Ability to access thumbnail
+   * 
+   * @enum { number } ThumbnailVisibility
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 14
+   */
+  enum ThumbnailVisibility {
+    /**
+     * Unable to access thumbnail
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    INVISIBLE = 0,
+    /**
+     * able to access thumbnail
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    VISIBLE = 1
+  }
+
+  /**
    * Photo asset position
    *
    * @enum { number } Photo asset position, such as local device or cloud
@@ -1140,6 +1167,7 @@ declare namespace photoAccessHelper {
      * Photo type, image or video
      *
      * @type { PhotoType }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -1147,6 +1175,7 @@ declare namespace photoAccessHelper {
      * Photo type, image or video
      *
      * @type { PhotoType }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
@@ -1156,6 +1185,7 @@ declare namespace photoAccessHelper {
      * Display name (with a file name extension) of the asset.
      *
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -1163,6 +1193,7 @@ declare namespace photoAccessHelper {
      * Display name (with a file name extension) of the asset.
      *
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
@@ -2225,12 +2256,21 @@ declare namespace photoAccessHelper {
     CE_AVAILABLE = 'ce_available',
     /**
      * watermark type of the asset, read only
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    SUPPORTED_WATERMARK_TYPE = 'supported_watermark_type',
+    /**
+     * visibility of thumbnails
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14
      */
-    SUPPORTED_WATERMARK_TYPE = 'supported_watermark_type'
+    THUMBNAIL_VISIBLE = 'thumbnail_visible'
+
   }
 
   /**
@@ -3158,6 +3198,7 @@ declare namespace photoAccessHelper {
      * Album type
      *
      * @type { AlbumType }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -3165,6 +3206,7 @@ declare namespace photoAccessHelper {
      * Album type
      *
      * @type { AlbumType }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
@@ -3174,6 +3216,7 @@ declare namespace photoAccessHelper {
      * Album subtype
      *
      * @type { AlbumSubtype }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -3181,6 +3224,7 @@ declare namespace photoAccessHelper {
      * Album subtype
      *
      * @type { AlbumSubtype }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
@@ -3206,6 +3250,7 @@ declare namespace photoAccessHelper {
      * Album uri.
      *
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -3213,6 +3258,7 @@ declare namespace photoAccessHelper {
      * Album uri.
      *
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
@@ -3222,6 +3268,7 @@ declare namespace photoAccessHelper {
      * Number of assets in the album
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -3229,6 +3276,7 @@ declare namespace photoAccessHelper {
      * Number of assets in the album
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
@@ -3238,6 +3286,7 @@ declare namespace photoAccessHelper {
      * Cover uri for the album
      *
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -3323,6 +3372,7 @@ declare namespace photoAccessHelper {
   /**
    * Defines the album.
    *
+   * @extends AbsAlbum
    * @interface Album
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 10
@@ -3330,6 +3380,7 @@ declare namespace photoAccessHelper {
   /**
    * Defines the album.
    *
+   * @extends AbsAlbum
    * @interface Album
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @crossplatform
@@ -4581,6 +4632,18 @@ declare namespace photoAccessHelper {
      * @since 13
      */
     getSharedPhotoAssets(options: FetchOptions): Array<SharedPhotoAsset>;
+    /**
+     * Get the list of image or video suffixes supported by the media library.
+     *
+     * @param { PhotoType } photoType - Photo type.
+     * @returns { Promise<Array<string>> } - Return the list of image or video suffixes supported by the media library
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 14
+     */
+    getSupportedPhotoFormats(photoType: PhotoType): Promise<Array<string>>;
   }
 
   /**
@@ -4721,6 +4784,33 @@ declare namespace photoAccessHelper {
      * @since 10
      */
     extraUris: Array<string>;
+    /**
+     * sharedPhotoAssets of the same type
+     * 
+     * @type { Array<SharedPhotoAsset> }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    sharedPhotoAssets: Array<SharedPhotoAsset>;
+    /**
+     * sharedAlbumAssets of the same type
+     * 
+     * @type { Array<SharedAlbumAsset> }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    sharedAlbumAssets: Array<SharedAlbumAsset>;
+    /**
+     * sharedExtraPhotoAssets of the same type
+     * 
+     * @type { Array<SharedPhotoAsset> }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    sharedExtraPhotoAssets: Array<SharedPhotoAsset>;
   }
 
   /**
@@ -6607,7 +6697,108 @@ declare namespace photoAccessHelper {
      * @since 13
      */
     thmSize: string;
+    /**
+     * modified time of thumbnail status
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    thumbnailModifiedMs?: number;
+    /**
+     * visibility of thumbnails
+     *
+     * @type { ThumbnailVisibility }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    thumbnailVisible: ThumbnailVisibility;
   }
+
+  /**
+   * Defines the shared album asset
+   *
+   * @interface SharedAlbumAsset
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 14
+   */
+    interface SharedAlbumAsset {
+      /**
+       * album id of album asset
+       *
+       * @type { number }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @systemapi
+       * @since 14
+       */
+      albumId: number;
+      /**
+       * type of album asset
+       *
+       * @type { AlbumType }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @systemapi
+       * @since 14
+       */
+      albumType: AlbumType;
+      /**
+       * subtype of album asset
+       *
+       * @type { AlbumSubtype }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @systemapi
+       * @since 14
+       */
+      albumSubType: AlbumSubtype;
+      /**
+       * album name
+       *
+       * @type { string }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @systemapi
+       * @since 14
+       */
+      albumName: string;
+      /**
+       * uri of album cover
+       *
+       * @type { string }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @systemapi
+       * @since 14
+       */
+      coverUri: string;
+      /**
+       * number of assets in this album
+       *
+       * @type { number }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @systemapi
+       * @since 14
+       */
+      count: number;
+      /**
+       * number of photo assets in this album
+       *
+       * @type { number }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @systemapi
+       * @since 14
+       */
+      imageCount: number;
+      /**
+       * number of video assets in this album
+       *
+       * @type { number }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @systemapi
+       * @since 14
+       */
+      videoCount: number;
+    }
 
   /**
    * Defines the moving photo.

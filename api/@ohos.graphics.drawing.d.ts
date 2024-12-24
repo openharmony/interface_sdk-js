@@ -20,6 +20,7 @@
 
 import type image from './@ohos.multimedia.image';
 import type common2D from './@ohos.graphics.common2D';
+import { Resource } from './global/resource';
 
 /**
  * Provides functions such as 2D graphics rendering, text drawing, and image display.
@@ -1624,6 +1625,17 @@ declare namespace drawing {
      * @since 12
      */
      static makeFromFile(filePath: string): Typeface;
+
+    /**
+     * Generate typeface from Rawfile.
+     * @param { Resource } rawfile - RawFile for typeface.
+     * @returns { Typeface } Typeface.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    static makeFromRawFile(rawfile: Resource): Typeface;
   }
 
   /**
@@ -2011,6 +2023,24 @@ declare namespace drawing {
      * @since 14
      */
     getTextPath(text: string, byteLength: number, x: number, y: number): Path;
+
+    /**
+     * Sets whether to follow the theme font. If the value is true, the theme font is used when typeface is not set.
+     * @param { boolean } followed - Indicates whether to follow the theme font.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    setThemeFontFollowed(followed: boolean): void;
+
+    /**
+     * Gets whether to follow the theme font.
+     * @returns { boolean } Returns true if font follows theme font; returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    isThemeFontFollowed(): boolean;
   }
 
   /**
@@ -3596,6 +3626,25 @@ declare namespace drawing {
      * @since 12
      */
     FAST = 1
+  }
+
+  /**
+   * The Tool class for drawing.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 16
+   */
+  class Tool {
+    /**
+     * Make a common2D.Color variable that describes the color from ResourceColor.
+     * @param { ResourceColor } resourceColor - ResourceColor.
+     * @returns { common2D.Color } Returns a 32-bit (ARGB) variable that describes the color.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    static makeColorFromResourceColor(resourceColor: ResourceColor): common2D.Color;
   }
 }
 

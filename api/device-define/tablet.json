@@ -181,6 +181,7 @@
     "SystemCapability.Advertising.OAID",
     "SystemCapability.Advertising.Ads",
     "SystemCapability.Security.CertificateManager",
+    "SystemCapability.Security.CertificateManagerDialog",
     "SystemCapability.Security.CryptoFramework",
     "SystemCapability.Security.CryptoFramework.Key",
     "SystemCapability.Security.CryptoFramework.Key.SymKey",

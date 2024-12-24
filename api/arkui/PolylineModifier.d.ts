@@ -25,7 +25,7 @@
  * Defines Polyline Modifier
  *
  * @extends PolylineAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<PolylineAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

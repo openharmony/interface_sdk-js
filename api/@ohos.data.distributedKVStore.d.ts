@@ -3203,7 +3203,7 @@ declare namespace distributedKVStore {
      *
      * @param { string } appId - Identifies the application that obtains the databases, and cannot exceed 256 characters.
      * @returns { Promise<string[]> } {string[]}: the storeId of all created KVStore databases.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9

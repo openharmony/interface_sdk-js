@@ -25,7 +25,7 @@
  * Defines ImageSpan Modifier
  *
  * @extends ImageSpanAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<ImageSpanAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

@@ -46,7 +46,6 @@ declare namespace uiObserver {
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @form
    * @since 11
    */
   /**
@@ -55,7 +54,6 @@ declare namespace uiObserver {
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @form
    * @atomicservice
    * @since 12
    */
@@ -65,7 +63,6 @@ declare namespace uiObserver {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @form
      * @since 11
      */
     /**
@@ -73,7 +70,6 @@ declare namespace uiObserver {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -84,7 +80,6 @@ declare namespace uiObserver {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @form
      * @since 11
      */
     /**
@@ -92,7 +87,6 @@ declare namespace uiObserver {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -103,7 +97,6 @@ declare namespace uiObserver {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -114,7 +107,6 @@ declare namespace uiObserver {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -125,7 +117,6 @@ declare namespace uiObserver {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -136,7 +127,6 @@ declare namespace uiObserver {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -147,7 +137,6 @@ declare namespace uiObserver {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -158,7 +147,6 @@ declare namespace uiObserver {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */
@@ -169,7 +157,6 @@ declare namespace uiObserver {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12
      */

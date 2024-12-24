@@ -7245,14 +7245,12 @@ declare namespace window {
      * Raise app sub window to app top
      *
      * @returns { Promise<void> } - The promise returned by the function
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @throws { BusinessError } 1300009 - The parent window is invalid.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 14
      */
     raiseToAppTop(): Promise<void>;
 
@@ -7478,7 +7476,6 @@ declare namespace window {
      *
      * @param { boolean } enable - Disable app sub window to raise itself by by click if false.
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -7487,8 +7484,7 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @throws { BusinessError } 1300009 - The parent window is invalid.
      * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 14
      */
     setRaiseByClickEnabled(enable: boolean): Promise<void>;
 
@@ -7798,6 +7794,21 @@ declare namespace window {
     setWindowTitleMoveEnabled(enabled: boolean): void;
 
     /**
+     * Set the title bar name of the window
+     * 
+     * @param { string } titleName - The name of the title bar that needs to be set
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    setWindowTitle(titleName: string): Promise<void>;
+
+    /**
      * Set the modality of the window.
      *
      * @param { boolean } isModal - Enable the window modal if true, otherwise means the opposite.
@@ -7965,7 +7976,7 @@ declare namespace window {
     setTitleButtonVisible(isMaximizeVisible: boolean, isMinimizeVisible: boolean, isSplitVisible: boolean): void;
     
     /**
-     * Set whether to display the maximize, minimize buttons of main window.
+     * Set whether to display the maximize, minimize, close buttons of main window.
      *
      * @param { boolean } isMaximizeButtonVisible - Display maximize button if true, or hide maximize button if false.
      * @param { boolean } isMinimizeButtonVisible - Display minimize button if true, or hide minimize button if false.
@@ -7979,7 +7990,7 @@ declare namespace window {
      * @atomicservice
      * @since 14
      */
-    setWindowTitleButtonVisible(isMaximizeButtonVisible: boolean, isMinimizeButtonVisible: boolean, isCloseButtonVisible: boolean): void;
+    setWindowTitleButtonVisible(isMaximizeButtonVisible: boolean, isMinimizeButtonVisible: boolean, isCloseButtonVisible?: boolean): void;
         
     /**
      * Enable landscape multiWindow
@@ -8022,7 +8033,7 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since 13
+     * @since 14
      */
     enableDrag(enable: boolean): Promise<void>;
 
@@ -8500,6 +8511,15 @@ declare namespace window {
      * @since 14
      */
     modalityType?: ModalityType;
+    /**
+     * Indicates position and size of subwindow
+     * 
+     * @type { ?Rect }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    windowRect?: Rect;
   }
   /**
    * WindowStage

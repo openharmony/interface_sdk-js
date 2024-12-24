@@ -25,7 +25,7 @@
  * Defines TextInput Modifier
  *
  * @extends TextInputAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<TextInputAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
