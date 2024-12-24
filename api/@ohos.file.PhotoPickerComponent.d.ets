@@ -285,6 +285,26 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
   backgroundColor?: string;
 
   /**
+   * Support set gridMargin
+   *
+   * @type { ?Margin }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14
+   */
+  gridMargin?: Margin;
+
+  /**
+   * Support set photoBrowserMargin
+   *
+   * @type { ?Margin }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14
+   */
+  photoBrowserMargin?: Margin;
+
+  /**
    * Support repeat select
    *
    * @type { ?boolean }
