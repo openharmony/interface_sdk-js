@@ -243,6 +243,16 @@ declare namespace hilog {
   function isLoggable(domain: number, tag: string, level: LogLevel): boolean;
 
   /**
+   * Sets the lowest log level of the current application process.
+   *
+   * @param { LogLevel } level log level
+   * @syscap SystemCapability.HiviewDFX.HiLog
+   * @atomicservice
+   * @since 16
+   */
+   function setMinLogLevel(level: LogLevel): void;
+
+  /**
    * Log level define
    *
    * @syscap SystemCapability.HiviewDFX.HiLog
