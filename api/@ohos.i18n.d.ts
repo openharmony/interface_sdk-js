@@ -3680,6 +3680,7 @@ declare namespace i18n {
      *
      * @param { intl.NumberFormat | SimpleNumberFormat } numberFormat - Indicates the number format object that used to format number.
      * @param { StyledNumberFormatOptions } [ options ] - Indicates the options used to format the number.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 16
@@ -3731,7 +3732,7 @@ declare namespace i18n {
     /**
      * Indicates the fraction part's style.
      *
-     * @type { ?FormatStyle }
+     * @type { ?TextStyle }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 16
