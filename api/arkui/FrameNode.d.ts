@@ -274,6 +274,20 @@ export class FrameNode {
   getChildrenCount(): number;
 
   /**
+   * Move node to the target Framenode as child.
+   * 
+   * @param { FrameNode } targetParent - The target parent node.
+   * @param { number } index - The index which the node is moved to. If the value is a negative number or invalid,
+   * the node is moved to the end of the target parent node. Moves to the end of the target parent node by default.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  moveTo(targetParent: FrameNode, index?: number): void;
+
+  /**
    * Dispose the FrameNode immediately.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
