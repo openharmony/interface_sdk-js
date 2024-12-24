@@ -410,6 +410,15 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
   button?: NotificationButton;
 
   /**
+   * card button of a system live view notification.
+   *
+   * @type { ?Array<NotificationIconButton> }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 16
+   */
+  cardButton?: Array<NotificationIconButton>;
+
+  /**
    * type of a system live view notification.
    *
    * @type { ?NotificationTime }
@@ -426,6 +435,8 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
    * @since 11
    */
   progress?: NotificationProgress;
+
+  liveViewType?: number;
 }
 
 /**
@@ -472,6 +483,72 @@ export interface NotificationCapsule {
    * @since 12
    */
   content?: string;
+
+  /**
+   * Display time of this capsule.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
+  time?: number;
+
+  /**
+   * Extended button of this capsule.
+   *
+   * @type { ?Array<NotificationIconButton> }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
+    capsuleButton?: Array<NotificationIconButton>;
+}
+
+/**
+ * Describes a system live view button with icon.
+ *
+ * @typedef NotificationCapsule
+ * @syscap SystemCapability.Notification.Notification
+ * @since 16
+ */
+export interface NotificationIconButton {
+  /**
+   * button unique name.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 16
+   */
+  name: string;
+
+  /**
+   * button icons resource.
+   *
+   * @type { Resource }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 16
+   */
+  iconsResource: Resource;
+
+  /**
+   * addition text of the icon buttion
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 16
+   */
+  text?: string;
+
+  /**
+   * hide the panel when click the icon button.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
+  hidePanel?: boolean;
 }
 
 /**
