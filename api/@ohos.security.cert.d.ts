@@ -324,7 +324,17 @@ declare namespace cert {
      * @atomicservice
      * @since 12
      */
-    ERR_KEYUSAGE_NO_DIGITAL_SIGNATURE = 19030007
+    ERR_KEYUSAGE_NO_DIGITAL_SIGNATURE = 19030007,
+
+    /**
+     * The password may be wrong.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    ERR_MAYBE_WRONG_PASSWORD = 19030008
   }
 
   /**
@@ -5891,6 +5901,326 @@ declare namespace cert {
      */
     readonly validationResult: CertChainValidationResult;
   }
+
+  /**
+   * Enum for CMS content type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  enum CmsContentType {
+    /**
+     * Signed data.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    SIGNED_DATA = 0
+  }
+
+  /**
+   * Enum for CMS content data format.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  enum CmsContentDataFormat {
+    /**
+     * Binary format.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    BINARY = 0,
+
+    /**
+     * Text format.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    TEXT = 1
+  }
+
+  /**
+   * Enum for CMS format.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  enum CmsFormat {
+    /**
+     * PEM format.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    PEM = 0,
+
+    /**
+     * DER format.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    DER = 1
+  }
+
+  /**
+   * Private key info.
+   *
+   * @typedef PrivateKeyInfo
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  interface PrivateKeyInfo {
+    /**
+     * The unencrypted or encrypted private key, in PEM or DER format.
+     *
+     * @type { string | Uint8Array }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    key: string | Uint8Array;
+
+    /**
+     * The password of the private key, if the private key is encrypted.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    password?: string;
+  }
+
+  /**
+   * Configuration options for CMS signer.
+   *
+   * @typedef CmsSignerConfig
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  interface CmsSignerConfig {
+    /**
+     * Digest algorithm name, such as "SHA384".
+     *
+     * @type { string }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    mdName: string;
+
+    /**
+     * Whether to add the certificate.
+     *
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    addCert?: boolean;
+
+    /**
+     * Whether to add the signature attributes.
+     *
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    addAttr?: boolean;
+
+    /**
+     * Whether to add the smime capibilities to the signature attributes.
+     *
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    addSmimeCapAttr?: boolean
+  }
+
+  /**
+   * CMS generator options.
+   *
+   * @typedef CmsGeneratorOptions
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  interface CmsGeneratorOptions {
+    /**
+     * The format of the content data.
+     *
+     * @type { ?CmsContentDataFormat }
+     * @default CmsContentDataFormat.BINARY
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    contentDataFormat?: CmsContentDataFormat;
+
+    /**
+     * The output format of the CMS final data.
+     *
+     * @type { ?CmsFormat }
+     * @default CmsFormat.DER
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    outFormat?: CmsFormat;
+
+    /**
+     * Whether the CMS final data does not contain original content data.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    isDetached?: boolean;
+  }
+
+  /**
+   * Provides the interface for generating CMS.
+   *
+   * @typedef CmsGenerator
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  interface CmsGenerator {
+    /**
+     * Used to add the signer info.
+     *
+     * @param { X509Cert } cert - the signer certificate.
+     * @param { PrivateKeyInfo } keyInfo - the private key info of the signer certificate.
+     * @param { CmsSignerConfig } config - the configuration for CMS signer.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @throws { BusinessError } 19030008 - maybe wrong password.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    addSigner(cert: X509Cert, keyInfo: PrivateKeyInfo, config: CmsSignerConfig): void;
+
+    /**
+     * Used to add the certificate, such as the issuer certificate of the signer certificate.
+     *
+     * @param { X509Cert } cert - the certificate.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    addCert(cert: X509Cert): void;
+
+    /**
+     * Used to obtain the CMS final data, such as CMS signed data.
+     *
+     * @param { Uint8Array } data - the content data for CMS operation.
+     * @param { CmsGeneratorOptions } options - the configuration options for CMS operation.
+     * @returns { Promise<Uint8Array | string> } the promise returned by the function.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    doFinal(data: Uint8Array, options?: CmsGeneratorOptions): Promise<Uint8Array | string>;
+
+    /**
+     * Used to obtain the CMS final data, such as CMS signed data.
+     *
+     * @param { Uint8Array } data - the content data for CMS operation.
+     * @param { CmsGeneratorOptions } options - the configuration options for CMS operation.
+     * @returns { Uint8Array | string } the CMS final data.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    doFinalSync(data: Uint8Array, options?: CmsGeneratorOptions): Uint8Array | string;
+  }
+
+  /**
+   * Used to create CmsGenerator.
+   *
+   * @param { CmsContentType } contentType - the CMS content type.
+   * @returns { CmsGenerator } the CmsGenerator.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020002 - runtime error.
+   * @throws { BusinessError } 19030001 - crypto operation error.
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  function createCmsGenerator(contentType: CmsContentType): CmsGenerator;
 }
 
 export default cert;
