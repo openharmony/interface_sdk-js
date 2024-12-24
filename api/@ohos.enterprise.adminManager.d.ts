@@ -144,7 +144,7 @@ declare namespace adminManager {
     MANAGED_EVENT_ACCOUNT_ADDED = 5,
 
     /**
-     * The event of account switched.
+     * Event indicating that a system account is switched.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @since 16
@@ -152,7 +152,7 @@ declare namespace adminManager {
     MANAGED_EVENT_ACCOUNT_SWITCHED = 6,
 
     /**
-     * The event of account removed.
+     * Event indicating that a system account is removed.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @since 16
