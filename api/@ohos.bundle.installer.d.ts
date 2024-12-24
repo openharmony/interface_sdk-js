@@ -744,7 +744,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700067 - Failed to uninstall the HAP because uninstalling the native package failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 14
+     * @since 15
      */
     uninstall(bundleName: string, installParam: InstallParam, callback: AsyncCallback<void>): void;
 
@@ -884,7 +884,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700067 - Failed to uninstall the HAP because uninstalling the native package failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 14
+     * @since 15
      */
     uninstall(bundleName: string, installParam?: InstallParam): Promise<void>;
 
@@ -1427,7 +1427,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700062 - Failed to uninstall the app because the app is locked.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 14
+     * @since 15
      */
      destroyAppClone(bundleName: string, appIndex: number, destroyAppCloneParam?: DestroyAppCloneParam): Promise<void>;
 
@@ -1569,7 +1569,7 @@ declare namespace installer {
    * @typedef Parameters
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 14
+   * @since 15
    */
   export interface Parameters {
     /**
@@ -1578,7 +1578,7 @@ declare namespace installer {
      * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 14
+     * @since 15
      */
     key: string;
 
@@ -1588,7 +1588,7 @@ declare namespace installer {
      * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 14
+     * @since 15
      */
     value: string;
   }
@@ -1709,7 +1709,7 @@ declare namespace installer {
      * @type { ?Array<Parameters> }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 14
+     * @since 15
      */
     parameters?: Array<Parameters>;
   }
@@ -1779,7 +1779,7 @@ declare namespace installer {
    * @typedef DestroyAppCloneParam
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 14
+   * @since 15
    */
   export interface DestroyAppCloneParam {
     /**
@@ -1788,7 +1788,7 @@ declare namespace installer {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 14
+     * @since 15
      */
     userId?: number;
     /**
@@ -1797,7 +1797,7 @@ declare namespace installer {
      * @type { ?Array<Parameters> }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 14
+     * @since 15
      */
     parameters?: Array<Parameters>;
   }
