@@ -235,7 +235,7 @@ declare namespace print {
    * @since 11
    */
   function print(jobName: string, printAdapter: PrintDocumentAdapter, printAttributes: PrintAttributes,
-    context: Context): Promise<PrintTask>;
+                 context: Context): Promise<PrintTask>;
 
   /**
    * defines print attributes.
@@ -2089,7 +2089,7 @@ declare namespace print {
    * @since 11
    */
   function startGettingPrintFile(jobId: string, printAttributes: PrintAttributes, fd: number,
-    onFileStateChanged: Callback<PrintFileCreationState>): void;
+                                 onFileStateChanged: Callback<PrintFileCreationState>): void;
 
   /**
    * Notify print service the information.
