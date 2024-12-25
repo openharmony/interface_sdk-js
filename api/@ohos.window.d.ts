@@ -9405,7 +9405,7 @@ declare namespace window {
    *
    * @interface WindowLayoutInfo
    * @syscap SystemCapability.Window.SessionManager
-   * @stagemodelonly
+   * @atomicservice
    * @since 16
    */
   interface WindowLayoutInfo {
@@ -9414,7 +9414,7 @@ declare namespace window {
      *
      * @type { Rect }
      * @syscap SystemCapability.Window.SessionManager
-     * @stagemodelonly
+     * @atomicservice
      * @since 16
      */
     windowRect: Rect;
