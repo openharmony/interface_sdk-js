@@ -3089,6 +3089,43 @@ declare namespace camera {
   }
 
   /**
+   * Enumerates the camera portrait theme types.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 14
+   */
+  enum PortraitThemeType {
+    /**
+     * Natural portrait theme type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 14
+     */
+    NATURAL = 0,
+
+    /**
+     * Delicate portrait theme type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 14
+     */
+    DELICATE = 1,
+
+    /**
+     * Stylish portrait theme type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 14
+     */
+    STYLISH = 2
+  }
+
+  /**
    * Enumerates the camera beauty effect types.
    *
    * @enum { number }
@@ -3190,6 +3227,30 @@ declare namespace camera {
      * @since 12
      */
     getSupportedBeautyRange(type: BeautyType): Array<number>;
+
+    /**
+     * Gets supported portrait theme type.
+     *
+     * @returns { Array<PortraitThemeType> } Lists of portrait theme types
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 14
+     */
+    getSupportedPortraitThemeTypes(): Array<PortraitThemeType>;
+
+    /**
+     * Checks whether portrait theme is supported.
+     *
+     * @returns { boolean } Is portrait theme supported.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 14
+     */
+    isPortraitThemeSupported(): boolean;
   }
 
   /**
@@ -3226,6 +3287,19 @@ declare namespace camera {
      * @since 11
      */
     setBeauty(type: BeautyType, value: number): void;
+
+    /**
+     * Sets a portrait theme type for a camera device.
+     *
+     * @param { PortraitThemeType } type - The type of portrait theme.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 14
+     */
+    setPortraitThemeType(type: PortraitThemeType): void;
   }
 
   /**
@@ -8940,6 +9014,40 @@ declare namespace camera {
      * @since 13
      */
     enableAutoDeferredVideoEnhancement(enabled: boolean): void;
+
+    /**
+     * Get supported video rotations.
+     *
+     * @returns { Array<ImageRotation> } The array of supported video rotations.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 14
+     */
+    getSupportedRotations(): Array<ImageRotation>;
+
+    /**
+     * Determine whether video rotation is supported.
+     *
+     * @returns { boolean } Is video rotation supported.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 14
+     */
+    isRotationSupported(): boolean;
+
+    /**
+     * Set a video rotation.
+     *
+     * @param { ImageRotation } rotation - The rotation angle.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 14
+     */
+    setRotation(rotation: ImageRotation): void;
 
     /**
      * Subscribes deferred video enhancement info callback.
