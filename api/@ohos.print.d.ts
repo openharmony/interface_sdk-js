@@ -156,7 +156,7 @@ declare namespace print {
      * @since 11
      */
     onStartLayoutWrite(jobId: string, oldAttrs: PrintAttributes, newAttrs: PrintAttributes, fd: number,
-      writeResultCallback: (jobId: string, writeResult: PrintFileCreationState) => void): void;
+                       writeResultCallback: (jobId: string, writeResult: PrintFileCreationState) => void): void;
 
     /**
      * Implement this function to listen job status change.
