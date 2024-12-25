@@ -8846,6 +8846,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 16
    */
   enableFollowSystemFontWeight(follow: boolean): WebAttribute;
+
+  /**
+   * Sets whether to enable AVSession for web pages.
+   *
+   * @param { boolean } enabled Whether to enable AVSession. The value true means to enable AVSession, and false means the opposite.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 16
+   */
+  enableWebAVSession(enabled: boolean): WebAttribute;
 }
 
 /**
