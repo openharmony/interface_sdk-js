@@ -688,6 +688,52 @@ declare namespace photoAccessHelper {
   }
 
   /**
+   * Enumeration type of watermarktypes of photos
+   *
+   * @enum { number } WatermarkType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 14
+   */
+  enum WatermarkType {
+    /**
+     * WatermarkType of Default
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    DEFAULT = 0,
+
+    /**
+     * WatermarkType of BRAND_COMMON
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    BRAND_COMMON = 1,
+
+    /**
+     * WatermarkType of COMMON
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    COMMON = 2,
+
+    /**
+     * WatermarkType of BRAND
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    BRAND = 3,
+  }
+
+  /**
    * Options to request media asset
    *
    * @interface RequestOptions
@@ -5849,6 +5895,20 @@ declare namespace photoAccessHelper {
      * @since 13
     */
     setVideoEnhancementAttr(videoEnhancementType: VideoEnhancementType, photoId: string): void;
+
+    /**
+     * Set watermark type of the asset.
+     *
+     * @param { WatermarkType } watermarkType - the new watermark type of the asset
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    setSupportedWatermarkType(watermarkType: WatermarkType): void;
   }
 
   /**
