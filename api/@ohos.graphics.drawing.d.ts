@@ -2033,7 +2033,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 16
      */
     createPathForGlyph(index: number): Path;
     /**
@@ -2046,7 +2046,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 16
      */
     getBounds(glyphs: Array<number>): Array<common2D.Rect>;
     /**
@@ -2059,7 +2059,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 16
      */
     getTextPath(text: string, byteLength: number, x: number, y: number): Path;
 
