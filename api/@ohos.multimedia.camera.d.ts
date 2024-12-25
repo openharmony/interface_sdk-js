@@ -2920,6 +2920,7 @@ declare namespace camera {
   /**
    * Zoom object.
    *
+   * extends ZoomQuery
    * @interface Zoom
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 11
@@ -5523,6 +5524,7 @@ declare namespace camera {
   /**
    * Aperture object.
    *
+   * @extends ApertureQuery
    * @interface Aperture
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
@@ -8800,8 +8802,8 @@ declare namespace camera {
      * @type { boolean }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 13
      * @readonly
+     * @since 13
      */
     readonly isDeferredVideoEnhancementAvailable: boolean;
     /**
@@ -8810,8 +8812,8 @@ declare namespace camera {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 13
      * @readonly
+     * @since 13
      */
     readonly videoId?: string;
   }
@@ -8819,6 +8821,7 @@ declare namespace camera {
   /**
    * Video output object.
    *
+   * extends CameraOutput
    * @interface VideoOutput
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 10
@@ -9612,6 +9615,7 @@ declare namespace camera {
   /**
    * Metadata Output object
    *
+   * extends CameraOutput
    * @interface MetadataOutput
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 10
