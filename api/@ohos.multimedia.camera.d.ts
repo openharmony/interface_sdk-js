@@ -4902,30 +4902,6 @@ declare namespace camera {
     off(type: 'macroStatusChanged', callback?: AsyncCallback<boolean>): void;
 
     /**
-     * Subscribes to lcd flash status.
-     *
-     * @param { 'lcdFlashStatus' } type - Event type.
-     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
-     * @throws { BusinessError } 202 - Not System Application.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 13
-     */
-    on(type: 'lcdFlashStatus', callback: AsyncCallback<LcdFlashStatus>): void;
-
-    /**
-     * Unsubscribes from lcd flash status.
-     *
-     * @param { 'lcdFlashStatus' } type - Event type.
-     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
-     * @throws { BusinessError } 202 - Not System Application.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 13
-     */
-    off(type: 'lcdFlashStatus', callback?: AsyncCallback<LcdFlashStatus>): void;
-
-    /**
      * Subscribes to feature detection results.
      *
      * @param { 'featureDetection' } type - Event type.
@@ -4992,6 +4968,30 @@ declare namespace camera {
      * @since 13
      */
     off(type: 'autoDeviceSwitchStatusChange', callback?: AsyncCallback<AutoDeviceSwitchStatus>): void;
+
+    /**
+     * Subscribes to lcd flash status.
+     *
+     * @param { 'lcdFlashStatus' } type - Event type.
+     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    on(type: 'lcdFlashStatus', callback: AsyncCallback<LcdFlashStatus>): void;
+
+     /**
+      * Unsubscribes from lcd flash status.
+      *
+      * @param { 'lcdFlashStatus' } type - Event type.
+      * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
+      * @throws { BusinessError } 202 - Not System Application.
+      * @syscap SystemCapability.Multimedia.Camera.Core
+      * @systemapi
+      * @since 13
+      */
+    off(type: 'lcdFlashStatus', callback?: AsyncCallback<LcdFlashStatus>): void;
 
     /**
      * Gets session functions.
@@ -5114,30 +5114,6 @@ declare namespace camera {
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
 
     /**
-     * Subscribes to lcd flash status.
-     *
-     * @param { 'lcdFlashStatus' } type - Event type.
-     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
-     * @throws { BusinessError } 202 - Not System Application.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 13
-     */
-    on(type: 'lcdFlashStatus', callback: AsyncCallback<LcdFlashStatus>): void;
-
-    /**
-     * Unsubscribes from lcd flash status.
-     *
-     * @param { 'lcdFlashStatus' } type - Event type.
-     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
-     * @throws { BusinessError } 202 - Not System Application.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 13
-     */
-    off(type: 'lcdFlashStatus', callback?: AsyncCallback<LcdFlashStatus>): void;
-
-    /**
      * Subscribes zoom info event callback.
      *
      * @param { 'smoothZoomInfoAvailable' } type - Event type.
@@ -5180,6 +5156,30 @@ declare namespace camera {
      * @since 11
      */
     off(type: 'macroStatusChanged', callback?: AsyncCallback<boolean>): void;
+
+    /**
+     * Subscribes to lcd flash status.
+     *
+     * @param { 'lcdFlashStatus' } type - Event type.
+     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    on(type: 'lcdFlashStatus', callback: AsyncCallback<LcdFlashStatus>): void;
+
+     /**
+      * Unsubscribes from lcd flash status.
+      *
+      * @param { 'lcdFlashStatus' } type - Event type.
+      * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
+      * @throws { BusinessError } 202 - Not System Application.
+      * @syscap SystemCapability.Multimedia.Camera.Core
+      * @systemapi
+      * @since 13
+      */
+    off(type: 'lcdFlashStatus', callback?: AsyncCallback<LcdFlashStatus>): void;
 
     /**
      * Subscribes to auto device switch status event callback.
