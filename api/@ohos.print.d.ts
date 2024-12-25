@@ -156,7 +156,7 @@ declare namespace print {
      * @since 11
      */
     onStartLayoutWrite(jobId: string, oldAttrs: PrintAttributes, newAttrs: PrintAttributes, fd: number,
-                       writeResultCallback: (jobId: string, writeResult: PrintFileCreationState) => void): void;
+      writeResultCallback: (jobId: string, writeResult: PrintFileCreationState) => void): void;
 
     /**
      * Implement this function to listen job status change.
@@ -235,7 +235,7 @@ declare namespace print {
    * @since 11
    */
   function print(jobName: string, printAdapter: PrintDocumentAdapter, printAttributes: PrintAttributes,
-                 context: Context): Promise<PrintTask>;
+    context: Context): Promise<PrintTask>;
 
   /**
    * defines print attributes.
@@ -1036,55 +1036,48 @@ declare namespace print {
    * Enumeration of Printer State.
    * @enum { number } PrinterState
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 14
    */
   enum PrinterState {
     /**
      * New printers arrival.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     PRINTER_ADDED = 0,
 
     /**
      * Printer lost.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     PRINTER_REMOVED = 1,
 
     /**
      * Printer update.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     PRINTER_CAPABILITY_UPDATED = 2,
 
     /**
      * Printer has been connected.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     PRINTER_CONNECTED = 3,
 
     /**
      * Printer has been disconnected.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     PRINTER_DISCONNECTED = 4,
 
     /**
      * Printer is working.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     PRINTER_RUNNING = 5,
   }
@@ -1093,47 +1086,41 @@ declare namespace print {
    * Enumeration of  Print Job State.
    * @enum { number } PrintJobState
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 14
    */
   enum PrintJobState {
     /**
      * Initial state of print job.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     PRINT_JOB_PREPARE = 0,
 
     /**
      * Deliver print job to the printer.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     PRINT_JOB_QUEUED = 1,
 
     /**
      * Executing print job.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     PRINT_JOB_RUNNING = 2,
 
     /**
      * Print job has been blocked.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     PRINT_JOB_BLOCKED = 3,
 
     /**
      * Print job completed.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     PRINT_JOB_COMPLETED = 4,
   }
@@ -1142,231 +1129,202 @@ declare namespace print {
    * Enumeration of  Print Job Sub State.
    * @enum { number } PrintJobSubState
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 14
    */
   enum PrintJobSubState {
     /**
      * Print job succeed.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     PRINT_JOB_COMPLETED_SUCCESS = 0,
 
     /**
      * Print job fail.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     PRINT_JOB_COMPLETED_FAILED = 1,
 
     /**
      * Print job has been cancelled.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     PRINT_JOB_COMPLETED_CANCELLED = 2,
 
     /**
      * Print job has been corrupted.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     PRINT_JOB_COMPLETED_FILE_CORRUPTED = 3,
 
     /**
      * Print is offline.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     PRINT_JOB_BLOCK_OFFLINE = 4,
 
     /**
      * Print is occupied by other process.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     PRINT_JOB_BLOCK_BUSY = 5,
 
     /**
      * Print job has been cancelled.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     PRINT_JOB_BLOCK_CANCELLED = 6,
 
     /**
      * Print out of paper.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     PRINT_JOB_BLOCK_OUT_OF_PAPER = 7,
 
     /**
      * Print out of ink.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     PRINT_JOB_BLOCK_OUT_OF_INK = 8,
 
     /**
      * Print out of toner.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     PRINT_JOB_BLOCK_OUT_OF_TONER = 9,
 
     /**
      * Print paper jam.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     PRINT_JOB_BLOCK_JAMMED = 10,
 
     /**
      * Print cover open.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     PRINT_JOB_BLOCK_DOOR_OPEN = 11,
 
     /**
      * Print service request.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     PRINT_JOB_BLOCK_SERVICE_REQUEST = 12,
 
     /**
      * Print low on ink.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     PRINT_JOB_BLOCK_LOW_ON_INK = 13,
 
     /**
      * Print low on toner.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     PRINT_JOB_BLOCK_LOW_ON_TONER = 14,
 
     /**
      * Print really low on ink.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     PRINT_JOB_BLOCK_REALLY_LOW_ON_INK = 15,
 
     /**
      * Print bad certification.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     PRINT_JOB_BLOCK_BAD_CERTIFICATE = 16,
 
     /**
      * Print an error occurred when printing the account.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 11
+     * @since 14
      */
     PRINT_JOB_BLOCK_ACCOUNT_ERROR = 18,
 
     /**
      * Print the printing permission is abnormal.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 11
+     * @since 14
      */
     PRINT_JOB_BLOCK_PRINT_PERMISSION_ERROR = 19,
 
     /**
      * Print color printing permission exception.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 11
+     * @since 14
      */
     PRINT_JOB_BLOCK_PRINT_COLOR_PERMISSION_ERROR = 20,
 
     /**
      * Print the device is not connected to the network.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 11
+     * @since 14
      */
     PRINT_JOB_BLOCK_NETWORK_ERROR = 21,
 
     /**
      * Print unable to connect to the server.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 11
+     * @since 14
      */
     PRINT_JOB_BLOCK_SERVER_CONNECTION_ERROR = 22,
 
     /**
      * Print large file exception.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 11
+     * @since 14
      */
     PRINT_JOB_BLOCK_LARGE_FILE_ERROR = 23,
 
     /**
      * Print file parsing exception.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 11
+     * @since 14
      */
     PRINT_JOB_BLOCK_FILE_PARSING_ERROR = 24,
 
     /**
      * Print the file conversion is too slow.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 11
+     * @since 14
      */
     PRINT_JOB_BLOCK_SLOW_FILE_CONVERSION = 25,
 
     /**
      * Print uploading file.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 11
+     * @since 14
      */
     PRINT_JOB_RUNNING_UPLOADING_FILES = 26,
 
     /**
      * Print converting files.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 11
+     * @since 14
      */
     PRINT_JOB_RUNNING_CONVERTING_FILES = 27,
 
     /**
      * Print unknown issue.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     PRINT_JOB_BLOCK_UNKNOWN = 99,
   }
@@ -1375,87 +1333,76 @@ declare namespace print {
    * Enumeration of  Print error Code.
    * @enum { number } PrintErrorCode
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 14
    */
   enum PrintErrorCode {
     /**
      * No error.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     E_PRINT_NONE = 0,
 
     /**
      * No permission.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     E_PRINT_NO_PERMISSION = 201,
 
     /**
      * Invalid parameter.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     E_PRINT_INVALID_PARAMETER = 401,
 
     /**
      * Generic failure of print.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     E_PRINT_GENERIC_FAILURE = 13100001,
 
     /**
      * RPC failure.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     E_PRINT_RPC_FAILURE = 13100002,
 
     /**
      * Failure of print service.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     E_PRINT_SERVER_FAILURE = 13100003,
 
     /**
      * Invalid print extension.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     E_PRINT_INVALID_EXTENSION = 13100004,
 
     /**
      * Invalid printer.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     E_PRINT_INVALID_PRINTER = 13100005,
 
     /**
      * Invalid print job.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     E_PRINT_INVALID_PRINT_JOB = 13100006,
 
     /**
      * File i/o error.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 10
+     * @since 14
      */
     E_PRINT_FILE_IO = 13100007,
   }
@@ -1464,31 +1411,27 @@ declare namespace print {
    * Enumeration of application event.
    * @enum { number } ApplicationEvent
    * @syscap SystemCapability.Print.PrintFramework
-   * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 14
    */
   enum ApplicationEvent {
     /**
      * Application created.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 12
+     * @since 14
      */
     APPLICATION_CREATED = 0,
 
     /**
      * Application closed for printing started.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 12
+     * @since 14
      */
     APPLICATION_CLOSED_FOR_STARTED = 1,
 
     /**
      * Application closed for printing canceled.
      * @syscap SystemCapability.Print.PrintFramework
-     * @systemapi
-     * @since 12
+     * @since 14
      */
     APPLICATION_CLOSED_FOR_CANCELED = 2,
   }
@@ -2146,7 +2089,7 @@ declare namespace print {
    * @since 11
    */
   function startGettingPrintFile(jobId: string, printAttributes: PrintAttributes, fd: number,
-                                 onFileStateChanged: Callback<PrintFileCreationState>): void;
+    onFileStateChanged: Callback<PrintFileCreationState>): void;
 
   /**
    * Notify print service the information.
