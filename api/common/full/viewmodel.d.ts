@@ -762,6 +762,7 @@ export interface observer {
 /**
  * animation element
  *
+ * @extends Element
  * @interface AnimationElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
@@ -888,6 +889,7 @@ export interface ListScrollToOptions {
 /**
  * The <list> component provides a list container.
  *
+ * @extends Element
  * @interface ListElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
@@ -1007,6 +1009,7 @@ export interface ListElement extends Element {
 /**
  * The <swiper> component provides a swiper container.
  *
+ * @extends Element
  * @interface SwiperElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
@@ -1095,6 +1098,7 @@ export interface CameraTakePhotoOptions {
 /**
  * The <camera> component provides preview and photographing functions.
  *
+ * @extends Element
  * @interface CameraElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 6
@@ -1113,6 +1117,7 @@ export interface CameraElement extends Element {
 /**
  * The <web> component is a container for displaying web page content.
  *
+ * @extends Element
  * @interface WebElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 6
@@ -1130,6 +1135,7 @@ export interface WebElement extends Element {
 /**
  * The <dialog> component is a custom pop-up container.
  *
+ * @extends Element
  * @interface DialogElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
@@ -1154,6 +1160,7 @@ export interface DialogElement extends Element {
 /**
  * The <image-animator> component is used to provide an image frame animator.
  *
+ * @extends Element
  * @interface ImageAnimatorElement
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 4
@@ -1204,6 +1211,7 @@ export interface ImageAnimatorElement extends Element {
  * The <marquee> component inserts scrolling text, which is displayed in a single line by default.
  * When the text length exceeds the display area of the component, the marquee effect is displayed.
  *
+ * @extends Element
  * @interface MarqueeElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
@@ -1229,6 +1237,7 @@ export interface MarqueeElement extends Element {
 /**
  * The <menu> component provides menus as temporary pop-up windows to display operations that can be performed by users.
  *
+ * @extends Element
  * @interface MenuElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
@@ -1253,6 +1262,7 @@ export interface MenuElement extends Element {
 /**
  * The <chart> component displays line charts, gauge charts, and bar charts.
  *
+ * @extends Element
  * @interface ChartElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
@@ -1291,6 +1301,7 @@ export interface ChartElement extends Element {
 /**
  * The <input> component provides an interactive interface to receive user input, which is displayed in a single line by default.
  *
+ * @extends Element
  * @interface InputElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
@@ -1328,6 +1339,7 @@ export interface InputElement extends Element {
 /**
  * The <button> component includes capsule, circle, text, arc, and download buttons.
  *
+ * @extends Element
  * @interface ButtonElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
@@ -1350,6 +1362,7 @@ export interface ButtonElement extends Element {
 /**
  * The <textarea> component provides an interactive interface to receive user input, which is displayed in multiple lines by default.
  *
+ * @extends Element
  * @interface TextAreaElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
@@ -1368,6 +1381,7 @@ export interface TextAreaElement extends Element {
 /**
  * The <picker> component supports common, date, time, and multi-column text selectors.
  *
+ * @extends Element
  * @interface PickerElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
@@ -1385,6 +1399,7 @@ export interface PickerElement extends Element {
 /**
  * The <video> component provides a video player.
  *
+ * @extends Element
  * @interface VideoElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
@@ -3053,6 +3068,7 @@ export interface Path2D {
  * You can control each pixel to draw on the canvas.
  * <canvas> offers a variety of functions for drawing paths, rectangles, circles, text, and allows for adding images to it.
  *
+ * @extends Element
  * @interface CanvasElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
@@ -3213,6 +3229,7 @@ export interface ScrollOffset {
 /**
  * The <div> component provides a div container.
  *
+ * @extends Element
  * @interface DivElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 6

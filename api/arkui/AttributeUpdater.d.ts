@@ -33,7 +33,7 @@ declare type Initializer<T> = () => T;
 /**
  * Defines a modifier which can update attributes to native side.
  *
- * @implements AttributeModifier
+ * @implements AttributeModifier<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
