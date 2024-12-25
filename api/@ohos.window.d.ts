@@ -24,6 +24,7 @@ import image from './@ohos.multimedia.image';
 import rpc from './@ohos.rpc';
 import dialogRequest from './@ohos.app.ability.dialogRequest';
 import { UIContext } from './@ohos.arkui.UIContext';
+import ConfigurationConstant from './@ohos.app.ability.ConfigurationConstant';
 
 /**
  * Window manager.
@@ -1536,6 +1537,56 @@ declare namespace window {
      * @since 12
      */
     displayId?: number;
+  }
+
+  /**
+   * The decor button style of the window.
+   *
+   * @interface DecorButtonStyle
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 14
+   */
+  interface DecorButtonStyle {
+    /**
+     * color mode.
+     *
+     * @type { ?colorMode }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 14
+     */
+    colorMode?: ConfigurationConstant.ColorMode;
+
+    /**
+     * button background size when hover.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 14
+     */
+    buttonBackgroundSize? : number;
+
+    /**
+     * button spacing.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 14
+     */
+    spacingBetweenButtons? : number;
+
+    /**
+     * close button right Margin.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 14
+     */
+    closeButtonRightMargin? : number;
   }
 
   /**
@@ -7748,6 +7799,35 @@ declare namespace window {
      * @since 12
      */
     getWindowDecorHeight(): number;
+
+    /**
+     * Set the style of the window decor.
+     *
+     * @param { DecorButtonStyle } dectorStyle - The style of window decor.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types;
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 14
+     */
+    setDecorButtonStyle(dectorStyle: DecorButtonStyle): void;
+
+    /**
+     * Get the style of the window decor.
+     *
+     * @returns { DecorButtonStyle } - The style of window decor.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 14
+     */
+    getDecorButtonStyle(): DecorButtonStyle;
     
     /**
      * Set touchable areas. By default, the entire window area is touchable.
