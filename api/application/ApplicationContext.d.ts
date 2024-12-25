@@ -485,7 +485,7 @@ export default class ApplicationContext extends Context {
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000063 - The target to restart does not belong to the current application or is not a UIAbility.
-   * @throws { BusinessError } 16000064 - Restart too frequently. Try again at least 10s later.
+   * @throws { BusinessError } 16000064 - Restart too frequently. Try again at least 3s later.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
