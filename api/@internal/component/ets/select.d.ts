@@ -105,6 +105,17 @@ declare interface SelectOption {
    * @since 12
    */
   symbolIcon?: SymbolGlyphModifier;
+
+  /**
+   *  Sets the attribute modifier for the text of menu item.
+   *
+   * @type { ?TextModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  textModifier?: TextModifier;
 }
 
 /**
@@ -806,6 +817,30 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 12
    */
   divider(options: Optional<DividerOptions> | null): SelectAttribute;
+
+  /**
+   * Sets the attribute modifier for the text of select.
+   *
+   * @param { Optional<TextModifier> } modifier Set modifier for the text of select.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  textModifier(modifier: Optional<TextModifier>): SelectAttribute;
+
+  /**
+   * Sets the attribute modifier for the arrow symbol of select.
+   *
+   * @param { Optional<SymbolGlyphModifier> } modifier Set modifier for the arrow symbol of select.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  arrowModifier(modifier: Optional<SymbolGlyphModifier>): SelectAttribute;
 }
 
 /**
