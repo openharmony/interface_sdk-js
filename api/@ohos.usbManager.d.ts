@@ -232,6 +232,23 @@ declare namespace usbManager {
    * @systemapi
    * @since 12
    */
+  /**
+   * Add USB device access right.
+   * The system application has access to the device by default, and calling this interface will not have any impact.
+   *
+   * @permission ohos.permission.MANAGE_USB_CONFIG
+   * @param { string } tokenId - refers to application that require access permissions. It cannot be empty.
+   * @param { string } deviceName - device name defined by USBDevice.name. It cannot be empty.
+   * @returns { boolean } value to indicate whether the permission is granted.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1.Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.  
+   * @syscap SystemCapability.USB.USBManager
+   * @systemapi
+   * @since 16
+   */
   function addDeviceAccessRight(tokenId: string, deviceName: string): boolean;
 
   /**
@@ -248,6 +265,21 @@ declare namespace usbManager {
    * @systemapi
    * @since 12
    */
+  /**
+   * Converts the string descriptor of a given USB function list to a numeric mask combination.
+   *
+   * @permission ohos.permission.MANAGE_USB_CONFIG
+   * @param { string } funcs - descriptor of the supported function list. It cannot be empty.
+   * @returns { number } the numeric mask combination of the function list.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1.Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types. 
+   * @syscap SystemCapability.USB.USBManager
+   * @systemapi
+   * @since 16
+   */
   function getFunctionsFromString(funcs: string): number;
 
   /**
@@ -263,6 +295,21 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 12
+   */
+  /**
+   * Converts the numeric mask combination of a given USB function list to a string descriptor.
+   *
+   * @permission ohos.permission.MANAGE_USB_CONFIG
+   * @param { FunctionType } funcs - numeric mask combination of the function list. It cannot be empty.
+   * @returns { string } - descriptor of the supported function list.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1.Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.  
+   * @syscap SystemCapability.USB.USBManager
+   * @systemapi
+   * @since 16
    */
   function getStringFromFunctions(funcs: FunctionType): string;
 
@@ -282,6 +329,23 @@ declare namespace usbManager {
    * @systemapi
    * @since 12
    */
+  /**
+   * Sets the current USB function list in Device mode.
+   *
+   * @permission ohos.permission.MANAGE_USB_CONFIG
+   * @param { FunctionType } funcs - numeric mask combination of the supported function list. It cannot be empty.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1.Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.  
+   * @throws { BusinessError } 14400002 - Permission denied. The HDC is disabled by the system.
+   * @throws { BusinessError } 14400006 - Unsupported operation. The function is not supported.
+   * @syscap SystemCapability.USB.USBManager
+   * @systemapi
+   * @since 16
+   */
   function setDeviceFunctions(funcs: FunctionType): Promise<void>;
 
   /**
@@ -293,6 +357,17 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 12
+   */
+  /**
+   * Obtains the numeric mask combination for the current USB function list in Device mode.
+   *
+   * @permission ohos.permission.MANAGE_USB_CONFIG
+   * @returns { FunctionType } the numeric mask combination for the current USB function list in FunctionType.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @syscap SystemCapability.USB.USBManager
+   * @systemapi
+   * @since 16
    */
   function getDeviceFunctions(): FunctionType;
 
@@ -306,6 +381,18 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 12
+   */
+  /* usb port functions begin */
+  /**
+   * Obtains the USBPort list.
+   *
+   * @permission ohos.permission.MANAGE_USB_CONFIG
+   * @returns { Array<USBPort> } the USBPort list.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @syscap SystemCapability.USB.USBManager
+   * @systemapi
+   * @since 16
    */
   function getPortList(): Array<USBPort>;
 
@@ -322,6 +409,21 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 12
+   */
+  /**
+   * Gets the mask combination for the supported mode list of the specified USBPort.
+   *
+   * @permission ohos.permission.MANAGE_USB_CONFIG
+   * @param { number } portId - unique ID of the port. It cannot be empty.
+   * @returns { PortModeType } the mask combination for the supported mode list in PortModeType.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1.Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.   
+   * @syscap SystemCapability.USB.USBManager
+   * @systemapi
+   * @since 16
    */
   function getPortSupportModes(portId: number): PortModeType;
 
@@ -341,6 +443,24 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 12
+   */
+  /**
+   * Sets the role types supported by the specified USBPort, which can be powerRole (for charging) and dataRole (for data transfer).
+   *
+   * @permission ohos.permission.MANAGE_USB_CONFIG
+   * @param { number } portId - unique ID of the port. It cannot be empty.
+   * @param { PowerRoleType } powerRole - charging role. It cannot be empty.
+   * @param { DataRoleType } dataRole - data role. It cannot be empty.
+   * @returns { Promise<void> } the promise returned by the function.  
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1.Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 14400003 - Unsupported operation. The current device does not support port role switching.
+   * @syscap SystemCapability.USB.USBManager
+   * @systemapi
+   * @since 16
    */
   function setPortRoleTypes(portId: number, powerRole: PowerRoleType, dataRole: DataRoleType): Promise<void>;
 
