@@ -2964,6 +2964,23 @@ declare namespace window {
   function getWindowsByCoordinate(displayId: number, windowNumber?: number, x?: number, y?: number): Promise<Array<Window>>;
 
   /**
+   * Get Layout info of all windows on the selected display.
+   *
+   * @param { number } displayId - Indicate the id of display.
+   * @returns { Promise<Array<WindowLayoutInfo>> } Promise used to return the WindowLayoutInfo.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+   *                                                                  2. Incorrect parameter types; 
+   *                                                                  3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 16
+   */
+  function getAllWindowLayoutInfo(displayId: number): Promise<Array<WindowLayoutInfo>>;
+
+  /**
    * Register the callback of systemBarTintChange
    *
    * @param { 'systemBarTintChange' } type - The value is fixed at 'systemBarTintChange', indicating the property change event of the system bar.
@@ -9381,6 +9398,25 @@ declare namespace window {
      * @since 14
      */
     systemWindowOptions?: SystemWindowOptions;
+  }
+  /**
+   * The layout info of Window
+   *
+   * @interface WindowLayoutInfo
+   * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
+   * @since 16
+   */
+  interface WindowLayoutInfo {
+    /**
+     * The position and size of window.
+     *
+     * @type { Rect }
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 16
+     */
+    windowRect: Rect;
   }
 }
 
