@@ -769,6 +769,52 @@ declare namespace photoAccessHelper {
 >>>>>>> 9499c3b5e (CompleteButtonText API上库2)
   }
 
+   /**
+   * Enumeration type of watermarktypes of photos
+   *
+   * @enum { number } WatermarkType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 14
+   */
+   enum WatermarkType {
+    /**
+     * WatermarkType of Default
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    DEFAULT = 0,
+
+    /**
+     * WatermarkType of BRAND_COMMON
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    BRAND_COMMON = 1,
+
+    /**
+     * WatermarkType of COMMON
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    COMMON = 2,
+
+    /**
+     * WatermarkType of BRAND
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    BRAND = 3,
+  }
+
   /**
    * Options to request media asset
    *
