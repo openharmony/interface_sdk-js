@@ -638,11 +638,11 @@ declare namespace inputDevice {
   function getIntervalSinceLastInput(): Promise<number>;
   
   /**
-   * Enabling and disabling the TP device node.
+   * Enabling and disabling the device node.
    *
    * @permission ohos.permission.INPUT_DEVICE_CONTROLLER
    * @param { number } deviceId - Device id.
-   * @param { boolean } enabled - TP device node status.
+   * @param { boolean } enabled - Device node status.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API
