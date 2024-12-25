@@ -25308,6 +25308,49 @@ declare interface EdgeEffectOptions {
    * @since 12
    */
   alwaysEnabled: boolean;
+
+  /**
+   * Set the effective edge of the edge effect.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  effectEdge?: number;
+}
+
+/**
+ * Enumerates the effective edge of the edge effect.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare enum EffectEdge {
+
+  /**
+   * Effective only for the starting edge.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  START = 1,
+
+  /**
+   * Effective only for the end edge.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  END = 2,
 }
 
 /**
