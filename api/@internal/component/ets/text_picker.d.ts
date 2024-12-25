@@ -814,6 +814,18 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
   gradientHeight(value: Dimension): TextPickerAttribute;
 
   /**
+   * Enable or disable haptic feedback.
+   *
+   * @param { boolean } enabled - Default value is true, set false to disable haptic feedback.
+   * @returns { TextPickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  enableHapticFeedback(enabled: boolean): TextPickerAttribute;
+
+  /**
    * Called when set the height of gradient
    *
    * @param { Optional<Dimension> } height - The value the gradient height
@@ -1359,6 +1371,18 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @since 14
    */
   hoverModeArea?: HoverModeAreaType;
+
+  /**
+   * Enable or disable haptic feedback.
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  enableHapticFeedback?: boolean;
 }
 
 /**
