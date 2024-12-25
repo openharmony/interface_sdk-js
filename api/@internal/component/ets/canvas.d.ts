@@ -2469,6 +2469,18 @@ declare class RenderingContextSettings {
  */
 declare class CanvasRenderer extends CanvasPath {
   /**
+   * Set spacing for letter.
+   *
+   * @type { LengthMetrics | string }
+   * @default 0vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  letterSpacing: LengthMetrics | string;
+
+  /**
    * Transparency. The value ranges from 0.0 (completely transparent) to 1.0 (completely opaque).
    *    If the value is out of range, the assignment is invalid.
    *
