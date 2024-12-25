@@ -7613,15 +7613,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 14
      */
-    RETAIN_FORCE = 0,
-    /**
-     * Retains native metadata and thumbnails of cloud-only media assets, and does not display them.
-     * 
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
-     * @since 14
-     */
-    RETAIN_GENTLE = 1
+    RETAIN_FORCE = 0
   }
 
   /**
