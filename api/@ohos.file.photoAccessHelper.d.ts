@@ -571,14 +571,14 @@ declare namespace photoAccessHelper {
    *
    * @enum { number } CompatibleMode
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @since 14
+   * @since 15
    */
   enum CompatibleMode {
     /**
      * Original format mode
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 14
+     * @since 15
      */
     ORIGINAL_FORMAT_MODE = 0,
 
@@ -586,7 +586,7 @@ declare namespace photoAccessHelper {
      * Compatible format mode.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 14
+     * @since 15
      */
     COMPATIBLE_FORMAT_MODE = 1
   }
@@ -596,7 +596,7 @@ declare namespace photoAccessHelper {
    *
    * @interface MediaAssetProgressHandler
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @since 14
+   * @since 15
    */
   interface MediaAssetProgressHandler {
     /**
@@ -604,7 +604,7 @@ declare namespace photoAccessHelper {
      *
      * @param { number } progress - the progress of required media asset data; from 0 to 100.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 14
+     * @since 15
      */
     onProgress(progress: number): void;
   }
@@ -844,7 +844,7 @@ declare namespace photoAccessHelper {
      *
      * @type { ?CompatibleMode }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 14
+     * @since 15
      */
     compatibleMode?: CompatibleMode;
 
@@ -853,7 +853,7 @@ declare namespace photoAccessHelper {
      *
      * @type { ?MediaAssetProgressHandler }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 14
+     * @since 15
      */
     mediaAssetProgressHandler?: MediaAssetProgressHandler;
   }
@@ -4641,7 +4641,7 @@ declare namespace photoAccessHelper {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 14
+     * @since 16
      */
     getSupportedPhotoFormats(photoType: PhotoType): Promise<Array<string>>;
   }
@@ -6039,7 +6039,7 @@ declare namespace photoAccessHelper {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 14
+     * @since 15
      */
     setOrientation(orientation: number): void;
 
