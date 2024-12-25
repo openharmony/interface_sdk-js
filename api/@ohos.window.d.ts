@@ -9399,8 +9399,9 @@ declare namespace window {
      */
     systemWindowOptions?: SystemWindowOptions;
   }
+
   /**
-   * The layout info of Window
+   * The layout info of Window.
    *
    * @interface WindowLayoutInfo
    * @syscap SystemCapability.Window.SessionManager
