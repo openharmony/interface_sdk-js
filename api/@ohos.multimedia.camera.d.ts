@@ -8800,9 +8800,9 @@ declare namespace camera {
      * Check whether deferred video enhancement available.
      *
      * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @readonly
      * @since 13
      */
     readonly isDeferredVideoEnhancementAvailable: boolean;
@@ -8810,9 +8810,9 @@ declare namespace camera {
      * Video identifier.
      *
      * @type { ?string }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @readonly
      * @since 13
      */
     readonly videoId?: string;
