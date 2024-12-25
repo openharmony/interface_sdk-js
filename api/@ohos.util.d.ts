@@ -540,12 +540,14 @@ declare namespace util {
     /**
      * The source encoding's name, lowercased.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @since 7
      */
     /**
      * The source encoding's name, lowercased.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -553,6 +555,7 @@ declare namespace util {
     /**
      * The source encoding's name, lowercased.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -563,12 +566,14 @@ declare namespace util {
     /**
      * Returns `true` if error mode is "fatal", and `false` otherwise.
      *
+     * @type { boolean }
      * @syscap SystemCapability.Utils.Lang
      * @since 7
      */
     /**
      * Returns `true` if error mode is "fatal", and `false` otherwise.
      *
+     * @type { boolean }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -576,6 +581,7 @@ declare namespace util {
     /**
      * Returns `true` if error mode is "fatal", and `false` otherwise.
      *
+     * @type { boolean }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -586,12 +592,14 @@ declare namespace util {
     /**
      * Returns `true` if ignore BOM flag is set, and `false` otherwise.
      *
+     * @type { false }
      * @syscap SystemCapability.Utils.Lang
      * @since 7
      */
     /**
      * Returns `true` if ignore BOM flag is set, and `false` otherwise.
      *
+     * @type { false }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -599,6 +607,7 @@ declare namespace util {
     /**
      * Returns `true` if ignore BOM flag is set, and `false` otherwise.
      *
+     * @type { false }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -792,12 +801,14 @@ declare namespace util {
     /**
      * Encoding format.
      *
+     * @type { 'utf-8' }
      * @syscap SystemCapability.Utils.Lang
      * @since 7
      */
     /**
      * Encoding format.
      *
+     * @type { 'utf-8' }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -805,6 +816,7 @@ declare namespace util {
     /**
      * Encoding format.
      *
+     * @type { 'utf-8' }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -1475,6 +1487,7 @@ declare namespace util {
     /**
      * Obtains a list of all values in the current buffer.
      *
+     * @type { number }
      * @syscap SystemCapability.Utils.Lang
      * @since 8
      * @deprecated since 9
@@ -1797,12 +1810,14 @@ declare namespace util {
     /**
      * Obtains a list of all values in the current buffer.
      *
+     * @type { number }
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
     /**
      * Obtains a list of all values in the current buffer.
      *
+     * @type { number }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -1810,6 +1825,7 @@ declare namespace util {
     /**
      * Obtains a list of all values in the current buffer.
      *
+     * @type { number }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice

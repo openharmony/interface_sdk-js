@@ -459,12 +459,14 @@ declare namespace taskpool {
     /**
      * Concurrent function to execute in taskpool.
      *
+     * @type { Function }
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
     /**
      * Concurrent function to execute in taskpool.
      *
+     * @type { Function }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -472,6 +474,7 @@ declare namespace taskpool {
     /**
      * Concurrent function to execute in taskpool.
      *
+     * @type { Function }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -507,6 +510,7 @@ declare namespace taskpool {
     /**
      * Task name.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -677,6 +681,7 @@ declare namespace taskpool {
     /**
      * TaskGroup name.
      *
+     * @type { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice

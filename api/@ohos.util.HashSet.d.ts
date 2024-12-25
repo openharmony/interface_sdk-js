@@ -68,12 +68,14 @@ declare class HashSet<T> {
   /**
    * Gets the element number of the hashset.
    *
+   * @type { number }
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
   /**
    * Gets the element number of the hashset.
    *
+   * @type { number }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -81,6 +83,7 @@ declare class HashSet<T> {
   /**
    * Gets the element number of the hashset.
    *
+   * @type { number }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
