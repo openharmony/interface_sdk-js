@@ -2637,6 +2637,18 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 13
    */
   enableHapticFeedback(isEnabled: boolean): TextInputAttribute;
+
+  /**
+   * Set the text with half leading.
+   *
+   * @param { Optional<boolean> } halfLeading
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  halfLeading(halfLeading: Optional<boolean>): TextInputAttribute;
 }
 
 /**
