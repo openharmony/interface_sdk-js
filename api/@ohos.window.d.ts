@@ -6182,6 +6182,24 @@ declare namespace window {
     setTopmost(isTopmost: boolean): Promise<void>;
 
     /**
+     * Set whether the main window is topmost.
+     *
+     * @permission ohos.permission.WINDOW_TOPMOST
+     * @param { boolean } isWindowTopmost - Main window is topmost if true.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 14
+     */
+    setWindowTopmost(isWindowTopmost: boolean): Promise<void>;
+
+    /**
      * Sets the brightness of window.
      *
      * @param { number } brightness the specified brightness value.
