@@ -1559,7 +1559,16 @@ declare enum MouseAction {
    * @atomicservice
    * @since 11
    */
-  Hover
+  Hover,
+  
+  /**
+   * Triggered when the mouse event is canceled.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  CANCEL = 13
 }
 
 /**
