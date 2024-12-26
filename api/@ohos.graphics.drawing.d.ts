@@ -399,6 +399,118 @@ declare namespace drawing {
   }
 
   /**
+   * Enumerates of types of operation for the path.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 16
+   */
+  enum PathIteratorVerb {
+    /**
+     * Move operation.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    MOVE = 0,
+
+    /**
+     * Line operation.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    LINE = 1,
+
+    /**
+     * Quad operation.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    QUAD = 2,
+
+    /**
+     * Conic operation.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    CONIC = 3,
+
+    /**
+     * Cubic operation.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    CUBIC = 4,
+
+    /**
+     * Close operation.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    CLOSE = 5,
+
+    /**
+     * There are no more operations in the path.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    DONE = CLOSE + 1,
+  }
+
+  /**
+   * Describes a pathIterator object.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 16
+   */
+  class PathIterator {
+    /**
+     * Creates a pathIterator with path.
+     * @param { Path } path - the path is used to create PathIterator.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    constructor(path: Path);
+
+    /**
+     * Get the next verb in this iterator's path, and fill entries in the point2D array
+     * with point data (if any) for that operation, the point2D array size must be 4 or more.
+     * The number of pairs of point data supplied in the resulting array depends on the PathIteratorVerb:
+     * <ul>
+     * <li>MOVE: 1 pair</li>
+     * <li>LINE: 2 pairs</li>
+     * <li>QUAD: 3 pairs</li>
+     * <li>CONIC: 3.5 pairs</li>
+     * <li>CUBIC: 4 pairs</li>
+     * <li>CLOSE: 5 pairs</li>
+     * <li>DONE: 6 pairs</li>
+     * </ul>
+     * @param { Array<common2D.Point> } points - Indicates the point array.
+     * @param { number } offset - Indicates the offset into the array where entries should be placed. The default value is 0.
+     * @returns { PathIteratorVerb } Returns the next verb in this iterator's path.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    next(points: Array<common2D.Point>, offset?: number): PathIteratorVerb;
+
+    /**
+     * Get the next verb in the iteration, or DONE if there are no more elements.
+     * @returns { PathIteratorVerb } Returns the next verb in the iteration.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    peek(): PathIteratorVerb;
+
+    /**
+     * Query whether there are more elements in the iterator.
+     * @returns { boolean } Returns true if there are more elements to be iterated through, false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    hasNext(): boolean;
+  }
+
+  /**
    * Describes a path object.
    *
    * @syscap SystemCapability.Graphics.Drawing
@@ -783,6 +895,15 @@ declare namespace drawing {
      * @since 12
      */
     buildFromSvgString(str: string): boolean;
+
+    /**
+     * Get pathIterator from path.
+     *
+     * @returns { PathIterator } Indicates the pointer to an pathIterator object.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    getPathIterator(): PathIterator;
   }
 
   /**
