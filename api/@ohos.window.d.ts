@@ -8125,7 +8125,7 @@ declare namespace window {
     /**
      * Register the callback of windowRectChange
      *
-     * @param { 'rectChange' } type - The value is fixed at 'windowRectChange', indicating the window rect change event.
+     * @param { 'windowRectChange' } type - The value is fixed at 'windowRectChange', indicating the window rect change event.
      * @param { Callback<RectChangeOptions> } callback - Callback used to return the RectChangeOptions.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -8137,12 +8137,12 @@ declare namespace window {
      * @atomicservice
      * @since 12
      */
-    on(type: 'rectChange', callback: Callback<RectChangeOptions>): void;
+    on(type: 'windowRectChange', callback: Callback<RectChangeOptions>): void;
 
     /**
      * Unregister the callback of windowRectChange
      *
-     * @param { 'rectChange' } type - The value is fixed at 'windowRectChange', indicating the window rect change event.
+     * @param { 'windowRectChange' } type - The value is fixed at 'windowRectChange', indicating the window rect change event.
      * @param { Callback<RectChangeOptions> } callback - Callback used to return the RectChangeOptions.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
      *                                                                  2. Parameter verification failed.
@@ -8153,7 +8153,7 @@ declare namespace window {
      * @atomicservice
      * @since 12
      */
-    off(type: 'rectChange', callback?: Callback<RectChangeOptions>): void;
+    off(type: 'windowRectChange', callback?: Callback<RectChangeOptions>): void;
 
     /**
      * Set gray scale of window.
