@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -101,6 +101,356 @@ declare namespace distributedDeviceManager {
      * @since 10
      */
     UNAVAILABLE = 2,
+  }
+
+  /**
+   * @interface DeviceProfileInfoFilterOptions
+   * @syscap SystemCapability.DistributedHardware.DeviceManager
+   * @since 15
+   */
+  interface DeviceProfileInfoFilterOptions {
+    /**
+     * 
+     * @type { boolean }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    isCloud : boolean,
+    /**
+     * 
+     * @type { Array<string> }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    deviceIdlist?: Array<string>;
+  }
+
+  /**
+   * 
+   * @interface ServiceProfileInfo
+   * @syscap SystemCapability.DistributedHardware.DeviceManager
+   * @since 15
+   */
+  interface ServiceProfileInfo {
+    /**
+     * 
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    deviceId: string;
+
+    /**
+     * 
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    serviceId: string;
+
+    /**
+     * 
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    serviceType: string;
+
+    /**
+     * 
+     * @type { ?object }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    data?: {[key: string]: Object};
+  }
+
+  /**
+   * 
+   * @interface DeviceProfileInfo
+   * @syscap SystemCapability.DistributedHardware.DeviceManager
+   * @since 15
+   */
+  interface DeviceProfileInfo {
+    /**
+     * 
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    deviceId: string;
+
+    /**
+     * Device SerialNumber.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    deviceSn: string;
+
+    /**
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    mac: string;
+
+    /**
+     * Device model.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    model: string;
+
+    /**
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    innerModel: string;
+
+    /**
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    devType: string;
+
+    /**
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    manu: string;
+
+    /**
+     * Device name.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    deviceName: string;
+
+    /**
+     * Product ID.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    prodId: string;
+
+    /**
+     * @type { ?string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    subProdId?: string;
+
+    /**
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    hiv: string;
+
+    /**
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    bleMac: string;
+
+    /**
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    brMac: string;
+
+    /**
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    sleMac: string;
+
+    /**
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    fwv: string;
+
+    /**
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    hwv: string;
+
+    /**
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    swv: string;
+
+    /**
+     * @type { number }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    protType: number;
+
+    /**
+     * @type { number }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    setupType: number;
+
+    /**
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    wiseDeviceId: string;
+
+    /**
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    wiseUserId: string;
+
+    /**
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    registerTime: string;
+
+    /**
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    modifyTime: string;
+
+    /**
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    shareTime: string;
+
+    /**
+    * @type { boolean }
+    * @syscap SystemCapability.DistributedHardware.DeviceManager
+    * @since 15
+    */
+    isLocalDevice: boolean;
+
+    /**
+     * @type { Array<ServiceProfileInfo> }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    services?: Array<ServiceProfileInfo>;
+  }
+
+  /**
+   * 
+   * @interface DeviceIconInfoFilterOptions
+   * @syscap SystemCapability.DistributedHardware.DeviceManager
+   * @since 15
+   */
+  interface DeviceIconInfoFilterOptions {
+    /**
+     * Product ID.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    productId: string;
+
+    /**
+     * @type { ?string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    subProductId?: string;
+
+    /**
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    imageType: string;
+
+    /**
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    specName: string;
+  }
+  /**
+   * 
+   * @interface DeviceIconInfo
+   * @syscap SystemCapability.DistributedHardware.DeviceManager
+   * @since 15
+   */
+  interface DeviceIconInfo {
+    /**
+     * Product ID.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    productId: string;
+
+    /**
+     * @type { ?string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    subProductId?: string;
+
+    /**
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    imageType: string;
+
+    /**
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    specName: string;
+
+    /**
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    url: string;
+
+    /**
+     *
+     * @type { ArrayBuffer }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    icon: ArrayBuffer;
   }
 
   /**
@@ -593,6 +943,126 @@ declare namespace distributedDeviceManager {
       * @since 10
       */
     off(type: 'replyResult', callback?: Callback<{ param: string; }>): void;
+
+    /**
+     * Query the device list of same account.
+     *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @param { DeviceProfileInfoFilterOptions } filterOptions - parameter for querying the device list, The parameter type is map,such as:
+     *      "isCloud" : false,           -  false - Query from the cahce of device side.
+     *                                      true  - Query from the cloud.
+     *      "deviceIdList" : [],         - Query by specified device ids.
+     * @returns { Promise<Array<DeviceProfileInfo>> } - Returns a list of devices.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified type is greater than 500.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 11600101 - Failed to execute the function.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    getDeviceProfileInfoList(filterOptions: DeviceProfileInfoFilterOptions): Promise<Array<DeviceProfileInfo>>;
+
+    /**
+     * Put the device list of same account.
+     *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @param { Array<DeviceProfileInfo> } deviceProfileInfoList - parameter for querying the device list for put, 
+     * @returns { Promise<number> } - Returns operation result.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified type is greater than 500.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 11600101 - Failed to execute the function.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    putDeviceProfileInfoList(deviceProfileInfoList: Array<DeviceProfileInfo>): Promise<number>;
+
+    /**
+     * Get a DeviceIconInfo.
+      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @param { DeviceIconInfoFilterOptions } filterOptions - parameter for querying the device list, The parameter type is map,such as:
+     *      "productId" : "xxx",           - product id of device
+     *      "subProductId" : "xxx",        - subproduct id of device
+     *      "imageType" : "xxx",           - image type, such as: ID、ID_Headset_L、ID_Headset_R、ID_Headset_B、ID_Headset_LB、ID_Headset_RB
+     *      "specName" : "xxx",            - image size specification name, such as: sm/lg
+     * @returns { Promise<DeviceIconInfo> } - Returns a DeviceIconInfo.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 11600101 - Failed to execute the function.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    getDeviceIconInfo(filterOptions: DeviceIconInfoFilterOptions): Promise<DeviceIconInfo>;
+
+    /**
+     * Get display name of local device.
+      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @param { number } maxNameLength - the max number of bytes of the local device display name
+     * 
+     * @returns { Promise<string> } - Returns device display name.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 11600101 - Failed to execute the function.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    getLocalDisplayDeviceName(maxNameLength: number): Promise<string>;
+
+    /**
+     * Set local device name.
+      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @param { string } deviceName - local device name
+     * @returns { Promise<number> } - Returns operation result.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 11600101 - Failed to execute the function.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    setLocalDeviceName(deviceName: string): Promise<number>;
+
+    /**
+     * Set remote device name.
+      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @param { string } deviceId    - remote device id
+     * @param { string } deviceName  - remote device name
+     * @returns { Promise<number> } - Returns operation result.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 11600101 - Failed to execute the function.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 15
+     */
+    setRemoteDeviceName(deviceId: string, deviceName: string): Promise<number>;
+
   }
 }
 
