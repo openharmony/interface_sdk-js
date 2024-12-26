@@ -5246,6 +5246,18 @@ declare namespace webview {
     setPathAllowingUniversalAccess(pathList: Array<string>): void;
 
     /**
+     * Trim memory by different memory pressure level.
+     *
+     * @param { PressureLevel } level - The memory pressure level for the ArkWeb.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Parameter string is too long. 3.Parameter verification failed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 14
+     */
+    static trimMemoryByPressureLevel(level: PressureLevel): void;
+
+    /**
      * Enable the BackForwardCache and indicate features that are allowed to enter BackForwardCache.
      * Default is disabled.
      *
@@ -5291,18 +5303,6 @@ declare namespace webview {
      * @since 12
      */
     scrollByWithResult(deltaX: number, deltaY: number): boolean;
-
-    /**
-     * Trim memory by different memory pressure level.
-     *
-     * @param { PressureLevel } level - The memory pressure level for the ArkWeb.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Parameter string is too long. 3.Parameter verification failed.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 14
-     */
-    static trimMemoryByPressureLevel(level: PressureLevel): void;
   }
 
   /**
