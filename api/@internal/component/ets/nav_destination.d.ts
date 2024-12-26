@@ -803,6 +803,17 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @since 14
    */
   systemTransition(type: NavigationSystemTransitionType): NavDestinationAttribute;
+
+  /**
+   * Set the NavDestination can be restored after the application is terminated.
+   * To enable this attribute, recoverable and id of Navigation must be set.
+   *
+   * @param { boolean } recoverable - set navdestination can be recovered.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 14
+   */
+  recoverable(recoverable: Optional<boolean>): NavDestinationAttribute;
 }
 
 /**
