@@ -174,7 +174,7 @@ declare namespace serialManager {
    * The method returns an array of SerialPort objects,
    * representing serial ports connected to the host which the origin has permission to access.
    *
-   * @returns { Array<Readonly<SerialPort>> } the serialPort list.
+   * @returns { Readonly<SerialPort>[] } the serialPort list.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 16
    */
