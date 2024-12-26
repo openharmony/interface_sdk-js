@@ -417,7 +417,15 @@ declare namespace pointer {
      * @atomicservice
      * @since 12
      */
-    RUNNING
+    RUNNING,
+
+    /**
+     * Scrolling east and west
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 16
+     */
+    MIDDLE_BTN_EAST_WEST
   }
 
   /**
