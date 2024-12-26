@@ -9179,6 +9179,125 @@ declare namespace window {
      */
     isWindowRectAutoSave(): Promise<boolean>;
   }
+
+  /**
+   * Attribute of the window for UI service extension ability.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 14
+   */
+    enum ExtensionWindowAttribute {
+      /**
+       * System window.
+       *
+       * @syscap SystemCapability.Window.SessionManager
+       * @systemapi Hide this for inner system use.
+       * @stagemodelonly
+       * @since 14
+       */
+      SYSTEM_WINDOW,
+  
+      /**
+       * Sub window.
+       *
+       * @syscap SystemCapability.Window.SessionManager
+       * @systemapi Hide this for inner system use.
+       * @stagemodelonly
+       * @since 14
+       */
+      SUB_WINDOW
+    }
+  
+    /**
+     * Options for system window creation.
+     *
+     * @interface SystemWindowOptions
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 14
+     */
+    interface SystemWindowOptions {
+      /**
+       * Indicates window type.
+       *
+       * @type { WindowType }
+       * @syscap SystemCapability.Window.SessionManager
+       * @systemapi Hide this for inner system use.
+       * @stagemodelonly
+       * @since 14
+       */
+      windowType: WindowType;
+    }
+  
+    /**
+     * Configuration of the window for UI service extension ability.
+     *
+     * @interface ExtensionWindowConfig
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 14
+     */
+    interface ExtensionWindowConfig {
+      /**
+       * Window name.
+       *
+       * @type { string }
+       * @syscap SystemCapability.Window.SessionManager
+       * @systemapi Hide this for inner system use.
+       * @stagemodelonly
+       * @since 14
+       */
+      windowName: string;
+  
+      /**
+       * Defines whether the window is a subwindow or a system window.
+       *
+       * @type { ExtensionWindowAttribute }
+       * @syscap SystemCapability.Window.SessionManager
+       * @systemapi Hide this for inner system use.
+       * @stagemodelonly
+       * @since 14
+       */
+      windowAttribute: ExtensionWindowAttribute;
+  
+      /**
+       * The position and size of window.
+       *
+       * @type { Rect }
+       * @syscap SystemCapability.Window.SessionManager
+       * @systemapi Hide this for inner system use.
+       * @stagemodelonly
+       * @since 14
+       */
+      windowRect: Rect;
+  
+      /**
+       * The options of sub window creation.
+       *
+       * @type { ?SubWindowOptions }
+       * @syscap SystemCapability.Window.SessionManager
+       * @systemapi Hide this for inner system use.
+       * @stagemodelonly
+       * @since 14
+       */
+      subWindowOptions?: SubWindowOptions;
+  
+      /**
+       * The options of system window creation.
+       *
+       * @type { ?SystemWindowOptions }
+       * @syscap SystemCapability.Window.SessionManager
+       * @systemapi Hide this for inner system use.
+       * @stagemodelonly
+       * @since 14
+       */
+      systemWindowOptions?: SystemWindowOptions;
+    }  
 }
 
 export default window;
