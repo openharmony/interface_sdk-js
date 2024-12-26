@@ -13830,6 +13830,18 @@ declare interface PopupOptions {
    * @since 13
    */
   followTransformOfTarget?: boolean;
+
+  /**
+   * Define the popup avoid keyboard mode.
+   *
+   * @type { ?KeyboardAvoidMode }
+   * @default KeyboardAvoidMode.NONE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  keyboardAvoidMode?: KeyboardAvoidMode;
 }
 
 /**
@@ -14365,6 +14377,18 @@ declare interface CustomPopupOptions {
    * @since 13
    */
   followTransformOfTarget?: boolean;
+
+  /**
+   * Define the popup avoid keyboard mode.
+   *
+   * @type { ?KeyboardAvoidMode }
+   * @default KeyboardAvoidMode.NONE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  keyboardAvoidMode?: KeyboardAvoidMode;
 }
 
 /**
