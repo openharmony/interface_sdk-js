@@ -31,6 +31,7 @@ export interface AppProvisionInfo {
    * Indicates the version code of the profile file.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -41,6 +42,7 @@ export interface AppProvisionInfo {
    * Indicates the version name of the profile file.
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -51,6 +53,7 @@ export interface AppProvisionInfo {
    * Indicates the uuid of the profile file.
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -61,6 +64,7 @@ export interface AppProvisionInfo {
    * Indicates the type of the profile file.
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -71,6 +75,7 @@ export interface AppProvisionInfo {
    * Indicates the app distribution type of the profile file.
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -81,6 +86,7 @@ export interface AppProvisionInfo {
    * Indicates the validity of the profile file.
    *
    * @type { Validity }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -91,6 +97,7 @@ export interface AppProvisionInfo {
    * Indicates the developer id of the profile file.
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -101,6 +108,7 @@ export interface AppProvisionInfo {
    * Indicates the distribution or development certificate of the profile file.
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -111,6 +119,7 @@ export interface AppProvisionInfo {
    * Indicates the apl of the profile file.
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -121,6 +130,7 @@ export interface AppProvisionInfo {
    * Indicates the issuer of the profile file.
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -165,6 +175,7 @@ export interface Validity {
    * Indicates the earliest validity of the profile file.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -175,6 +186,7 @@ export interface Validity {
    * Indicates the latest validity of the profile file.
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
