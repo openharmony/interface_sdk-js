@@ -2523,12 +2523,27 @@ declare namespace image {
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 12
    */
+  /**
+   * Enumerates the anti-aliasing level.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @atomicservice
+   * @since 14
+   */
   enum AntiAliasingLevel {
     /**
      * Nearest-neighbor interpolation algorithm.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12
+     */
+    /**
+     * Nearest-neighbor interpolation algorithm.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @atomicservice
+     * @since 14
      */
     NONE = 0,
 
@@ -2538,6 +2553,13 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12
      */
+    /**
+     * Bilinear interpolation algorithm.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @atomicservice
+     * @since 14
+     */
     LOW = 1,
 
     /**
@@ -2546,6 +2568,13 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12
      */
+    /**
+     * Bilinear interpolation algorithm with mipmap linear filtering.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @atomicservice
+     * @since 14
+     */
     MEDIUM = 2,
 
     /**
@@ -2553,6 +2582,13 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12
+     */
+    /**
+     * Cubic interpolation algorithm.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @atomicservice
+     * @since 14
      */
     HIGH = 3,
   }
