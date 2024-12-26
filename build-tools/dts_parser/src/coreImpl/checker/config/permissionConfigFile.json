@@ -3673,7 +3673,7 @@
       {
         "name": "ohos.permission.INPUT_DEVICE_CONTROLLER",
         "grantMode": "system_grant",
-        "availableLevel": "normal",
+        "availableLevel": "system_basic",
         "since": 16,
         "deprecated": "",
         "provisionEnable": true,
