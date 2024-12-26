@@ -1082,7 +1082,6 @@ declare namespace display {
      * Indicates the size of left side curved area of the waterfall screen.
      *
      * @type { Rect }
-     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
