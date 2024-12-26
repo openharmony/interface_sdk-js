@@ -88,7 +88,7 @@ declare interface UIExtensionOptions {
    * @systemapi
    * @since 14
    */
-   areaChangePlaceholder?: Record<string, ComponentContent>;
+  areaChangePlaceholder?: Record<string, ComponentContent>;
 
   /**
    * Set UIExtensionComponent Content Dpi Follow Strategy.
