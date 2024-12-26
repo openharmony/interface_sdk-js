@@ -129,7 +129,6 @@ declare namespace hiAppEvent {
     /**
      * the domain of operating system.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -156,14 +155,12 @@ declare namespace hiAppEvent {
     /**
      * User login event.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * User login event.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -173,14 +170,12 @@ declare namespace hiAppEvent {
     /**
      * User logout event.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * User logout event.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -190,14 +185,12 @@ declare namespace hiAppEvent {
     /**
      * Distributed service event.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * Distributed service event.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -207,7 +200,6 @@ declare namespace hiAppEvent {
     /**
      * crash event.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -217,7 +209,6 @@ declare namespace hiAppEvent {
     /**
      * freeze event.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -227,7 +218,6 @@ declare namespace hiAppEvent {
     /**
      * launch event.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12
@@ -237,7 +227,6 @@ declare namespace hiAppEvent {
     /**
      * scroll jank event.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12
@@ -247,7 +236,6 @@ declare namespace hiAppEvent {
     /**
      * cpu usage high event.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12
@@ -257,7 +245,6 @@ declare namespace hiAppEvent {
     /**
      * battery usage event.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12
@@ -267,7 +254,6 @@ declare namespace hiAppEvent {
     /**
      * resource overlimit event.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12
@@ -277,7 +263,6 @@ declare namespace hiAppEvent {
     /**
      * address sanitizer event.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12
@@ -287,7 +272,6 @@ declare namespace hiAppEvent {
     /**
      * main thread jank event.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12
@@ -314,14 +298,12 @@ declare namespace hiAppEvent {
     /**
      * User id.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * User id.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -331,14 +313,12 @@ declare namespace hiAppEvent {
     /**
      * Distributed service name.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * Distributed service name.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -348,14 +328,12 @@ declare namespace hiAppEvent {
     /**
      * Distributed service instance id.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * Distributed service instance id.
      *
-     * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
