@@ -402,8 +402,8 @@ declare namespace screen {
   /**
    * Set multi screen relative position
    * 
-   * @param { MultiScreenPositionOption } mainScreenOptions - primary screen position.
-   * @param { MultiScreenPositionOption } secondaryScreenOptions - secondary screen position.
+   * @param { MultiScreenPositionOptions } mainScreenOptions - primary screen position.
+   * @param { MultiScreenPositionOptions } secondaryScreenOptions - secondary screen position.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -644,7 +644,6 @@ declare namespace screen {
      * Screen id
      *
      * @type { number }
-     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -655,7 +654,6 @@ declare namespace screen {
      * Group id
      *
      * @type { number }
-     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -666,7 +664,6 @@ declare namespace screen {
      * Mode supported by the screen
      *
      * @type { Array<ScreenModeInfo> }
-     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -677,7 +674,6 @@ declare namespace screen {
      * Currently active mode
      *
      * @type { number }
-     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -688,7 +684,6 @@ declare namespace screen {
      * Orientation of the screen
      *
      * @type { Orientation }
-     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -699,7 +694,6 @@ declare namespace screen {
      * Source mode of the screen
      *
      * @type { ScreenSourceMode }
-     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -911,7 +905,7 @@ declare namespace screen {
    * @atomicservice
    * @since 15
    */
-    interface Rect {
+  interface Rect {
       /**
        * The X-axis coordinate of the upper left vertex of the rectangle, in pixels.
        *
