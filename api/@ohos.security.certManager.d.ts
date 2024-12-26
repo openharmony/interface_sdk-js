@@ -99,7 +99,15 @@ declare namespace certificateManager {
      * @syscap SystemCapability.Security.CertificateManager
      * @since 12
      */
-    CM_ERROR_NO_AUTHORIZATION = 17500005
+    CM_ERROR_NO_AUTHORIZATION = 17500005,
+
+    /**
+     * Indicates that the device enters advanced security mode.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 16
+     */
+    CM_ERROR_DEVICE_ENTER_ADVSECMODE = 17500007
   }
 
   /**
@@ -1137,6 +1145,25 @@ declare namespace certificateManager {
    * @since 16
    */
   function getCertificateStorePath(property: CertStoreProperty): string;
+
+  /**
+   * Install the user trusted CA certificate.
+   *
+   * @permission ohos.permission.ACCESS_ENTERPRISE_USER_TRUSTED_CERT or ohos.permission.ACCESS_USER_TRUSTED_CERT
+   * @param { Uint8Array } cert - Indicates the certificate file content to be installed.
+   * @param { CertScope } certScope - Indicates the scope of user ca certificate.
+   * @returns { CMResult } The certificate uri that identifies the installed certificate.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 17500001 - Internal error.
+   * @throws { BusinessError } 17500003 - Indicates that the certificate is in an invalid format.
+   * @throws { BusinessError } 17500004 - Indicates that the number of certificates reaches the maximum allowed.
+   * @throws { BusinessError } 17500007 - Indicates that the device enters advanced security mode. In this mode, the user CA certificate cannot be installed.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 16
+   */
+  function installUserTrustedCertificateSync(cert: Uint8Array, certScope: CertScope) : CMResult;
 }
 
 export default certificateManager;
