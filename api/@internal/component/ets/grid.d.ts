@@ -701,6 +701,18 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   cachedCount(value: number): GridAttribute;
 
   /**
+   * Called to set number of GridItems to be preloaded (cached) in LazyForEach / Repeat. 
+   * @param { number } count - number of GridItems to be preloaded (cached).
+   * @param { boolean } show - if true, cached items are displayed when clip is disabled.
+   * @returns { GridAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  cachedCount(count: number, show: boolean): GridAttribute;
+
+  /**
    * editMode
    *
    * @param { boolean } value
