@@ -24,7 +24,8 @@ import {
   NdefTag as _NdefTag,
   MifareClassicTag as _MifareClassicTag,
   MifareUltralightTag as _MifareUltralightTag,
-  NdefFormatableTag as _NdefFormatableTag
+  NdefFormatableTag as _NdefFormatableTag,
+  BarcodeTag as _BarcodeTag
 } from './tag/nfctech';
 import { NdefMessage as _NdefMessage } from './tag/nfctech';
 import { TagSession as _TagSession } from './tag/tagSession';
@@ -202,6 +203,16 @@ declare namespace tag {
    * @since 12
    */
   const MIFARE_ULTRALIGHT = 9;
+
+  /**
+   * Indicates an NfcBarcode tag.
+   *
+   * @constant
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 16
+   */
+  const NFC_BARCODE = 10;
 
   /**
    * TNF types definitions, see NFCForum-TS-NDEF_1.0.
