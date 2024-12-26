@@ -55,6 +55,7 @@ interface ShapeSize {
 /**
  * Interface for RectShape constructor parameters.
  *
+ * @extends ShapeSize
  * @interface RectShapeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -77,6 +78,7 @@ interface RectShapeOptions extends ShapeSize {
 /**
  * Interface for RectShape constructor parameters with separate radius values.
  *
+ * @extends ShapeSize
  * @interface RoundRectShapeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform

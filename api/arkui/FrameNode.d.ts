@@ -644,8 +644,8 @@ export class FrameNode {
 /**
  * Used to define the FrameNode type.
  *
- * @interface TypedFrameNode
  * @extends FrameNode
+ * @interface TypedFrameNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
