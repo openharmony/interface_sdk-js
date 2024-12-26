@@ -8205,6 +8205,7 @@ declare interface BorderImageOption {
 /**
  * The tap action triggers this method invocation.
  *
+ * @extends BaseEvent
  * @interface ClickEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -8212,6 +8213,7 @@ declare interface BorderImageOption {
 /**
  * The tap action triggers this method invocation.
  *
+ * @extends BaseEvent
  * @interface ClickEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
@@ -8220,6 +8222,7 @@ declare interface BorderImageOption {
 /**
  * The tap action triggers this method invocation.
  *
+ * @extends BaseEvent
  * @interface ClickEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -8229,6 +8232,7 @@ declare interface BorderImageOption {
 /**
  * The tap action triggers this method invocation.
  *
+ * @extends BaseEvent
  * @interface ClickEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -8422,6 +8426,7 @@ declare interface ClickEvent extends BaseEvent {
 /**
  * The hover action triggers this method invocation.
  *
+ * @extends BaseEvent
  * @interface HoverEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
@@ -8429,6 +8434,7 @@ declare interface ClickEvent extends BaseEvent {
 /**
  * The hover action triggers this method invocation.
  *
+ * @extends BaseEvent
  * @interface HoverEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -8456,6 +8462,7 @@ declare interface HoverEvent extends BaseEvent {
 /**
  * The mouse click action triggers this method invocation.
  *
+ * @extends BaseEvent
  * @interface MouseEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
@@ -8463,6 +8470,7 @@ declare interface HoverEvent extends BaseEvent {
 /**
  * The mouse click action triggers this method invocation.
  *
+ * @extends BaseEvent
  * @interface MouseEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -8648,8 +8656,8 @@ declare interface MouseEvent extends BaseEvent {
 /**
  * The accessibility hover action triggers this method invocation.
  *
- * @typedef AccessibilityHoverEvent
  * @extends BaseEvent
+ * @typedef AccessibilityHoverEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
@@ -9052,6 +9060,7 @@ declare interface HistoricalPoint {
 /**
  * Touch Action Function Parameters
  *
+ * @extends BaseEvent
  * @interface TouchEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -9059,6 +9068,7 @@ declare interface HistoricalPoint {
 /**
  * Touch Action Function Parameters
  *
+ * @extends BaseEvent
  * @interface TouchEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -9067,6 +9077,7 @@ declare interface HistoricalPoint {
 /**
  * Touch Action Function Parameters
  *
+ * @extends BaseEvent
  * @interface TouchEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -24069,7 +24080,7 @@ declare interface Callback<T, V = void> {
  * The value of isHover indicates whether the mouse is hovering over the component.
  * The value of event contains information about HoverEvent.
  *
- * @typedef HoverCallback
+ * @typedef { function } HoverCallback
  * @param { boolean } isHover
  * @param { HoverEvent} event
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -24084,7 +24095,9 @@ declare type HoverCallback = (isHover: boolean, event: HoverEvent) => void
  * The value of isHover indicates whether the touch is hovering over the component.
  * The value of event contains information about AccessibilityHoverEvent.
  *
- * @typedef { function }
+ * @typedef { function } AccessibilityCallback
+ * @param { boolean } isHover
+ * @param { AccessibilityHoverEvent } event
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
