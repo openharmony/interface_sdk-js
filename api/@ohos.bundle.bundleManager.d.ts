@@ -1477,7 +1477,8 @@ declare namespace bundleManager {
   function getBundleInfoForSelfSync(bundleFlags: number): BundleInfo;
 
   /**
-   * Obtains bundleInfo based on bundleName, bundleFlags. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
+   * Obtains bundleInfo based on bundleName, bundleFlags.
+   * The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
@@ -1493,7 +1494,8 @@ declare namespace bundleManager {
   function getBundleInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;
 
   /**
-   * Obtains bundleInfo based on bundleName, bundleFlags and userId. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
+   * Obtains bundleInfo based on bundleName, bundleFlags and userId.
+   * The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
@@ -1512,7 +1514,8 @@ declare namespace bundleManager {
     bundleFlags: number, userId: number, callback: AsyncCallback<BundleInfo>): void;
 
   /**
-   * Obtains bundleInfo based on bundleName, bundleFlags and userId. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
+   * Obtains bundleInfo based on bundleName, bundleFlags and userId.
+   * The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
@@ -1947,7 +1950,8 @@ declare namespace bundleManager {
     userId?: number): Array<ExtensionAbilityInfo>;
 
   /**
-   * Obtains bundle name by the given uid. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
+   * Obtains bundle name by the given uid.
+   * The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { number } uid - Indicates the UID of an application.
@@ -1961,7 +1965,8 @@ declare namespace bundleManager {
   function getBundleNameByUid(uid: number, callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains bundle name by the given uid. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
+   * Obtains bundle name by the given uid.
+   * The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { number } uid - Indicates the UID of an application.
@@ -1975,7 +1980,8 @@ declare namespace bundleManager {
   function getBundleNameByUid(uid: number): Promise<string>;
 
   /**
-   * Obtains bundle name by the given uid. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
+   * Obtains bundle name by the given uid.
+   * The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { number } uid - Indicates the UID of an application.
@@ -2793,7 +2799,8 @@ declare namespace bundleManager {
   function getApplicationInfoSync(bundleName: string, applicationFlags: number): ApplicationInfo;
 
   /**
-   * Obtains bundleInfo based on bundleName, bundleFlags and userId. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
+   * Obtains bundleInfo based on bundleName, bundleFlags and userId.
+   * The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
@@ -2811,7 +2818,8 @@ declare namespace bundleManager {
   function getBundleInfoSync(bundleName: string, bundleFlags: number, userId: number): BundleInfo;
 
   /**
-   * Obtains bundleInfo based on bundleName, bundleFlags. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
+   * Obtains bundleInfo based on bundleName, bundleFlags.
+   * The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
@@ -3358,7 +3366,8 @@ declare namespace bundleManager {
   function getAllAppCloneBundleInfo(bundleName: string, bundleFlags: number, userId?: number): Promise<Array<BundleInfo>>;
 
   /**
-   * Obtains AppCloneIdentity contains bundleName and appIndex by the given uid. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
+   * Obtains AppCloneIdentity contains bundleName and appIndex by the given uid.
+   * The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { number } uid - Indicates the UID of an application.

@@ -890,7 +890,8 @@ declare namespace installer {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
-     * @throws { BusinessError } 17700058 - Failed to install the HAP because this application is prohibited from being installed on this device or by specified users.
+     * @throws { BusinessError } 17700058 - Failed to install the HAP because this application is prohibited
+     * <br>from being installed on this device or by specified users.
      * @throws { BusinessError } 17700073 - Failed to install the HAP because an application with the same
      * <br>bundle name but different signature information exists on the device.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -939,7 +940,8 @@ declare namespace installer {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
-     * @throws { BusinessError } 17700058 - Failed to install the HAP because this application is prohibited from being installed on this device or by specified users.
+     * @throws { BusinessError } 17700058 - Failed to install the HAP because this application is prohibited
+     * <br>from being installed on this device or by specified users.
      * @throws { BusinessError } 17700073 - Failed to install the HAP because an application with the same
      * <br>bundle name but different signature information exists on the device.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -994,7 +996,8 @@ declare namespace installer {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
-     * @throws { BusinessError } 17700058 - Failed to install the HAP because this application is prohibited from being installed on this device or by specified users.
+     * @throws { BusinessError } 17700058 - Failed to install the HAP because this application is prohibited
+     * <br>from being installed on this device or by specified users.
      * @throws { BusinessError } 17700073 - Failed to install the HAP because an application with the same
      * <br>bundle name but different signature information exists on the device.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -1393,7 +1396,8 @@ declare namespace installer {
      * @throws { BusinessError } 17700001 - The specified bundleName cannot be found or the bundle is not installed by the specified user.
      * @throws { BusinessError } 17700004 - The userId is invalid.
      * @throws { BusinessError } 17700071 - It is not allowed to install the enterprise bundle.
-     * @throws { BusinessError } 17700058 - Failed to install the HAP because this application is prohibited from being installed on this device or by specified users.
+     * @throws { BusinessError } 17700058 - Failed to install the HAP because this application is prohibited
+     * <br>from being installed on this device or by specified users.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 14
