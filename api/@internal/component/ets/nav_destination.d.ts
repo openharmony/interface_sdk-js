@@ -838,6 +838,17 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
   systemTransition(type: NavigationSystemTransitionType): NavDestinationAttribute;
 
   /**
+   * Set the NavDestination can be restored after the application is terminated.
+   * To enable this attribute, recoverable and id of Navigation must be set.
+   *
+   * @param { boolean } recoverable - set navdestination can be recovered.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 14
+   */
+  recoverable(recoverable: Optional<boolean>): NavDestinationAttribute;
+
+  /**
    * Bind NavDestination to scrollable container components to automatically hide titlebar and toolbar.
    * 
    * @param { Array<Scroller> } scrollers - The controllers of the scrollable container components.

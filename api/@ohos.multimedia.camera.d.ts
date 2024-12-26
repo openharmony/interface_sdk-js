@@ -4976,30 +4976,6 @@ declare namespace camera {
     off(type: 'macroStatusChanged', callback?: AsyncCallback<boolean>): void;
 
     /**
-     * Subscribes to lcd flash status.
-     *
-     * @param { 'lcdFlashStatus' } type - Event type.
-     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
-     * @throws { BusinessError } 202 - Not System Application.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 13
-     */
-    on(type: 'lcdFlashStatus', callback: AsyncCallback<LcdFlashStatus>): void;
-
-    /**
-     * Unsubscribes from lcd flash status.
-     *
-     * @param { 'lcdFlashStatus' } type - Event type.
-     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
-     * @throws { BusinessError } 202 - Not System Application.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 13
-     */
-    off(type: 'lcdFlashStatus', callback?: AsyncCallback<LcdFlashStatus>): void;
-
-    /**
      * Subscribes to feature detection results.
      *
      * @param { 'featureDetection' } type - Event type.
@@ -5068,6 +5044,30 @@ declare namespace camera {
     off(type: 'autoDeviceSwitchStatusChange', callback?: AsyncCallback<AutoDeviceSwitchStatus>): void;
 
     /**
+     * Subscribes to lcd flash status.
+     *
+     * @param { 'lcdFlashStatus' } type - Event type.
+     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    on(type: 'lcdFlashStatus', callback: AsyncCallback<LcdFlashStatus>): void;
+
+     /**
+      * Unsubscribes from lcd flash status.
+      *
+      * @param { 'lcdFlashStatus' } type - Event type.
+      * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
+      * @throws { BusinessError } 202 - Not System Application.
+      * @syscap SystemCapability.Multimedia.Camera.Core
+      * @systemapi
+      * @since 13
+      */
+    off(type: 'lcdFlashStatus', callback?: AsyncCallback<LcdFlashStatus>): void;
+
+    /**
      * Gets session functions.
      *
      * @param { CameraOutputCapability } outputCapability - CameraOutputCapability to set.
@@ -5101,6 +5101,31 @@ declare namespace camera {
    * @since 11
    */
   interface VideoSessionForSys extends VideoSession, Beauty, ColorEffect, ColorManagement, Macro {
+  }
+
+  /**
+   * Enum for quality prioritization.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @since 14
+   */
+  enum QualityPrioritization {
+    /**
+     * High quality priority.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 14
+     */
+    HIGH_QUALITY = 0,
+
+    /**
+     * Power balance priority.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 14
+     */
+    POWER_BALANCE = 1
   }
 
   /**
@@ -5188,30 +5213,6 @@ declare namespace camera {
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
 
     /**
-     * Subscribes to lcd flash status.
-     *
-     * @param { 'lcdFlashStatus' } type - Event type.
-     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
-     * @throws { BusinessError } 202 - Not System Application.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 13
-     */
-    on(type: 'lcdFlashStatus', callback: AsyncCallback<LcdFlashStatus>): void;
-
-    /**
-     * Unsubscribes from lcd flash status.
-     *
-     * @param { 'lcdFlashStatus' } type - Event type.
-     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
-     * @throws { BusinessError } 202 - Not System Application.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 13
-     */
-    off(type: 'lcdFlashStatus', callback?: AsyncCallback<LcdFlashStatus>): void;
-
-    /**
      * Subscribes zoom info event callback.
      *
      * @param { 'smoothZoomInfoAvailable' } type - Event type.
@@ -5256,6 +5257,30 @@ declare namespace camera {
     off(type: 'macroStatusChanged', callback?: AsyncCallback<boolean>): void;
 
     /**
+     * Subscribes to lcd flash status.
+     *
+     * @param { 'lcdFlashStatus' } type - Event type.
+     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
+    on(type: 'lcdFlashStatus', callback: AsyncCallback<LcdFlashStatus>): void;
+
+     /**
+      * Unsubscribes from lcd flash status.
+      *
+      * @param { 'lcdFlashStatus' } type - Event type.
+      * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
+      * @throws { BusinessError } 202 - Not System Application.
+      * @syscap SystemCapability.Multimedia.Camera.Core
+      * @systemapi
+      * @since 13
+      */
+    off(type: 'lcdFlashStatus', callback?: AsyncCallback<LcdFlashStatus>): void;
+
+    /**
      * Subscribes to auto device switch status event callback.
      *
      * @param { 'autoDeviceSwitchStatusChange' } type - Event type.
@@ -5298,6 +5323,19 @@ declare namespace camera {
      * @since 13
      */
     getSessionConflictFunctions(): Array<VideoConflictFunctions>;
+
+    /**
+     * Sets quality prioritization.
+     *
+     * @param { QualityPrioritization } quality - Target quality prioritization.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
+     * 3. Parameter verification failed.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 14
+     */
+    setQualityPrioritization(quality : QualityPrioritization) : void;
   }
 
   /**

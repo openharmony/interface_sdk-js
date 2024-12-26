@@ -33,6 +33,7 @@ export interface RemoteAbilityInfo {
    * Indicates the ability information
    *
    * @type { ElementName }
+   * @readonly
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
    * @since 9
@@ -43,6 +44,7 @@ export interface RemoteAbilityInfo {
    * Indicates the label of the ability
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
    * @since 9
@@ -53,6 +55,7 @@ export interface RemoteAbilityInfo {
    * Indicates the icon of the ability
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
    * @since 9

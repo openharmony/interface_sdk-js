@@ -34,6 +34,7 @@ export interface SharedBundleInfo {
    * Indicates the name of the shared bundle
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -44,6 +45,7 @@ export interface SharedBundleInfo {
    * Enumerates types of the compatible policy of the shared bundle
    *
    * @type { bundleManager.CompatiblePolicy }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -54,6 +56,7 @@ export interface SharedBundleInfo {
    * Obtains configuration information about a shared module
    *
    * @type { Array<SharedModuleInfo> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -74,6 +77,7 @@ export interface SharedModuleInfo {
    * Indicates the moduleName of the shared bundle
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -84,6 +88,7 @@ export interface SharedModuleInfo {
    * Indicates the version code of the shared module
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -94,6 +99,7 @@ export interface SharedModuleInfo {
    * Indicates the version name of the shared module
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -104,6 +110,7 @@ export interface SharedModuleInfo {
    * Describes the shared module
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
@@ -114,6 +121,7 @@ export interface SharedModuleInfo {
    * Indicates the description of this shared module
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10

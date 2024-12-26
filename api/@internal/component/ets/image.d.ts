@@ -36,7 +36,7 @@ declare type DrawableDescriptor = import ('../api/@ohos.arkui.drawableDescriptor
 
 /**
  * Import the DrawingColorFilter type object for image color filter setting.
- * 
+ *
  * @typedef DrawingColorFilter
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -160,7 +160,7 @@ declare enum ImageRenderMode {
 
 /**
  * Specify image's content.
- * 
+ *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -370,6 +370,65 @@ declare enum ImageInterpolation {
    * @since 11
    */
   High,
+}
+
+/**
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare enum ImageRotateOrientation {
+  /**
+   * Rotate according to the image rotation
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  AUTO = 0,
+
+  /**
+   * Ignore the rotation of the image
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  UP = 1,
+
+  /**
+   * Based on image rotation, rotate clockwise 90 degrees
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  RIGHT = 2,
+
+  /**
+   * Based on image rotation, rotate clockwise 180 degrees
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  DOWN = 3,
+
+  /**
+   * Based on image rotation, rotate clockwise 270 degrees
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  LEFT = 4,
 }
 
 /**
@@ -1279,7 +1338,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        * The value of the status of the image being loaded successfully.
        * If the returned status value is 0, the image data is successfully loaded.
        * If the returned status value is 1, the image is successfully decoded.
-       * 
+       *
        * @type { number }
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @since 9
@@ -1289,7 +1348,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        * The value of the status of the image being loaded successfully.
        * If the returned status value is 0, the image data is successfully loaded.
        * If the returned status value is 1, the image is successfully decoded.
-       * 
+       *
        * @type { number }
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
@@ -1300,7 +1359,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        * The value of the status of the image being loaded successfully.
        * If the returned status value is 0, the image data is successfully loaded.
        * If the returned status value is 1, the image is successfully decoded.
-       * 
+       *
        * @type { number }
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
@@ -1544,6 +1603,18 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 12
    */
   privacySensitive(supported: boolean): ImageAttribute;
+
+  /**
+   * Set the rotation angle of image.
+   *
+   * @param { ImageRotateOrientation } orientation
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  orientation(orientation: ImageRotateOrientation) : ImageAttribute;
 }
 
 /**
@@ -1738,7 +1809,7 @@ declare interface ImageError {
 
 /**
  * Image resizable options
- * 
+ *
  * @interface ResizableOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1746,7 +1817,7 @@ declare interface ImageError {
  */
 /**
  * Image resizable options
- * 
+ *
  * @interface ResizableOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform

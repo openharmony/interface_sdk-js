@@ -2117,6 +2117,16 @@ declare enum BarStyle {
    * @since 12
    */
   STACK = 1,
+
+  /**
+   * SafeAreaPadding style means the bar height will be taken as content's safeAreaPadding.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  SAFE_AREA_PADDING = 2,
 }
 
 /**
@@ -2150,6 +2160,18 @@ declare interface NavigationToolbarOptions {
    * @since 11
    */
   backgroundBlurStyle?: BlurStyle;
+
+  /**
+   * Set tool bar style.
+   *
+   * @type { ?BarStyle }
+   * @default BarStyle.STANDARD
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  barStyle?: BarStyle;
 }
 
 /**
@@ -2767,6 +2789,17 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 12
    */
   systemBarStyle(style: Optional<SystemBarStyle>): NavigationAttribute;
+
+  /**
+   * Set the Navigation can be restored after the application is terminated.
+   * To enable this attribute, a navigation id must be set.
+   * 
+   * @param { boolean } recoverable - navigation can be recovered.
+   * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 14
+   */
+  recoverable(recoverable: Optional<boolean>): NavigationAttribute;
 
   /**
    * Enable dragbar
