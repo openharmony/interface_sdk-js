@@ -25193,6 +25193,18 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @since 14
    */
   clipContent(clip: ContentClipMode | RectShape): T;
+
+  /**
+   * Set the sensitivity of rotating crown.
+   *
+   * @param { Optional<CrownSensitivity> } sensitivity - The sensitivity of rotating crown, default value is { MEDIUM }.
+   * @returns { T } The component instance.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): T;
 }
 
 /**
