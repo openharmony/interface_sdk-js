@@ -6221,6 +6221,114 @@ declare namespace cert {
    * @since 16
    */
   function createCmsGenerator(contentType: CmsContentType): CmsGenerator;
+
+  /**
+   * Additional information about the subject of the certificate.
+   *
+   * @typedef CsrAttribute
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  interface CsrAttribute {
+    /**
+     * Attribute type.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    type: string;
+
+    /**
+     * Attribute value.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    value: string;
+  }
+
+  /**
+   * Configuration for generating a certificate signing request.
+   *
+   * @typedef CsrGenerationConfig
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  interface CsrGenerationConfig {
+    /**
+     * The subject.
+     *
+     * @type { X500DistinguishedName }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    subject: X500DistinguishedName;
+
+    /**
+     * The message digest name, such as "SHA384".
+     *
+     * @type { string }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    mdName: string;
+
+    /**
+     * The attributes.
+     *
+     * @type { ?Array<CsrAttribute> }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    attributes?: Array<CsrAttribute>;
+
+    /**
+     * The output format of CSR.
+     *
+     * @type { ?EncodingBaseFormat }
+     * @default EncodingBaseFormat.PEM
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    outFormat?: EncodingBaseFormat;
+  }
+
+  /**
+   * Used to generate certificate signing request.
+   *
+   * @param { PrivateKeyInfo } keyInfo - the private key info.
+   * @param { CsrGenerationConfig } config - the configuration for generating CSR.
+   * @returns { string | Uint8Array } the CSR in PEM or DER format.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020002 - runtime error.
+   * @throws { BusinessError } 19030001 - crypto operation error.
+   * @throws { BusinessError } 19030008 - maybe wrong password.
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  function generateCsr(keyInfo: PrivateKeyInfo, config: CsrGenerationConfig): string | Uint8Array;
 }
 
 export default cert;
