@@ -356,41 +356,58 @@ declare namespace utils {
        */
       constructor()
       /**
-       * Waits for the condition variable to be released.
+       * Find or create an instance of ConditionVariable using the specified name.
        *
-       * @returns { Promise<void> } Promise that will be resolved after the callback gets executed or rejected.
+       * @param { string } name - Name of the ConditionVariable to find or create.
+       * @returns { ConditionVariable } Returns an instance of ConditionVariable.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes:
+       * 1. Incorrect parameter types;
+       * 2. Parameter verification failed.
+       * @static
        * @syscap SystemCapability.Utils.Lang
        * @atomicservice
        * @since 16
        */
-      wait(): Promise<void>
+      static request(name: string): ConditionVariable;
       /**
-       * Waits for the condition variable to be released until a specified time.
+       * Waits for the ConditionVariable to be notified.
        *
-       * @param { number } timeout - Timeout interval for waiting for condition variables to be released.
-       * @returns { Promise<void> } Promise that will be resolved after the callback gets executed or
-       * rejected or timeout.
+       * @returns { Promise<void> } A promise will be resolved once the ConditionVariable is notified..
        * @syscap SystemCapability.Utils.Lang
        * @atomicservice
        * @since 16
        */
-      waitFor(timeout: number): Promise<void>
+      wait(): Promise<void>;
       /**
-       * Notify all waiting thread.
+       * Waits for the ConditionVariable to be notified, or until the specified time limit is reached.
        *
+       * @param { number } timeout - The maximum time to wait.
+       * @returns { Promise<void> } A promise that will be resolved once the ConditionVariable is notified or the
+       * specified time limit is reached.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes:
+       * 1. Incorrect parameter types;
+       * 2. Parameter verification failed.
        * @syscap SystemCapability.Utils.Lang
        * @atomicservice
        * @since 16
        */
-      notify(): void
+      waitFor(timeout: number): Promise<void>;
       /**
-       * Notify one waiting thread.
+       * Notify all waiting promise.
        *
        * @syscap SystemCapability.Utils.Lang
        * @atomicservice
        * @since 16
        */
-      notifyOne(): void
+      notifyAll(): void;
+      /**
+       * Notify one waiting promise.
+       *
+       * @syscap SystemCapability.Utils.Lang
+       * @atomicservice
+       * @since 16
+       */
+      notifyOne(): void;
     }
   }
   /**
