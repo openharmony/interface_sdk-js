@@ -484,7 +484,7 @@ declare namespace pointer {
    */
   interface CustomCursor {
     /**
-     * pixelMap - Custom cursor resource.
+     * pixelMap - Custom cursor. The size limit is 256 x 256.
      * @type { image.PixelMap }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 14
