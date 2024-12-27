@@ -67,6 +67,30 @@ declare interface RowOptions {
 }
 
 /**
+ * Define options used to construct a row.
+ *
+ * @interface RowOptionsV2
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 16
+ */
+interface RowOptionsV2 {
+  /**
+   * Vertical layout element spacing.
+   *
+   * @type { ?SpaceType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  space?: SpaceType;
+}
+
+/**
  * The components are laid out horizontally
  *
  * @interface RowInterface
@@ -151,6 +175,18 @@ interface RowInterface {
    * @since 14
    */
   (options?: RowOptions): RowAttribute;
+  /**
+   * Called when the layout is set in the horizontal direction.
+   *
+   * @param { ?(RowOptions | RowOptionsV2) } options - row options
+   * @returns { RowAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  (options?: RowOptions | RowOptionsV2): RowAttribute;
 }
 
 /**

@@ -401,6 +401,17 @@ declare class SecurityComponentMethod<T> {
   borderRadius(value: Dimension): T;
 
   /**
+   * Radius of the border.
+   *
+   * @param { Dimension | BorderRadiuses } radius - Indicates the border radius of the security component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  borderRadius(radius: Dimension | BorderRadiuses): T;
+
+  /**
    * Padding between the background border and icon/inner text.
    *
    * @param { Padding | Dimension } value - Indicates the padding of the security component.
@@ -527,4 +538,138 @@ declare class SecurityComponentMethod<T> {
    * @since 12
    */
   constraintSize(value: ConstraintSizeOptions): T;
+
+  /**
+   * align
+   *
+   * @param { Alignment } alignType - Indicates the align type of the security component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  align(alignType: Alignment): T;
+
+  /**
+   * Specifies the alignRules of relative container
+   *
+   * @param { AlignRuleOption } alignRule
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  alignRules(alignRule: AlignRuleOption): T;
+
+  /**
+   * Specifies the localized alignRules of relative container
+   *
+   * @param { LocalizedAlignRuleOptions } alignRule
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  alignRules(alignRule: LocalizedAlignRuleOptions): T;
+
+  /**
+   * Id. User can set an id to the component to identify it.
+   *
+   * @param { string } description
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  id(description: string): T;
+
+  /**
+   * Specifies the direction and style of chain in relative container
+   *
+   * @param { Axis } direction - Indicates direction of the chain
+   * @param { ChainStyle } style - Indicates style of the chain
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  chainMode(direction: Axis, style: ChainStyle): T;
+  
+  /**
+   * Sets the minimum font scale factor for text.
+   *
+   * @param { number | Resource } scale Minimum font scale factor to set.
+   * @returns { T } Returns the attributes of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  minFontScale(scale: number | Resource): T;
+
+  /**
+   * Sets the maximum font scale factor for text.
+   *
+   * @param { number | Resource  } scale Maximum font scale factor to set.
+   * @returns { T } Returns the attributes of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  maxFontScale(scale: number | Resource): T;
+
+  /**
+   * Called when the maximum number of lines of text is set.
+   *
+   * @param { number } line
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  maxLines(line: number): T;
+
+  /**
+   * Called when the minimum font size of the font is set.
+   *
+   * @param { number | string | Resource } minSize
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  minFontSize(minSize: number | string | Resource): T;
+
+  /**
+   * Called when the maximum font size of the font is set.
+   *
+   * @param { number | string | Resource } maxSize
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  maxFontSize(maxSize: number | string | Resource): T;
+
+  /**
+   * Called when the height adaptive policy is set.
+   *
+   * @param { TextHeightAdaptivePolicy } policy - The height adaptive policy.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  heightAdaptivePolicy(policy: TextHeightAdaptivePolicy): T;
+
+  /**
+   * If the value is true, the component is available and can respond to operations such as clicking.
+   *  If it is set to false, click operations are not responded.
+   *
+   * @param { boolean } respond - Indicates whether the button is responded to.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  enabled(respond: boolean): T;
 }

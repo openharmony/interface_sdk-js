@@ -25,7 +25,7 @@
  * Defines Tabs Modifier
  *
  * @extends TabsAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<TabsAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

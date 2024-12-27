@@ -24,7 +24,8 @@ import {
   NdefTag as _NdefTag,
   MifareClassicTag as _MifareClassicTag,
   MifareUltralightTag as _MifareUltralightTag,
-  NdefFormatableTag as _NdefFormatableTag
+  NdefFormatableTag as _NdefFormatableTag,
+  BarcodeTag as _BarcodeTag
 } from './tag/nfctech';
 import { NdefMessage as _NdefMessage } from './tag/nfctech';
 import { TagSession as _TagSession } from './tag/tagSession';
@@ -202,6 +203,16 @@ declare namespace tag {
    * @since 12
    */
   const MIFARE_ULTRALIGHT = 9;
+
+  /**
+   * Indicates an NfcBarcode tag.
+   *
+   * @constant
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 16
+   */
+  const NFC_BARCODE = 10;
 
   /**
    * TNF types definitions, see NFCForum-TS-NDEF_1.0.
@@ -1096,6 +1107,7 @@ declare namespace tag {
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @throws { BusinessError } 3100202 - The element state is invalid.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
@@ -1132,6 +1144,7 @@ declare namespace tag {
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -1170,6 +1183,7 @@ declare namespace tag {
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @throws { BusinessError } 3100202 - The element state is invalid.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
@@ -1207,6 +1221,7 @@ declare namespace tag {
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @throws { BusinessError } 3100203 - The off() can be called only when the on() has been called.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
@@ -1220,7 +1235,6 @@ declare namespace tag {
    * different tags based on the supported technology.
    *
    * @typedef TagInfo
-   * @permission ohos.permission.NFC_TAG
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 7
    */
@@ -1230,7 +1244,6 @@ declare namespace tag {
    * different tags based on the supported technology.
    *
    * @typedef TagInfo
-   * @permission ohos.permission.NFC_TAG
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12

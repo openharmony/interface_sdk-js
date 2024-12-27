@@ -1242,6 +1242,16 @@ declare namespace window {
      * @since 12
      */
     windowStatusType: WindowStatusType;
+
+    /**
+     * Whether the window is focused. The default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi
+     * @since 14
+     */
+    isFocused?: boolean;
   }
 
   /**
@@ -3518,6 +3528,26 @@ declare namespace window {
   }
 
   /**
+   * the optional move configuration used in moveWindowToAsync/moveWindowToGlobal
+   *
+   * @interface MoveConfiguration
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 14
+   */
+  interface MoveConfiguration {
+    /**
+     * The display id of the screen
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 14
+     */
+    displayId?: number;
+  }
+
+  /**
    * Specific system bar type.
    *
    * @syscap SystemCapability.Window.SessionManager
@@ -3994,6 +4024,26 @@ declare namespace window {
     moveWindowToAsync(x: number, y: number): Promise<void>;
 
     /**
+     * Move window to the position.
+     *
+     * @param { number } x - Indicate the X-coordinate of the window.
+     * @param { number } y - Indicate the Y-coordinate of the window.
+     * @param { ?MoveConfiguration } moveConfiguration - Indicate the window move configuration.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types.
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 14
+     */
+    moveWindowToAsync(x: number, y: number, moveConfiguration?: MoveConfiguration): Promise<void>;
+
+    /**
      * Move window to the position relative to current screen.
      * 
      * @param { number } x - Indicate the X-coordinate of the window relative to current screen.
@@ -4011,6 +4061,26 @@ declare namespace window {
      * @since 13
      */
     moveWindowToGlobal(x: number, y: number): Promise<void>;
+
+    /**
+     * Move window to the position relative to current screen.
+     * 
+     * @param { number } x - Indicate the X-coordinate of the window relative to current screen.
+     * @param { number } y - Indicate the Y-coordinate of the window relative to current screen.
+     * @param { ?MoveConfiguration } moveConfiguration - Indicate the window move configuration.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types.
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 14
+     */
+    moveWindowToGlobal(x: number, y: number, moveConfiguration?: MoveConfiguration): Promise<void>;
 
     /**
      * Set the size of a window .
@@ -7175,14 +7245,12 @@ declare namespace window {
      * Raise app sub window to app top
      *
      * @returns { Promise<void> } - The promise returned by the function
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @throws { BusinessError } 1300009 - The parent window is invalid.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 14
      */
     raiseToAppTop(): Promise<void>;
 
@@ -7408,7 +7476,6 @@ declare namespace window {
      *
      * @param { boolean } enable - Disable app sub window to raise itself by by click if false.
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -7417,8 +7484,7 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @throws { BusinessError } 1300009 - The parent window is invalid.
      * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 14
      */
     setRaiseByClickEnabled(enable: boolean): Promise<void>;
 
@@ -7728,6 +7794,21 @@ declare namespace window {
     setWindowTitleMoveEnabled(enabled: boolean): void;
 
     /**
+     * Set the title bar name of the window
+     * 
+     * @param { string } titleName - The name of the title bar that needs to be set
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    setWindowTitle(titleName: string): Promise<void>;
+
+    /**
      * Set the modality of the window.
      *
      * @param { boolean } isModal - Enable the window modal if true, otherwise means the opposite.
@@ -7895,10 +7976,11 @@ declare namespace window {
     setTitleButtonVisible(isMaximizeVisible: boolean, isMinimizeVisible: boolean, isSplitVisible: boolean): void;
     
     /**
-     * Set whether to display the maximize, minimize buttons of main window.
+     * Set whether to display the maximize, minimize, close buttons of main window.
      *
-     * @param { boolean } isMaximizeVisible - Display maximize button if true, or hide maximize button if false.
-     * @param { boolean } isMinimizeVisible - Display minimize button if true, or hide minimize button if false.
+     * @param { boolean } isMaximizeButtonVisible - Display maximize button if true, or hide maximize button if false.
+     * @param { boolean } isMinimizeButtonVisible - Display minimize button if true, or hide minimize button if false.
+     * @param { boolean } isCloseButtonVisible - Display close button if true, or hide close button if false.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -7908,7 +7990,7 @@ declare namespace window {
      * @atomicservice
      * @since 14
      */
-    setWindowTitleButtonVisible(isMaximizeVisible: boolean, isMinimizeVisible: boolean): void;
+    setWindowTitleButtonVisible(isMaximizeButtonVisible: boolean, isMinimizeButtonVisible: boolean, isCloseButtonVisible?: boolean): void;
         
     /**
      * Enable landscape multiWindow
@@ -7951,7 +8033,7 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since 13
+     * @since 14
      */
     enableDrag(enable: boolean): Promise<void>;
 
@@ -8429,6 +8511,15 @@ declare namespace window {
      * @since 14
      */
     modalityType?: ModalityType;
+    /**
+     * Indicates position and size of subwindow
+     * 
+     * @type { ?Rect }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    windowRect?: Rect;
   }
   /**
    * WindowStage

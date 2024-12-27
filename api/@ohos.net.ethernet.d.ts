@@ -399,16 +399,14 @@ declare namespace ethernet {
    * Defines the mac address info of the Ethernet.
    * @interface MacAddressInfo
    * @syscap SystemCapability.Communication.NetManager.Ethernet
-   * @systemapi Hide this for inner system use.
-   * @since 13
+   * @since 14
    */
   export interface MacAddressInfo {
     /**
      * Ethernet interface name.
      * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Ethernet
-     * @systemapi Hide this for inner system use.
-     * @since 13
+     * @since 14
      */
     iface: string;
 
@@ -416,8 +414,7 @@ declare namespace ethernet {
      * Ethernet specific mac address.
      * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Ethernet
-     * @systemapi Hide this for inner system use.
-     * @since 13
+     * @since 14
      */
     macAddress: string;
   }

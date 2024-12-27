@@ -238,7 +238,7 @@ declare namespace promptAction {
     enableHoverMode?: boolean;
   
     /**
-     * Defines the toast's diaplay area in hover mode.
+     * Defines the toast's display area in hover mode.
      *
      * @type { ?HoverModeAreaType }
      * @default HoverModeAreaType.BOTTOM_SCREEN
@@ -1300,7 +1300,7 @@ declare namespace promptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   function openToast(options: ShowToastOptions): Promise<number>;
 
@@ -1316,7 +1316,7 @@ declare namespace promptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   function closeToast(toastId: number): void;
 

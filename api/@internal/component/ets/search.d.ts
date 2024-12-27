@@ -590,7 +590,7 @@ interface SearchButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   autoDisable?: Boolean;
 }
@@ -1399,6 +1399,28 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    */
   maxFontSize(value: number | string | Resource): SearchAttribute;
 
+   /**
+   * Called when the minimum font scale of the font is set.
+   *
+   * @param { Optional<number|Resource> } scale
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+   minFontScale(scale: Optional<number|Resource>): SearchAttribute;
+
+   /**
+    * Called when the maximum font scale of the font is set.
+    *
+    * @param { Optional<number|Resource> } scale
+    * @returns { SearchAttribute }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @atomicservice
+    * @since 16
+    */
+   maxFontScale(scale: Optional<number|Resource>): SearchAttribute;
+   
   /**
    * Define custom keyboard.
    *
@@ -1586,6 +1608,18 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 13
    */
   enableHapticFeedback(isEnabled: boolean): SearchAttribute;
+
+  /**
+   * Set the text with half leading.
+   *
+   * @param { Optional<boolean> } halfLeading
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  halfLeading(halfLeading: Optional<boolean>): SearchAttribute;
 
   /**
    * Get text value information when about to change.

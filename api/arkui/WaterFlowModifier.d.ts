@@ -25,7 +25,7 @@
  * Defines WaterFlow Modifier
  *
  * @extends WaterFlowAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<WaterFlowAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

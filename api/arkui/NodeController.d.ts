@@ -160,7 +160,7 @@ export abstract class NodeController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onAttach?(): void;
 
@@ -170,7 +170,7 @@ export abstract class NodeController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onDetach?(): void;
 
@@ -181,7 +181,7 @@ export abstract class NodeController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onWillBind?(containerId: number): void;
 
@@ -192,29 +192,29 @@ export abstract class NodeController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onWillUnbind?(containerId: number): void;
-
+  
   /**
-   * OnBind Method. Executed after the NodeController is bound to a NodeContainer.
+   * OnBind Method. Executed when the NodeController is bound to a NodeContainer.
    *
    * @param { number } containerId - the uniqueId of the NodeContainer.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onBind?(containerId: number): void;
 
   /**
-   * OnUnbind Method. Executed after the NodeController is unbind with the NodeContainer.
+   * OnUnbind Method. Executed when the NodeController is unbind with the NodeContainer.
    *
    * @param { number } containerId - the uniqueId of the NodeContainer.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onUnbind?(containerId: number): void;
 }

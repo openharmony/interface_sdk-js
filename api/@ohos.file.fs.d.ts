@@ -8543,8 +8543,8 @@ export interface ReadOptions {
 /**
  * ReadTextOptions type
  *
- * @interface ReadTextOptions
  * @extends ReadOptions
+ * @interface ReadTextOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @atomicservice
  * @since 11
@@ -8564,8 +8564,8 @@ export interface ReadTextOptions extends ReadOptions {
 /**
  * WriteOptions type
  *
- * @interface WriteOptions
  * @extends Options
+ * @interface WriteOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @atomicservice
  * @since 11

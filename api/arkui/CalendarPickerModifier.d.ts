@@ -24,7 +24,7 @@
  * Defines CalendarPicker Modifier
  *
  * @extends CalendarPickerAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<CalendarPickerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

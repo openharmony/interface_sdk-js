@@ -25,7 +25,7 @@
  * Defines Radio Modifier
  *
  * @extends RadioAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<RadioAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

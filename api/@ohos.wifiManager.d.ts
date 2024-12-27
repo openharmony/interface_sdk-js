@@ -638,6 +638,20 @@ declare namespace wifiManager {
   function getLinkedInfo(callback: AsyncCallback<WifiLinkedInfo>): void;
 
   /**
+   * Obtain connection information about the Wi-Fi connection. If does't have the permission of ohos.permission.GET_WIFI_PEERS_MAC, return random bssid.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @returns { WifiLinkedInfo } Returns Wi-Fi linked information.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @crossplatform
+   * @since 16
+   */
+   function getLinkedInfoSync(): WifiLinkedInfo;
+
+  /**
    * Check whether the Wi-Fi connection has been set up.
    * @permission ohos.permission.GET_WIFI_INFO
    * @returns { boolean } Returns {@code true} if a Wi-Fi connection has been set up, returns {@code false} otherwise.
@@ -2435,7 +2449,21 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 12
      */
-    WIFI6_PLUS = 3
+    WIFI6_PLUS = 3,
+
+    /**
+     * Wifi7.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 16
+     */
+    WIFI7 = 4,
+
+    /**
+     * Wifi7+.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 16
+     */
+    WIFI7_PLUS = 5
   }
 
   /**

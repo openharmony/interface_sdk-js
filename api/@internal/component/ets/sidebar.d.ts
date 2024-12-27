@@ -180,7 +180,7 @@ declare enum SideBarPosition {
 /**
  * ButtonStyle icons.
  *
- * @typedef ButtonStyleIcon
+ * @typedef ButtonIconOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice

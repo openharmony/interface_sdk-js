@@ -83,6 +83,40 @@ export declare enum PixelMapFormat {
     YCRCB_P010 = 5
 }
 /**
+ * Dynamic range mode of moving photo.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @systemapi
+ * @since 14
+ */
+export declare enum DynamicRangeMode {
+    /**
+     * Allow image content to use an unrestricted extended range
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    HIGH = 0,
+    /**
+     * Allow image content to use some extended range
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    CONSTRAINT = 1,
+    /**
+     * Restrict the image content to dynamic range to the standard range
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    STANDARD = 2,
+}
+/**
  * Defines the moving photo view options.
  *
  * @interface MovingPhotoViewOptions
@@ -119,7 +153,6 @@ declare interface MovingPhotoViewOptions {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @uicomponent
      * @since 14
      */
     imageAIOptions?: ImageAIOptions;
@@ -132,6 +165,15 @@ declare interface MovingPhotoViewOptions {
      * @since 14
      */
     movingPhotoFormat?: PixelMapFormat;
+    /**
+     * range mode of MovingPhotoView.
+     *
+     * @type { ?DynamicRangeMode }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 14
+     */
+    dynamicRangeMode?: DynamicRangeMode;
 }
 /**
  * Defines the moving photo view interface.
@@ -312,7 +354,6 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @uicomponent
      * @since 14
      */
     enableAnalyzer(enabled: boolean): MovingPhotoViewAttribute;
@@ -359,7 +400,6 @@ export class MovingPhotoViewController {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @uicomponent
      * @since 14
      */
     refreshMovingPhoto();
@@ -370,6 +410,7 @@ export class MovingPhotoViewController {
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @crossplatform
  * @atomicservice
+ * @uicomponent
  * @since 12
  */
 declare const MovingPhotoView: MovingPhotoViewInterface;

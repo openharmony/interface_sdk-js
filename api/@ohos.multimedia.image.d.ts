@@ -113,6 +113,15 @@ declare namespace image {
     UNKNOWN = 0,
 
     /**
+     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：R(8bits), G(8bits), B(8bits), A(8bits)
+     * and are stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 16
+     */
+    ARGB_8888 = 1,
+
+    /**
      * Indicates that each pixel is stored on 16 bits. Only the R, G, and B components are encoded
      * from the higher-order to the lower-order bits: red is stored with 5 bits of precision,
      * green is stored with 6 bits of precision, and blue is stored with 5 bits of precision.
@@ -437,7 +446,7 @@ declare namespace image {
      * processing editing.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 14
+     * @since 16
      */
     ASTC_4x4 = 102
   }
@@ -3450,7 +3459,7 @@ declare namespace image {
    *
    * @typedef PackingOptionsForSequence
    * @syscap SystemCapability.Multimedia.Image.ImagePacker
-   * @since 13
+   * @since 14
    */
   interface PackingOptionsForSequence {
     /**
@@ -3458,7 +3467,7 @@ declare namespace image {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 13
+     * @since 14
      */
     frameCount: number;
 
@@ -3468,7 +3477,7 @@ declare namespace image {
      *
      * @type { Array<number> }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 13
+     * @since 14
      */
     delayTimeList: Array<number>;
 
@@ -3477,7 +3486,7 @@ declare namespace image {
      *
      * @type { ?Array<number> }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 13
+     * @since 14
      */
     disposalTypes?: Array<number>;
 
@@ -3487,7 +3496,7 @@ declare namespace image {
      *
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 13
+     * @since 14
      */
     loopCount?: number;
   }
@@ -3954,6 +3963,7 @@ declare namespace image {
      * Component type.
      *
      * @type { ComponentType }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
@@ -3963,6 +3973,7 @@ declare namespace image {
      * Row stride.
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
@@ -3972,6 +3983,7 @@ declare namespace image {
      * Pixel stride.
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
@@ -3981,6 +3993,7 @@ declare namespace image {
      * Component buffer.
      *
      * @type { ArrayBuffer }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
@@ -4762,6 +4775,34 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   function createPixelMapFromSurfaceSync(surfaceId: string, region: Region): PixelMap;
 
   /**
+   * Creates a PixelMap object from surface id.
+   *
+   * @param { string } surfaceId - surface id.
+   * @returns { Promise<PixelMap> } Returns the instance if the operation is successful;Otherwise, an exception will be thrown.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types. 3.Parameter verification failed.
+   * @throws { BusinessError } 62980105 - Failed to get the data.
+   * @throws { BusinessError } 62980178 - Failed to create the PixelMap.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 16
+   */
+  function createPixelMapFromSurface(surfaceId: string): Promise<PixelMap>;
+
+  /**
+   * Creates a PixelMap object from surface id.
+   *
+   * @param { string } surfaceId - surface id.
+   * @returns { PixelMap } Returns the instance if the operation is successful;Otherwise, an exception will be thrown.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types. 3.Parameter verification failed.
+   * @throws { BusinessError } 62980105 - Failed to get the data.
+   * @throws { BusinessError } 62980178 - Failed to create the PixelMap.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 16
+   */
+  function createPixelMapFromSurfaceSync(surfaceId: string): PixelMap;
+
+  /**
    * Creates an ImageSource instance based on the URI.
    *
    * @param { string } uri Image source URI.
@@ -5168,6 +5209,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Whether the image pixel map can be edited.
      *
      * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 7
      */
@@ -5175,6 +5217,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Whether the image pixel map can be edited.
      *
      * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
@@ -5183,6 +5226,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Whether the image pixel map can be edited.
      *
      * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -5192,6 +5236,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Whether the image pixel map can be edited.
      *
      * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -6123,6 +6168,36 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     scaleSync(x: number, y: number, level: AntiAliasingLevel): void;
 
     /**
+     * Create a new scaled pixelmap based on this image zoom in width and height with anti-aliasing. This method uses a promise to return the information.
+     *
+     * @param { number } x The zoom value of width.
+     * @param { number } y The zoom value of height.
+     * @param { AntiAliasingLevel } level The anti-aliasing algorithm to be used.
+     * @returns { Promise<PixelMap> } A Promise instance used to return the new scaled pixelmap. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 16
+     */
+    createScaledPixelMap(x: number, y: number, level?: AntiAliasingLevel): Promise<PixelMap>;
+
+    /**
+     * Create a new scaled pixelmap based on this image zoom in width and height with anti-aliasing.
+     *
+     * @param { number } x The zoom value of width.
+     * @param { number } y The zoom value of height.
+     * @param { AntiAliasingLevel } level The anti-aliasing algorithm to be used.
+     * @returns { PixelMap } return the new scaled pixelmap. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 16
+     */
+    createScaledPixelMapSync(x: number, y: number, level?: AntiAliasingLevel): PixelMap;
+
+    /**
      * Image position transformation. This method uses a callback to return the operation result.
      *
      * @param { number } x The position value of width.
@@ -6782,6 +6857,34 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     setMemoryNameSync(name: string): void;
 
     /**
+     * Clone pixelmap from current pixelmap.
+     * 
+     * @returns { PixelMap } A instance used to return the PixelMap object.
+     * @throws { BusinessError } 501 - Resource unavailable.
+     * @throws { BusinessError } 62980102 - Image malloc abnormal.
+     * @throws { BusinessError } 62980103 - Image types are not supported.
+     * @throws { BusinessError } 62980104 - Image initialization abnormal.
+     * @throws { BusinessError } 62980106 - The image data is to large.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 16
+     */
+    cloneSync(): PixelMap;    
+
+    /**
+     * Clone pixelmap from current pixelmap.
+     * 
+     * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
+     * @throws { BusinessError } 501 - Resource unavailable.
+     * @throws { BusinessError } 62980102 - Image malloc abnormal.
+     * @throws { BusinessError } 62980103 - Image types are not supported.
+     * @throws { BusinessError } 62980104 - Image initialization abnormal.
+     * @throws { BusinessError } 62980106 - The image data is to large.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 16
+     */
+    clone(): Promise<PixelMap>;
+
+    /**
      * Set metadata.
      * 
      * @param { HdrMetadataKey } key Type of metadata.
@@ -7235,7 +7338,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Expected set of auxiliary picture types, default to decoding all auxiliary pictures.
      *
      * @type { Array<AuxiliaryPictureType> }
-     * @syscap SystemCapability.Multimedia.Image.Core
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 13
      */
     desiredAuxiliaryPictures: Array<AuxiliaryPictureType>;
@@ -8315,6 +8418,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Supported image formats.
      *
      * @type { Array<string> }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 6
      */
@@ -8322,6 +8426,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Supported image formats.
      *
      * @type { Array<string> }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -8556,10 +8661,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { Array<PixelMap> } pixelmapSequence PixelMaps to be processed.
      * @param { PackingOptionsForSequence } options Options for image packing.
      * @returns { Promise<ArrayBuffer> } A Promise instance used to return the operation result.
+     * @throws { BusinessError } 401 - If the parameter is invalid.
+     * @throws { BusinessError } 62980101 - The image data is abnormal.
+     * @throws { BusinessError } 62980106 - The image is too large.
+     * @throws { BusinessError } 62980119 - If encoder occur error during encoding.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 13
+     * @since 14
      */
-    packing(pixelmapSequence: Array<PixelMap>, options: PackingOptionsForSequence): Promise<ArrayBuffer>;
+    packToData(pixelmapSequence: Array<PixelMap>, options: PackingOptionsForSequence): Promise<ArrayBuffer>;
 
     /**
      * Compresses or packs an image into a file and uses a callback to return the result.
@@ -8656,8 +8765,11 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { number } fd ID of a file descriptor.
      * @param { PackingOptionsForSequence } options Options for image packing.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @throws { BusinessError } 401 - If the parameter is invalid.
+     * @throws { BusinessError } 62980101 - The image data is abnormal.
+     * @throws { BusinessError } 62980119 - If encoder occur error during encoding.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 13
+     * @since 14
      */
     packToFile(pixelmapSequence: Array<PixelMap>, fd: number, options: PackingOptionsForSequence): Promise<void>;
 
@@ -8728,6 +8840,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Supported image formats.
      *
      * @type { Array<string> }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 6
      */
@@ -8735,6 +8848,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Supported image formats.
      *
      * @type { Array<string> }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 10
@@ -8763,6 +8877,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Image size.
      *
      * @type { Size }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
@@ -8772,6 +8887,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Image format.
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
@@ -8781,6 +8897,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Image timestamp.
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12
      */
@@ -8837,6 +8954,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Image size.
      *
      * @type { Size }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9
      */
@@ -8846,6 +8964,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Image capacity.
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9
      */
@@ -8855,6 +8974,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Image format.
      *
      * @type { ImageFormat }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9
      */
@@ -8967,6 +9087,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Image capacity.
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @since 9
      */
@@ -8976,6 +9097,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Image format.
      *
      * @type { ImageFormat }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @since 9
      */

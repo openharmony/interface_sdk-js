@@ -1187,6 +1187,30 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 12
    */
   fontFeature(value: string): TextAttribute;
+  
+  /**
+   * Set the marquee options.
+   *
+   * @param { Optional<TextMarqueeOptions> } options
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  marqueeOptions(options: Optional<TextMarqueeOptions>): TextAttribute;
+
+  /**
+   * Called when the text marquee state changes.
+   *
+   * @param { Callback<MarqueeState> } callback - callback of the marquee state change event.
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onMarqueeStateChange(callback: Callback<MarqueeState>): TextAttribute;
 
   /**
    * Whether to support sensitive privacy information
@@ -1454,6 +1478,78 @@ declare enum TextResponseType {
 }
 
 /**
+ * Defines marquee state.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare enum MarqueeState {
+  /**
+   * The marquee started.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  START = 0,
+
+  /**
+   * The marquee a round finished and start next round.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  BOUNCE = 1,
+
+  /**
+   * The marquee all finished.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  FINISH = 2,
+}
+
+/**
+ * Defines marquee start policy.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare enum MarqueeStartPolicy {
+  /**
+   * Start marquee in any case. This is the default policy.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  DEFAULT = 0,
+
+  /**
+   * Start marquee only when get focus.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  ON_FOCUS = 1,
+}
+
+/**
  * Defines the options of Text.
  *
  * @interface TextOptions
@@ -1489,6 +1585,94 @@ declare interface TextOptions {
    * @since 12
    */
   controller: TextController;
+}
+
+/**
+ * Defines the marquee options.
+ *
+ * @interface TextMarqueeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare interface TextMarqueeOptions {
+  /**
+   * Is need start marquee.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  start: boolean;
+
+  /**
+   * The step size of the marquee.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  step?: number;
+
+  /**
+   * The rounds of the marquee.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  loop?: number;
+
+  /**
+   * The running direction of the marquee.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  fromStart?: boolean;
+
+  /**
+   * The waiting time between each round of the marquee.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  delay?: number;
+
+  /**
+   * Set whether the text is faded out.
+   * 
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  fadeout?: boolean;
+
+  /**
+   * The start policy for marquee.
+   * 
+   * @type { ?MarqueeStartPolicy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  marqueeStartPolicy?: MarqueeStartPolicy;
 }
 
 /**

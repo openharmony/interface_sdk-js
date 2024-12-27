@@ -1340,6 +1340,32 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @since 12
    */
   analyzerConfig(config: ImageAnalyzerConfig): VideoAttribute;
+
+  /**
+   * Set background color of the surface holden by Video(only support Color.Black and Color.Transparent). The default value is Color.Black.
+   *
+   * @param { ColorMetrics } color
+   * @returns { VideoAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 16
+   */
+  surfaceBackgroundColor(color: ColorMetrics): VideoAttribute;
+
+  /**
+   * Indicates whether to response shortcut key. The default value is false.
+   * If the value is true, video will respond to the shortcut keys as follows:
+   * Space key: play/pause the video.
+   * Up/Down arrow key: turn up/down volume of the video.
+   * Right/Left arrow key: fast forward/backward the video.
+   *
+   * @param { boolean } enabled
+   * @returns { VideoAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  enableShortcutKey(enabled: boolean): VideoAttribute;
 }
 
 /**

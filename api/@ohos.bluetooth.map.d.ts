@@ -63,6 +63,7 @@ declare namespace map {
   /**
    * Manager MAP MSE profile.
    *
+   * @extends BaseProfile
    * @typedef MapMseProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 11

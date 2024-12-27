@@ -112,6 +112,50 @@ declare namespace collections {
    */
   type TypedArrayCompareFn<ElementType> = (first: ElementType, second: ElementType) => number;
   /**
+   * Callback function used in the Array's 'from' function.
+   *
+   * @typedef { function } ArrayFromMapFn
+   * @param { FromElementType } value - The value in the original array.
+   * @param { number } index - The index in the original array.
+   * @returns { ToElementType } The transformed value.
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 16
+   */
+  type ArrayFromMapFn<FromElementType, ToElementType> = (value: FromElementType, index: number) => ToElementType;
+
+  /**
+   * Callback function used in Array functions which needs to determine
+   * whether some element satisfies the specified predicate test
+   *
+   * @typedef { function } ArrayPredicateFn
+   * @param { ElementType } value - The value of the element.
+   * @param { number } index - The index of the element.
+   * @param { ArrayType } array - The array that the element belongs to.
+   * @returns { boolean } True if the value meets the predicate, otherwise false.
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 16
+   */
+  type ArrayPredicateFn<ElementType, ArrayType> =
+    (value: ElementType, index: number, array: ArrayType) => boolean;
+
+  /**
+   * Callback function used in Array functions that require a reduction.
+   *
+   * @typedef { function } ArrayReduceCallback
+   * @param { AccType } previousValue - The accumulator value.
+   * @param { ElementType } currentValue - The current element being processed in the array.
+   * @param { number } currentIndex - The index of the current element being processed in the array.
+   * @param { ArrayType } array - The array that the element belongs to.
+   * @returns { AccType } The result of the reduction.
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 16
+   */
+  type ArrayReduceCallback<AccType, ElementType, ArrayType> =
+    (previousValue: AccType, currentValue: ElementType, currentIndex: number, array: ArrayType) => AccType;
+  /**
    * Redefines ISendable for convenience.
    *
    * @typedef { lang.ISendable } ISendable
@@ -244,6 +288,34 @@ declare namespace collections {
      * @since 12
      */
     static from<T>(iterable: Iterable<T>): Array<T>;
+    /**
+     * Creates an ArkTS Array from an array-like object.
+     *
+     * @param { ArrayLike<T> | Iterable<T> } arrayLike - An object to convert to an ArkTS Array.
+     * @param { ArrayFromMapFn<T, T> } mapFn - A mapping function to call on every element of the array.
+     * @returns { Array<T> } A new Array instance
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 10200011 - The from method cannot be bound.
+     * @static
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    static from<T>(arrayLike: ArrayLike<T> | Iterable<T>, mapFn: ArrayFromMapFn<T, T>): Array<T>;
+    /**
+     * Creates an ArkTS Array from an array-like object.
+     *
+     * @param  { ArrayLike<U> | Iterable<U> } arrayLike - An object to convert to an ArkTS Array.
+     * @param  { ArrayFromMapFn<U, T> } mapFn - A mapping function to call on every element of the object.
+     * @returns { Array<T> } A new Array instance
+     * @throws  { BusinessError } 401 - Parameter error.
+     * @throws  { BusinessError } 10200011 - The from method cannot be bound.
+     * @static
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    static from<U, T>(arrayLike: ArrayLike<U> | Iterable<U>, mapFn: ArrayFromMapFn<U, T>): Array<T>;
     /**
      * A constructor used to create an ArkTS Array.
      *
@@ -687,8 +759,169 @@ declare namespace collections {
      * @since 12
      */
     splice(start: number, deleteCount: number, ...items: T[]): Array<T>;
-  }
-  
+    /**
+     * Check whether the value is an ArkTs Array.
+     *
+     * @param { Object|undefined|null } value - The value to be checked..
+     * @returns { boolean } Returns true if the value is an array; otherwise, returns false.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    static isArray(value: Object | undefined | null): boolean;
+    /**
+     * Create an ArkTs Array containing these parameters.
+     *
+     * @param { T[] } items - A variable number of arguments that will be used as the elements of the new array.
+     * @returns { Array<T> } Returns a new Array instance containing the specified elements.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    static of<T>(...items: T[]): Array<T>;
+    /**
+     * Copy elements inside an ArkTs Array and move them to another location.
+     *
+     * @param { number } target - The index at which to copy the elements.
+     * @param { number } start - The index to start copying elements from (default is 0).
+     * @param { number } end - The index to stop copying elements (default is the array's length).
+     * @returns { Array<T> } Returns the modified array after the copy operation.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 10200011 - The copyWithin method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    copyWithin(target: number, start: number, end?: number): Array<T>;
+    /**
+     * Reverses the elements in an Array.
+     *
+     * @returns { Array<T> } The reference to the original typed array, now reversed.
+     *     <br>Note that the typed array is reversed in place, and no copy is made.
+     * @throws { BusinessError } 10200011 - The reverse method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    reverse(): Array<T>;
+    /**
+     * Find the last occurrence of a specified element in an ArkTs Array.
+     *
+     * @param { T } searchElement - Element to search for in the array..
+     * @param { number } fromIndex - The index at which to start the search. The default is the last 
+     * index of the array. <br>If this index is negative, it is treated as array.length + fromIndex.
+     * @returns { number } Returns the last index of the specified element if found; otherwise, returns -1.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
+     * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    lastIndexOf(searchElement: T, fromIndex?: number): number;
+    /**
+     * Tests whether all elements in an ArkTs Array  meets a specified condition.
+     *
+     * @param { ArrayPredicateFn<T, Array<T>> } predicate - A function that is called for each element in the array.
+     * @returns { boolean } Returns true if the callback function returns a truthy value for every element;
+     *	   <br>otherwise, it returns false. If the array is empty, it returns true.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The every method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    every(predicate: ArrayPredicateFn<T, Array<T>>): boolean;
+    /**
+     * Test whether at least one element in an ArkTs Array meets a specified condition.
+     *
+     * @param { ArrayPredicateFn<T, Array<T> } predicate - A function that is called for each element in the array.
+     * @returns { boolean } Returns true if the callback function returns a truthy value for any element;
+     *	   <br>otherwise, it returns false. If the array is empty, it returns false.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The some method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    some(predicate: ArrayPredicateFn<T, Array<T>>): boolean;
+    /**
+     * Convert an ArkTs Array to a string.
+     *
+     * @returns { string } Returns a string representing the specified array and its elements, separated by commas.
+     * @throws { BusinessError } 10200011 - The toString method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    toString(): string;
+    /**
+     * Convert an ArkTs Array to a string, The elements are converted to string using their toLocaleString methods.
+     *
+     * @returns { string } Returns a string representing the specified array and its elements, separated by commas.
+     * @throws { BusinessError } 10200011 - The toLocaleString method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    toLocaleString(): string;
+    /**
+     * Reduce elements in an ArkTs Array from right to left.
+     *
+     * @param { ArrayReduceCallback<U, T, Array<T>> } callbackFn - A function that is called for each element
+     * in the array.
+     * @param { U } initialValue - A value to use as the first argument to the first call of the callback.
+     *     <br>If no initial value is provided, the last element of the array will be used,
+     *     <br>and the callback will start with the second-to-last element.
+     * @returns { U } Returns the single value that results from the reduction.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    reduceRight<U = T>(callbackFn: ArrayReduceCallback<U, T, Array<T>>, initialValue: U): U;
+    /**
+     * Reduce elements in an ArkTs Array from right to left.
+     *
+     * @param { ArrayReduceCallback<T, T, Array<T>> } callbackFn - A function that is called for each element
+     * in the array.
+     * @returns { T } Returns the single value that results from the reduction.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    reduceRight(callbackFn: ArrayReduceCallback<T, T, Array<T>>): T;
+ }
+
   /**
    * The Map holds key-value pairs.
    * If multiple threads access a Map instance concurrently, 
@@ -1615,7 +1848,94 @@ declare namespace collections {
      * @since 12
      */
     [index: number]: number;
-  }
+    /**
+     * Find the last occurrence of a specified element in an Int8Array.
+     *
+     * @param { number } searchElement - Element to search for in the Int8Array..
+     * @param { number } fromIndex - The index at which to start the search. If provided:
+     *	   <br>If this index is negative, it is treated as Int8Array.length + fromIndex.
+     * @returns { number } Returns the last index of the specified element if found; otherwise, returns -1.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
+     * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    lastIndexOf(searchElement: number, fromIndex?: number): number;
+    /**
+     * Reduce elements in an Int8Array from right to left.
+     *
+     * @param { TypedArrayReduceCallback<U, number, Int8Array> } callbackFn - A function that is called for
+     * each element in the Int8Array.
+     * @param { U } initialValue - A value to use as the first argument to the first call of the callback.
+     *     <br>If no initial value is provided, the last element of the Int8Array will be used,
+     *     <br>and the callback will start with the second-to-last element.
+     * @returns { U } Returns the single value that results from the reduction.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    reduceRight<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Int8Array>, initialValue: U): U;
+    /**
+     * Reduce elements in an Int8Array from right to left.
+     *
+     * @param { TypedArrayReduceCallback<number, number, Int8Array> } callbackFn - A function that is called for
+     * each element in the Int8Array.
+     * @returns { number } Returns the single value that results from the reduction.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    reduceRight(callbackFn: TypedArrayReduceCallback<number, number, Int8Array>): number;
+    /**
+     * Convert an Int8Array to a string.
+     *
+     * @returns { string } Returns a string representing the specified Int8Array and its elements, separated by commas.
+     * @throws { BusinessError } 10200011 - The toString method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    toString(): string;
+    /**
+     * Convert an Int8Array to a string, The elements are converted to string using their toLocaleString methods.
+     *
+     * @returns { string } Returns a string representing the specified array and its elements, separated by commas.
+     * @throws { BusinessError } 10200011 - The toLocaleString method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    toLocaleString(): string;
+    /**
+     * Create an Int8Array containing these parameters.
+     *
+     * @param { number[] } items - A variable number of arguments that will be used as the elements of the Int8Array.
+     * @returns { Int8Array } Returns a new Int8Array instance containing the specified elements.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    static of(...items: number[]): Int8Array;
+ }
 
   /**
    * The Uint8ClampedArray typed array represents an array of 8-bit unsigned integers clamped to 0–255.
@@ -2148,7 +2468,97 @@ declare namespace collections {
      * @since 12
      */
     [index: number]: number;
-  }
+    /**
+     * Find the last occurrence of a specified element in an Uint8ClampedArray.
+     *
+     * @param { number } searchElement - Element to search for in the Uint8ClampedArray..
+     * @param { number } fromIndex - The index at which to start the search. If provided:
+     *	   <br>If this index is negative, it is treated as Uint8ClampedArray.length + fromIndex.
+     * @returns { number } Returns the last index of the specified element if found; otherwise, returns -1.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
+     * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    lastIndexOf(searchElement: number, fromIndex?: number): number;
+    /**
+     * Reduce elements in an Uint8ClampedArray from right to left.
+     *
+     * @param { TypedArrayReduceCallback<U, number, Uint8ClampedArray> } callbackFn - A function that is called for
+     * each element in the Uint8ClampedArray.
+     * @param { U } initialValue - A value to use as the first argument to the first call of the callback.
+     *     <br>If no initial value is provided, the last element of the Uint8ClampedArray will be used,
+     *     <br>and the callback will start with the second-to-last element.
+     * @returns { U } Returns the single value that results from the reduction.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    reduceRight<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Uint8ClampedArray>, initialValue: U): U;
+    /**
+     * Reduce elements in an Uint8ClampedArray from right to left.
+     *
+     * @param { TypedArrayReduceCallback<number, number, Uint8ClampedArray> } callbackFn - A function that is called for
+     * each element in the Uint8ClampedArray.
+     * @returns { number } Returns the single value that results from the reduction.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    reduceRight(callbackFn: TypedArrayReduceCallback<number, number, Uint8ClampedArray>): number;
+    /**
+     * Convert an Uint8ClampedArray to a string.
+     *
+     * @returns { string } Returns a string representing the specified Uint8ClampedArray and its elements,
+     * separated by commas.
+     * @throws { BusinessError } 10200011 - The toString method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    toString(): string;
+    /**
+     * Convert an Uint8ClampedArray to a string, The elements are converted to string using their
+     * toLocaleString methods.
+     *
+     * @returns { string } Returns a string representing the specified array and its elements, separated by commas.
+     * @throws { BusinessError } 10200011 - The toLocaleString method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    toLocaleString(): string;
+    /**
+     * Create an Uint8ClampedArray containing these parameters.
+     *
+     * @param { number[] } items - A variable number of arguments that will be used as the elements of the
+     * Uint8ClampedArray.
+     * @returns { Uint8ClampedArray } Returns a new Uint8ClampedArray instance containing the specified elements.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    static of(...items: number[]): Uint8ClampedArray;
+ }
 
   /**
    * A typed array of 8-bit unsigned integer values. The contents are initialized to 0.
@@ -2696,7 +3106,95 @@ declare namespace collections {
      * @since 12
      */
     [index: number]: number;
-  }
+    /**
+     * Find the last occurrence of a specified element in an Uint8Array.
+     *
+     * @param { number } searchElement - Element to search for in the Uint8Array..
+     * @param { number } fromIndex - The index at which to start the search. If provided:
+     *	   <br>If this index is negative, it is treated as Uint8Array.length + fromIndex.
+     * @returns { number } Returns the last index of the specified element if found; otherwise, returns -1.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
+     * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    lastIndexOf(searchElement: number, fromIndex?: number): number;
+    /**
+     * Reduce elements in an Uint8Array from right to left.
+     *
+     * @param { TypedArrayReduceCallback<U, number, Uint8Array> } callbackFn - A function that is called for
+     * each element in the Uint8Array.
+     * @param { U } initialValue - A value to use as the first argument to the first call of the callback.
+     *     <br>If no initial value is provided, the last element of the Uint8Array will be used,
+     *     <br>and the callback will start with the second-to-last element.
+     * @returns { U } Returns the single value that results from the reduction.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    reduceRight<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Uint8Array>, initialValue: U): U;
+    /**
+     * Reduce elements in an Uint8Array from right to left.
+     *
+     * @param { TypedArrayReduceCallback<number, number, Uint8Array> } callbackFn - A function that is called for
+     * each element in the Uint8Array.
+     * @returns { number } Returns the single value that results from the reduction.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    reduceRight(callbackFn: TypedArrayReduceCallback<number, number, Uint8Array>): number;
+    /**
+     * Convert an Uint8Array to a string.
+     *
+     * @returns { string } Returns a string representing the specified Uint8Array and its elements,
+     * separated by commas.
+     * @throws { BusinessError } 10200011 - The toString method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    toString(): string;
+    /**
+     * Convert an Uint8Array to a string, The elements are converted to string using their toLocaleString methods.
+     *
+     * @returns { string } Returns a string representing the specified array and its elements, separated by commas.
+     * @throws { BusinessError } 10200011 - The toLocaleString method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    toLocaleString(): string;
+    /**
+     * Create an Uint8Array containing these parameters.
+     *
+     * @param { number[] } items - A variable number of arguments that will be used as the elements of the Uint8Array.
+     * @returns { Uint8Array } Returns a new Uint8Array instance containing the specified elements.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    static of(...items: number[]): Uint8Array;
+ }
 
   /**
    * A typed array of 16-bit integer values. The contents are initialized to 0.
@@ -3244,7 +3742,95 @@ declare namespace collections {
      * @since 12
      */
     [index: number]: number;
-  }
+    /**
+     * Find the last occurrence of a specified element in an Int16Array.
+     *
+     * @param { number } searchElement - Element to search for in the Int16Array..
+     * @param { number } fromIndex - The index at which to start the search. If provided:
+     *	   <br>If this index is negative, it is treated as Int16Array.length + fromIndex.
+     * @returns { number } Returns the last index of the specified element if found; otherwise, returns -1.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
+     * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    lastIndexOf(searchElement: number, fromIndex?: number): number;
+    /**
+     * Reduce elements in an Int16Array from right to left.
+     *
+     * @param { TypedArrayReduceCallback<U, number, Int16Array> } callbackFn - A function that is called for
+     * each element in the Int16Array.
+     * @param { U } initialValue - A value to use as the first argument to the first call of the callback.
+     *     <br>If no initial value is provided, the last element of the Int16Array will be used,
+     *     <br>and the callback will start with the second-to-last element.
+     * @returns { U } Returns the single value that results from the reduction.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    reduceRight<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Int16Array>, initialValue: U): U;
+    /**
+     * Reduce elements in an Int16Array from right to left.
+     *
+     * @param { TypedArrayReduceCallback<number, number, Int16Array> } callbackFn - A function that is called for
+     * each element in the Int16Array.
+     * @returns { number } Returns the single value that results from the reduction.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    reduceRight(callbackFn: TypedArrayReduceCallback<number, number, Int16Array>): number;
+    /**
+     * Convert an Int16Array to a string.
+     *
+     * @returns { string } Returns a string representing the specified Int16Array and its elements,
+     * separated by commas.
+     * @throws { BusinessError } 10200011 - The toString method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    toString(): string;
+    /**
+     * Convert an Int16Array to a string, The elements are converted to string using their toLocaleString methods.
+     *
+     * @returns { string } Returns a string representing the specified array and its elements, separated by commas.
+     * @throws { BusinessError } 10200011 - The toLocaleString method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    toLocaleString(): string;
+    /**
+     * Create an Int16Array containing these parameters.
+     *
+     * @param { number[] } items - A variable number of arguments that will be used as the elements of the Int16Array.
+     * @returns { Int16Array } Returns a new Int16Array instance containing the specified elements.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    static of(...items: number[]): Int16Array;
+ }
 
   /**
    * A typed array of 16-bit unsigned integer values. The contents are initialized to 0.
@@ -3791,7 +4377,95 @@ declare namespace collections {
      * @since 12
      */
     [index: number]: number;
-  }
+    /**
+     * Find the last occurrence of a specified element in an Uint16Array.
+     *
+     * @param { number } searchElement - Element to search for in the Uint16Array..
+     * @param { number } fromIndex - The index at which to start the search. If provided:
+     *	   <br>If this index is negative, it is treated as Uint16Array.length + fromIndex.
+     * @returns { number } Returns the last index of the specified element if found; otherwise, returns -1.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
+     * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    lastIndexOf(searchElement: number, fromIndex?: number): number;
+    /**
+     * Reduce elements in an Uint16Array from right to left.
+     *
+     * @param { TypedArrayReduceCallback<U, number, Uint16Array> } callbackFn - A function that is called for
+     * each element in the Uint16Array.
+     * @param { U } initialValue - A value to use as the first argument to the first call of the callback.
+     *     <br>If no initial value is provided, the last element of the Uint16Array will be used,
+     *     <br>and the callback will start with the second-to-last element.
+     * @returns { U } Returns the single value that results from the reduction.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    reduceRight<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Uint16Array>, initialValue: U): U;
+    /**
+     * Reduce elements in an Uint16Array from right to left.
+     *
+     * @param { TypedArrayReduceCallback<number, number, Uint16Array> } callbackFn - A function that is called for
+     * each element in the Uint16Array.
+     * @returns { number } Returns the single value that results from the reduction.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    reduceRight(callbackFn: TypedArrayReduceCallback<number, number, Uint16Array>): number;
+    /**
+     * Convert an Uint16Array to a string.
+     *
+     * @returns { string } Returns a string representing the specified Uint16Array and its elements,
+     * separated by commas.
+     * @throws { BusinessError } 10200011 - The toString method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    toString(): string;
+    /**
+     * Convert an Uint16Array to a string, The elements are converted to string using their toLocaleString methods.
+     *
+     * @returns { string } Returns a string representing the specified array and its elements, separated by commas.
+     * @throws { BusinessError } 10200011 - The toLocaleString method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    toLocaleString(): string;
+    /**
+     * Create an Uint16Array containing these parameters.
+     *
+     * @param { number[] } items - A variable number of arguments that will be used as the elements of the Uint16Array.
+     * @returns { Uint16Array } Returns a new Uint16Array instance containing the specified elements.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    static of(...items: number[]): Uint16Array;
+ }
 
   /**
    * A typed array of 32-bit integer values. The contents are initialized to 0.
@@ -4339,7 +5013,95 @@ declare namespace collections {
      * @since 12
      */
     [index: number]: number;
-  }
+    /**
+     * Find the last occurrence of a specified element in an Int32Array.
+     *
+     * @param { number } searchElement - Element to search for in the Int32Array..
+     * @param { number } fromIndex - The index at which to start the search. If provided:
+     *	   <br>If this index is negative, it is treated as Int32Array.length + fromIndex.
+     * @returns { number } Returns the last index of the specified element if found; otherwise, returns -1.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
+     * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    lastIndexOf(searchElement: number, fromIndex?: number): number;
+    /**
+     * Reduce elements in an Int32Array from right to left.
+     *
+     * @param { TypedArrayReduceCallback<U, number, Int32Array> } callbackFn - A function that is called for
+     * each element in the Int32Array.
+     * @param { U } initialValue - A value to use as the first argument to the first call of the callback.
+     *     <br>If no initial value is provided, the last element of the Int32Array will be used,
+     *     <br>and the callback will start with the second-to-last element.
+     * @returns { U } Returns the single value that results from the reduction.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    reduceRight<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Int32Array>, initialValue: U): U;
+    /**
+     * Reduce elements in an Int32Array from right to left.
+     *
+     * @param { TypedArrayReduceCallback<number, number, Int32Array> } callbackFn - A function that is called for
+     * each element in the Int32Array.
+     * @returns { number } Returns the single value that results from the reduction.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    reduceRight(callbackFn: TypedArrayReduceCallback<number, number, Int32Array>): number;
+    /**
+     * Convert an Int32Array to a string.
+     *
+     * @returns { string } Returns a string representing the specified Int32Array and its elements,
+     * separated by commas.
+     * @throws { BusinessError } 10200011 - The toString method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    toString(): string;
+    /**
+     * Convert an Int32Array to a string, The elements are converted to string using their toLocaleString methods.
+     *
+     * @returns { string } Returns a string representing the specified array and its elements, separated by commas.
+     * @throws { BusinessError } 10200011 - The toLocaleString method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    toLocaleString(): string;
+    /**
+     * Create an Int32Array containing these parameters.
+     *
+     * @param { number[] } items - A variable number of arguments that will be used as the elements of the Int32Array.
+     * @returns { Int32Array } Returns a new Int32Array instance containing the specified elements.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    static of(...items: number[]): Int32Array;
+ }
 
   /**
    * A typed array of 32-bit unsigned integer values. The contents are initialized to 0.
@@ -4886,7 +5648,96 @@ declare namespace collections {
      * @since 12
      */
     [index: number]: number;
-  }
+    /**
+     * Find the last occurrence of a specified element in an Uint32Array.
+     *
+     * @param { number } searchElement - Element to search for in the Uint32Array..
+     * @param { number } fromIndex - The index at which to start the search. If provided:
+     *	   <br>If this index is negative, it is treated as Uint32Array.length + fromIndex.
+     * @returns { number } Returns the last index of the specified element if found; otherwise, returns -1.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
+     * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    lastIndexOf(searchElement: number, fromIndex?: number): number;
+    /**
+     * Reduce elements in an Uint32Array from right to left.
+     *
+     * @param { TypedArrayReduceCallback<U, number, Uint32Array> } callbackFn - A function that is called for
+     * each element in the Uint32Array.
+     * @param { U } initialValue - A value to use as the first argument to the first call of the callback.
+     *     <br>If no initial value is provided, the last element of the Uint32Array will be used,
+     *     <br>and the callback will start with the second-to-last element.
+     * @returns { U } Returns the single value that results from the reduction.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    reduceRight<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Uint32Array>, initialValue: U): U;
+    /**
+     * Reduce elements in an Uint32Array from right to left.
+     *
+     * @param { TypedArrayReduceCallback<number, number, Uint32Array> } callbackFn - A function that is called for
+     * each element in the Uint32Array.
+     * @returns { number } Returns the single value that results from the reduction.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    reduceRight(callbackFn: TypedArrayReduceCallback<number, number, Uint32Array>): number;
+    /**
+     * Convert an Uint32Array to a string.
+     *
+     * @returns { string } Returns a string representing the specified Uint32Array and its elements,
+     * separated by commas.
+     * @throws { BusinessError } 10200011 - The toString method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    toString(): string;
+    /**
+     * Convert an Uint32Array to a string, The elements are converted to string using their toLocaleString methods.
+     *
+     * @returns { string } Returns a string representing the specified array and its elements, separated by commas.
+     * @throws { BusinessError } 10200011 - The toLocaleString method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    toLocaleString(): string;
+    /**
+     * Create an Uint32Array containing these parameters.
+     *
+     * @param { number[] } items - A variable number of arguments that will be used as the elements of the Uint32Array.
+     * @returns { Uint32Array } Returns a new Uint32Array instance containing the specified elements.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    static of(...items: number[]): Uint32Array;
+ }
+
   /**
    * The Float32Array typed array represents an array of 32-bit float numbers.
    * The contents are initialized to 0.
@@ -5417,7 +6268,97 @@ declare namespace collections {
      * @since 12
      */
     [index: number]: number;
-  }
+    /**
+     * Find the last occurrence of a specified element in an Float32Array.
+     *
+     * @param { number } searchElement - Element to search for in the Float32Array..
+     * @param { number } fromIndex - The index at which to start the search. If provided:
+     *	   <br>If this index is negative, it is treated as Float32Array.length + fromIndex.
+     * @returns { number } Returns the last index of the specified element if found; otherwise, returns -1.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
+     * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    lastIndexOf(searchElement: number, fromIndex?: number): number;
+    /**
+     * Reduce elements in an Float32Array from right to left.
+     *
+     * @param { TypedArrayReduceCallback<U, number, Float32Array> } callbackFn - A function that is called
+     * for each element in the Float32Array.
+     * @param { U } initialValue - A value to use as the first argument to the first call of the callback.
+     *     <br>If no initial value is provided, the last element of the Float32Array will be used,
+     *     <br>and the callback will start with the second-to-last element.
+     * @returns { U } Returns the single value that results from the reduction.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    reduceRight<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Float32Array>, initialValue: U): U;
+    /**
+     * Reduce elements in an Float32Array from right to left.
+     *
+     * @param { TypedArrayReduceCallback<number, number, Float32Array> } callbackFn - A function that is called
+     * for each element in the Float32Array.
+     * @returns { number } Returns the single value that results from the reduction.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    reduceRight(callbackFn: TypedArrayReduceCallback<number, number, Float32Array>): number;
+    /**
+     * Convert an Float32Array to a string.
+     *
+     * @returns { string } Returns a string representing the specified Float32Array and its elements,
+     * separated by commas.
+     * @throws { BusinessError } 10200011 - The toString method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    toString(): string;
+    /**
+     * Convert an Float32Array to a string, The elements are converted to string using their toLocaleString methods.
+     *
+     * @returns { string } Returns a string representing the specified array and its elements, separated by commas.
+     * @throws { BusinessError } 10200011 - The toLocaleString method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    toLocaleString(): string;
+    /**
+     * Create an Float32Array containing these parameters.
+     *
+     * @param { number[] } items - A variable number of arguments that will be used as the elements of
+     * the Float32Array.
+     * @returns { Float32Array } Returns a new Float32Array instance containing the specified elements.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    static of(...items: number[]): Float32Array;
+ }
+
   /**
    * An ordered collections of bit values, which are either 0 or 1.
    * If multiple threads access a BitVector instance concurrently, 

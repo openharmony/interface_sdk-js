@@ -111,6 +111,62 @@ export interface WorkerOptions {
    * @since 12
    */
   shared?: boolean;
+
+  /**
+   * Priority of the worker.
+   *
+   * @type { ?ThreadWorkerPriority }
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 16
+   */
+  priority?: ThreadWorkerPriority;
+}
+
+/**
+ * The ThreadWorkerPriority defines the worker priority.
+ *
+ * @enum { number } ThreadWorkerPriority
+ * @syscap SystemCapability.Utils.Lang
+ * @atomicservice
+ * @since 16
+ */
+export enum ThreadWorkerPriority {
+  /**
+   * set worker priority to high.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 16
+   */
+  HIGH = 0,
+
+  /**
+   * set worker priority to medium.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 16
+   */
+  MEDIUM = 1,
+
+  /**
+   * set worker priority to low.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 16
+   */
+  LOW = 2,
+
+  /**
+   * set worker priority to idle.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 16
+   */
+  IDLE = 3
 }
 
 /**

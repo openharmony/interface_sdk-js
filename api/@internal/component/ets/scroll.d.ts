@@ -480,7 +480,6 @@ declare class Scroller {
    */
   scrollEdge(value: Edge, options?: ScrollEdgeOptions);
 
-
   /**
    * Fling the scroll view.
    *
@@ -709,38 +708,6 @@ declare class Scroller {
 }
 
 /**
- * Define scroll page options
- * @interface ScrollPageOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 14
- */
-declare interface ScrollPageOptions {
-  /**
-   * Control whether to scroll to the next page or the previous page.
-   *
-   * @type { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 14
-   */
-  next: boolean;
-
-  /**
-   * Set whether the scrollPage have animate.
-   *
-   * @type { ?boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 14
-   */
-  animation?: boolean;
-}
-
-/**
  * Define scroll options.
  *
  * @interface ScrollOptions
@@ -818,6 +785,38 @@ declare interface ScrollOptions {
    * @since 12
    */
   animation?: ScrollAnimationOptions | boolean;
+}
+
+/**
+ * Define scroll page options
+ * @interface ScrollPageOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 14
+ */
+declare interface ScrollPageOptions {
+  /**
+   * Control whether to scroll to the next page or the previous page.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  next: boolean;
+
+  /**
+   * Set whether the scrollPage have animate.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  animation?: boolean;
 }
 
 /**

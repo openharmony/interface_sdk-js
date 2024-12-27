@@ -24,7 +24,7 @@ import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
 import { ElementName } from './bundleManager/ElementName';
 import image from './@ohos.multimedia.image';
 import audio from './@ohos.multimedia.audio';
-import { AVCastPickerState, AVCastPickerColorMode } from './@ohos.multimedia.avCastPickerParam'
+import { AVCastPickerState, AVCastPickerColorMode } from './@ohos.multimedia.avCastPickerParam';
 import type media from './@ohos.multimedia.media';
 import type Context from './application/BaseContext';
 
@@ -925,6 +925,7 @@ declare namespace avSession {
     /**
      * unique session Id
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
@@ -940,6 +941,7 @@ declare namespace avSession {
     /**
      * Get current session type
      * @type { AVSessionType }
+     * @readonly
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
@@ -3620,7 +3622,7 @@ declare namespace avSession {
      * @atomicservice
      * @since 14
      */
-    on(type: 'pickerStateChange',  callback: Callback<AVCastPickerState>) : void;
+    on(type: 'pickerStateChange', callback: Callback<AVCastPickerState>) : void;
 
     /**
      * Unregister picker state change callback.
@@ -3632,7 +3634,7 @@ declare namespace avSession {
      * @atomicservice
      * @since 14
      */
-    off(type: 'pickerStateChange',  callback?: Callback<AVCastPickerState>) : void;
+    off(type: 'pickerStateChange', callback?: Callback<AVCastPickerState>) : void;
   }
 
   /**
@@ -5706,6 +5708,7 @@ declare namespace avSession {
     /**
      * Unique session Id
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12

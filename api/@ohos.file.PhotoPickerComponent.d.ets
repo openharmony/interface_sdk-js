@@ -19,6 +19,7 @@
  */
 
 import photoAccessHelper from '@ohos.file.photoAccessHelper';
+import { AsyncCallback } from '@kit.BasicServicesKit';
 
 /**
  * Declare struct PhotoPickerComponent
@@ -141,6 +142,16 @@ export declare struct PhotoPickerComponent {
   onCurrentAlbumDeleted?: CurrentAlbumDeletedCallback
 
   /**
+   * Callback when the video play state changed
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14
+   */
+  onVideoPlayStateChanged?: videoPlayStateChangedCallback;
+
+  /**
    * PickerController
    *
    * @type { ?PickerController }
@@ -193,6 +204,16 @@ export type ExceedMaxSelectedCallback = (exceedMaxCountType: MaxCountType) => vo
  * @since 13
  */
 export type CurrentAlbumDeletedCallback = () => void;
+
+/**
+ * The callback of onVideoPlayStateChanged event
+ *
+ * @typedef { function } videoPlayStateChangedCallback
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 14
+ */
+export type videoPlayStateChangedCallback = (state: VideoPlayerState) => void;
 
 /**
  * The class for PickerController
@@ -254,6 +275,32 @@ export declare class PickerController {
    * @since 13
    */
   setPhotoBrowserUIElementVisibility(elements: Array<PhotoBrowserUIElement>, isVisible: boolean): void;
+
+  /**
+   * Display the photo after edit.
+   *
+   * @param { string } originalUri - Original uri 
+   * @param { string } newUri - New uri after replacement
+   * @param { AsyncCallback<void> } callback - Returns void
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14
+   */
+  replacePhotoPickerPreview(originalUri: string, newUri: string, callback: AsyncCallback<void>): void;
+
+  /**
+   * Save the photo assets of uris.
+   *
+   * @param { Array<string> } trustedUris - Uris need to be saved
+   * @param { AsyncCallback<Array<string>> } callback - Returns the uri list
+   * @param { Array<PhotoCreationConfig> } [configs] - Photo asset creation configs
+   * @param { SaveMode } [saveMode] - Mode of save
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14
+   */
+  saveTrustedPhotoAssets(trustedUris: Array<string>, callback: AsyncCallback<Array<string>>,
+    configs?: Array<photoAccessHelper.PhotoCreationConfig>, saveMode?: SaveMode): void;
 }
 
 /**
@@ -283,6 +330,26 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @since 12
    */
   backgroundColor?: string;
+
+  /**
+   * Support set gridMargin
+   *
+   * @type { ?Margin }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14
+   */
+  gridMargin?: Margin;
+
+  /**
+   * Support set photoBrowserMargin
+   *
+   * @type { ?Margin }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14
+   */
+  photoBrowserMargin?: Margin;
 
   /**
    * Support repeat select
@@ -846,4 +913,87 @@ export declare enum PhotoBrowserUIElement {
    * @since 13
    */
   BACK_BUTTON = 1
+}
+
+/**
+ * Enumeration type of save mode.
+ *
+ * @enum { number } SaveMode
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 14
+ */
+export declare enum SaveMode {
+  /**
+   * Save as a new photo/video.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14
+   */
+  SAVE_AS = 0,
+
+  /**
+   * Overwrite and save.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14
+   */
+   OVERWRITE = 1
+}
+
+/**
+ * VideoPlayerState. include PLAYING, PAUSED, STOPPED, SEEK_START and SEEK_FINISH
+ *
+ * @enum { number } VideoPlayerState
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 14
+ */
+export declare enum VideoPlayerState {
+  /**
+   * PLAYING. video is playing
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14
+   */
+  PLAYING = 0,
+
+  /**
+   * PAUSED. video is paused
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14
+   */
+  PAUSED = 1,
+
+   /**
+   * STOPPED. video is stopped
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14
+   */
+  STOPPED = 2,
+
+   /**
+   * SEEK_START. seek drag is start
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14
+   */
+  SEEK_START = 3,
+
+   /**
+   * SEEK_FINISH. seek drag is finish
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14
+   */
+  SEEK_FINISH = 4
 }
