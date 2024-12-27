@@ -159,6 +159,7 @@ export interface Container<T> {
 /**
  * Defines Node interface.
  *
+ * @extends SceneResource
  * @interface Node
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
@@ -264,6 +265,7 @@ export interface Node extends SceneResource {
 /**
  * Defines Geometry interface.
  *
+ * @extends Node
  * @interface Geometry
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
@@ -308,6 +310,7 @@ export enum LightType {
 /**
  * Defines light interface.
  *
+ * @extends Node
  * @interface Light
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
@@ -363,6 +366,7 @@ export interface Light extends Node {
 /**
  * Defines spot light.
  *
+ * @extends Light
  * @interface SpotLight
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
@@ -373,6 +377,7 @@ export interface SpotLight extends Light {
 /**
  * Defines directional light.
  *
+ * @extends Light
  * @interface DirectionalLight
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
@@ -383,6 +388,7 @@ export interface DirectionalLight extends Light {
 /**
  * Defines camera.
  *
+ * @extends Node
  * @interface Camera
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12

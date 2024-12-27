@@ -144,8 +144,8 @@ export interface SceneResource {
 /**
  * Shader resource.
  *
- * @interface Shader
  * @extends SceneResource
+ * @interface Shader
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
@@ -181,8 +181,8 @@ export enum MaterialType {
 /**
  * Material resource.
  *
- * @interface Material
  * @extends SceneResource
+ * @interface Material
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
@@ -201,8 +201,8 @@ export interface Material extends SceneResource {
 /**
  * Shader material resource.
  *
- * @interface ShaderMaterial
  * @extends Material
+ * @interface ShaderMaterial
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
@@ -247,7 +247,7 @@ export interface SubMesh {
    * The axis aligned bounding box of the sub mesh.
    *
    * @type { Aabb }
-   * readonly
+   * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
@@ -257,8 +257,8 @@ export interface SubMesh {
 /**
  * Mesh resource.
  *
- * @interface Mesh
  * @extends SceneResource
+ * @interface Mesh
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
@@ -277,7 +277,7 @@ export interface Mesh extends SceneResource {
    * The axis aligned bounding box of the mesh.
    *
    * @type { Aabb }
-   * readonly
+   * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
@@ -296,8 +296,8 @@ export interface Mesh extends SceneResource {
 /**
  * Animation resource.
  *
- * @interface Animation
  * @extends SceneResource
+ * @interface Animation
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
@@ -452,8 +452,8 @@ export enum EnvironmentBackgroundType {
 /**
  * Environment resource.
  *
- * @interface Environment
  * @extends SceneResource
+ * @interface Environment
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
@@ -525,8 +525,8 @@ export interface Environment extends SceneResource {
 /**
  * Image resource.
  *
- * @interface Image
  * @extends SceneResource
+ * @interface Image
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
