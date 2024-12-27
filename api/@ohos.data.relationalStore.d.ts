@@ -341,6 +341,16 @@ declare namespace relationalStore {
     customDir?: string;
 
     /**
+     * Specifies the root directory relative to the database
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 16
+     */
+    rootDir?: string;
+
+    /**
      * Specifies whether to clean up dirty data that is synchronized to
      * the local but deleted in the cloud.
      *
