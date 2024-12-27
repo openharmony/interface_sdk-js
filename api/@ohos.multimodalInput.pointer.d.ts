@@ -491,14 +491,14 @@ declare namespace pointer {
      */
     pixelMap: image.PixelMap;
     /**
-     * focusX - Horizontal coordinate of the focus of the custom cursor.
+     * focusX - Horizontal coordinate of the focus of the custom cursor. It is subject to the size of the custom cursor.
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 14
      */
     focusX?: number;
     /**
-     * focusY - Vertical coordinate of the focus of the custom cursor.
+     * focusY - Vertical coordinate of the focus of the custom cursor. It is subject to the size of the custom cursor.
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 14
