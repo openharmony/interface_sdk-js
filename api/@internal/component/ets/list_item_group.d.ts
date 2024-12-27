@@ -120,7 +120,7 @@ declare interface ListItemGroupOptions {
   header?: CustomBuilder;
 
   /**
-    * Describes the ListItemGroup headerCompenent.
+    * Describes the ListItemGroup headerComponent.
     *
     * @type { ?ComponentContent }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
