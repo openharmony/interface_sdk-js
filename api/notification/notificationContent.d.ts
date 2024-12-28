@@ -205,6 +205,41 @@ export enum LiveViewStatus {
 }
 
 /**
+ * Enum for live view notification task type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @since 16
+ */
+export enum LiveViewType {
+  /**
+   * Real-time activity live view Notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
+  LIVE_VIEW_ACTIVITY = 0,
+  /**
+   * Instant Task live view Notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
+  LIVE_VIEW_INSTANT = 1,
+  /**
+   * Long-term status task live view Notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
+  LIVE_VIEW_LONG_TERM = 2
+}
+
+/**
  * Describes a live view notification.
  *
  * @extends NotificationBasicContent
@@ -417,7 +452,7 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
    * @systemapi
    * @since 16
    */
-  cardButton?: Array<NotificationIconButton>;
+  cardButtons?: Array<NotificationIconButton>;
 
   /**
    * type of a system live view notification.
@@ -440,12 +475,12 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
   /**
    * task type of a system live view notification.
    *
-   * @type { ?number }
+   * @type { number }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 16
    */
-  liveViewType?: number;
+  liveViewType: LiveViewType;
 }
 
 /**
@@ -511,7 +546,7 @@ export interface NotificationCapsule {
    * @systemapi
    * @since 16
    */
-    capsuleButton?: Array<NotificationIconButton>;
+    capsuleButtons?: Array<NotificationIconButton>;
 }
 
 /**
@@ -533,14 +568,14 @@ export interface NotificationIconButton {
   name: string;
 
   /**
-   * button icons resource.
+   * button icon resource.
    *
    * @type { Resource }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 16
    */
-  iconsResource: Resource;
+  iconResource: Resource;
 
   /**
    * addition text of the icon buttion
