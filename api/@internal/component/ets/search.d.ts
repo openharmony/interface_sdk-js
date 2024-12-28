@@ -1620,6 +1620,17 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 16
    */
   halfLeading(halfLeading: Optional<boolean>): SearchAttribute;
+
+  /**
+   * Set whether stop backPressed callback event or not.
+   *
+   * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  stopBackPress(isStopped: Optional<boolean>): SearchAttribute;
 }
 
 /**
