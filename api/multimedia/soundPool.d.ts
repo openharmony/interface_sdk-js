@@ -380,39 +380,32 @@ export interface SoundPool {
    */
   off(type: 'loadComplete'): void;
   /**
-   * Register listens for play finish event.
-   * It is recommended to register this event to listening to the play finish event.
-   * The {@link #playFinished} event is deprecating.
+   * Register the listener for playing finished event. The conditions which this event is called
+   * are the same as {@link #playFinished}, additionally, this event can callback the streamId of finishing playing.
    * If this event and the {@link #playFinished} event are registered at the same time,
    * only this event will be called, and the {@link #playFinished} event will not be called.
    *
    * @param {'playFinishedWithStreamId'} type name of the play finished event to listen for. 
-   * @param {Callback<number>} callback Callback used to listen for the play finish.
+   * @param {Callback<number>} callback Callback used to listen which stream id has finished playback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 16
    */
   on(type: 'playFinishedWithStreamId', callback: Callback<number>): void;
-  /**
-   * Cancel Listens for play finish event.
-   *
-   * @param {'playFinishedWithStreamId'} type name of the play finished event to listen for.
-   * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 16
-   */
+   /**
+    * Cancel listening for playing finished event.
+    *
+    * @param {'playFinishedWithStreamId'} type name of the play finished event to listen for.
+    * @syscap SystemCapability.Multimedia.Media.SoundPool
+    * @since 16
+    */
   off(type: 'playFinishedWithStreamId'): void;
   /**
-   * Register listens for play finish event. 
-   * It is recommended to register the {@link #playFinishedWithStreamId} event
-   * to listening to the play finish event instead of this event.
-   * If this event and the {@link #playFinishedWithStreamId} event are registered at the same time,
-   * only the {@link #playFinishedWithStreamId} event will be called, and this event will not be called.
+   * Register listens for play finish event.
    *
    * @param {'playFinished'} type Type of the play finish event to listen for.
    * @param {Callback<void>} callback Callback used to listen for the play finish
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
-   * @deprecated since 16
-   * @useinstead SoundPool/SoundPool#event:playFinishedWithStreamId
    */
   on(type: 'playFinished', callback: Callback<void>): void;
   /**
@@ -421,8 +414,6 @@ export interface SoundPool {
    * @param {'playFinished'} type of the play finish event to listen for.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
-   * @deprecated since 16
-   * @useinstead SoundPool/SoundPool#event:playFinishedWithStreamId
    */
   off(type: 'playFinished'): void;
   /**
