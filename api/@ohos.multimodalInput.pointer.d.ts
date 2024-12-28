@@ -1512,7 +1512,7 @@ declare namespace pointer {
    *
    * @param { number } windowId - Window ID.
    * @param { CustomCursor } cursor - Custom cursor, including the custom cursor resource and focus position.
-   * @param { CursorOptions } options - Custom cursor option.
+   * @param { CursorOptions } options - Custom cursor options.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Abnormal windowId parameter passed in;
    * <br>2. Abnormal pixelMap parameter passed in; 3. Abnormal focusX parameter passed in;
