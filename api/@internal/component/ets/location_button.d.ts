@@ -443,6 +443,19 @@ interface LocationButtonInterface {
 }
 
 /**
+ * Callback function when the location button is clicked.
+ *
+ * @typedef { function } LocationButtonCallback
+ * @param { ClickEvent } event - The click event.
+ * @param { LocationButtonOnClickResult } result - The result of click event.
+ * @param { BusinessError<void> } [error] - The error code and message of click event.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
+type LocationButtonCallback = (event: ClickEvent, result: LocationButtonOnClickResult, error?: BusinessError<void>) => void;
+
+/**
  * Defines the attributes of the location button.
  *
  * @extends SecurityComponentMethod<LocationButtonAttribute>
@@ -476,7 +489,16 @@ declare class LocationButtonAttribute extends SecurityComponentMethod<LocationBu
    * @atomicservice
    * @since 11
    */
-  onClick(event: (event: ClickEvent, result: LocationButtonOnClickResult) => void): LocationButtonAttribute;
+  /**
+   * Called when the location button is clicked.
+   *
+   * @param { LocationButtonCallback } event
+   * @returns { LocationButtonAttribute } Returns the attribute of the location button.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  onClick(event: LocationButtonCallback): LocationButtonAttribute;
 }
 
 /**
