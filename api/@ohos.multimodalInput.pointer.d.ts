@@ -513,7 +513,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 14
    */
-  interface CursorOption {
+  interface CursorOptions {
     /**
      * followSystem - Whether to adjust the cursor size based on the system settings.
      * @type { boolean }
@@ -1513,6 +1513,7 @@ declare namespace pointer {
    * @param { number } windowId - Window ID.
    * @param { CustomCursor } cursor - Custom cursor, including the custom cursor resource and focus position.
    * @param { CursorOption } option - Custom cursor option.
+   * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Abnormal windowId parameter passed in;
    * <br>2. Abnormal pixelMap parameter passed in; 3. Abnormal focusX parameter passed in;
    * <br>4. Abnormal focusY parameter passed in.
@@ -1520,7 +1521,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 14
    */
-  function setCustomCursor(windowId: number, cursor: CustomCursor, option: CursorOption): Promise<void>;
+  function setCustomCursor(windowId: number, cursor: CustomCursor, option: CursorOptions): Promise<void>;
 
   /**
    * Set touchpad double tap and drag state.
