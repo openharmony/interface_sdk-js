@@ -86,7 +86,7 @@ import performanceMonitor from '@ohos.arkui.performanceMonitor';
 import { RectShape, CircleShape, EllipseShape, PathShape } from '@ohos.arkui.shape';
 import {
   AtomicServiceBar, ComponentUtils, ContextMenuController, CursorController, DragController, Font, KeyboardAvoidMode, MediaQuery, OverlayManager, PromptAction, Router,
-  UIContext, UIInspector, UIObserver, PageInfo, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, FrameCallback, MeasureUtils
+  UIContext, UIInspector, UIObserver, PageInfo, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, FrameCallback, MeasureUtils, OverlayManagerOptions
 } from '@ohos.arkui.UIContext';
 import curves from '@ohos.curves';
 import {
@@ -222,5 +222,5 @@ export {
   Rect, RoundRect, edgeColors, edgeWidths, borderStyles, borderRadiuses, ParticleModifier,
   InnerFullScreenLaunchComponent, LaunchController, AccessibilitySelectedType, AccessibilityOptions, CloseOptions, ChipSuffixSymbolGlyphOptions,
   SuffixImageIconOptions, SymbolItemOptions,
-  SplitPolicy, MultiNavigation, MultiNavPathStack,
+  SplitPolicy, MultiNavigation, MultiNavPathStack, OverlayManagerOptions
 };
