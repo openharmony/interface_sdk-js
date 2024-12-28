@@ -2191,6 +2191,33 @@ declare namespace sim {
   function getDsdsMode(): Promise<DsdsMode>;
 
   /**
+   * Performs SIM card authentication.
+   *
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @param { number } slotId - Sim slot id.
+   * @param { AuthType } authType - The authentication type.
+   * @param { string } authData - Ser password or other authentication information.
+   * @returns { Promise<SimAuthenticationResponse> } A string the response of authentication.This value will be null in
+   * the following cases: Authentication error, incorrect MAC Authentication error, security context not supported Key
+   * freshness failure Authentication error, no memory space available Authentication error, no memory space available
+   * in EFMUK.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Service connection failed.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300004 - No SIM card.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - An error occurred when operating the SIM card.
+   * @syscap SystemCapability.Telephony.CoreService.
+   * @systemapi Hide this for inner system use.
+   * @since 14
+   */
+  function getSimAuthentication(slotId: number, authType: AuthType, authData: string): Promise<SimAuthenticationResponse>
+
+  /**
    * Defines the carrier configuration.
    *
    * @interface OperatorConfig
@@ -3033,6 +3060,73 @@ declare namespace sim {
      * @since 11
      */
     CHINA_TELECOM_CARD = 'china_telecom_card',
+  }
+
+  /**
+   * Indicates the Authentication type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Telephony.CoreService
+   * @systemapi Hide this for inner system use.
+   * @since 14
+  */
+  export enum AuthType {
+    /**
+     * Authentication type is EAP-SIM. See RFC 4186
+     * 
+     * @syscap SystemCapability.Telephony.CoreService
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    SIM_AUTH_EAP_SIM_TYPE = 128,
+    /**
+     * Authentication type is EAP-AKA. See RFC 4187
+     * 
+     * @syscap SystemCapability.Telephony.CoreService
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    SIM_AUTH_EAP_AKA_TYPE = 129,
+  }
+
+  /**
+   * Defines the SIM card authentication response.
+   * 
+   * @interface SimAuthenticationResponse
+   * @syscap SystemCapability.Telephony.CoreService
+   * @systemapi Hide this for inner system use.
+   * @since 14
+   */
+  export interface SimAuthenticationResponse {
+    /**
+     * Status word 1 of the SIM card, which is returned by the SIM card after command execution.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Telephony.CoreService
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    simStatusWord1: number;
+  
+    /**
+     * Status word 2 of the SIM card, which is returned by the SIM card after command execution.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Telephony.CoreService
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    simStatusWord2: number;
+
+    /**
+     * Indicates the response of authentication.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.CoreService
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    response: string;
   }
 }
 
