@@ -1619,6 +1619,16 @@ declare namespace pasteboard {
      * @since 14
      */
     getMimeTypes(): Promise<Array<string>>;
+
+    /**
+     * Gets the number of Pasteboard data changes.
+     * 
+     * @returns { number } The number of Pasteboard data changes.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 16
+     */
+    getChangeCount(): number;
   }
 }
 
