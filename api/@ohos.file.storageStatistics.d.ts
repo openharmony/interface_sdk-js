@@ -442,11 +442,11 @@ parameters are left unspecified;
    *
    * @param { AsyncCallback<number> } callback - callback
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
-   parameters are left unspecified;
+parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 15
+   * @since 16
    */
   function getTotalSize(callback: AsyncCallback<number>): void;
 
@@ -470,11 +470,11 @@ parameters are left unspecified;
    *
    * @returns { Promise<number> } return Promise
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
-   parameters are left unspecified;
+parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 15
+   * @since 16
    */
   function getTotalSize(): Promise<number>;
 
@@ -492,6 +492,18 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 10
+   */
+  /**
+   * Get the total size with sync interface
+   *
+   * @permission ohos.permission.STORAGE_MANAGER
+   * @returns { number } return the total size
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
+parameters are left unspecified;
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13900042 - Unknown error.
+   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @since 16
    */
   function getTotalSizeSync(): number;
 
@@ -515,11 +527,11 @@ parameters are left unspecified;
    *
    * @param { AsyncCallback<number> } callback - callback
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
-   parameters are left unspecified;
+parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 15
+   * @since 16
    */
   function getFreeSize(callback: AsyncCallback<number>): void;
 
@@ -543,11 +555,11 @@ parameters are left unspecified;
    *
    * @returns { Promise<number> } return Promise
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
-   parameters are left unspecified;
+parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 15
+   * @since 16
    */
   function getFreeSize(): Promise<number>;
 
@@ -565,6 +577,17 @@ parameters are left unspecified;
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 10
+   */
+  /**
+   * Get the free size with sync interface.
+   *
+   * @returns { number } return the free size
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
+parameters are left unspecified;
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13900042 - Unknown error.
+   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @since 16
    */
   function getFreeSizeSync(): number;
 }
