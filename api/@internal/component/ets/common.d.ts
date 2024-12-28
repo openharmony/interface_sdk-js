@@ -15496,7 +15496,6 @@ declare interface MenuElement {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -15930,7 +15929,6 @@ declare type ImageModifier = import('../api/arkui/ImageModifier').ImageModifier;
  *
  * @typedef {import('../api/arkui/SymbolGlyphModifier').SymbolGlyphModifier} SymbolGlyphModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @atomicservice
  * @since 12
  */
