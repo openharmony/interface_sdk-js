@@ -136,6 +136,17 @@ declare namespace ble {
   function createGattClientDevice(deviceId: string): GattClientDevice;
 
   /**
+   * Create a ble scanner instance. Each ble scanner instance can be independently started or stopped.
+   * 
+   * @returns { BleScanner } Returns the promise object.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  function createBleScanner(): BleScanner;
+
+  /**
    * Obtains the list of devices in the connected status.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
@@ -2866,6 +2877,97 @@ declare namespace ble {
   }
 
   /**
+   * Manages the ble scanner.
+   * Before calling a ble scanner method, you must use {@link createBleScanner} to create an BleScanner instance.
+   * 
+   * @typedef BleScanner
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  interface BleScanner {
+    /**
+     * Starts scanning for specified BLE devices with filters.
+     * 
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { Array<ScanFilter> } filters - Indicates the list of filters used to filter out specified devices.
+     * If you do not want to use filter, set this parameter to {@code null}.
+     * @param { ScanOptions } options - Indicates the parameters for scanning and if the user does not assign a value,
+     * the default value will be used. {@link ScanOptions#interval} set to 0,
+     * and {@link ScanOptions#dutyMode} set to {@link SCAN_MODE_LOW_POWER}
+     * and {@link ScanOptions#matchMode} set to {@link MATCH_MODE_AGGRESSIVE}.
+     * and {@link ScanOptions#phyType} set to {@link PHY_LE_ALL_SUPPORTED}.
+     * and {@link ScanOptions#reportMode} set to {@link ScanReportMode#NORMAL}.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900009 - Fails to start scan as it is out of hardware resources.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @throws { BusinessError } 2902050 - Failed to start scan as Ble scan is already started by the app.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    startScan(filters: Array<ScanFilter>, options?: ScanOptions): Promise<void>;
+    /**
+     * Stops BLE scanning
+     * 
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    stopScan(): Promise<void>;
+    /**
+     * Subscribe BLE scan result.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { 'BLEDeviceFind' } type - Type of the scan result event to listen for.
+     * @param { Callback<ScanReport> } callback - Callback used to listen for the scan result event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    on(type: 'BLEDeviceFind', callback: Callback<ScanReport>): void;
+    /**
+     * Unsubscribe BLE scan result.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { 'BLEDeviceFind' } type - Type of the scan result event to listen for.
+     * @param { Callback<ScanReport> } callback - Callback used to listen for the scan result event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+     off(type: 'BLEDeviceFind', callback?: Callback<ScanReport>): void;
+  }
+
+  /**
    * Describes the Gatt service.
    *
    * @typedef GattService
@@ -3133,6 +3235,16 @@ declare namespace ble {
      * @since 13
      */
     properties?: GattProperties;
+    /**
+     * The character value handle of a BLECharacteristic instance
+     * 
+     * @type { ?number }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    characteristicValueHandle?: number;
   }
 
   /**
@@ -3260,6 +3372,16 @@ declare namespace ble {
      * @since 13
      */
     descriptorValue: ArrayBuffer;
+    /**
+     * The descriptor handle of the BLEDescriptor instance
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+     descriptorHandle?: number;
   }
 
   /**
@@ -4491,6 +4613,38 @@ declare namespace ble {
   }
 
   /**
+   * Describes the contents of the scan report.
+   * 
+   * @typedef ScanReport
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  interface ScanReport {
+    /**
+     * The type of scan report
+     * 
+     * @type { ScanReportType }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    reportType: ScanReportType;
+    /**
+     * Describes the contents of the scan results.
+     * 
+     * @type { Array<ScanResult> }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    scanResult: Array<ScanResult>;
+  }
+
+  /**
    * Describes the settings for BLE advertising.
    *
    * @typedef AdvertiseSetting
@@ -4707,6 +4861,16 @@ declare namespace ble {
      * @since 13
      */
     includeDeviceName?: boolean;
+    /**
+     * Indicates whether the tx power will be included in the advertisement packet.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    includeTxPower?: boolean;
   }
 
   /**
@@ -5456,6 +5620,16 @@ declare namespace ble {
      * @since 13
      */
     phyType?: PhyType;
+    /**
+     * Report mode used during scan.
+     *
+     * @type { ?ScanReportMode }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+     reportMode?: ScanReportMode;
   }
 
   /**
@@ -5921,6 +6095,77 @@ declare namespace ble {
      * @since 13
      */
     PHY_LE_ALL_SUPPORTED = 255
+  }
+
+  /**
+   * Report mode used during scan.
+   * 
+   * @enum { number }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  enum ScanReportMode {
+    /**
+     * In normal mode, the advertisement packet is reported immediately after being scanned.
+     * 
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    NORMAL = 1,
+    /**
+     * In low sensitivity fence mode, the advertisement packets are reported only when they are received for
+     * the first time and lost for the last time. The reception sensitivity is low.
+     * 
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    FENCE_SENSITIVITY_LOW = 10,
+    /**
+     * In high sensitivity fence mode, the advertisement packets are reported only when they are received for
+     * the first time and lost for the last time. The reception sensitivity is high.
+     * 
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    FENCE_SENSITIVITY_HIGH = 11,
+  }
+
+  /**
+   * Scan report type used during scan.
+   * 
+   * @enum { number }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  enum ScanReportType {
+    /**
+     * The found of advertisement packet.
+     * 
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    ON_FOUND = 1,
+    /**
+     * The lost of advertisement packet.
+     * 
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    ON_LOST = 2,
   }
 }
 
