@@ -25363,6 +25363,16 @@ declare type ComponentContent<T = Object> = import('../api/arkui/ComponentConten
 declare type Theme = import('../api/@ohos.arkui.theme').Theme;
 
 /**
+ * Import the DialogController type from promptAction.
+ *
+ * @typedef { import('../api/@ohos.promptAction').promptAction.DialogController } PromptActionDialogController
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
+declare type PromptActionDialogController = import('../api/@ohos.promptAction').promptAction.DialogController;
+
+/**
  * Custom Component
  *
  * @extends CommonAttribute
@@ -26110,6 +26120,17 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @since 16
    */
    onDidBuild?(): void;
+
+  /**
+   * The dialog controller of the custom component.
+   *
+   * @returns { PromptActionDialogController | undefined } The controller of dialog, or undefined if it is not available
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  getDialogController(): PromptActionDialogController | undefined;
 }
 /**
  * View

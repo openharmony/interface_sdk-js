@@ -915,6 +915,17 @@ export class Router {
 }
 
 /**
+ * Defines the custom builder with id.
+ *
+ * @typedef { function } CustomBuilderWithId
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare type CustomBuilderWithId = (id: number) => void;
+
+/**
  * class PromptAction
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1155,6 +1166,26 @@ export class PromptAction {
   openCustomDialog<T extends Object>(dialogContent: ComponentContent<T>, options?: promptAction.BaseDialogOptions): Promise<void>;
 
   /**
+   * Open the custom dialog with frameNode and controller.
+   *
+   * @param { ComponentContent<T> } dialogContent - the content of custom dialog.
+   * @param { promptAction.DialogController } controller - Dialog controller.
+   * @param { promptAction.BaseDialogOptions } options - Options.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
+   * @throws { BusinessError } 103302 - Dialog content already exists.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  openCustomDialogWithController<T extends Object>(dialogContent: ComponentContent<T>, controller: promptAction.DialogController, options?: promptAction.BaseDialogOptions): Promise<void>;
+
+  /**
    * Update the custom dialog with frameNode.
    *
    * @param { ComponentContent<T> } dialogContent - the content of custom dialog.
@@ -1207,6 +1238,25 @@ export class PromptAction {
    * @since 12
    */
   openCustomDialog(options: promptAction.CustomDialogOptions): Promise<number>;
+
+  /**
+   * Present the custom dialog with controller.
+   *
+   * @param { CustomBuilder | CustomBuilderWithId } builder - Dialog builder.
+   * @param { promptAction.DialogController } controller - Dialog controller.
+   * @param { promptAction.DialogOptions } options - Options.
+   * @returns { Promise<number> } return the dialog id that will be used by closeCustomDialog.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  presentCustomDialog(builder: CustomBuilder | CustomBuilderWithId, controller?: promptAction.DialogController, options?: promptAction.DialogOptions): Promise<number>;
 
   /**
    * Close the custom dialog.
