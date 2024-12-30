@@ -461,6 +461,17 @@ export class FrameNode {
   get commonEvent(): UICommonEvent;
 
   /**
+   * Get gestureEvent of the current FrameNode.
+   *
+   * @returns { UIGestureEvent } - Returns a Object inside the FrameNode, which is used to set callbacks about different gesture events.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  get gestureEvent(): UIGestureEvent;
+
+  /**
    * Get the CommonAttribute of the current FrameNode.
    *
    * @returns { CommonAttribute } - Returns the CommonAttribute which is used to modify the common attributes of the FrameNode.
