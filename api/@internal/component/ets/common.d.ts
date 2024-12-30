@@ -1315,6 +1315,52 @@ declare function getContext(component?: Object): Context;
 declare const Reusable: ClassDecorator;
 
 /**
+ * Defining ReusableV2 ClassDecorator that is used to decorated @ComponentV2.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 16
+ */
+declare const ReusableV2: ClassDecorator;
+
+ /**
+   * ReuseId callback type. It is used to computed reuseId.
+   *
+   * @typedef { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+ declare type ReuseIdCallback = () => string;
+
+/**
+ * Defining the reusable configuration parameters.
+ *
+ * @interface ReuseOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 16
+ */
+declare interface ReuseOptions {
+  /**
+   * Defining reuseId function, it can be changed by state variable. The default reuseId is the custom component name.
+   *
+   * @type { ?ReuseIdCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  reuseId? : ReuseIdCallback;
+}
+/**
  * Get context.
  *
  * @typedef { import('../api/application/Context').default } Context
@@ -22154,6 +22200,19 @@ declare class CommonMethod<T> {
    */
   reuseId(id: string): T;
 
+   /**
+   * Reuse id is used for identify the reuse type for each @ComponentV2 custom node, which can give user control of sub-component recycle and reuse.
+   *
+   * @param { ReuseOptions } options - The configuration parameter for reusable custom node.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+   reuse(options: ReuseOptions): T;
+
   /**
    * Sets how content is drawn within nodes duration animation
    *
@@ -24164,9 +24223,99 @@ declare type Theme = import('../api/@ohos.arkui.theme').Theme;
  * @atomicservice
  * @since 11
  */
-declare class CustomComponent extends CommonAttribute {
+/**
+ * Custom Component
+ *
+ * @extends BaseCustomComponent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 16
+ */
+declare class CustomComponent extends BaseCustomComponent {
   /**
-   * Customize the pop-up content constructor.
+   * aboutToReuse Method
+   *
+   * @param { object } params - Custom component init params.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * aboutToReuse Method
+   *
+   * @param { object } params - Custom component init params.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  aboutToReuse?(params: { [key: string]: unknown }): void;
+
+  /**
+   * Custom component override this method to layout each of its sub components.
+   *
+   * @param { Array<LayoutChild> } children
+   * @param { ConstraintSizeOptions } constraint
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   * @deprecated since 10
+   * @useinstead CustomComponent#onPlaceChildren
+   */
+  onLayout?(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void;
+
+  /**
+   * Custom component override this method to measure each of its sub components.
+   *
+   * @param { Array<LayoutChild> } children
+   * @param { ConstraintSizeOptions } constraint
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   * @deprecated since 10
+   * @useinstead CustomComponent#onMeasureSize
+   */
+  onMeasure?(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void;
+}
+
+/**
+ * Custom ComponentV2
+ *
+ * @extends BaseCustomComponent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 16
+ */
+declare class CustomComponentV2 extends BaseCustomComponent {
+  /**
+   * aboutToReuse Method for @ComponentV2, it is executed when moving instance of custom component to RecyclePool. It is different from the @Reusable in CustomComponent, there is no param parameter in this callback.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  aboutToReuse?(): void;
+}
+
+/**
+ * Custom Component base class and it is migrated from class CustomComponent.
+ *
+ * @extends BaseCustomComponent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 16
+ */
+declare class BaseCustomComponent extends CommonAttribute {
+    /**
+   * Customize the pop-up content constructor .
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -24194,6 +24343,15 @@ declare class CustomComponent extends CommonAttribute {
    * @form
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Customize the pop-up content constructor and it is migrated from class CustomComponent.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
    */
   build(): void;
 
@@ -24235,6 +24393,17 @@ declare class CustomComponent extends CommonAttribute {
    * @atomicservice
    * @since 11
    */
+  /**
+   * aboutToAppear Method and it is migrated from class CustomComponent.
+   *
+   * The aboutToAppear function is executed after a new instance of the custom component is created, before its build() function is executed. 
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
   aboutToAppear?(): void;
 
   /**
@@ -24275,28 +24444,20 @@ declare class CustomComponent extends CommonAttribute {
    * @atomicservice
    * @since 11
    */
+  /**
+   * aboutToDisappear Method and it is migrated from class CustomComponent.
+   *
+   * The aboutToDisappear function executes before a custom component is destroyed. 
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
   aboutToDisappear?(): void;
 
   /**
-   * aboutToReuse Method
-   *
-   * @param { object } params - Custom component init params.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * aboutToReuse Method
-   *
-   * @param { object } params - Custom component init params.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  aboutToReuse?(params: { [key: string]: unknown }): void;
-
-  /**
    * aboutToRecycle Method
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -24310,6 +24471,14 @@ declare class CustomComponent extends CommonAttribute {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * aboutToRecycle Method and it is migrated from class CustomComponent.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   aboutToRecycle?(): void;
 
@@ -24322,24 +24491,20 @@ declare class CustomComponent extends CommonAttribute {
    * @atomicservice
    * @since 12
    */
+  /**
+   * The onWillApplyTheme function is a custom hook to get active theme object from the context, it is migrated from class CustomComponent.
+   * 
+   * @param { Theme } theme - Custom theme init params.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   onWillApplyTheme?(theme: Theme): void;
 
   /**
    * Custom component override this method to layout each of its sub components.
    *
-   * @param { Array<LayoutChild> } children
-   * @param { ConstraintSizeOptions } constraint
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   * @deprecated since 10
-   * @useinstead CustomComponent#onPlaceChildren
-   */
-  onLayout?(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void;
-
-  /**
-   * Custom component override this method to layout each of its sub components.
-   *
    * @param { GeometryInfo } selfLayoutInfo
    * @param { Array<Layoutable> } children
    * @param { ConstraintSizeOptions } constraint
@@ -24357,24 +24522,22 @@ declare class CustomComponent extends CommonAttribute {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Custom component override this method to layout each of its sub components, it is migrated from class CustomComponent.
+   *
+   * @param { GeometryInfo } selfLayoutInfo
+   * @param { Array<Layoutable> } children
+   * @param { ConstraintSizeOptions } constraint
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   onPlaceChildren?(selfLayoutInfo: GeometryInfo, children: Array<Layoutable>, constraint: ConstraintSizeOptions): void;
 
   /**
    * Custom component override this method to measure each of its sub components.
-   *
-   * @param { Array<LayoutChild> } children
-   * @param { ConstraintSizeOptions } constraint
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   * @deprecated since 10
-   * @useinstead CustomComponent#onMeasureSize
-   */
-  onMeasure?(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void;
-
-  /**
-   * Custom component override this method to measure each of its sub components.
    * @param { GeometryInfo } selfLayoutInfo
    * @param { Array<Measurable> } children - indicate the measure child
    * @param { ConstraintSizeOptions } constraint - indicate child constraint size
@@ -24393,6 +24556,17 @@ declare class CustomComponent extends CommonAttribute {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Custom component override this method to measure each of its sub components, it is migrated from class CustomComponent.
+   * @param { GeometryInfo } selfLayoutInfo
+   * @param { Array<Measurable> } children - indicate the measure child
+   * @param { ConstraintSizeOptions } constraint - indicate child constraint size
+   * @returns { SizeResult }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   onMeasureSize?(selfLayoutInfo: GeometryInfo, children: Array<Measurable>, constraint: ConstraintSizeOptions): SizeResult;
 
@@ -24423,6 +24597,16 @@ declare class CustomComponent extends CommonAttribute {
    * @atomicservice
    * @since 11
    */
+  /**
+   * onPageShow Method and it is migrated from class CustomComponent.
+   *
+   * The page is triggered once each time it is displayed, including scenarios such as the routing process and the application entering the foreground
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   onPageShow?(): void;
 
   /**
@@ -24452,6 +24636,16 @@ declare class CustomComponent extends CommonAttribute {
    * @atomicservice
    * @since 11
    */
+  /**
+   * onPageHide Method and it is migrated from class CustomComponent.
+   *
+   * It is triggered once each time the page is hidden, including scenarios such as the routing process and the application entering the background
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   onPageHide?(): void;
 
   /**
@@ -24477,6 +24671,18 @@ declare class CustomComponent extends CommonAttribute {
    * @atomicservice
    * @since 12
    */
+  /**
+   * onFormRecycle Method, this is only for ArkTS form, if form was marked recyclable by form user, when system memory is low,
+   * it will be recycled after calling this method, you should return a string of params that you wish to be saved, it will be
+   * passed back as params in onFormRecover, in which you can recover the form, it is migrated from class CustomComponent.
+   *
+   * @returns { string } status data of ArkTS form UI, this data will be passed in when recover form later
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
   onFormRecycle?(): string;
 
   /**
@@ -24497,6 +24703,16 @@ declare class CustomComponent extends CommonAttribute {
    * @form
    * @atomicservice
    * @since 12
+   */
+  /**
+   * onFormRecover Method, this is only for ArkTS form, it is migrated from class CustomComponent.
+   *
+   * @param { string } statusData - indicate status data of ArkTS form UI, which is acquired by calling onFormRecycle, it is used to recover form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
    */
   onFormRecover?(statusData: string): void;
 
@@ -24534,6 +24750,19 @@ declare class CustomComponent extends CommonAttribute {
    * @atomicservice
    * @since 11
    */
+  /**
+   * onBackPress Method and it is migrated from class CustomComponent.
+   *
+   * Triggered when the user clicks the back button
+   * 
+   * @returns { void | boolean } true means that the page itself processes the return logic.
+   * false means that the default return logic is used.
+   * If no value is returned, the default return logic is used.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   onBackPress?(): void | boolean;
 
   /**
@@ -24560,6 +24789,15 @@ declare class CustomComponent extends CommonAttribute {
    * @atomicservice
    * @since 11
    */
+  /**
+   * PageTransition Method and it is migrated from class CustomComponent.
+   * Implement Animation when enter this page or move to other pages.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   pageTransition?(): void;
 
   /**
@@ -24579,6 +24817,15 @@ declare class CustomComponent extends CommonAttribute {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Get current UIContext and it is migrated from class CustomComponent.
+   *
+   * @returns { UIContext } The UIContext that the custom component belongs to.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   getUIContext(): UIContext;
 
   /**
@@ -24589,6 +24836,15 @@ declare class CustomComponent extends CommonAttribute {
    * @crossplatform
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Get uniqueId of the custom component and it is migrated from class CustomComponent.
+   *
+   * @returns { number } - The uniqueId of the custom component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   getUniqueId(): number;
 
@@ -24609,6 +24865,15 @@ declare class CustomComponent extends CommonAttribute {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Queries the navigation destination information and it is migrated from class CustomComponent.
+   *
+   * @returns { NavDestinationInfo | undefined } The navigation destination information, or undefined if it is not available.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   queryNavDestinationInfo(): NavDestinationInfo | undefined;
 
   /**
@@ -24620,6 +24885,15 @@ declare class CustomComponent extends CommonAttribute {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Query the navigation information of the current custom component and it is migrated from class CustomComponent.
+   * 
+   * @returns { NavigationInfo | undefined } The navigation information, or undefined if it is not available
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   queryNavigationInfo(): NavigationInfo | undefined;
 
   /**
@@ -24630,6 +24904,15 @@ declare class CustomComponent extends CommonAttribute {
    * @crossplatform
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Query the router page information of the current custom component and it is migrated from class CustomComponent.
+   *
+   * @returns { RouterPageInfo | undefined } The router page information, or undefined if it is not available.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
    queryRouterPageInfo(): RouterPageInfo | undefined;
 
@@ -24643,9 +24926,18 @@ declare class CustomComponent extends CommonAttribute {
    * @atomicservice
    * @since 12
    */
+  /**
+   * The callback method after the custom component is built and it is migrated from class CustomComponent.
+   *
+   * Triggered when the custom component has been built.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
    onDidBuild?(): void;
 }
-
 /**
  * View
  *
