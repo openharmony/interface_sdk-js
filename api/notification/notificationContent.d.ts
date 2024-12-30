@@ -212,7 +212,7 @@ export enum LiveViewStatus {
  * @systemapi
  * @since 16
  */
-export enum LiveViewType {
+export enum LiveViewTypes {
   /**
    * Real-time activity live view Notification.
    *
@@ -480,7 +480,7 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
    * @systemapi
    * @since 16
    */
-  liveViewType: LiveViewType;
+  liveViewType?: LiveViewTypes;
 }
 
 /**
