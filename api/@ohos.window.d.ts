@@ -5560,7 +5560,7 @@ declare namespace window {
      * @since 14
      */
     off(type: 'displayIdChange', callback?: Callback<number>): void;
-    
+
     /**
      * Window visibility change callback on.
      *
