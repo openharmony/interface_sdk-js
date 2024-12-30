@@ -56,6 +56,15 @@ export interface EditorMenuOptions {
   icon: ResourceStr;
 
   /**
+   * Symbol style of menu icon.
+   * @type { ?SymbolGlyphModifier }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  symbolStyle?: SymbolGlyphModifier;
+
+  /**
    * Callback function when click the icon.
    * 
    * @type { ?function }
