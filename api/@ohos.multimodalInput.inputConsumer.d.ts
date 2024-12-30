@@ -25,7 +25,8 @@ import { Callback } from './@ohos.base';
  *
  * @namespace inputConsumer
  * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
- * @since 14
+ * @systemapi hide for inner use
+ * @since 8
  */
 declare namespace inputConsumer {
   /**
@@ -76,16 +77,6 @@ declare namespace inputConsumer {
      * @since 8
      */
     finalKeyDownDuration: number;
-
-    /**
-     * Whether to report repeated key events. By default, the value is true if it is left unspecified.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @systemapi hide for inner use
-     * @since 14
-     */
-    isRepeat?: boolean;
   }
 
   /**
