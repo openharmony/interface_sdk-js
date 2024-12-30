@@ -2964,7 +2964,7 @@ declare namespace ble {
      * @atomicservice
      * @since 16
      */
-     off(type: 'BLEDeviceFind', callback?: Callback<ScanReport>): void;
+    off(type: 'BLEDeviceFind', callback?: Callback<ScanReport>): void;
   }
 
   /**
