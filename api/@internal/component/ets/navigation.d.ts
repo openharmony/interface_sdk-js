@@ -1171,7 +1171,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   replaceDestination(info: NavPathInfo, options?: NavigationOptions): Promise<void>;
 
