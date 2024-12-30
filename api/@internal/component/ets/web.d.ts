@@ -700,10 +700,9 @@ declare enum CacheMode {
    * load cache when they are available and not expired, otherwise load online.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
+   * @since 16
    */
-  Default = 0,
+  DEFAULT = 0,
 
   /**
    * load cache when they are available, otherwise load online.
@@ -721,6 +720,14 @@ declare enum CacheMode {
   None = 1,
 
   /**
+   * load cache when they are available even if the cache is expired.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 16
+   */
+  CACHEELSENETWORK = 1,
+ 
+  /**
    * Load online and not cache.
    *
    * @syscap SystemCapability.Web.Webview.Core
@@ -736,6 +743,14 @@ declare enum CacheMode {
   Online = 2,
 
   /**
+   * load only from network, not use cache.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 16
+   */
+  NOCACHE = 2,
+
+  /**
    * load cache and not online.
    *
    * @syscap SystemCapability.Web.Webview.Core
@@ -749,6 +764,14 @@ declare enum CacheMode {
    * @since 11
    */
   Only = 3
+
+  /**
+   * load only from cache.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 16
+   */
+  CACHEONLY = 3
 }
 
 /**
