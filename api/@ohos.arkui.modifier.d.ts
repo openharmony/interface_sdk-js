@@ -192,7 +192,6 @@ export { ImageModifier } from './arkui/ImageModifier';
 /**
  * Export SymbolGlyphModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @since 12
  */
 export { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
