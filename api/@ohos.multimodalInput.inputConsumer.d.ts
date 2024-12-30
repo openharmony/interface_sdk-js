@@ -25,8 +25,7 @@ import { Callback } from './@ohos.base';
  *
  * @namespace inputConsumer
  * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
- * @systemapi hide for inner use
- * @since 8
+ * @since 14
  */
 declare namespace inputConsumer {
   /**
