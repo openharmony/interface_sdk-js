@@ -164,6 +164,9 @@ import {
   InnerFullScreenLaunchComponent,
   LaunchController
 } from '@ohos.arkui.advanced.InnerFullScreenLaunchComponent';
+import {
+  SplitPolicy, MultiNavigation, MultiNavPathStack
+} from '@ohos.arkui.advanced.MultiNavigation';
 export {
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, App, AppResponse, AtomicServiceBar,
   AtomicServiceNavigation, NavDestinationBuilder,
@@ -220,6 +223,7 @@ export {
   SegmentButtonItemOptionsConstructorOptions, SegmentButtonItemOptions, DownloadFileButton,
   DownloadLayoutDirection, DownloadIconStyle, DownloadDescription, DownloadContentOptions, DownloadStyleOptions, NodeAdapter,
   Rect, RoundRect, edgeColors, edgeWidths, borderStyles, borderRadiuses, ParticleModifier,
-  InnerFullScreenLaunchComponent, LaunchController, AccessibilitySelectedType, AccessibilityOptions, CloseOptions, ChipSuffixSymbolGlyphOptions,
-  SuffixImageIconOptions, SymbolItemOptions,
+  InnerFullScreenLaunchComponent, LaunchController,
+  SplitPolicy, MultiNavigation, MultiNavPathStack, AccessibilitySelectedType, AccessibilityOptions, CloseOptions,
+  ChipSuffixSymbolGlyphOptions, SuffixImageIconOptions, SymbolItemOptions,
 };
