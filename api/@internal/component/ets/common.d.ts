@@ -15840,6 +15840,17 @@ declare interface ContextMenuOptions {
   preview?: MenuPreviewMode | CustomBuilder;
 
   /**
+   * Defines the border radius for preview of menu.
+   *
+   * @type { ?(Length | BorderRadiuses | LocalizedBorderRadiuses) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  previewBorderRadius?: Length | BorderRadiuses | LocalizedBorderRadiuses;
+
+  /**
    * Defines the border radius of menu.
    *
    * @type { ?(Length | BorderRadiuses | LocalizedBorderRadiuses) }
