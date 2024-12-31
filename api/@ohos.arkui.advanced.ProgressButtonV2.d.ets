@@ -157,7 +157,7 @@ export declare class ProgressButtonV2Color {
    * @atomicservice
    * @since 16
    */
-  constructor (options: ProgressButtonV2ColorOptions);
+  constructor(options: ProgressButtonV2ColorOptions);
 }
 
 /**
