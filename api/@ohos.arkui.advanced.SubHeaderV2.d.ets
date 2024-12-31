@@ -17,7 +17,7 @@
  * @file api/@ohos.arkui.advanced.SubHeaderV2.d.ts
  * @kit ArkUI
  */
-import { TextModifier as TextModifier } from "@ohos.arkui.modifier";
+import { TextModifier as TextModifier } from '@ohos.arkui.modifier';
 
 /**
  * SubHeaderV2IconType
