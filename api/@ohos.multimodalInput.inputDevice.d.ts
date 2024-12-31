@@ -627,6 +627,15 @@ declare namespace inputDevice {
    * @since 10
    */
   function getKeyboardRepeatRate(): Promise<number>;
+
+  /**
+   * Obtains the interval since the last input.
+   *
+   * @returns { Promise<number> } Promise used to return the interval since the last input.
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @since 14
+   */
+  function getIntervalSinceLastInput(): Promise<number>;
 }
 
 export default inputDevice;
