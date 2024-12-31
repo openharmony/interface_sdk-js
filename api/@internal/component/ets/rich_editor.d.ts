@@ -2090,6 +2090,26 @@ declare interface RichEditorBuilderSpanOptions {
    * @since 12
    */
   offset?: number;
+
+  /**
+   * builder span drag background color
+   *
+   * @type { ?ColorMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 16
+   */
+  dragBackgroundColor? : ColorMetrics;
+
+  /**
+   * builder span drag shadow configuration
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 16
+   */
+  isDragShadowNeeded?: boolean;
 }
 
 /**
