@@ -95,7 +95,6 @@ declare namespace motion {
    * @param { Callback<OperatingHandStatus> } callback - Indicates the callback for getting the event data.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get the recent operatingHand
    * <br> status forbidden by permission: ohos.permission.ACTIVITY_MOTION.
-   * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Function on Can not work correctly due to limited
    * <br> device capabilities.
    * @throws { BusinessError } 31500001 - Service exception.
