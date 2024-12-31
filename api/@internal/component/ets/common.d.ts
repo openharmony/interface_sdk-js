@@ -19088,6 +19088,18 @@ declare class CommonMethod<T> {
   onKeyEvent(event: (event: KeyEvent) => void): T;
 
   /**
+   * Keyboard input
+   *
+   * @param { Callback<KeyEvent, boolean> } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onKeyEvent(event: Callback<KeyEvent, boolean>): T;
+
+  /**
    * Digital crown input.
    *
    * @param { Callback<CrownEvent> } event
@@ -19109,6 +19121,18 @@ declare class CommonMethod<T> {
    * @since 12
    */
   onKeyPreIme(event: Callback<KeyEvent, boolean>): T;
+
+  /**
+   * Customize the handling and distribution of key events.
+   *
+   * @param { Callback<KeyEvent, boolean> } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onKeyEventDispatch(event: Callback<KeyEvent, boolean>): T;
 
   /**
    * Trigger a FocusAxisEvent.

@@ -2973,6 +2973,18 @@ export class UIContext {
   getKeyboardAvoidMode(): KeyboardAvoidMode;
 
   /**
+   * Dispach keyboard event to the frameNode with inspector key.
+   *
+   * @param { number | string } node - The uniqueId or inspector key of the target FrameNode.
+   * @returns { boolean } Returns whether the key event is consumed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  dispatchKeyEvent(node: number | string, event: KeyEvent): boolean;
+
+  /**
    * Get AtomicServiceBar.
    * @returns { Nullable<AtomicServiceBar> } The atomic service bar.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
