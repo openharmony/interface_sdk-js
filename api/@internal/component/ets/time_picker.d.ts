@@ -564,6 +564,18 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
   onChange(callback: Optional<OnTimePickerChangeCallback>): TimePickerAttribute;
 
   /**
+   * This event is triggered when an item enters the selected area.
+   *
+   * @param { Callback<TimePickerResult> } callback
+   * @returns { TimePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onEnterSelectedArea(callback: Callback<TimePickerResult>): TimePickerAttribute;
+
+  /**
    * Enable or disable haptic feedback.
    *
    * @param { boolean } enable - Default value is true, set false to disable haptic feedback.
@@ -853,6 +865,17 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @since 11
    */
   onChange?: (value: TimePickerResult) => void;
+
+  /**
+   * This event is triggered when an item enters the selected area in dialog.
+   *
+   * @type { ?Callback<TimePickerResult> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onEnterSelectedArea?: Callback<TimePickerResult>;
 
   /**
    * Defines the timePickerDialog's background color
