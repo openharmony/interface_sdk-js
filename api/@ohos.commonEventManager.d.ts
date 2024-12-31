@@ -2190,7 +2190,7 @@ declare namespace commonEventManager {
      * 
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 12
+     * @since 15
      */
     COMMON_EVENT_BUNDLE_RESOURCES_CHANGED = "usual.event.BUNDLE_RESOURCES_CHANGED",    
 
