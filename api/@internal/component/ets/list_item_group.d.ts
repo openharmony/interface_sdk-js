@@ -342,7 +342,7 @@ declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   divider(
     value: ListDividerOptions | null,
