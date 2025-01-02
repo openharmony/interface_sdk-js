@@ -73,14 +73,14 @@ export declare struct ProgressButtonV2 {
   @Param readonly onClicked: ClickCallback;
 
   /**
-   * Sets the ProgressButtonV2 enabled state.
+   * Sets the ProgressButtonV2 isEnabled state.
    * @type { boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @crossplatform
    * @since 16
    */
-  @Param readonly enabled: boolean;
+  @Param readonly isEnabled: boolean;
 
   /**
    * Set Color options of the ProgressButtonV2.
