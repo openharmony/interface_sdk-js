@@ -28,6 +28,7 @@ import type { NotificationLiveViewContent as _NotificationLiveViewContent } from
 import { NotificationMultiLineContent as _NotificationMultiLineContent } from './notification/notificationContent';
 import { NotificationPictureContent as _NotificationPictureContent } from './notification/notificationContent';
 import type { LiveViewStatus as _LiveViewStatus } from './notification/notificationContent';
+import type { LiveViewTypes as _LiveViewTypes } from './notification/notificationContent';
 import { NotificationSystemLiveViewContent as _NotificationSystemLiveViewContent } from './notification/notificationContent';
 import { NotificationCapsule as _NotificationCapsule } from './notification/notificationContent';
 import { NotificationButton as _NotificationButton } from './notification/notificationContent';
@@ -3741,6 +3742,16 @@ declare namespace notificationManager {
    * @since 11
    */
   export type LiveViewStatus = _LiveViewStatus;
+
+  /**
+   * Describes live view notification task type.
+   *
+   * @typedef { _LiveViewTypes } LiveViewTypes
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
+  export type LiveViewTypes = _LiveViewTypes;
 
   /**
    * Provides sorting information about an active notification.

@@ -546,7 +546,7 @@ export interface NotificationCapsule {
    * @systemapi
    * @since 16
    */
-    capsuleButtons?: Array<NotificationIconButton>;
+  capsuleButtons?: Array<NotificationIconButton>;
 }
 
 /**
