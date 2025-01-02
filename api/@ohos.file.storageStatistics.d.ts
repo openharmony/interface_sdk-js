@@ -496,7 +496,6 @@ parameters are left unspecified;
   /**
    * Get the total size with sync interface
    *
-   * @permission ohos.permission.STORAGE_MANAGER
    * @returns { number } return the total size
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
 parameters are left unspecified;
