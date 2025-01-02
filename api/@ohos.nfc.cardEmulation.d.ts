@@ -346,6 +346,7 @@ declare namespace cardEmulation {
     /**
      * Unsubscribe the event to receive the APDU data.
      *
+     * @permission ohos.permission.NFC_CARD_EMULATION
      * @param { 'hceCmd' } type - The type to unregister event.
      * @param { AsyncCallback<number[]> } callback - The callback used to listen for the event.
      * @throws { BusinessError } 201 - Permission denied.
