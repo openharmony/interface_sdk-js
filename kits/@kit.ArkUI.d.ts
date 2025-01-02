@@ -135,6 +135,7 @@ import { AppStorageV2, PersistenceV2, Type, UIUtils, ConnectOptions } from '@oho
 import { IDataSourcePrefetching, IPrefetcher, BasicPrefetcher } from '@ohos.arkui.Prefetcher';
 import uiExtension from '@ohos.arkui.uiExtension';
 import { FullScreenLaunchComponent } from '@ohos.arkui.advanced.FullScreenLaunchComponent';
+import { ArcList, ArcListItem, ArcListAttribute, ArcListItemAttribute } from '@ohos.arkui.ArcList';
 import { AtomicServiceTabs, TabBarOptions, TabBarPosition, TabContentBuilder, OnContentWillChangeCallback } from '@ohos.atomicservice.AtomicServiceTabs';
 import {
   CommonModifier, ColumnModifier, ColumnSplitModifier, RowModifier, RowSplitModifier, SideBarContainerModifier,
@@ -222,5 +223,6 @@ export {
   Rect, RoundRect, edgeColors, edgeWidths, borderStyles, borderRadiuses, ParticleModifier,
   InnerFullScreenLaunchComponent, LaunchController, AccessibilitySelectedType, AccessibilityOptions, CloseOptions, ChipSuffixSymbolGlyphOptions,
   SuffixImageIconOptions, SymbolItemOptions,
-  SplitPolicy, MultiNavigation, MultiNavPathStack, OverlayManagerOptions
+  SplitPolicy, MultiNavigation, MultiNavPathStack, OverlayManagerOptions,
+  ArcList, ArcListItem, ArcListAttribute, ArcListItemAttribute
 };
