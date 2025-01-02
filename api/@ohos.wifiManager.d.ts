@@ -2850,7 +2850,7 @@ declare namespace wifiManager {
      * @systemapi Hide this for inner system use.
      * @since 16
      */
-    isAllowAutoConnect?: boolean;
+    isAutoConnectAllowed?: boolean;
   }
 
   /**
