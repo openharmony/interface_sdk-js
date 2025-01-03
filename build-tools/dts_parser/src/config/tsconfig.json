@@ -103,7 +103,8 @@
         "Web",
         "XComponent",
         "GridRow",
-        "GridCol"
+        "GridCol",
+        "ArcAlphabetIndexer"
       ],
       "extend": {
         "decorator": "Extend",
@@ -592,6 +593,11 @@
             "name": "GridCol",
             "type": "GridColAttribute",
             "instance": "GridColInterface"
+          },
+          {
+            "name": "ArcAlphabetIndexer",
+            "type": "ArcAlphabetIndexerAttribute",
+            "instance": "ArcAlphabetIndexerInstance"
           }
         ]
       },
