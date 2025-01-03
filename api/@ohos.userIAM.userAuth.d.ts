@@ -724,7 +724,16 @@ declare namespace userAuth {
      * @atomicservice
      * @since 12
      */
-    FINGERPRINT = 4
+    FINGERPRINT = 4,
+
+    /**
+     * Authentication type private pin.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @systemapi Hide this for inner system use.
+     * @since 14
+     */
+    PRIVATE_PIN = 16
   }
 
   /**
