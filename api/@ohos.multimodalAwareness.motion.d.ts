@@ -86,7 +86,7 @@ declare namespace motion {
    * @syscap SystemCapability.MultimodalAwarness.Motion
    * @since 16
    */
-  function off(type: 'operatingHandChanged', callbck: Callback<OperatingHandStatus>): void;
+  function off(type: 'operatingHandChanged', callbck?: Callback<OperatingHandStatus>): void;
 
   /**
    * UnSubscribe to detect the operating hand changed event.
