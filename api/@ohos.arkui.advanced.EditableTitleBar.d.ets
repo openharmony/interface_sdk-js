@@ -388,6 +388,7 @@ export declare struct EditableTitleBar {
    * @type { ?boolean }
    * @default { false }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -398,6 +399,7 @@ export declare struct EditableTitleBar {
    * @type { ?boolean }
    * @default { false }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 16
    */
