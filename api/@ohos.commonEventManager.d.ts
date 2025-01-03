@@ -537,7 +537,7 @@ declare namespace commonEventManager {
      * This commonEvent means when the device is about to enter the hibernate mode
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 13
+     * @since 14
      */
     COMMON_EVENT_ENTER_HIBERNATE = 'usual.event.ENTER_HIBERNATE',
 
@@ -545,7 +545,7 @@ declare namespace commonEventManager {
      * This commonEvent means when the device exits the hibernate mode
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 13
+     * @since 14
      */
     COMMON_EVENT_EXIT_HIBERNATE = 'usual.event.EXIT_HIBERNATE',
 
