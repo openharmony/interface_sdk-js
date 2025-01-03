@@ -2894,6 +2894,47 @@ declare namespace notificationManager {
   function disableNotificationFeature(disabled:boolean, bundleList: Array<string>): Promise<void>;
 
   /**
+   * Set whether the channel supports collaborative reminders.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { slotType } slotType - Type of the notification slot.
+   * @param { string } deviceType - The device type.
+   * @param { boolean } enable - Set enable or not.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
+  function setDistributedEnabledBySlot(slotType: SlotType, deviceType: string, enable: boolean): Promise<void>;
+
+  /**
+   * Get whether the channel supports collaborative reminders.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { slotType } slotType - Type of the notification slot.
+   * @param { string } deviceType - The device type.
+   * @returns { Promise<boolean> } Returns whether the channel supports collaborative reminders.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
+  function isDistributedEnabledBySlot(slotType: SlotType, deviceType: string): Promise<boolean>;
+
+  /**
    * Describes a button option for a triggering.
    *
    * @typedef ButtonOptions
