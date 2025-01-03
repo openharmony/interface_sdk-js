@@ -7178,7 +7178,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 16
      */
     url?: string;
 
