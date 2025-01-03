@@ -426,6 +426,16 @@ declare namespace relationalStore {
      * @since 14
      */
     cryptoParam?: CryptoParam;
+
+    /**
+     * Specifies the tokenizer type when using fts capability.
+     *
+     * @type { ?Tokenizer }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 16
+     */
+
+    tokenizer?: Tokenizer;
   }
 
   /**
@@ -615,6 +625,37 @@ declare namespace relationalStore {
      * @since 14
      */
     KDF_SHA512
+  }
+
+  /**
+   * Enumerates the supported tokenizer when opening a database.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 16
+   */
+  enum Tokenizer {
+    /**
+     * NONE_TOKENIZER: not use tokenizer
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 16
+     */
+    NONE_TOKENIZER = 0,
+    /**
+     * ICU_TOKENIZER: native icu tokenizer.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 16
+     */
+    ICU_TOKENIZER,
+    /**
+     * CUSTOM_TOKENIZER: self-developed enhance tokenizer.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 16
+     */
+    CUSTOM_TOKENIZER
   }
 
   /**
