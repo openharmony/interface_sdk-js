@@ -1255,6 +1255,46 @@ declare namespace window {
   }
 
   /**
+   * The info of window density
+   *
+   * @interface WindowDensityInfo
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 15
+   */
+  interface WindowDensityInfo {
+    /**
+     * System density
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    systemDensity: number;
+
+    /**
+     * Default density
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    defaultDensity: number;
+
+    /**
+     * Custom density
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    customDensity: number;
+  }
+
+  /**
    * Properties of window, it couldn't update automatically
    *
    * @interface WindowProperties
@@ -4409,6 +4449,18 @@ declare namespace window {
     getWindowProperties(): WindowProperties;
 
     /**
+     * Get the window density of current window.
+     *
+     * @returns { WindowDensityInfo } Return system density, default density and custom density of window.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    getWindowDensityInfo(): WindowDensityInfo;
+
+    /**
      * Get the avoid area
      *
      * @param { AvoidAreaType } type - Type of the area
@@ -5605,6 +5657,37 @@ declare namespace window {
     off(type: 'windowVisibilityChange', callback?: Callback<boolean>): void;
 
     /**
+     * System density change callback on.
+     *
+     * @param { 'systemDensityChange' } type - The value is fixed at 'systemDensityChange', indicating the system density is current has changed.
+     * @param { Callback<number> } callback - Callback used to notify the system density is current has changed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */   
+    on(type: 'systemDensityChange', callback: Callback<number>): void;
+
+    /**
+     * System density change callback off.
+     *
+     * @param { 'systemDensityChange' } type - The value is fixed at 'systemDensityChange', indicating the system density is current showing has changed.
+     * @param { Callback<number> } callback - Callback used to notify the system density is current has changed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     *                                                                  2. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    off(type: 'systemDensityChange', callback?: Callback<number>): void;
+
+    /**
      * Register the callback function that has no interaction for a long time.
      *
      * @param { 'noInteractionDetected' } type - The value is fixed at 'noInteractionDetected', indicating the window has no interaction for a long time.
@@ -6426,6 +6509,21 @@ declare namespace window {
      * @since 11
      */
     setWindowBrightness(brightness: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sets the custom density of ability.
+     *
+     * @param { number } density - the specified custom density value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    setCustomDensity(density: number): void;
 
     /**
      * Sets the dimBehind of window.
