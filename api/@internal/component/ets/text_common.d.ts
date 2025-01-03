@@ -963,6 +963,18 @@ declare class TextMenuItemId {
    * @since 16
    */
   static readonly SEARCH: TextMenuItemId;
+
+  /**
+   * Indicates the TextMenuItemId to share the selected content.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  static readonly SHARE: TextMenuItemId;
 }
 
 /**
