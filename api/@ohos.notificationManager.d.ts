@@ -2894,12 +2894,12 @@ declare namespace notificationManager {
   function disableNotificationFeature(disabled:boolean, bundleList: Array<string>): Promise<void>;
 
   /**
-   * Set whether the channel supports collaborative reminders.
+   * Set notification slot sunchronization switch.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { slotType } slotType - Type of the notification slot.
+   * @param { SlotType } slot - The slot type.
    * @param { string } deviceType - The device type.
-   * @param { boolean } enable - Set enable or not.
+   * @param { boolean } enabled - The switch state.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -2912,15 +2912,15 @@ declare namespace notificationManager {
    * @systemapi
    * @since 16
    */
-  function setDistributedEnabledBySlot(slotType: SlotType, deviceType: string, enable: boolean): Promise<void>;
+  function setDistributedEnabledBySlot(slot: SlotType, deviceType: string, enabled: boolean): Promise<void>;
 
   /**
-   * Get whether the channel supports collaborative reminders.
+   * Get notification slot sunchronization switch.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { slotType } slotType - Type of the notification slot.
+   * @param { SlotType } slot - The slot type.
    * @param { string } deviceType - The device type.
-   * @returns { Promise<boolean> } Returns whether the channel supports collaborative reminders.
+   * @returns { Promise<boolean> } Returns notification slot sunchronization switch.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2932,7 +2932,7 @@ declare namespace notificationManager {
    * @systemapi
    * @since 16
    */
-  function isDistributedEnabledBySlot(slotType: SlotType, deviceType: string): Promise<boolean>;
+  function isDistributedEnabledBySlot(slot: SlotType, deviceType: string): Promise<boolean>;
 
   /**
    * Describes a button option for a triggering.

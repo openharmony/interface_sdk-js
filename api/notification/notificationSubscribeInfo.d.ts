@@ -58,12 +58,12 @@ export interface NotificationSubscribeInfo {
   deviceType?: string;
 
   /**
-   * Set non subscribed notification subtypes.
+   * Filtered notification type range.
    *
-   * @type { ?number }
+   * @filterLimit { ?number }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 16
    */
-  filterType?: number;
+  filterLimit?: number;
 }
