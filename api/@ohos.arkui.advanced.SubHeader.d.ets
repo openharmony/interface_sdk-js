@@ -216,6 +216,16 @@ export declare class OperationOption {
    * @since 16
    */
   accessibilityLevel?: string;
+
+  /**
+   * Sets the default focus state of the text or icon.
+   * @type { ?boolean }.
+   * @default { false }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  defaultFocus?: boolean;
 }
 
 /**
@@ -328,6 +338,16 @@ export declare class SelectOptions {
   * @since 16
   */
   onSelect?: (index: number, value?: string) => void;
+
+  /**
+   * Sets the default focus state of select.
+   * @type { ?boolean }.
+   * @default { false }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  defaultFocus?: boolean;
 }
 
 /**
