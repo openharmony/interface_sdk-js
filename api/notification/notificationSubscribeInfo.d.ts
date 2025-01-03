@@ -60,7 +60,7 @@ export interface NotificationSubscribeInfo {
   /**
    * Filtered notification type range.
    *
-   * @filterLimit { ?number }
+   * @type { ?number }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 16
