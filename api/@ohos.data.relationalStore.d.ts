@@ -3385,6 +3385,35 @@ declare namespace relationalStore {
     getRow(): ValuesBucket;
 
     /**
+     * Obtains the values of all columns in the specified rows.
+     * @param { number } maxCount - Indicates the maximum number of rows.
+     * @param { number } position - Indicates the start position to obtain the values.
+     * @returns { Promise<Array<ValuesBucket>> } Promise used to return the values obtained, in an{@link Array<ValuesBucket>}.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800012 - Row out of bounds.
+     * @throws { BusinessError } 14800013 - Column out of bounds.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 16
+     */
+    getRows(maxCount: number, position?: number): Promise<Array<ValuesBucket>>;
+
+    /**
      * Obtains the values of all columns in the specified row.
      *
      * @returns { sendableRelationalStore.ValuesBucket } Indicates the row of data
