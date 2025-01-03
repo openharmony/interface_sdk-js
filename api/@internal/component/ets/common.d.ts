@@ -16175,6 +16175,44 @@ declare type RectShape = import('../api/@ohos.arkui.shape').RectShape;
 declare type Optional<T> = T | undefined;
 
 /**
+ * Define the options for background image.
+ *
+ * @interface BackgroundImageOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 16
+ */
+interface BackgroundImageOptions {
+  /**
+   * Sets the synchronous or asynchronous mode for background image loading.
+   * The default parameter type is bool, and the default value is false.
+   *
+   * @type { ?boolean }
+   * @param { boolean } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  syncLoad?: boolean;
+  /**
+   * Set the repeat style of the background image.
+   *
+   * @type { ?ImageRepeat }
+   * @param { ImageRepeat } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  repeat?: ImageRepeat;
+}
+
+/**
  * CommonMethod.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16874,6 +16912,20 @@ declare class CommonMethod<T> {
    */
   backgroundImage(src: ResourceStr | PixelMap, repeat?: ImageRepeat): T;
 
+  /**
+   * Background image
+   *
+   * @param { ResourceStr | PixelMap } src - the background image source
+   * @param { BackgroundImageOptions } options - config the options
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  backgroundImage(src: ResourceStr | PixelMap, options?: BackgroundImageOptions): T;
+    
   /**
    * Background image size
    *
