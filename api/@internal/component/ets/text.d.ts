@@ -1322,6 +1322,16 @@ declare enum TextSpanType {
    * @since 12
    */
   MIXED = 2,
+
+  /**
+   * When no other types are explicitly specified, this type will be matched.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  DEFAULT = 3,
 }
 
 /**
@@ -1392,6 +1402,16 @@ declare enum TextResponseType {
    * @since 12
    */
   SELECT = 2,
+
+  /**
+   * When no other types are explicitly specified, this type will be matched.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  DEFAULT = 3,
 }
 
 /**
