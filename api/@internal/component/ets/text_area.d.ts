@@ -1531,6 +1531,17 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 16
    */
   ellipsisMode(mode: Optional<EllipsisMode>): TextAreaAttribute;
+
+  /**
+   * Set whether stop backPressed callback event or not.
+   *
+   * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  stopBackPress(isStopped: Optional<boolean>): TextAreaAttribute;
 }
 
 /**

@@ -3081,7 +3081,7 @@ declare namespace audio {
      * @throws { BusinessError } 202 - Not system App.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 14
+     * @since 15
      */
     getEffectManager(): AudioEffectManager;
 
@@ -5670,7 +5670,7 @@ declare namespace audio {
    * @typedef AudioEffectManager
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @systemapi
-   * @since 14
+   * @since 15
    */
   interface AudioEffectManager {
     /**
@@ -5682,7 +5682,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 14
+     * @since 15
      */
     getSupportedAudioEffectProperty(): Array<AudioEffectProperty>;
 
@@ -5703,7 +5703,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 14
+     * @since 15
      */
     setAudioEffectProperty(propertyArray: Array<AudioEffectProperty>): void;
 
@@ -5716,7 +5716,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 14
+     * @since 15
      */
     getAudioEffectProperty(): Array<AudioEffectProperty>;
   }
@@ -7985,7 +7985,7 @@ declare namespace audio {
      * Source type for voice transcription and processing.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 14
+     * @since 15
      */
     SOURCE_TYPE_VOICE_TRANSCRIPTION = 12,
 
@@ -10207,23 +10207,24 @@ declare namespace audio {
   /**
    * Enumerates audio effect flags.
    * @enum { number }
-   * @syscap SystemCapability.Multimedia.Audio.xxx
-   * @since 14
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @systemapi
+   * @since 15
    */
   enum EffectFlag {
     /**
      * Audio render effect.
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @crossplatform
-     * @since 14
+     * @systemapi
+     * @since 15
      */
     RENDER_EFFECT_FLAG = 0,
   
     /**
      * Audio capture effect.
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @crossplatform
-     * @since 14
+     * @systemapi
+     * @since 15
      */
     CAPTURE_EFFECT_FLAG = 1
   }
@@ -10233,7 +10234,7 @@ declare namespace audio {
    * @typedef AudioEffectProperty
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @systemapi
-   * @since 14
+   * @since 15
    */
   interface AudioEffectProperty {
     /**
@@ -10241,7 +10242,7 @@ declare namespace audio {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 14
+     * @since 15
      */
     name: string;
 
@@ -10250,7 +10251,7 @@ declare namespace audio {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 14
+     * @since 15
      */
     category: string;
 
@@ -10259,7 +10260,7 @@ declare namespace audio {
      * @type { EffectFlag }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 14
+     * @since 15
      */
     flag: EffectFlag;
   }

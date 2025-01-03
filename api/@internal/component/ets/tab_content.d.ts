@@ -496,7 +496,6 @@ declare interface TabBarIconStyle {
  * TabBarSymbol object.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @atomicservice
  * @since 12
  */
@@ -506,7 +505,6 @@ declare class TabBarSymbol {
    *
    * @type { SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -517,7 +515,6 @@ declare class TabBarSymbol {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 12
    */

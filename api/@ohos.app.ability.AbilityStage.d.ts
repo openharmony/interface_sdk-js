@@ -27,14 +27,14 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * The class of an ability stage.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
+ * @stagemodelonly
  * @since 9
  */
 /**
  * The class of an ability stage.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -42,7 +42,7 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * The class of an ability stage.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11
@@ -53,7 +53,7 @@ export default class AbilityStage {
    *
    * @type { AbilityStageContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -61,7 +61,7 @@ export default class AbilityStage {
    *
    * @type { AbilityStageContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -70,7 +70,7 @@ export default class AbilityStage {
    *
    * @type { AbilityStageContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -81,14 +81,14 @@ export default class AbilityStage {
    * Called back when an ability stage is started for initialization.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
    * Called back when an ability stage is started for initialization.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -96,7 +96,7 @@ export default class AbilityStage {
    * Called back when an ability stage is started for initialization.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -111,7 +111,7 @@ export default class AbilityStage {
    *         do not create a new instance and pull it back to the top of the stack.
    *         Otherwise, create a new instance and start it.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -122,7 +122,7 @@ export default class AbilityStage {
    *         do not create a new instance and pull it back to the top of the stack.
    *         Otherwise, create a new instance and start it.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -135,7 +135,7 @@ export default class AbilityStage {
    * @returns { string } The user returns an process string ID. If the process of this ID has been created before,
    *         let the ability run in this process. Otherwise, create a new process.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   onNewProcessRequest(want: Want): string;
@@ -145,7 +145,7 @@ export default class AbilityStage {
    *
    * @param { Configuration } newConfig - Indicates the updated configuration.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -153,7 +153,7 @@ export default class AbilityStage {
    *
    * @param { Configuration } newConfig - Indicates the updated configuration.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -162,7 +162,7 @@ export default class AbilityStage {
    *
    * @param { Configuration } newConfig - Indicates the updated configuration.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -175,7 +175,7 @@ export default class AbilityStage {
    *
    * @param { AbilityConstant.MemoryLevel } level - Indicates the memory trim level, which shows the current memory usage status.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -184,7 +184,7 @@ export default class AbilityStage {
    *
    * @param { AbilityConstant.MemoryLevel } level - Indicates the memory trim level, which shows the current memory usage status.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -195,9 +195,22 @@ export default class AbilityStage {
    * Will not call the onDestroy function when killing a process or crashing abnormally.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
   onDestroy(): void;
+
+  /**
+   * Called back before an ability stage is terminated.
+   *
+   * @permission ohos.permission.PREPARE_APP_TERMINATE
+   * @returns { AbilityConstant.PrepareTermination } The user returns an action indicating
+   * what the process should do prior to terminating.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 16
+   */
+  onPrepareTermination(): AbilityConstant.PrepareTermination;
 }

@@ -157,6 +157,13 @@ declare namespace text {
      * @since 12
      */
     BREAK_WORD,
+
+    /**
+     * Breaks word by hyphen.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    BREAK_HYPHEN,
   }
 
   /**
@@ -1215,6 +1222,13 @@ declare namespace text {
      * @since 14
      */
     INSTALLED = 1 << 3,
+
+    /**
+     * Customized font types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    CUSTOMIZED = 1 << 4,
   }
 
   /**

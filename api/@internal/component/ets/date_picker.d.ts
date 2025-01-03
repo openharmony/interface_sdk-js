@@ -123,6 +123,47 @@ declare interface DatePickerResult {
 }
 
 /**
+ * Defines the mode of the date picker.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare enum DatePickerMode {
+  /**
+   * Defines a mode that displays the date in months, days of month, and years.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  DATE = 0,
+
+  /**
+   * Defines a mode that displays the date in months and years.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  YEAR_AND_MONTH = 1,
+
+  /**
+   * Defines a mode that displays the date in months and days of the month.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  MONTH_AND_DAY = 2,
+}
+
+/**
  * Defines the options of DatePicker.
  *
  * @interface DatePickerOptions
@@ -224,6 +265,17 @@ declare interface DatePickerOptions {
    * @since 11
    */
   selected?: Date;
+
+  /**
+   * Defines the mode of the date picker.
+   *
+   * @type { ?DatePickerMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  mode?: DatePickerMode;
 }
 
 /**

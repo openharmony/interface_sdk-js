@@ -44,6 +44,8 @@
         "List",
         "ListItem",
         "ListItemGroup",
+        "ArcList",
+        "ArcListItem",
         "LoadingProgress",
         "Marquee",
         "MediaCachedImage",
@@ -102,7 +104,8 @@
         "Web",
         "XComponent",
         "GridRow",
-        "GridCol"
+        "GridCol",
+        "ArcAlphabetIndexer"
       ],
       "extend": {
         "decorator": "Extend",
@@ -291,6 +294,16 @@
             "name": "ListItemGroup",
             "type": "ListItemGroupAttribute",
             "instance": "ListItemGroupInstance"
+          },
+          {
+            "name": "ArcList",
+            "type": "ArcListAttribute",
+            "instance": "ArcListInstance"
+          },
+          {
+            "name": "ArcListItem",
+            "type": "ArcListItemAttribute",
+            "instance": "ArcListItemInstance"
           },
           {
             "name": "LoadingProgress",
@@ -586,6 +599,11 @@
             "name": "GridCol",
             "type": "GridColAttribute",
             "instance": "GridColInterface"
+          },
+          {
+            "name": "ArcAlphabetIndexer",
+            "type": "ArcAlphabetIndexerAttribute",
+            "instance": "ArcAlphabetIndexerInstance"
           }
         ]
       },

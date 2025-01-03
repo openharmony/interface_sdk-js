@@ -1619,6 +1619,13 @@ declare namespace asset {
      * @since 14
      */
     REQUIRE_ATTR_ENCRYPTED = TagType.BOOL | 0x47,
+    /**
+     * A tag whose value is a byte array indicating the group id an asset belongs to.
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @since 16
+     */
+    GROUP_ID = TagType.BYTES | 0x48,
   }
 
   /**

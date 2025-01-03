@@ -485,7 +485,6 @@ export declare struct SubHeader {
    * Attributes of Symbol icon.
    * @type { SymbolOptions}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -617,7 +616,6 @@ export declare struct SubHeader {
    * Attributes of Symbol icons in operation area.
    * @type { Array<SymbolOptions> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
