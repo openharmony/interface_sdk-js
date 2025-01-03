@@ -124,6 +124,16 @@ export declare class EditableTitleBarMenuItem {
    * @since 16
    */
   accessibilityLevel?: string;
+
+  /**
+   * Set the default focus state of this menu item.
+   * @type { ?boolean }.
+   * @default { false }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  defaultFocus?: boolean;
 }
 
 /**
@@ -372,4 +382,26 @@ export declare struct EditableTitleBar {
    * @since 12
    */
   @Prop contentMargin?: LocalizedMargin;
+
+  /**
+   * Sets the default focus state of left icon.
+   * @type { ?boolean }
+   * @default { false }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  leftIconDefaultFocus?: boolean;
+
+  /**
+   * Sets the default focus state of save icon.
+   * @type { ?boolean }
+   * @default { false }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  saveIconDefaultFocus?: boolean;
 }
