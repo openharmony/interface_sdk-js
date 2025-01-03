@@ -149,7 +149,7 @@ declare enum RichEditorSpanType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   DEFAULT = 4,
 }
@@ -229,7 +229,7 @@ declare enum RichEditorResponseType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   DEFAULT = 3,
 }
@@ -2856,7 +2856,7 @@ declare interface SelectionMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   onMenuShow?: MenuCallback;
 
@@ -2867,7 +2867,7 @@ declare interface SelectionMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   onMenuHide?: MenuCallback;
 }
@@ -4044,7 +4044,7 @@ declare type MenuOnAppearCallback = (start: number, end: number) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare type MenuCallback = (start: number, end: number) => void;
 
