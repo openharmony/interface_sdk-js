@@ -10,6 +10,7 @@
         "AbilityComponent",
         "AlphabetIndexer",
         "Animator",
+        "ArcScrollBar",
         "Badge",
         "Blank",
         "Button",
@@ -123,6 +124,11 @@
             "name": "Animator",
             "type": "AnimatorAttribute",
             "instance": "AnimatorInstance"
+          },
+          {
+            "name": "ArcScrollBar",
+            "type": "ArcScrollBarAttribute",
+            "instance": "ArcScrollBarInstance"
           },
           {
             "name": "Badge",
