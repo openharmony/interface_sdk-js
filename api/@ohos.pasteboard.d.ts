@@ -1566,7 +1566,7 @@ declare namespace pasteboard {
      * Sets a unified ShareOptions for your application, so that the PasteData copied from your application is applicable to this ShareOptions.
      * 
      * @permission ohos.permission.MANAGE_PASTEBOARD_APP_SHARE_OPTION
-     * @param { ShareOption } shareOptions - Scope that PasteData can be pasted.
+     * @param { ShareOption } shareOptions - Scope that PasteData can be pasted, The parameter can only be set InApp.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
      *     permission required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
