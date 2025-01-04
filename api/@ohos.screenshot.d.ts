@@ -92,14 +92,14 @@ declare namespace screenshot {
   /**
    * Takes a capture and return as a PixelMap object.
    *
-   * @permission ohos.permission.CAPTURE_SCREEN_CAPTURE
+   * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE
    * @param { options } which consist of CaptureOption.
    * @returns { Promise<image.PixelMap> } Promise used to return a PixelMap object.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *                                                                   2.Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not support on this device.
-   * @throws { BusinessError } 1400003 - The display manager service works abnormally.
+   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 14
@@ -197,7 +197,7 @@ declare namespace screenshot {
      */
     height: number;
   }
-  
+
   /**
    * Describes the size of the screen region to capture.
    *
@@ -236,7 +236,7 @@ declare namespace screenshot {
    * @atomicservice
    * @since 14
    */
-  interface CaptureOption{
+  interface CaptureOption {
     /**
      * ID of the screen to be captured.
      *
