@@ -731,42 +731,6 @@ declare namespace photoAccessHelper {
   }
 
   /**
-   * Enum: complete button text
-   *
-   * @enum { number } CompleteButtonText
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 14
-   */
-  enum CompleteButtonText {
-    /**
-     * Complete button text: done
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 14
-     */
-    TEXT_DONE = 0,
-    /**
-     * Complete button text: send
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 14
-     */
-    TEXT_SEND = 1,
-
-    /**
-     * Complete button text: add
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 14
-     */
-    TEXT_ADD = 2,
-  }
-
-  /**
    * Enumeration type of watermarktypes of photos
    *
    * @enum { number } WatermarkType
@@ -811,7 +775,43 @@ declare namespace photoAccessHelper {
      */
     BRAND = 3,
   }
-  
+
+  /**
+   * Enum: complete button text
+   *
+   * @enum { number } CompleteButtonText
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14
+   */
+  enum CompleteButtonText {
+    /**
+     * Complete button text: done
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 14
+     */
+    TEXT_DONE = 0,
+    /**
+     * Complete button text: send
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 14
+     */
+    TEXT_SEND = 1,
+
+    /**
+     * Complete button text: add
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 14
+     */
+    TEXT_ADD = 2,
+  }
+
   /**
    * Options to request media asset
    *
