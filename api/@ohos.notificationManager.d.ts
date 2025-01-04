@@ -2900,6 +2900,7 @@ declare namespace notificationManager {
    * @param { SlotType } slot - The slot type.
    * @param { string } deviceType - The device type.
    * @param { boolean } enabled - The switch state.
+   * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
