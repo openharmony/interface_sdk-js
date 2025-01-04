@@ -727,7 +727,7 @@ declare enum CacheMode {
    * @since 11
    */
   None = 1,
- 
+
   /**
    * load cache when they are available even if the cache is expired.
    *
@@ -750,7 +750,7 @@ declare enum CacheMode {
    * @since 11
    */
   Online = 2,
- 
+
   /**
    * load only from network, not use cache.
    *
@@ -773,7 +773,7 @@ declare enum CacheMode {
    * @since 11
    */
   Only = 3
-  
+
   /**
    * load only from cache.
    *
@@ -5874,7 +5874,7 @@ declare interface OnSslErrorEventReceiveEvent {
    *
    * @type { ?Array<Uint8Array> }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 16
+   * @since 14
    */
   certChainData?: Array<Uint8Array>;
 }
@@ -8878,6 +8878,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 16
    */
   enableFollowSystemFontWeight(follow: boolean): WebAttribute;
+
+  /**
+   * Sets whether to enable AVSession for web pages.
+   *
+   * @param { boolean } enabled Whether to enable AVSession. The value true means to enable AVSession, and false means the opposite.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 16
+   */
+  enableWebAVSession(enabled: boolean): WebAttribute;
 }
 
 /**
