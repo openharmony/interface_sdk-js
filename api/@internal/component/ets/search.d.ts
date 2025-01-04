@@ -633,7 +633,6 @@ interface CancelButtonOptions {
  *
  * @interface CancelButtonSymbolOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @atomicservice
  * @since 12
  */
@@ -643,7 +642,6 @@ interface CancelButtonSymbolOptions {
    *
    * @type { ?CancelButtonStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -654,7 +652,6 @@ interface CancelButtonSymbolOptions {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1620,6 +1617,17 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 16
    */
   halfLeading(halfLeading: Optional<boolean>): SearchAttribute;
+
+  /**
+   * Set whether stop backPressed callback event or not.
+   *
+   * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  stopBackPress(isStopped: Optional<boolean>): SearchAttribute;
 
   /**
    * Get text value information when about to change.

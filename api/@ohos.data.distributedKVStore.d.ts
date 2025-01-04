@@ -1911,7 +1911,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 14
+     * @since 16
      */
     backup(file: string, callback: AsyncCallback<void>): void;
 
@@ -1938,7 +1938,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 14
+     * @since 16
      */
     backup(file: string): Promise<void>;
 
@@ -1965,7 +1965,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 14
+     * @since 16
      */
     restore(file: string, callback: AsyncCallback<void>): void;
 
@@ -1992,7 +1992,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 14
+     * @since 16
      */
     restore(file: string): Promise<void>;
 
@@ -3069,7 +3069,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100006 - Unable to open the database file.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 14
+     * @since 16
      */
     getKVStore<T>(storeId: string, options: Options, callback: AsyncCallback<T>): void;
 
@@ -3106,7 +3106,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100006 - Unable to open the database file.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 14
+     * @since 16
      */
     getKVStore<T>(storeId: string, options: Options): Promise<T>;
 

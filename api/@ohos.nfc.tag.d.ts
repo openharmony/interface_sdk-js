@@ -1050,6 +1050,25 @@ declare namespace tag {
   function getNdefFormatable(tagInfo: TagInfo): NdefFormatableTag;
 
   /**
+   * Obtains an {@link BarcodeTag} object based on the tag information.
+   * During tag reading, if the tag supports the NfcBarcode technology,
+   * an {@link BarcodeTag} object will be created.
+   *
+   * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
+   * @returns { BarcodeTag } The {@link BarcodeTag} object.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 16
+   */
+  function getBarcodeTag(tagInfo: TagInfo): BarcodeTag;
+
+  /**
    * Parse a {@link TagInfo} object from Want.
    *
    * @param { Want } want - The want object that contains the values of TagInfo.
@@ -1485,6 +1504,21 @@ declare namespace tag {
     function makeTextRecord(text: string, locale: string): NdefRecord;
 
     /**
+     * Creates an NDEF Record with OpenHarmony application bundle name.
+     *
+     * @param { string } bundleName - The bundle name of application to make.
+     * @returns { NdefRecord } The instance of NdefRecord.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
+     * @syscap SystemCapability.Communication.NFC.Tag
+     * @atomicservice
+     * @since 16
+     */
+    function makeApplicationRecord(bundleName: string): NdefRecord;
+
+    /**
      * Creates an NDEF record with mime data.
      *
      * @param { string } mimeType type of mime data for new an NDEF record.
@@ -1765,6 +1799,16 @@ declare namespace tag {
   * @since 12
   */
   export type NdefFormatableTag = _NdefFormatableTag;
+
+ /**
+  * Exports type BarcodeTag.
+  *
+  * @typedef { _BarcodeTag }
+  * @syscap SystemCapability.Communication.NFC.Tag
+  * @atomicservice
+  * @since 16
+  */
+  export type BarcodeTag = _BarcodeTag;
 
  /**
   * Exports type NdefMessage.

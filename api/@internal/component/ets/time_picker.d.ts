@@ -225,6 +225,28 @@ declare interface TimePickerOptions {
    * @since 12
    */
   format?: TimePickerFormat;
+  
+  /**
+   * Defines the start time of the time picker.
+   *
+   * @type { ?Date }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  start?: Date;
+
+  /**
+   * Defines the end time of the time picker.
+   *
+   * @type { ?Date }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  end?: Date;
 }
 
 /**
@@ -596,6 +618,18 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @since 16
    */
   digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): TimePickerAttribute;
+
+  /**
+   * Defines whether the AM/PM option is cascaded with the time in 12-hour mode.
+   *
+   * @param { boolean } enabled - Default value is false, set true to enable.
+   * @returns { TimePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  enableCascade(enabled: boolean): TimePickerAttribute;
 }
 
 /**
@@ -907,6 +941,18 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @since 12
    */
   backgroundBlurStyle?: BlurStyle;
+
+  /**
+   * Defines whether the AM/PM option is cascaded with the time in 12-hour mode.
+   * 
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  enableCascade?: boolean;
 
   /**
    * Callback function when the dialog appears.

@@ -118,6 +118,23 @@ declare namespace inputDevice {
   }
 
   /**
+   * Enumerates function keys.
+   * 
+   * @enum { number }
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @since 15
+   */
+  enum FunctionKey {
+    /**
+     * CapsLock key. Enabling or disabling the CapsLock key is allowed only for input keyboard extensions.
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+     * @since 15
+     */
+    CAPS_LOCK = 1
+  }
+
+  /**
    * Defines the listener for input device events.
    *
    * @interface DeviceListener
@@ -658,6 +675,36 @@ declare namespace inputDevice {
    * @since 16
    */
   function setInputDeviceEnabled(deviceId: number, enabled: boolean): Promise<void>;
+
+  /**
+   * Sets whether to enable the function key.
+   *
+   * @permission ohos.permission.INPUT_KEYBOARD_CONTROLLER
+   * @param { number } functionKey - Function key.
+   * @param { boolean } enabled - Whether to enable or disable the function key.
+   * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 3900002 - There is currently no keyboard device connected.
+   * @throws { BusinessError } 3900003 - it is prohibited for non-input applications
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @since 15
+   */
+  function setFunctionKeyEnabled(functionKey: FunctionKey, enabled: boolean): Promise<void>;
+
+  /**
+   * Checks whether the function key is enabled.
+   *
+   * @param { number } functionKey - Function key.
+   * @returns { Promise<boolean> } Returns the result through a promise.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 3900002 - There is currently no keyboard device connected.
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @since 15
+   */
+  function isFunctionKeyEnabled(functionKey: FunctionKey): Promise<boolean>;
 }
 
 export default inputDevice;

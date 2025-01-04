@@ -424,6 +424,17 @@ export interface PopupOptions {
    * @since 12
    */
    direction?: Direction;
+
+  /**
+   * Set the max width of the popup.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  maxWidth?: Dimension;
 }
 
 /**

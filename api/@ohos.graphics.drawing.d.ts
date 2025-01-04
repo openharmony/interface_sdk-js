@@ -2154,7 +2154,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 16
      */
     createPathForGlyph(index: number): Path;
     /**
@@ -2167,7 +2167,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 16
      */
     getBounds(glyphs: Array<number>): Array<common2D.Rect>;
     /**
@@ -2180,7 +2180,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 14
+     * @since 16
      */
     getTextPath(text: string, byteLength: number, x: number, y: number): Path;
 
@@ -2480,6 +2480,33 @@ declare namespace drawing {
   }
 
   /**
+   * How to transform path at each point (based on the current position and tangent).
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 16
+   */
+   enum PathDashStyle {
+    /**
+     * Translate the shape to each position.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    TRANSLATE = 0,
+    /**
+     * Rotate the shape about its center.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    ROTATE = 1,
+    /**
+     * Transform each point, and turn lines into curves.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    MORPH = 2,
+  }
+
+  /**
    * Defines a PathEffect, which is used to affects stroked paths.
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
@@ -2511,6 +2538,61 @@ declare namespace drawing {
      * @since 12
      */
     static createCornerPathEffect(radius: number): PathEffect;
+
+    /**
+     * Makes a discrete PathEffect.
+     * @param { number } segLength - Indicates the maximum segment length of the path.
+     * @param { number } dev - Indicates the deviation during drawing.
+     * @param { number } seedAssist - Indicates generate effect pseudo-random sequence, the default value is zero.
+     * @returns { PathEffect } PathEffect object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types;
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    static createDiscretePathEffect(segLength: number, dev: number, seedAssist?: number | null): PathEffect;
+
+     /**
+      * Makes a compose PathEffect.
+      * @param { PathEffect } outer - Indicates the path effect that takes effect later in the combination path effect.
+      * @param { PathEffect } inner - Indicates the path effect of the first effect in the combination path effect.
+      * @returns { PathEffect } PathEffect object.
+      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+      * <br>2. Incorrect parameter types;
+      * @static
+      * @syscap SystemCapability.Graphics.Drawing
+      * @since 16
+      */
+    static createComposePathEffect(outer: PathEffect, inner: PathEffect): PathEffect;
+
+     /**
+     * Makes a path dash PathEffect.
+     * @param { Path } path - Indicates the path to be used for the dash effect.
+     * @param { number } advance - Indicates the advance distance for the dash effect.
+     * @param { number } phase - Indicates the phase offset for the dash effect.
+     * @param { PathDashStyle } style - Indicates the style of the dash effect.
+     * @returns { PathEffect } PathEffect object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 16
+     */
+    static createPathDashEffect(path: Path, advance: number, phase: number, style: PathDashStyle): PathEffect;
+
+     /**
+      * Makes a sum PathEffect.
+      * @param { PathEffect } firstPathEffect - Indicates the first path effect.
+      * @param { PathEffect } secondPathEffect - Indicates the second path effect.
+      * @returns { PathEffect } PathEffect object.
+      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+      * <br>2. Incorrect parameter types.
+      * @static
+      * @syscap SystemCapability.Graphics.Drawing
+      * @since 16
+      */
+    static createSumPathEffect(firstPathEffect: PathEffect, secondPathEffect: PathEffect): PathEffect;
   }
 
   /**

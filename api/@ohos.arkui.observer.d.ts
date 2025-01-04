@@ -436,6 +436,28 @@ declare namespace uiObserver {
      * @since 12
      */
     navDestinationId: string;
+
+    /**
+     * NavDestination mode.
+     *
+     * @type { NavDestinationMode }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    mode?: NavDestinationMode;
+
+    /**
+     * NavDestination uniqueId.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    uniqueId?: number;
   }
 
   /**

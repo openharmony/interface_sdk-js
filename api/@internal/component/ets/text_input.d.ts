@@ -2355,7 +2355,6 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { CancelButtonSymbolOptions } symbolOptions - indicates the style of the cancel button.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -2661,6 +2660,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 16
    */
   ellipsisMode(mode: Optional<EllipsisMode>): TextInputAttribute;
+
+  /**
+   * Set whether stop backPressed callback event or not.
+   *
+   * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  stopBackPress(isStopped: Optional<boolean>): TextInputAttribute;
 
   /**
    * Get text value information when about to change.

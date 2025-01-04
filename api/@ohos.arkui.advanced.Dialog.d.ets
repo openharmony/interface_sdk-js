@@ -152,6 +152,16 @@ export declare class ButtonOptions {
    * @since 12
    */
   role?: ButtonRole;
+  /**
+   * Set the default focus of a button.
+   * @type { ?boolean }
+   * @default { false }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  defaultFocus?: boolean;
 }
 /**
  * Declare CustomDialog TipsDialog

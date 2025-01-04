@@ -126,4 +126,34 @@ export default class EnterpriseAdminExtensionAbility {
    * @since 12
    */
   onStart(): void;
+
+  /**
+   * Called when a system account is added.
+   *
+   * @param { number } accountId ID of the added account.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 16
+   */
+  onAccountAdded(accountId: number): void;
+
+  /**
+   * Called when a system account is switched.
+   *
+   * @param { number } accountId ID of the switched account.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 16
+   */
+  onAccountSwitched(accountId: number): void;
+
+  /**
+   * Called when a system account is removed.
+   *
+   * @param { number } accountId ID of the removed account.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 16
+   */
+  onAccountRemoved(accountId: number): void;
 }
