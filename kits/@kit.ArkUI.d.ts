@@ -182,6 +182,18 @@ import {
   SubHeaderV2IconType, SubHeaderV2Title, SubHeaderV2Select,
   SubHeaderV2, SubHeaderV2OperationType, SubHeaderV2OperationItem, SubHeaderV2OperationItemType
 } from '@ohos.arkui.advanced.SubHeaderV2';
+import {
+  ArcSlider,
+  ArcSliderOptions,
+  ArcSliderOptionsConstructorOptions,
+  ArcSliderLayoutOptions,
+  ArcSliderLayoutOptionsConstructorOptions,
+  ArcSliderStyleOptions,
+  ArcSliderStyleOptionsConstructorOptions,
+  ArcSliderValueOptions,
+  ArcSliderValueOptionsConstructorOptions
+} from '@ohos.arkui.advanced.ArcSlider';
+
 export {
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, App, AppResponse, AtomicServiceBar,
   AtomicServiceNavigation, NavDestinationBuilder,
@@ -246,5 +258,8 @@ export {
   ArcAlphabetIndexer, ArcAlphabetIndexerAttribute,
   SuffixImageIconOptions, SymbolItemOptions,
   SplitPolicy, MultiNavigation, MultiNavPathStack, OverlayManagerOptions,
-  ArcList, ArcListItem, ArcListAttribute, ArcListItemAttribute, ArcScrollBar, ArcScrollBarAttribute
+  ArcList, ArcListItem, ArcListAttribute, ArcListItemAttribute, ArcScrollBar, ArcScrollBarAttribute,
+  ArcSlider, ArcSliderOptions, ArcSliderOptionsConstructorOptions, ArcSliderLayoutOptions,
+  ArcSliderLayoutOptionsConstructorOptions, ArcSliderStyleOptions, ArcSliderStyleOptionsConstructorOptions,
+  ArcSliderValueOptions, ArcSliderValueOptionsConstructorOptions,
 };
