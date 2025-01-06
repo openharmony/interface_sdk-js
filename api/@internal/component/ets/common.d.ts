@@ -17568,6 +17568,16 @@ declare interface DragInteractionOptions {
   * @since 16
   */
   enableEdgeAutoScroll?: boolean;
+
+  /**
+  * Define whether to enable the haptic feedback when dragging, the default value is false.
+  *
+  * @type { ?boolean }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @atomicservice
+  * @since 16
+  */
+  enableHapticFeedback?: boolean;
 }
 
 /**
