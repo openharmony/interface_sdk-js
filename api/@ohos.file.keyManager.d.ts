@@ -27,7 +27,7 @@
  */
 declare namespace keyManager {
    /**
-    * Initiate the deactivation of user key for the specified user
+    * * Initiate the deactivation of user key for the specified user when user screen is unlocked.
     *
     * @permission ohos.permission.STORAGE_MANAGER_CRYPT
     * @param { number } userId
