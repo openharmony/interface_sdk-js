@@ -428,6 +428,20 @@ declare type TextPickerScrollStopCallback = (value: string | string[], index: nu
  * @since 16
  */
 declare type OnTextPickerChangeCallback = (selectItem: string | string[], index: number | number[]) => void;
+
+/**
+ * Callback of the listened onEnterSelectedArea event.
+ *
+ * @typedef {function} TextPickerEnterSelectedAreaCallback
+ * @param { string | string[] } value - Value of the selected item.
+ * @param { number | number[] } index - Index of the selected item.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare type TextPickerEnterSelectedAreaCallback = (value: string | string[], index: number | number[]) => void;
+
 /**
  * Style the text selector.
  *
@@ -740,6 +754,19 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @since 16
    */
   onScrollStop(callback: Optional<TextPickerScrollStopCallback>): TextPickerAttribute;
+
+  /**
+   * This event is triggered when an item enters the selected area.
+   * Only valid when only text is displayed. When picture or picture plus text is displayed, the value is "".
+   *
+   * @param { TextPickerEnterSelectedAreaCallback } callback - the callback of onEnterSelectedArea.
+   * @returns { TextPickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onEnterSelectedArea(callback: TextPickerEnterSelectedAreaCallback): TextPickerAttribute;
 
   /**
    * Set the selected indices.
@@ -1193,6 +1220,17 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @since 14
    */
   onScrollStop?: Callback<TextPickerResult>;
+
+  /**
+   * This event is triggered when an item enters the selected area in dialog.
+   *
+   * @type { ?Callback<TextPickerResult> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onEnterSelectedArea?: Callback<TextPickerResult>;
 
   /**
    * Mask Region of dialog. The size cannot exceed the main window.
