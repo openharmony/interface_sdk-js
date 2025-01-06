@@ -1280,6 +1280,15 @@ declare namespace relationalStore {
      * @since 11
      */
     references?: Array<Reference>;
+
+    /**
+     * Specifies whether async download assets.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 16
+     */
+    asyncDownloadAsset?: boolean;
   }
 
   /**
