@@ -170,7 +170,7 @@ declare namespace nfcController {
    * @syscap SystemCapability.Communication.NFC.Core
    * @since 7
    * @deprecated since 9
-   * @useinstead @ohos.nfc.controller.nfcController#enableNfc
+   * @useinstead ohos.nfc.controller/nfcController#enableNfc
    */
   function openNfc(): boolean;
 
@@ -195,7 +195,7 @@ declare namespace nfcController {
    * @syscap SystemCapability.Communication.NFC.Core
    * @since 7
    * @deprecated since 9
-   * @useinstead @ohos.nfc.controller.nfcController#disableNfc
+   * @useinstead ohos.nfc.controller/nfcController#disableNfc
    */
   function closeNfc(): boolean;
 
