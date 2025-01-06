@@ -26390,6 +26390,28 @@ declare interface CaretOffset {
 }
 
 /**
+ * Defines the span options of TextContentController.
+ *
+ * @interface TextContentControllerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare interface TextContentControllerOptions {
+  /**
+   * the offset that add a text at.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  offset?: number;
+}
+
+/**
  * TextContentControllerBase
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -26461,6 +26483,41 @@ declare abstract class TextContentControllerBase {
    * @since 11
    */
   getTextContentLineCount() : number;
+
+  /**
+   * Add a text.
+   *
+   * @param { string } text - text value.
+   * @param { TextContentControllerOptions } [textOperationOptions] - operation info.
+   * @returns { number } caret index
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  addText(text: string, textOperationOptions?: TextContentControllerOptions): number;
+
+  /**
+   * Delete text in TextRange.
+   *
+   * @param { TextRange } [range] - range for deleting.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  deleteText(range?: TextRange): void;
+
+  /**
+   * Gets the selected range of text content.
+   *
+   * @returns { TextRange } range for selecting.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  getSelection(): TextRange;
 }
 
 /**
