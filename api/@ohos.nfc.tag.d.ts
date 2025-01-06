@@ -720,7 +720,7 @@ declare namespace tag {
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -769,7 +769,7 @@ declare namespace tag {
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -818,7 +818,7 @@ declare namespace tag {
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -867,7 +867,7 @@ declare namespace tag {
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -902,7 +902,7 @@ declare namespace tag {
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -937,7 +937,7 @@ declare namespace tag {
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -972,7 +972,7 @@ declare namespace tag {
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -1007,7 +1007,7 @@ declare namespace tag {
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -1042,7 +1042,7 @@ declare namespace tag {
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -1241,7 +1241,7 @@ declare namespace tag {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
-   * @throws { BusinessError } 3100203 - The off() can be called only when the on() has been called.
+   * @throws { BusinessError } 3100203 - The off() API can be called only when the on() has been called.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
