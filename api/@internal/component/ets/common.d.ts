@@ -1328,7 +1328,8 @@ declare const ReusableV2: ClassDecorator;
  /**
    * ReuseId callback type. It is used to computed reuseId.
    *
-   * @typedef { ?function }
+   * @typedef { function } ReuseIdCallback
+   * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -25856,7 +25857,8 @@ declare class CustomComponent extends BaseCustomComponent {
  */
 declare class CustomComponentV2 extends BaseCustomComponent {
   /**
-   * aboutToReuse Method for @ComponentV2, it is executed when moving instance of custom component to RecyclePool. It is different from the @Reusable in CustomComponent, there is no param parameter in this callback.
+   * aboutToReuse Method for @ComponentV2, it is executed when moving instance of custom component to RecyclePool.
+   * It is different from the @Reusable in CustomComponent, there is no param parameter in this callback.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
