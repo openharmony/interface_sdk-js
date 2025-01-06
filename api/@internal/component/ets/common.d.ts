@@ -17235,6 +17235,16 @@ declare interface DragInteractionOptions {
   * @since 12
   */
   defaultAnimationBeforeLifting?: boolean;
+
+  /**
+  * Config if auto scrolling should be triggered when the drag hovered on a scrollable controller's edge.
+  *
+  * @type { ?boolean }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @atomicservice
+  * @since 16
+  */
+  enableEdgeAutoScroll?: boolean;
 }
 
 /**
