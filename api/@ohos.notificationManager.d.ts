@@ -2894,6 +2894,41 @@ declare namespace notificationManager {
   function disableNotificationFeature(disabled:boolean, bundleList: Array<string>): Promise<void>;
 
   /**
+   * Set notification slot synchronization switch.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { SlotType } slot - The slot type.
+   * @param { string } deviceType - The device type.
+   * @param { boolean } enabled - The switch state.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+ */
+  function setDistributedEnabledBySlot(slot: SlotType, deviceType: string, enabled: boolean): Promise<void>;
+
+  /**
+   * Get notification slot synchronization switch.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { SlotType } slot - The slot type.
+   * @param { string } deviceType - The device type.
+   * @returns { Promise<boolean> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+ */
+  function isDistributedEnabledBySlot(slot: SlotType, deviceType: string): Promise<boolean>;
+
+  /**
    * Describes a button option for a triggering.
    *
    * @typedef ButtonOptions
