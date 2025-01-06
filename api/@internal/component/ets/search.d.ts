@@ -1491,6 +1491,17 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 13
    */
   enableHapticFeedback(isEnabled: boolean): SearchAttribute;
+
+  /**
+   * Set the keyboard appearance.
+   *
+   * @param { Optional<KeyboardAppearance> } appearance - Default value is KeyboardAppearance.NONE_IMMERSIVE
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  keyboardAppearance(appearance: Optional<KeyboardAppearance>): SearchAttribute;
 }
 
 /**

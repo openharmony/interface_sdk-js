@@ -1684,6 +1684,17 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 13
    */
   enableHapticFeedback(isEnabled: boolean): TextAreaAttribute;
+
+  /**
+   * Set the keyboard appearance.
+   *
+   * @param { Optional<KeyboardAppearance> } appearance - Default value is KeyboardAppearance.NONE_IMMERSIVE
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  keyboardAppearance(appearance: Optional<KeyboardAppearance>): TextAreaAttribute;
 }
 
 /**
