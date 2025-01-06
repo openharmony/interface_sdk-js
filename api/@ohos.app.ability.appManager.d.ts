@@ -230,7 +230,7 @@ declare namespace appManager {
        * @since 14
        */
       ALL = 0,
-
+  
       /**
        * 3rd party app.
        *
@@ -239,7 +239,7 @@ declare namespace appManager {
        * @since 14
        */
       THIRD_PARTY = 1,
-
+  
       /**
        * System app.
        *
@@ -249,7 +249,7 @@ declare namespace appManager {
        */
       SYSTEM = 2
     }
-
+  
     /**
      * Setter who sets the keep-alive flag for a bundle.
      * @enum { number }
@@ -266,7 +266,7 @@ declare namespace appManager {
        * @since 14
        */
       SYSTEM = 0,
-
+  
       /**
        * Indicates the bundle is set keep-alive by user.
        *
@@ -276,7 +276,7 @@ declare namespace appManager {
        */
       USER = 1
     }
-
+  
     /**
      * The class of keep-alive bundle information.
      *
@@ -295,7 +295,7 @@ declare namespace appManager {
        * @since 14
        */
       bundleName: string;
-
+  
       /**
        * App type.
        *
@@ -305,7 +305,7 @@ declare namespace appManager {
        * @since 14
        */
       type: KeepAliveAppType;
-
+  
       /**
        * The setter who sets the keep-alive flag.
        *
@@ -316,7 +316,7 @@ declare namespace appManager {
        */
       setter: KeepAliveSetter;
     }
-
+  
   /**
    * Register application state observer.
    *
@@ -521,6 +521,27 @@ declare namespace appManager {
   /**
    * Kill process with account.
    *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.KILL_APP_PROCESSES
+   *     or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.CLEAN_BACKGROUND_PROCESSES
+   * @param { string } bundleName - The process bundle name.
+   * @param { number } accountId - The account id.
+   * @param { boolean } clearPageStack - The flag that indicates whether the page stack need to be cleared.
+   * @param { number } [appIndex] - The application index.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 14
+   */
+  function killProcessWithAccount(bundleName: string, accountId: number, clearPageStack: boolean, appIndex?: number):
+    Promise<void>;
+
+  /**
+   * Kill process with account.
+   *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.CLEAN_BACKGROUND_PROCESSES
    * @param { string } bundleName - The process bundle name.
    * @param { number } accountId - The account id.
@@ -552,27 +573,6 @@ declare namespace appManager {
    * @since 14
    */
   function killProcessWithAccount(bundleName: string, accountId: number, callback: AsyncCallback<void>): void;
-
-  /**
-   * Kill process with account.
-   *
-   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.KILL_APP_PROCESSES
-   *     or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.CLEAN_BACKGROUND_PROCESSES
-   * @param { string } bundleName - The process bundle name.
-   * @param { number } accountId - The account id.
-   * @param { boolean } clearPageStack - The flag that indicates whether the page stack need to be cleared.
-   * @param { number } [appIndex] - The application index.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 14
-   */
-  function killProcessWithAccount(bundleName: string, accountId: number, clearPageStack: boolean, appIndex?: number):
-    Promise<void>
 
   /**
    * Is user running in stability test.
@@ -1075,7 +1075,7 @@ declare namespace appManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported.
-   * @throws { BusinessError } 18500001 - The bundle does not exist.
+   * @throws { BusinessError } 18500001 - The bundle does not exist or no patch has been applied.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -1183,7 +1183,7 @@ declare namespace appManager {
    * Get keep-alive bundle information.
    *
    * @permission ohos.permission.MANAGE_APP_KEEP_ALIVE
-   * @param { KeepAliveAppType } type - type of keep-alive apps to be queried.
+   * @param { KeepAliveAppType } type - type of keep-alive apps to be quried.
    * @param { number } [userId] - user id.
    * @returns { Promise<Array<KeepAliveBundleInfo>> } Returns the list of KeepAliveBundleInfo.
    * @throws { BusinessError } 201 - Permission denied.
