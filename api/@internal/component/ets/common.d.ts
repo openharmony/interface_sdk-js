@@ -12617,6 +12617,22 @@ declare interface DragEvent {
    * @since 13
    */
   getModifierKeyState?(keys: Array<string>): boolean;
+
+  /**
+   * Setup one drop animation execution callback, which will be triggered by system when user drops.
+   * Use this way to implement the custom drop animation instead of doing it in onDrop, as the system
+   * will decide when to trigger the callback during the drop handling.
+   * [Note]:
+   *   1. Please set useCustomDropAnimation to true as well when using this method.
+   *   2. Do not implement the animation no-related logics in the callback.
+   *
+   * @param { Callback<void> } customDropAnimation - the custom drop animation function.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  executeDropAnimation(customDropAnimation: Callback<void>): void;
 }
 
 /**
