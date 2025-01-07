@@ -25440,6 +25440,17 @@ declare interface Layoutable {
   measureResult: MeasureResult,
 
   /**
+   * Unique ID of the child component.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  uniqueId?: number;
+
+  /**
    * Call this layout method in onLayout callback to assign layout info to sub component.
    *
    * @param { Position } position
@@ -25510,6 +25521,17 @@ declare interface Layoutable {
  * @since 11
  */
 declare interface Measurable {
+  /**
+   * Unique ID of the child component.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  uniqueId?: number;
+
   /**
    * Call this measure method in onMeasure callback to supply sub component size.
    *
