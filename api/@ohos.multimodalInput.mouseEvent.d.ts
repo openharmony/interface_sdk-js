@@ -277,6 +277,7 @@ export declare enum ToolType {
 /**
  * MouseEvent
  *
+ * @extends InputEvent
  * @interface MouseEvent
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9
