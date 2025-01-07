@@ -1228,6 +1228,7 @@ declare class SyncedPropertyOneWay<T>
 /**
  * Defines the subscriber.
  *
+ * @extends IPropertySubscriber
  * @interface ISinglePropertyChangeSubscriber
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
