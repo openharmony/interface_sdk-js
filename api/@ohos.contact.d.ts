@@ -1454,6 +1454,25 @@ declare namespace contact {
   function addContactUI(context: Context, contact: Contact): Promise<number>;
 
   /**
+   * Save to existed contact through UI interaction.
+   *
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { Contact } contact - Indicates the contact information.
+   * @returns { Promise<number> } Returns the contact ID (which can be obtained by {@link Contact#getId()}) if the
+   * creation is successful. returns {@link Contact#INVALID_CONTACT_ID} if the creation fails.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+   * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
+   * @throws { BusinessError } 16700001 - General error.
+   * @throws { BusinessError } 16700101 - Failed to get value to contacts data.
+   * @throws { BusinessError } 16700102 - Failed to set value to contacts data.
+   * @throws { BusinessError } 16700103 - User cancel.
+   * @syscap SystemCapability.Applications.Contacts
+   * @atomicservice
+   * @since 15
+   */
+  function saveToExistedContactUI(context: Context, contact: Contact): Promise<number>;
+
+  /**
    * ContactSelectionOptions Object
    *
    * @interface ContactSelectionOptions
