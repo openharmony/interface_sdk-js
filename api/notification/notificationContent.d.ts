@@ -24,6 +24,16 @@ import { Resource } from '../global/resource';
 import type notificationManager from '../@ohos.notificationManager';
 
 /**
+ * Describes icon type.
+ *
+ * @typedef { Resource | image.PixelMap } IconType
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @since 16
+ */
+type IconType = Resource | image.PixelMap;
+
+/**
  * Describes a normal text notification.
  *
  * @typedef NotificationBasicContent
@@ -557,6 +567,7 @@ export interface NotificationCapsule {
  * @since 16
  */
 export interface NotificationIconButton {
+
   /**
    * button unique name.
    *
@@ -570,12 +581,12 @@ export interface NotificationIconButton {
   /**
    * button icon resource.
    *
-   * @type { Resource }
+   * @type { IconType }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 16
    */
-  iconResource: Resource;
+  iconResource: IconType;
 
   /**
    * addition text of the icon buttion
