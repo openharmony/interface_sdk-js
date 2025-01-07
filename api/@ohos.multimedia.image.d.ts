@@ -3459,7 +3459,7 @@ declare namespace image {
    *
    * @typedef PackingOptionsForSequence
    * @syscap SystemCapability.Multimedia.Image.ImagePacker
-   * @since 14
+   * @since 16
    */
   interface PackingOptionsForSequence {
     /**
@@ -3467,7 +3467,7 @@ declare namespace image {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 14
+     * @since 16
      */
     frameCount: number;
 
@@ -3477,7 +3477,7 @@ declare namespace image {
      *
      * @type { Array<number> }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 14
+     * @since 16
      */
     delayTimeList: Array<number>;
 
@@ -3486,7 +3486,7 @@ declare namespace image {
      *
      * @type { ?Array<number> }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 14
+     * @since 16
      */
     disposalTypes?: Array<number>;
 
@@ -3496,7 +3496,7 @@ declare namespace image {
      *
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 14
+     * @since 16
      */
     loopCount?: number;
   }
@@ -8666,7 +8666,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980106 - The image is too large.
      * @throws { BusinessError } 62980119 - If encoder occur error during encoding.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 14
+     * @since 16
      */
     packToData(pixelmapSequence: Array<PixelMap>, options: PackingOptionsForSequence): Promise<ArrayBuffer>;
 
@@ -8769,7 +8769,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980119 - If encoder occur error during encoding.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 14
+     * @since 16
      */
     packToFile(pixelmapSequence: Array<PixelMap>, fd: number, options: PackingOptionsForSequence): Promise<void>;
 
