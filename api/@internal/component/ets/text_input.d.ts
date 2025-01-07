@@ -2671,6 +2671,18 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 16
    */
   stopBackPress(isStopped: Optional<boolean>): TextInputAttribute;
+
+  /**
+   * Get text value information when about to change.
+   *
+   * @param { Callback<EditableTextChangeValue, boolean> } callback - The triggered function when text content is about to change.
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onWillChange(callback: Callback<EditableTextChangeValue, boolean>): TextInputAttribute;
 }
 
 /**
