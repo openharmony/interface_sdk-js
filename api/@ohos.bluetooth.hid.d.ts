@@ -52,6 +52,7 @@ declare namespace hid {
   /**
    * Manager hid host profile.
    *
+   * @extends BaseProfile
    * @typedef HidHostProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10

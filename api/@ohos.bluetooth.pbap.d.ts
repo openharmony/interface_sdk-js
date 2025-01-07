@@ -99,6 +99,7 @@ declare namespace pbap {
   /**
    * Manager PBAP server profile.
    *
+   * @extends BaseProfile
    * @typedef PbapServerProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 11
