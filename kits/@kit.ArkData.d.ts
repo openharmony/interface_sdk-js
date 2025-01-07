@@ -37,10 +37,11 @@ import { ValueType, ValuesBucket } from '@ohos.data.ValuesBucket';
 import sendablePreferences from '@ohos.data.sendablePreferences';
 import sendableRelationalStore from '@ohos.data.sendableRelationalStore';
 import graphStore from '@ohos.data.graphStore';
+import collaborationEditObject from '@ohos.data.collaborationEditObject';
 
 export {
   DataShareExtensionAbility, DataShareResultSet, DataType, ValueType, ValuesBucket, cloudData, cloudExtension, 
   commonType, dataShare, dataSharePredicates, distributedDataObject, distributedKVStore, preferences,
   relationalStore, unifiedDataChannel, uniformTypeDescriptor, uniformDataStruct, sendablePreferences, dataAbility,
-  sendableRelationalStore, graphStore
+  sendableRelationalStore, graphStore, collaborationEditObject
 };
