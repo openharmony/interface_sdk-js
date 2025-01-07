@@ -388,7 +388,7 @@ declare namespace screen {
    * @param { number } secondaryScreenId - secondary screen id.
    * @param { MultiScreenMode } secondaryScreenMode - secondary screen mode.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *                                                                   2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
@@ -399,13 +399,13 @@ declare namespace screen {
   function setMultiScreenMode(primaryScreenId: number, secondaryScreenId: number,
     secondaryScreenMode: MultiScreenMode): Promise<void>;
 
-  /**
-   * Set multi screen relative position
-   * 
-   * @param { MultiScreenPositionOptions } mainScreenOptions - primary screen position.
+    /**
+   * Set multi screen relative position.
+   *
+   * @param { MultiScreenPositionOptions } mainScreenOptions - main screen position.
    * @param { MultiScreenPositionOptions } secondaryScreenOptions - secondary screen position.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *                                                                   2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
@@ -418,8 +418,8 @@ declare namespace screen {
 
   /**
    * Indicate the screen mode
-   * 
-   * @enum { number } 
+   *
+   * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 13
@@ -427,8 +427,8 @@ declare namespace screen {
   enum MultiScreenMode {
 
     /**
-     * Indicate that the screen is in mirror mode
-     * 
+     * Indicate that the screen is in mirror mode.
+     *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 13
@@ -436,13 +436,13 @@ declare namespace screen {
     SCREEN_MIRROR = 0,
 
     /**
-     * Indicate that the screen is in extend mode
-     * 
+     * Indicate that the screen is in extend mode.
+     *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 13
      */
-    SCREEN_EXTEND = 1,
+    SCREEN_EXTEND = 1
   }
 
   /**
@@ -453,10 +453,10 @@ declare namespace screen {
    * @systemapi Hide this for inner system use.
    * @since 13
    */
-  interface MultiScreenPositionOptions{
+  interface MultiScreenPositionOptions {
     /**
      * Screen id
-     * 
+     *
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
@@ -466,7 +466,7 @@ declare namespace screen {
 
     /**
      * The start coordinate X of the screen origin
-     * 
+     *
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
@@ -475,8 +475,8 @@ declare namespace screen {
     startX: number;
 
     /**
-     *  The start coordinate X of the screen origin
-     * 
+     * The start coordinate Y of the screen origin
+     *
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
@@ -484,7 +484,7 @@ declare namespace screen {
      */
     startY: number;
   }
-  
+
   /**
    * The parameter of making expand screen
    *
@@ -644,6 +644,7 @@ declare namespace screen {
      * Screen id
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -654,6 +655,7 @@ declare namespace screen {
      * Group id
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -664,6 +666,7 @@ declare namespace screen {
      * Mode supported by the screen
      *
      * @type { Array<ScreenModeInfo> }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -674,6 +677,7 @@ declare namespace screen {
      * Currently active mode
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -684,6 +688,7 @@ declare namespace screen {
      * Orientation of the screen
      *
      * @type { Orientation }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -694,6 +699,7 @@ declare namespace screen {
      * Source mode of the screen
      *
      * @type { ScreenSourceMode }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -906,50 +912,50 @@ declare namespace screen {
    * @since 15
    */
   interface Rect {
-      /**
-       * The X-axis coordinate of the upper left vertex of the rectangle, in pixels.
-       *
-       * @type { number }
-       * @syscap SystemCapability.WindowManager.WindowManager.Core
-       * @systemapi Hide this for inner system use.
-       * @atomicservice
-       * @since 15
-       */
-      left: number;
-  
-      /**
-       * The Y-axis coordinate of the upper left vertex of the rectangle, in pixels.
-       *
-       * @type { number }
-       * @syscap SystemCapability.WindowManager.WindowManager.Core
-       * @systemapi Hide this for inner system use.
-       * @atomicservice
-       * @since 15
-       */
-      top: number;
-  
-      /**
-       * Width of the rectangle, in pixels.
-       *
-       * @type { number }
-       * @syscap SystemCapability.WindowManager.WindowManager.Core
-       * @systemapi Hide this for inner system use.
-       * @atomicservice
-       * @since 15
-       */
-      width: number;
-  
-      /**
-       * Height of the rectangle, in pixels.
-       *
-       * @type { number }
-       * @syscap SystemCapability.WindowManager.WindowManager.Core
-       * @systemapi Hide this for inner system use.
-       * @atomicservice
-       * @since 15
-       */
-      height: number;
-    }
+    /**
+     * The X-axis coordinate of the upper left vertex of the rectangle, in pixels.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @atomicservice
+     * @since 15
+     */
+    left: number;
+
+    /**
+     * The Y-axis coordinate of the upper left vertex of the rectangle, in pixels.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @atomicservice
+     * @since 15
+     */
+    top: number;
+
+    /**
+     * Width of the rectangle, in pixels.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @atomicservice
+     * @since 15
+     */
+    width: number;
+
+    /**
+     * Height of the rectangle, in pixels.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @atomicservice
+     * @since 15
+     */
+    height: number;
+  }
 }
 
 export default screen;
