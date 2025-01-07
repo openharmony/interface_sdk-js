@@ -89,7 +89,7 @@ declare namespace motion {
   function off(type: 'operatingHandChanged', callbck?: Callback<OperatingHandStatus>): void;
 
   /**
-   * UnSubscribe to detect the operating hand changed event.
+   * Get the recent operating hand status.
    * @permissions ohos.permissions.ACTIVITY_MOTION
    * @param { 'operatingHandChanged' } type - Indicates the event type.
    * @param { Callback<OperatingHandStatus> } callback - Indicates the callback for getting the event data.
