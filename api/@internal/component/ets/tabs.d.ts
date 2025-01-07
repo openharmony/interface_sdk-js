@@ -390,7 +390,7 @@ declare class TabsController {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 16
  */
 declare interface TabsOptions {
   /**
@@ -532,7 +532,7 @@ interface TabsInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   (options?: TabsOptions): TabsAttribute;
 }
@@ -903,7 +903,7 @@ interface ScrollableBarModeOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 16
  */
 declare type OnTabsAnimationStartCallback = (index: number, targetIndex: number, extraInfo: TabsAnimationEvent) => void;
 
@@ -916,7 +916,7 @@ declare type OnTabsAnimationStartCallback = (index: number, targetIndex: number,
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 16
  */
 declare type OnTabsAnimationEndCallback = (index: number, extraInfo: TabsAnimationEvent) => void;
 
@@ -929,7 +929,7 @@ declare type OnTabsAnimationEndCallback = (index: number, extraInfo: TabsAnimati
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 16
  */
 declare type OnTabsGestureSwipeCallback = (index: number, extraInfo: TabsAnimationEvent) => void;
 
@@ -943,7 +943,7 @@ declare type OnTabsGestureSwipeCallback = (index: number, extraInfo: TabsAnimati
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 16
  */
 declare type TabsCustomContentTransitionCallback = (from: number, to: number) => TabContentAnimatedTransition | undefined;
 
@@ -959,7 +959,7 @@ declare type TabsCustomContentTransitionCallback = (from: number, to: number) =>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 16
  */
 declare type OnTabsContentWillChangeCallback = (currentIndex: number, comingIndex: number) => boolean;
 
@@ -1320,7 +1320,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onChange(event: Callback<number>): TabsAttribute;
 
@@ -1351,7 +1351,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onTabBarClick(event: Callback<number>): TabsAttribute;
 
@@ -1388,7 +1388,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onAnimationStart(handler: OnTabsAnimationStartCallback): TabsAttribute;
 
@@ -1423,7 +1423,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onAnimationEnd(handler: OnTabsAnimationEndCallback): TabsAttribute;
 
@@ -1458,7 +1458,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onGestureSwipe(handler: OnTabsGestureSwipeCallback): TabsAttribute;
 
@@ -1597,7 +1597,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   customContentTransition(delegate: TabsCustomContentTransitionCallback): TabsAttribute;
 
@@ -1622,7 +1622,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 15
    */
   barBackgroundBlurStyle(style: BlurStyle, options: BackgroundBlurStyleOptions): TabsAttribute;
 
@@ -1634,7 +1634,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 15
    */
   barBackgroundEffect(options: BackgroundEffectOptions): TabsAttribute;
 
@@ -1672,7 +1672,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onContentWillChange(handler: OnTabsContentWillChangeCallback): TabsAttribute;
 }
@@ -1749,7 +1749,7 @@ declare interface TabContentAnimatedTransition {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   transition: Callback<TabContentTransitionProxy>;
 }
