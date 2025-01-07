@@ -9376,7 +9376,7 @@ declare namespace window {
      */
     setDefaultDensityEnabled(enabled: boolean): void;
 
-      /**
+    /**
      * Sets the custom density of ability.
      *
      * @param { number } density - the specified custom density value.
