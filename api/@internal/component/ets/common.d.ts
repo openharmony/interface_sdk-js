@@ -7504,6 +7504,18 @@ declare interface EventTarget {
    * @since 11
    */
   area: Area;
+
+  /**
+   * Node id of current target.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  id?: string;
 }
 
 /**
