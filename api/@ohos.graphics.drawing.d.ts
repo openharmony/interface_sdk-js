@@ -480,8 +480,8 @@ declare namespace drawing {
      * <li>QUAD: 3 pairs</li>
      * <li>CONIC: 3.5 pairs</li>
      * <li>CUBIC: 4 pairs</li>
-     * <li>CLOSE: 5 pairs</li>
-     * <li>DONE: 6 pairs</li>
+     * <li>CLOSE: 0 pairs</li>
+     * <li>DONE: 0 pairs</li>
      * </ul>
      * @param { Array<common2D.Point> } points - Indicates the point array.
      * @param { number } offset - Indicates the offset into the array where entries should be placed. The default value is 0.
