@@ -62,7 +62,7 @@ declare namespace motion {
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to subscribe operatingHandChanged
    * <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION.
    * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Function on Can not work correctly due to limited
+   * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
    * @throws { BusinessError } 31500001 - Service exception.
    * @throws { BusinessError } 31500002 - Subscribe Failed.
@@ -79,7 +79,7 @@ declare namespace motion {
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to unsubscribe operatingHandChanged
    * <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION.
    * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Function on Can not work correctly due to limited
+   * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
    * @throws { BusinessError } 31500001 - Service exception.
    * @throws { BusinessError } 31500003 - Unsubscribe Failed.
@@ -93,9 +93,9 @@ declare namespace motion {
    * @permissions ohos.permissions.ACTIVITY_MOTION
    * @param { 'operatingHandChanged' } type - Indicates the event type.
    * @param { Callback<OperatingHandStatus> } callback - Indicates the callback for getting the event data.
-   * @throws { BusinessError } 201 - Permission denied. An attempt was made to get the recent operatingHand
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to get the recent operating hand
    * <br> status forbidden by permission: ohos.permission.ACTIVITY_MOTION.
-   * @throws { BusinessError } 801 - Capability not supported. Function on Can not work correctly due to limited
+   * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
    * @throws { BusinessError } 31500001 - Service exception.
    * @syscap SystemCapability.MultimodalAwarness.Motion
