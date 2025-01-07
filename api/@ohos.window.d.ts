@@ -6511,21 +6511,6 @@ declare namespace window {
     setWindowBrightness(brightness: number, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets the custom density of ability.
-     *
-     * @param { number } density - the specified custom density value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300005 - This window stage is abnormal.
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 15
-     */
-    setCustomDensity(density: number): void;
-
-    /**
      * Sets the dimBehind of window.
      *
      * @param { number } dimBehindValue - The specified dimBehind.
@@ -9390,6 +9375,22 @@ declare namespace window {
      * @since 12
      */
     setDefaultDensityEnabled(enabled: boolean): void;
+
+      /**
+     * Sets the custom density of ability.
+     *
+     * @param { number } density - the specified custom density value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @StageModelOnly
+     * @atomicservice
+     * @since 15
+     */
+    setCustomDensity(density: number): void;
 
     /**
      * Remove the starting window, it must be used with configuration "enable.remove.starting.window".
