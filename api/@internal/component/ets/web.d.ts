@@ -8864,6 +8864,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 16
    */
   enableWebAVSession(enabled: boolean): WebAttribute;
+
+  /**
+   * Sets whether to optimize parser budget to reduce FCP time
+   * 
+   * @param { boolean} optimizeParserBudget Default value is false, set true to enable optimize parser budget.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 16
+   */
+  optimizeParserBudget(optimizeParserBudget: boolean): WebAttribute;
 }
 
 /**
