@@ -104,7 +104,7 @@ export interface Caller {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
    * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
-   * @throws { BusinessError } 16200002 - Callee invalid. The callee does not exist.
+   * @throws { BusinessError } 16200002 - The callee does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
@@ -121,7 +121,7 @@ export interface Caller {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
    * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
-   * @throws { BusinessError } 16200002 - Callee invalid. The callee does not exist.
+   * @throws { BusinessError } 16200002 - The callee does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
@@ -133,7 +133,7 @@ export interface Caller {
    * Register the generic component server Stub (stub) disconnect listening notification.
    *
    * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
-   * @throws { BusinessError } 16200002 - Callee invalid. The callee does not exist.
+   * @throws { BusinessError } 16200002 - The callee does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @since 9
@@ -222,7 +222,7 @@ export interface Callee {
    * @param { CalleeCallback } callback - Register a callback function that listens for notification events.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16200004 - Method registered. The method has registered.
+   * @throws { BusinessError } 16200004 - The method has been registered.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
@@ -236,7 +236,7 @@ export interface Callee {
    * @param { string } method - A string registered to listen for notification events.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16200005 - Method not registered. The method has not registered.
+   * @throws { BusinessError } 16200005 - The method has not been registered.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly

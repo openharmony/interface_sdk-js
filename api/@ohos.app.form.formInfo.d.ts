@@ -1031,7 +1031,7 @@ declare namespace formInfo {
      * @since 12
      */
     FORM_PERMISSION_NAME_KEY = 'ohos.extra.param.key.permission_name',
-
+ 
     /**
      * Indicates the key specifying whether the user granted, which is represented as
      * want: {

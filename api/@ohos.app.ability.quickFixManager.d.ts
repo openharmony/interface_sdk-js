@@ -196,8 +196,8 @@ declare namespace quickFixManager {
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
-   * @throws { BusinessError } 18500001 - The bundle is not exist or no patch has applied.
-   * @throws { BusinessError } 18500009 - The application has a apply quick fix task that is being processed.
+   * @throws { BusinessError } 18500001 - The bundle does not exist or no patch has been applied.
+   * @throws { BusinessError } 18500009 - The application has an ongoing quick fix task.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
    * @since 10
@@ -214,8 +214,8 @@ declare namespace quickFixManager {
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
-   * @throws { BusinessError } 18500001 - The bundle is not exist or no patch has applied.
-   * @throws { BusinessError } 18500009 - The application has a apply quick fix task that is being processed.
+   * @throws { BusinessError } 18500001 - The bundle does not exist or no patch has been applied.
+   * @throws { BusinessError } 18500009 - The application has an ongoing quick fix task.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
    * @since 10
@@ -232,7 +232,7 @@ declare namespace quickFixManager {
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
-   * @throws { BusinessError } 18500001 - The specified bundleName is invalid.
+   * @throws { BusinessError } 18500001 - The bundle does not exist or no patch has been applied.
    * @throws { BusinessError } 18500008 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
@@ -250,7 +250,7 @@ declare namespace quickFixManager {
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
-   * @throws { BusinessError } 18500001 - The specified bundleName is invalid.
+   * @throws { BusinessError } 18500001 - The bundle does not exist or no patch has been applied.
    * @throws { BusinessError } 18500008 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
