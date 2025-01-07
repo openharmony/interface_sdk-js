@@ -193,7 +193,16 @@ import {
   ArcSliderValueOptions,
   ArcSliderValueOptionsConstructorOptions
 } from '@ohos.arkui.advanced.ArcSlider';
-
+import {
+  SegmentButtonV2ItemOptions,
+  OnSelectedIndexChange,
+  OnSelectedIndexesChange,
+  SegmentButtonV2Item,
+  SegmentButtonV2Items,
+  TabSegmentButtonV2,
+  CapsuleSegmentButtonV2,
+  MultiCapsuleSegmentButtonV2
+} from '@ohos.arkui.advanced.SegmentButtonV2';
 export {
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, App, AppResponse, AtomicServiceBar,
   AtomicServiceNavigation, NavDestinationBuilder,
@@ -262,4 +271,5 @@ export {
   ArcSlider, ArcSliderOptions, ArcSliderOptionsConstructorOptions, ArcSliderLayoutOptions,
   ArcSliderLayoutOptionsConstructorOptions, ArcSliderStyleOptions, ArcSliderStyleOptionsConstructorOptions,
   ArcSliderValueOptions, ArcSliderValueOptionsConstructorOptions,
+  SegmentButtonV2ItemOptions, OnSelectedIndexChange, OnSelectedIndexesChange, SegmentButtonV2Item, SegmentButtonV2Items, TabSegmentButtonV2, CapsuleSegmentButtonV2, MultiCapsuleSegmentButtonV2,
 };
