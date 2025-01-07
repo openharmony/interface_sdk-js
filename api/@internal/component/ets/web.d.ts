@@ -3239,6 +3239,15 @@ declare class ConsoleMessage {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Gets the Web source file's path and name of a console message.
+   *
+   * @returns { string } Return the Web source file's path and name of a console message.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   getSourceId(): string;
 
   /**
@@ -3255,6 +3264,15 @@ declare class ConsoleMessage {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Gets the line number of a console message.
+   *
+   * @returns { number } Return the line number of a console message.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   getLineNumber(): number;
 
@@ -3343,6 +3361,15 @@ declare class WebResourceRequest {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Gets request headers.
+   *
+   * @returns { Array<Header> } Return the request headers
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   getRequestHeader(): Array<Header>;
 
   /**
@@ -3386,6 +3413,15 @@ declare class WebResourceRequest {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Check whether the request is associated with gesture.
+   *
+   * @returns { boolean } Return {@code true} if the request is associated with gesture;return {@code false} otherwise.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   isRequestGesture(): boolean;
 
   /**
@@ -3402,6 +3438,15 @@ declare class WebResourceRequest {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Check whether the request is for getting the main frame.
+   *
+   * @returns { boolean } Return {@code true} if the request is associated with gesture for getting the main frame; return {@code false} otherwise.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   isMainFrame(): boolean;
 
@@ -3420,6 +3465,15 @@ declare class WebResourceRequest {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Check whether the request redirects.
+   *
+   * @returns { boolean } Return {@code true} if the request redirects; return {@code false} otherwise.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   isRedirect(): boolean;
 
   /**
@@ -3436,6 +3490,15 @@ declare class WebResourceRequest {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Get request method.
+   *
+   * @returns { string } Return the request method.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   getRequestMethod(): string;
 }
@@ -3486,6 +3549,15 @@ declare class WebResourceResponse {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Gets the response data.
+   *
+   * @returns { string } Return the response data.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   getResponseData(): string;
 
   /**
@@ -3498,6 +3570,18 @@ declare class WebResourceResponse {
    *                                                                   ArrayBuffer type indicate binary data.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13
+   */
+  /**
+   * Gets the response data.
+   *
+   * @returns { string | number | ArrayBuffer | Resource | undefined } Return the response data.
+   *                                                                   string type indicate string in HTML format.
+   *                                                                   number type indicate file handle.
+   *                                                                   Resource type indicate $rawfile resource.
+   *                                                                   ArrayBuffer type indicate binary data.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 16
    */
   getResponseDataEx(): string | number | ArrayBuffer | Resource | undefined;
 
@@ -3552,6 +3636,15 @@ declare class WebResourceResponse {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Gets the reason message.
+   *
+   * @returns { string } Return the reason message.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   getReasonMessage(): string;
 
   /**
@@ -3568,6 +3661,15 @@ declare class WebResourceResponse {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Gets the response headers.
+   *
+   * @returns { Array<Header> } Return the response headers.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   getResponseHeader(): Array<Header>;
 
@@ -3777,6 +3879,14 @@ declare class WebResourceResponse {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13
    */
+  /**
+   * Gets whether the response is ready.
+   *
+   * @returns { boolean } True indicates the response data is ready and false is not ready.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 16
+   */
   getResponseIsReady(): boolean;
 }
 
@@ -3803,6 +3913,15 @@ declare class WebResourceResponse {
  * @atomicservice
  * @since 12
  */
+/**
+ * Defines the Web's request/response header.
+ *
+ * @typedef Header
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
 declare interface Header {
   /**
    * Gets the key of the request/response header.
@@ -3818,6 +3937,15 @@ declare interface Header {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Gets the key of the request/response header.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   headerKey: string;
 
@@ -3835,6 +3963,15 @@ declare interface Header {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Gets the value of the request/response header.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   headerValue: string;
 }
@@ -5443,6 +5580,15 @@ declare interface OnDownloadStartEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * The contentDisposition of page.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   contentDisposition: string;
 
