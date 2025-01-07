@@ -82,7 +82,7 @@ declare namespace motion {
    * @throws { BusinessError } 801 - Capability not supported. Function on Can not work correctly due to limited
    * <br> device capabilities.
    * @throws { BusinessError } 31500001 - Service exception.
-   * @throws { BusinessError } 31500003 - UnSubscribe Failed.
+   * @throws { BusinessError } 31500003 - Unsubscribe Failed.
    * @syscap SystemCapability.MultimodalAwarness.Motion
    * @since 16
    */
