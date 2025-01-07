@@ -2708,6 +2708,29 @@ export class ComponentSnapshot {
    * @since 16
    */
   getSyncWithUniqueId(uniqueId: number, options?: componentSnapshot.SnapshotOptions): image.PixelMap;
+
+  /**
+   * Generate a snapshot from a custom component content.
+   *
+   * @param { ComponentContent<T> } content - The content to be taken snapshot.
+   * @param { number } [delay] - Defines the delay time to render the snapshot.
+   * @param { boolean } [checkImageStatus] - Defines if check the image decoding status before taking snapshot.
+   * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
+   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - The builder is not a valid build function.
+   * @throws { BusinessError } 160001 - An image component in builder is not ready for taking a snapshot. The check for
+   * the ready state is required when the checkImageStatus option is enabled.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  createFromComponent<T extends Object>(content: ComponentContent<T>, delay?: number,
+    checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
 }
 
 /**
