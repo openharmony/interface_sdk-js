@@ -5204,6 +5204,7 @@ declare namespace request {
        * Sets display strategy for background task notifications.
        * If true, progress, completed, and failed notifications will be displayed.
        * If false, only completed or failed notifications will be displayed.
+       * The default value is false.
        * 
        * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
@@ -5243,6 +5244,7 @@ declare namespace request {
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @throws { BusinessError } 13400003 - task service ability error.
      * @throws { BusinessError } 21900005 - task mode error.
+     * @throws { BusinessError } 21900006 - task not found.
      * @throws { BusinessError } 21900007 - task state error.
      * @throws { BusinessError } 21900008 - group deleted or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
