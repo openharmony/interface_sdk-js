@@ -1452,10 +1452,10 @@ declare namespace contact {
    * @atomicservice
    * @since 15
    */
-  function addContactUI(context: Context, contact: Contact): Promise<number>;
+  function addContactViaUI(context: Context, contact: Contact): Promise<number>;
 
   /**
-   * Save to existed contact through UI interaction.
+   * Saves the information to an existing contact through UI interaction.
    *
    * @param { Context } context - Indicates the context of application or capability.
    * @param { Contact } contact - Indicates the contact information.
@@ -1471,7 +1471,7 @@ declare namespace contact {
    * @atomicservice
    * @since 15
    */
-  function saveToExistedContactUI(context: Context, contact: Contact): Promise<number>;
+  function saveToExistingContactViaUI(context: Context, contact: Contact): Promise<number>;
 
   /**
    * ContactSelectionOptions Object
