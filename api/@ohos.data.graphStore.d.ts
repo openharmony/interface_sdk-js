@@ -113,6 +113,15 @@ declare namespace graphStore {
      * @since 16
      */
     securityLevel: SecurityLevel;
+    /**
+     * Specifies whether the database is encrypted.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
+     * @systemapi
+     * @since 16
+     */
+    encrypt?: boolean;
   }
 
   /**
