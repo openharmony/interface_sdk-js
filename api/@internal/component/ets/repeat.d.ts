@@ -73,6 +73,17 @@ interface VirtualScrollOptions {
    * @since 12
    */
   totalCount?: number;
+
+  /**
+   * Reuse or not.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  reusable?: boolean;
 }
 
 /**
