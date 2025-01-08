@@ -568,6 +568,7 @@ declare interface NavigationMenuItem {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1909,6 +1910,7 @@ declare interface ToolbarItem {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1976,6 +1978,7 @@ declare interface ToolbarItem {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -2071,7 +2074,7 @@ declare interface NavigationTitleOptions {
    * @since 13
    */
   subTitleModifier?: TextModifier;
-
+  
   /**
    * Defines whether to respond to the hover mode.
    *
@@ -2168,7 +2171,7 @@ declare interface NavigationToolbarOptions {
    * @atomicservice
    * @since 14
    */
-  barStyle?: BarStyle;
+    barStyle?: BarStyle;
 }
 
 /**
@@ -2808,7 +2811,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @atomicservice
    * @since 14
    */
-    enableDragBar(isEnabled: Optional<boolean>): NavigationAttribute;
+  enableDragBar(isEnabled: Optional<boolean>): NavigationAttribute;
 }
 
 /**
