@@ -102,6 +102,7 @@ export interface NotificationBasicContent {
 /**
  * Describes a long text notification.
  *
+ * @extends NotificationBasicContent
  * @typedef NotificationLongTextContent
  * @syscap SystemCapability.Notification.Notification
  * @crossplatform
@@ -206,6 +207,7 @@ export enum LiveViewStatus {
 /**
  * Describes a live view notification.
  *
+ * @extends NotificationBasicContent
  * @typedef NotificationLiveViewContent
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -275,6 +277,7 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
 /**
  * Describes a multi-line text notification.
  *
+ * @extends NotificationBasicContent
  * @typedef NotificationMultiLineContent
  * @syscap SystemCapability.Notification.Notification
  * @crossplatform
@@ -336,6 +339,7 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
 /**
  * Describes a picture-attached notification.
  *
+ * @extends NotificationBasicContent
  * @typedef NotificationPictureContent
  * @syscap SystemCapability.Notification.Notification
  * @since 7
@@ -372,6 +376,7 @@ export interface NotificationPictureContent extends NotificationBasicContent {
 /**
  * Describes a system live view notification.
  *
+ * @extends NotificationBasicContent
  * @typedef NotificationSystemLiveViewContent
  * @syscap SystemCapability.Notification.Notification
  * @since 11
