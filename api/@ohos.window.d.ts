@@ -7808,7 +7808,7 @@ declare namespace window {
      * Set the window limits of a window.
      *
      * @param { WindowLimits } windowLimits - Window limits of the window.
-     * @param { boolean } isForce - Ignore system limits.
+     * @param { boolean } isForcible - Ignore system limits.
      * @returns { Promise<WindowLimits> } - Promise is used to return the limits of window.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *                                                                  2. Incorrect parameter types;
@@ -7821,7 +7821,7 @@ declare namespace window {
      * @atomicservice
      * @since 15
      */
-    setWindowLimits(windowLimits: WindowLimits, isForce: boolean): Promise<WindowLimits>;
+    setWindowLimits(windowLimits: WindowLimits, isForcible: boolean): Promise<WindowLimits>;
 
     /**
      * Set whether to enable the single frame composer.
