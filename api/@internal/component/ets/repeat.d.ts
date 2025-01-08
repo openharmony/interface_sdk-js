@@ -206,12 +206,49 @@ declare class RepeatAttribute<T> {
 }
 
 /**
+ * Indicates the type of Repeat's Data Source.
+ *
+ * @typedef { Array<T> | ReadonlyArray<T> | Readonly<Array<T>> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 16
+ */
+declare type RepeatArray<T> = Array<T> | ReadonlyArray<T> | Readonly<Array<T>>;
+
+/**
+ * Indicates the type of Repeat.
+ *
+ * @typedef { function } RepeatInterface
+ * @param { RepeatArray<T> } arr - The Data Source
+ * @returns { RepeatAttribute<T> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 16
+ */
+declare type RepeatInterface = <T>(arr: RepeatArray<T>) => RepeatAttribute<T>;
+
+/**
  * Defines Repeat Component.
  *
+ * @type { <T>(arr: Array<T>) => RepeatAttribute<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
  * @atomicservice
  * @since 12
  */
-declare const Repeat: <T>(arr: Array<T>) => RepeatAttribute<T>;
+/**
+ * Defines Repeat Component, and Add More Array Type.
+ *
+ * @type { RepeatInterface }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 16
+ */
+declare const Repeat: RepeatInterface;
