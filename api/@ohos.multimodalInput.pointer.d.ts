@@ -1511,5 +1511,4 @@ declare namespace pointer {
    */
   function getTouchpadDoubleTapAndDragState(): Promise<boolean>;
 }
-
 export default pointer;
