@@ -315,6 +315,102 @@ declare namespace graphStore {
   }
 
   /**
+   * Provides transactional methods for managing the graph database.
+   *
+   * @interface Transaction
+   * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
+   * @systemapi
+   * @since 16
+   */
+  interface Transaction {
+    /**
+     * Execute a query procedure.
+     *
+     * @param { string } gql - Indicates the GQL statement to execute.
+     * @returns { Promise<Result> } The {@link Result} object if the operation is successful.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 31300000 - Inner error.
+     * @throws { BusinessError } 31300001 - Database corrupted.
+     * @throws { BusinessError } 31300002 - Already closed.
+     * @throws { BusinessError } 31300003 - The database is busy.
+     * @throws { BusinessError } 31300004 - The database is out of memory.
+     * @throws { BusinessError } 31300005 - The database is full.
+     * @throws { BusinessError } 31300006 - Duplicate type or properties name of vertex and edge.
+     * @throws { BusinessError } 31300007 - The type or properties of vertex and edge is not defined.
+     * @throws { BusinessError } 31300008 - The type or properties name of vertex and edge does not conform to constraint.
+     * @throws { BusinessError } 31300009 - The GQL statement syntax error.
+     * @throws { BusinessError } 31300010 - The GQL statement semantic error.
+     * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
+     * @systemapi
+     * @since 16
+     */
+    read(gql: string): Promise<Result>;
+
+    /**
+     * Execute a data-modifying procedure.
+     *
+     * @param { string } gql - Indicates the GQL statement to execute.
+     * @returns { Promise<Result> } The {@link Result} object if the operation is successful.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 31300000 - Inner error.
+     * @throws { BusinessError } 31300001 - Database corrupted.
+     * @throws { BusinessError } 31300002 - Already closed.
+     * @throws { BusinessError } 31300003 - The database is busy.
+     * @throws { BusinessError } 31300004 - The database is out of memory.
+     * @throws { BusinessError } 31300005 - The database is full.
+     * @throws { BusinessError } 31300006 - Duplicate type or properties name of vertex and edge.
+     * @throws { BusinessError } 31300007 - The type or properties of vertex and edge is not defined.
+     * @throws { BusinessError } 31300008 - The type or properties name of vertex and edge does not conform to constraint.
+     * @throws { BusinessError } 31300009 - The GQL statement syntax error.
+     * @throws { BusinessError } 31300010 - The GQL statement semantic error.
+     * @throws { BusinessError } 31300012 - The number of types or properties of vertex and edge exceeds the upper limit.
+     * @throws { BusinessError } 31300013 - A conflicting constraint already exists.
+     * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
+     * @systemapi
+     * @since 16
+     */
+    write(gql: string): Promise<Result>;
+
+    /**
+     * Commit the transaction.
+     * 
+     * @returns { Promise<void> } The Promise used to return the result.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 31300000 - Inner error.
+     * @throws { BusinessError } 31300001 - Database corrupted.
+     * @throws { BusinessError } 31300002 - Already closed.
+     * @throws { BusinessError } 31300003 - The database is busy.
+     * @throws { BusinessError } 31300004 - The database is out of memory.
+     * @throws { BusinessError } 31300005 - The database is full.
+     * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
+     * @systemapi
+     * @since 16
+     */
+    commit(): Promise<void>;
+
+    /**
+     * Rollback the transaction.
+     * 
+     * @returns { Promise<void> } The Promise used to return the result.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 31300000 - Inner error.
+     * @throws { BusinessError } 31300001 - Database corrupted.
+     * @throws { BusinessError } 31300002 - Already closed.
+     * @throws { BusinessError } 31300003 - The database is busy.
+     * @throws { BusinessError } 31300004 - The database is out of memory.
+     * @throws { BusinessError } 31300005 - The database is full.
+     * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
+     * @systemapi
+     * @since 16
+     */
+    rollback(): Promise<void>;
+  }
+
+  /**
    * Provides methods for managing the graph database.
    *
    * @interface GraphStore
@@ -374,6 +470,23 @@ declare namespace graphStore {
      * @since 16
      */
     write(gql: string): Promise<Result>;
+
+    /**
+     * Create a transaction instance.
+     *
+     * @returns { Promise<Transaction> } The {@link Transaction} object if the operation is successful.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 31300000 - Inner error.
+     * @throws { BusinessError } 31300001 - Database corrupted.
+     * @throws { BusinessError } 31300002 - Already closed.
+     * @throws { BusinessError } 31300003 - The database is busy.
+     * @throws { BusinessError } 31300004 - The database is out of memory.
+     * @throws { BusinessError } 31300005 - The database is full.
+     * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
+     * @systemapi
+     * @since 16
+     */
+    createTransaction(): Promise<Transaction>;
 
     /**
      * Close the GraphStore and opened transactions will be rollback.
