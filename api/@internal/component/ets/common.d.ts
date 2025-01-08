@@ -6395,8 +6395,8 @@ declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
 /**
  * Defines the options of ForegroundBlurStyle
  *
- * @interface ForegroundBlurStyleOptions
  * @extends BlurStyleOptions
+ * @interface ForegroundBlurStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -11767,7 +11767,7 @@ declare interface SheetOptions extends BindOptions {
    * @since 12
    */
     onWidthDidChange?: Callback<number>;
- 
+
   /**
    * Called when the sheet type changed
    *
@@ -20666,7 +20666,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 12
    */
-   onSizeChange(event: SizeChangeCallback): T;
+  onSizeChange(event: SizeChangeCallback): T;
 }
 
 /**
@@ -22362,7 +22362,7 @@ declare type NavigationInfo = import('../api/@ohos.arkui.observer').default.Navi
  * @atomicservice
  * @since 12
  */
- declare type RouterPageInfo = import('../api/@ohos.arkui.observer').default.RouterPageInfo;
+declare type RouterPageInfo = import('../api/@ohos.arkui.observer').default.RouterPageInfo;
 
 /**
  * UIContext
@@ -24426,6 +24426,7 @@ declare interface SelectionOptions {
    */
   menuPolicy?: MenuPolicy;
 }
+
 /**
  * enum keyboard avoid mode
  *
@@ -24456,7 +24457,7 @@ declare enum KeyboardAvoidMode {
    */
   NONE = 1,
 }
-
+ 
 /**
  * Enumerates the type of area in hover mode.
  *
@@ -24467,7 +24468,7 @@ declare enum KeyboardAvoidMode {
  * @since 14
  */
 declare enum HoverModeAreaType {
-
+ 
   /**
    * Layout top half screen when the phone in hover mode.
    *
@@ -24477,7 +24478,7 @@ declare enum HoverModeAreaType {
    * @since 14
    */
   TOP_SCREEN = 0,
-
+ 
   /**
    * Layout bottom half screen when the phone in hover mode.
    *
