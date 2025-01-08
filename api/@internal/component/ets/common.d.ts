@@ -26467,6 +26467,18 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @since 16
    */
   queryNavDestinationInfo(): NavDestinationInfo | undefined;
+  
+  /**
+   * Queries the navigation destination information.
+   *
+   * @param { Optional<boolean> } [isInner]
+   * @returns { NavDestinationInfo | undefined } The navigation destination information, or undefined if it is not available.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  queryNavDestinationInfo(isInner: Optional<boolean>): NavDestinationInfo | undefined;
 
   /**
    * Query the navigation information of the current custom component.
