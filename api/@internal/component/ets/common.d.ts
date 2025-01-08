@@ -12867,7 +12867,7 @@ declare interface PopupOptions {
    * @atomicservice
    * @since 13
    */
-  followTransformOfTarget?: boolean;
+   followTransformOfTarget?: boolean;
 }
 
 /**
@@ -13820,6 +13820,7 @@ declare interface ContextMenuOptions {
 /**
  * Defines the menu options.
  *
+ * @extends ContextMenuOptions
  * @interface MenuOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -13828,6 +13829,7 @@ declare interface ContextMenuOptions {
 /**
  * Defines the menu options.
  *
+ * @extends ContextMenuOptions
  * @interface MenuOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform

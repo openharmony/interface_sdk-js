@@ -364,6 +364,7 @@ export interface CloseOptions extends AccessibilityOptions {}
  *
  * @interface ChipSymbolGlyphOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 12
  */
@@ -374,6 +375,7 @@ export interface ChipSymbolGlyphOptions {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -384,6 +386,7 @@ export interface ChipSymbolGlyphOptions {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -705,6 +708,7 @@ export interface ChipOptions {
    *
    * @type { ?ChipSymbolGlyphOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -753,6 +757,7 @@ export interface ChipOptions {
    *
    * @type { ?ChipSymbolGlyphOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform   
    * @atomicservice
    * @since 12
    */

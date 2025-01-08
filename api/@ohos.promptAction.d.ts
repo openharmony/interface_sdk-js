@@ -19,7 +19,6 @@
  */
 
 
-
 import { AsyncCallback } from './@ohos.base';
 
 /**
@@ -676,8 +675,8 @@ declare namespace promptAction {
      */
     shadow?: ShadowOptions | ShadowStyle;
 
-    /**
-     * Defines whether to respond to the hover mode.
+  /**
+   * Defines whether to respond to the hover mode.
      *
      * @type { ?boolean }
      * @default false
@@ -930,7 +929,7 @@ declare namespace promptAction {
     enableHoverMode?: boolean;
 
     /**
-     * Defines the customDialog's display area in hover mode.
+     * Defines the dialog's display area in hover mode.
      *
      * @type { ?HoverModeAreaType }
      * @default HoverModeAreaType.BOTTOM_SCREEN
