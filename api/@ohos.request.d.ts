@@ -3311,6 +3311,14 @@ declare namespace request {
        * @since 11
        */
       extras?: object;
+      /**
+       * Customizes the notification of the backend task.
+       *
+       * @type { ?Notification }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 16
+       */
+      notification?: Notification;
     }
 
     /**
