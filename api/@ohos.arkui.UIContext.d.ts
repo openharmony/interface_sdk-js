@@ -26,7 +26,7 @@ import type observer from './@ohos.arkui.observer';
 import promptAction from './@ohos.promptAction';
 import router from './@ohos.router';
 import type componentUtils from './@ohos.arkui.componentUtils';
-import { ComponentContent, FrameNode } from './@ohos.arkui.node';
+import { ComponentContent, FrameNode, Frame } from './@ohos.arkui.node';
 import type { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import type { Callback, AsyncCallback } from './@ohos.base';
 import { MeasureOptions } from './@ohos.measure';
@@ -2167,6 +2167,17 @@ export interface AtomicServiceBar {
    * @since 12
    */
   setIconColor(color: Nullable< Color | number | string>): void;
+
+  /**
+   * Get size and position of the bar.
+   *
+   * @returns { Frame } The size and position of bar in px relative to window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  getBarRect(): Frame;
 }
 
 /**
