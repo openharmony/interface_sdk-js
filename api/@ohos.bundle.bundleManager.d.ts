@@ -2399,6 +2399,19 @@ declare namespace bundleManager {
   function cleanBundleCacheFiles(bundleName: string, appIndex: number): Promise<void>;
 
   /**
+   * Get the all bundle cache size of the current user.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @returns { Promise<number> } Returns all bundle cache size.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 15
+   */
+  function getAllBundleCacheSize(): Promise<number>;
+
+  /**
    * Sets whether to enable a specified application.
    *
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
