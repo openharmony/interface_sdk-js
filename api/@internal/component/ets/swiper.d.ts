@@ -1489,6 +1489,20 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   indicator(value: DotIndicator | DigitIndicator | boolean): SwiperAttribute;
 
   /**
+   * Use indicator component controller.
+   *
+   * @param { IndicatorComponentController | DotIndicator | DigitIndicator | boolean } indicator -
+   * the style value or show indicator of the swiper indicator.
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  indicator(indicator: IndicatorComponentController | DotIndicator | DigitIndicator | boolean): SwiperAttribute;
+
+  /**
    * Set arrow is enabled, or set the arrow style.
    *
    * @param { ArrowStyle | boolean } value - arrow is displayed or set the arrow style.
