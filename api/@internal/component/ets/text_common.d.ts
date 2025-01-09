@@ -1254,6 +1254,59 @@ interface EditableTextChangeValue {
   options?: TextChangeOptions;
 }
 
+ /**
+  * Defines text menu show mode.
+  *
+  * @enum { number }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 16
+  */
+declare enum TextMenuShowMode {
+  /**
+   * Display the text selection menu in the current window.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  DEFAULT = 0,
+
+  /**
+   * Prefer to display the text selection menu in a separate window
+   * and continue to display it within the current window if a separate window is not supported
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  PREFER_WINDOW = 1,
+}
+
+ /**
+  * Defines text menu options.
+  *
+  * @interface TextMenuOptions
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 16
+  */
+declare interface TextMenuOptions {
+  /**
+   * Text menu show mode.
+   *
+   * @type { ?TextMenuShowMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  showMode?: TextMenuShowMode;
+}
 /**
  * Defines keyboard appearance.
  *
