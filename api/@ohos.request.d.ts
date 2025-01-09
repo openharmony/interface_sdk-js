@@ -3312,6 +3312,17 @@ declare namespace request {
        */
       extras?: object;
       /**
+       * Use a single request to upload multiple files.
+       * If true, use the form format to merge multiple files into one request.
+       * If false, use independent requests to send each file.
+       * The default is false.
+       *
+       * @type { ?boolean }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 16
+       */
+      multipart?: boolean;
+      /**
        * Customizes the notification of the backend task.
        *
        * @type { ?Notification }
