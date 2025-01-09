@@ -599,7 +599,7 @@ export default class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   createDisplayContext(displayId: number): Context;
 }
