@@ -2551,7 +2551,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 16
      */
-    static createDiscretePathEffect(segLength: number, dev: number, seedAssist?: number | null): PathEffect;
+    static createDiscretePathEffect(segLength: number, dev: number, seedAssist?: number): PathEffect;
 
      /**
       * Makes a compose PathEffect.
