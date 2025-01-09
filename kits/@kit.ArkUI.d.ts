@@ -19,7 +19,7 @@
  */
 
 import windowAnimationManager from '@ohos.animation.windowAnimationManager';
-import Animator, { AnimatorOptions, AnimatorResult } from '@ohos.animator';
+import Animator, { AnimatorOptions, AnimatorResult, SimpleAnimatorOptions } from '@ohos.animator';
 import WindowExtensionAbility, { WindowExtensionContext } from '@ohos.application.WindowExtensionAbility';
 import { AtomicServiceNavigation, NavDestinationBuilder } from '@ohos.atomicservice.AtomicServiceNavigation';
 import {
@@ -204,7 +204,7 @@ import {
   MultiCapsuleSegmentButtonV2
 } from '@ohos.arkui.advanced.SegmentButtonV2';
 export {
-  AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, App, AppResponse, AtomicServiceBar,
+  AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, SimpleAnimatorOptions, App, AppResponse, AtomicServiceBar,
   AtomicServiceNavigation, NavDestinationBuilder,
   NavPushPathHelper,
   BackRouterOptions, BuilderNode, Button, ButtonOptions, CallbackParam,
