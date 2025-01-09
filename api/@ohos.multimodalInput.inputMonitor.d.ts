@@ -25,6 +25,8 @@ import type { TouchEvent } from './@ohos.multimodalInput.touchEvent';
 import type { Rotate, Pinch, ThreeFingersSwipe, FourFingersSwipe, SwipeInward } from './@ohos.multimodalInput.gestureEvent';
 import type { ThreeFingersTap } from './@ohos.multimodalInput.gestureEvent';
 import type { FingerprintEvent } from './@ohos.multimodalInput.shortKey';
+import type { KeyEvent } from './@ohos.multimodalInput.keyEvent';
+import type { KeyCode } from './@ohos.multimodalInput.keyCode';
 
 /**
  * Global input event listener
@@ -462,5 +464,39 @@ declare namespace inputMonitor {
    * @since 12
    */
   function off(type: 'swipeInward', receiver?: Callback<SwipeInward>): void;
+
+/**
+   * Enables listening for release events of specified keys, such as the logo, power, and volume keys.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'keyPressed' } type - Event type, which is **keyPressed**.
+   * @param { Array<KeyCode> }  keys - Key list.
+   * @param { Callback<KeyEvent> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 4100001 - Event listening not supported for the key.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 15
+   */
+  function on(type: 'keyPressed', keys: Array<KeyCode>, receiver: Callback<KeyEvent>): void;
+
+/**
+   * Disables listening for release events of specified keys.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'keyPressed' } type - Event type, which is **keyPressed**.
+   * @param { Callback<KeyEvent> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 15
+   */
+  function off(type: 'keyPressed', receiver?: Callback<KeyEvent>): void;
 }
 export default inputMonitor;
