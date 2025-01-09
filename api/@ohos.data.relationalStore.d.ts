@@ -8167,6 +8167,16 @@ declare namespace relationalStore {
    * @since 16
    */
   function isVectorSupported(): boolean;
+
+  /**
+   * check the {@link Tokenizer} tokenizer type is supported or not on current system.
+   * @param { tokenizer } type - Indicates Tokenizer which want to check.
+   * @returns { boolean } Returns {@code true} if the tokenizer is supported; returns {@code false} otherwise.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 16
+   */
+    function isTokenizerSupported(tokenizer: Tokenizer): boolean;
 }
 
 export default relationalStore;
