@@ -138,7 +138,7 @@ export declare struct PhotoPickerComponent {
    * @atomicservice
    * @since 13
    */
-  onCurrentAlbumDeleted?: CurrentAlbumDeletedCallback
+  onCurrentAlbumDeleted?: CurrentAlbumDeletedCallback;
 
   /**
    * Callback when the video play state changed
