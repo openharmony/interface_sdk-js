@@ -121,16 +121,6 @@ export declare struct PhotoPickerComponent {
   onSelectedItemsDeleted?: ItemsDeletedCallback;
 
   /**
-   * Callback when the video play state changed
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 14
-   */
-  onVideoPlayStateChanged?: videoPlayStateChangedCallback;
-
-  /**
    * Callback when exceed max selected
    *
    * @type { ?function }
@@ -149,6 +139,16 @@ export declare struct PhotoPickerComponent {
    * @since 13
    */
   onCurrentAlbumDeleted?: CurrentAlbumDeletedCallback
+
+  /**
+   * Callback when the video play state changed
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14
+   */
+  onVideoPlayStateChanged?: videoPlayStateChangedCallback;
 
   /**
    * PickerController
