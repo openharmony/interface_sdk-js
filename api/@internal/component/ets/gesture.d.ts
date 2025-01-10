@@ -2271,6 +2271,17 @@ declare class PanGestureOptions {
    * @since 12
    */
   getDirection(): PanDirection;
+  /**
+   * Returns the pan gesture's distance.
+   * The unit is vp.
+   *
+   * @returns { number } - the distance of the pan gesture.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+    getDistance(): number;
 }
 
 /**
@@ -4105,6 +4116,159 @@ declare class GestureRecognizer {
    * @since 12
    */
   isValid(): boolean;
+  /**
+   * Returns the tap gesture's finger count.
+   *
+   * @returns { number } - the finger count of the tap gesture.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  getFingerCount(): number;
+  /**
+   * Returns the tap gesture's limitFingerCount.
+   *
+   * @returns { boolean } - the limitFingerCount of the tap gesture.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  isFingerCountLimit(): boolean;
+}
+
+/**
+ * Defines the tap gesture recognizer.
+ *
+ * @extends GestureRecognizer
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare class TapRecognizer extends GestureRecognizer {
+  /**
+   * Returns the tap gesture's count.
+   *
+   * @returns { number } - the count of the tap gesture.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  getTapCount(): number;
+}
+
+/**
+ * Defines the long press gesture recognizer.
+ *
+ * @extends GestureRecognizer
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare class LongPressRecognizer extends GestureRecognizer {
+  /**
+   * Returns the long press gesture's repeat state.
+   *
+   * @returns { boolean } - the repeat state of the long press gesture.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  isRepeat(): boolean;
+  /**
+   * Returns the long press gesture's duration.
+   * The unit is ms.
+   *
+   * @returns { number } - the duration of the long press gesture.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  getDuration(): number;
+}
+
+/**
+ * Defines the swipe gesture recognizer.
+ *
+ * @extends GestureRecognizer
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare class SwipeRecognizer extends GestureRecognizer {
+  /**
+   * Returns the swipe gesture's speed.
+   * The unit is vp/s.
+   *
+   * @returns { number } - the velocity threshold of the swipe gesture.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  getVelocityThreshold(): number;
+  /**
+   * Returns the swipe gesture's direction.
+   *
+   * @returns { SwipeDirection } - the direction of the swipe gesture.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  getDirection(): SwipeDirection;
+}
+
+/**
+ * Defines the pinch gesture recognizer.
+ *
+ * @extends GestureRecognizer
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare class PinchRecognizer extends GestureRecognizer {
+  /**
+   * Returns the pinch gesture's distance.
+   * The unit is vp.
+   *
+   * @returns { number } - the distance of the pinch gesture.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  getDistance(): number;
+}
+
+/**
+ * Defines the rotation gesture recognizer.
+ *
+ * @extends GestureRecognizer
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare class RotationRecognizer extends GestureRecognizer {
+  /**
+   * Returns the rotation gesture's angle.
+   *
+   * @returns { number } - the angle of the rotation gesture.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  getAngle(): number;
 }
 
 /**
