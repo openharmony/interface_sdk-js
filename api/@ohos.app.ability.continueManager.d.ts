@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2025-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,23 +17,24 @@
  * @file
  * @kit AbilityKit
  */
-
+ 
 import { AsyncCallback } from './@ohos.base';
 
 /**
- * Providers interfaces to create a {@link continueManager} instances.
- *
+ * Providers methods for interacting with continue feature.
+ * 
  * @namespace continueManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @since 16
  */
 declare namespace continueManager {
     /**
-     * Registers continue event.
-     *
+     * Register prepareContinue event.
+     * 
      * @param { 'prepareContinue' } type - Registration Type, 'prepareContinue'.
      * @param { Context } context - the ability context.
      * @param { AsyncCallback<ContinueResultInfo> } callback - Used to handle ('prepareContinue') command.
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 16
@@ -41,20 +42,20 @@ declare namespace continueManager {
     function on(type: 'prepareContinue', context: Context, callback: AsyncCallback<ContinueResultInfo>): void;
 
     /**
-     * Unregisters continue event.
-     *
+     * Unregister prepareContinue event.
+     * 
      * @param { 'prepareContinue' } type - Registration Type, 'prepareContinue'.
      * @param { Context } context - the ability context.
      * @param { AsyncCallback<ContinueResultInfo> } callback - Used to handle ('prepareContinue') command.
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 16
      */
     function off(type: 'prepareContinue', context: Context, callback?: AsyncCallback<ContinueResultInfo>): void;
 
-
     /**
-     * Continue event info.
+     * Continue result info.
      * @interface ContinueEventInfo
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 16
@@ -64,7 +65,6 @@ declare namespace continueManager {
          * Continue state code.
          * @type { ContinueStateCode }
          * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-         * @systemapi
          * @since 16
          */
         resultState: ContinueStateCode;
@@ -73,7 +73,6 @@ declare namespace continueManager {
          * Result info.
          * @type { ?string }
          * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-         * @systemapi
          * @since 16
          */
         resultInfo?: string;
@@ -88,8 +87,7 @@ declare namespace continueManager {
     enum ContinueStateCode {
         /**
          * Continue success
-         * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-         * @systemapi
+         * @syscap SystemCapability.Ability.AbilityRuntime.Mission 
          * @since 16
          */
         SUCCESS = 0,
@@ -97,7 +95,6 @@ declare namespace continueManager {
         /**
          * System error
          * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-         * @systemapi
          * @since 16
          */
         SYSTEM_ERROR,
