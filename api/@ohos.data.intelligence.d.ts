@@ -25,13 +25,12 @@
  * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
  * @since 16
  */
-
 declare namespace intelligence {
   /**
    * Obtains a text embedding model.
    *
    * @param { ModelConfig } config - The configuration of the embedding model.
-   * @returns { Promise<TextEmbedding> } - The promise returned by the function.
+   * @returns { Promise<TextEmbedding> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -42,10 +41,10 @@ declare namespace intelligence {
   function getTextEmbeddingModel(config: ModelConfig): Promise<TextEmbedding>;
 
   /**
-   * obtains an image embedding model.
+   * Obtains an image embedding model.
    *
    * @param { ModelConfig } config - The configuration of the embedding model.
-   * @returns { Promise<ImageEmbedding> } - The promise returned by the function.
+   * @returns { Promise<ImageEmbedding> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -62,10 +61,9 @@ declare namespace intelligence {
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @since 16
    */
-
   interface ModelConfig {
     /**
-     * version of the model.
+     * Version of the model.
      * The outputs of text or image embedding models with the same version are in the same vector space.
      *
      * @type { ModelVersion }
@@ -81,8 +79,7 @@ declare namespace intelligence {
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 16
      */
-    isNPUAvailable: boolean;
-
+    isNpuAvailable: boolean;
 
     /**
      * If NPU is used for accelerating, a local path is required for model caching.
@@ -144,9 +141,9 @@ declare namespace intelligence {
 
     /**
      * Obtains the embedding vector for the given text.
-     * The text should be no longer than 512 token.
+     * The text should be no longer than 512 tokens.
      *
-     * @param { string } text - The input of the embedding model.
+     * @param { string } text - The input text of the embedding model.
      * @returns { Promise<Array<number>> } The promise used to return the embedding result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -158,10 +155,10 @@ declare namespace intelligence {
     getEmbedding(text: string): Promise<Array<number>>;
 
     /**
-     * Obtains the embedding vector for the given batch of text.
-     * Each text should be no longer than 512 token.
+     * Obtains the embedding vector for the given batch of texts.
+     * Each text should be no longer than 512 tokens.
      *
-     * @param { Array<string> } textBatch - The input of the embedding model.
+     * @param { Array<string> } batchTexts - The input batch of texts of the embedding model.
      * @returns { Promise<Array<Array<number>>> } The promise used to return the embedding result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -170,7 +167,7 @@ declare namespace intelligence {
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 16
      */
-    getEmbedding(textBatch: Array<string>): Promise<Array<Array<number>>>;
+    getEmbedding(batchTexts: Array<string>): Promise<Array<Array<number>>>;
   }
 
   /**
@@ -207,7 +204,7 @@ declare namespace intelligence {
      * Obtains the embedding vector for the given image.
      * The image should be no larger than 20 MB.
      *
-     * @param { Image } image - The input of the embedding model.
+     * @param { Image } image - The input image of the embedding model.
      * @returns { Promise<Array<number>> } The promise used to return the embedding result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -232,7 +229,7 @@ declare namespace intelligence {
    * Chunking process for text.
    *
    * @param { string } text - Text for chunking. The length of the text is no longer then 100k tokens.
-   * @param { SplitConfig } config - configurations of text chunking.
+   * @param { SplitConfig } config - Configurations of text chunking.
    * @returns { Promise<Array<string>> } The promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
@@ -260,12 +257,12 @@ declare namespace intelligence {
     size: number;
 
     /**
-     * The overlap ratio of chunks.
+     * The ratio of overlap between adjacent chunks.
      *
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 16
      */
-    overlap: number;
+    overlapRatio: number;
   }
 }
 
