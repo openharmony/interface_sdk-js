@@ -14458,7 +14458,7 @@ declare interface PopupCommonOptions {
   /**
    * Set the background color of the popup.
    *
-   * @type { ?(Color | string | Resource | number) }
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
