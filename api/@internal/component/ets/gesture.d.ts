@@ -1824,6 +1824,28 @@ interface GestureInterface<T> {
   allowedTypes(types: Array<SourceTool>): T;
 }
 
+  /** 
+   * Defines the BaseHandlerOptions options.
+   * @interface BaseHandlerOptions
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  interface BaseHandlerOptions {
+  /**
+   * The flag to strict verification fingers, if touch finger size is over or less than fingers, gesture can not be accepted.
+   * The default value is false.
+   * 
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  isFingerCountLimited?: boolean;
+}
+
 /**
  * Defines TapGesture parameters.
  *
@@ -1833,7 +1855,17 @@ interface GestureInterface<T> {
  * @atomicservice
  * @since 12
  */
-declare interface TapGestureParameters {
+/**
+ * Defines TapGesture parameters.
+ *
+ * @extends BaseHandlerOptions
+ * @interface TapGestureParameters
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 15
+ */
+declare interface TapGestureParameters extends BaseHandlerOptions {
   /**
    * Number of consecutive clicks recognized. If the value is less than 1, the default value is used.
    *
@@ -2036,6 +2068,18 @@ interface LongPressGestureInterface extends GestureInterface<LongPressGestureInt
    */
   (value?: { fingers?: number; repeat?: boolean; duration?: number }): LongPressGestureInterface;
 
+  /**
+   * Set the options.
+   * options: The options of the long press gesture.
+   *
+   * @param { LongPressGestureHandlerOptions } options
+   * @returns { LongPressGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+    (options?: LongPressGestureHandlerOptions): LongPressGestureInterface;
   /**
    * LongPress gesture recognition success callback.
    *
@@ -2320,6 +2364,18 @@ interface PanGestureInterface extends GestureInterface<PanGestureInterface> {
   (value?: { fingers?: number; direction?: PanDirection; distance?: number } | PanGestureOptions): PanGestureInterface;
 
   /**
+   * Set the value.
+   *
+   * @param { PanGestureHandlerOptions } options
+   * @returns { PanGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  (options?: PanGestureHandlerOptions): PanGestureInterface;
+
+  /**
    * Pan gesture recognition success callback.
    *
    * @param { function } event
@@ -2494,6 +2550,19 @@ interface SwipeGestureInterface extends GestureInterface<SwipeGestureInterface> 
   (value?: { fingers?: number; direction?: SwipeDirection; speed?: number }): SwipeGestureInterface;
 
   /**
+   * Set the options.
+   * options: The options of the swipe gesture.
+   *
+   * @param { SwipeGestureHandlerOptions } options
+   * @returns { SwipeGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  (options?: SwipeGestureHandlerOptions): SwipeGestureInterface;
+
+  /**
    * Slide gesture recognition success callback.
    *
    * @param { function } event
@@ -2579,6 +2648,19 @@ interface PinchGestureInterface extends GestureInterface<PinchGestureInterface> 
    * @since 11
    */
   (value?: { fingers?: number; distance?: number }): PinchGestureInterface;
+
+  /**
+   * Set the options.
+   * options: The options of the pinch gesture.
+   *
+   * @param { PinchGestureHandlerOptions } options
+   * @returns { PinchGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  (options?: PinchGestureHandlerOptions): PinchGestureInterface;
 
   /**
    * Pan gesture recognition success callback.
@@ -2753,6 +2835,19 @@ interface RotationGestureInterface extends GestureInterface<RotationGestureInter
    * @since 11
    */
   (value?: { fingers?: number; angle?: number }): RotationGestureInterface;
+
+  /**
+   * Set the options.
+   * options: The options of the rotation gesture.
+   *
+   * @param { RotationGestureHandlerOptions } options
+   * @returns { RotationGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  (options?: RotationGestureHandlerOptions): RotationGestureInterface;
 
   /**
    * Pan gesture recognition success callback.
@@ -3163,7 +3258,17 @@ declare class GestureHandler<T> implements GestureInterface<T> {
  * @atomicservice
  * @since 12
  */
-interface TapGestureHandlerOptions {
+/**
+ * Defines the TapGestureHandler options.
+ *
+ * @extends BaseHandlerOptions
+ * @interface TapGestureHandlerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 15
+ */
+interface TapGestureHandlerOptions extends BaseHandlerOptions {
   /**
    * Indicates the number of consecutive clicks recognized. If the value is less than 1, the default value is used.
    * The default value is 1.
@@ -3230,7 +3335,17 @@ declare class TapGestureHandler extends GestureHandler<TapGestureHandler> {
  * @atomicservice
  * @since 12
  */
-interface LongPressGestureHandlerOptions {
+/**
+ * Defines the LongPressGestureHandler options.
+ *
+ * @extends BaseHandlerOptions
+ * @interface LongPressGestureHandlerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 15
+ */
+interface LongPressGestureHandlerOptions extends BaseHandlerOptions {
   /**
    * Indicates the hand index that triggers the long press. If the value is less than 1, the default value is used.
    * The default value is 1.
@@ -3330,7 +3445,17 @@ declare class LongPressGestureHandler extends GestureHandler<LongPressGestureHan
  * @atomicservice
  * @since 12
  */
-interface PanGestureHandlerOptions {
+/**
+ * Defines the PanGestureHandler options.
+ *
+ * @extends BaseHandlerOptions
+ * @interface PanGestureHandlerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 15
+ */
+interface PanGestureHandlerOptions extends BaseHandlerOptions {
   /**
    * Indicates the hand index that triggers the pan. If the value is less than 1, the default value is used.
    * The default value is 1.
@@ -3441,7 +3566,17 @@ declare class PanGestureHandler extends GestureHandler<PanGestureHandler> {
  * @atomicservice
  * @since 12
  */
-interface SwipeGestureHandlerOptions {
+/**
+ * Defines the SwipeGestureHandler options.
+ *
+ * @extends BaseHandlerOptions
+ * @interface SwipeGestureHandlerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 15
+ */
+interface SwipeGestureHandlerOptions extends BaseHandlerOptions {
   /**
    * Indicates the hand index that triggers the swipe. If the value is less than 1, the default value is used.
    * The default value is 1.
@@ -3519,7 +3654,17 @@ declare class SwipeGestureHandler extends GestureHandler<SwipeGestureHandler> {
  * @atomicservice
  * @since 12
  */
-interface PinchGestureHandlerOptions {
+/**
+ * Defines the PinchGestureHandler options.
+ *
+ * @extends BaseHandlerOptions
+ * @interface PinchGestureHandlerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 15
+ */
+interface PinchGestureHandlerOptions extends BaseHandlerOptions {
   /**
    * Indicates the hand index that triggers the pinch. If the value is less than 1, the default value is used.
    * The default value is 1.
@@ -3619,7 +3764,17 @@ declare class PinchGestureHandler extends GestureHandler<PinchGestureHandler> {
  * @atomicservice
  * @since 12
  */
-interface RotationGestureHandlerOptions {
+/**
+ * Defines the RotationGestureHandler options.
+ *
+ * @extends BaseHandlerOptions
+ * @interface RotationGestureHandlerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 15
+ */
+interface RotationGestureHandlerOptions extends BaseHandlerOptions {
   /**
    * Indicates the hand index that triggers the rotation. If the value is less than 1, the default value is used.
    * The default value is 1.
@@ -4035,4 +4190,3 @@ declare class PanRecognizer extends GestureRecognizer {
    */
   getPanGestureOptions(): PanGestureOptions;
 }
-
