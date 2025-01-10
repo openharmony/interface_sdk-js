@@ -358,7 +358,31 @@ declare namespace vibrator {
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 12
      */
-    EFFECT_SHARP = 'haptic.effect.sharp'
+    EFFECT_SHARP = 'haptic.effect.sharp',
+
+    /**
+     * Describes the vibration effect of the successful notice.
+     *
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 16
+     */
+    EFFECT_NOTICE_SUCCESS = 'haptic.notice.success',
+
+    /**
+     * Describes the vibration effect of the failed notice.
+     *
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 16
+     */
+    EFFECT_NOTICE_FAILURE = 'haptic.notice.fail',
+
+    /**
+     * Describes the vibration effect of the warning notice.
+     *
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 16
+     */
+    EFFECT_NOTICE_WARNING = 'haptic.notice.warning'
   }
 
   /**

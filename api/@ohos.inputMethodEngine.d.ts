@@ -2272,7 +2272,7 @@ declare namespace inputMethodEngine {
     portraitRect?: window.Rect;
     /**
      * The distance between the top of the panel and the top of the avoidance area in landscape orientation.
-     * <p>It's only used for SOFT_KEYBOARD panel with fixed flag.</p>
+     * <p>It's only used for SOFT_KEYBOARD panel with fixed flag or floating flag.</p>
      *
      * @type { ?number }
      * @default 0
@@ -2282,7 +2282,7 @@ declare namespace inputMethodEngine {
     landscapeAvoidY?: number;
     /**
      * <p>Region in the panel that accepts input events in landsacpe mode.</p>
-     * <p>It's only used for SOFT_KEYBOARD panel with fixed flag. Max array size is 4.</p>
+     * <p>It's only used for SOFT_KEYBOARD panel with fixed flag or floating flag. Max array size is 4.</p>
      * <p>Defaults to entire panel area if not specifed.</p>
      *
      * @type { ?Array<window.Rect> }
@@ -2292,7 +2292,7 @@ declare namespace inputMethodEngine {
     landscapeInputRegion?: Array<window.Rect>;
     /**
      * The distance between the top of the panel and the top of the avoidance area in portrait orientation.
-     * <p>It's only used for SOFT_KEYBOARD panel with fixed flag.</p>
+     * <p>It's only used for SOFT_KEYBOARD panel with fixed flag or floating flag.</p>
      *
      * @type { ?number }
      * @default 0
@@ -2302,7 +2302,7 @@ declare namespace inputMethodEngine {
     portraitAvoidY?: number;
     /**
      * <p>Region in the panel that accepts input events in portrait mode.</p>
-     * <p>It's only used for SOFT_KEYBOARD panel with fixed flag. Max array size is 4.</p>
+     * <p>It's only used for SOFT_KEYBOARD panel with fixed flag or floating flag. Max array size is 4.</p>
      * <p>Defaults to entire panel area if not specifed.</p>
      *
      * @type { ?Array<window.Rect> }
@@ -2312,7 +2312,7 @@ declare namespace inputMethodEngine {
     portraitInputRegion?: Array<window.Rect>;
     /**
      * <p>Enter the full screen mode.</p>
-     * <p>It's only used for SOFT_KEYBOARD panel with fixed flag.</p>
+     * <p>It's only used for SOFT_KEYBOARD panel with fixed flag or floating flag.</p>
      *
      * @type { ?boolean }
      * @default false

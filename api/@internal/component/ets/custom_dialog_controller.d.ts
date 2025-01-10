@@ -502,6 +502,73 @@ declare interface CustomDialogControllerOptions {
    * @since 14
    */
   hoverModeArea?: HoverModeAreaType;
+
+  /**
+   * Callback function when the dialog appears.
+   *
+   * @type { ?Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onDidAppear?: Callback<void>;
+
+  /**
+   * Callback function when the dialog disappears.
+   *
+   * @type { ?Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onDidDisappear?: Callback<void>;
+
+  /**
+   * Callback function before the dialog openAnimation starts.
+   *
+   * @type { ?Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onWillAppear?: Callback<void>;
+
+  /**
+   * Callback function before the dialog closeAnimation starts.
+   *
+   * @type { ?Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onWillDisappear?: Callback<void>;
+
+  /**
+   * Determine the display level of the dialog.
+   *
+   * @type { ?LevelMode }
+   * @default LevelMode.OVERLAY
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  levelMode?: LevelMode;
+
+  /**
+   * Defines the distance between the customDialog and system keyboard.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  keyboardAvoidDistance?: LengthMetrics
 }
 
 /**

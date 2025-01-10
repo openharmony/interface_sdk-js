@@ -1542,6 +1542,18 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 16
    */
   stopBackPress(isStopped: Optional<boolean>): TextAreaAttribute;
+
+  /**
+   * Get text value information when about to change.
+   *
+   * @param { Callback<EditableTextChangeValue, boolean> } callback - The triggered function when text content is about to change.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onWillChange(callback: Callback<EditableTextChangeValue, boolean>): TextAreaAttribute;
 }
 
 /**

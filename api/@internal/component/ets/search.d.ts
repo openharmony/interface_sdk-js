@@ -1628,6 +1628,18 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 16
    */
   stopBackPress(isStopped: Optional<boolean>): SearchAttribute;
+
+  /**
+   * Get text value information when about to change.
+   *
+   * @param { Callback<EditableTextChangeValue, boolean> } callback - The triggered function when text content is about to change.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onWillChange(callback: Callback<EditableTextChangeValue, boolean>): SearchAttribute;
 }
 
 /**

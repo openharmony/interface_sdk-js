@@ -165,7 +165,7 @@ declare class SwiperController {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   finishAnimation(callback?: VoidCallback);
 
@@ -610,7 +610,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
- * @since 14
+ * @since 16
  */
 declare interface SwiperAutoFill {
   /**
@@ -1292,7 +1292,7 @@ declare enum SwiperNestedScrollMode {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 16
  */
 declare type OnSwiperAnimationStartCallback = (index: number, targetIndex: number, extraInfo: SwiperAnimationEvent) => void;
 
@@ -1306,7 +1306,7 @@ declare type OnSwiperAnimationStartCallback = (index: number, targetIndex: numbe
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 16
  */
 declare type OnSwiperAnimationEndCallback = (index: number, extraInfo: SwiperAnimationEvent) => void;
 
@@ -1319,7 +1319,7 @@ declare type OnSwiperAnimationEndCallback = (index: number, extraInfo: SwiperAni
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 16
  */
 declare type OnSwiperGestureSwipeCallback = (index: number, extraInfo: SwiperAnimationEvent) => void;
 
@@ -1487,6 +1487,20 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 11
    */
   indicator(value: DotIndicator | DigitIndicator | boolean): SwiperAttribute;
+
+  /**
+   * Use indicator component controller.
+   *
+   * @param { IndicatorComponentController | DotIndicator | DigitIndicator | boolean } indicator -
+   * the style value or show indicator of the swiper indicator.
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  indicator(indicator: IndicatorComponentController | DotIndicator | DigitIndicator | boolean): SwiperAttribute;
 
   /**
    * Set arrow is enabled, or set the arrow style.
@@ -1882,7 +1896,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onChange(event: Callback<number>): SwiperAttribute;
 
@@ -2005,7 +2019,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onAnimationStart(event: OnSwiperAnimationStartCallback): SwiperAttribute;
 
@@ -2051,7 +2065,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onAnimationEnd(event: OnSwiperAnimationEndCallback): SwiperAttribute;
 
@@ -2086,7 +2100,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onGestureSwipe(event: OnSwiperGestureSwipeCallback): SwiperAttribute;
 

@@ -16339,6 +16339,28 @@ declare interface ContextMenuOptions {
   backgroundBlurStyle?: BlurStyle;
 
   /**
+   * Defines the menu's background blur style with options
+   *
+   * @type { ?BackgroundBlurStyleOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
+
+  /**
+   * Defines the menu's background effect with options
+   *
+   * @type { ?BackgroundEffectOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  backgroundEffect?: BackgroundEffectOptions;
+
+  /**
    * Defines the transition effect of menu opening and closing.
    *
    * @type { ?TransitionEffect }
@@ -17752,6 +17774,44 @@ declare type RectShape = import('../api/@ohos.arkui.shape').RectShape;
 declare type Optional<T> = T | undefined;
 
 /**
+ * Define the options for background image.
+ *
+ * @interface BackgroundImageOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 16
+ */
+interface BackgroundImageOptions {
+  /**
+   * Sets the synchronous or asynchronous mode for background image loading.
+   * The default parameter type is bool, and the default value is false.
+   *
+   * @type { ?boolean }
+   * @param { boolean } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  syncLoad?: boolean;
+  /**
+   * Set the repeat style of the background image.
+   *
+   * @type { ?ImageRepeat }
+   * @param { ImageRepeat } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  repeat?: ImageRepeat;
+}
+
+/**
  * CommonMethod.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -18451,6 +18511,20 @@ declare class CommonMethod<T> {
    */
   backgroundImage(src: ResourceStr | PixelMap, repeat?: ImageRepeat): T;
 
+  /**
+   * Background image
+   *
+   * @param { ResourceStr | PixelMap } src - the background image source
+   * @param { BackgroundImageOptions } options - config the options
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  backgroundImage(src: ResourceStr | PixelMap, options?: BackgroundImageOptions): T;
+    
   /**
    * Background image size
    *
@@ -26467,6 +26541,18 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @since 16
    */
   queryNavDestinationInfo(): NavDestinationInfo | undefined;
+  
+  /**
+   * Queries the navigation destination information.
+   *
+   * @param { Optional<boolean> } [isInner]
+   * @returns { NavDestinationInfo | undefined } The navigation destination information, or undefined if it is not available.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  queryNavDestinationInfo(isInner: Optional<boolean>): NavDestinationInfo | undefined;
 
   /**
    * Query the navigation information of the current custom component.
@@ -26741,6 +26827,28 @@ declare interface CaretOffset {
 }
 
 /**
+ * Defines the span options of TextContentController.
+ *
+ * @interface TextContentControllerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare interface TextContentControllerOptions {
+  /**
+   * the offset that add a text at.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  offset?: number;
+}
+
+/**
  * TextContentControllerBase
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -26812,6 +26920,41 @@ declare abstract class TextContentControllerBase {
    * @since 11
    */
   getTextContentLineCount() : number;
+
+  /**
+   * Add a text.
+   *
+   * @param { string } text - text value.
+   * @param { TextContentControllerOptions } [textOperationOptions] - operation info.
+   * @returns { number } caret index
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  addText(text: string, textOperationOptions?: TextContentControllerOptions): number;
+
+  /**
+   * Delete text in TextRange.
+   *
+   * @param { TextRange } [range] - range for deleting.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  deleteText(range?: TextRange): void;
+
+  /**
+   * Gets the selected range of text content.
+   *
+   * @returns { TextRange } range for selecting.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  getSelection(): TextRange;
 }
 
 /**
