@@ -7215,6 +7215,13 @@ declare namespace media {
      * @since 12
      */
     metadata?: AVMetadata;
+    /**
+     * Set the longest duration allowed for current recording.
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 16
+    */
+    maxDuration?: number;
   }
 
   /**
