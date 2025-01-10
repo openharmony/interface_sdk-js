@@ -251,6 +251,7 @@ declare namespace intelligence {
     /**
      * The maximun size of chunks.
      *
+     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 16
      */
@@ -259,6 +260,7 @@ declare namespace intelligence {
     /**
      * The ratio of overlap between adjacent chunks.
      *
+     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 16
      */
