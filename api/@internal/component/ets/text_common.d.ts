@@ -1120,7 +1120,7 @@ interface DecorationStyleResult {
  */
 declare interface FontSettingOptions {
   /**
-    * Define weather VariableFontWeight is supported.
+    * Define whether VariableFontWeight is supported.
     *
     * @type { ?boolean }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
