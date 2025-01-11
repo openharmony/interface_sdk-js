@@ -23,6 +23,7 @@ import { RenderNode } from './RenderNode';
 import { Size, Position, Edges, LengthMetrics, SizeT } from './Graphics';
 import { DrawContext } from './Graphics';
 import { ComponentContent } from './ComponentContent';
+import { BusinessError } from '../@ohos.base';
 
 /**
  * Layout constraint, include the max size, the min size and the reference size for children to calculate percent.
@@ -67,6 +68,28 @@ declare interface LayoutConstraint {
    * @since 12
    */
   percentReference: Size;
+}
+
+/**
+ * Defines the cross-language options.
+ * 
+ * @interface CrossLanguageOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare interface CrossLanguageOptions {
+  /**
+   * Defines if it enables setting attributes cross-language. Default value is false.
+   * 
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  attributeSetting?: boolean
 }
 
 /**
@@ -650,6 +673,29 @@ export class FrameNode {
    * @since 12
    */
   addComponentContent<T>(content: ComponentContent<T>): void;
+
+  /**
+   * Set the cross-language options of the target FrameNode.
+   * 
+   * @param { CrossLanguageOptions } options - The cross-language options.
+   * @throws { BusinessError } 100022 - The FrameNode cannot be set whether to support cross-language common attribute setting.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  setCrossLanguageOptions(options: CrossLanguageOptions): void;
+
+  /**
+   * Get the cross-language options of the target FrameNode.
+   * 
+   * @returns { CrossLanguageOptions } - Returns the cross-language options of the target FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  getCrossLanguageOptions(): CrossLanguageOptions;
 }
 
 /**
@@ -925,6 +971,34 @@ export namespace typeNode {
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'Scroll'): Scroll;
+
+  /**
+   * Get the attribute instance of FrameNode to set attributes.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'Scroll' } nodeType - node type.
+   * @returns { ScrollAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  function getAttribute(node: FrameNode, nodeType: 'Scroll'): ScrollAttribute | undefined;
+
+  /**
+   * Bind the controller of FrameNode.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { Scroller } controller - the controller which is bind to the target FrameNode.
+   * @param { 'Scroll' } nodeType - node type.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. the type of the node is error.
+   * 2. the node is null or undefined.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  function bindController(node: FrameNode, controller: Scroller, nodeType: 'Scroll'): void;
 
   /**
    * Define the FrameNode type for RelativeContainer.
