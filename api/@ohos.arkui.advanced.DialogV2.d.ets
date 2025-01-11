@@ -21,6 +21,7 @@
 /**
  * Declare the action when the button of dialog is clicked.
  *
+ * @typedef { function } AdvancedDialogV2ButtonAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -217,8 +218,10 @@ export declare interface AdvancedDialogV2ButtonOptions {
 }
 
 /**
- * Declare the callback when the checkbox of TipsDialogV2 is changed.
+ * Declare the callback when the checkbox of dialog is changed.
  *
+ * @typedef { function } AdvancedDialogV2OnCheckedChange
+ * @param { boolean } checked - Checkbox status.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -718,8 +721,10 @@ export declare struct PopoverDialogV2 {
 }
 
 /**
- * Declare the callback when the visible of PopoverDialogV2 is changed.
+ * Declare the callback when the visibility of PopoverDialogV2 is changed.
  *
+ * @typedef { function } PopoverDialogV2OnVisibleChange
+ * @param { boolean } visible - The visibility of PopoverDialogV2.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
