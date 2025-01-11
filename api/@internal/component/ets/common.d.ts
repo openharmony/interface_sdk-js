@@ -13987,6 +13987,18 @@ declare interface SheetOptions extends BindOptions {
    */
     offset?: Position
 
+    /**
+     * Sets whether the sheet edge has spring effect.
+     *
+     * @type { ?number }
+     * @default 3
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    effectEdge?: number
+
   /**
    * Defines sheet radius
    * 
