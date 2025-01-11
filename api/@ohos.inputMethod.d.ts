@@ -632,6 +632,17 @@ declare namespace inputMethod {
      * @useinstead inputMethod.InputMethodSetting#showOptionalInputMethods
      */
     displayOptionalInputMethod(): Promise<void>;
+
+    /**
+     * The input method application calls this interface to obtain its own enabled state.
+     *
+     * @returns { Promise<EnabledState> } the promise returned by the function.
+     * @throws { BusinessError } 12800004 - not an input method application.
+     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 16
+     */
+    getInputMethodState(): Promise<EnabledState>;
   }
 
   /**
@@ -1954,6 +1965,39 @@ declare namespace inputMethod {
      * @since 16
      */
     onTerminated(): void;
+  }
+
+  /**
+   * Enumerates the enabled state.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 15
+   */
+  export enum EnabledState {
+    /**
+     * Disabled state.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    DISABLED = 0,
+
+    /**
+     * Enabled state with basic mode.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    BASIC_MODE,
+
+    /**
+     * Enabled state with full experience mode.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    FULL_EXPERIENCE_MODE
   }
 }
 
