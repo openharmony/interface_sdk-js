@@ -545,6 +545,36 @@ declare namespace dragController {
    * @since 12
    */
   function getDragPreview(): DragPreview;
+
+  /**
+   * Define the status for the application to notify the framework whether to execute drag.
+   * 
+   * @enum { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  const enum DragStartRequestStatus {
+    /**
+     * Notify the framework that the application is not yet ready and needs to temporarily block
+     * the start of drag, only effective in onDragStart calls.
+     * 
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    WAITING = 0,
+
+    /**
+     * Notify the framework that the drag can continue to be started, but only during the start
+     * of drag, and will not take effect when the drag is started.
+     * 
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    READY = 1,
+  }
 }
 
 export default dragController;
