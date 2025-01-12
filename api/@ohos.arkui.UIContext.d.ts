@@ -2391,7 +2391,7 @@ export class DragController {
     * @atomicservice
     * @since 16
     */
-  notifyDragStartRequest(requestStatus: dragController.DragStartRequestStatus): void
+  notifyDragStartRequest(requestStatus: dragController.DragStartRequestStatus): void;
 }
 
 /**
