@@ -967,7 +967,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 12
-     */
+    */
     /**
      * Calls the specified callback function for all the elements in an array.
      * The return value of the callback function is the accumulated result,
