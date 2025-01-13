@@ -1553,6 +1553,14 @@ declare class FileSelectorParam {
    * @since 11
    */
   isCapture(): boolean;
+
+  /**
+   * Gets an array of raw acceptable MIME type.
+   * @returns { Array<string> } Return an array of raw acceptable MIME type.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 16
+   */
+  getMimeTypes(): Array<string>;
 }
 
 /**
@@ -5842,7 +5850,7 @@ declare interface OnSslErrorEventReceiveEvent {
    *
    * @type { ?Array<Uint8Array> }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 14
+   * @since 16
    */
   certChainData?: Array<Uint8Array>;
 }
@@ -8720,8 +8728,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { boolean } mode - True if it needs to enable window drag smooth.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
+   * @since 16
    */
   enableSmoothDragResize(mode: boolean): WebAttribute;
 
@@ -8841,13 +8848,22 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets whether to follow the system font weight.
    *
-   * @param { boolean} follow The value true means to follow the system font weight, and false means the opposite.
+   * @param { boolean } follow The value true means to follow the system font weight, and false means the opposite.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
    * @since 16
    */
   enableFollowSystemFontWeight(follow: boolean): WebAttribute;
+
+  /**
+   * Sets whether to enable AVSession for web pages.
+   *
+   * @param { boolean } enabled Whether to enable AVSession. The value true means to enable AVSession, and false means the opposite.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 16
+   */
+  enableWebAVSession(enabled: boolean): WebAttribute;
 }
 
 /**

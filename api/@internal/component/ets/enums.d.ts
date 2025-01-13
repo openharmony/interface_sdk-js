@@ -886,6 +886,16 @@ declare enum ImageFit {
    * @since 12
    */
   BOTTOM_END = 15,
+
+  /**
+   * Matrix of Image.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  MATRIX = 16,
 }
 
 /**
@@ -1549,7 +1559,16 @@ declare enum MouseAction {
    * @atomicservice
    * @since 11
    */
-  Hover
+  Hover,
+  
+  /**
+   * Triggered when the mouse event is canceled.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  CANCEL = 13
 }
 
 /**
@@ -9157,6 +9176,16 @@ declare enum WordBreak {
    * @since 11
    */
   BREAK_WORD = 2,
+
+  /**
+   * For supported languages, line breaks can be performed by syllables.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  HYPHENATION = 3,
 }
 
 /**
@@ -9922,7 +9951,7 @@ declare enum AxisModel {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 15
  */
 declare enum PageFlipMode {
   /**
@@ -9932,7 +9961,7 @@ declare enum PageFlipMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 15
    */
   CONTINUOUS = 0,
 
@@ -9943,7 +9972,81 @@ declare enum PageFlipMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 15
    */
   SINGLE = 1,
+}
+
+/**
+ * Rotating crown event behavior.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
+declare enum CrownAction {
+  /**
+   * Rotation crown behavior begins.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  BEGIN = 0,
+
+  /**
+   * Rotation crown behavior update.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  UPDATE = 1,
+
+  /**
+   * The rotation crown behavior ends.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  END = 2
+}
+
+/**
+ * Sensitivity of rotating crown.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
+declare enum CrownSensitivity {
+  /**
+   * Low sensitivity.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  LOW = 0,
+
+  /**
+   * Medium sensitivity.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  MEDIUM = 1,
+
+  /**
+   * High sensitivity.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  HIGH = 2
 }

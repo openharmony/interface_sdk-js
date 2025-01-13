@@ -638,6 +638,20 @@ declare namespace wifiManager {
   function getLinkedInfo(callback: AsyncCallback<WifiLinkedInfo>): void;
 
   /**
+   * Obtain connection information about the Wi-Fi connection. If does't have the permission of ohos.permission.GET_WIFI_PEERS_MAC, return random bssid.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @returns { WifiLinkedInfo } Returns Wi-Fi linked information.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @crossplatform
+   * @since 16
+   */
+   function getLinkedInfoSync(): WifiLinkedInfo;
+
+  /**
    * Check whether the Wi-Fi connection has been set up.
    * @permission ohos.permission.GET_WIFI_INFO
    * @returns { boolean } Returns {@code true} if a Wi-Fi connection has been set up, returns {@code false} otherwise.
@@ -818,6 +832,25 @@ declare namespace wifiManager {
    * @since 9
    */
   function updateNetwork(config: WifiDeviceConfig): number;
+
+  /**
+   * Set whther to allow automatic connnect by networkId.
+   * The network can be associated with again if isAllowed is true, else not.
+   * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
+   * @param { number } netId Identifies the network to be set. The value of networkId cannot be less than 0.
+   * @param { boolean } isAllowed Identifies whether allow auto connect or not.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types. 3.Parameter verification failed.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @systemapi Hide this for inner system use.
+   * @since 16
+   */
+  function allowAutoConnect(netId: number, isAllowed: boolean): void;
 
   /**
    * Disable the specified DeviceConfig by networkId.
@@ -1011,6 +1044,22 @@ declare namespace wifiManager {
    * @since 9
    */
   function isHotspotDualBandSupported(): boolean;
+
+  /**
+   * Check whether Wi-Fi hotspot is can be operated under some situation. When the airplane mode is turned on
+   * and does not support the coexistence of softap and sta, nor does it support signal bridge,
+   * the hotspot switch cannot be operated.
+   * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.MANAGE_WIFI_HOTSPOT
+   * @returns { boolean } {@code true} if Wi-Fi hotspot can be operated, returns {@code false} otherwise.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2601000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.AP.Core
+   * @systemapi Hide this for inner system use.
+   * @since 16
+   */
+  function isOpenSoftApAllowed(): boolean;
 
   /**
    * Check whether Wi-Fi hotspot is active on a device.
@@ -2435,7 +2484,21 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 12
      */
-    WIFI6_PLUS = 3
+    WIFI6_PLUS = 3,
+
+    /**
+     * Wifi7.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 16
+     */
+    WIFI7 = 4,
+
+    /**
+     * Wifi7+.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 16
+     */
+    WIFI7_PLUS = 5
   }
 
   /**
@@ -2815,6 +2878,15 @@ declare namespace wifiManager {
      * @since 12
      */
     configStatus?: number;
+
+    /**
+     * Allow auto connect config: false - not, true - yes.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 16
+     */
+    isAutoConnectAllowed?: boolean;
   }
 
   /**

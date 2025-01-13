@@ -590,7 +590,7 @@ interface SearchButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   autoDisable?: Boolean;
 }
@@ -633,7 +633,6 @@ interface CancelButtonOptions {
  *
  * @interface CancelButtonSymbolOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @atomicservice
  * @since 12
  */
@@ -643,7 +642,6 @@ interface CancelButtonSymbolOptions {
    *
    * @type { ?CancelButtonStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -654,7 +652,6 @@ interface CancelButtonSymbolOptions {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -1399,6 +1396,28 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    */
   maxFontSize(value: number | string | Resource): SearchAttribute;
 
+   /**
+   * Called when the minimum font scale of the font is set.
+   *
+   * @param { Optional<number|Resource> } scale
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+   minFontScale(scale: Optional<number|Resource>): SearchAttribute;
+
+   /**
+    * Called when the maximum font scale of the font is set.
+    *
+    * @param { Optional<number|Resource> } scale
+    * @returns { SearchAttribute }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @atomicservice
+    * @since 16
+    */
+   maxFontScale(scale: Optional<number|Resource>): SearchAttribute;
+   
   /**
    * Define custom keyboard.
    *
@@ -1586,6 +1605,29 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 13
    */
   enableHapticFeedback(isEnabled: boolean): SearchAttribute;
+
+  /**
+   * Set the text with half leading.
+   *
+   * @param { Optional<boolean> } halfLeading
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  halfLeading(halfLeading: Optional<boolean>): SearchAttribute;
+
+  /**
+   * Set whether stop backPressed callback event or not.
+   *
+   * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  stopBackPress(isStopped: Optional<boolean>): SearchAttribute;
 }
 
 /**

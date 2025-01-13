@@ -2122,6 +2122,17 @@ interface LongPressGestureInterface extends GestureInterface<LongPressGestureInt
    * @since 11
    */
   onActionCancel(event: () => void): LongPressGestureInterface;
+  /**
+   * The LongPress gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
+   *
+   * @param { function } event
+   * @returns { LongPressGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onActionCancel(event: Callback<GestureEvent>): LongPressGestureInterface;
 }
 
 /**
@@ -2434,6 +2445,18 @@ interface PanGestureInterface extends GestureInterface<PanGestureInterface> {
    * @since 11
    */
   onActionCancel(event: () => void): PanGestureInterface;
+  /**
+   * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
+   *
+   * @param { function } event
+   * @returns { PanGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onActionCancel(event: Callback<GestureEvent>): PanGestureInterface;
+  
 }
 
 /**
@@ -2695,6 +2718,17 @@ interface PinchGestureInterface extends GestureInterface<PinchGestureInterface> 
    * @since 11
    */
   onActionCancel(event: () => void): PinchGestureInterface;
+  /**
+   * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
+   *
+   * @param { function } event
+   * @returns { PinchGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onActionCancel(event: Callback<GestureEvent>): PinchGestureInterface;
 }
 
 /**
@@ -2869,6 +2903,17 @@ interface RotationGestureInterface extends GestureInterface<RotationGestureInter
    * @since 11
    */
   onActionCancel(event: () => void): RotationGestureInterface;
+   /**
+   * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
+   *
+   * @param { function } event
+   * @returns { RotationGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+   onActionCancel(event: Callback<GestureEvent>): RotationGestureInterface;
 }
 
 /**
@@ -3319,6 +3364,18 @@ declare class LongPressGestureHandler extends GestureHandler<LongPressGestureHan
    * @since 12
    */
   onActionCancel(event: Callback<void>): LongPressGestureHandler;
+  /**
+   * The LongPress gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
+   * Add GestureEvent in cancel callback.
+   *
+   * @param { Callback<GestureEvent> } event
+   * @returns { LongPressGestureHandler }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onActionCancel(event: Callback<GestureEvent>): LongPressGestureHandler;
 }
 
 /**
@@ -3430,6 +3487,18 @@ declare class PanGestureHandler extends GestureHandler<PanGestureHandler> {
    * @since 12
    */
   onActionCancel(event: Callback<void>): PanGestureHandler;
+  /**
+   * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
+   * Add GestureEvent in cancel callback.
+   *
+   * @param { Callback<GestureEvent> } event
+   * @returns { PanGestureHandler }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onActionCancel(event: Callback<GestureEvent>): PanGestureHandler;
 }
 
 /**
@@ -3608,6 +3677,18 @@ declare class PinchGestureHandler extends GestureHandler<PinchGestureHandler> {
    * @since 12
    */
   onActionCancel(event: Callback<void>): PinchGestureHandler;
+  /**
+   * The Pinch gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
+   * Add GestureEvent in cancel callback.
+   *
+   * @param { Callback<GestureEvent> } event
+   * @returns { PinchGestureHandler }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onActionCancel(event: Callback<GestureEvent>): PinchGestureHandler;
 }
 
 /**
@@ -3708,6 +3789,18 @@ declare class RotationGestureHandler extends GestureHandler<RotationGestureHandl
    * @since 12
    */
   onActionCancel(event: Callback<void>): RotationGestureHandler;
+  /**
+   * The Rotation gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
+   * Add GestureEvent in cancel callback.
+   *
+   * @param { Callback<GestureEvent> } event
+   * @returns { RotationGestureHandler }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onActionCancel(event: Callback<GestureEvent>): RotationGestureHandler;
 }
 
 /**

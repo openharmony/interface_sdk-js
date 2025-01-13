@@ -915,6 +915,17 @@ export class Router {
 }
 
 /**
+ * Defines the custom builder with id.
+ *
+ * @typedef { function } CustomBuilderWithId
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare type CustomBuilderWithId = (id: number) => void;
+
+/**
  * class PromptAction
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -972,7 +983,7 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   openToast(options: promptAction.ShowToastOptions): Promise<number>;
 
@@ -988,7 +999,7 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   closeToast(toastId: number): void;
 
@@ -1155,6 +1166,26 @@ export class PromptAction {
   openCustomDialog<T extends Object>(dialogContent: ComponentContent<T>, options?: promptAction.BaseDialogOptions): Promise<void>;
 
   /**
+   * Open the custom dialog with frameNode and controller.
+   *
+   * @param { ComponentContent<T> } dialogContent - the content of custom dialog.
+   * @param { promptAction.DialogController } controller - Dialog controller.
+   * @param { promptAction.BaseDialogOptions } options - Options.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
+   * @throws { BusinessError } 103302 - Dialog content already exists.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  openCustomDialogWithController<T extends Object>(dialogContent: ComponentContent<T>, controller: promptAction.DialogController, options?: promptAction.BaseDialogOptions): Promise<void>;
+
+  /**
    * Update the custom dialog with frameNode.
    *
    * @param { ComponentContent<T> } dialogContent - the content of custom dialog.
@@ -1207,6 +1238,25 @@ export class PromptAction {
    * @since 12
    */
   openCustomDialog(options: promptAction.CustomDialogOptions): Promise<number>;
+
+  /**
+   * Present the custom dialog with controller.
+   *
+   * @param { CustomBuilder | CustomBuilderWithId } builder - Dialog builder.
+   * @param { promptAction.DialogController } controller - Dialog controller.
+   * @param { promptAction.DialogOptions } options - Options.
+   * @returns { Promise<number> } return the dialog id that will be used by closeCustomDialog.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  presentCustomDialog(builder: CustomBuilder | CustomBuilderWithId, controller?: promptAction.DialogController, options?: promptAction.DialogOptions): Promise<number>;
 
   /**
    * Close the custom dialog.
@@ -1288,6 +1338,29 @@ export interface PageInfo {
    * @since 12
    */
   navDestinationInfo?: observer.NavDestinationInfo;
+}
+
+/**
+ * the property of OverlayManager.
+ *
+ * @interface OverlayManagerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 15
+ */
+export interface OverlayManagerOptions {
+  /**
+   * the render property of overlay node.
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  renderRootOverlay?: boolean;
 }
 
 /**
@@ -2501,6 +2574,45 @@ export class ComponentSnapshot {
    * @since 12
    */
   getSync(id: string, options?: componentSnapshot.SnapshotOptions): image.PixelMap;
+
+  /**
+   * Get a component snapshot by uniqueId.
+   *
+   * @param { number } uniqueId - The uniqueId of the node, can get through getUniqueId.
+   * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
+   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Invalid ID.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  getWithUniqueId(uniqueId: number, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
+
+  /**
+   * Take a screenshot of the specified component in synchronous mode,
+   * this mode will block the main thread, please use it with caution, the maximum
+   * waiting time of the interface is 3s, if it does not return after 3s, an exception will be thrown.
+   *
+   * @param { number } uniqueId - The uniqueId of the node, can get through getUniqueId.
+   * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
+   * @returns { image.PixelMap } The snapshot result in PixelMap format.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Invalid ID.
+   * @throws { BusinessError } 160002 - Timeout.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  getSyncWithUniqueId(uniqueId: number, options?: componentSnapshot.SnapshotOptions): image.PixelMap;
 }
 
 /**
@@ -2692,6 +2804,29 @@ export class UIContext {
   getOverlayManager(): OverlayManager;
 
   /**
+   * Init OverlayManager.
+   *
+   * @param { OverlayManagerOptions } options - Options.
+   * @returns { boolean } Returns true if it is called first and before getting an OverlayManager instance; returns false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  setOverlayManagerOptions(options: OverlayManagerOptions): boolean;
+
+  /**
+   * Get object OverlayManagerOptions.
+   *
+   * @returns { OverlayManagerOptions } object OverlayManagerOptions.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  getOverlayManagerOptions(): OverlayManagerOptions;
+
+  /**
    * Create an animator object for custom animation.
    *
    * @param { AnimatorOptions } options - Options.
@@ -2875,6 +3010,18 @@ export class UIContext {
    * @since 11
    */
   getKeyboardAvoidMode(): KeyboardAvoidMode;
+
+  /**
+   * Dispach keyboard event to the frameNode with inspector key.
+   *
+   * @param { number | string } node - The uniqueId or inspector key of the target FrameNode.
+   * @returns { boolean } Returns whether the key event is consumed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  dispatchKeyEvent(node: number | string, event: KeyEvent): boolean;
 
   /**
    * Get AtomicServiceBar.
@@ -3361,6 +3508,16 @@ export class UIContext {
    * @since 13
    */
   unbindTabsFromNestedScrollable(tabsController: TabsController, parentScroller: Scroller, childScroller: Scroller): void;
+
+  /**
+   * whether to enable or disable swipe to back event.
+   *
+   * @param { Optional<boolean> } enabled - enable or disable swipe to back event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @atomicservice
+   * @since 16
+   */
+  enableSwipeBack(enabled: Optional<boolean>): void;
 }
 
 /**

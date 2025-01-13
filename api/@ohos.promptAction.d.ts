@@ -702,6 +702,47 @@ declare namespace promptAction {
   }
 
   /**
+   * The class used to control common dialog.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  class CommonController {
+    /**
+     * The constructor.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    constructor();
+
+    /**
+     * Close the corresponding common dialog.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    close(): void;
+  }
+
+  /**
+   * The class used to control dialog.
+   *
+   * @extends CommonController
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  class DialogController extends CommonController {}
+
+  /**
    * Dialog base options
    *
    * @typedef BaseDialogOptions
@@ -1083,6 +1124,173 @@ declare namespace promptAction {
   }
 
   /**
+   * Corner radius type of DialogOptions.
+   *
+   * @typedef { Dimension | BorderRadiuses } DialogOptionsCornerRadius
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  declare type DialogOptionsCornerRadius = Dimension | BorderRadiuses;
+
+  /**
+   * Border width type of DialogOptions.
+   *
+   * @typedef { Dimension | EdgeWidths } DialogOptionsBorderWidth
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  declare type DialogOptionsBorderWidth = Dimension | EdgeWidths;
+
+  /**
+   * Border color type of DialogOptions.
+   *
+   * @typedef { ResourceColor | EdgeColors } DialogOptionsBorderColor
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  declare type DialogOptionsBorderColor = ResourceColor | EdgeColors;
+
+  /**
+   * Border style type of DialogOptions.
+   *
+   * @typedef { BorderStyle | EdgeStyles } DialogOptionsBorderStyle
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  declare type DialogOptionsBorderStyle = BorderStyle | EdgeStyles;
+
+  /**
+   * Shadow type of DialogOptions.
+   *
+   * @typedef { ShadowOptions | ShadowStyle } DialogOptionsShadow
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  declare type DialogOptionsShadow = ShadowOptions | ShadowStyle;
+
+  /**
+   * Dialog options
+   *
+   * @extends BaseDialogOptions
+   * @typedef DialogOptions
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  interface DialogOptions extends BaseDialogOptions {
+    /**
+     * Defines the dialog's background color.
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    backgroundColor?: ResourceColor;
+
+    /**
+     * Defines the dialog's corner radius.
+     *
+     * @type { ?DialogOptionsCornerRadius }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    cornerRadius?: DialogOptionsCornerRadius;
+
+    /**
+     * Defines the dialog's width.
+     *
+     * @type { ?Dimension }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    width?: Dimension;
+
+    /**
+     * Defines the dialog's height.
+     *
+     * @type { ?Dimension }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    height?: Dimension;
+
+    /**
+     * Defines the dialog's border width.
+     *
+     * @type { ?DialogOptionsBorderWidth }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    borderWidth?: DialogOptionsBorderWidth;
+
+    /**
+     * Defines the dialog's border color.
+     *
+     * @type { ?DialogOptionsBorderColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    borderColor?: DialogOptionsBorderColor;
+
+    /**
+     * Defines the dialog's border style.
+     *
+     * @type { ?DialogOptionsBorderStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    borderStyle?: DialogOptionsBorderStyle;
+
+    /**
+     * Defines the dialog's shadow.
+     *
+     * @type { ?DialogOptionsShadow }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    shadow?: DialogOptionsShadow;
+
+    /**
+     * Defines the dialog's background blur Style
+     *
+     * @type { ?BlurStyle }
+     * @default BlurStyle.COMPONENT_ULTRA_THICK
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    backgroundBlurStyle?: BlurStyle;
+  }
+
+  /**
    * @typedef ActionMenuSuccessResponse
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -1300,7 +1508,7 @@ declare namespace promptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   function openToast(options: ShowToastOptions): Promise<number>;
 
@@ -1316,7 +1524,7 @@ declare namespace promptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   function closeToast(toastId: number): void;
 

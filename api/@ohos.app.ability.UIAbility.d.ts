@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -30,7 +30,7 @@ import window from './@ohos.window';
  *
  * @typedef OnReleaseCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @StageModelOnly
+ * @stagemodelonly
  * @since 9
  */
 export interface OnReleaseCallback {
@@ -39,7 +39,7 @@ export interface OnReleaseCallback {
  *
  * @param { string } msg - The notification event string listened to by the OnRelease.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @StageModelOnly
+ * @stagemodelonly
  * @since 9
  */
   (msg: string): void;
@@ -50,7 +50,7 @@ export interface OnReleaseCallback {
  *
  * @typedef OnRemoteStateChangeCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @StageModelOnly
+ * @stagemodelonly
  * @since 10
  */
 export interface OnRemoteStateChangeCallback {
@@ -59,7 +59,7 @@ export interface OnRemoteStateChangeCallback {
  *
  * @param { string } msg - The notification event string listened to by the OnRemoteStateChange.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @StageModelOnly
+ * @stagemodelonly
  * @since 10
  */
   (msg: string): void;
@@ -70,7 +70,7 @@ export interface OnRemoteStateChangeCallback {
  *
  * @typedef CalleeCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @StageModelOnly
+ * @stagemodelonly
  * @since 9
  */
 export interface CalleeCallback {
@@ -80,7 +80,7 @@ export interface CalleeCallback {
  * @param { rpc.MessageSequence } indata - Notification indata to the callee.
  * @returns { rpc.Parcelable } Returns the callee's notification result indata.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @StageModelOnly
+ * @stagemodelonly
  * @since 9
  */
   (indata: rpc.MessageSequence): rpc.Parcelable;
@@ -91,7 +91,7 @@ export interface CalleeCallback {
  *
  * @interface Caller
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @StageModelOnly
+ * @stagemodelonly
  * @since 9
  */
 export interface Caller {
@@ -107,7 +107,7 @@ export interface Caller {
    * @throws { BusinessError } 16200002 - The callee does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   call(method: string, data: rpc.Parcelable): Promise<void>;
@@ -124,7 +124,7 @@ export interface Caller {
    * @throws { BusinessError } 16200002 - The callee does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   callWithResult(method: string, data: rpc.Parcelable): Promise<rpc.MessageSequence>;
@@ -135,7 +135,7 @@ export interface Caller {
    * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
    * @throws { BusinessError } 16200002 - The callee does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   release(): void;
@@ -148,7 +148,7 @@ export interface Caller {
    * 2. Incorrect parameter types.
    * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   onRelease(callback: OnReleaseCallback): void;
@@ -161,7 +161,7 @@ export interface Caller {
    * 2. Incorrect parameter types.
    * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   onRemoteStateChange(callback: OnRemoteStateChangeCallback): void;
@@ -175,7 +175,7 @@ export interface Caller {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   on(type: 'release', callback: OnReleaseCallback): void;
@@ -188,7 +188,7 @@ export interface Caller {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   off(type: 'release', callback: OnReleaseCallback): void;
@@ -200,7 +200,7 @@ export interface Caller {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   off(type: 'release'): void;
@@ -211,7 +211,7 @@ export interface Caller {
  *
  * @interface Callee
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @StageModelOnly
+ * @stagemodelonly
  * @since 9
  */
 export interface Callee {
@@ -225,7 +225,7 @@ export interface Callee {
    * @throws { BusinessError } 16200004 - The method has been registered.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   on(method: string, callback: CalleeCallback): void;
@@ -239,7 +239,7 @@ export interface Callee {
    * @throws { BusinessError } 16200005 - The method has not been registered.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   off(method: string): void;
@@ -250,7 +250,7 @@ export interface Callee {
  *
  * @extends Ability
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @StageModelOnly
+ * @stagemodelonly
  * @since 9
  */
 /**
@@ -258,7 +258,7 @@ export interface Callee {
  *
  * @extends Ability
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @StageModelOnly
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -267,7 +267,7 @@ export interface Callee {
  *
  * @extends Ability
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @StageModelOnly
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11
@@ -278,7 +278,7 @@ export default class UIAbility extends Ability {
    *
    * @type { UIAbilityContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -286,7 +286,7 @@ export default class UIAbility extends Ability {
    *
    * @type { UIAbilityContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -295,7 +295,7 @@ export default class UIAbility extends Ability {
    *
    * @type { UIAbilityContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -307,7 +307,7 @@ export default class UIAbility extends Ability {
    *
    * @type { Want }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -315,7 +315,7 @@ export default class UIAbility extends Ability {
    *
    * @type { Want }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -326,7 +326,7 @@ export default class UIAbility extends Ability {
    *
    * @type { Want }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -334,7 +334,7 @@ export default class UIAbility extends Ability {
    *
    * @type { Want }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -345,7 +345,7 @@ export default class UIAbility extends Ability {
    *
    * @type { Callee }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   callee: Callee;
@@ -356,7 +356,7 @@ export default class UIAbility extends Ability {
    * @param { Want } want - Indicates the want info of the created ability.
    * @param { AbilityConstant.LaunchParam } launchParam - Indicates the launch param.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -365,7 +365,7 @@ export default class UIAbility extends Ability {
    * @param { Want } want - Indicates the want info of the created ability.
    * @param { AbilityConstant.LaunchParam } launchParam - Indicates the launch param.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -375,7 +375,7 @@ export default class UIAbility extends Ability {
    * @param { Want } want - Indicates the want info of the created ability.
    * @param { AbilityConstant.LaunchParam } launchParam - Indicates the launch param.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -387,7 +387,7 @@ export default class UIAbility extends Ability {
    *
    * @param { window.WindowStage } windowStage - Indicates the created WindowStage.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -395,7 +395,7 @@ export default class UIAbility extends Ability {
    *
    * @param { window.WindowStage } windowStage - Indicates the created WindowStage.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -404,7 +404,7 @@ export default class UIAbility extends Ability {
    *
    * @param { window.WindowStage } windowStage - Indicates the created WindowStage.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -416,7 +416,7 @@ export default class UIAbility extends Ability {
    *
    * @param { window.WindowStage } windowStage - Indicates the WindowStage that will be destroyed.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -426,14 +426,14 @@ export default class UIAbility extends Ability {
    * Called back when an ability window stage is destroyed.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
    * Called back when an ability window stage is destroyed.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -441,7 +441,7 @@ export default class UIAbility extends Ability {
    * Called back when an ability window stage is destroyed.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -453,7 +453,7 @@ export default class UIAbility extends Ability {
    *
    * @param { window.WindowStage } windowStage - window stage to restore
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -461,7 +461,7 @@ export default class UIAbility extends Ability {
    *
    * @param { window.WindowStage } windowStage - window stage to restore
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -472,7 +472,7 @@ export default class UIAbility extends Ability {
    *
    * @returns { void | Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -480,7 +480,7 @@ export default class UIAbility extends Ability {
    *
    * @returns { void | Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -489,7 +489,7 @@ export default class UIAbility extends Ability {
    *
    * @returns { void | Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -500,14 +500,14 @@ export default class UIAbility extends Ability {
    * Called back when the state of an ability changes to foreground.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
    * Called back when the state of an ability changes to foreground.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -515,7 +515,7 @@ export default class UIAbility extends Ability {
    * Called back when the state of an ability changes to foreground.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -526,14 +526,14 @@ export default class UIAbility extends Ability {
    * Called back when the state of an ability changes to background.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
    * Called back when the state of an ability changes to background.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -541,7 +541,7 @@ export default class UIAbility extends Ability {
    * Called back when the state of an ability changes to background.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -554,7 +554,7 @@ export default class UIAbility extends Ability {
    * @param { object } wantParam - Indicates the want parameter.
    * @returns { AbilityConstant.OnContinueResult } Return the result of onContinue.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -563,7 +563,7 @@ export default class UIAbility extends Ability {
    * @param { Record<string, Object> } wantParam - Indicates the want parameter.
    * @returns { AbilityConstant.OnContinueResult } Return the result of onContinue.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -573,7 +573,7 @@ export default class UIAbility extends Ability {
    * @param { Record<string, Object> } wantParam - Indicates the want parameter.
    * @returns { AbilityConstant.OnContinueResult | Promise<AbilityConstant.OnContinueResult> } Return the result of onContinue, support promise.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -587,7 +587,7 @@ export default class UIAbility extends Ability {
    * @param { Want } want - Indicates the want info of ability.
    * @param { AbilityConstant.LaunchParam } launchParam - Indicates the launch parameters.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -597,7 +597,7 @@ export default class UIAbility extends Ability {
    * @param { Want } want - Indicates the want info of ability.
    * @param { AbilityConstant.LaunchParam } launchParam - Indicates the launch parameters.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -608,7 +608,7 @@ export default class UIAbility extends Ability {
    * @param { Want } want - Indicates the want info of ability.
    * @param { AbilityConstant.LaunchParam } launchParam - Indicates the launch parameters.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -622,7 +622,7 @@ export default class UIAbility extends Ability {
    * @param { Array<string> } params - Indicates the params from command.
    * @returns { Array<string> } Return the dump info array.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -632,7 +632,7 @@ export default class UIAbility extends Ability {
    * @param { Array<string> } params - Indicates the params from command.
    * @returns { Array<string> } Return the dump info array.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -646,7 +646,7 @@ export default class UIAbility extends Ability {
    * @returns { AbilityConstant.OnSaveResult } agree with the current UIAbility status or not.return 0 if ability
    *                                           agrees to save data successfully, otherwise errcode.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -657,7 +657,7 @@ export default class UIAbility extends Ability {
    * @returns { AbilityConstant.OnSaveResult } agree with the current UIAbility status or not.return 0 if ability
    *                                           agrees to save data successfully, otherwise errcode.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -668,7 +668,7 @@ export default class UIAbility extends Ability {
    *
    * @param { object } wantParam - Indicates the want parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -676,7 +676,7 @@ export default class UIAbility extends Ability {
    *
    * @param { Record<string, Object> } wantParam - Indicates the want parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -689,7 +689,7 @@ export default class UIAbility extends Ability {
    * @returns { boolean } Returns {@code true} if the ability need to top terminating; returns {@code false} if the
    *          ability need to terminate.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -699,7 +699,7 @@ export default class UIAbility extends Ability {
    * @returns { boolean } Returns {@code true} if the ability need to top terminating; returns {@code false} if the
    *          ability need to terminate.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -711,7 +711,7 @@ export default class UIAbility extends Ability {
    * @returns { boolean } Returns {@code true} means the ability will move to background when back is pressed;
    *          Returns {@code false} means the ability will be destroyed when back is pressed.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -720,9 +720,20 @@ export default class UIAbility extends Ability {
    * @returns { boolean } Returns {@code true} means the ability will move to background when back is pressed;
    *          Returns {@code false} means the ability will be destroyed when back is pressed.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
   onBackPressed(): boolean;
+
+  /**
+   * Called back when another device start to collaborate.
+   *
+   * @param { Record<string, Object> } wantParam - Indicates the want parameter.
+   * @returns { AbilityConstant.CollaborateResult } Return the result of onCollaborate.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 16
+   */
+  onCollaborate(wantParam: Record<string, Object>): AbilityConstant.CollaborateResult;
 }

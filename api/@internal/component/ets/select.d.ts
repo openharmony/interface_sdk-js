@@ -100,11 +100,21 @@ declare interface SelectOption {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
   symbolIcon?: SymbolGlyphModifier;
+
+  /**
+   *  Sets the attribute modifier for the text of menu item.
+   *
+   * @type { ?TextModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  textModifier?: TextModifier;
 }
 
 /**
@@ -280,6 +290,18 @@ declare enum MenuAlignType {
 }
 
 /**
+ * Callback of selecting an item from the select event.
+ * 
+ * @typedef {function} OnSelectCallback
+ * @param {number} index - The index of the selected item.
+ * @param {string} selectStr - The value of the selected item.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare type OnSelectCallback = (index: number, selectStr: string) => void;
+/**
  * The commonMethod of select.
  *
  * @extends CommonMethod<SelectAttribute>
@@ -334,6 +356,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   selected(value: number | Resource): SelectAttribute;
 
   /**
+   * Sets the serial number of the select item, starting from 0.
+   *
+   * @param { Optional<number | Resource> } numCount - the serial number of the select item.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  selected(numCount: Optional<number | Resource>): SelectAttribute;
+
+  /**
    * Sets the text display of the select button itself.
    *
    * @param { string } value
@@ -361,6 +395,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 11
    */
   value(value: ResourceStr): SelectAttribute;
+
+  /**
+   * Sets the text display of the select button itself.
+   *
+   * @param { Optional<ResourceStr> } resStr - the text display of the select button itself.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  value(resStr: Optional<ResourceStr>): SelectAttribute;
 
   /**
    * Sets the text properties of the select button itself.
@@ -392,6 +438,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   font(value: Font): SelectAttribute;
 
   /**
+   * Sets the text properties of the select button itself.
+   *
+   * @param { Optional<Font> } selectFont
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  font(selectFont: Optional<Font>): SelectAttribute;
+
+  /**
    * Sets the text color of the select button itself.
    *
    * @param { ResourceColor } value
@@ -419,6 +477,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 11
    */
   fontColor(value: ResourceColor): SelectAttribute;
+
+  /**
+   * Sets the text color of the select button itself.
+   *
+   * @param { Optional<ResourceColor> } resColor
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  fontColor(resColor: Optional<ResourceColor>): SelectAttribute;
 
   /**
    * Sets the background color of the selected items in the select.
@@ -450,6 +520,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   selectedOptionBgColor(value: ResourceColor): SelectAttribute;
 
   /**
+   * Sets the background color of the selected items in the select.
+   *
+   * @param { Optional<ResourceColor> } resColor
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  selectedOptionBgColor(resColor: Optional<ResourceColor>): SelectAttribute;
+
+  /**
    * Sets the text style of the selected items in the select.
    *
    * @param { Font } value
@@ -477,6 +559,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 11
    */
   selectedOptionFont(value: Font): SelectAttribute;
+
+  /**
+   * Sets the text style of the selected items in the select.
+   *
+   * @param { Optional<Font> } selectFont
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  selectedOptionFont(selectFont: Optional<Font>): SelectAttribute;
 
   /**
    * Sets the text color of the selected item in the select.
@@ -508,6 +602,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   selectedOptionFontColor(value: ResourceColor): SelectAttribute;
 
   /**
+   * Sets the text color of the selected item in the select.
+   *
+   * @param { Optional<ResourceColor> } resColor
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  selectedOptionFontColor(resColor: Optional<ResourceColor>): SelectAttribute;
+
+  /**
    * Sets the background color of the select item.
    *
    * @param { ResourceColor } value
@@ -535,6 +641,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 11
    */
   optionBgColor(value: ResourceColor): SelectAttribute;
+
+  /**
+   * Sets the background color of the select item.
+   *
+   * @param { Optional<ResourceColor> } resColor
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  optionBgColor(resColor: Optional<ResourceColor>): SelectAttribute;
 
   /**
    * Sets the text style for select items.
@@ -566,6 +684,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   optionFont(value: Font): SelectAttribute;
 
   /**
+   * Sets the text style for select items.
+   *
+   * @param { Optional<Font> } selectFont
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  optionFont(selectFont: Optional<Font>): SelectAttribute;
+
+  /**
    * Sets the text color for select items.
    *
    * @param { ResourceColor } value
@@ -593,6 +723,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 11
    */
   optionFontColor(value: ResourceColor): SelectAttribute;
+
+  /**
+   * Sets the text color for select items.
+   *
+   * @param { Optional<ResourceColor> } resColor
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  optionFontColor(resColor: Optional<ResourceColor>): SelectAttribute;
 
   /**
    * Callback for selecting an item from the select.
@@ -624,6 +766,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   onSelect(callback: (index: number, value: string) => void): SelectAttribute;
 
   /**
+   * Callback for selecting an item from the select.
+   *
+   * @param { Optional<OnSelectCallback> } callback
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onSelect(callback: Optional<OnSelectCallback>): SelectAttribute;
+
+  /**
    * Set the space for text and icon in select
    *
    * @param { Length } value - indicates the length of the space
@@ -643,6 +797,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 11
    */
   space(value: Length): SelectAttribute;
+
+  /**
+   * Set the space for text and icon in select
+   *
+   * @param { Optional<Length> } spaceLength - indicates the length of the space
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  space(spaceLength: Optional<Length>): SelectAttribute;
 
   /**
    * Set the layout direction for text and arrow in select
@@ -666,6 +832,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   arrowPosition(value: ArrowPosition): SelectAttribute;
 
   /**
+   * Set the layout direction for text and arrow in select
+   *
+   * @param { Optional<ArrowPosition> } position - indicates the arrow position in the select
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  arrowPosition(position: Optional<ArrowPosition>): SelectAttribute;
+
+  /**
    * Set the alignment between select and menu.
    *
    * @param { MenuAlignType } alignType - The type of alignment between select and menu.
@@ -686,6 +864,19 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 11
    */ 
   menuAlign(alignType: MenuAlignType, offset?: Offset): SelectAttribute;
+
+  /**
+   * Set the alignment between select and menu.
+   *
+   * @param { Optional<MenuAlignType> } alignType - The type of alignment between select and menu.
+   * @param { Offset } offset - The offset between select and menu.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  menuAlign(alignType: Optional<MenuAlignType>, offset?: Offset): SelectAttribute;
 
   /** 
    * Set the width of each option and set whether the option width fit the trigger.
@@ -709,6 +900,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   optionWidth(value: Dimension | OptionWidthMode ): SelectAttribute;
 
   /** 
+   * Set the width of each option and set whether the option width fit the trigger.
+   *
+   * @param { Optional<Dimension | OptionWidthMode> } width - The length of option width and decide option width to fit trigger or content.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  optionWidth(width: Optional<Dimension | OptionWidthMode> ): SelectAttribute;
+
+  /** 
    * Set the height of each option.
    * 
    * @param { Dimension } value - The length of option height.
@@ -728,6 +931,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 12
    */
   optionHeight(value: Dimension): SelectAttribute;
+
+  /** 
+   * Set the height of each option.
+   * 
+   * @param { Optional<Dimension> } height - The length of option height.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  optionHeight(height: Optional<Dimension>): SelectAttribute;
 
   /**
    * set the menu's background color
@@ -751,6 +966,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   menuBackgroundColor(value: ResourceColor): SelectAttribute;
 
   /**
+   * set the menu's background color
+   *
+   * @param { Optional<ResourceColor> } resColor - The backgroundColor of menu.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  menuBackgroundColor(resColor: Optional<ResourceColor>): SelectAttribute;
+
+  /**
    * set menu background blur Style
    *
    * @param { BlurStyle } value - The BackgroundBlurStyle of menu.
@@ -772,6 +999,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   menuBackgroundBlurStyle(value: BlurStyle): SelectAttribute;
 
   /**
+   * set menu background blur Style
+   *
+   * @param { Optional<BlurStyle> } style - The BackgroundBlurStyle of menu.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  menuBackgroundBlurStyle(style: Optional<BlurStyle>): SelectAttribute;
+
+  /**
    * Sets the size for controls within Select Component.
    *
    * @param { ControlSize } value - control size
@@ -782,6 +1021,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 12
    */
   controlSize(value: ControlSize): SelectAttribute;
+
+  /**
+   * Sets the size for controls within Select Component.
+   *
+   * @param { Optional<ControlSize> } size - control size
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  controlSize(size: Optional<ControlSize>): SelectAttribute;
 
   /**
    * Register a ContentModifier for each menu item.
@@ -796,6 +1047,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   menuItemContentModifier(modifier: ContentModifier<MenuItemConfiguration>): SelectAttribute;
 
   /**
+   * Register a ContentModifier for each menu item.
+   *
+   * @param { Optional<ContentModifier<MenuItemConfiguration>> } modifier - The content modifier of select menu item.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  menuItemContentModifier(modifier: Optional<ContentModifier<MenuItemConfiguration>>): SelectAttribute;
+
+  /**
    * Set the divider of select.
    *
    * @param { Optional<DividerOptions> | null } options Set custom and hidden divider.
@@ -806,6 +1069,30 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 12
    */
   divider(options: Optional<DividerOptions> | null): SelectAttribute;
+
+  /**
+   * Sets the attribute modifier for the text of select.
+   *
+   * @param { Optional<TextModifier> } modifier Set modifier for the text of select.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  textModifier(modifier: Optional<TextModifier>): SelectAttribute;
+
+  /**
+   * Sets the attribute modifier for the arrow symbol of select.
+   *
+   * @param { Optional<SymbolGlyphModifier> } modifier Set modifier for the arrow symbol of select.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  arrowModifier(modifier: Optional<SymbolGlyphModifier>): SelectAttribute;
 }
 
 /**
@@ -846,7 +1133,6 @@ declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConf
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 12
    */

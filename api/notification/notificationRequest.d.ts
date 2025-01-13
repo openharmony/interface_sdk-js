@@ -135,6 +135,15 @@ export interface NotificationRequest {
   isUnremovable?: boolean;
 
   /**
+   * Whether the notification can only be updated.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 16
+   */
+  updateOnly?: boolean;
+
+  /**
    * Time when the notification is sent.
    *
    * @type { ?number }
@@ -584,6 +593,28 @@ export interface NotificationRequest {
    * @since 15
    */
   readonly appInstanceKey?: string;
+
+  /**
+   * Force distributed forwarding flag.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
+  forceDistributed?: boolean;
+
+  /**
+   * Distributed forwarding flag.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
+  notDistributed?: boolean;
 }
 
 /**

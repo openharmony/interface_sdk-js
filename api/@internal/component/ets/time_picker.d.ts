@@ -225,6 +225,28 @@ declare interface TimePickerOptions {
    * @since 12
    */
   format?: TimePickerFormat;
+  
+  /**
+   * Defines the start time of the time picker.
+   *
+   * @type { ?Date }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  start?: Date;
+
+  /**
+   * Defines the end time of the time picker.
+   *
+   * @type { ?Date }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  end?: Date;
 }
 
 /**
@@ -293,6 +315,17 @@ interface TimePickerInterface {
 declare type DateTimeOptions = import('../api/@ohos.intl').default.DateTimeOptions
 
 /**
+ * Callback of the timePicker time is selected event.
+ * 
+ * @typedef {function} OnTimePickerChangeCallback
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare type OnTimePickerChangeCallback = (result: TimePickerResult) => void;
+
+/**
  * Defines the TimePicker attribute functions.
  *
  * @extends CommonMethod<TimePickerAttribute>
@@ -347,6 +380,18 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
   useMilitaryTime(value: boolean): TimePickerAttribute;
 
   /**
+   * Time Selector: indicates whether to display the 24-hour clock.
+   *
+   * @param { Optional<boolean> } isMilitaryTime
+   * @returns { TimePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  useMilitaryTime(isMilitaryTime: Optional<boolean>): TimePickerAttribute;
+
+  /**
    * Sets whether to enable the wheel mode.
    * @param { boolean } value - indicates whether to enable the wheel mode.
    * @returns { TimePickerAttribute } the attribute of the time picker
@@ -364,6 +409,17 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @since 12
    */
   loop(value: boolean): TimePickerAttribute;
+
+  /**
+   * Sets whether to enable the wheel mode.
+   * @param { Optional<boolean> } isLoop - indicates whether to enable the wheel mode.
+   * @returns { TimePickerAttribute } the attribute of the time picker
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  loop(isLoop: Optional<boolean>): TimePickerAttribute;
 
   /**
    * Sets the text style of disappearing items
@@ -387,6 +443,18 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
   disappearTextStyle(value: PickerTextStyle): TimePickerAttribute;
 
   /**
+   * Sets the text style of disappearing items
+   *
+   * @param { Optional<PickerTextStyle> } style - indicates the text style of disappearing items.
+   * @returns { TimePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  disappearTextStyle(style: Optional<PickerTextStyle>): TimePickerAttribute;
+
+  /**
    * Sets the text style of normal items
    *
    * @param { PickerTextStyle } value - indicates the text style of normal items.
@@ -406,6 +474,18 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @since 11
    */
   textStyle(value: PickerTextStyle): TimePickerAttribute;
+
+  /**
+   * Sets the text style of normal items
+   *
+   * @param { Optional<PickerTextStyle> } style - indicates the text style of normal items.
+   * @returns { TimePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  textStyle(style: Optional<PickerTextStyle>): TimePickerAttribute;
 
   /**
    * Sets the text style of selected items
@@ -429,6 +509,18 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
   selectedTextStyle(value: PickerTextStyle): TimePickerAttribute;
 
   /**
+   * Sets the text style of selected items
+   *
+   * @param { Optional<PickerTextStyle> } style - indicates the text style of selected items.
+   * @returns { TimePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  selectedTextStyle(style: Optional<PickerTextStyle>): TimePickerAttribute;
+
+  /**
    * Set time format
    *
    * @param { DateTimeOptions } value - indicates the format of the time display.
@@ -439,6 +531,18 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @since 12
   */
   dateTimeOptions(value: DateTimeOptions): TimePickerAttribute;
+
+  /**
+   * Set time format
+   *
+   * @param { Optional<DateTimeOptions> } timeFormat - indicates the format of the time display.
+   * @returns { TimePickerAttribute } the attribute of the time picker
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+  */ 
+  dateTimeOptions(timeFormat: Optional<DateTimeOptions>): TimePickerAttribute;
 
   /**
    * This event is triggered when a TimePicker time is selected.
@@ -470,6 +574,30 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
   onChange(callback: (value: TimePickerResult) => void): TimePickerAttribute;
 
   /**
+   * This event is triggered when a TimePicker time is selected.
+   *
+   * @param { Optional<OnTimePickerChangeCallback> } callback
+   * @returns { TimePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  onChange(callback: Optional<OnTimePickerChangeCallback>): TimePickerAttribute;
+
+  /**
+   * This event is triggered when an item enters the selected area.
+   *
+   * @param { Callback<TimePickerResult> } callback
+   * @returns { TimePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onEnterSelectedArea(callback: Callback<TimePickerResult>): TimePickerAttribute;
+
+  /**
    * Enable or disable haptic feedback.
    *
    * @param { boolean } enable - Default value is true, set false to disable haptic feedback.
@@ -479,6 +607,41 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @since 12
    */
   enableHapticFeedback(enable: boolean): TimePickerAttribute;
+
+  /**
+   * Enable or disable haptic feedback.
+   *
+   * @param { Optional<boolean> } enable - Default value is true, set false to disable haptic feedback.
+   * @returns { TimePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */  
+  enableHapticFeedback(enable: Optional<boolean>): TimePickerAttribute;
+
+  /**
+   * If the attribute is set, the crown rotation sensitivity can be changed.
+   *
+   * @param { Optional<CrownSensitivity> } sensitivity
+   * @returns { TimePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): TimePickerAttribute;
+
+  /**
+   * Defines whether the AM/PM option is cascaded with the time in 12-hour mode.
+   *
+   * @param { boolean } enabled - Default value is false, set true to enable.
+   * @returns { TimePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  enableCascade(enabled: boolean): TimePickerAttribute;
 }
 
 /**
@@ -750,6 +913,17 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
   onChange?: (value: TimePickerResult) => void;
 
   /**
+   * This event is triggered when an item enters the selected area in dialog.
+   *
+   * @type { ?Callback<TimePickerResult> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onEnterSelectedArea?: Callback<TimePickerResult>;
+
+  /**
    * Defines the timePickerDialog's background color
    *
    * @type { ?ResourceColor }
@@ -790,6 +964,18 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @since 12
    */
   backgroundBlurStyle?: BlurStyle;
+
+  /**
+   * Defines whether the AM/PM option is cascaded with the time in 12-hour mode.
+   * 
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  enableCascade?: boolean;
 
   /**
    * Callback function when the dialog appears.

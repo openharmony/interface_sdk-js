@@ -415,6 +415,18 @@ declare namespace formInfo {
      * @since 12
      */
     supportedShapes: Array<number>;
+
+    /**
+     * Indicates the form previewImage IDs map corresponds to the \"supportDimensions\".
+     *
+     * @type { ?Array<number> }
+     * @readonly
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @atomicservice
+     * @since 16
+     */
+    readonly previewImages?: Array<number>;
   }
 
   /**

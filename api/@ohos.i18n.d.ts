@@ -19,6 +19,7 @@
  */
 
 import { BusinessError } from './@ohos.base';
+import intl from '@ohos.intl';
 
 /**
  * Provides international settings related APIs.
@@ -3643,7 +3644,7 @@ declare namespace i18n {
    * @atomicservice
    * @since 16
    */
-  export function getNumberFormatBySkeleton(skeleton: string, locale?: intl.Locale): SimpleNumberFormat;
+  export function getSimpleNumberFormatBySkeleton(skeleton: string, locale?: intl.Locale): SimpleNumberFormat;
 
   /**
    * Provide a simple number formatting interface.

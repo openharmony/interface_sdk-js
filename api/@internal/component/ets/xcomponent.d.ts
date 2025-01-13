@@ -486,6 +486,17 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @since 14
    */
   hdrBrightness(brightness: number): XComponentAttribute;
+  
+  /**
+   * Enable transparent layer for XComponent.
+   *
+   * @param { boolean } enabled - whether to enable transparent layer for XComponent.
+   * @returns { XComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 16
+   */
+  enableTransparentLayer(enabled: boolean): XComponentAttribute;
 }
 
 /**

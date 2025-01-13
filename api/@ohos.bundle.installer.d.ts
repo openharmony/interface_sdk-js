@@ -744,7 +744,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700067 - Failed to uninstall the HAP because uninstalling the native package failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 14
+     * @since 15
      */
     uninstall(bundleName: string, installParam: InstallParam, callback: AsyncCallback<void>): void;
 
@@ -884,7 +884,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700067 - Failed to uninstall the HAP because uninstalling the native package failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 14
+     * @since 15
      */
     uninstall(bundleName: string, installParam?: InstallParam): Promise<void>;
 
@@ -916,13 +916,31 @@ declare namespace installer {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
+     * @throws { BusinessError } 17700073 - Failed to install the HAP because an application with the same
+     * <br>bundle name but different signature information exists on the device.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 13
+     */
+    /**
+     * Recover an application.
+     *
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.RECOVER_BUNDLE
+     * @param { string } bundleName - Indicates the bundle name of the application to be recovered.
+     * @param { InstallParam } installParam - Indicates other parameters required for the recover.
+     * @param { AsyncCallback<void> } callback - The callback of recovering application result.
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.RECOVER_BUNDLE'.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 17700001 - The specified bundle name is not found.
+     * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700058 - Failed to install the HAP because this application is prohibited
      * <br>from being installed on this device or by specified users.
      * @throws { BusinessError } 17700073 - Failed to install the HAP because an application with the same
      * <br>bundle name but different signature information exists on the device.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     recover(bundleName: string, installParam: InstallParam, callback: AsyncCallback<void>): void;
 
@@ -950,13 +968,29 @@ declare namespace installer {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
+     * @throws { BusinessError } 17700073 - Failed to install the HAP because an application with the same
+     * <br>bundle name but different signature information exists on the device.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 13
+     */
+    /**
+     * Recover an application.
+     *
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.RECOVER_BUNDLE
+     * @param { string } bundleName - Indicates the bundle name of the application to be recovered.
+     * @param { AsyncCallback<void> } callback - The callback of recovering application result.
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.RECOVER_BUNDLE'.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @throws { BusinessError } 17700058 - Failed to install the HAP because this application is prohibited
      * <br>from being installed on this device or by specified users.
      * @throws { BusinessError } 17700073 - Failed to install the HAP because an application with the same
      * <br>bundle name but different signature information exists on the device.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     recover(bundleName: string, callback: AsyncCallback<void>): void;
 
@@ -988,13 +1022,31 @@ declare namespace installer {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
+     * @throws { BusinessError } 17700073 - Failed to install the HAP because an application with the same
+     * <br>bundle name but different signature information exists on the device.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 13
+     */
+    /**
+     * Recover an application.
+     *
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.RECOVER_BUNDLE
+     * @param { string } bundleName - Indicates the bundle name of the application to be recovered.
+     * @param { InstallParam } installParam - Indicates other parameters required for the recover.
+     * @returns { Promise<void> }
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.RECOVER_BUNDLE'.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 17700001 - The specified bundle name is not found.
+     * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700058 - Failed to install the HAP because this application is prohibited
      * <br>from being installed on this device or by specified users.
      * @throws { BusinessError } 17700073 - Failed to install the HAP because an application with the same
      * <br>bundle name but different signature information exists on the device.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
     recover(bundleName: string, installParam?: InstallParam): Promise<void>;
 
@@ -1375,7 +1427,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700062 - Failed to uninstall the app because the app is locked.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 14
+     * @since 15
      */
      destroyAppClone(bundleName: string, appIndex: number, destroyAppCloneParam?: DestroyAppCloneParam): Promise<void>;
 
@@ -1413,7 +1465,7 @@ declare namespace installer {
      * <br>from being installed on this device or by specified users.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 13
+     * @since 14
      */
      installPreexistingApp(bundleName: string, userId?: number): Promise<void>;
   }
@@ -1517,7 +1569,7 @@ declare namespace installer {
    * @typedef Parameters
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 14
+   * @since 15
    */
   export interface Parameters {
     /**
@@ -1526,7 +1578,7 @@ declare namespace installer {
      * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 14
+     * @since 15
      */
     key: string;
 
@@ -1536,7 +1588,7 @@ declare namespace installer {
      * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 14
+     * @since 15
      */
     value: string;
   }
@@ -1657,7 +1709,7 @@ declare namespace installer {
      * @type { ?Array<Parameters> }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 14
+     * @since 15
      */
     parameters?: Array<Parameters>;
   }
@@ -1727,7 +1779,7 @@ declare namespace installer {
    * @typedef DestroyAppCloneParam
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 14
+   * @since 15
    */
   export interface DestroyAppCloneParam {
     /**
@@ -1736,7 +1788,7 @@ declare namespace installer {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 14
+     * @since 15
      */
     userId?: number;
     /**
@@ -1745,7 +1797,7 @@ declare namespace installer {
      * @type { ?Array<Parameters> }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 14
+     * @since 15
      */
     parameters?: Array<Parameters>;
   }

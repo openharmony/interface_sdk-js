@@ -326,6 +326,23 @@ export interface IsoDepTag extends TagSession {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Checks if extended apdu length supported or not.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @returns { Promise<boolean> } Returns true if extended apdu length supported, otherwise false.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The tag I/O operation failed.
+   * @throws { BusinessError } 3100205 - The tag leaves the field.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 16
+   */
   isExtendedApduSupported(): Promise<boolean>;
 
   /**
@@ -492,6 +509,23 @@ export interface NdefTag extends TagSession {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Reads NDEF message on this tag.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @returns { Promise<NdefMessage> } The NDEF message in tag.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The tag I/O operation failed.
+   * @throws { BusinessError } 3100205 - The tag leaves the field.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 16
+   */
   readNdef(): Promise<NdefMessage>;
 
   /**
@@ -557,6 +591,24 @@ export interface NdefTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Writes NDEF message into this tag.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { NdefMessage } msg - The NDEF message to be written.
+   * @returns { Promise<void> } The void
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The tag I/O operation failed.
+   * @throws { BusinessError } 3100205 - The tag leaves the field.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 16
    */
   writeNdef(msg: NdefMessage): Promise<void>;
 
@@ -646,6 +698,23 @@ export interface NdefTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Sets the NDEF tag read-only.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @returns { Promise<void> } The void
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The tag I/O operation failed.
+   * @throws { BusinessError } 3100205 - The tag leaves the field.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 16
    */
   setReadOnly(): Promise<void>;
 
@@ -761,6 +830,26 @@ export interface MifareClassicTag extends TagSession {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Authenticates a sector with the key. Only successful authentication sector can be operated.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { number } sectorIndex - Index of sector to authenticate.
+   * @param { number[] } key - The key(6-bytes) to authenticate.
+   * @param { boolean } isKeyA - KeyA flag. true means KeyA, otherwise KeyB.
+   * @returns { Promise<void> } The void
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The tag I/O operation failed.
+   * @throws { BusinessError } 3100205 - The tag leaves the field.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 16
+   */
   authenticateSector(sectorIndex: number, key: number[], isKeyA: boolean): Promise<void>;
 
   /**
@@ -833,6 +922,24 @@ export interface MifareClassicTag extends TagSession {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Reads a block, one block size is 16 bytes.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { number } blockIndex - The index of block to read.
+   * @returns { Promise<number[]> } Returns the block data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The tag I/O operation failed.
+   * @throws { BusinessError } 3100205 - The tag leaves the field.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 16
+   */
   readSingleBlock(blockIndex: number): Promise<number[]>;
 
   /**
@@ -902,6 +1009,25 @@ export interface MifareClassicTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Writes a block, one block size is 16 bytes.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { number } blockIndex - The index of block to write.
+   * @param { number[] } data - The block data to write.
+   * @returns { Promise<void> } The void
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The tag I/O operation failed.
+   * @throws { BusinessError } 3100205 - The tag leaves the field.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 16
    */
   writeSingleBlock(blockIndex: number, data: number[]): Promise<void>;
 
@@ -975,6 +1101,25 @@ export interface MifareClassicTag extends TagSession {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Increments the contents of a block, and stores the result in the internal transfer buffer.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { number } blockIndex - The index of block to increment.
+   * @param { number } value - The value to increment, none-negative.
+   * @returns { Promise<void> } The void
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The tag I/O operation failed.
+   * @throws { BusinessError } 3100205 - The tag leaves the field.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 16
+   */
   incrementBlock(blockIndex: number, value: number): Promise<void>;
 
   /**
@@ -1047,6 +1192,25 @@ export interface MifareClassicTag extends TagSession {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Decreases the contents of a block, and stores the result in the internal transfer buffer.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { number } blockIndex - The index of block to decrease.
+   * @param { number } value - The value to decrease, none-negative.
+   * @returns { Promise<void> } The void
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The tag I/O operation failed.
+   * @throws { BusinessError } 3100205 - The tag leaves the field.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 16
+   */
   decrementBlock(blockIndex: number, value: number): Promise<void>;
 
   /**
@@ -1117,6 +1281,24 @@ export interface MifareClassicTag extends TagSession {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Writes the contents of the internal transfer buffer to a value block.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { number } blockIndex - The index of value block to be written.
+   * @returns { Promise<void> } The void
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The tag I/O operation failed.
+   * @throws { BusinessError } 3100205 - The tag leaves the field.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 16
+   */
   transferToBlock(blockIndex: number): Promise<void>;
 
   /**
@@ -1184,6 +1366,24 @@ export interface MifareClassicTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Moves the contents of a block into the internal transfer buffer.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { number } blockIndex - The index of value block to be moved from.
+   * @returns { Promise<void> } The void
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The tag I/O operation failed.
+   * @throws { BusinessError } 3100205 - The tag leaves the field.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 16
    */
   restoreFromBlock(blockIndex: number): Promise<void>;
 
@@ -1419,6 +1619,24 @@ export interface MifareUltralightTag extends TagSession {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Reads 4 pages, total is 16 bytes. Page size is 4 bytes.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { number } pageIndex - The index of page to read.
+   * @returns { Promise<number[]> } Returns 4 pages data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The tag I/O operation failed.
+   * @throws { BusinessError } 3100205 - The tag leaves the field.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 16
+   */
   readMultiplePages(pageIndex: number): Promise<number[]>;
 
   /**
@@ -1488,6 +1706,25 @@ export interface MifareUltralightTag extends TagSession {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Writes a page, total 4 bytes.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { number } pageIndex - The index of page to write.
+   * @param { number[] } data - The page data to write.
+   * @returns { Promise<void> } The void
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The tag I/O operation failed.
+   * @throws { BusinessError } 3100205 - The tag leaves the field.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 16
    */
   writeSinglePage(pageIndex: number, data: number[]): Promise<void>;
 
@@ -1593,6 +1830,24 @@ export interface NdefFormatableTag extends TagSession {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Formats a tag as NDEF tag, writes NDEF message into the NDEF Tag.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { NdefMessage } message - NDEF message to write while format. It can be null, then only format the tag.
+   * @returns { Promise<void> } The void
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The tag I/O operation failed.
+   * @throws { BusinessError } 3100205 - The tag leaves the field.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 16
+   */
   format(message: NdefMessage): Promise<void>;
 
   /**
@@ -1661,6 +1916,24 @@ export interface NdefFormatableTag extends TagSession {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Formats a tag as NDEF tag, writes NDEF message into the NDEF Tag, then sets the tag readonly.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { NdefMessage } message - NDEF message to write while format. It can be null, then only format the tag.
+   * @returns { Promise<void> } The void
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The tag I/O operation failed.
+   * @throws { BusinessError } 3100205 - The tag leaves the field.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 16
+   */
   formatReadOnly(message: NdefMessage): Promise<void>;
 
   /**
@@ -1696,4 +1969,30 @@ export interface NdefFormatableTag extends TagSession {
    * @since 12
    */
   formatReadOnly(message: NdefMessage, callback: AsyncCallback<void>): void;
+}
+
+/**
+ * Provides methods for accessing Barcode tag.
+ *
+ * @extends TagSession
+ * @typedef BarcodeTag
+ * @syscap SystemCapability.Communication.NFC.Tag
+ * @atomicservice
+ * @since 16
+ */
+export interface BarcodeTag extends TagSession {
+  /**
+   * Returns the barcode of a Barcode tag.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @returns { Promise<ArrayBuffer> } The barcode of tag.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The tag I/O operation failed.
+   * @throws { BusinessError } 3100205 - The tag leaves the field.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @atomicservice
+   * @since 16
+   */
+  getBarcode(): Promise<ArrayBuffer>;
 }

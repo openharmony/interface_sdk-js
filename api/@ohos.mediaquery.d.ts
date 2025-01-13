@@ -96,6 +96,7 @@ declare namespace mediaquery {
      * This parameter is read-only.
      *
      * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
@@ -104,6 +105,7 @@ declare namespace mediaquery {
      * This parameter is read-only.
      *
      * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
@@ -113,6 +115,7 @@ declare namespace mediaquery {
      * This parameter is read-only.
      *
      * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
@@ -123,6 +126,7 @@ declare namespace mediaquery {
      * This parameter is read-only.
      *
      * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
@@ -136,6 +140,7 @@ declare namespace mediaquery {
      * This parameter is read-only.
      *
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
@@ -144,6 +149,7 @@ declare namespace mediaquery {
      * This parameter is read-only.
      *
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
@@ -153,6 +159,7 @@ declare namespace mediaquery {
      * This parameter is read-only.
      *
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
@@ -163,6 +170,7 @@ declare namespace mediaquery {
      * This parameter is read-only.
      *
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
@@ -175,16 +183,16 @@ declare namespace mediaquery {
   /**
    * Defines the Listener of mediaquery.
    *
-   * @interface MediaQueryListener
    * @extends MediaQueryResult
+   * @interface MediaQueryListener
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Defines the Listener of mediaquery.
    *
-   * @interface MediaQueryListener
    * @extends MediaQueryResult
+   * @interface MediaQueryListener
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -192,8 +200,8 @@ declare namespace mediaquery {
   /**
    * Defines the Listener of mediaquery.
    *
-   * @interface MediaQueryListener
    * @extends MediaQueryResult
+   * @interface MediaQueryListener
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -202,8 +210,8 @@ declare namespace mediaquery {
   /**
    * Defines the Listener of mediaquery.
    *
-   * @interface MediaQueryListener
    * @extends MediaQueryResult
+   * @interface MediaQueryListener
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form

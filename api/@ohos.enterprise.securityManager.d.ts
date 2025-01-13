@@ -167,6 +167,28 @@ declare namespace securityManager {
   function installUserCertificate(admin: Want, certificate: CertBlob): Promise<string>;
 
   /**
+   * Install user certificate under specified account.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_CERTIFICATE
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { CertBlob } certificate - certificate file content and alias. It cannot be empty or more than 40 characters.
+   * @param { number } accountId - accountId indicates the local ID of the OS account.
+   * @returns { string } the uri of the user certificate used to uninstall.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9201001 - Failed to manage the certificate.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 16
+   */
+  function installUserCertificate(admin: Want, certificate: CertBlob, accountId: number): string;
+
+  /**
    * Uninstall user certificate.
    * This function can be called by a super administrator.
    *
@@ -186,6 +208,26 @@ declare namespace securityManager {
    * @since 12
    */
   function uninstallUserCertificate(admin: Want, certUri: string): Promise<void>;
+
+  /**
+   * Get user certificate under specified account.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_CERTIFICATE
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { number } accountId - accountId indicates the local ID of the OS account.
+   * @returns { Array<string> } returned the uri list of user Certificates.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 16
+   */
+  function getUserCertificates(admin: Want, accountId: number): Array<string>;
 
   /**
    * Sets the password policy of the device.

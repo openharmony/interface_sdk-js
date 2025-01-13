@@ -50,6 +50,15 @@ export declare class EditableTitleBarMenuItem {
   value: ResourceStr;
 
   /**
+   * Symbol style for this menu item.
+   * @type { ?SymbolGlyphModifier }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  symbolStyle?: SymbolGlyphModifier;
+
+  /**
    * Icon label for this menu item.
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -87,6 +96,44 @@ export declare class EditableTitleBarMenuItem {
    * @since 11
    */
   action?: () => void;
+
+  /**
+   * The accessibilityText of this menu item.
+   * @type { ?ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityText?: ResourceStr;
+
+  /**
+   * The accessibilityDescription of this menu item.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityDescription?: ResourceStr;
+
+  /**
+   * The accessibilityLevel of this menu item.
+   * @type { ?string }
+   * @default "auto"
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityLevel?: string;
+
+  /**
+   * Set the default focus state of this menu item.
+   * @type { ?boolean }.
+   * @default { false }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  defaultFocus?: boolean;
 }
 
 /**
@@ -335,4 +382,26 @@ export declare struct EditableTitleBar {
    * @since 12
    */
   @Prop contentMargin?: LocalizedMargin;
+
+  /**
+   * Sets the default focus state of left icon.
+   * @type { ?boolean }
+   * @default { false }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  leftIconDefaultFocus?: boolean;
+
+  /**
+   * Sets the default focus state of save icon.
+   * @type { ?boolean }
+   * @default { false }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  saveIconDefaultFocus?: boolean;
 }

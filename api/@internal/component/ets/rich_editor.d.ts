@@ -444,6 +444,17 @@ declare interface RichEditorTextStyle {
   lineHeight?: number | string | Resource;
 
   /**
+   * Set the text with half leading.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  halfLeading?: boolean;
+
+  /**
    * Set font feature, advanced text styles and effects as designed by the font author.
    * The format is the like the CSS font-feature-settings attribute.
    *
@@ -458,6 +469,17 @@ declare interface RichEditorTextStyle {
    * @since 12
    */
   fontFeature?: string;
+
+  /**
+   * Text background style.
+   *
+   * @type { ?TextBackgroundStyle } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  textBackgroundStyle?: TextBackgroundStyle;
 }
 
 
@@ -1130,6 +1152,17 @@ declare interface RichEditorTextStyleResult {
   lineHeight?: number;
 
   /**
+   * Set the text with half leading.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  halfLeading?: boolean;
+
+  /**
    * Set font feature, advanced text styles and effects as designed by the font author.
    * The format is the like the CSS font-feature-settings attribute.
    *
@@ -1144,6 +1177,17 @@ declare interface RichEditorTextStyleResult {
    * @since 12
    */
   fontFeature?: string;
+
+  /**
+   * Text background style.
+   *
+   * @type { ?TextBackgroundStyle } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  textBackgroundStyle?: TextBackgroundStyle;
 }
 
 /**
@@ -2932,6 +2976,17 @@ declare class RichEditorBaseController implements TextEditControllerEx {
    * @since 12
    */
   getPreviewText(): PreviewText;
+
+  /**
+   * Get CaretRect.
+   *
+   * @returns { RectResult | undefined } - Return the caret rect or undefined value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  getCaretRect(): RectResult | undefined;
 }
 
 /**
@@ -3802,6 +3857,30 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 13
    */
   barState(state: BarState): RichEditorAttribute;
+
+  /**
+   * Define the max length content of the richEditor.
+   *
+   * @param { Optional<number> } maxLength - The maximun length content of the richEditor.
+   * @returns { RichEditorAttribute }  returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  maxLength(maxLength: Optional<number>): RichEditorAttribute;
+
+  /**
+   * Define max lines of the richEditor.
+   *
+   * @param { Optional<number> } maxLines - The maximun Lines of the richEditor.
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  maxLines(maxLines: Optional<number>): RichEditorAttribute;
 }
 
 /**

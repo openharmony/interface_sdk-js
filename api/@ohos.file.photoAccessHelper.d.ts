@@ -1167,6 +1167,7 @@ declare namespace photoAccessHelper {
      * Photo type, image or video
      *
      * @type { PhotoType }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -1174,6 +1175,7 @@ declare namespace photoAccessHelper {
      * Photo type, image or video
      *
      * @type { PhotoType }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
@@ -1183,6 +1185,7 @@ declare namespace photoAccessHelper {
      * Display name (with a file name extension) of the asset.
      *
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -1190,6 +1193,7 @@ declare namespace photoAccessHelper {
      * Display name (with a file name extension) of the asset.
      *
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
@@ -3194,6 +3198,7 @@ declare namespace photoAccessHelper {
      * Album type
      *
      * @type { AlbumType }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -3201,6 +3206,7 @@ declare namespace photoAccessHelper {
      * Album type
      *
      * @type { AlbumType }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
@@ -3210,6 +3216,7 @@ declare namespace photoAccessHelper {
      * Album subtype
      *
      * @type { AlbumSubtype }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -3217,6 +3224,7 @@ declare namespace photoAccessHelper {
      * Album subtype
      *
      * @type { AlbumSubtype }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
@@ -3242,6 +3250,7 @@ declare namespace photoAccessHelper {
      * Album uri.
      *
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -3249,6 +3258,7 @@ declare namespace photoAccessHelper {
      * Album uri.
      *
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
@@ -3258,6 +3268,7 @@ declare namespace photoAccessHelper {
      * Number of assets in the album
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -3265,6 +3276,7 @@ declare namespace photoAccessHelper {
      * Number of assets in the album
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @since 12
@@ -3274,6 +3286,7 @@ declare namespace photoAccessHelper {
      * Cover uri for the album
      *
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
@@ -3359,6 +3372,7 @@ declare namespace photoAccessHelper {
   /**
    * Defines the album.
    *
+   * @extends AbsAlbum
    * @interface Album
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 10
@@ -3366,6 +3380,7 @@ declare namespace photoAccessHelper {
   /**
    * Defines the album.
    *
+   * @extends AbsAlbum
    * @interface Album
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @crossplatform
@@ -4617,6 +4632,18 @@ declare namespace photoAccessHelper {
      * @since 13
      */
     getSharedPhotoAssets(options: FetchOptions): Array<SharedPhotoAsset>;
+    /**
+     * Get the list of image or video suffixes supported by the media library.
+     *
+     * @param { PhotoType } photoType - Photo type.
+     * @returns { Promise<Array<string>> } - Return the list of image or video suffixes supported by the media library
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 14
+     */
+    getSupportedPhotoFormats(photoType: PhotoType): Promise<Array<string>>;
   }
 
   /**
@@ -7586,15 +7613,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 14
      */
-    RETAIN_FORCE = 0,
-    /**
-     * Retains native metadata and thumbnails of cloud-only media assets, and does not display them.
-     * 
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
-     * @since 14
-     */
-    RETAIN_GENTLE = 1
+    RETAIN_FORCE = 0
   }
 
   /**

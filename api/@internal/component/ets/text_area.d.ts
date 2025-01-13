@@ -1209,6 +1209,28 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   maxFontSize(value: number | string | Resource): TextAreaAttribute;
 
   /**
+   * Called when the minimum font scale of the font is set.
+   *
+   * @param { Optional<number|Resource> } scale
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  minFontScale(scale: Optional<number|Resource>): TextAreaAttribute;
+
+  /**
+   * Called when the maximum font scale of the font is set.
+   *
+   * @param { Optional<number|Resource> } scale
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  maxFontScale(scale: Optional<number|Resource>): TextAreaAttribute;
+  
+  /**
    * Called when the height adaptive policy is set.
    *
    * @param { TextHeightAdaptivePolicy } value - The height adaptive policy.
@@ -1485,6 +1507,41 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 13
    */
   enableHapticFeedback(isEnabled: boolean): TextAreaAttribute;
+
+  /**
+   * Set the text with half leading.
+   *
+   * @param { Optional<boolean> } halfLeading
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  halfLeading(halfLeading: Optional<boolean>): TextAreaAttribute;
+  
+  /**
+   * Set the ellipsis mode.
+   *
+   * @param { EllipsisMode } mode - The ellipsis mode.
+   * @returns { TextAreaAttribute } The attribute of TextArea.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  ellipsisMode(mode: Optional<EllipsisMode>): TextAreaAttribute;
+
+  /**
+   * Set whether stop backPressed callback event or not.
+   *
+   * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  stopBackPress(isStopped: Optional<boolean>): TextAreaAttribute;
 }
 
 /**

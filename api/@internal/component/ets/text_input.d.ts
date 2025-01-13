@@ -2355,9 +2355,8 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @param { CancelButtonSymbolOptions } symbolOptions - indicates the style of the cancel button.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   cancelButton(symbolOptions: CancelButtonSymbolOptions): TextInputAttribute;
 
@@ -2406,6 +2405,28 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    */
   maxFontSize(value: number | string | Resource): TextInputAttribute;
 
+  /**
+   * Called when the minimum font scale of the font is set.
+   *
+   * @param { Optional<number|Resource> } scale
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  minFontScale(scale: Optional<number|Resource>): TextInputAttribute;
+
+  /**
+   * Called when the maximum font scale of the font is set.
+   *
+   * @param { Optional<number|Resource> } scale
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  maxFontScale(scale: Optional<number|Resource>): TextInputAttribute;
+  
   /**
    * Called when the height adaptive policy is set.
    *
@@ -2615,6 +2636,41 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 13
    */
   enableHapticFeedback(isEnabled: boolean): TextInputAttribute;
+
+  /**
+   * Set the text with half leading.
+   *
+   * @param { Optional<boolean> } halfLeading
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  halfLeading(halfLeading: Optional<boolean>): TextInputAttribute;
+  
+  /**
+   * Set the ellipsis mode.
+   *
+   * @param { EllipsisMode } mode - The ellipsis mode.
+   * @returns { TextInputAttribute } The attribute of TextInput.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  ellipsisMode(mode: Optional<EllipsisMode>): TextInputAttribute;
+
+  /**
+   * Set whether stop backPressed callback event or not.
+   *
+   * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  stopBackPress(isStopped: Optional<boolean>): TextInputAttribute;
 }
 
 /**

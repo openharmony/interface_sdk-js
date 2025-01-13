@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,6 +17,9 @@
  * @file
  * @kit AbilityKit
  */
+
+import Want from './@ohos.app.ability.Want';
+import type wantConstant from './@ohos.app.ability.wantConstant';
 
 /**
  * interface of insightIntent.
@@ -109,6 +112,32 @@ declare namespace insightIntent {
      * @since 11
      */
     result?: Record<string, Object>;
+
+    /**
+     * Indicates the URIs will be authorized to the insight intent driver.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 16
+     */
+    uris?: Array<string>;
+
+    /**
+     * Indicates the URIs read and write permissions which consistent with {@link Want#flags},
+     * flags must be one of {@link wantConstant#Flags#FLAG_AUTH_READ_URI_PERMISSION},
+     * {@link wantConstant#Flags#FLAG_AUTH_WRITE_URI_PERMISSION},
+     * {@link wantConstant#Flags#FLAG_AUTH_READ_URI_PERMISSION}|
+     * {@link wantConstant#Flags#FLAG_AUTH_WRITE_URI_PERMISSION}.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 16
+     */
+    flags?: number;
   }
 }
 

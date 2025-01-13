@@ -333,6 +333,17 @@ declare namespace wantConstant {
     * @since 14
     */
     CALLER_APP_CLONE_INDEX = 'ohos.param.callerAppCloneIndex',
+
+    /**
+    * Indicates the key of launch reason message.
+    * If the caller needs to set the launch reason through this field when initiating the callee, the caller must
+    * be a system application and have applied for the ohos.permission.SET_LAUNCH_REASON_MESSAGE permission.
+    *
+    * @syscap SystemCapability.Ability.AbilityBase
+    * @atomicservice
+    * @since 16
+    */
+    LAUNCH_REASON_MESSAGE = 'ohos.params.launchReasonMessage',
   }
 
   /**
@@ -402,6 +413,14 @@ declare namespace wantConstant {
      * @since 11
      */
     FLAG_INSTALL_ON_DEMAND = 0x00000800,
+
+    /**
+     * Collaborative target applications in the distributed scheduling system can be pulled up.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @since 16
+     */
+    FLAG_ABILITY_ON_COLLABORATE = 0x00002000,
 
     /**
      * Indicates that if implicit start ability couldn't match any application, no tip dialog will be pulled up.

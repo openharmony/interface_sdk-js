@@ -25,7 +25,7 @@
  * Defines Row Modifier
  *
  * @extends RowAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<RowAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
