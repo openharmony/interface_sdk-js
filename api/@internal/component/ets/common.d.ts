@@ -1874,7 +1874,35 @@ declare function $r(value: string, ...params: any[]): Resource;
  * @since 11
  */
 declare function $rawfile(value: string): Resource;
-
+/**
+ * Defines the same page mode
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 16
+ */
+declare enum AccessibilitySamePageMode {
+  /**
+  * the first page and root page event is not send.but if application load new page whith navigation,the page event will be sent. this mode is to solve skipping focus
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  SEMI_SILENT = 0,
+ /**
+  * the all page event is not send
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 16
+  */
+  FULL_SILENT = 1,
+}
 /**
  * Enum for accessibility component type
  * @enum { number }
@@ -23645,6 +23673,42 @@ declare class CommonMethod<T> {
    * @since 12
    */
   accessibilityText(value: string): T;
+  
+  /**
+   * Sets accessibility next focus id
+   * @param { string } nextId - set component next accessibility focus id
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityNextFocusId(nextId: string): T;
+  
+  /**
+   * Sets the accessibility default foucs flag
+   * @param { boolean } focus - if the component is accessibility default focus,focus set true
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityDefaultFocus(focus: boolean): T;
+  
+  /**
+   * Sets accessibility same page mode
+   * @param { AccessibilitySamePageMode } pageMode - accessibility same page mode
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityUseSamePage(pageMode: AccessibilitySamePageMode): T;
 
   /**
    * Sets accessibilityText
