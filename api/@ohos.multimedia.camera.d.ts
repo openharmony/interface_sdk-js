@@ -9117,6 +9117,30 @@ declare namespace camera {
     setRotation(rotation: ImageRotation): void;
 
     /**
+     * Determine whether auto frame rate is supported.
+     *
+     * @returns { boolean } Is auto frame rate supported.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 16
+     */
+    isAutoVideoFrameRateSupported(): boolean;
+
+    /**
+     * Enable auto frame rate for video capture.
+     *
+     * @param { boolean } enabled - enable auto frame rate if TRUE.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 401 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 16
+     */
+    enableAutoVideoFrameRate(enabled: boolean): void;
+
+    /**
      * Subscribes deferred video enhancement info callback.
      *
      * @param { 'deferredVideoEnhancementInfo' } type - Event type.
