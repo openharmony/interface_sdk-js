@@ -704,17 +704,6 @@ declare namespace screen {
      * @since 10
      */
     readonly sourceMode: ScreenSourceMode;
-	
-	/**
-     * Edid of the screen
-     *
-     * @type { ?ArrayBuffer }
-     * @readonly
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @systemapi Hide this for inner system use.
-     * @since 16
-     */
-    readonly edid?: ArrayBuffer;
 
     /**
      * Set the orientation of the screen
