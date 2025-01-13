@@ -628,7 +628,55 @@ declare namespace display {
      * @atomicservice
      * @since 12
      */
-    FOLD_STATUS_HALF_FOLDED
+    FOLD_STATUS_HALF_FOLDED,
+    /**
+     * Fold Status Expanded With Second Expanded.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    FOLD_STATUS_EXPANDED_WITH_SECOND_EXPANDED = 11,
+    /**
+     * Fold Status Expanded With Second Half Folded.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    FOLD_STATUS_EXPANDED_WITH_SECOND_HALF_FOLDED = 21,
+    /**
+     * Fold Status Folded With Second Expanded.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    FOLD_STATUS_FOLDED_WITH_SECOND_EXPANDED = 12,
+    /**
+     * Fold Status Folded With Second Half Folded.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    FOLD_STATUS_FOLDED_WITH_SECOND_HALF_FOLDED = 22,
+    /**
+     * Fold Status Half Folded With Second Expanded.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    FOLD_STATUS_HALF_FOLDED_WITH_SECOND_EXPANDED = 13,
+    /**
+     * Fold Status Half Folded With Second Half Folded.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    FOLD_STATUS_HALF_FOLDED_WITH_SECOND_HALF_FOLDED = 23
   }
 
   /**
