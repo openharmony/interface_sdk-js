@@ -91,8 +91,6 @@ declare namespace motion {
   /**
    * Get the recent operating hand status.
    * @permission ohos.permission.ACTIVITY_MOTION
-   * @param { 'operatingHandChanged' } type - Indicates the event type.
-   * @param { Callback<OperatingHandStatus> } callback - Indicates the callback for getting the event data.
    * @returns { OperatingHandStatus } The result of operating hand status.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get the recent operating hand
    * <br> status forbidden by permission: ohos.permission.ACTIVITY_MOTION.
