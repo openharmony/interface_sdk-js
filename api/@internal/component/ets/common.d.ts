@@ -15387,7 +15387,7 @@ declare interface PopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   enableHoverMode?: boolean;
 
@@ -15934,7 +15934,7 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   enableHoverMode?: boolean;
 
@@ -16416,7 +16416,7 @@ declare interface ContextMenuOptions {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 13
+    * @since 16
     */
   enableHoverMode?: boolean;
 }
