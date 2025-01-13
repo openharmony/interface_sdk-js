@@ -1293,7 +1293,7 @@ declare namespace connection {
   /**
    * Subscribe the event reported when a remote Bluetooth device is discovered.
    *
-   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.GET_BLUETOOTH_PEERS_MAC
+   * @permission ohos.permission.ACCESS_BLUETOOTH
    * @param { 'discoveryResult' } type - Type of the discovering event to listen for.
    * @param { Callback<Array<DiscoveryResult>> } callback - Callback used to listen for the discovering event.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1302,23 +1302,21 @@ declare namespace connection {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @systemapi
-   * @since 12
+   * @since 16
    */
   function on(type: 'discoveryResult', callback: Callback<Array<DiscoveryResult>>): void;
 
   /**
    * Unsubscribe the event reported when a remote Bluetooth device is discovered.
    *
-   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.GET_BLUETOOTH_PEERS_MAC
+   * @permission ohos.permission.ACCESS_BLUETOOTH
    * @param { 'discoveryResult' } type - Type of the discovering event to listen for.
    * @param { Callback<Array<DiscoveryResult>> } callback - Callback used to listen for the discovering event.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @systemapi
-   * @since 12
+   * @since 16
    */
   function off(type: 'discoveryResult', callback?: Callback<Array<DiscoveryResult>>): void;
 
@@ -1887,8 +1885,7 @@ declare namespace connection {
    *
    * @typedef DiscoveryResult
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @systemapi
-   * @since 12
+   * @since 16
    */
   interface DiscoveryResult {
     /**
@@ -1896,8 +1893,7 @@ declare namespace connection {
      *
      * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @systemapi
-     * @since 12
+     * @since 16
      */
     deviceId: string;
     /**
@@ -1905,8 +1901,7 @@ declare namespace connection {
      *
      * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @systemapi
-     * @since 12
+     * @since 16
      */
     rssi: number;
     /**
@@ -1915,7 +1910,7 @@ declare namespace connection {
      * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 12
+     * @since 16
      */
     deviceName: string;
     /**
@@ -1924,7 +1919,7 @@ declare namespace connection {
      * @type { DeviceClass }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 12
+     * @since 16
      */
     deviceClass: DeviceClass;
   }
