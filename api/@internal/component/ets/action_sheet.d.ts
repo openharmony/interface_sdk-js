@@ -337,6 +337,17 @@ interface ActionSheetOffset {
 declare type LevelMode = import('../api/@ohos.promptAction').LevelMode;
 
 /**
+ * Import the ImmersiveMode type from promptAction.
+ *
+ * @typedef { import('../api/@ohos.promptAction').ImmersiveMode } ImmersiveMode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare type ImmersiveMode = import('../api/@ohos.promptAction').ImmersiveMode;
+
+/**
  * The options of ActionSheet.
  *
  * @interface ActionSheetOptions
@@ -893,6 +904,29 @@ interface ActionSheetOptions
    * @since 16
    */
   levelMode?: LevelMode;
+
+  /**
+   * The uniqueId of any node in the router or navigation page.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  levelUniqueId?: number;
+
+  /**
+   * Determine the immersive mode of the dialog.
+   *
+   * @type { ?ImmersiveMode }
+   * @default ImmersiveMode.DEFAULT
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  immersiveMode?: ImmersiveMode;
 }
 
 /**
