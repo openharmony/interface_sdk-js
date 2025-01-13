@@ -18,7 +18,8 @@
  * @kit ArkUI
  */
 
-import { ColorMetrics, ImageModifier, LengthMetrics, SymbolGlyphModifier, TextModifier } from '@kit.ArkUI';
+import { ColorMetrics, LengthMetrics } from '@ohos.arkui.node';
+import { ImageModifier, SymbolGlyphModifier, TextModifier } from '@ohos.arkui.modifier';
 import { SizeT } from '@ohos.arkui.node';
 
 /**
