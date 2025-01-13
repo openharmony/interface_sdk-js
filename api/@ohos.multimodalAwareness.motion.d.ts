@@ -56,7 +56,7 @@ declare namespace motion {
 
   /**
    * Subscribe to detect the operating hand changed event.
-   * @permissions ohos.permissions.ACTIVITY_MOTION
+   * @permission ohos.permission.ACTIVITY_MOTION
    * @param { 'operatingHandChanged' } type - Indicates the event type.
    * @param { Callback<OperatingHandStatus> } callback - Indicates the callback for getting the event data.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to subscribe operatingHandChanged
@@ -69,11 +69,11 @@ declare namespace motion {
    * @syscap SystemCapability.MultimodalAwarness.Motion
    * @since 16
    */
-  function on(type: 'operatingHandChanged', callbck: Callback<OperatingHandStatus>): void;
+  function on(type: 'operatingHandChanged', callback: Callback<OperatingHandStatus>): void;
 
   /**
    * Unsubscribe to detect the operating hand changed event.
-   * @permissions ohos.permissions.ACTIVITY_MOTION
+   * @permission ohos.permission.ACTIVITY_MOTION
    * @param { 'operatingHandChanged' } type - Indicates the event type.
    * @param { Callback<OperatingHandStatus> } callback - Indicates the callback for getting the event data.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to unsubscribe operatingHandChanged
@@ -86,13 +86,14 @@ declare namespace motion {
    * @syscap SystemCapability.MultimodalAwarness.Motion
    * @since 16
    */
-  function off(type: 'operatingHandChanged', callbck?: Callback<OperatingHandStatus>): void;
+  function off(type: 'operatingHandChanged', callback?: Callback<OperatingHandStatus>): void;
 
   /**
    * Get the recent operating hand status.
-   * @permissions ohos.permissions.ACTIVITY_MOTION
+   * @permission ohos.permission.ACTIVITY_MOTION
    * @param { 'operatingHandChanged' } type - Indicates the event type.
    * @param { Callback<OperatingHandStatus> } callback - Indicates the callback for getting the event data.
+   * @returns { OperatingHandStatus } The result of operating hand status.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get the recent operating hand
    * <br> status forbidden by permission: ohos.permission.ACTIVITY_MOTION.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
