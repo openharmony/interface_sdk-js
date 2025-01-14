@@ -98,7 +98,7 @@ export declare struct ProgressButtonV2 {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * crossplatform
+   * @crossplatform
    * @atomicservice
    * @since 16
    */
