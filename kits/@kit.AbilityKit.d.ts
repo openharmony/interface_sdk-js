@@ -105,6 +105,7 @@ import UIServiceExtensionAbility from '@ohos.app.ability.UIServiceExtensionAbili
 import shortcutManager from '@ohos.bundle.shortcutManager';
 import application from '@ohos.app.ability.application';
 import appDomainVerify from '@ohos.bundle.appDomainVerify';
+import continueManager from '@ohos.app.ability.continueManager';
 
 export {
   Ability, AbilityConstant, AbilityLifecycleCallback, AbilityStage, ActionExtensionAbility,
