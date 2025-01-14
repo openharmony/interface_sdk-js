@@ -17786,6 +17786,49 @@ declare interface DragInteractionOptions {
   * @since 16
   */
   enableHapticFeedback?: boolean;
+
+  /**
+  * Define whether to lifting trigger drag by finger.
+  *
+  * @type { ?boolean }
+  * @default false
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @atomicservice
+  * @since 16
+  */
+  isLiftingDisabled?: boolean;
+}
+
+/**
+ * Defines the drag preview configuration.
+ *
+ * @interface PreviewConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
+declare interface PreviewConfiguration {
+  /**
+  * Define whether to only use for lifting.
+  *
+  * @type { ?boolean }
+  * @default false
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @atomicservice
+  * @since 16
+  */
+  onlyForLifting?: boolean;
+
+  /**
+  * Define whether to delay create builder.
+  *
+  * @type { ?boolean }
+  * @default false
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @atomicservice
+  * @since 16
+  */
+  delayCreating?: boolean;
 }
 
 /**
@@ -22451,6 +22494,18 @@ declare class CommonMethod<T> {
    * @since 12
    */
   dragPreview(value: CustomBuilder | DragItemInfo | string): T;
+
+  /**
+   * Set preview of the component for dragging process
+   *
+   * @param { CustomBuilder | DragItemInfo | string } preview - preview of the component for dragging process
+   * @param { PreviewConfiguration } config - drag preview configuration.
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  dragPreview(preview: CustomBuilder | DragItemInfo | string, config?: PreviewConfiguration): T;
 
   /**
    * Set the selectable area drag preview options.
