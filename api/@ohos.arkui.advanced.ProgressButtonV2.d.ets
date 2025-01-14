@@ -92,6 +92,17 @@ export declare struct ProgressButtonV2 {
    * @since 16
    */
   @Param colorOptions?: ProgressButtonV2Color;
+
+  /**
+   * Set border rounded corner radius of progress.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  @Prop progressButtonRadius?: LengthMetrics;
 }
 
 /**
