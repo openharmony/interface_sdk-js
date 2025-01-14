@@ -919,7 +919,7 @@ declare namespace usbManager {
   /**
   * transfers callbackInfo.
   *
-  * @typedef AsyncCallback
+  * @typedef CallbackInfo
   * @syscap SystemCapability.USB.USBManager
   * @since 16
   */
@@ -937,7 +937,7 @@ declare namespace usbManager {
     /**
      * Usb transfer flag.
      *
-     * @enum { number }
+     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 16
      */
