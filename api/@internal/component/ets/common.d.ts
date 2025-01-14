@@ -16108,6 +16108,17 @@ interface ContextMenuAnimationOptions {
 }
 
 /**
+   * Defines the type of border radius.
+   *
+   * @typedef { Length | BorderRadiuses | LocalizedBorderRadiuses }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+type BorderRadiusType = Length | BorderRadiuses | LocalizedBorderRadiuses;
+
+/**
  * Defines the context menu options.
  *
  * @interface ContextMenuOptions
@@ -16227,6 +16238,17 @@ declare interface ContextMenuOptions {
    * @since 12
    */
   preview?: MenuPreviewMode | CustomBuilder;
+
+  /**
+   * Defines the border radius for preview of menu.
+   *
+   * @type { BorderRadiusType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  previewBorderRadius?: BorderRadiusType;
 
   /**
    * Defines the border radius of menu.
