@@ -53,12 +53,11 @@ declare namespace motion {
     RIGHT_HAND_OPERATED = 2
   }
 
-
   /**
    * Subscribe to detect the operating hand changed event.
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { 'operatingHandChanged' } type - Indicates the event type.
-   * @param { Callback<OperatingHandStatus> } callback - Indicates the callback for getting the event data.
+   * @param { Callback<OperatingHandStatus> } callbck - Indicates the callback for getting the event data.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to subscribe operatingHandChanged
    * <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION.
    * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
@@ -69,13 +68,13 @@ declare namespace motion {
    * @syscap SystemCapability.MultimodalAwarness.Motion
    * @since 16
    */
-  function on(type: 'operatingHandChanged', callback: Callback<OperatingHandStatus>): void;
+  function on(type: 'operatingHandChanged', callbck: Callback<OperatingHandStatus>): void;
 
   /**
    * Unsubscribe to detect the operating hand changed event.
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { 'operatingHandChanged' } type - Indicates the event type.
-   * @param { Callback<OperatingHandStatus> } callback - Indicates the callback for getting the event data.
+   * @param { Callback<OperatingHandStatus> } callbck - Indicates the callback for getting the event data.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to unsubscribe operatingHandChanged
    * <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION.
    * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
@@ -86,7 +85,7 @@ declare namespace motion {
    * @syscap SystemCapability.MultimodalAwarness.Motion
    * @since 16
    */
-  function off(type: 'operatingHandChanged', callback?: Callback<OperatingHandStatus>): void;
+  function off(type: 'operatingHandChanged', callbck?: Callback<OperatingHandStatus>): void;
 
   /**
    * Get the recent operating hand status.
