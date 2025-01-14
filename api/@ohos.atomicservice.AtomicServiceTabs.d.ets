@@ -71,6 +71,16 @@ export declare struct AtomicServiceTabs {
   @Prop
   tabBarPosition?: TabBarPosition;
   /**
+   * Sets the layout mode of images and texts on the bottom tab page.
+   *
+   * @type { ?LayoutMode }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  @Prop
+  layoutMode?: LayoutMode;
+  /**
    * Sets the barBackgroundColor of tabs.
    *
    * @type { ?ResourceColor }.
