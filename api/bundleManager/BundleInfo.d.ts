@@ -424,6 +424,17 @@ export interface BundleInfo {
    * @since 12
    */
   readonly appIndex: number;
+
+  /**
+   * Indicates the hap first install time
+   *
+   * @type { ?number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 16
+   */
+  readonly firstInstallTime?: number;
 }
 
 /**
