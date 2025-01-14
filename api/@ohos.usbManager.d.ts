@@ -12,12 +12,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { AsyncCallback } from '@kit.BasicServicesKit';
 
 /**
  * @file
  * @kit BasicServicesKit
  */
+
+import { AsyncCallback } from '@kit.BasicServicesKit';
 
 /**
  * This module provides the capability of manage USB device.
