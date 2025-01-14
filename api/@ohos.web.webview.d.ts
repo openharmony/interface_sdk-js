@@ -5313,7 +5313,7 @@ declare namespace webview {
      * @atomicservice
      * @since 13
      */
-    getLastHitTestValue(): HitTestValue;
+    getLastHitTest(): HitTestValue;
   }
 
   /**
