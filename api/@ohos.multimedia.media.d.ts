@@ -1569,6 +1569,46 @@ declare namespace media {
   type OnVideoSizeChangeHandler = (width: number, height: number) => void;
 
   /**
+   * SEI message.
+   *
+   * @typedef SeiMessage
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @atomicservice
+   * @since 16
+   */
+  interface SeiMessage {
+    /**
+     * Payload type of SEI message.
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 16
+     */
+    payloadType: number;
+
+    /**
+     * Payload data of SEI message.
+     * @type { ArrayBuffer }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 16
+     */
+    payload: ArrayBuffer;
+  }
+
+  /**
+   * Defines the OnSeiMessageHandle callback.
+   *
+   * @typedef { function } OnSeiMessageHandle
+   * @param { Array<SeiMessage> } messages - SEI messages.
+   * @param { ?number } playbackPosition - playback position.
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   * @atomicservice
+   * @since 16
+   */
+  type OnSeiMessageHandle = (messages: Array<SeiMessage>, playbackPosition?: number) => void;
+
+  /**
    * Manages and plays media. Before calling an AVPlayer method, you must use createAVPlayer()
    * to create an AVPlayer instance.
    *
@@ -2139,6 +2179,16 @@ declare namespace media {
      * @since 16
      */
     setPlaybackRange(startTimeMs: number, endTimeMs: number, mode?: SeekMode) : Promise<void>;
+
+    /**
+     * Get current playback position.
+     * @returns { number } return the time of current playback position - millisecond(ms)
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 16
+     */
+    getPlaybackPosition() : number;
 
     /**
      * Media URI. Mainstream media formats are supported.
@@ -3207,6 +3257,32 @@ declare namespace media {
      * @since 13
      */
     off(type: 'amplitudeUpdate', callback?: Callback<Array<number>>): void
+
+    /**
+     * Subscribes listener for video SEI message event, only for live video streaming.
+     * Call before the {@link #prepare}, repeated invocation overwrites the last subscribed callback and payload types.
+     *
+     * @param { 'seiMessageReceived' } type - Type of the playback event to listen for.
+     * @param { Array<number> } payloadTypes - The subscribed payload types of the SEI message.
+     * @param { OnSeiMessageHandle } callback - Callback to listen SEI message event with subscribed payload types.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 16
+     */
+    on(type: 'seiMessageReceived', payloadTypes: Array<number>, callback: OnSeiMessageHandle): void;
+
+    /**
+     * Unsubscribes listener for video SEI message event.
+     * @param { 'seiMessageReceived' } type - Type of the playback event to listen for.
+     * @param { Array<number> } payloadTypes - The payload types of the SEI message.
+     *                                        Null means unsubscribe all payload types.
+
+     * @param { OnSeiMessageHandle } callback - Callback to listen SEI message event with subscribed payload types.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 16
+     */
+    off(type: 'seiMessageReceived', payloadTypes?: Array<number>, callback?: OnSeiMessageHandle): void;
   }
 
   /**
