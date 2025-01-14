@@ -2316,7 +2316,16 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @since 12
      */
-    ALBUM_NAME = 'album_name'
+    ALBUM_NAME = 'album_name',
+    /**
+     * Album lpath
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @crossplatform
+     * @since 16
+     */
+    ALBUM_LPATH = 'lpath'
   }
 
   /**
@@ -3291,6 +3300,16 @@ declare namespace photoAccessHelper {
      * @since 10
      */
     readonly coverUri: string;
+    /**
+     * Lpath for the album, one album has a virtual path
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 16
+     */
+    readonly lpath?: string;
     /**
      * Fetch assets in an album.
      *
