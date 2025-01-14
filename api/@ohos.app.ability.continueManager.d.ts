@@ -29,7 +29,8 @@ import { AsyncCallback } from './@ohos.base';
  */
 declare namespace continueManager {
     /**
-     * Register prepareContinue event.
+     * Register prepareContinue event, when the ability is configured with 'ContinueQuickStart' in the continueType, then can get the
+     * result of LaunchReason.PREPARE_CONTINUATION.
      * 
      * @param { 'prepareContinue' } type - Registration Type, 'prepareContinue'.
      * @param { Context } context - the ability context.
