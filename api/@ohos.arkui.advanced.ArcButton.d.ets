@@ -70,14 +70,14 @@ export declare enum ArcButtonStyleMode {
      */
     EMPHASIZED_LIGHT = 0,
     /**
-     * Emphasis status, deep style.
+     * Emphasis status, dark style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
      * @since 16
      */
-    EMPHASIZED_DEEP = 1,
+    EMPHASIZED_DARK = 1,
     /**
      * Normal status, light style.
      *
@@ -88,14 +88,14 @@ export declare enum ArcButtonStyleMode {
      */
     NORMAL_LIGHT = 2,
     /**
-     * Normal status, deep style.
+     * Normal status, dark style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
      * @since 16
      */
-    NORMAL_DEEP = 3,
+    NORMAL_DARK = 3,
     
     /**
      * Custom status, custom style.
