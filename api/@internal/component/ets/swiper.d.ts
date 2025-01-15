@@ -2168,6 +2168,19 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 15
    */
   pageFlipMode(mode: Optional<PageFlipMode>): SwiperAttribute;
+
+  /**
+   * Called when the swiper content will scroll.
+   *
+   * @param { ContentWillScrollCallback } handler - callback of will scroll.
+   * @returns { SwiperAttribute } the attribute of the swiper.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  onContentWillScroll(handler: ContentWillScrollCallback): SwiperAttribute;
 }
 
 /**
@@ -2271,6 +2284,55 @@ declare interface SwiperContentTransitionProxy {
 }
 
 /**
+ * The result of swiper ContentWillScrollCallback.
+ *
+ * @interface SwiperContentWillScrollResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 16
+ */
+declare interface SwiperContentWillScrollResult {
+  /**
+   * the index value of the current child page.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  currentIndex: number;
+
+  /**
+   * the index value of the child page that will display.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  comingIndex: number;
+
+  /**
+   * the sliding offset of each frame. Positive numbers indicating slide backward(e.g. from index=1 to index=0),
+   * negative numbers indicating slide forward(e.g. from index=0 to index=1).
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  offset: number;
+}
+
+/**
  * The callback of onContentDidScroll.
  * 
  * @typedef { function } ContentDidScrollCallback
@@ -2284,6 +2346,20 @@ declare interface SwiperContentTransitionProxy {
  * @since 12
  */
 declare type ContentDidScrollCallback = (selectedIndex: number, index: number, position: number, mainAxisLength: number) => void;
+
+/**
+ * The callback of onContentWillScroll.
+ *
+ * @typedef { function } ContentWillScrollCallback
+ * @param { SwiperContentWillScrollResult } result - the result of swiper ContentWillScrollCallback.
+ * @returns { boolean } whether to allow scroll, true indicating can scroll and false indicating can not scroll.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 16
+ */
+declare type ContentWillScrollCallback = (result: SwiperContentWillScrollResult) => boolean;
 
 /**
  * Defines Swiper Component.
