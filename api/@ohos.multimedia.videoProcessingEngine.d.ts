@@ -22,20 +22,20 @@ import image from './@ohos.multimedia.image';
 
 /**
  * This module provides the capability of content processing for images, including image scaling.
- * @namespace videoprocessingengine
+ * @namespace videoProcessingEngine
  * @syscap SystemCapability.Multimedia.VideoProcessingEngine
  * @crossplatform
  * @form
- * @since 14
+ * @since 16
  */
-declare namespace videoprocessingengine {
+declare namespace videoProcessingEngine {
   /**
    * Levels of processing quality for detail enhancement.
    * @enum {number}
    * @syscap SystemCapability.Multimedia.VideoProcessingEngine
    * @crossplatform
    * @form
-   * @since 14
+   * @since 16
    */
   enum QualityLevel {
     /**
@@ -43,7 +43,7 @@ declare namespace videoprocessingengine {
      * @syscap SystemCapability.Multimedia.VideoProcessingEngine
      * @crossplatform
      * @form
-     * @since 14
+     * @since 16
      */
     NONE = 0,
     /**
@@ -51,7 +51,7 @@ declare namespace videoprocessingengine {
      * @syscap SystemCapability.Multimedia.VideoProcessingEngine
      * @crossplatform
      * @form
-     * @since 14
+     * @since 16
      */
     LOW = 1,
     /**
@@ -59,7 +59,7 @@ declare namespace videoprocessingengine {
      * @syscap SystemCapability.Multimedia.VideoProcessingEngine
      * @crossplatform
      * @form
-     * @since 14
+     * @since 16
      */
     MEDIUM = 2,
     /**
@@ -67,7 +67,7 @@ declare namespace videoprocessingengine {
      * @syscap SystemCapability.Multimedia.VideoProcessingEngine
      * @crossplatform
      * @form
-     * @since 14
+     * @since 16
      */
     HIGH = 3
   }
@@ -78,7 +78,7 @@ declare namespace videoprocessingengine {
    * @syscap SystemCapability.Multimedia.VideoProcessingEngine
    * @crossplatform
    * @form
-   * @since 14
+   * @since 16
    */
   interface ImageProcessor {
     /**
@@ -100,7 +100,7 @@ declare namespace videoprocessingengine {
      * @syscap SystemCapability.Multimedia.VideoProcessingEngine
      * @crossplatform
      * @form
-     * @since 14
+     * @since 16
      */
     enhanceDetail(sourceImage: image.PixelMap, width: number, height: number, level?: QualityLevel): Promise<image.PixelMap>;
 
@@ -125,7 +125,7 @@ declare namespace videoprocessingengine {
      * @syscap SystemCapability.Multimedia.VideoProcessingEngine
      * @crossplatform
      * @form
-     * @since 14
+     * @since 16
      */
     enhanceDetailSync(sourceImage: image.PixelMap, width: number, height: number, level?: QualityLevel): image.PixelMap;
 
@@ -147,7 +147,7 @@ declare namespace videoprocessingengine {
      * @syscap SystemCapability.Multimedia.VideoProcessingEngine
      * @crossplatform
      * @form
-     * @since 14
+     * @since 16
      */
     enhanceDetail(sourceImage: image.PixelMap, scale: number, level?: QualityLevel): Promise<image.PixelMap>;
 
@@ -171,7 +171,7 @@ declare namespace videoprocessingengine {
      * @syscap SystemCapability.Multimedia.VideoProcessingEngine
      * @crossplatform
      * @form
-     * @since 14
+     * @since 16
      */
     enhanceDetailSync(sourceImage: image.PixelMap, scale: number, level?: QualityLevel): image.PixelMap;
   }
@@ -187,7 +187,7 @@ declare namespace videoprocessingengine {
    * @syscap SystemCapability.Multimedia.VideoProcessingEngine
    * @crossplatform
    * @form
-   * @since 14
+   * @since 16
    */
   function initializeEnvironment(): Promise<void>;
   /**
@@ -198,7 +198,7 @@ declare namespace videoprocessingengine {
    * @syscap SystemCapability.Multimedia.VideoProcessingEngine
    * @crossplatform
    * @form
-   * @since 14
+   * @since 16
    */
   function deinitializeEnvironment(): Promise<void>;
   /**
@@ -211,9 +211,9 @@ declare namespace videoprocessingengine {
    * @syscap SystemCapability.Multimedia.VideoProcessingEngine
    * @crossplatform
    * @form
-   * @since 14
+   * @since 16
    */
   function create(): ImageProcessor;
 }
 
-export default videoprocessingengine;
+export default videoProcessingEngine;
