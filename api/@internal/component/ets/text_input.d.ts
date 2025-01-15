@@ -431,7 +431,115 @@ declare enum ContentType {
    * @atomicservice
    * @since 12
    */
-  FORMAT_ADDRESS = 25
+  FORMAT_ADDRESS = 25,
+
+  /**
+   * Passport number content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  PASSPORT_NUMBER = 26,
+
+  /**
+   * Passport validity content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  VALIDITY = 27,
+
+  /**
+   * Place of issue content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  ISSUE_AT = 28,
+
+  /**
+   * Invoice organization content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  ORGANIZATION = 29,
+
+  /**
+   * Invoice tax id content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  TAX_ID = 30,
+
+  /**
+   * Address city and state content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  ADDRESS_CITY_AND_STATE = 31,
+
+  /**
+   * Airline flight number content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  FLIGHT_NUMBER = 32,
+
+  /**
+   * License number for drivers content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  LICENSE_NUMBER = 33,
+
+  /**
+   * License file number for drivers content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  LICENSE_FILE_NUMBER = 34,
+
+  /**
+   * License plate for vehicles content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  LICENSE_PLATE = 35,
+
+  /**
+   * Engine number for vehicles content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  ENGINE_NUMBER = 36,
+
+  /**
+   * License chassis number for vehicles content type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  LICENSE_CHASSIS_NUMBER = 37
 }
 
 /**
