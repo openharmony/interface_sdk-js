@@ -39,6 +39,7 @@ declare namespace continueManager {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 16
+     * @permission ohos.permission.MANAGE_MISSIONS
      */
     function on(type: 'prepareContinue', context: Context, callback: AsyncCallback<ContinueResultInfo>): void;
 
@@ -52,6 +53,7 @@ declare namespace continueManager {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 16
+     * @permission ohos.permission.MANAGE_MISSIONS
      */
     function off(type: 'prepareContinue', context: Context, callback?: AsyncCallback<ContinueResultInfo>): void;
 
