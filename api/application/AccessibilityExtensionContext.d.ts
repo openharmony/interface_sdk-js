@@ -1019,7 +1019,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the component next accessibility focus id.
    * @type { ?number }
-   * @syscap syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 16
    */
   accessibilityNextFocusId?: number;
@@ -1034,7 +1034,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the extra info of the element.
    * @type { ?string }
-   * @syscap syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 16
    */
   extraInfo?: string;
