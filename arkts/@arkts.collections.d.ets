@@ -206,7 +206,6 @@ declare namespace collections {
    * @param { number } index - The index in the original array.
    * @returns { ToElementType } The transformed value.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -222,7 +221,6 @@ declare namespace collections {
    * @param { ArrayType } array - The array that the element belongs to.
    * @returns { boolean } True if the value meets the predicate, otherwise false.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -239,7 +237,6 @@ declare namespace collections {
    * @param { ArrayType } array - The array that the element belongs to.
    * @returns { AccType } The result of the reduction.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -314,19 +311,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200001 - The value of index is out of range.
      * @syscap SystemCapability.Utils.Lang
      * @since 12
-     */
-    /**
-     * Returns the item at that index.
-     *
-     * @param { number } index - The zero-based index of the desired code unit.
-     *     Throws error if index < 0 or index >= array.length.
-     * @returns { T } The element in the ConcatArray matching the given index.
-     * @readonly
-     * @throws { BusinessError } 401 - Parameter error. Illegal index.
-     * @throws { BusinessError } 10200001 - The value of index is out of range.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 16
      */
     readonly [index: number]: T;
     /**
@@ -519,7 +503,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The from method cannot be bound.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -534,7 +517,6 @@ declare namespace collections {
      * @throws  { BusinessError } 10200011 - The from method cannot be bound.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -1431,7 +1413,6 @@ declare namespace collections {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -1445,7 +1426,6 @@ declare namespace collections {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -1462,7 +1442,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The copyWithin method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -1475,7 +1454,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reverse method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -1494,7 +1472,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -1511,7 +1488,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The every method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -1528,7 +1504,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The some method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -1540,7 +1515,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The toString method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -1552,7 +1526,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The toLocaleString method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -1572,7 +1545,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -1589,7 +1561,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -3451,7 +3422,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -3471,7 +3441,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -3488,7 +3457,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -3500,7 +3468,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The toString method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -3512,7 +3479,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The toLocaleString method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -3526,7 +3492,6 @@ declare namespace collections {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -4606,7 +4571,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -4626,7 +4590,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -4643,7 +4606,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -4656,7 +4618,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The toString method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -4669,7 +4630,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The toLocaleString method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -4684,7 +4644,6 @@ declare namespace collections {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -5795,7 +5754,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -5815,7 +5773,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -5832,7 +5789,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -5845,7 +5801,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The toString method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -5857,7 +5812,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The toLocaleString method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -5871,7 +5825,6 @@ declare namespace collections {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -6982,7 +6935,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -7002,7 +6954,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -7019,7 +6970,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -7032,7 +6982,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The toString method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -7044,7 +6993,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The toLocaleString method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -7058,7 +7006,6 @@ declare namespace collections {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -8167,7 +8114,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -8187,7 +8133,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -8204,7 +8149,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -8217,7 +8161,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The toString method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -8229,7 +8172,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The toLocaleString method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -8243,7 +8185,6 @@ declare namespace collections {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -9354,7 +9295,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -9374,7 +9314,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -9391,7 +9330,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -9404,7 +9342,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The toString method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -9416,7 +9353,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The toLocaleString method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -9430,7 +9366,6 @@ declare namespace collections {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -10539,7 +10474,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -10559,7 +10493,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -10576,7 +10509,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -10589,7 +10521,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The toString method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -10601,7 +10532,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The toLocaleString method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -10615,7 +10545,6 @@ declare namespace collections {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -11694,7 +11623,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -11714,7 +11642,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -11731,7 +11658,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -11744,7 +11670,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The toString method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -11756,7 +11681,6 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The toLocaleString method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -11771,7 +11695,6 @@ declare namespace collections {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @static
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
