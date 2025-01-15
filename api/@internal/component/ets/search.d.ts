@@ -1399,24 +1399,24 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    /**
    * Called when the minimum font scale of the font is set.
    *
-   * @param { Optional<number|Resource> } scale
+   * @param { Optional<number | Resource> } scale
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
    */
-   minFontScale(scale: Optional<number|Resource>): SearchAttribute;
+   minFontScale(scale: Optional<number | Resource>): SearchAttribute;
 
    /**
     * Called when the maximum font scale of the font is set.
     *
-    * @param { Optional<number|Resource> } scale
+    * @param { Optional<number | Resource> } scale
     * @returns { SearchAttribute }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @atomicservice
     * @since 16
     */
-   maxFontScale(scale: Optional<number|Resource>): SearchAttribute;
+   maxFontScale(scale: Optional<number | Resource>): SearchAttribute;
    
   /**
    * Define custom keyboard.
