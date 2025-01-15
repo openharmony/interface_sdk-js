@@ -637,7 +637,6 @@ declare namespace utils {
      * Object used for thread synchronization.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -647,7 +646,6 @@ declare namespace utils {
        * Default constructor.
        *
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 16
        */
@@ -657,7 +655,6 @@ declare namespace utils {
        *
        * @returns { Promise<void> } Promise that will be resolved after the callback gets executed or rejected.
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 16
        */
@@ -669,7 +666,6 @@ declare namespace utils {
        * @returns { Promise<void> } Promise that will be resolved after the callback gets executed or
        * rejected or timeout.
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 16
        */
@@ -678,7 +674,6 @@ declare namespace utils {
        * Notify all waiting thread.
        *
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 16
        */
@@ -687,7 +682,6 @@ declare namespace utils {
        * Notify one waiting thread.
        *
        * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
        * @atomicservice
        * @since 16
        */
@@ -987,7 +981,6 @@ declare namespace utils {
   * Object used for store least recently used sendable Object.
   *
   * @syscap SystemCapability.Utils.Lang
-  * @crossplatform
   * @atomicservice
   * @since 16
   */
@@ -999,7 +992,6 @@ declare namespace utils {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -1009,7 +1001,6 @@ declare namespace utils {
      *
      * @param { number } capacity - The capacity of the SendableLruCache.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -1022,7 +1013,6 @@ declare namespace utils {
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -1037,7 +1027,6 @@ declare namespace utils {
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -1053,7 +1042,6 @@ declare namespace utils {
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -1067,7 +1055,6 @@ declare namespace utils {
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -1081,7 +1068,6 @@ declare namespace utils {
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -1091,7 +1077,6 @@ declare namespace utils {
      *
      * @returns { number } The number of times createDefault.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -1101,7 +1086,6 @@ declare namespace utils {
      *
      * @returns { number } The number of times that the queried values are unmatched.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -1111,7 +1095,6 @@ declare namespace utils {
      *
      * @returns { number } The number of times that values are removed.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -1121,7 +1104,6 @@ declare namespace utils {
      *
      * @returns { number } The number of times that the queried values are matched.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -1131,7 +1113,6 @@ declare namespace utils {
      *
      * @returns { number } The number of times that values are added.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -1141,7 +1122,6 @@ declare namespace utils {
      *
      * @returns { number } The Capacity of the SendableLruCache.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -1150,7 +1130,6 @@ declare namespace utils {
      * Clear all key-value pairs from the SendableLruCache.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -1160,7 +1139,6 @@ declare namespace utils {
      *
      * @returns { boolean } true if the SendableLruCache is empty, otherwise false.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -1170,7 +1148,6 @@ declare namespace utils {
      *
      * @returns { string } A new string contains all elements.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -1180,7 +1157,6 @@ declare namespace utils {
      *
      * @returns { V[] } An array of all values.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -1190,7 +1166,6 @@ declare namespace utils {
      *
      * @returns { K[] } An array of all keys.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
@@ -1200,7 +1175,6 @@ declare namespace utils {
      *
      * @returns { IterableIterator<[K, V]> } A new iterable iterator object.
      * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
      * @atomicservice
      * @since 16
      */
