@@ -494,7 +494,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 15
      */
     getTypes(): Array<string>;
 
@@ -508,7 +508,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 15
      */
     addEntry(type: string, value: ValueType): void;
 
@@ -522,7 +522,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 15
      */
     getEntry(type: string): ValueType;
 
@@ -535,7 +535,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 15
      */
     getEntries(): Record<string, ValueType>;
   }
