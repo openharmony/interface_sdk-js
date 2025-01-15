@@ -5,6 +5,7 @@
 "SystemCapability.ArkUI.ArkUI.Napi",
 "SystemCapability.ArkUI.ArkUI.Libuv",
 "SystemCapability.ArkUI.ArkUI.Lite",
+"SystemCapability.ArkUI.ArkUI.Circle",
 "SystemCapability.ArkUI.UiAppearance",
 "SystemCapability.Base",
 "SystemCapability.BundleManager.BundleFramework",
