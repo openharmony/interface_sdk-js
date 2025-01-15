@@ -3912,7 +3912,6 @@ declare namespace osAccount {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
-     * @throws { BusinessError } 12300102 - The credential does not exist.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -3932,7 +3931,6 @@ declare namespace osAccount {
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid authType.
-     * @throws { BusinessError } 12300102 - The credential does not exist.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -3951,7 +3949,6 @@ declare namespace osAccount {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid authType.
-     * @throws { BusinessError } 12300102 - The credential does not exist.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
