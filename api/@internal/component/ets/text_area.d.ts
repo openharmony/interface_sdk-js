@@ -1211,24 +1211,24 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
    * Called when the minimum font scale of the font is set.
    *
-   * @param { Optional<number|Resource> } scale
+   * @param { Optional<number | Resource> } scale
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
    */
-  minFontScale(scale: Optional<number|Resource>): TextAreaAttribute;
+  minFontScale(scale: Optional<number | Resource>): TextAreaAttribute;
 
   /**
    * Called when the maximum font scale of the font is set.
    *
-   * @param { Optional<number|Resource> } scale
+   * @param { Optional<number | Resource> } scale
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
    */
-  maxFontScale(scale: Optional<number|Resource>): TextAreaAttribute;
+  maxFontScale(scale: Optional<number | Resource>): TextAreaAttribute;
   
   /**
    * Called when the height adaptive policy is set.
