@@ -1042,6 +1042,22 @@ declare namespace cloudSync {
      */
     uris: Array<string>;
   }
+
+  /**
+   * Optimize storage space
+   *
+   * @permission ohos.permission.CLOUDFILE_SYNC
+   * @returns { Promise<void> } - Return Promise.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13900042 - Unknown error.
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @systemapi
+   * @since 16
+   */
+  function optimizeStorage(): Promise<void>;
 }
 
 export default cloudSync;
