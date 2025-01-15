@@ -88,7 +88,7 @@ declare namespace adminManager {
     ADMIN_TYPE_SUPER = 0x01,
 
     /**
-     * The value of personal administrator in BYOD.
+     * The value of administrator used in BYOD device.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
