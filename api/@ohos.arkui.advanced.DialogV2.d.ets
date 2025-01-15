@@ -419,7 +419,7 @@ export declare struct SelectDialogV2 {
  * @atomicservice
  * @since 16
  */
-@CustomDialog
+@ComponentV2
 export declare struct ConfirmDialogV2 {
   /**
    * Sets the ConfirmDialogV2 title.
