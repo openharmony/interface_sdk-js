@@ -102,7 +102,7 @@ export declare struct ProgressButtonV2 {
    * @atomicservice
    * @since 16
    */
-  @Prop progressButtonRadius?: LengthMetrics;
+  @Param progressButtonRadius?: LengthMetrics;
 }
 
 /**
