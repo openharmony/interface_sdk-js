@@ -24081,9 +24081,9 @@ declare class CommonMethod<T> {
   reuseId(id: string): T;
 
    /**
-   * Reuse id is used for identify the reuse type for each @ComponentV2 custom node, which can give user control of sub-component recycle and reuse.
+   * Reuse id is used for identify the reuse type of each @ComponentV2 custom component, which can give user control of sub-component recycle and reuse.
    *
-   * @param { ReuseOptions } options - The configuration parameter for reusable custom node.
+   * @param { ReuseOptions } options - The configuration parameter for reusable custom component.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
