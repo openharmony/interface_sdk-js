@@ -19,7 +19,17 @@
  */
 
 import { Callback } from '@ohos.base';
-
+export declare enum MixMode {
+    AVERAGE = 1,
+    TOWARDS_PRIMARY = 2,
+    TOWARDS_SECOND = 3,
+}
+export declare enum GradientAlpha {
+    LEVEL1 = 1,
+    LEVEL2 = 2,
+    LEVEL3 = 3,
+    LEVEL4 = 4
+}
 /**
  * Defines AtomicServiceNavigation.
  *
@@ -70,6 +80,16 @@ export declare struct AtomicServiceNavigation {
    */
   @Prop
   titleOptions?: TitleOptions;
+  /**
+   * The background with gradient colors of Navigation .
+   *
+   * @type { ?gradientBackground }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  @Prop
+  gradientBackground?: gradientBackground;
   /**
    * Hide navigation title bar.
    *
@@ -194,7 +214,52 @@ export interface TitleOptions {
    */
   barStyle?: BarStyle;
 }
-
+/**
+ * Indicates the options of Navigation's gradientBackground.
+ *
+ * @typedef gradientBackground
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
+export interface gradientBackground {
+  /**
+   * the primaryColor of Background .
+   *
+   * @type { ?ResourceColor | String}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  primaryColor?: ResourceColor | String,
+  /**
+   * the secondColor of Background .
+   *
+   * @type { ?ResourceColor | String}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  secondColor?: ResourceColor | String,
+  /**
+   * the blend mode of background color .
+   *
+   * @type { ?MixMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  mixMode?: MixMode,
+  /**
+   * the transparency of background color .
+   *
+   * @type { ?GradientAlpha }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  alpha?: GradientAlpha
+}
 /**
  * The builder function of NavDestination component.
  *
