@@ -7348,6 +7348,22 @@ declare namespace window {
     setShadow(radius: number, color?: string, offsetX?: number, offsetY?: number): void;
 
     /**
+     * Sets window shadow radius.
+     *
+     * @param { number } radius the radius of the shadow.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 16
+     */
+    setWindowShadowRadius(radius: number): void;
+
+    /**
      * Sets corner radius.
      *
      * @param { number } cornerRadius the corner radius.
