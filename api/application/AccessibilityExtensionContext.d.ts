@@ -264,6 +264,36 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * @since 12
    */
   startAbility(want: Want): Promise<void>;
+
+  /**
+   * get all subElements in window.
+   * @param { number } windowId Indicates the window ID.
+   * @param { number } elementId Indicates the elementId.
+   * @returns { Promise<Array<AccessibilityElement>> }
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 9300003 - No accessibility permission to perform the operation.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 16
+   */
+  getElements(windowId: number, elementId?: number): Promise<Array<AccessibilityElement>>;
+
+  /**
+   * Get default focused element ids.
+   * @param { number } windowId Indicates whether the windowid can be used as the default focus.
+   * @returns { Promise<Array<number>> }
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *    1. Mandatory parameters are left unspecified;
+   *    2. Incorrect parameter types;
+   *    3. Parameter verification failed.
+   * @throws { BusinessError } 9300003 - No accessibility permission to perform the operation.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 16
+   */
+  getDefaultFocusedElementIds(windowId: number): Promise<Array<number>>;
 }
 
 /**
@@ -562,36 +592,6 @@ declare interface AccessibilityElement {
    * @since 12
    */
   findElement(type: 'elementId', condition: number): Promise<AccessibilityElement>;
-
-  /**
-   * get all subElements in window.
-   * @param { number } windowId Indicates the window ID.
-   * @param { number } elementId Indicates the elementId.
-   * @returns { Promise<Array<AccessibilityElement>> }
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Input parameter error.
-   * @throws { BusinessError } 9300003 - No accessibility permission to perform the operation.
-   * @syscap syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @systemapi
-   * @since 16
-   */
-  getElements(windowId: number, elementId?: number): Promise<Array<AccessibilityElement>>;
-
-  /**
-   * Get default focused element ids.
-   * @param { number } windowId Indicates whether the windowid can be used as the default focus.
-   * @returns { Promise<Array<number>> }
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
-   *    1. Mandatory parameters are left unspecified;
-   *    2. Incorrect parameter types;
-   *    3. Parameter verification failed.
-   * @throws { BusinessError } 9300003 - No accessibility permission to perform the operation.
-   * @syscap syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @systemapi
-   * @since 16
-   */
-  getDefaultFocusedElementIds(windowId: number): Promise<Array<number>>;
 }
 
 /**
@@ -1019,7 +1019,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the component next accessibility focus id.
    * @type { ?number }
-   * @syscap syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 16
    */
   accessibilityNextFocusId?: number;
@@ -1034,7 +1034,7 @@ interface ElementAttributeValues {
   /**
    * Indicates the extra info of the element.
    * @type { ?string }
-   * @syscap syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 16
    */
   extraInfo?: string;
