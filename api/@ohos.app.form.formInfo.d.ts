@@ -427,6 +427,17 @@ declare namespace formInfo {
      * @since 16
      */
     readonly previewImages?: Array<number>;
+
+    /**
+     * Indicates whether the form uses a blur background provided by the form host.
+     *
+     * @type { ?boolean }
+     * @readonly
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 16
+     */
+    readonly enableBlurBackground?: boolean;
   }
 
   /**
