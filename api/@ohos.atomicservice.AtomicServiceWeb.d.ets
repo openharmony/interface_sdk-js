@@ -84,7 +84,7 @@ export declare struct AtomicServiceWeb {
    * @type { ?(NestedScrollOptions | NestedScrollOptionsExt) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   @Prop
   nestedScroll?: NestedScrollOptions | NestedScrollOptionsExt;
