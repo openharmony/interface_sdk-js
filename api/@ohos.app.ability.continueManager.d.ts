@@ -31,15 +31,15 @@ declare namespace continueManager {
     /**
      * Register prepareContinue event, when the ability is configured with 'ContinueQuickStart' in the continueType, then can get the
      * result of LaunchReason.PREPARE_CONTINUATION.
-     * 
+     *
      * @param { 'prepareContinue' } type - Registration Type, 'prepareContinue'.
      * @param { Context } context - the ability context.
      * @param { AsyncCallback<ContinueResultInfo> } callback - Used to handle ('prepareContinue') command.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @since 16
      * @permission ohos.permission.MANAGE_MISSIONS
+     * @since 16
      */
     function on(type: 'prepareContinue', context: Context, callback: AsyncCallback<ContinueResultInfo>): void;
 
@@ -52,8 +52,8 @@ declare namespace continueManager {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @since 16
      * @permission ohos.permission.MANAGE_MISSIONS
+     * @since 16
      */
     function off(type: 'prepareContinue', context: Context, callback?: AsyncCallback<ContinueResultInfo>): void;
 
