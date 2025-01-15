@@ -208,13 +208,6 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
      */
-    innerModel: string;
-
-    /**
-     * @type { string }
-     * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @since 15
-     */
     devType: string;
 
     /**
@@ -945,13 +938,13 @@ declare namespace distributedDeviceManager {
     off(type: 'replyResult', callback?: Callback<{ param: string; }>): void;
 
     /**
-     * Query the device list of same account.
+     * Get the device list under the same account.
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { DeviceProfileInfoFilterOptions } filterOptions - parameter for querying the device list, The parameter type is map,such as:
-     *      "isCloud" : false,           -  false - Query from the cahce of device side.
-     *                                      true  - Query from the cloud.
-     *      "deviceIdList" : [],         - Query by specified device ids.
+     *      "isCloud" : false,           -  false - Get from the cahce of device side.
+     *                                      true  - Get from the cloud.
+     *      "deviceIdList" : [],         - Get by specified device ids.
      * @returns { Promise<Array<DeviceProfileInfo>> } - Returns a list of devices.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                                  1. Mandatory parameters are left unspecified;
@@ -960,14 +953,16 @@ declare namespace distributedDeviceManager {
      *                                                  4. The size of specified type is greater than 500.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 11600101 - Failed to execute the function.
+     * @throws { BusinessError } 11600102 - Failed to obtain service.
+     * @throws { BusinessError } 11600106 - Get data from cloud fail.
+     * @throws { BusinessError } 11600107 - A login account is required.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
      */
     getDeviceProfileInfoList(filterOptions: DeviceProfileInfoFilterOptions): Promise<Array<DeviceProfileInfo>>;
 
     /**
-     * Put the device list of same account.
+     * Put the device list under the same account.
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { Array<DeviceProfileInfo> } deviceProfileInfoList - parameter for querying the device list for put, 
@@ -979,7 +974,7 @@ declare namespace distributedDeviceManager {
      *                                                  4. The size of specified type is greater than 500.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 11600101 - Failed to execute the function.
+     * @throws { BusinessError } 11600102 - Failed to obtain service.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
      */
@@ -1001,7 +996,8 @@ declare namespace distributedDeviceManager {
      *                                                  3. Parameter verification failed;
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 11600101 - Failed to execute the function.
+     * @throws { BusinessError } 11600102 - Failed to obtain service.
+     * @throws { BusinessError } 11600106 - Get data from cloud fail.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
      */
@@ -1020,7 +1016,7 @@ declare namespace distributedDeviceManager {
      *                                                  3. Parameter verification failed;
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 11600101 - Failed to execute the function.
+     * @throws { BusinessError } 11600102 - Failed to obtain service.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
      */
@@ -1038,7 +1034,7 @@ declare namespace distributedDeviceManager {
      *                                                  3. Parameter verification failed;
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 11600101 - Failed to execute the function.
+     * @throws { BusinessError } 11600102 - Failed to obtain service.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
      */
@@ -1057,7 +1053,8 @@ declare namespace distributedDeviceManager {
      *                                                  3. Parameter verification failed;
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 11600101 - Failed to execute the function.
+     * @throws { BusinessError } 11600102 - Failed to obtain service.
+     * @throws { BusinessError } 11600107 - A login account is required.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
      */
