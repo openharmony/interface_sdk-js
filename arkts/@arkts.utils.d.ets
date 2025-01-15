@@ -910,14 +910,6 @@ declare namespace utils {
       * @atomicservice
       * @since 13
       */
-      /**
-       * Return type is map.
-       *
-       * @syscap SystemCapability.Utils.Lang
-       * @crossplatform
-       * @atomicservice
-       * @since 16
-       */
       MAP = 1,
     }
     /**
