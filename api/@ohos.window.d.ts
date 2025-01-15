@@ -3035,7 +3035,7 @@ declare namespace window {
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   function getAllWindowLayoutInfo(displayId: number): Promise<Array<WindowLayoutInfo>>;
 
@@ -9648,7 +9648,7 @@ declare namespace window {
    * @interface WindowLayoutInfo
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   interface WindowLayoutInfo {
     /**
@@ -9657,7 +9657,7 @@ declare namespace window {
      * @type { Rect }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     windowRect: Rect;
   }
