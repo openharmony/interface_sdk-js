@@ -19,17 +19,84 @@
  */
 
 import { Callback } from '@ohos.base';
+
+/**
+ * the enum for the blend mode of background color .
+ *
+ * @enum { number }.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
 export declare enum MixMode {
-    AVERAGE = 1,
-    TOWARDS_PRIMARY = 2,
-    TOWARDS_SECOND = 3,
+  /**
+   * when the MixMode set AVERAGE,the mixing method for background colors is that the two colors have equal proportions .
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  AVERAGE = 1,
+  /**
+   * when the MixMode set BIAS_STYLE_ONE,the color mixing method for the background is biased towards one of the colors, style one.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  BIAS_STYLE_ONE = 2,
+  /**
+   * when the MixMode set BIAS_STYLE_TWO,the color mixing method for the background is biased towards one of the colors, style two.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  BIAS_STYLE_TWO = 3,
 }
+/**
+ * the enum for the opacity  of the background color .
+ *
+ * @enum { number }.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
 export declare enum GradientAlpha {
-    LEVEL1 = 1,
-    LEVEL2 = 2,
-    LEVEL3 = 3,
-    LEVEL4 = 4
+  /**
+   * when the GradientAlpha set LEVEL1,the opacity of background colors is 20%
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  LEVEL1 = 1,
+  /**
+   * when the GradientAlpha set LEVEL2,the opacity of background colors is 60%
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  LEVEL2 = 2,
+  /**
+   * when the GradientAlpha set LEVEL3,the opacity of background colors is 80%
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  LEVEL3 = 3,
+  /**
+   * when the GradientAlpha set LEVEL4,the opacity of background colors is 100%
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  LEVEL4 = 4
 }
+
 /**
  * Defines AtomicServiceNavigation.
  *
@@ -214,6 +281,7 @@ export interface TitleOptions {
    */
   barStyle?: BarStyle;
 }
+
 /**
  * Indicates the options of Navigation's gradientBackground.
  *
@@ -232,6 +300,7 @@ export interface gradientBackground {
    * @since 16
    */
   primaryColor?: ResourceColor | String,
+
   /**
    * the secondColor of Background .
    *
@@ -241,6 +310,7 @@ export interface gradientBackground {
    * @since 16
    */
   secondColor?: ResourceColor | String,
+
   /**
    * the blend mode of background color .
    *
@@ -250,8 +320,9 @@ export interface gradientBackground {
    * @since 16
    */
   mixMode?: MixMode,
+
   /**
-   * the transparency of background color .
+   * the opacity of background colors .
    *
    * @type { ?GradientAlpha }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -260,6 +331,7 @@ export interface gradientBackground {
    */
   alpha?: GradientAlpha
 }
+
 /**
  * The builder function of NavDestination component.
  *
