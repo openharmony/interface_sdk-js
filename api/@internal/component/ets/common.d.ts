@@ -11520,6 +11520,15 @@ declare interface PixelMapMock {
  * @atomicservice
  * @since 11
  */
+/**
+ * Enum for Drag Behavior.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
 declare enum DragBehavior {
   /**
    * If drag use copy event, then set DragBehavior.COPY.
@@ -11534,6 +11543,14 @@ declare enum DragBehavior {
    * @atomicservice
    * @since 11
    */
+  /**
+   * If drag use copy event, then set DragBehavior.COPY.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   COPY,
   /**
    * If drag use move event, then set DragBehavior.MOVE.
@@ -11547,6 +11564,14 @@ declare enum DragBehavior {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * If drag use move event, then set DragBehavior.MOVE.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   MOVE
 }
@@ -12515,6 +12540,15 @@ declare interface DragEvent {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
   * @since 11
+  */
+  /**
+  * If copy is COPY, this DragEvent is a copy event.
+  * @type { DragBehavior } Operation, if use copy then set COPY, else set MOVE.
+  * @default COPY
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 16
   */
   dragBehavior: DragBehavior;
 
@@ -17604,6 +17638,15 @@ declare enum OutlineStyle {
  * @atomicservice
  * @since 12
  */
+/**
+ * Defines the drag preview mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
 declare enum DragPreviewMode {
   /**
    * Default preview mode, let system process preview scale.
@@ -17617,6 +17660,14 @@ declare enum DragPreviewMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Default preview mode, let system process preview scale.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   AUTO = 1,
   /**
@@ -17632,6 +17683,14 @@ declare enum DragPreviewMode {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Disable system scale to preview panel
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   DISABLE_SCALE = 2,
   /**
    * Enable the default shadow effect of preview.
@@ -17640,6 +17699,14 @@ declare enum DragPreviewMode {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Enable the default shadow effect of preview.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   ENABLE_DEFAULT_SHADOW = 3,
   /**
    * Enable the default radius effect of preview.
@@ -17647,6 +17714,14 @@ declare enum DragPreviewMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Enable the default radius effect of preview.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   ENABLE_DEFAULT_RADIUS = 4,
   /**
@@ -17744,6 +17819,15 @@ declare type SymbolGlyphModifier = import('../api/arkui/SymbolGlyphModifier').Sy
  * @atomicservice
  * @since 12
  */
+/**
+ * Defines the preview options.
+ *
+ * @interface DragPreviewOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
 declare interface DragPreviewOptions {
   /**
   * Drag preview mode.
@@ -17760,6 +17844,15 @@ declare interface DragPreviewOptions {
   * @atomicservice
   * @since 12
   */
+ /**
+  * Drag preview mode.
+  *
+  * @type { ?(DragPreviewMode | Array<DragPreviewMode>) }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 16
+  */
   mode?: DragPreviewMode | Array<DragPreviewMode>;
 
   /**
@@ -17770,6 +17863,15 @@ declare interface DragPreviewOptions {
   * @atomicservice
   * @since 12
   */
+ /**
+  * Drag preview modifier.
+  *
+  * @type { ?ImageModifier }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 16
+  */
   modifier?: ImageModifier;
 
   /**
@@ -17779,6 +17881,15 @@ declare interface DragPreviewOptions {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
   * @since 12
+  */
+ /**
+  * The flag for number showing.
+  *
+  * @type { ?(boolean | number) }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 16
   */
   numberBadge?: boolean | number;
 }
