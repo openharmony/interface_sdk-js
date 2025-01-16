@@ -2383,6 +2383,15 @@ export class DragController {
    * @since 12
    */
   setDragEventStrictReportingEnabled(enable: boolean): void;
+
+  /**
+    * Notify the drag start request to specific pending or continue.
+    * @param { dragController.DragStartRequestStatus } requestStatus - Status about the drag start behavior.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @atomicservice
+    * @since 16
+    */
+  notifyDragStartRequest(requestStatus: dragController.DragStartRequestStatus): void;
 }
 
 /**

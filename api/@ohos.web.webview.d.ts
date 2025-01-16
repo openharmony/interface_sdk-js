@@ -4301,6 +4301,19 @@ declare namespace webview {
     removeCache(clearRom: boolean): void;
 
     /**
+     * Remove resource cache in application. So this method will remove all cache for all web components in the
+     * same application.
+     *
+     * @param { boolean } clearRom - Remove cache in both rom and ram if true. Otherwise only clear cache
+     *                               in ram.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 16
+     */
+    static removeAllCache(clearRom: boolean): void;
+
+    /**
      * Scroll to the position.
      *
      * @param { number } x - the x of the position.

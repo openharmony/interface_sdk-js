@@ -965,6 +965,18 @@ declare class TextMenuItemId {
   static readonly AI_WRITER: TextMenuItemId;
 
   /**
+   * Indicates the TextMenuItemId to translate the selected content.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  static readonly TRANSLATE: TextMenuItemId;
+
+  /**
    * Indicates the TextMenuItemId to search the selected content.
    *
    * @type { TextMenuItemId }
@@ -975,6 +987,18 @@ declare class TextMenuItemId {
    * @since 16
    */
   static readonly SEARCH: TextMenuItemId;
+
+  /**
+   * Indicates the TextMenuItemId to share the selected content.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  static readonly SHARE: TextMenuItemId;
 }
 
 /**
@@ -1228,4 +1252,50 @@ interface EditableTextChangeValue {
    * @since 16
    */
   options?: TextChangeOptions;
+}
+
+/**
+ * Defines keyboard appearance.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
+declare enum KeyboardAppearance {
+  /**
+   * Default appearance mode, don't adopt immersive styles
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  NONE_IMMERSIVE = 0,
+
+  /**
+   * Immersive mode
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  IMMERSIVE = 1,
+
+  /**
+   * Light immersive style
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  LIGHT_IMMERSIVE = 2,
+
+  /**
+   * Dark immersive style
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  DARK_IMMERSIVE = 3,
 }

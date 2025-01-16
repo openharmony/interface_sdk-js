@@ -636,6 +636,7 @@ declare class ColorContent {
    * @readonly
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 16
    */

@@ -107,6 +107,15 @@ declare type Length = string | number | Resource;
  * @atomicservice
  * @since 11
  */
+/**
+ * Defines the length property with number in units of px.
+ *
+ * @typedef { `${number}px` } PX
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
 declare type PX = `${number}px`;
 
 /**
@@ -123,6 +132,15 @@ declare type PX = `${number}px`;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ */
+/**
+ * Defines the length property with number or number in units of vp.
+ *
+ * @typedef { `${number}vp` | number } VP
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
  */
 declare type VP = `${number}vp` | number;
 
@@ -141,6 +159,15 @@ declare type VP = `${number}vp` | number;
  * @atomicservice
  * @since 11
  */
+/**
+ * Defines the length property with number in units of fp.
+ *
+ * @typedef { `${number}fp` } FP
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
 declare type FP = `${number}fp`;
 
 /**
@@ -158,6 +185,15 @@ declare type FP = `${number}fp`;
  * @atomicservice
  * @since 11
  */
+/**
+ * Defines the length property with number in units of lpx.
+ *
+ * @typedef { `${number}lpx` } LPX
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
 declare type LPX = `${number}lpx`;
 
 /**
@@ -174,6 +210,15 @@ declare type LPX = `${number}lpx`;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ */
+/**
+ * Defines the length property with number in units of Percentage.
+ *
+ * @typedef { `${number}%` } Percentage
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
  */
 declare type Percentage = `${number}%`;
 
@@ -208,6 +253,15 @@ declare type Degree = `${number}deg`;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ */
+/**
+ * Defines the dimension property with number with units(vp|px|fp|lpx|%), and resource.
+ *
+ * @typedef { PX | VP | FP | LPX | Percentage | Resource } Dimension
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
  */
 declare type Dimension = PX | VP | FP | LPX | Percentage | Resource;
 
@@ -3285,6 +3339,15 @@ declare class ColorFilter {
  * @atomicservice
  * @since 12
  */
+/**
+ * Defines TouchPoint
+ *
+ * @interface TouchPoint
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
 declare interface TouchPoint {
   /**
    * Define the touch point x coordinate.
@@ -3300,6 +3363,15 @@ declare interface TouchPoint {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Define the touch point x coordinate.
+   *
+   * @type { Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   x: Dimension;
 
@@ -3317,6 +3389,15 @@ declare interface TouchPoint {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Define the touch point y coordinate.
+   *
+   * @type { Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   y: Dimension;
 }

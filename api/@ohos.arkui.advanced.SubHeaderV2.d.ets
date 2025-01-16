@@ -198,6 +198,16 @@ export interface SubHeaderV2SelectOptions {
    * @since 16
    */
   onSelect?: SubHeaderV2SelectOnSelect;
+  /**
+   * Sets the default focus state of SubHeaderV2SelectOptions.
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  defaultFocus?: boolean;
 }
 
 /**
@@ -249,6 +259,16 @@ export declare class SubHeaderV2Select {
    * @since 16
    */
   @Trace onSelect?: SubHeaderV2SelectOnSelect;
+  /**
+   * Sets the default focus state of SubHeaderV2SelectOptions.
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  @Trace defaultFocus?: boolean;
   /**
    * The constructor of SubHeaderV2Select
    *
@@ -387,6 +407,16 @@ export interface SubHeaderV2OperationItemOptions {
    * @since 16
    */
   accessibilityLevel?: string;
+  /**
+   * Sets the default focus state of the text or icon.
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  defaultFocus?: boolean;
 }
 
 /**
@@ -459,6 +489,16 @@ export declare class SubHeaderV2OperationItem {
    * @since 16
    */
   @Trace accessibilityLevel?: string;
+  /**
+   * Sets the default focus state of the text or icon.
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  @Trace defaultFocus?: boolean;
 }
 
 /**

@@ -142,6 +142,16 @@ declare enum RichEditorSpanType {
    * @since 12
    */
   BUILDER = 3,
+
+  /**
+   * When no other types are explicitly specified, this type will be matched.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  DEFAULT = 4,
 }
 
 /**
@@ -212,6 +222,16 @@ declare enum RichEditorResponseType {
    * @since 12
    */
   SELECT = 2,
+
+  /**
+   * When no other types are explicitly specified, this type will be matched.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  DEFAULT = 3,
 }
 
 /**
@@ -2808,6 +2828,28 @@ declare interface SelectionMenuOptions {
    * @since 13
    */
   menuType?: MenuType;
+
+  /**
+   * Callback function when the selection menu is displayed.
+   *
+   * @type { ?MenuCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onMenuShow?: MenuCallback;
+
+  /**
+   * Callback function when the selection menu is hidden.
+   *
+   * @type { ?MenuCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onMenuHide?: MenuCallback;
 }
 
 /**
@@ -3881,6 +3923,17 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 16
    */
   maxLines(maxLines: Optional<number>): RichEditorAttribute;
+
+  /**
+   * Set the keyboard appearance.
+   *
+   * @param { Optional<KeyboardAppearance> } appearance - Default value is KeyboardAppearance.NONE_IMMERSIVE
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  keyboardAppearance(appearance: Optional<KeyboardAppearance>): RichEditorAttribute;
 }
 
 /**
@@ -3950,6 +4003,19 @@ declare type SubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => vo
  * @since 12
  */
 declare type MenuOnAppearCallback = (start: number, end: number) => void;
+
+/**
+ * Callback function when the selection menu show or hide.
+ *
+ * @typedef { function } MenuCallback
+ * @param { number } start - Start offset of the selected content in rich editor.
+ * @param { number } end - End offset of the selected content in rich editor.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare type MenuCallback = (start: number, end: number) => void;
 
 /**
  * Callback function when a paste operation is performed.

@@ -843,14 +843,13 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
   /**
    * Enable or disable haptic feedback.
    *
-   * @param { boolean } enabled - Default value is true, set false to disable haptic feedback.
+   * @param { Optional<boolean> } enable - Default value is true, set false to disable haptic feedback.
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
-  enableHapticFeedback(enabled: boolean): TextPickerAttribute;
+  enableHapticFeedback(enable: Optional<boolean>): TextPickerAttribute;
 
   /**
    * Called when set the height of gradient
@@ -1416,7 +1415,6 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
