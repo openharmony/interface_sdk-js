@@ -1540,6 +1540,17 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @since 16
    */
   digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): SliderAttribute;
+
+  /**
+   * Enable or disable haptic feedback.
+   *
+   * @param { boolean } enabled - Default value is true, set false to disable haptic feedback.
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  enableHapticFeedback(enabled: boolean): SliderAttribute;
 }
 
 /**
