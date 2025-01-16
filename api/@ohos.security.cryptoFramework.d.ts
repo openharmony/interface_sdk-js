@@ -8547,6 +8547,95 @@ declare namespace cryptoFramework {
   }
 
   /**
+   * Specifies the SCRYPT parameters.
+   *
+   * @extends KdfSpec
+   * @typedef ScryptSpec
+   * @syscap SystemCapability.Security.CryptoFramework.Kdf
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  interface ScryptSpec extends KdfSpec {
+    /**
+     * Indicates the passphrase parameter of SCRYPT.
+     *
+     * @type { string | Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework.Kdf
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    passphrase: string | Uint8Array;
+
+    /**
+     * Indicates the salt parameter of SCRYPT.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework.Kdf
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    salt: Uint8Array;
+
+    /**
+     * Indicates the cost parameter of SCRYPT.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.CryptoFramework.Kdf
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    n: number;
+
+    /**
+     * Indicates the block size parameter of SCRYPT.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.CryptoFramework.Kdf
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    r: number;
+
+    /**
+     * Indicates the parallelization parameter of SCRYPT.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.CryptoFramework.Kdf
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    p: number;
+
+    /**
+     * Indicates the byte length of memory of SCRYPT.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.CryptoFramework.Kdf
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    maxMemory: number;
+
+    /**
+     * Indicates the byte length of output key of SCRYPT.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.CryptoFramework.Kdf
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    keySize: number;
+  }
+
+  /**
    * The key derivation function object provides the ability to derive key with its associated parameters.
    *
    * @typedef Kdf
