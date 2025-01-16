@@ -330,7 +330,7 @@ declare namespace uniformDataStruct {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15
      */
-    formId?: number;
+    formId: number;
 
     /**
      * Indicates the form name of form.
@@ -339,7 +339,7 @@ declare namespace uniformDataStruct {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15
      */
-    formName?: string;
+    formName: string;
 
     /**
      * Indicates the bundle name of form.
@@ -348,7 +348,7 @@ declare namespace uniformDataStruct {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15
      */
-    bundleName?: string;
+    bundleName: string;
 
     /**
      * Indicates the ability name of form.
@@ -357,7 +357,7 @@ declare namespace uniformDataStruct {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15
      */
-    abilityName?: string;
+    abilityName: string;
 
     /**
      * Indicates the module of form.
@@ -366,73 +366,7 @@ declare namespace uniformDataStruct {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15
      */
-    module?: string;
-
-    /**
-     * Indicates the details of form.
-     *
-     * @type { ?Record<string, number | string | Uint8Array> }
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 15
-     */
-    details?: Record<string, number | string | Uint8Array>;
-  }
-
-  interface Form {
-    /**
-     * Indicates the uniform data type of this data struct.
-     *
-     * @type { 'openharmony.form' }
-     * @readonly
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 15
-     */
-    readonly uniformDataType: 'openharmony.form';
-
-    /**
-     * Indicates the form id of form.
-     *
-     * @type { number }
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 15
-     */
-    formId?: number;
-
-    /**
-     * Indicates the form name of form.
-     *
-     * @type { string }
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 15
-     */
-    formName?: string;
-
-    /**
-     * Indicates the bundle name of form.
-     *
-     * @type { string }
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 15
-     */
-    bundleName?: string;
-
-    /**
-     * Indicates the ability name of form.
-     *
-     * @type { string }
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 15
-     */
-    abilityName?: string;
-
-    /**
-     * Indicates the module of form.
-     *
-     * @type { appName }
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 15
-     */
-    module?: string;
+    module: string;
 
     /**
      * Indicates the details of form.
@@ -478,7 +412,7 @@ declare namespace uniformDataStruct {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15
      */
-    fileType?: string;
+    fileType: string;
 
     /**
      * Indicates the details of fileUri.
