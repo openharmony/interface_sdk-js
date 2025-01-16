@@ -527,8 +527,6 @@ declare namespace unifiedDataChannel {
      * get entries from unified record
      *
      * @returns { Record<string, ValueType> } Return all entries in the record.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 15
