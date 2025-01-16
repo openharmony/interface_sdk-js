@@ -492,7 +492,6 @@ declare namespace unifiedDataChannel {
      *
      * @returns { Array<string> } Return the types of unified record.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
      * @atomicservice
      * @since 15
      */
@@ -506,7 +505,6 @@ declare namespace unifiedDataChannel {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
      * @atomicservice
      * @since 15
      */
@@ -520,7 +518,6 @@ declare namespace unifiedDataChannel {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
      * @atomicservice
      * @since 15
      */
@@ -533,7 +530,6 @@ declare namespace unifiedDataChannel {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
      * @atomicservice
      * @since 15
      */

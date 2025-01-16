@@ -308,7 +308,7 @@ declare namespace uniformDataStruct {
   /**
    * Describe form uniform data struct.
    *
-   * @interface ContentForm
+   * @interface Form
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 15
    */
@@ -362,7 +362,7 @@ declare namespace uniformDataStruct {
     /**
      * Indicates the module of form.
      *
-     * @type { appName }
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15
      */
@@ -408,7 +408,7 @@ declare namespace uniformDataStruct {
     /**
      * Indicates the file type of fileUri.
      *
-     * @type { ?string }
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15
      */
@@ -445,7 +445,7 @@ declare namespace uniformDataStruct {
     /**
      * Indicates the pixelMap value of pixelMap.
      *
-     * @type { string }
+     * @type { image.PixelMap }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15
      */
