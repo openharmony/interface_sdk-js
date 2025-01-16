@@ -1315,7 +1315,7 @@ declare function getContext(component?: Object): Context;
 declare const Reusable: ClassDecorator;
 
 /**
- * Defining ReusableV2 ClassDecorator that is used to decorated @ComponentV2.
+ * Defining ReusableV2 ClassDecorator that is used to decorate @ComponentV2.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1326,7 +1326,7 @@ declare const Reusable: ClassDecorator;
 declare const ReusableV2: ClassDecorator;
 
  /**
-   * ReuseId callback type. It is used to computed reuseId.
+   * ReuseId callback type. It is used to compute reuseId.
    *
    * @typedef { function } ReuseIdCallback
    * @returns { string }
@@ -1350,7 +1350,7 @@ declare const ReusableV2: ClassDecorator;
  */
 declare interface ReuseOptions {
   /**
-   * Defining reuseId function, it can be changed by state variable. The default reuseId is the custom component name.
+   * Defining reuseId function. The default reuseId is the custom component name.
    *
    * @type { ?ReuseIdCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -24217,9 +24217,9 @@ declare class CommonMethod<T> {
   reuseId(id: string): T;
 
    /**
-   * Reuse id is used for identify the reuse type for each @ComponentV2 custom node, which can give user control of sub-component recycle and reuse.
+   * Reuse id is used for identify the reuse type of each @ComponentV2 custom component, which can give user control of sub-component recycle and reuse.
    *
-   * @param { ReuseOptions } options - The configuration parameter for reusable custom node.
+   * @param { ReuseOptions } options - The configuration parameter for reusable custom component.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -26318,7 +26318,7 @@ declare class CustomComponent extends BaseCustomComponent {
  */
 declare class CustomComponentV2 extends BaseCustomComponent {
   /**
-   * aboutToReuse Method for @ComponentV2, it is executed when moving instance of custom component to RecyclePool.
+   * aboutToReuse Method for @ComponentV2, it is executed when fetching instance of custom component from RecyclePool.
    * It is different from the @Reusable in CustomComponent, there is no param parameter in this callback.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
