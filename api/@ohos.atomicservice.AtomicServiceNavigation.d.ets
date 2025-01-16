@@ -38,21 +38,21 @@ export declare enum MixMode {
    */
   AVERAGE = 1,
   /**
-   * when the MixMode set BIAS_STYLE_ONE,the color mixing method for the background is biased towards one of the colors, style one.
+   * when the MixMode set CROSS,the color mixing method for the background is a transition where one color crosses through to another.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
    */
-  BIAS_STYLE_ONE = 2,
+  CROSS = 2,
   /**
-   * when the MixMode set BIAS_STYLE_TWO,the color mixing method for the background is biased towards one of the colors, style two.
+   * when the MixMode set TOWARDS,the color mixing method for the background is a transition from one color to another .
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
    */
-  BIAS_STYLE_TWO = 3,
+  TOWARDS = 3
 }
 /**
  * the enum for the opacity  of the background color .
