@@ -349,15 +349,16 @@ declare namespace inputMethodEngine {
   type CommandDataType = number | string | boolean;
 
   /**
-   * The callback of 'sizeChange' event.
+   * The callback of 'sizeUpdate' event.
    *
-   * @typedef { function } SizeChangeCallback.
+   * @typedef { function } SizeUpdateCallback.
    * @param { window.Size } size - panel size.
-   * @param { ?KeyboardArea } keyboardArea - keyboard area.
+   * @param { KeyboardArea } keyboardArea - keyboard area.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 16
+   * @systemapi
+   * @since 14
    */
-  export type SizeChangeCallback = (size: window.Size, keyboardArea?: KeyboardArea) => void;
+  export type SizeUpdateCallback = (size: window.Size, keyboardArea: KeyboardArea) => void;
 
   /**
    * @interface KeyboardController
@@ -1778,12 +1779,14 @@ declare namespace inputMethodEngine {
      *
      * @param { PanelFlag } flag - panel flag.
      * @param { EnhancedPanelRect } rect - panel rect.
+     * @throws { BusinessError } 202 - not system application.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @systemapi
+     * @since 14
      */
     adjustPanelRect(flag: PanelFlag, rect: EnhancedPanelRect): void;
 
@@ -1792,12 +1795,14 @@ declare namespace inputMethodEngine {
      * <p>It's only used for SOFT_KEYBOARD panel with fixed flag or floating flag.</p>
      *
      * @param { Array<window.Rect> } inputRegion - region in the panel which accepts input event. The size of the array must range from 1 to 4.
+     * @throws { BusinessError } 202 - not system application.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @systemapi
+     * @since 14
      */
     updateRegion(inputRegion: Array<window.Rect>): void;
 
@@ -1810,16 +1815,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
-    /**
-     * Subscribe 'sizeChange' event.
-     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED and FLG_FLOATING.</p>
-     *
-     * @param { 'sizeChange' } type - the type of subscribe event.
-     * @param { SizeChangeCallback } callback - the callback of on('sizeChange').
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
-     */
-    on(type: 'sizeChange', callback: SizeChangeCallback): void;
+    on(type: 'sizeChange', callback: Callback<window.Size>): void;
 
     /**
      * Unsubscribe 'sizeChange' event.
@@ -1830,16 +1826,33 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
+    off(type: 'sizeChange', callback?: Callback<window.Size>): void;
+
     /**
-     * Unsubscribe 'sizeChange' event.
+     * Subscribe 'sizeUpdate' event.
      * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED and FLG_FLOATING.</p>
      *
-     * @param { 'sizeChange' } type - the type of unsubscribe event.
-     * @param { ?SizeChangeCallback } [callback] - optional, the callback of off('sizeChange').
+     * @param { 'sizeUpdate' } type - the type of subscribe event.
+     * @param { SizeUpdateCallback } callback - the callback of on('sizeUpdate').
+     * @throws { BusinessError } 201 - permissions check fails.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @systemapi
+     * @since 14
      */
-    off(type: 'sizeChange', callback?: SizeChangeCallback): void;
+    on(type: 'sizeUpdate', callback: SizeUpdateCallback): void;
+
+    /**
+     * Unsubscribe 'sizeUpdate' event.
+     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED and FLG_FLOATING.</p>
+     *
+     * @param { 'sizeUpdate' } type - the type of unsubscribe event.
+     * @param { ?SizeUpdateCallback } [callback] - optional, the callback of off('sizeUpdate').
+     * @throws { BusinessError } 201 - permissions check fails.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 14
+     */
+    off(type: 'sizeUpdate', callback?: SizeUpdateCallback): void;
   }
 
   /**
@@ -2249,7 +2262,8 @@ declare namespace inputMethodEngine {
    *
    * @interface EnhancedPanelRect
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 16
+   * @systemapi
+   * @since 14
    */
   export interface EnhancedPanelRect {
     /**
@@ -2258,7 +2272,8 @@ declare namespace inputMethodEngine {
      *
      * @type { ?window.Rect }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @systemapi
+     * @since 14
      */
     landscapeRect?: window.Rect;
     /**
@@ -2267,7 +2282,8 @@ declare namespace inputMethodEngine {
      *
      * @type { ?window.Rect }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @systemapi
+     * @since 14
      */
     portraitRect?: window.Rect;
     /**
@@ -2277,7 +2293,8 @@ declare namespace inputMethodEngine {
      * @type { ?number }
      * @default 0
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @systemapi
+     * @since 14
      */
     landscapeAvoidY?: number;
     /**
@@ -2287,7 +2304,8 @@ declare namespace inputMethodEngine {
      *
      * @type { ?Array<window.Rect> }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @systemapi
+     * @since 14
      */
     landscapeInputRegion?: Array<window.Rect>;
     /**
@@ -2297,7 +2315,8 @@ declare namespace inputMethodEngine {
      * @type { ?number }
      * @default 0
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @systemapi
+     * @since 14
      */
     portraitAvoidY?: number;
     /**
@@ -2307,7 +2326,8 @@ declare namespace inputMethodEngine {
      *
      * @type { ?Array<window.Rect> }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @systemapi
+     * @since 14
      */
     portraitInputRegion?: Array<window.Rect>;
     /**
@@ -2317,7 +2337,8 @@ declare namespace inputMethodEngine {
      * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @systemapi
+     * @since 14
      */
     fullScreenMode?: boolean;
   }
@@ -2327,7 +2348,8 @@ declare namespace inputMethodEngine {
    *
    * @interface KeyboardArea
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 16
+   * @systemapi
+   * @since 14
    */
   export interface KeyboardArea {
     /**
@@ -2335,7 +2357,8 @@ declare namespace inputMethodEngine {
      *
      * @type { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @systemapi
+     * @since 14
      */
     top: number;
     /**
@@ -2343,7 +2366,8 @@ declare namespace inputMethodEngine {
      *
      * @type { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @systemapi
+     * @since 14
      */
     bottom: number;
     /**
@@ -2351,7 +2375,8 @@ declare namespace inputMethodEngine {
      *
      * @type { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @systemapi
+     * @since 14
      */
     left: number;
     /**
@@ -2359,7 +2384,8 @@ declare namespace inputMethodEngine {
      *
      * @type { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @systemapi
+     * @since 14
      */
     right: number;
   }
