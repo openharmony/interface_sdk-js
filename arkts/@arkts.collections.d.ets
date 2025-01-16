@@ -51,7 +51,7 @@ declare namespace collections {
    */
   /**
    * Callback function used in the typed Array's 'from' function.
-   *
+   * 
    * @typedef { function } TypedArrayFromMapFn
    * @param { FromElementType } value - The value in the original array.
    * @param { number } index - The index in the original array.
@@ -78,7 +78,7 @@ declare namespace collections {
   /**
    * Callback function used in typed Array functions which needs to determine
    * whether some element satisfies the specified predicate test
-   *
+   * 
    * @typedef { function } TypedArrayPredicateFn
    * @param { ElementType } value - The value of the element.
    * @param { number } index - The index of the element.
@@ -104,7 +104,7 @@ declare namespace collections {
    */
   /**
    * Callback function used in typed Array functions that perform specific action for each element.
-   *
+   * 
    * @typedef { function } TypedArrayForEachCallback
    * @param { ElementType } value - The value of the element.
    * @param { number } index - The index of the element.
@@ -132,7 +132,7 @@ declare namespace collections {
   /**
    * Callback function used in typed Array functions that perform specific action for each element and
    *    produce corresponding new element.
-   *
+   * 
    * @typedef { function } TypedArrayMapCallback
    * @param { ElementType } value - The value of the element.
    * @param { number } index - The index of the element.
@@ -160,7 +160,7 @@ declare namespace collections {
    */
   /**
    * Callback function used in typed Array functions that require a reduction.
-   *
+   * 
    * @typedef { function } TypedArrayReduceCallback
    * @param { AccType } previousValue - The accumulator value.
    * @param { ElementType } currentValue - The current element being processed in the array.
@@ -187,7 +187,7 @@ declare namespace collections {
    */
   /**
    * Callback function used in the typed Array's 'sort' function.
-   *
+   * 
    * @typedef { function } TypedArrayCompareFn
    * @param { ElementType } first - The first element of the comparison.
    * @param { ElementType } second - The second element of the comparison.
@@ -271,7 +271,7 @@ declare namespace collections {
    */
   /**
    * Represents an array-like object that can be concatenated.
-   *
+   * 
    * @interface ConcatArray
    * @extends ISendable
    * @syscap SystemCapability.Utils.Lang
@@ -291,7 +291,7 @@ declare namespace collections {
      */
     /**
      * Gets the length of the ArkTS ConcatArray. This is a number one higher than the highest index in the array.
-     *
+     * 
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
@@ -327,7 +327,7 @@ declare namespace collections {
      */
     /**
      * Adds all the elements of an ArkTS ConcatArray into a string, separated by the specified separator string.
-     *
+     * 
      * @param { string } [separator] - A string used to separate one element of the array from
      *     the next in the resulting string. If omitted, the array elements are separated with a comma.
      * @returns { string } A string with all array elements joined.
@@ -382,11 +382,11 @@ declare namespace collections {
    * @since 12
    */
   /**
-   * Array is a data structure that stores a collection of elements.
-   * If multiple threads access a Array instance concurrently,
+   * Array is a data structure that stores a collection of elements. 
+   * If multiple threads access a Array instance concurrently, 
    * and at least one of the threads modifies the array structurally,
    * it must be synchronized externally.
-   *
+   * 
    * @implements ConcatArray<T>
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -406,7 +406,7 @@ declare namespace collections {
      */
     /**
      * Gets the length of the ArkTS array. This is a number one higher than the highest index in the ArkTS array.
-     *
+     * 
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
@@ -455,7 +455,7 @@ declare namespace collections {
      */
     /**
      * Creates an ArkTS Array from an array-like object.
-     *
+     * 
      * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an ArkTS Array.
      * @returns { Array<T> } A new Array instance
      * @throws { BusinessError } 401 - Parameter error.
@@ -481,7 +481,7 @@ declare namespace collections {
      */
     /**
      * Creates an ArkTS Array from an iterable object.
-     *
+     * 
      * @param { Iterable<T> } iterable - An iterable object to convert to an ArkTS Array.
      * @returns { Array<T> } A new Array instance
      * @throws { BusinessError } 401 - Parameter error.
@@ -599,7 +599,7 @@ declare namespace collections {
     /**
      * Removes the last element from an ArkTS array and returns it.
      * If the array is empty, undefined is returned and the array is not modified.
-     *
+     * 
      * @returns { T | undefined } - The removed element from the array; undefined if the array is empty.
      * @throws { BusinessError } 10200011 - The pop method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -623,7 +623,7 @@ declare namespace collections {
      */
     /**
      * Appends new elements to the end of an ArkTS Array, and returns the new length of the array.
-     *
+     * 
      * @param { T[] } items - New elements to add to the ArkTS array.
      * @returns { number } - The new length property of the object upon which the method was called.
      * @throws { BusinessError } 401 - Parameter error.
@@ -650,7 +650,7 @@ declare namespace collections {
      */
     /**
      * Adds all the elements of an ArkTS Array into a string, separated by the specified separator string.
-     *
+     * 
      * @param { string } [separator] - A string used to separate one element of the array from
      *     the next in the resulting string. If omitted, the array elements are separated with a comma.
      * @returns { string } A string with all array elements joined. If Array.length is 0, the empty string is returned.
@@ -677,7 +677,7 @@ declare namespace collections {
     /**
      * Removes the first element from an ArkTS Array and returns it.
      * If the array is empty, undefined is returned and the array is not modified.
-     *
+     * 
      * @returns { T | undefined } The removed element from the array; undefined if the array is empty
      * @throws { BusinessError } 10200011 - The shift method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -797,7 +797,7 @@ declare namespace collections {
      */
     /**
      * Returns the index of the first occurrence of a value in an ArkTS Array, or -1 if it is not present.
-     *
+     * 
      * @param { T } searchElement - The value to locate in the array.
      * @param { number } [fromIndex] - The array index at which to begin the search.
      *     If fromIndex is omitted, the search starts at index 0.
@@ -854,7 +854,7 @@ declare namespace collections {
     /**
      * Calls a defined callback function on each element of an ArkTS Array,
      * and returns an array that contains the results.
-     *
+     * 
      * @param { function } callbackFn - A function that accepts up to three arguments.
      *     The map method calls the callbackFn function one time for each element in the array.
      * @returns { Array<U> } A new array with each element being the result of the callback function.
@@ -883,7 +883,7 @@ declare namespace collections {
      */
     /**
      * Returns the elements of an ArkTS Array that meet the condition specified in a callback function.
-     *
+     * 
      * @param { function } predicate - A function that accepts up to three arguments.
      *     The filter method calls the predicate function one time for each element in the array.
      * @returns { Array<T> } A shallow copy of the given containing just the elements that pass the test.
@@ -917,7 +917,7 @@ declare namespace collections {
      * Calls the specified callback function for all the elements in an ArkTS Array.
      * The return value of the callback function is the accumulated result,
      * and is provided as an argument in the next call to the callback function.
-     *
+     * 
      * @param { function } callbackFn - A function that accepts up to four arguments.
      *     The reduce method calls the callbackFn function one time for each element in the array.
      * @returns { T } The value that results from running the "reducer" callback function to
@@ -954,7 +954,7 @@ declare namespace collections {
      * Calls the specified callback function for all the elements in an array.
      * The return value of the callback function is the accumulated result,
      * and is provided as an argument in the next call to the callback function.
-     *
+     * 
      * @param { function } callbackFn - A function that accepts up to four arguments.
      *     The reduce method calls the callbackFn function one time for each element in the array.
      * @param { U } initialValue - If initialValue is specified,
@@ -969,7 +969,7 @@ declare namespace collections {
      * @crossplatform
      * @atomicservice
      * @since 16
-     */
+    */
     reduce<U>(
       callbackFn: (previousValue: U, currentValue: T, currentIndex: number, array: Array<T>) => U,
       initialValue: U
@@ -1038,7 +1038,7 @@ declare namespace collections {
      */
     /**
      * Returns an iterable of key, value pairs for every entry in the array
-     *
+     * 
      * @returns { IterableIterator<[number, T]> } A new iterable iterator object.
      * @throws { BusinessError } 10200011 - The entries method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -1060,7 +1060,7 @@ declare namespace collections {
      */
     /**
      * Returns an iterable of keys in the array
-     *
+     * 
      * @returns { IterableIterator<number> } A new iterable iterator object.
      * @throws { BusinessError } 10200011 - The keys method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -1082,7 +1082,7 @@ declare namespace collections {
      */
     /**
      * Returns an iterable of values in the array
-     *
+     * 
      * @returns { IterableIterator<T> } A new iterable iterator object.
      * @throws { BusinessError } 10200011 - The values method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -1111,7 +1111,7 @@ declare namespace collections {
     /**
      * Returns the value of the first element in the array where predicate is true, and undefined
      * otherwise.
-     *
+     * 
      * @param { function } predicate - Find calls predicate once for each element of the array, in ascending
      *     order, until it finds one where predicate returns true.
      *     If such an element is found, find immediately returns that element value. Otherwise, find returns undefined.
@@ -1206,7 +1206,7 @@ declare namespace collections {
      */
     /**
      * Returns the this object after filling the section identified by start and end with value
-     *
+     * 
      * @param { T } value - Value to fill array section with
      * @param { number } [start] - Index to start filling the array at. If start is negative, it is treated as
      *     length+start where length is the length of the array.
@@ -1237,7 +1237,7 @@ declare namespace collections {
      */
     /**
      * Shrinks the ArkTS array to the given arrayLength.
-     *
+     * 
      * @param { number } arrayLength - The new Array length.
      *     Throws error when arrayLength < 0 or arrayLength > 2^32.
      *     If arrayLength > array.length, array remains unchanged.
@@ -1268,7 +1268,7 @@ declare namespace collections {
     /**
      * Extends the ArkTS array to the given arrayLength,
      * and appends new elements with given initialValue up to the arrayLength.
-     *
+     * 
      * @param { number } arrayLength - The new Array length.
      *     Throws error when arrayLength < 0 or arrayLength > 2^32.
      *     If arrayLength < array.length, array remains unchanged.
@@ -1296,10 +1296,10 @@ declare namespace collections {
      */
     /**
      * Returns the item at that index.
-     *
+     * 
      * @param { number } index - The zero-based index of the desired code unit.
      *     Throws error if index < 0 or index >= array.length.
-     * @returns { T } The element in the array matching the given index.
+     * @returns { T } The element in the array matching the given index. 
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200001 - The value of index is out of range.
      * @syscap SystemCapability.Utils.Lang
@@ -1579,10 +1579,10 @@ declare namespace collections {
    */
   /**
    * The Map holds key-value pairs.
-   * If multiple threads access a Map instance concurrently,
+   * If multiple threads access a Map instance concurrently, 
    * and at least one of the threads modifies the map structurally,
    * it must be synchronized externally.
-   *
+   * 
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -1922,10 +1922,10 @@ declare namespace collections {
    */
   /**
    * Set lets you store unique values of any type.
-   * If multiple threads access a Set instance concurrently,
+   * If multiple threads access a Set instance concurrently, 
    * and at least one of the threads modifies the set structurally,
    * it must be synchronized externally.
-   *
+   * 
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -2037,7 +2037,7 @@ declare namespace collections {
      */
     /**
      * Returns an iterable of [value, value] pairs for each element in this set.
-     *
+     * 
      * @returns { IterableIterator<[T, T]> } A new iterable iterator object.
      * @throws { BusinessError } 10200011 - The entries method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -2232,7 +2232,7 @@ declare namespace collections {
    * different typed arrays. ArrayBuffers cannot be read from or written to directly,
    * but can be passed to a typed array or DataView Object to interpret the raw
    * buffer as needed.
-   * If multiple threads access a ArrayBuffer instance concurrently,
+   * If multiple threads access a ArrayBuffer instance concurrently, 
    * and at least one of the threads modifies the buffer structurally,
    * it must be synchronized externally.
    *
@@ -2329,7 +2329,7 @@ declare namespace collections {
    */
   /**
    * A typed array of 8-bit integer values. The contents are initialized to 0.
-   * If multiple threads access a Int8Array instance concurrently,
+   * If multiple threads access a Int8Array instance concurrently, 
    * and at least one of the threads modifies the array structurally,
    * it must be synchronized externally.
    *
@@ -3402,7 +3402,7 @@ declare namespace collections {
      */
     /**
      * Returns the item at that index.
-     *
+     * 
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -3512,7 +3512,7 @@ declare namespace collections {
   /**
    * The Uint8ClampedArray typed array represents an array of 8-bit unsigned integers clamped to 0–255.
    * The contents are initialized to 0.
-   * If multiple threads access a Uint8ClampedArray instance concurrently,
+   * If multiple threads access a Uint8ClampedArray instance concurrently, 
    * and at least one of the threads modifies the array structurally,
    * it must be synchronized externally.
    *
@@ -4551,7 +4551,7 @@ declare namespace collections {
      */
     /**
      * Returns the item at that index.
-     *
+     * 
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -4662,7 +4662,7 @@ declare namespace collections {
    */
   /**
    * A typed array of 8-bit unsigned integer values. The contents are initialized to 0.
-   * If multiple threads access a Uint8Array instance concurrently,
+   * If multiple threads access a Uint8Array instance concurrently, 
    * and at least one of the threads modifies the array structurally,
    * it must be synchronized externally.
    *
@@ -5734,7 +5734,7 @@ declare namespace collections {
      */
     /**
      * Returns the item at that index.
-     *
+     * 
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -5843,9 +5843,9 @@ declare namespace collections {
    */
   /**
    * A typed array of 16-bit integer values. The contents are initialized to 0.
-   * If multiple threads access a Int16Array instance concurrently,
+   * If multiple threads access a Int16Array instance concurrently, 
    * and at least one of the threads modifies the array structurally,
-   * it must be synchronized externally.
+   * it must be synchronized externally. 
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -6357,6 +6357,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
+    findIndex(predicate: TypedArrayPredicateFn<number, Int16Array>): number;
     /**
      * Performs the specified action for each element in an array.
      *
@@ -6915,7 +6916,7 @@ declare namespace collections {
      */
     /**
      * Returns the item at that index.
-     *
+     * 
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -7024,9 +7025,9 @@ declare namespace collections {
    */
   /**
    * A typed array of 16-bit unsigned integer values. The contents are initialized to 0.
-   * If multiple threads access a Uint16Array instance concurrently,
+   * If multiple threads access a Uint16Array instance concurrently, 
    * and at least one of the threads modifies the array structurally,
-   * it must be synchronized externally.
+   * it must be synchronized externally. 
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -8094,7 +8095,7 @@ declare namespace collections {
      */
     /**
      * Returns the item at that index.
-     *
+     * 
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -8203,9 +8204,9 @@ declare namespace collections {
    */
   /**
    * A typed array of 32-bit integer values. The contents are initialized to 0.
-   * If multiple threads access a Int32Array instance concurrently,
+   * If multiple threads access a Int32Array instance concurrently, 
    * and at least one of the threads modifies the array structurally,
-   * it must be synchronized externally.
+   * it must be synchronized externally. 
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -9275,7 +9276,7 @@ declare namespace collections {
      */
     /**
      * Returns the item at that index.
-     *
+     * 
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -9384,9 +9385,9 @@ declare namespace collections {
    */
   /**
    * A typed array of 32-bit unsigned integer values. The contents are initialized to 0.
-   * If multiple threads access a Uint32Array instance concurrently,
+   * If multiple threads access a Uint32Array instance concurrently, 
    * and at least one of the threads modifies the array structurally,
-   * it must be synchronized externally.
+   * it must be synchronized externally. 
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -10454,7 +10455,7 @@ declare namespace collections {
      */
     /**
      * Returns the item at that index.
-     *
+     * 
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -10565,7 +10566,7 @@ declare namespace collections {
   /**
    * The Float32Array typed array represents an array of 32-bit float numbers.
    * The contents are initialized to 0.
-   * If multiple threads access a Float32Array instance concurrently,
+   * If multiple threads access a Float32Array instance concurrently, 
    * and at least one of the threads modifies the array structurally,
    * it must be synchronized externally.
    *
@@ -11603,7 +11604,7 @@ declare namespace collections {
      */
     /**
      * Returns the item at that index.
-     *
+     * 
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -11713,9 +11714,9 @@ declare namespace collections {
    */
   /**
    * An ordered collections of bit values, which are either 0 or 1.
-   * If multiple threads access a BitVector instance concurrently,
+   * If multiple threads access a BitVector instance concurrently, 
    * and at least one of the threads modifies the array structurally,
-   * it must be synchronized externally.
+   * it must be synchronized externally. 
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -11839,7 +11840,7 @@ declare namespace collections {
      * @param { number } fromIndex - The starting position of the index, containing the value at that index position.
      * @param { number } toIndex - The end of the index, containing the value at that index.
      * @returns { boolean } The boolean type, if bit vector contains the specified element, return true,
-     else return false.
+                            else return false.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                    1.Mandatory parameters are left unspecified.
      *                                    2.Incorrect parameter types.
@@ -12203,7 +12204,7 @@ declare namespace collections {
      */
     /**
      * Returns the item at that index.
-     *
+     * 
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
