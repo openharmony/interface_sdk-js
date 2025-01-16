@@ -1253,3 +1253,49 @@ interface EditableTextChangeValue {
    */
   options?: TextChangeOptions;
 }
+
+/**
+ * Defines keyboard appearance.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
+declare enum KeyboardAppearance {
+  /**
+   * Default appearance mode, don't adopt immersive styles
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  NONE_IMMERSIVE = 0,
+
+  /**
+   * Immersive mode
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  IMMERSIVE = 1,
+
+  /**
+   * Light immersive style
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  LIGHT_IMMERSIVE = 2,
+
+  /**
+   * Dark immersive style
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  DARK_IMMERSIVE = 3,
+}
