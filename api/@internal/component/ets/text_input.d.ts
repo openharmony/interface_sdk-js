@@ -1218,7 +1218,7 @@ interface PasswordIcon {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 16
  */
 declare type OnSubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => void;
 
@@ -1231,7 +1231,7 @@ declare type OnSubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 16
  */
 declare type OnTextSelectionChangeCallback = (selectionStart: number, selectionEnd: number) => void;
 
@@ -1244,7 +1244,7 @@ declare type OnTextSelectionChangeCallback = (selectionStart: number, selectionE
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 16
  */
 declare type OnContentScrollCallback = (totalOffsetX: number, totalOffsetY: number) => void;
 
@@ -1258,7 +1258,7 @@ declare type OnContentScrollCallback = (totalOffsetX: number, totalOffsetY: numb
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 16
  */
 declare type OnPasteCallback = (content: string, event: PasteEvent) => void;
 
@@ -1514,7 +1514,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onEditChange(callback: Callback<boolean>): TextInputAttribute;
 
@@ -1553,7 +1553,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onSubmit(callback: OnSubmitCallback): TextInputAttribute;
 
@@ -1623,7 +1623,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onTextSelectionChange(callback: OnTextSelectionChangeCallback): TextInputAttribute;
 
@@ -1654,7 +1654,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onContentScroll(callback: OnContentScrollCallback): TextInputAttribute;
 
@@ -1871,7 +1871,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   inputFilter(value: ResourceStr, error?: Callback<string>): TextInputAttribute;
 
@@ -1910,7 +1910,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onCopy(callback: Callback<string>): TextInputAttribute;
 
@@ -1949,7 +1949,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onCut(callback: Callback<string>): TextInputAttribute;
 
@@ -1991,7 +1991,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onPaste(callback: OnPasteCallback): TextInputAttribute;
 
@@ -2453,7 +2453,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   cancelButton(options: CancelButtonOptions): TextInputAttribute;
 
