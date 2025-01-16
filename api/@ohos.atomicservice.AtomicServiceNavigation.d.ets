@@ -30,7 +30,8 @@ import { Callback } from '@ohos.base';
  */
 export declare enum MixMode {
   /**
-   * when the MixMode set AVERAGE,the mixing method for background colors is that the two colors have equal proportions .
+   * when the MixMode set AVERAGE,the mixing method for background colors is that the two colors have equal 
+   * proportions .
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
