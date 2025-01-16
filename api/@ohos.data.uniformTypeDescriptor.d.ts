@@ -1637,7 +1637,7 @@ declare namespace uniformTypeDescriptor {
      * File uri data type.
      * 
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 15
+     * @since 16
      */
     FILE_URI = 'general.file-uri',
 
@@ -1645,7 +1645,7 @@ declare namespace uniformTypeDescriptor {
      * Content form data type.
      * 
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 15
+     * @since 16
      */
     CONTENT_FORM = 'general.content-form'
   }

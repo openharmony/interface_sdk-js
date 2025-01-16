@@ -310,7 +310,7 @@ declare namespace uniformDataStruct {
    *
    * @interface Form
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 15
+   * @since 16
    */
   interface Form {
     /**
@@ -319,7 +319,7 @@ declare namespace uniformDataStruct {
      * @type { 'openharmony.form' }
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 15
+     * @since 16
      */
     readonly uniformDataType: 'openharmony.form';
 
@@ -328,7 +328,7 @@ declare namespace uniformDataStruct {
      *
      * @type { number }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 15
+     * @since 16
      */
     formId: number;
 
@@ -337,7 +337,7 @@ declare namespace uniformDataStruct {
      *
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 15
+     * @since 16
      */
     formName: string;
 
@@ -346,7 +346,7 @@ declare namespace uniformDataStruct {
      *
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 15
+     * @since 16
      */
     bundleName: string;
 
@@ -355,7 +355,7 @@ declare namespace uniformDataStruct {
      *
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 15
+     * @since 16
      */
     abilityName: string;
 
@@ -364,7 +364,7 @@ declare namespace uniformDataStruct {
      *
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 15
+     * @since 16
      */
     module: string;
 
@@ -373,7 +373,7 @@ declare namespace uniformDataStruct {
      *
      * @type { ?Record<string, number | string | Uint8Array> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 15
+     * @since 16
      */
     details?: Record<string, number | string | Uint8Array>;
   }
@@ -383,7 +383,7 @@ declare namespace uniformDataStruct {
    *
    * @interface FileUri
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 15
+   * @since 16
    */
   interface FileUri {
     /**
@@ -392,7 +392,7 @@ declare namespace uniformDataStruct {
      * @type { 'general.file-uri' }
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 15
+     * @since 16
      */
     readonly uniformDataType: 'general.file-uri';
 
@@ -401,7 +401,7 @@ declare namespace uniformDataStruct {
      *
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 15
+     * @since 16
      */
     oriUri: string;
 
@@ -410,7 +410,7 @@ declare namespace uniformDataStruct {
      *
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 15
+     * @since 16
      */
     fileType: string;
 
@@ -419,7 +419,7 @@ declare namespace uniformDataStruct {
      *
      * @type { ?Record<string, number | string | Uint8Array> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 15
+     * @since 16
      */
     details?: Record<string, number | string | Uint8Array>;
   }
@@ -429,7 +429,7 @@ declare namespace uniformDataStruct {
    *
    * @interface PixelMap
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 15
+   * @since 16
    */
   interface PixelMap {
     /**
@@ -438,7 +438,7 @@ declare namespace uniformDataStruct {
      * @type { 'openharmony.pixel-map' }
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 15
+     * @since 16
      */
     readonly uniformDataType: 'openharmony.pixel-map';
 
@@ -447,7 +447,7 @@ declare namespace uniformDataStruct {
      *
      * @type { image.PixelMap }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 15
+     * @since 16
      */
     pixelMap: image.PixelMap;
 
@@ -456,7 +456,7 @@ declare namespace uniformDataStruct {
      *
      * @type { ?Record<string, number | string | Uint8Array> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 15
+     * @since 16
      */
     details?: Record<string, number | string | Uint8Array>;
   }
