@@ -6357,7 +6357,6 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    findIndex(predicate: TypedArrayPredicateFn<number, Int16Array>): number;
     /**
      * Performs the specified action for each element in an array.
      *
