@@ -26,7 +26,7 @@
  * @atomicservice
  * @since 16
  */
-declare type FinishAnimationHandler = () => void
+declare type FinishAnimationHandler = () => void;
 
 /**
  * Provide methods for controlling ArcSwiper component.
@@ -233,7 +233,7 @@ interface ArcSwiperInterface {
  * @atomicservice
  * @since 16
  */
-declare type IndexChangedHandler = (index: number) => void
+declare type IndexChangedHandler = (index: number) => void;
 
 /**
  * Handler of swiper, used in OnAnimationStart.
@@ -247,7 +247,7 @@ declare type IndexChangedHandler = (index: number) => void
  * @atomicservice
  * @since 16
  */
-declare type AnimationStartHandler = (index: number, targetIndex: number, event: SwiperAnimationEvent) => void
+declare type AnimationStartHandler = (index: number, targetIndex: number, event: SwiperAnimationEvent) => void;
 
 /**
  * Handler of swiper, used in OnAnimationEnd.
@@ -260,7 +260,7 @@ declare type AnimationStartHandler = (index: number, targetIndex: number, event:
  * @atomicservice
  * @since 16
  */
-declare type AnimationEndHandler = (index: number, event: SwiperAnimationEvent) => void
+declare type AnimationEndHandler = (index: number, event: SwiperAnimationEvent) => void;
 
 /**
  * Handler of swiper, used in OnGestureSwipe.
@@ -273,7 +273,7 @@ declare type AnimationEndHandler = (index: number, event: SwiperAnimationEvent) 
  * @atomicservice
  * @since 16
  */
-declare type GestureSwipeHandler = (index: number, event: SwiperAnimationEvent) => void
+declare type GestureSwipeHandler = (index: number, event: SwiperAnimationEvent) => void;
 
 
 /**
@@ -401,7 +401,8 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
   /**
    * Set whether the indicator is available or set the indicator style.
    *
-   * @param { Optional<ArcDotIndicator | boolean> } style - The style information of the indicator or whether to display the indicator, default value is { true }.
+   * @param { Optional<ArcDotIndicator | boolean> } style - The style information of the indicator or whether to
+   *                                                display the indicator, default value is { true }.
    * @returns { ArcSwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
