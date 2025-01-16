@@ -1662,15 +1662,6 @@ declare namespace usbManager {
    */
   interface USBAccessory {
     /**
-     * The hardware version of the accessory.
-     *
-     * @type { string }
-     * @syscap SystemCapability.USB.USBManager
-     * @since 14
-     */
-    hwVersion?: string;
-
-    /**
      * The manufacturer name of the accessory.
      *
      * @type { string }
