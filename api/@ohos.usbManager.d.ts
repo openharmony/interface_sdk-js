@@ -18,6 +18,8 @@
  * @kit BasicServicesKit
  */
 
+import type { AsyncCallback } from './@ohos.base';
+
 /**
  * This module provides the capability of manage USB device.
  *
@@ -1722,6 +1724,344 @@ declare namespace usbManager {
      */
     accessoryFd: number;
   }
+
+  /**
+     * Usb transfer flag.
+     *
+     * @enum { number }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+  export enum UsbTransferFlags {
+    /**
+     * Report short frames as errors
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    USB_TRANSFER_SHORT_NOT_OK = 0,
+
+    /**
+     * Automatically free transfer buffer
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    USB_TRANSFER_FREE_BUFFER = 1,
+
+    /**
+     * Automatically free transfer after callback returns
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    USB_TRANSFER_FREE_TRANSFER = 2,
+
+    /**
+     * Transmissions that are multiples of wMaxPacketSize will add an additional zero packet.
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    USB_TRANSFER_ADD_ZERO_PACKET = 3
+  }
+
+  /**
+   * Usb transfer status.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.USB.USBManager
+   * @since 16
+   */
+  export enum UsbTransferStatus {
+    /**
+     * Transfer completed
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    TRANSFER_COMPLETED = 0,
+
+    /**
+     * Transfer failed
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    TRANSFER_ERROR = 1,
+
+    /**
+     * Transfer timed out
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    TRANSFER_TIMED_OUT = 2,
+
+    /**
+     * Transfer was canceled
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    TRANSFER_CANCELED = 3,
+
+    /**
+     * For bulk/interrupt endpoints: halt condition detected (endpoint
+     * stalled). For control endpoints: control request not supported.
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    TRANSFER_STALL = 4,
+
+    /**
+     * Device was disconnected
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    TRANSFER_NO_DEVICE = 5,
+
+    /**
+     * Device sent more data than requested
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    TRANSFER_OVERFLOW = 6
+  }
+
+  /**
+   * USB DATA transfer type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.USB.USBManager
+   * @since 16
+   */
+  export enum UsbEndpointTransferType {
+    /**
+     * Control endpoint
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    TRANSFER_TYPE_CONTROL = 0x0,
+
+    /**
+     * Isochronous endpoint
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    TRANSFER_TYPE_ISOCHRONOUS = 0x1,
+
+    /**
+     * Bulk endpoint
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    TRANSFER_TYPE_BULK = 0x2,
+
+    /**
+     * Interrupt endpoint
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    TRANSFER_TYPE_INTERRUPT = 0x3
+  }
+
+  /**
+   * Isochronous packet descriptors, only for isochronous transfers.
+   *
+   * @typedef UsbIsoPacketDescriptor
+   * @syscap SystemCapability.USB.USBManager
+   * @since 16
+   */
+  interface UsbIsoPacketDescriptor {
+    /**
+     * Length of data to request in this packet
+     *
+     * @type { number }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    length: number;
+
+    /**
+     * Amount of data that was actually transferred
+     *
+     * @type { number }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    actualLength: number;
+
+    /**
+     * Status code for this packet
+     *
+     * @type { UsbTransferStatus }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    status: UsbTransferStatus;
+  }
+
+  /**
+   * As a generic USB data transfer interface. The Client populates this interface and
+   * submits it in order to request a transfer. 
+   *
+   * @typedef UsbDataTransferParams
+   * @syscap SystemCapability.USB.USBManager
+   * @since 16
+   */
+  interface UsbDataTransferParams {
+    /**
+     * Pipe of the device that this data transfer will be submitted to.
+     *
+     * @type { USBDevicePipe }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    devPipe: USBDevicePipe;
+
+    /**
+     * A bitwise OR combination of UsbTransferFlags.
+     *
+     * @type { UsbTransferFlags }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    flags: UsbTransferFlags;
+
+    /**
+     * Address of the endpoint where this transfer will be sent.
+     *
+     * @type { number }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    endpoint: number;
+
+    /**
+     * Type of the transfer
+     *
+     * @type { UsbEndpointTransferType }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    type: UsbEndpointTransferType;
+
+    /**
+     * Timeout for this transfer in milliseconds. A value of 0 indicates no timeout.
+     *
+     * @type { number }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    timeout: number;
+
+    /**
+     * The status of the transfer. Read-only, and only for use within transfer callback function.
+     *
+     * @type { UsbTransferStatus }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    status: UsbTransferStatus;
+
+    /**
+     * Length of the data buffer. Must be non-negative.
+     *
+     * @type { number }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    length: number;
+
+    /**
+     * Actual length of data that was transferred. Read-only, and only for
+     * use within transfer callback function. Not valid for isochronous endpoint transfers.
+     *
+     * @type { number }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    actualLength: number;
+
+    /**
+     * Callback function. This will be invoked when the transfer completes, fails, or is canceled.
+     *
+     * @type { AsyncCallback<UsbDataTransferParams> }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    callback: AsyncCallback<UsbDataTransferParams>;
+
+    /**
+     * User context data. Useful for associating specific data to a transfer
+     * that can be accessed from within the callback function.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    userData: Uint8Array;
+
+    /**
+     * Data buffer
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    buffer: Uint8Array;
+
+    /**
+     * Count of isochronous packets. Only used for I/O with isochronous endpoints. Must be non-negative.
+     *
+     * @type { number }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    isoPacketCount: number;
+
+    /**
+     * Isochronous packet descriptors, for isochronous transfers only.
+     *
+     * @type { Array<Readonly<UsbIsoPacketDescriptor>> }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    isoPacketDesc: Array<Readonly<UsbIsoPacketDescriptor>>;
+  }
+
+  /**
+   * Submit USB data transfer.
+   *
+   * @param { transfer } As a generic USB data transfer interface. The Client populates this interface and
+   * submits it in order to request a transfer
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1.Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.  
+   * @syscap SystemCapability.USB.USBManager
+   * @since 16
+   */
+  function usbSubmitTransfer(transfer: UsbDataTransferParams): void;
+
+  /**
+   * Cancel USB data transfer.
+   *
+   * @param { transfer } Cancel the target transfer
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1.Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.  
+   * @syscap SystemCapability.USB.USBManager
+   * @since 16
+   */
+  function usbCancelTransfer(transfer: UsbDataTransferParams): void;
 }
 
 export default usbManager;
