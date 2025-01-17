@@ -19958,6 +19958,18 @@ declare class CommonMethod<T> {
   focusable(value: boolean): T;
 
   /**
+   * Set nextFocus.
+   *
+   * @param { FocusMovement } nextStep
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  nextFocus(nextStep: Optional<FocusMovement>): T;
+
+  /**
    * Set TabStop on component focus
    *
    * @param { boolean } isTabStop
@@ -28560,6 +28572,78 @@ declare interface SelectionOptions {
    * @since 12
    */
   menuPolicy?: MenuPolicy;
+}
+
+/**
+ * Defines the next focus item.
+ *
+ * @interface FocusMovement
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare interface FocusMovement {
+  /**
+   * Next focus item's component identifier of forward.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  forward?: string;
+  /**
+   * Next focus item's component identifier of backward.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  backward?: string;
+  /**
+   * Next focus item's component identifier of up.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  up?: string;
+  /**
+   * Next focus item's component identifier of down.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  down?: string;
+  /**
+   * Next focus item's component identifier of left.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  left?: string;
+  /**
+   * Next focus item's component identifier of right.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  right?: string;
 }
 
 /**
