@@ -294,6 +294,77 @@ declare enum NavDestinationMode {
 }
 
 /**
+ * Reason of navDestination be active or inactive.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare enum NavDestinationActiveReason {
+  /**
+   * NavDestination become active or inactive because of page transition.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  TRANSITION = 0,
+
+  /**
+   * NavDestination become active or inactive because content cover changes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  CONTENT_COVER = 1,
+
+  /**
+   * NavDestination become active or inactive because sheet changes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  SHEET = 2,
+
+  /**
+   * NavDestination become active or inactive because dialog changes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  DIALOG = 3,
+
+  /**
+   * NavDestination become active or inactive because overlay changes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  OVERLAY = 4,
+
+  /**
+   * NavDestination become active or inactive because app state changes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  APP_STATE = 5,
+}
+
+/**
  * The construct function of NavDestination.
  *
  * @interface NavDestinationInterface
@@ -895,6 +966,30 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @since 14
    */
   bindToNestedScrollable(scrollInfos: Array<NestedScrollInfo>): NavDestinationAttribute;
+
+  /**
+   * Invoked when destination is active.
+   *
+   * @param { Optional<Callback<NavDestinationActiveReason>> } callback - Indicates callback when destination is active.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onActive(callback: Optional<Callback<NavDestinationActiveReason>>): NavDestinationAttribute;
+
+  /**
+   * Invoked when destination is inactive.
+   *
+   * @param { Optional<Callback<NavDestinationActiveReason>> } callback - Indicates callback when destination is inactive.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onInactive(callback: Optional<Callback<NavDestinationActiveReason>>): NavDestinationAttribute;
 }
 
 /**
