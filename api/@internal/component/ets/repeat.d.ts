@@ -84,6 +84,17 @@ interface VirtualScrollOptions {
    * @since 16
    */
   reusable?: boolean;
+
+  /**
+   * Data lazy loading
+   *
+   * @param { number } index
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onLazyLoading?(index: number): void;
 }
 
 /**
