@@ -3035,7 +3035,7 @@ declare namespace window {
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   function getAllWindowLayoutInfo(displayId: number): Promise<Array<WindowLayoutInfo>>;
 
@@ -7348,6 +7348,22 @@ declare namespace window {
     setShadow(radius: number, color?: string, offsetX?: number, offsetY?: number): void;
 
     /**
+     * Sets window shadow radius.
+     *
+     * @param { number } radius the radius of the shadow.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 16
+     */
+    setWindowShadowRadius(radius: number): void;
+
+    /**
      * Sets corner radius.
      *
      * @param { number } cornerRadius the corner radius.
@@ -7375,6 +7391,37 @@ declare namespace window {
      * @since 12
      */
     setCornerRadius(cornerRadius: number): void;
+
+    /**
+     * Sets sub window or floating window corner radius.
+     *
+     * @param { number } cornerRadius - Indicate the corner radius of the window.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types;
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 16
+     */
+    setWindowCornerRadius(cornerRadius: number): Promise<void>;
+
+    /**
+     * Get sub window or floating window corner radius.
+     *
+     * @returns { number } - The corner radius of window.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 16
+     */
+    getWindowCornerRadius(): number;
 
     /**
      * Raise app sub window to app top
@@ -9648,7 +9695,7 @@ declare namespace window {
    * @interface WindowLayoutInfo
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   interface WindowLayoutInfo {
     /**
@@ -9657,7 +9704,7 @@ declare namespace window {
      * @type { Rect }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     windowRect: Rect;
   }

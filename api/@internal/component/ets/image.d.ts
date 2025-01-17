@@ -621,6 +621,29 @@ interface ImageSourceSize {
 }
 
 /**
+ * Defines the ColorContent.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare class ColorContent {
+  /**
+   * Indicates the ColorContent to original value.
+   * 
+   * @type { ColorContent }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  static readonly ORIGIN: ColorContent;
+}
+
+/**
  * @extends CommonMethod<ImageAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -817,6 +840,18 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 11
    */
   fillColor(value: ResourceColor): ImageAttribute;
+
+  /**
+   * fill Color
+   *
+   * @param { ResourceColor | ColorContent } color
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  fillColor(color: ResourceColor | ColorContent): ImageAttribute;
 
   /**
    * Sets the zoom type of an image.

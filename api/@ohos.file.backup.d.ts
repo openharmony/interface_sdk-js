@@ -322,6 +322,17 @@ declare namespace backup {
   function updateSendRate(bundleName: string, sendRate: number): boolean;
 
   /**
+   * function that returns backup datasize by bundleName.
+   *
+   * @typedef {function} OnBackupSizeReport
+   * @param {string} reportInfo -the scanned backup datasize infos.
+   * @syscap SystemCapability.FileManagement.StorageService.Backup
+   * @systemapi
+   * @since 16
+   */
+   type OnBackupSizeReport = (reportInfo: string) => void;
+
+  /**
    * General callbacks for both backup and restore procedure.
    * The backup service will notify the client by these callbacks.
    *
@@ -490,6 +501,17 @@ declare namespace backup {
      * @since 12
      */
     onProcess(bundleName: string, process: string);
+
+    /**
+     * Callback called when the backup_sa service return result information.
+     * The first return string parameter indicates the result of the scanned bundle datasize.
+     *
+     * @type {OnBackupSizeReport}.
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @since 16
+     */
+    onBackupSizeReport?: OnBackupSizeReport;
   }
 
   /**
@@ -510,6 +532,45 @@ declare namespace backup {
      * @since 10
      */
     constructor(callbacks: GeneralCallbacks);
+
+    /**
+     * Obtain a Json file that describes local capabilities.
+     *
+     * @permission ohos.permission.BACKUP
+     * @returns { Promise<FileData> } A FileData holding all the local capabilities. The returned file is a temporal file that will be
+     * deleted automatically when closed.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 13900042 - Internal error
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @since 16
+     */
+    getLocalCapabilities(): Promise<FileData>;
+
+    /**
+     * Obtain application data size to be backed up.
+     *
+     * @permission ohos.permission.BACKUP
+     * @param { boolean } isPreciseScan Indicates whether to obtain the exact data size.
+     * @param { Array<IncrementalBackupTime> } dataList Application list.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 13900042 - Internal error
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @since 16
+     */
+    getBackupDataSize(isPreciseScan: boolean, dataList: Array<IncrementalBackupTime>): Promise<void>;
 
     /**
      * Append new bundles to backup.
@@ -621,6 +682,24 @@ declare namespace backup {
      * @since 10
      */
     constructor(callbacks: GeneralCallbacks);
+
+    /**
+     * Obtain a Json file that describes local capabilities.
+     *
+     * @permission ohos.permission.BACKUP
+     * @returns { Promise<FileData> } A FileData holding all the local capabilities. The returned file is a temporal file that will be
+     * deleted automatically when closed.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 13900042 - Internal error
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @since 16
+     */
+    getLocalCapabilities(): Promise<FileData>;
 
     /**
      * Append new bundles to be restore up during the restore.
@@ -816,6 +895,45 @@ declare namespace backup {
      * @since 12
      */
     constructor(callbacks: GeneralCallbacks);
+
+   /**
+     * Obtain a Json file that describes local capabilities.
+     *
+     * @permission ohos.permission.BACKUP
+     * @returns { Promise<FileData> } A FileData holding all the local capabilities. The returned file is a temporal file that will be
+     * deleted automatically when closed.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 13900042 - Internal error
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @since 16
+     */
+    getLocalCapabilities(): Promise<FileData>;
+
+    /**
+     * Obtain application data size to be backed up.
+     *
+     * @permission ohos.permission.BACKUP
+     * @param { boolean } isPreciseScan Indicates whether to obtain the exact data size.
+     * @param { Array<IncrementalBackupTime> } dataList Application list.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 13900042 - Internal error
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @since 16
+     */
+    getBackupDataSize(isPreciseScan: boolean, dataList: Array<IncrementalBackupTime>): Promise<void>;
 
     /**
      * Append new bundles to incremental backup.

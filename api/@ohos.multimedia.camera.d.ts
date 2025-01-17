@@ -8988,6 +8988,13 @@ declare namespace camera {
      * @systemapi
      * @since 12
      */
+    /**
+     * Determine whether video mirror is supported.
+     *
+     * @returns { boolean } Is video mirror supported.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 16
+     */
     isMirrorSupported(): boolean;
 
     /**
@@ -9000,6 +9007,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
+     */
+    /**
+     * Enable mirror for video capture.
+     *
+     * @param { boolean } enabled - enable video mirror if TRUE.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 16
      */
     enableMirror(enabled: boolean): void;
 
@@ -9115,6 +9131,30 @@ declare namespace camera {
      * @since 14
      */
     setRotation(rotation: ImageRotation): void;
+
+    /**
+     * Determine whether auto frame rate is supported.
+     *
+     * @returns { boolean } Is auto frame rate supported.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 16
+     */
+    isAutoVideoFrameRateSupported(): boolean;
+
+    /**
+     * Enable auto frame rate for video capture.
+     *
+     * @param { boolean } enabled - enable auto frame rate if TRUE.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 401 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 16
+     */
+    enableAutoVideoFrameRate(enabled: boolean): void;
 
     /**
      * Subscribes deferred video enhancement info callback.

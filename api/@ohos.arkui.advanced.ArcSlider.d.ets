@@ -19,6 +19,39 @@
  */
 
 /**
+ * Enum for ArcSliderPosition
+ *
+ * @enum { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Circle
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+
+export declare enum ArcSliderPosition {
+
+  /**
+   * The position is on the left
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  LEFT = 0,
+
+  /**
+   * The position is on the right.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  RIGHT = 1
+}
+
+/**
  * Construct parameter types for ArcSliderValueOptions.
  *
  * @typedef ArcSliderValueOptionsConstructorOptions
@@ -145,6 +178,17 @@ interface ArcSliderLayoutOptionsConstructorOptions {
    * @since 16
    */
   reverse?: boolean;
+  /**
+   * Set the component's position on the screen.
+   *
+   * @type { ?ArcSliderPosition }
+   * @default ArcSliderPosition.RIGHT
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  position?: ArcSliderPosition;
 }
 
 /**
@@ -168,6 +212,19 @@ declare class ArcSliderLayoutOptions {
    */
   @Trace
   reverse?: boolean;
+
+  /**
+   * Set the component's position on the screen.
+   *
+   * @type { ?ArcSliderPosition }
+   * @default ArcSliderPosition.RIGHT
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  @Trace
+  position?: ArcSliderPosition;
 
   /**
    * The constructor used to create a ArcSliderLayoutOptions object.

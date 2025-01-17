@@ -246,6 +246,76 @@ declare namespace PiPWindow {
   }
 
   /**
+   * The picture-in-picture window size
+   *
+   * @interface PiPWindowSize
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 16
+   */
+   interface PiPWindowSize {
+    /**
+     * The width of the picture-in-picture window.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 16
+     */
+    width: number;
+
+    /**
+     * The height of the picture-in-picture window.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 16
+     */
+    height: number;
+
+    /**
+     * The scale of the picture-in-picture window.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 16
+     */
+    scale: number;
+  }
+
+  /**
+   * The info of picture-in-picture window
+   *
+   * @interface PiPWindowInfo
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 16
+   */
+  interface PiPWindowInfo {
+    /**
+     * Indicates target window id.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 16
+     */
+    windowId: number;
+
+    /**
+     * The picture-in-picture window size.
+     *
+     * @type { PiPWindowSize }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 16
+     */
+    size: PiPWindowSize;
+  }
+
+  /**
    * Describe the type of picture-in-picture.
    *
    * @enum { number }.
@@ -966,6 +1036,17 @@ declare namespace PiPWindow {
      * @since 12
      */
     setPiPControlEnabled(controlType: PiPControlType, enabled: boolean): void;
+
+    /**
+     * Get the info of PiP window.
+     * @returns { Promise<PiPWindowInfo> } - The promise used to return the PIP window info.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 16
+     */
+     getPiPWindowInfo(): Promise<PiPWindowInfo>;
 
     /**
      * Register picture-in-picture control event listener.

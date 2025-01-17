@@ -22,7 +22,7 @@
 
 import { AsyncCallback } from './@ohos.base';
 
-/*
+/**
  * Define the display mode of all kind of dialog
  *
  * @enum { number }
@@ -32,7 +32,7 @@ import { AsyncCallback } from './@ohos.base';
  * @since 16
  */
 export enum LevelMode {
-  /*
+  /**
    * Display above all page levels.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -42,7 +42,7 @@ export enum LevelMode {
    */
   OVERLAY = 0,
 
-  /*
+  /**
    * Display within the current page.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -51,6 +51,47 @@ export enum LevelMode {
    * @since 16
    */
   EMBEDDED = 1,
+}
+
+/**
+ * Define the immersive mode of all kind of dialog
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+export enum ImmersiveMode {
+  /**
+   * Mask covering the parent node.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  DEFAULT = 0,
+
+  /**
+   * Mask covering the page node.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  PAGE = 1,
+
+  /**
+   * Mask covering the root node.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  FULL = 2,
 }
 
 /**
@@ -786,6 +827,29 @@ declare namespace promptAction {
      * @since 16
      */
     levelMode?: LevelMode;
+
+    /**
+     * The uniqueId of any node in the router or navigation page.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    levelUniqueId?: number;
+
+    /**
+     * Determine the immersive mode of the dialog.
+     *
+     * @type { ?ImmersiveMode }
+     * @default ImmersiveMode.DEFAULT
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    immersiveMode?: ImmersiveMode;
   }
 
   /**
@@ -1070,6 +1134,17 @@ declare namespace promptAction {
     hoverModeArea?: HoverModeAreaType;
 
     /**
+     * Defines the distance between the customDialog and system keyboard.
+     *
+     * @type { ?LengthMetrics }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    keyboardAvoidDistance?: LengthMetrics;
+
+    /**
      * Determine the display level of the dialog.
      *
      * @type { ?LevelMode }
@@ -1082,15 +1157,27 @@ declare namespace promptAction {
     levelMode?: LevelMode;
 
     /**
-     * Defines the distance between the customDialog and system keyboard.
+     * The uniqueId of any node in the router or navigation page.
      *
-     * @type { ?LengthMetrics }
+     * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 16
      */
-    keyboardAvoidDistance?: LengthMetrics
+    levelUniqueId?: number;
+
+    /**
+     * Determine the immersive mode of the dialog.
+     *
+     * @type { ?ImmersiveMode }
+     * @default ImmersiveMode.DEFAULT
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    immersiveMode?: ImmersiveMode;
   }
 
   /**
@@ -1561,7 +1648,42 @@ declare namespace promptAction {
      * @atomicservice
      * @since 12
      */
-    isModal?: boolean;         
+    isModal?: boolean;
+    
+    /**
+     * Determine the display level of the dialog.
+     *
+     * @type { ?LevelMode }
+     * @default LevelMode.OVERLAY
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    levelMode?: LevelMode;
+
+    /**
+     * The uniqueId of any node in the router or navigation page.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    levelUniqueId?: number;
+
+    /**
+     * Determine the immersive mode of the dialog.
+     *
+     * @type { ?ImmersiveMode }
+     * @default ImmersiveMode.DEFAULT
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    immersiveMode?: ImmersiveMode;
   }
 
   /**

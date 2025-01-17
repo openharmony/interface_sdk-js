@@ -548,6 +548,17 @@ declare interface CustomDialogControllerOptions {
   onWillDisappear?: Callback<void>;
 
   /**
+   * Defines the distance between the customDialog and system keyboard.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  keyboardAvoidDistance?: LengthMetrics;
+
+  /**
    * Determine the display level of the dialog.
    *
    * @type { ?LevelMode }
@@ -560,15 +571,27 @@ declare interface CustomDialogControllerOptions {
   levelMode?: LevelMode;
 
   /**
-   * Defines the distance between the customDialog and system keyboard.
+   * The uniqueId of any node in the router or navigation page.
    *
-   * @type { ?LengthMetrics }
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 16
    */
-  keyboardAvoidDistance?: LengthMetrics
+  levelUniqueId?: number;
+
+  /**
+   * Determine the immersive mode of the dialog.
+   *
+   * @type { ?ImmersiveMode }
+   * @default ImmersiveMode.DEFAULT
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  immersiveMode?: ImmersiveMode;
 }
 
 /**

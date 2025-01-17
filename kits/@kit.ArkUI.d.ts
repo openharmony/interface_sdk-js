@@ -45,6 +45,10 @@ import {
   AlertDialog, ButtonOptions, ConfirmDialog, LoadingDialog, SelectDialog, TipsDialog, CustomContentDialog, PopoverDialog, PopoverOptions,
 } from '@ohos.arkui.advanced.Dialog';
 import {
+  AlertDialogV2, AdvancedDialogV2Button, AdvancedDialogV2ButtonOptions, AdvancedDialogV2ButtonAction, AdvancedDialogV2OnCheckedChange,
+  ConfirmDialogV2, LoadingDialogV2, SelectDialogV2, TipsDialogV2, CustomContentDialogV2, PopoverDialogV2, PopoverDialogV2OnVisibleChange, PopoverDialogV2Options,
+} from '@ohos.arkui.advanced.DialogV2';
+import {
   EditableLeftIconType, EditableTitleBar, EditableTitleBarMenuItem, EditableTitleBarItem, EditableTitleBarOptions,
 } from '@ohos.arkui.advanced.EditableTitleBar';
 import { MarginType, PromptOptions, ExceptionPrompt } from '@ohos.arkui.advanced.ExceptionPrompt';
@@ -111,7 +115,7 @@ import mediaquery from '@ohos.mediaquery';
 import PiPWindow from '@ohos.PiPWindow';
 import pluginComponentManager, { PluginComponentTemplate } from '@ohos.pluginComponent';
 import prompt from '@ohos.prompt';
-import promptAction, { LevelMode } from '@ohos.promptAction';
+import promptAction, { LevelMode, ImmersiveMode } from '@ohos.promptAction';
 import router from '@ohos.router';
 import screen from '@ohos.screen';
 import screenshot from '@ohos.screenshot';
@@ -235,7 +239,7 @@ export {
   ToolBarV2ItemImage, ToolBarV2ItemImageOptions, ToolBarV2, ToolBarV2Item, ToolBarV2ItemOptions, ToolBarV2Modifier, ToolBarV2ItemAction,
   TreeListenerManager, TreeView, UIContext, UIInspector, UIObserver, PageInfo, WindowExtensionAbility, WindowExtensionContext, XComponentNode,
   LengthMetrics, LengthMetricsUnit, LengthUnit, ColorMetrics, LayoutConstraint, ComponentContent, NodeContent, Content, componentSnapshot, componentUtils, curves, display, dragController, dragInteraction,
-  font, inspector, matrix4, mediaquery, performanceMonitor, pluginComponentManager, PluginComponentTemplate, prompt, promptAction, LevelMode, router,
+  font, inspector, matrix4, mediaquery, performanceMonitor, pluginComponentManager, PluginComponentTemplate, prompt, promptAction, LevelMode, ImmersiveMode, router,
   AtomicServiceWeb, OnMessageEvent, OnErrorReceiveEvent, OnHttpErrorReceiveEvent, OnPageBeginEvent, OnPageEndEvent,
   AtomicServiceWebController, OnLoadInterceptEvent, OnProgressChangeEvent, OnLoadInterceptCallback, WebHeader,
   screen, screenshot, uiAppearance, uiExtensionHost, uiObserver, window, windowAnimationManager, CustomContentDialog, PopoverDialog, PopoverOptions,
@@ -272,4 +276,6 @@ export {
   ArcSliderLayoutOptionsConstructorOptions, ArcSliderStyleOptions, ArcSliderStyleOptionsConstructorOptions,
   ArcSliderValueOptions, ArcSliderValueOptionsConstructorOptions,
   SegmentButtonV2ItemOptions, OnSelectedIndexChange, OnSelectedIndexesChange, SegmentButtonV2Item, SegmentButtonV2Items, TabSegmentButtonV2, CapsuleSegmentButtonV2, MultiCapsuleSegmentButtonV2,
+  AlertDialogV2, AdvancedDialogV2Button, AdvancedDialogV2ButtonOptions, AdvancedDialogV2ButtonAction, AdvancedDialogV2OnCheckedChange,
+  ConfirmDialogV2, LoadingDialogV2, SelectDialogV2, TipsDialogV2, CustomContentDialogV2, PopoverDialogV2, PopoverDialogV2OnVisibleChange, PopoverDialogV2Options,
 };
