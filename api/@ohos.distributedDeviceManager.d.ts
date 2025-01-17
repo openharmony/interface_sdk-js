@@ -122,7 +122,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
      */
-    deviceIdlist?: Array<string>;
+    deviceIdList?: Array<string>;
   }
 
   /**
