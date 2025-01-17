@@ -6843,6 +6843,17 @@ declare interface ItemDragInfo {
    * @since 11
    */
   y: number;
+
+  /**
+   * Type of the touch hand.
+   *
+   * @type { InteractionHand }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  hand?: InteractionHand;
 }
 
 /**
@@ -10521,6 +10532,17 @@ declare interface ClickEvent extends BaseEvent {
    * @since 11
    */
   y: number;
+
+  /**
+   * Type of the touch hand.
+   *
+   * @type { InteractionHand }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  hand?: InteractionHand;
 
   /**
    * Prevent the default function.

@@ -992,6 +992,17 @@ interface FingerInfo {
    * @since 12
    */
   displayY: number;
+
+  /**
+   * Type of the touch hand.
+   *
+   * @type { InteractionHand }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  hand?: InteractionHand;
 }
 
 /**
@@ -4128,4 +4139,3 @@ declare class PanRecognizer extends GestureRecognizer {
    */
   getPanGestureOptions(): PanGestureOptions;
 }
-
