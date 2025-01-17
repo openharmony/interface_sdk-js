@@ -6843,17 +6843,6 @@ declare interface ItemDragInfo {
    * @since 11
    */
   y: number;
-
-  /**
-   * Type of the touch hand.
-   *
-   * @type { InteractionHand }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 16
-   */
-  hand?: InteractionHand;
 }
 
 /**
@@ -11125,6 +11114,17 @@ declare interface TouchObject {
    * @since 11
    */
   y: number;
+
+  /**
+   * Type of the touch hand.
+   *
+   * @type { InteractionHand }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+    hand?: InteractionHand;
 
   /**
    * Time stamp when the touch point is pressed.
