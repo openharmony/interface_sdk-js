@@ -346,9 +346,9 @@ declare namespace graphStore {
      * @throws { BusinessError } 31300003 - The database is busy.
      * @throws { BusinessError } 31300004 - The database is out of memory.
      * @throws { BusinessError } 31300005 - The database is full.
-     * @throws { BusinessError } 31300006 - Duplicate type or properties name of vertex and edge.
-     * @throws { BusinessError } 31300007 - The type or properties of vertex and edge is not defined.
-     * @throws { BusinessError } 31300008 - The type or properties name of vertex and edge does not conform to constraint.
+     * @throws { BusinessError } 31300006 - A duplicate graph name, vertex or edge type, or vertex or edge property name exists.
+     * @throws { BusinessError } 31300007 - The graph name, vertex or edge type, or vertex or edge property is not defined.
+     * @throws { BusinessError } 31300008 - The graph name, vertex or edge type, or vertex or edge property name does not conform to constraints.
      * @throws { BusinessError } 31300009 - The GQL statement syntax error.
      * @throws { BusinessError } 31300010 - The GQL statement semantic error.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
@@ -371,12 +371,12 @@ declare namespace graphStore {
      * @throws { BusinessError } 31300003 - The database is busy.
      * @throws { BusinessError } 31300004 - The database is out of memory.
      * @throws { BusinessError } 31300005 - The database is full.
-     * @throws { BusinessError } 31300006 - Duplicate type or properties name of vertex and edge.
-     * @throws { BusinessError } 31300007 - The type or properties of vertex and edge is not defined.
-     * @throws { BusinessError } 31300008 - The type or properties name of vertex and edge does not conform to constraint.
+     * @throws { BusinessError } 31300006 - A duplicate graph name, vertex or edge type, or vertex or edge property name exists.
+     * @throws { BusinessError } 31300007 - The graph name, vertex or edge type, or vertex or edge property is not defined.
+     * @throws { BusinessError } 31300008 - The graph name, vertex or edge type, or vertex or edge property name does not conform to constraints.
      * @throws { BusinessError } 31300009 - The GQL statement syntax error.
      * @throws { BusinessError } 31300010 - The GQL statement semantic error.
-     * @throws { BusinessError } 31300012 - The number of types or properties of vertex and edge exceeds the upper limit.
+     * @throws { BusinessError } 31300012 - The number of graph names, vertex or edge types, or vertex or edge properties exceeds the limit.
      * @throws { BusinessError } 31300013 - A conflicting constraint already exists.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
@@ -442,9 +442,9 @@ declare namespace graphStore {
      * @throws { BusinessError } 31300003 - The database is busy.
      * @throws { BusinessError } 31300004 - The database is out of memory.
      * @throws { BusinessError } 31300005 - The database is full.
-     * @throws { BusinessError } 31300006 - Duplicate type or properties name of vertex and edge.
-     * @throws { BusinessError } 31300007 - The type or properties of vertex and edge is not defined.
-     * @throws { BusinessError } 31300008 - The type or properties name of vertex and edge does not conform to constraint.
+     * @throws { BusinessError } 31300006 - A duplicate graph name, vertex or edge type, or vertex or edge property name exists.
+     * @throws { BusinessError } 31300007 - The graph name, vertex or edge type, or vertex or edge property is not defined.
+     * @throws { BusinessError } 31300008 - The graph name, vertex or edge type, or vertex or edge property name does not conform to constraints.
      * @throws { BusinessError } 31300009 - The GQL statement syntax error.
      * @throws { BusinessError } 31300010 - The GQL statement semantic error.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
@@ -467,12 +467,12 @@ declare namespace graphStore {
      * @throws { BusinessError } 31300003 - The database is busy.
      * @throws { BusinessError } 31300004 - The database is out of memory.
      * @throws { BusinessError } 31300005 - The database is full.
-     * @throws { BusinessError } 31300006 - Duplicate type or properties name of vertex and edge.
-     * @throws { BusinessError } 31300007 - The type or properties of vertex and edge is not defined.
-     * @throws { BusinessError } 31300008 - The type or properties name of vertex and edge does not conform to constraint.
+     * @throws { BusinessError } 31300006 - A duplicate graph name, vertex or edge type, or vertex or edge property name exists.
+     * @throws { BusinessError } 31300007 - The graph name, vertex or edge type, or vertex or edge property is not defined.
+     * @throws { BusinessError } 31300008 - The graph name, vertex or edge type, or vertex or edge property name does not conform to constraints.
      * @throws { BusinessError } 31300009 - The GQL statement syntax error.
      * @throws { BusinessError } 31300010 - The GQL statement semantic error.
-     * @throws { BusinessError } 31300012 - The number of types or properties of vertex and edge exceeds the upper limit.
+     * @throws { BusinessError } 31300012 - The number of graph names, vertex or edge types, or vertex or edge properties exceeds the limit.
      * @throws { BusinessError } 31300013 - A conflicting constraint already exists.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
