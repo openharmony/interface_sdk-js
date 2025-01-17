@@ -90,6 +90,7 @@ declare namespace videoProcessingEngine {
      * @param { number } height - The zoom value of height.
      * @param { QualityLevel } [level] - The quality level.
      * @returns { Promise<image.PixelMap> } A Promise instance used to return the PixelMap object.
+     * @throws { BusinessError } 29200001 - The processing is not supported.
      * @throws { BusinessError } 29200007 - Out of memory.
      * @throws { BusinessError } 29200009 - Input value is invalid. This error is returned for
      * <br>all of the following error conditions:
@@ -114,6 +115,7 @@ declare namespace videoProcessingEngine {
      * @param { QualityLevel } [level] - The quality level.
      * @returns { image.PixelMap } Returns the destination pixelmap instance .
      * <br>if the operation is successful; Otherwise, return undefined.
+     * @throws { BusinessError } 29200001 - The processing is not supported.
      * @throws { BusinessError } 29200004 - Failed to process image buffer. For example, the processing times out.
      * @throws { BusinessError } 29200007 - Out of memory.
      * @throws { BusinessError } 29200009 - Input value is invalid. This error is returned for
@@ -137,6 +139,7 @@ declare namespace videoProcessingEngine {
      * @param { number } scale - The zoom ratio.
      * @param { QualityLevel } [level] - The quality level.
      * @returns { Promise<image.PixelMap> } A Promise instance used to return the PixelMap object.
+     * @throws { BusinessError } 29200001 - The processing is not supported.
      * @throws { BusinessError } 29200007 - Out of memory.
      * @throws { BusinessError } 29200009 - Input value is invalid. This error is returned for
      * <br>all of the following error conditions:
@@ -160,6 +163,7 @@ declare namespace videoProcessingEngine {
      * @param { QualityLevel } [level] - The quality level.
      * @returns { image.PixelMap } Returns the destination pixelmap instance
      * <br>if the operation is successful; Otherwise, return undefined.
+     * @throws { BusinessError } 29200001 - The processing is not supported.
      * @throws { BusinessError } 29200004 - Failed to process image buffer. For example, the processing times out.
      * @throws { BusinessError } 29200007 - Out of memory.
      * @throws { BusinessError } 29200009 - Input value is invalid. This error is returned for
@@ -180,6 +184,7 @@ declare namespace videoProcessingEngine {
    * Initialize global environment for image processing.
    * @returns { Promise<void> } A Promise instance used to return the operation result.
    * If the operation fails, an error message is returned.
+   * @throws { BusinessError } 29200001 - The processing is not supported.
    * @throws { BusinessError } 29200002 - The global environment initialization for image processing failed,
    * <br>such as failure to initialize the GPU environment.
    * @throws { BusinessError } 29200006 - The operation is not permitted. This may be caused by incorrect status.
@@ -205,6 +210,7 @@ declare namespace videoProcessingEngine {
    * Create an image processing instance.
    * @returns { ImageProcessor } Returns the ImageProcessor instance if
    * <br>the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 29200001 - The processing is not supported.
    * @throws { BusinessError } 29200003 - Failed to create image processing instance. For example,
    * <br>the number of instances exceeds the upper limit.
    * @throws { BusinessError } 29200007 - Out of memory.
