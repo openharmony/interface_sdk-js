@@ -26,6 +26,7 @@ import dialogRequest from './@ohos.app.ability.dialogRequest';
 import { UIContext } from './@ohos.arkui.UIContext';
 import ConfigurationConstant from './@ohos.app.ability.ConfigurationConstant';
 import bundleManager from './@ohos.bundle.bundleManager';
+import { ColorMetrics } from './@ohos.arkui.node';
 
 /**
  * Window manager.
@@ -727,6 +728,26 @@ declare namespace window {
      * @since 12
      */
     enableNavigationBarAnimation?: boolean;
+  }
+
+  /**
+   * Property of status bar, it couldn't update automatically
+   *
+   * @interface StatusBarProperty
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 16
+   */
+  interface StatusBarProperty {
+    /**
+     * The content color of the status bar
+     *
+     * @type { string }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 16
+     */
+    contentColor: string;
   }
   
   /**
@@ -4901,6 +4922,34 @@ declare namespace window {
     getWindowSystemBarProperties(): SystemBarProperties;
 
     /**
+     * Set the color of status bar
+     *
+     * @param { ColorMetrics } color - The color of status bar
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 16
+     */
+    setStatusBarColor(color: ColorMetrics): Promise<void>;
+
+    /**
+     * Get the property of status bar
+     *
+     * @returns { StatusBarProperty } Return status bar property.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 16
+     */
+    getStatusBarProperty(): StatusBarProperty;
+
+    /**
      * Set whether to disable the gesture back function.
      *
      * @param { boolean } enabled - If true then enable the gesture back function, false then disable the gesture back function.
@@ -6399,6 +6448,20 @@ declare namespace window {
      * @since 11
      */
     setWindowBackgroundColor(color: string): void;
+
+    /**
+     * Sets the background color of window.
+     *
+     * @param { ColorMetrics } color the specified color.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    setWindowBackgroundColor(color: ColorMetrics): void;
 
     /**
      * Sets the brightness of window.
