@@ -5310,8 +5310,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 13
+     * @since 16
      */
     getLastHitTest(): HitTestValue;
   }
