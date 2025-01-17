@@ -158,11 +158,11 @@ declare namespace distributedDeviceManager {
 
     /**
      * 
-     * @type { ?object }
+     * @type { ?string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
      */
-    data?: {[key: string]: Object};
+    data?: string;
   }
 
   /**
@@ -982,7 +982,7 @@ declare namespace distributedDeviceManager {
 
     /**
      * Get a DeviceIconInfo.
-      *
+     *
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { DeviceIconInfoFilterOptions } filterOptions - parameter for querying the device list, The parameter type is map,such as:
      *      "productId" : "xxx",           - product id of device
@@ -1005,7 +1005,7 @@ declare namespace distributedDeviceManager {
 
     /**
      * Get display name of local device.
-      *
+     *
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { number } maxNameLength - the max number of bytes of the local device display name
      * 
@@ -1024,7 +1024,7 @@ declare namespace distributedDeviceManager {
 
     /**
      * Set local device name.
-      *
+     *
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { string } deviceName - local device name
      * @returns { Promise<number> } - Returns operation result.
@@ -1042,7 +1042,7 @@ declare namespace distributedDeviceManager {
 
     /**
      * Set remote device name.
-      *
+     *
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { string } deviceId    - remote device id
      * @param { string } deviceName  - remote device name
@@ -1059,7 +1059,6 @@ declare namespace distributedDeviceManager {
      * @since 15
      */
     setRemoteDeviceName(deviceId: string, deviceName: string): Promise<number>;
-
   }
 }
 
