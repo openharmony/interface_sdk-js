@@ -7393,6 +7393,37 @@ declare namespace window {
     setCornerRadius(cornerRadius: number): void;
 
     /**
+     * Sets sub window or floating window corner radius.
+     *
+     * @param { number } cornerRadius - Indicate the corner radius of the window.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types;
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 16
+     */
+    setWindowCornerRadius(cornerRadius: number): Promise<void>;
+
+    /**
+     * Get sub window or floating window corner radius.
+     *
+     * @returns { number } - The corner radius of window.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 16
+     */
+    getWindowCornerRadius(): number;
+
+    /**
      * Raise app sub window to app top
      *
      * @param { AsyncCallback<void> } callback - The callback of raiseToAppTop
