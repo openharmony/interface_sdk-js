@@ -1293,6 +1293,21 @@ declare namespace connection {
   /**
    * Subscribe the event reported when a remote Bluetooth device is discovered.
    *
+   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.GET_BLUETOOTH_PEERS_MAC
+   * @param { 'discoveryResult' } type - Type of the discovering event to listen for.
+   * @param { Callback<Array<DiscoveryResult>> } callback - Callback used to listen for the discovering event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 12
+   */
+  /**
+   * Subscribe the event reported when a remote Bluetooth device is discovered.
+   *
    * @permission ohos.permission.ACCESS_BLUETOOTH
    * @param { 'discoveryResult' } type - Type of the discovering event to listen for.
    * @param { Callback<Array<DiscoveryResult>> } callback - Callback used to listen for the discovering event.
@@ -1306,6 +1321,19 @@ declare namespace connection {
    */
   function on(type: 'discoveryResult', callback: Callback<Array<DiscoveryResult>>): void;
 
+  /**
+   * Unsubscribe the event reported when a remote Bluetooth device is discovered.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.GET_BLUETOOTH_PEERS_MAC
+   * @param { 'discoveryResult' } type - Type of the discovering event to listen for.
+   * @param { Callback<Array<DiscoveryResult>> } callback - Callback used to listen for the discovering event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 12
+   */
   /**
    * Unsubscribe the event reported when a remote Bluetooth device is discovered.
    *
@@ -1885,6 +1913,14 @@ declare namespace connection {
    *
    * @typedef DiscoveryResult
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 12
+   */
+  /**
+   * Describes the contents of the discovery results
+   *
+   * @typedef DiscoveryResult
+   * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 16
    */
   interface DiscoveryResult {
@@ -1893,9 +1929,25 @@ declare namespace connection {
      *
      * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 12
+     */
+    /**
+     * Identify of the discovery device
+     *
+     * @type { string }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 16
      */
     deviceId: string;
+    /**
+     * RSSI of the remote device
+     *
+     * @type { number }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 12
+     */
     /**
      * RSSI of the remote device
      *
@@ -1910,6 +1962,13 @@ declare namespace connection {
      * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @since 12
+     */
+    /**
+     * The local name of the device
+     *
+     * @type { string }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 16
      */
     deviceName: string;
@@ -1919,6 +1978,13 @@ declare namespace connection {
      * @type { DeviceClass }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @since 12
+     */
+    /**
+     * The class of the device
+     *
+     * @type { DeviceClass }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 16
      */
     deviceClass: DeviceClass;
