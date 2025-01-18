@@ -486,6 +486,52 @@ declare namespace unifiedDataChannel {
      * @since 14
      */
     getValue(): ValueType;
+
+    /**
+     * Get the types of unified record.
+     *
+     * @returns { Array<string> } Return the types of unified record.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 16
+     */
+    getTypes(): Array<string>;
+
+    /**
+     * Add an entry into unified record
+     *
+     * @param { string } type - type of entry.
+     * @param { ValueType } value - value of entry.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameters types.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 16
+     */
+    addEntry(type: string, value: ValueType): void;
+
+    /**
+     * Get an entry from unified record
+     *
+     * @param { string } type - type of entry want to get.
+     * @returns { ValueType } Return the value corresponding to the type.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameters types.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 16
+     */
+    getEntry(type: string): ValueType;
+
+    /**
+     * Get entries from unified record
+     *
+     * @returns { Record<string, ValueType> } Return all entries in the record.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 16
+     */
+    getEntries(): Record<string, ValueType>;
   }
 
   /**
