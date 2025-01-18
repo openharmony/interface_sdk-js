@@ -5671,6 +5671,16 @@ declare namespace webview {
      * @since 12
      */
     scrollByWithResult(deltaX: number, deltaY: number): boolean;
+
+    /**
+     * Gets the last hit test value of HitTest.
+     * @returns { HitTestValue } Return the element information of the clicked area.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 16
+     */
+    getLastHitTest(): HitTestValue;
   }
 
   /**
