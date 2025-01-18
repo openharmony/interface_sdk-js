@@ -6696,7 +6696,7 @@ declare namespace window {
     /**
      * Sets whether exclusively highlighted or not.
      *
-     * @param { boolean } isExclusivelyHighlight Whether the window can become highlight exclusively when it gain focus. The value
+     * @param { boolean } exclusivelyHighlighted Whether the window can become highlight exclusively when it gain focus. The value
      *                                           true means that the window can cause the window outside the current window link to 
      *                                           lose its highlight state, and false means the opposite.
      * @returns { Promise<void> } - Promise that returns no value.
@@ -6711,7 +6711,8 @@ declare namespace window {
      * @atomicservice
      * @since 16
      */
-    setExclusivelyHighlighted(isExclusivelyHighlight: boolean): Promise<void>;
+    
+    setExclusivelyHighlighted(exclusivelyHighlighted: boolean): Promise<void>;
 
     /**
      * Checks whether the window is highlighted.
