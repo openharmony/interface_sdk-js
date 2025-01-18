@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 16
  */
 declare interface RatingOptions {
   /**
@@ -110,7 +110,7 @@ declare interface RatingOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 16
  */
 declare interface StarStyleOptions {
   /**
@@ -304,7 +304,7 @@ interface RatingInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   (options?: RatingOptions): RatingAttribute;
 }
@@ -576,7 +576,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   starStyle(options: StarStyleOptions): RatingAttribute;
 
