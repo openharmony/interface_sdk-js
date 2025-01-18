@@ -1358,6 +1358,48 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 12
      */
+    /**
+     * Initiates an HTTP request to a given URL, applicable to scenarios where http response supports streaming.
+     * @permission ohos.permission.INTERNET
+     * @param { string } url - URL for initiating an HTTP request.
+     * @param { AsyncCallback<number> } callback - Returns the callback of requestInStream {@link ResponseCode},
+     * should use on_headersReceive and on_dataReceive to get http response.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2300001 - Unsupported protocol.
+     * @throws { BusinessError } 2300003 - Invalid URL format or missing URL.
+     * @throws { BusinessError } 2300005 - Failed to resolve the proxy name.
+     * @throws { BusinessError } 2300006 - Failed to resolve the host name.
+     * @throws { BusinessError } 2300007 - Failed to connect to the server.
+     * @throws { BusinessError } 2300008 - Invalid server response.
+     * @throws { BusinessError } 2300009 - Access to the remote resource denied.
+     * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
+     * @throws { BusinessError } 2300018 - Transferred a partial file.
+     * @throws { BusinessError } 2300023 - Failed to write the received data to the disk or application.
+     * @throws { BusinessError } 2300025 - Upload failed.
+     * @throws { BusinessError } 2300026 - Failed to open or read local data from the file or application.
+     * @throws { BusinessError } 2300027 - Out of memory.
+     * @throws { BusinessError } 2300028 - Operation timeout.
+     * @throws { BusinessError } 2300047 - The number of redirections reaches the maximum allowed.
+     * @throws { BusinessError } 2300052 - The server returned nothing (no header or data).
+     * @throws { BusinessError } 2300055 - Failed to send data to the peer.
+     * @throws { BusinessError } 2300056 - Failed to receive data from the peer.
+     * @throws { BusinessError } 2300058 - Local SSL certificate error.
+     * @throws { BusinessError } 2300059 - The specified SSL cipher cannot be used.
+     * @throws { BusinessError } 2300060 - Invalid SSL peer certificate or SSH remote key.
+     * @throws { BusinessError } 2300061 - Invalid HTTP encoding format.
+     * @throws { BusinessError } 2300063 - Maximum file size exceeded.
+     * @throws { BusinessError } 2300070 - Remote disk full.
+     * @throws { BusinessError } 2300073 - Remote file already exists.
+     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
+     * @throws { BusinessError } 2300078 - Remote file not found.
+     * @throws { BusinessError } 2300094 - Authentication error.
+     * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
+     * @throws { BusinessError } 2300999 - Unknown error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 15
+     */
     requestInStream(url: string, callback: AsyncCallback<number>): void;
 
     /**
@@ -1441,6 +1483,48 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 12
      */
+    /**
+     * Initiates an HTTP request to a given URL, applicable to scenarios where http response supports streaming.
+     * @permission ohos.permission.INTERNET
+     * @param { string } url - URL for initiating an HTTP request.
+     * @param { HttpRequestOptions } options - Optional parameters {@link HttpRequestOptions}.
+     * @param { AsyncCallback<number> } callback - the callback of requestInStream.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2300001 - Unsupported protocol.
+     * @throws { BusinessError } 2300003 - Invalid URL format or missing URL.
+     * @throws { BusinessError } 2300005 - Failed to resolve the proxy name.
+     * @throws { BusinessError } 2300006 - Failed to resolve the host name.
+     * @throws { BusinessError } 2300007 - Failed to connect to the server.
+     * @throws { BusinessError } 2300008 - Invalid server response.
+     * @throws { BusinessError } 2300009 - Access to the remote resource denied.
+     * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
+     * @throws { BusinessError } 2300018 - Transferred a partial file.
+     * @throws { BusinessError } 2300023 - Failed to write the received data to the disk or application.
+     * @throws { BusinessError } 2300025 - Upload failed.
+     * @throws { BusinessError } 2300026 - Failed to open or read local data from the file or application.
+     * @throws { BusinessError } 2300027 - Out of memory.
+     * @throws { BusinessError } 2300028 - Operation timeout.
+     * @throws { BusinessError } 2300047 - The number of redirections reaches the maximum allowed.
+     * @throws { BusinessError } 2300052 - The server returned nothing (no header or data).
+     * @throws { BusinessError } 2300055 - Failed to send data to the peer.
+     * @throws { BusinessError } 2300056 - Failed to receive data from the peer.
+     * @throws { BusinessError } 2300058 - Local SSL certificate error.
+     * @throws { BusinessError } 2300059 - The specified SSL cipher cannot be used.
+     * @throws { BusinessError } 2300060 - Invalid SSL peer certificate or SSH remote key.
+     * @throws { BusinessError } 2300061 - Invalid HTTP encoding format.
+     * @throws { BusinessError } 2300063 - Maximum file size exceeded.
+     * @throws { BusinessError } 2300070 - Remote disk full.
+     * @throws { BusinessError } 2300073 - Remote file already exists.
+     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
+     * @throws { BusinessError } 2300078 - Remote file not found.
+     * @throws { BusinessError } 2300094 - Authentication error.
+     * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
+     * @throws { BusinessError } 2300999 - Unknown error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 15
+     */
     requestInStream(url: string, options: HttpRequestOptions, callback: AsyncCallback<number>): void;
 
     /**
@@ -1523,6 +1607,48 @@ declare namespace http {
      * @throws { BusinessError } 2300999 - Unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 12
+     */
+    /**
+     * Initiates an HTTP request to a given URL, applicable to scenarios where http response supports streaming.
+     * @permission ohos.permission.INTERNET
+     * @param { string } url - URL for initiating an HTTP request.
+     * @param { HttpRequestOptions } [options] - Optional parameters {@link HttpRequestOptions}.
+     * @returns { Promise<number> } the promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2300001 - Unsupported protocol.
+     * @throws { BusinessError } 2300003 - Invalid URL format or missing URL.
+     * @throws { BusinessError } 2300005 - Failed to resolve the proxy name.
+     * @throws { BusinessError } 2300006 - Failed to resolve the host name.
+     * @throws { BusinessError } 2300007 - Failed to connect to the server.
+     * @throws { BusinessError } 2300008 - Invalid server response.
+     * @throws { BusinessError } 2300009 - Access to the remote resource denied.
+     * @throws { BusinessError } 2300016 - Error in the HTTP2 framing layer.
+     * @throws { BusinessError } 2300018 - Transferred a partial file.
+     * @throws { BusinessError } 2300023 - Failed to write the received data to the disk or application.
+     * @throws { BusinessError } 2300025 - Upload failed.
+     * @throws { BusinessError } 2300026 - Failed to open or read local data from the file or application.
+     * @throws { BusinessError } 2300027 - Out of memory.
+     * @throws { BusinessError } 2300028 - Operation timeout.
+     * @throws { BusinessError } 2300047 - The number of redirections reaches the maximum allowed.
+     * @throws { BusinessError } 2300052 - The server returned nothing (no header or data).
+     * @throws { BusinessError } 2300055 - Failed to send data to the peer.
+     * @throws { BusinessError } 2300056 - Failed to receive data from the peer.
+     * @throws { BusinessError } 2300058 - Local SSL certificate error.
+     * @throws { BusinessError } 2300059 - The specified SSL cipher cannot be used.
+     * @throws { BusinessError } 2300060 - Invalid SSL peer certificate or SSH remote key.
+     * @throws { BusinessError } 2300061 - Invalid HTTP encoding format.
+     * @throws { BusinessError } 2300063 - Maximum file size exceeded.
+     * @throws { BusinessError } 2300070 - Remote disk full.
+     * @throws { BusinessError } 2300073 - Remote file already exists.
+     * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
+     * @throws { BusinessError } 2300078 - Remote file not found.
+     * @throws { BusinessError } 2300094 - Authentication error.
+     * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
+     * @throws { BusinessError } 2300999 - Unknown error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 15
      */
     requestInStream(url: string, options?: HttpRequestOptions): Promise<number>;
 
@@ -1635,6 +1761,15 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Registers a one-time observer for HTTP Response Header events.
+     * @param { "headersReceive" } type - Indicates Event name.
+     * @param { Callback<Object> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 15
+     */
     once(type: "headersReceive", callback: Callback<Object>): void;
 
     /**
@@ -1643,6 +1778,14 @@ declare namespace http {
      * @param { Callback<ArrayBuffer> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
+     */
+    /**
+     * Registers an observer for receiving HTTP Response data events continuously.
+     * @param { "dataReceive" } type - Indicates Event name.
+     * @param { Callback<ArrayBuffer> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 15
      */
     on(type: "dataReceive", callback: Callback<ArrayBuffer>): void;
 
@@ -1653,6 +1796,14 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
+    /**
+     * Unregisters an observer for receiving HTTP Response data events continuously.
+     * @param { "dataReceive" } type - Indicates Event name.
+     * @param { Callback<ArrayBuffer> } [callback] - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 15
+     */
     off(type: "dataReceive", callback?: Callback<ArrayBuffer>): void;
 
     /**
@@ -1662,6 +1813,14 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
+    /**
+     * Registers an observer for receiving HTTP Response data ends events.
+     * @param { "dataEnd" } type - Indicates Event name.
+     * @param { Callback<void> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 15
+     */
     on(type: "dataEnd", callback: Callback<void>): void;
 
     /**
@@ -1670,6 +1829,14 @@ declare namespace http {
      * @param { Callback<void> } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
+     */
+    /**
+     * Unregisters an observer for receiving HTTP Response data ends events.
+     * @param { "dataEnd" } type - Indicates Event name.
+     * @param { Callback<void> } [callback] - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 15
      */
     off(type: "dataEnd", callback?: Callback<void>): void;
 
@@ -1695,6 +1862,15 @@ declare namespace http {
      * @crossplatform
      * @since 12
      */
+    /**
+     * Registers an observer for progress of receiving HTTP Response data events.
+     * @param { 'dataReceiveProgress' } type - Indicates Event name.
+     * @param { Callback<DataReceiveProgressInfo> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 15
+     */
     on(type: 'dataReceiveProgress', callback: Callback<DataReceiveProgressInfo>): void;
 
     /**
@@ -1718,6 +1894,14 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 12
+     */
+    /**
+     * Unregisters an observer for progress of receiving HTTP Response data events.
+     * @param { 'dataReceiveProgress' } type - Indicates Event name.
+     * @param { Callback<DataReceiveProgressInfo> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 15
      */
     off(type: 'dataReceiveProgress', callback?: Callback<DataReceiveProgressInfo>): void;
 
@@ -3181,6 +3365,14 @@ declare namespace http {
    * @crossplatform
    * @since 12
    */
+  /**
+   * This interface is used to obtain the progress information of file upload or download.
+   * @interface DataReceiveProgressInfo
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
   export interface DataReceiveProgressInfo {
     /**
      * Number of data bytes received.
@@ -3195,6 +3387,14 @@ declare namespace http {
      * @crossplatform
      * @since 12
      */
+    /**
+     * Number of data bytes received.
+     * @type { number }
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 15
+     */
     receiveSize: number;
     /**
      * Total number of bytes to receive.
@@ -3208,6 +3408,14 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 12
+     */
+    /**
+     * Total number of bytes to receive.
+     * @type { number }
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 15
      */
     totalSize: number;
   }
@@ -3225,6 +3433,14 @@ declare namespace http {
    * @crossplatform
    * @since 12
    */
+  /**
+   * This interface is used to monitor the progress of sending data.
+   * @interface DataSendProgressInfo
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
   export interface DataSendProgressInfo {
     /**
      * Used to specify the data size to be sent.
@@ -3239,6 +3455,14 @@ declare namespace http {
      * @crossplatform
      * @since 12
      */
+    /**
+     * Used to specify the data size to be sent.
+     * @type { number }
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 15
+     */
     sendSize: number;
     /**
      * Total number of bytes to receive.
@@ -3252,6 +3476,14 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 12
+     */
+    /**
+     * Total number of bytes to receive.
+     * @type { number }
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 15
      */
     totalSize: number;
   }
