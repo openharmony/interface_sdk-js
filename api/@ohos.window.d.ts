@@ -6000,7 +6000,7 @@ declare namespace window {
      * @atomicservice
      * @since 16
      */
-    on(type: 'windowHighlightChange', callback: Callback<boolean>): void;
+    on(type: 'windowHighlightChange', callback: Callback<boolean>): void
 
     /**
      * Unregister the callback of window highlight state change
@@ -6017,7 +6017,7 @@ declare namespace window {
      * @atomicservice
      * @since 16
      */
-    off(type: 'windowHighlightChange', callback?: Callback<boolean>): void;
+    off(type: 'windowHighlightChange', callback?: Callback<boolean>): void
 
     /**
      * Bind dialog to the target window.
@@ -6712,7 +6712,7 @@ declare namespace window {
      * @since 16
      */
     
-    setExclusivelyHighlighted(exclusivelyHighlighted: boolean): Promise<void>;
+    setExclusivelyHighlighted(exclusivelyHighlighted: boolean): Promise<void>
 
     /**
      * Checks whether the window is highlighted.
@@ -6724,7 +6724,7 @@ declare namespace window {
      * @atomicservice
      * @since 16
      */
-    isWindowHighlighted(): boolean;
+    isWindowHighlighted(): boolean
 
     /**
      * Sets whether keep screen on or not.
