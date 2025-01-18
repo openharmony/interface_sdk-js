@@ -1900,6 +1900,7 @@ declare namespace http {
      * @param { 'dataReceiveProgress' } type - Indicates Event name.
      * @param { Callback<DataReceiveProgressInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @atomicservice
      * @since 15
      */
