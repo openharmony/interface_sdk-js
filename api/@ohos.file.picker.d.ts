@@ -472,6 +472,61 @@ declare namespace picker {
     }
 
   /**
+   * Enumerates the picker's merge mode types.
+   *
+   * @enum { number } DocumentPickerMode
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @atomicservice
+   * @since 15
+   */
+  export enum MergeTypeMode {
+    /**
+     * Indicates common mode.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 15
+     */
+    DEFAULT = 0,
+
+    /**
+     * Indicates that audios are allowed to be selected
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 15
+     */
+    AUDIO = 1,
+
+    /**
+     * Indicates that videos are allowed to be selected
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 15
+     */
+    VIDEO = 2,
+
+    /**
+     * Indicates that documents are allowed to be selected
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 15
+     */
+    DOCUMENT = 3,
+
+    /**
+     * Indicates that pictures are allowed to be selected
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 15
+     */
+    PICTURE = 4,
+  }
+
+  /**
    * DocumentSelectOptions Object.
    *
    * @syscap SystemCapability.FileManagement.UserFileService
@@ -569,6 +624,36 @@ declare namespace picker {
      * @since 12
      */
     authMode?: boolean;
+
+    /**
+     * Granting Permissions to Mutl file.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 15
+     */
+    multiAuthMode?: boolean;
+
+    /**
+     * Mutl file to Granting Permissions 
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 15
+     */
+    multiUriArray?: Array<string>;  
+
+    /**
+     * Filtering by file type
+     *
+     * @type { ?MergeTypeMode }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 15
+     */
+    mergeMode?: MergeTypeMode;
   }
 
   /**
