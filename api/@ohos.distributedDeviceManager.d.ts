@@ -104,20 +104,21 @@ declare namespace distributedDeviceManager {
   }
 
   /**
+   * Device profile information filter options.
    * @interface DeviceProfileInfoFilterOptions
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @since 15
    */
   interface DeviceProfileInfoFilterOptions {
     /**
-     * 
+     * Whether to request data from the cloud.
      * @type { boolean }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
      */
     isCloud : boolean,
     /**
-     * 
+     * Device ID list.
      * @type { Array<string> }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
@@ -126,14 +127,14 @@ declare namespace distributedDeviceManager {
   }
 
   /**
-   * 
+   * Service profile information.
    * @interface ServiceProfileInfo
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @since 15
    */
   interface ServiceProfileInfo {
     /**
-     * 
+     * Device ID.
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
@@ -141,7 +142,7 @@ declare namespace distributedDeviceManager {
     deviceId: string;
 
     /**
-     * 
+     * Service ID.
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
@@ -149,7 +150,7 @@ declare namespace distributedDeviceManager {
     serviceId: string;
 
     /**
-     * 
+     * Service Type.
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
@@ -157,7 +158,7 @@ declare namespace distributedDeviceManager {
     serviceType: string;
 
     /**
-     * 
+     * Service data.
      * @type { ?string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
@@ -166,14 +167,14 @@ declare namespace distributedDeviceManager {
   }
 
   /**
-   * 
+   * Device profile information.
    * @interface DeviceProfileInfo
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @since 15
    */
   interface DeviceProfileInfo {
     /**
-     * 
+     * Device ID.
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
@@ -189,6 +190,7 @@ declare namespace distributedDeviceManager {
     deviceSn: string;
 
     /**
+     * MAC address.
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
@@ -212,6 +214,7 @@ declare namespace distributedDeviceManager {
     deviceType: string;
 
     /**
+     * Manufacturer.
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
@@ -235,6 +238,7 @@ declare namespace distributedDeviceManager {
     productId: string;
 
     /**
+     * Product sub ID.
      * @type { ?string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
@@ -242,7 +246,7 @@ declare namespace distributedDeviceManager {
     subProductId?: string;
 
     /**
-     * sdkVersion
+     * sdkVersion.
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
@@ -250,6 +254,7 @@ declare namespace distributedDeviceManager {
     sdkVersion: string;
 
     /**
+     * Bluetooth BLE MAC address.
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
@@ -257,6 +262,7 @@ declare namespace distributedDeviceManager {
     bleMac: string;
 
     /**
+     * Bluetooth BR MAC address.
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
@@ -264,6 +270,7 @@ declare namespace distributedDeviceManager {
     brMac: string;
 
     /**
+     * Starflash MAC address.
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
@@ -271,6 +278,7 @@ declare namespace distributedDeviceManager {
     sleMac: string;
 
     /**
+     * Firmware version.
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
@@ -278,6 +286,7 @@ declare namespace distributedDeviceManager {
     firmwareVersion: string;
 
     /**
+     * Hardware version.
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
@@ -285,6 +294,7 @@ declare namespace distributedDeviceManager {
     hardwareVersion: string;
 
     /**
+     * Software version.
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
@@ -292,6 +302,7 @@ declare namespace distributedDeviceManager {
     softwareVersion: string;
 
     /**
+     * Protocol type.
      * @type { number }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
@@ -299,6 +310,7 @@ declare namespace distributedDeviceManager {
     protocolType: number;
 
     /**
+     * Setup type.
      * @type { number }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
@@ -306,6 +318,7 @@ declare namespace distributedDeviceManager {
     setupType: number;
 
     /**
+     * Wise device ID.
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
@@ -313,6 +326,7 @@ declare namespace distributedDeviceManager {
     wiseDeviceId: string;
 
     /**
+     * Wise user ID.
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
@@ -320,6 +334,7 @@ declare namespace distributedDeviceManager {
     wiseUserId: string;
 
     /**
+     * Register time.
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
@@ -327,6 +342,7 @@ declare namespace distributedDeviceManager {
     registerTime: string;
 
     /**
+     * Modify time.
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
@@ -334,6 +350,7 @@ declare namespace distributedDeviceManager {
     modifyTime: string;
 
     /**
+     * Share time.
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
@@ -341,6 +358,7 @@ declare namespace distributedDeviceManager {
     shareTime: string;
 
     /**
+    * Whether the device is a local device.
     * @type { boolean }
     * @syscap SystemCapability.DistributedHardware.DeviceManager
     * @since 15
@@ -348,6 +366,7 @@ declare namespace distributedDeviceManager {
     isLocalDevice: boolean;
 
     /**
+     * Service profile information list.
      * @type { Array<ServiceProfileInfo> }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
@@ -356,7 +375,7 @@ declare namespace distributedDeviceManager {
   }
 
   /**
-   * 
+   * Device icon information filter options.
    * @interface DeviceIconInfoFilterOptions
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @since 15
@@ -371,6 +390,7 @@ declare namespace distributedDeviceManager {
     productId: string;
 
     /**
+     * Product sub ID.
      * @type { ?string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
@@ -378,7 +398,7 @@ declare namespace distributedDeviceManager {
     subProductId?: string;
 
     /**
-     *
+     * Image type.
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
@@ -386,15 +406,16 @@ declare namespace distributedDeviceManager {
     imageType: string;
 
     /**
-     *
+     * Spec name.
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
      */
     specName: string;
   }
+
   /**
-   * 
+   * Device icon information.
    * @interface DeviceIconInfo
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @since 15
@@ -409,6 +430,7 @@ declare namespace distributedDeviceManager {
     productId: string;
 
     /**
+     * Product sub ID.
      * @type { ?string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
@@ -416,7 +438,7 @@ declare namespace distributedDeviceManager {
     subProductId?: string;
 
     /**
-     *
+     * Image type.
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
@@ -424,7 +446,7 @@ declare namespace distributedDeviceManager {
     imageType: string;
 
     /**
-     *
+     * Spec name.
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
@@ -432,7 +454,7 @@ declare namespace distributedDeviceManager {
     specName: string;
 
     /**
-     *
+     * Uniform resoure locator.
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
@@ -440,7 +462,7 @@ declare namespace distributedDeviceManager {
     url: string;
 
     /**
-     *
+     * Icon.
      * @type { ArrayBuffer }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
