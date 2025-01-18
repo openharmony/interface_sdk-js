@@ -1027,6 +1027,7 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 11600106 - Get data from cloud fail.
      * @throws { BusinessError } 11600107 - A login account is required.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
      * @since 15
      */
     getDeviceProfileInfoList(filterOptions: DeviceProfileInfoFilterOptions): Promise<Array<DeviceProfileInfo>>;
@@ -1046,6 +1047,7 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11600102 - Failed to obtain service.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
      * @since 15
      */
     putDeviceProfileInfoList(deviceProfileInfoList: Array<DeviceProfileInfo>): Promise<number>;
@@ -1069,6 +1071,7 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 11600102 - Failed to obtain service.
      * @throws { BusinessError } 11600106 - Get data from cloud fail.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
      * @since 15
      */
     getDeviceIconInfo(filterOptions: DeviceIconInfoFilterOptions): Promise<DeviceIconInfo>;
@@ -1088,6 +1091,7 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11600102 - Failed to obtain service.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
      * @since 15
      */
     getLocalDisplayDeviceName(maxNameLength: number): Promise<string>;
@@ -1106,6 +1110,7 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11600102 - Failed to obtain service.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
      * @since 15
      */
     setLocalDeviceName(deviceName: string): Promise<number>;
@@ -1126,6 +1131,7 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 11600102 - Failed to obtain service.
      * @throws { BusinessError } 11600107 - A login account is required.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
      * @since 15
      */
     setRemoteDeviceName(deviceId: string, deviceName: string): Promise<number>;
