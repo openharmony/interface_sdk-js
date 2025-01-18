@@ -966,6 +966,28 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
   backgroundBlurStyle?: BlurStyle;
 
   /**
+   * Defines the timePickerDialog's background blur style with options
+   *
+   * @type { ?BackgroundBlurStyleOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
+
+  /**
+   * Defines the timePickerDialog's background effect with options
+   *
+   * @type { ?BackgroundEffectOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  backgroundEffect?: BackgroundEffectOptions;
+
+  /**
    * Defines whether the AM/PM option is cascaded with the time in 12-hour mode.
    * 
    * @type { ?boolean }
