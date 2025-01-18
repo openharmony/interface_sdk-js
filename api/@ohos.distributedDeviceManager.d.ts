@@ -246,7 +246,7 @@ declare namespace distributedDeviceManager {
     subProductId?: string;
 
     /**
-     * sdkVersion.
+     * Sdk version.
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
