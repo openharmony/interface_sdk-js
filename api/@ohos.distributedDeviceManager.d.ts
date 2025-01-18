@@ -204,18 +204,19 @@ declare namespace distributedDeviceManager {
     model: string;
 
     /**
+     * Device type.
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
      */
-    devType: string;
+    deviceType: string;
 
     /**
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
      */
-    manu: string;
+    manufacturer: string;
 
     /**
      * Device name.
@@ -231,21 +232,22 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
      */
-    prodId: string;
+    productId: string;
 
     /**
      * @type { ?string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
      */
-    subProdId?: string;
+    subProductId?: string;
 
     /**
+     * sdkVersion
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
      */
-    hiv: string;
+    sdkVersion: string;
 
     /**
      * @type { string }
@@ -273,28 +275,28 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
      */
-    fwv: string;
+    firmwareVersion: string;
 
     /**
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
      */
-    hwv: string;
+    hardwareVersion: string;
 
     /**
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
      */
-    swv: string;
+    softwareVersion: string;
 
     /**
      * @type { number }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 15
      */
-    protType: number;
+    protocolType: number;
 
     /**
      * @type { number }
