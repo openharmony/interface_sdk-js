@@ -8496,6 +8496,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
      * @atomicservice
      * @since 15
      */
