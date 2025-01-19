@@ -2200,7 +2200,7 @@ declare namespace media {
      * @systemapi
      * @since 15
      */
-    IsSeekContinuousSupported() : boolean;
+    isSeekContinuousSupported() : boolean;
 
     /**
      * Media URI. Mainstream media formats are supported.
