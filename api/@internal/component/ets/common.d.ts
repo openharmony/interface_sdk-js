@@ -27732,6 +27732,19 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @since 16
    */
   digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): T;
+  
+  /**
+   * Controls whether the scrollable scrolls back to top when status bar is clicked.
+   * 
+   * @param { boolean } backToTop - whether the scrollable scrolls back to top when status bar is clicked.
+   * The default value is false.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  backToTop(backToTop: boolean): T;
 }
 
 /**
