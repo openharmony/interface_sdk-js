@@ -1576,6 +1576,19 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   cachedCount(value: number): SwiperAttribute;
 
   /**
+   * Sets the number of child components to be preloaded(cached).
+   *
+   * @param { number } count - Number of child components to be preloaded (cached).
+   * @param { boolean } isShown - whether to show the nodes in the cache.
+   * @returns { SwiperAttribute } the attribute of the swiper.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @form
+   * @since 14
+   */
+  cachedCount(count: number, isShown: boolean): SwiperAttribute;
+
+  /**
    * Sets the number of elements to display per page.
    *
    * @param { number | string } value
