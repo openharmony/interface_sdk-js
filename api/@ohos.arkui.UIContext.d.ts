@@ -3685,6 +3685,17 @@ export class UIContext {
    * @since 16
    */
   enableSwipeBack(enabled: Optional<boolean>): void;
+
+  /**
+   * Get object text menu controller.
+   *
+   * @returns { TextMenuController } object text menu controller.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  getTextMenuController(): TextMenuController;
 }
 
 /**
@@ -3789,4 +3800,24 @@ export const enum MarqueeDynamicSyncSceneType {
    * @since 14
    */
   ANIMATION = 1
+}
+
+/**
+ * class TextMenuController
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+export class TextMenuController {
+  /**
+   * Set text menu options.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  setMenuOptions(options: TextMenuOptions): void;
 }
