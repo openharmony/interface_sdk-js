@@ -8203,8 +8203,8 @@ declare namespace window {
     /**
      * Start moving window.
      *
-     * @param { number } offsetX Expected pointer position x-axis offset in window when start moving.
-     * @param { number } offsetY Expected pointer position y-axis offset in window when start moving.
+     * @param { number } offsetX - Expected pointer position x-axis offset in window when start moving.
+     * @param { number } offsetY - Expected pointer position y-axis offset in window when start moving.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *                                                                  2. Incorrect parameter types;
