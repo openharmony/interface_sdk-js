@@ -1288,6 +1288,15 @@ declare namespace relationalStore {
      * @since 16
      */
     asyncDownloadAsset?: boolean;
+
+    /**
+     * Specifies whether the cloud sync is enabled for the database.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 16
+     */
+    enableCloud?: boolean;
   }
 
   /**
