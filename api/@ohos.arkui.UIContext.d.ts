@@ -1369,6 +1369,68 @@ export class PromptAction {
    * @since 16
   */
   closePopup<T extends Object>(content: ComponentContent<T>): Promise<void>;
+  
+  /**
+   * Open menu with frameNode.
+   *
+   * @param { ComponentContent<T> } content - The content of menu.
+   * @param { TargetInfo } target - The target of menu.
+   * @param { MenuOptions } options - Options.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 103301 - The content is incorrect.
+   * @throws { BusinessError } 103302 - The content already exists.
+   * @throws { BusinessError } 103304 - The target does not exist.
+   * @throws { BusinessError } 103305 - The target node is not in the component tree.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  openMenu<T extends Object>(content: ComponentContent<T>, target: TargetInfo, options?: MenuOptions): Promise<void>;
+
+  /**
+   * Update menu with frameNode.
+   *
+   * @param { ComponentContent<T> } content - The content of menu.
+   * @param { MenuOptions } options - Options.
+   * @param { boolean } partialUpdate - If true, only the specified properties in the MenuOptions are updated,
+   *                                    otherwise the rest of the properties are overwritten with the default values.
+   *                                    Default value is false.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - the ComponentContent cannot be found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  updateMenu<T extends Object>(content: ComponentContent<T>, options: MenuOptions, partialUpdate?: boolean): Promise<void>;
+
+  /**
+   * Close menu with frameNode.
+   *
+   * @param { ComponentContent<T> } content - The content of menu.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - the ComponentContent cannot be found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+  */
+  closeMenu<T extends Object>(content: ComponentContent<T>): Promise<void>;
 }
 
 /**
