@@ -423,6 +423,20 @@ declare namespace wantAgent {
   function getOperationType(agent: WantAgent): Promise<number>;
 
   /**
+   * Set the wantagent within the process to support multithreading.
+   *
+   * @param { boolean } isMultithreadingSupported - Indicates the WantAgent support multithreading or not.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 16
+   */
+  function setWantAgentMultithreading(isMultithreadingSupported: boolean) : void;
+
+  /**
    * Enumerates flags for using a WantAgent.
    *
    * @enum { number }

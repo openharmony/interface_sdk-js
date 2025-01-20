@@ -3664,6 +3664,20 @@ declare namespace bundleManager {
   function switchUninstallState(bundleName: string, state: boolean): void;
 
   /**
+   * Get the SignatureInfo of the application through UID.
+   *
+   * @permission ohos.permission.GET_SIGNATURE_INFO
+   * @param { number } uid - Indicates the UID of an application.
+   * @returns { SignatureInfo } The result of getting the signature info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 17700021 - The uid is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 16
+   */
+  function getSignatureInfo(uid: number): SignatureInfo;
+
+  /**
    * Get the BundleInfo of the specified MultiIsolation App.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED

@@ -2791,6 +2791,18 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 16
    */
   onWillChange(callback: Callback<EditableTextChangeValue, boolean>): TextInputAttribute;
+
+  /**
+   * Set the keyboard appearance.
+   *
+   * @param { Optional<KeyboardAppearance> } appearance - Default value is KeyboardAppearance.NONE_IMMERSIVE
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+
+   */
+  keyboardAppearance(appearance: Optional<KeyboardAppearance>): TextInputAttribute;
 }
 
 /**

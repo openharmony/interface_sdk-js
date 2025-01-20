@@ -537,7 +537,7 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onDateChange(callback: Callback<Date>): DatePickerAttribute;
 
@@ -564,6 +564,17 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @since 16
    */
   digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): DatePickerAttribute;
+  
+  /**
+   * Enable or disable haptic feedback.
+   *
+   * @param { Optional<boolean> } enable - Default value is true, set false to disable haptic feedback.
+   * @returns { DatePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  enableHapticFeedback(enable: Optional<boolean>): DatePickerAttribute;
 }
 
 /**
@@ -910,7 +921,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onCancel?: VoidCallback;
 
@@ -949,7 +960,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onDateAccept?: Callback<Date>;
 
@@ -977,7 +988,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onDateChange?: Callback<Date>;
 
@@ -1039,7 +1050,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onDidAppear?: VoidCallback;
 
@@ -1059,7 +1070,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onDidDisappear?: VoidCallback;
 
@@ -1079,7 +1090,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onWillAppear?: VoidCallback;
 
@@ -1099,7 +1110,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onWillDisappear?: VoidCallback;
 
@@ -1148,6 +1159,17 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @since 14
    */
   hoverModeArea?: HoverModeAreaType;
+
+  /**
+   * Enable or disable haptic feedback.
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  enableHapticFeedback?: boolean;
 }
 
 /**

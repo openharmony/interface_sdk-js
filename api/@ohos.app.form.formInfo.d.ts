@@ -226,6 +226,17 @@ declare namespace formInfo {
     colorMode: ColorMode;
 
     /**
+     * Obtains the rendering mode of the form.
+     *
+     * @type { ?RenderingMode }
+     * @readonly
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 16
+     */
+    readonly renderingMode?: RenderingMode;
+
+    /**
      * Checks whether this form is a default form.
      *
      * @type { boolean }
@@ -547,6 +558,43 @@ declare namespace formInfo {
      * @since 11
      */
     MODE_LIGHT = 1
+  }
+
+  /**
+   * Rendering mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 16
+   */
+  enum RenderingMode {
+    /**
+     * Auto color mode.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 16
+     */
+    AUTO_COLOR = 0,
+
+    /**
+     * Full color mode.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 16
+     */
+    FULL_COLOR = 1,
+
+    /**
+     * Single color mode.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 16
+     */
+    SINGLE_COLOR = 2
   }
 
   /**

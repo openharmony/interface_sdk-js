@@ -1535,6 +1535,47 @@ declare namespace inputMethodEngine {
   }
 
   /**
+   * Defines the immersive mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 15
+   */
+  export enum ImmersiveMode {
+    /**
+     * Default immersive mode, the panel is not in immersive mode.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    NONE_IMMERSIVE = 0,
+
+    /**
+     * Immersive mode.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    IMMERSIVE,
+
+    /**
+     * Light immersive mode.
+     * 
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    LIGHT_IMMERSIVE,
+
+    /**
+     * Dark immersive mode.
+     * 
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    DARK_IMMERSIVE
+  }
+
+  /**
    * A panel is a container used to hold soft keyboard, candidate list, or status bar.
    *
    * @interface Panel
@@ -1649,6 +1690,29 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     moveTo(x: number, y: number): Promise<void>;
+
+    /**
+     * Starts moving a panel. The panel starts moving when pressed with finger or mouse and stops moving when released.
+     * <p>It's Only used for STATUS_BAR panel.</p>
+     *
+     * @throws { BusinessError } 12800002 - input method engine error.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 16
+     */
+    startMoving(): void;
+
+    /**
+     * Get the ID of the display where the input method panel is located.
+     *
+     * @returns { Promise<number> } the promise returned by the function.
+     * @throws { BusinessError } 12800002 - input method engine error.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 16
+     */
+    getDisplayId(): Promise<number>;
 
     /**
      * Shows panel.
@@ -1834,7 +1898,7 @@ declare namespace inputMethodEngine {
      *
      * @param { 'sizeUpdate' } type - the type of subscribe event.
      * @param { SizeUpdateCallback } callback - the callback of on('sizeUpdate').
-     * @throws { BusinessError } 201 - permissions check fails.
+     * @throws { BusinessError } 202 - not system application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 14
@@ -1847,12 +1911,33 @@ declare namespace inputMethodEngine {
      *
      * @param { 'sizeUpdate' } type - the type of unsubscribe event.
      * @param { ?SizeUpdateCallback } [callback] - optional, the callback of off('sizeUpdate').
-     * @throws { BusinessError } 201 - permissions check fails.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 14
      */
     off(type: 'sizeUpdate', callback?: SizeUpdateCallback): void;
+
+    /**
+     * Set immersive mode.
+     * 
+     * @param { ImmersiveMode } mode - Immersive mode.
+     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     *     1.Incorrect parameter types; 2.Parameter verification failed.
+     * @throws { BusinessError } 12800002 - input method engine error.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    setImmersiveMode(mode: ImmersiveMode): void;
+
+    /**
+     * Get immersive mode.
+     * 
+     * @returns { ImmersiveMode } Immersive mode.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    getImmersiveMode(): ImmersiveMode;
   }
 
   /**
@@ -1899,6 +1984,16 @@ declare namespace inputMethodEngine {
      * @since 14
      */
     readonly bundleName?: string;
+
+    /**
+     * Immersive mode.
+     *
+     * @type { ?ImmersiveMode }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    readonly immersiveMode?: ImmersiveMode;
   }
 
   /**

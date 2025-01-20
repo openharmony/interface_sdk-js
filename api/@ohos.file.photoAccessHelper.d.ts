@@ -6091,6 +6091,26 @@ declare namespace photoAccessHelper {
      * @since 14
      */
     setSupportedWatermarkType(watermarkType: WatermarkType): void;
+
+    /**
+     * Delete local assets permanently from the album.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Context } context - Hap context information
+     * @param { Array<PhotoAsset> } assets - the assets to be deleted permanently
+     * @returns { Promise<void> } - Returns void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 16
+     */
+    static deleteLocalAssetsPermanently(context: Context, assets: Array<PhotoAsset>): Promise<void>;
   }
 
   /**

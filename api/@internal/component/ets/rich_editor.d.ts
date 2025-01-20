@@ -3923,6 +3923,17 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 16
    */
   maxLines(maxLines: Optional<number>): RichEditorAttribute;
+
+  /**
+   * Set the keyboard appearance.
+   *
+   * @param { Optional<KeyboardAppearance> } appearance - Default value is KeyboardAppearance.NONE_IMMERSIVE
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  keyboardAppearance(appearance: Optional<KeyboardAppearance>): RichEditorAttribute;
 }
 
 /**
