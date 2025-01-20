@@ -2817,6 +2817,39 @@ declare namespace image {
   }
 
   /**
+   * Type of allocator used to allocate memory of a PixelMap.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 15
+   */
+  enum AllocatorType {
+    /**
+     * The system determines which memory to use to create the PixelMap.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 15
+     */
+    AUTO = 0,
+
+    /**
+     * Use DMA buffer to create the PixelMap.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 15
+     */
+    DMA = 1,
+
+    /**
+     * Use share memory to create the PixelMap.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 15
+     */
+    SHARE_MEMORY = 2,
+  }
+
+  /**
    * Describes region information.
    *
    * @typedef Region
@@ -7557,6 +7590,30 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     createPixelMap(options: DecodingOptions, callback: AsyncCallback<PixelMap>): void;
 
     /**
+     * Creates a PixelMap based on decoding parameters, the memory type used by the PixelMap can be specified by
+     * allocatorType. By default, the system selects the memory type based on the image type, image size, platform
+     * capability, etc. When processing the PixelMap returned by this interface, please always consider the impact of
+     * stride.
+     *
+     * @param { DecodingOptions } options Image decoding parameters.
+     * @param { AllocatorType } allocatorType Indicate which memory type will be used by the returned PixelMap.
+     * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 7700101 - Bad source.
+     * @throws { BusinessError } 7700102 - Unsupported mimetype.
+     * @throws { BusinessError } 7700103 - Image too large.
+     * @throws { BusinessError } 7700201 - Unsupported allocator type, e.g., use share memory to decode a HDR image as
+     * only DMA supported hdr metadata.
+     * @throws { BusinessError } 7700203 - Unsupported options, e.g, cannot convert image into desired pixel format.
+     * @throws { BusinessError } 7700301 - Decode failed.
+     * @throws { BusinessError } 7700302 - Memory allocation failed.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 15
+     */
+    createPixelMapUsingAllocator(options?: DecodingOptions, allocatorType?: AllocatorType): Promise<PixelMap>;
+
+    /**
      * Create a PixelMap object based on image decoding parameters synchronously.
      *
      * @param { DecodingOptions } options - Image decoding parameters.
@@ -7566,6 +7623,30 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 12
      */
     createPixelMapSync(options?: DecodingOptions): PixelMap;
+
+    /**
+     * Creates a PixelMap based on decoding parameters synchronously, the memory type used by the PixelMap can be
+     * specified by allocatorType. By default, the system selects the memory type based on the image type, image size,
+     * platform capability, etc. When processing the PixelMap returned by this interface, please always consider the
+     * impact of stride.
+     *
+     * @param { DecodingOptions } options Image decoding parameters.
+     * @param { AllocatorType } allocatorType Indicate which memory type will be used by the returned PixelMap.
+     * @returns { PixelMap } Return the PixelMap. If decoding fails, return undefined.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 7700101 - Bad source.
+     * @throws { BusinessError } 7700102 - Unsupported mimetype.
+     * @throws { BusinessError } 7700103 - Image too large.
+     * @throws { BusinessError } 7700201 - Unsupported allocator type, e.g., use share memory to decode a HDR image as
+     * only DMA supported hdr metadata.
+     * @throws { BusinessError } 7700203 - Unsupported options, e.g, cannot convert image into desired pixel format.
+     * @throws { BusinessError } 7700301 - Decode failed.
+     * @throws { BusinessError } 7700302 - Memory allocation failed.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 15
+     */
+    createPixelMapUsingAllocatorSync(options?: DecodingOptions, allocatorType?: AllocatorType): PixelMap;
 
     /**
      * Creates a PixelMap array based on image decoding parameters. This method uses a promise to
