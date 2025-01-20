@@ -1217,7 +1217,8 @@ export class PromptAction {
    * @atomicservice
    * @since 16
    */
-  openCustomDialogWithController<T extends Object>(dialogContent: ComponentContent<T>, controller: promptAction.DialogController, options?: promptAction.BaseDialogOptions): Promise<void>;
+  openCustomDialogWithController<T extends Object>(dialogContent: ComponentContent<T>, controller: promptAction.DialogController,
+    options?: promptAction.BaseDialogOptions): Promise<void>;
 
   /**
    * Update the custom dialog with frameNode.
@@ -1290,7 +1291,8 @@ export class PromptAction {
    * @atomicservice
    * @since 16
    */
-  presentCustomDialog(builder: CustomBuilder | CustomBuilderWithId, controller?: promptAction.DialogController, options?: promptAction.DialogOptions): Promise<number>;
+  presentCustomDialog(builder: CustomBuilder | CustomBuilderWithId, controller?: promptAction.DialogController,
+    options?: promptAction.DialogOptions): Promise<number>;
 
   /**
    * Close the custom dialog.
