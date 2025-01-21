@@ -105,9 +105,10 @@ declare namespace distributedDeviceManager {
 
   /**
    * Device profile information filter options.
-   * @interface DeviceProfileInfoFilterOptions
+   * @typedef DeviceProfileInfoFilterOptions
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi
+   * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
    * @since 15
    */
   interface DeviceProfileInfoFilterOptions {
@@ -116,6 +117,7 @@ declare namespace distributedDeviceManager {
      * @type { boolean }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     isCloud : boolean,
@@ -124,6 +126,7 @@ declare namespace distributedDeviceManager {
      * @type { Array<string> }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     deviceIdList?: Array<string>;
@@ -131,9 +134,10 @@ declare namespace distributedDeviceManager {
 
   /**
    * Service profile information.
-   * @interface ServiceProfileInfo
+   * @typedef ServiceProfileInfo
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi
+   * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
    * @since 15
    */
   interface ServiceProfileInfo {
@@ -142,6 +146,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     deviceId: string;
@@ -151,6 +156,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     serviceId: string;
@@ -160,6 +166,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     serviceType: string;
@@ -169,6 +176,7 @@ declare namespace distributedDeviceManager {
      * @type { ?string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     data?: string;
@@ -176,9 +184,10 @@ declare namespace distributedDeviceManager {
 
   /**
    * Device profile information.
-   * @interface DeviceProfileInfo
+   * @typedef DeviceProfileInfo
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi
+   * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
    * @since 15
    */
   interface DeviceProfileInfo {
@@ -187,6 +196,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     deviceId: string;
@@ -196,6 +206,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     deviceSn: string;
@@ -205,6 +216,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     mac: string;
@@ -214,6 +226,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     model: string;
@@ -223,6 +236,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     deviceType: string;
@@ -232,6 +246,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     manufacturer: string;
@@ -241,6 +256,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     deviceName: string;
@@ -250,6 +266,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     productId: string;
@@ -259,6 +276,7 @@ declare namespace distributedDeviceManager {
      * @type { ?string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     subProductId?: string;
@@ -268,6 +286,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     sdkVersion: string;
@@ -277,6 +296,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     bleMac: string;
@@ -286,6 +306,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     brMac: string;
@@ -295,6 +316,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     sleMac: string;
@@ -304,6 +326,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     firmwareVersion: string;
@@ -313,6 +336,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     hardwareVersion: string;
@@ -322,6 +346,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     softwareVersion: string;
@@ -331,6 +356,7 @@ declare namespace distributedDeviceManager {
      * @type { number }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     protocolType: number;
@@ -340,6 +366,7 @@ declare namespace distributedDeviceManager {
      * @type { number }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     setupType: number;
@@ -349,6 +376,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     wiseDeviceId: string;
@@ -358,6 +386,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     wiseUserId: string;
@@ -367,6 +396,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     registerTime: string;
@@ -376,6 +406,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     modifyTime: string;
@@ -385,6 +416,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     shareTime: string;
@@ -394,6 +426,7 @@ declare namespace distributedDeviceManager {
     * @type { boolean }
     * @syscap SystemCapability.DistributedHardware.DeviceManager
     * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
     * @since 15
     */
     isLocalDevice: boolean;
@@ -403,6 +436,7 @@ declare namespace distributedDeviceManager {
      * @type { Array<ServiceProfileInfo> }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     services?: Array<ServiceProfileInfo>;
@@ -410,9 +444,10 @@ declare namespace distributedDeviceManager {
 
   /**
    * Device icon information filter options.
-   * @interface DeviceIconInfoFilterOptions
+   * @typedef DeviceIconInfoFilterOptions
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi
+   * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
    * @since 15
    */
   interface DeviceIconInfoFilterOptions {
@@ -421,6 +456,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     productId: string;
@@ -430,6 +466,7 @@ declare namespace distributedDeviceManager {
      * @type { ?string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     subProductId?: string;
@@ -439,6 +476,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     imageType: string;
@@ -448,6 +486,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     specName: string;
@@ -455,9 +494,10 @@ declare namespace distributedDeviceManager {
 
   /**
    * Device icon information.
-   * @interface DeviceIconInfo
+   * @typedef DeviceIconInfo
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi
+   * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
    * @since 15
    */
   interface DeviceIconInfo {
@@ -466,6 +506,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     productId: string;
@@ -475,6 +516,7 @@ declare namespace distributedDeviceManager {
      * @type { ?string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     subProductId?: string;
@@ -484,6 +526,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     imageType: string;
@@ -493,6 +536,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     specName: string;
@@ -502,6 +546,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     url: string;
@@ -511,6 +556,7 @@ declare namespace distributedDeviceManager {
      * @type { ArrayBuffer }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
+     * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
      * @since 15
      */
     icon: ArrayBuffer;
