@@ -181,7 +181,7 @@ declare namespace nfcController {
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3100101 - NFC state is abnormal in service.
+   * @throws { BusinessError } 3100101 - The NFC state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Core
    * @since 9
    */
@@ -206,7 +206,7 @@ declare namespace nfcController {
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3100101 - NFC state is abnormal in service.
+   * @throws { BusinessError } 3100101 - The NFC state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Core
    * @since 9
    */

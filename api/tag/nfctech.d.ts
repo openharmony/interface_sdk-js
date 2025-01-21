@@ -369,8 +369,8 @@ export interface IsoDepTag extends TagSession {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
-   * @throws { BusinessError } 3100204 - Tag I/O operation failed.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -552,8 +552,8 @@ export interface NdefTag extends TagSession {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
-   * @throws { BusinessError } 3100204 - Tag I/O operation failed.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -638,8 +638,8 @@ export interface NdefTag extends TagSession {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
-   * @throws { BusinessError } 3100204 - Tag I/O operation failed.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -662,7 +662,7 @@ export interface NdefTag extends TagSession {
    * @permission ohos.permission.NFC_TAG
    * @returns { boolean } Returns true if the tag can be set readonly, otherwise returns false.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -742,8 +742,8 @@ export interface NdefTag extends TagSession {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
-   * @throws { BusinessError } 3100204 - Tag I/O operation failed.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -882,8 +882,8 @@ export interface MifareClassicTag extends TagSession {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
-   * @throws { BusinessError } 3100204 - Tag I/O operation failed.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -968,8 +968,8 @@ export interface MifareClassicTag extends TagSession {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
-   * @throws { BusinessError } 3100204 - Tag I/O operation failed.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -1059,8 +1059,8 @@ export interface MifareClassicTag extends TagSession {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
-   * @throws { BusinessError } 3100204 - Tag I/O operation failed.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -1150,8 +1150,8 @@ export interface MifareClassicTag extends TagSession {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
-   * @throws { BusinessError } 3100204 - Tag I/O operation failed.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -1241,8 +1241,8 @@ export interface MifareClassicTag extends TagSession {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
-   * @throws { BusinessError } 3100204 - Tag I/O operation failed.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -1327,8 +1327,8 @@ export interface MifareClassicTag extends TagSession {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
-   * @throws { BusinessError } 3100204 - Tag I/O operation failed.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -1413,8 +1413,8 @@ export interface MifareClassicTag extends TagSession {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
-   * @throws { BusinessError } 3100204 - Tag I/O operation failed.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -1665,8 +1665,8 @@ export interface MifareUltralightTag extends TagSession {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
-   * @throws { BusinessError } 3100204 - Tag I/O operation failed.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -1756,8 +1756,8 @@ export interface MifareUltralightTag extends TagSession {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
-   * @throws { BusinessError } 3100204 - Tag I/O operation failed.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -1876,8 +1876,8 @@ export interface NdefFormatableTag extends TagSession {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
-   * @throws { BusinessError } 3100204 - Tag I/O operation failed.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -1962,8 +1962,8 @@ export interface NdefFormatableTag extends TagSession {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
-   * @throws { BusinessError } 3100204 - Tag I/O operation failed.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
+   * @throws { BusinessError } 3100204 - The Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
