@@ -321,7 +321,6 @@ declare namespace screen {
    * @param { image.PixelMap } image Indicates the privacy mask image. This parameter is optional. If not provided,
    * the mask image will be cleared;
    * @returns { Promise<void> } Promise that returns no value
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
