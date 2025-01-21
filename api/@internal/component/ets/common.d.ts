@@ -11311,8 +11311,8 @@ declare interface TouchEvent extends BaseEvent {
 /**
  * The axis event triggers this method invocation.
  *
- * @interface AxisEvent
  * @extends BaseEvent
+ * @interface AxisEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 16
