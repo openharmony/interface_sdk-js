@@ -238,6 +238,42 @@ declare enum NavigationSystemTransitionType {
    * @since 14
    */
   CONTENT = 3,
+  /**
+   * Configure fade style system transition.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  FADE = 4,
+  /**
+   * Configure explode style system transition.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  EXPLODE = 5,
+  /**
+   * Configure right-side slide style system transition.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  SLIDE_RIGHT = 6,
+  /**
+   * Configure bottom-side slide style system transition.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  SLIDE_BOTTOM = 7,
 }
 
 /**
@@ -547,6 +583,72 @@ declare interface NestedScrollInfo {
    * @since 14
    */
   child: Scroller;
+}
+
+/**
+* NavDestination animation protocol.
+*
+* @interface NavDestinationTransition
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @crossplatform
+* @atomicservice
+* @since 16
+*/
+declare interface NavDestinationTransition {
+  /**
+   * This method is called after the transition ends to notify whether the transition was successful.
+   *
+   * @type { ?Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onTransitionEnd?: Callback<void>;
+
+  /**
+   * Define the limit duration of the transition animation.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  duration?: number;
+
+  /**
+   * Define the curve of the transition animation.
+   *
+   * @type { ?Curve }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  curve?: Curve;
+
+  /**
+   * Define the delay of the transition animation.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  delay?: number;
+
+  /**
+   * Configure the custom transition event.
+   *
+   * @type { Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  event: Callback<void>;
 }
 
 /**
@@ -990,6 +1092,18 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @since 16
    */
   onInactive(callback: Optional<Callback<NavDestinationActiveReason>>): NavDestinationAttribute;
+
+  /**
+   * Set NavDestination custom animation.
+   * 
+   * @param { NavDestinationTransitionDelegate } delegate - The delegate of NavDestination custom animation.
+   * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  customTransition(delegate: NavDestinationTransitionDelegate): NavDestinationAttribute;
 }
 
 /**
@@ -1037,3 +1151,18 @@ declare const NavDestination: NavDestinationInterface;
  * @since 11
  */
 declare const NavDestinationInstance: NavDestinationAttribute;
+
+/**
+ * Delegate function for NavDestination custom animation.
+ *
+ * @typedef { function } NavDestinationTransitionDelegate
+ * @param { NavigationOperation } operation - the operation type of current Navigation animation.
+ * @param { boolean } isEnter - whether current NavDestination will do enter-type transition.
+ * @returns { Array<NavDestinationTransition> | undefined } user-set custom navDestination transitions.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare type NavDestinationTransitionDelegate =
+  (operation: NavigationOperation, isEnter: boolean) => Array<NavDestinationTransition> | undefined;
