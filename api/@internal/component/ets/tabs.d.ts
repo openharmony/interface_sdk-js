@@ -1410,6 +1410,18 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   onTabBarClick(event: Callback<number>): TabsAttribute;
 
   /**
+   * Called when a new tab becomes unselected. Animation is not necessarily complete.
+   *
+   * @param { Callback<number> } event - callback to notify which index has been unselected
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onUnselected(event: Callback<number>): TabsAttribute;
+
+  /**
    * Called when the tab content flip animation start.
    *
    * @param { function } handler -

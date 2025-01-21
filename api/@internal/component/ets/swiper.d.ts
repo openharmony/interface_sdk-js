@@ -2049,6 +2049,19 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   nextMargin(value: Length, ignoreBlank?: boolean): SwiperAttribute;
 
   /**
+   * Called when a new index becomes unselected. Animation is not necessarily complete.
+   *
+   * @param { Callback<number> } event - callback to notify which index has been unselected
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  onUnselected(event: Callback<number>): SwiperAttribute;
+
+  /**
    * Called when the swiper animation start.
    *
    * @param { function } event - the index value of the swiper page that when animation start.
