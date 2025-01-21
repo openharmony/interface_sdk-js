@@ -7970,6 +7970,19 @@ declare namespace window {
      *
      * @param { boolean } enabled - The value true means to enable immersive mode, and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 12
+     */
+    /**
+     * Set whether to enable immersive mode.
+     *
+     * @param { boolean } enabled - The value true means to enable immersive mode, and false means the opposite.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -8034,6 +8047,21 @@ declare namespace window {
      */
     createSubWindowWithOptions(name: string, options: SubWindowOptions): Promise<Window>;
 
+    /**
+     * Set whether the title bar and dock bar will show, when the mouse hovers over hot area.
+     *
+     * @param { boolean } isTitleHoverShown - The value true means to display the title bar, and false means the opposite.
+     * @param { boolean } isDockHoverShown - The value true means to display the dock bar, and false means the opposite.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 14
+     */
     /**
      * Set whether the title bar and dock bar will show, when the mouse hovers over hot area.
      *
