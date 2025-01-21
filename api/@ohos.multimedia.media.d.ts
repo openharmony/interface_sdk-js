@@ -7783,7 +7783,7 @@ declare namespace media {
      * Indicates the screen to be recorded.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 16
+     * @since 15
      */
     displayId?: number;
   }
