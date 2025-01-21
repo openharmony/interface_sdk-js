@@ -11309,6 +11309,127 @@ declare interface TouchEvent extends BaseEvent {
 }
 
 /**
+ * The axis event triggers this method invocation.
+ *
+ * @interface AxisEvent
+ * @extends BaseEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
+declare interface AxisEvent extends BaseEvent {
+  /**
+   * Axis action of the axis event.
+   *
+   * @type { AxisAction }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  action: AxisAction;
+
+  /**
+   * X coordinate of the mouse cursor relative to the left edge of the device screen.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  displayX: number;
+
+  /**
+   * Y coordinate of the mouse cursor relative to the upper edge of the device screen.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  displayY: number;
+
+  /**
+   * X coordinate of the mouse cursor relative to the left edge of the current window.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  windowX: number;
+
+  /**
+   * Y coordinate of the mouse cursor relative to the upper edge of the current window.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  windowY: number;
+
+  /**
+   * X coordinate of the mouse cursor relative to the left edge of the axis event hit element.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  x: number;
+
+  /**
+   * Y coordinate of the mouse cursor relative to the upper edge of the axis event hit element.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  y: number;
+
+  /**
+   * Axis config only mouse wheel has.
+   *  *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  axisConfig?: number;
+
+  /**
+   * Active event bubbling.
+   *
+   * @type { Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  propagation: Callback<void>;
+
+  /**
+   * Obtains the value of the horizontal scroll axis for this axis event.
+   *
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  getHorizontalAxisValue(): number;
+
+  /**
+   * Obtains the value of the vertical scroll axis for this axis event.
+   *
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  getVerticalAxisValue(): number;
+}
+
+/**
  * Defines the callback type used in onSizeChange.
  * The value of oldValue is last size of the component.
  * The value of newValue is new size of the component.
@@ -19639,6 +19760,17 @@ declare class CommonMethod<T> {
    * @since 15
    */
   onFocusAxisEvent(event: Callback<FocusAxisEvent>): T;
+
+  /**
+   * Handle axis events.
+   *
+   * @param { Callback<AxisEvent> } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  onAxisEvent(event: Callback<AxisEvent>): T;
 
   /**
    * Set focusable.
