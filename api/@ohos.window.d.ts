@@ -18,13 +18,34 @@
  * @kit ArkUI
  */
 
-import { AsyncCallback, BusinessError, Callback } from './@ohos.base';
+import { AsyncCallback, BusinessError } from './@ohos.base';
 import BaseContext from './application/BaseContext';
 import image from './@ohos.multimedia.image';
 import rpc from './@ohos.rpc';
 import dialogRequest from './@ohos.app.ability.dialogRequest';
 import { UIContext } from './@ohos.arkui.UIContext';
 import ConfigurationConstant from './@ohos.app.ability.ConfigurationConstant';
+
+/**
+ * Defines the window callback.
+ *
+ * @typedef Callback<T, V = void>
+ * @syscap SystemCapability.Window.SessionManager
+ * @atomicservice
+ * @since 15
+ */
+declare interface Callback<T, V = void> {
+  /**
+   * Defines the callback info.
+   *
+   * @param { T } data - the data will be used in the callback.
+   * @returns { V } - Returns result of the callback.
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 15
+   */
+  (data: T): V;
+}
 
 /**
  * Window manager.
@@ -5934,6 +5955,38 @@ declare namespace window {
      * @since 12
      */
     off(type: 'subWindowClose', callback?: Callback<void>): void;
+
+    /**
+     * Asynchronous callback event for closing the registration window.
+     *
+     * @param { 'windowWillClose' } type - The value is fixed at 'windowWillClose', indicating the window close event.
+     * @param { Callback<void, Promise<boolean>> } callback - The callback function returns a Promise<boolean> to decide whether to close the window.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     *                                                                  2. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    on(type: 'windowWillClose', callback: Callback<void, Promise<boolean>>): void;
+
+    /**
+     * Cancel the asynchronous callback event for closing the registration window.
+     *
+     * @param { 'windowWillClose' } type - The value is fixed at 'windowWillClose', indicating the window close event.
+     * @param { Callback<void, Promise<boolean>> } callback - The callback function returns a Promise<boolean> to decide whether to close the window.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     *                                                                  2. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    off(type: 'windowWillClose', callback?: Callback<void, Promise<boolean>>): void;
 
     /**
      * Bind dialog to the target window.
