@@ -5989,7 +5989,7 @@ declare namespace window {
      * Register the callback of window highlight state change
      *
      * @param { 'windowHighlightChange' } type - The value is fixed at 'windowHighlightChange', indicating the window highlight state change event.
-     * @param { Callback<void> } callback - Callback used to return the highlight status of the window.
+     * @param { Callback<boolean> } callback - Callback used to return the highlight status of the window.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -6006,7 +6006,7 @@ declare namespace window {
      * Unregister the callback of window highlight state change
      *
      * @param { 'windowHighlightChange' } type - The value is fixed at 'windowHighlightChange', indicating the window highlight change event.
-     * @param { Callback<void> } callback - Callback used to return the highlight status of the window.
+     * @param { Callback<boolean> } callback - Callback used to return the highlight status of the window.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -6018,7 +6018,7 @@ declare namespace window {
      * @since 16
      */
     off(type: 'windowHighlightChange', callback?: Callback<boolean>): void;
-
+  
     /**
      * Bind dialog to the target window.
      *
@@ -6694,7 +6694,7 @@ declare namespace window {
     requestFocus(isFocused: boolean): Promise<void>;
 
     /**
-     * Sets whether exclusively highlighted or not..
+     * Sets whether exclusively highlighted or not.
      *
      * @param { boolean } exclusivelyHighlighted Whether the window can become highlight exclusively when it gain focus. The value
      *                                           true means that the window can cause the window outside the current window link to 
@@ -6716,7 +6716,7 @@ declare namespace window {
     /**
      * Checks whether the window is highlighted.
      *
-     * @returns { boolean } - Whether the window is highlighted. The value true means that the window is highlighted, and false means the opposite..
+     * @returns { boolean } - Whether the window is highlighted. The value true means that the window is highlighted, and false means the opposite.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
