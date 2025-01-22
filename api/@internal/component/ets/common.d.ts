@@ -23913,6 +23913,21 @@ declare class CommonMethod<T> {
    */
   onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback): T;
 
+
+  /**
+   * Set or reset the callback which is triggered when the visibleArea of component changed.
+   * The interval between two visible area change callbacks will not be less than the expected update interval.
+   *
+   * @param { VisibleAreaEventOptions } options - The options for the visibility event.
+   * @param { VisibleAreaChangeCallback | undefined } event - The callback will be triggered when the visibleArea of component changed and get close to any number in ratios defined by options.
+   * If set undefined will reset the target callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onVisibleAreaApproximateChange(options: VisibleAreaEventOptions, event: VisibleAreaChangeCallback | undefined): void;
+
   /**
    * Set the spherical effect of the component.
    *
