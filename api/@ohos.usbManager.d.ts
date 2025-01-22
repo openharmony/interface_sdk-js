@@ -18,7 +18,7 @@
  * @kit BasicServicesKit
  */
 
-import type { AsyncCallback } from './@ohos.base';
+import { AsyncCallback } from '@kit.BasicServicesKit';
 
 /**
  * This module provides the capability of manage USB device.
@@ -45,7 +45,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.                             
-   * @throws { BusinessError } 14400001 - Permission denied. Call requestRight to get the permission first.
+   * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
    * @syscap SystemCapability.USB.USBManager
    * @since 9
    */
@@ -1841,14 +1841,6 @@ declare namespace usbManager {
    */
   export enum UsbEndpointTransferType {
     /**
-     * Control endpoint
-     *
-     * @syscap SystemCapability.USB.USBManager
-     * @since 16
-     */
-    TRANSFER_TYPE_CONTROL = 0x0,
-
-    /**
      * Isochronous endpoint
      *
      * @syscap SystemCapability.USB.USBManager
@@ -1910,6 +1902,43 @@ declare namespace usbManager {
   }
 
   /**
+  * submit transfer callback.
+  *
+  * @typedef SubmitTransferCallback
+  * @syscap SystemCapability.USB.USBManager
+  * @since 16
+  */
+  interface SubmitTransferCallback {
+    /**
+     * Actual length of data that was transferred. Read-only, and only for
+     * use within transfer callback function. Not valid for isochronous endpoint transfers.
+     *
+     * @type { number }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    actualLength: number;
+
+    /**
+     * The status of the transfer. Read-only, and only for use within transfer callback function.
+     *
+     * @type { UsbTransferStatus }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    status: UsbTransferStatus;
+
+    /**
+     * Isochronous packet descriptors, for isochronous transfers only.
+     *
+     * @type { Array<Readonly<UsbIsoPacketDescriptor>> }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    isoPacketDescs: Array<Readonly<UsbIsoPacketDescriptor>>;
+  }
+
+  /**
    * As a generic USB data transfer interface. The Client populates this interface and
    * submits it in order to request a transfer. 
    *
@@ -1964,15 +1993,6 @@ declare namespace usbManager {
     timeout: number;
 
     /**
-     * The status of the transfer. Read-only, and only for use within transfer callback function.
-     *
-     * @type { UsbTransferStatus }
-     * @syscap SystemCapability.USB.USBManager
-     * @since 16
-     */
-    status: UsbTransferStatus;
-
-    /**
      * Length of the data buffer. Must be non-negative.
      *
      * @type { number }
@@ -1982,23 +2002,13 @@ declare namespace usbManager {
     length: number;
 
     /**
-     * Actual length of data that was transferred. Read-only, and only for
-     * use within transfer callback function. Not valid for isochronous endpoint transfers.
-     *
-     * @type { number }
-     * @syscap SystemCapability.USB.USBManager
-     * @since 16
-     */
-    actualLength: number;
-
-    /**
      * Callback function. This will be invoked when the transfer completes, fails, or is canceled.
      *
-     * @type { AsyncCallback<UsbDataTransferParams> }
+     * @type { AsyncCallback<SubmitTransferCallback> }
      * @syscap SystemCapability.USB.USBManager
      * @since 16
      */
-    callback: AsyncCallback<UsbDataTransferParams>;
+    callback: AsyncCallback<SubmitTransferCallback>;
 
     /**
      * User context data. Useful for associating specific data to a transfer
@@ -2027,15 +2037,6 @@ declare namespace usbManager {
      * @since 16
      */
     isoPacketCount: number;
-
-    /**
-     * Isochronous packet descriptors, for isochronous transfers only.
-     *
-     * @type { Array<Readonly<UsbIsoPacketDescriptor>> }
-     * @syscap SystemCapability.USB.USBManager
-     * @since 16
-     */
-    isoPacketDesc: Array<Readonly<UsbIsoPacketDescriptor>>;
   }
 
   /**
@@ -2045,7 +2046,12 @@ declare namespace usbManager {
    * submits it in order to request a transfer
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.  
+   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
+   * @throws { BusinessError } 14400006 - Transmission I/O error.
+   * @throws { BusinessError } 14400007 - Resource busy.
+   * @throws { BusinessError } 14400008 - No such device (it may have been disconnected).
+   * @throws { BusinessError } 14400009 - Insufficient memory.
    * @syscap SystemCapability.USB.USBManager
    * @since 16
    */
@@ -2057,7 +2063,12 @@ declare namespace usbManager {
    * @param { transfer } Cancel the target transfer
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.  
+   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
+   * @throws { BusinessError } 14400008 - No such device (it may have been disconnected).
+   * @throws { BusinessError } 14400010 - Other USB error. Possible causes:
+   * <br>1.Unrecognized discard error code.
+   * @throws { BusinessError } 14400011 - The transfer is not in progress, or is already complete or cancelled.
    * @syscap SystemCapability.USB.USBManager
    * @since 16
    */
