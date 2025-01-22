@@ -56,6 +56,7 @@ declare namespace backgroundProcessManager {
      *
      * @param { number } pid - Indicates the pid of the process to be set.
      * @param { ProcessPriority } priority - Indicates the priority to set. Specific priority can be referenced ProcessPriority
+     * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: priority is out of range.
      * @throws { BusinessError } 31800001 - remote error. Possible causes: remote is not work.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
@@ -67,6 +68,7 @@ declare namespace backgroundProcessManager {
      * Reset the priority of process.
      *
      * @param { number } pid - Indicates the pid of the process to be reset.
+     * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 31800001 - remote error. Possible causes: remote is not work.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
      * @since 15
