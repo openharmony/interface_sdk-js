@@ -19,6 +19,7 @@
  */
 
 import backgroundTaskManager from '@ohos.resourceschedule.backgroundTaskManager';
+import backgroundProcessManager from '@ohos.resourceschedule.backgroundProcessManager';
 import bundleState from '@ohos.bundleState';
 import reminderAgent from '@ohos.reminderAgent';
 import reminderAgentManager from '@ohos.reminderAgentManager';
@@ -31,5 +32,5 @@ import WorkSchedulerExtensionAbility, {
 
 export {
   WorkSchedulerExtensionAbility, WorkSchedulerExtensionContext, backgroundTaskManager, bundleState,
-  deviceStandby, reminderAgent, reminderAgentManager, usageStatistics, workScheduler
+  deviceStandby, reminderAgent, reminderAgentManager, usageStatistics, workScheduler, backgroundProcessManager
 };
