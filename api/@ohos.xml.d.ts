@@ -44,6 +44,170 @@
  */
 declare namespace xml {
   /**
+   * The XmlDynamicSerializer interface is used to dynamically generate an xml file.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @name XmlDynamicSerializer
+   */
+  class XmlDynamicSerializer {
+    /**
+     * A parameterized constructor used to create a new XmlDynamicSerializer instance.
+     * The input parameter is an encoding format of string type.
+     *
+     * @param { string } [encoding] - [encoding='utf8']  this is its encoding, only support utf-8.
+     * @throws { BusinessError } 10200066 - Incorrect encoding format, only support utf-8.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    constructor(encoding?: string);
+
+    /**
+     * Write an attribute to xml element.
+     *
+     * @param { string } name - Key name of the attribute. Cannot be an empty string.
+     * @param { string } value - Values of attribute.
+     * @throws { BusinessError } 10200062 - The cumulative length of xml has exceeded the upper limit 100000.
+     * @throws { BusinessError } 10200063 - Illegal position for xml.
+     * @throws { BusinessError } 10200064 - Cannot be an empty string.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    setAttributes(name: string, value: string): void;
+
+    /**
+     * Add an empty element.
+     *
+     * @param { string } name - Name of the element.
+     * @throws { BusinessError } 10200062 - The cumulative length of xml has exceeded the upper limit 100000.
+     * @throws { BusinessError } 10200064 - Cannot be an empty string.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    addEmptyElement(name: string): void;
+
+    /**
+     * Writes xml declaration with encoding. For example: <?xml version="1.0" encoding="utf-8"?>.
+     * @throws { BusinessError } 10200062 - The cumulative length of xml exceeded the upper limit 100000.
+     * @throws { BusinessError } 10200063 - illegal position for xml.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    setDeclaration(): void;
+
+    /**
+     * Writes a element start tag with the given name.
+     *
+     * @param { string } name - Name of the element.
+     * @throws { BusinessError } 10200062 - The cumulative length of xml has exceeded the upper limit 100000.
+     * @throws { BusinessError } 10200064 - Cannot be an empty string.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    startElement(name: string): void;
+
+    /**
+     * Writes end tag of the element.
+     *
+     * @throws { BusinessError } 10200062 - The cumulative length of xml has exceeded the upper limit 100000.
+     * @throws { BusinessError } 10200065 - There is no match between the startElement and the endElement.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    endElement(): void;
+
+    /**
+     * Writes the namespace of the current element tag.
+     *
+     * @param { string } prefix - Values name of the prefix. Cannot be an empty string.
+     * @param { string } namespace - Values of namespace. Cannot be an empty string.
+     * @throws { BusinessError } 10200062 - The cumulative length of xml has exceeded the upper limit 100000.
+     * @throws { BusinessError } 10200064 - Cannot be an empty string.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    setNamespace(prefix: string, namespace: string): void;
+
+    /**
+     * Writes the comment to xml.
+     *
+     * @param { string } text - Values of comment. Cannot be an empty string.
+     * @throws { BusinessError } 10200062 - The cumulative length of xml has exceeded the upper limit 100000.
+     * @throws { BusinessError } 10200064 - Cannot be an empty string.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    setComment(text: string): void;
+
+    /**
+     * Writes the CDATA.
+     *
+     * @param { string } text - Values of CDATA. Cannot be an empty string.
+     * @throws { BusinessError } 10200062 - The cumulative length of xml has exceeded the upper limit 100000.
+     * @throws { BusinessError } 10200064 - Cannot be an empty string.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    setCdata(text: string): void;
+
+    /**
+     * Writes the text to xml element.
+     *
+     * @param { string } text - Values of text. Cannot be an empty string.
+     * @throws { BusinessError } 10200062 - The cumulative length of xml has exceeded the upper limit 100000.
+     * @throws { BusinessError } 10200064 - Cannot be an empty string.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    setText(text: string): void;
+
+    /**
+     * Writes the DOCTYPE.
+     *
+     * @param { string } text - Values of docType. Cannot be an empty string.
+     * @throws { BusinessError } 10200062 - The cumulative length of xml has exceeded the upper limit 100000.
+     * @throws { BusinessError } 10200064 - Cannot be an empty string.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    setDocType(text: string): void;
+
+    /**
+     * Get an ArrayBuffer from a XmlDynamicSerializer instance.
+     *
+     * @returns { ArrayBuffer } - Returns ArrayBuffer result from a XmlDynamicSerializer instance. Empty ArrayBuffer would return if internal error happens.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    getOutput(): ArrayBuffer;
+}
+  /**
    * The XmlSerializer interface is used to generate an xml file.
    *
    * @syscap SystemCapability.Utils.Lang
