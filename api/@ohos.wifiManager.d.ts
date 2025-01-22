@@ -783,6 +783,18 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
+  /**
+   * Obtain the MAC address of a Wi-Fi device. Wi-Fi must be enabled.
+   * The MAC address is unique and cannot be changed.
+   * @permission ohos.permission.GET_WIFI_LOCAL_MAC and ohos.permission.GET_WIFI_INFO
+   * @returns { string[] } Returns the MAC address of the Wi-Fi device.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @since 15
+   */
   function getDeviceMacAddress(): string[];
 
   /**
