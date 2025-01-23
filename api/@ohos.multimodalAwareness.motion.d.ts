@@ -38,6 +38,13 @@ declare namespace motion {
    */
   export enum OperatingHandStatus {
     /**
+     * indicates nothing has been detected.
+     *
+     * @syscap SystemCapability.MultimodalAwarness.Motion
+     * @since 16
+     */
+    UNKNOWN_STATUS = 0,
+    /**
      * indicates the operating hand is left hand.
      *
      * @syscap SystemCapability.MultimodalAwarness.Motion
