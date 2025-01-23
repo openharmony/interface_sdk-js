@@ -1281,6 +1281,47 @@ declare enum TouchType {
 }
 
 /**
+ * Function Called by Touch or Gesture.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare enum InteractionHand {
+  /**
+   * Unknown hand.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  NONE = 0,
+
+  /**
+   * Left hand.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  LEFT = 1,
+
+  /**
+   * Right hand.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  RIGHT = 2,
+}
+
+/**
  * Function Called by Mouse
  *
  * @enum { number }

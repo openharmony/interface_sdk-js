@@ -3644,6 +3644,15 @@ declare namespace media {
      * @since 16
      */
     showFirstFrameOnPrepare?: boolean;
+
+    /**
+     * Customize the buffering threshold for start or restart playing. The unit is second.
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 16
+     */
+    preferredBufferDurationForPlaying?: number;
   }
 
   /**
