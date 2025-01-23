@@ -3763,11 +3763,11 @@ declare namespace wifiManager {
 
     /**
      * Wi-Fi link type
-     * @type { WifiLinkType }
+     * @type { ?WifiLinkType }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 16
      */
-    wifiLinkType: WifiLinkType;
+    wifiLinkType?: WifiLinkType;
   }
 
   /**
