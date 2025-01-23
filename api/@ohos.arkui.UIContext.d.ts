@@ -2325,6 +2325,13 @@ export class MarqueeDynamicSyncScene extends DynamicSyncScene {
  * @atomicservice
  * @since 12
  */
+/**
+ * class DragController
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
 export class DragController {
   /**
    * Execute a drag event.
@@ -2354,6 +2361,22 @@ export class DragController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Execute a drag event.
+   * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
+   * @param { dragController.DragInfo } dragInfo - Information about the drag event.
+   * @param { AsyncCallback<dragController.DragEventParam> } callback - Callback that contains 
+   * the drag event information.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragInfo,
     callback: AsyncCallback<dragController.DragEventParam>): void;
@@ -2385,6 +2408,21 @@ export class DragController {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Execute a drag event.
+   * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
+   * @param { dragController.DragInfo } dragInfo - Information about the drag event.
+   * @returns { Promise<dragController.DragEventParam> } A Promise with the drag event information.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragInfo)
     : Promise<dragController.DragEventParam>;
 
@@ -2415,6 +2453,21 @@ export class DragController {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Create one drag action object, which can be used for starting drag later or monitoring the drag status after drag started.
+   * @param { Array<CustomBuilder | DragItemInfo> } customArray - Objects used for prompts displayed when the objects are dragged.
+   * @param { dragController.DragInfo } dragInfo - Information about the drag event.
+   * @returns { dragController.DragAction } one drag action object
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   createDragAction(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: dragController.DragInfo): dragController.DragAction;
 
   /**
@@ -2429,6 +2482,14 @@ export class DragController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Get a drag preview object.
+   * @returns { dragController.DragPreview } A drag preview object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   getDragPreview(): dragController.DragPreview;
 
@@ -3276,6 +3337,14 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Get DragController.
+   * @returns { DragController } the DragController
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   getDragController(): DragController;
 
