@@ -618,7 +618,6 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @crossplatform
-   * @atomicservice
    * @since 16
    */
   function getMultiLinkedInfo(): Array<WifiLinkedInfo>;
