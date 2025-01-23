@@ -950,6 +950,61 @@ declare namespace display {
   }
 
   /**
+   * Indicate the source mode of the display
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 16
+   */
+  enum DisplaySourceMode {
+    /**
+     * Indicate that the display is not in use.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 16
+     */
+    NONE = 0,
+ 
+    /**
+     * Indicate that the display is the main display.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 16
+     */
+    MAIN = 1,
+
+    /**
+     * Indicate that the display is in mirror mode.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 16
+     */
+    MIRROR = 2,
+
+    /**
+     * Indicate that the display is in extend mode.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 16
+     */
+    EXTEND = 3,
+
+    /**
+     * Indicate that the display stands alone.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 16
+     */
+    ALONE = 4
+  }
+
+  /**
    * Fold Crease Region
    *
    * @interface FoldCreaseRegion
@@ -1660,6 +1715,36 @@ declare namespace display {
      * @since 12
      */
     hdrFormats: Array<hdrCapability.HDRFormat>;
+
+    /**
+     * The source mode of display
+     *
+     * @type { ?DisplaySourceMode }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 16
+     */
+    sourceMode?: DisplaySourceMode;
+ 
+    /**
+     * Coordinates of the top-left corner of the display relative to the main display.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 16
+     */
+    x?: number;
+  
+    /**
+     * Coordinates of the top-left corner of the display relative to the main display.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 16
+     */
+    y?: number;
 
     /**
      * Obtain the cutout info of the display.
