@@ -595,7 +595,6 @@ declare namespace wifiManager {
 
   /**
    * Obtain connection information about the Wi-Fi connection. If does't have the permission of ohos.permission.GET_WIFI_PEERS_MAC, return random bssid.
-   * Call this function to get multiple wifi link infomation When Wi-Fi Connect in MLO(Multi-Link Operation) state
    * @permission ohos.permission.GET_WIFI_INFO
    * @returns { Promise<WifiLinkedInfo> } Returns Wi-Fi linked information.
    * @throws {BusinessError} 201 - Permission denied.
