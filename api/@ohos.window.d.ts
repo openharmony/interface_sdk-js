@@ -731,7 +731,7 @@ declare namespace window {
   }
 
   /**
-   * Property of status bar, it couldn't update automatically
+   * Properties of status bar.
    *
    * @interface StatusBarProperty
    * @syscap SystemCapability.Window.SessionManager
@@ -740,7 +740,7 @@ declare namespace window {
    */
   interface StatusBarProperty {
     /**
-     * The content color of the status bar
+     * The content color of the status bar.
      *
      * @type { string }
      * @syscap SystemCapability.Window.SessionManager
@@ -4922,13 +4922,14 @@ declare namespace window {
     getWindowSystemBarProperties(): SystemBarProperties;
 
     /**
-     * Set the color of status bar
+     * Set the color of the status bar.
      *
-     * @param { ColorMetrics } color - The color of status bar
+     * @param { ColorMetrics } color - Color metrics.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -4938,10 +4939,10 @@ declare namespace window {
     setStatusBarColor(color: ColorMetrics): Promise<void>;
 
     /**
-     * Get the property of status bar
+     * Get the properties of the status bar.
      *
-     * @returns { StatusBarProperty } Return status bar property.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @returns { StatusBarProperty } Return status bar properties.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -6486,7 +6487,7 @@ declare namespace window {
     /**
      * Sets the background color of window.
      *
-     * @param { ColorMetrics } color the specified color.
+     * @param { ColorMetrics } colorMetrics the specified color.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -6495,7 +6496,7 @@ declare namespace window {
      * @atomicservice
      * @since 16
      */
-    setWindowBackgroundColor(color: ColorMetrics): void;
+    setWindowBackgroundColor(colorMetrics: ColorMetrics): void;
 
     /**
      * Sets the brightness of window.
