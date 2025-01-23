@@ -1514,7 +1514,7 @@ declare namespace contact {
      * @atomicservice
      * @since 15
      */
-    selectLimit?: number;
+    maxSelectLimit?: number;
 
     /**
      * Contact display dimension.
