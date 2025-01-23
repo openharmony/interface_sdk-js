@@ -3318,6 +3318,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     * @deprecated since 16
+     * @useinstead ohos.web.webview.WebviewController#getLastHitTest
      */
     getHitTest(): WebHitTestType;
 
@@ -3486,6 +3488,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     * @deprecated since 16
+     * @useinstead ohos.web.webview.WebviewController#getLastHitTest
      */
     getHitTestValue(): HitTestValue;
 
