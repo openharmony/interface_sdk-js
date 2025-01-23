@@ -168,7 +168,7 @@ declare namespace dragInteraction {
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
-   * @since 15
+   * @since 16
    */
   function setDragSwitchState(enabled: boolean): void;
 
@@ -182,7 +182,7 @@ declare namespace dragInteraction {
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
-   * @since 15
+   * @since 16
    */
   function setAppDragSwitchState(enabled: boolean, bundleName: string): void;
 }
