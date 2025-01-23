@@ -140,6 +140,26 @@ declare enum AnimationMode {
    * @since 12
    */
   NO_ANIMATION = 2,
+
+  /**
+   * Jump to some index near the target without animation, then start animation after tabcontent is fully measured.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  CONTENT_FIRST_WITH_JUMP = 3,
+
+  /**
+   * Jump to some index near the target without animation, then start animation before tabcontent is fully measured.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  ACTION_FIRST_WITH_JUMP = 4,
 }
 
 /**
@@ -1347,6 +1367,18 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   onChange(event: Callback<number>): TabsAttribute;
 
   /**
+   * Called when a new tab becomes selected. Animation is not necessarily complete.
+   *
+   * @param { Callback<number> } event - callback to notify which index has been selected
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onSelected(event: Callback<number>): TabsAttribute;
+
+  /**
    * Called when the tab is clicked.
    *
    * @param { function } event
@@ -1376,6 +1408,18 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @since 16
    */
   onTabBarClick(event: Callback<number>): TabsAttribute;
+
+  /**
+   * Called when a new tab becomes unselected. Animation is not necessarily complete.
+   *
+   * @param { Callback<number> } event - callback to notify which index has been unselected
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onUnselected(event: Callback<number>): TabsAttribute;
 
   /**
    * Called when the tab content flip animation start.

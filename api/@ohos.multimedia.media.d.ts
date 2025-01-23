@@ -2191,6 +2191,18 @@ declare namespace media {
     getPlaybackPosition() : number;
 
     /**
+     * Check whether the media stream currently being played by the player supports seek continuous.
+     * Should be called after {@link #prepare}.
+     * @returns { boolean } true: seek continuous is supported;
+     * false: seek continuous is not supported or the support status is uncertain.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @systemapi
+     * @since 15
+     */
+    isSeekContinuousSupported() : boolean;
+
+    /**
      * Media URI. Mainstream media formats are supported.
      * Network:http://xxx
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -7771,7 +7783,7 @@ declare namespace media {
      * Indicates the screen to be recorded.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 16
+     * @since 15
      */
     displayId?: number;
   }

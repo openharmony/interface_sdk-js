@@ -74,24 +74,14 @@ export enum ImmersiveMode {
   DEFAULT = 0,
 
   /**
-   * Mask covering the page node.
+   * Mask extend safe area includes status bar and navigation bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 16
    */
-  PAGE = 1,
-
-  /**
-   * Mask covering the root node.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 16
-   */
-  FULL = 2,
+  EXTEND = 1,
 }
 
 /**

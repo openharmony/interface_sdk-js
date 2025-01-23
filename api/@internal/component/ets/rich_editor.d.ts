@@ -2154,6 +2154,26 @@ declare interface RichEditorBuilderSpanOptions {
    * @since 12
    */
   offset?: number;
+
+  /**
+   * builder span drag background color
+   *
+   * @type { ?ColorMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 16
+   */
+  dragBackgroundColor? : ColorMetrics;
+
+  /**
+   * builder span drag shadow configuration
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 16
+   */
+  isDragShadowNeeded?: boolean;
 }
 
 /**
@@ -3934,6 +3954,17 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 16
    */
   keyboardAppearance(appearance: Optional<KeyboardAppearance>): RichEditorAttribute;
+
+  /**
+   * Set whether stop backPressed callback event or not.
+   *
+   * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  stopBackPress(isStopped: Optional<boolean>): RichEditorAttribute;
 }
 
 /**

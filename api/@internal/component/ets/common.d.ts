@@ -10314,6 +10314,31 @@ declare interface BorderImageOption {
 }
 
 /**
+ * Defines the policy of Layout
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 16
+ */
+declare class LayoutPolicy {
+  /**
+   * The component fills its parent which means its size is as large as its parent.
+   *
+   * @type { LayoutPolicy }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice 
+   * @since 16
+   */
+  static readonly matchParent: LayoutPolicy;
+}
+
+/**
  * The tap action triggers this method invocation.
  *
  * @extends BaseEvent
@@ -11630,6 +11655,17 @@ declare type Summary = import('../api/@ohos.data.unifiedDataChannel').default.Su
 declare type UniformDataType = import('../api/@ohos.data.uniformTypeDescriptor').default.UniformDataType;
 
 /**
+ * Import the GetDataParams type object for ui component.
+ *
+ * @typedef { import('../api/@ohos.data.unifiedDataChannel').default.GetDataParams } GetDataParams
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare type DataSyncOptions = import('../api/@ohos.data.unifiedDataChannel').default.GetDataParams;
+
+/**
  * Enum for Drag Result.
  *
  * @enum { number }
@@ -12803,6 +12839,62 @@ declare interface DragEvent {
    * @since 16
    */
   executeDropAnimation(customDropAnimation: Callback<void>): void;
+
+  /**
+   * Request the drag data to be synchronized to caller, can be notified with the synchronization progress.
+   * Only can be used in onDrop event processing.
+   *
+   * @param { DataSyncOptions } options - the data sync options.
+   * @returns { string } The data key returned by system, which can be used as the identify of the request.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 190003 - Operation no allowed for current pharse.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  startDataLoading(options: DataSyncOptions): string;
+}
+
+/**
+ * The event callback function for drag and drop common interfaces.
+ * @typedef { function } OnDragEventCallback
+ * @param { DragEvent } event - the event object indicating current drag status.
+ * @param { string } [extraParams] - extra information set by user or system.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare type OnDragEventCallback = (event: DragEvent, extraParams?: string) => void;
+
+/**
+ * Defines the options for the drop handling.
+ *
+ * @interface DropOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare interface DropOptions {
+
+  /**
+   * Indicating to disable the UDMF data prefetch action by system or not.
+   * The system will try to fetch data before calling user's onDrop for some situation,
+   * it will retry to get data until the max time limit (2.4s for now) reaches,
+   * this's useful for the cross device draging operation, as the system helps to eliminate
+   * the communication instability, but it's redundant for startDataLoading method, as this
+   * method will take care the data fetching with asynchronous mechanism, so must set this
+   * field to true if using startDataLoading in onDrop to avoid the data is fetched before
+   * onDrop executing unexpectedly.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  disableDataPrefetch?: boolean;
 }
 
 /**
@@ -18223,6 +18315,18 @@ declare class CommonMethod<T> {
    * @since 11
    */
   width(value: Length): T;
+  /**
+   * Sets the width of the current component.
+   *
+   * @param { Length | LayoutPolicy } widthValue
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  width(widthValue: Length | LayoutPolicy): T;
 
   /**
    * Sets the height of the current component.
@@ -18263,6 +18367,18 @@ declare class CommonMethod<T> {
    * @since 11
    */
   height(value: Length): T;
+  /**
+   * Sets the height of the current component.
+   *
+   * @param { Length | LayoutPolicy } heightValue
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  height(heightValue: Length | LayoutPolicy): T;
   
   /**
    * Sets the drawModifier of the current component.
@@ -22510,6 +22626,20 @@ declare class CommonMethod<T> {
   onDrop(event: (event: DragEvent, extraParams?: string) => void): T;
 
   /**
+   * The component bound to this event can be used as the drag release target.
+   * This callback is triggered when the drag behavior is stopped within the scope of the component.
+   *
+   * @param { OnDragEventCallback } eventCallback - event callback.
+   * @param { DropOptions } [dropOptions] - the drop handling options.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onDrop(eventCallback: OnDragEventCallback, dropOptions?: DropOptions): T;
+
+  /**
    * This function is called when the drag event is end.
    *
    * @param { function } event - indicates the function to be called.
@@ -25875,6 +26005,17 @@ declare interface Layoutable {
   measureResult: MeasureResult,
 
   /**
+   * Unique ID of the child component.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  uniqueId?: number;
+
+  /**
    * Call this layout method in onLayout callback to assign layout info to sub component.
    *
    * @param { Position } position
@@ -25945,6 +26086,17 @@ declare interface Layoutable {
  * @since 11
  */
 declare interface Measurable {
+  /**
+   * Unique ID of the child component.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  uniqueId?: number;
+
   /**
    * Call this measure method in onMeasure callback to supply sub component size.
    *
@@ -27602,6 +27754,19 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @since 16
    */
   digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): T;
+  
+  /**
+   * Controls whether the scrollable scrolls back to top when status bar is clicked.
+   * 
+   * @param { boolean } backToTop - whether the scrollable scrolls back to top when status bar is clicked.
+   * The default value is false.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  backToTop(backToTop: boolean): T;
 }
 
 /**
@@ -28623,4 +28788,37 @@ declare enum HoverModeAreaType {
    * @since 14
    */
   BOTTOM_SCREEN = 1,
+}
+
+/**
+ * Defines a range of dates.
+ * 
+ * @interface DateRange
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare interface DateRange {
+  /**
+   * Defines the start date of the date range.
+   *
+   * @type { ?Date }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  start?: Date;
+
+  /**
+   * Defines the end date of the date range.
+   *
+   * @type { ?Date }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  end?: Date;
 }

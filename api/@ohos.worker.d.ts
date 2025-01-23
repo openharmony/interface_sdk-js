@@ -1424,6 +1424,18 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
 }
 
 /**
+ * The event handler to be called when an exception occurs during worker execution.
+ *
+ * @typedef { function } ErrorCallback
+ * @param { ErrorEvent } err - the detailed information about the exception occurred during worker execution.
+ * @returns { void }
+ * @syscap SystemCapability.Utils.Lang
+ * @atomicservice
+ * @since 16
+ */
+type ErrorCallback = (err: ErrorEvent) => void;
+
+/**
  * JS cross-thread communication tool
  *
  * @namespace worker
@@ -1590,6 +1602,21 @@ declare namespace worker {
      * @since 11
      */
     onerror?: (err: ErrorEvent) => void;
+
+    /**
+     * The onAllErrors attribute of the worker specifies the event handler to be called
+     * when an exception occurs during worker execution.
+     * The event handler is executed in the host thread.
+     *
+     * @type { ?function }
+     * @throws { BusinessError } 10200004 - The Worker instance is not running.
+     * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @since 16
+     */
+    onAllErrors?: ErrorCallback;
+
     /**
      * The onmessage attribute of the worker specifies the event handler
      * to be called then the host thread receives a message created by itself

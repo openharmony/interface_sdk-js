@@ -412,7 +412,7 @@ interface CheckboxGroupInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 16
  */
 declare type OnCheckboxGroupChangeCallback = (value: CheckboxGroupResult) => void;
 
@@ -670,7 +670,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onChange(callback: OnCheckboxGroupChangeCallback): CheckboxGroupAttribute;
 

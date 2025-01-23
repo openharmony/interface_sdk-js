@@ -132,6 +132,20 @@ declare class SwiperController {
   changeIndex(index: number, useAnimation?: boolean);
 
   /**
+   * Controlling Swiper to change to the specified subcomponent.
+   *
+   * @param { number } index - the index of item to be redirected.
+   * @param { SwiperAnimationMode | boolean } animationMode - animation mode for changeIndex,
+   * true is equivalent to SwiperAnimationMode.DEFAULT_ANIMATION, false is equivalent to SwiperAnimationMode.NO_ANIMATION
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  changeIndex(index: number, animationMode: SwiperAnimationMode | boolean);
+
+  /**
    * Called when need to stop the swiper animation.
    *
    * @param { function } callback
@@ -1282,6 +1296,52 @@ declare enum SwiperNestedScrollMode {
 }
 
 /**
+ * Declare the animation mode of SwiperController's changeIndex method.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 16
+ */
+declare enum SwiperAnimationMode {
+  /**
+   * Jump to target index without animation.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  NO_ANIMATION = 0,
+
+  /**
+   * Scroll to target index with animation.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  DEFAULT_ANIMATION = 1,
+
+  /**
+   * Jump to some index near the target index without animation,
+   * then scroll to target index with animation.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  FAST_ANIMATION = 2,
+}
+
+/**
  * Defines a swiper callback when onAnimationStart.
  *
  * @typedef { function } OnSwiperAnimationStartCallback
@@ -1901,6 +1961,19 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   onChange(event: Callback<number>): SwiperAttribute;
 
   /**
+   * Called when a new index becomes selected. Animation is not necessarily complete.
+   *
+   * @param { Callback<number> } event - callback to notify which index has been selected
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  onSelected(event: Callback<number>): SwiperAttribute;
+
+  /**
    * Setting indicator style navigation.
    *
    * @param { IndicatorStyle } value
@@ -1974,6 +2047,19 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 12
    */
   nextMargin(value: Length, ignoreBlank?: boolean): SwiperAttribute;
+
+  /**
+   * Called when a new index becomes unselected. Animation is not necessarily complete.
+   *
+   * @param { Callback<number> } event - callback to notify which index has been unselected
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  onUnselected(event: Callback<number>): SwiperAttribute;
 
   /**
    * Called when the swiper animation start.
