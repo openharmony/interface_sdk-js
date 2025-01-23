@@ -1382,6 +1382,13 @@ declare namespace camera {
    * @systemapi
    * @since 10
    */
+  /**
+   * Enum for remote camera device type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @since 16
+   */
   enum HostDeviceType {
     /**
      * Indicates an unknown device camera.
@@ -1389,6 +1396,12 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10
+     */
+    /**
+     * Indicates an unknown device camera.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 16
      */
     UNKNOWN_TYPE = 0,
 
@@ -1399,6 +1412,12 @@ declare namespace camera {
      * @systemapi
      * @since 10
      */
+    /**
+     * Indicates a smartphone camera.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 16
+     */
     PHONE = 0x0E,
 
     /**
@@ -1407,6 +1426,12 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10
+     */
+    /**
+     * Indicates a tablet camera.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 16
      */
     TABLET = 0x11
   }
@@ -1468,6 +1493,14 @@ declare namespace camera {
      * @systemapi
      * @since 10
      */
+    /**
+     * Camera remote camera device name attribute.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 16
+     */
     readonly hostDeviceName: string;
 
     /**
@@ -1478,6 +1511,14 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10
+     */
+    /**
+     * Camera remote camera device type attribute.
+     *
+     * @type { HostDeviceType }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 16
      */
     readonly hostDeviceType: HostDeviceType;
 
