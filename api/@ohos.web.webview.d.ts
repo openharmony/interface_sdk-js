@@ -8440,6 +8440,14 @@ declare namespace webview {
        * @since 16
        */
       getProxyRules(): Array<ProxyRule>;
+      /**
+       * Returns if reverse bypass rules.
+       * 
+       * @returns { boolean } If reverse bypass enabled.ssssss
+       * @yscap SystemCapability.Web.Webview.Core
+       * @since 16
+       */
+      isReverseBypassEnabled(): boolean;
   }
 
   /**
