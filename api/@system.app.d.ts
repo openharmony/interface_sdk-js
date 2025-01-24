@@ -244,7 +244,7 @@ export default class App {
    * @since 3
    */
   /**
-   * Obtains the declared information in the config.json file of an application.
+   * Obtains the declared information in the config.json file of an application. It will return null when used in StageModel.
    *
    * @returns { AppResponse }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
@@ -260,7 +260,7 @@ export default class App {
    * @since 3
    */
   /**
-   * Destroys the current ability.
+   * Destroys the current ability. It does not work in StageModel.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
