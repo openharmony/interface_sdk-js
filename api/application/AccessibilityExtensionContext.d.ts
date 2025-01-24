@@ -1038,6 +1038,14 @@ interface ElementAttributeValues {
    * @since 16
    */
   extraInfo?: string;
+  /**
+   * Indicates the component Previous accessibility focus id.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 16
+   */
+  accessibilityPreviousFocusId?: number;
 }
 
 /**
