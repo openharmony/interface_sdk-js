@@ -1060,6 +1060,14 @@ declare interface ScreenCaptureConfig {
  * @atomicservice
  * @since 11
  */
+/**
+ * Define the handler to exit the full screen mode, related to the {@link onFullScreenEnter} event.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
 declare class FullScreenExitHandler {
   /**
    * Constructor.
@@ -1073,6 +1081,14 @@ declare class FullScreenExitHandler {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Constructor.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   constructor();
 
@@ -1089,6 +1105,14 @@ declare class FullScreenExitHandler {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Exit the full screen mode.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   exitFullScreen(): void;
 }
 
@@ -1100,6 +1124,15 @@ declare class FullScreenExitHandler {
  * @atomicservice
  * @since 12
  */
+/**
+ * Defines the event details when the web component enter full screen mode.
+ *
+ * @typedef FullScreenEnterEvent
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
 declare interface FullScreenEnterEvent {
   /**
    * A function handle to exit full-screen mode.
@@ -1108,6 +1141,15 @@ declare interface FullScreenEnterEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * A function handle to exit full-screen mode.
+   *
+   * @type { FullScreenExitHandler }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   handler: FullScreenExitHandler;
 
@@ -1119,6 +1161,15 @@ declare interface FullScreenEnterEvent {
    * @atomicservice
    * @since 12
    */
+  /**
+   * The intrinsic width of the video if the fullscreen element contains video element, expressed in CSS pixels.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   videoWidth?: number;
 
   /**
@@ -1128,6 +1179,15 @@ declare interface FullScreenEnterEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * The intrinsic height of the video if the fullscreen element contains video element, expressed in CSS pixels.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   videoHeight?: number;
 }
@@ -1140,6 +1200,16 @@ declare interface FullScreenEnterEvent {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12
+ */
+/**
+ * The callback when the web component enter full screen mode.
+ *
+ * @typedef { function } OnFullScreenEnterCallback
+ * @param { FullScreenEnterEvent } event - callback information of onFullScreenEnter.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 16
  */
 type OnFullScreenEnterCallback = (event: FullScreenEnterEvent) => void;
 
@@ -5322,6 +5392,15 @@ declare interface OnAlertEvent {
  * @atomicservice
  * @since 12
  */
+/**
+ * Defines the triggered function when the web page wants to confirm navigation from JavaScript onbeforeunload.
+ *
+ * @typedef OnBeforeUnloadEvent
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
 declare interface OnBeforeUnloadEvent {
   /**
    * The url of the page.
@@ -5330,6 +5409,15 @@ declare interface OnBeforeUnloadEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * The url of the page.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   url: string;
 
@@ -5341,6 +5429,15 @@ declare interface OnBeforeUnloadEvent {
    * @atomicservice
    * @since 12
    */
+  /**
+   * The message of confirm dialog.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   message: string;
 
   /**
@@ -5350,6 +5447,15 @@ declare interface OnBeforeUnloadEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   *  Handle the user's JavaScript result.
+   *
+   * @type { JsResult }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   result: JsResult;
 }
@@ -5623,6 +5729,15 @@ declare interface OnDownloadStartEvent {
  * @atomicservice
  * @since 12
  */
+/**
+ * Defines the triggered callback when the Web page refreshes accessed history.
+ *
+ * @typedef OnRefreshAccessedHistoryEvent
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
 declare interface OnRefreshAccessedHistoryEvent {
   /**
    * URL of the visit.
@@ -5631,6 +5746,15 @@ declare interface OnRefreshAccessedHistoryEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * URL of the visit.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   url: string;
 
@@ -5641,6 +5765,15 @@ declare interface OnRefreshAccessedHistoryEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * If true, the page is being reloaded, otherwise,  means that the page is newly loaded.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   isRefreshed: boolean;
 }
@@ -7265,6 +7398,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Triggered when the Web wants to confirm navigation from JavaScript onbeforeunload.
+   *
+   * @param { Callback<OnBeforeUnloadEvent, boolean> } callback The triggered function when the web page wants to confirm navigation from JavaScript onbeforeunload.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   onBeforeUnload(callback: Callback<OnBeforeUnloadEvent, boolean>): WebAttribute;
 
   /**
@@ -7482,6 +7625,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Triggered when the Web page refreshes accessed history.
+   *
+   * @param { Callback<OnRefreshAccessedHistoryEvent> } callback The triggered callback when the Web page refreshes accessed history.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   onRefreshAccessedHistory(callback: Callback<OnRefreshAccessedHistoryEvent>): WebAttribute;
 
   /**
@@ -7635,6 +7788,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Triggered when the web component exit the full screen mode.
+   *
+   * @param { function } callback The triggered function when the web component exit the full screen mode.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   onFullScreenExit(callback: () => void): WebAttribute;
 
   /**
@@ -7662,6 +7825,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Triggered when the web component enter the full screen mode.
+   *
+   * @param { OnFullScreenEnterCallback } callback - The triggered function when the web component enter the full screen mode.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   onFullScreenEnter(callback: OnFullScreenEnterCallback): WebAttribute;
 
