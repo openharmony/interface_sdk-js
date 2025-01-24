@@ -1099,7 +1099,7 @@ declare namespace AbilityConstant {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   export enum PrepareTermination {
     /**
@@ -1108,7 +1108,7 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     TERMINATE_IMMEDIATELY = 0,
 
@@ -1118,7 +1118,7 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     CANCEL = 1
   }
