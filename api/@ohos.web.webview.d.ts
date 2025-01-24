@@ -1684,6 +1684,17 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Check whether exists any cookies.
+     *
+     * @param { boolean } incognito - {@code true} check whether exists any cookies.
+     *                                in incognito mode; {@code false} otherwise.
+     * @returns { boolean } True if exists more than one cookie else false;
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
     static existCookie(incognito?: boolean): boolean;
 
     /**
@@ -1764,6 +1775,16 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Delete the session cookies Asynchronously.
+     * @param { AsyncCallback<void> } callback - Called after the cookies have been deleted.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
      */
     static clearSessionCookie(callback: AsyncCallback<void>): void;
   }
