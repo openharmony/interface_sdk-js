@@ -896,6 +896,14 @@ declare namespace webview {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Provides methods for managing web storage.3
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   class WebStorage {
     /**
      * Delete all the storage data.
@@ -911,6 +919,16 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Delete all the storage data.
+     *
+     * @param { boolean } incognito - {@code true} delete all the storage data in incognito mode;
+     *                                {@code false} otherwise.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
      */
     static deleteAllData(incognito?: boolean): void;
 
@@ -935,6 +953,18 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Delete the storage data with the origin.
+     *
+     * @param { string } origin - The origin which to be deleted.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
     static deleteOrigin(origin: string): void;
 
     /**
@@ -955,6 +985,17 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Get current all the web storage origins.
+     * @returns { Promise<Array<WebStorageOrigin>> } - returns all the WebStorageOrigin.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100012 - Invalid web storage origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
     static getOrigins(): Promise<Array<WebStorageOrigin>>;
 
     /**
@@ -974,6 +1015,17 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Get current all the web storage origins.
+     * @param { AsyncCallback<Array<WebStorageOrigin>> } callback - callback used to return all the WebStorageOrigin.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100012 - Invalid web storage origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
      */
     static getOrigins(callback: AsyncCallback<Array<WebStorageOrigin>>): void;
 
@@ -996,6 +1048,18 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Get the web storage quota with the origin.
+     * @param { string } origin -  The origin which to be inquired.
+     * @returns { Promise<number> } - the promise returned by the function
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
      */
     static getOriginQuota(origin: string): Promise<number>;
 
@@ -1020,6 +1084,18 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Get the web storage quota with the origin.
+     * @param { string } origin -  The origin which to be inquired.
+     * @param { AsyncCallback<number> } callback - the callback of getOriginQuota.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
     static getOriginQuota(origin: string, callback: AsyncCallback<number>): void;
 
     /**
@@ -1043,6 +1119,18 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Get the web amount of storage with the origin.
+     * @param { string } origin -  The origin which to be inquired.
+     * @returns { Promise<number> } - the promise returned by the function
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
     static getOriginUsage(origin: string): Promise<number>;
 
     /**
@@ -1065,6 +1153,18 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Get the web amount of storage with the origin.
+     * @param { string } origin -  The origin which to be inquired.
+     * @param { AsyncCallback<number> } callback - the callback of getOriginUsage.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 16
      */
     static getOriginUsage(origin: string, callback: AsyncCallback<number>): void;
   }
