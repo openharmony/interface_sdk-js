@@ -479,6 +479,15 @@ declare enum MessageLevel {
  * @atomicservice
  * @since 11
  */
+/**
+ * The Web's behavior to load from HTTP or HTTPS. Defaults to MixedMode.None.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
 declare enum MixedMode {
   /**
    * Allows all sources.
@@ -492,6 +501,14 @@ declare enum MixedMode {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Allows all sources.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   All = 0,
 
@@ -508,6 +525,14 @@ declare enum MixedMode {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Allows sources Compatibly.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   Compatible = 1,
 
   /**
@@ -522,6 +547,14 @@ declare enum MixedMode {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Don't allow unsecure sources from a secure origin.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   None = 2
 }
@@ -689,6 +722,15 @@ declare enum HitTestType {
  * @atomicservice
  * @since 11
  */
+/**
+ * Enum type supplied to {@link cacheMode} for setting the Web cache mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
 declare enum CacheMode {
   /**
    * load cache when they are available and not expired, otherwise load online.
@@ -702,6 +744,14 @@ declare enum CacheMode {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * load cache when they are available and not expired, otherwise load online.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   Default = 0,
 
@@ -718,6 +768,14 @@ declare enum CacheMode {
    * @atomicservice
    * @since 11
    */
+  /**
+   * load cache when they are available, otherwise load online.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   None = 1,
 
   /**
@@ -733,6 +791,14 @@ declare enum CacheMode {
    * @atomicservice
    * @since 11
    */
+  /**
+  * Load online and not cache.
+  *
+  * @syscap SystemCapability.Web.Webview.Core
+  * @crossplatform
+  * @atomicservice
+  * @since 16
+  */
   Online = 2,
 
   /**
@@ -747,6 +813,14 @@ declare enum CacheMode {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * load cache and not online.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   Only = 3
 }
@@ -4620,6 +4694,17 @@ declare interface WebOptions {
    * @atomicservice
    * @since 11
    */
+ /**
+   * Sets the incognito mode of the Web, the parameter is optional and default value is false.
+   * When the Web is in incognito mode, cookies, records of websites, geolocation permissions
+   * will not save in persistent files.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   incognitoMode? : boolean;
 
   /**
@@ -6736,6 +6821,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Sets whether to allow image resources to be loaded from the network.
+   *    The default value is true.
+   * @param { boolean } onlineImageAccess - {@code true} means the Web can allow image resources to be loaded from the network;
+   * {@code false} otherwise.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   onlineImageAccess(onlineImageAccess: boolean): WebAttribute;
 
   /**
@@ -6756,6 +6852,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Sets whether to enable the DOM Storage API permission.
+   *    The default value is false.
+   * @param { boolean } domStorageAccess - {@code true} means enable the DOM Storage API permission in Web; {@code false} otherwise.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   domStorageAccess(domStorageAccess: boolean): WebAttribute;
 
@@ -6778,6 +6884,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Sets whether the Web can automatically load image resources.
+   *    The default value is true.
+   * @param { boolean } imageAccess - {@code true} means the Web can automatically load image resources; {@code false} otherwise.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   imageAccess(imageAccess: boolean): WebAttribute;
 
   /**
@@ -6797,6 +6913,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
+  /**
+  * Sets how to load HTTP and HTTPS content.
+  *
+  * @param { MixedMode } mixedMode - The mixed mode, which can be {@link MixedMode}.
+  * @returns { WebAttribute }
+  * @syscap SystemCapability.Web.Webview.Core
+  * @crossplatform
+  * @atomicservice
+  * @since 16
+  */
   mixedMode(mixedMode: MixedMode): WebAttribute;
 
   /**
@@ -6916,6 +7042,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Sets the mode of cache in Web.
+   *
+   * @param { CacheMode } cacheMode - The cache mode, which can be {@link CacheMode}.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   cacheMode(cacheMode: CacheMode): WebAttribute;
 
@@ -8492,6 +8628,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Whether web component can load resource from network.
+   *
+   * @param { boolean } block {@code true} means it can't load resource from network; {@code false} otherwise.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   blockNetwork(block: boolean): WebAttribute;
 
