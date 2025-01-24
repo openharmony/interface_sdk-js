@@ -1303,7 +1303,7 @@ declare namespace formInfo {
      *
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
-     * @since 14
+     * @since 16
      */
     DIMENSION_2_3 = 8,
 
@@ -1312,7 +1312,7 @@ declare namespace formInfo {
      *
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
-     * @since 14
+     * @since 16
      */
     DIMENSION_3_3 = 9,
   }
