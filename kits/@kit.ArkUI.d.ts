@@ -61,6 +61,7 @@ import {
 import { ProgressButton } from '@ohos.arkui.advanced.ProgressButton';
 import { ProgressButtonV2 } from '@ohos.arkui.advanced.ProgressButtonV2';
 import { ProgressButtonV2ColorOptions } from '@ohos.arkui.advanced.ProgressButtonV2';
+import { ProgressButtonV2Color } from '@ohos.arkui.advanced.ProgressButtonV2';
 import {
   SegmentButton, SegmentButtonOptions, SegmentButtonItemOptionsArray, TabSegmentButtonOptions,
   TabSegmentButtonConstructionOptions, CapsuleSegmentButtonOptions, CapsuleSegmentButtonConstructionOptions,
