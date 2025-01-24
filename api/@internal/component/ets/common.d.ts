@@ -11389,14 +11389,14 @@ declare interface AxisEvent extends BaseEvent {
   y: number;
 
   /**
-   * Axis config only mouse wheel has.
+   * Scroll step configuration which is only mouse wheel has.
    *  *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
    */
-  axisConfig?: number;
+  scrollStep?: number;
 
   /**
    * Active event bubbling.
