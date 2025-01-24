@@ -1529,6 +1529,17 @@ declare interface RichEditorTextSpanResult {
    * @since 12
    */
   previewText?: string;
+
+  /**
+   * RichEditor url style.
+   *
+   * @type { ?RichEditorUrlStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  urlStyle?: RichEditorUrlStyle;
 }
 
 /**
@@ -2010,6 +2021,17 @@ declare interface RichEditorTextSpanOptions {
    * @since 12
    */
   gesture?: RichEditorGesture;
+
+  /**
+   * RichEditor url style.
+   *
+   * @type { ?RichEditorUrlStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  urlStyle?: RichEditorUrlStyle;
 }
 
 /**
@@ -2305,6 +2327,17 @@ declare interface RichEditorUpdateTextSpanStyleOptions extends RichEditorSpanSty
    * @since 11
    */
   textStyle: RichEditorTextStyle;
+
+  /**
+   * RichEditor url style.
+   *
+   * @type { ?RichEditorUrlStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+    urlStyle?: RichEditorUrlStyle;
 }
 
 /**
@@ -4007,6 +4040,27 @@ declare interface CopyEvent {
    * @since 12
    */
   preventDefault?: Callback<void>;
+}
+
+/**
+ * RichEditor url style.
+ * @interface RichEditorUrlStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare interface RichEditorUrlStyle {
+  /**
+   * uniform resoure locator.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  url?: string;
 }
 
 /**
