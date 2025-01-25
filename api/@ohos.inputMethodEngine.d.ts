@@ -1699,7 +1699,7 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 12800013 - window manager service error.
      * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @since 15
      */
     startMoving(): void;
 
@@ -1710,7 +1710,7 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 12800002 - input method engine error.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @since 15
      */
     getDisplayId(): Promise<number>;
 
