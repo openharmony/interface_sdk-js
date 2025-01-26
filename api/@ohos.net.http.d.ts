@@ -94,7 +94,6 @@ declare namespace http {
     /**
      * Default, can use addresses of all IP versions that your system allows.
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
      * @since 16
      */
     DEFAULT = 'CURL_IPRESOLVE_WHATEVER',
@@ -102,7 +101,6 @@ declare namespace http {
     /**
      * ONLYV4 Uses only IPv4 addresses.
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
      * @since 16
      */
     ONLYV4 = 'CURL_IPRESOLVE_V4',
@@ -110,7 +108,6 @@ declare namespace http {
     /**
      * ONLYV6 Uses only IPv6 addresses.
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
      * @since 16
      */
     ONLYV6 = 'CURL_IPRESOLVE_V6'
@@ -535,9 +532,8 @@ declare namespace http {
 
     /**
      * Address family option.
-     * @type {AddressFamily}
+     * @type {?AddressFamily}
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
      * @since 16
      */
     addressFamily?: AddressFamily;
