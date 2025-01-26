@@ -525,12 +525,26 @@ declare namespace distributedDeviceManager {
    */
   enum StrategyForHeartBeat {
     /**
-     * Disable heart beat, which automatically recovers after timeout.
+     * Pause heart beat, which automatically recovers after timeout.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15
      */
-    STOPHEARTBEAT = 100,
+    PAUSEHEARTBEAT = 100,
+    /**
+     * Start heart beat.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    STARTHEARTBEAT = 101,
+    /**
+     * Stop the heart beat will not recover.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    STOPHEARTBEAT = 103,
   }
 
   /**
