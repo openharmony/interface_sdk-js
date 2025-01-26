@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit MultimodalAwarnessKit
+ * @kit MultimodalAwarenessKit
  */
 
 import type { Callback } from "./@ohos.base";
