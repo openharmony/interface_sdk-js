@@ -530,7 +530,7 @@ declare namespace distributedDeviceManager {
      * @systemapi
      * @since 15
      */
-    PAUSEHEARTBEAT = 100,
+    STOPHEARTBEAT = 100,
     /**
      * Start heart beat.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
