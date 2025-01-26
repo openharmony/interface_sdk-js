@@ -640,7 +640,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800004 - not an input method application.
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @since 15
      */
     getInputMethodState(): Promise<EnabledState>;
   }
