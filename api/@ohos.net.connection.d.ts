@@ -806,6 +806,30 @@ declare namespace connection {
   function setGlobalHttpProxy(httpProxy: HttpProxy): Promise<void>;
 
   /**
+   * Set the URL {@link pacUrl} of the current PAC script.
+   * To invoke this method, you must have the {@code ohos.permission.SET_PAC_URL} permission.
+   * @permission ohos.permission.SET_PAC_URL
+   * @param { string } pacUrl - Indicates the URL of the current PAC script.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 15
+   */
+  function setPacUrl(pacUrl: string): void;
+
+  /**
+   * Obtain the URL {@link pacUrl} of the current PAC script.
+   * @returns { string } Returns the URL of the current PAC script or empty string if there is no PAC script.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 15
+   */
+  function getPacUrl(): string;
+
+  /**
    * Add a custom {@link host} and corresponding {@link ip} mapping for current application.
    * @permission ohos.permission.INTERNET
    * @param { string } host - Indicates the host name or the domain.
