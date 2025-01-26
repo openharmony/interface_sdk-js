@@ -8444,7 +8444,7 @@ declare namespace webview {
        * Returns if reverse bypass rules.
        * 
        * @returns { boolean } If reverse bypass enabled.
-       * @yscap SystemCapability.Web.Webview.Core
+       * @syscap SystemCapability.Web.Webview.Core
        * @since 16
        */
       isReverseBypassEnabled(): boolean;
