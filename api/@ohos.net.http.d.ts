@@ -103,14 +103,14 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 16
      */
-    ONLYV4 = 'CURL_IPRESOLVE_V4',
+    ONLY_V4 = 'CURL_IPRESOLVE_V4',
  
     /**
      * ONLYV6 Uses only IPv6 addresses.
      * @syscap SystemCapability.Communication.NetStack
      * @since 16
      */
-    ONLYV6 = 'CURL_IPRESOLVE_V6'
+    ONLY_V6 = 'CURL_IPRESOLVE_V6'
   }
 
   /**
