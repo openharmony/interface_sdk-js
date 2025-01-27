@@ -8125,6 +8125,18 @@ declare namespace window {
     setWindowDecorVisible(isVisible: boolean): void;
 
     /**
+     * Get the visibility of the window decor.
+     *
+     * @returns { boolean } - The visibility of window decor, true if the decor is visible, otherwise means the.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 16
+     */
+    getWindowDecorVisible(): boolean;
+
+    /**
      * Set whether window can be moved by drag title.
      *
      * @param { boolean } enabled - Enable the window title move if true, otherwise means the opposite.
