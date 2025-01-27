@@ -93,6 +93,47 @@ declare interface CrossLanguageOptions {
 }
 
 /**
+ * Enum for the expand mode.
+ * 
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+export enum ExpandMode {
+  /**
+   * Expand the children of node.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  EXPAND = 0,
+
+  /**
+   * Do not expand the children of node.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  NOT_EXPAND = 1,
+
+  /**
+   * Expand the children of node if needed.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  LAZY_EXPAND = 2,
+}
+
+/**
  * Defines FrameNode.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -216,6 +257,41 @@ export class FrameNode {
    * @since 12
    */
   getChild(index: number): FrameNode | null;
+
+  /**
+   * Get a child of the current FrameNode by index.
+   *
+   * @param { number } index - The index of the desired node in the children of FrameNode.
+   * @param { ExpandMode } expandMode - The expand mode. Default value is ExpandMode.EXPAND.
+   * @returns { FrameNode | null } - Returns a FrameNode. When the required node does not exist, returns null.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  getChild(index: number, expandMode?: ExpandMode): FrameNode | null;
+
+  /**
+   * Get the index of the current FrameNode's first child node which is on the tree.
+   * 
+   * @returns { number } - Returns the index of the current FrameNode's first child node which is on the tree.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  getFirstChildIndexWithoutExpand(): number;
+
+  /**
+   * Get the index of the current FrameNode's last child node which is on the tree.
+   * 
+   * @returns { number } - Returns the index of the current FrameNode's last child node which is on the tree.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  getLastChildIndexWithoutExpand(): number;
 
   /**
    * Get the first child of the current FrameNode.
