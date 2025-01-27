@@ -1580,6 +1580,7 @@ declare namespace contact {
      * Only the contacts that meet the filter condition will be displayed.
      *
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
      * @since 15
      */
     SHOW_FILTER,
@@ -1588,6 +1589,7 @@ declare namespace contact {
      * Contacts that meet the filter condition will be selected by default.
      *
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
      * @since 15
      */
     DEFAULT_SELECT,
@@ -1596,6 +1598,7 @@ declare namespace contact {
      * Only the contacts that meet the filter condition will be displayed and are selected by default.
      *
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
      * @since 15
      */
     SHOW_FILTER_AND_DEFAULT_SELECT,
@@ -1695,6 +1698,7 @@ declare namespace contact {
      * Field is not null.
      *
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
      * @since 15
      */
     IS_NOT_NULL,
@@ -1703,6 +1707,7 @@ declare namespace contact {
      * Field equal to value, value type is string.
      *
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
      * @since 15
      */
     EQUAL_TO,
@@ -1711,6 +1716,7 @@ declare namespace contact {
      * Field not equal to value, value type is string.
      *
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
      * @since 15
      */
     NOT_EQUAL_TO,
@@ -1719,6 +1725,7 @@ declare namespace contact {
      * Field in value, value type is ValueType[].
      *
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
      * @since 15
      */
     IN,
@@ -1727,6 +1734,7 @@ declare namespace contact {
      * Field not in value, value type is ValueType[].
      *
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
      * @since 15
      */
     NOT_IN,
@@ -1735,6 +1743,7 @@ declare namespace contact {
      * Field contains value, value type is string.
      *
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
      * @since 15
      */
     CONTAINS,
@@ -1784,6 +1793,7 @@ declare namespace contact {
      * Indicates email addresses of the contact.
      *
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
      * @since 15
      */
     EMAIL,
@@ -1792,6 +1802,7 @@ declare namespace contact {
      * Indicates a phone of the contact.
      *
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
      * @since 15
      */
     PHONE,
@@ -1800,6 +1811,7 @@ declare namespace contact {
      * Indicates organization information of the contact.
      *
      * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
      * @since 15
      */
     ORGANIZATION,
