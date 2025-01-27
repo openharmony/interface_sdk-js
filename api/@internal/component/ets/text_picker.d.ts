@@ -1488,6 +1488,8 @@ declare class TextPickerDialog {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 16
+   * @useinstead ohos.arkui.UIContext.UIContext#showTextPickerDialog
    */
   static show(options?: TextPickerDialogOptions);
 }

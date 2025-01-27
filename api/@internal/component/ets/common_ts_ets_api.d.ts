@@ -1859,6 +1859,8 @@ declare class LocalStorage {
    * @form
    * @atomicservice
    * @since 11
+   * @deprecated since 16
+   * @useinstead ohos.arkui.UIContext.UIContext#getSharedLocalStorage
    */
   static getShared(): LocalStorage;
 

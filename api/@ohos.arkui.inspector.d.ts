@@ -153,6 +153,8 @@ declare namespace inspector {
    * @crossplatform
    * @atomicservice
    * @since 12
+   * @deprecated since 16
+   * @useinstead ohos.arkui.UIContext.UIInspector#createComponentObserver
    */
   function createComponentObserver(id: string): ComponentObserver;
 }

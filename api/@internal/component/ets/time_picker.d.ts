@@ -1146,6 +1146,8 @@ declare class TimePickerDialog {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 16
+   * @useinstead ohos.arkui.UIContext.UIContext#showTimePickerDialog
    */
   static show(options?: TimePickerDialogOptions);
 }

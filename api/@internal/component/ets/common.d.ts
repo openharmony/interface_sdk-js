@@ -1294,6 +1294,8 @@ declare const LocalStorageProp: (value: string) => PropertyDecorator;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @deprecated since 16
+ * @useinstead ohos.arkui.UIContext.UIContext#getHostContext
  */
 declare function getContext(component?: Object): Context;
 
@@ -7095,6 +7097,8 @@ declare interface DragItemInfo {
  * @form
  * @atomicservice
  * @since 11
+ * @deprecated since 16
+ * @useinstead ohos.arkui.UIContext.UIContext#animateTo
  */
 declare function animateTo(value: AnimateParam, event: () => void): void;
 
@@ -7147,6 +7151,8 @@ declare function animateToImmediately(value: AnimateParam, event: () => void): v
  * @form
  * @atomicservice
  * @since 11
+ * @deprecated since 16
+ * @useinstead ohos.arkui.UIContext.UIContext#vp2px
  */
 declare function vp2px(value: number): number;
 
@@ -7187,6 +7193,8 @@ declare function vp2px(value: number): number;
  * @form
  * @atomicservice
  * @since 11
+ * @deprecated since 16
+ * @useinstead ohos.arkui.UIContext.UIContext#px2vp
  */
 declare function px2vp(value: number): number;
 
@@ -7227,6 +7235,8 @@ declare function px2vp(value: number): number;
  * @form
  * @atomicservice
  * @since 11
+ * @deprecated since 16
+ * @useinstead ohos.arkui.UIContext.UIContext#fp2px
  */
 declare function fp2px(value: number): number;
 
@@ -7267,6 +7277,8 @@ declare function fp2px(value: number): number;
  * @form
  * @atomicservice
  * @since 11
+ * @deprecated since 16
+ * @useinstead ohos.arkui.UIContext.UIContext#px2fp
  */
 declare function px2fp(value: number): number;
 
@@ -7307,6 +7319,8 @@ declare function px2fp(value: number): number;
  * @form
  * @atomicservice
  * @since 11
+ * @deprecated since 16
+ * @useinstead ohos.arkui.UIContext.UIContext#lpx2px
  */
 declare function lpx2px(value: number): number;
 
@@ -7347,6 +7361,8 @@ declare function lpx2px(value: number): number;
  * @form
  * @atomicservice
  * @since 11
+ * @deprecated since 16
+ * @useinstead ohos.arkui.UIContext.UIContext#px2lpx
  */
 declare function px2lpx(value: number): number;
 
