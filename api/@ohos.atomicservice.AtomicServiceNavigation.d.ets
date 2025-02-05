@@ -29,32 +29,32 @@ import { Callback } from '@ohos.base';
  * @since 16
  */
 export declare enum MixMode {
-  /**
-   * when the MixMode set AVERAGE,the mixing method for background colors is that the two colors have equal 
-   * proportions .
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 16
-   */
-  AVERAGE = 1,
-  /**
-   * when the MixMode set CROSS,the color mixing method for the background is a transition where one color crosses 
-   * through to another .
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 16
-   */
-  CROSS = 2,
-  /**
-   * when the MixMode set TOWARDS,the color mixing method for the background is a transition from one color to another .
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 16
-   */
-  TOWARDS = 3
+    /**
+     * when the MixMode set AVERAGE,the mixing method for background colors is that the two colors have equal
+     * proportions .
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    AVERAGE = 1,
+    /**
+     * when the MixMode set CROSS,the color mixing method for the background is a transition where one color crosses
+     * through to another .
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    CROSS = 2,
+    /**
+     * when the MixMode set TOWARDS,the color mixing method for the background is a transition from one color to another .
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    TOWARDS = 3
 }
 /**
  * the enum for the opacity  of the background color .
@@ -65,40 +65,73 @@ export declare enum MixMode {
  * @since 16
  */
 export declare enum GradientAlpha {
-  /**
-   * when the GradientAlpha set LEVEL1,the opacity of background colors is 20%
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 16
-   */
-  LEVEL1 = 1,
-  /**
-   * when the GradientAlpha set LEVEL2,the opacity of background colors is 60%
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 16
-   */
-  LEVEL2 = 2,
-  /**
-   * when the GradientAlpha set LEVEL3,the opacity of background colors is 80%
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 16
-   */
-  LEVEL3 = 3,
-  /**
-   * when the GradientAlpha set LEVEL4,the opacity of background colors is 100%
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 16
-   */
-  LEVEL4 = 4
+    /**
+     * when the GradientAlpha set LEVEL1,the opacity of background colors is 20%
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    LEVEL1 = 1,
+    /**
+     * when the GradientAlpha set LEVEL2,the opacity of background colors is 60%
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    LEVEL2 = 2,
+    /**
+     * when the GradientAlpha set LEVEL3,the opacity of background colors is 80%
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    LEVEL3 = 3,
+    /**
+     * when the GradientAlpha set LEVEL4,the opacity of background colors is 100%
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    LEVEL4 = 4
 }
-
+/**
+ * the theme of the background color .
+ *
+ * @enum { number }.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
+export declare enum BackgroundTheme {
+    /**
+     * when the BackgroundTheme set DARK,the basic color of background is dark
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    DARK = 1,
+    /**
+     * when the BackgroundTheme set LIGHT,the basic color of background  is rgb(241,243,245)
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    LIGHT = 2,
+    /**
+     * when the BackgroundTheme set DEFAULT,the basic color of background  is white
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    DEFAULT = 3
+}
 /**
  * Defines AtomicServiceNavigation.
  *
@@ -109,137 +142,137 @@ export declare enum GradientAlpha {
  */
 @Component
 export declare struct AtomicServiceNavigation {
-  /**
-   * the information of route page.Providers methods for controlling destination page in the stack.
-   *
-   * @type { ?NavPathStack }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  @State
-  navPathStack?: NavPathStack;
-  /**
-   * the content of Navigation.
-   *
-   * @type { ?Callback<void> }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  @BuilderParam
-  navigationContent?: Callback<void>;
-  /**
-   * Sets the Navigation title.
-   *
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  @Prop
-  title?: ResourceStr;
-  /**
-   * The color of Navigation's TitleBar.
-   *
-   * @type { ?TitleOptions }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  @Prop
-  titleOptions?: TitleOptions;
-  /**
-   * The background with gradient colors of Navigation .
-   *
-   * @type { ?gradientBackground }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 16
-   */
-  @Prop
-  gradientBackground?: gradientBackground;
-  /**
-   * Hide navigation title bar.
-   *
-   * @type { ?boolean }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  @Prop
-  hideTitleBar?: boolean;
-  /**
-   * Sets the width of navigation bar.
-   *
-   * @type { ?Length }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  @Prop
-  navBarWidth?: Length;
-  /**
-   * Sets the mode of navigation.
-   *
-   * @type { ?NavigationMode }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  @Prop
-  mode?: NavigationMode;
-  /**
-   * The builder of navDestination.
-   *
-   * @type { ?NavDestinationBuilder }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  @BuilderParam
-  navDestinationBuilder?: NavDestinationBuilder;
-  /**
-   * Sets the minimum width and the maximum width of navigation bar.
-   *
-   * @type { ?[Dimension, Dimension] }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  @Prop
-  navBarWidthRange?: [
-    Dimension,
-    Dimension
-  ];
-  /**
-   * Sets the minimum width of content.
-   *
-   * @type { ?Dimension }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  @Prop
-  minContentWidth?: Dimension;
-  /**
-   * Trigger callback when the visibility of navigation bar change.
-   *
-   * @type { ?Callback<boolean> }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  stateChangeCallback?: Callback<boolean>;
-  /**
-   * Trigger callback when navigation mode changes.
-   *
-   * @type { ?Callback<NavigationMode> }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  modeChangeCallback?: Callback<NavigationMode>;
+    /**
+     * the information of route page.Providers methods for controlling destination page in the stack.
+     *
+     * @type { ?NavPathStack }.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
+    @State
+    navPathStack?: NavPathStack;
+    /**
+     * the content of Navigation.
+     *
+     * @type { ?Callback<void> }.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
+    @BuilderParam
+    navigationContent?: Callback<void>;
+    /**
+     * Sets the Navigation title.
+     *
+     * @type { ?ResourceStr }.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
+    @Prop
+    title?: ResourceStr;
+    /**
+     * The color of Navigation's TitleBar.
+     *
+     * @type { ?TitleOptions }.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
+    @Prop
+    titleOptions?: TitleOptions;
+    /**
+     * The background with gradient colors of Navigation .
+     *
+     * @type { ?gradientBackground }.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    @Prop
+    gradientBackground?: gradientBackground;
+    /**
+     * Hide navigation title bar.
+     *
+     * @type { ?boolean }.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
+    @Prop
+    hideTitleBar?: boolean;
+    /**
+     * Sets the width of navigation bar.
+     *
+     * @type { ?Length }.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
+    @Prop
+    navBarWidth?: Length;
+    /**
+     * Sets the mode of navigation.
+     *
+     * @type { ?NavigationMode }.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
+    @Prop
+    mode?: NavigationMode;
+    /**
+     * The builder of navDestination.
+     *
+     * @type { ?NavDestinationBuilder }.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
+    @BuilderParam
+    navDestinationBuilder?: NavDestinationBuilder;
+    /**
+     * Sets the minimum width and the maximum width of navigation bar.
+     *
+     * @type { ?[Dimension, Dimension] }.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
+    @Prop
+    navBarWidthRange?: [
+        Dimension,
+        Dimension
+    ];
+    /**
+     * Sets the minimum width of content.
+     *
+     * @type { ?Dimension }.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
+    @Prop
+    minContentWidth?: Dimension;
+    /**
+     * Trigger callback when the visibility of navigation bar change.
+     *
+     * @type { ?Callback<boolean> }.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
+    stateChangeCallback?: Callback<boolean>;
+    /**
+     * Trigger callback when navigation mode changes.
+     *
+     * @type { ?Callback<NavigationMode> }.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
+    modeChangeCallback?: Callback<NavigationMode>;
 }
 
 /**
@@ -251,37 +284,37 @@ export declare struct AtomicServiceNavigation {
  * @since 12
  */
 export interface TitleOptions {
-  /**
-   * Background color.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  backgroundColor?: ResourceColor;
+    /**
+     * Background color.
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
+    backgroundColor?: ResourceColor;
 
-  /**
-   * Whether to enable the blur effect.
-   *
-   * @type { ?boolean }.
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  isBlurEnabled?: boolean;
+    /**
+     * Whether to enable the blur effect.
+     *
+     * @type { ?boolean }.
+     * @default true
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
+    isBlurEnabled?: boolean;
 
-  /**
-   * Set title bar style.
-   *
-   * @type { ?BarStyle }
-   * @default BarStyle.STANDARD
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  barStyle?: BarStyle;
+    /**
+     * Set title bar style.
+     *
+     * @type { ?BarStyle }
+     * @default BarStyle.STANDARD
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
+    barStyle?: BarStyle;
 }
 
 /**
@@ -293,45 +326,55 @@ export interface TitleOptions {
  * @since 16
  */
 export interface gradientBackground {
-  /**
-   * the primaryColor of Background .
-   *
-   * @type { ?ResourceColor | String}
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 16
-   */
-  primaryColor?: ResourceColor | String,
+    /**
+     * the primaryColor of Background .
+     *
+     * @type { ResourceColor}
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    primaryColor: ResourceColor,
 
-  /**
-   * the secondColor of Background .
-   *
-   * @type { ?ResourceColor | String}
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 16
-   */
-  secondColor?: ResourceColor | String,
+    /**
+     * the secondColor of Background .
+     *
+     * @type { ?ResourceColor}
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    secondColor?: ResourceColor,
 
-  /**
-   * the blend mode of background color .
-   *
-   * @type { ?MixMode }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 16
-   */
-  mixMode?: MixMode,
+    /**
+     * the theme color of Background .
+     *
+     * @type { ?BackgroundTheme}
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    backGroundTheme?: BackgroundTheme;
 
-  /**
-   * the opacity of background colors .
-   *
-   * @type { ?GradientAlpha }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 16
-   */
-  alpha?: GradientAlpha
+    /**
+     * the blend mode of background color .
+     *
+     * @type { ?MixMode }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    mixMode?: MixMode,
+
+    /**
+     * the opacity of background colors .
+     *
+     * @type { ?GradientAlpha }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    alpha?: GradientAlpha
 }
 
 /**
