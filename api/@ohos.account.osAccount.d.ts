@@ -1164,7 +1164,7 @@ declare namespace osAccount {
      * @returns { Promise<number> } Returns local ID of the foreground OS account.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 14
+     * @since 15
      */
     getForegroundOsAccountLocalId(): Promise<number>;
 
@@ -1500,7 +1500,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300003 - OS account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 14
+     * @since 15
      */
     getOsAccountDomainInfo(localId: number): Promise<DomainAccountInfo>;
 
