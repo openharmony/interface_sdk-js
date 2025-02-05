@@ -1172,7 +1172,7 @@ declare namespace distributedDeviceManager {
      *                                                  1. Mandatory parameters are left unspecified;
      *                                                  2. Incorrect parameter types;
      *                                                  3. Parameter verification failed.
-     * @throws { BusinessError } 11600101 - Failed to execute the function.
+     * @throws { BusinessError } 11600102 - Failed to obtain service.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15
