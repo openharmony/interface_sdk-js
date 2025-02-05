@@ -517,22 +517,22 @@ declare namespace distributedDeviceManager {
   }
 
   /**
-   * Heart beat policy.
+   * Heartbeat policy.
    * @enum {number}
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi
    * @since 15
    */
-  enum StrategyForHeartBeat {
+  enum StrategyForHeartbeat {
     /**
-     * Temporarily stop heart beat, which automatically recovers after timeout.
+     * Temporarily stop heartbeat, which automatically recovers after timeout.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15
      */
     TEMP_STOP_HEARTBEAT = 100,
     /**
-     * Start heart beat.
+     * Start heartbeat.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15
@@ -1161,11 +1161,11 @@ declare namespace distributedDeviceManager {
     setRemoteDeviceName(deviceId: string, deviceName: string): Promise<number>;
 
     /**
-     * Set heart beat policy.
+     * Set heartbeat policy.
      *
      * @permission ohos.permission.ACCESS_SERVICE_DM
-     * @param { StrategyForHeartBeat } policy  - Heart beat policy.
-     * @param { number } delayTime  - Indicates the duration for disable heart beat.
+     * @param { StrategyForHeartbeat } policy  - Heartbeat policy.
+     * @param { number } delayTime  - Indicates the duration for disable heartbeat.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1177,7 +1177,7 @@ declare namespace distributedDeviceManager {
      * @systemapi
      * @since 15
     */
-    setHeartBeatPolicy(policy: StrategyForHeartBeat, delayTime: number): void;
+    setHeartbeatPolicy(policy: StrategyForHeartbeat, delayTime: number): void;
   }
 }
 
