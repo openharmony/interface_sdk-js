@@ -568,7 +568,7 @@ declare namespace http {
     addressFamily?: AddressFamily;
   }
 
-     /**
+   /**
     * HTTP server authentication.
     * @typedef ServerAuthentication
     * @syscap SystemCapability.Communication.NetStack
