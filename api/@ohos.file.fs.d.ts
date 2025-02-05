@@ -18,7 +18,7 @@
  * @kit CoreFileKit
  */
 
-import { AsyncCallback } from './@ohos.base';
+import { AsyncCallback, BusinessError } from './@ohos.base';
 import stream from './@ohos.util.stream';
 
 export default fileIo;
@@ -7332,6 +7332,7 @@ export class AtomicFile {
   /**
    * The AtomicFile constructor.
    * @param { string } path file path.
+   * @throws { BusinessError } 401 Parameter error.Possible causes:1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 16
    */
