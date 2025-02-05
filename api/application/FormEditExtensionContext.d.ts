@@ -39,6 +39,7 @@ export default class FormEditExtensionContext extends UIExtensionContext {
      * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 16501000 - Internal error.
      * @syscap SystemCapability.Ability.AppExtension.FormEditExtension
+     * @stagemodelonly
      * @since 16
      */
 	startSecondPage(want: Want): Promise<AbilityResult>;
