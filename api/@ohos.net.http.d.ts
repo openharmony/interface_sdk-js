@@ -530,7 +530,7 @@ declare namespace http {
      */
     certificatePinning?: CertificatePinning | CertificatePinning[];
 
-    /**
+     /**
       * Certificate authority(CA) which is used to verify the remote server's identification.
       * @type {?RemoteValidation}
       * @syscap SystemCapability.Communication.NetStack
