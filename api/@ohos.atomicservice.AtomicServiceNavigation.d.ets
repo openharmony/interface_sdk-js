@@ -329,22 +329,22 @@ export interface gradientBackground {
     /**
      * the primaryColor of Background .
      *
-     * @type { ResourceColor}
+     * @type { ?ResourceColor | String}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 16
      */
-    primaryColor: ResourceColor,
+    primaryColor?: ResourceColor | String,
 
     /**
      * the secondColor of Background .
      *
-     * @type { ?ResourceColor}
+     * @type { ?ResourceColor | String}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 16
      */
-    secondColor?: ResourceColor,
+    secondColor?: ResourceColor | String,
 
     /**
      * the theme color of Background .
