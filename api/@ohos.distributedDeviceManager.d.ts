@@ -1177,7 +1177,7 @@ declare namespace distributedDeviceManager {
      * @systemapi
      * @since 15
     */
-    SetHeartBeatPolicy(policy: StrategyForHeartBeat, delayTime: number): void;
+    setHeartBeatPolicy(policy: StrategyForHeartBeat, delayTime: number): void;
   }
 }
 
