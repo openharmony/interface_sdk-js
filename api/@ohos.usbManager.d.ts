@@ -45,7 +45,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.                             
-   * @throws { BusinessError } 14400001 - Permission denied. Call requestRight to get the permission first.
+   * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
    * @syscap SystemCapability.USB.USBManager
    * @since 9
    */
@@ -2048,10 +2048,10 @@ declare namespace usbManager {
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
-   * @throws { BusinessError } 14400006 - Transmission I/O error.
    * @throws { BusinessError } 14400007 - Resource busy.
    * @throws { BusinessError } 14400008 - No such device (it may have been disconnected).
    * @throws { BusinessError } 14400009 - Insufficient memory.
+   * @throws { BusinessError } 14400012 - Transmission I/O error.
    * @syscap SystemCapability.USB.USBManager
    * @since 16
    */
