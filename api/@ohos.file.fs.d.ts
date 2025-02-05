@@ -18,7 +18,7 @@
  * @kit CoreFileKit
  */
 
-import { AsyncCallback, BusinessError } from './@ohos.base';
+import { AsyncCallback } from './@ohos.base';
 import stream from './@ohos.util.stream';
 
 export default fileIo;
