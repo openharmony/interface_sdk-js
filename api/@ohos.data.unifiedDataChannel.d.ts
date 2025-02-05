@@ -493,7 +493,7 @@ declare namespace unifiedDataChannel {
      * @returns { Array<string> } Return the types of unified record.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     getTypes(): Array<string>;
 
@@ -506,7 +506,7 @@ declare namespace unifiedDataChannel {
      * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     addEntry(type: string, value: ValueType): void;
 
@@ -519,7 +519,7 @@ declare namespace unifiedDataChannel {
      * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     getEntry(type: string): ValueType;
 
@@ -529,7 +529,7 @@ declare namespace unifiedDataChannel {
      * @returns { Record<string, ValueType> } Return all entries in the record.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     getEntries(): Record<string, ValueType>;
   }
