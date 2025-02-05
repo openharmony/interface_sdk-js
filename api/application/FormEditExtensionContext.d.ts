@@ -31,5 +31,15 @@ import type { AbilityResult } from '../ability/abilityResult';
  */
 export default class FormEditExtensionContext extends UIExtensionContext {
 	
+	/**
+     * Start form edit second page.
+     * @param { Want } want - Indicates the want info of the UI extension.
+     * @returns { Promise<AbilityResult> } Returns the result of save.
+     * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified.
+     * <br>2.Incorrect parameter types.
+     * @throws { BusinessError } 16501000 - Internal error.
+     * @syscap SystemCapability.Ability.AppExtension.FormEditExtension
+     * @since 16
+     */
 	startSecondPage(want: Want): Promise<AbilityResult>;
 }
