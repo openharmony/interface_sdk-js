@@ -19,7 +19,6 @@
  */
 
 import { Callback } from '@ohos.base';
-
 /**
  * the enum for the blend mode of background color .
  *
@@ -66,7 +65,7 @@ export declare enum MixMode {
  */
 export declare enum GradientAlpha {
   /**
-   * when the GradientAlpha set LEVEL1,the opacity of background colors is 20%
+   * when the GradientAlpha set LEVEL1,the opacity of background colors is 0.2
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -74,7 +73,7 @@ export declare enum GradientAlpha {
    */
 LEVEL1 = 1,
   /**
-   * when the GradientAlpha set LEVEL2,the opacity of background colors is 60%
+   * when the GradientAlpha set LEVEL2,the opacity of background colors is 0.6
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -82,7 +81,7 @@ LEVEL1 = 1,
    */
   LEVEL2 = 2,
   /**
-   * when the GradientAlpha set LEVEL3,the opacity of background colors is 80%
+   * when the GradientAlpha set LEVEL3,the opacity of background colors is 0.8
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -90,7 +89,7 @@ LEVEL1 = 1,
    */
   LEVEL3 = 3,
   /**
-   * when the GradientAlpha set LEVEL4,the opacity of background colors is 100%
+   * when the GradientAlpha set LEVEL4,the opacity of background colors is 1.0
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -116,7 +115,7 @@ export declare enum BackgroundTheme {
    */
   DARK = 1,
   /**
-   * when the BackgroundTheme set LIGHT,the basic color of background  is rgb(241,243,245)
+   * when the BackgroundTheme set LIGHT,the basic color of background  is white
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -124,7 +123,7 @@ export declare enum BackgroundTheme {
    */
   LIGHT = 2,
   /**
-   * when the BackgroundTheme set DEFAULT,the basic color of background  is white
+   * when the BackgroundTheme set DEFAULT,the basic color of background  is F1F3F5
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -354,7 +353,7 @@ export interface gradientBackground {
    * @atomicservice
    * @since 16
    */
-  backGroundTheme?: BackgroundTheme;
+  backgroundTheme?: BackgroundTheme;
 
   /**
    * the blend mode of background color .
