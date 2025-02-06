@@ -2236,7 +2236,7 @@ export interface AtomicServiceBar {
   /**
    * Get size and position of the bar.
    *
-   * @returns { Frame } The size and position of bar in px relative to window.
+   * @returns { Frame } The size and position of bar in vp relative to window.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
