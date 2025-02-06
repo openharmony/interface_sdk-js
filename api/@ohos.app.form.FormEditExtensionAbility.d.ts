@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,11 +12,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit FormKit
  */
-
 import UIExtensionAbility from './@ohos.app.ability.UIExtensionAbility';
 import FormEditExtensionContext from './application/FormEditExtensionContext';
 
@@ -26,13 +26,11 @@ import FormEditExtensionContext from './application/FormEditExtensionContext';
  * @extends UIExtensionAbility
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
- * @atomicservice
  * @since 16
  */
 export default class FormEditExtensionAbility extends UIExtensionAbility {
-	
 /**
-   * Indicates form edit extension context.
+   * Indicates configuration infomation about an form edit extension ability context.
    *
    * @type { FormEditExtensionContext }
    * @syscap SystemCapability.Ability.Form
