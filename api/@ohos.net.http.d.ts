@@ -530,6 +530,33 @@ declare namespace http {
      */
     certificatePinning?: CertificatePinning | CertificatePinning[];
 
+     /**
+      * Certificate authority(CA) which is used to verify the remote server's identification.
+      * @type {?RemoteValidation}
+      * @syscap SystemCapability.Communication.NetStack
+      * @atomicservice
+      * @since 16
+      */
+     remoteValidation?: RemoteValidation;
+ 
+     /**
+      * TLS option.
+      * @type {?TlsOptions}
+      * @syscap SystemCapability.Communication.NetStack
+      * @atomicservice
+      * @since 16
+      */
+     tlsOptions?: TlsOptions;
+ 
+     /**
+      * HTTP server authentication settings. No authentication by default.
+      * @type {?ServerAuthentication}
+      * @syscap SystemCapability.Communication.NetStack
+      * @atomicservice
+      * @since 16
+      */
+     serverAuthentication?: ServerAuthentication;
+
     /**
      * Address family option.
      * @type {?AddressFamily}
@@ -537,6 +564,235 @@ declare namespace http {
      * @since 16
      */
     addressFamily?: AddressFamily;
+  }
+
+   /**
+    * HTTP server authentication.
+    * @typedef ServerAuthentication
+    * @syscap SystemCapability.Communication.NetStack
+    * @atomicservice
+    * @since 16
+    */
+   export interface ServerAuthentication {
+     /**
+      * Credential of server.
+      * @type {Credential}
+      * @syscap SystemCapability.Communication.NetStack
+      * @atomicservice
+      * @since 16
+      */
+     credential: Credential;
+     /**
+      * Authentication type of server. If not set, negotiate with the server.
+      * @type {?AuthenticationType}
+      * @syscap SystemCapability.Communication.NetStack
+      * @atomicservice
+      * @since 16
+      */
+     authenticationType?: AuthenticationType;
+   }
+ 
+   /**
+    * TlsOptions.
+    * 'system': use system tls configuration.
+    * TlsOption: tls version range, and specify cipher suite.
+    * @typedef {'system' | TlsConfig}
+    * @syscap SystemCapability.Communication.NetStack
+    * @atomicservice
+    * @since 16
+    */
+   export type TlsOptions = 'system' | TlsConfig;
+ 
+   /**
+    * Remote Validation Type.
+    * @typedef {'system' | 'skip'}
+    * @syscap SystemCapability.Communication.NetStack
+    * @atomicservice
+    * @since 16
+    */
+   export type RemoteValidation = 'system' | 'skip';
+ 
+   /**
+    * The server's authentication type.
+    * @typedef {'basic' | 'ntlm' | 'digest'}
+    * @syscap SystemCapability.Communication.NetStack
+    * @atomicservice
+    * @since 16
+    */
+   export type AuthenticationType = 'basic' | 'ntlm' | 'digest';
+ 
+   /**
+    * HTTP credential. Some server or proxy server need this.
+    * @typedef Credential
+    * @syscap SystemCapability.Communication.NetStack
+    * @atomicservice
+    * @since 16
+    */
+   export interface Credential {
+     /**
+      * Username of credential. Default is ''.
+      * @type {string}
+      * @syscap SystemCapability.Communication.NetStack
+      * @atomicservice
+      * @since 16
+      */
+     username: string;
+     /**
+      * Password of credential. Default is ''.
+      * @type {string}
+      * @syscap SystemCapability.Communication.NetStack
+      * @atomicservice
+      * @since 16
+      */
+     password: string;
+   }
+ 
+   /**
+    * TLS config.
+    * @typedef TlsConfig
+    * @syscap SystemCapability.Communication.NetStack
+    * @atomicservice
+    * @since 16
+    */
+   export interface TlsConfig {
+       /**
+        * Minimum version num of Tls protocol.
+        * @type {TlsVersion}
+        * @syscap SystemCapability.Communication.NetStack
+        * @atomicservice
+        * @since 16
+        */
+       tlsVersionMin: TlsVersion;
+       /**
+        * Maximum version num of Tls protocol.
+        * @type {TlsVersion}
+        * @syscap SystemCapability.Communication.NetStack
+        * @atomicservice
+        * @since 16
+        */
+       tlsVersionMax: TlsVersion;
+       /**
+        * CipherSuites, cipherSuits must match tsl version, otherswise will set all system-supported cipherSuits.
+        * @type {?CipherSuite[]}
+        * @syscap SystemCapability.Communication.NetStack
+        * @atomicservice
+        * @since 16
+        */
+       cipherSuites?: CipherSuite[];
+   }
+ 
+   /**
+    * Cipher suite which TLS1.3+ support.
+    * The framework has a built-in preference order, but your choice will be recorded.
+    * @typedef {'TLS_AES_128_GCM_SHA256' | 'TLS_AES_256_GCM_SHA384' | 'TLS_CHACHA20_POLY1305_SHA256'}
+    * @syscap SystemCapability.Communication.NetStack
+    * @atomicservice
+    * @since 16
+    */
+   export type TlsV13SpecificCipherSuite = 'TLS_AES_128_GCM_SHA256' | 'TLS_AES_256_GCM_SHA384' | 'TLS_CHACHA20_POLY1305_SHA256';
+ 
+   /**
+    * Cipher suite which TLS1.2+ support.
+    * @typedef {'TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256' | 'TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256' | 'TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384' | 'TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384' | 'TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256' | 'TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256' | 'TLS_RSA_WITH_AES_128_GCM_SHA256' | 'TLS_RSA_WITH_AES_256_GCM_SHA384'}
+    * @syscap SystemCapability.Communication.NetStack
+    * @atomicservice
+    * @since 16
+    */
+   export type TlsV12SpecificCipherSuite = 'TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256' | 'TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256' | 'TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384' | 'TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384' | 'TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256' | 'TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256' | 'TLS_RSA_WITH_AES_128_GCM_SHA256' | 'TLS_RSA_WITH_AES_256_GCM_SHA384';
+   
+   /**
+    * Cipher suite which TLS1.0+ support.
+    * @typedef {'TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA' | 'TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA' | 'TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA' | 'TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA' | 'TLS_RSA_WITH_AES_128_CBC_SHA' | 'TLS_RSA_WITH_AES_256_CBC_SHA' | 'TLS_RSA_WITH_3DES_EDE_CBC_SHA'}
+    * @syscap SystemCapability.Communication.NetStack
+    * @atomicservice
+    * @since 16
+    */
+   export type TlsV10SpecificCipherSuite = 'TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA' | 'TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA' | 'TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA' | 'TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA' | 'TLS_RSA_WITH_AES_128_CBC_SHA' | 'TLS_RSA_WITH_AES_256_CBC_SHA' | 'TLS_RSA_WITH_3DES_EDE_CBC_SHA';
+  
+  /**
+   * Include all cipher suite.
+   * @typedef {TlsV13CipherSuite}
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 16
+   */
+  export type CipherSuite = TlsV13CipherSuite;
+  
+  /**
+   * TLS1.3 cipher suite should include TLS1.2 cipher suite.
+   * @typedef {TlsV12CipherSuite | TlsV13SpecificCipherSuite}
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 16
+   */
+  export type TlsV13CipherSuite = TlsV12CipherSuite | TlsV13SpecificCipherSuite;
+  
+  /**
+   * TLS1.2 cipher suite should include TLS1.1 cipher suite.
+   * @typedef {TlsV11CipherSuite | TlsV12SpecificCipherSuite}
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 16
+   */
+  export type TlsV12CipherSuite = TlsV11CipherSuite | TlsV12SpecificCipherSuite;
+  
+  /**
+   * TLS1.1 cipher suite is same as TLS1.0 cipher suite.
+   * @typedef {TlsV10CipherSuite}
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 16
+   */
+  export type TlsV11CipherSuite = TlsV10CipherSuite;
+  
+  /**
+   * TLS1.0 cipher suite.
+   * @typedef {TlsV10SpecificCipherSuite}
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 16
+   */
+  export type TlsV10CipherSuite = TlsV10SpecificCipherSuite;
+  
+    /**
+   * Enum for Tls version
+   * @enum {number}
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 16
+   */
+  export enum TlsVersion {
+    /**
+     * Tls version 1.0
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 16
+     */
+    TLS_V_1_0 = 4,
+
+    /**
+     * Tls version 1.1
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 16
+     */
+    TLS_V_1_1 = 5,
+
+    /**
+     * Tls version 1.2
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 16
+     */
+    TLS_V_1_2 = 6,
+
+    /**
+     * Tls version 1.3
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 16
+     */
+    TLS_V_1_3 = 7
   }
 
   /**
