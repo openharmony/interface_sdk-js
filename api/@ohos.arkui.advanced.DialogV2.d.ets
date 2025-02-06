@@ -121,6 +121,18 @@ export declare class AdvancedDialogV2Button {
   @Trace
   defaultFocus?: boolean;
   /**
+   * Set the availability of the button.
+   *
+   * @type { ?boolean }
+   * @default { true }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  @Trace
+  enabled?: boolean;
+  /**
    * The constructor used to create a AdvancedDialogV2Button object.
    *
    * @param { AdvancedDialogV2ButtonOptions } options - button info.
@@ -215,6 +227,17 @@ export declare interface AdvancedDialogV2ButtonOptions {
    * @since 16
    */
   defaultFocus?: boolean;
+  /**
+   * Set the availability of the button.
+   *
+   * @type { ?boolean }
+   * @default { true }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  enabled?: boolean;
 }
 
 /**
@@ -263,6 +286,28 @@ export declare struct TipsDialogV2 {
    */
   @Param
   imageSize?: SizeOptions;
+  /**
+   * Sets the borderColor of TipsDialogV2 image.
+   *
+   * @type { ?ColorMetrics }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  @Param
+  imageBorderColor?: ColorMetrics;
+  /**
+   * Sets the borderWidth of TipsDialogV2 image.
+   *
+   * @type { ?LengthMetrics }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  @Param
+  imageBorderWidth?: LengthMetrics;
   /**
    * Sets the TipsDialogV2 title.
    *
