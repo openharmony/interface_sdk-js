@@ -10091,3 +10091,58 @@ declare enum CrownSensitivity {
    */
   HIGH = 2
 }
+
+/**
+ * Type of axis action.
+ *
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
+declare enum AxisAction {
+  /**
+   * None action.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  NONE = 0,
+
+  /**
+   * Triggered when an axis event starts.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  BEGIN = 1,
+
+  /**
+   * Triggered when the axis event is updated.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  UPDATE = 2,
+
+  /**
+   * Triggered when the axis event ends.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  END = 3,
+
+  /**
+   * Triggered when the axis event is cancelled.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  CANCEL = 4,
+}
