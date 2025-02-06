@@ -19,6 +19,7 @@
  */
 
 import { Callback } from '@ohos.base';
+
 /**
  * the enum for the blend mode of background color .
  *
