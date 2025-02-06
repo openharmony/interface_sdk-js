@@ -73,14 +73,13 @@ export declare struct AtomicServiceTabs {
   /**
    * Set the layout mode of the bottom tab bar
    *
-   * @param { LayoutMode } value - indicates the layout mode of the bottom tab bar
-   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @type { ?LayoutMode }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 12
    */
-   layoutMode(value: LayoutMode): BottomTabBarStyle;
+  @Prop
+  layoutMode?: LayoutMode;
   /**
    * Sets the barBackgroundColor of tabs.
    *
