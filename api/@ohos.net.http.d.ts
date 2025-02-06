@@ -541,8 +541,6 @@ declare namespace http {
  
      /**
       * TLS option.
-      * 'system': use system tls configuration.
-      * TlsOption: tls version range, and specify cipher suite.
       * @type {?TlsOptions}
       * @syscap SystemCapability.Communication.NetStack
       * @atomicservice
@@ -596,12 +594,14 @@ declare namespace http {
  
    /**
     * TlsOptions.
-    * @typedef {'system' | TlsOption}
+    * 'system': use system tls configuration.
+    * TlsOption: tls version range, and specify cipher suite.
+    * @typedef {'system' | TlsConfig}
     * @syscap SystemCapability.Communication.NetStack
     * @atomicservice
     * @since 16
     */
-   export type TlsOptions = 'system' | TlsOption;
+   export type TlsOptions = 'system' | TlsConfig;
  
    /**
     * Remote Validation Type.
@@ -648,13 +648,13 @@ declare namespace http {
    }
  
    /**
-    * TLS option.
-    * @typedef TlsOption
+    * TLS config.
+    * @typedef TlsConfig
     * @syscap SystemCapability.Communication.NetStack
     * @atomicservice
     * @since 16
     */
-   export interface TlsOption {
+   export interface TlsConfig {
        /**
         * Minimum version num of Tls protocol.
         * @type {TlsVersion}
@@ -729,7 +729,7 @@ declare namespace http {
   
   /**
    * TLS1.2 cipher suite should include TLS1.1 cipher suite.
-   * @typedef {TlsV12CipherSuite = TlsV11CipherSuite | TlsV12SpecificCipherSuite}
+   * @typedef {TlsV11CipherSuite | TlsV12SpecificCipherSuite}
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
    * @since 16
