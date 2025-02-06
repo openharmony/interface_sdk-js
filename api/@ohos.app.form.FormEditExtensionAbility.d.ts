@@ -24,7 +24,7 @@ import FormEditExtensionContext from './application/FormEditExtensionContext';
  * The class of form edit extension ability.
  *
  * @extends UIExtensionAbility
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @since 16
  */
