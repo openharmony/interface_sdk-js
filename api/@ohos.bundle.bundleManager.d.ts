@@ -3758,6 +3758,29 @@ declare namespace bundleManager {
   function getAppCloneIdentity(uid: number): Promise<AppCloneIdentity>;
 
   /**
+   * Migrate files from the source paths to the destination path.
+   * 
+   * @permission ohos.permission.MIGRATE_DATA
+   * @param { Array<string> } sourcePaths - Indicates the source paths to be migrated.
+   * @param { string } destinationPath - Target path for data migration.
+   * @returns { Promise<void> } The result of migrating data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700080 - The source paths are invalid.
+   * @throws { BusinessError } 17700081 - The destination path is invalid.
+   * @throws { BusinessError } 17700082 - User authentication failed.
+   * @throws { BusinessError } 17700083 - Waiting for user authentication timeout.
+   * @throws { BusinessError } 17700084 - There are inaccessible path in the source paths.
+   * @throws { BusinessError } 17700085 - The destination path cannot be accessed.
+   * @throws { BusinessError } 17700086 - System error occurred during copy execution.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 16
+   */
+  function migrateData(sourcePaths: Array<string>, destinationPath: string): Promise<void>
+
+  /**
    * Obtains configuration information about an application.
    *
    * @typedef { _ApplicationInfo }
