@@ -677,6 +677,15 @@ declare namespace deviceInfo {
    * @since 12
    */
   const ODID: string;
+
+  /**
+   * Obtaining the hard drive serial number.
+   *
+   * @permission ohos.permission.ACCESS_DISK_PHY_INFO
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 15
+   */
+  const diskSN: string;
 }
 
 export default deviceInfo;
