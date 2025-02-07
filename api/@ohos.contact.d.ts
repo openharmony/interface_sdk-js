@@ -1782,37 +1782,37 @@ declare namespace contact {
 
   /**
    * Data field that support filtering
-     *
-     * @enum { number }
-     * @syscap SystemCapability.Applications.Contacts
-     * @atomicservice
-     * @since 15
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice
+   * @since 15
    */
   enum DataField {
     /**
      * Indicates email addresses of the contact.
-         *
-         * @syscap SystemCapability.Applications.ContactsData
-         * @atomicservice
-         * @since 15
+     *
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
      */
     EMAIL,
 
     /**
      * Indicates a phone of the contact.
-         *
-         * @syscap SystemCapability.Applications.ContactsData
-         * @atomicservice
-         * @since 15
+     *
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
      */
     PHONE,
 
     /**
      * Indicates organization information of the contact.
-         *
-         * @syscap SystemCapability.Applications.ContactsData
-         * @atomicservice
-         * @since 15
+     *
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
      */
     ORGANIZATION,
   }
