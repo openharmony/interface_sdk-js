@@ -244,7 +244,7 @@ declare enum NavigationSystemTransitionType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   FADE = 4,
   /**
@@ -253,7 +253,7 @@ declare enum NavigationSystemTransitionType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   EXPLODE = 5,
   /**
@@ -262,7 +262,7 @@ declare enum NavigationSystemTransitionType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   SLIDE_RIGHT = 6,
   /**
@@ -271,7 +271,7 @@ declare enum NavigationSystemTransitionType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   SLIDE_BOTTOM = 7,
 }
@@ -592,7 +592,7 @@ declare interface NestedScrollInfo {
 * @syscap SystemCapability.ArkUI.ArkUI.Full
 * @crossplatform
 * @atomicservice
-* @since 16
+* @since 15
 */
 declare interface NavDestinationTransition {
   /**
@@ -602,7 +602,7 @@ declare interface NavDestinationTransition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   onTransitionEnd?: Callback<void>;
 
@@ -613,7 +613,7 @@ declare interface NavDestinationTransition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   duration?: number;
 
@@ -624,7 +624,7 @@ declare interface NavDestinationTransition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   curve?: Curve;
 
@@ -635,7 +635,7 @@ declare interface NavDestinationTransition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   delay?: number;
 
@@ -646,7 +646,7 @@ declare interface NavDestinationTransition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   event: Callback<void>;
 }
@@ -1101,7 +1101,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   customTransition(delegate: NavDestinationTransitionDelegate): NavDestinationAttribute;
 }
@@ -1162,7 +1162,7 @@ declare const NavDestinationInstance: NavDestinationAttribute;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare type NavDestinationTransitionDelegate =
   (operation: NavigationOperation, isEnter: boolean) => Array<NavDestinationTransition> | undefined;
