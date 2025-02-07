@@ -19,7 +19,6 @@
  */
 
 import { Callback } from '@ohos.base';
-
 /**
  * the enum for the blend mode of background color.
  *
@@ -39,7 +38,7 @@ export declare enum MixMode {
   AVERAGE = 1,
   /**
    * when the MixMode set CROSS,the color mixing method for the background is a transition where one color crosses 
-   *   through to another.
+   *  through to another.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -71,7 +70,7 @@ export declare enum GradientAlpha {
    * @atomicservice
    * @since 16
    */
-LEVEL1 = 1,
+  LEVEL1 = 1,
   /**
    * when the GradientAlpha set LEVEL2,the opacity of background colors is 0.6.
    *
@@ -336,14 +335,14 @@ export interface GradientBackground {
   primaryColor: ResourceColor;
 
   /**
-   * the secondColor of Background.
+   * the secondaryColor of Background.
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
    */
-  secondColor?: ResourceColor;
+  secondaryColor?: ResourceColor;
 
   /**
    * the theme color of Background.
