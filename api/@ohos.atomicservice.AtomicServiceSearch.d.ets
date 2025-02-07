@@ -184,7 +184,8 @@ export declare struct AtomicServiceSearch {
    */
   operationType?: OperationType;
   /**
-   * settings in the ribbon (right). (A maximum of two entries are allowed. If more than two entries are allowed, only the first two entries take effect.)
+   * settings in the ribbon (right). A maximum of two entries are allowed. 
+   * If more than two entries are allowed, only the first two entries take effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
