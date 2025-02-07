@@ -4027,7 +4027,7 @@ declare namespace drawing {
    * The Tool class for drawing.
    *
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 16
+   * @since 15
    */
   class Tool {
     /**
@@ -4037,7 +4037,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 16
+     * @since 15
      */
     static makeColorFromResourceColor(resourceColor: ResourceColor): common2D.Color;
   }
