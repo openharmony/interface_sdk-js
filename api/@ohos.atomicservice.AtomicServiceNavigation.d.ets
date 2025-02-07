@@ -39,7 +39,7 @@ export declare enum MixMode {
   AVERAGE = 1,
   /**
    * when the MixMode set CROSS,the color mixing method for the background is a transition where one color crosses 
-   *  through to another.
+   *   through to another.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
