@@ -1044,6 +1044,28 @@ declare namespace promptAction {
     transition?: TransitionEffect;
 
     /**
+     * Dialog transition parameters of opening/closing custom dialog.
+     *
+     * @type { ?TransitionEffect }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    dialogTransition?: TransitionEffect;
+
+    /**
+     * Mask transition parameters of opening/closing custom dialog.
+     *
+     * @type { ?TransitionEffect }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    maskTransition?: TransitionEffect;
+    
+    /**
      * Defines custom dialog maskColor
      * 
      * @type { ?ResourceColor }
