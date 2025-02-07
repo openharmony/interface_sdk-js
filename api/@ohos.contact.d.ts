@@ -1569,37 +1569,37 @@ declare namespace contact {
 
   /**
    * The type for functions of filter conditions
-     *
-     * @enum { number }
-     * @syscap SystemCapability.Applications.Contacts
-     * @atomicservice
-     * @since 15
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice
+   * @since 15
    */
   enum FilterType {
     /**
      * Only the contacts that meet the filter condition will be displayed.
-         *
-         * @syscap SystemCapability.Applications.ContactsData
-         * @atomicservice
-         * @since 15
+     *
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
      */
     SHOW_FILTER,
 
     /**
      * Contacts that meet the filter condition will be selected by default.
-         *
-         * @syscap SystemCapability.Applications.ContactsData
-         * @atomicservice
-         * @since 15
+     *
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
      */
     DEFAULT_SELECT,
 
     /**
      * Only the contacts that meet the filter condition will be displayed and are selected by default.
-         *
-         * @syscap SystemCapability.Applications.ContactsData
-         * @atomicservice
-         * @since 15
+     *
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
      */
     SHOW_FILTER_AND_DEFAULT_SELECT,
   }
@@ -1687,64 +1687,64 @@ declare namespace contact {
 
   /**
    * The type of filter condition
-     *
-     * @enum { number }
-     * @syscap SystemCapability.Applications.Contacts
-     * @atomicservice
-     * @since 15
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Applications.ContactsData
+   * @atomicservice
+   * @since 15
    */
   enum FilterCondition {
     /**
      * Field is not null.
-         *
-         * @syscap SystemCapability.Applications.ContactsData
-         * @atomicservice
-         * @since 15
+     *
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
      */
     IS_NOT_NULL,
 
     /**
      * Field equal to value, value type is string.
-         *
-         * @syscap SystemCapability.Applications.ContactsData
-         * @atomicservice
-         * @since 15
+     *
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
      */
     EQUAL_TO,
 
     /**
      * Field not equal to value, value type is string.
-         *
-         * @syscap SystemCapability.Applications.ContactsData
-         * @atomicservice
-         * @since 15
+     *
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
      */
     NOT_EQUAL_TO,
 
     /**
      * Field in value, value type is ValueType[].
-         *
-         * @syscap SystemCapability.Applications.ContactsData
-         * @atomicservice
-         * @since 15
+     *
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
      */
     IN,
 
     /**
      * Field not in value, value type is ValueType[].
-         *
-         * @syscap SystemCapability.Applications.ContactsData
-         * @atomicservice
-         * @since 15
+     *
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
      */
     NOT_IN,
 
     /**
      * Field contains value, value type is string.
-         *
-         * @syscap SystemCapability.Applications.ContactsData
-         * @atomicservice
-         * @since 15
+     *
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
      */
     CONTAINS,
   }
@@ -1771,13 +1771,13 @@ declare namespace contact {
 
     /**
      * Data filter options.
-         *
-         * @type { ?string | ValueType[] }
-         * @syscap SystemCapability.Applications.Contacts
-         * @atomicservice
-         * @since 15
+     *
+     * @type { Array<FilterOptions> }
+     * @syscap SystemCapability.Applications.Contacts
+     * @atomicservice
+     * @since 15
      */
-    options?: Array<FilterOptions>
+    options: Array<FilterOptions>
   }
 
   /**
