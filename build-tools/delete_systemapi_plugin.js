@@ -713,14 +713,15 @@ function processExportNode(statement, node, needDeleteExport, names, deleteSyste
     let needExport = false;
     const newSpecifiers = [];
     names.forEach((name, index) => {
+      const exportSpecifier = statement.exportClause.elements[index];
       if (!deleteSystemApiSet.has(name)) {
         //未被删除的节点
-        newSpecifiers.push(statement.exportClause.elements[index]);
+        newSpecifiers.push(exportSpecifier);
         needExport = true;
       } else {
         //被删除的节点
         needDeleteExport.fileName = processFileNameWithoutExt(node.fileName);
-        needDeleteExport.exportName.add(statement.name.escapedText.toString());
+        needDeleteExport.exportName.add(exportSpecifier.name.escapedText.toString());
       }
     });
     if (needExport) {
