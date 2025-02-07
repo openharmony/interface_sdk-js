@@ -251,7 +251,7 @@ declare namespace PiPWindow {
    * @interface PiPWindowSize
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 16
+   * @since 15
    */
    interface PiPWindowSize {
     /**
@@ -260,7 +260,7 @@ declare namespace PiPWindow {
      * @type { number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     width: number;
 
@@ -270,7 +270,7 @@ declare namespace PiPWindow {
      * @type { number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     height: number;
 
@@ -280,7 +280,7 @@ declare namespace PiPWindow {
      * @type { number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     scale: number;
   }
@@ -291,7 +291,7 @@ declare namespace PiPWindow {
    * @interface PiPWindowInfo
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   interface PiPWindowInfo {
     /**
@@ -300,7 +300,7 @@ declare namespace PiPWindow {
      * @type { number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     windowId: number;
 
@@ -310,7 +310,7 @@ declare namespace PiPWindow {
      * @type { PiPWindowSize }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     size: PiPWindowSize;
   }
@@ -1059,7 +1059,7 @@ declare namespace PiPWindow {
      * @throws { BusinessError } 1300014 - PiP internal error.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 16
+     * @since 15
      */
      getPiPWindowInfo(): Promise<PiPWindowInfo>;
 
