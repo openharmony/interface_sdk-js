@@ -2241,6 +2241,15 @@ declare namespace commonEventManager {
      * @since 13
      */
     COMMON_EVENT_RESTORE_START = 'usual.event.RESTORE_START',
+
+    /**
+     * Indicates that the managed browser policy is changed.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 15
+     */
+    COMMON_EVENT_MANAGED_BROWSER_POLICY_CHANGED = 'usual.event.MANAGED_BROWSER_POLICY_CHANGED',
   }
 
   /**
