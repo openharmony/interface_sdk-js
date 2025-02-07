@@ -1198,7 +1198,7 @@ declare namespace connection {
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 16
+   * @since 15
    */
   function getLastConnectionTime(deviceId: string): Promise<number>;
 
