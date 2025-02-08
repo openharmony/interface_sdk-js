@@ -2550,6 +2550,16 @@ export class MeasureUtils {
   * @since 14
   */
   setAutoFocusTransfer(isAutoFocusTransfer: boolean): void;
+
+  /**
+  * Set the priority of key event processing when component cannot handle the key event..
+  * @param { KeyProcessingMode } mode - Key processing mode.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 16
+  */
+  setKeyProcessingMode(mode: KeyProcessingMode): void;
 }
 
 /**
