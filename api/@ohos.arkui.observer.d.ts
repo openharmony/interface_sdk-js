@@ -464,7 +464,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     mode?: NavDestinationMode;
 
@@ -475,7 +475,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     uniqueId?: number;
   }
