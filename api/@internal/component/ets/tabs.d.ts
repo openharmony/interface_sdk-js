@@ -25,7 +25,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare type CommonModifier = import('../api/arkui/CommonModifier').CommonModifier;
 
@@ -421,7 +421,7 @@ declare class TabsController {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare interface TabsOptions {
   /**
@@ -509,7 +509,7 @@ declare interface TabsOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   barModifier?: CommonModifier
 }
@@ -574,7 +574,7 @@ interface TabsInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   (options?: TabsOptions): TabsAttribute;
 }
