@@ -592,6 +592,18 @@ declare interface CustomDialogControllerOptions {
    * @since 16
    */
   immersiveMode?: ImmersiveMode;
+
+  /**
+   * Determine the display order of the dialog.
+   *
+   * @type { ?LevelOrder }
+   * @default The value returns by LevelOrder.clamp(0)
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  levelOrder?: LevelOrder;
 }
 
 /**

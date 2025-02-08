@@ -568,6 +568,17 @@ declare interface TextStyle {
 }
 
 /**
+ * Import the LevelOrder type from promptAction.
+ *
+ * @typedef { import('../api/@ohos.promptAction').LevelOrder } LevelOrder
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare type LevelOrder = import('../api/@ohos.promptAction').LevelOrder;
+
+/**
  * Base param used for AlertDialog.show method.
  *
  * @interface AlertDialogParam
@@ -1113,6 +1124,18 @@ declare interface AlertDialogParam {
    * @since 16
    */
   immersiveMode?: ImmersiveMode;
+
+  /**
+   * Determine the display order of the dialog.
+   *
+   * @type { ?LevelOrder }
+   * @default The value returns by LevelOrder.clamp(0)
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  levelOrder?: LevelOrder;
 }
 
 /**

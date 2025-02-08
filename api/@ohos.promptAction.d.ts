@@ -85,6 +85,40 @@ export enum ImmersiveMode {
 }
 
 /**
+ * Defines level order.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+export class LevelOrder {
+  /**
+   * Generate valid level order.
+   *
+   * @param { number } order - Clamp order with mininum number -100000 and maximum number 100000.
+   * @returns { LevelOrder } the order object.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  static clamp(order: number): LevelOrder
+
+  /**
+   * Get the order from LevelOrder object.
+   *
+   * @returns { number } the order number.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  getOrder(): number
+}
+
+/**
  * @namespace promptAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
@@ -840,6 +874,18 @@ declare namespace promptAction {
      * @since 16
      */
     immersiveMode?: ImmersiveMode;
+
+    /**
+     * Determine the display order of the dialog.
+     *
+     * @type { ?LevelOrder }
+     * @default The value returns by LevelOrder.clamp(0)
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    levelOrder?: LevelOrder;
   }
 
   /**
@@ -1168,6 +1214,18 @@ declare namespace promptAction {
      * @since 16
      */
     immersiveMode?: ImmersiveMode;
+
+    /**
+     * Determine the display order of the dialog.
+     *
+     * @type { ?LevelOrder }
+     * @default The value returns by LevelOrder.clamp(0)
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    levelOrder?: LevelOrder;
   }
 
   /**

@@ -23,7 +23,7 @@ import font from './@ohos.font';
 import mediaQuery from './@ohos.mediaquery';
 import type inspector from './@ohos.arkui.inspector';
 import type observer from './@ohos.arkui.observer';
-import promptAction from './@ohos.promptAction';
+import promptAction, { LevelOrder } from './@ohos.promptAction';
 import router from './@ohos.router';
 import type componentUtils from './@ohos.arkui.componentUtils';
 import { ComponentContent, FrameNode, Frame } from './@ohos.arkui.node';
@@ -1311,6 +1311,28 @@ export class PromptAction {
   closeCustomDialog(dialogId: number): void;
 
   /**
+   * Get order value of top dialog.
+   *
+   * @returns { LevelOrder } the display order.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  getTopOrder(): LevelOrder
+
+  /**
+   * Get order value of bottom dialog.
+   *
+   * @returns { LevelOrder } the display order.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  getBottomOrder(): LevelOrder
+
+  /**
    * Open popup with frameNode.
    *
    * @param { ComponentContent<T> } content - The content of popup.
@@ -2084,6 +2106,18 @@ export class OverlayManager {
    * @since 12
    */
   addComponentContent(content: ComponentContent, index?: number): void;
+
+  /**
+   * Add the ComponentContent to the OverlayManager with order.
+   *
+   * @param { ComponentContent } content - The content will be added to the OverlayManager.
+   * @param { LevelOrder } [ levelOrder ] - The display order of the ComponentContent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  addComponentContentWithOrder(content: ComponentContent, levelOrder?: LevelOrder): void;
 
   /**
    * Remove the ComponentContent from the OverlayManager.
