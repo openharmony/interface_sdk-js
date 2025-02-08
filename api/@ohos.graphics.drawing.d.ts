@@ -1974,6 +1974,24 @@ declare namespace drawing {
      * @since 12
      */
     getEdging(): FontEdging;
+
+    /**
+     * Sets whether to follow the theme font. If the value is true, the theme font is used when typeface is not set.
+     * @param { boolean } followed - Indicates whether to follow the theme font.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 15
+     */
+    setThemeFontFollowed(followed: boolean): void;
+
+    /**
+     * Gets whether to follow the theme font.
+     * @returns { boolean } Returns true if font follows theme font; returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 15
+     */
+    isThemeFontFollowed(): boolean;
   }
 
   /**
