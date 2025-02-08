@@ -25,7 +25,7 @@ import type { Callback } from "./@ohos.base";
  *
  * @namespace motion
  * @syscap SystemCapability.MultimodalAwarness.Motion
- * @since 15
+ * @since 16
  */
 
 declare namespace motion {
@@ -34,7 +34,7 @@ declare namespace motion {
    *
    * @enum { number } OperatingHandStatus
    * @syscap SystemCapability.MultimodalAwarness.Motion
-   * @since 15
+   * @since 16
    */
   export enum OperatingHandStatus {
     /**
@@ -48,14 +48,14 @@ declare namespace motion {
      * indicates the operating hand is left hand.
      *
      * @syscap SystemCapability.MultimodalAwarness.Motion
-     * @since 15
+     * @since 16
      */
     LEFT_HAND_OPERATED = 1,
     /**
      * indicates the operating hand is right hand.
      *
      * @syscap SystemCapability.MultimodalAwarness.Motion
-     * @since 15
+     * @since 16
      */
     RIGHT_HAND_OPERATED = 2
   }
@@ -73,7 +73,7 @@ declare namespace motion {
    * @throws { BusinessError } 31500001 - Service exception.
    * @throws { BusinessError } 31500002 - Subscribe Failed.
    * @syscap SystemCapability.MultimodalAwarness.Motion
-   * @since 15
+   * @since 16
    */
   function on(type: 'operatingHandChanged', callback: Callback<OperatingHandStatus>): void;
 
@@ -90,7 +90,7 @@ declare namespace motion {
    * @throws { BusinessError } 31500001 - Service exception.
    * @throws { BusinessError } 31500003 - Unsubscribe Failed.
    * @syscap SystemCapability.MultimodalAwarness.Motion
-   * @since 15
+   * @since 16
    */
   function off(type: 'operatingHandChanged', callback?: Callback<OperatingHandStatus>): void;
 
@@ -104,7 +104,7 @@ declare namespace motion {
    * <br> device capabilities.
    * @throws { BusinessError } 31500001 - Service exception.
    * @syscap SystemCapability.MultimodalAwarness.Motion
-   * @since 15
+   * @since 16
    */
   function getRecentOperatingHandStatus(): OperatingHandStatus;
 }
