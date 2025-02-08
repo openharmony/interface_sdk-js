@@ -535,12 +535,20 @@ declare namespace picker {
    */
   export enum SceneMode {
     /**
+     * Indicates default scenario
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 16
+     */
+    DEFAULT = 0,
+
+    /**
      * Indicates encrypted sharing user scenario
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 16
      */
-    ENCRYPTED_SHARING = 0,
+    ENCRYPTED_SHARING = 1,
   }
 
   /**
