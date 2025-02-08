@@ -450,7 +450,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
      * @systemapi
      * @since 16
      */
-    onDrawReady(callback: Callback<void>): UIExtensionComponentAttribute
+    onDrawReady(callback: Callback<void>): UIExtensionComponentAttribute;
 }
 
 /**
