@@ -68,6 +68,7 @@
 "SystemCapability.Multimedia.Audio.Renderer",
 "SystemCapability.Multimedia.Audio.Capturer",
 "SystemCapability.Multimedia.Audio.Device",
+"SystemCapability.Multimedia.Audio.Volume",
 "SystemCapability.Multimedia.Audio.Interrupt",
 "SystemCapability.Multimedia.Audio.Tone",
 "SystemCapability.Multimedia.Audio.PlaybackCapture",
