@@ -2256,7 +2256,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 16
+     * @since 15
      */
     setThemeFontFollowed(followed: boolean): void;
 
@@ -2264,7 +2264,7 @@ declare namespace drawing {
      * Gets whether to follow the theme font.
      * @returns { boolean } Returns true if font follows theme font; returns false otherwise.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 16
+     * @since 15
      */
     isThemeFontFollowed(): boolean;
   }
