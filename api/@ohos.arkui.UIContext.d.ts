@@ -2170,6 +2170,18 @@ export class DragController {
    * @since 12
    */
   setDragEventStrictReportingEnabled(enable: boolean): void;
+
+  /**
+   * Cancel the UDMF data sync process by passing in the data key as the identify, can only be used after the drop.
+   *
+   * @param { string } key - The data key returned by startDataLoading method.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 190004 - Operation failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  cancelDataLoading(key: string): void;
 }
 
 /**
