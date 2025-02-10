@@ -5610,12 +5610,14 @@ declare namespace camera {
 
     /**
      * Sets quality prioritization.
+     * Setting to power balance reduces video quality to conserve power, suitable for long-duration recordings where
+     * video quality is less critical.
      *
-     * @param { QualityPrioritization } quality - Target quality prioritization.
+     * @param { QualityPrioritization } quality - Target quality prioritization, with a default of HIGH_QUALITY.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
      * 3. Parameter verification failed.
-     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400103 - Session not config. The session has not been committed or configured.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 14
      */
