@@ -21,7 +21,7 @@
 /**
  * Defines AtomicServiceTabs.
  *
- * @struct AtomicServiceTabs
+ * @struct { AtomicServiceTabs }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
