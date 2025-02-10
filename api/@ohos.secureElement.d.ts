@@ -62,6 +62,30 @@ declare namespace omapi {
   function createService(): Promise<SEService>;
 
   /**
+   * Register the service state changed event.
+   *
+   * @param { 'stateChanged' } type - The type to register.
+   * @param { Callback<ServiceState> } callback - The callback used to listen for the state change event.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.Communication.SecureElement
+   * @since 16
+   */
+  function on(type: 'stateChanged', callback: Callback<ServiceState>): void;
+
+  /**
+   * Unsubscribe the service state changed event.
+   *
+   * @param { 'stateChanged' } type - The type to register.
+   * @param { Callback<ServiceState> } callback - The callback used to listen for the state change event.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.Communication.SecureElement
+   * @since 16
+   */
+  function off(type: 'stateChanged', callback?: Callback<ServiceState>): void;
+
+  /**
    * SEService realizes the communication to available SEs on the device.
    * 
    * @typedef SEService

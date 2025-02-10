@@ -628,7 +628,55 @@ declare namespace display {
      * @atomicservice
      * @since 12
      */
-    FOLD_STATUS_HALF_FOLDED
+    FOLD_STATUS_HALF_FOLDED,
+    /**
+     * Fold Status Expanded With Second Expanded.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    FOLD_STATUS_EXPANDED_WITH_SECOND_EXPANDED = 11,
+    /**
+     * Fold Status Expanded With Second Half Folded.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    FOLD_STATUS_EXPANDED_WITH_SECOND_HALF_FOLDED = 21,
+    /**
+     * Fold Status Folded With Second Expanded.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    FOLD_STATUS_FOLDED_WITH_SECOND_EXPANDED = 12,
+    /**
+     * Fold Status Folded With Second Half Folded.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    FOLD_STATUS_FOLDED_WITH_SECOND_HALF_FOLDED = 22,
+    /**
+     * Fold Status Half Folded With Second Expanded.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    FOLD_STATUS_HALF_FOLDED_WITH_SECOND_EXPANDED = 13,
+    /**
+     * Fold Status Half Folded With Second Half Folded.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    FOLD_STATUS_HALF_FOLDED_WITH_SECOND_HALF_FOLDED = 23
   }
 
   /**
@@ -1082,6 +1130,7 @@ declare namespace display {
      * Indicates the size of left side curved area of the waterfall screen.
      *
      * @type { Rect }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -1089,6 +1138,7 @@ declare namespace display {
      * Indicates the size of left side curved area of the waterfall screen.
      *
      * @type { Rect }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1099,6 +1149,7 @@ declare namespace display {
      * Indicates the size of right side curved area of the waterfall screen.
      *
      * @type { Rect }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -1106,6 +1157,7 @@ declare namespace display {
      * Indicates the size of right side curved area of the waterfall screen.
      *
      * @type { Rect }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1116,6 +1168,7 @@ declare namespace display {
      * Indicates the size of top side curved area of the waterfall screen.
      *
      * @type { Rect }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -1123,6 +1176,7 @@ declare namespace display {
      * Indicates the size of top side curved area of the waterfall screen.
      *
      * @type { Rect }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1133,6 +1187,7 @@ declare namespace display {
      * Indicates the size of bottom side curved area of the waterfall screen.
      *
      * @type { Rect }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -1140,6 +1195,7 @@ declare namespace display {
      * Indicates the size of bottom side curved area of the waterfall screen.
      *
      * @type { Rect }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1167,6 +1223,7 @@ declare namespace display {
      * Bounding rectangles of the cutout areas of the display.
      *
      * @type { Array<Rect> }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -1174,6 +1231,7 @@ declare namespace display {
      * Bounding rectangles of the cutout areas of the display.
      *
      * @type { Array<Rect> }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -1184,6 +1242,7 @@ declare namespace display {
      * Rectangles of curved parts on each side of a waterfall display.
      *
      * @type { WaterfallDisplayAreaRects }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -1191,6 +1250,7 @@ declare namespace display {
      * Rectangles of curved parts on each side of a waterfall display.
      *
      * @type { WaterfallDisplayAreaRects }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12

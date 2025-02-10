@@ -24,7 +24,7 @@
  * Defines Gauge Modifier
  *
  * @extends GaugeAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<GaugeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

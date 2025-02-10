@@ -49,14 +49,12 @@ declare namespace request {
   /**
    * Error code 201 - the permissions check fails.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   /**
    * Error code 201 - the permissions check fails.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -65,14 +63,12 @@ declare namespace request {
   /**
    * Error code 401 - the parameters check fails.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   /**
    * Error code 401 - the parameters check fails.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -81,14 +77,12 @@ declare namespace request {
   /**
    * Error code 801 - call unsupported api.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   /**
    * Error code 801 - call unsupported api.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -97,14 +91,12 @@ declare namespace request {
   /**
    * Error code 13400001 - file operation error.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   /**
    * Error code 13400001 - file operation error.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -113,14 +105,12 @@ declare namespace request {
   /**
    * Error code 13400002 - bad file path.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   /**
    * Error code 13400002 - bad file path.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -129,14 +119,12 @@ declare namespace request {
   /**
    * Error code 13400003 - task service ability error.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   /**
    * Error code 13400003 - task service ability error.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -145,14 +133,12 @@ declare namespace request {
   /**
    * Error code 13499999 - others error.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   /**
    * Error code 13499999 - others error.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -162,14 +148,12 @@ declare namespace request {
   /**
    * Code 0x00000001 - Bit flag indicating download is allowed when using the cellular network.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 6
    */
   /**
    * Code 0x00000001 - Bit flag indicating download is allowed when using the cellular network.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -179,14 +163,12 @@ declare namespace request {
   /**
    * Code 0x00010000 - Bit flag indicating download is allowed when using the WLAN.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 6
    */
   /**
    * Code 0x00010000 - Bit flag indicating download is allowed when using the WLAN.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -196,14 +178,12 @@ declare namespace request {
   /**
    * Error code 0 - Indicates that the download cannot be resumed for network reasons.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Error code 0 - Indicates that the download cannot be resumed for network reasons.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -213,14 +193,12 @@ declare namespace request {
   /**
    * Error code 1 - Indicates that no storage device, such as an SD card, is found.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Error code 1 - Indicates that no storage device, such as an SD card, is found.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -230,14 +208,12 @@ declare namespace request {
   /**
    * Error code 2 - Indicates that files to be downloaded already exist, and that the download session cannot overwrite the existing files.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Error code 2 - Indicates that files to be downloaded already exist, and that the download session cannot overwrite the existing files.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -247,14 +223,12 @@ declare namespace request {
   /**
    * Error code 3 - Indicates that a file operation fails.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Error code 3 - Indicates that a file operation fails.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -264,14 +238,12 @@ declare namespace request {
   /**
    * Error code 4 - Indicates that the HTTP transmission fails.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Error code 4 - Indicates that the HTTP transmission fails.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -281,14 +253,12 @@ declare namespace request {
   /**
    * Error code 5 - Indicates insufficient storage space.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Error code 5 - Indicates insufficient storage space.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -298,14 +268,12 @@ declare namespace request {
   /**
    * Error code 6 - Indicates an error caused by too many network redirections.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Error code 6 - Indicates an error caused by too many network redirections.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -315,14 +283,12 @@ declare namespace request {
   /**
    * Error code 7 - Indicates an HTTP code that cannot be identified.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Error code 7 - Indicates an HTTP code that cannot be identified.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -332,14 +298,12 @@ declare namespace request {
   /**
    * Error code 8 - Indicates an undefined error.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Error code 8 - Indicates an undefined error.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -349,14 +313,12 @@ declare namespace request {
   /**
    * Error code 9 - Indicates network offline.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   /**
    * Error code 9 - Indicates network offline.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -366,14 +328,12 @@ declare namespace request {
   /**
    * Error code 10 - Indicates network type configuration error.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   /**
    * Error code 10 - Indicates network type configuration error.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -384,7 +344,6 @@ declare namespace request {
    * Paused code 0 - Indicates that the download is paused and waiting for a WLAN connection,
    * because the file size exceeds the maximum allowed for a session using the cellular network.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
@@ -392,7 +351,6 @@ declare namespace request {
    * Paused code 0 - Indicates that the download is paused and waiting for a WLAN connection,
    * because the file size exceeds the maximum allowed for a session using the cellular network.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -402,14 +360,12 @@ declare namespace request {
   /**
    * Paused code 1 - Indicates that the download is paused due to a network problem, for example, network disconnection.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Paused code 1 - Indicates that the download is paused due to a network problem, for example, network disconnection.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -419,14 +375,12 @@ declare namespace request {
   /**
    * Paused code 2 - Indicates that a network error occurs, and the download session will be retried.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Paused code 2 - Indicates that a network error occurs, and the download session will be retried.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -436,14 +390,12 @@ declare namespace request {
   /**
    * Paused code 3 - Indicates that the download is paused due to the user.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   /**
    * Paused code 3 - Indicates that the download is paused due to the user.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -453,14 +405,12 @@ declare namespace request {
   /**
    * Paused code 4 - Indicates that the download is paused for some reasons.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Paused code 4 - Indicates that the download is paused for some reasons.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -470,14 +420,12 @@ declare namespace request {
   /**
    * Session status code 0 - Indicates that the download session is completed.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Session status code 0 - Indicates that the download session is completed.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -487,14 +435,12 @@ declare namespace request {
   /**
    * Session status code 1 - Indicates that the download session is in progress.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Session status code 1 - Indicates that the download session is in progress.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -504,14 +450,12 @@ declare namespace request {
   /**
    * Session status code 2 - Indicates that the download session is being scheduled.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Session status code 2 - Indicates that the download session is being scheduled.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -521,14 +465,12 @@ declare namespace request {
   /**
    * Session status code 3 - Indicates that the download session has been paused.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Session status code 3 - Indicates that the download session has been paused.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -538,14 +480,12 @@ declare namespace request {
   /**
    * Session status code 4 - Indicates that the download session has failed and will not be retried.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
   /**
    * Session status code 4 - Indicates that the download session has failed and will not be retried.
    *
-   * @constant
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -777,6 +717,15 @@ declare namespace request {
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Resource address.
+     * Verification rule: Starting with http (s)://and with a length not exceeding 8192 characters.
+     *
+     * @type { string }
+     * @syscap SystemCapability.MiscServices.Download
+     * @crossplatform
+     * @since 15
      */
     url: string;
     /**
@@ -1945,6 +1894,15 @@ declare namespace request {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Resource address.
+     * Verification rule: Starting with http (s)://and with a length not exceeding 8192 characters.
+     *
+     * @type { string }
+     * @syscap SystemCapability.MiscServices.Upload
+     * @crossplatform
+     * @since 15
+     */
     url: string;
     /**
      * Adds an HTTP or HTTPS header to be included with the upload request.
@@ -2809,6 +2767,36 @@ declare namespace request {
     }
 
     /**
+     * Options of the custom notification of backend tasks.
+     *
+     * @typedef Notification
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 15
+     */
+    interface Notification {
+      /**
+       * The title of the notification.
+       * If not specified, use default style instead.
+       * The maximum size of title is 1024 bytes.
+       *
+       * @type { ?string }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 15
+       */
+      title?: string;
+      /**
+       * The text of the notification.
+       * If not specified, use the file name of the task instead.
+       * The maximum size of text is 3072 bytes.
+       *
+       * @type { ?string }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 15
+       */
+      text?: string;
+    }
+
+    /**
      * The configurations for a task.
      * Using a flexible configuration for clear upload and download functions.
      * If without emphasis, an option is for any task.
@@ -2866,6 +2854,17 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11
+       */
+      /**
+       * The Universal Resource Locator for a task.
+       * The maximum length is 8192 characters.
+       * Using raw `url` option, even url parameters in it.
+       *
+       * @type { string }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @atomicservice
+       * @since 15
        */
       url: string;
       /**
@@ -3341,6 +3340,25 @@ declare namespace request {
        * @since 11
        */
       extras?: object;
+      /**
+       * Use a single request to upload multiple files.
+       * If true, use the form format to merge multiple files into one request.
+       * If false, use independent requests to send each file.
+       * The default is false.
+       *
+       * @type { ?boolean }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 15
+       */
+      multipart?: boolean;
+      /**
+       * Customizes the notification of the backend task.
+       *
+       * @type { ?Notification }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 15
+       */
+      notification?: Notification;
     }
 
     /**
@@ -4820,6 +4838,19 @@ declare namespace request {
        * @since 11
        */
       stop(): Promise<void>;
+      /**
+       * Sets the maximum transfer speed of the task.
+       * The minimum value of the speed limit is 16,384 bytes per second(16 KB/s).
+       *
+       * @param { number } speed - the maximum transfer speed of the task, in bytes per second.
+       * @returns { Promise<void> } the promise returned by the function.
+       * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @throws { BusinessError } 13400003 - task service ability error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 16
+       */
+      setMaxSpeed(speed: number): Promise<void>;
     }
 
     /**
@@ -4846,7 +4877,7 @@ declare namespace request {
      */
     /**
      * Creates a task for upload or download and enqueue it.
-     * When an application enters the background, the frontend tasks associated.
+     * When an application enters the background, the frontend tasks associated
      * with it will gradually be paused until the application returns to the foreground. 
      *
      * @permission ohos.permission.INTERNET
@@ -5208,6 +5239,81 @@ declare namespace request {
      * @since 10
      */
     function query(id: string): Promise<TaskInfo>;
+
+    /**
+     * The config of the task group.
+     * 
+     * @typedef GroupConfig
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 15
+     */
+    interface GroupConfig {
+      /**
+       * Sets display strategy for background task notifications.
+       * If true, progress, completed, and failed notifications will be displayed.
+       * If false, only completed or failed notifications will be displayed.
+       * The default value is false.
+       * 
+       * @type { ?boolean }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 15
+       */
+      gauge?: boolean;
+      /**
+       * Customizes the notification of the task group.
+       * 
+       * @type { Notification }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 15
+       */
+      notification: Notification;
+    }
+
+    /**
+     * Creates a background download task notification group.
+     * 
+     * @param { GroupConfig } config - config of the group.
+     * @returns { Promise<string> } the gid of the group.
+     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+     * @throws { BusinessError } 13400003 - task service ability error.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 15
+     */
+    function createGroup(config: GroupConfig): Promise<string>;
+
+    /**
+     * Adds a newly created background download task to the target group.
+     * 
+     * @param { string } gid - the gid of the target group.
+     * @param { string[] } tids - the tid list of tasks to be attached.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+     * @throws { BusinessError } 13400003 - task service ability error.
+     * @throws { BusinessError } 21900005 - task mode error.
+     * @throws { BusinessError } 21900006 - task not found.
+     * @throws { BusinessError } 21900007 - task state error.
+     * @throws { BusinessError } 21900008 - group deleted or not found.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 15
+     */
+    function attachGroup(gid: string, tids: string[]): Promise<void>;
+
+    /**
+     * Deletes the target group, no more new tasks can be added to this group.
+     * If all tasks in this group end, completed or failed notifications will be displayed.
+     * 
+     * @param { string } gid - the gid of the target group.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+     * @throws { BusinessError } 13400003 - task service ability error.
+     * @throws { BusinessError } 21900008 - group deleted or not found.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 15
+     */
+    function deleteGroup(gid: string): Promise<void>;
   }
 }
 

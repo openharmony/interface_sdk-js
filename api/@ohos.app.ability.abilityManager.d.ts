@@ -33,7 +33,6 @@ import * as _AbilityStateData from './application/AbilityStateData';
  *
  * @namespace abilityManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @systemapi
  * @since 9
  */
 declare namespace abilityManager {
@@ -42,16 +41,14 @@ declare namespace abilityManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 9
+   * @since 14
    */
   export enum AbilityState {
     /**
      * Ability is initialized.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
+     * @since 14
      */
     INITIAL = 0,
 
@@ -59,8 +56,7 @@ declare namespace abilityManager {
      * Ability is in the state of getting focus.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
+     * @since 14
      */
     FOCUS = 2,
 
@@ -68,8 +64,7 @@ declare namespace abilityManager {
      * Ability is in the foreground state.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
+     * @since 14
      */
     FOREGROUND = 9,
 
@@ -77,8 +72,7 @@ declare namespace abilityManager {
      * Ability is in the background state.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
+     * @since 14
      */
     BACKGROUND = 10,
 
@@ -86,8 +80,7 @@ declare namespace abilityManager {
      * Ability is in the process of scheduling at the foreground.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
+     * @since 14
      */
     FOREGROUNDING = 11,
 
@@ -95,8 +88,7 @@ declare namespace abilityManager {
      * Ability is in the process of scheduling in the background.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
+     * @since 14
      */
     BACKGROUNDING = 12
   }
@@ -140,6 +132,37 @@ declare namespace abilityManager {
      * @since 12
      */
     ASSERT_RETRY = 2
+  }
+
+  /**
+   * The class of an embedded atomic service open rule.
+   *
+   * @typedef AtomicServiceStartupRule
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 16
+   */
+  export interface AtomicServiceStartupRule {
+    /**
+     * the flag indicated whether openning atomic service is allowed.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 16
+     */
+    isOpenAllowed: boolean;
+
+    /**
+     * the flag indicated whether embedded atomic service is allowed.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 16
+     */
+    isEmbeddedAllowed: boolean;
   }
 
   /**
@@ -216,11 +239,9 @@ declare namespace abilityManager {
    *
    * @permission ohos.permission.GET_RUNNING_INFO
    * @returns { Promise<Array<AbilityRunningInfo>> } Returns the array of AbilityRunningInfo.
-   * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 9
+   * @since 14
    */
   function getAbilityRunningInfos(): Promise<Array<AbilityRunningInfo>>;
 
@@ -475,6 +496,23 @@ declare namespace abilityManager {
    * @since 12
    */
   function setResidentProcessEnabled(bundleName: string, enable: boolean): Promise<void>;
+
+  /**
+   * Query the rule to open embedded atomic service.
+   *
+   * @param { Context } context - The context that initiates the query request.
+   * @param { string } appId - Globally unique identifier of an application, which is allocated by the cloud.
+   * @returns { Promise<AtomicServiceStartupRule> } Returns the result in the form of callback.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 16
+   */
+  function queryAtomicServiceStartupRule(context: Context, appId: string): Promise<AtomicServiceStartupRule>;
 
   /**
    * The class of an ability running information.

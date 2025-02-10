@@ -31,7 +31,7 @@ import * as ResultsInfo from '../../typedef/parser/ResultsInfo';
  */
 export class Parser {
   static needLib: boolean = false;
-  static cleanParserParamSDK() {
+  static cleanParserParamSDK(): void {
     parserParam.setFileDir('');
     parserParam.setSdkPath('');
   }

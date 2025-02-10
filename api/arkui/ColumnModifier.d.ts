@@ -23,7 +23,7 @@
  * Defines Column Modifier
  *
  * @extends ColumnAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<ColumnAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

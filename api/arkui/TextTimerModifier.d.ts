@@ -25,7 +25,7 @@
  * Defines TextTimer Modifier
  *
  * @extends TextTimerAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<TextTimerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

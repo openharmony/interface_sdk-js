@@ -360,7 +360,7 @@ declare class CommonTransition<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   translate(value: TranslateOptions): T;
 
@@ -399,7 +399,7 @@ declare class CommonTransition<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   scale(value: ScaleOptions): T;
 
@@ -563,13 +563,14 @@ declare interface PageTransitionOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since 14
  */
-declare type PageTransitionCallback = (type: RouteType, progress: number) => void
+declare type PageTransitionCallback = (type: RouteType, progress: number) => void;
 
 /**
  * Provides an interface for page rotation mode.
  *
+ * @extends CommonTransition<PageTransitionEnterInterface>
  * @interface PageTransitionEnterInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -577,6 +578,7 @@ declare type PageTransitionCallback = (type: RouteType, progress: number) => voi
 /**
  * Provides an interface to set transition style when a page enters.
  *
+ * @extends CommonTransition<PageTransitionEnterInterface>
  * @interface PageTransitionEnterInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -585,6 +587,7 @@ declare type PageTransitionCallback = (type: RouteType, progress: number) => voi
 /**
  * Provides an interface to set transition style when a page enters.
  *
+ * @extends CommonTransition<PageTransitionEnterInterface>
  * @interface PageTransitionEnterInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -659,7 +662,7 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   onEnter(event: PageTransitionCallback): PageTransitionEnterInterface;
 }
@@ -667,6 +670,7 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
 /**
  * Provide an interface to exit the transition.
  *
+ * @extends CommonTransition<PageTransitionExitInterface>
  * @interface PageTransitionExitInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -674,6 +678,7 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
 /**
  * Provide an interface to set transition style when a page exits.
  *
+ * @extends CommonTransition<PageTransitionExitInterface>
  * @interface PageTransitionExitInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -682,6 +687,7 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
 /**
  * Provide an interface to set transition style when a page exits.
  *
+ * @extends CommonTransition<PageTransitionExitInterface>
  * @interface PageTransitionExitInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -756,7 +762,7 @@ interface PageTransitionExitInterface extends CommonTransition<PageTransitionExi
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   onExit(event: PageTransitionCallback): PageTransitionExitInterface;
 }

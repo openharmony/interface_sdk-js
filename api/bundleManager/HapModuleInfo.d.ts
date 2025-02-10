@@ -52,6 +52,7 @@ export interface HapModuleInfo {
    * Indicates the name of this hap module
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -59,6 +60,7 @@ export interface HapModuleInfo {
    * Indicates the name of this hap module
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -67,6 +69,7 @@ export interface HapModuleInfo {
    * Indicates the name of this hap module
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -78,6 +81,7 @@ export interface HapModuleInfo {
    * Indicates the icon of this hap module
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -85,6 +89,7 @@ export interface HapModuleInfo {
    * Indicates the icon of this hap module
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -93,6 +98,7 @@ export interface HapModuleInfo {
    * Indicates the icon of this hap module
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -104,6 +110,7 @@ export interface HapModuleInfo {
    * Indicates the icon id of this hap module
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -111,6 +118,7 @@ export interface HapModuleInfo {
    * Indicates the icon id of this hap module
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -119,6 +127,7 @@ export interface HapModuleInfo {
    * Indicates the icon id of this hap module
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -130,6 +139,7 @@ export interface HapModuleInfo {
    * Indicates the label of this hap module
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -137,6 +147,7 @@ export interface HapModuleInfo {
    * Indicates the label of this hap module
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -145,6 +156,7 @@ export interface HapModuleInfo {
    * Indicates the label of this hap module
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -156,6 +168,7 @@ export interface HapModuleInfo {
    * Indicates the label id of this hap module
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -163,6 +176,7 @@ export interface HapModuleInfo {
    * Indicates the label id of this hap module
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -171,6 +185,7 @@ export interface HapModuleInfo {
    * Indicates the label id of this hap module
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -182,6 +197,7 @@ export interface HapModuleInfo {
    * Describes the hap module
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -189,6 +205,7 @@ export interface HapModuleInfo {
    * Describes the hap module
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -197,6 +214,7 @@ export interface HapModuleInfo {
    * Describes the hap module
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -208,6 +226,7 @@ export interface HapModuleInfo {
    * Indicates the description of this hap module
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -215,6 +234,7 @@ export interface HapModuleInfo {
    * Indicates the description of this hap module
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -223,6 +243,7 @@ export interface HapModuleInfo {
    * Indicates the description of this hap module
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -234,6 +255,7 @@ export interface HapModuleInfo {
    * Indicates main elementName of the hap module
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -241,6 +263,7 @@ export interface HapModuleInfo {
    * Indicates main elementName of the hap module
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -249,6 +272,7 @@ export interface HapModuleInfo {
    * Indicates main elementName of the hap module
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -260,6 +284,7 @@ export interface HapModuleInfo {
    * Obtains configuration information about abilities
    *
    * @type { Array<AbilityInfo> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -267,6 +292,7 @@ export interface HapModuleInfo {
    * Obtains configuration information about abilities
    *
    * @type { Array<AbilityInfo> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -275,6 +301,7 @@ export interface HapModuleInfo {
    * Obtains configuration information about abilities
    *
    * @type { Array<AbilityInfo> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -286,6 +313,7 @@ export interface HapModuleInfo {
    * Obtains configuration information about extension abilities
    *
    * @type { Array<ExtensionAbilityInfo> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -293,6 +321,7 @@ export interface HapModuleInfo {
    * Obtains configuration information about extension abilities
    *
    * @type { Array<ExtensionAbilityInfo> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -303,6 +332,7 @@ export interface HapModuleInfo {
    * Indicates the metadata of ability
    *
    * @type { Array<Metadata> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -310,6 +340,7 @@ export interface HapModuleInfo {
    * Indicates the metadata of ability
    *
    * @type { Array<Metadata> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -318,6 +349,7 @@ export interface HapModuleInfo {
    * Indicates the metadata of ability
    *
    * @type { Array<Metadata> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -329,6 +361,7 @@ export interface HapModuleInfo {
    * The device types that this hap module can run on
    *
    * @type { Array<string> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -336,9 +369,20 @@ export interface HapModuleInfo {
    * The device types that this hap module can run on
    *
    * @type { Array<string> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * The device types that this hap module can run on
+   *
+   * @type { Array<string> }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   readonly deviceTypes: Array<string>;
 
@@ -346,6 +390,7 @@ export interface HapModuleInfo {
    * Indicates whether free installation of the hap module is supported
    *
    * @type { boolean }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -353,9 +398,20 @@ export interface HapModuleInfo {
    * Indicates whether free installation of the hap module is supported
    *
    * @type { boolean }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates whether free installation of the hap module is supported
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   readonly installationFree: boolean;
 
@@ -363,6 +419,7 @@ export interface HapModuleInfo {
    * Indicates the hash value of the hap module
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -370,9 +427,20 @@ export interface HapModuleInfo {
    * Indicates the hash value of the hap module
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates the hash value of the hap module
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   readonly hashValue: string;
 
@@ -380,6 +448,7 @@ export interface HapModuleInfo {
    * Indicates the type of the module
    *
    * @type { bundleManager.ModuleType }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -387,9 +456,20 @@ export interface HapModuleInfo {
    * Indicates the type of the module
    *
    * @type { bundleManager.ModuleType }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates the type of the module
+   *
+   * @type { bundleManager.ModuleType }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   readonly type: bundleManager.ModuleType;
 
@@ -397,6 +477,7 @@ export interface HapModuleInfo {
    * Indicates the dependency module that this module depends on
    *
    * @type { Array<Dependency> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -404,6 +485,7 @@ export interface HapModuleInfo {
    * Indicates the dependency module that this module depends on
    *
    * @type { Array<Dependency> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -414,6 +496,7 @@ export interface HapModuleInfo {
    * Indicates the preload module
    *
    * @type { Array<PreloadItem> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -421,6 +504,7 @@ export interface HapModuleInfo {
    * Indicates the preload module
    *
    * @type { Array<PreloadItem> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -468,7 +552,7 @@ export interface HapModuleInfo {
    * @atomicservice
    * @since 12
    */
-     readonly codePath: string;  
+  readonly codePath: string;
 }
 
 /**
@@ -491,6 +575,7 @@ export interface Dependency {
    * Indicates the module name
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -498,6 +583,7 @@ export interface Dependency {
    * Indicates the module name
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -508,6 +594,7 @@ export interface Dependency {
    * Indicates the bundle name of the dependency
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 10
    */
@@ -515,6 +602,7 @@ export interface Dependency {
    * Indicates the bundle name of the dependency
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -525,6 +613,7 @@ export interface Dependency {
    * Indicates the version code of the dependency
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 10
    */
@@ -532,6 +621,7 @@ export interface Dependency {
    * Indicates the version code of the dependency
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -559,6 +649,7 @@ export interface PreloadItem {
    * Indicates the module name need preload
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -566,6 +657,7 @@ export interface PreloadItem {
    * Indicates the module name need preload
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11

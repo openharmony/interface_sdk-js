@@ -33,7 +33,7 @@ declare namespace systemTimer {
   /**
    * Indicates the timing policy the timer use, which can be REALTIME or UTC.
    *
-   * @constant
+   *
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -43,7 +43,7 @@ declare namespace systemTimer {
   /**
    * Describes whether a timer will wake the device up.
    *
-   * @constant
+   *
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -53,7 +53,7 @@ declare namespace systemTimer {
   /**
    * Describes whether a timer will be delivered precisely at a scheduled time.
    *
-   * @constant
+   *
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -63,7 +63,7 @@ declare namespace systemTimer {
   /**
    * Indicates whether the timer waking up the system is supported in low-power mode.
    *
-   * @constant
+   *
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -242,6 +242,30 @@ declare namespace systemTimer {
      * @since 7
      */
     callback?: () => void;
+
+    /**
+     * Indicates whether the timer is restored after the system restarts.
+     * True indicates the timer is restored, and false indicates the timer is not restored.
+     * The default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.MiscServices.Time
+     * @systemapi
+     * @since 15
+     */
+    autoRestore?: boolean;
+
+    /**
+     * Indicates the name of the timer.
+     * The default value is empty string.
+     * The length of the name cannot be longer than 64 bytes, and the name can not be set the same name as other timers under the same UID.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.MiscServices.Time
+     * @systemapi
+     * @since 15
+     */
+    name?: string;
   }
 }
 

@@ -1615,16 +1615,17 @@ declare namespace asset {
      * A tag whose value is a bool indicating whether the attributes of an asset are required to be encrypted.
      *
      * @syscap SystemCapability.Security.Asset
-     * @since 13
-     */
-    /**
-     * A tag whose value is a bool indicating whether the attributes of an asset are required to be encrypted.
-     *
-     * @syscap SystemCapability.Security.Asset
      * @atomicservice
      * @since 14
      */
     REQUIRE_ATTR_ENCRYPTED = TagType.BOOL | 0x47,
+    /**
+     * A tag whose value is a byte array indicating the group id an asset belongs to.
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @since 16
+     */
+    GROUP_ID = TagType.BYTES | 0x48,
   }
 
   /**

@@ -25,7 +25,7 @@
  * Defines Marquee Modifier
  *
  * @extends MarqueeAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<MarqueeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

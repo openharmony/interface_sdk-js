@@ -56,6 +56,17 @@ declare namespace dataShare {
      * @since 10
      */
     isProxy?: boolean;
+    /**
+     * Specifies the time to wait for connecting extension, in seconds.
+     *
+     * @type { ?number }
+     * @default 2
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 16
+     */
+    waitTime?: number;
   }
 
   /**
@@ -362,6 +373,18 @@ declare namespace dataShare {
      * @since 10
      */
     scheduler: string;
+
+    /**
+     * Specifies the update sql of the template.
+     * The update is called after the predicates execution is complete.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 16
+     */
+    update?: string;
   }
   /**
    * Specifies the operation result structure.
@@ -600,7 +623,7 @@ declare namespace dataShare {
     /**
      * Subscribes to the change of the data specified by the given URI.
      *
-     * @param { 'dataChange' } type - Indicates the event type, which must be 'dataChange'.
+     * @param { 'dataChange' } event - Indicates the event type, which must be 'dataChange'.
      * @param { SubscriptionType } type - Indicates the subscription type, which is defined in {@link SubscriptionType}.
      * @param { string } uri - Indicates the path of the data to subscribe.
      * @param { AsyncCallback<ChangeInfo> } callback - Indicates the callback used to return the data change.
@@ -618,7 +641,7 @@ declare namespace dataShare {
     /**
      * Unsubscribes from the change of the data specified by the given URI.
      *
-     * @param { 'dataChange' } type - Indicates the event type, which must be 'dataChange'.
+     * @param { 'dataChange' } event - Indicates the event type, which must be 'dataChange'.
      * @param { SubscriptionType } type - Indicates the subscription type, which is defined in {@link SubscriptionType}.
      * @param { string } uri - Indicates the path of the data to unsubscribe.
      * @param { AsyncCallback<ChangeInfo> } callback - Indicates the callback to unsubscribe.

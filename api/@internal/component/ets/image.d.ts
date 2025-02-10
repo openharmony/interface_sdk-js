@@ -36,8 +36,8 @@ declare type DrawableDescriptor = import ('../api/@ohos.arkui.drawableDescriptor
 
 /**
  * Import the DrawingColorFilter type object for image color filter setting.
- * 
- * @typedef DrawingColorFilter
+ *
+ * @typedef { import('../api/@ohos.graphics.drawing').default.ColorFilter } DrawingColorFilter
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -65,6 +65,17 @@ declare type ResolutionQuality  = import('../api/@ohos.multimedia.image').defaul
  * @since 12
  */
 declare type DrawingLattice  = import('../api/@ohos.graphics.drawing').default.Lattice;
+
+/**
+ * Object matrix used for setting image transformations.
+ *
+ * @typedef { import('../api/@ohos.matrix4').default.Matrix4Transit } Matrix4Transit
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare type ImageMatrix = import ('../api/@ohos.matrix4').default.Matrix4Transit;
 
 /**
  * @enum { number }
@@ -160,7 +171,7 @@ declare enum ImageRenderMode {
 
 /**
  * Specify image's content.
- * 
+ *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -373,6 +384,65 @@ declare enum ImageInterpolation {
 }
 
 /**
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare enum ImageRotateOrientation {
+  /**
+   * Rotate according to the image rotation
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  AUTO = 0,
+
+  /**
+   * Ignore the rotation of the image
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  UP = 1,
+
+  /**
+   * Based on image rotation, rotate clockwise 90 degrees
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  RIGHT = 2,
+
+  /**
+   * Based on image rotation, rotate clockwise 180 degrees
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  DOWN = 3,
+
+  /**
+   * Based on image rotation, rotate clockwise 270 degrees
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  LEFT = 4,
+}
+
+/**
  * @interface ImageInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -548,6 +618,29 @@ interface ImageSourceSize {
    * @since 11
    */
   height: number;
+}
+
+/**
+ * Defines the ColorContent.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare class ColorContent {
+  /**
+   * Indicates the ColorContent to original value.
+   * 
+   * @type { ColorContent }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  static readonly ORIGIN: ColorContent;
 }
 
 /**
@@ -749,6 +842,18 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   fillColor(value: ResourceColor): ImageAttribute;
 
   /**
+   * fill Color
+   *
+   * @param { ResourceColor | ColorContent } color
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  fillColor(color: ResourceColor | ColorContent): ImageAttribute;
+
+  /**
    * Sets the zoom type of an image.
    *
    * @param { ImageFit } value
@@ -787,6 +892,18 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 11
    */
   objectFit(value: ImageFit): ImageAttribute;
+
+  /**
+   * Sets the matrix for the image.
+   *
+   * @param { ImageMatrix } matrix
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  imageMatrix(matrix: ImageMatrix): ImageAttribute;
 
   /**
    * Set the repeat style of the picture
@@ -1376,7 +1493,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        * The value of the status of the image being loaded successfully.
        * If the returned status value is 0, the image data is successfully loaded.
        * If the returned status value is 1, the image is successfully decoded.
-       * 
+       *
        * @type { number }
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @since 9
@@ -1386,7 +1503,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        * The value of the status of the image being loaded successfully.
        * If the returned status value is 0, the image data is successfully loaded.
        * If the returned status value is 1, the image is successfully decoded.
-       * 
+       *
        * @type { number }
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
@@ -1397,7 +1514,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
        * The value of the status of the image being loaded successfully.
        * If the returned status value is 0, the image data is successfully loaded.
        * If the returned status value is 1, the image is successfully decoded.
-       * 
+       *
        * @type { number }
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
@@ -1641,6 +1758,18 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 12
    */
   enhancedImageQuality(imageQuality: ResolutionQuality): ImageAttribute;
+
+  /**
+   * Set the rotation angle of image.
+   *
+   * @param { ImageRotateOrientation } orientation
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  orientation(orientation: ImageRotateOrientation) : ImageAttribute;
 }
 
 /**
@@ -1835,7 +1964,7 @@ declare interface ImageError {
 
 /**
  * Image resizable options
- * 
+ *
  * @interface ResizableOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1843,7 +1972,7 @@ declare interface ImageError {
  */
 /**
  * Image resizable options
- * 
+ *
  * @interface ResizableOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform

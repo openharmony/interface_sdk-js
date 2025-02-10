@@ -142,6 +142,16 @@ declare enum RichEditorSpanType {
    * @since 12
    */
   BUILDER = 3,
+
+  /**
+   * When no other types are explicitly specified, this type will be matched.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  DEFAULT = 4,
 }
 
 /**
@@ -212,6 +222,16 @@ declare enum RichEditorResponseType {
    * @since 12
    */
   SELECT = 2,
+
+  /**
+   * When no other types are explicitly specified, this type will be matched.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  DEFAULT = 3,
 }
 
 /**
@@ -444,6 +464,17 @@ declare interface RichEditorTextStyle {
   lineHeight?: number | string | Resource;
 
   /**
+   * Set the text with half leading.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  halfLeading?: boolean;
+
+  /**
    * Set font feature, advanced text styles and effects as designed by the font author.
    * The format is the like the CSS font-feature-settings attribute.
    *
@@ -458,6 +489,17 @@ declare interface RichEditorTextStyle {
    * @since 12
    */
   fontFeature?: string;
+
+  /**
+   * Text background style.
+   *
+   * @type { ?TextBackgroundStyle } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  textBackgroundStyle?: TextBackgroundStyle;
 }
 
 
@@ -1130,6 +1172,17 @@ declare interface RichEditorTextStyleResult {
   lineHeight?: number;
 
   /**
+   * Set the text with half leading.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  halfLeading?: boolean;
+
+  /**
    * Set font feature, advanced text styles and effects as designed by the font author.
    * The format is the like the CSS font-feature-settings attribute.
    *
@@ -1144,6 +1197,17 @@ declare interface RichEditorTextStyleResult {
    * @since 12
    */
   fontFeature?: string;
+
+  /**
+   * Text background style.
+   *
+   * @type { ?TextBackgroundStyle } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  textBackgroundStyle?: TextBackgroundStyle;
 }
 
 /**
@@ -1843,6 +1907,17 @@ declare interface RichEditorGesture {
    * @since 12
    */
   onLongPress?: Callback<GestureEvent>;
+
+  /**
+   * Trigger a gesture event when a double click event is complete.
+   *
+   * @type { ?Callback<GestureEvent> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @systemapi
+   * @since 14
+   */
+  onDoubleClick?: Callback<GestureEvent>;
 }
 
 /**
@@ -2030,6 +2105,17 @@ declare interface RichEditorImageSpanOptions {
    * @since 12
    */
   gesture?: RichEditorGesture;
+
+  /**
+   * RichEditor onHover.
+   *
+   * @type { ?OnHoverCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
+  onHover?: OnHoverCallback;
 }
 
 /**
@@ -2068,6 +2154,26 @@ declare interface RichEditorBuilderSpanOptions {
    * @since 12
    */
   offset?: number;
+
+  /**
+   * builder span drag background color
+   *
+   * @type { ?ColorMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 16
+   */
+  dragBackgroundColor? : ColorMetrics;
+
+  /**
+   * builder span drag shadow configuration
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 16
+   */
+  isDragShadowNeeded?: boolean;
 }
 
 /**
@@ -2106,6 +2212,7 @@ declare interface PlaceholderStyle {
 /**
  * Defines span style option of RichEditor.
  *
+ * @extends RichEditorRange
  * @interface RichEditorSpanStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
@@ -2113,6 +2220,7 @@ declare interface PlaceholderStyle {
 /**
  * Defines span style option of RichEditor.
  *
+ * @extends RichEditorRange
  * @interface RichEditorSpanStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -2124,6 +2232,7 @@ declare interface RichEditorSpanStyleOptions extends RichEditorRange { }
 /**
  * Defines paragraph style option of RichEditor.
  *
+ * @extends RichEditorRange
  * @interface RichEditorParagraphStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -2132,6 +2241,7 @@ declare interface RichEditorSpanStyleOptions extends RichEditorRange { }
 /**
  * Defines paragraph style option of RichEditor.
  *
+ * @extends RichEditorRange
  * @interface RichEditorParagraphStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -2162,6 +2272,7 @@ declare interface RichEditorParagraphStyleOptions extends RichEditorRange {
 /**
  * Defines text span style option of RichEditor.
  *
+ * @extends RichEditorSpanStyleOptions
  * @interface RichEditorUpdateTextSpanStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
@@ -2169,6 +2280,7 @@ declare interface RichEditorParagraphStyleOptions extends RichEditorRange {
 /**
  * Defines text span style option of RichEditor.
  *
+ * @extends RichEditorSpanStyleOptions
  * @interface RichEditorUpdateTextSpanStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -2198,6 +2310,7 @@ declare interface RichEditorUpdateTextSpanStyleOptions extends RichEditorSpanSty
 /**
  * Defines image span style option of RichEditor.
  *
+ * @extends RichEditorSpanStyleOptions
  * @interface RichEditorUpdateImageSpanStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
@@ -2205,6 +2318,7 @@ declare interface RichEditorUpdateTextSpanStyleOptions extends RichEditorSpanSty
 /**
  * Defines image span style option of RichEditor.
  *
+ * @extends RichEditorSpanStyleOptions
  * @interface RichEditorUpdateImageSpanStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -2234,6 +2348,7 @@ declare interface RichEditorUpdateImageSpanStyleOptions extends RichEditorSpanSt
 /**
  * Defines symbol span style option of RichEditor.
  *
+ * @extends RichEditorSpanStyleOptions
  * @interface RichEditorUpdateSymbolSpanStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -2242,6 +2357,7 @@ declare interface RichEditorUpdateImageSpanStyleOptions extends RichEditorSpanSt
 /**
  * Defines symbol span style option of RichEditor.
  *
+ * @extends RichEditorSpanStyleOptions
  * @interface RichEditorUpdateSymbolSpanStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -2732,6 +2848,28 @@ declare interface SelectionMenuOptions {
    * @since 13
    */
   menuType?: MenuType;
+
+  /**
+   * Callback function when the selection menu is displayed.
+   *
+   * @type { ?MenuCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onMenuShow?: MenuCallback;
+
+  /**
+   * Callback function when the selection menu is hidden.
+   *
+   * @type { ?MenuCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onMenuHide?: MenuCallback;
 }
 
 /**
@@ -2900,6 +3038,17 @@ declare class RichEditorBaseController implements TextEditControllerEx {
    * @since 12
    */
   getPreviewText(): PreviewText;
+
+  /**
+   * Get CaretRect.
+   *
+   * @returns { RectResult | undefined } - Return the caret rect or undefined value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  getCaretRect(): RectResult | undefined;
 }
 
 /**
@@ -3454,7 +3603,6 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @form
    * @since 10
    */
   /**
@@ -3464,7 +3612,6 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @form
    * @atomicservice
    * @since 11
    */
@@ -3772,6 +3919,52 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 13
    */
   barState(state: BarState): RichEditorAttribute;
+
+  /**
+   * Define the max length content of the richEditor.
+   *
+   * @param { Optional<number> } maxLength - The maximun length content of the richEditor.
+   * @returns { RichEditorAttribute }  returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  maxLength(maxLength: Optional<number>): RichEditorAttribute;
+
+  /**
+   * Define max lines of the richEditor.
+   *
+   * @param { Optional<number> } maxLines - The maximun Lines of the richEditor.
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  maxLines(maxLines: Optional<number>): RichEditorAttribute;
+
+  /**
+   * Set the keyboard appearance.
+   *
+   * @param { Optional<KeyboardAppearance> } appearance - Default value is KeyboardAppearance.NONE_IMMERSIVE
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  keyboardAppearance(appearance: Optional<KeyboardAppearance>): RichEditorAttribute;
+
+  /**
+   * Set whether stop backPressed callback event or not.
+   *
+   * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  stopBackPress(isStopped: Optional<boolean>): RichEditorAttribute;
 }
 
 /**
@@ -3843,6 +4036,19 @@ declare type SubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => vo
 declare type MenuOnAppearCallback = (start: number, end: number) => void;
 
 /**
+ * Callback function when the selection menu show or hide.
+ *
+ * @typedef { function } MenuCallback
+ * @param { number } start - Start offset of the selected content in rich editor.
+ * @param { number } end - End offset of the selected content in rich editor.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare type MenuCallback = (start: number, end: number) => void;
+
+/**
  * Callback function when a paste operation is performed.
  *
  * @typedef { function } PasteEventCallback
@@ -3853,6 +4059,19 @@ declare type MenuOnAppearCallback = (start: number, end: number) => void;
  * @since 12
  */
 declare type PasteEventCallback = (event?: PasteEvent) => void;
+
+/**
+ * callback of the on hover event.
+ *
+ * @typedef { function } OnHoverCallback
+ * @param { boolean } status - The hover status
+ * @param { HoverEvent } event - The event info for hover.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 14
+ */
+declare type OnHoverCallback = (status: boolean, event: HoverEvent) => void;
 
 /**
  * Provides an interface for writing texts.

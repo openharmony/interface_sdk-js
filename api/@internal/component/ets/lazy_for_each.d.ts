@@ -452,7 +452,7 @@ interface DataReloadOperation {
  * @since 12
  */
 declare type DataOperation =
-  DataAddOperation | DataDeleteOperation | DataChangeOperation | DataMoveOperation | DataExchangeOperation | DataReloadOperation
+  DataAddOperation | DataDeleteOperation | DataChangeOperation | DataMoveOperation | DataExchangeOperation | DataReloadOperation;
 
 /**
  * Data Change Listener.

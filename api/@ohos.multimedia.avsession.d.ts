@@ -24,6 +24,7 @@ import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
 import { ElementName } from './bundleManager/ElementName';
 import image from './@ohos.multimedia.image';
 import audio from './@ohos.multimedia.audio';
+import { AVCastPickerState, AVCastPickerColorMode } from './@ohos.multimedia.avCastPickerParam';
 import type media from './@ohos.multimedia.media';
 import type Context from './application/BaseContext';
 
@@ -268,6 +269,23 @@ declare namespace avSession {
   function startAVPlayback(bundleName: string, assetId: string): Promise<void>;
 
   /**
+   * Get distributed avsession controller
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { DistributedSessionType } distributedSessionType - Specifies the distributed session type.
+   * @returns { Promise<Array<AVSessionController>> } Promise for AVSessionController.
+   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Parameter verification failed.
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @throws { BusinessError } 6600109 - The remote connection is not established.
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
+   * @since 16
+   */
+  function getDistributedSessionController(distributedSessionType: DistributedSessionType): Promise<Array<AVSessionController>>;
+
+  /**
    * Session token. Used to judge the legitimacy of the session.
    * @typedef SessionToken
    * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -419,6 +437,36 @@ declare namespace avSession {
   function off(type: 'sessionServiceDie', callback?: () => void): void;
 
   /**
+   * Register distributed   session changed callback
+   * @param { 'distributedSessionChange' } type - Registration Type, distributed session change
+   * @param { DistributedSessionType } distributedSessionType - Indicates the distributed session type
+   * @param { Callback<Array<AVSessionController>> } callback - The callback will return remote changed AVSessionController.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types.
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
+   * @since 16
+   */
+  function on(type: 'distributedSessionChange', distributedSessionType: DistributedSessionType, callback: Callback<Array<AVSessionController>>): void;
+
+  /**
+   * Unregister distributed session changed callback
+   * @param { 'distributedSessionChange' } type - Registration Type, distributed session change
+   * @param { DistributedSessionType } distributedSessionType - Indicates the distributed session type
+   * @param { Callback<Array<AVSessionController>> } callback - The callback will return remote changed AVSessionController.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types.
+   * @throws { BusinessError } 6600101 - Session service exception.
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
+   * @since 16
+   */
+  function off(type: 'distributedSessionChange', distributedSessionType: DistributedSessionType, callback?: Callback<Array<AVSessionController>>): void;
+
+  /**
    * Send system media key event.The system automatically selects the recipient.
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { KeyEvent } event - The key event to be sent
@@ -548,6 +596,39 @@ declare namespace avSession {
      * @since 12
      */
     TYPE_DLNA = 4,
+  }
+
+  /**
+   * Define different distributed session type
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
+   * @since 16
+   */
+  enum DistributedSessionType {
+    /**
+     * Remote session sensed from remote device.
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
+     * @since 16
+     */
+    TYPE_SESSION_REMOTE = 0,
+
+    /**
+     * Migrated session from remote device to this device.
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
+     * @since 16
+     */
+    TYPE_SESSION_MIGRATE_IN = 1,
+
+    /**
+     * Migrated session from this device to remote device.
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
+     * @since 16
+     */
+    TYPE_SESSION_MIGRATE_OUT = 2,
   }
 
   /**
@@ -924,6 +1005,7 @@ declare namespace avSession {
     /**
      * unique session Id
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
@@ -939,6 +1021,7 @@ declare namespace avSession {
     /**
      * Get current session type
      * @type { AVSessionType }
+     * @readonly
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
@@ -3579,6 +3662,83 @@ declare namespace avSession {
   }
 
   /**
+   * A helper to enable a picker to select output devices
+   *
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @atomicservice
+   * @since 14
+   */
+  class AVCastPickerHelper {
+    /**
+     * The constructor used to create a AVCastPickerHelper object.
+     *
+     * @param { Context } context - represents the context.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 14
+     */
+    constructor(context: Context);
+
+    /**
+     * Pull up the avcastpicker based on the options.
+     *
+     * @param { AVCastPickerOptions } [options] - represents the options provided to  the picker.
+     * @returns { Promise<void> } void promise when executed successfully
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * 2. Incorrect parameter types.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 14
+     */
+    select(options?: AVCastPickerOptions): Promise<void>;
+
+    /**
+     * Register picker state change callback.
+     * @param { 'pickerStateChange' } type - 'pickerStateChange'
+     * @param { Callback<AVCastPickerState> } callback - The callback used to handle picker state changed event.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * 2. Incorrect parameter types.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 14
+     */
+    on(type: 'pickerStateChange', callback: Callback<AVCastPickerState>) : void;
+
+    /**
+     * Unregister picker state change callback.
+     * @param { 'pickerStateChange' } type - 'pickerStateChange'
+     * @param { Callback<AVCastPickerState> } callback - The callback used to handle picker state changed event.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * 2. Incorrect parameter types.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 14
+     */
+    off(type: 'pickerStateChange', callback?: Callback<AVCastPickerState>) : void;
+  }
+
+  /**
+   * An option to make different picker usage
+   *
+   * @typedef AVCastPickerOptions
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @atomicservice
+   * @since 14
+   */
+  interface AVCastPickerOptions {
+    /**
+     * Indicates current session type to show different picker ui.
+     * If not set, default value is 'audio'.
+     *
+     * @type { ? AVSessionType }
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 14
+     */
+    sessionType?: AVSessionType;
+  }
+
+  /**
    * The callback of key request.
    *
    * @typedef { function } KeyRequestCallback
@@ -3964,6 +4124,15 @@ declare namespace avSession {
      * @since 12
      */
     mediaImage?: image.PixelMap | string;
+
+    /**
+     * The image of the bundle icon as a {@link PixelMap}, no need to be set by application.
+     * @type { ?image.PixelMap }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 16
+     */
+    readonly bundleIcon?: image.PixelMap;
 
     /**
      * The publishDate of the media
@@ -5606,6 +5775,15 @@ declare namespace avSession {
   }
 
   /**
+   * The extra info object.
+   *
+   * @typedef { object } ExraInfo
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @since 16
+   */
+  type ExtraInfo = { [key: string]: Object; };
+
+  /**
    * Session controller,used to control media playback and get media information
    * @interface AVSessionController
    * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -5628,6 +5806,7 @@ declare namespace avSession {
     /**
      * Unique session Id
      * @type { string }
+     * @readonly
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
@@ -6360,6 +6539,21 @@ declare namespace avSession {
      * @since 12
      */
     getExtras(): Promise<{[key: string]: Object}>;
+
+    /**
+     * Get extra information for remote device, such as volume level, connected devices.
+     * @param { string } extraEvent - the event name to get
+     * @returns { Promise<ExtraInfo> } the value returned for such event
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @throws { BusinessError } 6600105 - Invalid session command.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 16
+     */
+    getExtrasWithEvent(extraEvent: string): Promise<ExtraInfo>;
 
     /**
      * Register metadata changed callback

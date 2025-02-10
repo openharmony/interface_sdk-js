@@ -41,7 +41,7 @@
  */
 /**
  * Defines the basic callback.
- * @typedef Callback
+ * @typedef Callback<T>
  * @syscap SystemCapability.Base
  * @crossplatform
  * @form
@@ -97,7 +97,7 @@ export interface Callback<T> {
  */
 /**
  * Defines the basic error callback.
- * @typedef ErrorCallback
+ * @typedef ErrorCallback<T extends Error = BusinessError>
  * @syscap SystemCapability.Base
  * @crossplatform
  * @atomicservice
@@ -151,7 +151,7 @@ export interface ErrorCallback<T extends Error = BusinessError> {
  */
 /**
  * Defines the basic async callback.
- * @typedef AsyncCallback
+ * @typedef AsyncCallback<T, E = void>
  * @syscap SystemCapability.Base
  * @crossplatform
  * @form
@@ -219,7 +219,8 @@ export interface AsyncCallback<T, E = void> {
  */
 /**
  * Defines the error interface.
- * @typedef BusinessError
+ * @extends Error
+ * @typedef BusinessError<T = void>
  * @syscap SystemCapability.Base
  * @crossplatform
  * @form

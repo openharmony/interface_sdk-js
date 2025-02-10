@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 13
+ * @since 16
  */
 interface MarqueeOptions {
   /**
@@ -292,7 +292,7 @@ interface MarqueeInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   (options: MarqueeOptions): MarqueeAttribute;
 }

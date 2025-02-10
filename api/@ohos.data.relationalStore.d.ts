@@ -341,6 +341,16 @@ declare namespace relationalStore {
     customDir?: string;
 
     /**
+     * Specifies the root directory relative to the database
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 16
+     */
+    rootDir?: string;
+
+    /**
      * Specifies whether to clean up dirty data that is synchronized to
      * the local but deleted in the cloud.
      *
@@ -374,8 +384,7 @@ declare namespace relationalStore {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @systemapi
-     * @since 12
+     * @since 16
      */
     vector?: boolean;
 
@@ -416,6 +425,16 @@ declare namespace relationalStore {
      * @since 14
      */
     cryptoParam?: CryptoParam;
+
+    /**
+     * Specifies the tokenizer type when using fts capability.
+     *
+     * @type { ?Tokenizer }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 16
+     */
+
+    tokenizer?: Tokenizer;
   }
 
   /**
@@ -605,6 +624,37 @@ declare namespace relationalStore {
      * @since 14
      */
     KDF_SHA512
+  }
+
+  /**
+   * Enumerates the supported tokenizer when opening a database.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 16
+   */
+  enum Tokenizer {
+    /**
+     * NONE_TOKENIZER: not use tokenizer
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 16
+     */
+    NONE_TOKENIZER = 0,
+    /**
+     * ICU_TOKENIZER: native icu tokenizer.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 16
+     */
+    ICU_TOKENIZER,
+    /**
+     * CUSTOM_TOKENIZER: self-developed enhance tokenizer.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 16
+     */
+    CUSTOM_TOKENIZER
   }
 
   /**
@@ -1229,6 +1279,15 @@ declare namespace relationalStore {
      * @since 11
      */
     references?: Array<Reference>;
+
+    /**
+     * Specifies whether async download assets.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 16
+     */
+    asyncDownloadAsset?: boolean;
   }
 
   /**
@@ -3239,6 +3298,39 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
+    /**
+     * Obtains the value of the specified column in the current row.
+     * The implementation class determines whether to throw an exception if the value of the specified column
+     * in the current row is null or the specified column is not of the Assets type.
+     * Inserting an empty blob, after API14 and API14, the obtained value is an empty blob; Before API 14,
+     * the obtained value was null.
+     *
+     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @returns { ValueType } The value of the specified column.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800012 - Row out of bounds.
+     * @throws { BusinessError } 14800013 - Column out of bounds.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
     getValue(columnIndex: number): ValueType;
 
     /**
@@ -3310,7 +3402,65 @@ declare namespace relationalStore {
      * @crossplatform
      * @since 12
      */
+    /**
+     * Obtains the values of all columns in the specified row.
+     * Inserting an empty blob, after API14 and API14, the obtained value is an empty blob; Before API 14,
+     * the obtained value was null.
+     *
+     * @returns { ValuesBucket } Indicates the row of data {@link ValuesBucket} to be inserted into the table.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800012 - Row out of bounds.
+     * @throws { BusinessError } 14800013 - Column out of bounds.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 14
+     */
     getRow(): ValuesBucket;
+
+    /**
+     * Obtains the values of all columns in the specified rows.
+     * @param { number } maxCount - Indicates the maximum number of rows.
+     * @param { number } position - Indicates the start position to obtain the values.
+     * @returns { Promise<Array<ValuesBucket>> } Promise used to return the values obtained, in an{@link Array<ValuesBucket>}.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800012 - Row out of bounds.
+     * @throws { BusinessError } 14800013 - Column out of bounds.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 16
+     */
+    getRows(maxCount: number, position?: number): Promise<Array<ValuesBucket>>;
 
     /**
      * Obtains the values of all columns in the specified row.
@@ -6790,7 +6940,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800050 - Failed to obtain subscription service.
+     * @throws { BusinessError } 14800050 - Failed to obtain the subscription service.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
@@ -6806,7 +6956,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800050 - Failed to obtain subscription service.
+     * @throws { BusinessError } 14800050 - Failed to obtain the subscription service.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -6925,7 +7075,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800050 - Failed to obtain subscription service.
+     * @throws { BusinessError } 14800050 - Failed to obtain the subscription service.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
@@ -6941,7 +7091,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800050 - Failed to obtain subscription service.
+     * @throws { BusinessError } 14800050 - Failed to obtain the subscription service.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -6992,7 +7142,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800050 - Failed to obtain subscription service.
+     * @throws { BusinessError } 14800050 - Failed to obtain the subscription service.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
@@ -7006,7 +7156,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800050 - Failed to obtain subscription service.
+     * @throws { BusinessError } 14800050 - Failed to obtain the subscription service.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -7038,7 +7188,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800016 - The database is already attached.
+     * @throws { BusinessError } 14800016 - The database alias already exists.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -7074,9 +7224,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800016 - The database is already attached.
-     * @throws { BusinessError } 14801001 - Only supported in stage mode.
-     * @throws { BusinessError } 14801002 - The data group id is not valid.
+     * @throws { BusinessError } 14800016 - The database alias already exists.
+     * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
+     * @throws { BusinessError } 14801002 - Invalid data ground ID.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -7724,8 +7874,8 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
    * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
-   * @throws { BusinessError } 14801001 - Only supported in stage mode.
-   * @throws { BusinessError } 14801002 - The data group id is not valid.
+   * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
+   * @throws { BusinessError } 14801002 - Invalid data ground ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -7743,8 +7893,8 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Invalid database path.
    * @throws { BusinessError } 14800011 - Database corrupted.
-   * @throws { BusinessError } 14801001 - Only supported in stage mode.
-   * @throws { BusinessError } 14801002 - The data group id is not valid.
+   * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
+   * @throws { BusinessError } 14801002 - Invalid data ground ID.
    * @throws { BusinessError } 14800017 - Config changed.
    * @throws { BusinessError } 14800021 - SQLite: Generic error.
    * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
@@ -7756,6 +7906,34 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 12
+   */
+  /**
+   * Obtains a RDB store.
+   * You can set parameters of the RDB store as required. In general, this method is recommended
+   * to obtain a rdb store.
+   *
+   * @param { Context } context - Indicates the context of an application or ability.
+   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+   * @param { AsyncCallback<RdbStore> } callback - The RDB store {@link RdbStore}.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 14800000 - Inner error.
+   * @throws { BusinessError } 14800010 - Invalid database path.
+   * @throws { BusinessError } 14800011 - Database corrupted.
+   * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
+   * @throws { BusinessError } 14801002 - Invalid data ground ID.
+   * @throws { BusinessError } 14800017 - Config changed.
+   * @throws { BusinessError } 14800020 - The secret key is corrupted or lost.
+   * @throws { BusinessError } 14800021 - SQLite: Generic error.
+   * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+   * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+   * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+   * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+   * @throws { BusinessError } 14800029 - SQLite: The database is full.
+   * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 14
    */
   function getRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback<RdbStore>): void;
 
@@ -7788,8 +7966,8 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
    * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
-   * @throws { BusinessError } 14801001 - Only supported in stage mode.
-   * @throws { BusinessError } 14801002 - The data group id is not valid.
+   * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
+   * @throws { BusinessError } 14801002 - Invalid data ground ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -7807,8 +7985,8 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Invalid database path.
    * @throws { BusinessError } 14800011 - Database corrupted.
-   * @throws { BusinessError } 14801001 - Only supported in stage mode.
-   * @throws { BusinessError } 14801002 - The data group id is not valid.
+   * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
+   * @throws { BusinessError } 14801002 - Invalid data ground ID.
    * @throws { BusinessError } 14800017 - Config changed.
    * @throws { BusinessError } 14800021 - SQLite: Generic error.
    * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
@@ -7818,6 +7996,34 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 12
+   */
+  /**
+   * Obtains a RDB store.
+   * You can set parameters of the RDB store as required. In general, this method is recommended
+   * to obtain a rdb store.
+   *
+   * @param { Context } context - Indicates the context of an application or ability.
+   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+   * @returns { Promise<RdbStore> } The RDB store {@link RdbStore}.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 14800000 - Inner error.
+   * @throws { BusinessError } 14800010 - Invalid database path.
+   * @throws { BusinessError } 14800011 - Database corrupted.
+   * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
+   * @throws { BusinessError } 14801002 - Invalid data ground ID.
+   * @throws { BusinessError } 14800017 - Config changed.
+   * @throws { BusinessError } 14800020 - The secret key is corrupted or lost.
+   * @throws { BusinessError } 14800021 - SQLite: Generic error.
+   * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+   * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+   * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+   * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+   * @throws { BusinessError } 14800029 - SQLite: The database is full.
+   * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 14
    */
   function getRdbStore(context: Context, config: StoreConfig): Promise<RdbStore>;
 
@@ -7863,8 +8069,8 @@ declare namespace relationalStore {
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
-   * @throws { BusinessError } 14801001 - Only supported in stage mode.
-   * @throws { BusinessError } 14801002 - The data group id is not valid.
+   * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
+   * @throws { BusinessError } 14801002 - Invalid data ground ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -7928,8 +8134,8 @@ declare namespace relationalStore {
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
-   * @throws { BusinessError } 14801001 - Only supported in stage mode.
-   * @throws { BusinessError } 14801002 - The data group id is not valid.
+   * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
+   * @throws { BusinessError } 14801002 - Invalid data ground ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -7946,13 +8152,32 @@ declare namespace relationalStore {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Invalid database path.
-   * @throws { BusinessError } 14801001 - Only supported in stage mode.
-   * @throws { BusinessError } 14801002 - The data group id is not valid.
+   * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
+   * @throws { BusinessError } 14801002 - Invalid data ground ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 12
    */
   function deleteRdbStore(context: Context, config: StoreConfig): Promise<void>;
+
+  /**
+   * Checks whether the vector database is supported.
+   *
+   * @returns { boolean } Returns {@code true} if the vector database is supported; returns {@code false} otherwise.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 16
+   */
+  function isVectorSupported(): boolean;
+
+  /**
+   * check the {@link Tokenizer} tokenizer type is supported or not on current system.
+   * @param { tokenizer } type - Indicates Tokenizer which want to check.
+   * @returns { boolean } Returns {@code true} if the tokenizer is supported; returns {@code false} otherwise.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 16
+   */
+    function isTokenizerSupported(tokenizer: Tokenizer): boolean;
 }
 
 export default relationalStore;

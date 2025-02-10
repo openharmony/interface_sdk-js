@@ -18,6 +18,8 @@
  * @kit BasicServicesKit
  */
 
+import { AsyncCallback } from '@kit.BasicServicesKit';
+
 /**
  * This module provides the capability of manage USB device.
  *
@@ -43,7 +45,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.                             
-   * @throws { BusinessError } 14400001 - Permission denied. Call requestRight to get the permission first.
+   * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
    * @syscap SystemCapability.USB.USBManager
    * @since 9
    */
@@ -232,6 +234,23 @@ declare namespace usbManager {
    * @systemapi
    * @since 12
    */
+  /**
+   * Add USB device access right.
+   * The system application has access to the device by default, and calling this interface will not have any impact.
+   *
+   * @permission ohos.permission.MANAGE_USB_CONFIG
+   * @param { string } tokenId - refers to application that require access permissions. It cannot be empty.
+   * @param { string } deviceName - device name defined by USBDevice.name. It cannot be empty.
+   * @returns { boolean } value to indicate whether the permission is granted.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1.Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.  
+   * @syscap SystemCapability.USB.USBManager
+   * @systemapi
+   * @since 16
+   */
   function addDeviceAccessRight(tokenId: string, deviceName: string): boolean;
 
   /**
@@ -247,6 +266,21 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 12
+   */
+  /**
+   * Converts the string descriptor of a given USB function list to a numeric mask combination.
+   *
+   * @permission ohos.permission.MANAGE_USB_CONFIG
+   * @param { string } funcs - descriptor of the supported function list. It cannot be empty.
+   * @returns { number } the numeric mask combination of the function list.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1.Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types. 
+   * @syscap SystemCapability.USB.USBManager
+   * @systemapi
+   * @since 16
    */
   function getFunctionsFromString(funcs: string): number;
 
@@ -264,6 +298,21 @@ declare namespace usbManager {
    * @systemapi
    * @since 12
    */
+  /**
+   * Converts the numeric mask combination of a given USB function list to a string descriptor.
+   *
+   * @permission ohos.permission.MANAGE_USB_CONFIG
+   * @param { FunctionType } funcs - numeric mask combination of the function list. It cannot be empty.
+   * @returns { string } - descriptor of the supported function list.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1.Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.  
+   * @syscap SystemCapability.USB.USBManager
+   * @systemapi
+   * @since 16
+   */
   function getStringFromFunctions(funcs: FunctionType): string;
 
   /**
@@ -276,9 +325,28 @@ declare namespace usbManager {
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.  
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @throws { BusinessError } 14400002 - Permission denied. The HDC is disabled by the system.
+   * @throws { BusinessError } 14400006 - Unsupported operation. The function is not supported.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 12
+   */
+  /**
+   * Sets the current USB function list in Device mode.
+   *
+   * @permission ohos.permission.MANAGE_USB_CONFIG
+   * @param { FunctionType } funcs - numeric mask combination of the supported function list. It cannot be empty.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1.Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.  
+   * @throws { BusinessError } 14400002 - Permission denied. The HDC is disabled by the system.
+   * @throws { BusinessError } 14400006 - Unsupported operation. The function is not supported.
+   * @syscap SystemCapability.USB.USBManager
+   * @systemapi
+   * @since 16
    */
   function setDeviceFunctions(funcs: FunctionType): Promise<void>;
 
@@ -292,6 +360,17 @@ declare namespace usbManager {
    * @systemapi
    * @since 12
    */
+  /**
+   * Obtains the numeric mask combination for the current USB function list in Device mode.
+   *
+   * @permission ohos.permission.MANAGE_USB_CONFIG
+   * @returns { FunctionType } the numeric mask combination for the current USB function list in FunctionType.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @syscap SystemCapability.USB.USBManager
+   * @systemapi
+   * @since 16
+   */
   function getDeviceFunctions(): FunctionType;
 
   /* usb port functions begin */
@@ -304,6 +383,18 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 12
+   */
+  /* usb port functions begin */
+  /**
+   * Obtains the USBPort list.
+   *
+   * @permission ohos.permission.MANAGE_USB_CONFIG
+   * @returns { Array<USBPort> } the USBPort list.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @syscap SystemCapability.USB.USBManager
+   * @systemapi
+   * @since 16
    */
   function getPortList(): Array<USBPort>;
 
@@ -320,6 +411,21 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 12
+   */
+  /**
+   * Gets the mask combination for the supported mode list of the specified USBPort.
+   *
+   * @permission ohos.permission.MANAGE_USB_CONFIG
+   * @param { number } portId - unique ID of the port. It cannot be empty.
+   * @returns { PortModeType } the mask combination for the supported mode list in PortModeType.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1.Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.   
+   * @syscap SystemCapability.USB.USBManager
+   * @systemapi
+   * @since 16
    */
   function getPortSupportModes(portId: number): PortModeType;
 
@@ -339,6 +445,24 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 12
+   */
+  /**
+   * Sets the role types supported by the specified USBPort, which can be powerRole (for charging) and dataRole (for data transfer).
+   *
+   * @permission ohos.permission.MANAGE_USB_CONFIG
+   * @param { number } portId - unique ID of the port. It cannot be empty.
+   * @param { PowerRoleType } powerRole - charging role. It cannot be empty.
+   * @param { DataRoleType } dataRole - data role. It cannot be empty.
+   * @returns { Promise<void> } the promise returned by the function.  
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1.Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 14400003 - Unsupported operation. The current device does not support port role switching.
+   * @syscap SystemCapability.USB.USBManager
+   * @systemapi
+   * @since 16
    */
   function setPortRoleTypes(portId: number, powerRole: PowerRoleType, dataRole: DataRoleType): Promise<void>;
 
@@ -1202,6 +1326,8 @@ declare namespace usbManager {
    * @typedef USBControlParams
    * @syscap SystemCapability.USB.USBManager
    * @since 9
+   * @deprecated since 16
+   * @useinstead ohos.usbManager/usbManager#USBDeviceRequestParams
    */
   interface USBControlParams {
     /**
@@ -1210,6 +1336,7 @@ declare namespace usbManager {
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 9
+     * @deprecated since 16
      */
     request: number;
 
@@ -1219,6 +1346,7 @@ declare namespace usbManager {
      * @type { USBRequestTargetType }
      * @syscap SystemCapability.USB.USBManager
      * @since 9
+     * @deprecated since 16
      */
     target: USBRequestTargetType;
 
@@ -1228,6 +1356,7 @@ declare namespace usbManager {
      * @type { USBControlRequestType }
      * @syscap SystemCapability.USB.USBManager
      * @since 9
+     * @deprecated since 16
      */
     reqType: USBControlRequestType;
 
@@ -1237,6 +1366,7 @@ declare namespace usbManager {
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 9
+     * @deprecated since 16
      */
     value: number;
 
@@ -1246,6 +1376,7 @@ declare namespace usbManager {
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 9
+     * @deprecated since 16
      */
     index: number;
 
@@ -1255,6 +1386,7 @@ declare namespace usbManager {
      * @type { Uint8Array }
      * @syscap SystemCapability.USB.USBManager
      * @since 9
+     * @deprecated since 16
      */
     data: Uint8Array;
   }
@@ -1592,6 +1724,355 @@ declare namespace usbManager {
      */
     accessoryFd: number;
   }
+
+  /**
+     * Usb transfer flag.
+     *
+     * @enum { number }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+  export enum UsbTransferFlags {
+    /**
+     * Report short frames as errors
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    USB_TRANSFER_SHORT_NOT_OK = 0,
+
+    /**
+     * Automatically free transfer buffer
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    USB_TRANSFER_FREE_BUFFER = 1,
+
+    /**
+     * Automatically free transfer after callback returns
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    USB_TRANSFER_FREE_TRANSFER = 2,
+
+    /**
+     * Transmissions that are multiples of wMaxPacketSize will add an additional zero packet.
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    USB_TRANSFER_ADD_ZERO_PACKET = 3
+  }
+
+  /**
+   * Usb transfer status.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.USB.USBManager
+   * @since 16
+   */
+  export enum UsbTransferStatus {
+    /**
+     * Transfer completed
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    TRANSFER_COMPLETED = 0,
+
+    /**
+     * Transfer failed
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    TRANSFER_ERROR = 1,
+
+    /**
+     * Transfer timed out
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    TRANSFER_TIMED_OUT = 2,
+
+    /**
+     * Transfer was canceled
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    TRANSFER_CANCELED = 3,
+
+    /**
+     * For bulk/interrupt endpoints: halt condition detected (endpoint
+     * stalled). For control endpoints: control request not supported.
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    TRANSFER_STALL = 4,
+
+    /**
+     * Device was disconnected
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    TRANSFER_NO_DEVICE = 5,
+
+    /**
+     * Device sent more data than requested
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    TRANSFER_OVERFLOW = 6
+  }
+
+  /**
+   * USB DATA transfer type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.USB.USBManager
+   * @since 16
+   */
+  export enum UsbEndpointTransferType {
+    /**
+     * Isochronous endpoint
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    TRANSFER_TYPE_ISOCHRONOUS = 0x1,
+
+    /**
+     * Bulk endpoint
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    TRANSFER_TYPE_BULK = 0x2,
+
+    /**
+     * Interrupt endpoint
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    TRANSFER_TYPE_INTERRUPT = 0x3
+  }
+
+  /**
+   * Isochronous packet descriptors, only for isochronous transfers.
+   *
+   * @typedef UsbIsoPacketDescriptor
+   * @syscap SystemCapability.USB.USBManager
+   * @since 16
+   */
+  interface UsbIsoPacketDescriptor {
+    /**
+     * Length of data to request in this packet
+     *
+     * @type { number }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    length: number;
+
+    /**
+     * Amount of data that was actually transferred
+     *
+     * @type { number }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    actualLength: number;
+
+    /**
+     * Status code for this packet
+     *
+     * @type { UsbTransferStatus }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    status: UsbTransferStatus;
+  }
+
+  /**
+  * submit transfer callback.
+  *
+  * @typedef SubmitTransferCallback
+  * @syscap SystemCapability.USB.USBManager
+  * @since 16
+  */
+  interface SubmitTransferCallback {
+    /**
+     * Actual length of data that was transferred. Read-only, and only for
+     * use within transfer callback function. Not valid for isochronous endpoint transfers.
+     *
+     * @type { number }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    actualLength: number;
+
+    /**
+     * The status of the transfer. Read-only, and only for use within transfer callback function.
+     *
+     * @type { UsbTransferStatus }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    status: UsbTransferStatus;
+
+    /**
+     * Isochronous packet descriptors, for isochronous transfers only.
+     *
+     * @type { Array<Readonly<UsbIsoPacketDescriptor>> }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    isoPacketDescs: Array<Readonly<UsbIsoPacketDescriptor>>;
+  }
+
+  /**
+   * As a generic USB data transfer interface. The Client populates this interface and
+   * submits it in order to request a transfer. 
+   *
+   * @typedef UsbDataTransferParams
+   * @syscap SystemCapability.USB.USBManager
+   * @since 16
+   */
+  interface UsbDataTransferParams {
+    /**
+     * Pipe of the device that this data transfer will be submitted to.
+     *
+     * @type { USBDevicePipe }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    devPipe: USBDevicePipe;
+
+    /**
+     * A bitwise OR combination of UsbTransferFlags.
+     *
+     * @type { UsbTransferFlags }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    flags: UsbTransferFlags;
+
+    /**
+     * Address of the endpoint where this transfer will be sent.
+     *
+     * @type { number }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    endpoint: number;
+
+    /**
+     * Type of the transfer
+     *
+     * @type { UsbEndpointTransferType }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    type: UsbEndpointTransferType;
+
+    /**
+     * Timeout for this transfer in milliseconds. A value of 0 indicates no timeout.
+     *
+     * @type { number }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    timeout: number;
+
+    /**
+     * Length of the data buffer. Must be non-negative.
+     *
+     * @type { number }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    length: number;
+
+    /**
+     * Callback function. This will be invoked when the transfer completes, fails, or is canceled.
+     *
+     * @type { AsyncCallback<SubmitTransferCallback> }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    callback: AsyncCallback<SubmitTransferCallback>;
+
+    /**
+     * User context data. Useful for associating specific data to a transfer
+     * that can be accessed from within the callback function.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    userData: Uint8Array;
+
+    /**
+     * Data buffer
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    buffer: Uint8Array;
+
+    /**
+     * Count of isochronous packets. Only used for I/O with isochronous endpoints. Must be non-negative.
+     *
+     * @type { number }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 16
+     */
+    isoPacketCount: number;
+  }
+
+  /**
+   * Submit USB data transfer.
+   *
+   * @param { transfer } As a generic USB data transfer interface. The Client populates this interface and
+   * submits it in order to request a transfer
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1.Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
+   * @throws { BusinessError } 14400007 - Resource busy.
+   * @throws { BusinessError } 14400008 - No such device (it may have been disconnected).
+   * @throws { BusinessError } 14400009 - Insufficient memory.
+   * @throws { BusinessError } 14400012 - Transmission I/O error.
+   * @syscap SystemCapability.USB.USBManager
+   * @since 16
+   */
+  function usbSubmitTransfer(transfer: UsbDataTransferParams): void;
+
+  /**
+   * Cancel USB data transfer.
+   *
+   * @param { transfer } Cancel the target transfer
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1.Mandatory parameters are left unspecified.
+   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
+   * @throws { BusinessError } 14400008 - No such device (it may have been disconnected).
+   * @throws { BusinessError } 14400010 - Other USB error. Possible causes:
+   * <br>1.Unrecognized discard error code.
+   * @throws { BusinessError } 14400011 - The transfer is not in progress, or is already complete or cancelled.
+   * @syscap SystemCapability.USB.USBManager
+   * @since 16
+   */
+  function usbCancelTransfer(transfer: UsbDataTransferParams): void;
 }
 
 export default usbManager;

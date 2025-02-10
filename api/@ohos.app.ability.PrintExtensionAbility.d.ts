@@ -26,7 +26,7 @@ import type print from './@ohos.print';
  *
  * @syscap SystemCapability.Print.PrintFramework
  * @stagemodelonly
- * @since 13
+ * @since 14
  */
 export default class PrintExtensionAbility {
 
@@ -35,7 +35,7 @@ export default class PrintExtensionAbility {
    * @param { Want } want - call print page want params.
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
-   * @since 13
+   * @since 14
    */
   onCreate(want: Want): void;
 
@@ -43,7 +43,7 @@ export default class PrintExtensionAbility {
    * Called once to start to discover the printers connected with the device.
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
-   * @since 13
+   * @since 14
    */
   onStartDiscoverPrinter(): void;
 
@@ -51,7 +51,7 @@ export default class PrintExtensionAbility {
    * Called once to stop discovering the printer.
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
-   * @since 13
+   * @since 14
    */
   onStopDiscoverPrinter(): void;
 
@@ -60,7 +60,7 @@ export default class PrintExtensionAbility {
    * @param { number } printerId - connect the printerId.
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
-   * @since 13
+   * @since 14
    */
   onConnectPrinter(printerId: number): void;
 
@@ -69,7 +69,7 @@ export default class PrintExtensionAbility {
    * @param { number } printerId - connect the printerId.
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
-   * @since 13
+   * @since 14
    */
   onDisconnectPrinter(printerId: number): void;
 
@@ -123,7 +123,7 @@ export default class PrintExtensionAbility {
    * Called once to finalize the extensionAbility.
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
-   * @since 13
+   * @since 14
    */
   onDestroy(): void;
 }

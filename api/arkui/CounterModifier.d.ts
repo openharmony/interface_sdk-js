@@ -25,7 +25,7 @@
  * Defines Counter Modifier
  *
  * @extends CounterAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<CounterAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

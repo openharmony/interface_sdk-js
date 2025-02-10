@@ -886,6 +886,16 @@ declare enum ImageFit {
    * @since 12
    */
   BOTTOM_END = 15,
+
+  /**
+   * Matrix of Image.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  MATRIX = 16,
 }
 
 /**
@@ -1271,6 +1281,47 @@ declare enum TouchType {
 }
 
 /**
+ * Function Called by Touch or Gesture.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare enum InteractionHand {
+  /**
+   * Unknown hand.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  NONE = 0,
+
+  /**
+   * Left hand.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  LEFT = 1,
+
+  /**
+   * Right hand.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  RIGHT = 2,
+}
+
+/**
  * Function Called by Mouse
  *
  * @enum { number }
@@ -1549,7 +1600,16 @@ declare enum MouseAction {
    * @atomicservice
    * @since 11
    */
-  Hover
+  Hover,
+  
+  /**
+   * Triggered when the mouse event is canceled.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  CANCEL = 13
 }
 
 /**
@@ -2566,6 +2626,16 @@ declare enum KeySource {
    * @since 11
    */
   Keyboard,
+
+  /**
+   * Set Device Type to Joystic.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  JOYSTICK,
 }
 
 /**
@@ -9147,6 +9217,16 @@ declare enum WordBreak {
    * @since 11
    */
   BREAK_WORD = 2,
+
+  /**
+   * For supported languages, line breaks can be performed by syllables.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  HYPHENATION = 3,
 }
 
 /**
@@ -9191,6 +9271,65 @@ declare enum LineBreakStrategy  {
    * @since 12
    */
   BALANCED  = 2,
+}
+
+/**
+ * Enum of Illuminated type
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 11
+ */
+declare enum IlluminatedType {
+  /**
+   * Component is not illuminated.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  NONE = 0,
+  /**
+   * Border is illuminated.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  BORDER = 1,
+  /**
+   * Content is illuminated.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  CONTENT = 2,
+  /**
+   * Border and Content is illuminated.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  BORDER_CONTENT = 3,
+  /**
+   * Border is illuminated, and the border have a bloom effect.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  BLOOM_BORDER = 4,
+  /**
+   * Border and Content is illuminated, and the border have a bloom effect.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  BLOOM_BORDER_CONTENT = 5
 }
 
 /**
@@ -9334,65 +9473,6 @@ declare enum OptionWidthMode {
    * @since 12
    */
   FIT_TRIGGER = 'fit_trigger',
-}
-
-/**
- * Enum of Illuminated type
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 11
- */
-declare enum IlluminatedType {
-  /**
-   * Component is not illuminated.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 11
-   */
-  NONE = 0,
-  /**
-   * Border is illuminated.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 11
-   */
-  BORDER = 1,
-  /**
-   * Content is illuminated.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 11
-   */
-  CONTENT = 2,
-  /**
-   * Border and Content is illuminated.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 11
-   */
-  BORDER_CONTENT = 3,
-  /**
-   * Border is illuminated, and the border have a bloom effect.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 11
-   */
-  BLOOM_BORDER = 4,
-  /**
-   * Border and Content is illuminated, and the border have a bloom effect.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 11
-   */
-  BLOOM_BORDER_CONTENT = 5
 }
 
 /**
@@ -9819,4 +9899,250 @@ declare enum HeightBreakpoint {
    * @since 13
    */
   HEIGHT_LG = 2,
+}
+
+/**
+ * Type of axis.
+ *
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 15
+ */
+declare enum AxisModel {
+  /**
+   * ABS_X axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  ABS_X = 0,
+
+  /**
+  
+   * ABS_Y axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  ABS_Y = 1,
+
+  /**
+   * ABS_Z axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  ABS_Z = 2,
+
+  /**
+   * ABS_RZ axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  ABS_RZ = 3,
+
+  /**
+   * ABS_GAS axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  ABS_GAS = 4,
+
+  /**
+   * ABS_BRAKE axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  ABS_BRAKE = 5,
+
+  /**
+   * ABS_HAT0X axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  ABS_HAT0X = 6,
+
+  /**
+   * ABS_HAT0Y axis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  ABS_HAT0Y = 7,
+}
+
+/**
+ * Page flip mode of Swiper and Tabs on mouse wheel event.
+
+ * @enum { number } PageFlipMode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 15
+ */
+declare enum PageFlipMode {
+  /**
+   * Turn pages continuously according to the number of mouse wheel events.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 15
+   */
+  CONTINUOUS = 0,
+
+  /**
+   * The page-turning animation remains unresponsive to other mouse wheel events until it completes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 15
+   */
+  SINGLE = 1,
+}
+
+/**
+ * Rotating crown event behavior.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
+declare enum CrownAction {
+  /**
+   * Rotation crown behavior begins.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  BEGIN = 0,
+
+  /**
+   * Rotation crown behavior update.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  UPDATE = 1,
+
+  /**
+   * The rotation crown behavior ends.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  END = 2
+}
+
+/**
+ * Sensitivity of rotating crown.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
+declare enum CrownSensitivity {
+  /**
+   * Low sensitivity.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  LOW = 0,
+
+  /**
+   * Medium sensitivity.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  MEDIUM = 1,
+
+  /**
+   * High sensitivity.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  HIGH = 2
+}
+
+/**
+ * Type of axis action.
+ *
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
+declare enum AxisAction {
+  /**
+   * None action.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  NONE = 0,
+
+  /**
+   * Triggered when an axis event starts.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  BEGIN = 1,
+
+  /**
+   * Triggered when the axis event is updated.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  UPDATE = 2,
+
+  /**
+   * Triggered when the axis event ends.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  END = 3,
+
+  /**
+   * Triggered when the axis event is cancelled.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  CANCEL = 4,
 }

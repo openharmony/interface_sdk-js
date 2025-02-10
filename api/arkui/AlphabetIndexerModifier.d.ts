@@ -24,7 +24,7 @@
  * Defines AlphabetIndexer Modifier
  *
  * @extends AlphabetIndexerAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<AlphabetIndexerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

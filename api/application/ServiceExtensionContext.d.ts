@@ -25,6 +25,7 @@ import ExtensionContext from './ExtensionContext';
 import Want from '../@ohos.app.ability.Want';
 import StartOptions from '../@ohos.app.ability.StartOptions';
 import OpenLinkOptions from '../@ohos.app.ability.OpenLinkOptions';
+import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
 
 /**
  * The context of service extension. It allows access to
@@ -2126,6 +2127,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @param { Want } want - Indicates the ability to start.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
@@ -2225,6 +2227,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @param { StartOptions } options - Indicates the start options.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
@@ -2324,6 +2327,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @param { StartOptions } [options] - Indicates the start options.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
@@ -2493,4 +2497,29 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @since 14
    */
   startUIServiceExtensionAbility(want: Want): Promise<void>;
+
+  /**
+   * Full-screen pop-up startup atomic service.
+   * If the caller application is in foreground, you can use this method to start ability; If the caller application is in the background,
+   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   *
+   * @param { string } appId - Globally unique identifier of an application, which is allocated by the cloud.
+   * @param { AtomicServiceOptions } [options] - Indicates the atomic service start options.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Can not start invisible component
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000012 - The application is controlled.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16200001 - The caller has been released.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 16
+   */
+  openAtomicService(appId: string, options?: AtomicServiceOptions): Promise<void>;
 }

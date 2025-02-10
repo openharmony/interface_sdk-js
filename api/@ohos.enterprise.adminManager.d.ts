@@ -20,6 +20,7 @@
 
 import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
+import common from '@ohos.app.ability.common';
 
 /**
  * This module provides the capability to manage the administrator of the enterprise devices.
@@ -84,7 +85,16 @@ declare namespace adminManager {
      * @systemapi
      * @since 9
      */
-    ADMIN_TYPE_SUPER = 0x01
+    ADMIN_TYPE_SUPER = 0x01,
+
+    /**
+     * The value of administrator used in BYOD device.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @since 15
+     */
+    ADMIN_TYPE_BYOD = 0x02
   }
 
   /**
@@ -134,6 +144,30 @@ declare namespace adminManager {
      * @since 12
      */
     MANAGED_EVENT_SYSTEM_UPDATE = 4,
+
+    /**
+     * Event indicating that a system account is added.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @since 16
+     */
+    MANAGED_EVENT_ACCOUNT_ADDED = 5,
+
+    /**
+     * Event indicating that a system account is switched.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @since 16
+     */
+    MANAGED_EVENT_ACCOUNT_SWITCHED = 6,
+
+    /**
+     * Event indicating that a system account is removed.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @since 16
+     */
+    MANAGED_EVENT_ACCOUNT_REMOVED = 7
   }
 
   /**
@@ -155,7 +189,7 @@ declare namespace adminManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function enableAdmin(admin: Want, enterpriseInfo: EnterpriseInfo, type: AdminType, callback: AsyncCallback<void>): void;
@@ -180,7 +214,7 @@ declare namespace adminManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function enableAdmin(admin: Want, enterpriseInfo: EnterpriseInfo, type: AdminType, userId: number, callback: AsyncCallback<void>): void;
@@ -205,7 +239,7 @@ declare namespace adminManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function enableAdmin(admin: Want, enterpriseInfo: EnterpriseInfo, type: AdminType, userId?: number): Promise<void>;
@@ -225,7 +259,7 @@ declare namespace adminManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function disableAdmin(admin: Want, callback: AsyncCallback<void>): void;
@@ -246,7 +280,7 @@ declare namespace adminManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function disableAdmin(admin: Want, userId: number, callback: AsyncCallback<void>): void;
@@ -265,7 +299,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   function disableAdmin(admin: Want, userId?: number): Promise<void>;
@@ -284,7 +318,7 @@ declare namespace adminManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function disableSuperAdmin(bundleName: String, callback: AsyncCallback<void>): void;
@@ -303,7 +337,7 @@ declare namespace adminManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function disableSuperAdmin(bundleName: String): Promise<void>;
@@ -318,7 +352,7 @@ declare namespace adminManager {
    *                                 2. Incorrect parameter types.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function isAdminEnabled(admin: Want, callback: AsyncCallback<boolean>): void;
@@ -334,7 +368,7 @@ declare namespace adminManager {
    *                                 2. Incorrect parameter types.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function isAdminEnabled(admin: Want, userId: number, callback: AsyncCallback<boolean>): void;
@@ -350,7 +384,7 @@ declare namespace adminManager {
    *                                 2. Incorrect parameter types.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function isAdminEnabled(admin: Want, userId?: number): Promise<boolean>;
@@ -366,7 +400,7 @@ declare namespace adminManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function getEnterpriseInfo(admin: Want, callback: AsyncCallback<EnterpriseInfo>): void;
@@ -382,7 +416,7 @@ declare namespace adminManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function getEnterpriseInfo(admin: Want): Promise<EnterpriseInfo>;
@@ -402,7 +436,7 @@ declare namespace adminManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function setEnterpriseInfo(admin: Want, enterpriseInfo: EnterpriseInfo, callback: AsyncCallback<void>): void;
@@ -422,7 +456,7 @@ declare namespace adminManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function setEnterpriseInfo(admin: Want, enterpriseInfo: EnterpriseInfo): Promise<void>;
@@ -437,7 +471,7 @@ declare namespace adminManager {
    *                                 2. Incorrect parameter types.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function isSuperAdmin(bundleName: String, callback: AsyncCallback<boolean>): void;
@@ -452,7 +486,7 @@ declare namespace adminManager {
    *                                 2. Incorrect parameter types.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function isSuperAdmin(bundleName: String): Promise<boolean>;
@@ -472,7 +506,7 @@ declare namespace adminManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function subscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>, callback: AsyncCallback<void>): void;
@@ -492,7 +526,7 @@ declare namespace adminManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function subscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>): Promise<void>;
@@ -512,7 +546,7 @@ declare namespace adminManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function unsubscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>, callback: AsyncCallback<void>): void;
@@ -532,7 +566,7 @@ declare namespace adminManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function unsubscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>): Promise<void>;
@@ -553,7 +587,7 @@ declare namespace adminManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function authorizeAdmin(admin: Want, bundleName: string, callback: AsyncCallback<void>): void;
@@ -574,7 +608,7 @@ declare namespace adminManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function authorizeAdmin(admin: Want, bundleName: string): Promise<void>;
@@ -586,7 +620,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   function getSuperAdmin(): Promise<Want>;
@@ -603,7 +637,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   function subscribeManagedEventSync(admin: Want, managedEvents: Array<ManagedEvent>): void;
@@ -620,10 +654,94 @@ declare namespace adminManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   function unsubscribeManagedEventSync(admin: Want, managedEvents: Array<ManagedEvent>): void;
+
+  /**
+   * Administrator delegates access to policies to another application.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_DELEGATED_POLICY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } bundleName - bundleName indicates the bundle name of the delegated application.
+   * @param { Array<string> } policies - policies indicates the policies accessible to the delegated application.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200009 - Failed to grant the permission to the application.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 14
+   */
+  function setDelegatedPolicies(admin: Want, bundleName: string, policies: Array<string>): void;
+
+  /**
+   * Administrator gets the list of delegation policies for the application.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_DELEGATED_POLICY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } bundleName - bundleName indicates the bundle name of the delegated application.
+   * @returns { Array<string> } the policies accessible to the delegated application.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 14
+   */
+  function getDelegatedPolicies(admin: Want, bundleName: string): Array<string>;
+
+  /**
+   * Administrator gets the delegated applications which access to the policy.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_DELEGATED_POLICY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } policy - policy indicates the policy that delegated to other applications.
+   * @returns { Array<string> } the bundle names of the delegated application that access to the policy.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 14
+   */
+  function getDelegatedBundleNames(admin: Want, policy: string): Array<string>;
+
+  /**
+   * Starts an ability of admin provision application.
+   *
+   * @permission ohos.permission.START_PROVISIONING_MESSAGE
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { AdminType } type - type indicates the type of administrator to set.
+   * @param { common.Context } context - context indicates the context of application.
+   * @param { Record<string, string> } parameters - the parameters indicates the custom parameters of start an administrator provision.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 15
+   */
+  function startAdminProvision(admin: Want, type: AdminType, context: common.Context, parameters: Record<string, string>): void;
+
+  /**
+   * Gets administrators of device.
+   *
+   * @returns { Promise<Array<Want>> } returns the want list indicates the administrators of the device.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 15
+   */
+  function getAdmins(): Promise<Array<Want>>;
 }
 
 export default adminManager;

@@ -99,7 +99,15 @@ declare namespace certificateManager {
      * @syscap SystemCapability.Security.CertificateManager
      * @since 12
      */
-    CM_ERROR_NO_AUTHORIZATION = 17500005
+    CM_ERROR_NO_AUTHORIZATION = 17500005,
+
+    /**
+     * Indicates that the device enters advanced security mode.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 16
+     */
+    CM_ERROR_DEVICE_ENTER_ADVSECMODE = 17500007
   }
 
   /**
@@ -504,7 +512,15 @@ declare namespace certificateManager {
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11
      */
-    CM_DIGEST_SHA512 = 6
+    CM_DIGEST_SHA512 = 6,
+
+    /**
+     * Indicates that key digest is SM3.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 16
+     */
+    CM_DIGEST_SM3 = 7
   }
 
   /**
@@ -983,6 +999,21 @@ declare namespace certificateManager {
   function getAllUserTrustedCertificates(): Promise<CMResult>;
 
   /**
+   * Get a list of all user trusted CA certificates.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { CertScope } scope  - Indicates the scope of user ca certificate.
+   * @returns { Promise<CMResult> } The user ca certificates.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 17500001 - Internal error.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 16
+   */
+  function getAllUserTrustedCertificates(scope: CertScope): Promise<CMResult>;
+
+  /**
    * Get the detail of user trusted CA certificate.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
@@ -1023,6 +1054,131 @@ declare namespace certificateManager {
    * @since 13
    */
   function getPrivateCertificates(): Promise<CMResult>;
+
+  /**
+   * Enum for certificate type managed by Certificate Manager.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 16
+   */
+  export enum CertType {
+    /**
+     * Indicates that ca certificate that installed by HarmonyOS system.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 16
+     */
+    CA_CERT_SYSTEM = 0,
+
+    /**
+     * Indicates that ca certificate that installed by user.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 16
+     */
+    CA_CERT_USER = 1
+  }
+
+  /**
+   * Enum for the scope of user ca certificate.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 16
+   */
+  export enum CertScope {
+
+    /**
+     * Indicates that the user ca certificate for a current user.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 16
+     */
+    CURRENT_USER = 1,
+
+    /**
+     * Indicates that the user ca certificate for all users.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 16
+     */
+    GLOBAL_USER = 2
+  }
+
+ /**
+   * Provides the certificate file store property type.
+   *
+   * @typedef CertStoreProperty
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 16
+   */
+  export interface CertStoreProperty {
+    /**
+     * Indicates the certificate type managed by Certificate Manager.
+     *
+     * @type { CertType }
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 16
+     */
+    certType: CertType;
+
+    /**
+     * Indicates the scope of user ca certificate. This parameter is valid only when certType is set to CA_CERT_USER.
+     *
+     * @type { ?CertScope }
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 16
+     */
+    certScope?: CertScope;
+  }
+
+  /**
+   * Get the certificate file store path.
+   *
+   * @param { CertStoreProperty } property - Indicates the certificate file store path property.
+   * @returns { string } the certificate file store path.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 17500001 - Internal error.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 16
+   */
+  function getCertificateStorePath(property: CertStoreProperty): string;
+
+  /**
+   * Install the user trusted CA certificate.
+   *
+   * @permission ohos.permission.ACCESS_ENTERPRISE_USER_TRUSTED_CERT or ohos.permission.ACCESS_USER_TRUSTED_CERT
+   * @param { Uint8Array } cert - Indicates the certificate file content to be installed.
+   * @param { CertScope } certScope - Indicates the scope of user ca certificate.
+   * @returns { CMResult } The certificate uri that identifies the installed certificate.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 17500001 - Internal error.
+   * @throws { BusinessError } 17500003 - Indicates that the certificate is in an invalid format.
+   * @throws { BusinessError } 17500004 - Indicates that the number of certificates reaches the maximum allowed.
+   * @throws { BusinessError } 17500007 - Indicates that the device enters advanced security mode. In this mode, the user CA certificate cannot be installed.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 16
+   */
+  function installUserTrustedCertificateSync(cert: Uint8Array, certScope: CertScope) : CMResult;
+
+  /**
+   * Uninstall the user trusted CA certificate.
+   *
+   * @permission ohos.permission.ACCESS_ENTERPRISE_USER_TRUSTED_CERT or ohos.permission.ACCESS_USER_TRUSTED_CERT
+   * @param { string } certUri - Indicates the certificate uri to be uninstalled.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 17500001 - Internal error.
+   * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 16
+   */
+    function uninstallUserTrustedCertificateSync(certUri: string) : void;
 }
 
 export default certificateManager;

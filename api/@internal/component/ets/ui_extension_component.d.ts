@@ -47,6 +47,31 @@ declare enum DpiFollowStrategy {
 }
 
 /**
+ * Enumeration of different types of WindowModeFollowStrategy.
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 16
+ */
+declare enum WindowModeFollowStrategy {
+    /**
+     * Followed the host Window Mode.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 16
+     */
+    FOLLOW_HOST_WINDOW_MODE = 0,
+
+    /**
+     * Followed the UIExtensionAbility.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 16
+     */
+    FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE = 1,
+}
+
+/**
  * This interface is used to set the options for UIExtensionComponentAttribute during construction
  *
  * @interface UIExtensionOptions
@@ -100,6 +125,16 @@ declare interface UIExtensionOptions {
    * @since 12
    */
   dpiFollowStrategy?: DpiFollowStrategy;
+
+    /**
+     * Set UIExtensionComponent Content Window Mode Follow Strategy.
+     * @type { ?WindowModeFollowStrategy }
+     * @default WindowModeFollowStrategy.FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 16
+     */
+    windowModeFollowStrategy?: WindowModeFollowStrategy;
 }
 
 /**
@@ -138,7 +173,7 @@ declare interface TerminationInfo {
  * @typedef { import('../api/@ohos.base').Callback<Record<string, Object>> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 14
+ * @since 16
  */
 declare type ReceiveCallback = import('../api/@ohos.base').Callback<Record<string, Object>>;
 
@@ -167,7 +202,7 @@ declare interface UIExtensionProxy {
    * @param { Record<string, Object> } data
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 14
+   * @since 16
    */
   send(data: Record<string, Object>): void;
 
@@ -191,7 +226,7 @@ declare interface UIExtensionProxy {
    * @throws { BusinessError } 100012 - Transferring data failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 14
+   * @since 16
    */
   sendSync(data: Record<string, Object>): Record<string, Object>;
 
@@ -211,7 +246,7 @@ declare interface UIExtensionProxy {
    * @param { Callback<UIExtensionProxy> } callback - Callback of the listened event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 14
+   * @since 16
    */
   on(type: 'asyncReceiverRegister', callback: Callback<UIExtensionProxy>): void;
 
@@ -231,7 +266,7 @@ declare interface UIExtensionProxy {
    * @param { Callback<UIExtensionProxy> } callback - Callback of the listened event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 14
+   * @since 16
    */
   on(type: 'syncReceiverRegister', callback: Callback<UIExtensionProxy>): void;
 
@@ -251,7 +286,7 @@ declare interface UIExtensionProxy {
    * @param { Callback<UIExtensionProxy> } [callback] - Callback of the listened event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 14
+   * @since 16
    */
   off(type: 'asyncReceiverRegister', callback?: Callback<UIExtensionProxy>): void;
 
@@ -271,7 +306,7 @@ declare interface UIExtensionProxy {
    * @param { Callback<UIExtensionProxy> } [callback] - Callback of the listened event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 14
+   * @since 16
    */
   off(type: 'syncReceiverRegister', callback?: Callback<UIExtensionProxy>): void;
 }
@@ -348,7 +383,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 14
+   * @since 16
    */
   onReceive(callback: ReceiveCallback): UIExtensionComponentAttribute;
 
@@ -406,6 +441,16 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
    * @since 12
    */
   onTerminated(callback: Callback<TerminationInfo>): UIExtensionComponentAttribute;
+
+    /**
+     * Callback called when the UIExtensionAbility draw the first frame.
+     * @param { Callback<void> } callback
+     * @returns { UIExtensionComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 16
+     */
+    onDrawReady(callback: Callback<void>): UIExtensionComponentAttribute;
 }
 
 /**

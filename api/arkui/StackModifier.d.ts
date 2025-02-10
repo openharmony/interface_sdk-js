@@ -25,7 +25,7 @@
  * Defines Stack Modifier
  *
  * @extends StackAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<StackAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

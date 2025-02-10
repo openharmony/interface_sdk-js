@@ -50,6 +50,15 @@ export declare class SelectTitleBarMenuItem {
   value: ResourceStr;
 
   /**
+   * Symbol resource for this menu item.
+   * @type { ?SymbolGlyphModifier }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  symbolStyle?: SymbolGlyphModifier;
+
+  /**
    * Icon label for this menu item.
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -87,6 +96,34 @@ export declare class SelectTitleBarMenuItem {
    * @since 11
    */
   action?: () => void;
+
+  /**
+   * The accessibilityText of this menu item.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityText?: ResourceStr;
+
+  /**
+   * The accessibilityDescription of this menu item.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityDescription?: ResourceStr;
+
+  /**
+   * The accessibilityLevel of this menu item.
+   * @type { ?string }
+   * @default "auto"
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityLevel?: string;
 }
 
 /**

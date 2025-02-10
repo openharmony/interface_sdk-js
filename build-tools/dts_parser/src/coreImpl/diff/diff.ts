@@ -312,7 +312,7 @@ export class DiffHelper {
     newMethodInfoMap: Map<string, ApiInfo>,
     diffInfos: BasicDiffInfo[],
     isCheck?: boolean
-  ) {
+  ): void {
     for (const newApiInfo of newMethodInfoMap.values()) {
       const newJsDocInfo: Comment.JsDocInfo | undefined = newApiInfo.getPenultimateJsDocInfo();
       for (const oldApiInfo of oldMethodInfoMap.values()) {
@@ -528,7 +528,7 @@ export class DiffHelper {
 
   static setApiInfoMap(apiInfoMap: Map<string, ApiInfo>, apiInfos: ApiInfo[]): void {
     apiInfos.forEach((apiInfo: ApiInfo) => {
-      const key: string = `${apiInfo.getDefinedText()}#${apiInfo.getJsDocText()}#${JSON.stringify(apiInfo.getDecorators())}`
+      const key: string = `${apiInfo.getDefinedText()}#${apiInfo.getJsDocText()}#${JSON.stringify(apiInfo.getDecorators())}`;
       apiInfoMap.set(key, apiInfo);
     });
   }

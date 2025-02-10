@@ -25,7 +25,7 @@
  * Defines Slider Modifier
  *
  * @extends SliderAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<SliderAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

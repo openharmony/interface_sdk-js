@@ -551,6 +551,15 @@ declare namespace reminderAgentManager {
     title?: string;
 
     /**
+     * Resource ID for title.
+     * 
+     * @type { ?number }
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 16
+     */
+    titleResourceId?: number;
+  
+    /**
      * Reminder content.
      *
      * @type { ?string }
@@ -559,6 +568,15 @@ declare namespace reminderAgentManager {
      */
     content?: string;
 
+    /**
+     * Resource ID for content.
+     * 
+     * @type { ?number }
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 16
+     */
+    contentResourceId?: number;
+  
     /**
      * Content to be displayed when the reminder is expired.
      *
@@ -569,6 +587,15 @@ declare namespace reminderAgentManager {
     expiredContent?: string;
 
     /**
+     * Resource ID for expired content.
+     * 
+     * @type { ?number }
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 16
+     */
+    expiredContentResourceId?: number;
+  
+    /**
      * Content to be displayed when the reminder is snoozing.
      *
      * @type { ?string }
@@ -577,6 +604,15 @@ declare namespace reminderAgentManager {
      */
     snoozeContent?: string;
 
+    /**
+     * Resource ID for snooze content.
+     * 
+     * @type { ?number }
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 16
+     */
+    snoozeContentResourceId?: number;
+  
     /**
      * Notification id. If there are reminders with the same ID, the later one will overwrite the earlier one.
      *
@@ -644,7 +680,8 @@ declare namespace reminderAgentManager {
   /**
    * Calendar reminder information.
    *
-   * @interface ReminderRequestCalendar
+   * @extends ReminderRequest
+   * @typedef ReminderRequestCalendar
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 9
    */
@@ -709,7 +746,8 @@ declare namespace reminderAgentManager {
   /**
    * Alarm reminder information.
    *
-   * @interface ReminderRequestAlarm
+   * @extends ReminderRequest
+   * @typedef ReminderRequestAlarm
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 9
    */
@@ -745,8 +783,8 @@ declare namespace reminderAgentManager {
   /**
    * CountDown reminder information.
    *
-   * @interface ReminderRequestTimer
-   *
+   * @extends ReminderRequest
+   * @typedef ReminderRequestTimer
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 9
    */
@@ -769,8 +807,22 @@ declare namespace reminderAgentManager {
    * @since 12
    */
   interface ReminderInfo {
+    /**
+     * Reminder id.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 12
+     */
     reminderId: number;
 
+    /**
+     * Reminder request.
+     *
+     * @type { ReminderRequest }
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 12
+     */
     reminderReq: ReminderRequest;
   }
 

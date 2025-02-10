@@ -145,6 +145,7 @@ declare class TextTimerController {
 /**
  * TextTimerConfiguration used by content modifier.
  *
+ * @extends CommonConfiguration<TextTimerConfiguration>
  * @interface TextTimerConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform

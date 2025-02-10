@@ -59,7 +59,7 @@ export class Check {
     ApiChangeCheck.checkApiChange(prId);
     files.forEach((filePath: string, index: number) => {
       currentFilePath = filePath;
-      if (process.env.NODE_ENV !== "development" && filePath.indexOf('build-tools') !== -1) {
+      if (process.env.NODE_ENV !== 'development' && filePath.indexOf('build-tools') !== -1) {
         return;
       }
       console.log(`scaning file in no ${++index}!`);

@@ -51,6 +51,7 @@ export interface ApplicationInfo {
    * Indicates the application name, which is the same as {@code bundleName}
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -58,6 +59,7 @@ export interface ApplicationInfo {
    * Indicates the application name, which is the same as {@code bundleName}
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -66,6 +68,7 @@ export interface ApplicationInfo {
    * Indicates the application name, which is the same as {@code bundleName}
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -77,6 +80,7 @@ export interface ApplicationInfo {
    * Description of application
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -84,6 +88,7 @@ export interface ApplicationInfo {
    * Description of application
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -92,6 +97,7 @@ export interface ApplicationInfo {
    * Description of application
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -103,6 +109,7 @@ export interface ApplicationInfo {
    * Indicates the description id of the application
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -110,6 +117,7 @@ export interface ApplicationInfo {
    * Indicates the description id of the application
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -118,6 +126,7 @@ export interface ApplicationInfo {
    * Indicates the description id of the application
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -129,6 +138,7 @@ export interface ApplicationInfo {
    * Indicates whether or not this application may be instantiated
    *
    * @type { boolean }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -136,9 +146,20 @@ export interface ApplicationInfo {
    * Indicates whether or not this application may be instantiated
    *
    * @type { boolean }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates whether or not this application may be instantiated
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   readonly enabled: boolean;
 
@@ -146,6 +167,7 @@ export interface ApplicationInfo {
    * Indicates the label of the application
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -153,6 +175,7 @@ export interface ApplicationInfo {
    * Indicates the label of the application
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -161,6 +184,7 @@ export interface ApplicationInfo {
    * Indicates the label of the application
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -172,6 +196,7 @@ export interface ApplicationInfo {
    * Indicates the label id of the application
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -179,6 +204,7 @@ export interface ApplicationInfo {
    * Indicates the label id of the application
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -187,6 +213,7 @@ export interface ApplicationInfo {
    * Indicates the label id of the application
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -198,6 +225,7 @@ export interface ApplicationInfo {
    * Indicates the icon of the application
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -205,6 +233,7 @@ export interface ApplicationInfo {
    * Indicates the icon of the application
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -213,6 +242,7 @@ export interface ApplicationInfo {
    * Indicates the icon of the application
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -224,6 +254,7 @@ export interface ApplicationInfo {
    * Indicates the icon id of the application
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -231,6 +262,7 @@ export interface ApplicationInfo {
    * Indicates the icon id of the application
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -239,6 +271,7 @@ export interface ApplicationInfo {
    * Indicates the icon id of the application
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -250,6 +283,7 @@ export interface ApplicationInfo {
    * Process of application, if user do not set it ,the value equal bundleName
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -257,9 +291,20 @@ export interface ApplicationInfo {
    * Process of application, if user do not set it ,the value equal bundleName
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Process of application, if user do not set it ,the value equal bundleName
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   readonly process: string;
 
@@ -267,6 +312,7 @@ export interface ApplicationInfo {
    * Indicates the permissions required for accessing the application.
    *
    * @type { Array<string> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -274,9 +320,20 @@ export interface ApplicationInfo {
    * Indicates the permissions required for accessing the application.
    *
    * @type { Array<string> }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates the permissions required for accessing the application.
+   *
+   * @type { Array<string> }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   readonly permissions: Array<string>;
 
@@ -284,6 +341,7 @@ export interface ApplicationInfo {
    * Indicates the application source code path
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -291,6 +349,7 @@ export interface ApplicationInfo {
    * Indicates the application source code path
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -299,6 +358,7 @@ export interface ApplicationInfo {
    * Indicates the application source code path
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -335,12 +395,23 @@ export interface ApplicationInfo {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Indicates the metadata of the application
+   *
+   * @type { Array<ModuleMetadata> }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   readonly metadataArray: Array<ModuleMetadata>;
 
   /**
    * Indicates whether or not this application may be removable
    *
    * @type { boolean }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -348,9 +419,20 @@ export interface ApplicationInfo {
    * Indicates whether or not this application may be removable
    *
    * @type { boolean }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates whether or not this application may be removable
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   readonly removable: boolean;
 
@@ -358,6 +440,7 @@ export interface ApplicationInfo {
    * Indicates the access token of the application
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -365,9 +448,20 @@ export interface ApplicationInfo {
    * Indicates the access token of the application
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates the access token of the application
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   readonly accessTokenId: number;
 
@@ -375,6 +469,7 @@ export interface ApplicationInfo {
    * Indicates the uid of the application
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -382,9 +477,20 @@ export interface ApplicationInfo {
    * Indicates the uid of the application
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates the uid of the application
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   readonly uid: number;
 
@@ -392,6 +498,7 @@ export interface ApplicationInfo {
    * Indicates icon resource of the application
    *
    * @type { Resource }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -399,9 +506,20 @@ export interface ApplicationInfo {
    * Indicates icon resource of the application
    *
    * @type { Resource }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates icon resource of the application
+   *
+   * @type { Resource }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   readonly iconResource: Resource;
 
@@ -409,6 +527,7 @@ export interface ApplicationInfo {
    * Indicates label resource of the application
    *
    * @type { Resource }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -416,9 +535,20 @@ export interface ApplicationInfo {
    * Indicates label resource of the application
    *
    * @type { Resource }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates label resource of the application
+   *
+   * @type { Resource }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   readonly labelResource: Resource;
 
@@ -426,6 +556,7 @@ export interface ApplicationInfo {
    * Indicates description resource of the application
    *
    * @type { Resource }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -433,9 +564,20 @@ export interface ApplicationInfo {
    * Indicates description resource of the application
    *
    * @type { Resource }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates description resource of the application
+   *
+   * @type { Resource }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   readonly descriptionResource: Resource;
 
@@ -443,6 +585,7 @@ export interface ApplicationInfo {
    * Indicates the appDistributionType of the application
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -450,9 +593,20 @@ export interface ApplicationInfo {
    * Indicates the appDistributionType of the application
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates the appDistributionType of the application
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   readonly appDistributionType: string;
 
@@ -460,6 +614,7 @@ export interface ApplicationInfo {
    * Indicates the appProvisionType of the application
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -467,9 +622,20 @@ export interface ApplicationInfo {
    * Indicates the appProvisionType of the application
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates the appProvisionType of the application
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   readonly appProvisionType: string;
 
@@ -477,6 +643,7 @@ export interface ApplicationInfo {
    * Indicates whether the application is a system application
    *
    * @type { boolean }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -484,9 +651,20 @@ export interface ApplicationInfo {
    * Indicates whether the application is a system application
    *
    * @type { boolean }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates whether the application is a system application
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   readonly systemApp: boolean;
 
@@ -494,6 +672,7 @@ export interface ApplicationInfo {
    * Indicates the type of application is APP or atomicService.
    *
    * @type { bundleManager.BundleType }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -501,6 +680,7 @@ export interface ApplicationInfo {
    * Indicates the type of application is APP or atomicService.
    *
    * @type { bundleManager.BundleType }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -511,6 +691,7 @@ export interface ApplicationInfo {
    * Indicates whether the application is in debug mode.
    *
    * @type { boolean }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 10
    */
@@ -518,9 +699,20 @@ export interface ApplicationInfo {
    * Indicates whether the application is in debug mode.
    *
    * @type { boolean }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates whether the application is in debug mode.
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   readonly debug: boolean;
 
@@ -533,6 +725,16 @@ export interface ApplicationInfo {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Indicates whether the application data is unclearable, that is, whether the application data cannot be cleared.
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   readonly dataUnclearable: boolean;
 
   /**
@@ -542,6 +744,15 @@ export interface ApplicationInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 12
+   */
+  /**
+   * Indicates native library path.
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 16
    */
   readonly nativeLibraryPath: string;
 
@@ -585,6 +796,16 @@ export interface ApplicationInfo {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Indicates the release type of the app
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   readonly releaseType: string;
 
   /**
@@ -625,6 +846,15 @@ export interface ApplicationInfo {
  * @atomicservice
  * @since 11
  */
+/**
+ * Indicates the ModuleMetadata
+ *
+ * @typedef ModuleMetadata
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
 export interface ModuleMetadata {
   /**
    * Indicates the name of this hap module
@@ -642,6 +872,16 @@ export interface ModuleMetadata {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates the name of this hap module
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   readonly moduleName: string;
 
@@ -661,6 +901,16 @@ export interface ModuleMetadata {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates the metadata of this hap module
+   *
+   * @type { Array<Metadata> }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   readonly metadata: Array<Metadata>;
 }

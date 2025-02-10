@@ -2629,6 +2629,37 @@ declare namespace intl {
      * @since 12
      */
     maximumSignificantDigits?: number;
+
+    /**
+     * Indicates the priority of rounding when FractionDigits options conflicts with SignificantDigits options.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 16
+     */
+    roundingPriority?: string;
+
+    /**
+     * Indicates the increment at which rounding should take place relative to the calculated rounding magnitude.
+     * Possible value are 1, 2, 5, 10, 20, 25, 50, 100, 200, 250, 500, 1000, 2000, 2500, and 5000. Default value is 1.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 16
+     */
+    roundingIncrement?: number;
+
+    /**
+     * Indicates the rounding mode.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 16
+     */
+    roundingMode?: string;
   }
 
   /**
@@ -2736,6 +2767,18 @@ declare namespace intl {
      * @since 12
      */
     format(number: number): string;
+
+    /**
+     * Obtains the formatted number range string.
+     *
+     * @param { number } startRange Indicates the starting number of range.
+     * @param { number } endRange Indicates the ending number of range.
+     * @returns { string } a number range string formatted based on the specified locale.
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 16
+     */
+    formatRange(startRange: number, endRange: number): string;
 
     /**
      * Obtains the options of the NumberFormat object.

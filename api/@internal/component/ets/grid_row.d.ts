@@ -325,7 +325,7 @@ declare interface GridRowColumnOption {
    * @since 10
    */
   /**
-   * Grid Row Column Option md, select md column num based on gridRow current breakpoint
+   * Grid Row Column Option md
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

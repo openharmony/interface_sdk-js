@@ -624,7 +624,41 @@ declare namespace xml {
      * @atomicservice
      * @since 11
      */
+    /**
+     * To convert XML text to JavaScript object.
+     *
+     * @param { string } xml - xml xml The xml text to be converted.
+     * @param { ConvertOptions } [options] - options option Option Inputted by user to set.
+     * @returns { Object } Returns a JavaScript object converting from XML text.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
+     * @throws { BusinessError } 10200002 - Invalid xml string.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     * @deprecated since 14
+     * @useinstead ohos.convertxml.ConvertXML.fastConvertToJSObject
+     */
     convertToJSObject(xml: string, options?: ConvertOptions): Object;
+
+    /**
+     * To convert XML text to JavaScript object with better performance.
+     *
+     * @param { string } xml - xml xml The xml text to be converted.
+     * @param { ConvertOptions } [options] - options option Option Inputted by user to set.
+     * @returns { Object } Returns a JavaScript object converting from XML text.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
+     * @throws { BusinessError } 10200002 - Invalid xml string.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    fastConvertToJSObject(xml: string, options?: ConvertOptions): Object;
   }
 }
 export default xml;

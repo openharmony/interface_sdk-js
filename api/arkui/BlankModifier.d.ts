@@ -24,7 +24,7 @@
  * Defines Blank Modifier
  *
  * @extends BlankAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<BlankAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

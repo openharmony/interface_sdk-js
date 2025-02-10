@@ -22,8 +22,7 @@
  * The ability or extension state data.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @systemapi
- * @since 8
+ * @since 14
  */
 export default class AbilityStateData {
   /**
@@ -31,8 +30,7 @@ export default class AbilityStateData {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 9
+   * @since 14
    */
   moduleName: string;
 
@@ -41,8 +39,7 @@ export default class AbilityStateData {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 8
+   * @since 14
    */
   bundleName: string;
 
@@ -51,8 +48,7 @@ export default class AbilityStateData {
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 8
+   * @since 14
    */
   abilityName: string;
 
@@ -61,8 +57,7 @@ export default class AbilityStateData {
    *
    * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 8
+   * @since 14
    */
   pid: number;
 
@@ -71,8 +66,7 @@ export default class AbilityStateData {
    *
    * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 8
+   * @since 14
    */
   uid: number;
 
@@ -81,8 +75,7 @@ export default class AbilityStateData {
    *
    * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 8
+   * @since 14
    */
   state: number;
 
@@ -91,8 +84,7 @@ export default class AbilityStateData {
    *
    * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 8
+   * @since 14
    */
   abilityType: number;
 
@@ -101,8 +93,7 @@ export default class AbilityStateData {
    *
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 12
+   * @since 14
    */
   isAtomicService: boolean;
 
@@ -110,8 +101,7 @@ export default class AbilityStateData {
    * The app clone index of ability instance.
    * @type { ?number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 12
+   * @since 14
    */
   appCloneIndex?: number;
 }

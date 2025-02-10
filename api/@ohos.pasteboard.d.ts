@@ -50,7 +50,7 @@ declare namespace pasteboard {
    * @atomicservice
    * @since 11
    */
-  const MAX_RECORD_NUM: number;
+  const MAX_RECORD_NUM = 512;
   /**
    * Indicates MIME types of HTML text.
    * @constant
@@ -64,7 +64,7 @@ declare namespace pasteboard {
    * @atomicservice
    * @since 11
    */
-  const MIMETYPE_TEXT_HTML: string;
+  const MIMETYPE_TEXT_HTML = 'text/html';
   /**
    * Indicates MIME types of wants.
    * @constant
@@ -78,7 +78,7 @@ declare namespace pasteboard {
    * @atomicservice
    * @since 11
    */
-  const MIMETYPE_TEXT_WANT: string;
+  const MIMETYPE_TEXT_WANT = 'text/want';
   /**
    * Indicates MIME types of plain text.
    * @constant
@@ -92,7 +92,7 @@ declare namespace pasteboard {
    * @atomicservice
    * @since 11
    */
-  const MIMETYPE_TEXT_PLAIN: string;
+  const MIMETYPE_TEXT_PLAIN = 'text/plain';
   /**
    * Indicates MIME types of URIs.
    * @constant
@@ -106,7 +106,7 @@ declare namespace pasteboard {
    * @atomicservice
    * @since 11
    */
-  const MIMETYPE_TEXT_URI: string;
+  const MIMETYPE_TEXT_URI = 'text/uri';
   /**
    * Indicates MIME type of PixelMap.
    * @constant
@@ -120,7 +120,7 @@ declare namespace pasteboard {
    * @atomicservice
    * @since 11
    */
-  const MIMETYPE_PIXELMAP: string;
+  const MIMETYPE_PIXELMAP = 'pixelMap';
 
   /**
    * Indicates type of value.
@@ -1106,6 +1106,158 @@ declare namespace pasteboard {
   }
 
   /**
+   * Enumerates the types of file conflict options when getting data from the Pastedboard.
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 15
+   */
+  enum FileConflictOption {
+    /**
+     * OVERWRITE overwrite when destUri has file with same name.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 15
+     */
+    OVERWRITE,
+
+    /**
+     * SKIP skip when destUri has file with same name.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 15
+     */
+    SKIP
+  }
+
+  /**
+   * Enumerates the types of progress indicator when getting data from the Pastedboard.
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 15
+   */
+  enum ProgressIndicator {
+    /**
+     * NONE getting data without system default progress indicator.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 15
+     */
+    NONE,
+
+    /**
+     * DEFALUT getting data with system default progress indicator.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 15
+     */
+    DEFAULT
+  }
+
+  /**
+   * Notifies progress when getting PasteData.
+   * @interface ProgressInfo
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 15
+   */
+  interface ProgressInfo {
+    /**
+     * Progress when getting PasteData without using default system progress.
+     * @type { number }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 15
+     */
+    progress: number;
+  }
+
+  /**
+   * Indicates progress of getting PasteData.
+   * @typedef { function } ProgressListener
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 15
+   */
+  type ProgressListener = (progress: ProgressInfo) => void;
+
+  /**
+   * Indicates the signals to process default system progress task.
+   * @class ProgressSignal
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 15
+   */
+  export class ProgressSignal {
+    /**
+     * Cancel the paste in progress.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 15
+     */
+    cancel(): void;
+  }
+
+  /**
+   * Represents the get data parameters when getting PasteData from Pasteboard.
+   * @interface GetDataParams
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 15
+   */
+  interface GetDataParams {
+    /**
+     * DestUri indicates the uri of dest path where copy files will be copied to sandbox of Application.
+     * @type { ?string }
+     * @default -
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 15
+     */
+    destUri?: string;
+
+    /**
+     * FileConflictOptions indicates fileConflictOptions when dest path has file with same name.
+     * @type { ?FileConflictOption }
+     * @default FileConflictOption.OVERWRITE
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 15
+     */
+    fileConflictOption?: FileConflictOption;
+
+    /**
+     * ProgressIndicator indicates whether to use default system progress indicator.
+     * @type { ProgressIndicator }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 15
+     */
+    progressIndicator: ProgressIndicator;
+
+    /**
+     * ProgressListener indicates progress listener when getting PasteDate without using default system progress.
+     * @type { ?ProgressListener }
+     * @default -
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 15
+     */
+    progressListener?: ProgressListener;
+
+    /**
+     * Progress signal when getting PasteData with system progress indacator.
+     * @type { ?ProgressSignal }
+     * @default -
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 15
+     */
+    progressSignal?: ProgressSignal;
+  }
+
+  /**
    * Classes for system pasteboard.
    * @interface SystemPasteboard
    * @syscap SystemCapability.MiscServices.Pasteboard
@@ -1562,6 +1714,20 @@ declare namespace pasteboard {
      * @systemapi
      * @since 12
      */
+    /**
+     * Sets a unified ShareOptions for your application, so that the PasteData copied from your application is applicable to this ShareOptions.
+     * 
+     * @permission ohos.permission.MANAGE_PASTEBOARD_APP_SHARE_OPTION
+     * @param { ShareOption } shareOptions - Scope that PasteData can be pasted, The parameter can only be set InApp.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+     *     permission required to call the API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                   2. Incorrect parameter types;
+     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 12900006 - Settings already exist.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 14
+     */
     setAppShareOptions(shareOptions: ShareOption): void;
 
     /**
@@ -1571,6 +1737,15 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @systemapi
      * @since 12
+     */
+    /**
+     * Removes the unified ShareOptions of your application.
+     *
+     * @permission ohos.permission.MANAGE_PASTEBOARD_APP_SHARE_OPTION
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+     *    permission required to call the API.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 14
      */
     removeAppShareOptions(): void;
 
@@ -1596,6 +1771,36 @@ declare namespace pasteboard {
      * @since 14
      */
     getMimeTypes(): Promise<Array<string>>;
+
+    /**
+     * Gets the number of Pasteboard data changes.
+     * 
+     * @returns { number } The number of Pasteboard data changes.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 16
+     */
+    getChangeCount(): number;
+    
+    /**
+     * Gets pastedata from the system pasteboard with system progress.
+     *
+     * @permission ohos.permission.READ_PASTEBOARD
+     * @param { GetDataParams } params - Indicates the {@link GetDataParams}.
+     * @returns { Promise<PasteData> } The promise returned by the getData.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+     *     permission required to call the API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 12900003 - Another copy or paste operation is in progress.
+     * @throws { BusinessError } 12900007 - Copy file failed.
+     * @throws { BusinessError } 12900008 - Failed to start progress.
+     * @throws { BusinessError } 12900009 - Progress exits abnormally.
+     * @throws { BusinessError } 12900010 - Get pasteData error.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 15
+     */
+    getDataWithProgress(params: GetDataParams): Promise<PasteData>;
   }
 }
 

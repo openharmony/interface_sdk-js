@@ -19,6 +19,18 @@
  */
 
 /**
+ * Defines the space property with string, number and resource unit.
+ *
+ * @typedef { string | number | Resource } SpaceType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 16
+ */
+declare type SpaceType = string | number | Resource;
+
+/**
  * Column constructor options.
  *
  * @interface ColumnOptions
@@ -26,7 +38,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 13
+ * @since 14
  */
 interface ColumnOptions {
   /**
@@ -64,6 +76,30 @@ interface ColumnOptions {
    * @since 11
    */
   space?: string | number;
+}
+
+/**
+ * Column constructor options.
+ *
+ * @interface ColumnOptionsV2
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 16
+ */
+interface ColumnOptionsV2 {
+  /**
+   * Vertical layout element spacing.
+   *
+   * @type { ?SpaceType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  space?: SpaceType;
 }
 
 /**
@@ -156,9 +192,21 @@ interface ColumnInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   (options?: ColumnOptions): ColumnAttribute;
+  /**
+   * Set the options.
+   *
+   * @param { ColumnOptions | ColumnOptionsV2 } [options] - column options
+   * @returns { ColumnAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  (options?: ColumnOptions | ColumnOptionsV2): ColumnAttribute;
 }
 
 /**

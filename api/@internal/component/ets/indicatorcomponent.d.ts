@@ -195,7 +195,6 @@ declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponen
 /**
  * Defines IndicatorComponent.
  *
- * @constant
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -207,7 +206,6 @@ declare const IndicatorComponent: IndicatorComponentInterface;
 /**
  * Defines IndicatorComponent instance.
  *
- * @constant
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form

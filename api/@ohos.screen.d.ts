@@ -182,6 +182,24 @@ declare namespace screen {
   function makeMirror(mainScreen: number, mirrorScreen: Array<number>): Promise<number>;
 
   /**
+   * Make screens as mirror-screen
+   *
+   * @param { number } mainScreen ID of the primary screen. It's type should be int.
+   * @param { Array<number> } mirrorScreen IDs of secondary screens
+   * @param { Rect } mainScreenRegion mirror screen region
+   * @returns { Promise<number> } Promise used to return the group ID of the secondary screens
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @atomicservice
+   * @since 15
+   */
+  function makeMirrorWithRegion(mainScreen: number, mirrorScreen: Array<number>, mainScreenRegion: Rect): Promise<number>;
+
+  /**
    * Stop mirror screens
    *
    * @param { Array<number> } mirrorScreen IDs of mirror screens to stop. The size of the mirrorScreen Array should not
@@ -212,6 +230,23 @@ declare namespace screen {
    * @since 10
    */
   function stopMirror(mirrorScreen: Array<number>): Promise<void>;
+  
+  /**
+   * Make screens as unique-screen
+   *
+   * @param { Array<number> } uniqueScreen IDs of the unique screens. It's type should be int.
+   * @returns { Promise<Array<number>> } Promise used to return the display IDs of unique screens.
+   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 16
+   */
+  function makeUnique(uniqueScreen: Array<number>): Promise<Array<number>>;
 
   /**
    * Create virtual screen. if surfaceId is valid, this permission is necessary.
@@ -369,6 +404,7 @@ declare namespace screen {
    * @param { number } primaryScreenId - primary screen id.
    * @param { number } secondaryScreenId - secondary screen id.
    * @param { MultiScreenMode } secondaryScreenMode - secondary screen mode.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *                                                                   2. Incorrect parameter types.
@@ -385,6 +421,7 @@ declare namespace screen {
    *
    * @param { MultiScreenPositionOptions } mainScreenOptions - main screen position.
    * @param { MultiScreenPositionOptions } secondaryScreenOptions - secondary screen position.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *                                                                   2. Incorrect parameter types.
@@ -624,6 +661,7 @@ declare namespace screen {
      * Screen id
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -634,6 +672,7 @@ declare namespace screen {
      * Group id
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -644,6 +683,7 @@ declare namespace screen {
      * Mode supported by the screen
      *
      * @type { Array<ScreenModeInfo> }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -654,6 +694,7 @@ declare namespace screen {
      * Currently active mode
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -664,6 +705,7 @@ declare namespace screen {
      * Orientation of the screen
      *
      * @type { Orientation }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -674,6 +716,7 @@ declare namespace screen {
      * Source mode of the screen
      *
      * @type { ScreenSourceMode }
+     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -874,6 +917,61 @@ declare namespace screen {
      * @since 9
      */
     refreshRate: number;
+  }
+
+  /**
+   * Rectangle
+   *
+   * @interface Rect
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @atomicservice
+   * @since 15
+   */
+  interface Rect {
+    /**
+     * The X-axis coordinate of the upper left vertex of the rectangle, in pixels.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @atomicservice
+     * @since 15
+     */
+    left: number;
+
+    /**
+     * The Y-axis coordinate of the upper left vertex of the rectangle, in pixels.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @atomicservice
+     * @since 15
+     */
+    top: number;
+
+    /**
+     * Width of the rectangle, in pixels.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @atomicservice
+     * @since 15
+     */
+    width: number;
+
+    /**
+     * Height of the rectangle, in pixels.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @atomicservice
+     * @since 15
+     */
+    height: number;
   }
 }
 

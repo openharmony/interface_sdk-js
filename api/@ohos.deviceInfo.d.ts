@@ -226,7 +226,6 @@ declare namespace deviceInfo {
 
   /**
    * Obtains the device serial number represented by a string.
-   * This API can be called only by system applications.
    *
    * @permission ohos.permission.sec.ACCESS_UDID
    * 
@@ -460,6 +459,15 @@ declare namespace deviceInfo {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Obtains the SDK API version number.
+   *
+   * 
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @atomicservice
+   * @since 14
+   */
   const sdkApiVersion: number;
 
   /**
@@ -580,9 +588,9 @@ declare namespace deviceInfo {
    * @since 10
    */
   const buildRootHash: string;
+
   /**
    * Obtains the device udid.
-   * This API can be called only by system applications.
    *
    * @permission ohos.permission.sec.ACCESS_UDID
    * 

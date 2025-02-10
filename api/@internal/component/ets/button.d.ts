@@ -156,7 +156,7 @@ declare enum ButtonType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   ROUNDED_RECTANGLE = 3,
 }
@@ -289,6 +289,7 @@ declare type ButtonTriggerClickCallback = (xPos: number, yPos: number) => void;
 /**
  * ButtonConfiguration used by button content modifier.
  *
+ * @extends CommonConfiguration<ButtonConfiguration>
  * @interface ButtonConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1252,6 +1253,28 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @since 11
    */
   labelStyle(value: LabelStyle): ButtonAttribute;
+
+  /**
+   * Sets the minimum zoom-out ratio of the button text.
+   *
+   * @param { number | Resource } scale
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  minFontScale(scale: number | Resource): ButtonAttribute;
+
+  /**
+   * Sets the maximum magnification of the button text.
+   *
+   * @param { number | Resource  } scale
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  maxFontScale(scale: number | Resource): ButtonAttribute;
 }
 
 /**

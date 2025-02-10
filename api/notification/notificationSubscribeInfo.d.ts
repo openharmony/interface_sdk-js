@@ -56,4 +56,14 @@ export interface NotificationSubscribeInfo {
    * @since 12
    */
   deviceType?: string;
+
+  /**
+   * Filtered notification type range.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
+  filterLimit?: number;
 }

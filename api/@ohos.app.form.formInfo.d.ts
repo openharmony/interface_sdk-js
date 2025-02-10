@@ -226,6 +226,17 @@ declare namespace formInfo {
     colorMode: ColorMode;
 
     /**
+     * Obtains the rendering mode of the form.
+     *
+     * @type { ?RenderingMode }
+     * @readonly
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 16
+     */
+    readonly renderingMode?: RenderingMode;
+
+    /**
      * Checks whether this form is a default form.
      *
      * @type { boolean }
@@ -415,6 +426,29 @@ declare namespace formInfo {
      * @since 12
      */
     supportedShapes: Array<number>;
+
+    /**
+     * Indicates the form previewImage IDs map corresponds to the \"supportDimensions\".
+     *
+     * @type { ?Array<number> }
+     * @readonly
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @atomicservice
+     * @since 16
+     */
+    readonly previewImages?: Array<number>;
+
+    /**
+     * Indicates whether the form uses a blur background provided by the form host.
+     *
+     * @type { ?boolean }
+     * @readonly
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 16
+     */
+    readonly enableBlurBackground?: boolean;
   }
 
   /**
@@ -524,6 +558,43 @@ declare namespace formInfo {
      * @since 11
      */
     MODE_LIGHT = 1
+  }
+
+  /**
+   * Rendering mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 16
+   */
+  enum RenderingMode {
+    /**
+     * Auto color mode.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 16
+     */
+    AUTO_COLOR = 0,
+
+    /**
+     * Full color mode.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 16
+     */
+    FULL_COLOR = 1,
+
+    /**
+     * Single color mode.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 16
+     */
+    SINGLE_COLOR = 2
   }
 
   /**
@@ -1232,7 +1303,7 @@ declare namespace formInfo {
      *
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
-     * @since 14
+     * @since 16
      */
     DIMENSION_2_3 = 8,
 
@@ -1241,7 +1312,7 @@ declare namespace formInfo {
      *
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
-     * @since 14
+     * @since 16
      */
     DIMENSION_3_3 = 9,
   }
@@ -1556,6 +1627,7 @@ declare namespace formInfo {
      * Obtains the id of the this form.
      *
      * @type { string }
+     * @readonly
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi
@@ -1567,6 +1639,7 @@ declare namespace formInfo {
      * Obtains the bundle name of the application to which this form belongs.
      *
      * @type { string }
+     * @readonly
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi
@@ -1578,6 +1651,7 @@ declare namespace formInfo {
      * Obtains the bundle name of the form host application.
      *
      * @type { string }
+     * @readonly
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi
@@ -1589,6 +1663,7 @@ declare namespace formInfo {
      * The location of this form.
      *
      * @type { FormLocation }
+     * @readonly
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi
@@ -1600,6 +1675,7 @@ declare namespace formInfo {
      * Obtains the visibility of this form.
      *
      * @type { VisibilityType }
+     * @readonly
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi
@@ -1611,6 +1687,7 @@ declare namespace formInfo {
      * Obtains the name of the application module to which this form belongs.
      *
      * @type { string }
+     * @readonly
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi
@@ -1622,6 +1699,7 @@ declare namespace formInfo {
      * Obtains the class name of the ability to which this form belongs.
      *
      * @type { string }
+     * @readonly
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi
@@ -1633,6 +1711,7 @@ declare namespace formInfo {
      * Obtains the name of this form.
      *
      * @type { string }
+     * @readonly
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi
@@ -1644,6 +1723,7 @@ declare namespace formInfo {
      * Obtains the grid style of this form.
      *
      * @type { number }
+     * @readonly
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi

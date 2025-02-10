@@ -57,6 +57,17 @@ export default class EnterpriseAdminExtensionAbility {
   onBundleAdded(bundleName: string): void;
 
   /**
+   * Called back when a bundle is installed under an account.
+   *
+   * @param { string } bundleName - bundleName indicates the name of the bundle installed.
+   * @param { number } accountId - accountId indicates the account ID.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 14
+   */
+  onBundleAdded(bundleName: string, accountId: number): void;
+
+  /**
    * Called back when a bundle is uninstalled.
    *
    * @param { string } bundleName - bundleName indicates the name of the bundle uninstalled.
@@ -65,6 +76,17 @@ export default class EnterpriseAdminExtensionAbility {
    * @since 12
    */
   onBundleRemoved(bundleName: string): void;
+
+  /**
+   * Called back when a bundle is uninstalled under an account.
+   *
+   * @param { string } bundleName - bundleName indicates the name of the bundle installed.
+   * @param { number } accountId - accountId indicates the account ID.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 14
+   */
+  onBundleRemoved(bundleName: string, accountId: number): void;
 
   /**
    * Called back when an app is started.
@@ -104,4 +126,34 @@ export default class EnterpriseAdminExtensionAbility {
    * @since 12
    */
   onStart(): void;
+
+  /**
+   * Called when a system account is added.
+   *
+   * @param { number } accountId ID of the added account.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 16
+   */
+  onAccountAdded(accountId: number): void;
+
+  /**
+   * Called when a system account is switched.
+   *
+   * @param { number } accountId ID of the switched account.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 16
+   */
+  onAccountSwitched(accountId: number): void;
+
+  /**
+   * Called when a system account is removed.
+   *
+   * @param { number } accountId ID of the removed account.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 16
+   */
+  onAccountRemoved(accountId: number): void;
 }
