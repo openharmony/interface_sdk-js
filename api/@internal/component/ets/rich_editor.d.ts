@@ -4054,13 +4054,13 @@ declare interface RichEditorUrlStyle {
   /**
    * uniform resoure locator.
    *
-   * @type { ? (string | ResourceStr) }
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 16
    */
-  url?: string | ResourceStr;
+  url?: ResourceStr;
 }
 
 /**
