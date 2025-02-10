@@ -446,7 +446,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 16
+   * @since 15
    */
   function getTotalSize(callback: AsyncCallback<number>): void;
 
@@ -474,7 +474,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 16
+   * @since 15
    */
   function getTotalSize(): Promise<number>;
 
@@ -502,7 +502,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 16
+   * @since 15
    */
   function getTotalSizeSync(): number;
 
@@ -530,7 +530,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 16
+   * @since 15
    */
   function getFreeSize(callback: AsyncCallback<number>): void;
 
@@ -558,7 +558,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 16
+   * @since 15
    */
   function getFreeSize(): Promise<number>;
 
@@ -586,7 +586,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 16
+   * @since 15
    */
   function getFreeSizeSync(): number;
 }
