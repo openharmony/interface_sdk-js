@@ -1799,6 +1799,7 @@ declare namespace photoAccessHelper {
      */
     cancelPhotoRequest(requestId: string): void;
   }
+  
   /**
    * Enumeration of photo asset members
    *
