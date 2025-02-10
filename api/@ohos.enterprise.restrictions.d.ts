@@ -18,8 +18,8 @@
  * @kit MDMKit
  */
 
-import type { AsyncCallback } from './@ohos.base';
-import type Want from './@ohos.app.ability.Want';
+import type { AsyncCallback } from '@ohos.base';
+import type Want from '@ohos.app.ability.Want';
 
 /**
  * This module provides the capability to manage restriction policy of the enterprise devices.
@@ -299,6 +299,24 @@ declare namespace restrictions {
    * @stagemodelonly
    * @since 12
    */
+  /**
+   * Disallows the specific feature of the device.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { string } feature - feature indicates the specific feature to be disallowed or allowed,
+   *                             the supported device features include modifyDateTime, bluetooth, printer, hdc, microphone, fingerprint, usb and wifi.
+   * @param { boolean } disallow - true if disallow the specific feature of device, otherwise false.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 15
+   */
   function setDisallowedPolicy(admin: Want, feature: string, disallow: boolean): void;
 
   /**
@@ -318,6 +336,24 @@ declare namespace restrictions {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
+   */
+  /**
+   * Queries whether the specific feature of the device is disallowed.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         If the admin is not empty, it must have the corresponding permission.
+   * @param { string } feature - feature indicates the specific feature to be queried,
+   *                             the supported device features include modifyDateTime, bluetooth, printer, hdc, microphone, fingerprint, usb and wifi.
+   * @returns { boolean } true if the specific feature of device is disallowed, otherwise false.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 15
    */
   function getDisallowedPolicy(admin: Want, feature: string): boolean;
 
