@@ -1544,6 +1544,13 @@ declare namespace webview {
     static configCookie(url: string, value: string, callback: AsyncCallback<void>): void;
 
     /**
+     * Save the cookies synchronously.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 15
+     */
+    static saveCookieSync(): void;
+
+    /**
      * Save the cookies Asynchronously.
      * @returns { Promise<void> } - A promise resolved after the cookies have been saved.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
