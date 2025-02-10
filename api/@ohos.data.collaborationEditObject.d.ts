@@ -55,9 +55,11 @@ declare namespace collaborationEditObject {
    * @param { Context } context - Indicates the application context.
    * @param { CollaborationConfig } config - Indicates the {@link CollaborationConfig} config related to this object.
    * @returns { CollaborationEditObject } - Return the collaboration edit object. {@link CollaborationEditObject}.
-   * @throws { BusinessError } 202 - not system application
+   * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 15410000 - Internal error.
+   * @throws { BusinessError } 15410003 - Database error.
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @systemapi
    * @since 16
@@ -69,9 +71,11 @@ declare namespace collaborationEditObject {
    *
    * @param { Context } context - Indicates the application context.
    * @param { CollaborationConfig } config - Indicates the {@link CollaborationConfig} config related to this object.
-   * @throws { BusinessError } 202 - not system application
+   * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 15410000 - Internal error.
+   * @throws { BusinessError } 15410003 - Database error.
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @systemapi
    * @since 16
@@ -112,9 +116,11 @@ declare namespace collaborationEditObject {
      *
      * @param { string } editUnitName - Indicates the name of the edit unit in collaboration edit object.
      * @returns { EditUnit } Indicates the edit unit {@link EditUnit} related to this collaboration edit object.
-     * @throws { BusinessError } 202 - not system application
+     * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 15410000 - Internal error.
+     * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
      * @since 16
@@ -127,9 +133,11 @@ declare namespace collaborationEditObject {
      * @param { string } editUnitName - Indicates the name of the edit unit in collaboration edit object.
      * @param { UndoRedoConfig } config - Indicates the {@link UndoRedoConfig} config of the undo redo manager.
      * @returns { UndoRedoManager } Indicates the {@link UndoRedoManager} undo redo manager of the edit unit.
-     * @throws { BusinessError } 202 - not system application
+     * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 15410000 - Internal error.
+     * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
      * @since 16
@@ -140,9 +148,11 @@ declare namespace collaborationEditObject {
      * Delete an undo redo manager of an edit unit in collaboration edit object.
      *
      * @param { string } editUnitName - Indicates the name of the edit unit in collaboration edit object.
-     * @throws { BusinessError } 202 - not system application
+     * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 15410000 - Internal error.
+     * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
      * @since 16
@@ -162,7 +172,7 @@ declare namespace collaborationEditObject {
      * Return the name of this edit unit.
      *
      * @returns { string } Indicates the name of this edit unit.
-     * @throws { BusinessError } 202 - not system application
+     * @throws { BusinessError } 202 - Not system application.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
      * @since 16
@@ -174,9 +184,13 @@ declare namespace collaborationEditObject {
      *
      * @param { number } index - Indicates the index at which to start inserting.
      * @param { Node[] } nodes - Indicates inserting new nodes.
-     * @throws { BusinessError } 202 - not system application
+     * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 15410000 - Internal error.
+     * @throws { BusinessError } 15410001 - Unsupported operation.
+     * @throws { BusinessError } 15410002 - Index out of range.
+     * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
      * @since 16
@@ -188,9 +202,13 @@ declare namespace collaborationEditObject {
      *
      * @param { number } index - Indicates the index at which to start deleting.
      * @param { number } length - Indicates deleting length.
-     * @throws { BusinessError } 202 - not system application
+     * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 15410000 - Internal error.
+     * @throws { BusinessError } 15410001 - Unsupported operation.
+     * @throws { BusinessError } 15410002 - Index out of range.
+     * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
      * @since 16
@@ -203,9 +221,13 @@ declare namespace collaborationEditObject {
      * @param { number } start - Indicates the start location.
      * @param { number } end - Indicates the end location.
      * @returns { Array<Node | Text> } Indicates the children nodes and texts.
-     * @throws { BusinessError } 202 - not system application
+     * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 15410000 - Internal error.
+     * @throws { BusinessError } 15410001 - Unsupported operation.
+     * @throws { BusinessError } 15410002 - Index out of range.
+     * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
      * @since 16
@@ -216,7 +238,11 @@ declare namespace collaborationEditObject {
      * Get the json string result of this edit unit.
      *
      * @returns { string } Indicates the json string of this edit unit.
-     * @throws { BusinessError } 202 - not system application
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 15410000 - Internal error.
+     * @throws { BusinessError } 15410001 - Unsupported operation.
+     * @throws { BusinessError } 15410002 - Index out of range.
+     * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
      * @since 16
@@ -277,7 +303,7 @@ declare namespace collaborationEditObject {
      * A parameterized constructor used to create a Node instance.
      *
      * @param { string } name - Indicates the name of this node.
-     * @throws { BusinessError } 202 - not system application
+     * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
@@ -290,7 +316,9 @@ declare namespace collaborationEditObject {
      * Returns the UniqueId of this node.
      *
      * @returns { UniqueId } Indicates the unique id of this node.
-     * @throws { BusinessError } 202 - not system application
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 15410000 - Internal error.
+     * @throws { BusinessError } 15410001 - Unsupported operation.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
      * @since 16
@@ -302,9 +330,13 @@ declare namespace collaborationEditObject {
      *
      * @param { number } index - Indicates the index at which to start inserting.
      * @param { Text[] } texts - Indicates inserting new texts.
-     * @throws { BusinessError } 202 - not system application
+     * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 15410000 - Internal error.
+     * @throws { BusinessError } 15410001 - Unsupported operation.
+     * @throws { BusinessError } 15410002 - Index out of range.
+     * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
      * @since 16
@@ -315,9 +347,13 @@ declare namespace collaborationEditObject {
      * Sets or updates attributes into the target node.
      *
      * @param { AttributesRecord } attributes - Indicates the attribute names and values that is to be set.
-     * @throws { BusinessError } 202 - not system application
+     * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 15410000 - Internal error.
+     * @throws { BusinessError } 15410001 - Unsupported operation.
+     * @throws { BusinessError } 15410002 - Index out of range.
+     * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
      * @since 16
@@ -328,9 +364,13 @@ declare namespace collaborationEditObject {
      * Removes attributes from the target node.
      *
      * @param { string[] } attributeNames - Indicates the attribute names that is to be removed.
-     * @throws { BusinessError } 202 - not system application
+     * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 15410000 - Internal error.
+     * @throws { BusinessError } 15410001 - Unsupported operation.
+     * @throws { BusinessError } 15410002 - Index out of range.
+     * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
      * @since 16
@@ -341,7 +381,11 @@ declare namespace collaborationEditObject {
      * Returns all attribute name and value pairs of this node.
      *
      * @returns { AttributesRecord } Indicates all attribute name and value pairs.
-     * @throws { BusinessError } 202 - not system application
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 15410000 - Internal error.
+     * @throws { BusinessError } 15410001 - Unsupported operation.
+     * @throws { BusinessError } 15410002 - Index out of range.
+     * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
      * @since 16
@@ -380,7 +424,7 @@ declare namespace collaborationEditObject {
     /**
      * A constructor used to create a Text instance.
      *
-     * @throws { BusinessError } 202 - not system application
+     * @throws { BusinessError } 202 - Not system application.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
      * @since 16
@@ -391,7 +435,9 @@ declare namespace collaborationEditObject {
      * Returns the UniqueId of this text.
      *
      * @returns { UniqueId } Indicates the unique id of this text.
-     * @throws { BusinessError } 202 - not system application
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 15410000 - Internal error.
+     * @throws { BusinessError } 15410001 - Unsupported operation.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
      * @since 16
@@ -404,9 +450,13 @@ declare namespace collaborationEditObject {
      * @param { number } index - Indicates the index at which to start inserting.
      * @param { string } text - Indicates the text to insert at the specified position.
      * @param { TextFormat } format - Indicates the formatting information to apply on the inserted text.
-     * @throws { BusinessError } 202 - not system application
+     * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 15410000 - Internal error.
+     * @throws { BusinessError } 15410001 - Unsupported operation.
+     * @throws { BusinessError } 15410002 - Index out of range.
+     * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
      * @since 16
@@ -418,9 +468,13 @@ declare namespace collaborationEditObject {
      *
      * @param { number } index - Indicates the index at which to start inserting.
      * @param { number } length - Indicates deleting length.
-     * @throws { BusinessError } 202 - not system application
+     * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 15410000 - Internal error.
+     * @throws { BusinessError } 15410001 - Unsupported operation.
+     * @throws { BusinessError } 15410002 - Index out of range.
+     * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
      * @since 16
@@ -433,9 +487,13 @@ declare namespace collaborationEditObject {
      * @param { number } index - Indicates the index at which to start formatting.
      * @param { number } length - Indicates formatting length.
      * @param { TextFormat } format - Indicates the formatting information to apply.
-     * @throws { BusinessError } 202 - not system application
+     * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 15410000 - Internal error.
+     * @throws { BusinessError } 15410001 - Unsupported operation.
+     * @throws { BusinessError } 15410002 - Index out of range.
+     * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
      * @since 16
@@ -446,7 +504,11 @@ declare namespace collaborationEditObject {
      * Get the plain string result without format of this text.
      *
      * @returns { string } Indicates the plain string result of this text.
-     * @throws { BusinessError } 202 - not system application
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 15410000 - Internal error.
+     * @throws { BusinessError } 15410001 - Unsupported operation.
+     * @throws { BusinessError } 15410002 - Index out of range.
+     * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
      * @since 16
@@ -457,7 +519,11 @@ declare namespace collaborationEditObject {
      * Get the json string result with format of this text.
      *
      * @returns { string } Indicates the json string result of this text.
-     * @throws { BusinessError } 202 - not system application
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 15410000 - Internal error.
+     * @throws { BusinessError } 15410001 - Unsupported operation.
+     * @throws { BusinessError } 15410002 - Index out of range.
+     * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
      * @since 16
@@ -477,7 +543,9 @@ declare namespace collaborationEditObject {
     /**
      * Undo last changes.
      *
-     * @throws { BusinessError } 202 - not system application
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 15410000 - Internal error.
+     * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
      * @since 16
@@ -487,7 +555,9 @@ declare namespace collaborationEditObject {
     /**
      * Redo last undo operation.
      *
-     * @throws { BusinessError } 202 - not system application
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 15410000 - Internal error.
+     * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
      * @since 16
