@@ -8743,6 +8743,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   bindSelectionMenu(elementType: WebElementType, content: CustomBuilder, responseType: WebResponseType,
       options?: SelectionMenuOptionsExt): WebAttribute;
+
+  /**
+   * Sets whether to optimize parser budget to reduce FCP time
+   * 
+   * @param { boolean} optimizeParserBudget Default value is false, set true to enable optimize parser budget.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 15
+   */
+  optimizeParserBudget(optimizeParserBudget: boolean): WebAttribute;
 }
 
 /**
