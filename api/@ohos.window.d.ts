@@ -3651,7 +3651,7 @@ declare namespace window {
    * @interface MoveConfiguration
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 14
+   * @since 15
    */
   interface MoveConfiguration {
     /**
@@ -3660,7 +3660,7 @@ declare namespace window {
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 14
+     * @since 15
      */
     displayId?: number;
   }
@@ -4157,7 +4157,7 @@ declare namespace window {
      * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 14
+     * @since 15
      */
     moveWindowToAsync(x: number, y: number, moveConfiguration?: MoveConfiguration): Promise<void>;
 
@@ -4196,7 +4196,7 @@ declare namespace window {
      * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 14
+     * @since 15
      */
     moveWindowToGlobal(x: number, y: number, moveConfiguration?: MoveConfiguration): Promise<void>;
 
