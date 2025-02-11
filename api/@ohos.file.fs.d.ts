@@ -7627,6 +7627,37 @@ declare interface Stat {
    * @since 10
    */
   readonly ctime: number;
+
+  /**
+   * Returns nanosecond of the access time.
+   * @type { bigint }
+   * @readonly
+   * @throws { BusinessError } 13900042 - Internal error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 15
+   */
+  readonly atimeNs?:bigint;
+  
+  /**
+   * Returns nanosecond of the modification time.
+   * @type { bigint }
+   * @readonly
+   * @throws { BusinessError } 13900042 - Internal error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 15
+   */
+  readonly mtimeNs?:bigint;
+
+  /**
+   * Returns nanosecond of the change time.
+   * @type { bigint }
+   * @readonly
+   * @throws { BusinessError } 13900042 - Internal error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 15
+   */
+  readonly ctimeNs?:bigint;
+
   /**
    *
    * @type { LocationType }
