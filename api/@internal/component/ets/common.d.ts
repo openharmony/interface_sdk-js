@@ -7992,6 +7992,17 @@ declare interface BaseEvent {
    * @since 12
    */
   deviceId?: number;
+
+  /**
+   * Indicates the screen ID on which the event occurred.
+   *
+   * @type { ?number } [targetDisplayId] The screen ID on which the event occurred.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  targetDisplayId?: number;
 }
 
 /**
@@ -8712,6 +8723,38 @@ declare interface MouseEvent extends BaseEvent {
    * @since 11
    */
   stopPropagation: () => void;
+
+  /**
+   * X axis offset relative to the previous reported mouse pointer position. When the mouse pointer is at
+   * the edge of the screen, the value may be less than the difference of the X coordinate reported twice.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  rawDeltaX?: number;
+
+  /**
+   * Y axis offset relative to the previous reported mouse pointer position. When the mouse pointer is at
+   * the edge of the screen, the value may be less than the difference of the Y coordinate reported twice.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  rawDeltaY?: number;
+  
+  /**
+   * The pressed buttons of the mouse event.
+   *
+   * @type { ?MouseButton[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  pressedButtons?: MouseButton[];
 }
 
 /**
@@ -9032,6 +9075,49 @@ declare interface TouchObject {
    * @since 15
    */
     hand?: InteractionHand;
+
+  /**
+   * Time stamp when the touch point is pressed.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  pressedTime?: number;
+  /**
+ * Pressure of a specific touch point.
+ *
+ * @type { ?number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 15
+ */
+  pressure?: number;
+
+  /**
+   * Width of the contact area when touch is pressed of a specific touch point.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  width?: number;
+
+  /**
+   * Height of the contact area when touch is pressed of a specific touch point.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  height?: number;
 }
 
 /**
