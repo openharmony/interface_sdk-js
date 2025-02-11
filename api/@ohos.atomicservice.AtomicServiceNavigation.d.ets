@@ -21,6 +21,117 @@
 import { Callback } from '@ohos.base';
 
 /**
+ * the enum for the blend mode of background color.
+ *
+ * @enum { number }.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
+export declare enum MixMode {
+  /**
+   * when the MixMode set AVERAGE,the mixing method for background colors is that the two colors have equal proportions.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  AVERAGE = 1,
+  /**
+   * when the MixMode set CROSS,the color mixing method for the background is a transition where one color crosses 
+   *  through to another.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  CROSS = 2,
+  /**
+   * when the MixMode set TOWARDS,the color mixing method for the background is a transition from one color to another.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  TOWARDS = 3,
+}
+/**
+ * the enum for the opacity  of the background color.
+ *
+ * @enum { number }.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
+export declare enum GradientAlpha {
+  /**
+   * when the GradientAlpha set OPACITY_20,the opacity of background colors is 0.2.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  OPACITY_20 = 1,
+  /**
+   * when the GradientAlpha set OPACITY_60,the opacity of background colors is 0.6.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  OPACITY_60 = 2,
+  /**
+   * when the GradientAlpha set OPACITY_80,the opacity of background colors is 0.8.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  OPACITY_80 = 3,
+  /**
+   * when the GradientAlpha set OPACITY_100,the opacity of background colors is 1.0.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  OPACITY_100 = 4,
+}
+/**
+ * the theme of the background color.
+ *
+ * @enum { number }.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
+export declare enum BackgroundTheme {
+  /**
+   * when the BackgroundTheme set DARK,the basic color of background is dark.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  DARK = 1,
+  /**
+   * when the BackgroundTheme set LIGHT,the basic color of background  is white.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  LIGHT = 2,
+  /**
+   * when the BackgroundTheme set DEFAULT,the basic color of background  is F1F3F5.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  DEFAULT = 3,
+}
+/**
  * Defines AtomicServiceNavigation.
  *
  * @struct AtomicServiceNavigation
@@ -70,6 +181,16 @@ export declare struct AtomicServiceNavigation {
    */
   @Prop
   titleOptions?: TitleOptions;
+  /**
+   * The background with gradient colors of Navigation.
+   *
+   * @type { ?GradientBackground }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  @Prop
+  gradientBackground?: GradientBackground;  
   /**
    * Hide navigation title bar.
    *
@@ -193,6 +314,66 @@ export interface TitleOptions {
    * @since 12
    */
   barStyle?: BarStyle;
+}
+
+/**
+ * Indicates the options of Navigation's gradientBackground.
+ *
+ * @typedef GradientBackground
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
+export interface GradientBackground {
+  /**
+   * the primaryColor of Background.
+   *
+   * @type { ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  primaryColor: ResourceColor;
+
+  /**
+   * the secondaryColor of Background.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  secondaryColor?: ResourceColor;
+
+  /**
+   * the theme color of Background.
+   *
+   * @type { ?BackgroundTheme }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  backgroundTheme?: BackgroundTheme;
+
+  /**
+   * the blend mode of background color.
+   *
+   * @type { ?MixMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  mixMode?: MixMode;
+
+  /**
+   * the opacity of background colors.
+   *
+   * @type { ?GradientAlpha }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  alpha?: GradientAlpha;
 }
 
 /**
