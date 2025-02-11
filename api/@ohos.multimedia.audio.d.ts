@@ -6288,9 +6288,7 @@ declare namespace audio {
      * whether supports spatial rendering.
      * @type { boolean }
      * @readonly
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     * @crossplatform
-     * @atomicservice
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @since 16
      */
     readonly spatializationSupported: boolean;
