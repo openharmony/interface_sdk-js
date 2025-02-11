@@ -3068,14 +3068,6 @@ declare namespace audio {
     /**
      * Obtains an {@link AudioSpatializationManager} instance.
      * @returns { AudioSpatializationManager } AudioSpatializationManager instance.
-     * @throws { BusinessError } 202 - Not system App.
-     * @syscap SystemCapability.Multimedia.Audio.Spatialization
-     * @systemapi
-     * @since 11
-     */
-    /**
-     * Obtains an {@link AudioSpatializationManager} instance.
-     * @returns { AudioSpatializationManager } AudioSpatializationManager instance.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @since 16
      */
@@ -5282,13 +5274,6 @@ declare namespace audio {
     enabled: boolean;
   }
 
-  /**
-   * Implements audio spatialization management.
-   * @typedef AudioSpatializationManager
-   * @syscap SystemCapability.Multimedia.Audio.Spatialization
-   * @systemapi
-   * @since 11
-   */
   /**
    * Implements audio spatialization management.
    * @typedef AudioSpatializationManager
