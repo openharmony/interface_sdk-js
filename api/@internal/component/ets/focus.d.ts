@@ -109,7 +109,7 @@ declare enum FocusPriority {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare enum KeyProcessingMode {
   /**
@@ -118,7 +118,7 @@ declare enum KeyProcessingMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   FOCUS_NAVIGATION = 0,
 
@@ -128,7 +128,7 @@ declare enum KeyProcessingMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   ANCESTOR_EVENT = 1,
 }
