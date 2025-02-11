@@ -469,8 +469,6 @@ parameters are left unspecified;
    * Get the total size.
    *
    * @returns { Promise<number> } return Promise
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
-parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
@@ -497,8 +495,6 @@ parameters are left unspecified;
    * Get the total size with sync interface
    *
    * @returns { number } return the total size
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
-parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
@@ -553,8 +549,6 @@ parameters are left unspecified;
    * Get the free size.
    *
    * @returns { Promise<number> } return Promise
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
-parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
@@ -581,8 +575,6 @@ parameters are left unspecified;
    * Get the free size with sync interface.
    *
    * @returns { number } return the free size
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
-parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
