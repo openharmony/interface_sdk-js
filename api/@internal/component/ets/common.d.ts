@@ -10589,6 +10589,66 @@ declare interface ClickEvent extends BaseEvent {
  */
 declare interface HoverEvent extends BaseEvent {
   /**
+   * X coordinate of the hover point relative to the left edge of the hover element.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  x?: number;
+
+  /**
+   * Y coordinate of the hover point relative to the upper edge of the hover element.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  y?: number;
+
+  /**
+   * X coordinate of the hover point relative to the left edge of the current window.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  windowX?: number;
+
+  /**
+   * Y coordinate of the hover point relative to the upper edge of the current window.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  windowY?: number;
+
+  /**
+   * X coordinate of the hover point relative to the left edge of the device screen.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  displayX?: number;
+
+  /**
+   * Y coordinate of the hover point relative to the upper edge of the device screen.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  displayY?: number;
+
+  /**
    * The blocking hover event pops up.
    *
    * @type { function }
@@ -20053,6 +20113,18 @@ declare class CommonMethod<T> {
    * @since 11
    */
   onHover(event: (isHover: boolean, event: HoverEvent) => void): T;
+
+  /**
+   * Trigger a hover move event.
+   *
+   * @param { Callback<HoverEvent> } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onHoverMove(event: Callback<HoverEvent>): T;
 
   /**
    * Trigger a accessibility hover event.
