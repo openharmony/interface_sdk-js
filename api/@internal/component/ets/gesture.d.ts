@@ -1841,7 +1841,7 @@ interface GestureInterface<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   interface BaseHandlerOptions {
   /**
@@ -1852,7 +1852,7 @@ interface GestureInterface<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   isFingerCountLimited?: boolean;
 }
@@ -1874,7 +1874,7 @@ interface GestureInterface<T> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare interface TapGestureParameters extends BaseHandlerOptions {
   /**
@@ -2088,7 +2088,7 @@ interface LongPressGestureInterface extends GestureInterface<LongPressGestureInt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
     (options?: LongPressGestureHandlerOptions): LongPressGestureInterface;
   /**
@@ -2404,7 +2404,7 @@ interface PanGestureInterface extends GestureInterface<PanGestureInterface> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   (options?: PanGestureHandlerOptions): PanGestureInterface;
 
@@ -2603,7 +2603,7 @@ interface SwipeGestureInterface extends GestureInterface<SwipeGestureInterface> 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   (options?: SwipeGestureHandlerOptions): SwipeGestureInterface;
 
@@ -2703,7 +2703,7 @@ interface PinchGestureInterface extends GestureInterface<PinchGestureInterface> 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   (options?: PinchGestureHandlerOptions): PinchGestureInterface;
 
@@ -2901,7 +2901,7 @@ interface RotationGestureInterface extends GestureInterface<RotationGestureInter
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   (options?: RotationGestureHandlerOptions): RotationGestureInterface;
 
@@ -3333,7 +3333,7 @@ declare class GestureHandler<T> implements GestureInterface<T> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 interface TapGestureHandlerOptions extends BaseHandlerOptions {
   /**
@@ -3410,7 +3410,7 @@ declare class TapGestureHandler extends GestureHandler<TapGestureHandler> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 interface LongPressGestureHandlerOptions extends BaseHandlerOptions {
   /**
@@ -3532,7 +3532,7 @@ declare class LongPressGestureHandler extends GestureHandler<LongPressGestureHan
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 interface PanGestureHandlerOptions extends BaseHandlerOptions {
   /**
@@ -3665,7 +3665,7 @@ declare class PanGestureHandler extends GestureHandler<PanGestureHandler> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 interface SwipeGestureHandlerOptions extends BaseHandlerOptions {
   /**
@@ -3753,7 +3753,7 @@ declare class SwipeGestureHandler extends GestureHandler<SwipeGestureHandler> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 interface PinchGestureHandlerOptions extends BaseHandlerOptions {
   /**
@@ -3875,7 +3875,7 @@ declare class PinchGestureHandler extends GestureHandler<PinchGestureHandler> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 interface RotationGestureHandlerOptions extends BaseHandlerOptions {
   /**
