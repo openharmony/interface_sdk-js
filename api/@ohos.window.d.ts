@@ -6535,12 +6535,10 @@ declare namespace window {
      * @atomicservice
      * @since 11
      */
-    setWindowBackgroundColor(color: string): void;
-
     /**
      * Sets the background color of window.
      *
-     * @param { ColorMetrics } colorMetrics the specified color.
+     * @param { string | ColorMetrics } color - the specified color.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -6549,7 +6547,7 @@ declare namespace window {
      * @atomicservice
      * @since 16
      */
-    setWindowBackgroundColor(colorMetrics: ColorMetrics): void;
+    setWindowBackgroundColor(color: string | ColorMetrics): void;
 
     /**
      * Sets the brightness of window.
