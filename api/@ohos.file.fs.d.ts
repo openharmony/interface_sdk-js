@@ -7326,7 +7326,7 @@ declare class WriteStream extends stream.Writable {
 /**
  * The AtomicFile class provides methods for performing atomic operations on files.
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 16
+ * @since 15
  */
 export class AtomicFile {
   /**
@@ -7334,7 +7334,7 @@ export class AtomicFile {
    * @param { string } path file path.
    * @throws { BusinessError } 401 Parameter error.Possible causes:1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 16
+   * @since 15
    */
   constructor(path: string);
 
@@ -7346,7 +7346,7 @@ export class AtomicFile {
    * @throws { BusinessError } 13900012 Permission denied
    * @throws { BusinessError } 13900042 Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 16
+   * @since 15
    */
   getBaseFile(): File;
 
@@ -7358,7 +7358,7 @@ export class AtomicFile {
    * @throws { BusinessError } 13900012 Permission denied
    * @throws { BusinessError } 13900042 Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 16
+   * @since 15
    */
   openRead(): ReadStream;
 
@@ -7368,7 +7368,7 @@ export class AtomicFile {
    * @throws { BusinessError } 13900005 I/O error
    * @throws { BusinessError } 13900042 Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 16
+   * @since 15
    */
   readFully(): ArrayBuffer;
 
@@ -7381,7 +7381,7 @@ export class AtomicFile {
    * @throws { BusinessError } 13900027 Read-only file system
    * @throws { BusinessError } 13900042 Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 16
+   * @since 15
    */
   startWrite(): WriteStream;
 
@@ -7389,7 +7389,7 @@ export class AtomicFile {
    * If the file is written successfully, the file is closed.
    * @throws { BusinessError } 13900042 Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 16
+   * @since 15
    */
   finishWrite(): void;
 
@@ -7397,7 +7397,7 @@ export class AtomicFile {
    * If writing to the file fails, the file is rolled back.
    * @throws { BusinessError } 13900042 Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 16
+   * @since 15
    */
   failWrite(): void;
 
@@ -7409,7 +7409,7 @@ export class AtomicFile {
    * @throws { BusinessError } 13900027 Read-only file system
    * @throws { BusinessError } 13900042 Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 16
+   * @since 15
    */
   delete(): void;
 }
