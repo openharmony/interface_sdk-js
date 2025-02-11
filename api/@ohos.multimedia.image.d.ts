@@ -4817,7 +4817,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @throws { BusinessError } 62980105 - Failed to get the data.
    * @throws { BusinessError } 62980178 - Failed to create the PixelMap.
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 16
+   * @since 15
    */
   function createPixelMapFromSurface(surfaceId: string): Promise<PixelMap>;
 
@@ -4831,7 +4831,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @throws { BusinessError } 62980105 - Failed to get the data.
    * @throws { BusinessError } 62980178 - Failed to create the PixelMap.
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 16
+   * @since 15
    */
   function createPixelMapFromSurfaceSync(surfaceId: string): PixelMap;
 
