@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit MultimodalAwarnessKit
+ * @kit MultimodalAwarenessKit
  */
 
 import type { Callback } from "./@ohos.base";
@@ -24,7 +24,7 @@ import type { Callback } from "./@ohos.base";
  * This module provides the capability to subscribe to report the action or motion.
  *
  * @namespace motion
- * @syscap SystemCapability.MultimodalAwarness.Motion
+ * @syscap SystemCapability.MultimodalAwareness.Motion
  * @since 15
  */
 
@@ -33,21 +33,21 @@ declare namespace motion {
    * Enum for operating hand status.
    *
    * @enum { number } OperatingHandStatus
-   * @syscap SystemCapability.MultimodalAwarness.Motion
+   * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 15
    */
   export enum OperatingHandStatus {
     /**
      * indicates the operating hand is left hand.
      *
-     * @syscap SystemCapability.MultimodalAwarness.Motion
+     * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 15
      */
     LEFT_HAND_OPERATED = 1,
     /**
      * indicates the operating hand is right hand.
      *
-     * @syscap SystemCapability.MultimodalAwarness.Motion
+     * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 15
      */
     RIGHT_HAND_OPERATED = 2
@@ -65,7 +65,7 @@ declare namespace motion {
    * <br> device capabilities.
    * @throws { BusinessError } 31500001 - Service exception.
    * @throws { BusinessError } 31500002 - Subscribe Failed.
-   * @syscap SystemCapability.MultimodalAwarness.Motion
+   * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 15
    */
   function on(type: 'operatingHandChanged', callback: Callback<OperatingHandStatus>): void;
@@ -82,7 +82,7 @@ declare namespace motion {
    * <br> device capabilities.
    * @throws { BusinessError } 31500001 - Service exception.
    * @throws { BusinessError } 31500003 - Unsubscribe Failed.
-   * @syscap SystemCapability.MultimodalAwarness.Motion
+   * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 15
    */
   function off(type: 'operatingHandChanged', callback?: Callback<OperatingHandStatus>): void;
@@ -96,7 +96,7 @@ declare namespace motion {
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
    * @throws { BusinessError } 31500001 - Service exception.
-   * @syscap SystemCapability.MultimodalAwarness.Motion
+   * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 15
    */
   function getRecentOperatingHandStatus(): OperatingHandStatus;
