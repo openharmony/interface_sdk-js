@@ -4705,6 +4705,34 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   function createPixelMapFromSurfaceSync(surfaceId: string, region: Region): PixelMap;
 
   /**
+   * Creates a PixelMap object from surface id.
+   *
+   * @param { string } surfaceId - surface id.
+   * @returns { Promise<PixelMap> } Returns the instance if the operation is successful;Otherwise, an exception will be thrown.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types. 3.Parameter verification failed.
+   * @throws { BusinessError } 62980105 - Failed to get the data.
+   * @throws { BusinessError } 62980178 - Failed to create the PixelMap.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 15
+   */
+  function createPixelMapFromSurface(surfaceId: string): Promise<PixelMap>;
+
+  /**
+   * Creates a PixelMap object from surface id.
+   *
+   * @param { string } surfaceId - surface id.
+   * @returns { PixelMap } Returns the instance if the operation is successful;Otherwise, an exception will be thrown.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types. 3.Parameter verification failed.
+   * @throws { BusinessError } 62980105 - Failed to get the data.
+   * @throws { BusinessError } 62980178 - Failed to create the PixelMap.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 15
+   */
+  function createPixelMapFromSurfaceSync(surfaceId: string): PixelMap;
+
+  /**
    * Creates an ImageSource instance based on the URI.
    *
    * @param { string } uri Image source URI.
