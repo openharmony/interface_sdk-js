@@ -1384,6 +1384,18 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   barBackgroundBlurStyle(value: BlurStyle): TabsAttribute;
 
   /**
+   * Setting page flip mode on mouse wheel event.
+   *
+   * @param { Optional<PageFlipMode> } mode - page flip mode on mouse wheel event. The default value is PageFlipMode.CONTINUOUS.
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  pageFlipMode(mode: Optional<PageFlipMode>): TabsAttribute;
+
+  /**
    * Called when content will change.
    *
    * @param { function } handler
