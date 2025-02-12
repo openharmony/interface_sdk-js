@@ -147,7 +147,7 @@ declare enum AnimationMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   CONTENT_FIRST_WITH_JUMP = 3,
 
@@ -157,7 +157,7 @@ declare enum AnimationMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   ACTION_FIRST_WITH_JUMP = 4,
 }
