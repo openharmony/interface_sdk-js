@@ -7584,8 +7584,8 @@ declare namespace photoAccessHelper {
      * Get order position from album
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param { Array<PhotoAsset> } assets - List of assets that need to set order
-     * @returns { Promise<Array<number>> } Returns void
+     * @param { Array<PhotoAsset> } assets - List of assets that need to get order
+     * @returns { Promise<Array<number>> } Returns the order of position
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
