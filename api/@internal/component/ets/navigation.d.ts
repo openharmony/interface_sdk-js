@@ -2812,6 +2812,18 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 14
    */
   enableDragBar(isEnabled: Optional<boolean>): NavigationAttribute;
+  
+  /**
+   * whether to enable modeChangeAnimation
+   * 
+   * @param { Optional<boolean> } isEnabled - enableModeChangeAnimation.
+   * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  enableModeChangeAnimation(isEnabled: Optional<boolean>): NavigationAttribute;
 }
 
 /**
