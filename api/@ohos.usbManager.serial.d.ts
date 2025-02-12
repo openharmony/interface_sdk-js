@@ -1,6 +1,6 @@
 /*
- * Copyright (C) 2025 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Copyright (c) 2024 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -12,13 +12,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit BasicServicesKit
  */
+
 /**
- * This module provides the capability of manage USB serial.
- *
+ * Provides APIs for managing USB-to-virtual serial ports and implementing USB-to-virtual serial port communication.
  * @namespace serialManager
  * @syscap SystemCapability.USB.USBManager.Serial
  * @since 16
@@ -26,208 +27,50 @@
 declare namespace serialManager {
 
   /**
-   * Connect to the serial port of the host that the source has access to by this method.
-   *
-   * @param { number } portId - Serial port number defined by SerialPort.portId. It cannot be empty.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br>1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
-   * @throws { BusinessError } 14402001 - Serial port service exception.
-   * @throws { BusinessError } 14402002 - Permission denied. Call requestSerialRight to get the permission first.
-   * @throws { BusinessError } 14402003 - The port number does not exist.
-   * @throws { BusinessError } 14402004 - The port is occupied.
-   * @syscap SystemCapability.USB.USBManager.Serial
-   * @since 16
-   */
-  function open(portId: number): void;
-
-  /**
-   * Disconnect the linked serial port by this method.
-   *
-   * @param { number } portId - Serial port number defined by SerialPort.portId. It cannot be empty.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br>1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
-   * @throws { BusinessError } 14402001 - Serial port service exception.
-   * @throws { BusinessError } 14402003 - The port number does not exist.
-   * @throws { BusinessError } 14402004 - The port is occupied.
-   * @throws { BusinessError } 14402005 - The port not open.
-   * @syscap SystemCapability.USB.USBManager.Serial
-   * @since 16
-   */
-  function close(portId: number): void;
-
-  /**
-   * Asynchronous reads as many bytes as possible into the destination buffer.
-   *
-   * @param { number } portId - Serial port number defined by SerialPort.portId. It cannot be empty.
-   * @param { Uint8Array } buffer - the destination buffer,the maximum length of the buffer is 8192 bytes.
-   * @param { number } timeout - This parameter is optional. The default value is **0**, indicating no timeout.
-   * @returns { Promise<number> } Promise returns the actual size read from the buffer.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br>1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
-   * @throws { BusinessError } 14402001 - Serial port service exception.
-   * @throws { BusinessError } 14402003 - The port number does not exist.
-   * @throws { BusinessError } 14402005 - The port not open.
-   * @throws { BusinessError } 14402006 - Data transmission timeout.
-   * @throws { BusinessError } 14402007 - Read data length exceeding the limit of 8KB.
-   * @syscap SystemCapability.USB.USBManager.Serial
-   * @since 16
-   */
-  function read(portId: number, buffer: Uint8Array, timeout?: number): Promise<number>;
-
-  /**
-   * Synchronize to read as many bytes as possible into the target buffer.
-   *
-   * @param { number } portId - Serial port number defined by SerialPort.portId. It cannot be empty.
-   * @param { Uint8Array } buffer - the destination buffer,the maximum length of the buffer is 8192 bytes.
-   * @param { number } timeout - This parameter is optional. The default value is **0**, indicating no timeout.
-   * @returns { number } the actual size of buffer read.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br>1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
-   * @throws { BusinessError } 14402001 - Serial port service exception.
-   * @throws { BusinessError } 14402003 - The port number does not exist.
-   * @throws { BusinessError } 14402005 - The port not open.
-   * @throws { BusinessError } 14402006 - Data transmission timeout.
-   * @throws { BusinessError } 14402007 - Read data length exceeding the limit of 8KB.
-   * @syscap SystemCapability.USB.USBManager.Serial
-   * @since 16
-   */
-  function readSync(portId: number, buffer: Uint8Array, timeout?: number): number;
-
-  /**
-   * Asynchronous writes with specified length from the source buffer.
-   *
-   * @param { number } portId - Serial port number defined by SerialPort.portId. It cannot be empty.
-   * @param { Uint8Array } buffer - the source byte buffer,the buffer supports a maximum of 128KB.
-   * @param { number } timeout - This parameter is optional. The default value is **0**, indicating no timeout.
-   * @returns { Promise<number> } the actual size of buffer write.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br>1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
-   * @throws { BusinessError } 14402001 - Serial port service exception.
-   * @throws { BusinessError } 14402003 - The port number does not exist.
-   * @throws { BusinessError } 14402005 - The port not open.
-   * @throws { BusinessError } 14402006 - Data transmission timeout.
-   * @throws { BusinessError } 14402008 - Write data length exceeding the limit of 128KB.
-   * @syscap SystemCapability.USB.USBManager.Serial
-   * @since 16
-   */
-  function write(portId: number, buffer: Uint8Array, timeout?: number): Promise<number>;
-
-  /**
-   * Synchronize to writes bytes with specified length from the source buffer.
-   *
-   * @param { number } portId - Serial port number defined by SerialPort.portId. It cannot be empty.
-   * @param { Uint8Array } buffer - the source byte buffer,the buffer supports a maximum of 128KB.
-   * @param { number } timeout - This parameter is optional. The default value is **0**, indicating no timeout.
-   * @returns { number } the actual size of buffer write.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br>1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
-   * @throws { BusinessError } 14402001 - Serial port service exception.
-   * @throws { BusinessError } 14402003 - The port number does not exist.
-   * @throws { BusinessError } 14402005 - The port not open.
-   * @throws { BusinessError } 14402006 - Data transmission timeout.
-   * @throws { BusinessError } 14402008 - Write data length exceeding the limit of 128KB.
-   * @syscap SystemCapability.USB.USBManager.Serial
-   * @since 16
-   */
-  function writeSync(portId: number, buffer: Uint8Array, timeout?: number): number;
-
-  /**
-   * Set the configuration parameters of the serial port by the method. If the method is not called,
-   * use the default configuration parameters (baud rates: 9600 bps, data bits: 8, parity: none, stop bits: 1).
-   *
-   * @param { number } portId - Serial port number defined by SerialPort.portId. It cannot be empty.
-   * @param { SerialAttribute } attribute - The serial port parameters.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br>1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
-   * @throws { BusinessError } 14402001 - Serial port service exception.
-   * @throws { BusinessError } 14402003 - The port number does not exist.
-   * @throws { BusinessError } 14402005 - The port not open.
-   * @syscap SystemCapability.USB.USBManager.Serial
-   * @since 16
-   */
-  function setAttribute(portId: number, attribute: SerialAttribute): void;
-
-  /**
-   * Get the configuration parameters of the serial port by the method.
-   *
-   * @param { number } portId - Serial port number defined by SerialPort.portId. It cannot be empty.
-   * @returns { Readonly<SerialAttribute> } Return the serial port parameters.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br>1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
-   * @throws { BusinessError } 14402001 - Serial port service exception.
-   * @throws { BusinessError } 14402003 - The port number does not exist.
-   * @throws { BusinessError } 14402005 - The port not open.
-   * @syscap SystemCapability.USB.USBManager.Serial
-   * @since 16
-   */
-  function getAttribute(portId: number): Readonly<SerialAttribute>;
-
-  /**
-   * The method returns an array of SerialPort objects,
-   * representing serial ports connected to the host which the origin has permission to access.
-   *
-   * @returns { Readonly<SerialPort>[] } the serialPort list.
+   * Obtains the serial port device list.
+   * @returns { Readonly<SerialPort>[]} Returns the list of serial port devices obtained.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 16
    */
   function getPortList(): Readonly<SerialPort>[];
 
   /**
-   * Checks whether the application has the permission to access the serial port..
-   *
-   * @param { number } portId - Serial port number defined by SerialPort.portId. It cannot be empty.
-   * @returns { boolean } indicates if the user has the right to access the Serial accessory.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br>1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
-   * @throws { BusinessError } 14400005 - Database operation exception.
-   * @throws { BusinessError } 14402001 - Serial port service exception.
-   * @throws { BusinessError } 14402003 - The port number does not exist.
+   * Checks whether a serial port device has the access right. The system applications have the access right by default.
+   * @param { number} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
+   * @returns {boolean} Returns <b class="+ topic/ph hi-d/b " id="b48481049115520">true</b> if the device has the right; returns <b class="+ topic/ph hi-d/b " id="b192241323195610">false</b> otherwise.
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 14400005 Database operation exception.
+   * @throws { BusinessError } 31400001 Serial port management exception.
+   * @throws { BusinessError } 31400003 Device does not exist.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 16
    */
   function hasSerialRight(portId: number): boolean;
 
   /**
-   * Requests the permission for a given application to access the serial port.
-   * The system application has access to the serial port by default, and there is no need to call this interface to apply.
-   *
-   * @param { number } portId - Serial port number defined by SerialPort.portId. It cannot be empty.
-   * @returns { Promise<boolean> } indicates if the Serial accessory access right are granted.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br>1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
-   * @throws { BusinessError } 14400005 - Database operation exception.
-   * @throws { BusinessError } 14402001 - Serial port service exception.
-   * @throws { BusinessError } 14402003 - The port number does not exist.
+   * Requests the right for accessing a serial port device from the user. The system applications do not need to call this API.
+   * @param { number} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
+   * @returns { Promise<boolean>} Promise used to return the result. The value <b class="+ topic/ph hi-d/b " id="b529434412284">true</b> means the user allows the access; the value <b class="+ topic/ph hi-d/b " id="b89755211297">false</b> means the opposite.
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 14400005 Database operation exception.
+   * @throws { BusinessError } 31400001 Serial port management exception.
+   * @throws { BusinessError } 31400003 Device does not exist.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 16
    */
   function requestSerialRight(portId: number): Promise<boolean>;
 
   /**
-   * Add serial port access right.
-   * The system application has access to the serial port by default, and calling this interface will not have any impact.
-   *
+   * Adds the access right for a serial port device.
    * @permission ohos.permission.MANAGE_USB_CONFIG
-   * @param { number } tokenId - refers to application that require access permissions. It cannot be empty.
-   * @param { number } portId - Serial port number defined by SerialPort.portId. It cannot be empty.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br>1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
-   * @throws { BusinessError } 14400005 - Database operation exception.
-   * @throws { BusinessError } 14402001 - Serial port service exception.
-   * @throws { BusinessError } 14402003 - The port number does not exist.
+   * @param { number } tokenId Token ID of the target application.
+   * @param { number} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
+   * @throws { BusinessError } 201 Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 14400005 Database operation exception.
+   * @throws { BusinessError } 31400001 Serial port management exception.
+   * @throws { BusinessError } 31400003 Device does not exist.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @systemapi
    * @since 16
@@ -235,80 +78,146 @@ declare namespace serialManager {
   function addSerialRight(tokenId: number, portId: number): void;
 
   /**
-   * Cancel the permission for a given application to access the serial port.
-   * The system application has access to the serial port by default, and calling this interface will not have any impact.
-   *
-   * @param { number } portId - Serial port number defined by SerialPort.portId. It cannot be empty.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br>1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
-   * @throws { BusinessError } 14400005 - Database operation exception.
-   * @throws { BusinessError } 14402001 - Serial port service exception.
-   * @throws { BusinessError } 14402003 - The port number does not exist.
-   * @throws { BusinessError } 14402009 - The target port number not matched.
+   * Cancels the access right for a serial port device. This API will not cancel the default access right of system applications.
+   * @param { number} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 14400005 Database operation exception.
+   * @throws { BusinessError } 31400001 Serial port management exception.
+   * @throws { BusinessError } 31400002 Access denied. Call requestSerialRight to request user authorization first.
+   * @throws { BusinessError } 31400003 Device does not exist.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 16
    */
   function cancelSerialRight(portId: number): void;
 
   /**
-   * Indicate the configuration parameters of the serial port.
-   *
-   * @typedef SerialAttribute
+   * Opens a serial port device.
+   * @param { number} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 31400001 Serial port management exception.
+   * @throws { BusinessError } 31400002 Access denied. Call requestSerialRight to request user authorization first.
+   * @throws { BusinessError } 31400003 Device does not exist.
+   * @throws { BusinessError } 31400004 The serial port device is occupied.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 16
    */
-  interface SerialAttribute {
-
-    /**
-     * Serial port baud rate, default value is BAUDRATE_9600.
-     *
-     * @type { number }
-     * @syscap SystemCapability.USB.USBManager.Serial
-     * @since 16
-     */
-    baudrate: BaudRates;
-
-    /**
-     * Serial port data bit,default value is USB_ATTR_DATABIT_8.
-     *
-     * @type { number }
-     * @syscap SystemCapability.USB.USBManager.Serial
-     * @since 16
-     */
-    dataBits?: DataBits;
-
-    /**
-     * Serial port parity,default value is USB_ATTR_PARITY_NONE.
-     *
-     * @type { number }
-     * @syscap SystemCapability.USB.USBManager.Serial
-     * @since 16
-     */
-    parity?: Parity;
-
-    /**
-     * Serial port stop bit,default value is USB_ATTR_STOPBIT_1.
-     *
-     * @type { number }
-     * @syscap SystemCapability.USB.USBManager.Serial
-     * @since 16
-     */
-    stopBits?: StopBits;
-  }
+  function open(portId: number): void;
 
   /**
-   * Serial Port parameter.
-   *
-   * @typedef SerialPort
+   * Closes a serial port device.
+   * @param { number} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 31400001 Serial port management exception.
+   * @throws { BusinessError } 31400003 Device does not exist.
+   * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
+   * @syscap SystemCapability.USB.USBManager.Serial
+   * @since 16
+   */
+  function close(portId: number): void;
+
+  /**
+   * Obtains the communication parameters of a serial port device.
+   * @param { number} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
+   * @returns { Readonly<SerialAttribute>} Communication parameters obtained, which are read-only.
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 31400001 Serial port management exception.
+   * @throws { BusinessError } 31400003 Device does not exist.
+   * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
+   * @syscap SystemCapability.USB.USBManager.Serial
+   * @since 16
+   */
+  function getAttribute(portId: number): Readonly<SerialAttribute>;
+
+  /**
+   * Sets the communication parameters for a serial port device.
+   * @param { number} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
+   * @param { SerialAttribute} attribute Communication parameters to set.
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 31400001 Serial port management exception.
+   * @throws { BusinessError } 31400003 Device does not exist.
+   * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
+   * @syscap SystemCapability.USB.USBManager.Serial
+   * @since 16
+   */
+  function setAttribute(portId: number, attribute: SerialAttribute): void;
+
+  /**
+   * Reads data from a serial port device. This API uses a promise to return the result.
+   * @param { number} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
+   * @param { Uint8Array } buffer Buffer for storing the data read, with a maximum length of 8192 bytes.
+   * @param { number } timeout Timeout duration for reading data. The value is a non-negative number. The default value <b class="+ topic/ph hi-d/b " id="b98612056312">0</b> indicates that there is no time limit for data reading.
+   * @returns { Promise<number> } Promise used to return the length of the data read.
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 31400001 Serial port management exception.
+   * @throws { BusinessError } 31400003 Device does not exist.
+   * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
+   * @throws { BusinessError } 31400006 Data transfer timed out.
+   * @throws { BusinessError } 31400007 I/O exception.
+   * @syscap SystemCapability.USB.USBManager.Serial
+   * @since 16
+   */
+  function read(portId: number, buffer: Uint8Array, timeout?: number): Promise<number>;
+
+  /**
+   * Reads data from a serial port device. This API returns the result synchronously.
+   * @param { number} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
+   * @param { Uint8Array } buffer Buffer for storing the data read, with a maximum length of 8192 bytes.
+   * @param { number } timeout Timeout duration for reading data. The value is a non-negative number. The default value <b class="+ topic/ph hi-d/b " id="b25229382302">0</b> indicates that there is no time limit for data reading.
+   * @returns {number} Length of the data read.
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 31400001 Serial port management exception.
+   * @throws { BusinessError } 31400003 Device does not exist.
+   * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
+   * @throws { BusinessError } 31400006 Data transfer timed out.
+   * @throws { BusinessError } 31400007 I/O exception.
+   * @syscap SystemCapability.USB.USBManager.Serial
+   * @since 16
+   */
+  function readSync(portId: number, buffer: Uint8Array, timeout?: number): number;
+
+  /**
+   * Writes data to a serial port device. This API uses a promise to return the result.
+   * @param { number} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
+   * @param { Uint8Array } buffer Buffer for storing the data written, with a maximum length of 128 KB.
+   * @param { number } timeout Timeout duration for writing data. The value is a non-negative number. The default value <b class="+ topic/ph hi-d/b " id="b2661577365">0</b> indicates that there is no time limit for data writing.
+   * @returns { Promise<number> } Promise used to return the length of the data written.
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 31400001 Serial port management exception.
+   * @throws { BusinessError } 31400003 Device does not exist.
+   * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
+   * @throws { BusinessError } 31400006 Data transfer timed out.
+   * @throws { BusinessError } 31400007 I/O exception.
+   * @syscap SystemCapability.USB.USBManager.Serial
+   * @since 16
+   */
+  function write(portId: number, buffer: Uint8Array, timeout?: number): Promise<number>;
+
+  /**
+   * Writes data to a serial port device. This API returns the result synchronously.
+   * @param { number} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
+   * @param { Uint8Array } buffer Buffer for storing the data written, with a maximum length of 128 KB.
+   * @param { number } timeout Timeout duration for writing data. The value is a non-negative number. The default value <b class="+ topic/ph hi-d/b " id="b45639213380">0</b> indicates that there is no time limit for data writing.
+   * @returns { number } Length of the data written.
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 31400001 Serial port management exception.
+   * @throws { BusinessError } 31400003 Device does not exist.
+   * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
+   * @throws { BusinessError } 31400006 Data transfer timed out.
+   * @throws { BusinessError } 31400007 I/O exception.
+   * @syscap SystemCapability.USB.USBManager.Serial
+   * @since 16
+   */
+  function writeSync(portId: number, buffer: Uint8Array, timeout?: number): number;
+
+  /**
+   * Represents a serial port device.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 16
    */
   interface SerialPort {
 
     /**
-     * Serial port id.
-     *
+     * Serial port device ID.
      * @type { number }
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
@@ -316,18 +225,57 @@ declare namespace serialManager {
     portId: number;
 
     /**
-     * Serial device name.
-     *
+     * Serial port device name.
      * @type { string }
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
     deviceName: string;
-  }
-
+ }
   /**
-   * Serial port baud rates(bps).
-   *
+   * Represents the communication parameters of a serial port device.
+   * @syscap SystemCapability.USB.USBManager.Serial
+   * @since 16
+   */
+  interface SerialAttribute {
+
+    /**
+     * Baud rate.
+     * @type { BaudRates }
+     * @syscap SystemCapability.USB.USBManager.Serial
+     * @since 16
+     */
+    baudRate: BaudRates;
+
+    /**
+     * Data bits.
+     * @type { DataBits }
+     * @default DATABIT_8
+     * @syscap SystemCapability.USB.USBManager.Serial
+     * @since 16
+     */
+    dataBits?: DataBits;
+
+    /**
+     * Parity bit.
+     * @type { Parity }
+     * @default NONE
+     * @syscap SystemCapability.USB.USBManager.Serial
+     * @since 16
+     */
+    parity?: Parity;
+
+    /**
+     * Stop bits.
+     * @type { StopBits }
+     * @default STOPBIT_1
+     * @syscap SystemCapability.USB.USBManager.Serial
+     * @since 16
+     */
+    stopBits?: StopBits;
+ }
+  /**
+   * Enumerates the baud rates of a serial port device, in bit/s.
    * @enum { number }
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 16
@@ -335,39 +283,35 @@ declare namespace serialManager {
   enum BaudRates {
 
     /**
-     * Serial port baud bits are 50 bps.
-     *
+     * The baud rate is 50 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
     BAUDRATE_50 = 50,
 
     /**
-     * Serial port baud bits are 75 bps.
-     *
+     * The baud rate is 75 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
     BAUDRATE_75 = 75,
 
     /**
-     * Serial port baud bits are 110 bps.
-     *
+     * The baud rate is 110 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
     BAUDRATE_110 = 110,
 
     /**
-     * Serial port baud bits are 134 bps.
-     *
+     * The baud rate is 134 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
     BAUDRATE_134 = 134,
 
     /**
-     * Serial port baud bits are 150 bps.
+     * The baud rate is 150 bit/s.
      *
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
@@ -375,209 +319,182 @@ declare namespace serialManager {
     BAUDRATE_150 = 150,
 
     /**
-     * Serial port baud bits are 200 bps.
-     *
+     * The baud rate is 200 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
     BAUDRATE_200 = 200,
 
     /**
-     * Serial port baud bits are 300 bps.
-     *
+     * The baud rate is 300 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
     BAUDRATE_300 = 300,
 
     /**
-     * Serial port baud bits are 600 bps.
-     *
+     * The baud rate is 600 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
     BAUDRATE_600 = 600,
 
     /**
-     * Serial port baud bits are 1200 bps.
-     *
+     * The baud rate is 1200 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
     BAUDRATE_1200 = 1200,
 
     /**
-     * Serial port baud bits are 1800 bps.
-     *
+     * The baud rate is 1800 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
     BAUDRATE_1800 = 1800,
 
     /**
-     * Serial port baud bits are 2400 bps.
-     *
+     * The baud rate is 2400 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
     BAUDRATE_2400 = 2400,
 
     /**
-     * Serial port baud bits are 4800 bps.
-     *
+     * The baud rate is 4800 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
     BAUDRATE_4800 = 4800,
 
     /**
-     * Serial port baud bits are 9600 bps.
-     *
+     * The baud rate is 9600 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
     BAUDRATE_9600 = 9600,
 
     /**
-     * Serial port baud bits are 19200 bps.
-     *
+     * The baud rate is 19200 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
     BAUDRATE_19200 = 19200,
 
     /**
-     * Serial port baud bits are 38400 bps.
-     *
+     * The baud rate is 38400 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
     BAUDRATE_38400 = 38400,
 
     /**
-     * Serial port baud bits are 57600 bps.
-     *
+     * The baud rate is 57600 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
     BAUDRATE_57600 = 57600,
 
     /**
-     * Serial port baud bits are 115200 bps.
-     *
+     * The baud rate is 115200 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
     BAUDRATE_115200 = 115200,
 
     /**
-     * Serial port baud bits are 230400 bps.
-     *
+     * The baud rate is 230400 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
     BAUDRATE_230400 = 230400,
 
     /**
-     * Serial port baud bits are 460800 bps.
-     *
+     * The baud rate is 460800 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
     BAUDRATE_460800 = 460800,
 
     /**
-     * Serial port baud bits are 500000 bps.
-     *
+     * The baud rate is 500000 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
     BAUDRATE_500000 = 500000,
 
     /**
-     * Serial port baud bits are 576000 bps.
-     *
+     * The baud rate is 576000 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
     BAUDRATE_576000 = 576000,
 
     /**
-     * Serial port baud bits are 921600 bps.
-     *
+     * The baud rate is 921600 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
     BAUDRATE_921600 = 921600,
 
     /**
-     * Serial port baud bits are 1000000 bps.
-     *
+     * The baud rate is 1000000 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
     BAUDRATE_1000000 = 1000000,
 
     /**
-     * Serial port baud bits are 1152000 bps.
-     *
+     * The baud rate is 1152000 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
     BAUDRATE_1152000 = 1152000,
 
     /**
-     * Serial port baud bits are 1500000 bps.
-     *
+     * The baud rate is 1500000 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
     BAUDRATE_1500000 = 1500000,
 
     /**
-     * Serial port baud bits are 2000000 bps.
-     *
+     * The baud rate is 2000000 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
     BAUDRATE_2000000 = 2000000,
 
     /**
-     * Serial port baud bits are 2500000 bps.
-     *
+     * The baud rate is 2500000 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
     BAUDRATE_2500000 = 2500000,
 
     /**
-     * Serial port baud bits are 3000000 bps.
-     *
+     * The baud rate is 3000000 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
     BAUDRATE_3000000 = 3000000,
 
     /**
-     * Serial port baud bits are 3500000 bps.
-     *
+     * The baud rate is 3500000 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
     BAUDRATE_3500000 = 3500000,
 
     /**
-     * Serial port baud bits are 4000000 bps.
-     *
+     * The baud rate is 4000000 bit/s.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
     BAUDRATE_4000000 = 4000000
-  }
-
+ }
   /**
-   * Serial port data bits.
-   *
+   * Enumerates the data bits of a serial port device.
    * @enum { number }
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 16
@@ -585,49 +502,42 @@ declare namespace serialManager {
   enum DataBits {
 
     /**
-     * Serial port data bits are 8.
-     *
+     * The number of data bits is 8.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
-    USB_ATTR_DATABIT_8 = 0,
+    DATABIT_8 = 8,
 
     /**
-     * Serial port data bits are 7.
-     *
+     * The number of data bits is 7.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
-    USB_ATTR_DATABIT_7,
+    DATABIT_7 = 7,
 
     /**
-     * Serial port data bits are 6.
-     *
+     * The number of data bits is 6.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
-    USB_ATTR_DATABIT_6,
+    DATABIT_6 = 6,
 
     /**
-     * Serial port data bits are 5.
-     *
+     * The number of data bits is 5.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
-    USB_ATTR_DATABIT_5,
+    DATABIT_5 = 5,
 
     /**
-     * Serial port data bits are 4.
-     *
+     * The number of data bits is 4.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
-    USB_ATTR_DATABIT_4
-  }
-
+    DATABIT_4 = 4
+ }
   /**
-   * Serial port parity.
-   *
+   * Enumerates the parity bits of a serial port device.
    * @enum { number }
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 16
@@ -635,49 +545,42 @@ declare namespace serialManager {
   enum Parity {
 
     /**
-     * The serial parity is none.
-     *
+     * No parity.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
-    USB_ATTR_PARITY_NONE = 0,
+    PARITY_NONE = 0,
 
     /**
-     * The serial parity is odd.
-     *
+     * Odd parity.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
-    USB_ATTR_PARITY_ODD,
+    PARITY_ODD = 1,
 
     /**
-     * The serial parity is even.
-     *
+     * Even parity.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
-    USB_ATTR_PARITY_EVEN,
+    PARITY_EVEN = 2,
 
     /**
-     * The serial parity is mark.
-     *
+     * Mark parity, whose parity bit is always <b class="+ topic/ph hi-d/b " id="b1627884485115">1</b>.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
-    USB_ATTR_PARITY_MARK,
+    PARITY_MARK = 3,
 
     /**
-     * The serial parity is space.
-     *
+     * Space parity, whose parity bit is always <b class="+ topic/ph hi-d/b " id="b1551818484291">0</b>.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
-    USB_ATTR_PARITY_SPACE
-  }
-
+    PARITY_SPACE = 4
+ }
   /**
-   * Serial port stop bits.
-   *
+   * Enumerates the stop bits for serial port communication.
    * @enum { number }
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 16
@@ -685,30 +588,24 @@ declare namespace serialManager {
   enum StopBits {
 
     /**
-     * The serial stop bits are 1.
-     *
+     * The number of stop bits is 1.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
-    USB_ATTR_STOPBIT_1 = 0,
+    STOPBIT_1 = 0,
 
     /**
-     * The serial stop bits are 1.5.
-     *
+     * The number of stop bits is 1.5.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
-    USB_ATTR_STOPBIT_1P5,
+    STOPBIT_1P5 = 1,
 
     /**
-     * The serial stop bits are 2.
-     *
+     * The number of stop bits is 2.
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since 16
      */
-    USB_ATTR_STOPBIT_2
-  }
+    STOPBIT_2 = 2
+ }
 }
-
-export default serialManager;
-
