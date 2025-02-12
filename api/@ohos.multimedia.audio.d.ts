@@ -6276,7 +6276,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @since 16
      */
-    readonly spatializationSupported: boolean;
+    readonly spatializationSupported?: boolean;
   }
 
   /**
