@@ -1097,4 +1097,50 @@ declare interface FontSettingOptions {
     * @since 12
     */
   enableVariableFontWeight?: boolean;
- }
+}
+
+/**
+ * Defines keyboard appearance.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 15
+ */
+declare enum KeyboardAppearance {
+  /**
+   * Default appearance mode, don't adopt immersive styles
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  NONE_IMMERSIVE = 0,
+
+  /**
+   * Immersive mode
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  IMMERSIVE = 1,
+
+  /**
+   * Light immersive style
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  LIGHT_IMMERSIVE = 2,
+
+  /**
+   * Dark immersive style
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  DARK_IMMERSIVE = 3,
+}
