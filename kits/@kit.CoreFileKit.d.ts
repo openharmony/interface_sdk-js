@@ -39,6 +39,7 @@ import statfs from '@ohos.file.statvfs';
 import storageStatistics from '@ohos.file.storageStatistics';
 import trash from '@ohos.file.trash';
 import volumeManager from '@ohos.file.volumeManager';
+import keyManager from '@ohos.file.keyManager';
 import userFileManager from '@ohos.filemanagement.userFileManager';
 import fileShare from '@ohos.fileshare';
 
@@ -47,5 +48,5 @@ export {
   WatchEvent, WatchEventListener, Watcher, ReadOptions, ReadTextOptions, WriteOptions, ListFileOptions,
   backup, cloudSync, cloudSyncManager, fileAccess, fileExtensionInfo,
   fileIo, fileShare, fileUri, hash, picker, recent, securityLabel, statfs,
-  storageStatistics, trash, userFileManager, volumeManager, DfsListeners, TaskSignal
+  storageStatistics, trash, userFileManager, volumeManager, keyManager, DfsListeners, TaskSignal
 };
