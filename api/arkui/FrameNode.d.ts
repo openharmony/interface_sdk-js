@@ -1426,6 +1426,19 @@ export namespace typeNode {
   function createNode(context: UIContext, nodeType: 'XComponent', options: XComponentOptions): XComponent;
 
   /**
+   * Create a FrameNode of XComponent type with options for native developing.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'XComponent' } nodeType - node type.
+   * @param { NativeXComponentParameters } parameters - initialization parameters.
+   * @returns { XComponent } - Return XComponent type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  function createNode(context: UIContext, nodeType: 'XComponent', parameters: NativeXComponentParameters): XComponent;
+
+  /**
    * Define the FrameNode type for Checkbox.
    *
    * @typedef { TypedFrameNode<CheckboxInterface, CheckboxAttribute> } Checkbox
