@@ -65,14 +65,6 @@ declare namespace adminManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @since 9
-   */
-  /**
-   * Enum for type of administrator.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @since 15
    */
   export enum AdminType {
