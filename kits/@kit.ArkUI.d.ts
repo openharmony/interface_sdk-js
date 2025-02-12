@@ -187,6 +187,7 @@ import {
 } from '@ohos.arkui.advanced.SubHeaderV2';
 import {
   ArcSlider,
+  ArcSliderPosition,
   ArcSliderOptions,
   ArcSliderOptionsConstructorOptions,
   ArcSliderLayoutOptions,
@@ -196,6 +197,13 @@ import {
   ArcSliderValueOptions,
   ArcSliderValueOptionsConstructorOptions
 } from '@ohos.arkui.advanced.ArcSlider';
+import {
+  ArcSwiper,
+  ArcSwiperAttribute,
+  ArcDotIndicator,
+  ArcDirection,
+  ArcSwiperController
+} from '@ohos.arkui.ArcSwiper'
 import {
   SegmentButtonV2ItemOptions,
   OnSelectedIndexChange,
@@ -278,5 +286,5 @@ export {
   SegmentButtonV2ItemOptions, OnSelectedIndexChange, OnSelectedIndexesChange, SegmentButtonV2Item, SegmentButtonV2Items, TabSegmentButtonV2, CapsuleSegmentButtonV2, MultiCapsuleSegmentButtonV2,
   AlertDialogV2, AdvancedDialogV2Button, AdvancedDialogV2ButtonOptions, AdvancedDialogV2ButtonAction, AdvancedDialogV2OnCheckedChange,
   ConfirmDialogV2, LoadingDialogV2, SelectDialogV2, TipsDialogV2, CustomContentDialogV2, PopoverDialogV2, PopoverDialogV2OnVisibleChange, PopoverDialogV2Options, ExpandMode,
-  HalfScreenLaunchComponent,
+  HalfScreenLaunchComponent, ArcSliderPosition, ArcSwiper, ArcSwiperAttribute, ArcDotIndicator, ArcDirection, ArcSwiperController,
 };
