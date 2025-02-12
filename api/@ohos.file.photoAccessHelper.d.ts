@@ -7085,7 +7085,7 @@ declare namespace photoAccessHelper {
    */
    class MediaAnalysisAlbumChangeRequest extends MediaAlbumChangeRequest {
     /**
-     * The constructor to create a analysisAlbum instance.
+     * The constructor to create a MediaAnalysisAlbumChangeRequest instance.
      * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -7101,7 +7101,7 @@ declare namespace photoAccessHelper {
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { Array<PhotoAsset> } assets - List of assets that need to set order
-     * @param { Array<number> } position - List of position to set
+     * @param { Array<number> } position - List of positions to set
      * @returns { void } Returns void
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
