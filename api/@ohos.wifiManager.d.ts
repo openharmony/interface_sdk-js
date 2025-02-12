@@ -601,6 +601,20 @@ declare namespace wifiManager {
   function getLinkedInfo(): Promise<WifiLinkedInfo>;
   
   /**
+   * Obtain multiple Wi-Fi connection information when Wi-Fi linked in MLO(Muti-Link Operation) state. If does't have the permission of ohos.permission.GET_WIFI_PEERS_MAC, return random bssid. 
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @returns { Array<WifiLinkedInfo> } Returns Wi-Fi multiple link information.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @crossplatform
+   * @since 16
+   */
+  function getMultiLinkedInfo(): Array<WifiLinkedInfo>;
+  
+  /**
    * Obtain connection information about the Wi-Fi connection.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { AsyncCallback<WifiLinkedInfo> } callback - Indicates callback of function.
@@ -2477,6 +2491,49 @@ declare namespace wifiManager {
   }
 
   /**
+   * Wi-Fi link type.
+   * @enum { number }
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @since 16
+   */
+  enum WifiLinkType {
+    /**
+     * Default link.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 16
+     */
+    DEFAULT_LINK = 0,
+
+    /**
+     * Wi-Fi7 single link.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 16
+     */
+    WIFI7_SINGLE_LINK = 1,
+
+    /**
+     * Wi-Fi7 MLSR.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 16
+     */
+    WIFI7_MLSR = 2,
+
+    /**
+     * Wi-Fi7 EMLSR.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 16
+     */
+    WIFI7_EMLSR = 3,
+
+    /**
+     * Wi-Fi7 STR.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 16
+     */
+    WIFI7_STR = 4
+  }
+
+  /**
    * Wi-Fi Proxy config.
    * @typedef WifiProxyConfig
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -3676,6 +3733,14 @@ declare namespace wifiManager {
      * @since 12
      */
     isHiLinkNetwork: boolean;
+
+    /**
+     * Wi-Fi link type
+     * @type { ?WifiLinkType }
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 16
+     */
+    wifiLinkType?: WifiLinkType;
   }
 
   /**
