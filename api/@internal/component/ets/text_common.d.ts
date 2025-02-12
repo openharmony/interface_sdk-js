@@ -1313,7 +1313,7 @@ declare interface TextMenuOptions {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare enum KeyboardAppearance {
   /**
@@ -1321,7 +1321,7 @@ declare enum KeyboardAppearance {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   NONE_IMMERSIVE = 0,
 
@@ -1330,7 +1330,7 @@ declare enum KeyboardAppearance {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   IMMERSIVE = 1,
 
@@ -1339,7 +1339,7 @@ declare enum KeyboardAppearance {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   LIGHT_IMMERSIVE = 2,
 
@@ -1348,7 +1348,7 @@ declare enum KeyboardAppearance {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   DARK_IMMERSIVE = 3,
 }
