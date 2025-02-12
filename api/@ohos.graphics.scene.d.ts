@@ -53,4 +53,4 @@ export { LayerMask, NodeType, Container, Node, Geometry, LightType, Light, SpotL
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
-export { SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene } from './graphics3d/Scene';
+export { SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters } from './graphics3d/Scene';

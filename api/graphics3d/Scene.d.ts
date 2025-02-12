@@ -157,6 +157,25 @@ export interface SceneResourceFactory {
 }
 
 /**
+ * Defines parameters for manual rendering.
+ *
+ * @interface RenderParameters
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 15
+ */
+export interface RenderParameters {
+    /**
+     * If true, the renderer should always render even if there have been no changes in the scene
+     * since the previous frame. If false, renderer may omit rendering if no changes have been made.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUi.Graphics3D
+     * @since 15
+     */
+    alwaysRender?: boolean;
+}
+
+/**
  * Defines the 3d scene.
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -229,5 +248,15 @@ export class Scene {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-  destroy(): void;
+    destroy(): void;
+
+    /**
+    * A new frame is rendered for all active camera.
+    *
+    * @param { RenderParameters } params - Rendering parameters
+    * @returns { boolean } True if rendering was scheduled, false otherwise
+    * @syscap SystemCapability.ArkUi.Graphics3D
+    * @since 15
+    */
+    renderFrame(params?: RenderParameters): boolean;
 }
