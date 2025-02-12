@@ -1287,7 +1287,7 @@ declare enum TouchType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare enum InteractionHand {
   /**
@@ -1296,7 +1296,7 @@ declare enum InteractionHand {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   NONE = 0,
 
@@ -1306,7 +1306,7 @@ declare enum InteractionHand {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   LEFT = 1,
 
@@ -1316,7 +1316,7 @@ declare enum InteractionHand {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   RIGHT = 2,
 }
