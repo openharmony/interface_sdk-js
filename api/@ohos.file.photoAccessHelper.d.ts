@@ -7097,7 +7097,7 @@ declare namespace photoAccessHelper {
     constructor(album: Album);
 
     /**
-     * Set order position on album
+     * Set order positions of assets in the album
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { Array<PhotoAsset> } assets - List of assets that need to set order
@@ -7581,11 +7581,11 @@ declare namespace photoAccessHelper {
      */
     getSharedPhotoAssets(options: FetchOptions): Array<SharedPhotoAsset>;
     /**
-     * Get order position from album
+     * Get order position of assets in the album
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { Array<PhotoAsset> } assets - List of assets that need to get order
-     * @returns { Promise<Array<number>> } Returns the order of position
+     * @returns { Promise<Array<number>> } Returns the order of positions of assets
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
