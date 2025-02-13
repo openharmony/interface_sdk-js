@@ -65,8 +65,7 @@ declare namespace adminManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @since 9
+   * @since 15
    */
   export enum AdminType {
     /**
@@ -91,7 +90,6 @@ declare namespace adminManager {
      * The value of administrator used in BYOD device.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @since 15
      */
     ADMIN_TYPE_BYOD = 0x02
