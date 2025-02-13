@@ -2312,7 +2312,7 @@ declare namespace inputMethodEngine {
    * 
    * @interface MessageHandler
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 16
+   * @since 15
    */
   interface MessageHandler {
     /**
