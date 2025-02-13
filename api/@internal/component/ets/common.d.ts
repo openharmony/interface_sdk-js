@@ -1319,7 +1319,6 @@ declare const Reusable: ClassDecorator;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @form
  * @atomicservice
  * @since 16
  */
@@ -1332,7 +1331,6 @@ declare const ReusableV2: ClassDecorator;
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @form
    * @atomicservice
    * @since 16
    */
@@ -1344,7 +1342,6 @@ declare const ReusableV2: ClassDecorator;
  * @interface ReuseOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @form
  * @atomicservice
  * @since 16
  */
@@ -1355,7 +1352,6 @@ declare interface ReuseOptions {
    * @type { ?ReuseIdCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @form
    * @atomicservice
    * @since 16
    */
@@ -24699,7 +24695,6 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @form
    * @atomicservice
    * @since 16
    */
@@ -26821,7 +26816,6 @@ declare class CustomComponentV2 extends BaseCustomComponent {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @form
    * @atomicservice
    * @since 16
    */
