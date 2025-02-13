@@ -27,6 +27,13 @@ import type connection from './@ohos.net.connection';
  * @syscap SystemCapability.Communication.NetManager.Core
  * @since 10
  */
+/**
+ * Obtains traffic statistics.
+ * @namespace statistics
+ * @syscap SystemCapability.Communication.NetManager.Core
+ * @atomicservice
+ * @since 15
+ */
 declare namespace statistics {
   /**
    * @typedef {connection.NetBearType}
@@ -157,6 +164,17 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
+  /**
+   * Queries the data traffic (including all TCP and UDP data packets) received through all NICs.
+   * @param { AsyncCallback<number> } callback - Returns the data traffic received through all NICs.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @throws { BusinessError } 2103005 - Failed to read the system map.
+   * @throws { BusinessError } 2103011 - Failed to create a system map.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @atomicservice
+   * @since 15
+   */
   function getAllRxBytes(callback: AsyncCallback<number>): void;
 
   /**
@@ -168,6 +186,17 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
+   */
+  /**
+   * Queries the data traffic (including all TCP and UDP data packets) received through all NICs.
+   * @returns { Promise<number> } The promise returned by the function.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @throws { BusinessError } 2103005 - Failed to read the system map.
+   * @throws { BusinessError } 2103011 - Failed to create a system map.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @atomicservice
+   * @since 15
    */
   function getAllRxBytes(): Promise<number>;
 
@@ -181,6 +210,17 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
+  /**
+   * Queries the data traffic (including all TCP and UDP data packets) sent through all NICs.
+   * @param { AsyncCallback<number> } callback - Returns the data traffic sent through all NICs.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @throws { BusinessError } 2103005 - Failed to read the system map.
+   * @throws { BusinessError } 2103011 - Failed to create a system map.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @atomicservice
+   * @since 15
+   */
   function getAllTxBytes(callback: AsyncCallback<number>): void;
 
   /**
@@ -192,6 +232,17 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
+   */
+  /**
+   * Queries the data traffic (including all TCP and UDP data packets) sent through all NICs.
+   * @returns { Promise<number> } The promise returned by the function.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @throws { BusinessError } 2103005 - Failed to read the system map.
+   * @throws { BusinessError } 2103011 - Failed to create a system map.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @atomicservice
+   * @since 15
    */
   function getAllTxBytes(): Promise<number>;
 
