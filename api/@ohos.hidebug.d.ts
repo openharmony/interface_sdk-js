@@ -847,6 +847,8 @@ declare namespace hidebug {
    * @throws { BusinessError } 11400109 - Timeout while waiting for the child process to finish.
    * @throws { BusinessError } 11400110 - Disk remaining space too low.
    * @throws { BusinessError } 11400111 - Napi interface call exception.
+   * @throws { BusinessError } 11400112 - Repeated data dump.
+   * @throws { BusinessError } 11400113 - Failed to create dump file.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @atomicservice
    * @since 16
