@@ -8216,6 +8216,31 @@ declare interface BorderImageOption {
 }
 
 /**
+ * Defines the policy of Layout
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 15
+ */
+declare class LayoutPolicy {
+  /**
+   * The component fills its parent which means its size is as large as its parent.
+   *
+   * @type { LayoutPolicy }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice 
+   * @since 15
+   */
+  static readonly matchParent: LayoutPolicy;
+}
+
+/**
  * The tap action triggers this method invocation.
  *
  * @extends BaseEvent
@@ -15266,6 +15291,18 @@ declare class CommonMethod<T> {
    * @since 11
    */
   width(value: Length): T;
+  /**
+   * Sets the width of the current component.
+   *
+   * @param { Length | LayoutPolicy } widthValue
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 15
+   */
+  width(widthValue: Length | LayoutPolicy): T;
 
   /**
    * Sets the height of the current component.
@@ -15306,6 +15343,18 @@ declare class CommonMethod<T> {
    * @since 11
    */
   height(value: Length): T;
+  /**
+   * Sets the height of the current component.
+   *
+   * @param { Length | LayoutPolicy } heightValue
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 15
+   */
+  height(heightValue: Length | LayoutPolicy): T;
   
   /**
    * Sets the drawModifier of the current component.
