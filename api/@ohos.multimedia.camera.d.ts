@@ -1387,7 +1387,7 @@ declare namespace camera {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 16
+   * @since 15
    */
   enum HostDeviceType {
     /**
@@ -1401,7 +1401,7 @@ declare namespace camera {
      * Indicates an unknown device camera.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 16
+     * @since 15
      */
     UNKNOWN_TYPE = 0,
 
@@ -1416,7 +1416,7 @@ declare namespace camera {
      * Indicates a smartphone camera.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 16
+     * @since 15
      */
     PHONE = 0x0E,
 
@@ -1431,7 +1431,7 @@ declare namespace camera {
      * Indicates a tablet camera.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 16
+     * @since 15
      */
     TABLET = 0x11
   }
@@ -1499,7 +1499,7 @@ declare namespace camera {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 16
+     * @since 15
      */
     readonly hostDeviceName: string;
 
@@ -1518,7 +1518,7 @@ declare namespace camera {
      * @type { HostDeviceType }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 16
+     * @since 15
      */
     readonly hostDeviceType: HostDeviceType;
 
