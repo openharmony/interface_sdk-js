@@ -17,7 +17,17 @@
  * @kit ArkUI
  */
 import { OperationOption } from '@ohos.arkui.advanced.SubHeader';
-
+/**
+ * Callback when When the Select option is clicked
+ *
+ * @typedef { function } OnSelectCallback
+ * @param { number } index - Indicates the index of the selected item.
+ * @param { string } [value] - Indicates the value of the selected item.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
+declare type OnSelectCallback = (index: number, value?: string) => void;
 /**
  * Defines the inputFilter options
  *
@@ -30,7 +40,7 @@ interface InputFilterOptions {
   /**
    * Regular expression.
    *
-   * @type { ?ResourceStr }
+   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
@@ -86,7 +96,7 @@ interface MenuAlignOption {
   /**
    * indicates the fontSize and fontColor of the search button.
    *
-   * @type { ?MenuAlignType }
+   * @type { MenuAlignType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
@@ -531,7 +541,7 @@ interface SelectOptions {
    * @atomicservice
    * @since 16
    */
-  onSelect?: (index: number, value?: string) => void;
+  onSelect?: OnSelectCallback;
   /**
    * Sets the size for controls within Select Component.
    *
