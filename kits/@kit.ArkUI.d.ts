@@ -203,7 +203,7 @@ import {
   ArcDotIndicator,
   ArcDirection,
   ArcSwiperController
-} from '@ohos.arkui.ArcSwiper'
+} from '@ohos.arkui.ArcSwiper';
 import {
   SegmentButtonV2ItemOptions,
   OnSelectedIndexChange,
