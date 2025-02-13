@@ -760,7 +760,7 @@ declare enum CacheMode {
    * @atomicservice
    * @since 16
    */
-  NOCACHE = 2,
+  NO_CACHE = 2,
 
   /**
    * load cache and not online.
@@ -784,7 +784,7 @@ declare enum CacheMode {
    * @atomicservice
    * @since 16
    */
-  CACHEONLY = 3
+  CACHE_ONLY = 3
 }
 
 /**
