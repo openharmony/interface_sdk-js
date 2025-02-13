@@ -77,7 +77,7 @@ declare interface LayoutConstraint {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare interface CrossLanguageOptions {
   /**
@@ -87,7 +87,7 @@ declare interface CrossLanguageOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   attributeSetting?: boolean
 }
@@ -772,7 +772,7 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   setCrossLanguageOptions(options: CrossLanguageOptions): void;
 
@@ -783,7 +783,7 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   getCrossLanguageOptions(): CrossLanguageOptions;
 }
@@ -1071,7 +1071,7 @@ export namespace typeNode {
    * does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   function getAttribute(node: FrameNode, nodeType: 'Scroll'): ScrollAttribute | undefined;
 
@@ -1086,7 +1086,7 @@ export namespace typeNode {
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   function bindController(node: FrameNode, controller: Scroller, nodeType: 'Scroll'): void;
 

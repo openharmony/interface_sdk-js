@@ -105,7 +105,7 @@ declare namespace backgroundTaskManager {
      * The continuous task id.
      * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 16
+     * @since 15
      */
     continuousTaskId?: number;
   }
@@ -115,7 +115,7 @@ declare namespace backgroundTaskManager {
    *
    * @interface ContinuousTaskCancelInfo
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 16
+   * @since 15
    */
   interface ContinuousTaskCancelInfo {
     /**
@@ -123,7 +123,7 @@ declare namespace backgroundTaskManager {
      *
      * @type { ContinuousTaskCancelReason }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 16
+     * @since 15
      */
     reason: ContinuousTaskCancelReason;
 
@@ -132,7 +132,7 @@ declare namespace backgroundTaskManager {
      *
      * @type { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 16
+     * @since 15
      */
     id: number;
   }
@@ -475,7 +475,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
    * <br> 2. Register a exist callback type; 3. Parameter verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 16
+   * @since 15
    */
   function on(type: 'continuousTaskCancel', callback: Callback<ContinuousTaskCancelInfo>): void;
 
@@ -489,7 +489,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
    * <br> 2. Unregister type has not register; 3. Parameter verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 16
+   * @since 15
    */
   function off(type: 'continuousTaskCancel', callback?: Callback<ContinuousTaskCancelInfo>): void;
 
@@ -764,28 +764,28 @@ declare namespace backgroundTaskManager {
    *
    * @enum { number }
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 16
+   * @since 15
    */
   export enum ContinuousTaskCancelReason {
     /**
      * User cancel.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 16
+     * @since 15
      */
     USER_CANCEL = 1,
     /**
      * System cancel.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 16
+     * @since 15
      */
     SYSTEM_CANCEL = 2,
     /**
      * User remove notification.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 16
+     * @since 15
      */
     USER_CANCEL_REMOVE_NOTIFICATION = 3,
 
@@ -793,7 +793,7 @@ declare namespace backgroundTaskManager {
      * Low network speed when request data transfer mode.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 16
+     * @since 15
      */
     SYSTEM_CANCEL_DATA_TRANSFER_LOW_SPEED = 4,
 
@@ -801,7 +801,7 @@ declare namespace backgroundTaskManager {
      *  Not use avsession when request audio playback mode.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 16
+     * @since 15
      */
     SYSTEM_CANCEL_AUDIO_PLAYBACK_NOT_USE_AVSESSION = 5,
 
@@ -809,7 +809,7 @@ declare namespace backgroundTaskManager {
      * Audio is not running when request audio playback mode.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 16
+     * @since 15
      */
     SYSTEM_CANCEL_AUDIO_PLAYBACK_NOT_RUNNING = 6,
 
@@ -817,7 +817,7 @@ declare namespace backgroundTaskManager {
      * Audio is not running when request audio recording mode.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 16
+     * @since 15
      */
     SYSTEM_CANCEL_AUDIO_RECORDING_NOT_RUNNING = 7,
 
@@ -825,7 +825,7 @@ declare namespace backgroundTaskManager {
      * Not use location when request location mode.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 16
+     * @since 15
      */
     SYSTEM_CANCEL_NOT_USE_LOCATION = 8,
 
@@ -833,7 +833,7 @@ declare namespace backgroundTaskManager {
      * Not use bluetooth when request bluetooth interaction mode.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 16
+     * @since 15
      */
     SYSTEM_CANCEL_NOT_USE_BLUETOOTH = 9,
 
@@ -841,7 +841,7 @@ declare namespace backgroundTaskManager {
      * Not use multi device when request multi-device connection mode.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 16
+     * @since 15
      */
     SYSTEM_CANCEL_NOT_USE_MULTI_DEVICE = 10,
 
@@ -849,7 +849,7 @@ declare namespace backgroundTaskManager {
      * Use some mode illegally.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 16
+     * @since 15
      */
     SYSTEM_CANCEL_USE_ILLEGALLY = 11,
   }

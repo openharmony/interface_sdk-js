@@ -1736,6 +1736,15 @@ declare interface Rectangle {
  * @atomicservice
  * @since 12
  */
+/**
+ * Interface for ExpectedFrameRateRange.
+ *
+ * @interface ExpectedFrameRateRange
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
 declare interface ExpectedFrameRateRange {
   /**
    * The minimum animation drawing FPS.
@@ -1751,6 +1760,15 @@ declare interface ExpectedFrameRateRange {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   */
+  /**
+   * The minimum animation drawing FPS.
+   * The minimum value should be less than or equal to the maximum value.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   min: number,
   /**
@@ -1768,6 +1786,15 @@ declare interface ExpectedFrameRateRange {
    * @atomicservice
    * @since 12
   */
+  /**
+   * The maximum animation drawing FPS.
+   * The maximum value should be greater than or equal to the minimum value.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   max: number,
   /**
    * The expected frame rate of dynamical callback rate range.
@@ -1788,6 +1815,17 @@ declare interface ExpectedFrameRateRange {
    * @atomicservice
    * @since 12
   */
+  /**
+   * The expected frame rate of dynamical callback rate range.
+   * The value should be between the minimum and maximum value.
+   * Otherwise, the actual callback rate will be dynamically
+   * adjusted to better align with other animation sources.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   expected: number,
 }
 
@@ -10588,6 +10626,66 @@ declare interface ClickEvent extends BaseEvent {
  * @since 11
  */
 declare interface HoverEvent extends BaseEvent {
+  /**
+   * X coordinate of the hover point relative to the left edge of the hover element.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  x?: number;
+
+  /**
+   * Y coordinate of the hover point relative to the upper edge of the hover element.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  y?: number;
+
+  /**
+   * X coordinate of the hover point relative to the left edge of the current window.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  windowX?: number;
+
+  /**
+   * Y coordinate of the hover point relative to the upper edge of the current window.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  windowY?: number;
+
+  /**
+   * X coordinate of the hover point relative to the left edge of the device screen.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  displayX?: number;
+
+  /**
+   * Y coordinate of the hover point relative to the upper edge of the device screen.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  displayY?: number;
+
   /**
    * The blocking hover event pops up.
    *
@@ -20055,6 +20153,18 @@ declare class CommonMethod<T> {
   onHover(event: (isHover: boolean, event: HoverEvent) => void): T;
 
   /**
+   * Trigger a hover move event.
+   *
+   * @param { Callback<HoverEvent> } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onHoverMove(event: Callback<HoverEvent>): T;
+
+  /**
    * Trigger a accessibility hover event.
    *
    * @param { AccessibilityCallback } callback - A callback instance used when the component is touched after accessibility mode is enabled.
@@ -24133,6 +24243,21 @@ declare class CommonMethod<T> {
    * @since 13
    */
   onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback): T;
+
+
+  /**
+   * Set or reset the callback which is triggered when the visibleArea of component changed.
+   * The interval between two visible area change callbacks will not be less than the expected update interval.
+   *
+   * @param { VisibleAreaEventOptions } options - The options for the visibility event.
+   * @param { VisibleAreaChangeCallback | undefined } event - The callback will be triggered when the visibleArea of component changed and get close to any number in ratios defined by options.
+   * If set undefined will reset the target callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onVisibleAreaApproximateChange(options: VisibleAreaEventOptions, event: VisibleAreaChangeCallback | undefined): void;
 
   /**
    * Set the spherical effect of the component.
@@ -28520,6 +28645,17 @@ declare interface KeyframeAnimateParam {
    * @since 12
    */
   onFinish?: () => void;
+
+  /**
+   * Indicates expectedFrameRateRange of keyframe animation.
+   *
+   * @type { ?ExpectedFrameRateRange }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  expectedFrameRateRange?: ExpectedFrameRateRange;
 }
 
 /**

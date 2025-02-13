@@ -1383,7 +1383,7 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 12800015 - the other side does not accept the request.
      * @throws { BusinessError } 12800016 - input method client is not editable.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @since 15
      */
     sendMessage(msgId: string, msgParam?: ArrayBuffer): Promise<void>;
 
@@ -1393,7 +1393,7 @@ declare namespace inputMethodEngine {
      * @param { ?MessageHandler } [msgHandler] - optional, the handler of the custom message.
      * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @since 15
      */
     recvMessage(msgHandler?: MessageHandler): void;
   }
@@ -2330,7 +2330,7 @@ declare namespace inputMethodEngine {
    * 
    * @interface MessageHandler
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 16
+   * @since 15
    */
   interface MessageHandler {
     /**
@@ -2339,7 +2339,7 @@ declare namespace inputMethodEngine {
      * @param { string } msgId - the identifier of the message.
      * @param { ?ArrayBuffer } [msgParam] - the parameter of the custom message.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @since 15
      */
     onMessage(msgId: string, msgParam?: ArrayBuffer): void;
 
@@ -2347,7 +2347,7 @@ declare namespace inputMethodEngine {
      * This method is called when a new message handler is set.
      * 
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @since 15
      */
     onTerminated(): void;
   }

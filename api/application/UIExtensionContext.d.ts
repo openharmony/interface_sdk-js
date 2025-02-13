@@ -26,6 +26,7 @@ import type Want from '../@ohos.app.ability.Want';
 import type StartOptions from '../@ohos.app.ability.StartOptions';
 import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
 import OpenLinkOptions from '../@ohos.app.ability.OpenLinkOptions';
+import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 import type UIServiceProxy from './UIServiceProxy';
 import type UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallback';
 
@@ -1089,4 +1090,16 @@ export default class UIExtensionContext extends ExtensionContext {
    * @since 15
    */
   setHostPageOverlayForbidden(isForbidden: boolean) : void;
+
+  /**
+   * Set colorMode of uiextension.
+   *
+   * @param { ConfigurationConstant.ColorMode } colorMode - Color mode.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 16
+   */
+   setColorMode(colorMode: ConfigurationConstant.ColorMode): void;
 }

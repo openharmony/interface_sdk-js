@@ -2264,7 +2264,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   onContentWillScroll(handler: ContentWillScrollCallback): SwiperAttribute;
 }
@@ -2377,7 +2377,7 @@ declare interface SwiperContentTransitionProxy {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare interface SwiperContentWillScrollResult {
   /**
@@ -2388,7 +2388,7 @@ declare interface SwiperContentWillScrollResult {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   currentIndex: number;
 
@@ -2400,7 +2400,7 @@ declare interface SwiperContentWillScrollResult {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   comingIndex: number;
 
@@ -2413,7 +2413,7 @@ declare interface SwiperContentWillScrollResult {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   offset: number;
 }
@@ -2443,7 +2443,7 @@ declare type ContentDidScrollCallback = (selectedIndex: number, index: number, p
  * @crossplatform
  * @form
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare type ContentWillScrollCallback = (result: SwiperContentWillScrollResult) => boolean;
 

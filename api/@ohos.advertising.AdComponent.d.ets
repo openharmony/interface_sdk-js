@@ -90,7 +90,7 @@ declare struct AdComponent {
      * The property to control the playback status of the roll ad.
      * @type { ?number }
      * @syscap SystemCapability.Advertising.Ads
-     * @since 16
+     * @since 15
      */
     @Prop rollPlayState?: number;
 
