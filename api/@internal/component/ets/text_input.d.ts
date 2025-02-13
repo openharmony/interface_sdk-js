@@ -2471,6 +2471,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
 
    */
   keyboardAppearance(appearance: Optional<KeyboardAppearance>): TextInputAttribute;
+
+  /**
+   * Set whether stop backPressed callback event or not.
+   *
+   * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  stopBackPress(isStopped: Optional<boolean>): TextInputAttribute;
 }
 
 /**

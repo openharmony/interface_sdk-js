@@ -1695,6 +1695,17 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 15
    */
   keyboardAppearance(appearance: Optional<KeyboardAppearance>): TextAreaAttribute;
+
+  /**
+   * Set whether stop backPressed callback event or not.
+   *
+   * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  stopBackPress(isStopped: Optional<boolean>): TextAreaAttribute;
 }
 
 /**
