@@ -770,6 +770,12 @@ declare namespace audio {
      */
     REMOTE_CAST = 24,
     /**
+     * USB audio device.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 16
+     */
+    USB_DEVICE = 25,
+    /**
      * Default device type.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 9
