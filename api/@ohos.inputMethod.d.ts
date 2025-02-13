@@ -1940,34 +1940,6 @@ declare namespace inputMethod {
   }
 
   /**
-   * <p>Custom message handler.</p>
-   * <p>Implement this interface to respond to custem messages.</p>
-   * 
-   * @interface MessageHandler
-   * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 16
-   */
-  interface MessageHandler {
-    /**
-     * This method is called when a custom message is received.
-     * 
-     * @param { string } msgId - the identifier of the message.
-     * @param { ?ArrayBuffer } [msgParam] - the parameter of the custom message.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 15
-     */
-    onMessage(msgId: string, msgParam?: ArrayBuffer): void;
-
-    /**
-     * This method is called when a new message handler is set.
-     * 
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 15
-     */
-    onTerminated(): void;
-  }
-
-  /**
    * Enumerates the enabled state.
    *
    * @enum { number }
@@ -1998,6 +1970,34 @@ declare namespace inputMethod {
      * @since 15
      */
     FULL_EXPERIENCE_MODE
+  }
+
+  /**
+   * <p>Custom message handler.</p>
+   * <p>Implement this interface to respond to custem messages.</p>
+   * 
+   * @interface MessageHandler
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 15
+   */
+  interface MessageHandler {
+    /**
+     * This method is called when a custom message is received.
+     * 
+     * @param { string } msgId - the identifier of the message.
+     * @param { ?ArrayBuffer } [msgParam] - the parameter of the custom message.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    onMessage(msgId: string, msgParam?: ArrayBuffer): void;
+
+    /**
+     * This method is called when a new message handler is set.
+     * 
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    onTerminated(): void;
   }
 }
 
