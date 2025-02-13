@@ -1077,6 +1077,21 @@ export default class UIExtensionContext extends ExtensionContext {
   startServiceExtensionAbilityWithAccount(want: Want, accountId: number): Promise<void>;
 
   /**
+   * Set the uiextension to either not allow being covered by the host page or allow it. 
+   *
+   * @param { boolean } isForbidden - Indicates the bool value of uiextension can be covered by host page.
+   *                                  True indicates not allowing.
+   *                                  False indicates allowing.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 15
+   */
+  setHostPageOverlayForbidden(isForbidden: boolean) : void;
+
+  /**
    * Set colorMode of uiextension.
    *
    * @param { ConfigurationConstant.ColorMode } colorMode - Color mode.
