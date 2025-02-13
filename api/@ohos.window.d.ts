@@ -6829,18 +6829,6 @@ declare namespace window {
     setExclusivelyHighlighted(exclusivelyHighlighted: boolean): Promise<void>;
 
     /**
-     * Checks whether the window is highlighted.
-     *
-     * @returns { boolean } - Whether the window is highlighted. The value true means that the window is highlighted, and false means the opposite.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 16
-     */
-    isWindowHighlighted(): boolean;
-
-    /**
      * Sets whether keep screen on or not.
      *
      * @param { boolean } isKeepScreenOn keep screen on if true, or not if false.
