@@ -734,7 +734,7 @@ declare enum CacheMode {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 16
    */
-  CACHEELSENETWORK = 1,
+  CACHE_ELSE_NETWORK = 1,
 
   /**
    * Load online and not cache.
