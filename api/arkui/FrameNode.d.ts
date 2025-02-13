@@ -99,28 +99,28 @@ declare interface CrossLanguageOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 export enum ExpandMode {
-  /**
-   * Expand the children of node.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 16
-   */
-  EXPAND = 0,
-
   /**
    * Do not expand the children of node.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
-  NOT_EXPAND = 1,
+  NOT_EXPAND = 0,
+
+  /**
+   * Expand the children of node.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  EXPAND = 1,
 
   /**
    * Expand the children of node if needed.
@@ -128,7 +128,7 @@ export enum ExpandMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   LAZY_EXPAND = 2,
 }
@@ -267,7 +267,7 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   getChild(index: number, expandMode?: ExpandMode): FrameNode | null;
 
@@ -278,7 +278,7 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   getFirstChildIndexWithoutExpand(): number;
 
@@ -289,7 +289,7 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   getLastChildIndexWithoutExpand(): number;
 
