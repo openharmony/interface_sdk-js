@@ -1997,6 +1997,15 @@ declare namespace camera {
     CAMERA_FORMAT_DNG = 4,
 
     /**
+     * Extreme Digital Format.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 18
+     */
+    CAMERA_FORMAT_DNG_XDRAW = 5,
+
+    /**
      * YUV 420 Format.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
