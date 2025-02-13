@@ -20290,7 +20290,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   onKeyEvent(event: Callback<KeyEvent, boolean>): T;
 
@@ -20325,7 +20325,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   onKeyEventDispatch(event: Callback<KeyEvent, boolean>): T;
 

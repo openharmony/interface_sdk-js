@@ -2652,7 +2652,7 @@ export class MeasureUtils {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since 16
+  * @since 15
   */
   setKeyProcessingMode(mode: KeyProcessingMode): void;
 }
@@ -3355,7 +3355,7 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   dispatchKeyEvent(node: number | string, event: KeyEvent): boolean;
 
