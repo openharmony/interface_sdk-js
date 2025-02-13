@@ -488,30 +488,30 @@ declare namespace pointer {
    *
    * @interface CustomCursor
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 14
+   * @since 15
    */
   interface CustomCursor {
     /**
      * pixelMap - Custom cursor. The size limit is 256 x 256.
      * @type { image.PixelMap }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 14
+     * @since 15
      */
     pixelMap: image.PixelMap;
     /**
      * focusX - Horizontal coordinate of the focus of the custom cursor. It is subject to the size of the custom cursor.
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 14
+     * @since 15
      */
     focusX?: number;
     /**
      * focusY - Vertical coordinate of the focus of the custom cursor. It is subject to the size of the custom cursor.
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 14
+     * @since 15
      */
-	focusY?: number;
+    focusY?: number;
   }
   
   /**
@@ -519,14 +519,14 @@ declare namespace pointer {
    *
    * @interface CursorConfig
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 14
+   * @since 15
    */
   interface CursorConfig {
     /**
      * followSystem - Whether to adjust the cursor size based on the system settings.
      * @type { boolean }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 14
+     * @since 15
      */
     followSystem : boolean;
   }
@@ -1527,7 +1527,7 @@ declare namespace pointer {
    * <br>4. Abnormal focusY parameter passed in.
    * @throws { BusinessError } 26500001 - Invalid windowId.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 14
+   * @since 15
    */
   function setCustomCursor(windowId: number, cursor: CustomCursor, config: CursorConfig): Promise<void>;
 
