@@ -6101,7 +6101,7 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     on(type: 'windowHighlightChange', callback: Callback<boolean>): void;
 
@@ -6118,7 +6118,7 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     off(type: 'windowHighlightChange', callback?: Callback<boolean>): void;
   
@@ -6824,7 +6824,7 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     setExclusivelyHighlighted(exclusivelyHighlighted: boolean): Promise<void>;
 
