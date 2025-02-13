@@ -27,6 +27,13 @@ import type connection from './@ohos.net.connection';
  * @syscap SystemCapability.Communication.NetManager.Core
  * @since 10
  */
+/**
+ * Obtains traffic statistics.
+ * @namespace statistics
+ * @syscap SystemCapability.Communication.NetManager.Core
+ * @atomicservice
+ * @since 15
+ */
 declare namespace statistics {
   /**
    * @typedef {connection.NetBearType}
