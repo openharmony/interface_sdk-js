@@ -73,7 +73,7 @@ declare type DrawingLattice  = import('../api/@ohos.graphics.drawing').default.L
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare type ImageMatrix = import ('../api/@ohos.matrix4').default.Matrix4Transit;
 
@@ -901,7 +901,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   imageMatrix(matrix: ImageMatrix): ImageAttribute;
 
