@@ -349,6 +349,18 @@ declare namespace inputMethodEngine {
   type CommandDataType = number | string | boolean;
 
   /**
+   * The callback of 'sizeUpdate' event.
+   *
+   * @typedef { function } SizeUpdateCallback.
+   * @param { window.Size } size - panel size.
+   * @param { KeyboardArea } keyboardArea - keyboard area.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @systemapi
+   * @since 14
+   */
+  export type SizeUpdateCallback = (size: window.Size, keyboardArea: KeyboardArea) => void;
+
+  /**
    * @interface KeyboardController
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
@@ -1523,6 +1535,52 @@ declare namespace inputMethodEngine {
   }
 
   /**
+   * Defines the immersive mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @systemapi
+   * @since 14
+   */
+  export enum ImmersiveMode {
+    /**
+     * Default immersive mode, the panel is not in immersive mode.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 14
+     */
+    NONE_IMMERSIVE = 0,
+
+    /**
+     * Immersive mode.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 14
+     */
+    IMMERSIVE,
+
+    /**
+     * Light immersive mode.
+     * 
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 14
+     */
+    LIGHT_IMMERSIVE,
+
+    /**
+     * Dark immersive mode.
+     * 
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 14
+     */
+    DARK_IMMERSIVE
+  }
+
+  /**
    * A panel is a container used to hold soft keyboard, candidate list, or status bar.
    *
    * @interface Panel
@@ -1637,6 +1695,54 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     moveTo(x: number, y: number): Promise<void>;
+
+    /**
+     * Starts moving a panel. The panel starts moving when pressed with finger or mouse and stops moving when released.
+     * <p>It's Only used for STATUS_BAR panel.</p>
+     *
+     * @throws { BusinessError } 12800002 - input method engine error.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    startMoving(): void;
+
+    /**
+     * Get the ID of the display where the input method panel is located.
+     *
+     * @returns { Promise<number> } the promise returned by the function.
+     * @throws { BusinessError } 12800002 - input method engine error.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    getDisplayId(): Promise<number>;
+
+    /**
+     * Set immersive mode.
+     * 
+     * @param { ImmersiveMode } mode - Immersive mode.
+     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     *     1.Incorrect parameter types; 2.Parameter verification failed.
+     * @throws { BusinessError } 12800002 - input method engine error.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 14
+     */
+    setImmersiveMode(mode: ImmersiveMode): void;
+
+    /**
+     * Get immersive mode.
+     * 
+     * @returns { ImmersiveMode } Immersive mode.
+     * @throws { BusinessError } 202 - not system application.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 14
+     */
+    getImmersiveMode(): ImmersiveMode;
 
     /**
      * Shows panel.
@@ -1762,6 +1868,39 @@ declare namespace inputMethodEngine {
     adjustPanelRect(flag: PanelFlag, rect: PanelRect): void;
 
     /**
+     * Adjust the rect of soft keyboard panel for landscape and portrait orientations.
+     * <p>It's only used for SOFT_KEYBOARD panel with fixed or floating flag.</p>
+     *
+     * @param { PanelFlag } flag - panel flag.
+     * @param { EnhancedPanelRect } rect - panel rect.
+     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 14
+     */
+    adjustPanelRect(flag: PanelFlag, rect: EnhancedPanelRect): void;
+
+    /**
+     * <p>Update the region in the panel which accepts input events.</p>
+     * <p>It's only used for SOFT_KEYBOARD panel with fixed flag or floating flag.</p>
+     *
+     * @param { Array<window.Rect> } inputRegion - region in the panel which accepts input event. The size of the array must range from 1 to 4.
+     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 14
+     */
+    updateRegion(inputRegion: Array<window.Rect>): void;
+
+    /**
      * Subscribe 'sizeChange' event.
      * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED and FLG_FLOATING.</p>
      *
@@ -1777,11 +1916,36 @@ declare namespace inputMethodEngine {
      * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED and FLG_FLOATING.</p>
      *
      * @param { 'sizeChange' } type - the type of unsubscribe event.
-     * @param { Callback<window.Size> } [callback] - optional, the callback of off('sizeChange').
+     * @param { ?Callback<window.Size> } [callback] - optional, the callback of off('sizeChange').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
     off(type: 'sizeChange', callback?: Callback<window.Size>): void;
+
+    /**
+     * Subscribe 'sizeUpdate' event.
+     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED and FLG_FLOATING.</p>
+     *
+     * @param { 'sizeUpdate' } type - the type of subscribe event.
+     * @param { SizeUpdateCallback } callback - the callback of on('sizeUpdate').
+     * @throws { BusinessError } 202 - not system application.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 14
+     */
+    on(type: 'sizeUpdate', callback: SizeUpdateCallback): void;
+
+    /**
+     * Unsubscribe 'sizeUpdate' event.
+     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED and FLG_FLOATING.</p>
+     *
+     * @param { 'sizeUpdate' } type - the type of unsubscribe event.
+     * @param { ?SizeUpdateCallback } [callback] - optional, the callback of off('sizeUpdate').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 14
+     */
+    off(type: 'sizeUpdate', callback?: SizeUpdateCallback): void;
   }
 
   /**
@@ -1828,6 +1992,17 @@ declare namespace inputMethodEngine {
      * @since 14
      */
     readonly bundleName?: string;
+
+    /**
+     * Immersive mode.
+     *
+     * @type { ?ImmersiveMode }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 14
+     */
+    readonly immersiveMode?: ImmersiveMode;
   }
 
   /**
@@ -2172,6 +2347,139 @@ declare namespace inputMethodEngine {
      * @since 12
      */
     portraitRect: window.Rect;
+  }
+
+  /**
+   * Enhanced panel rect information.
+   *
+   * @interface EnhancedPanelRect
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @systemapi
+   * @since 14
+   */
+  export interface EnhancedPanelRect {
+    /**
+     * <p>Panel rect in landscape orientation.</p>
+     * <p>It must be filled when fullScreenMode is flase or not specified.</p>
+     *
+     * @type { ?window.Rect }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 14
+     */
+    landscapeRect?: window.Rect;
+    /**
+     * <p>Panel rect in portrait orientation.</P>
+     * <p>It must be filled when fullScreenMode is flase or not specified.</p>
+     *
+     * @type { ?window.Rect }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 14
+     */
+    portraitRect?: window.Rect;
+    /**
+     * The distance between the top of the panel and the top of the avoidance area in landscape orientation.
+     * <p>It's only used for SOFT_KEYBOARD panel with fixed flag or floating flag.</p>
+     *
+     * @type { ?number }
+     * @default 0
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 14
+     */
+    landscapeAvoidY?: number;
+    /**
+     * <p>Region in the panel that accepts input events in landsacpe mode.</p>
+     * <p>It's only used for SOFT_KEYBOARD panel with fixed flag or floating flag. Max array size is 4.</p>
+     * <p>Defaults to entire panel area if not specifed.</p>
+     *
+     * @type { ?Array<window.Rect> }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 14
+     */
+    landscapeInputRegion?: Array<window.Rect>;
+    /**
+     * The distance between the top of the panel and the top of the avoidance area in portrait orientation.
+     * <p>It's only used for SOFT_KEYBOARD panel with fixed flag or floating flag.</p>
+     *
+     * @type { ?number }
+     * @default 0
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 14
+     */
+    portraitAvoidY?: number;
+    /**
+     * <p>Region in the panel that accepts input events in portrait mode.</p>
+     * <p>It's only used for SOFT_KEYBOARD panel with fixed flag or floating flag. Max array size is 4.</p>
+     * <p>Defaults to entire panel area if not specifed.</p>
+     *
+     * @type { ?Array<window.Rect> }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 14
+     */
+    portraitInputRegion?: Array<window.Rect>;
+    /**
+     * <p>Enter the full screen mode.</p>
+     * <p>It's only used for SOFT_KEYBOARD panel with fixed flag or floating flag.</p>
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 14
+     */
+    fullScreenMode?: boolean;
+  }
+
+  /**
+   * Keyboard area.
+   *
+   * @interface KeyboardArea
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @systemapi
+   * @since 14
+   */
+  export interface KeyboardArea {
+    /**
+     * Top of the keyboard area in the panel.
+     *
+     * @type { number }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 14
+     */
+    top: number;
+    /**
+     * Bottom of the keyboard area in the panel.
+     *
+     * @type { number }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 14
+     */
+    bottom: number;
+    /**
+     * Left of the keyboard area in the panel.
+     *
+     * @type { number }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 14
+     */
+    left: number;
+    /**
+     * Right of the keyboard area in the panel.
+     *
+     * @type { number }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 14
+     */
+    right: number;
   }
 }
 

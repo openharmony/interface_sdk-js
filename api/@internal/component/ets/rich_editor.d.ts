@@ -3801,6 +3801,17 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 13
    */
   barState(state: BarState): RichEditorAttribute;
+
+  /**
+   * Set the keyboard appearance.
+   *
+   * @param { Optional<KeyboardAppearance> } appearance - Default value is KeyboardAppearance.NONE_IMMERSIVE
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  keyboardAppearance(appearance: Optional<KeyboardAppearance>): RichEditorAttribute;
 }
  
 /**

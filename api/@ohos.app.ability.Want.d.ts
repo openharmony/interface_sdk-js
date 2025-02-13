@@ -242,4 +242,15 @@ export default class Want {
    * @since 11
    */
   moduleName?: string;
+
+  /**
+   * The description of fds in a Want.
+   *
+   * @type { ?Record<string, number> }
+   * @readonly
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @atomicservice
+   * @since 15
+   */
+  readonly fds?: Record<string, number>;
 }

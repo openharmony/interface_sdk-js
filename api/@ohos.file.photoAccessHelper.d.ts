@@ -567,6 +567,49 @@ declare namespace photoAccessHelper {
   }
 
   /**
+   * Enumeration of compatible mode.
+   *
+   * @enum { number } CompatibleMode
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 15
+   */
+  enum CompatibleMode {
+    /**
+     * Original format mode
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 15
+     */
+    ORIGINAL_FORMAT_MODE = 0,
+
+    /**
+     * Compatible format mode.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 15
+     */
+    COMPATIBLE_FORMAT_MODE = 1
+  }
+
+  /**
+   * Data handler used to notify the progress of required media asset data
+   *
+   * @interface MediaAssetProgressHandler
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 15
+   */
+  interface MediaAssetProgressHandler {
+    /**
+     * Indicates the progress of required media asset data
+     *
+     * @param { number } progress - the progress of required media asset data; from 0 to 100.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 15
+     */
+    onProgress(progress: number): void;
+  }
+
+  /**
    * Enumeration of source mode
    *
    * @enum { number } SourceMode
@@ -794,7 +837,25 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 11
      */
-    sourceMode?: SourceMode
+    sourceMode?: SourceMode;
+
+    /**
+     * Indicates the compatible mode
+     *
+     * @type { ?CompatibleMode }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 15
+     */
+    compatibleMode?: CompatibleMode;
+
+    /**
+     * data handler used to notify the progress of required media asset data
+     *
+     * @type { ?MediaAssetProgressHandler }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 15
+     */
+    mediaAssetProgressHandler?: MediaAssetProgressHandler;
   }
 
   /**
@@ -997,6 +1058,25 @@ declare namespace photoAccessHelper {
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12
+     */
+    /**
+     * Request video file
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { Context } context - Hap context information
+     * @param { PhotoAsset } asset - the photo asset requested
+     * @param { RequestOptions } requestOptions - the request options
+     * @param { string } fileUri - the destination file uri to save the video data
+     * @param { MediaAssetDataHandler<boolean> } dataHandler - data handler used to notify the client that data has been written to the application sandbox
+     * @returns { Promise<string> } Returns request id
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 15
      */
     static requestVideoFile(
       context: Context,
@@ -1798,23 +1878,6 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     cancelPhotoRequest(requestId: string): void;
-    /**
-     * Fetch thumbnail of the video keyframe.
-     *
-     * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { number } beginFrameTimeMs - Fetch the time position of the video frame.
-     * @param { ThumbnailType } type - The type of thumbnail.
-     * @returns { Promise<image.PixelMap> } Returns the thumbnail's pixelMap.
-     * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 202 - Called by non-system application
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 14000011 - Internal system error
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
-     * @since 14
-     */
-    getKeyFrameThumbnail(beginFrameTimeMs: number, type: ThumbnailType): Promise<image.PixelMap>;
   }
 
   /**
@@ -5947,6 +6010,18 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     setEffectMode(mode: MovingPhotoEffectMode): void;
+
+    /**
+     * Set orientation of the asset.
+     *
+     * @param { number } orientation - the new orientation of the asset
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 15
+     */
+    setOrientation(orientation: number): void;
 
     /**
      * Set video enhancement attribute
