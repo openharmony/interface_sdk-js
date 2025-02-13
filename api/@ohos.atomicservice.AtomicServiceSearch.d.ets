@@ -21,6 +21,8 @@ import { OperationOption } from '@ohos.arkui.advanced.SubHeader';
 /**
  * Defines the inputFilter options
  *
+ * @typedef InputFilterOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 16
  */
@@ -28,6 +30,8 @@ interface InputFilterOptions {
   /**
    * Regular expression.
    *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
    */
@@ -35,6 +39,8 @@ interface InputFilterOptions {
   /**
    * If the regular expression matching fails, the filtered content is returned.
    *
+   * @type { ?Callback<string> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
    */
@@ -43,6 +49,8 @@ interface InputFilterOptions {
 /**
  * Defines the SearchButton Params
  *
+ * @typedef SearchButtonParams
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 16
  */
@@ -50,6 +58,8 @@ interface SearchButtonParams {
   /**
    * indicates the text of the search button.
    *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
    */
@@ -57,6 +67,8 @@ interface SearchButtonParams {
   /**
    * indicates the fontSize and fontColor of the search button.
    *
+   * @type { ?SearchButtonOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
    */
@@ -65,13 +77,17 @@ interface SearchButtonParams {
 /**
  * Defines the MenuAlign options
  *
+ * @typedef MenuAlignOption
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 16
  */
 interface MenuAlignOption {
   /**
-   * Alignment type.
+   * indicates the fontSize and fontColor of the search button.
    *
+   * @type { ?MenuAlignType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
    */
@@ -80,15 +96,18 @@ interface MenuAlignOption {
    * Offset of the drop-down menu relative to the drop-down button
    * after alignment based on the alignment type.
    *
+   * @type { ?Offset }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
    */
   offset?: Offset;
 }
-
 /**
- * search搜索区可支持的事件及样式
+ * Events and styles supported by the search area
  *
+ * @typedef SearchOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 16
  */
@@ -96,8 +115,8 @@ interface SearchOptions {
   /**
    * componentBackgroundColor
    *
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -105,8 +124,8 @@ interface SearchOptions {
   /**
    * Background color when pressed
    *
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -114,8 +133,8 @@ interface SearchOptions {
   /**
    * Set the search button text, fontSize and fontColor
    *
+   * @type { ?SearchButtonParams }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -123,8 +142,8 @@ interface SearchOptions {
   /**
    * Set the place hold text color
    *
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -132,8 +151,8 @@ interface SearchOptions {
   /**
    * Set the font used for place holder text
    *
+   * @type { ?Font }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -141,8 +160,8 @@ interface SearchOptions {
   /**
    * Set enter key type of soft keyboard
    *
+   * @type { ?Font }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -150,8 +169,8 @@ interface SearchOptions {
   /**
    * Called when the text align is set.
    *
+   * @type { ?TextAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -159,8 +178,8 @@ interface SearchOptions {
   /**
    * Called when the copy option is set.
    *
+   * @type { ?CopyOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -168,8 +187,8 @@ interface SearchOptions {
   /**
    * Set the search icon style
    *
+   * @type { ?(IconOptions | SymbolGlyphModifier) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -177,8 +196,8 @@ interface SearchOptions {
   /**
    * Set the cancel button style
    *
+   * @type { ?IconOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -188,7 +207,6 @@ interface SearchOptions {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -196,8 +214,8 @@ interface SearchOptions {
   /**
    * Set the cursor style
    *
+   * @type { ?CaretStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -205,8 +223,8 @@ interface SearchOptions {
   /**
    * Sets whether request keyboard or not when on focus.
    *
+   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -214,8 +232,8 @@ interface SearchOptions {
   /**
    * Controls whether the selection menu pops up.
    *
+   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -223,9 +241,8 @@ interface SearchOptions {
   /**
    * Set the custom keyboard options of Search
    *
-   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -233,8 +250,8 @@ interface SearchOptions {
   /**
    * Called when the search type is set.
    *
+   * @type { ?SearchType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -242,8 +259,8 @@ interface SearchOptions {
   /**
    * Called when the input of maximum text length is set.
    *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * crossplatform
    * @atomicservice
    * @since 16
    */
@@ -251,8 +268,8 @@ interface SearchOptions {
   /**
    * Set enter key type of soft keyboard
    *
+   * @type { ?EnterKeyType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -260,8 +277,8 @@ interface SearchOptions {
   /**
    * Called when the text decoration of the text is set.
    *
+   * @type { ?TextDecorationOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -269,22 +286,21 @@ interface SearchOptions {
   /**
    * Called when the distance between text fonts is set.
    *
+   * @type { ?(number | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
   letterSpacing?: number | string | Resource;
   /**
    * Set font feature.
-   *
    * normal | <feature-tag-value>,
    * where <feature-tag-value> = <string> [ <integer> | on | off ], like: "ss01" 0
    * the values of <feature-tag-value> reference to doc of search component
    * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
    *
+   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -292,8 +308,8 @@ interface SearchOptions {
   /**
    * Define the text selected background color of the text input.
    *
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -301,8 +317,8 @@ interface SearchOptions {
   /**
    * Called when the inputFilter of text is set.
    *
+   * @type { ?InputFilterOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -310,8 +326,8 @@ interface SearchOptions {
   /**
    * Specify the indentation of the first line in a text-block.
    *
+   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -319,8 +335,8 @@ interface SearchOptions {
   /**
    * Called when the minimum font size of the font is set.
    *
+   * @type { ?(number | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -328,8 +344,8 @@ interface SearchOptions {
   /**
    * Called when the maximum font size of the font is set.
    *
+   * @type { ?(number | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -337,8 +353,8 @@ interface SearchOptions {
   /**
    * Set the custom text menu.
    *
+   * @type { ?EditMenuOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -346,8 +362,8 @@ interface SearchOptions {
   /**
    * Define the preview text mode of the text input.
    *
+   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -355,8 +371,8 @@ interface SearchOptions {
   /**
    * Enable or disable haptic feedback.
    *
+   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -364,9 +380,8 @@ interface SearchOptions {
   /**
    * Call the function when clicked the search button
    *
-   * @param { function } callback
+   * @type { ?(Callback<string> | SearchSubmitCallback) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -374,9 +389,8 @@ interface SearchOptions {
   /**
    * Call the function when editing the input text
    *
-   * @param { EditableTextOnChangeCallback } callback
+   * @type { ?EditableTextOnChangeCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -384,9 +398,8 @@ interface SearchOptions {
   /**
    * Called when using the Clipboard menu
    *
-   * @param { function } callback
+   * @type { ?Callback<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -394,9 +407,8 @@ interface SearchOptions {
   /**
    * Called when using the Clipboard menu
    *
-   * @param { function } callback
+   * @type { ?Callback<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -404,12 +416,8 @@ interface SearchOptions {
   /**
    * Called when using the Clipboard menu
    *
-   * @param { function } callback
-   *          Executed when a paste operation is performed.
-   *          { string } value - The text content to be pasted.
-   *          { PasteEvent } event - The user-defined paste event.
+   * @type { ?OnPasteCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -417,9 +425,8 @@ interface SearchOptions {
   /**
    * Called when the text selection changes.
    *
-   * @param { function } callback - callback of the listened event.
+   * @type { ?OnTextSelectionChangeCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -427,9 +434,8 @@ interface SearchOptions {
   /**
    * Called when the content scrolls.
    *
-   * @param { function } callback - callback of the listened event.
+   * @type { ?OnContentScrollCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -437,9 +443,8 @@ interface SearchOptions {
   /**
    * Called when judging whether the text editing change finished.
    *
-   * @param { Callback<boolean> } callback
+   * @type { ?Callback<boolean> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -447,9 +452,8 @@ interface SearchOptions {
   /**
    * Get text value information when about to input.
    *
-   * @param { Callback<InsertValue, boolean> } callback - The triggered function when text content is about to insert.
+   * @type { ?Callback<InsertValue, boolean> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -457,9 +461,8 @@ interface SearchOptions {
   /**
    * Get text value information when completed input.
    *
-   * @param { Callback<InsertValue> } callback - The triggered function when text content has been inserted.
+   * @type { ?Callback<InsertValue> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -467,9 +470,8 @@ interface SearchOptions {
   /**
    * Get text value information when about to delete.
    *
-   * @param { Callback<DeleteValue, boolean> } callback - The triggered function when text content is about to delete.
+   * @type { ?Callback<DeleteValue, boolean> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -477,9 +479,8 @@ interface SearchOptions {
   /**
    * Get text value information when the deletion has been completed
    *
-   * @param { Callback<DeleteValue> } callback - The triggered function when text content has been deleted.
+   * @type { ?Callback<DeleteValue> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -489,42 +490,44 @@ interface SearchOptions {
 /**
  * Contents, events, and styles of the select area
  *
+ * @typedef SelectOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 16
  */
 interface SelectOptions {
   /**
    * SubOption array of the select.
-   * @type { Array<SelectSubOption> }.
+   *
+   * @type { ?Array<SelectOption> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
-  options: Array<SelectOption>;
+  options?: Array<SelectOption>;
   /**
    * The default selected index.
-   * @type { number }.
+   *
+   * @type { ?number }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
   selected?: number;
   /**
    * The default text value.
-   * @type { string }.
+   *
+   * @type { ?string }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
   value?: string;
   /**
    * Callback when the select is selected.
-   * @type { (index: number, value?: string) => void }.
+   *
+   * @type { ?(index: number, value?: string) => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -532,8 +535,8 @@ interface SelectOptions {
   /**
    * Sets the size for controls within Select Component.
    *
+   * @type { ?ControlSize }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -541,8 +544,8 @@ interface SelectOptions {
   /**
    * Register a ContentModifier for each menu item.
    *
+   * @type { ?ContentModifier<MenuItemConfiguration> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -550,8 +553,8 @@ interface SelectOptions {
   /**
    * Set the divider of select.
    *
+   * @type { ?(Optional<DividerOptions> | null) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -559,8 +562,8 @@ interface SelectOptions {
   /**
    * Sets the text properties of the select button itself.
    *
+   * @type { ?Font }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -568,8 +571,8 @@ interface SelectOptions {
   /**
    * Sets the text color of the select button itself.
    *
+   * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -577,8 +580,8 @@ interface SelectOptions {
   /**
    * Sets the background color of the selected items in the select.
    *
+   * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -586,8 +589,8 @@ interface SelectOptions {
   /**
    * Sets the text style of the selected items in the select.
    *
+   * @type { ?Font }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -595,8 +598,8 @@ interface SelectOptions {
   /**
    * Sets the text color of the selected item in the select.
    *
+   * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -604,8 +607,8 @@ interface SelectOptions {
   /**
    * Sets the background color of the select item.
    *
+   * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -613,8 +616,8 @@ interface SelectOptions {
   /**
    * Sets the text style for select items.
    *
+   * @type { ?Font }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -622,8 +625,8 @@ interface SelectOptions {
   /**
    * Sets the text color for select items.
    *
+   * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -631,8 +634,8 @@ interface SelectOptions {
   /**
    * Set the width of each option and set whether the option width fit the trigger.
    *
+   * @type { ?(Dimension | OptionWidthMode) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -640,8 +643,8 @@ interface SelectOptions {
   /**
    * Set the height of each option.
    *
+   * @type { ?Dimension }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -649,8 +652,8 @@ interface SelectOptions {
   /**
    * Set the space for text and icon in select
    *
+   * @type { ?Length }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -658,8 +661,8 @@ interface SelectOptions {
   /**
    * Set the layout direction for text and arrow in select
    *
+   * @type { ?ArrowPosition }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -667,8 +670,8 @@ interface SelectOptions {
   /**
    * Set the alignment between select and menu.
    *
+   * @type { ?MenuAlignOption }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -676,8 +679,8 @@ interface SelectOptions {
   /**
    * set the menu's background color
    *
+   * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -685,8 +688,8 @@ interface SelectOptions {
   /**
    * set menu background blur Style
    *
+   * @type { ?BlurStyle }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -695,11 +698,29 @@ interface SelectOptions {
 /**
  * Function settings in the selection area (right)
  *
+ * @typedef OperationOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 16
  */
 interface OperationOptions {
+  /**
+   * Function bits attached to the search area (right)
+   *
+   * @type { ?OperationOption }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
   auxiliaryItem?: OperationOption;
+  /**
+   * Function bits independent of search area (right)
+   *
+   * @type { ?OperationOption }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
   independentItem?: OperationOption;
 }
 /**
@@ -715,6 +736,7 @@ export declare struct AtomicServiceSearch {
   /**
    * Sets the search text content that is currently displayed.
    *
+   * @type { ?string }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
@@ -725,6 +747,7 @@ export declare struct AtomicServiceSearch {
    * Indicates default prompt text displayed in the search box.
    * The default value is Search, which supports globalization.
    *
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
@@ -732,8 +755,9 @@ export declare struct AtomicServiceSearch {
   @Prop
   placeholder?: ResourceStr;
   /**
-   * Events and styles supported by the search area
+   * Events and styles supported by the search area.
    *
+   * @type { ?SearchOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
@@ -741,8 +765,9 @@ export declare struct AtomicServiceSearch {
   @Prop
   search?: SearchOptions;
   /**
-   * Contents, events, and styles of the select area
+   * Contents, events, and styles of the select area.
    *
+   * @type { ?SelectOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
@@ -750,8 +775,9 @@ export declare struct AtomicServiceSearch {
   @Prop
   select?: SelectOptions;
   /**
-   * Function settings in the selection area (right)
+   * Function settings in the selection area (right).
    *
+   * @type { ?OperationOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
@@ -760,6 +786,7 @@ export declare struct AtomicServiceSearch {
   /**
    * Set the Search component controller.
    *
+   * @type { ?SearchController }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
