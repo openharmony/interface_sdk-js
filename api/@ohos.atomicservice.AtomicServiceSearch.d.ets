@@ -496,7 +496,6 @@ interface SearchOptions {
    */
   onDidDelete?: Callback<DeleteValue>;
 }
-
 /**
  * Contents, events, and styles of the select area
  *
