@@ -35,6 +35,7 @@ import AbilityConstant from '../@ohos.app.ability.AbilityConstant';
 import type AbilityStartCallback from './AbilityStartCallback';
 import window from '../@ohos.window';
 import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
+import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 import type UIServiceProxy from './UIServiceProxy';
 import type UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallback';
 
@@ -4779,4 +4780,17 @@ export default class UIAbilityContext extends Context {
    * @since 15
    */
   setAbilityInstanceInfo(label: string, icon: image.PixelMap): Promise<void>;
+
+  /**
+   * Set colorMode of uiability.
+   *
+   * @param { ConfigurationConstant.ColorMode } colorMode - Color mode.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 16
+   */
+  setColorMode(colorMode: ConfigurationConstant.ColorMode): void;
 }
