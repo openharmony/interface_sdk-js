@@ -11836,6 +11836,17 @@ declare interface SheetOptions extends BindOptions {
    * @since 14
    */
     offset?: Position
+
+  /**
+   * Defines sheet radius
+   * 
+   * @type { ?(LengthMetrics | BorderRadiuses | LocalizedBorderRadiuses) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  radius?: LengthMetrics | BorderRadiuses | LocalizedBorderRadiuses;
 }
 
 /**
