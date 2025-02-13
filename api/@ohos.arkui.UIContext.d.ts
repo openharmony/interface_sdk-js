@@ -1258,6 +1258,29 @@ export interface PageInfo {
 }
 
 /**
+ * the property of OverlayManager.
+ *
+ * @interface OverlayManagerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 15
+ */
+export interface OverlayManagerOptions {
+  /**
+   * the render property of overlay node.
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  renderRootOverlay?: boolean;
+}
+
+/**
  * Register callbacks to observe ArkUI behavior.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2657,6 +2680,29 @@ export class UIContext {
    * @since 12
    */
   getOverlayManager(): OverlayManager;
+
+  /**
+   * Init OverlayManager.
+   *
+   * @param { OverlayManagerOptions } options - Options.
+   * @returns { boolean } Returns true if it is called first and before getting an OverlayManager instance; returns false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  setOverlayManagerOptions(options: OverlayManagerOptions): boolean;
+
+  /**
+   * Get object OverlayManagerOptions.
+   *
+   * @returns { OverlayManagerOptions } object OverlayManagerOptions.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  getOverlayManagerOptions(): OverlayManagerOptions;
 
   /**
    * Create an animator object for custom animation.
