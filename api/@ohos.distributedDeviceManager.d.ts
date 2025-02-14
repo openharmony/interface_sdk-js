@@ -1176,7 +1176,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 15
-    */
+     */
     setHeartbeatPolicy(policy: StrategyForHeartbeat, delayTime: number): void;
   }
 }
