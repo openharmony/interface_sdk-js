@@ -7695,7 +7695,7 @@ declare namespace photoAccessHelper {
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { Context } context - Hap context information
      * @param { Array<Album> } albums - Highlight albums to delete
-     * @returns { Promise<void> } Returns void
+     * @returns { Promise<number> } Returns result of delete highlight album
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -7706,7 +7706,7 @@ declare namespace photoAccessHelper {
      * @systemapi 
      * @since 16
      */
-    static deleteHighlightAlbums(context: Context, albums: Array<Album>): Promise<void>;
+    static deleteHighlightAlbums(context: Context, albums: Array<Album>): Promise<number>;
   }
 
   /**
