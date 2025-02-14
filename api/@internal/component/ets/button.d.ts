@@ -156,7 +156,7 @@ declare enum ButtonType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   ROUNDED_RECTANGLE = 3,
 }
