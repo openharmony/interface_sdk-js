@@ -7226,7 +7226,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800016 - The database alias already exists.
      * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-     * @throws { BusinessError } 14801002 - Invalid data ground ID.
+     * @throws { BusinessError } 14801002 - Invalid data group ID.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -7875,7 +7875,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
    * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data ground ID.
+   * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -7894,7 +7894,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800010 - Invalid database path.
    * @throws { BusinessError } 14800011 - Database corrupted.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data ground ID.
+   * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @throws { BusinessError } 14800017 - Config changed.
    * @throws { BusinessError } 14800021 - SQLite: Generic error.
    * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
@@ -7921,7 +7921,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800010 - Invalid database path.
    * @throws { BusinessError } 14800011 - Database corrupted.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data ground ID.
+   * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @throws { BusinessError } 14800017 - Config changed.
    * @throws { BusinessError } 14800020 - The secret key is corrupted or lost.
    * @throws { BusinessError } 14800021 - SQLite: Generic error.
@@ -7967,7 +7967,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
    * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data ground ID.
+   * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -7986,7 +7986,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800010 - Invalid database path.
    * @throws { BusinessError } 14800011 - Database corrupted.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data ground ID.
+   * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @throws { BusinessError } 14800017 - Config changed.
    * @throws { BusinessError } 14800021 - SQLite: Generic error.
    * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
@@ -8011,7 +8011,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800010 - Invalid database path.
    * @throws { BusinessError } 14800011 - Database corrupted.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data ground ID.
+   * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @throws { BusinessError } 14800017 - Config changed.
    * @throws { BusinessError } 14800020 - The secret key is corrupted or lost.
    * @throws { BusinessError } 14800021 - SQLite: Generic error.
@@ -8070,7 +8070,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data ground ID.
+   * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -8135,7 +8135,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data ground ID.
+   * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -8153,7 +8153,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Invalid database path.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data ground ID.
+   * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 12
