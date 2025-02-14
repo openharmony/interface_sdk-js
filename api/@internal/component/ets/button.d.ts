@@ -148,6 +148,16 @@ declare enum ButtonType {
    * @since 11
    */
   Normal,
+  /**
+   * Rounded rectangle button.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 15
+   */
+  ROUNDED_RECTANGLE = 3,  
 }
 
 /**
