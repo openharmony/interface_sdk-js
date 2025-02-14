@@ -1686,17 +1686,6 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   enableHapticFeedback(isEnabled: boolean): TextAreaAttribute;
 
   /**
-   * Set the keyboard appearance.
-   *
-   * @param { Optional<KeyboardAppearance> } appearance - Default value is KeyboardAppearance.NONE_IMMERSIVE
-   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 15
-   */
-  keyboardAppearance(appearance: Optional<KeyboardAppearance>): TextAreaAttribute;
-
-  /**
    * Set whether stop backPressed callback event or not.
    *
    * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
@@ -1706,6 +1695,17 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 15
    */
   stopBackPress(isStopped: Optional<boolean>): TextAreaAttribute;
+
+  /**
+   * Set the keyboard appearance.
+   *
+   * @param { Optional<KeyboardAppearance> } appearance - Default value is KeyboardAppearance.NONE_IMMERSIVE
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  keyboardAppearance(appearance: Optional<KeyboardAppearance>): TextAreaAttribute;
 }
 
 /**
