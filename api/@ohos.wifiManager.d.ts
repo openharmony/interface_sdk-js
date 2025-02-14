@@ -2445,7 +2445,21 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 12
      */
-    WIFI6_PLUS = 3
+    WIFI6_PLUS = 3,
+
+    /**
+     * Wifi7.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 15
+     */
+    WIFI7 = 4,
+
+    /**
+     * Wifi7+.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 15
+     */
+    WIFI7_PLUS = 5
   }
 
   /**
