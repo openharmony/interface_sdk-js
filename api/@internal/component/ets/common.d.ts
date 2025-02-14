@@ -27479,6 +27479,17 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @since 16
    */
   getDialogController(): PromptActionDialogController | undefined;
+
+  /**
+   * Triggered when the Entry custom component has been pushed with singleton mode.
+   *
+   * @param { ESObject } param - New parameters pushed with singleton mode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onNewParam?(param: ESObject): void;
 }
 /**
  * View
