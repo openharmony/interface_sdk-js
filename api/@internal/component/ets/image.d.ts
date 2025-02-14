@@ -626,7 +626,7 @@ interface ImageSourceSize {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare class ColorContent {
   /**
@@ -638,7 +638,7 @@ declare class ColorContent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   static readonly ORIGIN: ColorContent;
 }
@@ -849,7 +849,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   fillColor(color: ResourceColor | ColorContent): ImageAttribute;
 
