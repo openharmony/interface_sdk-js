@@ -29,7 +29,7 @@ import { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 export enum LevelMode {
   /**
@@ -38,7 +38,7 @@ export enum LevelMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   OVERLAY = 0,
 
@@ -48,7 +48,7 @@ export enum LevelMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   EMBEDDED = 1,
 }
@@ -60,7 +60,7 @@ export enum LevelMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 export enum ImmersiveMode {
   /**
@@ -69,7 +69,7 @@ export enum ImmersiveMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   DEFAULT = 0,
 
@@ -79,7 +79,7 @@ export enum ImmersiveMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   EXTEND = 1,
 }
@@ -870,7 +870,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     levelMode?: LevelMode;
 
@@ -881,7 +881,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     levelUniqueId?: number;
 
@@ -893,7 +893,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     immersiveMode?: ImmersiveMode;
 
@@ -1232,7 +1232,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     levelMode?: LevelMode;
 
@@ -1243,7 +1243,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     levelUniqueId?: number;
 
@@ -1255,7 +1255,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     immersiveMode?: ImmersiveMode;
 
@@ -1750,7 +1750,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     levelMode?: LevelMode;
 
@@ -1761,7 +1761,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     levelUniqueId?: number;
 
@@ -1773,7 +1773,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     immersiveMode?: ImmersiveMode;
   }
