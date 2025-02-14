@@ -18,7 +18,7 @@
  */
 import { OperationOption } from '@ohos.arkui.advanced.SubHeader';
 /**
- * Callback when When the Select option is clicked
+ * Callback when the Select option is clicked
  *
  * @typedef { function } OnSelectCallback
  * @param { number } index - Indicates the index of the selected item.
@@ -28,6 +28,39 @@ import { OperationOption } from '@ohos.arkui.advanced.SubHeader';
  * @since 16
  */
 declare type OnSelectCallback = (index: number, value?: string) => void;
+/**
+ * Callback when text is pasted into the search box
+ *
+ * @typedef { function } OnPasteCallback
+ * @param { string } value - Indicates the text content to be pasted.
+ * @param { PasteEvent } event - Indicates a user-defined paste event.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
+declare type OnPasteCallback = (value: string, event: PasteEvent) => void;
+/**
+ * Callback when the position of the cursor entered in the search box changes
+ *
+ * @typedef { function } OnTextSelectionChangeCallback
+ * @param { number } selectionStart - Indicates the start position of the text selection area. 
+ * @param { number } selectionEnd - Indicates end position of the text selection area.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
+declare type OnTextSelectionChangeCallback = (selectionStart: number, selectionEnd: number) => void;
+/**
+ * Callback when the content in the search box scrolls
+ *
+ * @typedef { function } OnContentScrollCallback
+ * @param { number } totalOffsetX - Indicates horizontal coordinate offset of the text in the content area, in px.
+ * @param { number } totalOffsetY - Indicates the vertical coordinate offset of the text in the content area, in px. 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
+declare type OnContentScrollCallback = (totalOffsetX: number, totalOffsetY: number) => void;
 /**
  * Defines the inputFilter options
  *
@@ -247,7 +280,7 @@ interface SearchOptions {
    * @atomicservice
    * @since 16
    */
-  selectionMenuHidden?: boolean;
+  hideSelectionMenu?: boolean;
   /**
    * Set the custom keyboard options of Search
    *
@@ -256,7 +289,7 @@ interface SearchOptions {
    * @atomicservice
    * @since 16
    */
-  keyboardAvoidance?: boolean;
+  avoidKeyboard?: boolean;
   /**
    * Called when the search type is set.
    *
