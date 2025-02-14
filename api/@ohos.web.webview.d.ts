@@ -744,6 +744,15 @@ declare namespace webview {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Provides basic information of web storage.
+   *
+   * @typedef WebStorageOrigin
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   interface WebStorageOrigin {
     /**
      * Url source.
@@ -758,6 +767,15 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+	/**
+     * Url source.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Web.Webview.Core
+	 * @crossplatform
+     * @atomicservice
+     * @since 16
      */
     origin: string;
     /**
@@ -774,6 +792,15 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+	/**
+     * Specify the amount of storage for the source.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Web.Webview.Core
+	 * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
     usage: number;
     /**
      * the callback of getOriginUsage.
@@ -788,6 +815,15 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+	/**
+     * the callback of getOriginUsage.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Web.Webview.Core
+	 * @crossplatform
+     * @atomicservice
+     * @since 16
      */
     quota: number;
   }
