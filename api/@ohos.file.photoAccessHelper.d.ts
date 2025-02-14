@@ -7676,7 +7676,7 @@ declare namespace photoAccessHelper {
      * Set highlight sub title
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param { string } subtitle - Highlight sub title
+     * @param { string } subTitle - Highlight sub title
      * @returns { Promise<void> } Returns void
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
@@ -7687,7 +7687,7 @@ declare namespace photoAccessHelper {
      * @systemapi 
      * @since 16
      */
-    setSubtitle(subtitle: string): Promise<void>;
+    setSubTitle(subTitle: string): Promise<void>;
 
     /**
      * Delete highlight albums
