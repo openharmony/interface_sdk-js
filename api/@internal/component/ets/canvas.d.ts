@@ -6215,7 +6215,7 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onReady(event: VoidCallback): CanvasAttribute;
 
