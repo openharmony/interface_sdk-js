@@ -1379,7 +1379,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 16
+   * @since 15
    */
   surfaceBackgroundColor(color: ColorMetrics): VideoAttribute;
 
@@ -1394,7 +1394,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   enableShortcutKey(enabled: boolean): VideoAttribute;
 }
