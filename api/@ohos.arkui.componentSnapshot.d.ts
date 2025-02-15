@@ -46,7 +46,7 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   interface SnapshotRegion {
     /**
@@ -56,7 +56,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     left: number;
 
@@ -67,7 +67,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     right: number;
 
@@ -78,7 +78,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     top: number;
 
@@ -89,7 +89,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     bottom: number;
   }
@@ -102,7 +102,7 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   interface LocalizedSnapshotRegion {
     /**
@@ -112,7 +112,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     start: number;
 
@@ -123,7 +123,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     end: number;
 
@@ -134,7 +134,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     top: number;
 
@@ -145,7 +145,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     bottom: number;
   }
@@ -157,7 +157,7 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   type SnapshotRegionType = SnapshotRegion | LocalizedSnapshotRegion;
 
@@ -200,7 +200,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     region?: SnapshotRegionType
   }
