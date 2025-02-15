@@ -5008,7 +5008,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *
    * @param { ArrayBuffer } buf The buffer of the image.
    * @param { SourceOptions } options The config of source.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns null otherwise.
+   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @since 10
