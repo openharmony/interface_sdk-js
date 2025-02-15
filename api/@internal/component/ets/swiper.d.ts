@@ -1558,7 +1558,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   indicator(indicator: IndicatorComponentController | DotIndicator | DigitIndicator | boolean): SwiperAttribute;
 
