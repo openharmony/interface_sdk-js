@@ -940,7 +940,7 @@ export declare enum SaveMode {
    * @atomicservice
    * @since 15
    */
-   OVERWRITE = 1
+  OVERWRITE = 1
 }
 
 /**
