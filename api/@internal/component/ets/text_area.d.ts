@@ -1551,7 +1551,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   onWillChange(callback: Callback<EditableTextChangeValue, boolean>): TextAreaAttribute;
 
