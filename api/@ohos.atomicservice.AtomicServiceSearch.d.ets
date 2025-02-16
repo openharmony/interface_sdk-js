@@ -69,7 +69,7 @@ declare type OnContentScrollCallback = (totalOffsetX: number, totalOffsetY: numb
  * @atomicservice
  * @since 16
  */
-interface InputFilterOptions {
+export interface InputFilterOptions {
   /**
    * Regular expression.
    *
@@ -97,7 +97,7 @@ interface InputFilterOptions {
  * @atomicservice
  * @since 16
  */
-interface SearchButtonParams {
+export interface SearchButtonParams {
   /**
    * indicates the text of the search button.
    *
@@ -125,7 +125,7 @@ interface SearchButtonParams {
  * @atomicservice
  * @since 16
  */
-interface MenuAlignOption {
+export interface MenuAlignOption {
   /**
    * indicates the fontSize and fontColor of the search button.
    *
@@ -154,7 +154,7 @@ interface MenuAlignOption {
  * @atomicservice
  * @since 16
  */
-interface SearchOptions {
+export interface SearchOptions {
   /**
    * componentBackgroundColor
    *
@@ -537,7 +537,7 @@ interface SearchOptions {
  * @atomicservice
  * @since 16
  */
-interface SelectOptions {
+export interface SelectOptions {
   /**
    * SubOption array of the select.
    *
@@ -745,7 +745,7 @@ interface SelectOptions {
  * @atomicservice
  * @since 16
  */
-interface OperationOptions {
+export interface OperationOptions {
   /**
    * Function bits attached to the search area (right)
    *
