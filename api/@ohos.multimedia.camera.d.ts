@@ -349,6 +349,24 @@ declare namespace camera {
     UNRESOLVED_CONFLICTS_WITH_CURRENT_CONFIGURATIONS = 7400110,
 
     /**
+     * Camera frequently switched.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 18
+     */
+    DEVICE_FREQUENTLY_SWITCHED = 7400111,
+
+    /**
+     * Camera lens retracted.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 18
+     */
+    CAMERA_LENS_RETRACTED = 7400112,
+
+    /**
      * Camera service fatal error.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -1698,6 +1716,22 @@ declare namespace camera {
      * @since 12
      */
     off(type: 'cameraOcclusionDetection', callback?: AsyncCallback<CameraOcclusionDetectionResult>): void;
+
+    /**
+     * Control auxiliary.
+     *
+     * @param { AuxiliaryType } auxiliaryType - Auxiliary type.
+     * @param { AuxiliaryStatus } auxiliaryStatus - Auxiliary status.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 18
+     */
+    controlAuxiliary(auxiliaryType: AuxiliaryType, auxiliaryStatus: AuxiliaryStatus): Promise<void>;
   }
 
   /**
@@ -10914,6 +10948,62 @@ declare namespace camera {
      * @since 14
      */
     enableDepthFusion(enabled: boolean): void;
+  }
+
+  /**
+   * Enum for auxiliary type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 18
+   */
+  enum AuxiliaryType {
+    /**
+     * Contract lens.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 18
+     */
+    CONTRACT_LENS = 0
+  }
+
+  /**
+   * Enum for auxiliary status.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 18
+   */
+  enum AuxiliaryStatus {
+    /**
+     * Auxiliary locked.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 18
+     */
+    LOCKED = 0,
+
+    /**
+     * Turn on auxiliary.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 18
+     */
+    ON = 1,
+
+    /**
+     * Turn off auxiliary.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 18
+     */
+    OFF = 2
   }
 
   /**
