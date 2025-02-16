@@ -609,3 +609,5 @@ declare namespace serialManager {
     STOPBIT_2 = 2
  }
 }
+
+export default serialManager;
