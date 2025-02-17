@@ -2461,18 +2461,6 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   enableHapticFeedback(isEnabled: boolean): TextInputAttribute;
 
   /**
-   * Set the keyboard appearance.
-   *
-   * @param { Optional<KeyboardAppearance> } appearance - Default value is KeyboardAppearance.NONE_IMMERSIVE
-   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 15
-
-   */
-  keyboardAppearance(appearance: Optional<KeyboardAppearance>): TextInputAttribute;
-
-  /**
    * Set whether stop backPressed callback event or not.
    *
    * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
@@ -2482,6 +2470,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 15
    */
   stopBackPress(isStopped: Optional<boolean>): TextInputAttribute;
+
+  /**
+   * Set the keyboard appearance.
+   *
+   * @param { Optional<KeyboardAppearance> } appearance - Default value is KeyboardAppearance.NONE_IMMERSIVE
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  keyboardAppearance(appearance: Optional<KeyboardAppearance>): TextInputAttribute;
 }
 
 /**

@@ -1493,17 +1493,6 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   enableHapticFeedback(isEnabled: boolean): SearchAttribute;
 
   /**
-   * Set the keyboard appearance.
-   *
-   * @param { Optional<KeyboardAppearance> } appearance - Default value is KeyboardAppearance.NONE_IMMERSIVE
-   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 15
-   */
-  keyboardAppearance(appearance: Optional<KeyboardAppearance>): SearchAttribute;
-
-  /**
    * Set whether stop backPressed callback event or not.
    *
    * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
@@ -1513,6 +1502,17 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 15
    */
   stopBackPress(isStopped: Optional<boolean>): SearchAttribute;
+
+  /**
+   * Set the keyboard appearance.
+   *
+   * @param { Optional<KeyboardAppearance> } appearance - Default value is KeyboardAppearance.NONE_IMMERSIVE
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  keyboardAppearance(appearance: Optional<KeyboardAppearance>): SearchAttribute;
 }
 
 /**
