@@ -703,7 +703,7 @@ export interface SelectOptions {
   /**
    * Set the alignment between select and menu.
    *
-   * @type { ?MenuAlignOption }.
+   * @type { ?MenuAlignOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
