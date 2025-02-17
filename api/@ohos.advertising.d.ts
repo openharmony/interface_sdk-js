@@ -612,7 +612,6 @@ declare namespace advertising {
    * @throws { BusinessError } 401 - Invalid input parameter.Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Device not supported.
    * @throws { BusinessError } 21800001 - System internal error.
-   * @throws { BusinessError } 21800003 - Failed to load the ad request.
    * @throws { BusinessError } 21800005 - Failed to parse the ad response.
    * @syscap SystemCapability.Advertising.Ads
    * @since 12
