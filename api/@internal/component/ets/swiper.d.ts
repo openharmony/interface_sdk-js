@@ -1980,6 +1980,19 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   indicatorInteractive(value: boolean): SwiperAttribute;
 
   /**
+   * Setting page flip mode on mouse wheel event.
+   *
+   * @param { Optional<PageFlipMode> } mode - page flip mode on mouse wheel event. The default value is PageFlipMode.CONTINUOUS.
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 15
+   */
+  pageFlipMode(mode: Optional<PageFlipMode>): SwiperAttribute;
+
+  /**
   * Called when the swiper content will scroll.
    *
    * @param { ContentWillScrollCallback } handler - callback of will scroll.
