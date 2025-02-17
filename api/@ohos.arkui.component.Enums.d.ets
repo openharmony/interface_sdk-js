@@ -5387,7 +5387,7 @@ export declare enum VerticalAlign {
  * @atomicservice
  * @since 11
  */
-declare enum ImageRepeat {
+export declare enum ImageRepeat {
   /**
    * Do not draw the picture again.
    *
@@ -5551,7 +5551,7 @@ declare enum ImageRepeat {
  * @atomicservice
  * @since 11
  */
-declare enum ImageSize {
+export declare enum ImageSize {
   /**
    * Keep the scale of the original image unchanged.
    *
@@ -5693,7 +5693,7 @@ declare enum ImageSize {
  * @atomicservice
  * @since 11
  */
-declare enum GradientDirection {
+export declare enum GradientDirection {
   /**
    * Right to left.
    *
@@ -6007,7 +6007,7 @@ declare enum GradientDirection {
  * @atomicservice
  * @since 11
  */
-declare enum SharedTransitionEffectType {
+export declare enum SharedTransitionEffectType {
   /**
    * The location of the destination page element remains unchanged, and you can configure the transparency animation. Currently,
    * only the static effect configured for redirecting to the target page takes effect.
@@ -6092,7 +6092,7 @@ declare enum SharedTransitionEffectType {
  * @atomicservice
  * @since 11
  */
-declare enum FontStyle {
+export declare enum FontStyle {
   /**
    * Default style.
    *
@@ -6192,7 +6192,7 @@ declare enum FontStyle {
  * @atomicservice
  * @since 11
  */
-declare enum FontWeight {
+export declare enum FontWeight {
   /**
    * Defines a lighter value than [Inherited Value]..
    *
@@ -6420,7 +6420,7 @@ declare enum FontWeight {
  * @atomicservice
  * @since 11
  */
-declare enum TextAlign {
+export declare enum TextAlign {
   /**
    * Center the text.
    *
@@ -6571,7 +6571,7 @@ declare enum TextAlign {
  * @atomicservice
  * @since 11
  */
-declare enum TextOverflow {
+export declare enum TextOverflow {
   /**
    * When the text overflows its dimensions, the text will not be cropped.
    *
@@ -6720,7 +6720,7 @@ declare enum TextOverflow {
  * @atomicservice
  * @since 11
  */
-declare enum TextDecorationType {
+export declare enum TextDecorationType {
   /**
    * Do not use text decorative lines.
    *
@@ -6884,7 +6884,7 @@ declare enum TextDecorationType {
  * @atomicservice
  * @since 11
  */
-declare enum TextCase {
+export declare enum TextCase {
   /**
    * The default is normal.
    *
@@ -6999,7 +6999,7 @@ declare enum TextCase {
  * @atomicservice
  * @since 11
  */
-declare enum TextHeightAdaptivePolicy {
+export declare enum TextHeightAdaptivePolicy {
   /**
    * Priority is given to using the maxLines attribute to adapt the text height.
    * If the layout size using the maxLines attribute exceeds the layout constraint, try reducing the font size to
@@ -7090,7 +7090,7 @@ declare enum TextHeightAdaptivePolicy {
  * @atomicservice
  * @since 11
  */
-declare enum ResponseType {
+export declare enum ResponseType {
   /**
    * Right click.
    *
@@ -7162,7 +7162,7 @@ declare enum ResponseType {
  * @atomicservice
  * @since 11
  */
-declare enum HoverEffect {
+export declare enum HoverEffect {
   /**
    * Default effect
    *
@@ -7280,7 +7280,7 @@ declare enum HoverEffect {
  * @atomicservice
  * @since 11
  */
-declare enum Placement {
+export declare enum Placement {
   /**
    * Left placement
    *
@@ -7575,7 +7575,7 @@ declare enum Placement {
  * @atomicservice
  * @since 12
  */
-declare enum ArrowPointPosition {
+export declare enum ArrowPointPosition {
   /**
    * Target start position
    *
@@ -7655,7 +7655,7 @@ declare enum ArrowPointPosition {
  * @atomicservice
  * @since 11
  */
-declare enum CopyOptions {
+export declare enum CopyOptions {
   /**
    * Not allow share.
    *
@@ -7770,7 +7770,7 @@ declare enum CopyOptions {
  * @atomicservice
  * @since 11
  */
-declare enum HitTestMode {
+export declare enum HitTestMode {
   /**
    * Both self and children nodes respond to the hit test for touch events,
    * but block hit test of the other nodes which is masked by this node.
@@ -7900,7 +7900,7 @@ declare enum HitTestMode {
  * @atomicservice
  * @since 11
  */
-declare enum TitleHeight {
+export declare enum TitleHeight {
   /**
    * Title height when only main title is available.
    *
@@ -7965,7 +7965,7 @@ declare enum TitleHeight {
  * @atomicservice
  * @since 11
  */
-declare enum ModifierKey {
+export declare enum ModifierKey {
   /**
    * ctrl.
    *
@@ -8035,7 +8035,7 @@ declare enum ModifierKey {
  * @atomicservice
  * @since 11
  */
-declare enum FunctionKey {
+export declare enum FunctionKey {
   /**
    * Escape key.
    *
@@ -8325,7 +8325,7 @@ declare enum FunctionKey {
  * @atomicservice
  * @since 11
  */
-declare enum ImageSpanAlignment {
+export declare enum ImageSpanAlignment {
   /**
    * Indicating that the bottom of the ImageSpan should be aligned with the baseline of the surrounding text.
    *
@@ -8411,7 +8411,7 @@ declare enum ImageSpanAlignment {
  * @atomicservice
  * @since 11
  */
-declare enum ObscuredReasons {
+export declare enum ObscuredReasons {
   /**
    * Displayed data should appear as generic placeholders.
    *
@@ -8445,7 +8445,7 @@ declare enum ObscuredReasons {
  * @atomicservice
  * @since 11
  */
-declare enum TextContentStyle {
+export declare enum TextContentStyle {
   /**
    * Text content default style.
    *
@@ -8496,7 +8496,7 @@ declare enum TextContentStyle {
  * @atomicservice
  * @since 11
  */
-declare enum ClickEffectLevel {
+export declare enum ClickEffectLevel {
   /**
    * Click effect level1.
    * The default scale number of this click effect level1 is 0.90.
@@ -8585,7 +8585,7 @@ declare enum ClickEffectLevel {
  * @atomicservice
  * @since 12
  */
-declare enum XComponentType {
+export declare enum XComponentType {
   /**
    * Surface type. The default type is used.
    *
@@ -8666,7 +8666,7 @@ declare enum XComponentType {
  * @atomicservice
  * @since 11
  */
-declare enum NestedScrollMode {
+export declare enum NestedScrollMode {
   /**
    * Only Self response scrolling.
    *
@@ -8740,7 +8740,7 @@ declare enum NestedScrollMode {
  * @atomicservice
  * @since 12
  */
-declare enum ScrollSource {
+export declare enum ScrollSource {
   /**
    * Drag events.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8831,7 +8831,7 @@ declare enum ScrollSource {
  * @atomicservice
  * @since 11
  */
-declare enum RenderFit {
+export declare enum RenderFit {
   /**
    * Without scaling the content area, the content area is drawn in the center of the node.
    * 
@@ -9145,7 +9145,7 @@ declare enum RenderFit {
  * @atomicservice
  * @since 11
  */
-declare enum DialogButtonStyle {
+export declare enum DialogButtonStyle {
   /**
    * Default Style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -9186,7 +9186,7 @@ declare enum DialogButtonStyle {
  * @atomicservice
  * @since 11
  */
-declare enum WordBreak {
+export declare enum WordBreak {
   /**
    * By default, CJK text can be wrapped between any 2 characters, and non-CJK text can only be wrapped in spaces.
    *
@@ -9238,7 +9238,7 @@ declare enum WordBreak {
  * @atomicservice
  * @since 12
  */
-declare enum LineBreakStrategy  {
+export declare enum LineBreakStrategy  {
   /**
    * By default. Display as many characters as possible on each line until no more characters
    * can be displayed on that line, and do not automatically add hyphens under this strategy
@@ -9281,7 +9281,7 @@ declare enum LineBreakStrategy  {
  * @systemapi
  * @since 11
  */
-declare enum IlluminatedType {
+export declare enum IlluminatedType {
   /**
    * Component is not illuminated.
    *
@@ -9349,7 +9349,7 @@ declare enum IlluminatedType {
  * @atomicservice
  * @since 12
  */
-declare enum EllipsisMode {
+export declare enum EllipsisMode {
   /**
    * The ellipsis is in the head.
    *
@@ -9439,7 +9439,7 @@ export type Nullable<T> = T | undefined;
  * @atomicservice
  * @since 12
  */
-declare enum OptionWidthMode {
+export declare enum OptionWidthMode {
   /**
    * The menu width fit the content.
    *
@@ -9492,7 +9492,7 @@ declare enum OptionWidthMode {
  * @atomicservice
  * @since 12
  */
-declare enum FoldStatus {
+export declare enum FoldStatus {
   /**
    * Fold Status Unknown.
    *
@@ -9567,7 +9567,7 @@ declare enum FoldStatus {
  * @atomicservice
  * @since 12
  */
-declare enum AppRotation {
+export declare enum AppRotation {
 
   /**
    * App does not rotate to display vertically.
@@ -9614,7 +9614,7 @@ declare enum AppRotation {
  * @atomicservice
  * @since 12
  */
-declare enum EmbeddedType {
+export declare enum EmbeddedType {
   /**
    * The EmbeddedComponent show the UI in EmbeddedUIExtensionAbility.
    *
@@ -9634,7 +9634,7 @@ declare enum EmbeddedType {
  * @atomicservice
  * @since 12
  */
-declare enum MarqueeUpdateStrategy  {
+export declare enum MarqueeUpdateStrategy  {
   /**
    * Reset scroll position and restart scroll.
    *
@@ -9665,7 +9665,7 @@ declare enum MarqueeUpdateStrategy  {
  * @atomicservice
  * @since 12
  */
-declare enum TextDecorationStyle {
+export declare enum TextDecorationStyle {
   /**
    * Solid line.
    * 
@@ -9726,7 +9726,7 @@ declare enum TextDecorationStyle {
  * @atomicservice
  * @since 12
  */
-declare enum TextSelectableMode {
+export declare enum TextSelectableMode {
   /**
    * set text selectable and unfocusable.
    *
@@ -9767,7 +9767,7 @@ declare enum TextSelectableMode {
  * @atomicservice
  * @since 12
  */
-declare enum AccessibilityHoverType {
+export declare enum AccessibilityHoverType {
   /**
    * Hover enter type.
    *
@@ -9817,7 +9817,7 @@ declare enum AccessibilityHoverType {
  * @atomicservice
  * @since 13
  */
-declare enum WidthBreakpoint {
+export declare enum WidthBreakpoint {
   /**
    * Window width < 320vp type.
    *
@@ -9872,7 +9872,7 @@ declare enum WidthBreakpoint {
  * @atomicservice
  * @since 13
  */
-declare enum HeightBreakpoint {
+export declare enum HeightBreakpoint {
   /**
    * Window aspectRatio < 0.8 type.
    *
@@ -9909,7 +9909,7 @@ declare enum HeightBreakpoint {
  * @atomicservice
  * @since 15
  */
-declare enum AxisModel {
+export declare enum AxisModel {
   /**
    * ABS_X axis type.
    *
@@ -9994,7 +9994,7 @@ declare enum AxisModel {
  * @atomicservice
  * @since 15
  */
-declare enum PageFlipMode {
+export declare enum PageFlipMode {
   /**
    * Turn pages continuously according to the number of mouse wheel events.
    *
@@ -10026,7 +10026,7 @@ declare enum PageFlipMode {
  * @atomicservice
  * @since 16
  */
-declare enum CrownAction {
+export declare enum CrownAction {
   /**
    * Rotation crown behavior begins.
    *
@@ -10063,7 +10063,7 @@ declare enum CrownAction {
  * @atomicservice
  * @since 16
  */
-declare enum CrownSensitivity {
+export declare enum CrownSensitivity {
   /**
    * Low sensitivity.
    *
@@ -10100,7 +10100,7 @@ declare enum CrownSensitivity {
  * @atomicservice
  * @since 16
  */
-declare enum AxisAction {
+export declare enum AxisAction {
   /**
    * None action.
    *
