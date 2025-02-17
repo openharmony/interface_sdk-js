@@ -141,7 +141,7 @@ declare class SwiperController {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   changeIndex(index: number, animationMode: SwiperAnimationMode | boolean);
 
@@ -1303,7 +1303,7 @@ declare enum SwiperNestedScrollMode {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare enum SwiperAnimationMode {
   /**
@@ -1313,7 +1313,7 @@ declare enum SwiperAnimationMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   NO_ANIMATION = 0,
 
@@ -1324,7 +1324,7 @@ declare enum SwiperAnimationMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   DEFAULT_ANIMATION = 1,
 
@@ -1336,7 +1336,7 @@ declare enum SwiperAnimationMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   FAST_ANIMATION = 2,
 }
