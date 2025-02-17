@@ -1178,7 +1178,60 @@ declare namespace certificateManager {
    * @syscap SystemCapability.Security.CertificateManager
    * @since 16
    */
-    function uninstallUserTrustedCertificateSync(certUri: string) : void;
+  function uninstallUserTrustedCertificateSync(certUri: string) : void;
+
+  /**
+   * Install private application certificate.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { Uint8Array } keystore - Indicates the keystore file with key pair and certificate.
+   * @param { string } keystorePwd - Indicates the password of keystore file.
+   * @param { string } certAlias - Indicates the certificate name inputted by the user.
+   * @param { AuthStorageLevel } level - Indicates the storage authentication level of key file.
+   * @returns { Promise<CMResult> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 17500001 - Internal error.
+   * @throws { BusinessError } 17500003 - The keystore is in an invalid format or the keystore password is incorrect.
+   * @throws { BusinessError } 17500004 - The number of certificates or credentials reaches the maximum allowed.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 16
+   */
+  function installPrivateCertificate(keystore: Uint8Array, keystorePwd: string, certAlias: string, level: AuthStorageLevel): Promise<CMResult>;
+
+  /**
+   * Enum for storage authentication level
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 16
+   */
+  export enum AuthStorageLevel {
+    /**
+     * Indicates that the file can be accessed after the device is started.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 16
+     */
+    EL1 = 1,
+
+    /**
+     * Indicates that the file can be accessed after the device is unlocked for the first time.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 16
+     */
+    EL2 = 2,
+
+    /**
+     * Indicates that the file can be accessed when the device is unlocked.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 16
+     */
+    EL4 = 4,
+  }
 }
 
 export default certificateManager;
