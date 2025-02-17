@@ -115,17 +115,17 @@ export interface SearchButtonParams {
    * @atomicservice
    * @since 16
    */
-  option?: SearchButtonOptions;
+  options?: SearchButtonOptions;
 }
 /**
  * Defines the MenuAlign options
  *
- * @typedef MenuAlignOption
+ * @typedef MenuAlignOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 16
  */
-export interface MenuAlignOption {
+export interface MenuAlignOptions {
   /**
    * indicates the fontSize and fontColor of the search button.
    *
@@ -226,7 +226,7 @@ export interface SearchOptions {
    * @atomicservice
    * @since 16
    */
-  copyOption?: CopyOptions;
+  copyOptions?: CopyOptions;
   /**
    * Set the search icon style
    *
@@ -281,15 +281,6 @@ export interface SearchOptions {
    * @since 16
    */
   hideSelectionMenu?: boolean;
-  /**
-   * Set the custom keyboard options of Search
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 16
-   */
-  avoidKeyboard?: boolean;
   /**
    * Called when the search type is set.
    *
@@ -568,7 +559,7 @@ export interface SelectOptions {
   /**
    * Callback when the select is selected.
    *
-   * @type { ?(index: number, value?: string) => void }.
+   * @type { ?OnSelectCallback }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
@@ -717,7 +708,7 @@ export interface SelectOptions {
    * @atomicservice
    * @since 16
    */
-  menuAlign?: MenuAlignOption;
+  menuAlign?: MenuAlignOptions;
   /**
    * set the menu's background color
    *
@@ -768,7 +759,7 @@ export interface OperationOptions {
 /**
  * Defines AtomicServiceSearch.
  *
- * @struct AtomicServiceSearch
+ * @struct {AtomicServiceSearch}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 16
