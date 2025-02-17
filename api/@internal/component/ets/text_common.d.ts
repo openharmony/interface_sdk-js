@@ -383,7 +383,7 @@ declare type OnDidChangeCallback = (rangeBefore: TextRange, rangeAfter: TextRang
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare type EditableTextOnChangeCallback = (value: string, previewText?: PreviewText, options?: TextChangeOptions) => void;
 
@@ -1162,7 +1162,7 @@ declare interface FontSettingOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare interface TextChangeOptions {
   /**
@@ -1172,7 +1172,7 @@ declare interface TextChangeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   rangeBefore: TextRange;
 
@@ -1183,7 +1183,7 @@ declare interface TextChangeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   rangeAfter: TextRange;
 
@@ -1194,7 +1194,7 @@ declare interface TextChangeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   oldContent: string;
 
@@ -1205,7 +1205,7 @@ declare interface TextChangeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   oldPreviewText: PreviewText;
 }
@@ -1217,7 +1217,7 @@ declare interface TextChangeOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 interface EditableTextChangeValue {
   /**
@@ -1227,7 +1227,7 @@ interface EditableTextChangeValue {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   content: string;
 
@@ -1238,7 +1238,7 @@ interface EditableTextChangeValue {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   previewText?: PreviewText;
 
@@ -1249,7 +1249,7 @@ interface EditableTextChangeValue {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   options?: TextChangeOptions;
 }
