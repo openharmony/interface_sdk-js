@@ -2288,6 +2288,26 @@ declare namespace osAccount {
      * @since 12
      */
     shortName: string;
+
+     /**
+     * Indicates the bundles are disallowed to be preinstalled on the OS account.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 16
+     */
+    disallowedPreinstalledBundles?: Array<string>;
+
+      /**
+     * Indicates the bundles are allowed to be preinstalled on the OS account.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 16
+     */
+    allowedPreinstalledBundles?: Array<string>;
   }
 
   /**
