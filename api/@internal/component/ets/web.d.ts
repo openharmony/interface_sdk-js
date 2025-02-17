@@ -775,7 +775,7 @@ declare enum CacheMode {
    * @atomicservice
    * @since 11
    */
-  Only = 3
+  Only = 3,
 
   /**
    * load only from cache.
