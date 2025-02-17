@@ -571,14 +571,14 @@ declare namespace photoAccessHelper {
    *
    * @enum { number } CompatibleMode
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @since 14
+   * @since 15
    */
   enum CompatibleMode {
     /**
      * Original format mode
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 14
+     * @since 15
      */
     ORIGINAL_FORMAT_MODE = 0,
 
@@ -586,7 +586,7 @@ declare namespace photoAccessHelper {
      * Compatible format mode.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 14
+     * @since 15
      */
     COMPATIBLE_FORMAT_MODE = 1
   }
@@ -596,7 +596,7 @@ declare namespace photoAccessHelper {
    *
    * @interface MediaAssetProgressHandler
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @since 14
+   * @since 15
    */
   interface MediaAssetProgressHandler {
     /**
@@ -604,7 +604,7 @@ declare namespace photoAccessHelper {
      *
      * @param { number } progress - the progress of required media asset data; from 0 to 100.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 14
+     * @since 15
      */
     onProgress(progress: number): void;
   }
@@ -731,42 +731,6 @@ declare namespace photoAccessHelper {
   }
 
   /**
-   * Enum: complete button text
-   *
-   * @enum { number } CompleteButtonText
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 14
-   */
-  enum CompleteButtonText {
-    /**
-     * Complete button text: done
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 14
-     */
-    TEXT_DONE = 0,
-    /**
-     * Complete button text: send
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 14
-     */
-    TEXT_SEND = 1,
-
-    /**
-     * Complete button text: add
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 14
-     */
-    TEXT_ADD = 2,
-  }
-
-  /**
    * Enumeration type of watermarktypes of photos
    *
    * @enum { number } WatermarkType
@@ -811,7 +775,43 @@ declare namespace photoAccessHelper {
      */
     BRAND = 3,
   }
-  
+
+  /**
+   * Enum: complete button text
+   *
+   * @enum { number } CompleteButtonText
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 14
+   */
+  enum CompleteButtonText {
+    /**
+     * Complete button text: done
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 14
+     */
+    TEXT_DONE = 0,
+    /**
+     * Complete button text: send
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 14
+     */
+    TEXT_SEND = 1,
+
+    /**
+     * Complete button text: add
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 14
+     */
+    TEXT_ADD = 2,
+  }
+
   /**
    * Options to request media asset
    *
@@ -844,7 +844,7 @@ declare namespace photoAccessHelper {
      *
      * @type { ?CompatibleMode }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 14
+     * @since 15
      */
     compatibleMode?: CompatibleMode;
 
@@ -853,7 +853,7 @@ declare namespace photoAccessHelper {
      *
      * @type { ?MediaAssetProgressHandler }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 14
+     * @since 15
      */
     mediaAssetProgressHandler?: MediaAssetProgressHandler;
   }
@@ -1058,6 +1058,25 @@ declare namespace photoAccessHelper {
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12
+     */
+    /**
+     * Request video file
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { Context } context - Hap context information
+     * @param { PhotoAsset } asset - the photo asset requested
+     * @param { RequestOptions } requestOptions - the request options
+     * @param { string } fileUri - the destination file uri to save the video data
+     * @param { MediaAssetDataHandler<boolean> } dataHandler - data handler used to notify the client that data has been written to the application sandbox
+     * @returns { Promise<string> } Returns request id
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 15
      */
     static requestVideoFile(
       context: Context,
@@ -1877,7 +1896,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 14
+     * @since 16
      */
     getKeyFrameThumbnail(beginFrameTimeMs: number, type: ThumbnailType): Promise<image.PixelMap>;
   }
@@ -2316,7 +2335,16 @@ declare namespace photoAccessHelper {
      * @crossplatform
      * @since 12
      */
-    ALBUM_NAME = 'album_name'
+    ALBUM_NAME = 'album_name',
+    /**
+     * Album lpath
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @crossplatform
+     * @since 16
+     */
+    ALBUM_LPATH = 'lpath'
   }
 
   /**
@@ -3291,6 +3319,16 @@ declare namespace photoAccessHelper {
      * @since 10
      */
     readonly coverUri: string;
+    /**
+     * Lpath for the album, one album has a virtual path
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 16
+     */
+    readonly lpath?: string;
     /**
      * Fetch assets in an album.
      *
@@ -4305,7 +4343,7 @@ declare namespace photoAccessHelper {
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { string } bundleName - BundleName of the application which called the save dialog
      * @param { string } appName - AppName of the application which called the save dialog
-     * @param { string } appId - AppId of the application which called the save dialog
+     * @param { number } tokenId - TokenId of the application which called the save dialog
      * @param { Array<PhotoCreationConfig> } photoCreationConfigs - List of the photo asset creation configs
      * @returns { Promise<Array<string>> } - Returns the media library file uri list to application which has been authorized
      * @throws { BusinessError } 201 - Permission denied
@@ -4315,9 +4353,9 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 12
+     * @since 15
      */
-    createAssetsForApp(bundleName: string, appName: string, appId: string, photoCreationConfigs: Array<PhotoCreationConfig>): Promise<Array<string>>;
+    createAssetsForApp(bundleName: string, appName: string, tokenId: number, photoCreationConfigs: Array<PhotoCreationConfig>): Promise<Array<string>>;
     /**
      * Create asset and grant short term permission to the application.
      *
@@ -4531,7 +4569,7 @@ declare namespace photoAccessHelper {
      * Grant permission of assets to an APP.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { string } appid - App Id
+     * @param { number } tokenId - App TokenId
      * @param { Array<string> } uriList - List of asset uris whose permission will be granted to an App,
      * <br>the capacity of uriList is 1000.
      * @param { PhotoPermissionType } photoPermissionType - Permission type of accessing assets.
@@ -4544,14 +4582,14 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 12
+     * @since 15
      */
-    grantPhotoUrisPermission(appid: string, uriList: Array<string>, photoPermissionType: PhotoPermissionType, hideSensitiveType: HideSensitiveType): Promise<number>;
+    grantPhotoUrisPermission(tokenId: number, uriList: Array<string>, photoPermissionType: PhotoPermissionType, hideSensitiveType: HideSensitiveType): Promise<number>;
     /**
      * Grant permission of asset to an APP.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { string } appid - App Id
+     * @param { number } tokenId - App TokenId
      * @param { string } uri - Asset uri whose permission will be granted to an App.
      * @param { PhotoPermissionType } photoPermissionType - Permission type of accessing assets.
      * @param { HideSensitiveType } hideSensitiveType - Hide sensitive info type of accessing assets.
@@ -4563,15 +4601,15 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 12
+     * @since 15
      */
-    grantPhotoUriPermission(appid: string, uri: string, photoPermissionType: PhotoPermissionType, hideSensitiveType: HideSensitiveType): Promise<number>;
+    grantPhotoUriPermission(tokenId: number, uri: string, photoPermissionType: PhotoPermissionType, hideSensitiveType: HideSensitiveType): Promise<number>;
     /**
      * Cancel permission of asset to an APP.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { string } appid - App Id
-     * @param { string } uri - Asset uri whose permission will be granted to an App.
+     * @param { number } tokenId - App TokenId
+     * @param { string } uri - Asset uri whose permission will be cancel to an App.
      * @param { PhotoPermissionType } photoPermissionType - Permission type of accessing assets.
      * @returns { Promise<number> } Returns result of cancel permission
      * @throws { BusinessError } 201 - Permission denied
@@ -4581,9 +4619,9 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 12
+     * @since 15
      */
-    cancelPhotoUriPermission(appid: string, uri: string, photoPermissionType: PhotoPermissionType): Promise<number>;
+    cancelPhotoUriPermission(tokenId: number, uri: string, photoPermissionType: PhotoPermissionType): Promise<number>;
     /**
      * Provides the capability of thumbnail generation according to specified rules.
      *
@@ -4641,7 +4679,7 @@ declare namespace photoAccessHelper {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 14
+     * @since 16
      */
     getSupportedPhotoFormats(photoType: PhotoType): Promise<Array<string>>;
   }
@@ -6039,7 +6077,7 @@ declare namespace photoAccessHelper {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 14
+     * @since 15
      */
     setOrientation(orientation: number): void;
 
@@ -6072,6 +6110,26 @@ declare namespace photoAccessHelper {
      * @since 14
      */
     setSupportedWatermarkType(watermarkType: WatermarkType): void;
+
+    /**
+     * Delete local assets permanently from the album.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Context } context - Hap context information
+     * @param { Array<PhotoAsset> } assets - the assets to be deleted permanently
+     * @returns { Promise<void> } - Returns void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 16
+     */
+    static deleteLocalAssetsPermanently(context: Context, assets: Array<PhotoAsset>): Promise<void>;
   }
 
   /**

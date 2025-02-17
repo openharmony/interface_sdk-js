@@ -271,7 +271,7 @@ interface CheckboxInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 16
  */
 declare type OnCheckboxChangeCallback = (value: boolean) => void;
 
@@ -565,7 +565,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onChange(callback: OnCheckboxChangeCallback): CheckboxAttribute;
 

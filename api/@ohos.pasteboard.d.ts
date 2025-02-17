@@ -1112,7 +1112,7 @@ declare namespace pasteboard {
    * @atomicservice
    * @since 15
    */
-  enum FileConflictOption {
+  enum FileConflictOptions {
     /**
      * OVERWRITE overwrite when destUri has file with same name.
      * @syscap SystemCapability.MiscServices.Pasteboard
@@ -1219,13 +1219,13 @@ declare namespace pasteboard {
 
     /**
      * FileConflictOptions indicates fileConflictOptions when dest path has file with same name.
-     * @type { ?FileConflictOption }
-     * @default FileConflictOption.OVERWRITE
+     * @type { ?FileConflictOptions }
+     * @default FileConflictOptions.OVERWRITE
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 15
      */
-    fileConflictOption?: FileConflictOption;
+    fileConflictOptions?: FileConflictOptions;
 
     /**
      * ProgressIndicator indicates whether to use default system progress indicator.
@@ -1718,7 +1718,7 @@ declare namespace pasteboard {
      * Sets a unified ShareOptions for your application, so that the PasteData copied from your application is applicable to this ShareOptions.
      * 
      * @permission ohos.permission.MANAGE_PASTEBOARD_APP_SHARE_OPTION
-     * @param { ShareOption } shareOptions - Scope that PasteData can be pasted.
+     * @param { ShareOption } shareOptions - Scope that PasteData can be pasted, The parameter can only be set InApp.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
      *     permission required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1772,6 +1772,16 @@ declare namespace pasteboard {
      */
     getMimeTypes(): Promise<Array<string>>;
 
+    /**
+     * Gets the number of Pasteboard data changes.
+     * 
+     * @returns { number } The number of Pasteboard data changes.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 16
+     */
+    getChangeCount(): number;
+    
     /**
      * Gets pastedata from the system pasteboard with system progress.
      *

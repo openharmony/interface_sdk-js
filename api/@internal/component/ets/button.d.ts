@@ -156,7 +156,7 @@ declare enum ButtonType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 15
    */
   ROUNDED_RECTANGLE = 3,
 }
@@ -1253,6 +1253,28 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @since 11
    */
   labelStyle(value: LabelStyle): ButtonAttribute;
+
+  /**
+   * Sets the minimum zoom-out ratio of the button text.
+   *
+   * @param { number | Resource } scale
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  minFontScale(scale: number | Resource): ButtonAttribute;
+
+  /**
+   * Sets the maximum magnification of the button text.
+   *
+   * @param { number | Resource  } scale
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  maxFontScale(scale: number | Resource): ButtonAttribute;
 }
 
 /**

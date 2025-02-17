@@ -73,7 +73,7 @@ declare type DrawingLattice  = import('../api/@ohos.graphics.drawing').default.L
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare type ImageMatrix = import ('../api/@ohos.matrix4').default.Matrix4Transit;
 
@@ -621,6 +621,29 @@ interface ImageSourceSize {
 }
 
 /**
+ * Defines the ColorContent.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 15
+ */
+declare class ColorContent {
+  /**
+   * Indicates the ColorContent to original value.
+   * 
+   * @type { ColorContent }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  static readonly ORIGIN: ColorContent;
+}
+
+/**
  * @extends CommonMethod<ImageAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -819,6 +842,18 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   fillColor(value: ResourceColor): ImageAttribute;
 
   /**
+   * fill Color
+   *
+   * @param { ResourceColor | ColorContent } color
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  fillColor(color: ResourceColor | ColorContent): ImageAttribute;
+
+  /**
    * Sets the zoom type of an image.
    *
    * @param { ImageFit } value
@@ -866,7 +901,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   imageMatrix(matrix: ImageMatrix): ImageAttribute;
 

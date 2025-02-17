@@ -230,6 +230,23 @@ declare namespace screen {
    * @since 10
    */
   function stopMirror(mirrorScreen: Array<number>): Promise<void>;
+  
+  /**
+   * Make screens as unique-screen
+   *
+   * @param { Array<number> } uniqueScreen IDs of the unique screens. It's type should be int.
+   * @returns { Promise<Array<number>> } Promise used to return the display IDs of unique screens.
+   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 16
+   */
+  function makeUnique(uniqueScreen: Array<number>): Promise<Array<number>>;
 
   /**
    * Create virtual screen. if surfaceId is valid, this permission is necessary.
@@ -706,6 +723,17 @@ declare namespace screen {
      */
     readonly sourceMode: ScreenSourceMode;
 
+    /**
+     * Screen Serial Number
+     *
+     * @type { ?string }
+     * @readonly
+     * @syscap SystemCapability.WindowManager.WindowManager
+     * @systemapi Hide this for inner system use.
+     * @since 15
+     */
+    readonly serialNumber?: string;
+    
     /**
      * Set the orientation of the screen
      *

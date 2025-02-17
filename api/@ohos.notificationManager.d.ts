@@ -28,6 +28,7 @@ import type { NotificationLiveViewContent as _NotificationLiveViewContent } from
 import { NotificationMultiLineContent as _NotificationMultiLineContent } from './notification/notificationContent';
 import { NotificationPictureContent as _NotificationPictureContent } from './notification/notificationContent';
 import type { LiveViewStatus as _LiveViewStatus } from './notification/notificationContent';
+import type { LiveViewTypes as _LiveViewTypes } from './notification/notificationContent';
 import { NotificationSystemLiveViewContent as _NotificationSystemLiveViewContent } from './notification/notificationContent';
 import { NotificationCapsule as _NotificationCapsule } from './notification/notificationContent';
 import { NotificationButton as _NotificationButton } from './notification/notificationContent';
@@ -1182,6 +1183,26 @@ declare namespace notificationManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Sets whether to allow the specified application to show badge.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { boolean } enable - Set enable or not.
+   * @param { AsyncCallback<void> } callback - The callback of displayBadge.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
   function displayBadge(bundle: BundleOption, enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
@@ -1203,6 +1224,26 @@ declare namespace notificationManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Sets whether to allow the specified application to show badge.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { boolean } enable - Set enable or not.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
   function displayBadge(bundle: BundleOption, enable: boolean): Promise<void>;
 
   /**
@@ -1223,6 +1264,25 @@ declare namespace notificationManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Obtains the flag that whether to allow the application to show badge.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { AsyncCallback<boolean> } callback - The callback of isBadgeDisplayed.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
   function isBadgeDisplayed(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
 
   /**
@@ -1242,6 +1302,25 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
+   */
+  /**
+   * Obtains the flag that whether to allow the application to show badge.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @returns { Promise<boolean> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
    */
   function isBadgeDisplayed(bundle: BundleOption): Promise<boolean>;
 
@@ -1264,6 +1343,26 @@ declare namespace notificationManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Update all notification slots for the specified bundle.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { NotificationSlot } slot - Indicates the notification slot.
+   * @param { AsyncCallback<void> } callback - The callback of setSlotByBundle.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
   function setSlotByBundle(bundle: BundleOption, slot: NotificationSlot, callback: AsyncCallback<void>): void;
 
   /**
@@ -1285,6 +1384,26 @@ declare namespace notificationManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Update all notification slots for the specified bundle.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { NotificationSlot } slot - Indicates the notification slot.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
   function setSlotByBundle(bundle: BundleOption, slot: NotificationSlot): Promise<void>;
 
   /**
@@ -1304,6 +1423,25 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
+   */
+  /**
+   * Obtains all notification slots belonging to the specified bundle.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { AsyncCallback<Array<NotificationSlot>> } callback - The callback of getSlotsByBundle.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
    */
   function getSlotsByBundle(bundle: BundleOption, callback: AsyncCallback<Array<NotificationSlot>>): void;
 
@@ -1327,6 +1465,27 @@ declare namespace notificationManager {
    * @systemapi
    * @since 12
    */
+  /**
+   * Get notification slot for the specified bundle.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { SlotType } slotType - Indicates the notification slot.
+   * @returns { Promise<NotificationSlot> } Returns the NotificationSlot.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
   function getSlotByBundle(bundle: BundleOption, slotType: SlotType): Promise<NotificationSlot>;
 
   /**
@@ -1346,6 +1505,25 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
+   */
+  /**
+   * Obtains all notification slots belonging to the specified bundle.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @returns { Promise<Array<NotificationSlot>> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
    */
   function getSlotsByBundle(bundle: BundleOption): Promise<Array<NotificationSlot>>;
 
@@ -1367,6 +1545,25 @@ declare namespace notificationManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Obtains number of slot.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { AsyncCallback<number> } callback - The callback of getSlotNumByBundle.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
   function getSlotNumByBundle(bundle: BundleOption, callback: AsyncCallback<number>): void;
 
   /**
@@ -1386,6 +1583,25 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
+   */
+  /**
+   * Obtains number of slot.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @returns { Promise<number> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
    */
   function getSlotNumByBundle(bundle: BundleOption): Promise<number>;
 
@@ -1607,6 +1823,25 @@ declare namespace notificationManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Set the Do Not Disturb date.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { DoNotDisturbDate } date - The Do Not Disturb date.
+   * @param { AsyncCallback<void> } callback - The callback of setDoNotDisturbDate.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
   function setDoNotDisturbDate(date: DoNotDisturbDate, callback: AsyncCallback<void>): void;
 
   /**
@@ -1626,6 +1861,25 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
+   */
+  /**
+   * Set the Do Not Disturb date.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { DoNotDisturbDate } date - The Do Not Disturb date.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
    */
   function setDoNotDisturbDate(date: DoNotDisturbDate): Promise<void>;
 
@@ -1649,6 +1903,27 @@ declare namespace notificationManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Set the Do Not Disturb date under the specified user.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { DoNotDisturbDate } date - The Do Not Disturb date.
+   * @param { number } userId - The userId.
+   * @param { AsyncCallback<void> } callback - The callback of setDoNotDisturbDate.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600008 - The user does not exist.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
   function setDoNotDisturbDate(date: DoNotDisturbDate, userId: number, callback: AsyncCallback<void>): void;
 
   /**
@@ -1671,6 +1946,27 @@ declare namespace notificationManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Set the Do Not Disturb date under the specified user.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { DoNotDisturbDate } date - The Do Not Disturb date.
+   * @param { number } userId - The userId.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600008 - The user does not exist.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
   function setDoNotDisturbDate(date: DoNotDisturbDate, userId: number): Promise<void>;
 
   /**
@@ -1690,6 +1986,24 @@ declare namespace notificationManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Obtains the Do Not Disturb date.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { AsyncCallback<DoNotDisturbDate> } callback - The callback is used to return the Do Not Disturb date.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
   function getDoNotDisturbDate(callback: AsyncCallback<DoNotDisturbDate>): void;
 
   /**
@@ -1708,6 +2022,24 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
+   */
+  /**
+   * Obtains the Do Not Disturb date.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @returns { Promise<DoNotDisturbDate> } Returns the Do Not Disturb date.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
    */
   function getDoNotDisturbDate(): Promise<DoNotDisturbDate>;
 
@@ -1730,6 +2062,26 @@ declare namespace notificationManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Obtains the Do Not Disturb date.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { number } userId - The userId.
+   * @param { AsyncCallback<DoNotDisturbDate> } callback - The callback is used to return the Do Not Disturb date.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600008 - The user does not exist.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
   function getDoNotDisturbDate(userId: number, callback: AsyncCallback<DoNotDisturbDate>): void;
 
   /**
@@ -1750,6 +2102,26 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
+   */
+  /**
+   * Obtains the Do Not Disturb date.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { number } userId - The userId.
+   * @returns { Promise<DoNotDisturbDate> } Returns the Do Not Disturb date.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600008 - The user does not exist.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
    */
   function getDoNotDisturbDate(userId: number): Promise<DoNotDisturbDate>;
 
@@ -2026,6 +2398,25 @@ declare namespace notificationManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Sets whether the device supports distributed notification.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { boolean } enable - Set enable or not.
+   * @param { AsyncCallback<void> } callback - The callback of setDistributedEnable.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600010 - Distributed operation failed.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
   function setDistributedEnable(enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
@@ -2045,6 +2436,25 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
+   */
+  /**
+   * Sets whether the device supports distributed notification.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { boolean } enable - Set enable or not.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600010 - Distributed operation failed.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
    */
   function setDistributedEnable(enable: boolean): Promise<void>;
 
@@ -2099,6 +2509,27 @@ declare namespace notificationManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Sets whether an application supports distributed notification.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { boolean } enable - Set enable or not.
+   * @param { AsyncCallback<void> } callback - The callback of setDistributedEnableByBundle.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600010 - Distributed operation failed.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
   function setDistributedEnableByBundle(bundle: BundleOption, enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
@@ -2120,6 +2551,27 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
+   */
+  /**
+   * Sets whether an application supports distributed notification.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { boolean } enable - Set enable or not.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600010 - Distributed operation failed.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
    */
   function setDistributedEnableByBundle(bundle: BundleOption, enable: boolean): Promise<void>;
 
@@ -2145,6 +2597,29 @@ declare namespace notificationManager {
    * @systemapi
    * @since 12
    */
+  /**
+   * Sets whether an application supports distributed notification.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { string } deviceType - The device type.
+   * @param { boolean } enable - Set enable or not.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600010 - Distributed operation failed.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
   function setDistributedEnabledByBundle(bundle: BundleOption, deviceType: string, enable: boolean): Promise<void>;
 
   /**
@@ -2167,6 +2642,27 @@ declare namespace notificationManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Obtains whether an application supports distributed notification.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { AsyncCallback<boolean> } callback - The callback is used to return whether the distributed
+   *                                              notification is supported.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600010 - Distributed operation failed.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
   function isDistributedEnabledByBundle(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
 
   /**
@@ -2187,6 +2683,26 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
+   */
+  /**
+   * Obtains whether an application supports distributed notification.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @returns { Promise<boolean> } Returns whether the distributed notification is supported.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600010 - Distributed operation failed.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
    */
   function isDistributedEnabledByBundle(bundle: BundleOption): Promise<boolean>;
 
@@ -2211,6 +2727,28 @@ declare namespace notificationManager {
    * @systemapi
    * @since 12
    */
+  /**
+   * Obtains whether an application supports distributed notification.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { string } deviceType - The device type.
+   * @returns { Promise<boolean> } Returns whether the distributed notification is supported.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600010 - Distributed operation failed.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
   function isDistributedEnabledByBundle(bundle: BundleOption, deviceType: string): Promise<boolean>;
 
   /**
@@ -2234,6 +2772,28 @@ declare namespace notificationManager {
    * @systemapi
    * @since 12
    */
+  /**
+   * Sets whether an application supports smart reminders across devices.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { string } deviceType - The device type.
+   * @param { boolean } enable - Set enable or not.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600010 - Distributed operation failed.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
   function setSmartReminderEnabled(deviceType: string, enable: boolean): Promise<void>;
 
   /**
@@ -2256,6 +2816,27 @@ declare namespace notificationManager {
    * @systemapi
    * @since 12
    */
+  /**
+   * Obtains whether an application supports smart reminders across devices.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { string } deviceType - The device type.
+   * @returns { Promise<boolean> } Returns whether the smart reminders across devices notification is supported.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600010 - Distributed operation failed.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
   function isSmartReminderEnabled(deviceType: string): Promise<boolean>;
 
   /**
@@ -2274,6 +2855,23 @@ declare namespace notificationManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Obtains the remind modes of the notification.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { AsyncCallback<DeviceRemindType> } callback - The callback is used to return the RemindType.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
   function getDeviceRemindType(callback: AsyncCallback<DeviceRemindType>): void;
 
   /**
@@ -2291,6 +2889,23 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
+   */
+  /**
+   * Obtains the remind modes of the notification.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @returns { Promise<DeviceRemindType> } Returns the RemindType.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
    */
   function getDeviceRemindType(): Promise<DeviceRemindType>;
 
@@ -2335,6 +2950,28 @@ declare namespace notificationManager {
    * @systemapi
    * @since 11
    */
+  /**
+   * Set whether the application slot is enabled.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { SlotType } type - Type of the notification slot.
+   * @param { boolean } enable - Set enable or not.
+   * @param { AsyncCallback<void> } callback - The callback of setNotificationEnableSlot.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
   function setNotificationEnableSlot(
     bundle: BundleOption,
     type: SlotType,
@@ -2364,6 +3001,30 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11
+   */
+  /**
+   * Set whether the application slot is enabled.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { SlotType } type - Type of the notification slot.
+   * @param { boolean } enable - Set enable or not.
+   * @param { boolean } isForceControl - Is the notification slot enable affected by the application
+   *         notification enable, false means affected.
+   * @param { AsyncCallback<void> } callback - The callback of setNotificationEnableSlot.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
    */
   function setNotificationEnableSlot(
     bundle: BundleOption,
@@ -2416,6 +3077,30 @@ declare namespace notificationManager {
    * @systemapi
    * @since 11
    */
+  /**
+   * Set whether the application slot is enabled.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { SlotType } type - Type of the notification slot.
+   * @param { boolean } enable - Set enable or not.
+   * @param { boolean } isForceControl - Is the notification slot enable affected by the application
+   *         notification enable, false means affected.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
   function setNotificationEnableSlot(bundle: BundleOption, type: SlotType, enable: boolean, isForceControl?: boolean): Promise<void>;
 
   /**
@@ -2436,6 +3121,26 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
+   */
+  /**
+   * Obtains whether the application slot is enabled.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { SlotType } type - Type of the notification slot.
+   * @param { AsyncCallback<boolean> } callback - The callback is used to return whether the application slot is enabled.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
    */
   function isNotificationSlotEnabled(bundle: BundleOption, type: SlotType, callback: AsyncCallback<boolean>): void;
 
@@ -2458,6 +3163,26 @@ declare namespace notificationManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Obtains whether the application slot is enabled.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { SlotType } type - Type of the notification slot.
+   * @returns { Promise<boolean> } Returns whether the application slot is enabled.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
   function isNotificationSlotEnabled(bundle: BundleOption, type: SlotType): Promise<boolean>;
 
   /**
@@ -2479,6 +3204,26 @@ declare namespace notificationManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Set whether to sync notifications to devices that do not have the app installed.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { number } userId - The userId.
+   * @param { boolean } enable - Set enable or not.
+   * @param { AsyncCallback<void> } callback - The callback of setSyncNotificationEnabledWithoutApp.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600008 - The user does not exist.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
   function setSyncNotificationEnabledWithoutApp(userId: number, enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
@@ -2499,6 +3244,26 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
+   */
+  /**
+   * Set whether to sync notifications to devices that do not have the app installed.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { number } userId - The userId.
+   * @param { boolean } enable - Set enable or not.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600008 - The user does not exist.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
    */
   function setSyncNotificationEnabledWithoutApp(userId: number, enable: boolean): Promise<void>;
 
@@ -2571,6 +3336,22 @@ declare namespace notificationManager {
    * @crossplatform
    * @since 12
    */
+  /**
+   * Set badge number.
+   *
+   * @param { number } badgeNumber - Badge number.
+   * @param { AsyncCallback<void> } callback - callback - The callback of setBadgeNumber..
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 16
+   */
   function setBadgeNumber(badgeNumber: number, callback: AsyncCallback<void>): void;
 
   /**
@@ -2602,6 +3383,22 @@ declare namespace notificationManager {
    * @crossplatform
    * @since 12
    */
+  /**
+   * Set badge number.
+   *
+   * @param { number } badgeNumber - Badge number.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
+   * @since 16
+   */
   function setBadgeNumber(badgeNumber: number): Promise<void>;
 
   /**
@@ -2623,6 +3420,26 @@ declare namespace notificationManager {
    * @systemapi
    * @since 12
    */
+  /**
+   * Set badge number by bundle.
+   *
+   * @param { BundleOption } bundle - Use the bundleOption to carry bundleName and uid of the application.
+   * @param { number } badgeNumber - Badge number.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 1600017 - There is no corresponding agent relationship configuration.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
   function setBadgeNumberByBundle(bundle: BundleOption, badgeNumber: number): Promise<void>;
 
   /**
@@ -2638,6 +3455,21 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 10
+   */
+  /**
+   * Subscribe the callback for check notifications.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   * @param { 'checkNotification' } type - Type of the callback to listen for.
+   * @param { function } callback - callback - The callback of check notifications.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
    */
   function on(type: 'checkNotification', callback: (checkInfo: NotificationCheckInfo) => NotificationCheckResult): void;
 
@@ -2659,6 +3491,25 @@ declare namespace notificationManager {
    * @systemapi
    * @since 11
    */
+  /**
+   * Subscribe the callback for check notifications.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   * @param { 'checkNotification' } type - Type of the callback to listen for.
+   * @param { NotificationCheckRequest } checkRequest - Check Request for filter notification request.
+   * @param { function } callback - callback - The callback of check notifications.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
   function on(type: 'checkNotification', checkRequest: NotificationCheckRequest,
     callback: (checkInfo: NotificationCheckInfo) => Promise<NotificationCheckResult>): void;
 
@@ -2675,6 +3526,21 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 10
+   */
+  /**
+   * Unsubscribe the callback for check notifications.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   * @param { 'checkNotification' } type - Type of the callback to listen for.
+   * @param { function } [callback] - callback - The callback of check notifications.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
    */
   function off(
     type: 'checkNotification',
@@ -2702,6 +3568,28 @@ declare namespace notificationManager {
    * @systemapi
    * @since 11
    */
+  /**
+   * Trigger system live view notification.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { number } notificationId - The notification id.
+   * @param { ButtonOptions } buttonOptions - The button option.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
   function triggerSystemLiveView(bundle: BundleOption, notificationId: number, buttonOptions: ButtonOptions): Promise<void>;
 
   /**
@@ -2719,6 +3607,23 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11
+   */
+  /**
+   * Subscribe to system live view notifications
+   *
+   * @param { SystemLiveViewSubscriber } subscriber - The system live vie notification subscriber.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
    */
   function subscribeSystemLiveView(subscriber: SystemLiveViewSubscriber): Promise<void>;
 
@@ -2741,6 +3646,26 @@ declare namespace notificationManager {
    * @systemapi
    * @since 11
    */
+  /**
+   * Set basic configurations of application-level notification channels.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { number } slotFlags - Indicates the slotFlags.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
   function setSlotFlagsByBundle(bundle: BundleOption, slotFlags: number): Promise<void>;
 
   /**
@@ -2760,6 +3685,25 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11
+   */
+  /**
+   * Obtains basic configurations of application-level notification channels.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @returns { Promise<number> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
    */
   function getSlotFlagsByBundle(bundle: BundleOption): Promise<number>;
 
@@ -2781,6 +3725,25 @@ declare namespace notificationManager {
    * @systemapi
    * @since 12
    */
+  /**
+   * Add do not disturb notification templates.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { Array<DoNotDisturbProfile> } templates - The array of Notification templates.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
   function addDoNotDisturbProfile(templates: Array<DoNotDisturbProfile>): Promise<void>;
 
   /**
@@ -2800,6 +3763,25 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12
+   */
+  /**
+   * Remove do not disturb notification templates.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { Array<DoNotDisturbProfile> } templates - The array of Notification templates.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
    */
   function removeDoNotDisturbProfile(templates: Array<DoNotDisturbProfile>): Promise<void>;
 
@@ -2821,6 +3803,25 @@ declare namespace notificationManager {
    * @systemapi
    * @since 12
    */
+  /**
+   * Set system additional config information of notification
+   *
+   * @permission ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   * @param { string } key - addition config key.
+   * @param { string } value - addition config value.
+   * @returns { Promise<number> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
   function setAdditionalConfig(key: string, value: string): Promise<number>;
 
   /**
@@ -2834,6 +3835,19 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.NotificationSettings
    * @stagemodelonly
    * @since 13
+   */
+  /**
+   * Request open the notification settings pop-up window.
+   *
+   * @param { UIAbilityContext } context - The context indicates the ability context you want to bind;
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600018 - the notification settings window is already displayed.
+   * @syscap SystemCapability.Notification.NotificationSettings
+   * @stagemodelonly
+   * @since 16
    */
   function openNotificationSettings(context: UIAbilityContext): Promise<void>;
 
@@ -2854,6 +3868,25 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 13
+   */
+  /**
+   * Get do not disturb profile by id.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { number } id - The id of profile.
+   * @returns { Promise<DoNotDisturbProfile> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600019 - The do-not-disturb profile does not exist.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
    */
   function getDoNotDisturbProfile(id: number): Promise<DoNotDisturbProfile>;
 
@@ -2892,6 +3925,41 @@ declare namespace notificationManager {
    * @since 16
    */
   function disableNotificationFeature(disabled:boolean, bundleList: Array<string>): Promise<void>;
+
+  /**
+   * Set notification slot synchronization switch.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { SlotType } slot - The slot type.
+   * @param { string } deviceType - The device type.
+   * @param { boolean } enabled - The switch state.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+ */
+  function setDistributedEnabledBySlot(slot: SlotType, deviceType: string, enabled: boolean): Promise<void>;
+
+  /**
+   * Get notification slot synchronization switch.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { SlotType } slot - The slot type.
+   * @param { string } deviceType - The device type.
+   * @returns { Promise<boolean> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+ */
+  function isDistributedEnabledBySlot(slot: SlotType, deviceType: string): Promise<boolean>;
 
   /**
    * Describes a button option for a triggering.
@@ -3833,6 +4901,16 @@ declare namespace notificationManager {
    * @since 11
    */
   export type LiveViewStatus = _LiveViewStatus;
+
+  /**
+   * Describes live view notification task type.
+   *
+   * @typedef { _LiveViewTypes } LiveViewTypes
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 16
+   */
+  export type LiveViewTypes = _LiveViewTypes;
 
   /**
    * Provides sorting information about an active notification.

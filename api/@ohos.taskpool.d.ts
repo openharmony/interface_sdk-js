@@ -858,6 +858,15 @@ declare namespace taskpool {
    * @atomicservice
    * @since 13
    */
+  /**
+   * The GenericsTask class provides an interface to create a task with generics.
+   *
+   * @extends Task
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   class GenericsTask<A extends Array<Object>, R> extends Task {
     /**
      * Create a GenericsTask instance.
@@ -869,6 +878,18 @@ declare namespace taskpool {
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 13
+     */
+    /**
+     * Create a GenericsTask instance.
+     *
+     * @param { (...args: A) => R | Promise<R> } func - Concurrent function to execute in taskpool.
+     * @param { A } args - The concurrent function arguments.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+     * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 16
      */
     constructor(func: (...args: A) => R | Promise<R>, ...args: A);
 
@@ -883,6 +904,19 @@ declare namespace taskpool {
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 13
+     */
+    /**
+     * Create a GenericsTask instance.
+     *
+     * @param { string } name - The name of GenericsTask.
+     * @param { (...args: A) => R | Promise<R> } func - Concurrent function to execute in taskpool.
+     * @param { A } args - The concurrent function arguments.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+     * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 16
      */
     constructor(name: string, func: (...args: A) => R | Promise<R>, ...args: A);
   }
@@ -1260,6 +1294,20 @@ declare namespace taskpool {
    * @atomicservice
    * @since 13
    */
+  /**
+   * Execute a concurrent function with generics.
+   *
+   * @param { (...args: A) => R | Promise<R> } func - Concurrent function want to execute.
+   * @param { A } args - The concurrent function arguments.
+   * @returns { Promise<R> }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   function execute<A extends Array<Object>, R>(func: (...args: A) => R | Promise<R>, ...args: A): Promise<R>;
 
   /**
@@ -1378,6 +1426,7 @@ declare namespace taskpool {
    * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
    * @throws { BusinessError } 10200057 - The task cannot be executed by two APIs.
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -1502,6 +1551,7 @@ declare namespace taskpool {
    * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
    * @throws { BusinessError } 10200057 - The task cannot be executed by two APIs.
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
    * @atomicservice
    * @since 16
    */
@@ -1576,6 +1626,7 @@ declare namespace taskpool {
    * @throws { BusinessError } 10200050 - The concurrent task has been executed and cannot be executed periodically.
    * @throws { BusinessError } 10200057 - The task cannot be executed by two APIs.
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
    * @atomicservice
    * @since 16
    */

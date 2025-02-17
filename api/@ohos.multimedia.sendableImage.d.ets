@@ -123,7 +123,7 @@ interface Region extends lang.ISendable {
    * Creates an ImageSource instance based on the URI.
    *
    * @param { string } uri Image source URI.
-   * @returns { ImageSource } returns the ImageSource instance if the operation is successful; returns null otherwise.
+   * @returns { ImageSource } returns the ImageSource instance if the operation is successful; returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @atomicservice
@@ -135,7 +135,7 @@ interface Region extends lang.ISendable {
    * Creates an ImageSource instance based on the file descriptor.
    *
    * @param { number } fd ID of a file descriptor.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns null otherwise.
+   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @atomicservice
@@ -147,7 +147,7 @@ interface Region extends lang.ISendable {
    * Creates an ImageSource instance based on the buffer.
    *
    * @param { ArrayBuffer } buf The buffer of the image.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns null otherwise.
+   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @form
@@ -169,6 +169,15 @@ interface Region extends lang.ISendable {
    * @since 12
    */
   function createImageReceiver(size: image.Size, format: image.ImageFormat, capacity: number): ImageReceiver; 
+
+  /**
+   * Redefines ISendable for convenience.
+   *
+   * @typedef { lang.ISendable } ISendable
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @crossplatform
+   * @since 12
+   */
 
   type ISendable = lang.ISendable;
 

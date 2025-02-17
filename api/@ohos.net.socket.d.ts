@@ -213,6 +213,85 @@ declare namespace socket {
      * @since 10
      */
     address: NetAddress;
+
+    /**
+     * Set this option for the proxy feature.
+     * @type {?ProxyOptions}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 16
+     */
+    proxy?: ProxyOptions;
+  }
+
+  /**
+   * Specify proxy types.
+   * @enum {number}
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @since 16
+   */
+  export enum ProxyTypes {
+    /**
+     * No proxy.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 16
+     */
+    NONE = 0,
+
+    /**
+     * Use Socks5 proxy.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 16
+     */
+    SOCKS5 = 1
+  }
+
+  /**
+   * Define parameters for the proxy connection.
+   * @interface ProxyOptions
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @since 16
+   */
+  export interface ProxyOptions {
+    /**
+     * Proxy types.
+     * @type {ProxyTypes}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 16
+     */  
+    type: ProxyTypes;
+
+    /**
+     * Proxy server address.
+     * @type {NetAddress}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 16
+     */
+    address: NetAddress;
+
+    /**
+     * Specify username, if the proxy server supports user-password authentication.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 16
+     */
+    username?: string;
+
+    /**
+     * Specify password, if the proxy server supports user-password authentication.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 16
+     */
+    password?: string;
   }
 
   /**
@@ -2040,6 +2119,15 @@ declare namespace socket {
      * @since 10
      */
     timeout?: number;
+
+    /**
+     * Set this option for the proxy feature.
+     * @type {?ProxyOptions}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 16
+     */
+    proxy?: ProxyOptions;
   }
 
   /**
@@ -3639,6 +3727,15 @@ declare namespace socket {
      * @since 12
      */
     skipRemoteValidation?: boolean;
+
+    /**
+     * Set this option for the proxy feature.
+     * @type {?ProxyOptions}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 16
+     */
+    proxy?: ProxyOptions;
   }
 
   /**

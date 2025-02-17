@@ -35,6 +35,7 @@ import AbilityConstant from '../@ohos.app.ability.AbilityConstant';
 import type AbilityStartCallback from './AbilityStartCallback';
 import window from '../@ohos.window';
 import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
+import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 import type UIServiceProxy from './UIServiceProxy';
 import type UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallback';
 
@@ -4759,4 +4760,37 @@ export default class UIAbilityContext extends Context {
    * @since 14
    */
   disconnectUIServiceExtensionAbility(proxy: UIServiceProxy): Promise<void>;
+
+  /**
+   * Set label and icon for current ability instance.
+   * You need to apply for permission:ohos.permission.SET_ABILITY_INSTANCE_INFO to call this founction.
+   *
+   * @permission ohos.permission.SET_ABILITY_INSTANCE_INFO
+   * @param { string } label - The label of ability to be displayed in the Task Center and shortcut bar.
+   * @param { image.PixelMap } icon - The icon of ability to be displayed in the Task Center and shortcut bar.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 15
+   */
+  setAbilityInstanceInfo(label: string, icon: image.PixelMap): Promise<void>;
+
+  /**
+   * Set colorMode of uiability.
+   *
+   * @param { ConfigurationConstant.ColorMode } colorMode - Color mode.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 16
+   */
+  setColorMode(colorMode: ConfigurationConstant.ColorMode): void;
 }

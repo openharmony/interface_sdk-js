@@ -1707,13 +1707,37 @@ declare namespace bundleManager {
   */
   export enum ApplicationInfoFlag {
     /**
-     * Indicates The application is currently installed for the calling user.
+     * Indicates the application is currently installed for the calling user.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
      */
     FLAG_INSTALLED = 0x00000001,
+    /**
+     * Indicates the application is currently installed for the other user.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 15
+     */
+    FLAG_OTHER_INSTALLED = 0x00000010,
+    /**
+     * Indicates the application is a preinstall app.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 15
+     */
+    FLAG_PREINSTALLED_APP = 0x00000020,
+    /**
+     * Indicates the application is an updated preinstall app.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 15
+     */
+    FLAG_PREINSTALLED_APP_UPDATE = 0x00000040,
   }
 
   /**
@@ -2378,6 +2402,51 @@ declare namespace bundleManager {
    * @since 9
    */
   function cleanBundleCacheFiles(bundleName: string): Promise<void>;
+
+  /**
+   * Clears cache data of a specified application.
+   *
+   * @permission ohos.permission.REMOVE_CACHE_FILES
+   * @param { string } bundleName - Indicates the bundle name of the application whose cache data is to be cleaned.
+   * @param { number } appIndex - Indicates the index of clone app.
+   * @returns { Promise<void> } Clean bundle cache files result
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700030 - The specified bundle does not support clearing of cache files.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 15
+   */
+  function cleanBundleCacheFiles(bundleName: string, appIndex: number): Promise<void>;
+
+  /**
+   * Get the all bundle cache size of the current user.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @returns { Promise<number> } Returns all bundle cache size.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 15
+   */
+  function getAllBundleCacheSize(): Promise<number>;
+
+  /**
+   * Clean all bundle cache files of the current user, does not include the currently running program.
+   *
+   * @permission ohos.permission.REMOVE_CACHE_FILES
+   * @returns { Promise<void> } Clear all bundle cache results.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 15
+   */
+  function cleanAllBundleCache(): Promise<void>;
 
   /**
    * Sets whether to enable a specified application.
@@ -3619,6 +3688,20 @@ declare namespace bundleManager {
   function switchUninstallState(bundleName: string, state: boolean): void;
 
   /**
+   * Get the SignatureInfo of the application through UID.
+   *
+   * @permission ohos.permission.GET_SIGNATURE_INFO
+   * @param { number } uid - Indicates the UID of an application.
+   * @returns { SignatureInfo } The result of getting the signature info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 17700021 - The uid is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 16
+   */
+  function getSignatureInfo(uid: number): SignatureInfo;
+
+  /**
    * Get the BundleInfo of the specified MultiIsolation App.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
@@ -3861,8 +3944,7 @@ declare namespace bundleManager {
    *
    * @typedef { _BundleInfo.AppCloneIdentity }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 12
+   * @since 15
    */
   export type AppCloneIdentity = _BundleInfo.AppCloneIdentity;
 

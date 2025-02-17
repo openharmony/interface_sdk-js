@@ -246,6 +246,76 @@ declare namespace PiPWindow {
   }
 
   /**
+   * The picture-in-picture window size
+   *
+   * @interface PiPWindowSize
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 15
+   */
+   interface PiPWindowSize {
+    /**
+     * The width of the picture-in-picture window.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    width: number;
+
+    /**
+     * The height of the picture-in-picture window.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    height: number;
+
+    /**
+     * The scale of the picture-in-picture window.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    scale: number;
+  }
+
+  /**
+   * The info of picture-in-picture window
+   *
+   * @interface PiPWindowInfo
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 15
+   */
+  interface PiPWindowInfo {
+    /**
+     * Indicates target window id.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    windowId: number;
+
+    /**
+     * The picture-in-picture window size.
+     *
+     * @type { PiPWindowSize }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    size: PiPWindowSize;
+  }
+
+  /**
    * Describe the type of picture-in-picture.
    *
    * @enum { number }.
@@ -955,6 +1025,21 @@ declare namespace PiPWindow {
     updatePiPControlStatus(controlType: PiPControlType, status: PiPControlStatus): void;
 
     /**
+     * Update the node which display the content of PiP window.
+     * @param { typeNode.XComponent } contentNode - The node which display the content of pip window.
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *                                                                2. Incorrect parameter types.
+     *                                                                3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 16
+     */
+    updateContentNode(contentNode: typeNode.XComponent): Promise<void>;
+    
+    /**
      * Set Dashboard control enable status.
      * @param { PiPControlType } controlType - Describe picture-in-picture control type.
      * @param { boolean } enabled - Describe picture-in-picture control enable Status.
@@ -966,6 +1051,17 @@ declare namespace PiPWindow {
      * @since 12
      */
     setPiPControlEnabled(controlType: PiPControlType, enabled: boolean): void;
+
+    /**
+     * Get the info of PiP window.
+     * @returns { Promise<PiPWindowInfo> } - The promise used to return the PIP window info.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+     getPiPWindowInfo(): Promise<PiPWindowInfo>;
 
     /**
      * Register picture-in-picture control event listener.
@@ -1052,6 +1148,40 @@ declare namespace PiPWindow {
      * @since 12
      */
     off(type: 'controlEvent', callback?: Callback<ControlEventParam>): void;
+
+    /**
+     * Register picture-in-picture window size change event listener
+     *
+     * @param { 'pipWindowSizeChange' } type - The value is fixed at 'pipWindowSizeChange', indicating the picture-in-picture
+     * window size change event.
+     * @param { Callback<PiPWindowSize> } callback - Callback used to return the picture-in-picture window size.
+     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *                                                                2. Incorrect parameter types.
+     *                                                                3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    on(type: 'pipWindowSizeChange', callback: Callback<PiPWindowSize>): void;
+
+    /**
+     * Unregister picture-in-picture window size change event listener
+     *
+     * @param { 'pipWindowSizeChange' } type - The value is fixed at 'pipWindowSizeChange', indicating the picture-in-picture
+     * window size change event.
+     * @param { Callback<PiPWindowSize> } callback - Callback used to return the picture-in-picture window size.
+     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *                                                                2. Incorrect parameter types.
+     *                                                                3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    off(type: 'pipWindowSizeChange', callback?: Callback<PiPWindowSize>): void;
   }
 }
 

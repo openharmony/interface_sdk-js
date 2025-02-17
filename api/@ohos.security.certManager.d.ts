@@ -1164,6 +1164,21 @@ declare namespace certificateManager {
    * @since 16
    */
   function installUserTrustedCertificateSync(cert: Uint8Array, certScope: CertScope) : CMResult;
+
+  /**
+   * Uninstall the user trusted CA certificate.
+   *
+   * @permission ohos.permission.ACCESS_ENTERPRISE_USER_TRUSTED_CERT or ohos.permission.ACCESS_USER_TRUSTED_CERT
+   * @param { string } certUri - Indicates the certificate uri to be uninstalled.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 17500001 - Internal error.
+   * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 16
+   */
+    function uninstallUserTrustedCertificateSync(certUri: string) : void;
 }
 
 export default certificateManager;

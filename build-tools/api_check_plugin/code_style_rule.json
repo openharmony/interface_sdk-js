@@ -96,6 +96,7 @@
   "syscap": {
     "SystemCapability": [
       "SystemCapability.Applications.CalendarData",
+      "SystemCapability.ArkUI.ArkUI.Circle",
       "SystemCapability.ArkUI.ArkUI.Full",
       "SystemCapability.ArkUI.ArkUI.Lite",
       "SystemCapability.ArkUI.ArkUI.Napi",

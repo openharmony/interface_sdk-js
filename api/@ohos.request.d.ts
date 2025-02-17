@@ -718,6 +718,15 @@ declare namespace request {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Resource address.
+     * Verification rule: Starting with http (s)://and with a length not exceeding 8192 characters.
+     *
+     * @type { string }
+     * @syscap SystemCapability.MiscServices.Download
+     * @crossplatform
+     * @since 15
+     */
     url: string;
     /**
      * Adds an HTTP or HTTPS header to be included with the download request.
@@ -1885,6 +1894,15 @@ declare namespace request {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Resource address.
+     * Verification rule: Starting with http (s)://and with a length not exceeding 8192 characters.
+     *
+     * @type { string }
+     * @syscap SystemCapability.MiscServices.Upload
+     * @crossplatform
+     * @since 15
+     */
     url: string;
     /**
      * Adds an HTTP or HTTPS header to be included with the upload request.
@@ -2753,7 +2771,7 @@ declare namespace request {
      *
      * @typedef Notification
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 16
+     * @since 15
      */
     interface Notification {
       /**
@@ -2763,7 +2781,7 @@ declare namespace request {
        *
        * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 16
+       * @since 15
        */
       title?: string;
       /**
@@ -2773,7 +2791,7 @@ declare namespace request {
        *
        * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 16
+       * @since 15
        */
       text?: string;
     }
@@ -2836,6 +2854,17 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11
+       */
+      /**
+       * The Universal Resource Locator for a task.
+       * The maximum length is 8192 characters.
+       * Using raw `url` option, even url parameters in it.
+       *
+       * @type { string }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @atomicservice
+       * @since 15
        */
       url: string;
       /**
@@ -3311,6 +3340,25 @@ declare namespace request {
        * @since 11
        */
       extras?: object;
+      /**
+       * Use a single request to upload multiple files.
+       * If true, use the form format to merge multiple files into one request.
+       * If false, use independent requests to send each file.
+       * The default is false.
+       *
+       * @type { ?boolean }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 15
+       */
+      multipart?: boolean;
+      /**
+       * Customizes the notification of the backend task.
+       *
+       * @type { ?Notification }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 15
+       */
+      notification?: Notification;
     }
 
     /**
@@ -5197,17 +5245,18 @@ declare namespace request {
      * 
      * @typedef GroupConfig
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 16
+     * @since 15
      */
     interface GroupConfig {
       /**
        * Sets display strategy for background task notifications.
        * If true, progress, completed, and failed notifications will be displayed.
        * If false, only completed or failed notifications will be displayed.
+       * The default value is false.
        * 
        * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 16
+       * @since 15
        */
       gauge?: boolean;
       /**
@@ -5215,7 +5264,7 @@ declare namespace request {
        * 
        * @type { Notification }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 16
+       * @since 15
        */
       notification: Notification;
     }
@@ -5229,7 +5278,7 @@ declare namespace request {
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @throws { BusinessError } 13400003 - task service ability error.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 16
+     * @since 15
      */
     function createGroup(config: GroupConfig): Promise<string>;
 
@@ -5243,10 +5292,11 @@ declare namespace request {
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @throws { BusinessError } 13400003 - task service ability error.
      * @throws { BusinessError } 21900005 - task mode error.
+     * @throws { BusinessError } 21900006 - task not found.
      * @throws { BusinessError } 21900007 - task state error.
      * @throws { BusinessError } 21900008 - group deleted or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 16
+     * @since 15
      */
     function attachGroup(gid: string, tids: string[]): Promise<void>;
 
@@ -5261,7 +5311,7 @@ declare namespace request {
      * @throws { BusinessError } 13400003 - task service ability error.
      * @throws { BusinessError } 21900008 - group deleted or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 16
+     * @since 15
      */
     function deleteGroup(gid: string): Promise<void>;
   }

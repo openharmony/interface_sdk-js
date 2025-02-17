@@ -206,11 +206,25 @@ export default class AbilityStage {
    *
    * @permission ohos.permission.PREPARE_APP_TERMINATE
    * @returns { AbilityConstant.PrepareTermination } The user returns an action indicating
-   * what the process should do prior to terminating.
+   *                                                 what the process should do prior to terminating.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   onPrepareTermination(): AbilityConstant.PrepareTermination;
+
+  /**
+   * Called back asynchronously before an ability stage is terminated.
+   * If onPrepareTerminationAsync has been implemented then onPrepareTermination won't take effect
+   *
+   * @permission ohos.permission.PREPARE_APP_TERMINATE
+   * @returns { Promise<AbilityConstant.PrepareTermination> } The user returns a promise of the action indicating
+   *                                                          what the process should do prior to terminating.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 15
+   */
+  onPrepareTerminationAsync(): Promise<AbilityConstant.PrepareTermination>;
 }

@@ -104,17 +104,6 @@ declare interface SelectOption {
    * @since 12
    */
   symbolIcon?: SymbolGlyphModifier;
-
-  /**
-   *  Sets the attribute modifier for the text of menu item.
-   *
-   * @type { ?TextModifier }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 16
-   */
-  textModifier?: TextModifier;
 }
 
 /**
@@ -1093,6 +1082,30 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 16
    */
   arrowModifier(modifier: Optional<SymbolGlyphModifier>): SelectAttribute;
+  
+  /**
+   * Sets the attribute modifier for the text of each option.
+   *
+   * @param { Optional<TextModifier> } modifier Set modifier for the text of each option.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  optionTextModifier(modifier: Optional<TextModifier>): SelectAttribute;
+
+  /**
+   * Sets the attribute modifier for the text of selected option.
+   *
+   * @param { Optional<TextModifier> } modifier Set modifier for the text of selected option.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  selectedOptionTextModifier(modifier: Optional<TextModifier>): SelectAttribute;
 }
 
 /**

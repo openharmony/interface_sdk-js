@@ -19,6 +19,47 @@
  */
 
 /**
+ * Defines the StyledStringMarshallingValue Type.
+ *
+ * @typedef { UserDataSpan } StyledStringMarshallingValue
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare type StyledStringMarshallingValue = UserDataSpan;
+
+
+/**
+ * Defines the callback type used in marshalling.
+ *
+ * @typedef { function } StyledStringMarshallCallback
+ * @param { StyledStringMarshallingValue } marshallableVal - value that will be serialized to array buffer
+ * @returns { ArrayBuffer } Array buffer from the serialized marshalling value
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare type StyledStringMarshallCallback = (marshallableVal: StyledStringMarshallingValue) => ArrayBuffer;
+
+/**
+ * Defines the callback type used in unmarshalling.
+ *
+ * @typedef { function } StyledStringUnmarshallCallback
+ * @param { ArrayBuffer } buf - The buffer that will be deserialized to a StyledStringMarshallingValue.
+ * @returns { StyledStringMarshallingValue } Marshalling value from the deserialized ArrayBuffer.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare type StyledStringUnmarshallCallback = (buf: ArrayBuffer) => StyledStringMarshallingValue;
+
+/**
  * StyledString
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -139,6 +180,34 @@ declare class StyledString {
      * @since 14
      */
     static toHtml(styledString: StyledString): string;
+
+    /**
+     * Returns ArrayBuffer from the serialized styled string.
+     *
+     * @param { StyledString } styledString - StyledString parameter.
+     * @param { function } callback - When marshalling StyledStringMarshingValue, will trigger this callback to get ArrayBuffer
+     * @returns { ArrayBuffer }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 16
+     */
+    static marshalling(styledString: StyledString, callback: StyledStringMarshallCallback): ArrayBuffer;
+
+    /**
+     * Returns StyledString from the deserialized ArrayBuffer.
+     *
+     * @param { ArrayBuffer } buffer - The buffer will be deserialized to a StyledString.
+     * @param { function } callback - When unmarshalling ArrayBuffer, will trigger this callback to get StyledStringMarshingValue
+     * @returns { Promise<StyledString> }
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 16
+     */
+    static unmarshalling(buffer: ArrayBuffer, callback: StyledStringUnmarshallCallback): Promise<StyledString>;
 
     /**
      * Returns ArrayBuffer from the serialized styled string.
@@ -1328,6 +1397,17 @@ declare class ImageAttachment {
     constructor(value: ImageAttachmentInterface);
 
     /**
+     * constructor supported by AttachmentType.
+     *
+     * @param { Optional<AttachmentType> } attachment - image attachment object.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    constructor(attachment: Optional<AttachmentType>);
+
+    /**
      * Get the image content of the StyledString.
      *
      * @type { PixelMap } - the image content of the StyledString or undefined
@@ -1386,6 +1466,107 @@ declare class ImageAttachment {
      * @since 12
      */
     readonly layoutStyle?: ImageAttachmentLayoutStyle;
+
+    /**
+     * Get the imageAttachment colorFilter of the StyledString.
+     *
+     * @type { ?ColorFilterType } - the imageAttachment colorFilter of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    readonly colorFilter?: ColorFilterType;
+}
+
+/**
+ * Defines the ResourceImageAttachmentOptions.
+ *
+ * @interface ResourceImageAttachmentOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare interface ResourceImageAttachmentOptions {
+    /**
+     * The content of the ResourceImageAttachment.
+     *
+     * @type { Optional<ResourceStr> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    resourceValue: Optional<ResourceStr>;
+
+    /**
+     * size of the ResourceImage.
+     *
+     * @type { ?SizeOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    size?: SizeOptions;
+
+    /**
+     * Image vertical align.
+     *
+     * @type { ?ImageSpanAlignment }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    verticalAlign?: ImageSpanAlignment;
+
+    /**
+     * Sets the zoom type of the ImageAttachment.
+     *
+     * @type { ?ImageFit }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    objectFit?: ImageFit;
+
+    /**
+     * The Image Layout Style of the Resource Image.
+     *
+     * @type { ?ImageAttachmentLayoutStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    layoutStyle?: ImageAttachmentLayoutStyle;
+
+    /**
+     * Sets the color filter effect on the image attachment.
+     *
+     * @type { ?ColorFilterType } filter ColorFilter object.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    colorFilter?: ColorFilterType;
+
+    /**
+     * Sets the synchronous or asynchronous mode for image loading.
+     * The default parameter type is bool, and the default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    syncLoad?: boolean;
 }
 
 /**
@@ -1452,7 +1633,40 @@ declare interface ImageAttachmentInterface {
      * @since 12
      */
     layoutStyle?: ImageAttachmentLayoutStyle;
+
+    /**
+     * Sets the color filter effect on the image attachment.
+     *
+     * @type { ?ColorFilterType } filter ColorFilter object.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    colorFilter?: ColorFilterType;
 }
+
+/**
+ * Defines the Attachment Type.
+ *
+ * @typedef { ImageAttachmentInterface | ResourceImageAttachmentOptions } AttachmentType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare type AttachmentType = ImageAttachmentInterface | ResourceImageAttachmentOptions;
+
+/**
+ * Defines the ColorFilter Type.
+ *
+ * @typedef { ColorFilter | DrawingColorFilter } ColorFilterType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare type ColorFilterType = ColorFilter | DrawingColorFilter;
 
 /**
  * Defines the  ImageAttachment Layout Style.

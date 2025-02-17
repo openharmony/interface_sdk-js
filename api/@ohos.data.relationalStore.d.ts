@@ -384,8 +384,7 @@ declare namespace relationalStore {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @systemapi
-     * @since 12
+     * @since 16
      */
     vector?: boolean;
 
@@ -426,6 +425,16 @@ declare namespace relationalStore {
      * @since 14
      */
     cryptoParam?: CryptoParam;
+
+    /**
+     * Specifies the tokenizer type when using fts capability.
+     *
+     * @type { ?Tokenizer }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 16
+     */
+
+    tokenizer?: Tokenizer;
   }
 
   /**
@@ -615,6 +624,37 @@ declare namespace relationalStore {
      * @since 14
      */
     KDF_SHA512
+  }
+
+  /**
+   * Enumerates the supported tokenizer when opening a database.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 16
+   */
+  enum Tokenizer {
+    /**
+     * NONE_TOKENIZER: not use tokenizer
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 16
+     */
+    NONE_TOKENIZER = 0,
+    /**
+     * ICU_TOKENIZER: native icu tokenizer.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 16
+     */
+    ICU_TOKENIZER,
+    /**
+     * CUSTOM_TOKENIZER: self-developed enhance tokenizer.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 16
+     */
+    CUSTOM_TOKENIZER
   }
 
   /**
@@ -1239,6 +1279,15 @@ declare namespace relationalStore {
      * @since 11
      */
     references?: Array<Reference>;
+
+    /**
+     * Specifies whether async download assets.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 16
+     */
+    asyncDownloadAsset?: boolean;
   }
 
   /**
@@ -3383,6 +3432,35 @@ declare namespace relationalStore {
      * @since 14
      */
     getRow(): ValuesBucket;
+
+    /**
+     * Obtains the values of all columns in the specified rows.
+     * @param { number } maxCount - Indicates the maximum number of rows.
+     * @param { number } position - Indicates the start position to obtain the values.
+     * @returns { Promise<Array<ValuesBucket>> } Promise used to return the values obtained, in an{@link Array<ValuesBucket>}.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800012 - Row out of bounds.
+     * @throws { BusinessError } 14800013 - Column out of bounds.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 16
+     */
+    getRows(maxCount: number, position?: number): Promise<Array<ValuesBucket>>;
 
     /**
      * Obtains the values of all columns in the specified row.
@@ -7148,7 +7226,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800016 - The database alias already exists.
      * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-     * @throws { BusinessError } 14801002 - Invalid data ground ID.
+     * @throws { BusinessError } 14801002 - Invalid data group ID.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -7797,7 +7875,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
    * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data ground ID.
+   * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -7816,7 +7894,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800010 - Invalid database path.
    * @throws { BusinessError } 14800011 - Database corrupted.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data ground ID.
+   * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @throws { BusinessError } 14800017 - Config changed.
    * @throws { BusinessError } 14800021 - SQLite: Generic error.
    * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
@@ -7843,7 +7921,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800010 - Invalid database path.
    * @throws { BusinessError } 14800011 - Database corrupted.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data ground ID.
+   * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @throws { BusinessError } 14800017 - Config changed.
    * @throws { BusinessError } 14800020 - The secret key is corrupted or lost.
    * @throws { BusinessError } 14800021 - SQLite: Generic error.
@@ -7889,7 +7967,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
    * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data ground ID.
+   * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -7908,7 +7986,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800010 - Invalid database path.
    * @throws { BusinessError } 14800011 - Database corrupted.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data ground ID.
+   * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @throws { BusinessError } 14800017 - Config changed.
    * @throws { BusinessError } 14800021 - SQLite: Generic error.
    * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
@@ -7933,7 +8011,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800010 - Invalid database path.
    * @throws { BusinessError } 14800011 - Database corrupted.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data ground ID.
+   * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @throws { BusinessError } 14800017 - Config changed.
    * @throws { BusinessError } 14800020 - The secret key is corrupted or lost.
    * @throws { BusinessError } 14800021 - SQLite: Generic error.
@@ -7992,7 +8070,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data ground ID.
+   * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -8057,7 +8135,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data ground ID.
+   * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -8075,12 +8153,31 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Invalid database path.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data ground ID.
+   * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 12
    */
   function deleteRdbStore(context: Context, config: StoreConfig): Promise<void>;
+
+  /**
+   * Checks whether the vector database is supported.
+   *
+   * @returns { boolean } Returns {@code true} if the vector database is supported; returns {@code false} otherwise.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 16
+   */
+  function isVectorSupported(): boolean;
+
+  /**
+   * check the {@link Tokenizer} tokenizer type is supported or not on current system.
+   * @param { tokenizer } type - Indicates Tokenizer which want to check.
+   * @returns { boolean } Returns {@code true} if the tokenizer is supported; returns {@code false} otherwise.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 16
+   */
+    function isTokenizerSupported(tokenizer: Tokenizer): boolean;
 }
 
 export default relationalStore;

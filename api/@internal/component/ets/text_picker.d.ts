@@ -428,6 +428,20 @@ declare type TextPickerScrollStopCallback = (value: string | string[], index: nu
  * @since 16
  */
 declare type OnTextPickerChangeCallback = (selectItem: string | string[], index: number | number[]) => void;
+
+/**
+ * Callback of the listened onEnterSelectedArea event.
+ *
+ * @typedef {function} TextPickerEnterSelectedAreaCallback
+ * @param { string | string[] } value - Value of the selected item.
+ * @param { number | number[] } index - Index of the selected item.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare type TextPickerEnterSelectedAreaCallback = (value: string | string[], index: number | number[]) => void;
+
 /**
  * Style the text selector.
  *
@@ -742,6 +756,19 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
   onScrollStop(callback: Optional<TextPickerScrollStopCallback>): TextPickerAttribute;
 
   /**
+   * This event is triggered when an item enters the selected area.
+   * Only valid when only text is displayed. When picture or picture plus text is displayed, the value is "".
+   *
+   * @param { TextPickerEnterSelectedAreaCallback } callback - the callback of onEnterSelectedArea.
+   * @returns { TextPickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onEnterSelectedArea(callback: TextPickerEnterSelectedAreaCallback): TextPickerAttribute;
+
+  /**
    * Set the selected indices.
    * The array size is the total number of columns.
    *
@@ -816,14 +843,13 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
   /**
    * Enable or disable haptic feedback.
    *
-   * @param { boolean } enabled - Default value is true, set false to disable haptic feedback.
+   * @param { Optional<boolean> } enable - Default value is true, set false to disable haptic feedback.
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */
-  enableHapticFeedback(enabled: boolean): TextPickerAttribute;
+  enableHapticFeedback(enable: Optional<boolean>): TextPickerAttribute;
 
   /**
    * Called when set the height of gradient
@@ -1195,6 +1221,17 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
   onScrollStop?: Callback<TextPickerResult>;
 
   /**
+   * This event is triggered when an item enters the selected area in dialog.
+   *
+   * @type { ?Callback<TextPickerResult> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onEnterSelectedArea?: Callback<TextPickerResult>;
+
+  /**
    * Mask Region of dialog. The size cannot exceed the main window.
    *
    * @type { ?Rectangle }
@@ -1294,6 +1331,28 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
   backgroundBlurStyle?: BlurStyle;
 
   /**
+   * Defines the textPickerDialog's background blur style with options
+   *
+   * @type { ?BackgroundBlurStyleOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
+
+  /**
+   * Defines the textPickerDialog's background effect with options
+   *
+   * @type { ?BackgroundEffectOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  backgroundEffect?: BackgroundEffectOptions;
+
+  /**
    * Callback function when the dialog appears.
    *
    * @type { ?function }
@@ -1378,7 +1437,6 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 16
    */

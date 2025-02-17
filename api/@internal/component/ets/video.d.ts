@@ -365,6 +365,27 @@ interface PlaybackInfo {
 }
 
 /**
+ * Defines the video poster options.
+ *
+ * @interface PosterOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
+declare interface PosterOptions {
+  /**
+   * Whether to display the first frame of video on prepared status of AVPlayer.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  showFirstFrame?: boolean;
+}
+
+/**
  * Defines the video options.
  *
  * @interface VideoOptions
@@ -511,6 +532,16 @@ declare interface VideoOptions {
    * @since 12
    */
   imageAIOptions?: ImageAIOptions;
+
+  /**
+   * poster options of video.
+   *
+   * @type { ?PosterOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  posterOptions?: PosterOptions;
 }
 
 /**
@@ -1348,7 +1379,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 16
+   * @since 15
    */
   surfaceBackgroundColor(color: ColorMetrics): VideoAttribute;
 
@@ -1363,7 +1394,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   enableShortcutKey(enabled: boolean): VideoAttribute;
 }

@@ -528,7 +528,7 @@ declare class TabBarSymbol {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 16
  */
 declare interface TabBarOptions {
   /**
@@ -1183,7 +1183,7 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   tabBar(options: string | Resource | CustomBuilder | TabBarOptions): TabContentAttribute;
 

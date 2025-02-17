@@ -84,6 +84,7 @@ import installer from '@ohos.bundle.installer';
 import launcherBundleManager from '@ohos.bundle.launcherBundleManager';
 import overlay from '@ohos.bundle.overlay';
 import continuationManager from '@ohos.continuation.continuationManager';
+import continueManager from '@ohos.app.ability.continueManager';
 import distributedBundle from '@ohos.distributedBundle';
 import distributedMissionManager from '@ohos.distributedMissionManager';
 import Package, {
@@ -116,11 +117,12 @@ export {
   StartOptions, UIAbility, UIExtensionAbility, UIExtensionContentSession, Want, WantAgent, ability, abilityAccessCtrl,
   abilityManager, appControl, appManager, appRecovery, autoFillManager, autoStartupManager, bundle, bundleManager,
   bundleMonitor, bundleResourceManager, businessAbilityRouter, childProcessManager, common, contextConstant,
-  continuationManager, dataUriUtils, defaultAppManager, dialogRequest, dialogSession, distributedBundle,
+  continuationManager, continueManager, dataUriUtils, defaultAppManager, dialogRequest, dialogSession, distributedBundle,
   distributedBundleManager, distributedMissionManager, errorManager, featureAbility, freeInstall,
   innerBundleManager, insightIntent, insightIntentDriver, installer, launcherBundleManager, missionManager,
   overlay, particleAbility, quickFixManager, uriPermissionManager, wantAgent, wantConstant, privacyManager,
   EmbeddedUIExtensionAbility, StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager,
   screenLockFileManager, AtomicServiceOptions, EmbeddableUIAbility, ChildProcessArgs, ChildProcessOptions,
   sendableContextManager, PhotoEditorExtensionAbility, UIServiceExtensionAbility, shortcutManager, application, appDomainVerify
+
 };

@@ -105,4 +105,76 @@ export declare struct ProgressButton {
    * @since 11
    */
   @Prop enable: boolean;
+
+  /**
+   * Set Color options of the ProgressButton.
+   *
+   * @type { ?ProgressButtonColorOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  @Prop colorOptions?: ProgressButtonColorOptions;
+  
+  /**
+   * Set border rounded corner radius of progress.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  @Prop progressButtonRadius?: LengthMetrics;
+}
+
+/**
+ * Declare Color options of the ProgressButton.
+ *
+ * @interface ProgressButtonColorOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
+export declare interface ProgressButtonColorOptions {
+
+  /**
+   * Set progress color of the ProgressButton.
+   *
+   * @type { ?ResourceColor }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  progressColor?: ResourceColor;
+
+  /**
+   * Set border color of the ProgressButton.
+   *
+   * @type { ?ResourceColor }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  borderColor?: ResourceColor;
+
+  /**
+   * Set text color of the ProgressButton.
+   *
+   * @type { ?ResourceColor }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  textColor?: ResourceColor;
+
+  /**
+   * Set background color of the ProgressButton.
+   *
+   * @type { ?ResourceColor }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  backgroundColor?: ResourceColor;
 }

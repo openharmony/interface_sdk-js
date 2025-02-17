@@ -534,6 +534,22 @@ declare namespace commonEventManager {
     COMMON_EVENT_EXIT_FORCE_SLEEP = 'usual.event.EXIT_FORCE_SLEEP',
 
     /**
+     * This commonEvent means when the device is about to enter the hibernate mode
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 15
+     */
+    COMMON_EVENT_ENTER_HIBERNATE = 'usual.event.ENTER_HIBERNATE',
+
+    /**
+     * This commonEvent means when the device exits the hibernate mode
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 15
+     */
+    COMMON_EVENT_EXIT_HIBERNATE = 'usual.event.EXIT_HIBERNATE',
+
+    /**
      * This commonEvent means when the user is present after the device is awakened.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -2190,7 +2206,7 @@ declare namespace commonEventManager {
      * 
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 12
+     * @since 15
      */
     COMMON_EVENT_BUNDLE_RESOURCES_CHANGED = "usual.event.BUNDLE_RESOURCES_CHANGED",    
 
@@ -2225,6 +2241,15 @@ declare namespace commonEventManager {
      * @since 13
      */
     COMMON_EVENT_RESTORE_START = 'usual.event.RESTORE_START',
+
+    /**
+     * Indicates that the managed browser policy is changed.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 15
+     */
+    COMMON_EVENT_MANAGED_BROWSER_POLICY_CHANGED = 'usual.event.MANAGED_BROWSER_POLICY_CHANGED',
   }
 
   /**

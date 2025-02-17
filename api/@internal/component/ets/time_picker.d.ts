@@ -225,6 +225,28 @@ declare interface TimePickerOptions {
    * @since 12
    */
   format?: TimePickerFormat;
+  
+  /**
+   * Defines the start time of the time picker.
+   *
+   * @type { ?Date }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  start?: Date;
+
+  /**
+   * Defines the end time of the time picker.
+   *
+   * @type { ?Date }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  end?: Date;
 }
 
 /**
@@ -564,6 +586,18 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
   onChange(callback: Optional<OnTimePickerChangeCallback>): TimePickerAttribute;
 
   /**
+   * This event is triggered when an item enters the selected area.
+   *
+   * @param { Callback<TimePickerResult> } callback
+   * @returns { TimePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onEnterSelectedArea(callback: Callback<TimePickerResult>): TimePickerAttribute;
+
+  /**
    * Enable or disable haptic feedback.
    *
    * @param { boolean } enable - Default value is true, set false to disable haptic feedback.
@@ -879,6 +913,17 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
   onChange?: (value: TimePickerResult) => void;
 
   /**
+   * This event is triggered when an item enters the selected area in dialog.
+   *
+   * @type { ?Callback<TimePickerResult> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onEnterSelectedArea?: Callback<TimePickerResult>;
+
+  /**
    * Defines the timePickerDialog's background color
    *
    * @type { ?ResourceColor }
@@ -919,6 +964,28 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @since 12
    */
   backgroundBlurStyle?: BlurStyle;
+
+  /**
+   * Defines the timePickerDialog's background blur style with options
+   *
+   * @type { ?BackgroundBlurStyleOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
+
+  /**
+   * Defines the timePickerDialog's background effect with options
+   *
+   * @type { ?BackgroundEffectOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  backgroundEffect?: BackgroundEffectOptions;
 
   /**
    * Defines whether the AM/PM option is cascaded with the time in 12-hour mode.
@@ -1021,6 +1088,17 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @since 14
    */
   hoverModeArea?: HoverModeAreaType;
+
+  /**
+   * Enable or disable haptic feedback.
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  enableHapticFeedback?: boolean;
 }
 
 /**

@@ -1164,7 +1164,7 @@ declare namespace osAccount {
      * @returns { Promise<number> } Returns local ID of the foreground OS account.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 14
+     * @since 15
      */
     getForegroundOsAccountLocalId(): Promise<number>;
 
@@ -1500,7 +1500,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300003 - OS account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 14
+     * @since 15
      */
     getOsAccountDomainInfo(localId: number): Promise<DomainAccountInfo>;
 
@@ -3155,6 +3155,22 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
+    /**
+     * Registers the domain plugin, which provides the capabilities for domain authentication.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { DomainPlugin } plugin - Indicates the domain plugin.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300201 - The domain plugin has been registered.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 16
+     */
     static registerPlugin(plugin: DomainPlugin): void;
 
     /**
@@ -3167,6 +3183,18 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 9
+     */
+    /**
+     * Unregisters domain plugin.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 16
      */
     static unregisterPlugin(): void;
 
