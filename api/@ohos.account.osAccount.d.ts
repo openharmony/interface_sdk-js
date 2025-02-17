@@ -3136,8 +3136,7 @@ declare namespace osAccount {
    * Provides abilities for the management of domain account.
    *
    * @syscap SystemCapability.Account.OsAccount
-   * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 16
    */
   class DomainAccountManager {
     /**
@@ -3428,12 +3427,11 @@ declare namespace osAccount {
     /**
      * Updates the information of the specified domain account.
      *
-     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.MANAGE_DOMAIN_ACCOUNTS
      * @param { DomainAccountInfo } oldAccountInfo - Indicates the old domain account information.
      * @param { DomainAccountInfo } newAccountInfo - Indicates the new domain account information.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -3443,8 +3441,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300004 - The new account already exists.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 16
      */
     static updateAccountInfo(oldAccountInfo: DomainAccountInfo, newAccountInfo: DomainAccountInfo): Promise<void>;
 
