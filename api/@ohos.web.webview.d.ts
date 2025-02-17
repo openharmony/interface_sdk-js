@@ -8355,25 +8355,25 @@ declare namespace webview {
    * Enum type supplied to {@link insertProxyRule} for indicating the scheme filter for proxy.
    * @enum { number }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 16
+   * @since 15
    */
   enum ProxySchemeFilter {
       /**
        * This indicates all the schemes will use the proxy.
        * @syscap SystemCapability.Web.Webview.Core
-       * @since 16
+       * @since 15
        */
       MATCH_ALL_SCHEMES = 0,
       /**
        * This indicates only the HTTP requests will use the proxy.
        * @syscap SystemCapability.Web.Webview.Core
-       * @since 16
+       * @since 15
        */
       MATCH_HTTP = 1,
       /**
        * This indicates only the HTTPS requests will use the proxy.
        * @syscap SystemCapability.Web.Webview.Core
-       * @since 16
+       * @since 15
        */
       MATCH_HTTPS = 2,
   }
@@ -8381,7 +8381,7 @@ declare namespace webview {
    * The ProxyConfig used by applyProxyOverride.
    * 
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 16
+   * @since 15
    */
   class ProxyConfig {
       /**
@@ -8393,7 +8393,7 @@ declare namespace webview {
        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
        * <br>2. Incorrect parameter types.
        * @syscap SystemCapability.Web.Webview.Core
-       * @since 16
+       * @since 15
        */
       insertBypassRule(bypassRule: string): void;
       /**
@@ -8403,7 +8403,7 @@ declare namespace webview {
        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
        * <br>2. Incorrect parameter types.
        * @syscap SystemCapability.Web.Webview.Core
-       * @since 16
+       * @since 15
        */
       insertDirectRule(schemeFilter?: ProxySchemeFilter): void;
       /**
@@ -8427,7 +8427,7 @@ declare namespace webview {
        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
        * <br>2. Incorrect parameter types.
        * @syscap SystemCapability.Web.Webview.Core
-       * @since 16
+       * @since 15
        */
       insertProxyRule(proxyRule: string, schemeFilter?: ProxySchemeFilter): void;
       /**
@@ -8435,7 +8435,7 @@ declare namespace webview {
        * Examples: "abc", "local", "some-domain".
        * 
        * @syscap SystemCapability.Web.Webview.Core
-       * @since 16
+       * @since 15
        */
       bypassHostnamesWithoutPeriod(): void;
       /**
@@ -8444,7 +8444,7 @@ declare namespace webview {
        * Call this function to override the default behavior and force localhost and link-local URLs to be sent through the proxy.
        * 
        * @syscap SystemCapability.Web.Webview.Core
-       * @since 16
+       * @since 15
        */
       clearImplicitRules(): void;
       /**
@@ -8457,7 +8457,7 @@ declare namespace webview {
        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
        * <br>2. Incorrect parameter types.
        * @syscap SystemCapability.Web.Webview.Core
-       * @since 16
+       * @since 15
        */
       enableReverseBypass(reverse: boolean): void;
       /**
@@ -8465,7 +8465,7 @@ declare namespace webview {
        * 
        * @returns { Array<string> } The bypass rules.
        * @syscap SystemCapability.Web.Webview.Core
-       * @since 16
+       * @since 15
        */
       getBypassRules(): Array<string>;
       /**
@@ -8473,7 +8473,7 @@ declare namespace webview {
        * 
        * @returns { Array<ProxyRule> } The proxy rules.
        * @syscap SystemCapability.Web.Webview.Core
-       * @since 16
+       * @since 15
        */
       getProxyRules(): Array<ProxyRule>;
       /**
@@ -8481,7 +8481,7 @@ declare namespace webview {
        * 
        * @returns { boolean } If reverse bypass enabled.
        * @syscap SystemCapability.Web.Webview.Core
-       * @since 16
+       * @since 15
        */
       isReverseBypassEnabled(): boolean;
   }
@@ -8490,7 +8490,7 @@ declare namespace webview {
    * The ProxyRule used by insertProxyRule.
    * 
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 16
+   * @since 15
    */
   class ProxyRule {
       /**
@@ -8498,7 +8498,7 @@ declare namespace webview {
        * 
        * @returns { ProxySchemeFilter } The scheme filter used for this rule.
        * @syscap SystemCapability.Web.Webview.Core
-       * @since 16
+       * @since 15
        */
       getSchemeFilter(): ProxySchemeFilter;
       /**
@@ -8506,7 +8506,7 @@ declare namespace webview {
        * 
        * @returns { string } The proxy URL.
        * @syscap SystemCapability.Web.Webview.Core
-       * @since 16
+       * @since 15
        */
       getUrl(): string;
   }
@@ -8516,7 +8516,7 @@ declare namespace webview {
    * 
    * @typedef { function }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 16
+   * @since 15
    */
   type OnProxyConfigChangeCallback = () => void;
 
@@ -8524,12 +8524,13 @@ declare namespace webview {
    * This class is used for set proxy for ArkWeb.
    * 
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 16
+   * @since 15
    */
   class ProxyController {
     /**
-     * Remove the proxy config. Requests are not guaranteed to not use the proxy; Wait for the listener before loading a page. This listener
-     * will be called on the UI thread.
+     * Sets ProxyConfig which will be used by all Webs in the app. URLs that match patterns in the bypass list will connect the server directly.
+     * Instead, the request will use the proxy specified by the config. Requests are not guaranteed to use the new proxy immediately; Wait for
+     * the listener before loading a page. This listener will be called on the UI thread.
      * Note: calling applyProxyOverride will cause any existing system wide setting to be ignored.
      * 
      * @param { ProxyConfig } proxyConfig - The proxy config.
@@ -8537,20 +8538,18 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 16
+     * @since 15
      */
     static applyProxyOverride(proxyConfig: ProxyConfig, callback: OnProxyConfigChangeCallback): void;
     /**
-     * Sets ProxyConfig which will be used by all Webs in the app. URLs that match patterns in the bypass list will connect the server directly.
-     * Instead, the request will use the proxy specified by the config. Requests are not guaranteed to use the new proxy immediately; Wait for
-     * the listener before loading a page. This listener will be called on the UI thread.
-     * Note: calling applyProxyOverride will cause any existing system wide setting to be ignored.
+     * Remove the proxy config. Requests are not guaranteed to not use the proxy; Wait for the listener before loading a page. This listener
+     * will be called on the UI thread.
      * 
      * @param { OnProxyConfigChangeCallback } callback - Called when the proxy has been changed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 16
+     * @since 15
      */
     static removeProxyOverride(callback: OnProxyConfigChangeCallback): void;
 }
