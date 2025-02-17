@@ -26,7 +26,7 @@ import { UnifiedData,Summary } from './@ohos.data.unifiedDataChannel';
 import { UniformDataType } from './@ohos.data.uniformTypeDescriptor';
 import { IntentionCode } from './@ohos.multimodalInput.intentionCode';
 import { ImageModifier } from './arkui/ImageModifier';
-import { SymbolGlyphModifier } from './arkui/ImageModifier';
+import { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
 import { CircleShape,EllipseShape,PathShape,RectShape } from './@ohos.arkui.shape';
 import { NavDestinationInfo,NavigationInfo,RouterPageInfo } from './@ohos.arkui.observer';
 import { UIContext } from './@ohos.arkui.UIContext';
@@ -36,17 +36,18 @@ import { ComponentContent } from './arkui/ComponentContent'
 import { Theme } from './@ohos.arkui.theme';
 import {
   Area, ResourceColor, Dimension, ResourceStr, Font, Length, EdgeColors,
-  LocalizedEdgeColors,BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions,BorderStyle,
+  LocalizedEdgeColors,BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions,Bias,
   EdgeStyles,Position,LocalizedBorderRadiuses,Margin,ChainWeightOptions,Padding,LocalizedPadding,LocalizedMargin,
   BorderOptions,OutlineOptions,EdgeOutlineStyles,EdgeOutlineWidths,OutlineRadiuses,Edges,LocalizedEdges,LocalizedPosition,
   AccessibilityOptions,ConstraintSizeOptions,EdgeWidth,DirectionalEdgesT
 } from './@ohos.arkui.component.Units';
 import {
-  AccessibilityHoverType, Curve, PlayMode, SharedTransitionEffectType, KeySource,
-  HorizontalAlign, VerticalAlign, MouseButton, MouseAction, Bias, TransitionType, FontWeight,
+  AccessibilityHoverType, Curve, PlayMode, SharedTransitionEffectType, KeySource,BorderStyle,
+  HorizontalAlign, VerticalAlign, MouseButton, MouseAction, TransitionType, FontWeight,
   FontStyle, Color, ColoringStrategy,Placement,ArrowPointPosition,ClickEffectLevel,NestedScrollMode,HitTestMode,
   Alignment,ImageRepeat,ImageSize,HoverEffect,Visibility,ItemAlign,Direction,Axis,GradientDirection,FunctionKey,
-  ModifierKey,ObscuredReasons,RenderFit,LineCapStyle,LineJoinStyle,PixelRoundCalcPolicy,IlluminatedType
+  ModifierKey,ObscuredReasons,RenderFit,LineCapStyle,LineJoinStyle,PixelRoundCalcPolicy,IlluminatedType,TextDecorationType,
+  TextDecorationStyle
 } from './@ohos.arkui.component.Enums'
 /**
  * Defines the options of Component ClassDecorator.
@@ -227,7 +228,7 @@ export interface TextDecorationOptions {
  * @since 11
  */
 export @interface Component {
-  options: ComponentOptions;
+  freezeWhenInactive : boolean;
 }
 
 /**
@@ -240,7 +241,7 @@ export @interface Component {
  * @since 12
  */
 export @interface ComponentV2 {
-  options: ComponentOptions;
+  freezeWhenInactive : boolean;
 }
 /**
  * Defines the options of Entry ClassDecorator.
@@ -4065,6 +4066,10 @@ export declare enum TransitionEdge {
   END
 }
 
+export interface AsymmetricOptions {
+  appear: TransitionEffect;
+  disappear: TransitionEffect;
+}
 /**
  * Defines all transition effects.
  *
@@ -4084,7 +4089,7 @@ export declare enum TransitionEdge {
  * @atomicservice
  * @since 11
  */
-declare type TransitionEffects = {
+export interface TransitionEffects  {
   identity: undefined;
   opacity: number;
   slideSwitch: undefined;
@@ -4092,12 +4097,8 @@ declare type TransitionEffects = {
   translate: TranslateOptions;
   rotate: RotateOptions;
   scale: ScaleOptions;
-  asymmetric: {
-    appear: TransitionEffect;
-    disappear: TransitionEffect;
-  };
+  asymmetric: AsymmetricOptions;
 };
-
 /**
  * Defined the draw modifier of node. Provides draw callbacks for the associated Node.
  * 
@@ -4169,10 +4170,7 @@ export declare class DrawModifier {
  * @atomicservice
  * @since 11
  */
-declare class TransitionEffect<
-  Type extends keyof TransitionEffects = keyof TransitionEffects,
-  Effect extends TransitionEffects[Type] = TransitionEffects[Type]
-> {
+export declare class TransitionEffect {
   /**
    * Disables the transition effect
    *
@@ -4196,7 +4194,7 @@ declare class TransitionEffect<
    * @atomicservice
    * @since 11
    */
-  static readonly IDENTITY: TransitionEffect<"identity">;
+  static readonly IDENTITY: TransitionEffect;
 
   /**
    * Specifies a transition effect with transparency of 0, which is equivalent to TransitionEffect.opacity(0).
@@ -4221,7 +4219,7 @@ declare class TransitionEffect<
    * @atomicservice
    * @since 11
    */
-  static readonly OPACITY: TransitionEffect<"opacity">;
+  static readonly OPACITY: TransitionEffect;
 
   /**
    * Defines a slide transition effect
@@ -4254,13 +4252,7 @@ declare class TransitionEffect<
    * @atomicservice
    * @since 11
    */
-  static readonly SLIDE: TransitionEffect<
-    "asymmetric",
-    {
-      appear: TransitionEffect<"move", TransitionEdge>;
-      disappear: TransitionEffect<"move", TransitionEdge>;
-    }
-  >;
+  static readonly SLIDE: TransitionEffect;
 
   /**
    * Specify a transition effect where the element enters by shrinking first and then expanding as it slides in from the right, 
@@ -4291,7 +4283,7 @@ declare class TransitionEffect<
    * @atomicservice
    * @since 11
    */
-  static readonly SLIDE_SWITCH: TransitionEffect<"slideSwitch">;
+  static readonly SLIDE_SWITCH: TransitionEffect;
 
   /**
    * Creates a translate transition effect
@@ -4314,7 +4306,7 @@ declare class TransitionEffect<
    * @atomicservice
    * @since 11
    */
-  static translate(options: TranslateOptions): TransitionEffect<"translate">;
+  static translate(options: TranslateOptions): TransitionEffect;
 
   /**
    * Creates a rotation transition effect
@@ -4357,7 +4349,7 @@ declare class TransitionEffect<
    * @atomicservice
    * @since 11
    */
-  static rotate(options: RotateOptions): TransitionEffect<"rotate">;
+  static rotate(options: RotateOptions): TransitionEffect;
 
   /**
    * Creates a scale transition effect
@@ -4380,7 +4372,7 @@ declare class TransitionEffect<
    * @atomicservice
    * @since 11
    */
-  static scale(options: ScaleOptions): TransitionEffect<"scale">;
+  static scale(options: ScaleOptions): TransitionEffect;
 
   /**
    * Creates an opacity transition effect with alpha value
@@ -4415,7 +4407,7 @@ declare class TransitionEffect<
    * @atomicservice
    * @since 12
    */
-  static opacity(alpha: number): TransitionEffect<"opacity">;
+  static opacity(alpha: number): TransitionEffect;
 
   /**
    * Creates a move transition effect
@@ -4438,7 +4430,7 @@ declare class TransitionEffect<
    * @atomicservice
    * @since 11
    */
-  static move(edge: TransitionEdge): TransitionEffect<"move">;
+  static move(edge: TransitionEdge): TransitionEffect;
 
   /**
    * Creates an asymmetric transition effect
@@ -4466,7 +4458,7 @@ declare class TransitionEffect<
   static asymmetric(
     appear: TransitionEffect,
     disappear: TransitionEffect
-  ): TransitionEffect<"asymmetric">;
+  ): TransitionEffect;
 
   /**
    * TransitionEffect constructor
@@ -4489,8 +4481,13 @@ declare class TransitionEffect<
    * @atomicservice
    * @since 11
    */
-  constructor(type: Type, effect: Effect);
-
+  constructor(type: 'identity' | 'slideSwitch', effect: undefined);
+  constructor(type: 'opacity',effect:number);
+  constructor(type: 'move',effect:TransitionEdge);
+  constructor(type: 'translate',effect:TranslateOptions);
+  constructor(type: 'rotate',effect:RotateOptions);
+  constructor(type: 'scale',effect:ScaleOptions);
+  constructor(type: 'asymmetric',effect:AsymmetricOptions);
   /**
    * Set the animation of current transition effect
    *
@@ -16800,7 +16797,6 @@ export declare class CommonMethod<T> {
   * @atomicservice
   * @since 12
   */
- focusScopeId(id: string, isGroup?: boolean): T;
   /**
   * Set container as a focus group with a specific identifier.
   *
@@ -19599,7 +19595,6 @@ export declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  geometryTransition(id: string): T;
   /**
    * Shared geometry transition
    *
@@ -19797,44 +19792,7 @@ export declare class CommonMethod<T> {
    * @atomicservice
    * @since 12
    */
-  bindContentCover(isShow: Optional<boolean>, builder: CustomBuilder, type?: ModalTransition): T;
-
-  /**
-   * Bind content cover
-   *
-   * @param { boolean } isShow - true means display content, false means hide content.
-   * @param { CustomBuilder } builder - the content to be displayed.
-   * @param { ContentCoverOptions } options - options of content cover.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Bind content cover
-   *
-   * @param { boolean } isShow - true means display content, false means hide content.
-   * @param { CustomBuilder } builder - the content to be displayed.
-   * @param { ContentCoverOptions } options - options of content cover.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Bind content cover
-   *
-   * @param { Optional<boolean> } isShow - true means display content, false means hide content.
-   * @param { CustomBuilder } builder - the content to be displayed.
-   * @param { ContentCoverOptions } [options] - options of content cover.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  bindContentCover(isShow: Optional<boolean>, builder: CustomBuilder, options?: ContentCoverOptions): T;
+  bindContentCover(isShow: Optional<boolean>, builder: CustomBuilder, type?: ModalTransition | ContentCoverOptions): T;
 
   /**
    * Bind sheet
@@ -20652,7 +20610,7 @@ export declare const Common: CommonInterface;
  * @atomicservice
  * @since 11
  */
-type CustomBuilder = (() => Object) | void;
+type CustomBuilder = (() => Object) | undefined;
 
 /**
  * Defines the OverlayOptions interface.
@@ -22503,7 +22461,7 @@ declare class CustomComponent extends CommonAttribute {
    * @atomicservice
    * @since 11
    */
-  onBackPress?:()=> void | boolean;
+  onBackPress?:()=> undefined | boolean;
 
   /**
    * PageTransition Method.
@@ -23196,7 +23154,7 @@ export declare class ScrollResult {
  * @since 12
  */
 export type OnWillScrollCallback = 
-(scrollOffset: number, scrollState: ScrollState, scrollSource: ScrollSource) => void | ScrollResult;
+(scrollOffset: number, scrollState: ScrollState, scrollSource: ScrollSource) => undefined | ScrollResult;
 
 /**
   * On scroll callback using in scrollable onDidScroll.
@@ -23324,7 +23282,7 @@ export declare class ChildrenMainSize {
    * @atomicservice
    * @since 12
    */
-  set childDefaultSize(value: number);
+  set childDefaultSize(value: number):void;
 
   /**
    * Get default size
