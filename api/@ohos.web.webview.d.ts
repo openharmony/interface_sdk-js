@@ -1788,7 +1788,7 @@ declare namespace webview {
     /**
      * Save the cookies synchronously.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 16
+     * @since 15
      */
     static saveCookieSync(): void;
 
