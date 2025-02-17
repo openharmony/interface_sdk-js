@@ -563,4 +563,18 @@ export default class Context extends BaseContext {
    * @since 11
    */
   createModuleResourceManager(bundleName: string, moduleName: string): resmgr.ResourceManager;
+
+  /**
+   * Create a context by displayId. This Context updates the density and direction properties based on the displayId,
+   * while other property values remain the same as in the original Context.
+   *
+   * @param { number } displayId - Indicates the displayId.
+   * @returns { Context } Returns the context with the specified displayId.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 15
+   */
+  createDisplayContext(displayId: number): Context;
 }
