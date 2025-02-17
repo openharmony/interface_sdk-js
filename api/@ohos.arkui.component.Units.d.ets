@@ -19,7 +19,8 @@
  */
 
 import { Resource as _Resource } from './global/resource';
-import { OutlineStyle, Color, BorderStyle, FontWeight, FontStyle, BorderStyle} from './@ohos.arkui.component.Enums'
+import { Color, BorderStyle, FontWeight, FontStyle} from './@ohos.arkui.component.Enums';
+import { OutlineStyle } from './@ohos.arkui.component.Common';
 import { LengthMetricsUnit as _LengthMetricsUnit,LengthMetrics as _LengthMetrics, ColorMetrics as _ColorMetrics } from './arkui/Graphics';
 
 /**
