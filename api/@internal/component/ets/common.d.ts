@@ -24471,6 +24471,18 @@ declare class CommonMethod<T> {
   accessibilityUseSamePage(pageMode: AccessibilitySamePageMode): T;
 
   /**
+   * Sets accessibilityScrollTriggerable
+   * @param { boolean } isTriggerable - set property of supporting scroll in accessibility
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityScrollTriggerable(isTriggerable: boolean): T;
+
+  /**
    * Sets accessibilityText
    *
    * @param { Resource } text - set accessibility text
