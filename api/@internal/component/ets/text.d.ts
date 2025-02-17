@@ -923,6 +923,16 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Enable the selectable area can be dragged.
+   *
+   * @param { boolean } value
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   draggable(value: boolean): TextAttribute;
 
   /**
