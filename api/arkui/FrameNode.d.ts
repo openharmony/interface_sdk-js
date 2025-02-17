@@ -786,6 +786,26 @@ export class FrameNode {
    * @since 15
    */
   getCrossLanguageOptions(): CrossLanguageOptions;
+
+  /**
+   * Recycle current FrameNode From JsFrameNode.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  recycle(): void;
+
+  /**
+   * Reuse current FrameNode From JsFrameNode.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  reuse(): void;
 }
 
 /**
