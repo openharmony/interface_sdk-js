@@ -14525,6 +14525,18 @@ declare interface SheetOptions extends BindOptions {
   detentSelection?: SheetSize | Length;
 
   /**
+   * Whether to display in the sub window 
+   *
+   * @type { ?boolean } 
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  showInSubWindow?: boolean;
+
+  /**
    * The placement of popup sheet type.
    * Supports all positions defined in Placement.
    *
