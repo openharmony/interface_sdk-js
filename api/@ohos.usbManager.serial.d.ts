@@ -211,6 +211,7 @@ declare namespace serialManager {
 
   /**
    * Represents a serial port device.
+   * @typedef SerialPort
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 16
    */
@@ -234,6 +235,7 @@ declare namespace serialManager {
  }
   /**
    * Represents the communication parameters of a serial port device.
+   * @typedef SerialAttribute
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 16
    */
