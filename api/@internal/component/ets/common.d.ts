@@ -24916,6 +24916,19 @@ declare class CommonMethod<T> {
    * @since 12
    */
   onSizeChange(event: SizeChangeCallback): T;
+
+  /**
+   * Accessibility focus draw level, and the default value is FocusDrawLevel.SELF.
+   *
+   * @param { FocusDrawLevel } drawLevel - indicates accessibility focus draw level.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityFocusDrawLevel(drawLevel: FocusDrawLevel): T;
 }
 
 /**
