@@ -307,7 +307,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 15
      */
     TYPE_WALLET_SWIPE_CARD
