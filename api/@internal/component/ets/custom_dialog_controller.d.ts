@@ -502,6 +502,41 @@ declare interface CustomDialogControllerOptions {
    * @since 14
    */
   hoverModeArea?: HoverModeAreaType;
+
+  /**
+   * Determine the display level of the dialog.
+   *
+   * @type { ?LevelMode }
+   * @default LevelMode.OVERLAY
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  levelMode?: LevelMode;
+
+  /**
+   * The uniqueId of any node in the router or navigation page.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  levelUniqueId?: number;
+
+  /**
+   * Determine the immersive mode of the dialog.
+   *
+   * @type { ?ImmersiveMode }
+   * @default ImmersiveMode.DEFAULT
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  immersiveMode?: ImmersiveMode;
 }
 
 /**

@@ -156,6 +156,28 @@ declare interface DismissDialogAction {
 }
 
 /**
+ * Import the LevelMode type from promptAction.
+ *
+ * @typedef { import('../api/@ohos.promptAction').LevelMode } LevelMode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 15
+ */
+declare type LevelMode = import('../api/@ohos.promptAction').LevelMode;
+
+/**
+ * Import the ImmersiveMode type from promptAction.
+ *
+ * @typedef { import('../api/@ohos.promptAction').ImmersiveMode } ImmersiveMode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 15
+ */
+declare type ImmersiveMode = import('../api/@ohos.promptAction').ImmersiveMode;
+
+/**
  * The options of ActionSheet.
  *
  * @interface ActionSheetOptions
@@ -738,6 +760,41 @@ interface ActionSheetOptions
    * @since 14
    */
   hoverModeArea?: HoverModeAreaType;
+
+  /**
+   * Determine the display level of the dialog.
+   *
+   * @type { ?LevelMode }
+   * @default LevelMode.OVERLAY
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  levelMode?: LevelMode;
+
+  /**
+   * The uniqueId of any node in the router or navigation page.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  levelUniqueId?: number;
+
+  /**
+   * Determine the immersive mode of the dialog.
+   *
+   * @type { ?ImmersiveMode }
+   * @default ImmersiveMode.DEFAULT
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  immersiveMode?: ImmersiveMode;
 }
 
 /**
