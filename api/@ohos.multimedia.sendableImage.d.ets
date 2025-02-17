@@ -170,6 +170,15 @@ interface Region extends lang.ISendable {
    */
   function createImageReceiver(size: image.Size, format: image.ImageFormat, capacity: number): ImageReceiver; 
 
+  /**
+   * Redefines ISendable for convenience.
+   *
+   * @typedef { lang.ISendable } ISendable
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @crossplatform
+   * @since 12
+   */
+
   type ISendable = lang.ISendable;
 
   /**
