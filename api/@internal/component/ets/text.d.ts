@@ -1412,7 +1412,7 @@ declare enum TextSpanType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   DEFAULT = 3,
 }
@@ -1492,7 +1492,7 @@ declare enum TextResponseType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   DEFAULT = 3,
 }
