@@ -1167,6 +1167,42 @@ declare namespace connection {
   function getRemoteDeviceType(deviceId: string): Promise<DeviceType>;
 
   /**
+   * Get latest connection time of device.
+   *
+   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+   * @returns { Promise<number> } Returns latest connection time.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth disabled.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 15
+   */
+  function getLastConnectionTime(deviceId: string): Promise<number>;
+
+  /**
+   * update cloud devices.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+   * @param { TrustedPairedDevices } trustedPairedDevices - Indicates the cloud devices.
+   * @returns { Promise<void> } Returns the promise object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth disabled.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 15
+   */
+  function updateCloudBluetoothDevice(trustedPairedDevices: TrustedPairedDevices): Promise<void>;
+
+  /**
    * Subscribe the event reported when a remote Bluetooth device is discovered.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
@@ -2139,6 +2175,180 @@ declare namespace connection {
      * @since 12
      */
     INTERNAL_ERROR = 4
+  }
+  /**
+   * Describes the cloud pair device.
+   *
+   * @typedef TrustedPairedDevices
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 15
+   */
+  interface TrustedPairedDevices {
+    /**
+     * The list of cloud pair devices.
+     *
+     * @type { Array<TrustedPairedDevice> }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    trustedPairedDevices: Array<TrustedPairedDevice>;
+  }
+  
+  /**
+   * Describes device of cloud pair.
+   *
+   * @typedef TrustedPairedDevice
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 15
+   */
+  interface TrustedPairedDevice {
+    /**
+     * Indicates the device identify.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    sn: string;
+    /**
+     * Indicates the device type of the peripheral.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    deviceType: string;
+    /**
+     * Indicates the modelId of the peripheral.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    modelId: string;
+    /**
+     * Indicates the manufactory of the peripheral.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    manufactory: string;
+    /**
+     * Indicates the productId of the peripheral.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    productId: string;
+    /**
+     * Indicates the HiLink version of the peripheral.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    hiLinkVersion: string;
+    /**
+     * Indicates the macAddress of the peripheral.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    macAddress: string;
+    /**
+     * Indicates the service type of the peripheral.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    serviceType: string;
+    /**
+     * Indicates the service id of the peripheral.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    serviceId: string;
+    /**
+     * The local name of the device
+     *
+     * @type { string }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    deviceName: string;
+    /**
+     * Indicates the uuid of the peripheral.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    uuids: string;
+    /**
+     * Indicates the bluetoothClass of the peripheral.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    bluetoothClass: number;
+    /**
+     * Indicates the token of the peripheral.
+     *
+     * @type { ArrayBuffer }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    token: ArrayBuffer;
+    /**
+     * Indicates the deviceNameTime of the peripheral.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    deviceNameTime: number;
+    /**
+     * Indicates the securityAdvInfo of the peripheral.
+     *
+     * @type { ArrayBuffer }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    secureAdvertisingInfo: ArrayBuffer;
+    /**
+     * Indicates the pairState of the peripheral.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    pairState: number;
   }
 }
 export default connection;
