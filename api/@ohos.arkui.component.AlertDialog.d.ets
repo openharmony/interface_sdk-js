@@ -17,7 +17,8 @@
  * @file
  * @kit ArkUI
  */
-
+import { ResourceStr } from './@ohos.arkui.component.Units'
+import { WordBreak } from './@ohos.arkui.component.Enums'
 /**
  * The alignment of dialog,
  *
@@ -42,7 +43,7 @@
  * @atomicservice
  * @since 11
  */
-declare enum DialogAlignment {
+export declare enum DialogAlignment {
   /**
    * Vertical top alignment.
    *
@@ -291,7 +292,7 @@ declare enum DialogAlignment {
 * @atomicservice
 * @since 11
 */
-declare enum DialogButtonDirection {
+export declare enum DialogButtonDirection {
   /**
    * Two or fewer buttons are arranged horizontally,
    * and two or more buttons are arranged vertically.
@@ -353,7 +354,7 @@ declare enum DialogButtonDirection {
  * @atomicservice
  * @since 13
  */
-declare interface AlertDialogButtonBaseOptions {
+export interface AlertDialogButtonBaseOptions {
   /**
    * Enable switch of button.
    *
@@ -529,7 +530,7 @@ declare interface AlertDialogButtonBaseOptions {
  * @atomicservice
  * @since 13
  */
-declare interface AlertDialogButtonOptions extends AlertDialogButtonBaseOptions {
+export interface AlertDialogButtonOptions extends AlertDialogButtonBaseOptions {
   /**
    * Define whether the button responds to Enter/Space key by default.
    *
@@ -551,7 +552,7 @@ declare interface AlertDialogButtonOptions extends AlertDialogButtonBaseOptions 
  * @atomicservice
  * @since 12
  */
-declare interface TextStyle {
+export interface TextStyle {
   /**
    * Set the word break type.
    *
@@ -588,7 +589,7 @@ declare interface TextStyle {
  * @atomicservice
  * @since 11
  */
-declare interface AlertDialogParam {
+export interface AlertDialogParam {
   /**
    * Title Properties
    *
@@ -1057,7 +1058,7 @@ declare interface AlertDialogParam {
  * @atomicservice
  * @since 11
  */
-declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
+export interface AlertDialogParamWithConfirm extends AlertDialogParam {
   /**
    * Invoke the commit function.
    *
@@ -1103,7 +1104,7 @@ declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
  * @atomicservice
  * @since 12
  */
-declare interface DismissDialogAction {
+export interface DismissDialogAction {
   /**
    * Defines dialog dismiss function.
    *
@@ -1151,7 +1152,7 @@ declare interface DismissDialogAction {
  * @atomicservice
  * @since 11
  */
-declare interface AlertDialogParamWithButtons extends AlertDialogParam {
+export interface AlertDialogParamWithButtons extends AlertDialogParam {
   /**
    * First button.
    *
@@ -1240,7 +1241,7 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
  * @atomicservice
  * @since 11
  */
-declare interface AlertDialogParamWithOptions extends AlertDialogParam {
+export interface AlertDialogParamWithOptions extends AlertDialogParam {
   /**
    * The array of buttons.
    * @type { Array<AlertDialogButtonOptions> }
@@ -1299,7 +1300,7 @@ declare interface AlertDialogParamWithOptions extends AlertDialogParam {
  * @atomicservice
  * @since 11
  */
-declare class AlertDialog {
+export declare class AlertDialog {
   /**
    * Invoking method display.
    *
@@ -1324,6 +1325,6 @@ declare class AlertDialog {
    * @atomicservice
    * @since 11
    */
-  static show(value: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions);
+  static show(value: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions): void;
 }
 
