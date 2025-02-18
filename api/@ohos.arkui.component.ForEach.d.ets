@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-
+import { DynamicNode } from './@ohos.arkui.component.Common'
 /**
  * declare ForEachAttribute
  *
@@ -28,7 +28,7 @@
  * @atomicservice
  * @since 12
  */
-declare class ForEachAttribute extends DynamicNode<ForEachAttribute> {
+export declare class ForEachAttribute extends DynamicNode<ForEachAttribute> {
 }
 
 /**
@@ -65,72 +65,11 @@ declare class ForEachAttribute extends DynamicNode<ForEachAttribute> {
  * @atomicservice
  * @since 11
  */
-interface ForEachInterface {
-  /**
-   * Set the value, array, and key.
-   *
-   * @param { Array<any> } arr
-   * @param { function } itemGenerator
-   * @param { function } keyGenerator
-   * @returns { ForEachInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Set the value, array, and key.
-   *
-   * @param { Array<any> } arr
-   * @param { function } itemGenerator
-   * @param { function } keyGenerator
-   * @returns { ForEachInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Set the value, array, and key.
-   *
-   * @param { Array<any> } arr
-   * @param { function } itemGenerator
-   * @param { function } keyGenerator
-   * @returns { ForEachInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Set the value, array, and key.
-   *
-   * @param { Array<any> } arr
-   * @param { function } itemGenerator
-   * @param { function } keyGenerator
-   * @returns { ForEachInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Set the value, array, and key.
-   *
-   * @param { Array<any> } arr
-   * @param { function } itemGenerator
-   * @param { function } keyGenerator
-   * @returns { ForEachAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  (
-    arr: Array<any>,
-    itemGenerator: (item: any, index: number) => void,
-    keyGenerator?: (item: any, index: number) => string,
-  ): ForEachAttribute;
-}
+export type ForEachInterface = <T>(
+  arr: Array<T>,
+  itemGenerator: (item: T, index: number) => void,
+  keyGenerator?: (item: T, index: number) => string,
+)=> ForEachAttribute;
 
 /**
  * Defines ForEach Component.
