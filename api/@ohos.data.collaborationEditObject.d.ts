@@ -18,7 +18,8 @@
  * @kit ArkData
  */
 
-import type Context from './application/BaseContext';
+import { Callback } from './@ohos.base';
+import Context from './application/BaseContext';
 
 /**
  * Provides interfaces to collaboration edit object.
@@ -103,6 +104,431 @@ declare namespace collaborationEditObject {
   }
 
   /**
+   * Represents the relative position in the edit unit.
+   *
+   * @interface RelativePos
+   * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+   * @systemapi
+   * @since 16
+   */
+  interface RelativePos {
+    /**
+     * The id of the parent in the relative position, null if parent is edit unit.
+     *
+     * @type { UniqueId | null }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    parentId: UniqueId | null;
+
+    /**
+     * The name of the parent in the relative position, null if parent is not edit unit.
+     *
+     * @type { string | null }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    parentName: string | null;
+
+    /**
+     * The id of the left or right in the relative position, null if left or right is null.
+     *
+     * @type { UniqueId | null }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    id: UniqueId | null;
+
+    /**
+     * The position of the character binding to the relative position, default 0 means the character right after
+     * the relative position, less than 0 means the character left to the relative position, greater than 0 means
+     * the character right to the relative position.
+     *
+     * @type { number }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    pos: number;
+  }
+
+  /**
+   * The collaboration edit object record used to sync.
+   *
+   * @interface EditObjectRecord
+   * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+   * @systemapi
+   * @since 16
+   */
+  interface EditObjectRecord {
+    /**
+     * Indicates the auto incrementing number of each record.
+     *
+     * @type { number }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    cursor: number;
+
+    /**
+     * The identifier used to distinguish the different clients.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    id: string;
+
+    /**
+     * The collaboration edit object record data.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    data: Uint8Array;
+  }
+
+  /**
+   * Describes the predicates of query condition.
+   * 
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+   * @systemapi
+   * @since 16
+   */
+  enum Predicate {
+    /**
+     * EQUAL_TO: means to query records where record field is equal to the given field.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    EQUAL_TO = 0,
+
+    /**
+     * NOT_EQUAL_TO: means to query records where record field is not equal to the given field.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    NOT_EQUAL_TO,
+
+    /**
+     * GREATER_THAN: means to query records where record field is greater than the given field.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    GREATER_THAN,
+
+    /**
+     * LESS_THAN: means to query records where record field is less than the given field.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    LESS_THAN,
+
+    /**
+     * GREATER_THAN_OR_EQUAL_TO: means to query records where record field is greater than or equal to the given field.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    GREATER_THAN_OR_EQUAL_TO,
+
+    /**
+     * LESS_THAN_OR_EQUAL_TO: means to query records where record field is less than or equal to the given field.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    LESS_THAN_OR_EQUAL_TO
+  }
+
+  /**
+   * Describes the condition of a query request.
+   *
+   * @interface QueryCondition
+   * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+   * @systemapi
+   * @since 16
+   */
+  interface QueryCondition {
+    /**
+     * The predicate of query condition.
+     * 
+     * @type { Predicate }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    condition: Predicate;
+
+    /**
+     * The edit object record field name of query condition.
+     * 
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    fieldName: string;
+
+    /**
+     * The edit object record field value of query condition.
+     * 
+     * @type { string | number }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    fieldValue: string | number;
+  }
+
+  /**
+   * Manages asset operation configurations.
+   *
+   * @interface AssetOperationConfig
+   * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+   * @systemapi
+   * @since 16
+   */
+  interface AssetOperationConfig {
+    /**
+     * The path of asset.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    path: string;
+  }
+
+  /**
+   * Provides definition of data upload function.
+   *
+   * @typedef { function } BatchInsertHandler
+   * @param { Array<EditObjectRecord> } records - the inserted collaboration edit object records
+   * @returns { Promise<number> } the number of inserted data
+   * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+   * @systemapi
+   * @since 16
+   */
+  type BatchInsertHandler = (records: Array<EditObjectRecord>) => Promise<number>;
+
+  /**
+   * Provides definition of data query function.
+   *
+   * @typedef { function } QueryHandler
+   * @param { Array<QueryCondition> } queryConditions - the conditions when query data from cloud
+   * @returns { Promise<Array<EditObjectRecord>> } the collaboration edit object records queried from cloud
+   * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+   * @systemapi
+   * @since 16
+   */
+  type QueryHandler = (queryConditions: Array<QueryCondition>) => Promise<Array<EditObjectRecord>>;
+
+  /**
+   * Provides definition of asset operation function.
+   *
+   * @typedef { function } AssetHandler
+   * @param { AssetOperationConfig } config - the config of asset operation
+   * @returns { Promise<void> } the promise returned by the function.
+   * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+   * @systemapi
+   * @since 16
+   */
+  type AssetHandler = (config: AssetOperationConfig) => Promise<void>;
+
+  /**
+   * Describes the handlers of CloudDB object.
+   *
+   * @interface CloudDB
+   * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+   * @systemapi
+   * @since 16
+   */
+  interface CloudDB {
+    /**
+     * Provides ability of uploading data from local device to cloud.
+     * 
+     * @type { BatchInsertHandler }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    batchInsert: BatchInsertHandler;
+
+    /**
+     * Provides ability of querying data from cloud to local device.
+     * 
+     * @type { QueryHandler }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    query: QueryHandler;
+
+    /**
+     * Provides ability of downloading asset from cloud to local device.
+     * 
+     * @type { AssetHandler }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    downloadAsset: AssetHandler;
+
+    /**
+     * Provides ability of uploading asset from local device to cloud.
+     * 
+     * @type { AssetHandler }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    uploadAsset: AssetHandler;
+
+    /**
+     * Provides ability of deleting asset from cloud.
+     * 
+     * @type { AssetHandler }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    deleteAsset: AssetHandler;
+
+    /**
+     * Provides ability of deleting asset from local device.
+     * 
+     * @type { AssetHandler }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    deleteLocalAsset: AssetHandler;
+  }
+
+  /**
+   * Describes the status of a cloud sync progress.
+   * 
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+   * @systemapi
+   * @since 16
+   */
+  enum ProgressCode {
+    /**
+     * CLOUD_SYNC_SUCCESS: means the status of progress is success.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    CLOUD_SYNC_SUCCESS = 0,
+
+    /**
+     * CLOUD_NOT_SET: means the CloudDB handlers are not set.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    CLOUD_NOT_SET,
+
+    /**
+     * INTERNAL_ERROR: means the cloud sync progress meets internal error.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    INTERNAL_ERROR,
+
+    /**
+     * EXTERNAL_ERROR: means the cloud sync progress meets error in CloudDB handlers.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    EXTERNAL_ERROR,
+  }
+
+  /**
+   * Describes the progress status of a cloud sync operation.
+   *
+   * @interface ProgressDetail
+   * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+   * @systemapi
+   * @since 16
+   */
+  interface ProgressDetail {
+    /**
+     * The status code of cloud sync operation.
+     * 
+     * @type { ProgressCode }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    code: ProgressCode;
+  }
+
+  /**
+   * Indicates the mode of cloud sync operation.
+   * 
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+   * @systemapi
+   * @since 16
+   */
+  enum SyncMode {
+    /**
+     * SYNC_MODE_PUSH: Indicates the data is pushed to remote from local device.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    SYNC_MODE_PUSH = 0,
+
+    /**
+     * SYNC_MODE_PULL: Indicates the data is pulled from remote to local device.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    SYNC_MODE_PULL,
+
+    /**
+     * SYNC_MODE_PULL_PUSH: Indicates the data is first pulled from remote, then followed by a push operation.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    SYNC_MODE_PULL_PUSH,
+  }
+
+  /**
    * Provides methods for managing the collaboration edit object.
    *
    * @interface CollaborationEditObject
@@ -158,6 +584,78 @@ declare namespace collaborationEditObject {
      * @since 16
      */
     deleteUndoRedoManager(editUnitName: string): void;
+
+    /**
+     * Get local id in collaboration edit object.
+     *
+     * @returns { string } - local id.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 15410000 - Internal error.
+     * @throws { BusinessError } 15410003 - Database error.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    getLocalId(): string;
+
+    /**
+     * Apply update in collaboration edit object.
+     *
+     * @returns { Array<UpdatedNode> } - the array that contains the modified node, used to refresh the editor.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 15410000 - Internal error.
+     * @throws { BusinessError } 15410003 - Database error.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    applyUpdate(): Array<UpdatedNode>;
+
+    /**
+     * Write update in collaboration edit object, used to process record pushed from remote.
+     *
+     * @param { EditObjectRecord } update - the collaboration edit object record.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 15410000 - Internal error.
+     * @throws { BusinessError } 15410003 - Database error.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    writeUpdate(update:EditObjectRecord): void;
+
+    /**
+     * Register cloudDB handlers which need to be implemented.
+     *
+     * @param { CloudDB } cloudDB - Indicates the CloudDB handlers.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *      1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 15410000 - Internal error.
+     * @throws { BusinessError } 15410003 - Database error.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    setCloudDB(cloudDB: CloudDB): void;
+
+    /**
+     * Synchronize data between local devices and cloud.
+     *
+     * @param { SyncMode } syncMode - Indicates the synchronization mode {@link SyncMode}.
+     * @param { Callback<ProgressDetail> } progress - Indicates the specified sync callback function.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *      1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 15410000 - Internal error.
+     * @throws { BusinessError } 15410003 - Database error.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    cloudSync(syncMode: SyncMode, progress: Callback<ProgressDetail>): void;
   }
 
   /**
@@ -248,6 +746,38 @@ declare namespace collaborationEditObject {
      * @since 16
      */
     getJsonResult(): string;
+
+    /**
+     * Get the relative position in the edit unit by the absolute position of the cursor on the editor.
+     *
+     * @param { number } absolutePos - Indicates the absolute position of the cursor on the editor.
+     * @returns { RelativePos } Relative position in the edit unit.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 15410000 - Internal error.
+     * @throws { BusinessError } 15410003 - Database error.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    getRelativePos(absolutePos: number): RelativePos;
+
+    /**
+     * Get the absolute position of the cursor on the editor by the relative position in the edit unit.
+     *
+     * @param { RelativePos } relativePos - Indicates the relative position in the edit unit.
+     * @returns { number } Absolute position of the cursor on the editor.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 15410000 - Internal error.
+     * @throws { BusinessError } 15410003 - Database error.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    getAbsolutePos(relativePos: RelativePos): number;
   }
 
   /**
@@ -361,7 +891,7 @@ declare namespace collaborationEditObject {
     setAttributes(attributes: AttributesRecord): void;
 
     /**
-     * Removes attributes from the target node.
+     * Removes attributes from the target node, including asset attribute.
      *
      * @param { string[] } attributeNames - Indicates the attribute names that is to be removed.
      * @throws { BusinessError } 202 - Not system application.
@@ -391,6 +921,24 @@ declare namespace collaborationEditObject {
      * @since 16
      */
     getAttributes(): AttributesRecord;
+
+    /**
+     * Sets or updates an asset into the target node.
+     *
+     * @param { string } assetKey - Indicates the asset key to be set.
+     * @param { string } assetValue - Indicates the asset value to be set.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 15410000 - Internal error.
+     * @throws { BusinessError } 15410001 - Unsupported operation.
+     * @throws { BusinessError } 15410002 - Index out of range.
+     * @throws { BusinessError } 15410003 - Database error.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    setAsset(assetKey: string, assetValue: string): void;
   }
 
   /**
@@ -563,6 +1111,36 @@ declare namespace collaborationEditObject {
      * @since 16
      */
     redo(): void;
+  }
+
+  /**
+   * The updated node {@link Node} or text {@link Text}.
+   *
+   * @interface UpdatedNode
+   * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+   * @systemapi
+   * @since 16
+   */
+  interface UpdatedNode {
+    /**
+     * The identifier used to distinguish the different edit unit.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    editUnitName: string;
+
+    /**
+     * The updated node {@link Node} or text {@link Text}.
+     *
+     * @type { Node | Text }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @systemapi
+     * @since 16
+     */
+    node: Node | Text;
   }
 }
 
