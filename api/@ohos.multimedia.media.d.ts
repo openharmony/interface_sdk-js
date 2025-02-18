@@ -3533,12 +3533,13 @@ declare namespace media {
   }
 
   /**
-   * Process the incoming request and return the unique handle to the open resource.
+   * Defines the SourceOpenCallback function which is called by the service. client should process the incoming request
+   * and return the unique handle to the open resource.
    * @typedef { function } SourceOpenCallback
-   * @param { MediaSourceLoadingRequest } Request - open request parameters.
-   * @return { number } - return the handle of current resource open request.
-   *                      values less than or equal to zero mean failed.
-   *                    - client should return immediately.
+   * @param { MediaSourceLoadingRequest } request - open request parameters.
+   * @returns { number } - return the handle of current resource open request.
+   *                       values less than or equal to zero mean failed.
+   *                     - client should return immediately.
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
    * @since 16
@@ -3546,14 +3547,15 @@ declare namespace media {
   type SourceOpenCallback = (request: MediaSourceLoadingRequest) => number;
 
   /**
-   * Process the read request. Application can push data through the {@link #response} method of the request object.
+   * Defines the SourceReadCallback function which is called by the service. Client should record the read requests
+   * and push the data through the {@link #response} method of the request object when there is sufficient data.
    * @typedef { function } SourceReadCallback
    * @param { number } uuid - label the resource handle.
    * @param { number } requestedOffset - current media data position from the start of the source.
    * @param { number } requestedLength - current request length.
    *                                   - -1 means reaching the end of the source, need to inform the player
-   *  -1 means                            of the end of the push through the {@link #finishLoading} method.
-   * @return { void } - client should return immediately.
+   *                                     of the end of the push through the {@link #finishLoading} method.
+   * @returns { void } - client should return immediately.
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
    * @since 16
@@ -3561,10 +3563,10 @@ declare namespace media {
   type SourceReadCallback = (uuid: number, requestedOffset: number, requestedLength: number) => void;
 
   /**
-   * Process the close request and release related resources.
+   * Defines the SourceCloseCallback function which is called by the service. Client should release related resources.
    * @typedef { function } SourceCloseCallback
    * @param { number } uuid - label the resource handle.
-   * @return { void } - client should return immediately.
+   * @returns { void } - client should return immediately.
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
    * @since 16
@@ -3683,7 +3685,7 @@ declare namespace media {
   interface MediaSourceLoadingRequest {
     /**
      * Resource to be opened by the application.
-     * @type { string } url - for resource location.
+     * @type { string }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 16
@@ -3691,8 +3693,8 @@ declare namespace media {
     url: string;
 
     /**
-     * Headers attached to network request while player request data.
-     * @type { ?Record<string, string> } header - Client should set headers to the http request.
+     * Headers attached to network request while player request data. Client should set headers to the http request.
+     * @type { ?Record<string, string> }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 16
@@ -3704,7 +3706,7 @@ declare namespace media {
      * @param { number } uuid - label the resource handle.
      * @param { number } offset - current media data position from start of the source.
      * @param { ArrayBuffer } buffer - media data buffer which respond to the player.
-     * @return { number } - accept bytes for current read. The value less than zero means failed.
+     * @returns { number } - accept bytes for current read. The value less than zero means failed.
      *                    - 2, means player need current data any more, the client should stop current read process.
      *                    - 3, means player buffer is full, the client should wait for next read.
      * @syscap  SystemCapability.Multimedia.Media.Core
@@ -3718,7 +3720,7 @@ declare namespace media {
      * Set it before calling the {@link #respondData()} in the first time.
      * @param { number } uuid - label the resource handle.
      * @param { ?Record<string, string> } [header] - header info in the http response.
-     * @param { string } [redirctUrl] - redirect URL.
+     * @param { ?string } [redirctUrl] - redirect URL.
      * @syscap  SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 16
