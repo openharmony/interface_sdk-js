@@ -100,7 +100,7 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @systemapi
-     * @since 14
+     * @since 15
      */
     HIDE_SENSITIVE_TYPE = 'ohos.media.params.hideSensitiveType',
 
