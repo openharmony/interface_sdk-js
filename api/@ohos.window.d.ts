@@ -5989,6 +5989,40 @@ declare namespace window {
     off(type: 'windowWillClose', callback?: Callback<void, Promise<boolean>>): void;
 
     /**
+     * Register the callback of window highlight state change
+     *
+     * @param { 'windowHighlightChange' } type - The value is fixed at 'windowHighlightChange', indicating the window highlight state change event.
+     * @param { Callback<boolean> } callback - Callback used to return the highlight status of the window.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    on(type: 'windowHighlightChange', callback: Callback<boolean>): void;
+
+    /**
+     * Unregister the callback of window highlight state change
+     *
+     * @param { 'windowHighlightChange' } type - The value is fixed at 'windowHighlightChange', indicating the window highlight change event.
+     * @param { Callback<boolean> } callback - Callback used to return the highlight status of the window.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    off(type: 'windowHighlightChange', callback?: Callback<boolean>): void;  
+
+    /**
      * Bind dialog to the target window.
      *
      * @param { rpc.RemoteObject } token - token of the target window.
@@ -6661,6 +6695,26 @@ declare namespace window {
      * @since 13
      */
     requestFocus(isFocused: boolean): Promise<void>;
+
+    /**
+     * Sets whether exclusively highlighted or not.
+     *
+     * @param { boolean } exclusivelyHighlighted Whether the window can become highlight exclusively when it gain focus. The value
+     *                                           true means that the window can cause the window outside the current window link to 
+     *                                           lose its highlight state, and false means the opposite.
+     * @returns { Promise<void> } - Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 15
+     */
+    setExclusivelyHighlighted(exclusivelyHighlighted: boolean): Promise<void>;
 
     /**
      * Sets whether keep screen on or not.
