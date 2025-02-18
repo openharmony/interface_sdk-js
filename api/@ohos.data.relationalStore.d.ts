@@ -4124,7 +4124,6 @@ declare namespace relationalStore {
      *
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
-     * @returns { Promise<number> } The number of values that were inserted if the operation is successful. returns -1 otherwise.
      * @returns { number } The number of values that were inserted if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
