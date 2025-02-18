@@ -1778,7 +1778,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   cachedCount(count: number, isShown: boolean): SwiperAttribute;
 
