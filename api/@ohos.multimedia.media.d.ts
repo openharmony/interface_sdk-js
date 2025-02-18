@@ -3639,7 +3639,7 @@ declare namespace media {
      * @atomicservice
      * @since 16
      */
-    LOADING_ERROR_RESOURCE_NOT_EXIST = 2,
+    LOADING_ERROR_NO_RESOURCE = 2,
 
     /**
      * If the uuid of resource handle is valid, client should return.
