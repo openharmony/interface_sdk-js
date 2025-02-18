@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -101,6 +101,311 @@ declare namespace distributedDeviceManager {
      * @since 10
      */
     UNAVAILABLE = 2,
+  }
+
+  /**
+   * Device profile information filter options.
+   * @interface DeviceProfileInfoFilterOptions
+   * @syscap SystemCapability.DistributedHardware.DeviceManager
+   * @systemapi
+   * @since 15
+   */
+  interface DeviceProfileInfoFilterOptions {
+    /**
+     * Whether to request data from the cloud.
+     * @type { boolean }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    isCloud : boolean,
+    /**
+     * Device ID list.
+     * @type { Array<string> }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    deviceIdList?: Array<string>;
+  }
+
+  /**
+   * Service profile information.
+   * @interface ServiceProfileInfo
+   * @syscap SystemCapability.DistributedHardware.DeviceManager
+   * @systemapi
+   * @since 15
+   */
+  interface ServiceProfileInfo {
+    /**
+     * Device ID.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    deviceId: string;
+
+    /**
+     * Service ID.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    serviceId: string;
+
+    /**
+     * Service Type.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    serviceType: string;
+
+    /**
+     * Service data.
+     * @type { ?string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    data?: string;
+  }
+
+  /**
+   * Device profile information.
+   * @interface DeviceProfileInfo
+   * @syscap SystemCapability.DistributedHardware.DeviceManager
+   * @systemapi
+   * @since 15
+   */
+  interface DeviceProfileInfo {
+    /**
+     * Device ID.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    deviceId: string;
+
+    /**
+     * Device SerialNumber.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    deviceSn: string;
+
+    /**
+     * MAC address.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    mac: string;
+
+    /**
+     * Device model.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    model: string;
+
+    /**
+     * Device type.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    deviceType: string;
+
+    /**
+     * Manufacturer.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    manufacturer: string;
+
+    /**
+     * Device name.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    deviceName: string;
+
+    /**
+     * Product ID.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    productId: string;
+
+    /**
+     * Product sub ID.
+     * @type { ?string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    subProductId?: string;
+
+    /**
+     * Sdk version.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    sdkVersion: string;
+
+    /**
+     * Bluetooth BLE MAC address.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    bleMac: string;
+
+    /**
+     * Bluetooth BR MAC address.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    brMac: string;
+
+    /**
+     * Starflash MAC address.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    sleMac: string;
+
+    /**
+     * Firmware version.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    firmwareVersion: string;
+
+    /**
+     * Hardware version.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    hardwareVersion: string;
+
+    /**
+     * Software version.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    softwareVersion: string;
+
+    /**
+     * Protocol type.
+     * @type { number }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    protocolType: number;
+
+    /**
+     * Setup type.
+     * @type { number }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    setupType: number;
+
+    /**
+     * Wise device ID.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    wiseDeviceId: string;
+
+    /**
+     * Wise user ID.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    wiseUserId: string;
+
+    /**
+     * Register time.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    registerTime: string;
+
+    /**
+     * Modify time.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    modifyTime: string;
+
+    /**
+     * Share time.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    shareTime: string;
+
+    /**
+    * Whether the device is a local device.
+    * @type { boolean }
+    * @syscap SystemCapability.DistributedHardware.DeviceManager
+    * @systemapi
+    * @since 15
+    */
+    isLocalDevice: boolean;
+
+    /**
+     * Service profile information list.
+     * @type { Array<ServiceProfileInfo> }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    services?: Array<ServiceProfileInfo>;
   }
 
   /**
@@ -593,6 +898,31 @@ declare namespace distributedDeviceManager {
       * @since 10
       */
     off(type: 'replyResult', callback?: Callback<{ param: string; }>): void;
+
+    /**
+     * Get the device list under the same account.
+     *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @param { DeviceProfileInfoFilterOptions } filterOptions - parameter for querying the device list, The parameter type is map,such as:
+     *      "isCloud" : false,           -  false - Get from the cahce of device side.
+     *                                      true  - Get from the cloud.
+     *      "deviceIdList" : [],         - Get by specified device ids.
+     * @returns { Promise<Array<DeviceProfileInfo>> } - Returns a list of devices.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified type is greater than 500.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 11600102 - Failed to obtain service.
+     * @throws { BusinessError } 11600106 - Get data from cloud fail.
+     * @throws { BusinessError } 11600107 - A login account is required.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    getDeviceProfileInfoList(filterOptions: DeviceProfileInfoFilterOptions): Promise<Array<DeviceProfileInfo>>;
   }
 }
 
