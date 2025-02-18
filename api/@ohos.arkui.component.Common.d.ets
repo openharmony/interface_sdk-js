@@ -685,7 +685,7 @@ export @interface ObjectLink {}
  * @atomicservice
  * @since 11
  */
-declare interface ProvideOptions {
+export interface ProvideOptions {
   /**
    * Override the @Provide of any parent or parent of parent @Component.@Provide({allowOverride: "name"}) is
    * also allowed to be used even when there is no ancestor @Component whose @Provide would be overridden.
@@ -1049,7 +1049,7 @@ export @interface MonitorDecorator {
  * @atomicservice
  * @since 12
  */
-declare interface IMonitor {
+export interface IMonitor {
   /**
    * Array of changed paths(keys)
    *
@@ -1084,7 +1084,7 @@ declare interface IMonitor {
  * @atomicservice
  * @since 12
  */
-declare interface IMonitorValue<T> {
+export interface IMonitorValue<T> {
   /**
    * Get the previous value.
    *
@@ -1136,7 +1136,7 @@ declare interface IMonitorValue<T> {
  * @atomicservice
  * @since 11
  */
- declare interface AnimatableArithmetic<T> {
+ export interface AnimatableArithmetic<T> {
   /**
    * Define plus method
    *
@@ -14539,7 +14539,7 @@ export interface AttributeModifier<T> {
  * @atomicservice
  * @since 12
  */
-declare interface ContentModifier<T> {
+export interface ContentModifier<T> {
 
   /**
    * Defining applyContent function.
