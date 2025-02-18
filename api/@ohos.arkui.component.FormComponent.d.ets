@@ -13,10 +13,16 @@
  * limitations under the License.
  */
 
+
+
 /**
  * @file
  * @kit ArkUI
  */
+
+import Want from "./@ohos.app.ability.Want";
+import { Visibility } from './@ohos.arkui.component.Enums';
+import { CommonMethod } from './@ohos.arkui.component.Common';
 
 /**
  * Defines the FormDimension enum.
@@ -26,7 +32,7 @@
  * @systemapi
  * @since 7
  */
-declare enum FormDimension {
+export declare enum FormDimension {
   /**
    * 1 x 2 cards
    *
@@ -100,7 +106,7 @@ declare enum FormDimension {
  * @systemapi
  * @since 11
  */
-declare enum FormRenderingMode {
+export declare enum FormRenderingMode {
 
   /**
    *  Full color mode, this is default value
@@ -129,7 +135,7 @@ declare enum FormRenderingMode {
  * @systemapi
  * @since 12
  */
-declare enum FormShape {
+export declare enum FormShape {
     /**
      * The rect shape.
      *
@@ -157,7 +163,7 @@ declare enum FormShape {
  * @systemapi
  * @since 12
  */
-declare interface FormInfo {
+export interface FormInfo {
   /**
    * The id the form.
    *
@@ -236,7 +242,7 @@ declare interface FormInfo {
    * @systemapi
    * @since 12
    */
-  want?: import('../api/@ohos.app.ability.Want').default;
+  want?: Want;
 
   /**
    * The renderingMode of the form.
@@ -267,54 +273,7 @@ declare interface FormInfo {
  * @systemapi
  * @since 7
  */
-interface FormComponentInterface {
-  /**
-   * Set a new value.
-   *
-   * @param { {
-   * id: number;
-   * name: string;
-   * bundle: string;
-   * ability: string;
-   * module: string;
-   * dimension?: FormDimension;
-   * temporary?: boolean;
-   * want?: import('../api/@ohos.app.ability.Want').default;
-   * } } value
-   * @returns { FormComponentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 7
-   */
-  /**
-   * Set a new value.
-   *
-   * @param { object } value
-   * @returns { FormComponentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 9
-   */
-  /**
-   * Set a new value.
-   *
-   * @param { object } value
-   * @returns { FormComponentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 11
-   */
-  /**
-   * Set a new value of form info.
-   *
-   * @param { FormInfo } value
-   * @returns { FormComponentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 12
-   */
-  (value: FormInfo): FormComponentAttribute;
-}
+export type FormComponentInterface = (value: FormInfo) => FormComponentAttribute;
 
 /**
  * Defines the FormCallbackInfo.
@@ -324,7 +283,7 @@ interface FormComponentInterface {
  * @systemapi
  * @since 12
  */
-interface FormCallbackInfo {
+export interface FormCallbackInfo {
   /**
    * The id of the form.
    *
@@ -346,13 +305,15 @@ interface FormCallbackInfo {
   idString: string;
 }
 
+export interface FormSizeOptions { width: number; height: number }
+export interface ErrorOptions { errcode: number; msg: string }
 /**
  * @extends CommonMethod<FormComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 7
  */
-declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute> {
+export declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute> {
   /**
    * Sets the display area size of the card.
    *
@@ -362,7 +323,7 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @systemapi
    * @since 7
    */
-  size(value: { width: number; height: number }): FormComponentAttribute;
+  size(value: FormSizeOptions): FormComponentAttribute;
 
   /**
    * Card module name.
@@ -439,7 +400,7 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @systemapi
    * @since 7
    */
-  onError(callback: (info: { errcode: number; msg: string }) => void): FormComponentAttribute;
+  onError(callback: (info: ErrorOptions) => void): FormComponentAttribute;
 
   /**
    * Card to be redirected.
@@ -450,7 +411,7 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @systemapi
    * @since 7
    */
-  onRouter(callback: (info: any) => void): FormComponentAttribute;
+  onRouter(callback: (info: Object) => void): FormComponentAttribute;
 
   /**
    * Uninstall Card.
@@ -491,7 +452,7 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
  * @systemapi
  * @since 7
  */
-declare const FormComponent: FormComponentInterface;
+export declare const FormComponent: FormComponentInterface;
 
 /**
  * Defines FormComponent Component instance.
@@ -500,4 +461,4 @@ declare const FormComponent: FormComponentInterface;
  * @systemapi
  * @since 7
  */
-declare const FormComponentInstance: FormComponentAttribute;
+export declare const FormComponentInstance: FormComponentAttribute;

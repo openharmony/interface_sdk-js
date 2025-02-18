@@ -65,11 +65,7 @@ export declare class ForEachAttribute extends DynamicNode<ForEachAttribute> {
  * @atomicservice
  * @since 11
  */
-export type ForEachInterface = <T>(
-  arr: Array<T>,
-  itemGenerator: (item: T, index: number) => void,
-  keyGenerator?: (item: T, index: number) => string,
-)=> ForEachAttribute;
+export type ForEachInterface = ( arr: Array<Object>, itemGenerator: (item: Object, index: number) => void, keyGenerator?: (item: Object, index: number) => string)=> ForEachAttribute;
 
 /**
  * Defines ForEach Component.
@@ -101,4 +97,4 @@ export type ForEachInterface = <T>(
  * @atomicservice
  * @since 11
  */
-declare const ForEach: ForEachInterface;
+export declare const ForEach: ForEachInterface;
