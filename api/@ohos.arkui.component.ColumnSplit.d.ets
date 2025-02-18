@@ -17,7 +17,8 @@
  * @file
  * @kit ArkUI
  */
-
+import { Dimension } from './@ohos.arkui.component.Units'
+import { CommonMethod } from './@ohos.arkui.component.Common'
 /**
  * Defines the ColumnSplit component.
  *
@@ -42,33 +43,7 @@
  * @atomicservice
  * @since 11
  */
-interface ColumnSplitInterface {
-  /**
-   * Layout the subassemblies vertically and insert a horizontal divider line between each subassemblies.
-   *
-   * @returns { ColumnSplitAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Layout the subassemblies vertically and insert a horizontal divider line between each subassemblies.
-   *
-   * @returns { ColumnSplitAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Layout the subassemblies vertically and insert a horizontal divider line between each subassemblies.
-   *
-   * @returns { ColumnSplitAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  (): ColumnSplitAttribute;
-}
+export type ColumnSplitInterface = () => ColumnSplitAttribute;
 
 /**
  * Provides an interface for the style of a divider including start margin and end margin
@@ -87,7 +62,7 @@ interface ColumnSplitInterface {
  * @atomicservice
  * @since 11
  */
-interface ColumnSplitDividerStyle {
+export interface ColumnSplitDividerStyle {
   /**
    * Define the start margin of the divider
    *
@@ -155,7 +130,7 @@ interface ColumnSplitDividerStyle {
  * @atomicservice
  * @since 11
  */
-declare class ColumnSplitAttribute extends CommonMethod<ColumnSplitAttribute> {
+export declare class ColumnSplitAttribute extends CommonMethod<ColumnSplitAttribute> {
   /**
    * Indicates whether the split line can be dragged. The default value is false.
    *
@@ -228,7 +203,7 @@ declare class ColumnSplitAttribute extends CommonMethod<ColumnSplitAttribute> {
  * @atomicservice
  * @since 11
  */
-declare const ColumnSplitInstance: ColumnSplitAttribute;
+export declare const ColumnSplitInstance: ColumnSplitAttribute;
 
 /**
  * Defines ColumnSplit Component.
@@ -251,4 +226,4 @@ declare const ColumnSplitInstance: ColumnSplitAttribute;
  * @atomicservice
  * @since 11
  */
-declare const ColumnSplit: ColumnSplitInterface;
+export declare const ColumnSplit: ColumnSplitInterface;
