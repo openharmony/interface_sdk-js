@@ -3441,6 +3441,210 @@ declare namespace media {
   }
 
   /**
+   * Process the incoming request and return the unique handle to the open resource.
+   * @typedef { function } SourceOpenCallback
+   * @param { MediaSourceLoadingRequest } Request - open request parameters.
+   * @return { number } - return the handle of current resource open request.
+   *                      values less than or equal to zero mean failed.
+   *                    - client should return immediately.
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @atomicservice
+   * @since 16
+   */
+  type SourceOpenCallback = (request: MediaSourceLoadingRequest) => number;
+
+  /**
+   * Process the read request. Application can push data through the {@link #response} method of the request object.
+   * @typedef { function } SourceReadCallback
+   * @param { number } uuid - label the resource handle.
+   * @param { number } requestedOffset - current media data position from the start of the source.
+   * @param { number } requestedLength - current request length.
+   *                                   - -1 means reaching the end of the source, need to inform the player
+   *  -1 means                            of the end of the push through the {@link #finishLoading} method.
+   * @return { void } - client should return immediately.
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @atomicservice
+   * @since 16
+   */
+  type SourceReadCallback = (uuid: number, requestedOffset: number, requestedLength: number) => void;
+
+  /**
+   * Process the close request and release related resources.
+   * @typedef { function } SourceCloseCallback
+   * @param { number } uuid - label the resource handle.
+   * @return { void } - client should return immediately.
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @atomicservice
+   * @since 16
+   */
+  type SourceCloseCallback = (uuid: number) => void;
+
+  /**
+   * Media data loader. User can customize media data loader.
+   * @typedef MediaSourceLoader
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @atomicservice
+   * @since 16
+   */
+  interface MediaSourceLoader {
+    /**
+     * Callback function is implemented by application, which is used to handle resource opening requests.
+     * @type { SourceOpenCallback }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 16
+     */
+    open: SourceOpenCallback;
+
+    /**
+     * Callback function is implemented by application, which is used to handle resource read requests.
+     * @type { SourceReadCallback }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 16
+     */
+    read: SourceReadCallback;
+
+    /**
+     * Callback function is implemented by application, which is used to handle resource close request.
+     * @type { SourceCloseCallback }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 16
+     */
+    close: SourceCloseCallback;
+  }
+
+  /**
+   * Enumerates state change reason.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @atomicservice
+   * @since 16
+   */
+  enum LoadingRequestError {
+    /**
+     * If reach the resource end, client should return.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 16
+     */
+    LOADING_ERROR_SUCCESS = 0,
+
+    /**
+     * If resource not ready for access, client should return.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 16
+     */
+    LOADING_ERROR_NOT_READY = 1,
+
+    /**
+     * If resource url not exist, client should return.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 16
+     */
+    LOADING_ERROR_RESOURCE_NOT_EXIST = 2,
+
+    /**
+     * If the uuid of resource handle is valid, client should return.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 16
+    */
+    LOADING_ERROR_INVAID_HANDLE = 3,
+
+    /**
+     * If client has no right to request the resource, client should return.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 16
+     */
+    LOADING_ERROR_ACCESS_DENIED = 4,
+
+    /**
+     * If access time out, client should return.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 16
+     */
+    LOADING_ERROR_ACCESS_TIMEOUT = 5,
+
+    /**
+     * If authorization failed, client should return.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 16
+     */
+    LOADING_ERROR_AUTHORIZE_FAILED = 6,
+  }
+
+  /**
+   * Loading Request object. Application obtains the requested resource location through this object
+   * and send data to AVPlayer.
+   * @typedef MediaSourceLoadingRequest
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @atomicservice
+   * @since 16
+   */
+  interface MediaSourceLoadingRequest {
+    /**
+     * Resource to be opened by the application.
+     * @type { string } url - for resource location.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 16
+     */
+    url: string;
+
+    /**
+     * Headers attached to network request while player request data.
+     * @type { ?Record<string, string> } header - Client should set headers to the http request.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 16
+     */
+    header?: Record<string, string>;
+
+    /**
+     * The interface for application used to send requested data to AVPlayer.
+     * @param { number } uuid - label the resource handle.
+     * @param { number } offset - current media data position from start of the source.
+     * @param { ArrayBuffer } buffer - media data buffer which respond to the player.
+     * @return { number } - accept bytes for current read. The value less than zero means failed.
+     *                    - 2, means player need current data any more, the client should stop current read process.
+     *                    - 3, means player buffer is full, the client should wait for next read.
+     * @syscap  SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 16
+     */
+    respondData(uuid: number, offset: number, buffer: ArrayBuffer): number;
+
+    /**
+     * The interface for application used to send respond header to AVPlayer.
+     * Set it before calling the {@link #respondData()} in the first time.
+     * @param { number } uuid - label the resource handle.
+     * @param { ?Record<string, string> } [header] - header info in the http response.
+     * @param { string } [redirctUrl] - redirect URL.
+     * @syscap  SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 16
+     */
+    respondHeader(uuid: number, header?: Record<string, string>, redirctUrl?: string): void;
+
+    /**
+     * The interface for application used to notify player current request state.
+     * @param { number } uuid - label the resource handle.
+     * @param { LoadingRequestError } state - the request state.
+     * @syscap  SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 16
+     */
+    finishLoading(uuid: number, state: LoadingRequestError): void;
+  }
+
+  /**
    * Media source descriptor. User can set media data information
 
    * @typedef MediaSource
@@ -3457,6 +3661,15 @@ declare namespace media {
      * @since 12
      */
     setMimeType(mimeType: AVMimeTypes): void;
+
+    /**
+     * Set Media source loader to help player access MediaData.
+     * @param { MediaSourceLoader } resourceLoader - callback function interface set for player use.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 16
+     */
+    setMediaResourceLoaderDelegate(resourceLoader: MediaSourceLoader): void;
   }
 
   /**
