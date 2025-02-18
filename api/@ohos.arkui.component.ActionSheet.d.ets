@@ -18,9 +18,12 @@
  * @kit ArkUI
  */
 import { Resource } from "./global/resource";
-import { VoidCallback } from './@ohos.arkui.component.Units'
+import { VoidCallback, ResourceStr,ResourceColor,Dimension,BorderRadiuses,LocalizedEdgeColors,EdgeColors,
+  EdgeWidths,LocalizedEdgeWidths,EdgeStyles,LocalizedBorderRadiuses 
+} from './@ohos.arkui.component.Units'
 import { Callback } from "./@ohos.arkui.component.Common";
-import { DialogButtonStyle } from './@ohos.arkui.component.Enums';
+import { DialogButtonStyle,BorderStyle } from './@ohos.arkui.component.Enums';
+import { DialogAlignment } from './@ohso.arkui.component.AlertDialog';
 /**
  * The information of sheet.
  *
@@ -305,7 +308,7 @@ export interface ActionSheetButtonOptions {
  * @atomicservice
  * @since 13
  */
-interface ActionSheetOffset {
+export interface ActionSheetOffset {
   /**
    * Dx of the pop-up window relative to the alignment position.
    *
@@ -352,7 +355,7 @@ interface ActionSheetOffset {
  * @atomicservice
  * @since 11
  */
-interface ActionSheetOptions
+export interface ActionSheetOptions
 {
   /**
    * Title Properties
@@ -852,7 +855,7 @@ interface ActionSheetOptions
  * @atomicservice
  * @since 11
  */
-declare class ActionSheet {
+export declare class ActionSheet {
   /**
    * Invoking method display.
    *
@@ -877,5 +880,5 @@ declare class ActionSheet {
    * @atomicservice
    * @since 11
    */
-  static show(value: ActionSheetOptions);
+  static show(value: ActionSheetOptions):void;
 }
