@@ -153,6 +153,7 @@
       "SystemCapability.Location.Location.Gnss",
       "SystemCapability.Location.Location.Lite",
       "SystemCapability.Msdp.DeviceStatus.Stationary",
+      "SystemCapability.MultimodalAwarness.Motion",
       "SystemCapability.MultimodalInput.Input.Core",
       "SystemCapability.MultimodalInput.Input.InputDevice",
       "SystemCapability.MultimodalInput.Input.RemoteInputDevice",

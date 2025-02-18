@@ -47,6 +47,7 @@
     "SystemCapability.MultimodalInput.Input.Pointer",
     "SystemCapability.MultimodalInput.Input.ShortKey",
     "SystemCapability.MultimodalInput.Input.InfraredEmitter",
+    "SystemCapability.MultimodalAwarness.Motion",
     "SystemCapability.PowerManager.BatteryManager.Extension",
     "SystemCapability.PowerManager.DisplayPowerManager",
     "SystemCapability.PowerManager.ThermalManager",
