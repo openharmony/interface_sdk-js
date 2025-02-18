@@ -30,10 +30,13 @@ import { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
 import { CircleShape,EllipseShape,PathShape,RectShape } from './@ohos.arkui.shape';
 import { NavDestinationInfo,NavigationInfo,RouterPageInfo } from './@ohos.arkui.observer';
 import { UIContext } from './@ohos.arkui.UIContext';
-import { DrawContext } from './arkui/Graphics';
+import { DrawContext, LengthMetrics } from './arkui/Graphics';
 import { VisualEffect,Filter ,Blender} from './@ohos.graphics.uiEffect';
+import { FocusBoxStyle, FocusPriority} from './@ohos.arkui.component.Focus';
 import { ComponentContent } from './arkui/ComponentContent'
+import { ResizableOptions } from './@ohos.arkui.component.Image'
 import { Theme } from './@ohos.arkui.theme';
+import { ButtonType, ButtonStyleMode,ButtonRole } from './@ohos.arkui.component.Button'
 import {
   Area, ResourceColor, Dimension, ResourceStr, Font, Length, EdgeColors,
   LocalizedEdgeColors,BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions,Bias,
@@ -41,13 +44,17 @@ import {
   BorderOptions,OutlineOptions,EdgeOutlineStyles,EdgeOutlineWidths,OutlineRadiuses,Edges,LocalizedEdges,LocalizedPosition,
   AccessibilityOptions,ConstraintSizeOptions,EdgeWidth,DirectionalEdgesT
 } from './@ohos.arkui.component.Units';
+import { BaseGestureEvent, GestureRecognizer, GestureJudgeResult, GestureType,
+  GestureMask, GestureHandler,GesturePriority
+ } from './@ohos.arkui.component.Gesture';
+import { ScrollState } from './@ohos.arkui.component.List';
 import {
   AccessibilityHoverType, Curve, PlayMode, SharedTransitionEffectType, KeySource,BorderStyle,
-  HorizontalAlign, VerticalAlign, MouseButton, MouseAction, TransitionType, FontWeight,
+  HorizontalAlign, VerticalAlign, MouseButton, MouseAction, TransitionType, FontWeight,TouchType,
   FontStyle, Color, ColoringStrategy,Placement,ArrowPointPosition,ClickEffectLevel,NestedScrollMode,HitTestMode,
   Alignment,ImageRepeat,ImageSize,HoverEffect,Visibility,ItemAlign,Direction,Axis,GradientDirection,FunctionKey,
   ModifierKey,ObscuredReasons,RenderFit,LineCapStyle,LineJoinStyle,PixelRoundCalcPolicy,IlluminatedType,TextDecorationType,
-  TextDecorationStyle
+  TextDecorationStyle,KeyType, ResponseType, BarState, EdgeEffect
 } from './@ohos.arkui.component.Enums'
 /**
  * Defines the options of Component ClassDecorator.
