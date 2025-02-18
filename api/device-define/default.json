@@ -223,7 +223,6 @@
     "SystemCapability.Multimedia.Media.SoundPool",
     "SystemCapability.Multimedia.Audio.Spatialization",
     "SystemCapability.Multimedia.AudioHaptic.Core",
-    "SystemCapability.MultimodalAwarness.Motion",
     "SystemCapability.ArkUi.Graphics3D",
     "SystemCapability.Graphics.Drawing",
     "SystemCapability.Graphic.Graphic2D.NativeDrawing",

@@ -320,6 +320,7 @@
       "SystemCapability.DistributedDataManager.CloudSync.Config",
       "SystemCapability.DistributedDataManager.CloudSync.Client",
       "SystemCapability.DistributedDataManager.CloudSync.Server",
+      "SystemCapability.DistributedDataManager.DataIntelligence.Core",
       "SystemCapability.Ability.AbilityBase",
       "SystemCapability.Ability.AbilityRuntime.Core",
       "SystemCapability.Ability.AbilityRuntime.FAModel",
