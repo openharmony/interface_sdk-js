@@ -374,5 +374,55 @@ declare namespace formProvider {
    * @since 9
    */
   function isRequestPublishFormSupported(): Promise<boolean>;
+
+  /**
+   * Get infos of the published form belonging to current bundle.
+   * Client to communicate with FormManagerService.
+   *
+   * @param { string } formId - Indicates the form ID.
+   * @returns { Promise<formInfo.FormInfo> } Returns the formInfo.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * 16500050 - IPC connection error.
+   * 16500100 - Failed to obtain the configuration information.
+   * 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @atomicservice
+   * @since 16
+   */
+  function getPublishedFormInfoById(formId: string): Promise<formInfo.FormInfo>;
+
+  /**
+   * Get infos of all published forms belonging to current bundle.
+   * Client to communicate with FormManagerService.
+   *
+   * @returns { Promise<Array<formInfo.FormInfo>> } Returns the formInfo.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * 16500050 - IPC connection error.
+   * 16500100 - Failed to obtain the configuration information.
+   * 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @atomicservice
+   * @since 16
+   */
+  function getPublishedFormsInfo(): Promise<Array<formInfo.FormInfo>>;
+
+  /**
+   * Open the view of forms belonging to current bundle.
+   * Client to communication with FormManagerService.
+   *
+   * @param { Want } want - The want of the form to open.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * 16500050 - IPC connection error.
+   * 16500100 - Failed to obtain the configuration information.
+   * 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @atomicservice
+   * @since 16
+   */
+  function openFormManageView(want: Want): void;
+
 }
 export default formProvider;
