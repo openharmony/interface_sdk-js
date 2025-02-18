@@ -3684,7 +3684,7 @@ declare namespace media {
    */
   interface MediaSourceLoadingRequest {
     /**
-     * Resource to be opened by the application.
+     * Location for resource to be opened by the application.
      * @type { string }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
