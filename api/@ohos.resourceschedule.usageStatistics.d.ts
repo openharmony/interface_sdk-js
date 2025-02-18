@@ -132,6 +132,15 @@ declare namespace usageStatistics {
      * @since 9
      */
     infosEndTime?: number;
+
+    /**
+     * The app index of the application.
+     * @type { ?number }
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @since 15
+     */
+    appIndex?: number;
   }
 
   /**
@@ -742,6 +751,63 @@ declare namespace usageStatistics {
    * @since 9
    */
   function queryBundleStatsInfos(begin: number, end: number): Promise<BundleStatsMap>;
+
+  /**
+   * @typedef { Record<string, Array<BundleStatsInfo>> }
+   * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+   * @systemapi Hide this for inner system use.
+   * @since 15
+   */
+  type AppStatsMap = Record<string, Array<BundleStatsInfo>>;
+
+  /**
+   * Queries usage information about each application within a specified period.
+   * <p>This method queries usage information at the {@link #BY_OPTIMIZED} interval by default.</p>
+   *
+   * @permission ohos.permission.BUNDLE_ACTIVE_INFO
+   * @param { number } begin - Indicates the start time of the query period, in milliseconds.
+   * @param { number } end - Indicates the end time of the query period, in milliseconds.
+   * @returns { Promise<AppStatsMap> } the promise returned by queryAppStatsInfos.
+   * <p> the {@link AppStatsMap} objects containing the usage information about each application.</p>
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 10000001 - Memory operation failed.
+   * @throws { BusinessError } 10000002 - Parcel operation failed.
+   * @throws { BusinessError } 10000003 - System service operation failed.
+   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000006 - Failed to get the application information.
+   * @throws { BusinessError } 10000007 - Failed to get the system time.
+   * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+   * @systemapi Hide this for inner system use.
+   * @since 15
+   */
+  function queryAppStatsInfos(begin: number, end: number): Promise<AppStatsMap>;
+
+  /**
+   * Queries the last usage timestamp by bundleName and app index.
+   *
+   * @permission ohos.permission.BUNDLE_ACTIVE_INFO
+   * @param { string } bundleName - name of the application.
+   * @param { appInfo } bundle name and app index info for each application.
+   * @returns { Promise<AppStatsMap> } the promise returned by queryLastUseTime.
+   * <p> the {@link AppStatsMap} objects containing the usage information about each application.</p>
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 10000001 - Memory operation failed.
+   * @throws { BusinessError } 10000002 - Parcel operation failed.
+   * @throws { BusinessError } 10000003 - System service operation failed.
+   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000006 - Failed to get the application information.
+   * @throws { BusinessError } 10000007 - Failed to get the system time.
+   * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+   * @systemapi Hide this for inner system use.
+   * @since 15
+   */
+  function queryLastUseTime(appInfo: Record<string, Array<number>>): Promise<AppStatsMap>;
 
   /**
    * Declares interval type.
