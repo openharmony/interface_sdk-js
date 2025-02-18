@@ -23,6 +23,102 @@
 import { AsyncCallback } from './@ohos.base';
 
 /**
+ * Define the display mode of all kind of dialog
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+export enum LevelMode {
+  /**
+   * Display above all page levels.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  OVERLAY = 0,
+
+  /**
+   * Display within the current page.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  EMBEDDED = 1,
+}
+
+/**
+ * Define the immersive mode of all kind of dialog
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+export enum ImmersiveMode {
+  /**
+   * Mask covering the parent node.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  DEFAULT = 0,
+
+  /**
+   * Mask extend safe area includes status bar and navigation bar.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  EXTEND = 1,
+}
+
+/**
+ * Defines level order.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+export class LevelOrder {
+  /**
+   * Generate valid level order.
+   *
+   * @param { number } order - Clamp order with mininum number -100000 and maximum number 100000.
+   * @returns { LevelOrder } the order object.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  static clamp(order: number): LevelOrder
+
+  /**
+   * Get the order from LevelOrder object.
+   *
+   * @returns { number } the order number.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  getOrder(): number
+}
+
+/**
  * @namespace promptAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
@@ -238,7 +334,7 @@ declare namespace promptAction {
     enableHoverMode?: boolean;
   
     /**
-     * Defines the toast's diaplay area in hover mode.
+     * Defines the toast's display area in hover mode.
      *
      * @type { ?HoverModeAreaType }
      * @default HoverModeAreaType.BOTTOM_SCREEN
@@ -666,6 +762,28 @@ declare namespace promptAction {
     backgroundBlurStyle?: BlurStyle;
 
     /**
+     * Defines the dialog's background blur style with options
+     *
+     * @type { ?BackgroundBlurStyleOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
+
+    /**
+     * Defines the dialog's background effect with options
+     *
+     * @type { ?BackgroundEffectOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    backgroundEffect?: BackgroundEffectOptions;
+
+    /**
      * Defines the dialog's shadow.
      *
      * @type { ?(ShadowOptions | ShadowStyle) }
@@ -699,7 +817,139 @@ declare namespace promptAction {
      * @since 14
      */
     hoverModeArea?: HoverModeAreaType;
+
+    /**
+     * Callback function when the dialog appears.
+     *
+     * @type { ?Callback<void> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    onDidAppear?: Callback<void>;
+
+    /**
+     * Callback function when the dialog disappears.
+     *
+     * @type { ?Callback<void> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    onDidDisappear?: Callback<void>;
+
+    /**
+     * Callback function before the dialog openAnimation starts.
+     *
+     * @type { ?Callback<void> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    onWillAppear?: Callback<void>;
+
+    /**
+     * Callback function before the dialog closeAnimation starts.
+     *
+     * @type { ?Callback<void> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    onWillDisappear?: Callback<void>;
+
+    /**
+     * Determine the display level of the dialog.
+     *
+     * @type { ?LevelMode }
+     * @default LevelMode.OVERLAY
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    levelMode?: LevelMode;
+
+    /**
+     * The uniqueId of any node in the router or navigation page.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    levelUniqueId?: number;
+
+    /**
+     * Determine the immersive mode of the dialog.
+     *
+     * @type { ?ImmersiveMode }
+     * @default ImmersiveMode.DEFAULT
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    immersiveMode?: ImmersiveMode;
+
+    /**
+     * Determine the display order of the dialog.
+     *
+     * @type { ?LevelOrder }
+     * @default The value returns by LevelOrder.clamp(0)
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    levelOrder?: LevelOrder;
   }
+
+  /**
+   * The class used to control common dialog.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  class CommonController {
+    /**
+     * The constructor.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    constructor();
+
+    /**
+     * Close the corresponding common dialog.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    close(): void;
+  }
+
+  /**
+   * The class used to control dialog.
+   *
+   * @extends CommonController
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  class DialogController extends CommonController {}
 
   /**
    * Dialog base options
@@ -940,6 +1190,86 @@ declare namespace promptAction {
      * @since 14
      */
     hoverModeArea?: HoverModeAreaType;
+
+    /**
+     * Defines the customDialog's background blur style with options
+     *
+     * @type { ?BackgroundBlurStyleOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
+
+    /**
+     * Defines the customDialog's background effect with options
+     *
+     * @type { ?BackgroundEffectOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    backgroundEffect?: BackgroundEffectOptions;
+
+    /**
+     * Defines the distance between the customDialog and system keyboard.
+     *
+     * @type { ?LengthMetrics }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    keyboardAvoidDistance?: LengthMetrics;
+
+    /**
+     * Determine the display level of the dialog.
+     *
+     * @type { ?LevelMode }
+     * @default LevelMode.OVERLAY
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    levelMode?: LevelMode;
+
+    /**
+     * The uniqueId of any node in the router or navigation page.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    levelUniqueId?: number;
+
+    /**
+     * Determine the immersive mode of the dialog.
+     *
+     * @type { ?ImmersiveMode }
+     * @default ImmersiveMode.DEFAULT
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    immersiveMode?: ImmersiveMode;
+
+    /**
+     * Determine the display order of the dialog.
+     *
+     * @type { ?LevelOrder }
+     * @default The value returns by LevelOrder.clamp(0)
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    levelOrder?: LevelOrder;
   }
 
   /**
@@ -1078,6 +1408,173 @@ declare namespace promptAction {
      * @crossplatform
      * @atomicservice
      * @since 12
+     */
+    backgroundBlurStyle?: BlurStyle;
+  }
+
+  /**
+   * Corner radius type of DialogOptions.
+   *
+   * @typedef { Dimension | BorderRadiuses } DialogOptionsCornerRadius
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  declare type DialogOptionsCornerRadius = Dimension | BorderRadiuses;
+
+  /**
+   * Border width type of DialogOptions.
+   *
+   * @typedef { Dimension | EdgeWidths } DialogOptionsBorderWidth
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  declare type DialogOptionsBorderWidth = Dimension | EdgeWidths;
+
+  /**
+   * Border color type of DialogOptions.
+   *
+   * @typedef { ResourceColor | EdgeColors } DialogOptionsBorderColor
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  declare type DialogOptionsBorderColor = ResourceColor | EdgeColors;
+
+  /**
+   * Border style type of DialogOptions.
+   *
+   * @typedef { BorderStyle | EdgeStyles } DialogOptionsBorderStyle
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  declare type DialogOptionsBorderStyle = BorderStyle | EdgeStyles;
+
+  /**
+   * Shadow type of DialogOptions.
+   *
+   * @typedef { ShadowOptions | ShadowStyle } DialogOptionsShadow
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  declare type DialogOptionsShadow = ShadowOptions | ShadowStyle;
+
+  /**
+   * Dialog options
+   *
+   * @extends BaseDialogOptions
+   * @typedef DialogOptions
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  interface DialogOptions extends BaseDialogOptions {
+    /**
+     * Defines the dialog's background color.
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    backgroundColor?: ResourceColor;
+
+    /**
+     * Defines the dialog's corner radius.
+     *
+     * @type { ?DialogOptionsCornerRadius }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    cornerRadius?: DialogOptionsCornerRadius;
+
+    /**
+     * Defines the dialog's width.
+     *
+     * @type { ?Dimension }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    width?: Dimension;
+
+    /**
+     * Defines the dialog's height.
+     *
+     * @type { ?Dimension }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    height?: Dimension;
+
+    /**
+     * Defines the dialog's border width.
+     *
+     * @type { ?DialogOptionsBorderWidth }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    borderWidth?: DialogOptionsBorderWidth;
+
+    /**
+     * Defines the dialog's border color.
+     *
+     * @type { ?DialogOptionsBorderColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    borderColor?: DialogOptionsBorderColor;
+
+    /**
+     * Defines the dialog's border style.
+     *
+     * @type { ?DialogOptionsBorderStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    borderStyle?: DialogOptionsBorderStyle;
+
+    /**
+     * Defines the dialog's shadow.
+     *
+     * @type { ?DialogOptionsShadow }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    shadow?: DialogOptionsShadow;
+
+    /**
+     * Defines the dialog's background blur Style
+     *
+     * @type { ?BlurStyle }
+     * @default BlurStyle.COMPONENT_ULTRA_THICK
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
      */
     backgroundBlurStyle?: BlurStyle;
   }
@@ -1243,7 +1740,42 @@ declare namespace promptAction {
      * @atomicservice
      * @since 12
      */
-    isModal?: boolean;         
+    isModal?: boolean;
+    
+    /**
+     * Determine the display level of the dialog.
+     *
+     * @type { ?LevelMode }
+     * @default LevelMode.OVERLAY
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    levelMode?: LevelMode;
+
+    /**
+     * The uniqueId of any node in the router or navigation page.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    levelUniqueId?: number;
+
+    /**
+     * Determine the immersive mode of the dialog.
+     *
+     * @type { ?ImmersiveMode }
+     * @default ImmersiveMode.DEFAULT
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    immersiveMode?: ImmersiveMode;
   }
 
   /**
@@ -1300,7 +1832,7 @@ declare namespace promptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   function openToast(options: ShowToastOptions): Promise<number>;
 
@@ -1316,7 +1848,7 @@ declare namespace promptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   function closeToast(toastId: number): void;
 

@@ -83,7 +83,7 @@ declare namespace inputConsumer {
      * @type { ?boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
-     * @since 13
+     * @since 14
      */
     isRepeat?: boolean;
   }
@@ -234,6 +234,7 @@ declare namespace inputConsumer {
    * Obtains all system hotkeys. This API uses a promise to return the result.
    *
    * @returns { Promise<Array<HotkeyOptions>> } All system hotkeys.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 14
    */
@@ -247,8 +248,8 @@ declare namespace inputConsumer {
    * @param { Callback<HotkeyOptions> } callback - Callback used to return hotkey events.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 4200002 - The hotkey has been used by the system. You can call the {@Link
-   * <br> GetAllSystemHotkeys} interface to query all system hotkeys.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 4200002 - The hotkey has been used by the system.
    * @throws { BusinessError } 4200003 - The hotkey has been subscribed to by another.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 14
@@ -263,6 +264,7 @@ declare namespace inputConsumer {
    * @param { Callback<HotkeyOptions> } callback - Callback used to return hotkey events.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 14
    */

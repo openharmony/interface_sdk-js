@@ -18,11 +18,12 @@ import sys
 import optparse
 import shutil
 
-# d.ts directories to be deleted
+# d.ts directories to be deleted 需要排除的目录名称的列表
 remove_list = ["@internal", "common", "form", "liteWearable", "config", "syscapCheck"]
 
 
 # traversal all fill in project folder
+# 2、复制文件：将输入路径中的文件和目录复制到输出路径，并且跳过某些指定的目录
 def copy_files(input_path, output_path):
     for file in os.listdir(input_path):
         src = os.path.join(input_path, file)
@@ -33,6 +34,7 @@ def copy_files(input_path, output_path):
             shutil.copy(src, dst)
 
 
+# 1、参数解析：通过 optparse 库解析命令行参数，获取输入路径 (--input) 和输出路径 (--output)。
 def parse_args(args):
     parser = optparse.OptionParser()
     parser.add_option('--input', help='d.ts document input path')
@@ -48,5 +50,6 @@ def main(argv):
     copy_files(options.input, options.output)
 
 
+# 从指定的输入路径复制文件到输出路径，并在复制过程中 排除特定的文件夹。
 if __name__ == "__main__":
     exit(main(sys.argv))

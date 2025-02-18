@@ -292,7 +292,7 @@ declare namespace media {
 
   /**
    * Creates a AVTranscoder instance.
-   * 
+   *
    * @returns {Promise<AVTranscoder>} A Promise instance used to return AVTranscoder instance if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVTranscoder
@@ -1526,12 +1526,12 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @atomicservice
    * @since 12
-   */  
+   */
   type OnTrackChangeHandler = (index: number, isSelected: boolean) => void;
 
   /**
    * Defines the OnStateChange callback.
-   * 
+   *
    * @typedef { function } OnAVPlayerStateChangeHandle
    * @param { AVPlayerState } state - state for AVPlayer.
    * @param { StateChangeReason } reason - reason for state change.
@@ -1544,7 +1544,7 @@ declare namespace media {
 
   /**
    * Defines the OnBufferingUpdateHandler callback.
-   * 
+   *
    * @typedef { function } OnBufferingUpdateHandler
    * @param { BufferingInfoType } infoType - define the Buffering info Type.
    * @param { number } value - define the value of buffering info type if exist.
@@ -1557,7 +1557,7 @@ declare namespace media {
 
   /**
    * Defines the OnVideoSizeChangeHandler callback.
-   * 
+   *
    * @typedef { function } OnVideoSizeChangeHandler
    * @param { number } width - Value of video Width.
    * @param { number } height - Value of video Height.
@@ -1567,6 +1567,46 @@ declare namespace media {
    * @since 12
    */
   type OnVideoSizeChangeHandler = (width: number, height: number) => void;
+
+  /**
+   * SEI message.
+   *
+   * @typedef SeiMessage
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @atomicservice
+   * @since 16
+   */
+  interface SeiMessage {
+    /**
+     * Payload type of SEI message.
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 16
+     */
+    payloadType: number;
+
+    /**
+     * Payload data of SEI message.
+     * @type { ArrayBuffer }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 16
+     */
+    payload: ArrayBuffer;
+  }
+
+  /**
+   * Defines the OnSeiMessageHandle callback.
+   *
+   * @typedef { function } OnSeiMessageHandle
+   * @param { Array<SeiMessage> } messages - SEI messages.
+   * @param { ?number } playbackPosition - playback position.
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   * @atomicservice
+   * @since 16
+   */
+  type OnSeiMessageHandle = (messages: Array<SeiMessage>, playbackPosition?: number) => void;
 
   /**
    * Manages and plays media. Before calling an AVPlayer method, you must use createAVPlayer()
@@ -2132,14 +2172,35 @@ declare namespace media {
      *                             currently support SeekMode.SEEK_PREV_SYNC and SeekMode.SEEK_CLOSEST,
      *                             other values are invalid, the default value is SeekMode.SEEK_PREV_SYNC.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 202 - Called from Non-System applications. Return by promise.
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @systemapi
-     * @since 12
+     * @atomicservice
+     * @since 16
      */
     setPlaybackRange(startTimeMs: number, endTimeMs: number, mode?: SeekMode) : Promise<void>;
+
+    /**
+     * Get current playback position.
+     * @returns { number } return the time of current playback position - millisecond(ms)
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 16
+     */
+    getPlaybackPosition() : number;
+
+    /**
+     * Check whether the media stream currently being played by the player supports seek continuous.
+     * Should be called after {@link #prepare}.
+     * @returns { boolean } true: seek continuous is supported;
+     * false: seek continuous is not supported or the support status is uncertain.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @systemapi
+     * @since 15
+     */
+    isSeekContinuousSupported() : boolean;
 
     /**
      * Media URI. Mainstream media formats are supported.
@@ -2280,6 +2341,7 @@ declare namespace media {
     /**
      * Current playback position.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -2301,6 +2363,7 @@ declare namespace media {
     /**
      * Playback duration, When the data source does not support seek, it returns - 1, such as a live broadcast scenario.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -2316,6 +2379,7 @@ declare namespace media {
     /**
      * Playback state.
      * @type { AVPlayerState }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -2352,6 +2416,7 @@ declare namespace media {
     /**
      * Video width, valid after prepared.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -2367,6 +2432,7 @@ declare namespace media {
     /**
      * Video height, valid after prepared.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -3144,7 +3210,7 @@ declare namespace media {
      * @since 12
      */
     off(type: 'subtitleUpdate', callback?: Callback<SubtitleInfo>): void
-  
+
     /**
      * Subscribes listener for track change event.
      * @param { 'trackChange' } type - Type of the event to listen for.
@@ -3203,11 +3269,37 @@ declare namespace media {
      * @since 13
      */
     off(type: 'amplitudeUpdate', callback?: Callback<Array<number>>): void
+
+    /**
+     * Subscribes listener for video SEI message event, only for live video streaming.
+     * Call before the {@link #prepare}, repeated invocation overwrites the last subscribed callback and payload types.
+     *
+     * @param { 'seiMessageReceived' } type - Type of the playback event to listen for.
+     * @param { Array<number> } payloadTypes - The subscribed payload types of the SEI message.
+     * @param { OnSeiMessageHandle } callback - Callback to listen SEI message event with subscribed payload types.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 16
+     */
+    on(type: 'seiMessageReceived', payloadTypes: Array<number>, callback: OnSeiMessageHandle): void;
+
+    /**
+     * Unsubscribes listener for video SEI message event.
+     * @param { 'seiMessageReceived' } type - Type of the playback event to listen for.
+     * @param { Array<number> } payloadTypes - The payload types of the SEI message.
+     *                                        Null means unsubscribe all payload types.
+
+     * @param { OnSeiMessageHandle } callback - Callback to listen SEI message event with subscribed payload types.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 16
+     */
+    off(type: 'seiMessageReceived', payloadTypes?: Array<number>, callback?: OnSeiMessageHandle): void;
   }
 
   /**
    * Provides player statistic info.
-   * 
+   *
    * @typedef PlaybackInfo
    * @syscap SystemCapability.Multimedia.Media.Core
    * @since 12
@@ -3223,7 +3315,7 @@ declare namespace media {
 
   /**
    * Enumerates statistics info keys for player.
-   * 
+   *
    * @enum { string }
    * @syscap SystemCapability.Multimedia.Media.Core
    * @since 12
@@ -3756,6 +3848,24 @@ declare namespace media {
      * @since 13
      */
     preferredSubtitleLanguage?: string;
+
+    /**
+     * Show first frame on prepare.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 16
+     */
+    showFirstFrameOnPrepare?: boolean;
+
+    /**
+     * Customize the buffering threshold for start or restart playing. The unit is second.
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 16
+     */
+    preferredBufferDurationForPlaying?: number;
   }
 
   /**
@@ -3860,7 +3970,7 @@ declare namespace media {
   }
 
   /**
-    * DataSource descriptor. The caller needs to ensure that the fileSize and 
+    * DataSource descriptor. The caller needs to ensure that the fileSize and
     * callback is valid.
     *
     * @typedef AVDataSrcDescriptor
@@ -4239,7 +4349,7 @@ declare namespace media {
 
   /**
    * Defines the onMove callback.
-   * 
+   *
    * @typedef { function } OnAVRecorderStateChangeHandler
    * @param { AVRecorderState } state - state value for AVRecorder.
    * @param { StateChangeReason } reason - reason for state change.
@@ -4736,6 +4846,7 @@ declare namespace media {
     /**
      * Recorder state.
      * @type { AVRecorderState }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
@@ -4747,7 +4858,7 @@ declare namespace media {
      * Listens for recording audioCapturerChange events.
      * @param { 'audioCapturerChange' } type - Type of the audioCapturerChange event to listen for.
      * @param { Callback<audio.AudioCapturerChangeInfo> } callback - Callback used to listen device change event.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
@@ -4824,7 +4935,7 @@ declare namespace media {
      * @param { 'error' } type - Type of the recording error event to listen for.
      * @param { ErrorCallback } callback - Callback used to listen for the recorder error event.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 5400101 - No memory.
@@ -5285,7 +5396,7 @@ declare namespace media {
   /**
   * The maintenance of this interface has been stopped since version api 9. Please use AVRecorderState.
   * Describes video recorder states.
-  * 
+  *
   * @typedef { 'idle' | 'prepared' | 'playing' | 'paused' | 'stopped' | 'error' }
   * @syscap SystemCapability.Multimedia.Media.VideoRecorder
   * @systemapi
@@ -5297,7 +5408,7 @@ declare namespace media {
    * The maintenance of this interface has been stopped since version api 9. Please use AVRecorder.
    * Manages and record video. Before calling an VideoRecorder method, you must use createVideoRecorder()
    * to create an VideoRecorder instance.
-   * 
+   *
    * @typedef VideoRecorder
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
    * @systemapi
@@ -5310,7 +5421,7 @@ declare namespace media {
      * @param { VideoRecorderConfig } config - Recording parameters.
      * @param { AsyncCallback<void> } callback - A callback instance used to return when prepare completed.
      * @throws { BusinessError } 201 - Permission denied. Return by callback.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
@@ -5325,7 +5436,7 @@ declare namespace media {
      * @param { AsyncCallback<void> } callback - A callback instance used to return when prepare completed.
      * @throws { BusinessError } 201 - Permission denied. Return by callback.
      * @throws { BusinessError } 202 - Not System App.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
@@ -5340,7 +5451,7 @@ declare namespace media {
      * @param { VideoRecorderConfig } config - Recording parameters.
      * @returns { Promise<void> } A Promise instance used to return when prepare completed.
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -5355,7 +5466,7 @@ declare namespace media {
      * @returns { Promise<void> } A Promise instance used to return when prepare completed.
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
      * @throws { BusinessError } 202 - Not System App.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -5695,6 +5806,7 @@ declare namespace media {
     /**
      * video recorder state.
      * @type { VideoRecordState }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -6693,6 +6805,7 @@ declare namespace media {
     /**
      * Indicates the audio bit rate.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -6702,6 +6815,7 @@ declare namespace media {
     /**
      * Indicates the number of audio channels.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -6711,6 +6825,7 @@ declare namespace media {
     /**
      * Indicates the audio encoding format.
      * @type { CodecMimeType }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -6720,6 +6835,7 @@ declare namespace media {
     /**
      * Indicates the audio sampling rate.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -6729,6 +6845,7 @@ declare namespace media {
     /**
      * Indicates the output file format.
      * @type { ContainerFormatType }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -6738,6 +6855,7 @@ declare namespace media {
     /**
      * Indicates the video bit rate.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -6747,6 +6865,7 @@ declare namespace media {
     /**
      * Indicates the video encoding format.
      * @type { CodecMimeType }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -6756,6 +6875,7 @@ declare namespace media {
     /**
      * Indicates the video width.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -6765,6 +6885,7 @@ declare namespace media {
     /**
      * Indicates the video height.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -6774,6 +6895,7 @@ declare namespace media {
     /**
      * Indicates the video frame rate.
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9
@@ -7065,7 +7187,7 @@ declare namespace media {
      */
     sampleRate?: Array<number>;
   }
-  
+
   /**
    * Provides Range with lower and upper limit.
    *
@@ -7081,7 +7203,7 @@ declare namespace media {
      * @since 11
      */
     min: number;
-  
+
     /**
      * upper limit of the range
      * @type { number }
@@ -7366,7 +7488,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since 16
      */
     url?: string;
 
@@ -7403,6 +7525,13 @@ declare namespace media {
      * @since 12
      */
     metadata?: AVMetadata;
+    /**
+     * Set the longest duration allowed for current recording.
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 16
+    */
+    maxDuration?: number;
   }
 
   /**
@@ -7712,7 +7841,7 @@ declare namespace media {
 
   /**
    *  Enumerates AVScreenCaptureRecord preset types.
-   * 
+   *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @since 12
@@ -7734,7 +7863,7 @@ declare namespace media {
 
   /**
    *  Enumerates AVScreenCapture callback state type.
-   * 
+   *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @since 12
@@ -7872,6 +8001,13 @@ declare namespace media {
      * @since 12
      */
     preset?: AVScreenCaptureRecordPreset;
+    /**
+     * Indicates the screen to be recorded.
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 15
+     */
+    displayId?: number;
   }
 
   /**
@@ -7887,7 +8023,7 @@ declare namespace media {
      * Init AVScreenCaptureRecorder.
      * @param { AVScreenCaptureRecordConfig } config - AVScreenCaptureRecorder config.
      * @returns { Promise<void> } A Promise instance used to return when init completed.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3. Parameter verification failed. Return by promise.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -7990,7 +8126,7 @@ declare namespace media {
 
   /**
    * Provides the video transcode configuration definitions
-   * 
+   *
    * @typedef AVTranscoderConfig
    * @syscap SystemCapability.Multimedia.Media.AVTranscoder
    * @since 12
@@ -8057,11 +8193,11 @@ declare namespace media {
    * Transcode a source video file to a destination video file.
    * Before calling an AVTranscoder method, you must use @createAVTranscoder
    * to create an AVTranscoder instance.
-   * 
+   *
    * @typedef AVTranscoder
    * @syscap SystemCapability.Multimedia.Media.AVTranscoder
    * @since 12
-   */ 
+   */
   interface AVTranscoder {
     /**
      * Source media file descriptor. Mainstream media formats are supported.
@@ -8112,7 +8248,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
      */
-    pause(): Promise<void>;  
+    pause(): Promise<void>;
 
     /**
      * Resume AVTranscoder.
@@ -8206,7 +8342,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
      */
-    off(type:'progressUpdate', callback?: Callback<number>):void;  
+    off(type:'progressUpdate', callback?: Callback<number>):void;
   }
 }
 export default media;

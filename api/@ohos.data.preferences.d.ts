@@ -150,6 +150,34 @@ declare namespace preferences {
   const MAX_VALUE_LENGTH: number;
 
   /**
+   * the storage type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+   * @atomicservice
+   * @since 16
+   */
+  enum StorageType {
+    /**
+     * XML storage type
+     *
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @atomicservice
+     * @since 16
+     */
+    XML = 0,
+
+    /**
+     * CLKV storage type
+     *
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @atomicservice
+     * @since 16
+     */
+    CLKV
+  }
+
+  /**
    * Manages preferences file configurations.
    *
    * @interface Options
@@ -202,6 +230,16 @@ declare namespace preferences {
      * @since 11
      */
     dataGroupId?: string | null | undefined;
+
+    /**
+     * The preferences storage type.
+     *
+     * @type { ?(StorageType | null | undefined) }
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @atomicservice
+     * @since 16
+     */
+    storageType?: StorageType | null | undefined;
   }
 
   /**
@@ -427,6 +465,16 @@ declare namespace preferences {
    */
   function getPreferencesSync(context: Context, options: Options): Preferences;
 
+  /**
+   * check the {@link StorageType} type is supported or not on current system.
+   * @param { StorageType } type - Indicates storage type which want to check.
+   * @returns { boolean } a boolean value indicates this system support the type or not.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+   * @atomicservice
+   * @since 16
+   */
+  function isStorageTypeSupported(type: StorageType): boolean;
   /**
    * Deletes a {@link Preferences} instance matching a specified preferences file name
    * from the cache which is performed by removePreferencesFromCache and deletes the

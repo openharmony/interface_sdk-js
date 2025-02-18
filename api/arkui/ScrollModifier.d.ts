@@ -25,7 +25,7 @@
  * Defines Scroll Modifier
  *
  * @extends ScrollAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<ScrollAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

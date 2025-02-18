@@ -107,6 +107,20 @@ export default class UIExtensionContentSession {
   loadContent(path: string, storage?: LocalStorage): void;
 
   /**
+   * Loads content by named router.
+   *
+   * @param { string } name - name of the page to which the content will be loaded.
+   * @param { LocalStorage } [storage] - The data object shared within the content instance loaded by the page.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 16
+   */
+  loadContentByName(name: string, storage?: LocalStorage): void;
+
+  /**
    * UI extension uses this method to start a specific ability.If the caller application is in foreground,
    * you can use this method to start ability; If the caller application is in the background,
    * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.

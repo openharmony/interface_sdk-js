@@ -23,6 +23,7 @@ import { Callback } from '@ohos.base';
 /**
  * Declare Component AtomicServiceWeb.
  *
+ * @struct { AtomicServiceWeb }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
@@ -78,6 +79,16 @@ export declare struct AtomicServiceWeb {
    */
   @Prop
   forceDarkAccess?: boolean;
+  /**
+   * Sets the nested scroll options.
+   *
+   * @type { ?(NestedScrollOptions | NestedScrollOptionsExt) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  @Prop
+  nestedScroll?: NestedScrollOptions | NestedScrollOptionsExt;
   /**
    * The navPathStack to control page route in Navigation and NavDestination.
    *

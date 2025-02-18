@@ -25,7 +25,7 @@
  * Defines Video Modifier
  *
  * @extends VideoAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<VideoAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

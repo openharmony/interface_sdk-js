@@ -373,7 +373,19 @@ declare type OnDidChangeCallback = (rangeBefore: TextRange, rangeAfter: TextRang
  * @atomicservice
  * @since 12
  */
-declare type EditableTextOnChangeCallback = (value: string, previewText?: PreviewText) => void;
+/**
+ * Callback when input sometimes has info of previewText.
+ *
+ * @typedef { function } EditableTextOnChangeCallback
+ * @param { string } value - Value of body text, without previewText value.
+ * @param { PreviewText } [previewText] - info of previewText, contains previewText value and start index.
+ * @param { TextChangeOptions } [options] - contains the selection range before and after the change, as well as the old content.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare type EditableTextOnChangeCallback = (value: string, previewText?: PreviewText, options?: TextChangeOptions) => void;
 
 /**
  * Define the text selection controller.
@@ -951,6 +963,42 @@ declare class TextMenuItemId {
    * @since 13
    */
   static readonly AI_WRITER: TextMenuItemId;
+
+  /**
+   * Indicates the TextMenuItemId to translate the selected content.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  static readonly TRANSLATE: TextMenuItemId;
+
+  /**
+   * Indicates the TextMenuItemId to search the selected content.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  static readonly SEARCH: TextMenuItemId;
+
+  /**
+   * Indicates the TextMenuItemId to share the selected content.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  static readonly SHARE: TextMenuItemId;
 }
 
 /**
@@ -993,6 +1041,16 @@ declare interface TextMenuItem {
    * @since 12
    */
   id: TextMenuItemId;
+  /**
+   * Customize what the menu item shortcut displays.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  labelInfo?: ResourceStr;
 }
 
 /**
@@ -1086,7 +1144,7 @@ interface DecorationStyleResult {
  */
 declare interface FontSettingOptions {
   /**
-    * Define weather VariableFontWeight is supported.
+    * Define whether VariableFontWeight is supported.
     *
     * @type { ?boolean }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1097,3 +1155,200 @@ declare interface FontSettingOptions {
     */
   enableVariableFontWeight?: boolean;
  }
+
+ /**
+ * The TextChangeOptions.
+ * @interface TextChangeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare interface TextChangeOptions {
+  /**
+   * The selected area before the change.
+   *
+   * @type { TextRange }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  rangeBefore: TextRange;
+
+  /**
+   * The selected area after the change.
+   *
+   * @type { TextRange }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  rangeAfter: TextRange;
+
+  /**
+   * The content before the change.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  oldContent: string;
+
+  /**
+   * The info of PreviewText before the change.
+   *
+   * @type { PreviewText }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  oldPreviewText: PreviewText;
+}
+
+/**
+ * Define the editableText Component changed value.
+ *
+ * @interface EditableTextChangeValue
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+interface EditableTextChangeValue {
+  /**
+   * Value of body text, without previewText value.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  content: string;
+
+  /**
+   * Info of previewText, contains previewText value and start index.
+   *
+   * @type { ?PreviewText }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  previewText?: PreviewText;
+
+  /**
+   * The TextChangeOptions.
+   *
+   * @type { TextChangeOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  options?: TextChangeOptions;
+}
+
+ /**
+  * Defines text menu show mode.
+  *
+  * @enum { number }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 16
+  */
+declare enum TextMenuShowMode {
+  /**
+   * Display the text selection menu in the current window.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  DEFAULT = 0,
+
+  /**
+   * Prefer to display the text selection menu in a separate window
+   * and continue to display it within the current window if a separate window is not supported
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  PREFER_WINDOW = 1,
+}
+
+ /**
+  * Defines text menu options.
+  *
+  * @interface TextMenuOptions
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 16
+  */
+declare interface TextMenuOptions {
+  /**
+   * Text menu show mode.
+   *
+   * @type { ?TextMenuShowMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  showMode?: TextMenuShowMode;
+}
+/**
+ * Defines keyboard appearance.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
+declare enum KeyboardAppearance {
+  /**
+   * Default appearance mode, don't adopt immersive styles
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  NONE_IMMERSIVE = 0,
+
+  /**
+   * Immersive mode
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  IMMERSIVE = 1,
+
+  /**
+   * Light immersive style
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  LIGHT_IMMERSIVE = 2,
+
+  /**
+   * Dark immersive style
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  DARK_IMMERSIVE = 3,
+}

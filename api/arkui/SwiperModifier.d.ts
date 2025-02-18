@@ -25,7 +25,7 @@
  * Defines Swiper Modifier
  *
  * @extends SwiperAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<SwiperAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

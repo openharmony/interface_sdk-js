@@ -180,6 +180,36 @@ declare namespace privacyManager {
    * @permission ohos.permission.PERMISSION_USED_STATS
    * @param { number } tokenID - Token ID of the application.
    * @param { Permissions } permissionName - Name of the permission to be started.
+   * @param { number } pid - Pid of the application, default -1.
+   * @param { PermissionUsedType } usedType - Used type of the permission accessed, default NORMAL_TYPE.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
+   * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
+   * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters, or the count value is invalid.
+   * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
+   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not an user_grant permission.
+   * @throws { BusinessError } 12100004 - The API is used repeatedly with the same input.
+   *  It means the application specified by the tokenID has been using the specified permission.
+   * @throws { BusinessError } 12100007 - The service is abnormal.
+   * @throws { BusinessError } 12100008 - Out of memory.
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @since 16
+   */
+  function startUsingPermission(
+    tokenID: number,
+    permissionName: Permissions,
+    pid?: number,
+    usedType?: PermissionUsedType
+  ): Promise<void>;
+
+  /**
+   * Start using sensitive permission.
+   *
+   * @permission ohos.permission.PERMISSION_USED_STATS
+   * @param { number } tokenID - Token ID of the application.
+   * @param { Permissions } permissionName - Name of the permission to be started.
    * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
@@ -218,6 +248,33 @@ declare namespace privacyManager {
    * @since 9
    */
   function stopUsingPermission(tokenID: number, permissionName: Permissions): Promise<void>;
+
+  /**
+   * Stop using sensitive permission.
+   *
+   * @permission ohos.permission.PERMISSION_USED_STATS
+   * @param { number } tokenID - Token ID of the application.
+   * @param { Permissions } permissionName - Name of the permission to be stopped.
+   * @param { number } pid - Pid of the application, default -1.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
+   * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
+   * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters, or the count value is invalid.
+   * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
+   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not an user_grant permission.
+   * @throws { BusinessError } 12100004 - The API is not used in pair with 'startUsingPermission'.
+   * @throws { BusinessError } 12100007 - The service is abnormal.
+   * @throws { BusinessError } 12100008 - Out of memory.
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @since 16
+   */
+  function stopUsingPermission(
+    tokenID: number,
+    permissionName: Permissions,
+    pid?: number
+  ): Promise<void>;
 
   /**
    * Stop using sensitive permission.
@@ -310,6 +367,37 @@ declare namespace privacyManager {
   function getPermissionUsedTypeInfos(tokenId?: number, permissionName?: Permissions): Promise<Array<PermissionUsedTypeInfo>>;
 
   /**
+   * Sets the toggle state of permission access records for the current user.
+   *
+   * @permission ohos.permission.PERMISSION_USED_STATS
+   * @param { boolean } status - The toggle status to be set.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
+   * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
+   * @throws { BusinessError } 12100007 - The service is abnormal.
+   * @throws { BusinessError } 12100009 - Common inner error.
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @since 16
+   */
+  function setPermissionUsedRecordToggleStatus(status: boolean): Promise<void>;
+
+  /**
+   * Obtains the toggle state of permission access records of the current user.
+   *
+   * @permission ohos.permission.PERMISSION_USED_STATS
+   * @returns { Promise<boolean> } Return the toggle status.
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
+   * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
+   * @throws { BusinessError } 12100007 - The service is abnormal.
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @since 16
+   */
+  function getPermissionUsedRecordToggleStatus(): Promise<boolean>;
+
+  /**
    * Enum for permission for status.
    *
    * @enum { number } PermissionActiveStatus
@@ -356,6 +444,16 @@ declare namespace privacyManager {
    */
   interface ActiveChangeResponse {
     /**
+     * AccessTokenID which called the interface
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @since 16
+     */
+    callingTokenId?: number;
+
+    /**
      * AccessTokenID
      *
      * @type { number }
@@ -384,6 +482,7 @@ declare namespace privacyManager {
      * @since 9
      */
     deviceId: string;
+
     /**
      * The active status name
      *
@@ -393,6 +492,16 @@ declare namespace privacyManager {
      * @since 9
      */
     activeStatus: PermissionActiveStatus;
+
+    /**
+     * Used type of the permission accessed.
+     *
+     * @type { ?PermissionUsedType }
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @since 16
+     */
+    usedType?: PermissionUsedType;
   }
 
   /**

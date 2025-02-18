@@ -25,7 +25,7 @@
  * Defines RichEditor Modifier
  *
  * @extends RichEditorAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<RichEditorAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

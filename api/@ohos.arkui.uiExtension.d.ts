@@ -116,34 +116,37 @@ declare namespace uiExtension {
     off(type: 'windowSizeChange', callback?: Callback<window.Size>): void;
 
     /**
-     * Register the callback of windowRectChange
+     * Register the callback of rectChange
      *
-     * @param { 'windowRectChange' } type - The value is fixed at 'windowRectChange', indicating the window rect change event.
-     * @param { Callback<window.RectChangeOptions> } callback - Callback used to return the RectChangeOptions.
+     * @param { 'rectChange' } type - The value is fixed at 'rectChange', indicating the component rect change event.
+     * @param { 'number' } reasons - The reasons of component rect change.
+     * @param { Callback<RectChangeOptions> } callback - Callback used to return the RectChangeOptions.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 14
      */
-    on(type: 'windowRectChange', callback: Callback<window.RectChangeOptions>): void;
+    on(type: 'rectChange', reasons: number, callback: Callback<RectChangeOptions>): void;
 
     /**
-     * Unregister the callback of windowRectChange
+     * Unregister the callback of rectChange
      *
-     * @param { 'windowRectChange' } type - The value is fixed at 'windowRectChange', indicating the window rect change event.
-     * @param { Callback<window.RectChangeOptions> } callback - Callback used to return the RectChangeOptions.
+     * @param { 'rectChange' } type - The value is fixed at 'rectChange', indicating the component rect change event.
+     * @param { Callback<RectChangeOptions> } callback - Callback used to return the RectChangeOptions.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 14
      */
-    off(type: 'windowRectChange', callback?: Callback<window.RectChangeOptions>): void;
+    off(type: 'rectChange', callback?: Callback<RectChangeOptions>): void;
 
     /**
      * Hide the non-secure windows.
@@ -201,15 +204,99 @@ declare namespace uiExtension {
      */
      setWaterMarkFlag(enable: boolean): Promise<void>;
 
-    /**
-      * The properties of the UIExtension window
+     /**
+      * Set events that only need to be handled by the UIExtension provider
       *
-      * @type { WindowProxyProperties } 
+      * @param { EventFlag } eventFlags - The events to be set.
+      * @returns { Promise<void> } - The promise returned by the function
+      * @throws { BusinessError } 401 - Parameter error. Possible cause: 
+      * <br> 1. Mandatory parameters are left unspecified.
+      * <br> 2. Incorrect parameters types.
+      * <br> 3. Parameter verification failed.
+      * @throws { BusinessError } 1300002 - This window state is abnormal.
+      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
       * @syscap SystemCapability.ArkUI.ArkUI.Full
       * @atomicservice
-      * @since 14
+      * @since 16
       */
+     occupyEvents(eventFlags: number): Promise<void>;
+
+    /**
+     * The properties of the UIExtension window
+     *
+     * @type { WindowProxyProperties } 
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 14
+     */
     properties: WindowProxyProperties;
+  }
+
+  /**
+   * Gesture event type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  enum EventFlag {
+    /**
+     * None gesture event
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    EVENT_NONE = 0x00000000,
+    /**
+     * Pan gesture left events
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    EVENT_PAN_GESTURE_LEFT = 0x00000001,
+    /**
+     * Pan gesture right events
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    EVENT_PAN_GESTURE_RIGHT = 0x00000002,
+    /**
+     * Pan gesture up events
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    EVENT_PAN_GESTURE_UP = 0x00000004,
+    /**
+     * Pan gesture down events
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    EVENT_PAN_GESTURE_DOWN = 0x00000008,
+    /**
+     * Click gesture events
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    EVENT_CLICK = 0x00000100,
+    /**
+     * Long press gesture events
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 16
+     */
+    EVENT_LONG_PRESS = 0x00000200,
   }
 
   /**
@@ -261,6 +348,55 @@ declare namespace uiExtension {
      * @since 14
      */
     uiExtensionHostWindowProxyRect: window.Rect;
+  }
+
+  /**
+   * Defines the reason of component rect change
+   *
+   * @enum { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 14
+   */
+  enum RectChangeReason {
+    /**
+     * Host window rect change
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 14
+     */
+    HOST_WINDOW_RECT_CHANGE = 0x0001,
+  }
+
+  /**
+   * Rect change options
+   *
+   * @interface RectChangeOptions
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 14
+   */
+  interface RectChangeOptions {
+    /**
+     * Rect of UIExtension Component
+     *
+     * @type { window.Rect }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 14
+     */
+    rect: window.Rect,
+
+    /**
+     * Rect change reason
+     *
+     * @type { RectChangeReason }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 14
+     */
+    reason: RectChangeReason
   }
 }
 

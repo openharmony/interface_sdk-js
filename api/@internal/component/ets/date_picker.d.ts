@@ -123,6 +123,47 @@ declare interface DatePickerResult {
 }
 
 /**
+ * Defines the mode of the date picker.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare enum DatePickerMode {
+  /**
+   * Defines a mode that displays the date in months, days of month, and years.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  DATE = 0,
+
+  /**
+   * Defines a mode that displays the date in months and years.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  YEAR_AND_MONTH = 1,
+
+  /**
+   * Defines a mode that displays the date in months and days of the month.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  MONTH_AND_DAY = 2,
+}
+
+/**
  * Defines the options of DatePicker.
  *
  * @interface DatePickerOptions
@@ -224,6 +265,17 @@ declare interface DatePickerOptions {
    * @since 11
    */
   selected?: Date;
+
+  /**
+   * Defines the mode of the date picker.
+   *
+   * @type { ?DatePickerMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  mode?: DatePickerMode;
 }
 
 /**
@@ -336,6 +388,18 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
   lunar(value: boolean): DatePickerAttribute;
 
   /**
+   * Date selector: true: displays the lunar calendar. false: The lunar calendar is not displayed.
+   *
+   * @param { Optional<boolean> } isLunar
+   * @returns { DatePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  lunar(isLunar: Optional<boolean>): DatePickerAttribute;
+
+  /**
    * Sets the text style of disappearing items
    *
    * @param { PickerTextStyle } value - indicates the text style of disappearing items.
@@ -355,6 +419,18 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @since 11
    */
   disappearTextStyle(value: PickerTextStyle): DatePickerAttribute;
+
+  /**
+   * Sets the text style of disappearing items
+   *
+   * @param { Optional<PickerTextStyle> } style - indicates the text style of disappearing items.
+   * @returns { DatePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  disappearTextStyle(style: Optional<PickerTextStyle>): DatePickerAttribute;
 
   /**
    * Sets the text style of normal items
@@ -378,6 +454,18 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
   textStyle(value: PickerTextStyle): DatePickerAttribute;
 
   /**
+   * Sets the text style of normal items
+   *
+   * @param { Optional<PickerTextStyle> } style - indicates the text style of normal items.
+   * @returns { DatePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  textStyle(style: Optional<PickerTextStyle>): DatePickerAttribute;
+
+  /**
    * Sets the text style of selected items
    *
    * @param { PickerTextStyle } value - indicates the text style of selected items.
@@ -397,6 +485,18 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @since 11
    */
   selectedTextStyle(value: PickerTextStyle): DatePickerAttribute;
+
+  /**
+   * Sets the text style of selected items
+   *
+   * @param { Optional<PickerTextStyle> } style - indicates the text style of selected items.
+   * @returns { DatePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  selectedTextStyle(style: Optional<PickerTextStyle>): DatePickerAttribute;
 
   /**
    * This event is triggered when a DatePicker date or time is selected.
@@ -437,9 +537,44 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onDateChange(callback: Callback<Date>): DatePickerAttribute;
+
+  /**
+   * This event is triggered when a DatePicker date or time is selected.
+   *
+   * @param { Optional<Callback<Date>> } callback
+   * @returns { DatePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */  
+  onDateChange(callback: Optional<Callback<Date>>): DatePickerAttribute;
+
+  /**
+   * If the attribute is set, the crown rotation sensitivity can be changed.
+   *
+   * @param { Optional<CrownSensitivity> } sensitivity
+   * @returns { DatePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): DatePickerAttribute;
+  
+  /**
+   * Enable or disable haptic feedback.
+   *
+   * @param { Optional<boolean> } enable - Default value is true, set false to disable haptic feedback.
+   * @returns { DatePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  enableHapticFeedback(enable: Optional<boolean>): DatePickerAttribute;
 }
 
 /**
@@ -786,7 +921,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onCancel?: VoidCallback;
 
@@ -825,7 +960,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onDateAccept?: Callback<Date>;
 
@@ -853,7 +988,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onDateChange?: Callback<Date>;
 
@@ -900,6 +1035,28 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
   backgroundBlurStyle?: BlurStyle;
 
   /**
+   * Defines the datePickerDialog's background blur style with options
+   *
+   * @type { ?BackgroundBlurStyleOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
+
+  /**
+   * Defines the datePickerDialog's background effect with options
+   *
+   * @type { ?BackgroundEffectOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  backgroundEffect?: BackgroundEffectOptions;
+
+  /**
    * Callback function when the dialog appears.
    *
    * @type { ?function }
@@ -915,7 +1072,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onDidAppear?: VoidCallback;
 
@@ -935,7 +1092,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onDidDisappear?: VoidCallback;
 
@@ -955,7 +1112,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onWillAppear?: VoidCallback;
 
@@ -975,7 +1132,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   onWillDisappear?: VoidCallback;
 
@@ -1024,6 +1181,17 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @since 14
    */
   hoverModeArea?: HoverModeAreaType;
+
+  /**
+   * Enable or disable haptic feedback.
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  enableHapticFeedback?: boolean;
 }
 
 /**

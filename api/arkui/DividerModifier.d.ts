@@ -25,7 +25,7 @@
  * Defines Divider Modifier
  *
  * @extends DividerAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<DividerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

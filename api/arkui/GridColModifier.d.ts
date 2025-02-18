@@ -25,7 +25,7 @@
  * Defines GridCol Modifier
  *
  * @extends GridColAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<GridColAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

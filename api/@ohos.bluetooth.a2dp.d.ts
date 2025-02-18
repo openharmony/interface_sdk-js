@@ -79,6 +79,7 @@ declare namespace a2dp {
   /**
    * Manager a2dp source profile.
    *
+   * @extends BaseProfile
    * @typedef A2dpSourceProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform

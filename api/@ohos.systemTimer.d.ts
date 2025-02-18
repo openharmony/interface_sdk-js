@@ -242,6 +242,30 @@ declare namespace systemTimer {
      * @since 7
      */
     callback?: () => void;
+
+    /**
+     * Indicates whether the timer is restored after the system restarts.
+     * True indicates the timer is restored, and false indicates the timer is not restored.
+     * The default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.MiscServices.Time
+     * @systemapi
+     * @since 15
+     */
+    autoRestore?: boolean;
+
+    /**
+     * Indicates the name of the timer.
+     * The default value is empty string.
+     * The length of the name cannot be longer than 64 bytes, and the name can not be set the same name as other timers under the same UID.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.MiscServices.Time
+     * @systemapi
+     * @since 15
+     */
+    name?: string;
   }
 }
 

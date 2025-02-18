@@ -23,6 +23,7 @@ import { RenderNode } from './RenderNode';
 import { Size, Position, Edges, LengthMetrics, SizeT } from './Graphics';
 import { DrawContext } from './Graphics';
 import { ComponentContent } from './ComponentContent';
+import { BusinessError } from '../@ohos.base';
 
 /**
  * Layout constraint, include the max size, the min size and the reference size for children to calculate percent.
@@ -67,6 +68,69 @@ declare interface LayoutConstraint {
    * @since 12
    */
   percentReference: Size;
+}
+
+/**
+ * Defines the cross-language options.
+ * 
+ * @interface CrossLanguageOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 15
+ */
+declare interface CrossLanguageOptions {
+  /**
+   * Defines if it enables setting attributes cross-language. Default value is false.
+   * 
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  attributeSetting?: boolean
+}
+
+/**
+ * Enum for the expand mode.
+ * 
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 15
+ */
+export enum ExpandMode {
+  /**
+   * Do not expand the children of node.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  NOT_EXPAND = 0,
+
+  /**
+   * Expand the children of node.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  EXPAND = 1,
+
+  /**
+   * Expand the children of node if needed.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  LAZY_EXPAND = 2,
 }
 
 /**
@@ -195,6 +259,41 @@ export class FrameNode {
   getChild(index: number): FrameNode | null;
 
   /**
+   * Get a child of the current FrameNode by index.
+   *
+   * @param { number } index - The index of the desired node in the children of FrameNode.
+   * @param { ExpandMode } expandMode - The expand mode. Default value is ExpandMode.EXPAND.
+   * @returns { FrameNode | null } - Returns a FrameNode. When the required node does not exist, returns null.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  getChild(index: number, expandMode?: ExpandMode): FrameNode | null;
+
+  /**
+   * Get the index of the current FrameNode's first child node which is on the tree.
+   * 
+   * @returns { number } - Returns the index of the current FrameNode's first child node which is on the tree.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  getFirstChildIndexWithoutExpand(): number;
+
+  /**
+   * Get the index of the current FrameNode's last child node which is on the tree.
+   * 
+   * @returns { number } - Returns the index of the current FrameNode's last child node which is on the tree.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  getLastChildIndexWithoutExpand(): number;
+
+  /**
    * Get the first child of the current FrameNode.
    *
    * @returns {  FrameNode | null } - Returns a FrameNode, which is first child of the current FrameNode. If current FrameNode does not have child node, returns null.
@@ -249,6 +348,20 @@ export class FrameNode {
    * @since 12
    */
   getChildrenCount(): number;
+
+  /**
+   * Move node to the target Framenode as child.
+   * 
+   * @param { FrameNode } targetParent - The target parent node.
+   * @param { number } index - The index which the node is moved to. If the value is a negative number or invalid,
+   * the node is moved to the end of the target parent node. Moves to the end of the target parent node by default.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  moveTo(targetParent: FrameNode, index?: number): void;
 
   /**
    * Dispose the FrameNode immediately.
@@ -650,6 +763,49 @@ export class FrameNode {
    * @since 12
    */
   addComponentContent<T>(content: ComponentContent<T>): void;
+
+  /**
+   * Set the cross-language options of the target FrameNode.
+   * 
+   * @param { CrossLanguageOptions } options - The cross-language options.
+   * @throws { BusinessError } 100022 - The FrameNode cannot be set whether to support cross-language common attribute setting.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  setCrossLanguageOptions(options: CrossLanguageOptions): void;
+
+  /**
+   * Get the cross-language options of the target FrameNode.
+   * 
+   * @returns { CrossLanguageOptions } - Returns the cross-language options of the target FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  getCrossLanguageOptions(): CrossLanguageOptions;
+
+  /**
+   * Recycle current FrameNode From JsFrameNode.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  recycle(): void;
+
+  /**
+   * Reuse current FrameNode From JsFrameNode.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  reuse(): void;
 }
 
 /**
@@ -925,6 +1081,34 @@ export namespace typeNode {
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'Scroll'): Scroll;
+
+  /**
+   * Get the attribute instance of FrameNode to set attributes.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'Scroll' } nodeType - node type.
+   * @returns { ScrollAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  function getAttribute(node: FrameNode, nodeType: 'Scroll'): ScrollAttribute | undefined;
+
+  /**
+   * Bind the controller of FrameNode.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { Scroller } controller - the controller which is bind to the target FrameNode.
+   * @param { 'Scroll' } nodeType - node type.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. the type of the node is error.
+   * 2. the node is null or undefined.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  function bindController(node: FrameNode, controller: Scroller, nodeType: 'Scroll'): void;
 
   /**
    * Define the FrameNode type for RelativeContainer.
@@ -1268,7 +1452,7 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   type Checkbox = TypedFrameNode<CheckboxInterface, CheckboxAttribute>;
 
@@ -1280,7 +1464,7 @@ export namespace typeNode {
    * @returns { Checkbox } - Return Checkbox type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   function createNode(context: UIContext, nodeType: 'Checkbox'): Checkbox;
 
@@ -1291,7 +1475,7 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   type CheckboxGroup = TypedFrameNode<CheckboxGroupInterface, CheckboxGroupAttribute>;
 
@@ -1303,7 +1487,7 @@ export namespace typeNode {
    * @returns { CheckboxGroup } - Return CheckboxGroup type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   function createNode(context: UIContext, nodeType: 'CheckboxGroup'): CheckboxGroup;
 
@@ -1314,7 +1498,7 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   type Radio = TypedFrameNode<RadioInterface, RadioAttribute>;
 
@@ -1326,7 +1510,7 @@ export namespace typeNode {
    * @returns { Radio } - Return Radio type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   function createNode(context: UIContext, nodeType: 'Radio'): Radio;
 
@@ -1337,7 +1521,7 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   type Rating = TypedFrameNode<RatingInterface, RatingAttribute>;
 
@@ -1349,7 +1533,7 @@ export namespace typeNode {
    * @returns { Rating } - Return Rating type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   function createNode(context: UIContext, nodeType: 'Rating'): Rating;
 
@@ -1360,7 +1544,7 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   type Select = TypedFrameNode<SelectInterface, SelectAttribute>;
 
@@ -1372,7 +1556,7 @@ export namespace typeNode {
    * @returns { Select } - Return Select type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   function createNode(context: UIContext, nodeType: 'Select'): Select;
 
@@ -1383,7 +1567,7 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   type Slider = TypedFrameNode<SliderInterface, SliderAttribute>;
 
@@ -1395,7 +1579,7 @@ export namespace typeNode {
    * @returns { Slider } - Return Slider type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   function createNode(context: UIContext, nodeType: 'Slider'): Slider;
 
@@ -1406,7 +1590,7 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   type Toggle = TypedFrameNode<ToggleInterface, ToggleAttribute>;
 
@@ -1419,7 +1603,7 @@ export namespace typeNode {
    * @returns { Toggle } - Return Toggle type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 13
+   * @since 16
    */
   function createNode(context: UIContext, nodeType: 'Toggle', options?: ToggleOptions): Toggle;
 
@@ -1430,7 +1614,7 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   type Marquee = TypedFrameNode<MarqueeInterface, MarqueeAttribute>;
 
@@ -1442,7 +1626,7 @@ export namespace typeNode {
    * @returns { Marquee } - Return Marquee type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   function createNode(context: UIContext, nodeType: 'Marquee'): Marquee;
 
@@ -1453,7 +1637,7 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   type TextArea = TypedFrameNode<TextAreaInterface, TextAreaAttribute>;
 
@@ -1465,7 +1649,7 @@ export namespace typeNode {
    * @returns { TextArea } - Return TextArea type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   function createNode(context: UIContext, nodeType: 'TextArea'): TextArea;
 
@@ -1476,7 +1660,7 @@ export namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   type SymbolGlyph = TypedFrameNode<SymbolGlyphInterface, SymbolGlyphAttribute>;
 
@@ -1488,7 +1672,7 @@ export namespace typeNode {
    * @returns { SymbolGlyph } - Return SymbolGlyph type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 13
+   * @since 14
    */
   function createNode(context: UIContext, nodeType: 'SymbolGlyph'): SymbolGlyph;
 

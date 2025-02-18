@@ -32,6 +32,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @deprecated since 16
  */
 declare enum LocationIconStyle {
   /**
@@ -46,6 +47,7 @@ declare enum LocationIconStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   * @deprecated since 16
    */
   FULL_FILLED = 0,
 
@@ -61,6 +63,7 @@ declare enum LocationIconStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   * @deprecated since 16
    */
   LINES = 1
 }
@@ -79,6 +82,7 @@ declare enum LocationIconStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @deprecated since 16
  */
 declare enum LocationDescription {
   /**
@@ -93,6 +97,7 @@ declare enum LocationDescription {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   * @deprecated since 16
    */
   CURRENT_LOCATION = 0,
 
@@ -108,6 +113,7 @@ declare enum LocationDescription {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   * @deprecated since 16
    */
   ADD_LOCATION = 1,
 
@@ -123,6 +129,7 @@ declare enum LocationDescription {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   * @deprecated since 16
    */
   SELECT_LOCATION = 2,
 
@@ -138,6 +145,7 @@ declare enum LocationDescription {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   * @deprecated since 16
    */
   SHARE_LOCATION = 3,
 
@@ -153,6 +161,7 @@ declare enum LocationDescription {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   * @deprecated since 16
    */
   SEND_LOCATION = 4,
 
@@ -168,6 +177,7 @@ declare enum LocationDescription {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   * @deprecated since 16
    */
   LOCATING = 5,
 
@@ -183,6 +193,7 @@ declare enum LocationDescription {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   * @deprecated since 16
    */
   LOCATION = 6,
 
@@ -198,6 +209,7 @@ declare enum LocationDescription {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   * @deprecated since 16
    */
   SEND_CURRENT_LOCATION = 7,
 
@@ -213,6 +225,7 @@ declare enum LocationDescription {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   * @deprecated since 16
    */
   RELOCATION = 8,
 
@@ -228,6 +241,7 @@ declare enum LocationDescription {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   * @deprecated since 16
    */
   PUNCH_IN = 9,
 
@@ -243,6 +257,7 @@ declare enum LocationDescription {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   * @deprecated since 16
    */
   CURRENT_POSITION = 10
 }
@@ -261,6 +276,7 @@ declare enum LocationDescription {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @deprecated since 16
  */
 declare interface LocationButtonOptions {
   /**
@@ -277,6 +293,7 @@ declare interface LocationButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   * @deprecated since 16
    */
   icon?: LocationIconStyle;
 
@@ -294,6 +311,7 @@ declare interface LocationButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   * @deprecated since 16
    */
   text?: LocationDescription;
 
@@ -311,6 +329,7 @@ declare interface LocationButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   * @deprecated since 16
    */
   buttonType?: ButtonType;
 }
@@ -329,6 +348,7 @@ declare interface LocationButtonOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @deprecated since 16
  */
 declare enum LocationButtonOnClickResult {
   /**
@@ -343,6 +363,7 @@ declare enum LocationButtonOnClickResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   * @deprecated since 16
    */
   SUCCESS = 0,
 
@@ -358,6 +379,7 @@ declare enum LocationButtonOnClickResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   * @deprecated since 16
    */
   TEMPORARY_AUTHORIZATION_FAILED = 1
 }
@@ -376,6 +398,7 @@ declare enum LocationButtonOnClickResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @deprecated since 16
  */
 interface LocationButtonInterface {
   /**
@@ -392,6 +415,7 @@ interface LocationButtonInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   * @deprecated since 16
    */
   (): LocationButtonAttribute;
 
@@ -413,9 +437,23 @@ interface LocationButtonInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   * @deprecated since 16
    */
   (options: LocationButtonOptions): LocationButtonAttribute;
 }
+
+/**
+ * Callback function when the location button is clicked.
+ *
+ * @typedef { function } LocationButtonCallback
+ * @param { ClickEvent } event - The click event.
+ * @param { LocationButtonOnClickResult } result - The result of click event.
+ * @param { BusinessError<void> } [error] - The error code and message of click event.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
+type LocationButtonCallback = (event: ClickEvent, result: LocationButtonOnClickResult, error?: BusinessError<void>) => void;
 
 /**
  * Defines the attributes of the location button.
@@ -431,6 +469,7 @@ interface LocationButtonInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @deprecated since 16
  */
 declare class LocationButtonAttribute extends SecurityComponentMethod<LocationButtonAttribute> {
   /**
@@ -450,7 +489,16 @@ declare class LocationButtonAttribute extends SecurityComponentMethod<LocationBu
    * @atomicservice
    * @since 11
    */
-  onClick(event: (event: ClickEvent, result: LocationButtonOnClickResult) => void): LocationButtonAttribute;
+  /**
+   * Called when the location button is clicked.
+   *
+   * @param { LocationButtonCallback } event
+   * @returns { LocationButtonAttribute } Returns the attribute of the location button.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  onClick(event: LocationButtonCallback): LocationButtonAttribute;
 }
 
 /**
@@ -467,6 +515,8 @@ declare class LocationButtonAttribute extends SecurityComponentMethod<LocationBu
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @deprecated since 16
+ * @useinstead ohos.abilityAccessCtrl#requestPermissionsFromUser
  */
 declare const LocationButton: LocationButtonInterface;
 
@@ -482,5 +532,6 @@ declare const LocationButton: LocationButtonInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @deprecated since 16
  */
 declare const LocationButtonInstance: LocationButtonAttribute;

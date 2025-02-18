@@ -25,7 +25,7 @@
  * Defines Shape Modifier
  *
  * @extends ShapeAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<ShapeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

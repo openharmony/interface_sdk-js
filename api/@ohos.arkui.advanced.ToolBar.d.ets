@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -36,6 +36,14 @@ import { LengthMetrics } from './@ohos.arkui.node';
  * @atomicservice
  * @since 11
  */
+/**
+ * Declare enum ItemState
+ * @enum { ItemState }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
 export declare enum ItemState {
   /**
    * Enable type.
@@ -47,6 +55,13 @@ export declare enum ItemState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Enable type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   ENABLE = 1,
   /**
@@ -60,6 +75,13 @@ export declare enum ItemState {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Disable type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   DISABLE = 2,
   /**
    * Activate type.
@@ -72,6 +94,13 @@ export declare enum ItemState {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Activate type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   ACTIVATE = 3
 }
 
@@ -83,6 +112,14 @@ export declare enum ItemState {
  * @atomicservice
  * @since 13
  */
+/**
+ * Defines toolBar symbolGlyph options.
+ *
+ * @interface ToolBarSymbolGlyphOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
 export interface ToolBarSymbolGlyphOptions {
 
   /**
@@ -93,6 +130,14 @@ export interface ToolBarSymbolGlyphOptions {
    * @atomicservice
    * @since 13
    */
+  /**
+   * Modifier of toolbar's normal symbol.
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
   normal?: SymbolGlyphModifier;
 
   /**
@@ -102,6 +147,14 @@ export interface ToolBarSymbolGlyphOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 13
+   */
+  /**
+   * Modifier of toolbar's activated symbol.
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
    */
   activated?: SymbolGlyphModifier;
 }
@@ -116,6 +169,13 @@ export interface ToolBarSymbolGlyphOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ */
+/**
+ * Declare type ToolBarOption
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
  */
 @Observed
 export declare class ToolBarOption {
@@ -132,6 +192,14 @@ export declare class ToolBarOption {
   * @atomicservice
   * @since 11
   */
+  /**
+  * Define text content.
+  * @type { ResourceStr }.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 16
+  */
   content: ResourceStr;
   /**
    * Define the action event.
@@ -145,6 +213,14 @@ export declare class ToolBarOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Define the action event.
+   * @type { ?() => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   action?: () => void;
   /**
@@ -160,6 +236,14 @@ export declare class ToolBarOption {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Define icon resource.
+   * @type { ?Resource }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   icon?: Resource;
   /**
    * Define item type.
@@ -174,6 +258,14 @@ export declare class ToolBarOption {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Define item type.
+   * @type { ?ItemState }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   state?: ItemState;
   /**
    * Define text fontColor.
@@ -181,6 +273,14 @@ export declare class ToolBarOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 13
+   */
+  /**
+   * Define text fontColor.
+   * @type { ?ResourceColor }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   textColor?: ResourceColor;
   /**
@@ -190,6 +290,14 @@ export declare class ToolBarOption {
    * @atomicservice
    * @since 13
    */
+  /**
+   * Text fontColor when the item is activated.
+   * @type { ?ResourceColor }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   activatedTextColor?: ResourceColor;
   /**
    * Define icon fillColor.
@@ -198,6 +306,14 @@ export declare class ToolBarOption {
    * @atomicservice
    * @since 13
    */
+  /**
+   * Define icon fillColor.
+   * @type { ?ResourceColor }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   iconColor?: ResourceColor;
   /**
    * Icon fillColor when the item is activated.
@@ -205,6 +321,14 @@ export declare class ToolBarOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 13
+   */
+  /**
+   * Icon fillColor when the item is activated.
+   * @type { ?ResourceColor }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   activatedIconColor?: ResourceColor;
   /**
@@ -215,7 +339,43 @@ export declare class ToolBarOption {
    * @atomicservice
    * @since 13
    */
+  /**
+   * Item symbol icon.
+   *
+   * @type { ?ToolBarSymbolGlyphOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
   toolBarSymbolOptions?: ToolBarSymbolGlyphOptions;
+  /**
+   * The accessibilityText of item.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityText?: ResourceStr;
+  /**
+   * The accessibilityDescription of item.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityDescription?: ResourceStr;
+  /**
+   * The accessibilityLevel of item.
+   *
+   * @type { ?string }
+   * @default "auto"
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  accessibilityLevel?: string;
 }
 
 /**
@@ -229,6 +389,13 @@ export declare class ToolBarOption {
  * @atomicservice
  * @since 11
  */
+/**
+ * Declare ToolBarOptions use in ToolBar
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
 @Observed
 export declare class ToolBarOptions extends Array<ToolBarOption> {
 }
@@ -238,6 +405,13 @@ export declare class ToolBarOptions extends Array<ToolBarOption> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 13
+ */
+/**
+ * Declare ToolBarModifier use in ToolBar
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
  */
 export declare class ToolBarModifier {
   /**
@@ -249,6 +423,16 @@ export declare class ToolBarModifier {
    * @atomicservice
    * @since 13
    */
+  /**
+   * Sets the height of the toolBar.
+   *
+   * @param { LengthMetrics } height - toolBar's height.
+   * @returns { ToolBarModifier } returns the instance of the ToolBarModifier.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   height(height: LengthMetrics): ToolBarModifier;
   /**
    * Sets the backgroundColor of the toolBar.
@@ -258,6 +442,16 @@ export declare class ToolBarModifier {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 13
+   */
+  /**
+   * Sets the backgroundColor of the toolBar.
+   *
+   * @param { ResourceColor } backgroundColor - toolBar's backgroundColor.
+   * @returns { ToolBarModifier } returns the instance of the ToolBarModifier.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   backgroundColor(backgroundColor: ResourceColor): ToolBarModifier;
   /**
@@ -269,6 +463,16 @@ export declare class ToolBarModifier {
    * @atomicservice
    * @since 13
    */
+  /**
+   * Sets the left and right padding of the toolbar.
+   *
+   * @param { LengthMetrics } padding - left and right padding.
+   * @returns { ToolBarModifier } returns the instance of the ToolBarModifier.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   padding(padding: LengthMetrics): ToolBarModifier;
   /**
    * Sets whether or not to display the press status effect.
@@ -278,6 +482,16 @@ export declare class ToolBarModifier {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 13
+   */
+  /**
+   * Sets whether or not to display the press status effect.
+   *
+   * @param { boolean } stateEffect - press status effect.
+   * @returns { ToolBarModifier } returns the instance of the ToolBarModifier.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   stateEffect(stateEffect: boolean): ToolBarModifier;
 }
@@ -292,6 +506,13 @@ export declare class ToolBarModifier {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ */
+/**
+ * Declare Component ToolBar
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
  */
 @Component
 export declare struct ToolBar {
@@ -308,6 +529,14 @@ export declare struct ToolBar {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Define toolbar list array.
+   * @type { ToolBarOptions }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   @ObjectLink toolBarList: ToolBarOptions;
   /**
    * Define toolbar activate item index, default is -1.
@@ -321,6 +550,14 @@ export declare struct ToolBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Define toolbar activate item index, default is -1.
+   * @type { ?number }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   @Prop activateIndex?: number;
   /**
@@ -336,6 +573,14 @@ export declare struct ToolBar {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Define toolbar controller.
+   * @type { TabsController }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   controller: TabsController;
   /**
    * Define divider Modifier.
@@ -344,6 +589,14 @@ export declare struct ToolBar {
    * @atomicservice
    * @since 13
    */
+  /**
+   * Define divider Modifier.
+   * @type { ?DividerModifier }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   @Prop dividerModifier?: DividerModifier;
   /**
    * Define toolbar modifier.
@@ -351,6 +604,14 @@ export declare struct ToolBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 13
+   */
+  /**
+   * Define toolbar modifier.
+   * @type { ?ToolBarModifier }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   @Prop toolBarModifier?: ToolBarModifier;
 }

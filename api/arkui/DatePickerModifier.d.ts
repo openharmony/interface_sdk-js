@@ -25,7 +25,7 @@
  * Defines DatePicker Modifier
  *
  * @extends DatePickerAttribute
- * @implements AttributeModifier
+ * @implements AttributeModifier<DatePickerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12

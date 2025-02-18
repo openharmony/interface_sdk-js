@@ -60,6 +60,25 @@ declare namespace appControl {
   }
 
   /**
+   * Indicates the ability component type when uninstalled.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+   * @systemapi
+   * @since 15
+   */
+  export enum UninstallComponentType {
+    /**
+     * Indicates the service extension ability type.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+     * @systemapi
+     * @since 15
+     */
+    EXTENSION = 1,
+  }
+
+  /**
    * Indicates when to intercept the specified application.
    *
    * @enum { number }
@@ -197,7 +216,7 @@ declare namespace appControl {
    * @typedef UninstallDisposedRule
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since 14
+   * @since 15
    */
   export interface UninstallDisposedRule {
     /**
@@ -206,19 +225,19 @@ declare namespace appControl {
      * @type { Want }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since 14
+     * @since 15
      */
     want: Want;
 
     /**
      * Indicates the type of the ability that will be pulled up when interception occurs.
      *
-     * @type { ComponentType }
+     * @type { UninstallComponentType }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since 14
+     * @since 15
      */
-    componentType: ComponentType;
+    uninstallComponentType: UninstallComponentType;
 
     /**
      * Indicates priority of the rule.
@@ -226,7 +245,7 @@ declare namespace appControl {
      * @type { number }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
-     * @since 14
+     * @since 15
      */
     priority: number;
   }
@@ -482,9 +501,10 @@ declare namespace appControl {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700061 - AppIndex is not in the valid range.
    * @throws { BusinessError } 17700074 - The specified appIdentifier is invalid.
+   * @throws { BusinessError } 17700075 - The specified bundleName of want is not the same with caller.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since 14
+   * @since 15
    */
   function setUninstallDisposedRule(appIdentifier: string, rule: UninstallDisposedRule, appIndex?: number): void;
   
@@ -503,7 +523,7 @@ declare namespace appControl {
    * @throws { BusinessError } 17700074 - The specified appIdentifier is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since 14
+   * @since 15
    */
   function getUninstallDisposedRule(appIdentifier: string, appIndex?: number): UninstallDisposedRule;
 
@@ -521,7 +541,7 @@ declare namespace appControl {
    * @throws { BusinessError } 17700074 - The specified appIdentifier is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since 14
+   * @since 15
    */
   function deleteUninstallDisposedRule(appIdentifier: string, appIndex?: number): void;
 }
