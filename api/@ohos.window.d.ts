@@ -299,7 +299,16 @@ declare namespace window {
      * @StageModelOnly
      * @since 12
      */
-    TYPE_HANDWRITE
+    TYPE_HANDWRITE,
+    /**
+     * TYPE_WALLET_SWIPE_CARD.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 15
+     */
+    TYPE_WALLET_SWIPE_CARD
   }
 
   /**
