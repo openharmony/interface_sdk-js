@@ -172,7 +172,7 @@ export interface SearchOptions {
    * @atomicservice
    * @since 16
    */
-  pressBackgroundColor?: ResourceColor;
+  pressedBackgroundColor?: ResourceColor;
   /**
    * Set the search button text, fontSize and fontColor
    *
@@ -550,12 +550,12 @@ export interface SelectOptions {
   /**
    * The default text value.
    *
-   * @type { ?string }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
    */
-  value?: string;
+  value?: ResourceStr;
   /**
    * Callback when the select is selected.
    *
