@@ -1676,7 +1676,7 @@ declare namespace camera {
      * @systemapi
      * @since 16
      */
-    Delayedclose(time: number): Promise<void>;
+    closeDelayed(time: number): Promise<void>;
 
     /**
      * Subscribes to error events.
