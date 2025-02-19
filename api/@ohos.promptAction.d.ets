@@ -19,11 +19,11 @@
 */
 
 
-import { Resource, ResourceColor, Offset, Alignment, Dimension, EdgeStyles, EdgeColors } from './@ohos.arkui.component.units';
+import { Resource, ResourceColor, Offset, Alignment, Dimension, EdgeStyles, EdgeColors } from './@ohos.arkui.component.Units';
 import { AsyncCallback } from './@ohos.base';
-import { BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, Rectangle, TransitionEffect, KeyboardAvoidMode, CustomBuilder, DismissReason } from './@ohos.arkui.component.common';
-import { DialogAlignment } from './@ohos.arkui.component.dialog';
-import { BorderStyle } from './@ohos.arkui.component.enums';
+import { BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, Rectangle, TransitionEffect, KeyboardAvoidMode, CustomBuilder, DismissReason } from './@ohos.arkui.component.Common';
+import { DialogAlignment } from './@ohos.arkui.component.AlertDialog';
+import { BorderStyle } from './@ohos.arkui.component.Enums';
 
 /**
  * @namespace promptAction
