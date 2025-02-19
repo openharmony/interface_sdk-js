@@ -21,7 +21,7 @@
 import { UIContext } from '../@ohos.arkui.UIContext';
 import { FrameNode } from './FrameNode';
 import { Size } from './Graphics';
-
+import { WrappedBuilder } from '../@ohos.arkui.component.Common';
 /**
  * Render type of the node using for indicating that
  * if the node will be shown on the display or rendered to a texture
@@ -182,7 +182,7 @@ export interface BuildOptions {
  * @atomicservice
  * @since 12
  */
-export declare class BuilderNode<Args extends Object[]> {
+export declare class BuilderNode<Args extends Array<Object>> {
   /**
    * Constructor.
    *

@@ -324,7 +324,7 @@ export declare enum NavDestinationMode {
  * @atomicservice
  * @since 11
  */
-export type NavDestinationInterface = (): NavDestinationAttribute;
+export type NavDestinationInterface = ()=> NavDestinationAttribute;
 
 /**
  * Indicates configuration info of destination.

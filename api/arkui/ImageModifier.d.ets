@@ -19,6 +19,7 @@
  */
 
 import { ImageAttribute } from '../@ohos.arkui.component.Image'
+import { AttributeModifier }from '../@ohos.arkui.component.Common'
 
 /**
  * Defines Image Modifier

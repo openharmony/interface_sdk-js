@@ -17,9 +17,9 @@
  * @file
  * @kit ArkUI
  */
-import type { CommonMethod, ComponentContent, CustomBuilder, SymbolGlyphModifier } from './@ohos.arkui.component.Common';
-import type { TextHeightAdaptivePolicy, TextOverflow } from './@ohos.arkui.component.Enums';
-import type { Dimension, Font, Length, LocalizedPadding, Padding, Resource, ResourceColor, ResourceStr, VerticalAlign, VoidCallback } from './@ohos.arkui.component.Units';
+import  { CommonMethod, ComponentContent, CustomBuilder, SymbolGlyphModifier } from './@ohos.arkui.component.Common';
+import  { TextHeightAdaptivePolicy, TextOverflow } from './@ohos.arkui.component.Enums';
+import  { Dimension, Font, Length, LocalizedPadding, Padding, Resource, ResourceColor, ResourceStr, VerticalAlign, VoidCallback } from './@ohos.arkui.component.Units';
 
 /**
  * Enum for the mode of the tab bar when selected.

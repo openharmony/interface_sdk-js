@@ -17,6 +17,12 @@
  * @file
  * @kit ArkUI
  */
+import { Resource } from "./global/resource";
+import { PixelMap } from './@ohos.multimedia.image'
+import { ImageAIOptions,ImageAnalyzerConfig } from "./@ohos.arkui.component.ImageCommon";
+import { CommonMethod, Callback } from "./@ohos.arkui.component.Common";
+import { ImageFit } from "./@ohos.arkui.component.Enums";
+import { VoidCallback } from "./@ohos.arkui.component.Units";
 
 /**
  * Seek mode.

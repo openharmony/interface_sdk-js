@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 import { ResourceColor,Length } from './@ohos.arkui.component.Units'
-import { CommonMethod,ContentModifier,CommonConfiguration } from './@ohos.arkui.component.Common'
+import { CommonMethod,ContentModifier,CommonConfiguration,MultiShadowOptions } from './@ohos.arkui.component.Common'
 /**
  * DataPanelType enum
  *

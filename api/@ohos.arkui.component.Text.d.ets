@@ -18,14 +18,14 @@
  * @kit ArkUI
  */
 import { Resource } from "./global/resource";
-import { CommonMethod } from './@ohos.arkui.component.Common'
+import { CommonMethod,ShadowOptions,CustomBuilder } from './@ohos.arkui.component.Common'
 import { Font,ResourceColor,Length } from './@ohos.arkui.component.Units'
 import { FontSettingOptions,TextDataDetectorConfig,EditMenuOptions,LayoutManager } from './@ohos.arkui.component.TextCommon'
 import { LengthMetrics } from './arkui/Graphics' 
 import { SelectionMenuOptions } from './@ohos.arkui.component.RichEditor'
 import { DecorationStyleInterface,StyledString } from './@ohos.arkui.component.StyledString'
 import { FontStyle,FontWeight,TextAlign,TextCase,CopyOptions,TextHeightAdaptivePolicy,WordBreak,LineBreakStrategy,
-  EllipsisMode,TextSelectableMode
+  EllipsisMode,TextSelectableMode,TextOverflow
  } from './@ohos.arkui.component.Enums'
 /**
  * Text overflow options.
@@ -156,8 +156,6 @@ export declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @atomicservice
    * @since 11
    */
-  font(value: Font): TextAttribute;
-
   /**
    * Called when the font is set.
    *

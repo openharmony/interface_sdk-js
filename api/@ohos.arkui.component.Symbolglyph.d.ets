@@ -17,8 +17,8 @@
  * @file
  * @kit ArkUI
  */
-
-import { Resource, ResourceColor } from './@ohos.arkui.component.Units';
+import { Resource } from './global/resource'
+import { ResourceColor } from './@ohos.arkui.component.Units';
 import { FontWeight } from './@ohos.arkui.component.Enums';
 import { CommonMethod } from "./@ohos.arkui.component.Common";
 

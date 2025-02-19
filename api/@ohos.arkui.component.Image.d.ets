@@ -21,11 +21,12 @@
 import { DrawableDescriptor } from './@ohos.arkui.drawableDescriptor';
 import { DrawingColorFilter, Lattice as DrawingLattice  } from './@ohos.graphics.drawing';
 import { ResolutionQuality } from './@ohos.multimedia.image';
-import { ImageAIOptions } from './@ohos.arkui.component.ImageCommon';
+import { ImageAIOptions,ImageAnalyzerConfig } from './@ohos.arkui.component.ImageCommon';
 import { ResourceStr,ResourceColor,ColorFilter,CopyOptions,EdgeWidths } from './@ohos.arkui.component.Units';
 import { ImageFit,ImageRepeat } from './@ohos.arkui.component.Enums';
 import { PixelMap } from './@ohos.multimedia.image';
 import { Resource } from './global/resource';
+import { CommonMethod, PointLightStyle } from './@ohos.arkui.component.Common'
 
 /**
  * @enum { number }

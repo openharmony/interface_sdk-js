@@ -21,7 +21,7 @@ import { Resource } from "./global/resource";
 import { VoidCallback, ResourceStr,ResourceColor,Dimension,BorderRadiuses,LocalizedEdgeColors,EdgeColors,
   EdgeWidths,LocalizedEdgeWidths,EdgeStyles,LocalizedBorderRadiuses 
 } from './@ohos.arkui.component.Units'
-import { Callback } from "./@ohos.arkui.component.Common";
+import { Callback,DismissReason,Rectangle,BlurStyle,TransitionEffect,ShadowOptions,HoverModeAreaType,ShadowStyle } from "./@ohos.arkui.component.Common";
 import { DialogButtonStyle,BorderStyle } from './@ohos.arkui.component.Enums';
 import { DialogAlignment } from './@ohso.arkui.component.AlertDialog';
 /**

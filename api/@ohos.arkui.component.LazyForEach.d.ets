@@ -108,7 +108,7 @@ export interface DataAddOperation {
    * @atomicservice
    * @since 12
    */
-  type: DataOperationType.ADD,
+  type: 'add',
 
   /**
    * Index of added data.
@@ -165,7 +165,7 @@ export interface DataDeleteOperation {
    * @atomicservice
    * @since 12
    */
-  type: DataOperationType.DELETE,
+  type: 'delete',
 
   /**
    * Index of deleted data.
@@ -211,7 +211,7 @@ export interface DataChangeOperation {
    * @atomicservice
    * @since 12
    */
-  type: DataOperationType.CHANGE,
+  type: 'change',
 
   /**
    * Index of changed data.
@@ -351,7 +351,7 @@ export interface DataMoveOperation {
    * @atomicservice
    * @since 12
    */
-  type: DataOperationType.MOVE,
+  type: 'move',
 
   /**
    * Index of moved data.
@@ -395,7 +395,7 @@ export interface DataMoveOperation {
    * @atomicservice
    * @since 12
    */
-  type: DataOperationType.EXCHANGE,
+  type: 'exchange',
 
   /**
    * Index of exchange data.
@@ -439,7 +439,7 @@ export interface DataReloadOperation {
    * @atomicservice
    * @since 12
    */
-  type: DataOperationType.RELOAD
+  type: 'reload'
 }
 
 /**

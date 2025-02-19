@@ -17,7 +17,9 @@
  * @file
  * @kit ArkUI
  */
-import { CustomBuilder } from './@ohos.arkui.component.Common'
+import { CustomBuilder,Rectangle,AnimateParam,Callback,ShadowOptions,ShadowStyle,KeyboardAvoidMode,BlurStyle,HoverModeAreaType
+  DismissReason
+ } from './@ohos.arkui.component.Common'
 import { DialogAlignment } from './@ohos.arkui.component.AlertDialog'
 import { Offset,ResourceColor,Dimension, BorderRadiuses, EdgeWidths, EdgeColors, EdgeStyles } from './@ohos.arkui.component.Units'
 import { BorderStyle } from './@ohos.arkui.component.Enums'
