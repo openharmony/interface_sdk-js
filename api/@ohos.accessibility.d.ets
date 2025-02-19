@@ -679,7 +679,7 @@ export declare namespace accessibility {
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
-    type: EventType;
+    public type: EventType;
 
     /**
      * The type of the window change event.
@@ -687,7 +687,7 @@ export declare namespace accessibility {
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
-    windowUpdateType?: WindowUpdateType;
+    public windowUpdateType?: WindowUpdateType;
 
     /**
      * The bundle name of the target application.
@@ -695,7 +695,7 @@ export declare namespace accessibility {
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
-    bundleName: string;
+    public bundleName: string;
 
     /**
      * The type of the event source component,such as button, chart.
@@ -703,7 +703,7 @@ export declare namespace accessibility {
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
-    componentType?: string;
+    public componentType?: string;
 
     /**
      * The page id of the event source.
@@ -711,7 +711,7 @@ export declare namespace accessibility {
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
-    pageId?: number;
+    public pageId?: number;
 
     /**
      * The accessibility event description.
@@ -719,7 +719,7 @@ export declare namespace accessibility {
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
-    description?: string;
+    public description?: string;
 
     /**
      * The action that triggers the accessibility event, for example, clicking or focusing a view.
@@ -727,7 +727,7 @@ export declare namespace accessibility {
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
-    triggerAction: Action;
+    public triggerAction: Action;
 
     /**
      * The movement step used for reading texts.
@@ -735,7 +735,7 @@ export declare namespace accessibility {
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
-    textMoveUnit?: TextMoveUnit;
+    public textMoveUnit?: TextMoveUnit;
 
     /**
      * The content list.
@@ -743,7 +743,7 @@ export declare namespace accessibility {
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
-    contents?: Array<string>;
+    public contents?: Array<string>;
 
     /**
      * The content changed before.
@@ -751,7 +751,7 @@ export declare namespace accessibility {
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
-    lastContent?: string;
+    public lastContent?: string;
 
     /**
      * The start index of listed items on the screen.
@@ -759,7 +759,7 @@ export declare namespace accessibility {
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
-    beginIndex?: number;
+    public beginIndex?: number;
 
     /**
      * The index of the current item on the screen.
@@ -767,7 +767,7 @@ export declare namespace accessibility {
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
-    currentIndex?: number;
+    public currentIndex?: number;
 
     /**
      * The end index of listed items on the screen.
@@ -775,7 +775,7 @@ export declare namespace accessibility {
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
-    endIndex?: number;
+    public endIndex?: number;
 
     /**
      * The total of the items, talkback used it when scroll.
@@ -783,7 +783,7 @@ export declare namespace accessibility {
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
-    itemCount?: number;
+    public itemCount?: number;
 
     /**
      * The id of element.
@@ -791,7 +791,7 @@ export declare namespace accessibility {
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 12
      */
-    elementId?: number;
+    public elementId?: number;
 
     /**
      * The content of announce accessibility text.
@@ -799,7 +799,7 @@ export declare namespace accessibility {
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 12
      */
-    textAnnouncedForAccessibility?: string;
+    public textAnnouncedForAccessibility?: string;
 
     /**
      * The customized element id.
@@ -807,6 +807,6 @@ export declare namespace accessibility {
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 12
      */
-    customId?: string;
+    public customId?: string;
   }
 }
