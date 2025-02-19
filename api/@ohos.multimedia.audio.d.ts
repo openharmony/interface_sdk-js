@@ -1916,7 +1916,7 @@ declare namespace audio {
    * @typedef AudioCapturerFilter
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @systemapi
-   * @since 14
+   * @since 16
    */
   interface AudioCapturerFilter {
     /**
@@ -1924,7 +1924,7 @@ declare namespace audio {
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 14
+     * @since 16
      */
     uid?: number;
     /**
@@ -1932,7 +1932,7 @@ declare namespace audio {
      * @type { ?AudioCapturerInfo }
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 14
+     * @since 16
      */
     capturerInfo?: AudioCapturerInfo;
   }
@@ -3534,7 +3534,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 14
+     * @since 16
      */
     selectInputDeviceByFilter(filter: AudioCapturerFilter, inputAudioDevices: AudioDeviceDescriptors): Promise<void>;
 
@@ -3627,7 +3627,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 14
+     * @since 16
      */
     getPreferredOutputDeviceByFilter(filter: AudioRendererFilter): AudioDeviceDescriptors;
 
@@ -3752,7 +3752,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 14
+     * @since 16
      */
     getPreferredInputDeviceByFilter(filter: AudioCapturerFilter): AudioDeviceDescriptors;
 
