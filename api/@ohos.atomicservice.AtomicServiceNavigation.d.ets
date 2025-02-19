@@ -361,7 +361,7 @@ export interface TitleOptions {
   /**
    * Set title bar icon.
    *
-   * @type { ?Resource | SymbolGlyphModifier }
+   * @type { ?(Resource | SymbolGlyphModifier) }
    * @default atomicservice icon
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -474,6 +474,7 @@ export interface SideBarOptions {
 /**
  * Title bar types.
  *
+ * @enum { number }.
  * @typedef TitleBarType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
