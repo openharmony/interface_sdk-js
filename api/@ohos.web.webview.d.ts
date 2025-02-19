@@ -7389,7 +7389,7 @@ declare namespace webview {
  */
 class ProxyConfig {
     /**
-     * Insert a bypass rule that indicates URLs that should skip the override proxy and connet the server directly instead.
+     * Insert a bypass rule that indicates URLs that should skip the override proxy and connect the server directly instead.
      * These maybe URLs or IP addresses and wildcards are supported. e.g. "*.example.com" means that requests to
      * "https://www.example.com" and "http://test.example.com" will connect the server directly.
      * 
