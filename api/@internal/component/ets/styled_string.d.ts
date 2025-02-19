@@ -1403,7 +1403,7 @@ declare class ImageAttachment {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     constructor(attachment: Optional<AttachmentType>);
 
@@ -1475,7 +1475,7 @@ declare class ImageAttachment {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     readonly colorFilter?: ColorFilterType;
 }
@@ -1487,7 +1487,7 @@ declare class ImageAttachment {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare interface ResourceImageAttachmentOptions {
     /**
@@ -1497,7 +1497,7 @@ declare interface ResourceImageAttachmentOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     resourceValue: Optional<ResourceStr>;
 
@@ -1508,7 +1508,7 @@ declare interface ResourceImageAttachmentOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     size?: SizeOptions;
 
@@ -1519,7 +1519,7 @@ declare interface ResourceImageAttachmentOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     verticalAlign?: ImageSpanAlignment;
 
@@ -1530,7 +1530,7 @@ declare interface ResourceImageAttachmentOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     objectFit?: ImageFit;
 
@@ -1541,7 +1541,7 @@ declare interface ResourceImageAttachmentOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     layoutStyle?: ImageAttachmentLayoutStyle;
 
@@ -1552,7 +1552,7 @@ declare interface ResourceImageAttachmentOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     colorFilter?: ColorFilterType;
 
@@ -1564,7 +1564,7 @@ declare interface ResourceImageAttachmentOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     syncLoad?: boolean;
 }
@@ -1641,7 +1641,7 @@ declare interface ImageAttachmentInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     colorFilter?: ColorFilterType;
 }
@@ -1653,7 +1653,7 @@ declare interface ImageAttachmentInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare type AttachmentType = ImageAttachmentInterface | ResourceImageAttachmentOptions;
 
@@ -1664,7 +1664,7 @@ declare type AttachmentType = ImageAttachmentInterface | ResourceImageAttachment
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare type ColorFilterType = ColorFilter | DrawingColorFilter;
 
