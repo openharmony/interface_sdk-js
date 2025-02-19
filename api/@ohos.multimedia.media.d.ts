@@ -1491,6 +1491,13 @@ declare namespace media {
      * @since 14
      */
     AVERR_IO_UNSUPPORTED_REQUEST = 5411011,
+    /**
+     * Seek continuous unsupported.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 16
+     */
+      AVERR_SEEK_CONTINUOUS_UNSUPPORTED = 5410002,
   }
 
   /**
@@ -2195,10 +2202,9 @@ declare namespace media {
      * Should be called after {@link #prepare}.
      * @returns { boolean } true: seek continuous is supported;
      * false: seek continuous is not supported or the support status is uncertain.
-     * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @systemapi
-     * @since 15
+     * @atomicservice
+     * @since 16
      */
     isSeekContinuousSupported() : boolean;
 
