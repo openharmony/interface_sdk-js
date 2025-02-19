@@ -17,8 +17,8 @@
  * @file
  * @kit ArkUI
  */
-import { CommonMethod, Optional } from './@ohos.arkui.component.Common'
-import { HorizontalAlign,FlexAlign,PointLightStyle } from './@ohos.arkui.component.Enums'
+import { CommonMethod, Optional,PointLightStyle } from './@ohos.arkui.component.Common'
+import { HorizontalAlign,FlexAlign, } from './@ohos.arkui.component.Enums'
 /**
  * Column constructor options.
  *

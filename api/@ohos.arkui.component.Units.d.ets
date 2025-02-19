@@ -129,7 +129,7 @@ export type Resource = _Resource
  * @atomicservice
  * @since 11
  */
-export type Length = string | number | Resource;
+export type Length = string | number | _Resource;
 
 /**
  * Defines the length property with number in units of px.
@@ -302,7 +302,7 @@ export type Degree = string;
  * @atomicservice
  * @since 16
  */
-export type Dimension = PX | VP | FP | LPX | Percentage | Resource;
+export type Dimension = PX | VP | FP | LPX | Percentage | _Resource;
 
 /**
  * Defines the string which can use resource.
@@ -338,7 +338,7 @@ export type Dimension = PX | VP | FP | LPX | Percentage | Resource;
  * @atomicservice
  * @since 11
  */
-export type ResourceStr = string | Resource;
+export type ResourceStr = string | _Resource;
 
 /**
  * Defines the padding property.
@@ -1830,7 +1830,7 @@ export interface Offset {
  * @atomicservice
  * @since 11
  */
-export type ResourceColor = Color | number | string | Resource;
+export type ResourceColor = Color | number | string | _Resource;
 
 /**
  * Defines the length constrain property.
