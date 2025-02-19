@@ -1794,6 +1794,18 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   maintainVisibleContentPosition(enabled: boolean): ListAttribute;
 
   /**
+   * Sets the layout of the List component from the end.
+   *
+   * @param { boolean } enabled - Indicates whether the List is layout from the end.
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  stackFromEnd(enabled: boolean): ListAttribute;
+
+  /**
    * Called when the offset and status callback of the slide are set.
    *
    * @param { function } event
