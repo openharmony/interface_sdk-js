@@ -9000,6 +9000,13 @@ declare namespace camera {
      * @systemapi
      * @since 12
      */
+    /**
+     * Determine whether video mirror is supported.
+     *
+     * @returns { boolean } Is video mirror supported.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 15
+     */
     isMirrorSupported(): boolean;
 
     /**
@@ -9012,6 +9019,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
+     */
+    /**
+     * Enable mirror for video capture.
+     *
+     * @param { boolean } enabled - enable video mirror if TRUE.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 15
      */
     enableMirror(enabled: boolean): void;
 
