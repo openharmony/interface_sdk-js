@@ -27,7 +27,7 @@ import { OperationOption } from '@ohos.arkui.advanced.SubHeader';
  * @atomicservice
  * @since 16
  */
-declare type OnSelectCallback = (index: number, value?: string) => void;
+declare type OnSelectCallback = (index: number, selectValue?: string) => void;
 /**
  * Callback when text is pasted into the search box
  *
