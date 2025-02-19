@@ -78,7 +78,7 @@ export interface InputFilterOptions {
    * @atomicservice
    * @since 16
    */
-  value: ResourceStr;
+  inputFilterValue: ResourceStr;
   /**
    * If the regular expression matching fails, the filtered content is returned.
    *
@@ -101,12 +101,12 @@ export interface SearchButtonParams {
   /**
    * indicates the text of the search button.
    *
-   * @type { string }
+   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
    */
-  value: string;
+  searchButtonValue: ResourceStr;
   /**
    * indicates the fontSize and fontColor of the search button.
    *
@@ -333,12 +333,12 @@ export interface SearchOptions {
    * the values of <feature-tag-value> reference to doc of search component
    * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
    *
-   * @type { ?string }
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
    */
-  fontFeature?: string;
+  fontFeature?: ResourceStr;
   /**
    * Define the text selected background color of the text input.
    *
@@ -555,7 +555,7 @@ export interface SelectOptions {
    * @atomicservice
    * @since 16
    */
-  value?: ResourceStr;
+  selectValue?: ResourceStr;
   /**
    * Callback when the select is selected.
    *
@@ -769,13 +769,13 @@ export declare struct AtomicServiceSearch {
   /**
    * Sets the search text content that is currently displayed.
    *
-   * @type { ?string }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
    */
   @Prop
-  value?: string;
+  value?: ResourceStr;
   /**
    * Indicates default prompt text displayed in the search box.
    * The default value is Search, which supports globalization.
