@@ -1531,6 +1531,17 @@ declare namespace camera {
      * @since 12
      */
     readonly cameraOrientation: number;
+
+    /**
+     * Camera device retractable attribute
+     *
+     * @type { boolean }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 16
+     */
+    readonly isRetractable: boolean;
   }
 
   /**
@@ -1652,6 +1663,20 @@ declare namespace camera {
      * @since 10
      */
     close(): Promise<void>;
+
+    /**
+     * Delay close camera.
+     *
+     * @returns { Promise<void> } Promise used to return the result.
+     * @param { number } time - delay time for turning off camera.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 16
+     */
+    Delayedclose(time: number): Promise<void>;
 
     /**
      * Subscribes to error events.
