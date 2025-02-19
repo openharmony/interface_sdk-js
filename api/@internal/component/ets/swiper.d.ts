@@ -1582,9 +1582,10 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @param { boolean } isShown - whether to show the nodes in the cache.
    * @returns { SwiperAttribute } the attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
+   * @crossplatform
    * @form
-   * @since 14
+   * @atomicservice
+   * @since 15
    */
   cachedCount(count: number, isShown: boolean): SwiperAttribute;
 
