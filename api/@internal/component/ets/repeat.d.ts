@@ -95,6 +95,17 @@ interface VirtualScrollOptions {
    * @since 16
    */
   onLazyLoading?(index: number): void;
+
+  /**
+   * The function of total data count.
+   *
+   * @returns { number } Returns the total data count.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onTotalCount?(): number;
 }
 
 /**
