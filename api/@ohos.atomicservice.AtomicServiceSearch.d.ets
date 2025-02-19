@@ -38,7 +38,7 @@ declare type OnSelectCallback = (index: number, selectValue?: string) => void;
  * @atomicservice
  * @since 16
  */
-declare type OnPasteCallback = (value: string, event: PasteEvent) => void;
+declare type OnPasteCallback = (pasteValue: string, event: PasteEvent) => void;
 /**
  * Callback when the position of the cursor entered in the search box changes
  *
