@@ -27710,7 +27710,7 @@ declare interface CaretOffset {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare interface TextContentControllerOptions {
   /**
@@ -27720,7 +27720,7 @@ declare interface TextContentControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   offset?: number;
 }
@@ -27807,7 +27807,7 @@ declare abstract class TextContentControllerBase {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   addText(text: string, textOperationOptions?: TextContentControllerOptions): number;
 
@@ -27818,7 +27818,7 @@ declare abstract class TextContentControllerBase {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   deleteText(range?: TextRange): void;
 
@@ -27829,7 +27829,7 @@ declare abstract class TextContentControllerBase {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   getSelection(): TextRange;
 }
