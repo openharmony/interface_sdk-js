@@ -23,7 +23,7 @@
  *
  * @namespace intelligence
  * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
- * @since 16
+ * @since 15
  */
 declare namespace intelligence {
   /**
@@ -36,7 +36,7 @@ declare namespace intelligence {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 31300000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
-   * @since 16
+   * @since 15
    */
   function getTextEmbeddingModel(config: ModelConfig): Promise<TextEmbedding>;
 
@@ -50,7 +50,7 @@ declare namespace intelligence {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 31300000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
-   * @since 16
+   * @since 15
    */
   function getImageEmbeddingModel(config: ModelConfig): Promise<ImageEmbedding>;
 
@@ -59,7 +59,7 @@ declare namespace intelligence {
    *
    * @interface ModelConfig
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
-   * @since 16
+   * @since 15
    */
   interface ModelConfig {
     /**
@@ -68,7 +68,7 @@ declare namespace intelligence {
      *
      * @type { ModelVersion }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
-     * @since 16
+     * @since 15
      */
     version: ModelVersion;
 
@@ -77,7 +77,7 @@ declare namespace intelligence {
      *
      * @type { boolean }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
-     * @since 16
+     * @since 15
      */
     isNpuAvailable: boolean;
 
@@ -86,7 +86,7 @@ declare namespace intelligence {
      *
      * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
-     * @since 16
+     * @since 15
      */
     cachePath?: string;
   }
@@ -96,14 +96,14 @@ declare namespace intelligence {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
-   * @since 16
+   * @since 15
    */
   enum ModelVersion {
     /**
      * The basic embedding model.
      *
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
-     * @since 16
+     * @since 15
      */
     BASIC_MODEL = 0
   }
@@ -114,7 +114,7 @@ declare namespace intelligence {
    *
    * @interface TextEmbedding
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
-   * @since 16
+   * @since 15
    */
   interface TextEmbedding {
     /**
@@ -124,7 +124,7 @@ declare namespace intelligence {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 31300000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
-     * @since 16
+     * @since 15
      */
     loadModel(): Promise<void>;
 
@@ -135,7 +135,7 @@ declare namespace intelligence {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 31300000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
-     * @since 16
+     * @since 15
      */
     releaseModel(): Promise<void>;
 
@@ -150,7 +150,7 @@ declare namespace intelligence {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 31300000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
-     * @since 16
+     * @since 15
      */
     getEmbedding(text: string): Promise<Array<number>>;
 
@@ -165,7 +165,7 @@ declare namespace intelligence {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 31300000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
-     * @since 16
+     * @since 15
      */
     getEmbedding(batchTexts: Array<string>): Promise<Array<Array<number>>>;
   }
@@ -175,7 +175,7 @@ declare namespace intelligence {
    *
    * @interface ImageEmbedding
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
-   * @since 16
+   * @since 15
    */
   interface ImageEmbedding {
     /**
@@ -185,7 +185,7 @@ declare namespace intelligence {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 31300000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
-     * @since 16
+     * @since 15
      */
     loadModel(): Promise<void>;
 
@@ -196,7 +196,7 @@ declare namespace intelligence {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 31300000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
-     * @since 16
+     * @since 15
      */
     releaseModel(): Promise<void>;
 
@@ -211,7 +211,7 @@ declare namespace intelligence {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 31300000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
-     * @since 16
+     * @since 15
      */
     getEmbedding(image: Image): Promise<Array<number>>;
   }
@@ -221,7 +221,7 @@ declare namespace intelligence {
    *
    * @typedef { string } Image
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 16
+   * @since 15
    */
   type Image = string;
 
@@ -236,7 +236,7 @@ declare namespace intelligence {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 31300000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
-   * @since 16
+   * @since 15
    */
   function splitText(text: string, config: SplitConfig): Promise<Array<string>>;
 
@@ -245,7 +245,7 @@ declare namespace intelligence {
    *
    * @interface SplitConfig
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
-   * @since 16
+   * @since 15
    */
   interface SplitConfig {
     /**
@@ -253,7 +253,7 @@ declare namespace intelligence {
      *
      * @type { number }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
-     * @since 16
+     * @since 15
      */
     size: number;
 
@@ -262,7 +262,7 @@ declare namespace intelligence {
      *
      * @type { number }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
-     * @since 16
+     * @since 15
      */
     overlapRatio: number;
   }
