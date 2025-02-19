@@ -42,6 +42,128 @@ declare namespace componentSnapshot {
   /**
    * Defines the extra options for snapshot taking.
    *
+   * @typedef SnapshotRegion
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  interface SnapshotRegion {
+    /**
+     * Left side position of rectangle, in PX.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 15
+     */
+    left: number;
+
+    /**
+     * Right side position of Rectangle, in PX.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 15
+     */
+    right: number;
+
+    /**
+     * Top side position of Rectangle, in PX.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 15
+     */
+    top: number;
+
+    /**
+     * Bottom side position of Rectangle, in PX.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 15
+     */
+    bottom: number;
+  }
+
+  /**
+   * Defines the extra options for snapshot taking, if this is used, the start and end will
+   * be assigned to left and right value according to the layout direction of node automaticlly.
+   *
+   * @typedef LocalizedSnapshotRegion
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  interface LocalizedSnapshotRegion {
+    /**
+     * Left/Right side position of rectangle, in PX
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 15
+     */
+    start: number;
+
+    /**
+     * End side position of Rectangle, in PX.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 15
+     */
+    end: number;
+
+    /**
+     * Left/Right side position of rectangle, in PX
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 15
+     */
+    top: number;
+
+    /**
+     * Bottom side position of Rectangle, in PX.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 15
+     */
+    bottom: number;
+  }
+  
+  /**
+   * Defines the snapshot region rect type.
+   *
+   * @typedef { SnapshotRegion | LocalizedSnapshotRegion } SnapshotRegionType
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  type SnapshotRegionType = SnapshotRegion | LocalizedSnapshotRegion;
+
+  /**
+   * Defines the extra options for snapshot taking.
+   *
    * @typedef SnapshotOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -70,6 +192,17 @@ declare namespace componentSnapshot {
      * @since 12
      */
     waitUntilRenderFinished?: boolean
+
+    /**
+     * Defines the rect reigon type of the snapshot.
+     *
+     * @type {?SnapshotRegionType}
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 15
+     */
+    region?: SnapshotRegionType
   }
 
   /**
