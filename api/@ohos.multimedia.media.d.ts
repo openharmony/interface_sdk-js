@@ -1497,7 +1497,7 @@ declare namespace media {
      * @atomicservice
      * @since 16
      */
-      AVERR_SEEK_CONTINUOUS_UNSUPPORTED = 5410002,
+    AVERR_SEEK_CONTINUOUS_UNSUPPORTED = 5410002,
   }
 
   /**
