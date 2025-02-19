@@ -7445,9 +7445,14 @@ declare namespace media {
     SEEK_CLOSEST = 2,
     /**
      * Seek in continuous mode.
+     * Seek continuous can provide a smoother dragging experience, but the device needs to support
+     * the current stream to execute seek continuous. Before calling seek continuous,
+     * check whether it is supported, see {@link #isSeekContinuousSupported}.
+     * If an unsupported scenario occurs, seek continuous will report an error({@link #AVERR_SEEK_CONTINUOUS_UNSUPPORTED})
+     * through the on error callback.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @systemapi
-     * @since 13
+     * @atomicservice
+     * @since 16
      */
     SEEK_CONTINUOUS = 3,
   }
