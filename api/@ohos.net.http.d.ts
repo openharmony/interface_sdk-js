@@ -88,27 +88,27 @@ declare namespace http {
    * Enum for Address Family
    * @enum {string}
    * @syscap SystemCapability.Communication.NetStack
-   * @since 16
+   * @since 15
    */
   export enum AddressFamily {
     /**
      * Default, can use addresses of all IP versions that your system allows.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 16
+     * @since 15
      */
     DEFAULT = 'CURL_IPRESOLVE_WHATEVER',
  
     /**
      * ONLYV4 Uses only IPv4 addresses.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 16
+     * @since 15
      */
     ONLY_V4 = 'CURL_IPRESOLVE_V4',
  
     /**
      * ONLYV6 Uses only IPv6 addresses.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 16
+     * @since 15
      */
     ONLY_V6 = 'CURL_IPRESOLVE_V6'
   }
@@ -561,7 +561,7 @@ declare namespace http {
      * Address family option.
      * @type {?AddressFamily}
      * @syscap SystemCapability.Communication.NetStack
-     * @since 16
+     * @since 15
      */
     addressFamily?: AddressFamily;
   }
