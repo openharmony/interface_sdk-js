@@ -312,6 +312,19 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @since 12
      */
+    /**
+     * Returns the item at that index.
+     * 
+     * @param { number } index - The zero-based index of the desired code unit.
+     *     Throws error if index < 0 or index >= array.length.
+     * @returns { T } The element in the ConcatArray matching the given index.
+     * @readonly
+     * @throws { BusinessError } 401 - Parameter error. Illegal index.
+     * @throws { BusinessError } 10200001 - The value of index is out of range.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @since 16
+     */
     readonly [index: number]: T;
     /**
      * Adds all the elements of an ArkTS ConcatArray into a string, separated by the specified separator string.
