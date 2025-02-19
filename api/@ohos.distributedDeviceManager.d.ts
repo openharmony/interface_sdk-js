@@ -409,6 +409,30 @@ declare namespace distributedDeviceManager {
   }
 
   /**
+   * Heartbeat policy.
+   * @enum {number}
+   * @syscap SystemCapability.DistributedHardware.DeviceManager
+   * @systemapi
+   * @since 15
+   */
+  enum StrategyForHeartbeat {
+    /**
+     * Temporarily stop heartbeat, which automatically recovers after timeout.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    TEMP_STOP_HEARTBEAT = 100,
+    /**
+     * Start heartbeat.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    START_HEARTBEAT = 101,
+  }
+
+  /**
    * Creates an {@code DeviceManager} instance.
    *
    * To manage devices, you must first call this method to obtain a {@code DeviceManager} instance and then
@@ -923,6 +947,25 @@ declare namespace distributedDeviceManager {
      * @since 15
      */
     getDeviceProfileInfoList(filterOptions: DeviceProfileInfoFilterOptions): Promise<Array<DeviceProfileInfo>>;
+
+    /**
+     * Set heartbeat policy.
+     *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @param { StrategyForHeartbeat } policy  - Heartbeat policy.
+     * @param { number } delayTime  - Indicates the duration for disable heartbeat.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter types;
+     *                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 11600102 - Failed to obtain service.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 15
+     */
+    setHeartbeatPolicy(policy: StrategyForHeartbeat, delayTime: number): void;
   }
 }
 

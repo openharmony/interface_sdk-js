@@ -1,0 +1,61 @@
+diff --git a/api/@ohos.distributedDeviceManager.d.ts b/api/@ohos.distributedDeviceManager.d.ts
+index 6f0802e025a54d014f65d4e44176cc5884b212eb..6b153990986226812fbebccdc14cf8318eecec1c 100644
+--- a/api/@ohos.distributedDeviceManager.d.ts
++++ b/api/@ohos.distributedDeviceManager.d.ts
+@@ -516,6 +516,30 @@ declare namespace distributedDeviceManager {
+     icon: ArrayBuffer;
+   }
+ 
++  /**
++   * Heartbeat policy.
++   * @enum {number}
++   * @syscap SystemCapability.DistributedHardware.DeviceManager
++   * @systemapi
++   * @since 15
++   */
++  enum StrategyForHeartbeat {
++    /**
++     * Temporarily stop heartbeat, which automatically recovers after timeout.
++     * @syscap SystemCapability.DistributedHardware.DeviceManager
++     * @systemapi
++     * @since 15
++     */
++    TEMP_STOP_HEARTBEAT = 100,
++    /**
++     * Start heartbeat.
++     * @syscap SystemCapability.DistributedHardware.DeviceManager
++     * @systemapi
++     * @since 15
++     */
++    START_HEARTBEAT = 101,
++  }
++
+   /**
+    * Creates an {@code DeviceManager} instance.
+    *
+@@ -1135,6 +1159,25 @@ declare namespace distributedDeviceManager {
+      * @since 15
+      */
+     setRemoteDeviceName(deviceId: string, deviceName: string): Promise<number>;
++
++    /**
++     * Set heartbeat policy.
++     *
++     * @permission ohos.permission.ACCESS_SERVICE_DM
++     * @param { StrategyForHeartbeat } policy  - Heartbeat policy.
++     * @param { number } delayTime  - Indicates the duration for disable heartbeat.
++     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
++     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
++     * @throws { BusinessError } 401 - Parameter error. Possible causes:
++     *                                                  1. Mandatory parameters are left unspecified;
++     *                                                  2. Incorrect parameter types;
++     *                                                  3. Parameter verification failed.
++     * @throws { BusinessError } 11600102 - Failed to obtain service.
++     * @syscap SystemCapability.DistributedHardware.DeviceManager
++     * @systemapi
++     * @since 15
++     */
++    setHeartbeatPolicy(policy: StrategyForHeartbeat, delayTime: number): void;
+   }
+ }
+ 
