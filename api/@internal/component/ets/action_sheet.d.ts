@@ -332,7 +332,7 @@ interface ActionSheetOffset {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare type LevelMode = import('../api/@ohos.promptAction').LevelMode;
 
@@ -343,7 +343,7 @@ declare type LevelMode = import('../api/@ohos.promptAction').LevelMode;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare type ImmersiveMode = import('../api/@ohos.promptAction').ImmersiveMode;
 
@@ -923,7 +923,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   levelMode?: LevelMode;
 
@@ -934,7 +934,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   levelUniqueId?: number;
 
@@ -946,7 +946,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   immersiveMode?: ImmersiveMode;
 
