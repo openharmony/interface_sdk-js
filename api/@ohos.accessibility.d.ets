@@ -70,7 +70,10 @@ export declare namespace accessibility {
    * 'scrollForward' | 'scrollBackward' | 'setSelection' | 'setCursorPosition' | 'home' |
    * 'back' | 'recentTask' | 'notificationCenter' | 'controlCenter' | 'common' }
    *
-   * @typedef {'accessibilityFocus' | 'clearAccessibilityFocus' | 'focus' | 'clearFocus' | 'clearSelection' | 'click' | 'longClick' | 'cut' | 'copy' | 'paste' | 'select' | 'setText' | 'delete' | 'scrollForward' | 'scrollBackward' | 'setSelection' | 'setCursorPosition' | 'home' | 'back' | 'recentTask' | 'notificationCenter' | 'controlCenter' | 'common'}
+   * @typedef {'accessibilityFocus' | 'clearAccessibilityFocus' | 'focus' | 'clearFocus' | 'clearSelection' | 'click' |
+   *     'longClick' | 'cut' | 'copy' | 'paste' | 'select' | 'setText' | 'delete' | 'scrollForward' | 'scrollBackward' |
+   *     'setSelection' | 'setCursorPosition' | 'home' | 'back' | 'recentTask' | 'notificationCenter' |
+   *     'controlCenter' | 'common'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 12
    */
@@ -97,7 +100,9 @@ export declare namespace accessibility {
    * 'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility' |
    * 'announceForAccessibility' }
    *
-   * @typedef {'accessibilityFocus' | 'accessibilityFocusClear' | 'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' | 'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility' | 'announceForAccessibility'}
+   * @typedef {'accessibilityFocus' | 'accessibilityFocusClear' | 'click' | 'longClick' | 'focus' | 'select' |
+   *     'hoverEnter' | 'hoverExit' | 'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility' |
+   *     'announceForAccessibility'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 12
    */
@@ -172,7 +177,8 @@ export declare namespace accessibility {
   /**
    * Checks whether accessibility ability is enabled.
    *
-   * @returns { Promise<boolean> } Returns {@code true} if the accessibility is enabled; returns {@code false} otherwise.
+   * @returns { Promise<boolean> } Returns {@code true} if the accessibility is enabled; returns {@code false}
+   *     otherwise.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    * @deprecated since 10
@@ -211,7 +217,8 @@ export declare namespace accessibility {
   /**
    * Checks touch browser ability (which is used by talkback) is enabled.
    *
-   * @returns { Promise<boolean> } Returns {@code true} if the touch browser is enabled; returns {@code false} otherwise.
+   * @returns { Promise<boolean> } Returns {@code true} if the touch browser is enabled; returns {@code false}
+   *     otherwise.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
    * @since 7
    * @deprecated since 10
@@ -484,7 +491,7 @@ export declare namespace accessibility {
    * Indicates the font family of captions.
    *
    * @typedef {'default' | 'monospacedSerif' | 'serif' | 'monospacedSansSerif' | 'sansSerif' | 'casual' | 'cursive' |
-   *     'smallCapitals'}     
+   *     'smallCapitals'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
    * @since 8
    */
