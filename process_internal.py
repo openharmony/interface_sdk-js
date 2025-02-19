@@ -17,7 +17,6 @@ import os
 import sys
 import optparse
 import json
-import re
 
 
 def copy_files(options):
@@ -42,7 +41,7 @@ def copy_files(options):
                         'global_remove' in rm_name and (
                             file not in rm_name['global_remove']))):
                     # 当前文件不在全局删除属性中
-                    format_src = format_path(src)
+                    format_src = format_path(src, options.base_dir)
                     if options.ispublic == 'true':
                         # publicSDK需要删除sdk_build_public_remove中的文件
                         if 'sdk_build_public_remove' not in rm_name:
@@ -57,14 +56,13 @@ def copy_files(options):
             for file in os.listdir(options.input):
                 src = os.path.join(options.input, file)
                 if os.path.isfile(src):
-                    format_src = format_path(src)
+                    format_src = format_path(src, options.base_dir)
                     file_list.append(format_src)
         return file_list
 
 
-def format_path(filepath):
-    '''删除api/前面所有内容，保留api/'''
-    return re.sub(r'.*(?=api/)', '', filepath)
+def format_path(filepath, base_dir):
+    return os.path.relpath(filepath, base_dir)
 
 
 def parse_args(args):
@@ -72,9 +70,11 @@ def parse_args(args):
     parser = optparse.OptionParser()
     parser.add_option('--input', help='d.ts document input path')
     parser.add_option('--remove', help='d.ts to be remove path')
+    parser.add_option('--base-dir', help='d.ts document base dir path')
     parser.add_option('--ispublic', help='whether or not sdk build public')
     parser.add_option('--name', help='module label name')
     options, _ = parser.parse_args(args)
+    options.input = os.path.realpath(options.input)
     return options
 
 
