@@ -25,6 +25,7 @@ import rpc from './@ohos.rpc';
 import dialogRequest from './@ohos.app.ability.dialogRequest';
 import { UIContext } from './@ohos.arkui.UIContext';
 import ConfigurationConstant from './@ohos.app.ability.ConfigurationConstant';
+import bundleManager from './@ohos.bundle.bundleManager';
 
 /**
  * Defines the window callback.
@@ -9441,6 +9442,23 @@ declare namespace window {
      * @since 14
      */
     isWindowRectAutoSave(): Promise<boolean>;
+
+    /**
+     * Sets the supported window modes.
+     *
+     * @param { Array<bundleManager.SupportWindowMode> } supportedWindowModes - The supported modes of window.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @StageModelOnly
+     * @atomicservice
+     * @since 15
+     */
+    setSupportedWindowModes(supportedWindowModes: Array<bundleManager.SupportWindowMode>): Promise<void>;
   }
 
   /**
