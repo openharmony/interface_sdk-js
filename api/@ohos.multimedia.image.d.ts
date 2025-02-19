@@ -2840,14 +2840,14 @@ declare namespace image {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 16
+   * @since 15
    */
   enum AllocatorType {
     /**
      * The system determines which memory to use to create the PixelMap.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 16
+     * @since 15
      */
     AUTO = 0,
 
@@ -2855,7 +2855,7 @@ declare namespace image {
      * Use DMA buffer to create the PixelMap.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 16
+     * @since 15
      */
     DMA = 1,
 
@@ -2863,7 +2863,7 @@ declare namespace image {
      * Use share memory to create the PixelMap.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 16
+     * @since 15
      */
     SHARE_MEMORY = 2,
   }
@@ -7741,7 +7741,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7700301 - Decode failed.
      * @throws { BusinessError } 7700302 - Memory allocation failed.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 16
+     * @since 15
      */
     createPixelMapUsingAllocator(options?: DecodingOptions, allocatorType?: AllocatorType): Promise<PixelMap>;
 
@@ -7776,7 +7776,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7700301 - Decode failed.
      * @throws { BusinessError } 7700302 - Memory allocation failed.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 16
+     * @since 15
      */
     createPixelMapUsingAllocatorSync(options?: DecodingOptions, allocatorType?: AllocatorType): PixelMap;
 
