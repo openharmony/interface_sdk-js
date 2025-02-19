@@ -164,7 +164,7 @@ export declare class DrawContext {
   * @atomicservice
   * @since 12
   */
-interface Vector2 {
+export interface Vector2 {
   /**
    * Value for x-axis of the vector.
    *
@@ -213,7 +213,7 @@ interface Vector2 {
   * @atomicservice
   * @since 12
   */
- interface Vector2T<T> {
+ export interface Vector2T<T> {
 
   /**
    * Value for x-axis of the vector.
@@ -255,7 +255,7 @@ interface Vector2 {
  * @atomicservice
  * @since 12
  */
-interface Vector3 {
+export interface Vector3 {
   /**
    * Value for x-axis of the vector.
    *
@@ -633,7 +633,7 @@ export interface Edges<T> {
  * @atomicservice
  * @since 12
  */
-declare enum LengthUnit {
+export declare enum LengthUnit {
   /**
    * Logical pixel used in Ace1.0. It's based on frontend design width.
    * For example, when a frontend with 750px design width running on a
@@ -762,7 +762,7 @@ export enum LengthMetricsUnit {
  * @atomicservice
  * @since 12
  */
-declare class LengthMetrics {
+export declare class LengthMetrics {
   /**
    * Constructor.
    *
@@ -887,7 +887,7 @@ declare class LengthMetrics {
  * @atomicservice
  * @since 12
  */
-declare class ColorMetrics {
+export declare class ColorMetrics {
   /**
    * Instantiate the ColorMetrics class using color number
    *
@@ -1009,7 +1009,7 @@ declare class ColorMetrics {
  * @atomicservice
  * @since 12
  */
-interface Corners<T> {
+export interface Corners<T> {
   /**
    * TopLeft property.
    *

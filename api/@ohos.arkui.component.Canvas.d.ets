@@ -2238,8 +2238,6 @@ export declare class ImageData {
    * @atomicservice
    * @since 11
    */
-  constructor(width: number, height: number, data?: Uint8ClampedArray);
-
   /**
    * Create an ImageData object based on the input parameters.
    *
@@ -5372,8 +5370,6 @@ export declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @atomicservice
    * @since 11
    */
-  constructor(settings?: RenderingContextSettings);
-
   /**
    * Constructor of the canvas drawing context object, which is used to create a drawing context object.
    *
@@ -5556,8 +5552,6 @@ export declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * @atomicservice
    * @since 11
    */
-  constructor(width: number, height: number, settings?: RenderingContextSettings);
-
   /**
    * Constructor of the canvas drawing context object, which is used to create a drawing context object.
    *
