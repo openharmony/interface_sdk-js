@@ -22,7 +22,7 @@ import { OperationOption } from '@ohos.arkui.advanced.SubHeader';
  *
  * @typedef { function } OnSelectCallback
  * @param { number } index - Indicates the index of the selected item.
- * @param { string } [value] - Indicates the value of the selected item.
+ * @param { string } [selectValue] - Indicates the value of the selected item.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 16
@@ -32,7 +32,7 @@ declare type OnSelectCallback = (index: number, selectValue?: string) => void;
  * Callback when text is pasted into the search box
  *
  * @typedef { function } OnPasteCallback
- * @param { string } value - Indicates the text content to be pasted.
+ * @param { string } pasteValue - Indicates the text content to be pasted.
  * @param { PasteEvent } event - Indicates a user-defined paste event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
