@@ -10588,7 +10588,7 @@ declare interface ClickEvent extends BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   hand?: InteractionHand;
 
@@ -11241,7 +11241,7 @@ declare interface TouchObject {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
     hand?: InteractionHand;
 

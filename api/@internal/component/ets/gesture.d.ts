@@ -1000,7 +1000,7 @@ interface FingerInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   hand?: InteractionHand;
 }
