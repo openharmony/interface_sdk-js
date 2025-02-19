@@ -32,7 +32,7 @@ import { WrappedBuilder } from 'wrappedBuilderObject';
  * @atomicservice
  * @since 12
  */
-export class ComponentContent<T extends Object> extends Content{
+export class ComponentContent<T extends Object = Object> extends Content{
   /**
    * Constructor.
    *
