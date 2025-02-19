@@ -483,7 +483,8 @@ export declare namespace accessibility {
   /**
    * Indicates the font family of captions.
    *
-   * @typedef {'default' | 'monospacedSerif' | 'serif' | 'monospacedSansSerif' | 'sansSerif' | 'casual' | 'cursive' | 'smallCapitals'}     
+   * @typedef {'default' | 'monospacedSerif' | 'serif' | 'monospacedSansSerif' | 'sansSerif' | 'casual' | 'cursive' |
+   *     'smallCapitals'}     
    * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
    * @since 8
    */
