@@ -462,7 +462,7 @@ export interface SideBarOptions {
   /**
    * Side bar icon.
    *
-   * @type { ?Resource | SymbolGlyphModifier }.
+   * @type { ?(Resource | SymbolGlyphModifier) }.
    * @default $r('sys.symbol.open_sidebar')
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
