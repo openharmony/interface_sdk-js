@@ -19,5 +19,6 @@
  */
 
 import stationary from '@ohos.stationary';
+import motion from '@ohos.multimodalAwareness.motion';
 
-export { stationary };
+export { stationary, motion };
