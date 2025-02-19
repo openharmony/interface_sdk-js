@@ -142,7 +142,7 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   function createBleScanner(): BleScanner;
 
@@ -2879,17 +2879,17 @@ declare namespace ble {
   /**
    * Manages the ble scanner.
    * Before calling a ble scanner method, you must use {@link createBleScanner} to create an BleScanner instance.
-   * 
+   *
    * @typedef BleScanner
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   interface BleScanner {
     /**
      * Starts scanning for specified BLE devices with filters.
-     * 
+     *
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @param { Array<ScanFilter> } filters - Indicates the list of filters used to filter out specified devices.
      * If you do not want to use filter, set this parameter to {@code null}.
@@ -2912,12 +2912,12 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     startScan(filters: Array<ScanFilter>, options?: ScanOptions): Promise<void>;
     /**
-     * Stops BLE scanning
-     * 
+     * Stops BLE scanning.
+     *
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
@@ -2928,7 +2928,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     stopScan(): Promise<void>;
     /**
@@ -2945,7 +2945,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     on(type: 'BLEDeviceFind', callback: Callback<ScanReport>): void;
     /**
@@ -2962,9 +2962,9 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
-     off(type: 'BLEDeviceFind', callback?: Callback<ScanReport>): void;
+    off(type: 'BLEDeviceFind', callback?: Callback<ScanReport>): void;
   }
 
   /**
@@ -3235,16 +3235,6 @@ declare namespace ble {
      * @since 13
      */
     properties?: GattProperties;
-    /**
-     * The character value handle of a BLECharacteristic instance
-     * 
-     * @type { ?number }
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 16
-     */
-    characteristicValueHandle?: number;
   }
 
   /**
@@ -3372,16 +3362,6 @@ declare namespace ble {
      * @since 13
      */
     descriptorValue: ArrayBuffer;
-    /**
-     * The descriptor handle of the BLEDescriptor instance
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 16
-     */
-     descriptorHandle?: number;
   }
 
   /**
@@ -4619,27 +4599,27 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   interface ScanReport {
     /**
      * The type of scan report
-     * 
+     *
      * @type { ScanReportType }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     reportType: ScanReportType;
     /**
      * Describes the contents of the scan results.
-     * 
+     *
      * @type { Array<ScanResult> }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     scanResult: Array<ScanResult>;
   }
@@ -4861,16 +4841,6 @@ declare namespace ble {
      * @since 13
      */
     includeDeviceName?: boolean;
-    /**
-     * Indicates whether the tx power will be included in the advertisement packet.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 16
-     */
-    includeTxPower?: boolean;
   }
 
   /**
@@ -5627,9 +5597,9 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
-     reportMode?: ScanReportMode;
+    reportMode?: ScanReportMode;
   }
 
   /**
@@ -6104,66 +6074,46 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   enum ScanReportMode {
     /**
      * In normal mode, the advertisement packet is reported immediately after being scanned.
-     * 
+     *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     NORMAL = 1,
-    /**
-     * In low sensitivity fence mode, the advertisement packets are reported only when they are received for
-     * the first time and lost for the last time. The reception sensitivity is low.
-     * 
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 16
-     */
-    FENCE_SENSITIVITY_LOW = 10,
-    /**
-     * In high sensitivity fence mode, the advertisement packets are reported only when they are received for
-     * the first time and lost for the last time. The reception sensitivity is high.
-     * 
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 16
-     */
-    FENCE_SENSITIVITY_HIGH = 11,
   }
 
   /**
    * Scan report type used during scan.
-   * 
+   *
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   enum ScanReportType {
     /**
      * The found of advertisement packet.
-     * 
+     *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     ON_FOUND = 1,
     /**
      * The lost of advertisement packet.
-     * 
+     *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     ON_LOST = 2,
   }
