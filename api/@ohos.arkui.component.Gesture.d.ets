@@ -18,6 +18,9 @@
  * @kit ArkUI
  */
 
+import { BaseEvent, SourceTool } from './@ohos.arkui.component.Common';
+import { Callback } from './@ohos.arkui.component.Common';
+
 /**
  * Creating an Object
  *
@@ -1873,53 +1876,9 @@ export interface TapGestureParameters {
  * @atomicservice
  * @since 11
  */
-export interface TapGestureInterface extends GestureInterface<TapGestureInterface> {
-  /**
-   * Set the value.
-   * count:Number of consecutive clicks recognized. If the value is less than 1, the default value is used.
-   * fingers:The hand index that triggers the click. If the value is less than 1, the default value is used.
-   *
-   * @param { object } value
-   * @returns { TapGestureInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Set the value.
-   * count:Number of consecutive clicks recognized. If the value is less than 1, the default value is used.
-   * fingers:The hand index that triggers the click. If the value is less than 1, the default value is used.
-   *
-   * @param { object } value
-   * @returns { TapGestureInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the value.
-   * count:Number of consecutive clicks recognized. If the value is less than 1, the default value is used.
-   * fingers:The hand index that triggers the click. If the value is less than 1, the default value is used.
-   *
-   * @param { object } value
-   * @returns { TapGestureInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Set the value.
-   * TapGestureParameters: The parameters of the tapGesture.
-   *
-   * @param { TapGestureParameters } value
-   * @returns { TapGestureInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  (value?: TapGestureParameters): TapGestureInterface;
-
+export type TapGestureInterface = (value?: TapGestureParameters)=>TapGesutreAttribute;
+export interface TapGesutreAttribute extends GestureInterface<TapGesutreAttribute> {
+  
   /**
    * Tap gesture recognition success callback.
    *
@@ -1947,7 +1906,7 @@ export interface TapGestureInterface extends GestureInterface<TapGestureInterfac
    * @atomicservice
    * @since 11
    */
-  onAction(event: (event: GestureEvent) => void): TapGestureInterface;
+  onAction(event: (event: GestureEvent) => void): TapGesutreAttribute;
 }
 export interface LongPressGestureInterfaceOptions { fingers?: number; repeat?: boolean; duration?: number }
 
@@ -1975,45 +1934,8 @@ export interface LongPressGestureInterfaceOptions { fingers?: number; repeat?: b
  * @atomicservice
  * @since 11
  */
-export interface LongPressGestureInterface extends GestureInterface<LongPressGestureInterface> {
-  /**
-   * Set the value.
-   * fingers: Indicates the hand index that triggers the long press.
-   * repeat: Indicates whether to trigger event callback continuously.
-   * duration: Minimum press and hold time, in milliseconds.
-   *
-   * @param { object } value
-   * @returns { LongPressGestureInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Set the value.
-   * fingers: Indicates the hand index that triggers the long press.
-   * repeat: Indicates whether to trigger event callback continuously.
-   * duration: Minimum press and hold time, in milliseconds.
-   *
-   * @param { object } value
-   * @returns { LongPressGestureInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the value.
-   * fingers: Indicates the hand index that triggers the long press.
-   * repeat: Indicates whether to trigger event callback continuously.
-   * duration: Minimum press and hold time, in milliseconds.
-   *
-   * @param { object } value
-   * @returns { LongPressGestureInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  (value?: LongPressGestureInterfaceOptions): LongPressGestureInterface;
-
+export type LongPressGestureInterface = (value?: LongPressGestureInterfaceOptions) => LongPressGestureAttribute;
+export interface LongPressGestureAttribute extends GestureInterface<LongPressGestureAttribute> {
   /**
    * LongPress gesture recognition success callback.
    *
@@ -2041,7 +1963,7 @@ export interface LongPressGestureInterface extends GestureInterface<LongPressGes
    * @atomicservice
    * @since 11
    */
-  onAction(event: (event: GestureEvent) => void): LongPressGestureInterface;
+  onAction(event: (event: GestureEvent) => void): LongPressGestureAttribute;
 
   /**
    * The LongPress gesture is successfully recognized. When the finger is lifted, the callback is triggered.
@@ -2070,7 +1992,7 @@ export interface LongPressGestureInterface extends GestureInterface<LongPressGes
    * @atomicservice
    * @since 11
    */
-  onActionEnd(event: (event: GestureEvent) => void): LongPressGestureInterface;
+  onActionEnd(event: (event: GestureEvent) => void): LongPressGestureAttribute;
 
   /**
    * The LongPress gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
@@ -2099,9 +2021,13 @@ export interface LongPressGestureInterface extends GestureInterface<LongPressGes
    * @atomicservice
    * @since 11
    */
-  onActionCancel(event: () => void): LongPressGestureInterface;
+  onActionCancel(event: () => void): LongPressGestureAttribute;
 }
-export interface PanGestureOptionsParam { fingers?: number; direction?: PanDirection; distance?: number }
+export interface PanGestureOptionsParam { 
+  fingers?: number; 
+  direction?: PanDirection;
+  distance?: number 
+}
 
 /**
  * Defines the PanGesture options.
@@ -2265,36 +2191,9 @@ export interface PanGestureInterfaceOptions { fingers?: number; direction?: PanD
  * @atomicservice
  * @since 11
  */
-export interface PanGestureInterface extends GestureInterface<PanGestureInterface> {
-  /**
-   * Set the value.
-   *
-   * @param { { fingers?: number; direction?: PanDirection; distance?: number } | PanGestureOptions } value
-   * @returns { PanGestureInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Set the value.
-   *
-   * @param { { fingers?: number; direction?: PanDirection; distance?: number } | PanGestureOptions } value
-   * @returns { PanGestureInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the value.
-   *
-   * @param { { fingers?: number; direction?: PanDirection; distance?: number } | PanGestureOptions } value
-   * @returns { PanGestureInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  (value?:  PanGestureInterfaceOptions | PanGestureOptions): PanGestureInterface;
-
+export type PanGestureInterface = (value?:  PanGestureInterfaceOptions | PanGestureOptions) => PanGestureAttribute;
+export interface PanGestureAttribute extends GestureInterface<PanGestureAttribute> {
+  
   /**
    * Pan gesture recognition success callback.
    *
@@ -2322,7 +2221,7 @@ export interface PanGestureInterface extends GestureInterface<PanGestureInterfac
    * @atomicservice
    * @since 11
    */
-  onActionStart(event: (event: GestureEvent) => void): PanGestureInterface;
+  onActionStart(event: (event: GestureEvent) => void): PanGestureAttribute;
 
   /**
    * Callback when the Pan gesture is moving.
@@ -2351,7 +2250,7 @@ export interface PanGestureInterface extends GestureInterface<PanGestureInterfac
    * @atomicservice
    * @since 11
    */
-  onActionUpdate(event: (event: GestureEvent) => void): PanGestureInterface;
+  onActionUpdate(event: (event: GestureEvent) => void): PanGestureAttribute;
 
   /**
    * The Pan gesture is successfully recognized. When the finger is lifted, the callback is triggered.
@@ -2380,7 +2279,7 @@ export interface PanGestureInterface extends GestureInterface<PanGestureInterfac
    * @atomicservice
    * @since 11
    */
-  onActionEnd(event: (event: GestureEvent) => void): PanGestureInterface;
+  onActionEnd(event: (event: GestureEvent) => void): PanGestureAttribute;
 
   /**
    * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
@@ -2409,7 +2308,7 @@ export interface PanGestureInterface extends GestureInterface<PanGestureInterfac
    * @atomicservice
    * @since 11
    */
-  onActionCancel(event: () => void): PanGestureInterface;
+  onActionCancel(event: () => void): PanGestureAttribute;
 }
 export interface SwipeGestureInterfaceOptions { fingers?: number; direction?: SwipeDirection; speed?: number }
 /**
@@ -2436,35 +2335,9 @@ export interface SwipeGestureInterfaceOptions { fingers?: number; direction?: Sw
  * @atomicservice
  * @since 11
  */
-export interface SwipeGestureInterface extends GestureInterface<SwipeGestureInterface> {
-  /**
-   * Set the value.
-   *
-   * @param { object } value
-   * @returns { SwipeGestureInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Set the value.
-   *
-   * @param { object } value
-   * @returns { SwipeGestureInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the value.
-   *
-   * @param { object } value
-   * @returns { SwipeGestureInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  (value?: SwipeGestureInterfaceOptions): SwipeGestureInterface;
+export type SwipeGestureInterface = (value?: SwipeGestureInterfaceOptions) => SwipeGestureAttribute;
+export interface SwipeGestureAttribute extends GestureInterface<SwipeGestureAttribute> {
+  
 
   /**
    * Slide gesture recognition success callback.
@@ -2493,7 +2366,7 @@ export interface SwipeGestureInterface extends GestureInterface<SwipeGestureInte
    * @atomicservice
    * @since 11
    */
-  onAction(event: (event: GestureEvent) => void): SwipeGestureInterface;
+  onAction(event: (event: GestureEvent) => void): SwipeGestureAttribute;
 }
 export interface PinchGestureInterfaceOptions { fingers?: number; distance?: number }
 /**
@@ -2520,35 +2393,9 @@ export interface PinchGestureInterfaceOptions { fingers?: number; distance?: num
  * @atomicservice
  * @since 11
  */
-export interface PinchGestureInterface extends GestureInterface<PinchGestureInterface> {
-  /**
-   * Set the value.
-   *
-   * @param { object } value
-   * @returns { PinchGestureInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Set the value.
-   *
-   * @param { object } value
-   * @returns { PinchGestureInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the value.
-   *
-   * @param { object } value
-   * @returns { PinchGestureInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  (value?: PinchGestureInterfaceOptions): PinchGestureInterface;
+export type PinchGestureInterface = (value?: PinchGestureInterfaceOptions) => PinchGestureAttribute;
+export interface PinchGestureAttribute extends GestureInterface<PinchGestureAttribute> {
+  
 
   /**
    * Pan gesture recognition success callback.
@@ -2577,7 +2424,7 @@ export interface PinchGestureInterface extends GestureInterface<PinchGestureInte
    * @atomicservice
    * @since 11
    */
-  onActionStart(event: (event: GestureEvent) => void): PinchGestureInterface;
+  onActionStart(event: (event: GestureEvent) => void): PinchGestureAttribute;
 
   /**
    * Callback when the Pan gesture is moving.
@@ -2606,7 +2453,7 @@ export interface PinchGestureInterface extends GestureInterface<PinchGestureInte
    * @atomicservice
    * @since 11
    */
-  onActionUpdate(event: (event: GestureEvent) => void): PinchGestureInterface;
+  onActionUpdate(event: (event: GestureEvent) => void): PinchGestureAttribute;
 
   /**
    * The Pan gesture is successfully recognized. When the finger is lifted, the callback is triggered.
@@ -2635,7 +2482,7 @@ export interface PinchGestureInterface extends GestureInterface<PinchGestureInte
    * @atomicservice
    * @since 11
    */
-  onActionEnd(event: (event: GestureEvent) => void): PinchGestureInterface;
+  onActionEnd(event: (event: GestureEvent) => void): PinchGestureAttribute;
 
   /**
    * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
@@ -2664,7 +2511,7 @@ export interface PinchGestureInterface extends GestureInterface<PinchGestureInte
    * @atomicservice
    * @since 11
    */
-  onActionCancel(event: () => void): PinchGestureInterface;
+  onActionCancel(event: () => void): PinchGestureAttribute;
 }
 
 export interface RotationGestureInterfaceOptions { fingers?: number; angle?: number }
@@ -2693,36 +2540,9 @@ export interface RotationGestureInterfaceOptions { fingers?: number; angle?: num
  * @atomicservice
  * @since 11
  */
-export interface RotationGestureInterface extends GestureInterface<RotationGestureInterface> {
-  /**
-   * Set the value.
-   *
-   * @param { object } value
-   * @returns { RotationGestureInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Set the value.
-   *
-   * @param { object } value
-   * @returns { RotationGestureInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the value.
-   *
-   * @param { object } value
-   * @returns { RotationGestureInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  (value?: RotationGestureInterfaceOptions): RotationGestureInterface;
-
+export type RotationGestureInterface = (value?: RotationGestureInterfaceOptions) => RotationGestureAttribute
+export interface RotationGestureAttribute extends GestureInterface<RotationGestureAttribute> {
+ 
   /**
    * Pan gesture recognition success callback.
    *
@@ -2750,7 +2570,7 @@ export interface RotationGestureInterface extends GestureInterface<RotationGestu
    * @atomicservice
    * @since 11
    */
-  onActionStart(event: (event: GestureEvent) => void): RotationGestureInterface;
+  onActionStart(event: (event: GestureEvent) => void): RotationGestureAttribute;
 
   /**
    * Callback when the Pan gesture is moving.
@@ -2779,7 +2599,7 @@ export interface RotationGestureInterface extends GestureInterface<RotationGestu
    * @atomicservice
    * @since 11
    */
-  onActionUpdate(event: (event: GestureEvent) => void): RotationGestureInterface;
+  onActionUpdate(event: (event: GestureEvent) => void): RotationGestureAttribute;
 
   /**
    * The Pan gesture is successfully recognized. When the finger is lifted, the callback is triggered.
@@ -2808,7 +2628,7 @@ export interface RotationGestureInterface extends GestureInterface<RotationGestu
    * @atomicservice
    * @since 11
    */
-  onActionEnd(event: (event: GestureEvent) => void): RotationGestureInterface;
+  onActionEnd(event: (event: GestureEvent) => void): RotationGestureAttribute;
 
   /**
    * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
@@ -2837,7 +2657,7 @@ export interface RotationGestureInterface extends GestureInterface<RotationGestu
    * @atomicservice
    * @since 11
    */
-  onActionCancel(event: () => void): RotationGestureInterface;
+  onActionCancel(event: () => void): RotationGestureAttribute;
 }
 
 /**
@@ -2864,39 +2684,9 @@ export interface RotationGestureInterface extends GestureInterface<RotationGestu
  * @atomicservice
  * @since 11
  */
-export interface GestureGroupInterface {
-  /**
-   * Return to Obtain GestureGroup.
-   *
-   * @param { GestureMode } mode
-   * @param { GestureType[] } gesture
-   * @returns { GestureGroupInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Return to Obtain GestureGroup.
-   *
-   * @param { GestureMode } mode
-   * @param { GestureType[] } gesture
-   * @returns { GestureGroupInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Return to Obtain GestureGroup.
-   *
-   * @param { GestureMode } mode
-   * @param { GestureType[] } gesture
-   * @returns { GestureGroupInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  (mode: GestureMode, ...gesture: GestureType[]): GestureGroupInterface;
-
+export type GestureGroupInterface = (mode: GestureMode, ...gesture: GestureType[]) => GestureGroupAttribute
+export interface GestureGroupAttribute {
+  
   /**
    * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
    *
@@ -2924,7 +2714,7 @@ export interface GestureGroupInterface {
    * @atomicservice
    * @since 11
    */
-  onCancel(event: () => void): GestureGroupInterface;
+  onCancel(event: () => void): GestureGroupAttribute;
 }
 
 /**

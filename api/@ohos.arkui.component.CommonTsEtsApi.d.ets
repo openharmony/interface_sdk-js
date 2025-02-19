@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-
+import { Storage } from './@ohos.arkui.component.StateManagement'
 /**
  * AppStorage singleton is sub-class of see LocalStorage for
  * UI state of app-wide access and same life cycle as the app.
