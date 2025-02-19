@@ -1793,6 +1793,15 @@ declare namespace http {
      * @crossplatform
      * @since 12
      */
+    /**
+     * Registers an observer for progress of sendSize HTTP Response data events.
+     * @param { 'dataSendProgress' } type - Indicates Event name.
+     * @param { Callback<DataSendProgressInfo> } callback - the callback of on.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 15
+     */
     on(type: 'dataSendProgress', callback: Callback<DataSendProgressInfo>): void
 
     /**
@@ -1809,6 +1818,15 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 12
+     */
+    /**
+     * Unregisters an observer for progress of sendSize HTTP Response data events.
+     * @param { 'dataSendProgress' } type - Indicates Event name.
+     * @param { Callback<DataSendProgressInfo> } [callback] - the callback of off.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 15
      */
     off(type: 'dataSendProgress', callback?: Callback<DataSendProgressInfo>): void
   }
