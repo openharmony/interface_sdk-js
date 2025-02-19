@@ -3864,6 +3864,28 @@ export class UIContext {
   enableSwipeBack(enabled: Optional<boolean>): void;
 
   /**
+   * Sets the component freezing flag based on the component id to prevent the
+   * UI component from marking and updating dirty areas.
+   * 
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @syscap SystemCapability.ArkUI.Full
+   * @systemapi
+   * @since 16
+   */
+  freezeUINode(id: string, isFrozen: boolean): void;
+
+  /**
+   * Sets the component freezing flag based on the component uniqueId to prevent the
+   * UI component from marking and updating dirty areas.
+   * 
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @syscap SystemCapability.ArkUI.Full
+   * @systemapi
+   * @since 16
+   */
+  freezeUINode(uniqueId: number, isFrozen: boolean): void;
+
+  /**
    * Get object text menu controller.
    *
    * @returns { TextMenuController } object text menu controller.
