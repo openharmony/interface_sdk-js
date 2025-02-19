@@ -19,9 +19,10 @@
  */
 
 import { ResourceStr, ResourceColor, Length} from './@ohos.arkui.component.Units';
-import { TextDecorationType, TextDecorationStyle } from './@ohos.arkui.component.enums';
-import { DecorationStyleInterface } from './@ohos.arkui.component.StyledString';
-import text from '../../../@ohos.graphics.text';
+import { TextDecorationType, TextDecorationStyle } from './@ohos.arkui.component.Enums';
+import { DecorationStyleInterface,StyledString,MutableStyledString } from './@ohos.arkui.component.StyledString';
+import text from './@ohos.graphics.text';
+import { SelectionOptions,Callback } from './@ohos.arkui.component.Common';
 
 
 /**

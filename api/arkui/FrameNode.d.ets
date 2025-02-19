@@ -493,7 +493,7 @@ export declare class FrameNode {
    * @atomicservice
    * @since 12
    */
-  onDraw?(context: DrawContext): void;
+  onDraw?:(context: DrawContext)=> void;
 
   /**
    * Method to measure the FrameNode and its content to determine the measured size. Use this method to override the
@@ -719,7 +719,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  declare function createNode(context: UIContext, nodeType: 'Text'): Text;
+  function createNode(context: UIContext, nodeType: 'Text'): Text;
 
   /**
    * Define the FrameNode type for Column.
@@ -742,7 +742,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  declare function createNode(context: UIContext, nodeType: 'Column'): Column;
+  function createNode(context: UIContext, nodeType: 'Column'): Column;
 
   /**
    * Define the FrameNode type for Row.
@@ -765,7 +765,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  declare function createNode(context: UIContext, nodeType: 'Row'): Row;
+  function createNode(context: UIContext, nodeType: 'Row'): Row;
 
   /**
    * Define the FrameNode type for Stack.
@@ -788,7 +788,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  declare function createNode(context: UIContext, nodeType: 'Stack'): Stack;
+  function createNode(context: UIContext, nodeType: 'Stack'): Stack;
 
   /**
    * Define the FrameNode type for GridRow.
@@ -799,7 +799,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  declare type GridRow = TypedFrameNode<GridRowInterface, GridRowAttribute>;
+  type GridRow = TypedFrameNode<GridRowInterface, GridRowAttribute>;
 
   /**
    * Create a FrameNode of GridRow type.
@@ -811,7 +811,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  declare function createNode(context: UIContext, nodeType: 'GridRow'): GridRow;
+  function createNode(context: UIContext, nodeType: 'GridRow'): GridRow;
 
   /**
    * Define the FrameNode type for GridCol.
@@ -822,7 +822,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  declare type GridCol = TypedFrameNode<GridColInterface, GridColAttribute>;
+  type GridCol = TypedFrameNode<GridColInterface, GridColAttribute>;
 
   /**
    * Create a FrameNode of GridCol type.
@@ -834,7 +834,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  declare function createNode(context: UIContext, nodeType: 'GridCol'): GridCol;
+  function createNode(context: UIContext, nodeType: 'GridCol'): GridCol;
 
   /**
    * Define the FrameNode type for Flex.
@@ -845,7 +845,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  declare type Flex = TypedFrameNode<FlexInterface, FlexAttribute>;
+  type Flex = TypedFrameNode<FlexInterface, FlexAttribute>;
 
   /**
    * Create a FrameNode of Flex type.
@@ -857,7 +857,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  declare function createNode(context: UIContext, nodeType: 'Flex'): Flex;
+  function createNode(context: UIContext, nodeType: 'Flex'): Flex;
 
   /**
    * Define the FrameNode type for Swiper.
@@ -880,7 +880,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  declare function createNode(context: UIContext, nodeType: 'Swiper'): Swiper;
+  function createNode(context: UIContext, nodeType: 'Swiper'): Swiper;
 
   /**
    * Define the FrameNode type for Progress.
@@ -903,7 +903,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  declare function createNode(context: UIContext, nodeType: 'Progress'): Progress;
+  function createNode(context: UIContext, nodeType: 'Progress'): Progress;
 
   /**
    * Define the FrameNode type for Scroll.
@@ -926,7 +926,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  declare function createNode(context: UIContext, nodeType: 'Scroll'): Scroll;
+  function createNode(context: UIContext, nodeType: 'Scroll'): Scroll;
 
   /**
    * Define the FrameNode type for RelativeContainer.
@@ -949,7 +949,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  declare function createNode(context: UIContext, nodeType: 'RelativeContainer'): RelativeContainer;
+  function createNode(context: UIContext, nodeType: 'RelativeContainer'): RelativeContainer;
 
   /**
    * Define the FrameNode type for Divider.
@@ -972,7 +972,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  declare function createNode(context: UIContext, nodeType: 'Divider'): Divider;
+  function createNode(context: UIContext, nodeType: 'Divider'): Divider;
 
   /**
    * Define the FrameNode type for LoadingProgress.
@@ -983,7 +983,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  declare type LoadingProgress = TypedFrameNode<LoadingProgressInterface, LoadingProgressAttribute>;
+  type LoadingProgress = TypedFrameNode<LoadingProgressInterface, LoadingProgressAttribute>;
 
   /**
    * Create a FrameNode of LoadingProgress type.
@@ -995,7 +995,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  declare function createNode(context: UIContext, nodeType: 'LoadingProgress'): LoadingProgress;
+  function createNode(context: UIContext, nodeType: 'LoadingProgress'): LoadingProgress;
 
   /**
    * Define the FrameNode type for Search.
@@ -1018,7 +1018,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  declare function createNode(context: UIContext, nodeType: 'Search'): Search;
+  function createNode(context: UIContext, nodeType: 'Search'): Search;
 
   /**
    * Define the FrameNode type for Blank.
@@ -1041,7 +1041,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  declare function createNode(context: UIContext, nodeType: 'Blank'): Blank;
+  function createNode(context: UIContext, nodeType: 'Blank'): Blank;
 
   /**
    * Define the FrameNode type for Image.
@@ -1064,7 +1064,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  declare function createNode(context: UIContext, nodeType: 'Image'): Image;
+  function createNode(context: UIContext, nodeType: 'Image'): Image;
 
   /**
    * Define the FrameNode type for List.
@@ -1087,7 +1087,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  declare function createNode(context: UIContext, nodeType: 'List'): List;
+  function createNode(context: UIContext, nodeType: 'List'): List;
 
   /**
    * Define the FrameNode type for ListItem.
@@ -1110,7 +1110,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  declare function createNode(context: UIContext, nodeType: 'ListItem'): ListItem;
+  function createNode(context: UIContext, nodeType: 'ListItem'): ListItem;
 
   /**
    * Define the FrameNode type for TextInput.
@@ -1133,7 +1133,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  declare function createNode(context: UIContext, nodeType: 'TextInput'): TextInput;
+  function createNode(context: UIContext, nodeType: 'TextInput'): TextInput;
 
   /**
    * Define the FrameNode type for Button.
@@ -1156,7 +1156,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  declare function createNode(context: UIContext, nodeType: 'Button'): Button;
+  function createNode(context: UIContext, nodeType: 'Button'): Button;
 
   /**
    * Define the FrameNode type for ListItemGroup.
@@ -1179,7 +1179,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  declare function createNode(context: UIContext, nodeType: 'ListItemGroup'): ListItemGroup;
+  function createNode(context: UIContext, nodeType: 'ListItemGroup'): ListItemGroup;
 
   /**
    * Define the FrameNode type for WaterFlow.
@@ -1202,7 +1202,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  declare function createNode(context: UIContext, nodeType: 'WaterFlow'): WaterFlow;
+  function createNode(context: UIContext, nodeType: 'WaterFlow'): WaterFlow;
 
   /**
    * Define the FrameNode type for FlowItem.
@@ -1225,7 +1225,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  declare function createNode(context: UIContext, nodeType: 'FlowItem'): FlowItem;
+  function createNode(context: UIContext, nodeType: 'FlowItem'): FlowItem;
 
   /**
    * Define the FrameNode type for XComponent.
@@ -1248,7 +1248,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  declare function createNode(context: UIContext, nodeType: 'XComponent'): XComponent;
+  function createNode(context: UIContext, nodeType: 'XComponent'): XComponent;
 
   /**
    * Create a FrameNode of XComponent type with options.
@@ -1261,7 +1261,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  declare function createNode(context: UIContext, nodeType: 'XComponent', options: XComponentOptions): XComponent;
+  function createNode(context: UIContext, nodeType: 'XComponent', options: XComponentOptions): XComponent;
 
   /**
    * Define the FrameNode type for Checkbox.
@@ -1284,7 +1284,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  declare function createNode(context: UIContext, nodeType: 'Checkbox'): Checkbox;
+  function createNode(context: UIContext, nodeType: 'Checkbox'): Checkbox;
 
   /**
    * Define the FrameNode type for CheckboxGroup.
@@ -1307,7 +1307,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  declare function createNode(context: UIContext, nodeType: 'CheckboxGroup'): CheckboxGroup;
+  function createNode(context: UIContext, nodeType: 'CheckboxGroup'): CheckboxGroup;
 
   /**
    * Define the FrameNode type for Radio.
@@ -1330,7 +1330,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  declare function createNode(context: UIContext, nodeType: 'Radio'): Radio;
+  function createNode(context: UIContext, nodeType: 'Radio'): Radio;
 
   /**
    * Define the FrameNode type for Rating.
@@ -1353,7 +1353,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  declare function createNode(context: UIContext, nodeType: 'Rating'): Rating;
+  function createNode(context: UIContext, nodeType: 'Rating'): Rating;
 
   /**
    * Define the FrameNode type for Select.
@@ -1376,7 +1376,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  declare function createNode(context: UIContext, nodeType: 'Select'): Select;
+  function createNode(context: UIContext, nodeType: 'Select'): Select;
 
   /**
    * Define the FrameNode type for Slider.
@@ -1399,7 +1399,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  declare function createNode(context: UIContext, nodeType: 'Slider'): Slider;
+  function createNode(context: UIContext, nodeType: 'Slider'): Slider;
 
   /**
    * Define the FrameNode type for Toggle.
@@ -1423,7 +1423,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  declare function createNode(context: UIContext, nodeType: 'Toggle', options?: ToggleOptions): Toggle;
+  function createNode(context: UIContext, nodeType: 'Toggle', options?: ToggleOptions): Toggle;
 
   /**
    * Define the FrameNode type for Marquee.
@@ -1446,7 +1446,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  declare function createNode(context: UIContext, nodeType: 'Marquee'): Marquee;
+  function createNode(context: UIContext, nodeType: 'Marquee'): Marquee;
 
   /**
    * Define the FrameNode type for TextArea.
@@ -1469,7 +1469,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  declare function createNode(context: UIContext, nodeType: 'TextArea'): TextArea;
+  function createNode(context: UIContext, nodeType: 'TextArea'): TextArea;
 
   /**
    * Define the FrameNode type for SymbolGlyph.
@@ -1492,7 +1492,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  declare function createNode(context: UIContext, nodeType: 'SymbolGlyph'): SymbolGlyph;
+  function createNode(context: UIContext, nodeType: 'SymbolGlyph'): SymbolGlyph;
 
   /**
    * Define the FrameNode type for QRCode.
@@ -1515,7 +1515,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  declare function createNode(context: UIContext, nodeType: 'QRCode'): QRCode;
+  function createNode(context: UIContext, nodeType: 'QRCode'): QRCode;
 
   /**
    * Define the FrameNode type for Badge.
@@ -1538,7 +1538,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  declare function createNode(context: UIContext, nodeType: 'Badge'): Badge;
+  function createNode(context: UIContext, nodeType: 'Badge'): Badge;
 
   /**
    * Define the FrameNode type for TextClock.
@@ -1561,7 +1561,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  declare function createNode(context: UIContext, nodeType: 'TextClock'): TextClock;
+  function createNode(context: UIContext, nodeType: 'TextClock'): TextClock;
 
   /**
    * Define the FrameNode type for TextTimer.
@@ -1584,7 +1584,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  declare function createNode(context: UIContext, nodeType: 'TextTimer'): TextTimer;
+  function createNode(context: UIContext, nodeType: 'TextTimer'): TextTimer;
 
   /**
    * Define the FrameNode type for Grid.
@@ -1595,7 +1595,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  declare type Grid = TypedFrameNode<GridInterface, GridAttribute>;
+  type Grid = TypedFrameNode<GridInterface, GridAttribute>;
 
   /**
    * Create a FrameNode of Grid type.
@@ -1607,7 +1607,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  declare function createNode(context: UIContext, nodeType: 'Grid'): Grid;
+  function createNode(context: UIContext, nodeType: 'Grid'): Grid;
 
   /**
    * Define the FrameNode type for GridItem.
@@ -1630,7 +1630,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  declare function createNode(context: UIContext, nodeType: 'GridItem'): GridItem;
+  function createNode(context: UIContext, nodeType: 'GridItem'): GridItem;
 }
 
 /**
@@ -1669,7 +1669,7 @@ export declare class NodeAdapter {
    * @atomicservice
    * @since 12
    */
-  set totalNodeCount(count: number);
+  set totalNodeCount(count: number):void;
   /**
    * Get the total number of node count.
    *
@@ -1752,7 +1752,7 @@ export declare class NodeAdapter {
    * @atomicservice
    * @since 12
    */
-  onAttachToNode?(target: FrameNode): void;
+  onAttachToNode?:(target: FrameNode)=> void;
   /**
    * This callback will be triggered when the binding is released.
    *
@@ -1761,7 +1761,7 @@ export declare class NodeAdapter {
    * @atomicservice
    * @since 12
    */
-  onDetachFromNode?(): void;
+  onDetachFromNode?:()=> void;
   /**
    * Call this callback when loading for the first time or when a new node slides in.Used to generate custom IDs, developers need to ensure the uniqueness of the IDs themselves.
    *
@@ -1772,7 +1772,7 @@ export declare class NodeAdapter {
    * @atomicservice
    * @since 12
    */
-  onGetChildId?(index: number): number;
+  onGetChildId?:(index: number)=> number;
   /**
    * Call this callback when loading for the first time or when a new node slides in.
    *
@@ -1783,7 +1783,7 @@ export declare class NodeAdapter {
    * @atomicservice
    * @since 12
    */
-  onCreateChild?(index: number): FrameNode;
+  onCreateChild?:(index: number)=> FrameNode;
   /**
    * Called when the child node is about to be destroyed.
    *
@@ -1794,7 +1794,7 @@ export declare class NodeAdapter {
    * @atomicservice
    * @since 12
    */
-  onDisposeChild?(id: number, node: FrameNode): void;
+  onDisposeChild?:(id: number, node: FrameNode)=> void;
   /**
    * Call this callback when reloading or reusing.
    *
@@ -1805,7 +1805,7 @@ export declare class NodeAdapter {
    * @atomicservice
    * @since 12
    */
-  onUpdateChild?(id: number, node: FrameNode): void;
+  onUpdateChild?:(id: number, node: FrameNode)=> void;
   /**
    * Add a NodeAdapter to bind to the node.A node can only be bound to one NodeAdapter. Binding failure returns false.
    *

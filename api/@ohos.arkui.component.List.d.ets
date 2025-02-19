@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 import { Resource } from './global/resource'
-import { ScrollableCommonMethod,EdgeEffectOptions,NestedScrollOptions,ChildrenMainSize,ItemDragInfo } from './@ohos.arkui.component.Common'
+import { ScrollableCommonMethod,EdgeEffectOptions,NestedScrollOptions,ChildrenMainSize,ItemDragInfo,RectResult } from './@ohos.arkui.component.Common'
 import { Length,ResourceColor,LengthConstrain,Dimension} from './@ohos.arkui.component.Units'
 import { Scroller,ScrollAlign } from './@ohos.arkui.component.Scroll'
 import { Axis,BarState,EdgeEffect } from './@ohos.arkui.component.Enums'

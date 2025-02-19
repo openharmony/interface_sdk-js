@@ -17,7 +17,10 @@
  * @file
  * @kit ArkUI
  */
-
+import { ImageAttribute } from "./@ohos.arkui.component.Image";
+import { ResourceStr } from "./@ohos.arkui.component.Units";
+import { PixelMap } from './@ohos.multimedia.image'
+import { DrawableDescriptor } from "./@ohos.arkui.drawableDescriptor";
 /**
  * Defines the resource which can use ASTC.
  *
@@ -51,7 +54,7 @@ export interface ASTCResource {
  * @systemapi
  * @since 12
  */
-export type MediaCachedImageInterface = (src: PixelMap | ResourceStr | DrawableDescriptor | ASTCResource): MediaCachedImageAttribute;
+export type MediaCachedImageInterface = (src: PixelMap | ResourceStr | DrawableDescriptor | ASTCResource)=> MediaCachedImageAttribute;
 
 /**
  * Attributes of MediaCachedImage inherited from ImageAttribute.

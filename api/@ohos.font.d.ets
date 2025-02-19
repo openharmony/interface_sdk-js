@@ -36,7 +36,7 @@ import { Resource } from './global/resource'
  * @atomicservice
  * @since 12
  */
-export default namespace font {
+export default declare namespace font {
   /**
    * @typedef FontOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -720,7 +720,7 @@ export default namespace font {
    * @atomicservice
    * @since 12
    */
-  export declare function registerFont(options: FontOptions): void;
+  export function registerFont(options: FontOptions): void;
 
   /**
    * Gets a list of fonts supported by system.
@@ -746,7 +746,7 @@ export default namespace font {
    * @atomicservice
    * @since 12
    */
-  export declare function getSystemFontList(): Array<string>;
+  export function getSystemFontList(): Array<string>;
 
   /**
    * Get font details according to the font name.
@@ -775,7 +775,7 @@ export default namespace font {
    * @atomicservice
    * @since 12
    */
-  export declare function getFontByName(fontName: string): FontInfo;
+  export function getFontByName(fontName: string): FontInfo;
 
   /**
    * Get font details according to the font name.
@@ -792,6 +792,6 @@ export default namespace font {
    * @atomicservice
    * @since 12
    */
-  export declare function getUIFontConfig(): UIFontConfig;
+  export function getUIFontConfig(): UIFontConfig;
 }
 

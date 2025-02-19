@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, BorderRadiuses, ShapeMask, ShapeClip, Edges, LengthMetricsUnit } from './Graphics';
-import { BorderStyle } from './@ohos.arkui.component.Enums'
+import { BorderStyle } from '../@ohos.arkui.component.Enums'
 /**
  * Defines RenderNode. Contains node tree operations and render property operations on node.
  *
@@ -225,7 +225,7 @@ export declare class RenderNode {
    * @atomicservice
    * @since 12
    */
-  set backgroundColor(color: number);
+  set backgroundColor(color: number):void;
 
   /**
    * Get the background color of the RenderNode.
@@ -264,7 +264,7 @@ export declare class RenderNode {
    * @atomicservice
    * @since 12
    */
-  set clipToFrame(useClip: boolean);
+  set clipToFrame(useClip: boolean):void;
 
   /**
    * Get whether the RenderNode clip to frame.
@@ -303,7 +303,7 @@ export declare class RenderNode {
    * @atomicservice
    * @since 12
    */
-  set opacity(value: number);
+  set opacity(value: number):void;
 
   /**
    * Get opacity of the RenderNode.
@@ -342,7 +342,7 @@ export declare class RenderNode {
    * @atomicservice
    * @since 12
    */
-  set size(size: Size);
+  set size(size: Size):void;
 
   /**
    * Get frame size of the RenderNode.
@@ -381,7 +381,7 @@ export declare class RenderNode {
    * @atomicservice
    * @since 12
    */
-  set position(position: Position);
+  set position(position: Position):void;
 
   /**
    * Get frame position of the RenderNode.
@@ -420,7 +420,7 @@ export declare class RenderNode {
    * @atomicservice
    * @since 12
    */
-  set frame(frame: Frame);
+  set frame(frame: Frame):void;
 
   /**
    * Get frame info of the RenderNode.
@@ -459,7 +459,7 @@ export declare class RenderNode {
    * @atomicservice
    * @since 12
    */
-  set pivot(pivot: Pivot);
+  set pivot(pivot: Pivot):void;
 
   /**
    * Get pivot vector of the RenderNode.
@@ -498,7 +498,7 @@ export declare class RenderNode {
    * @atomicservice
    * @since 12
    */
-  set scale(scale: Scale);
+  set scale(scale: Scale):void;
 
   /**
    * Get scale vector of the RenderNode.
@@ -537,7 +537,7 @@ export declare class RenderNode {
    * @atomicservice
    * @since 12
    */
-  set translation(translation: Translation);
+  set translation(translation: Translation):void;
 
   /**
    * Get translation vector of the RenderNode.
@@ -576,7 +576,7 @@ export declare class RenderNode {
    * @atomicservice
    * @since 12
    */
-  set rotation(rotation: Rotation);
+  set rotation(rotation: Rotation):void;
 
   /**
    * Get rotation vector of the RenderNode.
@@ -615,7 +615,7 @@ export declare class RenderNode {
    * @atomicservice
    * @since 12
    */
-  set transform(transform: Matrix4);
+  set transform(transform: Matrix4):void;
 
   /**
    * Get transform info of the RenderNode.
@@ -654,7 +654,7 @@ export declare class RenderNode {
    * @atomicservice
    * @since 12
    */
-  set shadowColor(color: number);
+  set shadowColor(color: number):void;
 
   /**
    * Get shadow color of the RenderNode.
@@ -693,7 +693,7 @@ export declare class RenderNode {
    * @atomicservice
    * @since 12
    */
-  set shadowOffset(offset: Offset);
+  set shadowOffset(offset: Offset):void;
 
   /**
    * Get shadow offset of the RenderNode.
@@ -724,7 +724,7 @@ export declare class RenderNode {
    * @atomicservice
    * @since 12
    */
-  set label(label: string);
+  set label(label: string):void;
 
   /**
    * Get label of the RenderNode.
@@ -754,7 +754,7 @@ export declare class RenderNode {
    * @atomicservice
    * @since 12
    */
-  set shadowAlpha(alpha: number);
+  set shadowAlpha(alpha: number):void;
 
   /**
    * Get shadow alpha of the RenderNode.
@@ -793,7 +793,7 @@ export declare class RenderNode {
    * @atomicservice
    * @since 12
    */
-  set shadowElevation(elevation: number);
+  set shadowElevation(elevation: number):void;
 
   /**
    * Get shadow elevation of the RenderNode.
@@ -832,7 +832,7 @@ export declare class RenderNode {
    * @atomicservice
    * @since 12
    */
-  set shadowRadius(radius: number);
+  set shadowRadius(radius: number):void;
 
   /**
    * Get shadow radius of the RenderNode.
@@ -863,7 +863,7 @@ export declare class RenderNode {
    * @atomicservice
    * @since 12
    */
-  set borderStyle(style: Edges<BorderStyle>);
+  set borderStyle(style: Edges<BorderStyle>):void;
 
   /**
    * Get border style of the RenderNode.
@@ -885,7 +885,7 @@ export declare class RenderNode {
    * @atomicservice
    * @since 12
    */
-  set borderWidth(width: Edges<number>);
+  set borderWidth(width: Edges<number>):void;
 
   /**
    * Get border width of the RenderNode.
@@ -908,7 +908,7 @@ export declare class RenderNode {
    * @atomicservice
    * @since 12
    */
-  set borderColor(color: Edges<number>);
+  set borderColor(color: Edges<number>):void;
 
   /**
    * Get border color of the RenderNode.
@@ -931,7 +931,7 @@ export declare class RenderNode {
    * @atomicservice
    * @since 12
    */
-  set borderRadius(radius: BorderRadiuses);
+  set borderRadius(radius: BorderRadiuses):void;
 
   /**
    * Get border radius of the RenderNode.
@@ -954,7 +954,7 @@ export declare class RenderNode {
    * @atomicservice
    * @since 12
    */
-  set shapeMask(shapeMask: ShapeMask);
+  set shapeMask(shapeMask: ShapeMask):void;
 
   /**
    * Get shape mask of the RenderNode.
@@ -976,7 +976,7 @@ export declare class RenderNode {
    * @atomicservice
    * @since 12
    */
-  set shapeClip(shapeClip: ShapeClip);
+  set shapeClip(shapeClip: ShapeClip):void;
 
   /**
    * Get shape clip of the RenderNode.
@@ -998,7 +998,7 @@ export declare class RenderNode {
    * @atomicservice
    * @since 12
    */
-  set markNodeGroup(isNodeGroup: boolean);
+  set markNodeGroup(isNodeGroup: boolean):void;
 
   /**
    * Get whether to preferentially draw the node and its children.
@@ -1067,7 +1067,7 @@ export declare class RenderNode {
    * @atomicservice
    * @since 12
    */
-  set lengthMetricsUnit(unit: LengthMetricsUnit);
+  set lengthMetricsUnit(unit: LengthMetricsUnit):void;
 
   /**
    * Get the length metrics unit of RenderNode.

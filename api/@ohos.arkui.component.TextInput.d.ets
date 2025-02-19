@@ -18,9 +18,9 @@
  * @kit ArkUI
  */
 
-import { CancelButtonSymbolOptions, CancelButtonOptions } from "./@ohos.arkui.component.search";
+import { CancelButtonSymbolOptions, CancelButtonOptions } from "./@ohos.arkui.component.Search";
 import { CustomBuilder, Callback, CommonMethod, TextContentControllerBase, SelectionOptions, InputCounterOptions, TextDecorationOptions } from "./@ohos.arkui.component.Common";
-import { BarState, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow, CopyOptions, TextHeightAdaptivePolicy, TextContentStyle} from './@ohos.arkui.component.enums';
+import { BarState, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow, CopyOptions, TextHeightAdaptivePolicy, TextContentStyle} from './@ohos.arkui.component.Enums';
 import { Resource, ResourceStr, ResourceColor, Dimension, Font, Length } from './@ohos.arkui.component.Units';
 import { InsertValue, DeleteValue, CaretStyle, EditableTextOnChangeCallback, EditMenuOptions } from "./@ohos.arkui.component.TextCommon";
 import { KeyboardOptions, PasteEvent } from "./@ohos.arkui.component.RichEditor";

@@ -17,10 +17,10 @@
  * @file
  * @kit ArkUI
  */
-import type { Callback, CommonMethod } from './@ohos.arkui.component.Common';
-import type { Curve, EdgeEffect, ICurve } from './@ohos.arkui.component.Enums';
-import type { IndicatorComponentController } from './@ohos.arkui.component.IndicatorComponent';
-import type { Font, Length, LengthMetrics, ResourceColor, VoidCallback, VP } from './@ohos.arkui.component.Units';
+import  { Callback, CommonMethod } from './@ohos.arkui.component.Common';
+import  { Curve, EdgeEffect, ICurve } from './@ohos.arkui.component.Enums';
+import  { IndicatorComponentController } from './@ohos.arkui.component.IndicatorComponent';
+import  { Font, Length, LengthMetrics, ResourceColor, VoidCallback, VP } from './@ohos.arkui.component.Units';
 
 /**
  * Provides methods for switching components.

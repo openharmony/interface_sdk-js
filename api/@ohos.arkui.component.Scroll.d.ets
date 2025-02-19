@@ -987,7 +987,7 @@ export type ScrollInterface = (scroller?: Scroller) => ScrollAttribute;
  * @atomicservice
  * @since 13
  */
-export declare type OnScrollEdgeCallback = (side: Edge) => void;
+export type OnScrollEdgeCallback = (side: Edge) => void;
 
 /**
  * The data returned by the event handler when onScrollFrameBegin.
@@ -1581,7 +1581,7 @@ export type ScrollOnScrollCallback = (xOffset: number, yOffset: number, scrollSt
   * @since 12
   */
 export type ScrollOnWillScrollCallback =
- (xOffset: number, yOffset: number, scrollState: ScrollState, scrollSource: ScrollSource) => void | OffsetResult;
+ (xOffset: number, yOffset: number, scrollState: ScrollState, scrollSource: ScrollSource) => undefined | OffsetResult;
 
 /**
  * Defines Scroll Component.

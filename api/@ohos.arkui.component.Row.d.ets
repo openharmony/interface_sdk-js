@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 
-import { CommonMethod, SpaceType, PointLightStyle, Optional } from './@ohos.arkui.component.Common';
+import { CommonMethod, PointLightStyle, Optional } from './@ohos.arkui.component.Common';
 import { VerticalAlign, FlexAlign } from './@ohos.arkui.component.Enums';
 
 /**

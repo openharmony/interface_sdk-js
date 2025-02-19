@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import {CommonMethod} from './@ohos.arkui.component.Common'
+import {CommonMethod,PointLightStyle} from './@ohos.arkui.component.Common'
 import { LengthMetrics } from './@ohos.arkui.node';
 import { FlexDirection,FlexWrap, FlexAlign,ItemAlign } from './@ohos.arkui.component.Enums' 
 /**

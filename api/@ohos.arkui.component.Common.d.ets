@@ -23488,7 +23488,7 @@ export interface LightSource {
  * @atomicservice
  * @since 12
  */
-export declare function wrapBuilder<Args extends Object[]>(builder: (...args: Args) => void): WrappedBuilder<Args>;
+export declare function wrapBuilder<Args extends Array<Object>>(builder: (...args: Args) => void): WrappedBuilder<Args>;
 
 /**
  * Defines the WrappedBuilder class.

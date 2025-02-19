@@ -273,30 +273,8 @@ export declare enum SlideEffect {
  * @atomicservice
  * @since 11
  */
-export declare class CommonTransition<T> {
-  /**
-   * Called when a transition method is required.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when a transition method is required.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when a transition method is required.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  constructor();
-
+export declare interface CommonTransition<T> {
+ 
   /**
    * Called when the slide in effect of the transition is set.
    *
