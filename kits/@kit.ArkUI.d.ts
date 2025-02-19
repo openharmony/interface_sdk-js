@@ -88,7 +88,8 @@ import { AppStorageV2, PersistenceV2, Type, UIUtils } from '@ohos.arkui.StateMan
 import { RectShape, CircleShape, EllipseShape, PathShape } from '@ohos.arkui.shape';
 import {
   AtomicServiceBar, ComponentUtils, ContextMenuController, CursorController, DragController, Font, KeyboardAvoidMode, MediaQuery, OverlayManager,
-  PromptAction, Router, UIContext, UIInspector, UIObserver, PageInfo, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, MeasureUtils, FrameCallback, OverlayManagerOptions
+  PromptAction, Router, UIContext, UIInspector, UIObserver, PageInfo, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, MeasureUtils, FrameCallback,
+  OverlayManagerOptions
 } from '@ohos.arkui.UIContext';
 import curves from '@ohos.curves';
 import {
@@ -224,6 +225,6 @@ export {
   DownloadLayoutDirection, DownloadIconStyle, DownloadDescription, DownloadContentOptions, DownloadStyleOptions, NodeAdapter,
   Rect, RoundRect, edgeColors, edgeWidths, borderStyles, borderRadiuses, ParticleModifier,
   InnerFullScreenLaunchComponent, LaunchController,
-  SplitPolicy, MultiNavigation, MultiNavPathStack, AccessibilitySelectedType, AccessibilityOptions, CloseOptions,
+  SplitPolicy, MultiNavigation, MultiNavPathStack, AccessibilitySelectedType, AccessibilityOptions, CloseOptions, 
   ChipSuffixSymbolGlyphOptions, SuffixImageIconOptions, SymbolItemOptions, OverlayManagerOptions,
 };
