@@ -62,14 +62,14 @@ declare type OnTextSelectionChangeCallback = (selectionStart: number, selectionE
  */
 declare type OnContentScrollCallback = (totalOffsetX: number, totalOffsetY: number) => void;
 /**
- * Defines the inputFilter options
+ * Defines the InputFilter parameters
  *
- * @typedef InputFilterOptions
+ * @typedef InputFilterParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 16
  */
-export interface InputFilterOptions {
+export interface InputFilterParams {
   /**
    * Regular expression.
    *
@@ -90,7 +90,7 @@ export interface InputFilterOptions {
   error?: Callback<string>;
 }
 /**
- * Defines the SearchButton Params
+ * Defines the SearchButton parameters
  *
  * @typedef SearchButtonParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -118,14 +118,14 @@ export interface SearchButtonParams {
   options?: SearchButtonOptions;
 }
 /**
- * Defines the MenuAlign options
+ * Defines the MenuAlign parameters
  *
- * @typedef MenuAlignOptions
+ * @typedef MenuAlignParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 16
  */
-export interface MenuAlignOptions {
+export interface MenuAlignParams {
   /**
    * indicates the fontSize and fontColor of the search button.
    *
@@ -149,12 +149,12 @@ export interface MenuAlignOptions {
 /**
  * Events and styles supported by the search area
  *
- * @typedef SearchOptions
+ * @typedef SearchParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 16
  */
-export interface SearchOptions {
+export interface SearchParams {
   /**
    * componentBackgroundColor
    *
@@ -351,12 +351,12 @@ export interface SearchOptions {
   /**
    * Called when the inputFilter of text is set.
    *
-   * @type { ?InputFilterOptions }
+   * @type { ?InputFilterParams }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
    */
-  inputFilter?: InputFilterOptions;
+  inputFilter?: InputFilterParams;
   /**
    * Specify the indentation of the first line in a text-block.
    *
@@ -523,12 +523,12 @@ export interface SearchOptions {
 /**
  * Contents, events, and styles of the select area
  *
- * @typedef SelectOptions
+ * @typedef SelectParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 16
  */
-export interface SelectOptions {
+export interface SelectParams {
   /**
    * SubOption array of the select.
    *
@@ -703,12 +703,12 @@ export interface SelectOptions {
   /**
    * Set the alignment between select and menu.
    *
-   * @type { ?MenuAlignOptions }.
+   * @type { ?MenuAlignParams }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
    */
-  menuAlign?: MenuAlignOptions;
+  menuAlign?: MenuAlignParams;
   /**
    * set the menu's background color
    *
@@ -731,12 +731,12 @@ export interface SelectOptions {
 /**
  * Function settings in the selection area (right)
  *
- * @typedef OperationOptions
+ * @typedef OperationParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 16
  */
-export interface OperationOptions {
+export interface OperationParams {
   /**
    * Function bits attached to the search area (right)
    *
@@ -790,32 +790,32 @@ export declare struct AtomicServiceSearch {
   /**
    * Events and styles supported by the search area.
    *
-   * @type { ?SearchOptions }.
+   * @type { ?SearchParams }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
    */
   @Prop
-  search?: SearchOptions;
+  search?: SearchParams;
   /**
    * Contents, events, and styles of the select area.
    *
-   * @type { ?SelectOptions }.
+   * @type { ?SelectParams }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
    */
   @Prop
-  select?: SelectOptions;
+  select?: SelectParams;
   /**
    * Function settings in the selection area (right).
    *
-   * @type { ?OperationOptions }.
+   * @type { ?OperationParams }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 16
    */
-  operation?: OperationOptions;
+  operation?: OperationParams;
   /**
    * Set the Search component controller.
    *
