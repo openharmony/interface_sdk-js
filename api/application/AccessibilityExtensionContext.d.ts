@@ -1046,6 +1046,14 @@ interface ElementAttributeValues {
    * @since 16
    */
   accessibilityPreviousFocusId?: number;
+  /**
+   * Indicates whether the element is scrollable for accessibility.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 16
+   */
+  accessibilityScrollable?: boolean;
 }
 
 /**
