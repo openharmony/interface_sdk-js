@@ -1411,6 +1411,30 @@ declare namespace bundleManager {
      * @since 12
      */
     FLAG_INSTALLED = 0x00000001,
+    /**
+     * Indicates the application is currently installed for the other user.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 15
+     */
+    FLAG_OTHER_INSTALLED = 0x00000010,
+    /**
+     * Indicates the application is a preinstall app.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 15
+     */
+    FLAG_PREINSTALLED_APP = 0x00000020,
+    /**
+     * Indicates the application is an updated preinstall app.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 15
+     */
+    FLAG_PREINSTALLED_APP_UPDATE = 0x00000040,
   }
 
   /**
