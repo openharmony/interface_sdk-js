@@ -1227,7 +1227,7 @@ declare namespace connection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 16
+   * @since 15
    */
   function controlDeviceAction(controlDeviceActionParams: ControlDeviceActionParams): Promise<void>;
 
@@ -2309,7 +2309,7 @@ declare namespace connection {
    * @typedef ControlDeviceActionParams
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 16
+   * @since 15
    */
   interface ControlDeviceActionParams {
     /**
@@ -2318,7 +2318,7 @@ declare namespace connection {
      * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 15
      */
     deviceId: string;
     /**
@@ -2327,7 +2327,7 @@ declare namespace connection {
      * @type { ControlType }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 15
      */
     type: ControlType;
     /**
@@ -2336,7 +2336,7 @@ declare namespace connection {
      * @type { ControlTypeValue }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 15
      */
     typeValue: ControlTypeValue;
     /**
@@ -2345,7 +2345,7 @@ declare namespace connection {
      * @type { ControlObject }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 15
      */
     controlObject: ControlObject;
   }
@@ -2356,7 +2356,7 @@ declare namespace connection {
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 16
+   * @since 15
    */
   enum ControlType {
     /**
@@ -2364,7 +2364,7 @@ declare namespace connection {
      * 
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 15
      */
     PLAY = 0,
     /**
@@ -2372,7 +2372,7 @@ declare namespace connection {
      * 
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 15
      */
     VIBRATE = 1,
     /**
@@ -2380,7 +2380,7 @@ declare namespace connection {
      * 
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 15
      */
     FLASH = 2,
     /**
@@ -2388,7 +2388,7 @@ declare namespace connection {
      * 
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 15
      */
     LOCK = 3,
     /**
@@ -2396,7 +2396,7 @@ declare namespace connection {
      * 
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 15
      */
     ERASE = 4,
   }
@@ -2407,7 +2407,7 @@ declare namespace connection {
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 16
+   * @since 15
    */
   enum ControlTypeValue {
     /**
@@ -2415,7 +2415,7 @@ declare namespace connection {
      * 
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 15
      */
     DISABLE = 0,
     /**
@@ -2423,7 +2423,7 @@ declare namespace connection {
      * 
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 15
      */
     ENABLE = 1,
     /**
@@ -2431,7 +2431,7 @@ declare namespace connection {
      * 
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 15
      */
     QUERY = 2,
   }
@@ -2442,15 +2442,15 @@ declare namespace connection {
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 16
+   * @since 15
    */
-  enum ControlObject{
+  enum ControlObject {
     /**
      * Control object of left ear.
      * 
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 15
      */
     LEFT_EAR = 0,
     /**
@@ -2458,7 +2458,7 @@ declare namespace connection {
      * 
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 15
      */
     RIGHT_EAR = 1,
     /**
@@ -2466,7 +2466,7 @@ declare namespace connection {
      * 
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 16
+     * @since 15
      */
     LEFT_RIGHT_EAR = 2,
   }
