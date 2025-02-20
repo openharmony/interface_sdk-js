@@ -1498,6 +1498,22 @@ declare namespace media {
      * @since 16
      */
     AVERR_SEEK_CONTINUOUS_UNSUPPORTED = 5410002,
+
+    /**
+     * Super-resolution unsupported.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 16
+     */
+    AVERR_SUPER_RESOLUTION_UNSUPPORTED = 5410003,
+
+    /**
+     * No PlaybackStrategy set to enable super-resolution feature.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 16
+     */
+    AVERR_SUPER_RESOLUTION_NOT_ENABLED = 5410004,
   }
 
   /**
@@ -1574,6 +1590,17 @@ declare namespace media {
    * @since 12
    */
   type OnVideoSizeChangeHandler = (width: number, height: number) => void;
+
+  /**
+   * Defines the OnSuperResolutionChanged callback.
+   *
+   * @typedef { function } OnSuperResolutionChanged
+   * @param { boolean } enabled - Super-resolution enabled or not.
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   * @atomicservice
+   * @since 16
+   */
+  type OnSuperResolutionChanged = (enabled: boolean) => void;
 
   /**
    * SEI message.
@@ -2207,6 +2234,41 @@ declare namespace media {
      * @since 16
      */
     isSeekContinuousSupported() : boolean;
+
+    /**
+     * Enable or disable super-resolution dynamically.
+     * Must enable super-resolution feature in {@link PlaybackStrategy} before calling {@link #prepare}.
+     * See {@link #setPlaybackStrategy}, {@link #setMediaSource}.
+     * @param { boolean } enabled - true: super-resolution enabled; false: super-resolution disabled.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 801 - Unsupported capability. Return by promise.
+     * @throws { BusinessError } 5410003 - Super-resolution not supported. Return by promise.
+     * @throws { BusinessError } 5410004 - Missing enable super-resolution feature in {@link PlaybackStrategy}.
+     *                                     Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 16
+     */
+    setSuperResolution(enabled: boolean) : Promise<void>;
+
+    /**
+     * Set video window size for super-resolution.
+     * Must enable super-resolution feature in {@link PlaybackStrategy} before calling {@link #prepare}.
+     * See {@link #setPlaybackStrategy}, {@link #setMediaSource}.
+     * @param { number } width - width of the window.
+     * @param { number } height - height of the window.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 401 - Parameter error. Return by promise.
+     * @throws { BusinessError } 5410003 - Super-resolution not supported. Return by promise.
+     * @throws { BusinessError } 5410004 - Missing enable super-resolution feature in {@link PlaybackStrategy}.
+     *                                     Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 16
+     */
+    setVideoWindowSize(width: number, height: number) : Promise<void>;
 
     /**
      * Media URI. Mainstream media formats are supported.
@@ -3301,6 +3363,26 @@ declare namespace media {
      * @since 16
      */
     off(type: 'seiMessageReceived', payloadTypes?: Array<number>, callback?: OnSeiMessageHandle): void;
+
+    /**
+     * Subscribes listener for super-resolution status changed event.
+     * @param { 'superResolutionChanged' } type - Type of the super-resolution event to listen for.
+     * @param { OnSuperResolutionChanged } callback - Callback used to listen for the super-resolution changed event.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 16
+     */
+    on(type:'superResolutionChanged', callback: OnSuperResolutionChanged): void;
+
+    /**
+     * Unsubscribes listener for super-resolution status changed event.
+     * @param { 'superResolutionChanged' } type - Type of the super-resolution event to listen for.
+     * @param { OnSuperResolutionChanged } callback - Callback used to listen for the super-resolution changed event.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 16
+     */
+    off(type:'superResolutionChanged', callback?: OnSuperResolutionChanged): void;    
   }
 
   /**
@@ -3659,6 +3741,16 @@ declare namespace media {
      * @since 16
      */
     preferredBufferDurationForPlaying?: number;
+
+    /**
+     * Enable super-resolution feature. default is false.
+     * Must enable super-resolution feature before calling {@link #setSuperResolution} and {@link #setVideoWindowSize}.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 16
+     */
+    enableSuperResolution?: boolean;
   }
 
   /**
