@@ -8462,6 +8462,17 @@ declare interface ClickEvent extends BaseEvent {
   y: number;
 
   /**
+   * Type of the touch hand.
+   *
+   * @type { InteractionHand }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  hand?: InteractionHand;
+
+  /**
    * Prevent the default function.
    *
    * @type { function }
@@ -9010,6 +9021,17 @@ declare interface TouchObject {
    * @since 11
    */
   y: number;
+
+  /**
+   * Type of the touch hand.
+   *
+   * @type { InteractionHand }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+    hand?: InteractionHand;
 }
 
 /**
