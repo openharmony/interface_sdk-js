@@ -20,8 +20,9 @@
 
 import { Callback } from './@ohos.base';
 import type UIAbilityContext from './application/UIAbilityContext';
-import  { NavigationOperation, NavBar } from '@ohos.arkui.component.Navigation';
-
+import  { NavigationOperation, NavBar,NavPathStack } from '@ohos.arkui.component.Navigation';
+import { ResourceStr } from './@ohos.arkui.component.Units'
+import { UIContext } from './@ohos.arkui.UIContext'
 /**
  * Register callbacks to observe ArkUI behavior.
  *
@@ -39,7 +40,7 @@ import  { NavigationOperation, NavBar } from '@ohos.arkui.component.Navigation';
  * @atomicservice
  * @since 12
  */
-export default declare namespace uiObserver {
+declare namespace uiObserver {
   /**
    * NavDestination state.
    *
@@ -870,402 +871,403 @@ export default declare namespace uiObserver {
     navigationId: ResourceStr;
   }
 
-  /**
-   * Registers a callback function to be called when the navigation destination is updated.
-   *
-   * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
-   * @param { object } options - The options object.
-   * @param { Callback<NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * Registers a callback function to be called when the navigation destination is updated.
-   *
-   * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
-   * @param { object } options - The options object.
-   * @param { Callback<NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  export function on(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callback: Callback<NavDestinationInfo>): void;
+  // /**
+  //  * Registers a callback function to be called when the navigation destination is updated.
+  //  *
+  //  * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
+  //  * @param { object } options - The options object.
+  //  * @param { Callback<NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
+  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  //  * @crossplatform
+  //  * @since 11
+  //  */
+  // /**
+  //  * Registers a callback function to be called when the navigation destination is updated.
+  //  *
+  //  * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
+  //  * @param { object } options - The options object.
+  //  * @param { Callback<NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
+  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  //  * @crossplatform
+  //  * @atomicservice
+  //  * @since 12
+  //  */
+  // export function on(type: 'navDestinationUpdate', options: NavDestinationSwitchObserverOptions, callback: Callback<NavDestinationInfo>): void;
 
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { 'navDestinationUpdate' } type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
-   * @param { object } options - The options object.
-   * @param { Callback<NavDestinationInfo> } callback - The callback function to remove. If not provided, all callbacks for the given event type and
-   *                                                    navigation ID will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { 'navDestinationUpdate' } type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
-   * @param { object } options - The options object.
-   * @param { Callback<NavDestinationInfo> } callback - The callback function to remove. If not provided, all callbacks for the given event type and
-   *                                                    navigation ID will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  export function off(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callback?: Callback<NavDestinationInfo>): void;
+  // /**
+  //  * Removes a callback function that was previously registered with `on()`.
+  //  *
+  //  * @param { 'navDestinationUpdate' } type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
+  //  * @param { object } options - The options object.
+  //  * @param { Callback<NavDestinationInfo> } callback - The callback function to remove. If not provided, all callbacks for the given event type and
+  //  *                                                    navigation ID will be removed.
+  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  //  * @crossplatform
+  //  * @since 11
+  //  */
+  // /**
+  //  * Removes a callback function that was previously registered with `on()`.
+  //  *
+  //  * @param { 'navDestinationUpdate' } type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
+  //  * @param { object } options - The options object.
+  //  * @param { Callback<NavDestinationInfo> } callback - The callback function to remove. If not provided, all callbacks for the given event type and
+  //  *                                                    navigation ID will be removed.
+  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  //  * @crossplatform
+  //  * @atomicservice
+  //  * @since 12
+  //  */
+  // export function off(type: 'navDestinationUpdate', options: NavDestinationSwitchObserverOptions, callback?: Callback<NavDestinationInfo>): void;
 
-  /**
-   * Registers a callback function to be called when the navigation destination is updated.
-   *
-   * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
-   * @param { Callback<NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * Registers a callback function to be called when the navigation destination is updated.
-   *
-   * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
-   * @param { Callback<NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  export function on(type: 'navDestinationUpdate', callback: Callback<NavDestinationInfo>): void;
+  // /**
+  //  * Registers a callback function to be called when the navigation destination is updated.
+  //  *
+  //  * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
+  //  * @param { Callback<NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
+  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  //  * @crossplatform
+  //  * @since 11
+  //  */
+  // /**
+  //  * Registers a callback function to be called when the navigation destination is updated.
+  //  *
+  //  * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
+  //  * @param { Callback<NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
+  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  //  * @crossplatform
+  //  * @atomicservice
+  //  * @since 12
+  //  */
+  // export function on(type: 'navDestinationUpdate', callback: Callback<NavDestinationInfo>): void;
 
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { 'navDestinationUpdate'} type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
-   * @param { Callback<NavDestinationInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
-   *                                                      will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { 'navDestinationUpdate'} type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
-   * @param { Callback<NavDestinationInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
-   *                                                      will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  export function off(type: 'navDestinationUpdate', callback?: Callback<NavDestinationInfo>): void;
+  // /**
+  //  * Removes a callback function that was previously registered with `on()`.
+  //  *
+  //  * @param { 'navDestinationUpdate'} type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
+  //  * @param { Callback<NavDestinationInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+  //  *                                                      will be removed.
+  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  //  * @crossplatform
+  //  * @since 11
+  //  */
+  // /**
+  //  * Removes a callback function that was previously registered with `on()`.
+  //  *
+  //  * @param { 'navDestinationUpdate'} type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
+  //  * @param { Callback<NavDestinationInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+  //  *                                                      will be removed.
+  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  //  * @crossplatform
+  //  * @atomicservice
+  //  * @since 12
+  //  */
+  // export function off(type: 'navDestinationUpdate', callback?: Callback<NavDestinationInfo>): void;
 
-  /**
-   * Registers a callback function to be called when the scroll event start or stop.
-   *
-   * @param { 'scrollEvent' } type - The type of event to listen for. Must be 'scrollEvent'.
-   * @param { ObserverOptions } options - The options object.
-   * @param { Callback<ScrollEventInfo> } callback - The callback function to be called when the scroll event start or stop.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  export function on(type: 'scrollEvent', options: ObserverOptions, callback: Callback<ScrollEventInfo>): void;
+  // /**
+  //  * Registers a callback function to be called when the scroll event start or stop.
+  //  *
+  //  * @param { 'scrollEvent' } type - The type of event to listen for. Must be 'scrollEvent'.
+  //  * @param { ObserverOptions } options - The options object.
+  //  * @param { Callback<ScrollEventInfo> } callback - The callback function to be called when the scroll event start or stop.
+  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  //  * @crossplatform
+  //  * @atomicservice
+  //  * @since 12
+  //  */
+  // export function on(type: 'scrollEvent', options: ObserverOptions, callback: Callback<ScrollEventInfo>): void;
 
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { 'scrollEvent' } type - The type of event to remove the listener for. Must be 'scrollEvent'.
-   * @param { ObserverOptions } options - The options object.
-   * @param { Callback<ScrollEventInfo> } callback - The callback function to remove. If not provided, all callbacks for the given event type and
-   *                                                    scroll ID will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  export function off(type: 'scrollEvent', options: ObserverOptions, callback?: Callback<ScrollEventInfo>): void;
+  // /**
+  //  * Removes a callback function that was previously registered with `on()`.
+  //  *
+  //  * @param { 'scrollEvent' } type - The type of event to remove the listener for. Must be 'scrollEvent'.
+  //  * @param { ObserverOptions } options - The options object.
+  //  * @param { Callback<ScrollEventInfo> } callback - The callback function to remove. If not provided, all callbacks for the given event type and
+  //  *                                                    scroll ID will be removed.
+  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  //  * @crossplatform
+  //  * @atomicservice
+  //  * @since 12
+  //  */
+  // export function off(type: 'scrollEvent', options: ObserverOptions, callback?: Callback<ScrollEventInfo>): void;
 
-  /**
-   * Registers a callback function to be called when the scroll event start or stop.
-   *
-   * @param { 'scrollEvent' } type - The type of event to listen for. Must be 'scrollEvent'.
-   * @param { Callback<ScrollEventInfo> } callback - The callback function to be called when the scroll event start or stop.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  export function on(type: 'scrollEvent', callback: Callback<ScrollEventInfo>): void;
+  // /**
+  //  * Registers a callback function to be called when the scroll event start or stop.
+  //  *
+  //  * @param { 'scrollEvent' } type - The type of event to listen for. Must be 'scrollEvent'.
+  //  * @param { Callback<ScrollEventInfo> } callback - The callback function to be called when the scroll event start or stop.
+  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  //  * @crossplatform
+  //  * @atomicservice
+  //  * @since 12
+  //  */
+  // export function on(type: 'scrollEvent', callback: Callback<ScrollEventInfo>): void;
 
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { 'scrollEvent'} type - The type of event to remove the listener for. Must be 'scrollEvent'.
-   * @param { Callback<ScrollEventInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
-   *                                                      will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  export function off(type: 'scrollEvent', callback?: Callback<ScrollEventInfo>): void;
+  // /**
+  //  * Removes a callback function that was previously registered with `on()`.
+  //  *
+  //  * @param { 'scrollEvent'} type - The type of event to remove the listener for. Must be 'scrollEvent'.
+  //  * @param { Callback<ScrollEventInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+  //  *                                                      will be removed.
+  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  //  * @crossplatform
+  //  * @atomicservice
+  //  * @since 12
+  //  */
+  // export function off(type: 'scrollEvent', callback?: Callback<ScrollEventInfo>): void;
 
-  /**
-   * Registers a callback function to be called when the router page is updated.
-   *
-   * @param { 'routerPageUpdate' } type - The type of event to listen for. Must be 'routerPageUpdate'.
-   * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
-   * @param { Callback<RouterPageInfo> } callback - The callback function to be called when the router page is updated.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * Registers a callback function to be called when the router page is updated.
-   *
-   * @param { 'routerPageUpdate' } type - The type of event to listen for. Must be 'routerPageUpdate'.
-   * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
-   * @param { Callback<RouterPageInfo> } callback - The callback function to be called when the router page is updated.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  export function on(type: 'routerPageUpdate', context: UIAbilityContext | UIContext, callback: Callback<RouterPageInfo>): void;
+  // /**
+  //  * Registers a callback function to be called when the router page is updated.
+  //  *
+  //  * @param { 'routerPageUpdate' } type - The type of event to listen for. Must be 'routerPageUpdate'.
+  //  * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
+  //  * @param { Callback<RouterPageInfo> } callback - The callback function to be called when the router page is updated.
+  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  //  * @crossplatform
+  //  * @since 11
+  //  */
+  // /**
+  //  * Registers a callback function to be called when the router page is updated.
+  //  *
+  //  * @param { 'routerPageUpdate' } type - The type of event to listen for. Must be 'routerPageUpdate'.
+  //  * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
+  //  * @param { Callback<RouterPageInfo> } callback - The callback function to be called when the router page is updated.
+  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  //  * @crossplatform
+  //  * @atomicservice
+  //  * @since 12
+  //  */
+  // export function on(type: 'routerPageUpdate', context: UIAbilityContext | UIContext, callback: Callback<RouterPageInfo>): void;
 
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { 'routerPageUpdate' } type - The type of event to remove the listener for. Must be 'routerPageUpdate'.
-   * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
-   * @param { Callback<RouterPageInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
-   *                                                               will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { 'routerPageUpdate' } type - The type of event to remove the listener for. Must be 'routerPageUpdate'.
-   * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
-   * @param { Callback<RouterPageInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
-   *                                                               will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  export function off(type: 'routerPageUpdate', context: UIAbilityContext | UIContext, callback?: Callback<RouterPageInfo>): void;
+  // /**
+  //  * Removes a callback function that was previously registered with `on()`.
+  //  *
+  //  * @param { 'routerPageUpdate' } type - The type of event to remove the listener for. Must be 'routerPageUpdate'.
+  //  * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
+  //  * @param { Callback<RouterPageInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+  //  *                                                               will be removed.
+  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  //  * @crossplatform
+  //  * @since 11
+  //  */
+  // /**
+  //  * Removes a callback function that was previously registered with `on()`.
+  //  *
+  //  * @param { 'routerPageUpdate' } type - The type of event to remove the listener for. Must be 'routerPageUpdate'.
+  //  * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
+  //  * @param { Callback<RouterPageInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+  //  *                                                               will be removed.
+  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  //  * @crossplatform
+  //  * @atomicservice
+  //  * @since 12
+  //  */
+  // export function off(type: 'routerPageUpdate', context: UIAbilityContext | UIContext, callback?: Callback<RouterPageInfo>): void;
 
-  /**
-   * Registers a callback function to be called when the screen density is updated.
-   *
-   * @param { 'densityUpdate' } type - The type of event to listen for. Must be 'densityUpdate'.
-   * @param { UIContext } context - The context scope of the observer.
-   * @param { Callback<DensityInfo> } callback - The callback function to be called when the screen density is updated.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  export function on(type: 'densityUpdate', context: UIContext, callback: Callback<DensityInfo>): void;
+  // /**
+  //  * Registers a callback function to be called when the screen density is updated.
+  //  *
+  //  * @param { 'densityUpdate' } type - The type of event to listen for. Must be 'densityUpdate'.
+  //  * @param { UIContext } context - The context scope of the observer.
+  //  * @param { Callback<DensityInfo> } callback - The callback function to be called when the screen density is updated.
+  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  //  * @crossplatform
+  //  * @atomicservice
+  //  * @since 12
+  //  */
+  // export function on(type: 'densityUpdate', context: UIContext, callback: Callback<DensityInfo>): void;
 
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { 'densityUpdate' } type - The type of event to remove the listener for. Must be 'densityUpdate'.
-   * @param { UIContext } context - The context scope of the observer.
-   * @param { Callback<DensityInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
-   *                                               will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  export function off(type: 'densityUpdate', context: UIContext, callback?: Callback<DensityInfo>): void;
+  // /**
+  //  * Removes a callback function that was previously registered with `on()`.
+  //  *
+  //  * @param { 'densityUpdate' } type - The type of event to remove the listener for. Must be 'densityUpdate'.
+  //  * @param { UIContext } context - The context scope of the observer.
+  //  * @param { Callback<DensityInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+  //  *                                               will be removed.
+  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  //  * @crossplatform
+  //  * @atomicservice
+  //  * @since 12
+  //  */
+  // export function off(type: 'densityUpdate', context: UIContext, callback?: Callback<DensityInfo>): void;
 
-  /**
-   * Registers a callback function to be called when the draw command will be drawn.
-   *
-   * @param { 'willDraw' } type - The type of event to listen for. Must be 'willDraw'.
-   * @param { UIContext } context - The context scope of the observer.
-   * @param { Callback<void> } callback - The callback function to be called when the draw command will be drawn.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  export function on(type: 'willDraw', context: UIContext, callback: Callback<void>): void;
+  // /**
+  //  * Registers a callback function to be called when the draw command will be drawn.
+  //  *
+  //  * @param { 'willDraw' } type - The type of event to listen for. Must be 'willDraw'.
+  //  * @param { UIContext } context - The context scope of the observer.
+  //  * @param { Callback<void> } callback - The callback function to be called when the draw command will be drawn.
+  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  //  * @crossplatform
+  //  * @atomicservice
+  //  * @since 12
+  //  */
+  // export function on(type: 'willDraw', context: UIContext, callback: Callback<void>): void;
 
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { 'willDraw' } type - The type of event to remove the listener for. Must be 'willDraw'.
-   * @param { UIContext } context - The context scope of the observer.
-   * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
-   *                                               will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  export function off(type: 'willDraw', context: UIContext, callback?: Callback<void>): void;
+  // /**
+  //  * Removes a callback function that was previously registered with `on()`.
+  //  *
+  //  * @param { 'willDraw' } type - The type of event to remove the listener for. Must be 'willDraw'.
+  //  * @param { UIContext } context - The context scope of the observer.
+  //  * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+  //  *                                               will be removed.
+  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  //  * @crossplatform
+  //  * @atomicservice
+  //  * @since 12
+  //  */
+  // export function off(type: 'willDraw', context: UIContext, callback?: Callback<void>): void;
 
-  /**
-   * Registers a callback function to be called when the layout is done.
-   *
-   * @param { 'didLayout' } type - The type of event to listen for. Must be 'didLayout'.
-   * @param { UIContext } context - The context scope of the observer.
-   * @param { Callback<void> } callback - The callback function to be called when the layout is done.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  export function on(type: 'didLayout', context: UIContext, callback: Callback<void>): void;
+  // /**
+  //  * Registers a callback function to be called when the layout is done.
+  //  *
+  //  * @param { 'didLayout' } type - The type of event to listen for. Must be 'didLayout'.
+  //  * @param { UIContext } context - The context scope of the observer.
+  //  * @param { Callback<void> } callback - The callback function to be called when the layout is done.
+  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  //  * @crossplatform
+  //  * @atomicservice
+  //  * @since 12
+  //  */
+  // export function on(type: 'didLayout', context: UIContext, callback: Callback<void>): void;
 
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { 'didLayout' } type - The type of event to remove the listener for. Must be 'didLayout'.
-   * @param { UIContext } context - The context scope of the observer.
-   * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
-   *                                               will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  export function off(type: 'didLayout', context: UIContext, callback?: Callback<void>): void;
+  // /**
+  //  * Removes a callback function that was previously registered with `on()`.
+  //  *
+  //  * @param { 'didLayout' } type - The type of event to remove the listener for. Must be 'didLayout'.
+  //  * @param { UIContext } context - The context scope of the observer.
+  //  * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+  //  *                                               will be removed.
+  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  //  * @crossplatform
+  //  * @atomicservice
+  //  * @since 12
+  //  */
+  // export function off(type: 'didLayout', context: UIContext, callback?: Callback<void>): void;
 
-  /**
-   * Registers a callback function to be called when the tabContent is showed or hidden.
-   *
-   * @param { 'tabContentUpdate' } type - The type of event to listen for. Must be 'tabContentUpdate'.
-   * @param { ObserverOptions } options - The options object.
-   * @param { Callback<TabContentInfo> } callback - The callback function to be called when when the tabContent is showed or hidden.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  export function on(type: 'tabContentUpdate', options: ObserverOptions, callback: Callback<TabContentInfo>): void;
+  // /**
+  //  * Registers a callback function to be called when the tabContent is showed or hidden.
+  //  *
+  //  * @param { 'tabContentUpdate' } type - The type of event to listen for. Must be 'tabContentUpdate'.
+  //  * @param { ObserverOptions } options - The options object.
+  //  * @param { Callback<TabContentInfo> } callback - The callback function to be called when when the tabContent is showed or hidden.
+  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  //  * @crossplatform
+  //  * @atomicservice
+  //  * @since 12
+  //  */
+  // export function on(type: 'tabContentUpdate', options: ObserverOptions, callback: Callback<TabContentInfo>): void;
 
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { 'tabContentUpdate' } type - The type of event to remove the listener for. Must be 'tabContentUpdate'.
-   * @param { ObserverOptions } options - The options object.
-   * @param { Callback<TabContentInfo> } callback - The callback function to remove. If not provided, all callbacks for the given event type and
-   *                                                    Tabs ID will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  export function off(type: 'tabContentUpdate', options: ObserverOptions, callback?: Callback<TabContentInfo>): void;
+  // /**
+  //  * Removes a callback function that was previously registered with `on()`.
+  //  *
+  //  * @param { 'tabContentUpdate' } type - The type of event to remove the listener for. Must be 'tabContentUpdate'.
+  //  * @param { ObserverOptions } options - The options object.
+  //  * @param { Callback<TabContentInfo> } callback - The callback function to remove. If not provided, all callbacks for the given event type and
+  //  *                                                    Tabs ID will be removed.
+  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  //  * @crossplatform
+  //  * @atomicservice
+  //  * @since 12
+  //  */
+  // export function off(type: 'tabContentUpdate', options: ObserverOptions, callback?: Callback<TabContentInfo>): void;
 
-  /**
-   * Registers a callback function to be called when the tabContent is showed or hidden.
-   *
-   * @param { 'tabContentUpdate' } type - The type of event to listen for. Must be 'tabContentUpdate'.
-   * @param { Callback<TabContentInfo> } callback - The callback function to be called when the tabContent is showed or hidden.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  export function on(type: 'tabContentUpdate', callback: Callback<TabContentInfo>): void;
+  // /**
+  //  * Registers a callback function to be called when the tabContent is showed or hidden.
+  //  *
+  //  * @param { 'tabContentUpdate' } type - The type of event to listen for. Must be 'tabContentUpdate'.
+  //  * @param { Callback<TabContentInfo> } callback - The callback function to be called when the tabContent is showed or hidden.
+  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  //  * @crossplatform
+  //  * @atomicservice
+  //  * @since 12
+  //  */
+  // export function on(type: 'tabContentUpdate', callback: Callback<TabContentInfo>): void;
 
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { 'tabContentUpdate'} type - The type of event to remove the listener for. Must be 'tabContentUpdate'.
-   * @param { Callback<TabContentInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
-   *                                                      will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  export function off(type: 'tabContentUpdate', callback?: Callback<TabContentInfo>): void;
+  // /**
+  //  * Removes a callback function that was previously registered with `on()`.
+  //  *
+  //  * @param { 'tabContentUpdate'} type - The type of event to remove the listener for. Must be 'tabContentUpdate'.
+  //  * @param { Callback<TabContentInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+  //  *                                                      will be removed.
+  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  //  * @crossplatform
+  //  * @atomicservice
+  //  * @since 12
+  //  */
+  // export function off(type: 'tabContentUpdate', callback?: Callback<TabContentInfo>): void;
 
-  /**
-   * Registers a callback function to be called when the navigation switched to a new navDestination.
-   *
-   * @param { 'navDestinationSwitch' } type - The type of event to listen for. Must be 'navDestinationSwitch'.
-   * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
-   * @param { Callback<NavDestinationSwitchInfo> } callback - The callback function to be called when the navigation switched to a new navDestination.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  export function on(
-    type: 'navDestinationSwitch',
-    context: UIAbilityContext | UIContext,
-    callback: Callback<NavDestinationSwitchInfo>
-  ): void;
+  // /**
+  //  * Registers a callback function to be called when the navigation switched to a new navDestination.
+  //  *
+  //  * @param { 'navDestinationSwitch' } type - The type of event to listen for. Must be 'navDestinationSwitch'.
+  //  * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
+  //  * @param { Callback<NavDestinationSwitchInfo> } callback - The callback function to be called when the navigation switched to a new navDestination.
+  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  //  * @crossplatform
+  //  * @atomicservice
+  //  * @since 12
+  //  */
+  // export function on(
+  //   type: 'navDestinationSwitch',
+  //   context: UIAbilityContext | UIContext,
+  //   callback: Callback<NavDestinationSwitchInfo>
+  // ): void;
 
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { 'navDestinationSwitch' } type - The type of event to remove the listener for. Must be 'navDestinationSwitch'.
-   * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
-   * @param { Callback<NavDestinationSwitchInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
-   *                                                               will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  export function off(
-    type: 'navDestinationSwitch',
-    context: UIAbilityContext | UIContext,
-    callback?: Callback<NavDestinationSwitchInfo>
-  ): void;
+  // /**
+  //  * Removes a callback function that was previously registered with `on()`.
+  //  *
+  //  * @param { 'navDestinationSwitch' } type - The type of event to remove the listener for. Must be 'navDestinationSwitch'.
+  //  * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
+  //  * @param { Callback<NavDestinationSwitchInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+  //  *                                                               will be removed.
+  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  //  * @crossplatform
+  //  * @atomicservice
+  //  * @since 12
+  //  */
+  // export function off(
+  //   type: 'navDestinationSwitch',
+  //   context: UIAbilityContext | UIContext,
+  //   callback?: Callback<NavDestinationSwitchInfo>
+  // ): void;
 
-  /**
-   * Registers a callback function to be called when the navigation switched to a new navDestination.
-   *
-   * @param { 'navDestinationSwitch' } type - The type of event to listen for. Must be 'navDestinationSwitch'.
-   * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
-   * @param { NavDestinationSwitchObserverOptions } observerOptions - Options.
-   * @param { Callback<NavDestinationSwitchInfo> } callback - The callback function to be called when the navigation switched to a new navDestination.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  export function on(
-    type: 'navDestinationSwitch',
-    context: UIAbilityContext | UIContext,
-    observerOptions: NavDestinationSwitchObserverOptions,
-    callback: Callback<NavDestinationSwitchInfo>
-  ): void;
+  // /**
+  //  * Registers a callback function to be called when the navigation switched to a new navDestination.
+  //  *
+  //  * @param { 'navDestinationSwitch' } type - The type of event to listen for. Must be 'navDestinationSwitch'.
+  //  * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
+  //  * @param { NavDestinationSwitchObserverOptions } observerOptions - Options.
+  //  * @param { Callback<NavDestinationSwitchInfo> } callback - The callback function to be called when the navigation switched to a new navDestination.
+  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  //  * @crossplatform
+  //  * @atomicservice
+  //  * @since 12
+  //  */
+  // export function on(
+  //   type: 'navDestinationSwitch',
+  //   context: UIAbilityContext | UIContext,
+  //   observerOptions: NavDestinationSwitchObserverOptions,
+  //   callback: Callback<NavDestinationSwitchInfo>
+  // ): void;
 
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { 'navDestinationSwitch' } type - The type of event to remove the listener for. Must be 'navDestinationSwitch'.
-   * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
-   * @param { NavDestinationSwitchObserverOptions } observerOptions - Options.
-   * @param { Callback<NavDestinationSwitchInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
-   *                                                               will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  export function off(
-    type: 'navDestinationSwitch',
-    context: UIAbilityContext | UIContext,
-    observerOptions: NavDestinationSwitchObserverOptions,
-    callback?: Callback<NavDestinationSwitchInfo>
-  ): void;
+  // /**
+  //  * Removes a callback function that was previously registered with `on()`.
+  //  *
+  //  * @param { 'navDestinationSwitch' } type - The type of event to remove the listener for. Must be 'navDestinationSwitch'.
+  //  * @param { UIAbilityContext | UIContext } context - The context scope of the observer.
+  //  * @param { NavDestinationSwitchObserverOptions } observerOptions - Options.
+  //  * @param { Callback<NavDestinationSwitchInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+  //  *                                                               will be removed.
+  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  //  * @crossplatform
+  //  * @atomicservice
+  //  * @since 12
+  //  */
+  // export function off(
+  //   type: 'navDestinationSwitch',
+  //   context: UIAbilityContext | UIContext,
+  //   observerOptions: NavDestinationSwitchObserverOptions,
+  //   callback?: Callback<NavDestinationSwitchInfo>
+  // ): void;
 }
+export default uiObserver;
