@@ -2242,7 +2242,6 @@ declare namespace media {
      * @param { boolean } enabled - true: super-resolution enabled; false: super-resolution disabled.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
-     * @throws { BusinessError } 801 - Unsupported capability. Return by promise.
      * @throws { BusinessError } 5410003 - Super-resolution not supported. Return by promise.
      * @throws { BusinessError } 5410004 - Missing enable super-resolution feature in {@link PlaybackStrategy}.
      *                                     Return by promise.
