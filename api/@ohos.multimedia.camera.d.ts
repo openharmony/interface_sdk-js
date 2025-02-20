@@ -1667,8 +1667,8 @@ declare namespace camera {
     /**
      * Delay close camera.
      *
-     * @returns { Promise<void> } Promise used to return the result.
      * @param { number } time - delay time for turning off camera.
+     * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
