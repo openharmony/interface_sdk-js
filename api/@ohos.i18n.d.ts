@@ -571,6 +571,25 @@ declare namespace i18n {
      * @since 12
      */
     static getUsingLocalDigit(): boolean;
+
+    /**
+     * Gets the equivalent simplest representation of input language id.
+     * When no parameter is passed in, current system language's simplest representation will be returned.
+     * If current system language is a dialect language, then system language's simplest representation will be returned;
+     * If current system language is not a dialect language, but it has a dialect language which is supported by system,
+     * then the dialect language's simplest representation will be returned;
+     * If current system language is not a dialect language, and it doesn't have a dialect language which is supported by system,
+     * then the system language's simplest representation will be returned;
+     *
+     * @param { string } [language] - The language code. It must be a valid language.
+     * @returns { string } The equivalent simplest representation of language.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 15
+     */
+    static getSimplifiedLanguage(language?: string): string;
   }
 
   /**
