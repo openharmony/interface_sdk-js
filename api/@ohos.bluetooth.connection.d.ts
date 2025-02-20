@@ -1167,6 +1167,26 @@ declare namespace connection {
   function getRemoteDeviceType(deviceId: string): Promise<DeviceType>;
 
   /**
+   * Controls the actions of Bluetooth peripherals.
+   * 
+   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+   * @param { ControlDeviceActionParams } controlDeviceActionParams - Indicates the action for Bluetooth peripherals.
+   * @returns { Promise<void> } Returns the promise object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth disabled.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 15
+   */
+  function controlDeviceAction(controlDeviceActionParams: ControlDeviceActionParams): Promise<void>;
+
+  /**
    * Get latest connection time of device.
    *
    * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
@@ -2176,6 +2196,174 @@ declare namespace connection {
      */
     INTERNAL_ERROR = 4
   }
+  /**
+   * Describes information about controlling the Bluetooth peripheral.
+   *
+   * @typedef ControlDeviceActionParams
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 15
+   */
+  interface ControlDeviceActionParams {
+    /**
+     * Indicates the address of the peripheral.
+     * 
+     * @type { string }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    deviceId: string;
+    /**
+     * Indicates the control type.
+     * 
+     * @type { ControlType }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    type: ControlType;
+    /**
+     * Indicates the control value.
+     * 
+     * @type { ControlTypeValue }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    typeValue: ControlTypeValue;
+    /**
+     * Indicates the control object.
+     * 
+     * @type { ControlObject }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    controlObject: ControlObject;
+  }
+
+  /**
+   * Describes the control type.
+   * 
+   * @enum { number }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 15
+   */
+  enum ControlType {
+    /**
+     * Indicates the control command of play.
+     * 
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    PLAY = 0,
+    /**
+     * Indicates the control command of vibration.
+     * 
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    VIBRATE = 1,
+    /**
+     * Indicates the control command of flash.
+     * 
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    FLASH = 2,
+    /**
+     * Indicates the control command of lock.
+     * 
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    LOCK = 3,
+    /**
+     * Indicates the control command of erase.
+     * 
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    ERASE = 4,
+  }
+
+  /**
+   * Describes the control type value.
+   * 
+   * @enum { number }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 15
+   */
+  enum ControlTypeValue {
+    /**
+     * Indicates the action of disable.
+     * 
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    DISABLE = 0,
+    /**
+     * Indicates the action of enable.
+     * 
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    ENABLE = 1,
+    /**
+     * Indicates the action of query.
+     * 
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    QUERY = 2,
+  }
+
+  /**
+   * Describes the control object.
+   * 
+   * @enum { number }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 15
+   */
+  enum ControlObject {
+    /**
+     * Control object of left ear.
+     * 
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    LEFT_EAR = 0,
+    /**
+     * Control object of right ear.
+     * 
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    RIGHT_EAR = 1,
+    /**
+     * Control object of left and right ear.
+     * 
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 15
+     */
+    LEFT_RIGHT_EAR = 2,
+  }
+  
   /**
    * Describes the cloud pair device.
    *
