@@ -11915,6 +11915,18 @@ declare interface SheetOptions extends BindOptions {
    * @since 15
    */
   radius?: LengthMetrics | BorderRadiuses | LocalizedBorderRadiuses;
+
+  /**
+   * Select a detent from detents property
+   *
+   * @type { ?(SheetSize | Length) }
+   * @default detents[0]
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  detentSelection?: SheetSize | Length;
 }
 
 /**
