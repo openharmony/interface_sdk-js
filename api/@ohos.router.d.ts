@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -610,6 +610,22 @@ declare namespace router {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   *
+   * @param { RouterOptions } options - Options.
+   * @param { AsyncCallback<void> } callback - the callback of replaceUrl.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
+   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   function replaceUrl(options: RouterOptions, callback: AsyncCallback<void>): void;
 
   /**
@@ -640,6 +656,22 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   *
+   * @param { RouterOptions } options - Options.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
+   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   function replaceUrl(options: RouterOptions): Promise<void>;
 
@@ -674,6 +706,23 @@ declare namespace router {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   *
+   * @param { RouterOptions } options - Options.
+   * @param { RouterMode } mode - RouterMode.
+   * @param { AsyncCallback<void> } callback - the callback of replaceUrl.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
+   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   function replaceUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void;
 
   /**
@@ -706,6 +755,23 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   *
+   * @param { RouterOptions } options - Options.
+   * @param { RouterMode } mode - RouterMode.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Failed to get the delegate. This error code is thrown only in the standard system.
+   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @crossplatform
+   * @atomicservice
+   * @since 16
    */
   function replaceUrl(options: RouterOptions, mode: RouterMode): Promise<void>;
 
