@@ -373,7 +373,19 @@ declare type OnDidChangeCallback = (rangeBefore: TextRange, rangeAfter: TextRang
  * @atomicservice
  * @since 12
  */
-declare type EditableTextOnChangeCallback = (value: string, previewText?: PreviewText) => void;
+/**
+ * Callback when input sometimes has info of previewText.
+ *
+ * @typedef { function } EditableTextOnChangeCallback
+ * @param { string } value - Value of body text, without previewText value.
+ * @param { PreviewText } [previewText] - info of previewText, contains previewText value and start index.
+ * @param { TextChangeOptions } [options] - contains the selection range before and after the change, as well as the old content.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 15
+ */
+declare type EditableTextOnChangeCallback = (value: string, previewText?: PreviewText, options?: TextChangeOptions) => void;
 
 /**
  * Define the text selection controller.
@@ -1107,6 +1119,104 @@ declare interface FontSettingOptions {
     * @since 12
     */
   enableVariableFontWeight?: boolean;
+}
+
+ /**
+ * The TextChangeOptions.
+ * @interface TextChangeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 15
+ */
+ declare interface TextChangeOptions {
+  /**
+   * The selected area before the change.
+   *
+   * @type { TextRange }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  rangeBefore: TextRange;
+
+  /**
+   * The selected area after the change.
+   *
+   * @type { TextRange }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  rangeAfter: TextRange;
+
+  /**
+   * The content before the change.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  oldContent: string;
+
+  /**
+   * The info of PreviewText before the change.
+   *
+   * @type { PreviewText }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  oldPreviewText: PreviewText;
+}
+
+/**
+ * Define the editableText Component changed value.
+ *
+ * @interface EditableTextChangeValue
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 15
+ */
+interface EditableTextChangeValue {
+  /**
+   * Value of body text, without previewText value.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  content: string;
+
+  /**
+   * Info of previewText, contains previewText value and start index.
+   *
+   * @type { ?PreviewText }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  previewText?: PreviewText;
+
+  /**
+   * The TextChangeOptions.
+   *
+   * @type { TextChangeOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  options?: TextChangeOptions;
 }
 
 /**
