@@ -8734,6 +8734,39 @@ declare namespace window {
     createSubWindowWithOptions(name: string, options: SubWindowOptions): Promise<Window>;
 
     /**
+     * Set the parent window of the child window.
+     *
+     * @param { number } windowId - Indicates parent window id.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300009 - The parent window is invaild.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    setParentWindow(windowId: number): Promise<void>;
+
+    /**
+     * Get the parent window.
+     *
+     * @returns { Window } Parent Window.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300009 - The parent window is invaild.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    getParentWindow(): Window;
+
+    /**
      * Set whether the title bar and dock bar will show, when the mouse hovers over hot area.
      *
      * @param { boolean } isTitleHoverShown - The value true means to display the title bar, and false means the opposite.
