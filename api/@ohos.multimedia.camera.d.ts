@@ -5291,16 +5291,16 @@ declare namespace camera {
      */
     on(type: 'lcdFlashStatus', callback: AsyncCallback<LcdFlashStatus>): void;
 
-     /**
-      * Unsubscribes from lcd flash status.
-      *
-      * @param { 'lcdFlashStatus' } type - Event type.
-      * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
-      * @throws { BusinessError } 202 - Not System Application.
-      * @syscap SystemCapability.Multimedia.Camera.Core
-      * @systemapi
-      * @since 13
-      */
+    /**
+     * Unsubscribes from lcd flash status.
+     *
+     * @param { 'lcdFlashStatus' } type - Event type.
+     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
     off(type: 'lcdFlashStatus', callback?: AsyncCallback<LcdFlashStatus>): void;
 
     /**
@@ -5513,16 +5513,16 @@ declare namespace camera {
      */
     on(type: 'lcdFlashStatus', callback: AsyncCallback<LcdFlashStatus>): void;
 
-     /**
-      * Unsubscribes from lcd flash status.
-      *
-      * @param { 'lcdFlashStatus' } type - Event type.
-      * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
-      * @throws { BusinessError } 202 - Not System Application.
-      * @syscap SystemCapability.Multimedia.Camera.Core
-      * @systemapi
-      * @since 13
-      */
+    /**
+     * Unsubscribes from lcd flash status.
+     *
+     * @param { 'lcdFlashStatus' } type - Event type.
+     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 13
+     */
     off(type: 'lcdFlashStatus', callback?: AsyncCallback<LcdFlashStatus>): void;
 
     /**
@@ -8993,7 +8993,7 @@ declare namespace camera {
      * @systemapi
      * @since 13
      */
-    isAutoCloudImageEnhancementSupported(): boolean;
+     isAutoCloudImageEnhancementSupported(): boolean;
 
     /**
      * Enable auto cloud image enhancement
@@ -9006,7 +9006,7 @@ declare namespace camera {
      * @systemapi
      * @since 13
      */
-    enableAutoCloudImageEnhancement(enabled: boolean): void;
+     enableAutoCloudImageEnhancement(enabled: boolean): void;
 
     /**
      * Confirm if moving photo supported.
