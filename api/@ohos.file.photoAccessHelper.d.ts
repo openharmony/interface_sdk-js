@@ -7140,7 +7140,7 @@ declare namespace photoAccessHelper {
     /**
      * Get order position of assets in the album
      *
-     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { Array<PhotoAsset> } assets - List of assets that need to get order
      * @returns { Promise<Array<number>> } Returns the order of positions of assets
      * @throws { BusinessError } 201 - Permission denied
