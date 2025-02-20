@@ -17,7 +17,14 @@
  * @file
  * @kit ArkUI
  */
+import { ResourceColor, Length,ResourceStr } from './@ohos.arkui.component.Units'
+import { FontStyle,FontWeight } from './@ohos.arkui.component.Enums'
+import { DecorationStyleInterface } from './@ohos.arkui.component.StyledString'
+import { ShadowOptions,Callback,CommonMethod } from './@ohos.arkui.component.Common'
 
+import { Resource } from './global/resource'
+import { TextRange,MenuType,TextEditControllerEx,StyledStringController } from './@ohos.arkui.component.TextCommon'
+import { EnterKeyType } from './@ohos.arkui.component.TextInput'
 /**
  * Defines delete text direction.
  *
