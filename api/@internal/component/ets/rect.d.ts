@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 16
  */
 declare interface RectOptions {
   /**
@@ -146,7 +146,7 @@ declare interface RectOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 16
  */
 declare interface RoundedRectOptions {
   /**
@@ -376,7 +376,7 @@ interface RectInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   new (
     options?: RectOptions | RoundedRectOptions,
@@ -433,7 +433,7 @@ interface RectInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 16
    */
   (
     options?: RectOptions | RoundedRectOptions,
