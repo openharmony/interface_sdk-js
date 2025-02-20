@@ -80,7 +80,7 @@ import {
   NodeRenderType, RenderOptions, BuilderNode, BuildOptions, NodeController, FrameNode, DrawContext, Size, Offset, Position, Pivot,
   Scale, Translation, Matrix4, Rotation, Frame, RenderNode, XComponentNode, LengthMetrics, ColorMetrics, LengthUnit, LengthMetricsUnit,
   LayoutConstraint, ComponentContent, NodeContent, Content, typeNode, NodeAdapter, ShapeMask, ShapeClip, Rect, RoundRect,
-  edgeColors, edgeWidths, borderStyles, borderRadiuses
+  edgeColors, edgeWidths, borderStyles, borderRadiuses, ExpandMode
 } from '@ohos.arkui.node';
 import uiObserver from '@ohos.arkui.observer';
 import performanceMonitor from '@ohos.arkui.performanceMonitor';
@@ -225,6 +225,6 @@ export {
   DownloadLayoutDirection, DownloadIconStyle, DownloadDescription, DownloadContentOptions, DownloadStyleOptions, NodeAdapter,
   Rect, RoundRect, edgeColors, edgeWidths, borderStyles, borderRadiuses, ParticleModifier,
   InnerFullScreenLaunchComponent, LaunchController,
-  SplitPolicy, MultiNavigation, MultiNavPathStack, AccessibilitySelectedType, AccessibilityOptions, CloseOptions, 
-  ChipSuffixSymbolGlyphOptions, SuffixImageIconOptions, SymbolItemOptions, OverlayManagerOptions,
+  SplitPolicy, MultiNavigation, MultiNavPathStack, AccessibilitySelectedType, AccessibilityOptions, CloseOptions,
+  ChipSuffixSymbolGlyphOptions, SuffixImageIconOptions, SymbolItemOptions, OverlayManagerOptions, ExpandMode
 };
