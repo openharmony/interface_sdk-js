@@ -226,5 +226,5 @@ export {
   Rect, RoundRect, edgeColors, edgeWidths, borderStyles, borderRadiuses, ParticleModifier,
   InnerFullScreenLaunchComponent, LaunchController,
   SplitPolicy, MultiNavigation, MultiNavPathStack, AccessibilitySelectedType, AccessibilityOptions, CloseOptions,
-  ChipSuffixSymbolGlyphOptions, SuffixImageIconOptions, SymbolItemOptions, OverlayManagerOptions, ExpandMode
+  ChipSuffixSymbolGlyphOptions, SuffixImageIconOptions, SymbolItemOptions, OverlayManagerOptions, ExpandMode,
 };
