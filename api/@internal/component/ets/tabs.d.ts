@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,6 +17,17 @@
  * @file
  * @kit ArkUI
  */
+
+/**
+ * CommonModifier
+ *
+ * @typedef { import('../api/arkui/CommonModifier').CommonModifier } CommonModifier
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 15
+ */
+declare type CommonModifier = import('../api/arkui/CommonModifier').CommonModifier;
 
 /**
  * Declare the graphic format of the bar chart.
@@ -384,6 +395,106 @@ declare class TabsController {
 }
 
 /**
+ * Options used to create Tabs.
+ *
+ * @typedef TabsOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 15
+ */
+declare interface TabsOptions {
+  /**
+   * Set the tab location for Tabs.
+   *
+   * @type { ?BarPosition }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Set the tab location for Tabs.
+   *
+   * @type { ?BarPosition }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Set the tab location for Tabs.
+   *
+   * @type { ?BarPosition }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  barPosition?: BarPosition;
+
+  /**
+   * Set the index of the currently displayed tab.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Set the index of the currently displayed tab.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Set the index of the currently displayed tab.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  index?: number;
+
+  /**
+   * Set the Tabs controller.
+   *
+   * @type { ?TabsController }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Set the Tabs controller.
+   *
+   * @type { ?TabsController }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Set the Tabs controller.
+   *
+   * @type { ?TabsController }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  controller?: TabsController
+
+  /**
+   * Set common attributes to tabbar.
+   *
+   * @type { ?CommonModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  barModifier?: CommonModifier
+}
+
+/**
  * Provides an interface for switching views.
  *
  * @interface TabsInterface
@@ -435,7 +546,17 @@ interface TabsInterface {
    * @atomicservice
    * @since 11
    */
-  (value?: { barPosition?: BarPosition; index?: number; controller?: TabsController }): TabsAttribute;
+  /**
+   * Called when the view is switched.
+   *
+   * @param { TabsOptions } [options] - Tabs options.
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  (options?: TabsOptions): TabsAttribute;
 }
 
 /**
