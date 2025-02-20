@@ -2653,6 +2653,7 @@ declare namespace osAccount {
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid challenge, authType or authTrustLevel.
+     * @throws { BusinessError } 12300013 - Network exception.
      * @throws { BusinessError } 12300101 - The credential is incorrect.
      * @throws { BusinessError } 12300102 - The credential does not exist.
      * @throws { BusinessError } 12300105 - The trust level is not supported.
@@ -2661,7 +2662,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300110 - The authentication is locked.
      * @throws { BusinessError } 12300111 - The authentication time out.
      * @throws { BusinessError } 12300112 - The authentication service is busy.
+     * @throws { BusinessError } 12300113 - The authentication service does not exist.
+     * @throws { BusinessError } 12300114 - The authentication service works abnormally.
      * @throws { BusinessError } 12300117 - PIN is expired.
+     * @throws { BusinessError } 12300211 - Server unreachable.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -2690,6 +2694,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid challenge, authType, authTrustLevel or options.
      * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300013 - Network exception.
      * @throws { BusinessError } 12300101 - The credential is incorrect.
      * @throws { BusinessError } 12300102 - The credential does not exist.
      * @throws { BusinessError } 12300105 - The trust level is not supported.
@@ -2698,7 +2703,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300110 - The authentication is locked.
      * @throws { BusinessError } 12300111 - The authentication time out.
      * @throws { BusinessError } 12300112 - The authentication service is busy.
+     * @throws { BusinessError } 12300113 - The authentication service does not exist.
+     * @throws { BusinessError } 12300114 - The authentication service works abnormally.
      * @throws { BusinessError } 12300117 - PIN is expired.
+     * @throws { BusinessError } 12300211 - Server unreachable.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -2756,6 +2764,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid challenge, authType or authTrustLevel.
      * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300013 - Network exception.
      * @throws { BusinessError } 12300101 - The credential is incorrect.
      * @throws { BusinessError } 12300102 - The credential does not exist.
      * @throws { BusinessError } 12300105 - The trust level is not supported.
@@ -2764,7 +2773,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300110 - The authentication is locked.
      * @throws { BusinessError } 12300111 - The authentication time out.
      * @throws { BusinessError } 12300112 - The authentication service is busy.
+     * @throws { BusinessError } 12300113 - The authentication service does not exist.
+     * @throws { BusinessError } 12300114 - The authentication service works abnormally.
      * @throws { BusinessError } 12300117 - PIN is expired.
+     * @throws { BusinessError } 12300211 - Server unreachable.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -3239,6 +3251,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300112 - The authentication service is busy.
      * @throws { BusinessError } 12300113 - The account authentication service does not exist.
      * @throws { BusinessError } 12300114 - The account authentication service works abnormally.
+     * @throws { BusinessError } 12300211 - Server unreachable.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -3288,6 +3301,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300112 - The authentication service is busy.
      * @throws { BusinessError } 12300113 - The account authentication service does not exist.
      * @throws { BusinessError } 12300114 - The account authentication service works abnormally.
+     * @throws { BusinessError } 12300211 - Server unreachable.
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3342,6 +3356,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300112 - The authentication service is busy.
      * @throws { BusinessError } 12300113 - The account authentication service does not exist.
      * @throws { BusinessError } 12300114 - The account authentication service works abnormally.
+     * @throws { BusinessError } 12300211 - Server unreachable.
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3363,7 +3378,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid domainAccountInfo.
      * @throws { BusinessError } 12300013 - Network exception.
+     * @throws { BusinessError } 12300014 - Not authenticated.
      * @throws { BusinessError } 12300111 - The operation time out.
+     * @throws { BusinessError } 12300114 - The authentication service works abnormally.
+     * @throws { BusinessError } 12300211 - Server unreachable.
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3385,7 +3403,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid domainAccountInfo.
      * @throws { BusinessError } 12300013 - Network exception.
+     * @throws { BusinessError } 12300014 - Not authenticated.
      * @throws { BusinessError } 12300111 - The operation time out.
+     * @throws { BusinessError } 12300114 - The authentication service works abnormally.
+     * @throws { BusinessError } 12300211 - Server unreachable.
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3478,7 +3499,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300013 - Network exception.
+     * @throws { BusinessError } 12300014 - Not authenticated.
      * @throws { BusinessError } 12300111 - The operation time out.
+     * @throws { BusinessError } 12300114 - The authentication service works abnormally.
+     * @throws { BusinessError } 12300211 - Server unreachable.
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3500,7 +3524,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300013 - Network exception.
+     * @throws { BusinessError } 12300014 - Not authenticated.
      * @throws { BusinessError } 12300111 - The operation time out.
+     * @throws { BusinessError } 12300114 - The authentication service works abnormally.
+     * @throws { BusinessError } 12300211 - Server unreachable.
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3523,6 +3550,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300013 - Network exception.
      * @throws { BusinessError } 12300014 - The domain account is not authenticated.
      * @throws { BusinessError } 12300111 - The operation time out.
+     * @throws { BusinessError } 12300114 - The authentication service works abnormally.
+     * @throws { BusinessError } 12300211 - Server unreachable.
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3545,6 +3574,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300013 - Network exception.
      * @throws { BusinessError } 12300014 - The domain account is not authenticated.
      * @throws { BusinessError } 12300111 - The operation time out.
+     * @throws { BusinessError } 12300114 - The authentication service works abnormally.
+     * @throws { BusinessError } 12300211 - Server unreachable.
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
