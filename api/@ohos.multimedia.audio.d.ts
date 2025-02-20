@@ -5676,8 +5676,8 @@ declare namespace audio {
      * @param { Callback<boolean> } callback - Callback used to get the spatialization enable state.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
-     *                                 2.Incorrect parameter types;
-     *                                 3.Parameter verification failed.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @since 16
      */
@@ -5689,8 +5689,8 @@ declare namespace audio {
      * @param { Callback<boolean> } callback - Callback used to get the spatialization enable state.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
-     *                                 2.Incorrect parameter types;
-     *                                 3.Parameter verification failed.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @since 16
      */
