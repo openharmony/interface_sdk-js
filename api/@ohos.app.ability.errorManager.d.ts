@@ -317,6 +317,37 @@ declare namespace errorManager {
   function off(type: 'unhandledRejection', observer?: UnhandledRejectionObserver): void;
 
   /**
+   * Register an observer for freeze event.
+   * This function can only be called from main thread.
+   * Please note that each process only supports registering one observer.
+   * If you register multiple times, the later one will overwrite the previous one.
+   *
+   * @param { 'freeze' } type - 'freeze'.
+   * @param { FreezeObserver } observer - The freeze event observer.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 16
+   */
+    function on(type: 'freeze', observer: FreezeObserver): void;
+
+  /**
+   * Unregister the observer for freeze event.
+   * This function can only be called from main thread.
+   *
+   * @param { 'freeze' } type - 'freeze'.
+   * @param { FreezeObserver } observer - The freeze event observer.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16300004 - If the observer does not exist
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 16
+   */
+  function off(type: 'freeze', observer?: FreezeObserver): void;
+
+  /**
    * The observer will be called by system when an error occurs.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -351,6 +382,15 @@ declare namespace errorManager {
    * @since 12
    */
   export type UnhandledRejectionObserver = (reason: Error | any, promise: Promise<any>) => void;
+  /**
+   * The observer will be called by system when freeze happens.
+   *
+   * @typedef { function }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 16
+   */
+  export type FreezeObserver = () => void;
 }
 
 export default errorManager;
