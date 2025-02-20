@@ -1872,7 +1872,7 @@ declare namespace inputMethodEngine {
      * <p>It's only used for SOFT_KEYBOARD panel with fixed or floating flag.</p>
      *
      * @param { PanelFlag } flag - panel flag.
-     * @param { EnhancedPanelRect } rect - panel rect.
+     * @param { PanelRect | EnhancedPanelRect } rect - panel rect.
      * @throws { BusinessError } 202 - not system application.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -1882,7 +1882,7 @@ declare namespace inputMethodEngine {
      * @systemapi
      * @since 14
      */
-    adjustPanelRect(flag: PanelFlag, rect: EnhancedPanelRect): void;
+    adjustPanelRect(flag: PanelFlag, rect: PanelRect | EnhancedPanelRect): void;
 
     /**
      * <p>Update the region in the panel which accepts input events.</p>
