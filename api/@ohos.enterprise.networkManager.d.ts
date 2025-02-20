@@ -87,7 +87,16 @@ declare namespace networkManager {
      * @stagemodelonly
      * @since 12
      */
-    OUTPUT = 1
+    OUTPUT = 1,
+
+    /**
+     * Forward direction
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 15
+     */
+    FORWARD = 2
   }
 
   /**
@@ -115,7 +124,16 @@ declare namespace networkManager {
      * @stagemodelonly
      * @since 12
      */
-    DENY = 1
+    DENY = 1,
+
+    /**
+     * Action reject
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 15
+     */
+    REJECT = 2
   }
 
   /**
@@ -512,6 +530,16 @@ declare namespace networkManager {
      * @since 12
      */
     action?: Action;
+
+    /**
+     * Direction
+     *
+     * @type { ?Direction }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 15
+     */
+    direction?: Direction;
   }
 
   /**
@@ -897,6 +925,26 @@ declare namespace networkManager {
   function setGlobalProxySync(admin: Want, httpProxy: connection.HttpProxy): void;
 
   /**
+   * Set a network independent global {@link connection.HttpProxy} proxy for a system account.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { connection.HttpProxy } httpProxy - network global proxy configuration information.
+   * @param { number } accountId - accountId indicates the account ID.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 15
+   */
+  function setGlobalProxyForAccount(admin: Want, httpProxy: connection.HttpProxy, accountId: number): void;
+
+  /**
    * Obtains the network independent global {@link connection.HttpProxy} proxy.
    * This function can be called by a super administrator.
    *
@@ -956,6 +1004,26 @@ declare namespace networkManager {
    * @since 12
    */
   function getGlobalProxySync(admin: Want): connection.HttpProxy;
+
+  /**
+   * Obtains the network independent global {@link connection.HttpProxy} proxy for a system account.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
+   * @param { Want } admin - admin indicates the administrator ability information.If the admin is not empty, it must
+   *                         have the corresponding permission.
+   * @param { number } accountId - accountId indicates the account ID.
+   * @returns { connection.HttpProxy } the network global proxy configuration information.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 15
+   */
+  function getGlobalProxyForAccount(admin: Want, accountId: number): connection.HttpProxy;
 
   /**
    * Add iptables filter rule by {@link AddFilterRule}.
