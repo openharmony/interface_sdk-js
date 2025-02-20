@@ -1685,7 +1685,7 @@ declare namespace unifiedDataChannel {
    * @typedef { function } DataProgressListener
    * @param { ProgressInfo } progressInfo - the progress information.
    * @param { UnifiedData | null } data - Data obtained when the progress reaches 100%.
-   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @syscap SystemCapbility.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 15
    */
