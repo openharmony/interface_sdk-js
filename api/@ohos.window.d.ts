@@ -9017,7 +9017,7 @@ declare namespace window {
      * @type { ?Rect }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 15
+     * @since 16
      */
     windowRect?: Rect;
   }
