@@ -11898,7 +11898,7 @@ declare type UniformDataType = import('../api/@ohos.data.uniformTypeDescriptor')
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare type DataSyncOptions = import('../api/@ohos.data.unifiedDataChannel').default.GetDataParams;
 
@@ -13087,7 +13087,7 @@ declare interface DragEvent {
    * @throws { BusinessError } 190003 - Operation no allowed for current pharse.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   startDataLoading(options: DataSyncOptions): string;
 }
@@ -13100,7 +13100,7 @@ declare interface DragEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare type OnDragEventCallback = (event: DragEvent, extraParams?: string) => void;
 
@@ -13111,7 +13111,7 @@ declare type OnDragEventCallback = (event: DragEvent, extraParams?: string) => v
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare interface DropOptions {
 
@@ -13129,7 +13129,7 @@ declare interface DropOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   disableDataPrefetch?: boolean;
 }
@@ -22962,7 +22962,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   onDrop(eventCallback: OnDragEventCallback, dropOptions?: DropOptions): T;
 

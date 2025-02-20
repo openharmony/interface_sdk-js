@@ -2560,7 +2560,7 @@ export class DragController {
    * @throws { BusinessError } 190004 - Operation failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   cancelDataLoading(key: string): void;
 }
