@@ -706,6 +706,21 @@ export default class UIAbility extends Ability {
   onPrepareToTerminate(): boolean;
 
   /**
+   * Called back asynchronously when an ability prepares to terminate.
+   * If onPrepareToTerminateAsync has been implemented then onPrepareToTerminate won't take effect
+   *
+   * @permission ohos.permission.PREPARE_APP_TERMINATE
+   * @returns { Promise<boolean> } Returns a promise to indicate if the ability needs to stop terminating;
+   *                               Returns {@code true} if the ability needs to stop terminating;
+   *                               Returns {@code false} if the ability needs to terminate.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 15
+   */
+  onPrepareToTerminateAsync(): Promise<boolean>;
+
+  /**
    * Called back when back press is dispatched.
    *
    * @returns { boolean } Returns {@code true} means the ability will move to background when back is pressed;
