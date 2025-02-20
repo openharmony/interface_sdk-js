@@ -10146,3 +10146,37 @@ declare enum AxisAction {
    */
   CANCEL = 4,
 }
+
+/**
+ * Type of focus draw level.
+ *
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 16
+ */
+ declare enum FocusDrawLevel {
+  /**
+   * Draw focus on node self level.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  SELF = 0,
+
+  /**
+   * Draw focus on top level.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  TOP = 1,
+}
