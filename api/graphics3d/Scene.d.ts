@@ -194,7 +194,7 @@ export interface SceneResourceFactory {
  *
  * @interface RenderParameters
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 16
+ * @since 15
  */
 export interface RenderParameters {
   /**
@@ -203,7 +203,7 @@ export interface RenderParameters {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 16
+   * @since 15
    */
   alwaysRender?: boolean;
 }
@@ -315,7 +315,7 @@ export class Scene {
    * @param { RenderParameters } params - Rendering parameters
    * @returns { boolean } True if rendering was scheduled, false otherwise
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 16
+   * @since 15
    */
   renderFrame(params?: RenderParameters): boolean;
 }
