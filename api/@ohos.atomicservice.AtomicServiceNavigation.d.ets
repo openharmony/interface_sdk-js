@@ -55,6 +55,7 @@ export declare enum MixMode {
    */
   TOWARDS = 3,
 }
+
 /**
  * the enum for the opacity  of the background color.
  *
@@ -97,6 +98,7 @@ export declare enum GradientAlpha {
    */
   OPACITY_100 = 4,
 }
+
 /**
  * the theme of the background color.
  *
@@ -131,10 +133,11 @@ export declare enum BackgroundTheme {
    */
   DEFAULT = 3,
 }
+
 /**
  * Defines AtomicServiceNavigation.
  *
- * @struct AtomicServiceNavigation
+ * @struct { AtomicServiceNavigation }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
@@ -272,6 +275,35 @@ export declare struct AtomicServiceNavigation {
    * @since 12
    */
   modeChangeCallback?: Callback<NavigationMode>;
+  /**
+   * The layout style users defined and inserted.
+   *
+   * @type { ?(CustomBuilder | Array<NavigationMenuItem>) }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  menus?: CustomBuilder | Array<NavigationMenuItem>;
+  /**
+   * Set side bar options.
+   *
+   * @type { ?SideBarOptions }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  @Prop
+  sideBarOptions?: SideBarOptions;
+  /**
+   * Set side bar content.
+   *
+   * @type { ?Callback<void> }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  @BuilderParam
+  sideBarContent?: Callback<void>;
 }
 
 /**
@@ -314,6 +346,28 @@ export interface TitleOptions {
    * @since 12
    */
   barStyle?: BarStyle;
+
+  /**
+   * Set title bar type.
+   *
+   * @type { ?TitleBarType }
+   * @default TitleBarType.ROUND_ICON
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  titleBarType?: TitleBarType;
+
+  /**
+   * Set title bar icon.
+   *
+   * @type { ?(Resource | SymbolGlyphModifier) }
+   * @default atomicservice icon
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  titleIcon?: Resource | SymbolGlyphModifier;
 }
 
 /**
@@ -374,6 +428,85 @@ export interface GradientBackground {
    * @since 16
    */
   alpha?: GradientAlpha;
+}
+
+/**
+ * Side bar options.
+ *
+ * @typedef SideBarOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
+export interface SideBarOptions {
+  /**
+   * Side bar Background.
+   *
+   * @type { ?ResourceColor }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  sideBarBackground?: ResourceColor;
+
+  /**
+   * Side bar status change callback.
+   *
+   * @type { ?Callback<boolean> }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  onChange?: Callback<boolean>;
+
+  /**
+   * Side bar icon.
+   *
+   * @type { ?(Resource | SymbolGlyphModifier) }.
+   * @default $r('sys.symbol.open_sidebar')
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  sideBarIcon?: Resource | SymbolGlyphModifier;
+}
+
+/**
+ * Title bar types.
+ *
+ * @enum { number }.
+ * @typedef TitleBarType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
+export declare enum TitleBarType {
+  /**
+   * Set title bar type with squared icon.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  SQUARED_ICON = 1,
+
+  /**
+   * Set title bar type with round icon.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  ROUND_ICON = 2,
+
+  /**
+   * Set title bar type with drawer.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  DRAWER = 3
 }
 
 /**
