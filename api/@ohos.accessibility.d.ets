@@ -36,7 +36,7 @@ import { Callback } from './@ohos.base';
  * @atomicservice
  * @since 11
  */
-export declare namespace accessibility {
+declare namespace accessibility {
   /**
    * The type of the Ability app.
    *
@@ -810,3 +810,4 @@ export declare namespace accessibility {
     public customId?: string;
   }
 }
+export default accessibility;
