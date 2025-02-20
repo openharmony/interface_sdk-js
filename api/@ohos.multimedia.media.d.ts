@@ -1491,6 +1491,13 @@ declare namespace media {
      * @since 14
      */
     AVERR_IO_UNSUPPORTED_REQUEST = 5411011,
+    /**
+     * Seek continuous unsupported.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 16
+     */
+    AVERR_SEEK_CONTINUOUS_UNSUPPORTED = 5410002,
   }
 
   /**
@@ -2195,10 +2202,9 @@ declare namespace media {
      * Should be called after {@link #prepare}.
      * @returns { boolean } true: seek continuous is supported;
      * false: seek continuous is not supported or the support status is uncertain.
-     * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @systemapi
-     * @since 15
+     * @atomicservice
+     * @since 16
      */
     isSeekContinuousSupported() : boolean;
 
@@ -7439,9 +7445,14 @@ declare namespace media {
     SEEK_CLOSEST = 2,
     /**
      * Seek in continuous mode.
+     * Seek continuous can provide a smoother dragging experience, but the device needs to support
+     * the current stream to execute seek continuous. Before calling seek continuous,
+     * check whether it is supported, see {@link #isSeekContinuousSupported}.
+     * If an unsupported scenario occurs, seek continuous will report an error({@link #AVERR_SEEK_CONTINUOUS_UNSUPPORTED})
+     * through the on error callback.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @systemapi
-     * @since 13
+     * @atomicservice
+     * @since 16
      */
     SEEK_CONTINUOUS = 3,
   }
