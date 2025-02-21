@@ -1541,7 +1541,7 @@ declare namespace camera {
      * @systemapi
      * @since 16
      */
-    readonly isRetractable: boolean;
+    readonly isRetractable?: boolean;
   }
 
   /**
