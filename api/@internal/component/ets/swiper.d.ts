@@ -311,7 +311,21 @@ declare class Indicator<T> {
    * @since 11
    */
   bottom(value: Length): T;
-  
+
+  /**
+   * Set the offset of indicator to the bottom.
+   *
+   * @param { LengthMetrics } bottom - the offset of indicator to the bottom.
+   * @param { boolean } ignoreSize - ignore the size of the indicator.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  bottom(bottom: LengthMetrics, ignoreSize: boolean): T;
+
   /**
    * Set the indicator to the left in LTR
    * Set the indicator to the right in RTL
@@ -598,6 +612,19 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @since 12
    */
   maxDisplayCount(maxDisplayCount: number): DotIndicator;
+
+  /**
+   * Set the space between dots. 
+   *
+   * @param { LengthMetrics } space - the space between dots
+   * @returns { DotIndicator }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  space(space: LengthMetrics): DotIndicator;
 }
 
 /**
