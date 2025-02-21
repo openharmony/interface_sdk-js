@@ -301,6 +301,17 @@ declare namespace media {
   function createAVTranscoder(): Promise<AVTranscoder>;
 
   /**
+   * Get the ScreenCaptureMonitor instance
+   *
+   * @returns {Promise<ScreenCaptureMonitor>} A Promise instance used to return ScreenCaptureMonitor instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 5400101 - No memory. Return by promise.
+   * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+   * @systemapi
+   * @since 16
+   */
+  function getScreenCaptureMonitor(): Promise<ScreenCaptureMonitor>;
+
+  /**
    * Manages and plays sound. Before calling an SoundPool method, you must use createSoundPool()
    * to create an SoundPool instance.
    *
@@ -8141,6 +8152,70 @@ declare namespace media {
      * @since 12
      */
     off(type:'progressUpdate', callback?: Callback<number>):void;
+  }
+
+  /**
+   * Enumerates event type of Screen Capture.
+   * 
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+   * @systemapi
+   * @since 16
+   */
+  enum ScreenCaptureEvent {
+    /**
+     * Screen capture started
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @systemapi
+     * @since 16
+     */
+    SCREENCAPTURE_STARTED = 0,
+    /**
+     * Screen capture stopped
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @systemapi
+     * @since 16
+     */
+    SCREENCAPTURE_STOPPED = 1
+  }
+
+  /**
+   * Provides screen capture info.
+   * 
+   * @typedef ScreenCaptureMonitor
+   * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+   * @systemapi
+   * @since 16
+   */
+  interface ScreenCaptureMonitor {
+    /**
+     * Listens for state change of system screen recorder.
+     * @param { 'systemScreenRecorder' } type - Type of the screen capture event to listen for.
+     * @param { 'Callback<ScreenCaptureEvent>' } callback - Callback used to listen for the screen capture event return.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+	 * @systemapi
+     * @since 16
+     */
+    on(type: 'systemScreenRecorder', callback: Callback<ScreenCaptureEvent>): void;
+
+    /**
+     * Unregister listens for state change of system screen recorder.
+     * @param { 'systemScreenRecorder' } type - Type of the screen capture event to listen for.
+     * @param { 'Callback<ScreenCaptureEvent>' } callback - Callback used to listen for the screen capture event return.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @systemapi
+     * @since 16
+     */
+    off(type: 'systemScreenRecorder', callback?: Callback<ScreenCaptureEvent>): void;
+	
+    /**
+     * Whether the system recorder is working.
+     * @type { boolean }
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @systemapi
+     * @since 16
+     */
+    readonly isSystemScreenRecorderWorking: boolean;
   }
 }
 export default media;
