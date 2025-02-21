@@ -676,7 +676,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @atomicservice
    * @since 16
    */
-  minFontScale(scale: Optional<number|Resource>): SymbolGlyphAttribute;
+  minFontScale(scale: Optional<number | Resource>): SymbolGlyphAttribute;
 
   /**
    * Called when the maximum font scale of the font is set.
@@ -687,7 +687,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @atomicservice
    * @since 16
    */
-  maxFontScale(scale: Optional<number|Resource>): SymbolGlyphAttribute;
+  maxFontScale(scale: Optional<number | Resource>): SymbolGlyphAttribute;
 }
 
 /**
