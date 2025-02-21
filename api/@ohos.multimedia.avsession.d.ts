@@ -3673,6 +3673,9 @@ declare namespace avSession {
      * The constructor used to create a AVCastPickerHelper object.
      *
      * @param { Context } context - represents the context.
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
+     * @throws { BusinessError } 6600101 - Session service exception.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 14
@@ -3684,8 +3687,8 @@ declare namespace avSession {
      *
      * @param { AVCastPickerOptions } [options] - represents the options provided to  the picker.
      * @returns { Promise<void> } void promise when executed successfully
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 14
@@ -3696,8 +3699,9 @@ declare namespace avSession {
      * Register picker state change callback.
      * @param { 'pickerStateChange' } type - 'pickerStateChange'
      * @param { Callback<AVCastPickerState> } callback - The callback used to handle picker state changed event.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
+     * @throws { BusinessError } 6600101 - Session service exception.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 14
@@ -3708,8 +3712,9 @@ declare namespace avSession {
      * Unregister picker state change callback.
      * @param { 'pickerStateChange' } type - 'pickerStateChange'
      * @param { Callback<AVCastPickerState> } callback - The callback used to handle picker state changed event.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
+     * @throws { BusinessError } 6600101 - Session service exception.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 14
