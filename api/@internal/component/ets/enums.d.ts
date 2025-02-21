@@ -10180,3 +10180,34 @@ declare enum AxisAction {
    */
   TOP = 1,
 }
+
+/**
+ * Menu divider mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare enum DividerMode {
+  /**
+   * Menu divider mode floating above menu.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  FLOATING_ABOVE_MENU = 0,
+
+  /**
+   * Menu divider mode embedded in menu.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  EMBEDDED_IN_MENU = 1,
+}
