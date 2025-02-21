@@ -8385,7 +8385,7 @@ declare namespace webview {
    */
   class ProxyConfig {
       /**
-       * Insert a bypass rule that indicates URLs that should skip the override proxy and connet the server directly instead.
+       * Insert a bypass rule that indicates URLs that should skip the override proxy and connect the server directly instead.
        * These maybe URLs or IP addresses and wildcards are supported. e.g. "*.example.com" means that requests to
        * "https://www.example.com" and "http://test.example.com" will connect the server directly.
        * 
@@ -8410,7 +8410,7 @@ declare namespace webview {
        * Insert a proxy rule which indicates that requests matching the schemeFilter should use an override proxy, all requests will
        * use the proxy rule if schemeFilter is null.
        * 
-       * The format for proxy is [scheme://]host[:port]. Scheme is optional and must be HTTP. HTTPS, or SOCKS if present. Scheme defaults to HTTPS.
+       * The format for proxy is [scheme://]host[:port]. Scheme is optional and must be HTTP, HTTPS, or SOCKS if present. Scheme defaults to HTTP.
        * Host is an IPv6 literal with brackets, an IPv4 literal or one or more labels seperated by a period. Port number is optional and defaults
        * to 80 for HTTP, 443 for HTTPS and 1080 for SOCKS.
        * 
@@ -8440,7 +8440,7 @@ declare namespace webview {
       bypassHostnamesWithoutPeriod(): void;
       /**
        * By default, certain hostnames implicitly bypass the proxy if they are link-local IPs, or localhost addresses. For instance
-       * hostnames matching any of (non-exhaustive list): localhost *.localhost [::1] 127.0.0.1/8 169.254./16 [FE80::]/10
+       * hostnames matching any of (non-exhaustive list): localhost *.localhost [::1] 127.0.0.1/8 169.254/16 [FE80::]/10
        * Call this function to override the default behavior and force localhost and link-local URLs to be sent through the proxy.
        * 
        * @syscap SystemCapability.Web.Webview.Core
@@ -8529,7 +8529,7 @@ declare namespace webview {
   class ProxyController {
     /**
      * Sets ProxyConfig which will be used by all Webs in the app. URLs that match patterns in the bypass list will connect the server directly.
-     * Instead, the request will use the proxy specified by the config. Requests are not guaranteed to use the new proxy immediately; Wait for
+     * Instead, the request will use the proxy specified by the config. Requests are not guaranteed to use the new proxy immediately; wait for
      * the listener before loading a page. This listener will be called on the UI thread.
      * Note: calling applyProxyOverride will cause any existing system wide setting to be ignored.
      * 
