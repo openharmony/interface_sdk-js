@@ -17092,6 +17092,17 @@ declare class CommonMethod<T> {
   onKeyPreIme(event: Callback<KeyEvent, boolean>): T;
 
   /**
+   * Trigger a FocusAxisEvent.
+   *
+   * @param { Callback<FocusAxisEvent> } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  onFocusAxisEvent(event: Callback<FocusAxisEvent>): T;
+
+  /**
    * Customize the handling and distribution of key events.
    *
    * @param { Callback<KeyEvent, boolean> } event
@@ -17102,17 +17113,6 @@ declare class CommonMethod<T> {
    * @since 15
    */
   onKeyEventDispatch(event: Callback<KeyEvent, boolean>): T;
-
-  /**
-   * Trigger a FocusAxisEvent.
-   *
-   * @param { Callback<FocusAxisEvent> } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 15
-   */
-  onFocusAxisEvent(event: Callback<FocusAxisEvent>): T;
 
   /**
    * Set focusable.
