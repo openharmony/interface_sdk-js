@@ -263,7 +263,8 @@ declare namespace formProvider {
    * Get infos of all forms belonging to current bundle.
    * Client to communication with FormManagerService.
    *
-   * @param { formInfo.FormInfoFilter } [filter] - Indicates the requirements the forms that the formInfos belong to have to meet.
+   * @param { formInfo.FormInfoFilter } [filter] - Indicates the requirements the forms that the formInfos belong to have to
+   * .
    * @returns { Promise<Array<formInfo.FormInfo>> } Returns the formInfo.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -406,7 +407,7 @@ declare namespace formProvider {
    * @atomicservice
    * @since 16
    */
-  function getPublishedFormsInfo(): Promise<Array<formInfo.FormInfo>>;
+  function getPublishedFormInfos(): Promise<Array<formInfo.FormInfo>>;
 
   /**
    * Open the view of forms belonging to current bundle.
