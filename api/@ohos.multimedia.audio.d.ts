@@ -9427,6 +9427,13 @@ declare namespace audio {
      */
     TONE_TYPE_COMMON_SUPERVISORY_RINGTONE = 107,
     /**
+     * Supervisory tone for call holding.
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     * @systemapi
+     * @since 18
+     */
+    TONE_TYPE_COMMON_SUPERVISORY_CALL_HOLDING = 108,
+    /**
      * Proprietary tone for beep.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
