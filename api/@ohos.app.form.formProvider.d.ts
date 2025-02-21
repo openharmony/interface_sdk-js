@@ -263,8 +263,7 @@ declare namespace formProvider {
    * Get infos of all forms belonging to current bundle.
    * Client to communication with FormManagerService.
    *
-   * @param { formInfo.FormInfoFilter } [filter] - Indicates the requirements the forms that the formInfos belong to have to
-   * .
+   * @param { formInfo.FormInfoFilter } [filter] - Indicates the requirements the forms that the formInfos belong to have to meet.
    * @returns { Promise<Array<formInfo.FormInfo>> } Returns the formInfo.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
