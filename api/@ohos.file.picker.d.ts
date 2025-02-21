@@ -681,7 +681,7 @@ declare namespace picker {
     mergeMode?: MergeTypeMode;
 
     /**
-     * Specifying special scenarios the picker can be under, e.g. 0 specifies encrypted sharing
+     * Specifying special scenarios the picker can be under, e.g. 1 specifies encrypted sharing
      *
      * @type { ?SceneMode }
      * @syscap SystemCapability.FileManagement.UserFileService
