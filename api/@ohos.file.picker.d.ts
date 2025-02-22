@@ -527,31 +527,6 @@ declare namespace picker {
   }
 
   /**
-   * Enumerates the picker's user scenarios
-   *
-   * @enum { number } SceneMode
-   * @syscap SystemCapability.FileManagement.UserFileService
-   * @since 16
-   */
-  export enum SceneMode {
-    /**
-     * Indicates default scenario
-     *
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 16
-     */
-    DEFAULT = 0,
-
-    /**
-     * Indicates encrypted sharing user scenario
-     *
-     * @syscap SystemCapability.FileManagement.UserFileService
-     * @since 16
-     */
-    ENCRYPTED_SHARING = 1,
-  }
-
-  /**
    * DocumentSelectOptions Object.
    *
    * @syscap SystemCapability.FileManagement.UserFileService
@@ -681,14 +656,16 @@ declare namespace picker {
     mergeMode?: MergeTypeMode;
 
     /**
-     * Specifying special scenarios the picker can be under, e.g. 1 specifies encrypted sharing
+     * Specifies whether the picker supports encryption.
+     * When its value is set to true, the picker will display a button that allows the user
+     * to encrypt files selected.
      *
-     * @type { ?SceneMode }
+     * @type { ?boolean }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 16
      */
-    sceneMode?: SceneMode;
+    isSupportEncryption?: boolean;
   }
 
   /**
