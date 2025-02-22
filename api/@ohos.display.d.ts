@@ -464,7 +464,6 @@ declare namespace display {
    * Change the display mode of the foldable device.
    *
    * @param { FoldDisplayMode } mode target display mode to change.
-   * @param { string } reason display mode change reason.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
@@ -473,7 +472,22 @@ declare namespace display {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setFoldDisplayMode(mode: FoldDisplayMode, reason?: string): void;
+  function setFoldDisplayMode(mode: FoldDisplayMode): void;
+
+  /**
+   * Change the display mode of the foldable device.
+   *
+   * @param { FoldDisplayMode } mode target display mode to change.
+   * @param { string } set display mode reason.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 15
+   */
+  function setFoldDisplayMode(mode: FoldDisplayMode, reason: string): void;
 
   /**
    * Register the callback for fold display mode changes.
