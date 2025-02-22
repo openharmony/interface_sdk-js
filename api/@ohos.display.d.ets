@@ -1643,7 +1643,7 @@ declare namespace display {
      *
      * @param { AsyncCallback<boolean> } callback
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported. Call the API fail due to limited device capabilities.
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -1657,7 +1657,7 @@ declare namespace display {
      *
      * @returns { Promise<boolean> }
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported. Call the API fail due to limited device capabilities.
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -1670,7 +1670,7 @@ declare namespace display {
      * Obtain the available area of the display.
      *
      * @returns { Promise<Rect> }
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported. Call the API fail due to limited device capabilities.
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -1685,7 +1685,7 @@ declare namespace display {
     * @param { Callback<Rect> } callback - Callback used to return the available area
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
     * <br>2. Incorrect parameter types.
-    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+    * @throws { BusinessError } 801 - Capability not supported. Call the API fail due to limited device capabilities.
     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
     * @syscap SystemCapability.Window.SessionManager
     * @atomicservice
@@ -1700,7 +1700,7 @@ declare namespace display {
     * @param { Callback<Rect> } [callback] - Callback used to return the available area
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
     * <br>2. Incorrect parameter types.
-    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+    * @throws { BusinessError } 801 - Capability not supported. Call the API fail due to limited device capabilities.
     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
     * @syscap SystemCapability.Window.SessionManager
     * @atomicservice
