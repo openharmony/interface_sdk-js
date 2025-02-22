@@ -422,7 +422,7 @@ declare namespace formProvider {
    * @atomicservice
    * @since 16
    */
-  function openFormManageView(want: Want): void;
+  function openFormManage(want: Want): void;
 
 }
 export default formProvider;
