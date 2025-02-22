@@ -308,17 +308,17 @@ export declare class UIUtils {
    * @atomicservice
    * @since 16
    */
-  static makeV1Observed<T extends object>(source: T): T;
+   static makeV1Observed<T extends object>(source: T): T;
 
-/**
- * Enables V2 compatibility on given viewmodel object or nested viewmodels, which are V1 observed object already.
- *
- * @param {T} source - The object to be made V2-compatible.
- * @returns {T} The processed object with V2 compatibility enabled.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 16
- */
-  static enableV2Compatibility<T extends object>(source: T): T;
+  /**
+   * Enables V2 compatibility on given viewmodel object or nested viewmodels, which are V1 observed object already.
+   *
+   * @param {T} source - The object to be made V2-compatible.
+   * @returns {T} The processed object with V2 compatibility enabled.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+   static enableV2Compatibility<T extends object>(source: T): T;
 }
