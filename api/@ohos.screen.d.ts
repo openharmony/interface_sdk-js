@@ -688,6 +688,17 @@ declare namespace screen {
      */
     readonly sourceMode: ScreenSourceMode;
 
+     /**
+     * Screen Serial Number
+     *
+     * @type { ?string }
+     * @readonly
+     * @syscap SystemCapability.WindowManager.WindowManager
+     * @systemapi Hide this for inner system use.
+     * @since 15
+     */
+     readonly serialNumber?: string;
+
     /**
      * Set the orientation of the screen
      *
