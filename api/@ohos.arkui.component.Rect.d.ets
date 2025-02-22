@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-
+import { CommonShapeMethod } from './@ohos.arkui.component.Common'
 /**
  * Define options used to construct a rectangle.
  *
@@ -328,117 +328,7 @@ export interface RoundedRectOptions {
  * @atomicservice
  * @since 11
  */
-interface RectInterface {
-  /**
-   * Use new function to create Rect.
-   *
-   * @param { object } value
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Use new function to create Rect.
-   *
-   * @param { object } value
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Use new function to create Rect.
-   *
-   * @param { object } value
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Use new function to create Rect.
-   *
-   * @param { object } value
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Use new function to create Rect.
-   *
-   * @param { RectOptions | RoundedRectOptions } [options] - Rect options
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 14
-   */
-  new (
-    options?: RectOptions | RoundedRectOptions,
-  ): RectAttribute;
-
-  /**
-   * Called when a rectangle is created.
-   *
-   * @param { {width?: number | string;height?: number | string;radius?: number | string | Array<any>;} |
-  *  {width?: number | string;height?: number | string;radiusWidth?: number | string;radiusHeight?: number | string;} } value
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when a rectangle is created.
-   *
-   * @param { {width?: number | string;height?: number | string;radius?: number | string | Array<any>;} |
-  *  {width?: number | string;height?: number | string;radiusWidth?: number | string;radiusHeight?: number | string;} } value
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when a rectangle is created.
-   *
-   * @param { {width?: number | string;height?: number | string;radius?: number | string | Array<any>;} |
-   *  {width?: number | string;height?: number | string;radiusWidth?: number | string;radiusHeight?: number | string;} } value
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when a rectangle is created.
-   *
-   * @param { {width?: number | string;height?: number | string;radius?: number | string | Array<any>;} |
-   *  {width?: number | string;height?: number | string;radiusWidth?: number | string;radiusHeight?: number | string;} } value
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Called when a rectangle is created.
-   *
-   * @param { RectOptions | RoundedRectOptions } [options] - Rect options
-   * @returns { RectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 14
-   */
-  (
-    options?: RectOptions | RoundedRectOptions,
-  ): RectAttribute;
-}
+export type RectInterface = (options?: RectOptions | RoundedRectOptions)=> RectAttribute;
 
 /**
  * rect attribute declaration.

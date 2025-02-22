@@ -25,6 +25,46 @@ import { DrawContext } from './Graphics';
 import { ComponentContent } from './ComponentContent';
 import { UICommonEvent,UIGestureEvent,CommonAttribute } from '../@ohos.arkui.component.Common'
 import { TextInterface, TextAttribute } from './@ohos.arkui.component.Text'
+import { ColumnInterface, ColumnAttribute } from './@ohos.arkui.Component.Column'
+import { GridItemInterface,GridItemAttribute } from './@ohos.arkui.Component.GridItem'
+import { RowInterface, RowAttribute } from './@ohos.arkui.Component.Row'
+import { StackInterface, StackAttribute } from './@ohos.arkui.Component.Stack'
+import { FlexInterface, FlexAttribute } from './@ohos.arkui.Component.Flex'
+import { ImageInterface, ImageAttribute } from './@ohos.arkui.Component.Image'
+import { ButtonInterface, ButtonAttribute } from './@ohos.arkui.Component.Button'
+import { DividerInterface, DividerAttribute } from './@ohos.arkui.Component.Divider'
+import { ToggleInterface, ToggleAttribute } from './@ohos.arkui.Component.Toggle'
+import { SliderInterface, SliderAttribute } from './@ohos.arkui.Component.Slider'
+import { ProgressInterface, ProgressAttribute } from './@ohos.arkui.Component.Progress'
+import { GridRowInterface, GridRowAttribute } from './@ohos.arkui.Component.GridRow'
+import { GridColInterface, GridColAttribute } from './@ohos.arkui.Component.GridCol'
+import { SwiperInterface, SwiperAttribute } from './@ohos.arkui.Component.Swiper'
+import { ScrollInterface, ScrollAttribute } from './@ohos.arkui.Component.Scroll'
+import { TextInputInterface, TextInputAttribute } from './@ohos.arkui.Component.TextInput'
+import { TextAreaInterface, TextAreaAttribute } from './@ohos.arkui.Component.TextArea'
+import {RelativeContainerInterface, RelativeContainerAttribute} from './@ohos.arkui.Component.RelativeContainer'
+import { LoadingProgressInterface, LoadingProgressAttribute } from './@ohos.arkui.Component.LoadingProgress'
+import { SearchInterface, SearchAttribute } from './@ohos.arkui.Component.Search'
+import { MarqueeInterface, MarqueeAttribute } from './@ohos.arkui.Component.Marquee'
+import { ListItemGroupInterface, ListItemGroupAttribute } from './@ohos.arkui.Component.ListItemGroup'
+import { TextTimerInterface, TextTimerAttribute } from './@ohos.arkui.Component.TextTimer'
+import { BadgeInterface, BadgeAttribute } from './@ohos.arkui.Component.Badge'
+import { RatingInterface, RatingAttribute } from './@ohos.arkui.Component.Rating'
+import { WaterFlowInterface, WaterFlowAttribute } from './@ohos.arkui.Component.WaterFlow'
+import { XComponentInterface, XComponentAttribute } from './@ohos.arkui.Component.XComponent'
+import { CheckboxInterface, CheckboxAttribute } from './@ohos.arkui.Component.Checkbox'
+import { FlowItemInterface, FlowItemAttribute } from './@ohos.arkui.Component.FlowItem'
+import { CheckboxGroupInterface, CheckboxGroupAttribute } from './@ohos.arkui.Component.CheckboxGroup'
+import { RadioInterface, RadioAttribute } from './@ohos.arkui.Component.Radio'
+import { QRCodeInterface, QRCodeAttribute } from './@ohos.arkui.Component.QRCode'
+import { SelectInterface, SelectAttribute } from './@ohos.arkui.Component.Select'
+import { SymbolGlyphInterface, SymbolGlyphAttribute } from './@ohos.arkui.Component.SymbolGlyph'
+import { TextClockInterface, TextClockAttribute } from './@ohos.arkui.Component.TextClock'
+import { GridInterface, GridAttribute } from './@ohos.arkui.Component.Grid'
+import { BlankInterface, BlankAttribute } from './@ohos.arkui.Component.Blank'
+import { ListInterface, ListAttribute } from './@ohos.arkui.Component.List'
+import { ListItemInterface, ListItemAttribute } from './@ohos.arkui.Component.ListItem'
+
 
 /**
  * Layout constraint, include the max size, the min size and the reference size for children to calculate percent.
@@ -664,7 +704,7 @@ export declare class FrameNode {
  * @atomicservice
  * @since 12
  */
-export interface TypedFrameNode<C, T> extends FrameNode {
+export declare class TypedFrameNode<C, T> extends FrameNode {
   /**
    * Initialize FrameNode.
    * 
@@ -697,7 +737,9 @@ export interface TypedFrameNode<C, T> extends FrameNode {
  * @atomicservice
  * @since 12
  */
-export namespace typeNode {
+export declare namespace typeNode {
+
+  export function createNode<T>(context: UIContext, nodeType: string): T;
   /**
    * Define the FrameNode type for Text.
    * 
@@ -707,7 +749,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  type Text = TypedFrameNode<TextInterface, TextAttribute>;
+  export type Text = TypedFrameNode<TextInterface, TextAttribute>;
 
   /**
    * Create a FrameNode of Text type.
@@ -719,7 +761,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  function createNode(context: UIContext, nodeType: 'Text'): Text;
+  // function createNode(context: UIContext, nodeType: 'Text'): Text;
 
   /**
    * Define the FrameNode type for Column.
@@ -730,7 +772,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  type Column = TypedFrameNode<ColumnInterface, ColumnAttribute>;
+  export type  Column = TypedFrameNode<ColumnInterface, ColumnAttribute>;
 
   /**
    * Create a FrameNode of Column type.
@@ -742,7 +784,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  function createNode(context: UIContext, nodeType: 'Column'): Column;
+  // function createNode(context: UIContext, nodeType: 'Column'): Column;
 
   /**
    * Define the FrameNode type for Row.
@@ -753,7 +795,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  type Row = TypedFrameNode<RowInterface, RowAttribute>;
+  export type  Row = TypedFrameNode<RowInterface, RowAttribute>;
 
   /**
    * Create a FrameNode of Row type.
@@ -765,7 +807,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  function createNode(context: UIContext, nodeType: 'Row'): Row;
+  //function createNode(context: UIContext, nodeType: 'Row'): Row;
 
   /**
    * Define the FrameNode type for Stack.
@@ -776,7 +818,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  type Stack = TypedFrameNode<StackInterface, StackAttribute>;
+  export type  Stack = TypedFrameNode<StackInterface, StackAttribute>;
 
   /**
    * Create a FrameNode of Stack type.
@@ -788,7 +830,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  function createNode(context: UIContext, nodeType: 'Stack'): Stack;
+  //function createNode(context: UIContext, nodeType: 'Stack'): Stack;
 
   /**
    * Define the FrameNode type for GridRow.
@@ -799,7 +841,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  type GridRow = TypedFrameNode<GridRowInterface, GridRowAttribute>;
+  export type  GridRow = TypedFrameNode<GridRowInterface, GridRowAttribute>;
 
   /**
    * Create a FrameNode of GridRow type.
@@ -811,7 +853,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  function createNode(context: UIContext, nodeType: 'GridRow'): GridRow;
+  //function createNode(context: UIContext, nodeType: 'GridRow'): GridRow;
 
   /**
    * Define the FrameNode type for GridCol.
@@ -822,7 +864,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  type GridCol = TypedFrameNode<GridColInterface, GridColAttribute>;
+  export type  GridCol = TypedFrameNode<GridColInterface, GridColAttribute>;
 
   /**
    * Create a FrameNode of GridCol type.
@@ -834,7 +876,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  function createNode(context: UIContext, nodeType: 'GridCol'): GridCol;
+  //function createNode(context: UIContext, nodeType: 'GridCol'): GridCol;
 
   /**
    * Define the FrameNode type for Flex.
@@ -845,7 +887,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  type Flex = TypedFrameNode<FlexInterface, FlexAttribute>;
+  export type  Flex = TypedFrameNode<FlexInterface, FlexAttribute>;
 
   /**
    * Create a FrameNode of Flex type.
@@ -857,7 +899,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  function createNode(context: UIContext, nodeType: 'Flex'): Flex;
+  //function createNode(context: UIContext, nodeType: 'Flex'): Flex;
 
   /**
    * Define the FrameNode type for Swiper.
@@ -868,7 +910,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  type Swiper = TypedFrameNode<SwiperInterface, SwiperAttribute>;
+  export type  Swiper = TypedFrameNode<SwiperInterface, SwiperAttribute>;
 
   /**
    * Create a FrameNode of Swiper type.
@@ -880,7 +922,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  function createNode(context: UIContext, nodeType: 'Swiper'): Swiper;
+  //function createNode(context: UIContext, nodeType: 'Swiper'): Swiper;
 
   /**
    * Define the FrameNode type for Progress.
@@ -891,7 +933,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  type Progress = TypedFrameNode<ProgressInterface, ProgressAttribute>;
+  export type  Progress = TypedFrameNode<ProgressInterface, ProgressAttribute>;
 
   /**
    * Create a FrameNode of Progress type.
@@ -903,7 +945,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  function createNode(context: UIContext, nodeType: 'Progress'): Progress;
+  //function createNode(context: UIContext, nodeType: 'Progress'): Progress;
 
   /**
    * Define the FrameNode type for Scroll.
@@ -914,7 +956,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  type Scroll = TypedFrameNode<ScrollInterface, ScrollAttribute>;
+  export type  Scroll = TypedFrameNode<ScrollInterface, ScrollAttribute>;
 
   /**
    * Create a FrameNode of Scroll type.
@@ -926,7 +968,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  function createNode(context: UIContext, nodeType: 'Scroll'): Scroll;
+  //function createNode(context: UIContext, nodeType: 'Scroll'): Scroll;
 
   /**
    * Define the FrameNode type for RelativeContainer.
@@ -937,7 +979,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  type RelativeContainer = TypedFrameNode<RelativeContainerInterface, RelativeContainerAttribute>;
+  export type  RelativeContainer = TypedFrameNode<RelativeContainerInterface, RelativeContainerAttribute>;
 
   /**
    * Create a FrameNode of RelativeContainer type.
@@ -949,7 +991,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  function createNode(context: UIContext, nodeType: 'RelativeContainer'): RelativeContainer;
+  //function createNode(context: UIContext, nodeType: 'RelativeContainer'): RelativeContainer;
 
   /**
    * Define the FrameNode type for Divider.
@@ -960,7 +1002,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  type Divider = TypedFrameNode<DividerInterface, DividerAttribute>;
+  export type  Divider = TypedFrameNode<DividerInterface, DividerAttribute>;
 
   /**
    * Create a FrameNode of Divider type.
@@ -972,7 +1014,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  function createNode(context: UIContext, nodeType: 'Divider'): Divider;
+  //function createNode(context: UIContext, nodeType: 'Divider'): Divider;
 
   /**
    * Define the FrameNode type for LoadingProgress.
@@ -983,7 +1025,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  type LoadingProgress = TypedFrameNode<LoadingProgressInterface, LoadingProgressAttribute>;
+  export type  LoadingProgress = TypedFrameNode<LoadingProgressInterface, LoadingProgressAttribute>;
 
   /**
    * Create a FrameNode of LoadingProgress type.
@@ -995,7 +1037,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  function createNode(context: UIContext, nodeType: 'LoadingProgress'): LoadingProgress;
+  //function createNode(context: UIContext, nodeType: 'LoadingProgress'): LoadingProgress;
 
   /**
    * Define the FrameNode type for Search.
@@ -1006,7 +1048,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  type Search = TypedFrameNode<SearchInterface, SearchAttribute>;
+  export type  Search = TypedFrameNode<SearchInterface, SearchAttribute>;
 
   /**
    * Create a FrameNode of Search type.
@@ -1018,7 +1060,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  function createNode(context: UIContext, nodeType: 'Search'): Search;
+  //function createNode(context: UIContext, nodeType: 'Search'): Search;
 
   /**
    * Define the FrameNode type for Blank.
@@ -1029,7 +1071,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  type Blank = TypedFrameNode<BlankInterface, BlankAttribute>;
+  export type  Blank = TypedFrameNode<BlankInterface, BlankAttribute>;
 
   /**
    * Create a FrameNode of Blank type.
@@ -1041,7 +1083,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  function createNode(context: UIContext, nodeType: 'Blank'): Blank;
+  //function createNode(context: UIContext, nodeType: 'Blank'): Blank;
 
   /**
    * Define the FrameNode type for Image.
@@ -1052,7 +1094,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  type Image = TypedFrameNode<ImageInterface, ImageAttribute>;
+  export type  Image = TypedFrameNode<ImageInterface, ImageAttribute>;
 
   /**
    * Create a FrameNode of Image type.
@@ -1064,7 +1106,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  function createNode(context: UIContext, nodeType: 'Image'): Image;
+  //function createNode(context: UIContext, nodeType: 'Image'): Image;
 
   /**
    * Define the FrameNode type for List.
@@ -1075,7 +1117,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  type List = TypedFrameNode<ListInterface, ListAttribute>;
+  export type  List = TypedFrameNode<ListInterface, ListAttribute>;
 
   /**
    * Create a FrameNode of List type.
@@ -1087,7 +1129,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  function createNode(context: UIContext, nodeType: 'List'): List;
+  //function createNode(context: UIContext, nodeType: 'List'): List;
 
   /**
    * Define the FrameNode type for ListItem.
@@ -1098,7 +1140,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  type ListItem = TypedFrameNode<ListItemInterface, ListItemAttribute>;
+  export type  ListItem = TypedFrameNode<ListItemInterface, ListItemAttribute>;
 
   /**
    * Create a FrameNode of ListItem type.
@@ -1110,7 +1152,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  function createNode(context: UIContext, nodeType: 'ListItem'): ListItem;
+  //function createNode(context: UIContext, nodeType: 'ListItem'): ListItem;
 
   /**
    * Define the FrameNode type for TextInput.
@@ -1121,7 +1163,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  type TextInput = TypedFrameNode<TextInputInterface, TextInputAttribute>;
+  export type  TextInput = TypedFrameNode<TextInputInterface, TextInputAttribute>;
 
   /**
    * Create a FrameNode of TextInput type.
@@ -1133,7 +1175,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  function createNode(context: UIContext, nodeType: 'TextInput'): TextInput;
+  //function createNode(context: UIContext, nodeType: 'TextInput'): TextInput;
 
   /**
    * Define the FrameNode type for Button.
@@ -1144,7 +1186,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  type Button = TypedFrameNode<ButtonInterface, ButtonAttribute>;
+  export type  Button = TypedFrameNode<ButtonInterface, ButtonAttribute>;
 
   /**
    * Create a FrameNode of Button type.
@@ -1156,7 +1198,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  function createNode(context: UIContext, nodeType: 'Button'): Button;
+  //function createNode(context: UIContext, nodeType: 'Button'): Button;
 
   /**
    * Define the FrameNode type for ListItemGroup.
@@ -1167,7 +1209,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  type ListItemGroup = TypedFrameNode<ListItemGroupInterface, ListItemGroupAttribute>;
+  export type  ListItemGroup = TypedFrameNode<ListItemGroupInterface, ListItemGroupAttribute>;
 
   /**
    * Create a FrameNode of ListItemGroup type.
@@ -1179,7 +1221,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  function createNode(context: UIContext, nodeType: 'ListItemGroup'): ListItemGroup;
+  //function createNode(context: UIContext, nodeType: 'ListItemGroup'): ListItemGroup;
 
   /**
    * Define the FrameNode type for WaterFlow.
@@ -1190,7 +1232,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  type WaterFlow = TypedFrameNode<WaterFlowInterface, WaterFlowAttribute>;
+  export type  WaterFlow = TypedFrameNode<WaterFlowInterface, WaterFlowAttribute>;
 
   /**
    * Create a FrameNode of WaterFlow type.
@@ -1202,7 +1244,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  function createNode(context: UIContext, nodeType: 'WaterFlow'): WaterFlow;
+  //function createNode(context: UIContext, nodeType: 'WaterFlow'): WaterFlow;
 
   /**
    * Define the FrameNode type for FlowItem.
@@ -1213,7 +1255,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  type FlowItem = TypedFrameNode<FlowItemInterface, FlowItemAttribute>;
+  export type  FlowItem = TypedFrameNode<FlowItemInterface, FlowItemAttribute>;
 
   /**
    * Create a FrameNode of FlowItem type.
@@ -1225,7 +1267,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  function createNode(context: UIContext, nodeType: 'FlowItem'): FlowItem;
+  //function createNode(context: UIContext, nodeType: 'FlowItem'): FlowItem;
 
   /**
    * Define the FrameNode type for XComponent.
@@ -1236,7 +1278,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  type XComponent = TypedFrameNode<XComponentInterface, XComponentAttribute>;
+  export type  XComponent = TypedFrameNode<XComponentInterface, XComponentAttribute>;
 
   /**
    * Create a FrameNode of XComponent type.
@@ -1248,7 +1290,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  function createNode(context: UIContext, nodeType: 'XComponent'): XComponent;
+  //function createNode(context: UIContext, nodeType: 'XComponent'): XComponent;
 
   /**
    * Create a FrameNode of XComponent type with options.
@@ -1261,7 +1303,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  function createNode(context: UIContext, nodeType: 'XComponent', options: XComponentOptions): XComponent;
+  //function createNode(context: UIContext, nodeType: 'XComponent', options: XComponentOptions): XComponent;
 
   /**
    * Define the FrameNode type for Checkbox.
@@ -1272,7 +1314,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  type Checkbox = TypedFrameNode<CheckboxInterface, CheckboxAttribute>;
+  export type  Checkbox = TypedFrameNode<CheckboxInterface, CheckboxAttribute>;
 
   /**
    * Create a FrameNode of Checkbox type.
@@ -1284,7 +1326,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  function createNode(context: UIContext, nodeType: 'Checkbox'): Checkbox;
+  //function createNode(context: UIContext, nodeType: 'Checkbox'): Checkbox;
 
   /**
    * Define the FrameNode type for CheckboxGroup.
@@ -1295,7 +1337,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  type CheckboxGroup = TypedFrameNode<CheckboxGroupInterface, CheckboxGroupAttribute>;
+  export type  CheckboxGroup = TypedFrameNode<CheckboxGroupInterface, CheckboxGroupAttribute>;
 
   /**
    * Create a FrameNode of CheckboxGroup type.
@@ -1307,7 +1349,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  function createNode(context: UIContext, nodeType: 'CheckboxGroup'): CheckboxGroup;
+  //function createNode(context: UIContext, nodeType: 'CheckboxGroup'): CheckboxGroup;
 
   /**
    * Define the FrameNode type for Radio.
@@ -1318,7 +1360,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  type Radio = TypedFrameNode<RadioInterface, RadioAttribute>;
+  export type  Radio = TypedFrameNode<RadioInterface, RadioAttribute>;
 
   /**
    * Create a FrameNode of Radio type.
@@ -1330,7 +1372,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  function createNode(context: UIContext, nodeType: 'Radio'): Radio;
+  //function createNode(context: UIContext, nodeType: 'Radio'): Radio;
 
   /**
    * Define the FrameNode type for Rating.
@@ -1341,7 +1383,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  type Rating = TypedFrameNode<RatingInterface, RatingAttribute>;
+  export type  Rating = TypedFrameNode<RatingInterface, RatingAttribute>;
 
   /**
    * Create a FrameNode of Rating type.
@@ -1353,7 +1395,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  function createNode(context: UIContext, nodeType: 'Rating'): Rating;
+  //function createNode(context: UIContext, nodeType: 'Rating'): Rating;
 
   /**
    * Define the FrameNode type for Select.
@@ -1364,7 +1406,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  type Select = TypedFrameNode<SelectInterface, SelectAttribute>;
+  export type  Select = TypedFrameNode<SelectInterface, SelectAttribute>;
 
   /**
    * Create a FrameNode of Select type.
@@ -1376,7 +1418,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  function createNode(context: UIContext, nodeType: 'Select'): Select;
+  //function createNode(context: UIContext, nodeType: 'Select'): Select;
 
   /**
    * Define the FrameNode type for Slider.
@@ -1387,7 +1429,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  type Slider = TypedFrameNode<SliderInterface, SliderAttribute>;
+  export type  Slider = TypedFrameNode<SliderInterface, SliderAttribute>;
 
   /**
    * Create a FrameNode of Slider type.
@@ -1399,7 +1441,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  function createNode(context: UIContext, nodeType: 'Slider'): Slider;
+  //function createNode(context: UIContext, nodeType: 'Slider'): Slider;
 
   /**
    * Define the FrameNode type for Toggle.
@@ -1410,7 +1452,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  type Toggle = TypedFrameNode<ToggleInterface, ToggleAttribute>;
+  export type  Toggle = TypedFrameNode<ToggleInterface, ToggleAttribute>;
 
   /**
    * Create a FrameNode of Toggle type.
@@ -1423,7 +1465,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  function createNode(context: UIContext, nodeType: 'Toggle', options?: ToggleOptions): Toggle;
+  //function createNode(context: UIContext, nodeType: 'Toggle', options?: ToggleOptions): Toggle;
 
   /**
    * Define the FrameNode type for Marquee.
@@ -1434,7 +1476,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  type Marquee = TypedFrameNode<MarqueeInterface, MarqueeAttribute>;
+  export type  Marquee = TypedFrameNode<MarqueeInterface, MarqueeAttribute>;
 
   /**
    * Create a FrameNode of Marquee type.
@@ -1446,7 +1488,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  function createNode(context: UIContext, nodeType: 'Marquee'): Marquee;
+  //function createNode(context: UIContext, nodeType: 'Marquee'): Marquee;
 
   /**
    * Define the FrameNode type for TextArea.
@@ -1457,7 +1499,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  type TextArea = TypedFrameNode<TextAreaInterface, TextAreaAttribute>;
+  export type  TextArea = TypedFrameNode<TextAreaInterface, TextAreaAttribute>;
 
   /**
    * Create a FrameNode of TextArea type.
@@ -1469,7 +1511,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  function createNode(context: UIContext, nodeType: 'TextArea'): TextArea;
+  //function createNode(context: UIContext, nodeType: 'TextArea'): TextArea;
 
   /**
    * Define the FrameNode type for SymbolGlyph.
@@ -1480,7 +1522,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  type SymbolGlyph = TypedFrameNode<SymbolGlyphInterface, SymbolGlyphAttribute>;
+  export type  SymbolGlyph = TypedFrameNode<SymbolGlyphInterface, SymbolGlyphAttribute>;
 
   /**
    * Create a FrameNode of SymbolGlyph type.
@@ -1492,7 +1534,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  function createNode(context: UIContext, nodeType: 'SymbolGlyph'): SymbolGlyph;
+  // function createNode(context: UIContext, nodeType: 'SymbolGlyph'): SymbolGlyph;
 
   /**
    * Define the FrameNode type for QRCode.
@@ -1503,7 +1545,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  type QRCode = TypedFrameNode<QRCodeInterface, QRCodeAttribute>;
+  export type  QRCode = TypedFrameNode<QRCodeInterface, QRCodeAttribute>;
 
   /**
    * Create a FrameNode of QRCode type.
@@ -1515,7 +1557,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  function createNode(context: UIContext, nodeType: 'QRCode'): QRCode;
+  // createNode(context: UIContext, nodeType: 'QRCode'): QRCode;
 
   /**
    * Define the FrameNode type for Badge.
@@ -1526,7 +1568,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  type Badge = TypedFrameNode<BadgeInterface, BadgeAttribute>;
+  export type  Badge = TypedFrameNode<BadgeInterface, BadgeAttribute>;
 
   /**
    * Create a FrameNode of Badge type.
@@ -1538,7 +1580,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  function createNode(context: UIContext, nodeType: 'Badge'): Badge;
+  // createNode(context: UIContext, nodeType: 'Badge'): Badge;
 
   /**
    * Define the FrameNode type for TextClock.
@@ -1549,7 +1591,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  type TextClock = TypedFrameNode<TextClockInterface, TextClockAttribute>;
+  export type  TextClock = TypedFrameNode<TextClockInterface, TextClockAttribute>;
 
   /**
    * Create a FrameNode of TextClock type.
@@ -1561,7 +1603,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  function createNode(context: UIContext, nodeType: 'TextClock'): TextClock;
+  // createNode(context: UIContext, nodeType: 'TextClock'): TextClock;
 
   /**
    * Define the FrameNode type for TextTimer.
@@ -1572,7 +1614,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  type TextTimer = TypedFrameNode<TextTimerInterface, TextTimerAttribute>;
+  export type  TextTimer = TypedFrameNode<TextTimerInterface, TextTimerAttribute>;
 
   /**
    * Create a FrameNode of TextTimer type.
@@ -1584,7 +1626,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  function createNode(context: UIContext, nodeType: 'TextTimer'): TextTimer;
+  // createNode(context: UIContext, nodeType: 'TextTimer'): TextTimer;
 
   /**
    * Define the FrameNode type for Grid.
@@ -1595,7 +1637,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  type Grid = TypedFrameNode<GridInterface, GridAttribute>;
+  export type  Grid = TypedFrameNode<GridInterface, GridAttribute>;
 
   /**
    * Create a FrameNode of Grid type.
@@ -1607,7 +1649,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  function createNode(context: UIContext, nodeType: 'Grid'): Grid;
+  // createNode(context: UIContext, nodeType: 'Grid'): Grid;
 
   /**
    * Define the FrameNode type for GridItem.
@@ -1618,7 +1660,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  type GridItem = TypedFrameNode<GridItemInterface, GridItemAttribute>;
+  export type  GridItem = TypedFrameNode<GridItemInterface, GridItemAttribute>;
 
   /**
    * Create a FrameNode of GridItem type.
@@ -1630,7 +1672,7 @@ export namespace typeNode {
    * @atomicservice
    * @since 13
    */
-  function createNode(context: UIContext, nodeType: 'GridItem'): GridItem;
+  // createNode(context: UIContext, nodeType: 'GridItem'): GridItem;
 }
 
 /**
