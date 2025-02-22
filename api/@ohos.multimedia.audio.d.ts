@@ -3074,10 +3074,8 @@ declare namespace audio {
     /**
      * Obtains an {@link AudioSpatializationManager} instance.
      * @returns { AudioSpatializationManager } AudioSpatializationManager instance.
-     * @throws { BusinessError } 202 - Not system App.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
-     * @systemapi
-     * @since 11
+     * @since 16
      */
     getSpatializationManager(): AudioSpatializationManager;
 
@@ -5356,8 +5354,7 @@ declare namespace audio {
    * Implements audio spatialization management.
    * @typedef AudioSpatializationManager
    * @syscap SystemCapability.Multimedia.Audio.Spatialization
-   * @systemapi
-   * @since 11
+   * @since 16
    */
   interface AudioSpatializationManager {
     /**
@@ -5739,6 +5736,41 @@ declare namespace audio {
      * @since 12
      */
     getSpatializationSceneType(): AudioSpatializationSceneType;
+
+    /**
+     * Checks whether the spatialization is enabled by the current device.
+     * @returns { boolean } Whether the spatialization is enabled by the current device.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @since 16
+     */
+    isSpatializationEnabledForCurrentDevice(): boolean;
+
+    /**
+     * Subscribes to the spatialization enable state change events by the current device.
+     * When the spatialization enable state changes, registered clients will receive the callback.
+     * @param { 'spatializationEnabledChangeForCurrentDevice' } type - Type of the event to listen for.
+     * @param { Callback<boolean> } callback - Callback used to get the spatialization enable state.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @since 16
+     */
+    on(type: 'spatializationEnabledChangeForCurrentDevice', callback: Callback<boolean>): void;
+
+    /**
+     * Unsubscribes to the spatialization enable state change events by the current device.
+     * @param { 'spatializationEnabledChangeForCurrentDevice' } type - Type of the event to listen for.
+     * @param { Callback<boolean> } callback - Callback used to get the spatialization enable state.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @since 16
+     */
+    off(type: 'spatializationEnabledChangeForCurrentDevice', callback?: Callback<boolean>): void;
   }
 
   /**
@@ -6312,6 +6344,15 @@ declare namespace audio {
      * @since 12
      */
     readonly encodingTypes?: Array<AudioEncodingType>;
+
+    /**
+     * whether supports spatial rendering.
+     * @type { boolean }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @since 16
+     */
+    readonly spatializationSupported?: boolean;
   }
 
   /**
