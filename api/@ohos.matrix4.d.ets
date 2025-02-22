@@ -42,7 +42,7 @@
  * @atomicservice
  * @since 11
  */
-export default declare namespace matrix4 {
+declare namespace matrix4 {
   /**
    * Set translation parameters
    *
@@ -1059,3 +1059,4 @@ export default declare namespace matrix4 {
    */
   function transformPoint(options: [number, number]): [number, number];
 }
+export default matrix4;

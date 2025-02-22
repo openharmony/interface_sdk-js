@@ -38,7 +38,7 @@ import { AsyncCallback } from './@ohos.base';
  * @atomicservice
  * @since 11
  */
- export default declare namespace router {
+declare namespace router {
   /**
    * Router Mode
    *
@@ -1299,3 +1299,4 @@ import { AsyncCallback } from './@ohos.base';
    */
   function replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise<void>;
 }
+export default router;

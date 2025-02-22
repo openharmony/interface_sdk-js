@@ -53,8 +53,8 @@ import { Callback } from './@ohos.base';
  * @form
  * @atomicservice
  * @since 12
- */
-export default declare namespace mediaquery {
+ */ 
+declare namespace mediaquery {
   
   /**
    * Defines the Result of mediaquery.
@@ -340,3 +340,5 @@ export default declare namespace mediaquery {
    */
   export function matchMediaSync(condition: string): MediaQueryListener;
 }
+
+export default mediaquery;

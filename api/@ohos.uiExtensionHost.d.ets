@@ -29,7 +29,7 @@ import window from './@ohos.window';
  * @systemapi
  * @since 11
  */
-export default declare namespace uiExtensionHost {
+ declare namespace uiExtensionHost {
   /**
    * Window Info
    *
@@ -284,3 +284,4 @@ export default declare namespace uiExtensionHost {
     uiExtensionHostWindowProxyRect: window.Rect;
   }
 }
+export default uiExtensionHost;
