@@ -7088,7 +7088,7 @@ declare namespace photoAccessHelper {
     /**
      * The constructor to create a MediaAnalysisAlbumChangeRequest instance.
      * 
-     * @param { Album } album - Analysis album
+     * @param { Album } album - Album
      * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -7129,7 +7129,7 @@ declare namespace photoAccessHelper {
     /**
      * The constructor to create an analysisAlbum instance.
      *
-     * @param { Album } album - Analysis album
+     * @param { Album } album - Album
      * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
