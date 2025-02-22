@@ -20,10 +20,11 @@
 
 
 import { Resource, ResourceColor, Offset, Alignment, Dimension, EdgeStyles, EdgeColors } from './@ohos.arkui.component.Units';
-import { AsyncCallback } from './@ohos.base';
+import { AsyncCallback,Callback } from './@ohos.base';
 import { BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, Rectangle, TransitionEffect, KeyboardAvoidMode, CustomBuilder, DismissReason } from './@ohos.arkui.component.Common';
 import { DialogAlignment } from './@ohos.arkui.component.AlertDialog';
-import { BorderStyle } from './@ohos.arkui.component.Enums';
+import { BorderStyle, } from './@ohos.arkui.component.Enums';
+import { EdgeWidths, BorderRadiuses} from './@ohos.arkui.component.Units'
 
 /**
  * @namespace promptAction
@@ -43,7 +44,7 @@ import { BorderStyle } from './@ohos.arkui.component.Enums';
  * @atomicservice
  * @since 11
  */
-export default declare namespace promptAction {
+declare namespace promptAction {
   /**
    * @typedef ShowToastOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1567,7 +1568,7 @@ export default declare namespace promptAction {
  * @atomicservice
  * @since 12
  */
-declare interface DismissDialogAction {
+export interface DismissDialogAction {
   /**
    * Defines dialog dismiss function.
    *
@@ -1590,3 +1591,4 @@ declare interface DismissDialogAction {
    */
   reason: DismissReason;
 }
+export default  promptAction;

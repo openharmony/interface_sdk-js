@@ -235,7 +235,7 @@ export interface RequestFullWindowOptions {
  * @atomicservice
  * @since 12
  */
-export default declare class App {
+ declare class App {
   /**
    * Obtains the declared information in the config.json file of an application.
    *
@@ -351,3 +351,4 @@ export default declare class App {
    */
   static setImageFileCacheSize(value: number): void;
 }
+export default App;

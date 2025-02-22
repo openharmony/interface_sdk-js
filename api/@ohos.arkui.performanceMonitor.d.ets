@@ -39,7 +39,7 @@
  * @systemapi
  * @since 10
  */
-export default declare namespace performanceMonitor {
+ declare namespace performanceMonitor {
   /**
    * Enumerates the input event type.
    *
@@ -159,3 +159,4 @@ export default declare namespace performanceMonitor {
    */
   function recordInputEventTime(type: ActionType, sourceType: SourceType, time: number): void;  
 }
+export default performanceMonitor;

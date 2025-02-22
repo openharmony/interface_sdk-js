@@ -28,7 +28,7 @@ import { AsyncCallback } from './@ohos.base';
  * @deprecated since 9
  * @useinstead ohos.promptAction
  */
-export default declare namespace prompt {
+ declare namespace prompt {
 
   /**
    * @interface ShowToastOptions
@@ -256,3 +256,4 @@ export default declare namespace prompt {
    */
   function showActionMenu(options: ActionMenuOptions): Promise<ActionMenuSuccessResponse>;
 }
+export default prompt;

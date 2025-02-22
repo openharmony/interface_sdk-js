@@ -33,7 +33,7 @@
  * @atomicservice
  * @since 12
  */
-export default declare namespace inspector {
+declare namespace inspector {
 
   /**
    * The ComponentObserver is used to listen for layout and draw events.
@@ -114,3 +114,4 @@ export default declare namespace inspector {
    */
   function createComponentObserver(id: string): ComponentObserver;
 }
+export default inspector;

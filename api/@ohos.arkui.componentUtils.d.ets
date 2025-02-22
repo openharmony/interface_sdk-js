@@ -39,7 +39,7 @@
  * @atomicservice
  * @since 12
  */
-export default declare namespace componentUtils {
+declare namespace componentUtils {
 
   /**
   * Component information.
@@ -844,3 +844,4 @@ export default declare namespace componentUtils {
   */
   function getRectangleById(id: string): ComponentInfo;
 }
+export default componentUtils;

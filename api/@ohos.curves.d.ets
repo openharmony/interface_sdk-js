@@ -42,7 +42,7 @@
  * @atomicservice
  * @since 11
  */
- export default declare namespace curves {
+declare namespace curves {
   /**
    * enum Curve.
    *
@@ -767,3 +767,4 @@
    */
   function interpolatingSpring(velocity: number, mass: number, stiffness: number, damping: number): ICurve;
 }
+export default curves;

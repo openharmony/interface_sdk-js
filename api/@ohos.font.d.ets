@@ -36,7 +36,7 @@ import { Resource } from './global/resource'
  * @atomicservice
  * @since 12
  */
-export default declare namespace font {
+ declare namespace font {
   /**
    * @typedef FontOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -795,3 +795,4 @@ export default declare namespace font {
   export function getUIFontConfig(): UIFontConfig;
 }
 
+export default font;
