@@ -1104,6 +1104,18 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @since 15
    */
   customTransition(delegate: NavDestinationTransitionDelegate): NavDestinationAttribute;
+
+  /**
+   * Invoked when destination be pushed with singleton mode.
+   *
+   * @param { Optional<Callback<ESObject>> } callback - Indicates callback when destination be pushed with singleton mode.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  onNewParam(callback: Optional<Callback<ESObject>>): NavDestinationAttribute;
 }
 
 /**
