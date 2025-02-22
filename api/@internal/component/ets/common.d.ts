@@ -8517,8 +8517,8 @@ declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
 /**
  * Defines the options of ForegroundBlurStyle
  *
- * @interface ForegroundBlurStyleOptions
  * @extends BlurStyleOptions
+ * @interface ForegroundBlurStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
