@@ -47,6 +47,7 @@ import { LocalStorage } from './@ohos.arkui.component.CommonTsEtsApi'
 import { DatePickerDialogOptions } from './@ohos.arkui.component.DatePicker'
 import { TabsController } from './@ohos.arkui.component.Tabs'
 import { Scroller } from './@ohos.arkui.component.Scroller'
+import { Color,FontStyle,WidthBreakpoint,HeightBreakpoint } from './@ohos.arkui.component.Enums'
 /**
  * class Font
  *
@@ -1318,6 +1319,10 @@ export interface NavigationOptions { navigationId: ResourceStr }
  * @since 12
  */
 export declare class UIObserver {
+  on<T,V>(type: string, options: T, callback:Callback<V>):void;
+  off<T,V>(type:string, options: T, callback: Callback<V>):void;
+  on<T>(type: string, callback:Callback<T>):void;
+  off<T>(type:string, callback: Callback<T>):void;
   // /**
   //  * Registers a callback function to be called when the navigation destination is updated.
   //  *
@@ -1860,7 +1865,7 @@ export declare class OverlayManager {
    * @atomicservice
    * @since 12
    */
-  addComponentContent(content: ComponentContent, index?: number): void;
+  addComponentContent(content: ComponentContent<Object>, index?: number): void;
 
   /**
    * Remove the ComponentContent from the OverlayManager.
@@ -1871,7 +1876,7 @@ export declare class OverlayManager {
    * @atomicservice
    * @since 12
    */
-  removeComponentContent(content: ComponentContent): void;
+  removeComponentContent(content: ComponentContent<Object>): void;
 
   /**
    * Show the ComponentContent.
@@ -1882,7 +1887,7 @@ export declare class OverlayManager {
    * @atomicservice
    * @since 12
    */
-  showComponentContent(content: ComponentContent): void;
+  showComponentContent(content: ComponentContent<Object>): void;
 
   /**
    * Hide the ComponentContent.
@@ -1893,7 +1898,7 @@ export declare class OverlayManager {
    * @atomicservice
    * @since 12
    */
-  hideComponentContent(content: ComponentContent): void;
+  hideComponentContent(content: ComponentContent<Object>): void;
 
   /**
    * Show all ComponentContents on the OverlayManager.

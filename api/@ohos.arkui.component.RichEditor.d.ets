@@ -20,7 +20,7 @@
 import { ResourceColor, Length,ResourceStr } from './@ohos.arkui.component.Units'
 import { FontStyle,FontWeight } from './@ohos.arkui.component.Enums'
 import { DecorationStyleInterface } from './@ohos.arkui.component.StyledString'
-import { ShadowOptions,Callback,CommonMethod } from './@ohos.arkui.component.Common'
+import { ShadowOptions,Callback,CommonMethod,CallbackWithResult } from './@ohos.arkui.component.Common'
 
 import { Resource } from './global/resource'
 import { TextRange,MenuType,TextEditControllerEx,StyledStringController } from './@ohos.arkui.component.TextCommon'
@@ -3350,7 +3350,7 @@ export declare class RichEditorAttribute extends CommonMethod<RichEditorAttribut
    * @atomicservice
    * @since 12
    */
-  aboutToIMEInput(callback: Callback<RichEditorInsertValue, boolean>): RichEditorAttribute;
+  aboutToIMEInput(callback: CallbackWithResult<RichEditorInsertValue, boolean>): RichEditorAttribute;
 
   /**
    * Get text value information when completed input.
@@ -3422,7 +3422,7 @@ export declare class RichEditorAttribute extends CommonMethod<RichEditorAttribut
    * @atomicservice
    * @since 12
    */
-  aboutToDelete(callback: Callback<RichEditorDeleteValue, boolean>): RichEditorAttribute;
+  aboutToDelete(callback: CallbackWithResult<RichEditorDeleteValue, boolean>): RichEditorAttribute;
 
   /**
    * Notify that the deletion has been completed

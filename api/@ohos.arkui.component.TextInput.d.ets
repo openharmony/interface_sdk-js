@@ -19,7 +19,7 @@
  */
 
 import { CancelButtonSymbolOptions, CancelButtonOptions } from "./@ohos.arkui.component.Search";
-import { CustomBuilder, Callback, CommonMethod, TextContentControllerBase, SelectionOptions, InputCounterOptions, TextDecorationOptions } from "./@ohos.arkui.component.Common";
+import { CustomBuilder, Callback, CommonMethod, TextContentControllerBase, SelectionOptions, InputCounterOptions, TextDecorationOptions,CallbackWithResult } from "./@ohos.arkui.component.Common";
 import { BarState, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow, CopyOptions, TextHeightAdaptivePolicy, TextContentStyle} from './@ohos.arkui.component.Enums';
 import { Resource, ResourceStr, ResourceColor, Dimension, Font, Length } from './@ohos.arkui.component.Units';
 import { InsertValue, DeleteValue, CaretStyle, EditableTextOnChangeCallback, EditMenuOptions } from "./@ohos.arkui.component.TextCommon";
@@ -2526,7 +2526,7 @@ export declare class TextInputAttribute extends CommonMethod<TextInputAttribute>
    * @atomicservice
    * @since 12
    */
-  onWillInsert(callback: Callback<InsertValue, boolean>): TextInputAttribute;
+  onWillInsert(callback: CallbackWithResult<InsertValue, boolean>): TextInputAttribute;
 
   /**
    * Get text value information when completed input.
@@ -2550,7 +2550,7 @@ export declare class TextInputAttribute extends CommonMethod<TextInputAttribute>
    * @atomicservice
    * @since 12
    */
-  onWillDelete(callback: Callback<DeleteValue, boolean>): TextInputAttribute;
+  onWillDelete(callback: CallbackWithResult<DeleteValue, boolean>): TextInputAttribute;
 
   /**
    * Get text value information when the deletion has been completed

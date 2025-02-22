@@ -45,7 +45,7 @@ import {
   AccessibilityOptions,ConstraintSizeOptions,EdgeWidth,DirectionalEdgesT
 } from './@ohos.arkui.component.Units';
 import { BaseGestureEvent, GestureRecognizer, GestureJudgeResult, GestureType,
-  GestureMask, GestureHandler,GesturePriority
+  GestureMask, GestureHandler,GesturePriority,GestureInfo
  } from './@ohos.arkui.component.Gesture';
 import { ScrollState } from './@ohos.arkui.component.List';
 import {
@@ -54,8 +54,13 @@ import {
   FontStyle, Color, ColoringStrategy,Placement,ArrowPointPosition,ClickEffectLevel,NestedScrollMode,HitTestMode,
   Alignment,ImageRepeat,ImageSize,HoverEffect,Visibility,ItemAlign,Direction,Axis,GradientDirection,FunctionKey,
   ModifierKey,ObscuredReasons,RenderFit,LineCapStyle,LineJoinStyle,PixelRoundCalcPolicy,IlluminatedType,TextDecorationType,
-  TextDecorationStyle,KeyType, ResponseType, BarState, EdgeEffect
+  TextDecorationStyle,KeyType, ResponseType, BarState, EdgeEffect,ScrollSource
 } from './@ohos.arkui.component.Enums'
+import { CircleAttribute } from './@ohos.arkui.component.Circle';
+import { RectAttribute } from './@ohos.arkui.component.Rect';
+import { PathAttribute } from './@ohos.arkui.component.Path';
+import { EllipseAttribute } from './@ohos.arkui.component.Ellipse';
+
 /**
  * Defines the options of Component ClassDecorator.
  *
@@ -352,9 +357,9 @@ export interface EntryOptions {
  * @atomicservice
  * @since 11
  */
-export @interface Entry {
-  options?: LocalStorage | EntryOptions
-}
+// export @interface Entry {
+  // options?: LocalStorage | EntryOptions
+// }
 
 
 /**
@@ -431,7 +436,7 @@ export @interface ObservedV2 {}
  * @since 11
  */
 export @interface Preview {
-  value: PreviewParams
+  // value: PreviewParams
 }
 
 /**
@@ -731,7 +736,7 @@ export interface ProvideOptions {
  * @since 11
  */
 export @interface Provide {
-  value: string | ProvideOptions
+  // value: string | ProvideOptions
 }
 
 /**
@@ -742,7 +747,7 @@ export @interface Provide {
  * @since 12
  */
 export @interface Provider {
-  aliasName?:string
+  // aliasName?:string
 }
 
 /**
@@ -788,7 +793,7 @@ export @interface Consume {
 * @since 12
 */
 export @interface Consumer {
-  aliasName?: string
+  // aliasName?: string
 }
 
 /**
@@ -991,7 +996,7 @@ export @interface Styles {}
  * @since 11
  */
 export @interface Extend {
-  value: Object
+  // value: Object
 }
 
 /**
@@ -1010,7 +1015,7 @@ export @interface Extend {
  * @since 11
  */
  export @interface AnimatableExtend {
-  value: Object
+  // value: Object
  }
 
 /**
@@ -14539,7 +14544,7 @@ export interface AttributeModifier<T> {
  * @atomicservice
  * @since 12
  */
-export interface ContentModifier<T> {
+export interface ContentModifier<T extends Object> {
 
   /**
    * Defining applyContent function.
@@ -14550,7 +14555,7 @@ export interface ContentModifier<T> {
    * @atomicservice
    * @since 12
    */
-  applyContent(): WrappedBuilder<[T]>
+  applyContent(): WrappedBuilder<Array<Object>>
 }
 
 /**
@@ -14562,7 +14567,7 @@ export interface ContentModifier<T> {
  * @atomicservice
  * @since 12
  */
-export interface CommonConfiguration<T> {
+export interface CommonConfiguration<T extends Object> {
   
   /**
    * If the value is true, the contentModifier is available and can respond to operations such as triggerChange.
@@ -16576,7 +16581,7 @@ export declare class CommonMethod<T> {
    * @atomicservice
    * @since 12
    */
-  onKeyPreIme(event: Callback<KeyEvent, boolean>): T;
+  onKeyPreIme(event: CallbackWithResult<KeyEvent, boolean>): T;
 
   /**
    * Set focusable.
@@ -19034,7 +19039,7 @@ export declare class CommonMethod<T> {
    * @atomicservice
    * @since 12
    */
-  overlay(value: string | CustomBuilder | ComponentContent, options?: OverlayOptions): T;
+  overlay(value: string | CustomBuilder | ComponentContent<Object>, options?: OverlayOptions): T;
 
   /**
    * Linear Gradient
@@ -20431,7 +20436,7 @@ export declare class CommonMethod<T> {
    * @atomicservice
    * @since 12
    */
-  onTouchIntercept(callback: Callback<TouchEvent, HitTestMode>): T;
+  onTouchIntercept(callback: CallbackWithResult<TouchEvent, HitTestMode>): T;
 
   /**
    * This callback is triggered when the size of this component change finished.
@@ -23488,7 +23493,7 @@ export interface LightSource {
  * @atomicservice
  * @since 12
  */
-export declare function wrapBuilder<Args extends Array<Object>>(builder: (...args: Args) => void): WrappedBuilder<Args>;
+export declare function wrapBuilder<Args extends Array<Object>>(builder: (args: Args) => void): WrappedBuilder<Args>;
 
 /**
  * Defines the WrappedBuilder class.
@@ -23503,7 +23508,7 @@ export declare function wrapBuilder<Args extends Array<Object>>(builder: (...arg
  * @atomicservice
  * @since 12
  */
-export declare class WrappedBuilder<Args extends Object[]> {
+export declare class WrappedBuilder<Args extends Array<Object>> {
   /**
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -23517,7 +23522,7 @@ export declare class WrappedBuilder<Args extends Object[]> {
    * @atomicservice
    * @since 12
    */
-  builder: (...args: Args) => void;
+  builder: (args: Args) => void;
 
   /**
    * @param { function } builder
@@ -23532,7 +23537,7 @@ export declare class WrappedBuilder<Args extends Object[]> {
    * @atomicservice
    * @since 12
    */
-  constructor(builder: (...args: Args) => void);
+  constructor(builder: (args: Args) => void);
 }
 
 
@@ -23702,7 +23707,9 @@ export interface KeyframeState {
  * @atomicservice
  * @since 12
  */
-export type Callback<T,V = void> = (data: T)=>V
+export type Callback<T> = (data: T)=> void
+
+export type CallbackWithResult<T,V> = (data:T)=> V
 
 /**
  * Defines the callback type used in hover events.

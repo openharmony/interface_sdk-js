@@ -17,7 +17,6 @@
  * @file
  * @kit ArkUI
  */
-
 import { Callback } from './@ohos.base';
 import type UIAbilityContext from './application/UIAbilityContext';
 import  { NavigationOperation, NavBar,NavPathStack } from '@ohos.arkui.component.Navigation';
@@ -870,29 +869,28 @@ declare namespace uiObserver {
      */
     navigationId: ResourceStr;
   }
-
-  // /**
-  //  * Registers a callback function to be called when the navigation destination is updated.
-  //  *
-  //  * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
-  //  * @param { object } options - The options object.
-  //  * @param { Callback<NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
-  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  //  * @crossplatform
-  //  * @since 11
-  //  */
-  // /**
-  //  * Registers a callback function to be called when the navigation destination is updated.
-  //  *
-  //  * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
-  //  * @param { object } options - The options object.
-  //  * @param { Callback<NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
-  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  //  * @crossplatform
-  //  * @atomicservice
-  //  * @since 12
-  //  */
-  // export function on(type: 'navDestinationUpdate', options: NavDestinationSwitchObserverOptions, callback: Callback<NavDestinationInfo>): void;
+  /**
+   * Registers a callback function to be called when the navigation destination is updated.
+   *
+   * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
+   * @param { object } options - The options object.
+   * @param { Callback<NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  /**
+   * Registers a callback function to be called when the navigation destination is updated.
+   *
+   * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
+   * @param { object } options - The options object.
+   * @param { Callback<NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  export function on<T,V>(type: string, options: T, callback: Callback<V>): void;
 
   // /**
   //  * Removes a callback function that was previously registered with `on()`.
@@ -917,7 +915,7 @@ declare namespace uiObserver {
   //  * @atomicservice
   //  * @since 12
   //  */
-  // export function off(type: 'navDestinationUpdate', options: NavDestinationSwitchObserverOptions, callback?: Callback<NavDestinationInfo>): void;
+  export function off<T,V>(type: string, options: T, callback: Callback<V>): void;
 
   // /**
   //  * Registers a callback function to be called when the navigation destination is updated.
@@ -939,6 +937,8 @@ declare namespace uiObserver {
   //  * @since 12
   //  */
   // export function on(type: 'navDestinationUpdate', callback: Callback<NavDestinationInfo>): void;
+
+  export function on<T>(type: string, callback: Callback<T>): void;
 
   // /**
   //  * Removes a callback function that was previously registered with `on()`.
@@ -962,6 +962,8 @@ declare namespace uiObserver {
   //  * @since 12
   //  */
   // export function off(type: 'navDestinationUpdate', callback?: Callback<NavDestinationInfo>): void;
+
+  export function off<T>(type: string, callback?: Callback<T>): void;
 
   // /**
   //  * Registers a callback function to be called when the scroll event start or stop.
@@ -988,7 +990,7 @@ declare namespace uiObserver {
   //  * @atomicservice
   //  * @since 12
   //  */
-  // export function off(type: 'scrollEvent', options: ObserverOptions, callback?: Callback<ScrollEventInfo>): void;
+  // export function off(type: 'scrollEvent', options: ObserverOptions, callback: Callback<ScrollEventInfo>): void;
 
   // /**
   //  * Registers a callback function to be called when the scroll event start or stop.
@@ -1061,7 +1063,7 @@ declare namespace uiObserver {
   //  * @atomicservice
   //  * @since 12
   //  */
-  // export function off(type: 'routerPageUpdate', context: UIAbilityContext | UIContext, callback?: Callback<RouterPageInfo>): void;
+  // export function off(type: 'routerPageUpdate', context: UIAbilityContext | UIContext, callback: Callback<RouterPageInfo>): void;
 
   // /**
   //  * Registers a callback function to be called when the screen density is updated.
