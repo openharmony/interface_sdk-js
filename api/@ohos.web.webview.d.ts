@@ -7546,7 +7546,7 @@ class ProxyController {
    */
   static applyProxyOverride(proxyConfig: ProxyConfig, callback: OnProxyConfigChangeCallback): void;
   /**
-   * Remove the proxy config. Requests are not guaranteed to not use the proxy; Wait for the listener before loading a page. This listener
+   * Remove the proxy config. Requests are not guaranteed to not use the proxy; wait for the listener before loading a page. This listener
    * will be called on the UI thread.
    * 
    * @param { OnProxyConfigChangeCallback } callback - Called when the proxy has been changed.
