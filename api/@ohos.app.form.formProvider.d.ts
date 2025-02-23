@@ -396,9 +396,7 @@ declare namespace formProvider {
    * Get infos of all published forms belonging to current bundle.
    * Client to communicate with FormManagerService.
    *
-   * @returns { Promise<Array<formInfo.FormInfo>> } Returns the formInfo.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @returns { Promise<Array<formInfo.FormInfo>> } Returns published formInfo belongs to the caller
    * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
