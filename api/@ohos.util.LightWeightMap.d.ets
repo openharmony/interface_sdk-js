@@ -39,7 +39,7 @@
  * @atomicservice
  * @since 12
  */
-export default declare class LightWeightMap<K, V> {
+declare class LightWeightMap<K, V> {
   /**
    * A constructor used to create a LightWeightMap object.
    *
@@ -860,3 +860,4 @@ export default declare class LightWeightMap<K, V> {
    */
   values(): IterableIterator<V>;
 }
+export default LightWeightMap;

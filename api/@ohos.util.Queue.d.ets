@@ -45,7 +45,7 @@
  * @atomicservice
  * @since 12
  */
-export default declare class Queue<T> {
+declare class Queue<T> {
   /**
    * A constructor used to create a Queue object.
    *
@@ -267,3 +267,4 @@ export default declare class Queue<T> {
    */
   [Symbol.iterator](): IterableIterator<T>;
 }
+export default Queue;

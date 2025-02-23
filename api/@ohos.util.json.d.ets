@@ -27,7 +27,7 @@
  * @atomicservice
  * @since 12
  */
-export default declare namespace json {
+declare namespace json {
   /**
    * The type of conversion result function.
    *
@@ -164,3 +164,4 @@ export default declare namespace json {
     bigIntMode: BigIntMode;
   }
 }
+export default json;
