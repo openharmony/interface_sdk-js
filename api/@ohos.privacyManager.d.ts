@@ -369,11 +369,11 @@ declare namespace privacyManager {
   /**
    * Sets the toggle state of permission access records for the current user.
    *
-   * @permission ohos.permission.PERMISSION_USED_STATS
+   * @permission ohos.permission.PERMISSION_RECORD_TOGGLE
    * @param { boolean } status - The toggle status to be set.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_RECORD_TOGGLE".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
    * @throws { BusinessError } 12100007 - The service is abnormal.
    * @throws { BusinessError } 12100009 - Common inner error.
