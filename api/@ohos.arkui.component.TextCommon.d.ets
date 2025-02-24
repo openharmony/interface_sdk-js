@@ -22,7 +22,7 @@ import { ResourceStr, ResourceColor, Length} from './@ohos.arkui.component.Units
 import { TextDecorationType, TextDecorationStyle } from './@ohos.arkui.component.Enums';
 import { DecorationStyleInterface,StyledString,MutableStyledString } from './@ohos.arkui.component.StyledString';
 import text from './@ohos.graphics.text';
-import { SelectionOptions,CallbackWithResult } from './@ohos.arkui.component.Common';
+import { SelectionOptions,Callback } from './@ohos.arkui.component.Common';
 
 
 
@@ -546,7 +546,7 @@ export interface StyledStringChangedListener {
    * @atomicservice
    * @since 12
    */
-  onWillChange?: CallbackWithResult<StyledStringChangeValue, boolean>;
+  onWillChange?: Callback<StyledStringChangeValue, boolean>;
 
   /**
    * Called after text changed.
