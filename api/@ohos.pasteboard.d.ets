@@ -1546,7 +1546,8 @@ declare namespace pasteboard {
     setUnifiedDataSync(data: unifiedDataChannel.UnifiedData): void;
 
     /**
-     * Sets a unified ShareOptions for your application, so that the PasteData copied from your application is applicable to this ShareOptions.
+     * Sets a unified ShareOptions for your application
+     * so that the PasteData copied from your application is applicable to this ShareOptions.
      * 
      * @param { ShareOption } shareOptions - Scope that PasteData can be pasted.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
