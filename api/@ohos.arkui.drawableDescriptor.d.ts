@@ -21,6 +21,63 @@
 import image from './@ohos.multimedia.image';
 
 /**
+ * Indicates the return result of the data to be fetched.
+ *
+ * @typedef DrawableDescriptorResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare interface DrawableDescriptorResult {
+  /**
+   * DrawableDescriptor width.The default value is -1.
+   *
+   * @type { ?number }
+   * @readonly
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  readonly width?: number;
+
+  /**
+   * DrawableDescriptor height.The default value is -1.
+   *
+   * @type { ?number }
+   * @readonly
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  readonly height?: number;
+}
+
+/**
+ * DrawableDescriptor's option which is used in constructor.
+ *
+ * @typedef DrawableDescriptorOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+declare interface DrawableDescriptorOptions {
+  /**
+   * If true, it will fetch the data using the uri when object is constructing.The default value is false.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  fetchWhenConstructingWithUri?: boolean;
+}
+
+/**
  * Use the DrawableDescriptor class to get drawable image.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -76,6 +133,54 @@ export class DrawableDescriptor {
    * @since 12
    */
   getPixelMap(): image.PixelMap;
+
+  /**
+   * Get original width of drawable object.
+   *
+   * @returns { number } Return the width of the DrawableDescriptor object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  getOriginalWidth(): number;
+
+  /**
+   * Get original height of drawable object.
+   *
+   * @returns { number } Return the height of the DrawableDescriptor object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  getOriginalHeight(): number;
+
+  /**
+   * Fetch the drawable's data whose corresponding uri is passed in constructor.This fetched data can be draw in Image view.
+   *
+   * @returns { Promise<DrawableDescriptorResult> } Return the promise returned by the funciton.
+   * @throws { BusinessError } 100001 - Data loading failed. Maybe the uri is invalid.
+   * @throws { BusinessError } 100002 - Data decoding failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  fetch(): Promise<DrawableDescriptorResult>;
+
+  /**
+   * Fetch the drawable's data whose corresponding uri is passed in constructor.This fetched data can be draw in Image view.
+   *
+   * @returns { DrawableDescriptorResult } Return the result of the DrawableDescriptor object.
+   * @throws { BusinessError } 100001 - Data loading failed. Maybe the uri is invalid.
+   * @throws { BusinessError } 100002 - Data decoding failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  fetchSync(): DrawableDescriptorResult;
 }
 
 /**
@@ -105,7 +210,7 @@ export class DrawableDescriptor {
 export class LayeredDrawableDescriptor extends DrawableDescriptor {
   /**
    * Creates a new LayeredDrawableDescriptor.
-   * 
+   *
    * @param { DrawableDescriptor } [foreground] - Indicates the foreground option to create LayeredDrawableDescriptor.
    * @param { DrawableDescriptor } [background] - Indicates the background option to create LayeredDrawableDescriptor.
    * @param { DrawableDescriptor } [mask] - Indicates the mask option to create LayeredDrawableDescriptor.
@@ -242,6 +347,17 @@ export class PixelMapDrawableDescriptor extends DrawableDescriptor {
    * @since 12
    */
   constructor(src?: image.PixelMap);
+
+  /**
+   * Creates a new PixelMapDrawableDescriptor.
+   * @param { image.PixelMap | ResourceStr } src - Indicates the resource to create PixelMapDrawableDescriptor.
+   * @param { DrawableDescriptorOptions } options - Indicates the option to create PixelMapDrawableDescriptor.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  constructor(src?: image.PixelMap | ResourceStr, options?: DrawableDescriptorOptions);
 }
 
 /**
