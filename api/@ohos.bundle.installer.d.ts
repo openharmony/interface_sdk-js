@@ -313,6 +313,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700066 - Failed to install the HAP because installing the native package failed.
      * @throws { BusinessError } 17700073 - Failed to install the HAP because an application with the same
      * @throws { BusinessError } 17700076 - Failed to install the HAP or HSP because the app distribution type is not allowed.
+     * @throws { BusinessError } 17700077 - Failed to install the HAP and restore to preinstalled bundle.
      * <br>bundle name but different signature information exists on the device.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -545,6 +546,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700066 - Failed to install the HAP because installing the native package failed.
      * @throws { BusinessError } 17700073 - Failed to install the HAP because an application with the same
      * @throws { BusinessError } 17700076 - Failed to install the HAP or HSP because the app distribution type is not allowed.
+     * @throws { BusinessError } 17700077 - Failed to install the HAP and restore to preinstalled bundle.
      * <br>bundle name but different signature information exists on the device.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -793,6 +795,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700066 - Failed to install the HAP because installing the native package failed.
      * @throws { BusinessError } 17700073 - Failed to install the HAP because an application with the same
      * @throws { BusinessError } 17700076 - Failed to install the HAP or HSP because the app distribution type is not allowed.
+     * @throws { BusinessError } 17700077 - Failed to install the HAP and restore to preinstalled bundle.
      * <br>bundle name but different signature information exists on the device.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
