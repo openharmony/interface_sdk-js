@@ -303,6 +303,7 @@ export declare class UIUtils {
    *
    * @param { T } source input source object data.
    * @returns { T } V1 proxy object from the source object data.
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -315,6 +316,7 @@ export declare class UIUtils {
    *
    * @param {T} source - The object to be made V2-compatible.
    * @returns {T} The processed object with V2 compatibility enabled.
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
