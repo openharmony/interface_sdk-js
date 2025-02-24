@@ -7077,6 +7077,86 @@ declare namespace photoAccessHelper {
   }
 
   /**
+   * Defines the class of media analysis album change request.
+   *
+   * @extends MediaAlbumChangeRequest
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi 
+   * @since 16
+   */
+   class MediaAnalysisAlbumChangeRequest extends MediaAlbumChangeRequest {
+    /**
+     * The constructor to create a MediaAnalysisAlbumChangeRequest instance.
+     * 
+     * @param { Album } album - Album
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi 
+     * @since 16
+     */
+    constructor(album: Album);
+
+    /**
+     * Set order positions of assets in the album
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Array<PhotoAsset> } assets - List of assets that need to set order
+     * @param { Array<number> } position - List of positions to set
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi 
+     * @since 16
+     */
+    setOrderPosition(assets: Array<PhotoAsset>, position: Array<number>): void;
+  }
+
+  /**
+   * Defines the class of analysis album.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi 
+   * @since 16
+   */
+  class AnalysisAlbum {
+    /**
+     * The constructor to create an analysisAlbum instance.
+     *
+     * @param { Album } album - Album
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi 
+     * @since 16
+     */
+    constructor(album: Album);
+    /**
+     * Get order position of assets in the album
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { Array<PhotoAsset> } assets - List of assets that need to get order
+     * @returns { Promise<Array<number>> } Returns the order of positions of assets
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi 
+     * @since 16
+     */
+    getOrderPosition(assets: Array<PhotoAsset>): Promise<Array<number>>;
+  }
+
+  /**
    * Defines the class of highlight album.
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -7149,6 +7229,44 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     setHighlightUserActionData(type: HighlightUserActionType, actionData: number): Promise<void>;
+
+    /**
+     * Set highlight sub title
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { string } subTitle - Highlight sub title
+     * @returns { Promise<void> } Returns void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi 
+     * @since 16
+     */
+    setSubTitle(subTitle: string): Promise<void>;
+
+    /**
+     * Delete highlight albums
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Context } context - Hap context information
+     * @param { Array<Album> } albums - Highlight albums to delete
+     * @returns { Promise<number> } Returns result of delete highlight album
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi 
+     * @since 16
+     */
+    static deleteHighlightAlbums(context: Context, albums: Array<Album>): Promise<number>;
   }
 
   /**
