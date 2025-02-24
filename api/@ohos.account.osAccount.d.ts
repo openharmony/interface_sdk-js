@@ -2372,8 +2372,7 @@ declare namespace osAccount {
      *
      * @type { ?string }
      * @syscap SystemCapability.Account.OsAccount
-     * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 16
      */
     serverConfigId?: string;
   }
@@ -3582,8 +3581,7 @@ declare namespace osAccount {
    *
    * @typedef DomainServerConfig
    * @syscap SystemCapability.Account.OsAccount
-   * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 16
    */
   interface DomainServerConfig {
     /**
@@ -3591,8 +3589,7 @@ declare namespace osAccount {
      *
      * @type { Record<string, Object> }
      * @syscap SystemCapability.Account.OsAccount
-     * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 16
      */
     parameters: Record<string, Object>;
 
@@ -3601,8 +3598,7 @@ declare namespace osAccount {
      *
      * @type { string }
      * @syscap SystemCapability.Account.OsAccount
-     * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 16
      */
     id: string;
 
@@ -3611,8 +3607,7 @@ declare namespace osAccount {
      *
      * @type { string }
      * @syscap SystemCapability.Account.OsAccount
-     * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 16
      */
     domain: string;
   }
@@ -3621,39 +3616,79 @@ declare namespace osAccount {
    * Provides abilities for managing domain server config.
    *
    * @syscap SystemCapability.Account.OsAccount
-   * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 16
    */
   class DomainServerConfigManager {
     /**
      * Adds a domain server config.
      *
-     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS
      * @param { Record<string, Object> } parameters - Indicates the server config parameters.
      * @returns { Promise<DomainServerConfig> } Returns the added domain server config.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid server config parameters.
      * @throws { BusinessError } 12300211 - Server unreachable.
+     * @throws { BusinessError } 12300213 - Server config already exists.
+     * @throws { BusinessError } 12300215 - The number of server config reaches the upper limit.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 16
      */
     static addServerConfig(parameters: Record<string, Object>): Promise<DomainServerConfig>;
 
     /**
      * Removes a domain server config.
      *
-     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS
      * @param { string } configId - Indicates the server config identifier.
      * @returns { Promise<void> } Returns void.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300212 - Server config not found.
+     * @throws { BusinessError } 12300214 - Server config has been associated with an account.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 16
+     */
+    static removeServerConfig(configId: string): Promise<void>;
+
+    /**
+     * Updates the target server config with the specified parameters.
+     *
+     * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS 
+     * @param { string } configId - Indicates the server config identifier.
+     * @param { Record<string, Object> } parameters - Indicates the server config parameters.
+     * @returns { Promise<DomainServerConfig> } Returns the updated domain server config.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid server config parameters.
+     * @throws { BusinessError } 12300211 - Server unreachable.
+     * @throws { BusinessError } 12300212 - Server config not found.
+     * @throws { BusinessError } 12300213 - Server config already exists.
+     * @throws { BusinessError } 12300214 - Server config has been associated with an account.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 16
+     */
+    static updateServerConfig(configId: string, parameters: Record<string, Object>): Promise<DomainServerConfig>;
+
+    /**
+     * Gets the specified server config by identifier.
+     *
+     * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS
+     * @param { string } configId - Indicates the server config identifier.
+     * @returns { Promise<DomainServerConfig> } Returns the server config.
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -3661,19 +3696,31 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300212 - Server config not found.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 16
      */
-    static removeServerConfig(configId: string): Promise<void>;
+    static getServerConfig(configId: string): Promise<DomainServerConfig>;
+
+    /**
+     * Gets all server configs.
+     *
+     * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS
+     * @returns { Promise<Array<DomainServerConfig>> } Returns a list of server configs.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 16
+     */
+    static getAllServerConfigs(): Promise<Array<DomainServerConfig>>;
 
     /**
      * Gets the server config of the specified domain account.
      *
-     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS
      * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
      * @returns { Promise<DomainServerConfig> } Returns the domain server config.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -3681,8 +3728,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Domain account not found.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 16
      */
     static getAccountServerConfig(domainAccountInfo: DomainAccountInfo): Promise<DomainServerConfig>;
   }
