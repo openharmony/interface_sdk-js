@@ -435,6 +435,16 @@ declare namespace relationalStore {
      */
 
     tokenizer?: Tokenizer;
+
+    /**
+     * Specifies whether the database opened is memory db.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 16
+     */
+
+    isMemoryDb?: boolean;
   }
 
   /**
