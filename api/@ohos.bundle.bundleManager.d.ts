@@ -3778,7 +3778,7 @@ declare namespace bundleManager {
    * @systemapi
    * @since 16
    */
-  function migrateData(sourcePaths: Array<string>, destinationPath: string): Promise<void>
+  function migrateData(sourcePaths: Array<string>, destinationPath: string): Promise<void>;
 
   /**
    * Obtains configuration information about an application.
