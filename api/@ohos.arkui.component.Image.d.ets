@@ -19,7 +19,7 @@
  */
 
 import { DrawableDescriptor } from './@ohos.arkui.drawableDescriptor';
-import { DrawingColorFilter, Lattice as DrawingLattice  } from './@ohos.graphics.drawing';
+import  drawing from './@ohos.graphics.drawing';
 import { ResolutionQuality } from './@ohos.multimedia.image';
 import { ImageAIOptions,ImageAnalyzerConfig } from './@ohos.arkui.component.ImageCommon';
 import { ResourceStr,ResourceColor,ColorFilter,CopyOptions,EdgeWidths } from './@ohos.arkui.component.Units';
@@ -1261,7 +1261,7 @@ export declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @atomicservice
    * @since 12
    */
-  colorFilter(value: ColorFilter | DrawingColorFilter): ImageAttribute;
+  colorFilter(value: ColorFilter | drawing.ColorFilter ): ImageAttribute;
 
   /**
    * Allow replication.
@@ -1776,5 +1776,5 @@ export declare interface ResizableOptions {
    * @atomicservice
    * @since 12
    */
-  lattice?: DrawingLattice;
+  lattice?: drawing.Lattice;
 }
