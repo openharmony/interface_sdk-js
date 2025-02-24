@@ -18,11 +18,11 @@
  * @kit ArkUI
  */
 
-import { Canvas } from './@ohos.graphics.drawing'
+import drawing from './@ohos.graphics.drawing'
 import { FrameNode } from './@ohos.arkui.node'; 
 import { Matrix2D } from './@ohos.arkui.component.Matrix2d'
 import { LengthMetricsUnit } from './arkui/Graphics'
-import { PixelMap } from './@ohos.multimedia.image'
+import image from './@ohos.multimedia.image'
 import { Callback,CommonMethod } from './@ohos.arkui.component.Common'
 import { ImageAnalyzerConfig, ImageAIOptions } from './@ohos.arkui.component.ImageCommon'
 import { VoidCallback } from './@ohos.arkui.component.Units'
@@ -35,7 +35,7 @@ import { VoidCallback } from './@ohos.arkui.component.Units'
  * @atomicservice
  * @since 12
  */
-export type DrawingCanvas = Canvas;
+export type DrawingCanvas = drawing.Canvas;
 
 /**
  * Filling style algorithm, which determines whether a point is within or outside the path. The following
@@ -2042,7 +2042,7 @@ export declare class ImageBitmap {
    * @atomicservice
    * @since 11
    */
-  constructor(data: PixelMap);
+  constructor(data: image.PixelMap);
 
   /**
    * Transfer a PixelMap object to construct an ImageBitmap object.
@@ -2054,7 +2054,7 @@ export declare class ImageBitmap {
    * @atomicservice
    * @since 12
    */
-  constructor(data: PixelMap, unit: LengthMetricsUnit);
+  constructor(data: image.PixelMap, unit: LengthMetricsUnit);
 }
 
 /**
@@ -2575,7 +2575,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @atomicservice
    * @since 11
    */
-  drawImage(image: ImageBitmap | PixelMap, dx: number, dy: number): void;
+  drawImage(image: ImageBitmap | image.PixelMap, dx: number, dy: number): void;
 
   /**
    * Draw an image on a canvas
@@ -2627,7 +2627,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @atomicservice
    * @since 11
    */
-  drawImage(image: ImageBitmap | PixelMap, dx: number, dy: number, dw: number, dh: number): void;
+  drawImage(image: ImageBitmap | image.PixelMap, dx: number, dy: number, dw: number, dh: number): void;
 
   /**
    *Draw an image on a canvas
@@ -2696,7 +2696,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @since 11
    */
   drawImage(
-    image: ImageBitmap | PixelMap,
+    image: ImageBitmap | image.PixelMap,
     sx: number,
     sy: number,
     sw: number,
@@ -3554,7 +3554,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @atomicservice
    * @since 11
    */
-  getPixelMap(sx: number, sy: number, sw: number, sh: number): PixelMap;
+  getPixelMap(sx: number, sy: number, sw: number, sh: number): image.PixelMap;
 
   /**
    * Draws the specified ImageData object onto the canvas
@@ -5080,7 +5080,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * @atomicservice
    * @since 11
    */
-  setPixelMap(value?: PixelMap): void;
+  setPixelMap(value?: image.PixelMap): void;
 
   /**
    * transfer ImageBitmap to content.

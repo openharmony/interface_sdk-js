@@ -21,9 +21,8 @@ import { ScrollableCommonMethod, ItemDragInfo,EdgeEffectOptions,NestedScrollOpti
 import { Resource } from './global/resource'
 import { Scroller } from './@ohos.arkui.component.Scroll'
 import { Length } from './@ohos.arkui.component.Units'
-import { Color } from './@ohos.arkui.component.Color'
 import { ScrollState } from './@ohos.arkui.component.List'
-import { BarState,EdgeEffect } from './@ohos.arkui.component.Enums'
+import { BarState,EdgeEffect,Color } from './@ohos.arkui.component.Enums'
 /**
  * The options to help grid layout
  *

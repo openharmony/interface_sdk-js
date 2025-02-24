@@ -20,18 +20,18 @@
 
 import Context from './application/Context';
 import { Resource } from './global/resource';
-import { PointerStyle } from './@ohos.multimodalInput.pointer';
-import { PixelMap } from './@ohos.multimedia.image';
-import { UnifiedData,Summary } from './@ohos.data.unifiedDataChannel';
-import { UniformDataType } from './@ohos.data.uniformTypeDescriptor';
+import pointer from './@ohos.multimodalInput.pointer';
+import image from './@ohos.multimedia.image';
+import  unifiedDataChannel from './@ohos.data.unifiedDataChannel';
+import uniformTypeDescriptor from './@ohos.data.uniformTypeDescriptor';
 import { IntentionCode } from './@ohos.multimodalInput.intentionCode';
 import { ImageModifier } from './arkui/ImageModifier';
 import { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
 import { CircleShape,EllipseShape,PathShape,RectShape } from './@ohos.arkui.shape';
-import { NavDestinationInfo,NavigationInfo,RouterPageInfo } from './@ohos.arkui.observer';
+import uiobserver from './@ohos.arkui.observer';
 import { UIContext } from './@ohos.arkui.UIContext';
 import { DrawContext, LengthMetrics } from './arkui/Graphics';
-import { VisualEffect,Filter ,Blender} from './@ohos.graphics.uiEffect';
+import uiEffect from './@ohos.graphics.uiEffect';
 import { FocusBoxStyle, FocusPriority} from './@ohos.arkui.component.Focus';
 import { ComponentContent } from './arkui/ComponentContent'
 import { ResizableOptions } from './@ohos.arkui.component.Image'
@@ -4969,7 +4969,7 @@ export interface DragItemInfo {
    * @atomicservice
    * @since 13
    */
-  pixelMap?: PixelMap;
+  pixelMap?: image.PixelMap;
 
   /**
    * Uses the custom builder for drawing, if pixelMap is set, this value is ignored.
@@ -5402,7 +5402,7 @@ export declare namespace cursorControl {
    * @atomicservice
    * @since 12
    */
-  export function setCursor(value: PointerStyle): void;
+  export function setCursor(value: pointer.PointerStyle): void;
 
   /**
    * Restore the default mouse cursor style.
@@ -10313,7 +10313,7 @@ export interface DragEvent {
    * @atomicservice
    * @since 11
    */
-  setData(unifiedData: UnifiedData): void;
+  setData(unifiedData: unifiedDataChannel.UnifiedData): void;
 
   /**
    * Get dragData from DragEvent.
@@ -10336,7 +10336,7 @@ export interface DragEvent {
    * @atomicservice
    * @since 11
    */
-  getData(): UnifiedData;
+  getData(): unifiedDataChannel.UnifiedData;
 
   /**
    * Get dragData summary from DragEvent.
@@ -10355,7 +10355,7 @@ export interface DragEvent {
    * @atomicservice
    * @since 11
    */
-  getSummary(): Summary;
+  getSummary(): unifiedDataChannel.Summary;
 
   /**
    * Set dragEvent result to DragEvent.
@@ -15682,7 +15682,7 @@ export declare class CommonMethod<T> {
    * @atomicservice
    * @since 12
    */
-  backgroundImage(src: ResourceStr | PixelMap, repeat?: ImageRepeat): T;
+  backgroundImage(src: ResourceStr | image.PixelMap, repeat?: ImageRepeat): T;
 
   /**
    * Background image size
@@ -15863,7 +15863,7 @@ export declare class CommonMethod<T> {
    * @atomicservice
    * @since 12
    */
-  visualEffect(effect: VisualEffect): T;
+  visualEffect(effect: uiEffect.VisualEffect): T;
 
   /**
    * Filter applied to the background layer of the component.
@@ -15875,7 +15875,7 @@ export declare class CommonMethod<T> {
    * @atomicservice
    * @since 12
    */
-  backgroundFilter(filter: Filter): T;
+  backgroundFilter(filter: uiEffect.Filter): T;
 
   /**
    * Filter applied to the foreground layer of the component.
@@ -15887,7 +15887,7 @@ export declare class CommonMethod<T> {
    * @atomicservice
    * @since 12
    */
-  foregroundFilter(filter: Filter): T;
+  foregroundFilter(filter: uiEffect.Filter): T;
 
   /**
    * Filter applied to the compositing layer of the component.
@@ -15899,7 +15899,7 @@ export declare class CommonMethod<T> {
    * @atomicservice
    * @since 12
    */
-  compositingFilter(filter: Filter): T;
+  compositingFilter(filter: uiEffect.Filter): T;
 
   /**
    * Foreground blur style.
@@ -18913,7 +18913,7 @@ export declare class CommonMethod<T> {
    * @atomicservice
    * @since 12
    */
-  allowDrop(value: Array<UniformDataType> | null): T;
+  allowDrop(value: Array<uniformTypeDescriptor.UniformDataType> | null): T;
 
   /**
    * Enable the selectable area can be dragged.
@@ -19387,7 +19387,7 @@ export declare class CommonMethod<T> {
    * @form
    * @since 13
    */
-  advancedBlendMode(effect: BlendMode | Blender, type?: BlendApplyType): T;
+  advancedBlendMode(effect: BlendMode | uiEffect.Blender, type?: BlendApplyType): T;
 
   /**
    * Whether to crop the sub components beyond the current component range.
@@ -22548,7 +22548,7 @@ declare class CustomComponent extends CommonAttribute {
    * @atomicservice
    * @since 12
    */
-  queryNavDestinationInfo(): NavDestinationInfo | undefined;
+  queryNavDestinationInfo(): uiobserver.NavDestinationInfo | undefined;
 
   /**
    * Query the navigation information of the current custom component.
@@ -22559,7 +22559,7 @@ declare class CustomComponent extends CommonAttribute {
    * @atomicservice
    * @since 12
    */
-  queryNavigationInfo(): NavigationInfo | undefined;
+  queryNavigationInfo(): uiobserver.NavigationInfo | undefined;
 
   /**
    * Query the router page information of the current custom component.
@@ -22570,7 +22570,7 @@ declare class CustomComponent extends CommonAttribute {
    * @atomicservice
    * @since 12
    */
-   queryRouterPageInfo(): RouterPageInfo | undefined;
+   queryRouterPageInfo(): uiobserver.RouterPageInfo | undefined;
 
   /**
    * The callback method after the custom component is built.
@@ -23707,7 +23707,7 @@ export interface KeyframeState {
  * @atomicservice
  * @since 12
  */
-export type Callback<T> = (data: T)=> void
+export type Callback<T,V = void> = (data: T)=> V
 
 
 /**

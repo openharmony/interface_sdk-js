@@ -18,8 +18,9 @@
  * @kit ArkUI
  */
 
-import { WindowStatusType } from './@ohos.window'
+import window from './@ohos.window'
 import { FoldStatus,Alignment,AppRotation } from './@ohos.arkui.component.Enums'
+import { CommonMethod } from './@ohos.arkui.component.Common'
 
 
 /**
@@ -303,7 +304,7 @@ export interface HoverEventParam {
    * @atomicservice
    * @since 12
    */
-  windowStatusType: WindowStatusType
+  windowStatusType: window.WindowStatusType
 }
 /**
  * Defines FolderStack Component.

@@ -20,10 +20,10 @@
 import { Resource } from './global/resource'
 import { CustomBuilder,CommonMethod,Callback,LayoutSafeAreaType,LayoutSafeAreaEdge, Optional } from './@ohos.arkui.component.Common'
 import { Length, ResourceStr } from './@ohos.arkui.component.Units'
-import { SystemBarStyle } from './@ohos.window'
+import window from './@ohos.window'
 import { TitleHeight } from './@ohos.arkui.component.Enums'
 import { NavPathInfo,NavPathStack,NavigationTitleOptions,NavigationMenuItem,NavigationToolbarOptions,ToolbarItem } from './@ohos.arkui.component.Navigation' 
-import { PixelMap } from './@ohos.multimedia.image'
+import image from './@ohos.multimedia.image'
 import { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier'
 /**
  * Defines the navigation destination common title.
@@ -648,7 +648,7 @@ export declare class NavDestinationAttribute extends CommonMethod<NavDestination
    * @atomicservice
    * @since 12
    */
-  backButtonIcon(value: ResourceStr | PixelMap | SymbolGlyphModifier): NavDestinationAttribute;
+  backButtonIcon(value: ResourceStr | image.PixelMap | SymbolGlyphModifier): NavDestinationAttribute;
   
   /**
    * NavDestination title bar's menus
@@ -771,7 +771,7 @@ export declare class NavDestinationAttribute extends CommonMethod<NavDestination
    * @atomicservice
    * @since 12
    */
-  systemBarStyle(style: Optional<SystemBarStyle>): NavDestinationAttribute;
+  systemBarStyle(style: Optional<window.SystemBarStyle>): NavDestinationAttribute;
 
   /**
    * Set the NavDestination can be restored after the application is terminated.
