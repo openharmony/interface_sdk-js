@@ -612,7 +612,7 @@ declare namespace hiAppEvent {
    * @param { Record<string, ParamType> } config The config info of the os event.
    * @returns { Promise<void> } Return Promise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types.3.Parameter verification failed.
+   * <br>2. Incorrect parameter types; 3.Parameter verification failed.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
