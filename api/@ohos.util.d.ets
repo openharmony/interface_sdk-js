@@ -1,4 +1,4 @@
-export default declare namespace util {
+declare namespace util {
   /**
    * %s: String will be used to convert all values except BigInt, Object and -0. BigInt values will be represented
    * with an n and Objects that have no user defined toString function are inspected using util.inspect() with
@@ -782,3 +782,4 @@ export default declare namespace util {
     $_iterator(): IterableIterator<[K, V]>;
   }
 }
+export default util;

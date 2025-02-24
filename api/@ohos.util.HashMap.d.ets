@@ -42,7 +42,7 @@
  * @atomicservice
  * @since 12
  */
-export default declare class HashMap<K, V> {
+declare class HashMap<K, V> {
   /**
    * A constructor used to create a HashMap object.
    *
@@ -549,3 +549,4 @@ export default declare class HashMap<K, V> {
    */
   [Symbol.iterator](): IterableIterator<[K, V]>;
 }
+export default HashMap;

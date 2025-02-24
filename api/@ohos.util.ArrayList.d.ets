@@ -42,7 +42,7 @@
  * @atomicservice
  * @since 12
  */
-export default declare class ArrayList<T> {
+declare class ArrayList<T> {
   /**
    * A constructor used to create a ArrayList object.
    *
@@ -859,3 +859,4 @@ export default declare class ArrayList<T> {
    */
   [Symbol.iterator](): IterableIterator<T>;
 }
+export default ArrayList;

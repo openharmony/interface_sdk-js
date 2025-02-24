@@ -42,7 +42,7 @@
  * @atomicservice
  * @since 12
  */
-export default declare class Stack<T> {
+declare class Stack<T> {
   /**
    * A constructor used to create a Stack object.
    *
@@ -326,3 +326,4 @@ export default declare class Stack<T> {
    */
   [Symbol.iterator](): IterableIterator<T>;
 }
+export default Stack;
