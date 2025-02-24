@@ -9395,6 +9395,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 15
    */
   runJavaScriptOnHeadEnd(scripts: Array<ScriptItem>): WebAttribute;
+
+  /**
+   * Sets the embed options, only valid when enableNativeEmbedMode is true.
+   *
+   * @param { EmbedOptions } options The embed options, which can be {@link EmbedOptions}.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 16
+   */
+  nativeEmbedOptions(options?: EmbedOptions): WebAttribute;
 }
 
 /**
@@ -9599,4 +9609,24 @@ declare interface NestedScrollOptionsExt {
    * @since 14
    */
   scrollLeft?: NestedScrollMode;
+}
+
+/**
+ * Defines the Embed Options.
+ *
+ * @typedef EmbedOptions
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 16
+ */
+declare interface EmbedOptions {
+  /**
+   * Whether the embed element support the default intrinsic size of 300 * 150. 
+   * <br>Default value is false. If false, then the intrinsic size is 0 * 0.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 16
+   */
+  supportDefaultIntrinsicSize?: boolean;
 }
