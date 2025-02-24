@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 import { Resource } from "./global/resource";
-import { PixelMap } from './@ohos.multimedia.image'
+import image from './@ohos.multimedia.image'
 import { ImageAIOptions,ImageAnalyzerConfig } from "./@ohos.arkui.component.ImageCommon";
 import { CommonMethod, Callback } from "./@ohos.arkui.component.Common";
 import { ImageFit } from "./@ohos.arkui.component.Enums";
@@ -480,7 +480,7 @@ export interface VideoOptions {
    * @atomicservice
    * @since 11
    */
-  previewUri?: string | PixelMap | Resource;
+  previewUri?: string | image.PixelMap | Resource;
 
   /**
    * controller of video.

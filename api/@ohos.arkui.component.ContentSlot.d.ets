@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { Content } from './@ohos.arui.node'
+import { Content } from './@ohos.arkui.node'
 
 /**
  * Define ContentSlot attribute, to prevent improper recursive usage of ContentSlot

@@ -17,7 +17,7 @@
  * @file Defines the isolated component
  * @kit ArkUI
  */
-import { RestrictedWorker } from './@ohos.worker'
+import worker from './@ohos.worker'
 import { ErrorCallback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 import { CommonMethod } from './@ohos.arkui.component.Common';
@@ -47,7 +47,7 @@ export interface IsolatedOptions {
    * @systemapi
    * @since 12
    */
-  worker: RestrictedWorker;
+  worker: worker.RestrictedWorker;
 }
 
 /**

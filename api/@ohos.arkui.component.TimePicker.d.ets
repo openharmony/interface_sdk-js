@@ -21,7 +21,7 @@
 import { ResourceColor, Offset } from './@ohos.arkui.component.Units';
 import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType } from './@ohos.arkui.component.Common';
 import { DialogAlignment } from './@ohos.arkui.component.AlertDialog';
-import { DateTimeOptions } from './@ohos.intl';
+import intl from './@ohos.intl';
 
 /**
  * Defines the struct of TimePickerResult.
@@ -410,7 +410,7 @@ export declare class TimePickerAttribute extends CommonMethod<TimePickerAttribut
    * @atomicservice
    * @since 12
   */
-  dateTimeOptions(value: DateTimeOptions): TimePickerAttribute;
+  dateTimeOptions(value: intl.DateTimeOptions): TimePickerAttribute;
 
   /**
    * This event is triggered when a TimePicker time is selected.

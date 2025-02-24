@@ -20,11 +20,10 @@
 
 import { DrawableDescriptor } from './@ohos.arkui.drawableDescriptor';
 import  drawing from './@ohos.graphics.drawing';
-import { ResolutionQuality } from './@ohos.multimedia.image';
+import image from './@ohos.multimedia.image';
 import { ImageAIOptions,ImageAnalyzerConfig } from './@ohos.arkui.component.ImageCommon';
 import { ResourceStr,ResourceColor,ColorFilter,CopyOptions,EdgeWidths } from './@ohos.arkui.component.Units';
 import { ImageFit,ImageRepeat } from './@ohos.arkui.component.Enums';
-import { PixelMap } from './@ohos.multimedia.image';
 import { Resource } from './global/resource';
 import { CommonMethod, PointLightStyle } from './@ohos.arkui.component.Common'
 
@@ -360,7 +359,7 @@ export declare enum ImageInterpolation {
  * @atomicservice
  * @since 11
  */
-export type ImageInterface = (src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent, imageAIOptions?: ImageAIOptions) => ImageAttribute;
+export type ImageInterface = (src: image.PixelMap | ResourceStr | DrawableDescriptor | ImageContent, imageAIOptions?: ImageAIOptions) => ImageAttribute;
 
 /**
  * Defines source size of image.
@@ -787,7 +786,7 @@ export declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @atomicservice
    * @since 12
    */
-  alt(value: string | Resource | PixelMap): ImageAttribute;
+  alt(value: string | Resource | image.PixelMap): ImageAttribute;
 
   /**
    * match Text Direction
@@ -1537,7 +1536,7 @@ export declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @systemapi
    * @since 12
    */
-  enhancedImageQuality(imageQuality: ResolutionQuality): ImageAttribute;
+  enhancedImageQuality(imageQuality: image.ResolutionQuality): ImageAttribute;
 }
 
 /**

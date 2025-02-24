@@ -18,9 +18,9 @@
  * @kit ArkUI
  */
 import { ResourceStr, ColorFilter } from './@ohos.arkui.component.Units'
-import { PixelMap } from './@ohos.multimedia.image'
+import image from './@ohos.multimedia.image'
 import { BaseSpan } from './@ohos.arkui.component.Span'
-import { DrawingColorFilter } from './@ohos.graphics.drawing';
+import drawing from './@ohos.graphics.drawing';
 import { ImageSpanAlignment, ImageFit } from './@ohos.arkui.component.Enums'
 import { ImageErrorCallback } from './@ohos.arkui.component.Image'
 /**
@@ -40,7 +40,7 @@ import { ImageErrorCallback } from './@ohos.arkui.component.Image'
  * @atomicservice
  * @since 11
  */
-export type ImageSpanInterface  = (value: ResourceStr | PixelMap)=> ImageSpanAttribute;
+export type ImageSpanInterface  = (value: ResourceStr | image.PixelMap)=> ImageSpanAttribute;
 
 /**
  * Define the ImageSpan attribute functions.
@@ -91,7 +91,7 @@ export declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @atomicservice
    * @since 13
    */
-  colorFilter(filter: ColorFilter | DrawingColorFilter): ImageSpanAttribute;
+  colorFilter(filter: ColorFilter | drawing.ColorFilter): ImageSpanAttribute;
 
   /**
    * Sets the zoom type of an image.
@@ -149,7 +149,7 @@ export declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @atomicservice
    * @since 12
    */
-  alt(value: PixelMap): ImageSpanAttribute;
+  alt(value: image.PixelMap): ImageSpanAttribute;
 }
 
 /**

@@ -19,7 +19,7 @@
  * @kit ArkUI
  */
 import { Resource } from "./global/resource";
-import { PixelMap } from './@ohos.multimedia.image'
+import image from './@ohos.multimedia.image'
 import { CommonMethod } from './@ohos.arkui.component.Common'
 import { AnimationStatus } from './@ohos.arkui.component.Enums'
 
@@ -121,7 +121,7 @@ export interface ImageFrameInfo {
    * @atomicservice
    * @since 12
    */
-  src: string | Resource | PixelMap;
+  src: string | Resource | image.PixelMap;
   /**
    * Image width
    *

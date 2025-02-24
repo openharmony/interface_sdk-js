@@ -24,7 +24,7 @@
 import { Theme, CustomTheme } from './@ohos.arkui.theme';
 import { ResourceStr, ResourceColor, SizeOptions, Padding, LocalizedPadding } from './@ohos.arkui.component.Units';
 import { ButtonStyleMode, ButtonRole } from './@ohos.arkui.component.Button';
-import { PixelMap } from './@ohos.multimedia.image';
+import image from './@ohos.multimedia.image';
 import {
   CustomDialog,
   Prop,
@@ -177,7 +177,7 @@ export declare class TipsDialog {
    * @atomicservice
    * @since 12
    */
-  imageRes: ResourceStr | PixelMap;
+  imageRes: ResourceStr | image.PixelMap;
   /**
    * Sets the TipsDialog image size.
    * @type { SizeOptions }.

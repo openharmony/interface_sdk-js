@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { SystemBarStyle } from './@ohos.window'
+import window from './@ohos.window'
 import { Resource } from './global/resource'
 import { TextModifier } from './arkui/TextModifier'
 import { LengthMetrics } from './arkui/Graphics'
@@ -26,7 +26,7 @@ import { Length,ResourceStr,ResourceColor,Dimension } from './@ohos.arkui.compon
 import { TitleHeight } from './@ohos.arkui.component.Enums' 
 import { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier'
 import { NavDestinationContext,NavDestinationMode } from './@ohos.arkui.component.NavDestination'
-import { PixelMap } from './@ohos.multimedia.image' 
+import image from './@ohos.multimedia.image' 
 /**
  * Defines the navigation common title.
  *
@@ -2337,7 +2337,7 @@ export declare class NavigationAttribute extends CommonMethod<NavigationAttribut
    * @atomicservice
    * @since 12
    */
-  backButtonIcon(value: string | PixelMap | Resource | SymbolGlyphModifier): NavigationAttribute;
+  backButtonIcon(value: string | image.PixelMap | Resource | SymbolGlyphModifier): NavigationAttribute;
 
   /**
    * Hide the NavBar, which includes title bar, the child of Navigation and tool bar. Supported in split mode.
@@ -2760,7 +2760,7 @@ export declare class NavigationAttribute extends CommonMethod<NavigationAttribut
    * @atomicservice
    * @since 12
    */
-  systemBarStyle(style: Optional<SystemBarStyle>): NavigationAttribute;
+  systemBarStyle(style: Optional<window.SystemBarStyle>): NavigationAttribute;
   
   /**
    * Set the Navigation can be restored after the application is terminated.

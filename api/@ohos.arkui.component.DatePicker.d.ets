@@ -17,10 +17,10 @@
  * @file
  * @kit ArkUI
  */
-import { CommonMethod } from './@ohos.arkui.component.Common'
+import { CommonMethod,PickerTextStyle,PickerDialogButtonStyle,Rectangle,Callback,BlurStyle,ShadowOptions,ShadowStyle,HoverModeAreaType } from './@ohos.arkui.component.Common'
 import { ResourceColor,Offset,VoidCallback } from './@ohos.arkui.component.Units'
 import { DialogAlignment } from './@ohos.arkui.component.AlertDialog'
-import { DateTimeOptions } from './@ohos.intl'
+import intl from './@ohos.intl'
 /**
  * Defines the struct of DatePickerResult.
  *
@@ -970,7 +970,7 @@ export interface DatePickerDialogOptions extends DatePickerOptions {
    * @atomicservice
    * @since 12
    */
-  dateTimeOptions?: DateTimeOptions;
+  dateTimeOptions?: intl.DateTimeOptions;
 
   /**
    * Defines whether to respond to the hover mode.

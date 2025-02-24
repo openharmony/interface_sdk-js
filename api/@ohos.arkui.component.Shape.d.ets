@@ -17,9 +17,10 @@
  * @file
  * @kit ArkUI
  */
-import { PixelMap } from './@ohos.multimedia.image'
-import { Resource,ResourceColor } from './global/resource';
+import image from './@ohos.multimedia.image'
+import { Resource } from './global/resource';
 import { CommonMethod } from './@ohos.arkui.component.Common'
+import { ResourceColor } from './@ohos.arkui.component.Units'
 import { LineCapStyle,LineJoinStyle } from './@ohos.arkui.component.Enums'
 /**
  * Viewport bounding box.
@@ -211,7 +212,7 @@ export interface ViewportRect {
  * @atomicservice
  * @since 11
  */
-export type ShapeInterface = (value?: PixelMap)=> ShapeAttribute;
+export type ShapeInterface = (value?: image.PixelMap)=> ShapeAttribute;
 
 /**
  * @extends CommonMethod<ShapeAttribute>

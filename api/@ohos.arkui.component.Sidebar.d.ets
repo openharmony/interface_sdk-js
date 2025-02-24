@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { PixelMap } from './@ohos.multimedia.image'
+import image from './@ohos.multimedia.image'
 import { Resource } from './global/resource'
 import { Length, ResourceColor, Dimension } from './@ohos.arkui.component.Units'
 import { CommonMethod } from './@ohos.arkui.component.Common'
@@ -215,7 +215,7 @@ export interface ButtonIconOptions {
    * @atomicservice
    * @since 11
    */
-  shown: string | PixelMap | Resource;
+  shown: string | image.PixelMap | Resource;
 
   /**
    * Defines whether an icon is hidden.
@@ -241,7 +241,7 @@ export interface ButtonIconOptions {
    * @atomicservice
    * @since 11
    */
-  hidden: string | PixelMap | Resource;
+  hidden: string | image.PixelMap | Resource;
 
   /**
    * Defines whether an icon is switching.
@@ -267,7 +267,7 @@ export interface ButtonIconOptions {
    * @atomicservice
    * @since 11
    */
-  switching?: string | PixelMap | Resource;
+  switching?: string | image.PixelMap | Resource;
 }
 
 /**
