@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 
-import { TextContentControllerBase, Callback, SelectionOptions, SymbolGlyphModifier, CommonMethod, CustomBuilder, TextDecorationOptions ,CallbackWithResult} from "./@ohos.arkui.component.Common";
+import { TextContentControllerBase, Callback, SelectionOptions, SymbolGlyphModifier, CommonMethod, CustomBuilder, TextDecorationOptions} from "./@ohos.arkui.component.Common";
 import { TextAlign, CopyOptions } from './@ohos.arkui.component.Enums';
 import { Resource, ResourceStr, ResourceColor, Length, Dimension, Font } from './@ohos.arkui.component.Units';
 import { InsertValue, DeleteValue, CaretStyle, EditableTextOnChangeCallback, EditMenuOptions } from "./@ohos.arkui.component.TextCommon";
@@ -1498,7 +1498,7 @@ export declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @atomicservice
    * @since 12
    */
-  onWillInsert(callback: CallbackWithResult<InsertValue, boolean>): SearchAttribute;
+  onWillInsert(callback: Callback<InsertValue, boolean>): SearchAttribute;
 
   /**
    * Get text value information when completed input.
@@ -1522,7 +1522,7 @@ export declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @atomicservice
    * @since 12
    */
-  onWillDelete(callback: CallbackWithResult<DeleteValue, boolean>): SearchAttribute;
+  onWillDelete(callback: Callback<DeleteValue, boolean>): SearchAttribute;
 
   /**
    * Get text value information when the deletion has been completed

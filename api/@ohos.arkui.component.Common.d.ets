@@ -16581,7 +16581,7 @@ export declare class CommonMethod<T> {
    * @atomicservice
    * @since 12
    */
-  onKeyPreIme(event: CallbackWithResult<KeyEvent, boolean>): T;
+  onKeyPreIme(event: Callback<KeyEvent, boolean>): T;
 
   /**
    * Set focusable.
@@ -20436,7 +20436,7 @@ export declare class CommonMethod<T> {
    * @atomicservice
    * @since 12
    */
-  onTouchIntercept(callback: CallbackWithResult<TouchEvent, HitTestMode>): T;
+  onTouchIntercept(callback: Callback<TouchEvent, HitTestMode>): T;
 
   /**
    * This callback is triggered when the size of this component change finished.
@@ -23709,7 +23709,6 @@ export interface KeyframeState {
  */
 export type Callback<T> = (data: T)=> void
 
-export type CallbackWithResult<T,V> = (data:T)=> V
 
 /**
  * Defines the callback type used in hover events.
