@@ -19,7 +19,7 @@
  */
 
 import photoAccessHelper from '@ohos.file.photoAccessHelper';
-import { AsyncCallback } from '@kit.BasicServicesKit';
+import { AsyncCallback } from '@ohos.base';
 
 /**
  * Declare struct PhotoPickerComponent
