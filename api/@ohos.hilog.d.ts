@@ -248,7 +248,7 @@ declare namespace hilog {
    * @param { LogLevel } level log level
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @atomicservice
-   * @since 16
+   * @since 15
    */
    function setMinLogLevel(level: LogLevel): void;
 
