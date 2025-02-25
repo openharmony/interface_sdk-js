@@ -476,7 +476,6 @@ export interface SideBarOptions {
  * Title bar types.
  *
  * @enum { number }.
- * @typedef TitleBarType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 16
