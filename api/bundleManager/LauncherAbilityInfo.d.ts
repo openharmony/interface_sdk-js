@@ -26,8 +26,7 @@ import { ElementName } from './ElementName';
  *
  * @typedef LauncherAbilityInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
- * @systemapi
- * @since 9
+ * @since 18
  */
 export interface LauncherAbilityInfo {
   /**
@@ -36,8 +35,7 @@ export interface LauncherAbilityInfo {
    * @type { ApplicationInfo }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 9
+   * @since 18
    */
   readonly applicationInfo: ApplicationInfo;
 
@@ -47,8 +45,7 @@ export interface LauncherAbilityInfo {
    * @type { ElementName }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 9
+   * @since 18
    */
   readonly elementName: ElementName;
 
@@ -58,8 +55,7 @@ export interface LauncherAbilityInfo {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 9
+   * @since 18
    */
   readonly labelId: number;
 
@@ -69,8 +65,7 @@ export interface LauncherAbilityInfo {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 9
+   * @since 18
    */
   readonly iconId: number;
 
@@ -80,8 +75,7 @@ export interface LauncherAbilityInfo {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 9
+   * @since 18
    */
   readonly userId: number;
 
@@ -91,8 +85,7 @@ export interface LauncherAbilityInfo {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 9
+   * @since 18
    */
   readonly installTime: number;
 }
