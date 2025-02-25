@@ -23,7 +23,7 @@ import { SelectOption } from './@ohos.arkui.component.select';
 import { BuilderParam, Prop, Component } from './@ohos.arkui.component.Common';
 import { Resource } from './global/resource';
 import { ResourceStr, ResourceColor, LocalizedMargin, LocalizedPadding } from './@ohos.arkui.component.Units';
-import { SymbolEffectStrategy, SymbolRenderingStrategy } from './@ohos.arkui.component.Symbolglyph';
+import { SymbolEffectStrategy, SymbolRenderingStrategy } from './@ohos.arkui.component.SymbolGlyph';
 import { FontWeight } from './@ohos.arkui.component.Enums';
 
 

@@ -17,10 +17,10 @@
  * @file
  * @kit ArkUI
  */
-import type { EdgeEffectOptions, NestedScrollOptions, RectResult, ScrollableCommonMethod } from './@ohos.arkui.component.Common';
-import type { Axis, BarState, Color, Curve, Edge, EdgeEffect, ICurve, ScrollSource } from './@ohos.arkui.component.Enums';
-import type { ScrollSnapAlign, ScrollState } from './@ohos.arkui.component.List';
-import type { Dimension, Length, LengthMetrics, Resource, VoidCallback } from './@ohos.arkui.component.Units';
+import  { EdgeEffectOptions, NestedScrollOptions, RectResult, ScrollableCommonMethod,ICurve } from './@ohos.arkui.component.Common';
+import  { Axis, BarState, Color, Curve, Edge, EdgeEffect, ScrollSource } from './@ohos.arkui.component.Enums';
+import  { ScrollSnapAlign, ScrollState } from './@ohos.arkui.component.List';
+import  { Dimension, Length, LengthMetrics, Resource, VoidCallback } from './@ohos.arkui.component.Units';
 
 /**
  * Content scroll direction.

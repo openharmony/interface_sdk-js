@@ -19,11 +19,11 @@
 */
 
 
-import { Resource, ResourceColor, Offset, Alignment, Dimension, EdgeStyles, EdgeColors } from './@ohos.arkui.component.Units';
+import { Resource, ResourceColor, Offset, Dimension, EdgeStyles, EdgeColors } from './@ohos.arkui.component.Units';
 import { AsyncCallback,Callback } from './@ohos.base';
 import { BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, Rectangle, TransitionEffect, KeyboardAvoidMode, CustomBuilder, DismissReason } from './@ohos.arkui.component.Common';
 import { DialogAlignment } from './@ohos.arkui.component.AlertDialog';
-import { BorderStyle, } from './@ohos.arkui.component.Enums';
+import { BorderStyle,Alignment } from './@ohos.arkui.component.Enums';
 import { EdgeWidths, BorderRadiuses} from './@ohos.arkui.component.Units'
 
 /**
@@ -63,7 +63,7 @@ declare namespace promptAction {
    * @atomicservice
    * @since 11
    */
-  interface ShowToastOptions {
+  export interface ShowToastOptions {
 
     /**
      * Text to display.
@@ -331,7 +331,7 @@ declare namespace promptAction {
    * @atomicservice
    * @since 11
    */
-  interface Button {
+  export interface Button {
 
     /**
      * The text displayed in the button.
@@ -414,7 +414,7 @@ declare namespace promptAction {
    * @atomicservice
    * @since 11
    */
-  interface ShowDialogSuccessResponse {
+  export interface ShowDialogSuccessResponse {
 
     /**
      * Index of the selected button, starting from 0.
@@ -461,7 +461,7 @@ declare namespace promptAction {
    * @atomicservice
    * @since 11
    */
-  interface ShowDialogOptions {
+  export interface ShowDialogOptions {
 
     /**
      * Title of the text to display.
@@ -722,7 +722,7 @@ declare namespace promptAction {
    * @atomicservice
    * @since 12
    */
-  interface BaseDialogOptions {
+  export interface BaseDialogOptions {
     /**
      * Mask Region of dialog. The size can't exceed the main window.
      *
@@ -963,7 +963,7 @@ declare namespace promptAction {
    * @atomicservice
    * @since 12
    */
-  interface CustomDialogOptions extends BaseDialogOptions {
+  export interface CustomDialogOptions extends BaseDialogOptions {
     /**
      * Allow developer custom dialog's content.
      *
@@ -1102,7 +1102,7 @@ declare namespace promptAction {
    * @atomicservice
    * @since 11
    */
-  interface ActionMenuSuccessResponse {
+  export interface ActionMenuSuccessResponse {
     /**
      * Index of the selected button, starting from 0.
      *
@@ -1148,7 +1148,7 @@ declare namespace promptAction {
    * @atomicservice
    * @since 11
    */
-  interface ActionMenuOptions {
+  export interface ActionMenuOptions {
     /**
      * Title of the text to display.
      *
@@ -1287,7 +1287,7 @@ declare namespace promptAction {
    * @atomicservice
    * @since 11
    */
-  function showToast(options: ShowToastOptions): void;
+  export function showToast(options: ShowToastOptions): void;
 
   /**
    * Displays the notification text.
@@ -1304,7 +1304,7 @@ declare namespace promptAction {
    * @atomicservice
    * @since 16
    */
-  function openToast(options: ShowToastOptions): Promise<number>;
+  export function openToast(options: ShowToastOptions): Promise<number>;
 
   /**
    * Close the notification text.
@@ -1320,7 +1320,7 @@ declare namespace promptAction {
    * @atomicservice
    * @since 16
    */
-  function closeToast(toastId: number): void;
+  export function closeToast(toastId: number): void;
 
   /**
    * Displays the dialog box.
@@ -1364,7 +1364,7 @@ declare namespace promptAction {
    * @atomicservice
    * @since 11
    */
-  function showDialog(options: ShowDialogOptions, callback: AsyncCallback<ShowDialogSuccessResponse>): void;
+  export function showDialog(options: ShowDialogOptions, callback: AsyncCallback<ShowDialogSuccessResponse>): void;
 
   /**
    * Displays the dialog box.
@@ -1408,7 +1408,7 @@ declare namespace promptAction {
    * @atomicservice
    * @since 11
    */
-  function showDialog(options: ShowDialogOptions): Promise<ShowDialogSuccessResponse>;
+  export function showDialog(options: ShowDialogOptions): Promise<ShowDialogSuccessResponse>;
 
   /**
    * Open the custom dialog.
@@ -1439,7 +1439,7 @@ declare namespace promptAction {
    * @atomicservice
    * @since 12
    */
-  function openCustomDialog(options: CustomDialogOptions): Promise<number>;
+  export function openCustomDialog(options: CustomDialogOptions): Promise<number>;
 
   /**
    * Close the custom dialog.
@@ -1468,7 +1468,7 @@ declare namespace promptAction {
    * @atomicservice
    * @since 12
    */
-  function closeCustomDialog(dialogId: number): void;
+  export function closeCustomDialog(dialogId: number): void;
 
   /**
    * Displays the menu.
@@ -1512,7 +1512,7 @@ declare namespace promptAction {
    * @atomicservice
    * @since 11
    */
-  function showActionMenu(options: ActionMenuOptions, callback: AsyncCallback<ActionMenuSuccessResponse>): void;
+  export function showActionMenu(options: ActionMenuOptions, callback: AsyncCallback<ActionMenuSuccessResponse>): void;
 
   /**
    * Displays the dialog box.
@@ -1556,7 +1556,7 @@ declare namespace promptAction {
    * @atomicservice
    * @since 11
    */
-  function showActionMenu(options: ActionMenuOptions): Promise<ActionMenuSuccessResponse>;
+  export function showActionMenu(options: ActionMenuOptions): Promise<ActionMenuSuccessResponse>;
 }
 
 /**

@@ -39,7 +39,7 @@ import { CustomBuilder } from './@ohos.arkui.component.Common';
  * @atomicservice
  * @since 12
  */
-export default declare namespace componentSnapshot {
+declare namespace componentSnapshot {
   /**
    * Defines the extra options for snapshot taking.
    *
@@ -49,7 +49,7 @@ export default declare namespace componentSnapshot {
    * @atomicservice
    * @since 12
    */
-  interface SnapshotOptions {
+  export interface SnapshotOptions {
     /**
      * Defines the scale property to render the snapshot.
      *
@@ -103,7 +103,7 @@ export default declare namespace componentSnapshot {
    * @atomicservice
    * @since 12
    */
-  function get(id: string, callback: AsyncCallback<image.PixelMap>, options?: SnapshotOptions): void;
+  export function get(id: string, callback: AsyncCallback<image.PixelMap>, options?: SnapshotOptions): void;
 
   /**
    * Take a snapshot of the target component.
@@ -135,7 +135,7 @@ export default declare namespace componentSnapshot {
    * @atomicservice
    * @since 12
    */
-  function get(id: string, options?: SnapshotOptions): Promise<image.PixelMap>;
+  export function get(id: string, options?: SnapshotOptions): Promise<image.PixelMap>;
 
   /**
    * Generate a snapshot from a custom component builder.
@@ -171,7 +171,7 @@ export default declare namespace componentSnapshot {
    * @atomicservice
    * @since 12
    */
-  function createFromBuilder(builder: CustomBuilder, callback: AsyncCallback<image.PixelMap>,
+  export function createFromBuilder(builder: CustomBuilder, callback: AsyncCallback<image.PixelMap>,
     delay?: number, checkImageStatus?: boolean, options?: SnapshotOptions): void;
 
   /**
@@ -208,7 +208,7 @@ export default declare namespace componentSnapshot {
    * @atomicservice
    * @since 12
    */
-  function createFromBuilder(builder: CustomBuilder, delay?: number,
+  export function createFromBuilder(builder: CustomBuilder, delay?: number,
     checkImageStatus?: boolean, options?: SnapshotOptions): Promise<image.PixelMap>;
 
   /**
@@ -230,5 +230,6 @@ export default declare namespace componentSnapshot {
    * @atomicservice
    * @since 12
    */
-  function getSync(id: string, options?: SnapshotOptions): image.PixelMap;
+  export function getSync(id: string, options?: SnapshotOptions): image.PixelMap;
 }
+export default componentSnapshot;

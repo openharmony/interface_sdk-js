@@ -99,7 +99,7 @@ export type IndicatorComponentInterface = (controller?: IndicatorComponentContro
  * @atomicservice
  * @since 13
  */
-declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponentAttribute> {
+export declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponentAttribute> {
  /**
    * Called when the index value of the displayed subcomponent is set in the container.
    *

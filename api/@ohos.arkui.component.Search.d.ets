@@ -18,12 +18,13 @@
  * @kit ArkUI
  */
 
-import { TextContentControllerBase, Callback, SelectionOptions, SymbolGlyphModifier, CommonMethod, CustomBuilder, TextDecorationOptions} from "./@ohos.arkui.component.Common";
+import { TextContentControllerBase, Callback, SelectionOptions, CommonMethod, CustomBuilder, TextDecorationOptions} from "./@ohos.arkui.component.Common";
 import { TextAlign, CopyOptions } from './@ohos.arkui.component.Enums';
 import { Resource, ResourceStr, ResourceColor, Length, Dimension, Font } from './@ohos.arkui.component.Units';
 import { InsertValue, DeleteValue, CaretStyle, EditableTextOnChangeCallback, EditMenuOptions } from "./@ohos.arkui.component.TextCommon";
 import { OnTextSelectionChangeCallback, EnterKeyType, SubmitEvent, OnContentScrollCallback, OnPasteCallback } from "./@ohos.arkui.component.TextInput";
 import { KeyboardOptions } from "./@ohos.arkui.component.RichEditor";
+import { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier'
 
 /**
  * Provides the method of switching the cursor position.
@@ -589,7 +590,7 @@ interface SearchButtonOptions {
  * @atomicservice
  * @since 12
  */
-interface CancelButtonOptions {
+export interface CancelButtonOptions {
   /**
    * Set the CancelButton style
    *
@@ -1005,7 +1006,6 @@ export declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @atomicservice
    * @since 14
    */
-  onSubmit(callback: Callback<string>): SearchAttribute;
   /**
    * Call the function when clicked the search button.
    *
@@ -1016,7 +1016,7 @@ export declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @atomicservice
    * @since 14
    */
-  onSubmit(callback: SearchSubmitCallback): SearchAttribute;
+  onSubmit(callback: Callback<string> |SearchSubmitCallback): SearchAttribute;
 
   /**
    * Call the function when editing the input text

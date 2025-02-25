@@ -20,7 +20,7 @@
 import { Resource } from "./global/resource";
 import { CommonMethod,AttributeModifier } from "./@ohos.arkui.component.Common";
 import { ResourceColor } from "./@ohos.arkui.component.Units";
-import { SymbolEffectStrategy,SymbolRenderingStrategy } from "./@ohos.arkui.component.Symbolglyph";
+import { SymbolEffectStrategy,SymbolRenderingStrategy } from "./@ohos.arkui.component.SymbolGlyph";
 /**
  * Provides an interface for SymbolSpan.
  *

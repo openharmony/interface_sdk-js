@@ -1107,7 +1107,7 @@ export interface RoundRect {
    * @atomicservice
    * @since 12
    */
-  rect: Rect,
+  rect: common2D.Rect,
 
   /**
    * Corners property.
@@ -1215,7 +1215,7 @@ export declare class ShapeMask {
    * @atomicservice
    * @since 12
    */
-  setRectShape(rect: Rect): void;
+  setRectShape(rect: common2D.Rect): void;
 
   /**
    * Set the round rect shape of the ShapeMask.
@@ -1248,7 +1248,7 @@ export declare class ShapeMask {
    * @atomicservice
    * @since 12
    */
-  setOvalShape(oval: Rect): void;
+  setOvalShape(oval: common2D.Rect): void;
 
   /**
    * Set the command path of the ShapeMask.
@@ -1327,7 +1327,7 @@ export declare class ShapeClip {
    * @atomicservice
    * @since 12
    */
-  setRectShape(rect: Rect): void;
+  setRectShape(rect: common2D.Rect): void;
 
   /**
    * Set the round rect shape of the ShapeClip.
@@ -1360,7 +1360,7 @@ export declare class ShapeClip {
    * @atomicservice
    * @since 12
    */
-  setOvalShape(oval: Rect): void;
+  setOvalShape(oval: common2D.Rect): void;
 
   /**
    * Set the command path of the ShapeClip.

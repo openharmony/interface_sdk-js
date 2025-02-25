@@ -1046,7 +1046,7 @@ export interface EditMenuOptions {
  * @atomicservice
  * @since 12
  */
-interface DecorationStyleResult {
+export interface DecorationStyleResult {
   /**
    * Font decoration type.
    *

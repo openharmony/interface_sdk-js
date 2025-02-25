@@ -62,7 +62,7 @@ declare namespace componentUtils {
   * @atomicservice
   * @since 12
   */
-  interface ComponentInfo {
+  export interface ComponentInfo {
 
     /**
     * component size.
@@ -270,7 +270,7 @@ declare namespace componentUtils {
   * @atomicservice
   * @since 12
   */
-  interface Size {
+  export  interface Size {
 
     /**
     * Defines the width property.
@@ -340,7 +340,7 @@ declare namespace componentUtils {
   * @atomicservice
   * @since 12
   */
-  interface Offset {
+  export interface Offset {
 
     /**
     * Coordinate x of the Position.
@@ -410,7 +410,7 @@ declare namespace componentUtils {
   * @atomicservice
   * @since 12
   */
-  interface TranslateResult {
+  export interface TranslateResult {
 
     /**
     * Indicates the translation distance of the x-axis, in vp.
@@ -503,7 +503,7 @@ declare namespace componentUtils {
   * @atomicservice
   * @since 12
   */
-  interface ScaleResult {
+  export interface ScaleResult {
 
     /**
     * Zoom factor of the x-axis.
@@ -642,7 +642,7 @@ declare namespace componentUtils {
   * @atomicservice
   * @since 12
   */
-  interface RotateResult {
+  export interface RotateResult {
 
     /**
     * Axis of rotation vector x coordinate.
@@ -804,7 +804,7 @@ declare namespace componentUtils {
   * @atomicservice
   * @since 12
   */
-  type Matrix4Result = [
+  export type Matrix4Result = [
     number,
     number,
     number,
@@ -842,6 +842,6 @@ declare namespace componentUtils {
   * @atomicservice
   * @since 11
   */
-  function getRectangleById(id: string): ComponentInfo;
+  export function getRectangleById(id: string): ComponentInfo;
 }
 export default componentUtils;

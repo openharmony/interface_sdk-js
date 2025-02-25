@@ -135,7 +135,7 @@ export declare interface RectOptions {
    * @atomicservice
    * @since 11
    */
-  radius?: number | string | Array<any>;
+  radius?: number | string | Array<Object>;
 }
 
 /**
@@ -483,7 +483,7 @@ export declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    * @atomicservice
    * @since 11
    */
-  radius(value: number | string | Array<any>): RectAttribute;
+  radius(value: number | string | Array<Object>): RectAttribute;
 }
 
 /**

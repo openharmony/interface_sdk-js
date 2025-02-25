@@ -21,7 +21,7 @@
 import { BuildOptions } from './BuilderNode';
 import { Content } from './Content';
 import { UIContext } from '../@ohos.arkui.UIContext';
-import { WrappedBuilder } from '../@ohso.arkui.components.common';
+import { WrappedBuilder } from '../@ohos.arkui.component.Common';
 
 /**
  * Defines ComponentContent.
@@ -43,7 +43,7 @@ export declare class ComponentContent<T extends Object = Object> extends Content
    * @atomicservice
    * @since 12
    */
-  constructor(uiContext: UIContext, builder: WrappedBuilder<[]>);
+  constructor(uiContext: UIContext, builder: WrappedBuilder<[Object]>);
 
   /**
    * Constructor.
@@ -56,7 +56,7 @@ export declare class ComponentContent<T extends Object = Object> extends Content
    * @atomicservice
    * @since 12
    */
-  constructor(uiContext: UIContext, builder: WrappedBuilder<[T]>, args: T);
+  constructor(uiContext: UIContext, builder: WrappedBuilder<[Object]>, args: T);
 
   /**
    * Constructor.
@@ -70,7 +70,7 @@ export declare class ComponentContent<T extends Object = Object> extends Content
    * @atomicservice
    * @since 12
    */
-  constructor(uiContext: UIContext, builder: WrappedBuilder<[T]>, args: T, options: BuildOptions);
+  constructor(uiContext: UIContext, builder: WrappedBuilder<[Object]>, args: T, options: BuildOptions);
 
 
   /**

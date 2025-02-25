@@ -50,7 +50,7 @@ declare namespace inspector {
    * @atomicservice
    * @since 12
    */
-  interface ComponentObserver {
+  export interface ComponentObserver {
 
     /**
      * Registers a callback with the corresponding query condition by using the handle.
@@ -112,6 +112,6 @@ declare namespace inspector {
    * @atomicservice
    * @since 12
    */
-  function createComponentObserver(id: string): ComponentObserver;
+  export function createComponentObserver(id: string): ComponentObserver;
 }
 export default inspector;

@@ -19,6 +19,7 @@
  */
 import { CustomBuilder ,CommonMethod,ChildrenMainSize } from './@ohos.arkui.component.Common'
 import { ComponentContent, } from './arkui/ComponentContent'
+import { ListDividerOptions } from './@ohos.arkui.component.List'
 /**
  * Defines the list item group style.
  *
@@ -129,7 +130,7 @@ export interface ListItemGroupOptions {
     * @atomicservice
     * @since 13
     */
-  headerComponent?: ComponentContent;
+  headerComponent?: ComponentContent<Object>;
 
   /**
    * Describes the ListItemGroup footer.
@@ -166,7 +167,7 @@ export interface ListItemGroupOptions {
     * @atomicservice
     * @since 13
     */
-  footerComponent?: ComponentContent;
+  footerComponent?: ComponentContent<Object>;
 
   /**
    * Describes the ListItemGroup space.
@@ -263,7 +264,7 @@ export type ListItemGroupInterface = (options?: ListItemGroupOptions) => ListIte
  * @atomicservice
  * @since 11
  */
-declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute> {
+export declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute> {
   /**
    * Called when the ListItemGroup split line style is set.
    *

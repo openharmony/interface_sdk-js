@@ -17,11 +17,11 @@
  * @file
  * @kit ArkUI
  */
-import type { CustomBuilder, NestedScrollOptions, ScrollableCommonMethod } from './@ohos.arkui.component.Common';
-import type { FlexDirection } from './@ohos.arkui.component.Enums';
-import type { ScrollState } from './@ohos.arkui.component.List';
-import type { OnScrollFrameBeginCallback, Scroller } from './@ohos.arkui.component.Scroll';
-import type { ConstraintSizeOptions, Dimension, Length, Margin, Resource } from './@ohos.arkui.component.Units';
+import  { CustomBuilder, NestedScrollOptions, ScrollableCommonMethod } from './@ohos.arkui.component.Common';
+import  { FlexDirection } from './@ohos.arkui.component.Enums';
+import  { ScrollState } from './@ohos.arkui.component.List';
+import  { OnScrollFrameBeginCallback, Scroller } from './@ohos.arkui.component.Scroll';
+import  { ConstraintSizeOptions, Dimension, Length, Margin, Resource } from './@ohos.arkui.component.Units';
 
 /**
  * function that returns item main size by index.
@@ -726,7 +726,7 @@ export declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlow
    * @atomicservice
    * @since 11
    */
-  onScrollFrameBegin(event: (offset: number, state: ScrollState) => { offsetRemain: number }): WaterFlowAttribute;
+  onScrollFrameBegin(event: (offset: number, state: ScrollState) => WaterFlowBeginResult): WaterFlowAttribute;
 
   /**
    * Called when the first or last item displayed in the waterflow changes.
@@ -743,7 +743,7 @@ export declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlow
    */
   onScrollIndex(event: (first: number, last: number) => void): WaterFlowAttribute;
 }
-
+export interface WaterFlowBeginResult { offsetRemain: number }
 /**
  * Defines WaterFlow Component.
  *

@@ -17,8 +17,8 @@
  * @file
  * @kit ArkUI
  */
-import  { Callback, CommonMethod } from './@ohos.arkui.component.Common';
-import  { Curve, EdgeEffect, ICurve } from './@ohos.arkui.component.Enums';
+import  { Callback, CommonMethod,ICurve } from './@ohos.arkui.component.Common';
+import  { Curve, EdgeEffect } from './@ohos.arkui.component.Enums';
 import  { IndicatorComponentController } from './@ohos.arkui.component.IndicatorComponent';
 import  { Font, Length, LengthMetrics, ResourceColor, VoidCallback, VP } from './@ohos.arkui.component.Units';
 

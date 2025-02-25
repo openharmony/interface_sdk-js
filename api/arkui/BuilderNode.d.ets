@@ -21,7 +21,7 @@
 import { UIContext } from '../@ohos.arkui.UIContext';
 import { FrameNode } from './FrameNode';
 import { Size } from './Graphics';
-import { WrappedBuilder } from '../@ohos.arkui.component.Common';
+import { WrappedBuilder, TouchEvent } from '../@ohos.arkui.component.Common';
 /**
  * Render type of the node using for indicating that
  * if the node will be shown on the display or rendered to a texture

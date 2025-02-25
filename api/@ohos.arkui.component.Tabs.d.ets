@@ -17,9 +17,9 @@
  * @file
  * @kit ArkUI
  */
-import type { BackgroundBlurStyleOptions, BackgroundEffectOptions, BlurStyle, Callback, CommonMethod, Optional, TranslateOptions } from './@ohos.arkui.component.Common';
-import type { EdgeEffect } from './@ohos.arkui.component.Enums';
-import type { Dimension, Length, ResourceColor } from './@ohos.arkui.component.Units';
+import  { BackgroundBlurStyleOptions, BackgroundEffectOptions, BlurStyle, Callback, CommonMethod, Optional, TranslateOptions } from './@ohos.arkui.component.Common';
+import  { EdgeEffect } from './@ohos.arkui.component.Enums';
+import  { Dimension, Length, ResourceColor } from './@ohos.arkui.component.Units';
 
 /**
  * Declare the graphic format of the bar chart.

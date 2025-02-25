@@ -60,7 +60,7 @@ import { CircleAttribute } from './@ohos.arkui.component.Circle';
 import { RectAttribute } from './@ohos.arkui.component.Rect';
 import { PathAttribute } from './@ohos.arkui.component.Path';
 import { EllipseAttribute } from './@ohos.arkui.component.Ellipse';
-
+import { LocalStorage } from './@ohos.arkui.component.CommonTsEtsApi'
 /**
  * Defines the options of Component ClassDecorator.
  *
@@ -20622,7 +20622,7 @@ export declare const Common: CommonInterface;
  * @atomicservice
  * @since 11
  */
-type CustomBuilder = (() => Object) | undefined;
+export type CustomBuilder = (() => Object) | undefined;
 
 /**
  * Defines the OverlayOptions interface.

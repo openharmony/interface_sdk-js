@@ -17,7 +17,13 @@
  * @file
  * @kit ArkUI
  */
-
+import { ResourceStr,Font,ResourceColor,Length,Offset,Dimension } from './@ohos.arkui.component.Units'
+import { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier'
+import { CommonMethod,CommonConfiguration,ContentModifier,Optional,BlurStyle } from './@ohos.arkui.component.Common'
+import { OptionWidthMode } from './@ohos.arkui.component.Enums'
+import { ControlSize } from './@ohos.arkui.component.Button'
+import { Resource } from './global/resource'
+import { DividerOptions } from './@ohos.arkui.component.TextPicker'
 /**
  * The declare of selectOption.
  *
@@ -42,7 +48,7 @@
  * @atomicservice
  * @since 11
  */
-declare interface SelectOption {
+export interface SelectOption {
   /**
    * Option string.
    *
@@ -131,36 +137,7 @@ declare interface SelectOption {
  * @atomicservice
  * @since 11
  */
-interface SelectInterface {
-  /**
-   * Called when the select is set.
-   *
-   * @param { Array<SelectOption> } options
-   * @returns { SelectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when the select is set.
-   *
-   * @param { Array<SelectOption> } options
-   * @returns { SelectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the select is set.
-   *
-   * @param { Array<SelectOption> } options
-   * @returns { SelectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  (options: Array<SelectOption>): SelectAttribute;
-}
+export type SelectInterface = (options: Array<SelectOption>)=> SelectAttribute;
 
 /**
  * The enum for arrow position in the select
@@ -179,7 +156,7 @@ interface SelectInterface {
  * @atomicservice
  * @since 11
  */
-declare enum ArrowPosition {
+export declare enum ArrowPosition {
   /**
    * The value of arrow position end
    *
@@ -231,7 +208,7 @@ declare enum ArrowPosition {
  * @atomicservice
  * @since 11
  */
-declare enum MenuAlignType {
+export declare enum MenuAlignType {
   /**
    * The value of menu align type start.
    *
@@ -303,7 +280,7 @@ declare enum MenuAlignType {
  * @atomicservice
  * @since 11
  */
-declare class SelectAttribute extends CommonMethod<SelectAttribute> {
+export declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   /**
    * Sets the serial number of the select item, starting from 0.
    *
@@ -817,7 +794,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
  * @atomicservice
  * @since 12
  */
-declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConfiguration>{
+export interface MenuItemConfiguration extends CommonConfiguration<MenuItemConfiguration>{
   /**
    * Indicates the text of this menu item.
    *
@@ -906,7 +883,7 @@ declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConf
  * @atomicservice
  * @since 11
  */
-declare const Select: SelectInterface;
+export declare const Select: SelectInterface;
 
 /**
  * Defines Select Component instance.
@@ -929,4 +906,4 @@ declare const Select: SelectInterface;
  * @atomicservice
  * @since 11
  */
-declare const SelectInstance: SelectAttribute;
+export declare const SelectInstance: SelectAttribute;

@@ -134,7 +134,7 @@ declare namespace router {
    * @atomicservice
    * @since 11
    */
-  interface RouterOptions {
+  export interface RouterOptions {
     /**
      * URI of the destination page, which supports the following formats:
      * 1. Absolute path of the page, which is provided by the pages list in the config.json file.
@@ -212,7 +212,7 @@ declare namespace router {
    * @atomicservice
    * @since 11
    */
-  interface RouterState {
+  export interface RouterState {
     /**
      * Index of the current page in the stack.
      * NOTE: The index starts from 1 from the bottom to the top of the stack.
@@ -324,7 +324,7 @@ declare namespace router {
    * @atomicservice
    * @since 11
    */
-  interface EnableAlertOptions {
+  export interface EnableAlertOptions {
     /**
      * dialog context.
      *
@@ -361,7 +361,7 @@ declare namespace router {
    * @deprecated since 9
    * @useinstead ohos.router.router#pushUrl
    */
-  function push(options: RouterOptions): void;
+  export function push(options: RouterOptions): void;
 
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
@@ -411,7 +411,7 @@ declare namespace router {
    * @atomicservice
    * @since 11
    */
-  function pushUrl(options: RouterOptions, callback: AsyncCallback<void>): void;
+  export function pushUrl(options: RouterOptions, callback: AsyncCallback<void>): void;
 
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
@@ -461,7 +461,7 @@ declare namespace router {
    * @atomicservice
    * @since 11
    */
-  function pushUrl(options: RouterOptions): Promise<void>;
+  export function pushUrl(options: RouterOptions): Promise<void>;
 
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
@@ -514,7 +514,7 @@ declare namespace router {
    * @atomicservice
    * @since 11
    */
-  function pushUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void;
+  export function pushUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void;
 
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
@@ -567,7 +567,7 @@ declare namespace router {
    * @atomicservice
    * @since 11
    */
-  function pushUrl(options: RouterOptions, mode: RouterMode): Promise<void>;
+  export function pushUrl(options: RouterOptions, mode: RouterMode): Promise<void>;
 
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
@@ -578,7 +578,7 @@ declare namespace router {
    * @deprecated since 9
    * @useinstead ohos.router.router#replaceUrl
    */
-  function replace(options: RouterOptions): void;
+  export function replace(options: RouterOptions): void;
 
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
@@ -609,7 +609,7 @@ declare namespace router {
    * @atomicservice
    * @since 11
    */
-  function replaceUrl(options: RouterOptions, callback: AsyncCallback<void>): void;
+  export function replaceUrl(options: RouterOptions, callback: AsyncCallback<void>): void;
 
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
@@ -640,7 +640,7 @@ declare namespace router {
    * @atomicservice
    * @since 11
    */
-  function replaceUrl(options: RouterOptions): Promise<void>;
+  export function replaceUrl(options: RouterOptions): Promise<void>;
 
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
@@ -673,23 +673,8 @@ declare namespace router {
    * @atomicservice
    * @since 11
    */
-  function replaceUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void;
+  export function replaceUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void;
 
-  /**
-   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
-   *
-   * @param { RouterOptions } options - Options.
-   * @param { RouterMode } mode - RouterMode.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Failed to get the delegate. This error code is thrown only in the standard system.
-   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
-   * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 9
-   */
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
    *
@@ -703,10 +688,25 @@ declare namespace router {
    * @throws { BusinessError } 100001 - Failed to get the delegate. This error code is thrown only in the standard system.
    * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 9
+   */
+  /**
+   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   *
+   * @param { RouterOptions } options - Options.
+   * @param { RouterMode } mode - RouterMode.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Failed to get the delegate. This error code is thrown only in the standard system.
+   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
    * @since 11
    */
-  function replaceUrl(options: RouterOptions, mode: RouterMode): Promise<void>;
+  export function replaceUrl(options: RouterOptions, mode: RouterMode): Promise<void>;
 
   /**
    * Returns to the previous page or a specified page.
@@ -732,7 +732,7 @@ declare namespace router {
    * @atomicservice
    * @since 11
    */
-  function back(options?: RouterOptions): void;
+  export function back(options?: RouterOptions): void;
 
  /**
    * Returns to the specified page.
@@ -744,7 +744,7 @@ declare namespace router {
    * @atomicservice
    * @since 12
    */
- function back(index: number, params?: Object): void;
+ export function back(index: number, params?: Object): void;
 
   /**
    * Clears all historical pages and retains only the current page at the top of the stack.
@@ -767,7 +767,7 @@ declare namespace router {
    * @atomicservice
    * @since 11
    */
-  function clear(): void;
+  export function clear(): void;
 
   /**
    * Obtains the number of pages in the current stack.
@@ -793,7 +793,7 @@ declare namespace router {
    * @atomicservice
    * @since 11
    */
-  function getLength(): string;
+  export function getLength(): string;
 
   /**
    * Obtains information about the current page state.
@@ -819,7 +819,7 @@ declare namespace router {
    * @atomicservice
    * @since 11
    */
-  function getState(): RouterState;
+  export function getState(): RouterState;
 
    /**
    * Obtains page information by index.
@@ -831,7 +831,7 @@ declare namespace router {
    * @atomicservice
    * @since 12
    */
-   function getStateByIndex(index: number): RouterState | undefined;
+  export function getStateByIndex(index: number): RouterState | undefined;
 
    /**
     * Obtains page information by url.
@@ -843,7 +843,7 @@ declare namespace router {
     * @atomicservice
     * @since 12
     */
-   function getStateByUrl(url: string): Array<RouterState>;
+  export function getStateByUrl(url: string): Array<RouterState>;
  
   /**
    * Pop up dialog to ask whether to back
@@ -854,7 +854,7 @@ declare namespace router {
    * @deprecated since 9
    * @useinstead ohos.router.router#showAlertBeforeBackPage
    */
-  function enableAlertBeforeBackPage(options: EnableAlertOptions): void;
+  export function enableAlertBeforeBackPage(options: EnableAlertOptions): void;
 
   /**
    * Pop up alert dialog to ask whether to back
@@ -895,7 +895,7 @@ declare namespace router {
    * @atomicservice
    * @since 11
    */
-  function showAlertBeforeBackPage(options: EnableAlertOptions): void;
+  export function showAlertBeforeBackPage(options: EnableAlertOptions): void;
 
   /**
    * Cancel enableAlertBeforeBackPage
@@ -905,7 +905,7 @@ declare namespace router {
    * @deprecated since 9
    * @useinstead ohos.router.router#hideAlertBeforeBackPage
    */
-  function disableAlertBeforeBackPage(): void;
+  export function disableAlertBeforeBackPage(): void;
 
   /**
    * Hide alert before back page
@@ -928,7 +928,7 @@ declare namespace router {
    * @atomicservice
    * @since 11
    */
-  function hideAlertBeforeBackPage(): void;
+  export function hideAlertBeforeBackPage(): void;
 
   /**
    * Obtains information about the current page params.
@@ -954,7 +954,7 @@ declare namespace router {
    * @atomicservice
    * @since 11
    */
-  function getParams(): Object;
+  export function getParams(): Object;
 
   /**
    * @typedef NamedRouterOptions
@@ -969,7 +969,7 @@ declare namespace router {
    * @atomicservice
    * @since 11
    */
-  interface NamedRouterOptions {
+  export interface NamedRouterOptions {
     /**
      * Name of the destination named route.
      *
@@ -1052,7 +1052,7 @@ declare namespace router {
    * @atomicservice
    * @since 11
    */
-  function pushNamedRoute(options: NamedRouterOptions, callback: AsyncCallback<void>): void;
+  export function pushNamedRoute(options: NamedRouterOptions, callback: AsyncCallback<void>): void;
 
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
@@ -1087,7 +1087,7 @@ declare namespace router {
    * @atomicservice
    * @since 11
    */
-  function pushNamedRoute(options: NamedRouterOptions): Promise<void>;
+  export function pushNamedRoute(options: NamedRouterOptions): Promise<void>;
 
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
@@ -1124,7 +1124,7 @@ declare namespace router {
    * @atomicservice
    * @since 11
    */
-  function pushNamedRoute(options: NamedRouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void;
+  export function pushNamedRoute(options: NamedRouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void;
 
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
@@ -1161,7 +1161,7 @@ declare namespace router {
    * @atomicservice
    * @since 11
    */
-  function pushNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise<void>;
+  export function pushNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise<void>;
 
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
@@ -1194,7 +1194,7 @@ declare namespace router {
    * @atomicservice
    * @since 11
    */
-  function replaceNamedRoute(options: NamedRouterOptions, callback: AsyncCallback<void>): void;
+  export function replaceNamedRoute(options: NamedRouterOptions, callback: AsyncCallback<void>): void;
 
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
@@ -1227,7 +1227,7 @@ declare namespace router {
    * @atomicservice
    * @since 11
    */
-  function replaceNamedRoute(options: NamedRouterOptions): Promise<void>;
+  export function replaceNamedRoute(options: NamedRouterOptions): Promise<void>;
 
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
@@ -1262,7 +1262,7 @@ declare namespace router {
    * @atomicservice
    * @since 11
    */
-  function replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void;
+  export function replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void;
 
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
@@ -1297,6 +1297,6 @@ declare namespace router {
    * @atomicservice
    * @since 11
    */
-  function replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise<void>;
+  export function replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise<void>;
 }
 export default router;
