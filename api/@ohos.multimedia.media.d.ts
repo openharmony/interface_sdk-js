@@ -6254,6 +6254,12 @@ declare namespace media {
      * @since 12
      */
     CFT_WAV = 'wav',
+    /**
+     * A audio container format type amr.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 16
+     */
+    CFT_AMR = 'amr',
   }
 
   /**
@@ -7635,6 +7641,18 @@ declare namespace media {
      * @since 12
      */
     AUDIO_G711MU = 'audio/g711mu',
+    /**
+     * AMR_NB codec MIME type.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 16
+     */
+    AUDIO_AMR_NB = 'audio/3gpp',
+    /**
+     * AMR_WB codec MIME type.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 16
+     */
+    AUDIO_AMR_WB = 'audio/amr-wb',
   }
 
   /**
