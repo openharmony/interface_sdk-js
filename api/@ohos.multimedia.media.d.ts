@@ -305,6 +305,7 @@ declare namespace media {
    *
    * @returns {Promise<ScreenCaptureMonitor>} A Promise instance used to return ScreenCaptureMonitor instance if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
+   * @throws { BusinessError } 202 - Not System App.
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @systemapi
    * @since 16
@@ -8192,6 +8193,7 @@ declare namespace media {
      * Listens for state change of system screen recorder.
      * @param { 'systemScreenRecorder' } type - Type of the screen capture event to listen for.
      * @param { 'Callback<ScreenCaptureEvent>' } callback - Callback used to listen for the screen capture event return.
+     * @throws { BusinessError } 202 - Not System App.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
 	 * @systemapi
      * @since 16
@@ -8202,6 +8204,7 @@ declare namespace media {
      * Unregister listens for state change of system screen recorder.
      * @param { 'systemScreenRecorder' } type - Type of the screen capture event to listen for.
      * @param { 'Callback<ScreenCaptureEvent>' } callback - Callback used to listen for the screen capture event return.
+     * @throws { BusinessError } 202 - Not System App.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @systemapi
      * @since 16
@@ -8211,6 +8214,7 @@ declare namespace media {
     /**
      * Whether the system recorder is working.
      * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @systemapi
      * @since 16
