@@ -309,7 +309,16 @@ declare namespace window {
      * @stagemodelonly
      * @since 15
      */
-    TYPE_WALLET_SWIPE_CARD
+    TYPE_WALLET_SWIPE_CARD,
+    /**
+     * Screen Control
+     * 
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 15
+     */
+    TYPE_SCREEN_CONTROL
   }
 
   /**
