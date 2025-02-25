@@ -304,8 +304,8 @@ declare namespace media {
    * Get the ScreenCaptureMonitor instance
    *
    * @returns {Promise<ScreenCaptureMonitor>} A Promise instance used to return ScreenCaptureMonitor instance if the operation is successful; returns null otherwise.
-   * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @systemapi
    * @since 16
