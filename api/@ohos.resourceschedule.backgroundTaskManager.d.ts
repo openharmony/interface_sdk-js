@@ -853,6 +853,40 @@ declare namespace backgroundTaskManager {
      */
     SYSTEM_CANCEL_USE_ILLEGALLY = 11,
   }
+
+  /**
+   * Supported background submode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 16
+   */
+  export enum BackgroundSubMode {
+    /**
+     * bluetooth car key mode
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 16
+     */
+    CAR_KEY = 1
+  }
+
+  /**
+   * Supported background mode type.
+   *
+   * @enum { string }
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 16
+   */
+  export enum BackgroundModeType {
+    /**
+     * subMode type
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 16
+     */
+    SUB_MODE = 'subMode'
+  }
 }
 
 export default backgroundTaskManager;
