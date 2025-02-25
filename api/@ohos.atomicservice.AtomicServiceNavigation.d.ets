@@ -283,6 +283,7 @@ export declare struct AtomicServiceNavigation {
    * @atomicservice
    * @since 16
    */
+  @BuilderParam
   menus?: CustomBuilder | Array<NavigationMenuItem>;
   /**
    * Set side bar options.
