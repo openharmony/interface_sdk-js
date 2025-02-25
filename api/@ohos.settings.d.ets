@@ -29,7 +29,7 @@ import Context from './application/Context';
  * @syscap SystemCapability.Applications.Settings.Core
  * @since 7
  */
-declare namespace settings {
+export default declare namespace settings {
 
   /**
    * Provide domain name for query.
@@ -1323,5 +1323,3 @@ declare namespace settings {
    */
   function unregisterKeyObserver(context: Context, name: string, domainName: string): boolean;
 }
-
-export default settings;
