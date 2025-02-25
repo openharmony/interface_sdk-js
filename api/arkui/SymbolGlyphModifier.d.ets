@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { SymbolGlyphAttribute } from '../@ohos.arkui.component.Symbolglyph'
+import { SymbolGlyphAttribute } from '../@ohos.arkui.component.SymbolGlyph'
 import { AttributeModifier } from '../@ohos.arkui.component.Common'
 import { Resource } from '../global/resource'
 /**

@@ -17,14 +17,21 @@
  * @file
  * @kit ArkUI
  */
-import { ResourceColor, Length,ResourceStr } from './@ohos.arkui.component.Units'
-import { FontStyle,FontWeight } from './@ohos.arkui.component.Enums'
-import { DecorationStyleInterface } from './@ohos.arkui.component.StyledString'
-import { ShadowOptions,Callback,CommonMethod } from './@ohos.arkui.component.Common'
+ 
 
-import { Resource } from './global/resource'
-import { TextRange,MenuType,TextEditControllerEx,StyledStringController } from './@ohos.arkui.component.TextCommon'
-import { EnterKeyType } from './@ohos.arkui.component.TextInput'
+import { CustomBuilder, SelectionOptions, CommonMethod, Callback, ShadowOptions, ClickEvent } from "./@ohos.arkui.component.Common";
+import { LayoutManager, PreviewText, StyledStringController, StyledStringChangedListener, EditMenuOptions,
+     OnDidChangeCallback, TextEditControllerEx, TextDataDetectorConfig,TextRange,MenuType,DecorationStyleResult } from './@ohos.arkui.component.TextCommon';
+import image from './@ohos.multimedia.image';
+import { Resource, ResourceStr, ResourceColor, Dimension, Font, Length, BorderRadiuses, Margin } from './@ohos.arkui.component.Units';
+import { StyledString, MutableStyledString, DecorationStyleInterface } from './@ohos.arkui.component.StyledString';
+import { BarState, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, CopyOptions, ImageSpanAlignment,
+    ImageFit, ResponseType } from './@ohos.arkui.component.Enums';
+import { GestureEvent } from "./@ohos.arkui.component.Gesture";
+import { SymbolRenderingStrategy, SymbolEffectStrategy } from "./@ohos.arkui.component.SymbolGlyph";
+import { EnterKeyType, SubmitEvent} from "./@ohos.arkui.component.TextInput";
+
+
 /**
  * Defines delete text direction.
  *
@@ -503,7 +510,7 @@ export interface LeadingMarginPlaceholder {
    * @atomicservice
    * @since 12
    */
-  pixelMap: PixelMap;
+  pixelMap: image.PixelMap;
 
   /**
    * Placeholder size.
@@ -1608,7 +1615,7 @@ export interface RichEditorImageSpanResult {
    * @atomicservice
    * @since 11
    */
-  valuePixelMap?: PixelMap;
+  valuePixelMap?: image.PixelMap;
 
   /**
    * The resource string of the image span.
@@ -1716,7 +1723,7 @@ export interface RichEditorImageSpan {
    * @atomicservice
    * @since 11
    */
-  value: PixelMap | ResourceStr;
+  value: image.PixelMap | ResourceStr;
 
   /**
    * image style.
@@ -2906,7 +2913,8 @@ export declare class RichEditorBaseController implements TextEditControllerEx {
    * @atomicservice
    * @since 12
    */
-  getPreviewText(): PreviewText;
+  getPreviewText?:()=> PreviewText;
+  
 }
 
 /**
@@ -2975,7 +2983,7 @@ export declare class RichEditorController extends RichEditorBaseController {
    * @atomicservice
    * @since 11
    */
-  addImageSpan(value: PixelMap | ResourceStr, options?: RichEditorImageSpanOptions): number;
+  addImageSpan(value: image.PixelMap | ResourceStr, options?: RichEditorImageSpanOptions): number;
 
   /**
    * Add a builder span.
@@ -3165,6 +3173,8 @@ export declare class RichEditorController extends RichEditorBaseController {
    * @since 12
    */
     toStyledString(value: RichEditorRange): StyledString;
+  
+  
 }
 
 /**

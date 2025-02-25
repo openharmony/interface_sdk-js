@@ -23,7 +23,7 @@ import { VoidCallback, ResourceStr,ResourceColor,Dimension,BorderRadiuses,Locali
 } from './@ohos.arkui.component.Units'
 import { Callback,DismissReason,Rectangle,BlurStyle,TransitionEffect,ShadowOptions,HoverModeAreaType,ShadowStyle } from "./@ohos.arkui.component.Common";
 import { DialogButtonStyle,BorderStyle } from './@ohos.arkui.component.Enums';
-import { DialogAlignment } from './@ohso.arkui.component.AlertDialog';
+import { DialogAlignment } from './@ohos.arkui.component.AlertDialog';
 /**
  * The information of sheet.
  *

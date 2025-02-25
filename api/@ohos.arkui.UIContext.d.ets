@@ -42,11 +42,11 @@ import { Nullable } from './@ohos.arkui.component.Enums'
 import { TimePickerDialogOptions } from './@ohos.arkui.component.TimePicker'
 import { AlertDialogParamWithConfirm,AlertDialogParamWithButtons,AlertDialogParamWithOptions } from './@ohos.arkui.component.AlertDialog'
 import { ActionSheetOptions } from './@ohos.arkui.component.ActionSheet'
-import { TextPickerDialogOptions } from './@Ohos.arkui.component.TextPicker'
+import { TextPickerDialogOptions } from './@ohos.arkui.component.TextPicker'
 import { LocalStorage } from './@ohos.arkui.component.CommonTsEtsApi'
 import { DatePickerDialogOptions } from './@ohos.arkui.component.DatePicker'
 import { TabsController } from './@ohos.arkui.component.Tabs'
-import { Scroller } from './@ohos.arkui.component.Scroller'
+import { Scroller } from './@ohos.arkui.component.Scroll'
 import { Color,FontStyle,WidthBreakpoint,HeightBreakpoint } from './@ohos.arkui.component.Enums'
 /**
  * class Font

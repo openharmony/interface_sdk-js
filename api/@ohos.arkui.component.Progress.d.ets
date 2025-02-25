@@ -17,10 +17,10 @@
  * @file
  * @kit ArkUI
  */
-// import { ResourceColor,Length, PX , VP , LPX, Font } from './@ohos.arkui.component.Common'
-// import { Resource } from './global/resource';
-// import { CommonMethod, Optional,ContentModifier,CommonConfiguration } from './@ohos.arkui.component.Common'
-// import { LinearGradient } from './@ohos.arkui.component.DataPanel'
+import { ResourceColor,Length, PX , VP , LPX, Font } from './@ohos.arkui.component.Units'
+import { Resource } from './global/resource';
+import { CommonMethod, Optional,ContentModifier,CommonConfiguration } from './@ohos.arkui.component.Common'
+import { LinearGradient } from './@ohos.arkui.component.DataPanel'
 /**
  * Defines the option of Progress.
  *

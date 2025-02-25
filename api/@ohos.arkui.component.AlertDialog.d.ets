@@ -20,7 +20,7 @@
 import { ResourceStr,ResourceColor,VoidCallback,Offset,Dimension,BorderRadiuses,LocalizedBorderRadiuses,EdgeWidths,
   LocalizedEdgeWidths,EdgeColors,LocalizedEdgeColors,EdgeStyles
  } from './@ohos.arkui.component.Units'
-import { WordBreak,DialogButtonStyle } from './@ohos.arkui.component.Enums'
+import { WordBreak,DialogButtonStyle,BorderStyle } from './@ohos.arkui.component.Enums'
 import { Rectangle,BlurStyle,Callback,TransitionEffect,ShadowOptions,ShadowStyle,HoverModeAreaType,DismissReason } from './@ohos.arkui.component.Common'
 /**
  * The alignment of dialog,

@@ -18,13 +18,14 @@
  * @kit ArkUI
  */
 
-import { Callback, ShadowOptions, ClickEvent, PixelMap, DrawContext } from "./@ohos.arkui.component.Common";
+import { Callback, ShadowOptions, ClickEvent } from "./@ohos.arkui.component.Common";
 import { TextAlign, FontStyle, FontWeight, TextDecorationType, TextDecorationStyle, WordBreak, TextOverflow, ImageFit, ImageSpanAlignment } from './@ohos.arkui.component.Enums';
 import { ResourceStr, ResourceColor, LengthMetrics, SizeOptions, Margin, Padding, BorderRadiuses } from './@ohos.arkui.component.Units';
 import { TextBackgroundStyle } from "./@ohos.arkui.component.Span";
 import { GestureEvent } from "./@ohos.arkui.component.Gesture";
 import { LeadingMarginPlaceholder } from './@ohos.arkui.component.RichEditor';
-
+import image from './@ohos.multimedia.image'
+import { DrawContext } from './arkui/Graphics'
 /**
  * StyledString
  *
@@ -1344,7 +1345,7 @@ export declare class ImageAttachment {
      * @atomicservice
      * @since 12
      */
-    readonly value: PixelMap;
+    readonly value: image.PixelMap;
 
     /**
      * Get the imageSize of the StyledString.
@@ -1414,7 +1415,7 @@ export declare interface ImageAttachmentInterface {
      * @atomicservice
      * @since 12
      */
-    value: PixelMap;
+    value: image.PixelMap;
 
     /**
      * Image size.

@@ -2550,7 +2550,7 @@ export declare class TextInputAttribute extends CommonMethod<TextInputAttribute>
    * @atomicservice
    * @since 12
    */
-  onWillDelete(callback: <DeleteValue, boolean>): TextInputAttribute;
+  onWillDelete(callback: Callback<DeleteValue, boolean>): TextInputAttribute;
 
   /**
    * Get text value information when the deletion has been completed

@@ -24,7 +24,7 @@ import  { AsyncCallback, BusinessError, Callback } from './@ohos.base';
 import unifiedDataChannel from './@ohos.data.unifiedDataChannel';
 import { DragEvent, DragPreviewOptions, DragItemInfo, ICurve, CustomBuilder } from './@ohos.arkui.component.Common';
 import { TouchPoint, ResourceColor } from './@ohos.arkui.component.Units';
-import Curve from './@ohos.arkui.component.Enums';
+import { Curve } from './@ohos.arkui.component.Enums';
 
 /**
  * This module allows developers to trigger a drag event.
@@ -39,7 +39,7 @@ import Curve from './@ohos.arkui.component.Enums';
  * @atomicservice
  * @since 12
  */
-export default declare namespace dragController {
+ declare namespace dragController {
   /**
    * Defines the Drag Status.
    *
@@ -55,7 +55,7 @@ export default declare namespace dragController {
    * @atomicservice
    * @since 12
    */
-  const enum DragStatus {
+  export const enum DragStatus {
     /**
      * Drag has started.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -97,7 +97,7 @@ export default declare namespace dragController {
    * @atomicservice
    * @since 12
    */
-  interface DragAndDropInfo {
+  export interface DragAndDropInfo {
     /**
      * The drag status.
      * @type { DragStatus }
@@ -157,7 +157,7 @@ export default declare namespace dragController {
    * @atomicservice
    * @since 12
    */
-  interface DragAction {
+  export interface DragAction {
     /**
      * trigger drag action
      *
@@ -234,7 +234,7 @@ export default declare namespace dragController {
    * @atomicservice
    * @since 12
    */
-  interface DragInfo {
+  export interface DragInfo {
     /**
      * A unique identifier to identify which touch point.
      * @type { number }
@@ -326,7 +326,7 @@ export default declare namespace dragController {
    * @atomicservice
    * @since 12
    */
-  interface AnimationOptions {
+  export interface AnimationOptions {
     /**
      * Animation duration, in ms.
      * @type { ?number }
@@ -409,7 +409,7 @@ export default declare namespace dragController {
    * @atomicservice
    * @since 12
    */
-  interface DragEventParam {
+  export interface DragEventParam {
 
     /**
      * The information containing the drag event.
@@ -469,7 +469,7 @@ export default declare namespace dragController {
    * @atomicservice
    * @since 12
    */
-  function executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: DragInfo,
+  export function executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: DragInfo,
     callback: AsyncCallback<DragEventParam>): void;
 
   /**
@@ -499,7 +499,7 @@ export default declare namespace dragController {
    * @atomicservice
    * @since 12
    */
-  function executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: DragInfo): Promise<DragEventParam>;
+  export function executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: DragInfo): Promise<DragEventParam>;
 
   /**
    * Create one drag action object, which can be used for starting drag later or monitoring
@@ -532,7 +532,7 @@ export default declare namespace dragController {
    * @atomicservice
    * @since 12
    */
-  function createDragAction(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: DragInfo): DragAction;
+  export function createDragAction(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: DragInfo): DragAction;
 
   /**
    * Get drag preview object.
@@ -547,5 +547,6 @@ export default declare namespace dragController {
    * @atomicservice
    * @since 12
    */
-  function getDragPreview(): DragPreview;
+  export function getDragPreview(): DragPreview;
 }
+export default dragController;

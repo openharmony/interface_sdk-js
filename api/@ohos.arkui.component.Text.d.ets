@@ -430,8 +430,6 @@ export declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @atomicservice
    * @since 11
    */
-  fontWeight(value: number | FontWeight | string): TextAttribute;
-
   /**
    * Called when the font weight is set.
    *

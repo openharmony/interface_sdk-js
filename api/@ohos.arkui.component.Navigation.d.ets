@@ -716,7 +716,7 @@ export declare class NavPathInfo {
    * @atomicservice
    * @since 12
    */
-  constructor(name: string, param: unknown, onPop?: Callback<PopInfo>, isEntry?: boolean);
+  constructor(name: string, param: Object, onPop?: Callback<PopInfo>, isEntry?: boolean);
 
   /**
    * The name of NavDestination.
@@ -924,8 +924,6 @@ export declare class NavPathStack {
    * @atomicservice
    * @since 11
    */
-  pushPath(info: NavPathInfo, animated?: boolean): void;
-
   /**
    * Pushes the NavDestination into the stack.
    *
@@ -936,7 +934,7 @@ export declare class NavPathStack {
    * @atomicservice
    * @since 12
    */
-  pushPath(info: NavPathInfo, options?: NavigationOptions): void;
+  pushPath(info: NavPathInfo, options?: NavigationOptions | boolean): void;
 
   /**
    * Pushes the NavDestination into the stack.
@@ -973,27 +971,7 @@ export declare class NavPathStack {
    * @atomicservice
    * @since 12
    */
-  pushDestination(info: NavPathInfo, animated?: boolean): Promise<void>;
-
-  /**
-   * Pushes the NavDestination into the stack.
-   *
-   * @param { NavPathInfo } info - Indicates the NavDestination to be pushed.
-   * @param { NavigationOptions } [options] - Indicates options of stack operation.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   *     1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameters types.
-   *     3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal error.
-   * @throws { BusinessError } 100005 - Builder function not registered.
-   * @throws { BusinessError } 100006 - NavDestination not found.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  pushDestination(info: NavPathInfo, options?: NavigationOptions): Promise<void>;
+  pushDestination(info: NavPathInfo, options?: NavigationOptions | boolean): Promise<void>;
 
   /**
    * Pushes the specified NavDestination into the stack.
@@ -1015,7 +993,7 @@ export declare class NavPathStack {
    * @atomicservice
    * @since 11
    */
-  pushPathByName(name: string, param: unknown, animated?: boolean): void;
+  pushPathByName(name: string, param: Object, animated?: boolean): void;
 
   /**
    * Pushes the specified NavDestination into the stack.
@@ -1040,7 +1018,7 @@ export declare class NavPathStack {
    * @atomicservice
    * @since 12
    */
-  pushPathByName(name: string, param: Object, onPop: import('../api/@ohos.base').Callback<PopInfo>, animated?: boolean): void;
+  pushPathByName(name: string, param: Object, onPop: Callback<PopInfo>, animated: boolean): void;
 
   /**
    * Pushes the specified NavDestination into the stack.
@@ -1141,19 +1119,7 @@ export declare class NavPathStack {
    * @atomicservice
    * @since 12
    */
-  replacePath(info: NavPathInfo, animated?: boolean): void;
-
-  /**
-   * Replace the current NavDestination with the specific one.The current NavDestination will be destroyed.
-   *
-   * @param { NavPathInfo } info - Indicates the new NavDestination in top of the stack.
-   * @param { NavigationOptions } [options] - Indicates options of stack operation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  replacePath(info: NavPathInfo, options?: NavigationOptions): void;
+  replacePath(info: NavPathInfo, options?: NavigationOptions | boolean): void;
 
   /**
    * Replace the NavDestination into the stack.
@@ -1473,7 +1439,7 @@ export declare class NavPathStack {
    * @atomicservice
    * @since 11
    */
-  getParamByIndex(index: number): unknown | undefined;
+  getParamByIndex(index: number): Object | undefined;
 
   /**
    * Obtains the param of the specified NavDestination.
@@ -1494,7 +1460,7 @@ export declare class NavPathStack {
    * @atomicservice
    * @since 11
    */
-  getParamByName(name: string): Array<unknown>;
+  getParamByName(name: string): Array<Object>;
 
   /**
    * Obtains the index of the specified NavDestination.
@@ -2715,7 +2681,7 @@ export declare class NavigationAttribute extends CommonMethod<NavigationAttribut
    * @atomicservice
    * @since 11
    */
-  navDestination(builder: (name: string, param: unknown) => void): NavigationAttribute;
+  navDestination(builder: (name: string, param: Object) => void): NavigationAttribute;
 
   /**
    * Set custom navigation content transition animation.

@@ -17,9 +17,9 @@
  * @file
  * @kit ArkUI
  */
-import type { CommonMethod, Optional } from './@ohos.arkui.component.Common';
-import type { BarState } from './@ohos.arkui.component.Enums';
-import type { Scroller } from './@ohos.arkui.component.Scroll';
+import  { CommonMethod, Optional } from './@ohos.arkui.component.Common';
+import  { BarState } from './@ohos.arkui.component.Enums';
+import  { Scroller } from './@ohos.arkui.component.Scroll';
 
 /**
  * Content scroll direction.

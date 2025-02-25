@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 import { Callback } from './@ohos.base';
-import type UIAbilityContext from './application/UIAbilityContext';
-import  { NavigationOperation, NavBar,NavPathStack } from '@ohos.arkui.component.Navigation';
+import UIAbilityContext from './application/UIAbilityContext';
+import  { NavigationOperation, NavBar,NavPathStack } from './@ohos.arkui.component.Navigation';
 import { ResourceStr } from './@ohos.arkui.component.Units'
 import { UIContext } from './@ohos.arkui.UIContext'
 /**
