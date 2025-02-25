@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 import drawing from '../@ohos.graphics.drawing';
-import type common2D from '../@ohos.graphics.common2D';
+import common2D from '../@ohos.graphics.common2D';
 import { Resource } from '../global/resource';
 import { BorderStyle } from '../@ohos.arkui.component.Enums';
 import { ResourceColor } from '../@ohos.arkui.component.Units';
