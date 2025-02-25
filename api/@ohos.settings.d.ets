@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -29,7 +29,7 @@ import Context from './application/Context';
  * @syscap SystemCapability.Applications.Settings.Core
  * @since 7
  */
-export default declare namespace settings {
+declare namespace settings {
 
   /**
    * Provide domain name for query.
@@ -1324,4 +1324,4 @@ export default declare namespace settings {
   function unregisterKeyObserver(context: Context, name: string, domainName: string): boolean;
 }
 
-// export default settings;
+export default settings;
