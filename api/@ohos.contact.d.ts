@@ -20,7 +20,7 @@
 
 import { AsyncCallback } from './@ohos.base';
 import type Context from './application/BaseContext';
-import { ValueType } from './@ohos.data.ValuesBucket'
+import { ValueType } from './@ohos.data.ValuesBucket';
 
 /**
  * Contains variety of system contact, provides functions for adding, updating and deleting these system contact
