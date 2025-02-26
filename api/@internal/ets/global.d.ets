@@ -380,29 +380,3 @@ export declare function sendKeyEvent(event: KeyEvent): boolean;
  * @test
  */
 export declare function sendMouseEvent(event: MouseEvent): boolean;
-
- /**
-  * Mark moduleNamespace which loaded by dynamic-import is collectable.
-  *
-  * @param { Object } namespace - moduleNamespace to be marked.
-  * @throws { BusinessError } 401 - if type of object is not moduleNameSpace.
-  * @syscap SystemCapability.Utils.Lang
-  * @systemapi
-  * @stagemodelonly
-  * @since 10
-  */
-export declare function markModuleCollectable(namespace: Object): void;
-
-/**
- * Support loading native module during the runtime phase.
- * 
- * @param { string } moduleName - Indicates the native module name.
- * @returns { Object } Returns the default export from the native module.
- * @throws { BusinessError } 401 - The parameter check failed.
- * @throws { BusinessError } 10200301 - Loading native module failed.
- * @syscap SystemCapability.Utils.Lang
- * @stagemodelonly
- * @atomicservice
- * @since 12
- */
-export declare function loadNativeModule(moduleName: string): Object;
