@@ -733,8 +733,6 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9
    */
-  function setPointerVisible(visible: boolean, callback: AsyncCallback<void>): void;
-
   /**
    * Sets whether the pointer icon is visible.
    *
@@ -760,8 +758,6 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9
    */
-  function setPointerVisible(visible: boolean): Promise<void>;
-
   /**
    * Sets whether the pointer icon is visible.
    *
