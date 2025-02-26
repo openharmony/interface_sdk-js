@@ -168,13 +168,13 @@ declare namespace preferences {
     XML = 0,
 
     /**
-     * CLKV storage type
+     * GSKV storage type
      *
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 18
      */
-    CLKV
+    GSKV
   }
 
   /**
