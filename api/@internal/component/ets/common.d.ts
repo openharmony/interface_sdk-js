@@ -18955,7 +18955,7 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * layout Weight
+   * Defines the weight of the component, according to which the remain part of main-axis is allocated self-adaptively
    *
    * @param { number | string } value
    * @returns { T }
