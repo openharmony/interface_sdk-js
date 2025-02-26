@@ -3720,12 +3720,12 @@ declare namespace media {
      * should be called before calling the {@link #respondData()} for the first time.
      * @param { number } uuid - label the resource handle.
      * @param { ?Record<string, string> } [header] - header info in the http response.
-     * @param { ?string } [redirctUrl] - redirect URL.
+     * @param { ?string } [redirectUrl] - redirect URL.
      * @syscap  SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 16
      */
-    respondHeader(uuid: number, header?: Record<string, string>, redirctUrl?: string): void;
+    respondHeader(uuid: number, header?: Record<string, string>, redirectUrl?: string): void;
 
     /**
      * The interface for application used to notify player current request state.
