@@ -19,7 +19,7 @@
  */
 
 import { TextModifier } from './@ohos.arkui.modifier';
-import { SelectOption } from './@ohos.arkui.component.select';
+import { SelectOption } from './@ohos.arkui.component.Select';
 import { BuilderParam, Prop, Component } from './@ohos.arkui.component.Common';
 import { Resource } from './global/resource';
 import { ResourceStr, ResourceColor, LocalizedMargin, LocalizedPadding } from './@ohos.arkui.component.Units';
