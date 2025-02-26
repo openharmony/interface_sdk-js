@@ -414,6 +414,24 @@ declare namespace distributedDeviceManager {
      * @since 15
      */
     services?: Array<ServiceProfileInfo>;
+
+    /**
+     * Name of the product to which the device belongs.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 16
+     */
+    productName: string;
+
+    /**
+     * Internal model of the product to which the device belongs.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 16
+     */
+    internalModel?: string;
   }
 
   /**
@@ -459,6 +477,15 @@ declare namespace distributedDeviceManager {
      * @since 15
      */
     specName: string;
+
+    /**
+     * Internal model of the product to which the device belongs.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 16
+     */
+    internalModel?: string;
   }
 
   /**
@@ -522,6 +549,15 @@ declare namespace distributedDeviceManager {
      * @since 15
      */
     icon: ArrayBuffer;
+
+    /**
+     * Internal model of the product to which the device belongs.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 16
+     */
+    internalModel?: string;
   }
 
   /**
@@ -1186,6 +1222,19 @@ declare namespace distributedDeviceManager {
      * @since 15
      */
     setHeartbeatPolicy(policy: StrategyForHeartbeat, delayTime: number): void;
+
+    /**
+     * Restore local device name
+     *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 11600102 - Failed to obtain service.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 16
+     */
+    restoreLocalDeivceName(): void;
   }
 }
 
