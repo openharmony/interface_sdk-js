@@ -27,7 +27,7 @@ import { OperationOption } from '@ohos.arkui.advanced.SubHeader';
  * @atomicservice
  * @since 16
  */
-declare type OnSelectCallback = (index: number, selectValue?: string) => void;
+declare type OnSelectCallback = (index: number, selectValue: string) => void;
 /**
  * Callback when text is pasted into the search box
  *
@@ -565,15 +565,6 @@ export interface SelectParams {
    * @since 16
    */
   onSelect?: OnSelectCallback;
-  /**
-   * Sets the size for controls within Select Component.
-   *
-   * @type { ?ControlSize }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 16
-   */
-  controlSize?: ControlSize;
   /**
    * Register a ContentModifier for each menu item.
    *
