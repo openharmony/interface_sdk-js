@@ -7696,7 +7696,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 16
      */
-    SCALE_TO_FIT = 1,
+    SCALE_TO_FILL = 1,
   }
 
   /**
