@@ -23,6 +23,15 @@ import Animator, { AnimatorOptions, AnimatorResult, SimpleAnimatorOptions } from
 import WindowExtensionAbility, { WindowExtensionContext } from '@ohos.application.WindowExtensionAbility';
 import { AtomicServiceNavigation, NavDestinationBuilder } from '@ohos.atomicservice.AtomicServiceNavigation';
 import {
+  AtomicServiceSearch,
+  InputFilterParams,
+  SearchButtonParams,
+  MenuAlignParams,
+  SearchParams,
+  SelectParams,
+  OperationParams,
+} from '@ohos.atomicservice.AtomicServiceSearch';
+import {
   ArcButton, ArcButtonOptions, ArcButtonPosition, ArcButtonStyleMode, ArcButtonStatus
 } from '@ohos.arkui.advanced.ArcButton';
 import {
@@ -207,6 +216,7 @@ import {
   MultiCapsuleSegmentButtonV2
 } from '@ohos.arkui.advanced.SegmentButtonV2';
 export {
+  AtomicServiceSearch, InputFilterParams, SearchButtonParams, MenuAlignParams, SearchParams, SelectParams, OperationParams,
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, SimpleAnimatorOptions, App, AppResponse, AtomicServiceBar,
   AtomicServiceNavigation, NavDestinationBuilder,
   NavPushPathHelper,
