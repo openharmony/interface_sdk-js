@@ -1270,6 +1270,17 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Enable image dragging.
+   * Default value is true.
+   *
+   * @param { boolean } value
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
   draggable(value: boolean): ImageAttribute;
 
   /**
