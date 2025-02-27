@@ -18,7 +18,7 @@
  */
 import { OperationOption } from '@ohos.arkui.advanced.SubHeader';
 /**
- * Callback when the Select option is clicked
+ * Callback when the Select option is clicked.
  *
  * @typedef { function } OnSelectCallback
  * @param { number } index - Indicates the index of the selected item.
@@ -29,7 +29,7 @@ import { OperationOption } from '@ohos.arkui.advanced.SubHeader';
  */
 declare type OnSelectCallback = (index: number, selectValue: string) => void;
 /**
- * Callback when text is pasted into the search box
+ * Callback when text is pasted into the search box.
  *
  * @typedef { function } OnPasteCallback
  * @param { string } pasteValue - Indicates the text content to be pasted.
@@ -40,7 +40,7 @@ declare type OnSelectCallback = (index: number, selectValue: string) => void;
  */
 declare type OnPasteCallback = (pasteValue: string, event: PasteEvent) => void;
 /**
- * Callback when the position of the cursor entered in the search box changes
+ * Callback when the position of the cursor entered in the search box changes.
  *
  * @typedef { function } OnTextSelectionChangeCallback
  * @param { number } selectionStart - Indicates the start position of the text selection area. 
@@ -51,7 +51,7 @@ declare type OnPasteCallback = (pasteValue: string, event: PasteEvent) => void;
  */
 declare type OnTextSelectionChangeCallback = (selectionStart: number, selectionEnd: number) => void;
 /**
- * Callback when the content in the search box scrolls
+ * Callback when the content in the search box scrolls.
  *
  * @typedef { function } OnContentScrollCallback
  * @param { number } totalOffsetX - Indicates horizontal coordinate offset of the text in the content area, in px.
@@ -62,7 +62,7 @@ declare type OnTextSelectionChangeCallback = (selectionStart: number, selectionE
  */
 declare type OnContentScrollCallback = (totalOffsetX: number, totalOffsetY: number) => void;
 /**
- * Defines the InputFilter parameters
+ * Defines the InputFilter parameters.
  *
  * @typedef InputFilterParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -90,7 +90,7 @@ export interface InputFilterParams {
   error?: Callback<string>;
 }
 /**
- * Defines the SearchButton parameters
+ * Defines the SearchButton parameters.
  *
  * @typedef SearchButtonParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -99,7 +99,7 @@ export interface InputFilterParams {
  */
 export interface SearchButtonParams {
   /**
-   * indicates the text of the search button.
+   * Indicates the text of the search button.
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -108,7 +108,7 @@ export interface SearchButtonParams {
    */
   searchButtonValue: ResourceStr;
   /**
-   * indicates the fontSize and fontColor of the search button.
+   * Indicates the fontSize and fontColor of the search button.
    *
    * @type { ?SearchButtonOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -118,7 +118,7 @@ export interface SearchButtonParams {
   options?: SearchButtonOptions;
 }
 /**
- * Defines the MenuAlign parameters
+ * Defines the MenuAlign parameters.
  *
  * @typedef MenuAlignParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -127,7 +127,7 @@ export interface SearchButtonParams {
  */
 export interface MenuAlignParams {
   /**
-   * indicates the fontSize and fontColor of the search button.
+   * Indicates the fontSize and fontColor of the search button.
    *
    * @type { MenuAlignType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -136,7 +136,7 @@ export interface MenuAlignParams {
    */
   alignType: MenuAlignType;
   /**
-   * Offset of the drop-down menu relative to the drop-down button
+   * Offset of the drop-down menu relative to the drop-down button.
    * after alignment based on the alignment type.
    *
    * @type { ?Offset }
@@ -147,7 +147,7 @@ export interface MenuAlignParams {
   offset?: Offset;
 }
 /**
- * Events and styles supported by the search area
+ * Events and styles supported by the search area.
  *
  * @typedef SearchParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -156,7 +156,16 @@ export interface MenuAlignParams {
  */
 export interface SearchParams {
   /**
-   * componentBackgroundColor
+   * Used to identify a unique search component.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  searchKey?: ResourceStr;
+  /**
+   * Indicates the background color of a component.
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -165,7 +174,7 @@ export interface SearchParams {
    */
   componentBackgroundColor?: ResourceColor;
   /**
-   * Background color when pressed
+   * Background color when pressed.
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -174,7 +183,7 @@ export interface SearchParams {
    */
   pressedBackgroundColor?: ResourceColor;
   /**
-   * Set the search button text, fontSize and fontColor
+   * Set the search button text, fontSize and fontColor.
    *
    * @type { ?SearchButtonParams }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -183,7 +192,7 @@ export interface SearchParams {
    */
   searchButton?: SearchButtonParams;
   /**
-   * Set the place hold text color
+   * Set the place hold text color.
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -192,7 +201,7 @@ export interface SearchParams {
    */
   placeholderColor?: ResourceColor;
   /**
-   * Set the font used for place holder text
+   * Set the font used for place holder text.
    *
    * @type { ?Font }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -201,7 +210,7 @@ export interface SearchParams {
    */
   placeholderFont?: Font;
   /**
-   * Set enter key type of soft keyboard
+   * Set enter key type of soft keyboard.
    *
    * @type { ?Font }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -228,7 +237,7 @@ export interface SearchParams {
    */
   copyOptions?: CopyOptions;
   /**
-   * Set the search icon style
+   * Set the search icon style.
    *
    * @type { ?(IconOptions | SymbolGlyphModifier) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -237,7 +246,7 @@ export interface SearchParams {
    */
   searchIcon?: IconOptions | SymbolGlyphModifier;
   /**
-   * Set the cancel button style
+   * Set the cancel button style.
    *
    * @type { ?IconOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -246,7 +255,7 @@ export interface SearchParams {
    */
   cancelIcon?: IconOptions;
   /**
-   * Set the SearchButton fontColor
+   * Set the SearchButton fontColor.
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -255,7 +264,7 @@ export interface SearchParams {
    */
   fontColor?: ResourceColor;
   /**
-   * Set the cursor style
+   * Set the cursor style.
    *
    * @type { ?CaretStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -300,7 +309,7 @@ export interface SearchParams {
    */
   maxLength?: number;
   /**
-   * Set enter key type of soft keyboard
+   * Set enter key type of soft keyboard.
    *
    * @type { ?EnterKeyType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -412,7 +421,7 @@ export interface SearchParams {
    */
   enableHapticFeedback?: boolean;
   /**
-   * Call the function when clicked the search button
+   * Call the function when clicked the search button.
    *
    * @type { ?(Callback<string> | SearchSubmitCallback) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -421,7 +430,7 @@ export interface SearchParams {
    */
   onSubmit?: Callback<string> | SearchSubmitCallback;
   /**
-   * Call the function when editing the input text
+   * Call the function when editing the input text.
    *
    * @type { ?EditableTextOnChangeCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -430,7 +439,7 @@ export interface SearchParams {
    */
   onChange?: EditableTextOnChangeCallback;
   /**
-   * Called when using the Clipboard menu
+   * Called when using the Clipboard menu.
    *
    * @type { ?Callback<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -439,7 +448,7 @@ export interface SearchParams {
    */
   onCopy?: Callback<string>;
   /**
-   * Called when using the Clipboard menu
+   * Called when using the Clipboard menu.
    *
    * @type { ?Callback<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -448,7 +457,7 @@ export interface SearchParams {
    */
   onCut?: Callback<string>;
   /**
-   * Called when using the Clipboard menu
+   * Called when using the Clipboard menu.
    *
    * @type { ?OnPasteCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -511,7 +520,7 @@ export interface SearchParams {
    */
   onWillDelete?: Callback<DeleteValue, boolean>;
   /**
-   * Get text value information when the deletion has been completed
+   * Get text value information when the deletion has been completed.
    *
    * @type { ?Callback<DeleteValue> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -521,7 +530,7 @@ export interface SearchParams {
   onDidDelete?: Callback<DeleteValue>;
 }
 /**
- * Contents, events, and styles of the select area
+ * Contents, events, and styles of the select area.
  *
  * @typedef SelectParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -575,7 +584,7 @@ export interface SelectParams {
    */
   menuItemContentModifier?: ContentModifier<MenuItemConfiguration>;
   /**
-   * Set the divider of select.
+   * Sets the divider of select.
    *
    * @type { ?(Optional<DividerOptions> | null) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -674,7 +683,7 @@ export interface SelectParams {
    */
   optionHeight?: Dimension;
   /**
-   * Set the space for text and icon in select
+   * Set the space for text and icon in select.
    *
    * @type { ?Length }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -683,7 +692,7 @@ export interface SelectParams {
    */
   space?: Length;
   /**
-   * Set the layout direction for text and arrow in select
+   * Set the layout direction for text and arrow in select.
    *
    * @type { ?ArrowPosition }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -701,7 +710,7 @@ export interface SelectParams {
    */
   menuAlign?: MenuAlignParams;
   /**
-   * set the menu's background color
+   * Set the menu's background color.
    *
    * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -710,7 +719,7 @@ export interface SelectParams {
    */
   menuBackgroundColor?: ResourceColor;
   /**
-   * set menu background blur Style
+   * Set menu background blur Style.
    *
    * @type { ?BlurStyle }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -720,7 +729,7 @@ export interface SelectParams {
   menuBackgroundBlurStyle?: BlurStyle;
 }
 /**
- * Function settings in the selection area (right)
+ * Function settings in the selection area (right).
  *
  * @typedef OperationParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -729,7 +738,7 @@ export interface SelectParams {
  */
 export interface OperationParams {
   /**
-   * Function bits attached to the search area (right)
+   * Function bits attached to the search area (right).
    *
    * @type { ?OperationOption }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -738,7 +747,7 @@ export interface OperationParams {
    */
   auxiliaryItem?: OperationOption;
   /**
-   * Function bits independent of search area (right)
+   * Function bits independent of search area (right).
    *
    * @type { ?OperationOption }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
