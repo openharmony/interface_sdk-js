@@ -10354,7 +10354,7 @@ declare interface BorderImageOption {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare class LayoutPolicy {
   /**
@@ -10367,7 +10367,7 @@ declare class LayoutPolicy {
    * @crossplatform
    * @form
    * @atomicservice 
-   * @since 16
+   * @since 15
    */
   static readonly matchParent: LayoutPolicy;
 }
@@ -18616,7 +18616,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   width(widthValue: Length | LayoutPolicy): T;
 
@@ -18668,7 +18668,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   height(heightValue: Length | LayoutPolicy): T;
   
