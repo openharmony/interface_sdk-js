@@ -3515,6 +3515,17 @@ declare interface DividerStyleOptions {
    * @since 12
    */
   endMargin?: LengthMetrics;
+
+  /**
+   * The mode of Divider.
+   *
+   * @type { ?DividerMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  mode?: DividerMode;
 }
 
 /**

@@ -1106,6 +1106,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 16
    */
   selectedOptionTextModifier(modifier: Optional<TextModifier>): SelectAttribute;
+
+  /**
+   * Set the divider style of option
+   *
+   * @param { Optional<DividerStyleOptions> } style
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  dividerStyle(style: Optional<DividerStyleOptions>): SelectAttribute;
 }
 
 /**
