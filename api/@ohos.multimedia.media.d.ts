@@ -3720,7 +3720,7 @@ declare namespace media {
      * should be called before calling the {@link #respondData()} for the first time.
      * @param { number } uuid - label the resource handle.
      * @param { ?Record<string, string> } [header] - header info in the http response.
-     * @param { ?string } [redirectUrl] - redirect URL.
+     * @param { ?string } [redirectUrl] - redirect url from the http response if exist.
      * @syscap  SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 16
