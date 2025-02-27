@@ -2341,7 +2341,6 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @crossplatform
      * @since 16
      */
     ALBUM_LPATH = 'lpath'
