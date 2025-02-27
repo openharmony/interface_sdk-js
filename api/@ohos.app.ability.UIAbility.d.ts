@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -523,6 +523,26 @@ export default class UIAbility extends Ability {
   onForeground(): void;
 
   /**
+   * Called back when the state of an ability will changes to foreground.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 16
+   */
+  onWillForeground(): void;
+
+  /**
+   * Called back when the state of an ability changed to foreground.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 16
+   */
+  onDidForeground(): void;
+
+  /**
    * Called back when the state of an ability changes to background.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -547,6 +567,26 @@ export default class UIAbility extends Ability {
    * @since 11
    */
   onBackground(): void;
+
+  /**
+   * Called back when the state of an ability will changes to background.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 16
+   */
+  onWillBackground(): void;
+
+  /**
+   * Called back when the state of an ability changed to background.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 16
+   */
+  onDidBackground(): void;
 
   /**
    * Called back when an ability prepares to continue.
