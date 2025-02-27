@@ -91,13 +91,12 @@ function tsTransformKitFile(kitPath) {
 function getKitNewSourceFile(sourceFile, kitName) {
   const newStatements = [];
   const needDeleteExportName = new Set();
-  const needDeleteMap = kitFileNeedDeleteMap.get(kitName);
   let copyrightMessage = '';
   // 初始化ts工厂
   const factory = ts.factory;
   sourceFile.statements.forEach((statement, index) => {
     if (ts.isImportDeclaration(statement)) {
-      const newStatement = processKitImportDeclaration(statement, needDeleteMap, needDeleteExportName);
+      const newStatement = processKitImportDeclaration(statement, needDeleteExportName);
       if (newStatement) {
         newStatements.push(newStatement);
       } else if (index === 0) {
@@ -124,7 +123,7 @@ function getKitNewSourceFile(sourceFile, kitName) {
  * @param { Map} needDeleteExportName 需要删除的导出节点
  * @returns { ts.ImportDeclaration | undefined } 返回新的import节点，全部删除为undefined
  */
-function processKitImportDeclaration(statement, needDeleteMap, needDeleteExportName) {
+function processKitImportDeclaration(statement, needDeleteExportName) {
   // 初始化ts工厂
   const factory = ts.factory;
   const importClause = statement.importClause;
@@ -132,11 +131,11 @@ function processKitImportDeclaration(statement, needDeleteMap, needDeleteExportN
     return statement;
   }
   const importPath = statement.moduleSpecifier.text.replace('../', '');
-  if (needDeleteMap === undefined || !needDeleteMap.has(importPath)) {
+  if (kitFileNeedDeleteMap === undefined || !kitFileNeedDeleteMap.has(importPath)) {
     const hasFilePath = hasFileByImportPath(importPath);
     return hasFilePath ? statement : undefined;
   }
-  const currImportInfo = needDeleteMap.get(importPath);
+  const currImportInfo = kitFileNeedDeleteMap.get(importPath);
   let defaultName = '';
   let importNodeNamedBindings = [];
   if (importClause.name) {
@@ -688,13 +687,7 @@ function processSourceFile(node, kitName) {
     processExportNode(statement, node, needDeleteExport, names, deleteSystemApiSet, newStatementsWithoutExport);
   });
   if (needDeleteExport.fileName !== '') {
-    let kitMap = kitFileNeedDeleteMap.get(kitName);
-    if (kitMap === undefined) {
-      kitMap = new Map([[needDeleteExport.fileName, needDeleteExport]]);
-    } else {
-      kitMap.set(needDeleteExport.fileName, needDeleteExport);
-    }
-    kitFileNeedDeleteMap.set(kitName, kitMap);
+    kitFileNeedDeleteMap.set(needDeleteExport.fileName, needDeleteExport);
   }
   return {
     node: ts.factory.updateSourceFile(node, newStatementsWithoutExport, node.isDeclarationFile, node.referencedFiles),
