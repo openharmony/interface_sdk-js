@@ -7690,13 +7690,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 16
      */
-    PRESERVES_ASPECT_RATIO = 0,
+    PRESERVE_ASPECT_RATIO = 0,
     /**
      * Fit the configured width and height
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 16
      */
-    SCALES_TO_FIT = 1,
+    SCALE_TO_FIT = 1,
   }
 
   /**
