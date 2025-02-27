@@ -637,6 +637,17 @@ declare interface RichEditorParagraphStyle {
    * @since 12
    */
   lineBreakStrategy?: LineBreakStrategy;
+
+  /**
+   * Set paragraph spacing.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  paragraphSpacing?: number;
 }
 
 /**

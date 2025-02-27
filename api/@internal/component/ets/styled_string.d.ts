@@ -883,6 +883,18 @@ declare class ParagraphStyle {
      * @since 12
      */
     readonly leadingMargin?: number | LeadingMarginPlaceholder;
+
+    /**
+     * Get the paragraph spacing of the StyledString.
+     *
+     * @type { ?number }
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    readonly paragraphSpacing?: number;
 }
 
 /**
@@ -960,6 +972,17 @@ declare interface ParagraphStyleInterface {
      * @since 12
      */
     leadingMargin?: LengthMetrics | LeadingMarginPlaceholder;
+
+    /**
+     * Set the paragraph spacing of the StyledString.
+     *
+     * @type { ?LengthMetrics }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 16
+     */
+    paragraphSpacing?: LengthMetrics;
 }
 
 /**
