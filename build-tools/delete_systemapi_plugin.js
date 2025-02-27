@@ -391,6 +391,7 @@ function formatImportDeclaration(url, copyrightMessage = '', isCopyrightDeleted 
             referencesMessage +
             result.substring(copyrightMessage.length);
         }
+        result = removeSystemapiDoc(result);
         writeFile(url, result);
       }
       return ts.factory.createSourceFile([], ts.SyntaxKind.EndOfFileToken, ts.NodeFlags.None);
@@ -605,6 +606,16 @@ function getFileAndKitComment(fileFullText) {
   return fileAndKitComment;
 }
 
+/**
+ * 处理最终结果中的systemapi
+ * @param {string} result 
+ */
+function removeSystemapiDoc(result) {
+  result.split;
+  return result.replace(/\/\*\*[\s\S]*?\*\//g, (substring, p1) => {
+    return /@systemapi/g.test(substring) ? '' : substring;
+  });
+}
 
 /**
  * 每个文件处理前回调函数第一个
