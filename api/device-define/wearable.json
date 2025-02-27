@@ -218,6 +218,7 @@
 "SystemCapability.Communication.WiFi.AP.Extension",
 "SystemCapability.Location.Location.Lite",
 "SystemCapability.PowerManager.BatteryManager.Lite",
+"SystemCapability.FileManagement.File.FileIO.Lite",
 "SystemCapability.FileManagement.File.FileIO",
 "SystemCapability.FileManagement.File.Environment",
 "SystemCapability.Startup.SystemInfo.Lite",
