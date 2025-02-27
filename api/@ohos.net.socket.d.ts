@@ -805,6 +805,25 @@ declare namespace socket {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Sends data over a UDPSocket connection.
+     * @permission ohos.permission.INTERNET
+     * @param { UDPSendOptions } options - Optional parameters {@link UDPSendOptions}.
+     * @param { AsyncCallback<void> } callback - the callback of send.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2301206 - Socks5 failed to connect to the proxy server.
+     * @throws { BusinessError } 2301207 - Socks5 username or password is invalid.
+     * @throws { BusinessError } 2301208 - Socks5 failed to connect to the remote server.
+     * @throws { BusinessError } 2301209 - Socks5 failed to negotiate the authentication method.
+     * @throws { BusinessError } 2301210 - Socks5 failed to send the message.
+     * @throws { BusinessError } 2301211 - Socks5 failed to receive the message.
+     * @throws { BusinessError } 2301212 - Socks5 serialization error.
+     * @throws { BusinessError } 2301213 - Socks5 deserialization error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 16
+     */
     send(options: UDPSendOptions, callback: AsyncCallback<void>): void;
 
     /**
@@ -827,6 +846,25 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Sends data over a UDPSocket connection.
+     * @permission ohos.permission.INTERNET
+     * @param { UDPSendOptions } options - Optional parameters {@link UDPSendOptions}.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2301206 - Socks5 failed to connect to the proxy server.
+     * @throws { BusinessError } 2301207 - Socks5 username or password is invalid.
+     * @throws { BusinessError } 2301208 - Socks5 failed to connect to the remote server.
+     * @throws { BusinessError } 2301209 - Socks5 failed to negotiate the authentication method.
+     * @throws { BusinessError } 2301210 - Socks5 failed to send the message.
+     * @throws { BusinessError } 2301211 - Socks5 failed to receive the message.
+     * @throws { BusinessError } 2301212 - Socks5 serialization error.
+     * @throws { BusinessError } 2301213 - Socks5 deserialization error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 16
      */
     send(options: UDPSendOptions): Promise<void>;
 
@@ -2333,6 +2371,25 @@ declare namespace socket {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Sets up a connection to the specified IP address and port number.
+     * @permission ohos.permission.INTERNET
+     * @param { TCPConnectOptions } options - Optional parameters {@link TCPConnectOptions}.
+     * @param { AsyncCallback<void> } callback - the callback of connect.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2301206 - Socks5 failed to connect to the proxy server.
+     * @throws { BusinessError } 2301207 - Socks5 username or password is invalid.
+     * @throws { BusinessError } 2301208 - Socks5 failed to connect to the remote server.
+     * @throws { BusinessError } 2301209 - Socks5 failed to negotiate the authentication method.
+     * @throws { BusinessError } 2301210 - Socks5 failed to send the message.
+     * @throws { BusinessError } 2301211 - Socks5 failed to receive the message.
+     * @throws { BusinessError } 2301212 - Socks5 serialization error.
+     * @throws { BusinessError } 2301213 - Socks5 deserialization error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 16
+     */
     connect(options: TCPConnectOptions, callback: AsyncCallback<void>): void;
 
     /**
@@ -2355,6 +2412,25 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Sets up a connection to the specified IP address and port number.
+     * @permission ohos.permission.INTERNET
+     * @param { TCPConnectOptions } options - Optional parameters {@link TCPConnectOptions}.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2301206 - Socks5 failed to connect to the proxy server.
+     * @throws { BusinessError } 2301207 - Socks5 username or password is invalid.
+     * @throws { BusinessError } 2301208 - Socks5 failed to connect to the remote server.
+     * @throws { BusinessError } 2301209 - Socks5 failed to negotiate the authentication method.
+     * @throws { BusinessError } 2301210 - Socks5 failed to send the message.
+     * @throws { BusinessError } 2301211 - Socks5 failed to receive the message.
+     * @throws { BusinessError } 2301212 - Socks5 serialization error.
+     * @throws { BusinessError } 2301213 - Socks5 deserialization error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 16
      */
     connect(options: TCPConnectOptions): Promise<void>;
 
@@ -3321,6 +3397,38 @@ declare namespace socket {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Sets up a connection to the specified IP address and port number.
+     * Only TCP is supported.
+     * @param { TLSConnectOptions } options - Optional parameters {@link TLSConnectOptions}.
+     * @param { AsyncCallback<void> } callback - the callback of connect.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2303104 - Interrupted system call.
+     * @throws { BusinessError } 2303109 - Bad file number.
+     * @throws { BusinessError } 2303111 - Resource temporarily unavailable. Try again.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @throws { BusinessError } 2303191 - Incorrect socket protocol type.
+     * @throws { BusinessError } 2303198 - Address already in use.
+     * @throws { BusinessError } 2303199 - Cannot assign requested address.
+     * @throws { BusinessError } 2303210 - Connection timed out.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
+     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2301206 - Socks5 failed to connect to the proxy server.
+     * @throws { BusinessError } 2301207 - Socks5 username or password is invalid.
+     * @throws { BusinessError } 2301208 - Socks5 failed to connect to the remote server.
+     * @throws { BusinessError } 2301209 - Socks5 failed to negotiate the authentication method.
+     * @throws { BusinessError } 2301210 - Socks5 failed to send the message.
+     * @throws { BusinessError } 2301211 - Socks5 failed to receive the message.
+     * @throws { BusinessError } 2301212 - Socks5 serialization error.
+     * @throws { BusinessError } 2301213 - Socks5 deserialization error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 16
+     */
     connect(options: TLSConnectOptions, callback: AsyncCallback<void>): void;
 
     /**
@@ -3369,6 +3477,38 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Sets up a connection to the specified IP address and port number.
+     * Only TCP is supported.
+     * @param { TLSConnectOptions } options - Optional parameters {@link TLSConnectOptions}.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2303104 - Interrupted system call.
+     * @throws { BusinessError } 2303109 - Bad file number.
+     * @throws { BusinessError } 2303111 - Resource temporarily unavailable. Try again.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @throws { BusinessError } 2303191 - Incorrect socket protocol type.
+     * @throws { BusinessError } 2303198 - Address already in use.
+     * @throws { BusinessError } 2303199 - Cannot assign requested address.
+     * @throws { BusinessError } 2303210 - Connection timed out.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2303502 - An error occurred when reading data on the TLS socket.
+     * @throws { BusinessError } 2303503 - An error occurred when writing data on the TLS socket.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2301206 - Socks5 failed to connect to the proxy server.
+     * @throws { BusinessError } 2301207 - Socks5 username or password is invalid.
+     * @throws { BusinessError } 2301208 - Socks5 failed to connect to the remote server.
+     * @throws { BusinessError } 2301209 - Socks5 failed to negotiate the authentication method.
+     * @throws { BusinessError } 2301210 - Socks5 failed to send the message.
+     * @throws { BusinessError } 2301211 - Socks5 failed to receive the message.
+     * @throws { BusinessError } 2301212 - Socks5 serialization error.
+     * @throws { BusinessError } 2301213 - Socks5 deserialization error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 16
      */
     connect(options: TLSConnectOptions): Promise<void>;
 
