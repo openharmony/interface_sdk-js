@@ -45,23 +45,24 @@ declare namespace json {
    * Converts a JavaScript Object Notation (JSON) string into an Object or null.
    *
    * @param { string } text - A valid JSON string.
+   * @param { Type } type - A constructor or class representing the expected type of the parsed result.
    * @param { Transformer } [reviver] - A function that transforms the results.
    * @param {ParseOptions} options - The config of parse.
-   * @returns { Object | null } Return an Object, array, string, number, boolean, or null value corresponding to JSON text.
+   * @returns { T | null | undefined } Return an Object, array, string, number, boolean, undefined, or null value corresponding to JSON text.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
    * 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 17
    */
-  function parse(text: string, reviver?: Transformer, options?: ParseOptions): Object | null;
+  function parse<T>(text: string, type: Type, reviver?: Transformer, options?: ParseOptions): T | null | undefined;
 
   /**
    * Converts a JavaScript value to a JavaScript Object Notation (JSON) string.
    *
-   * @param { Object } value - A JavaScript value, usually an Object or array.
+   * @param { NullishType } value - A JavaScript value, usually an NullishType or array.
    * @param { (number | string)[] | Transformer | null } [replacer] - An array of strings and numbers that acts as an approved list
    * for selecting the object properties that will be stringify.
    * @param { string | number } [space] - Adds indentation, white space, and line break characters to the return-value JSON text to make it easier to read.
@@ -73,9 +74,9 @@ declare namespace json {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 17
    */
-  function stringify(value: Object, replacer?: (number | string)[] | Transformer | null, space?: string | number): string;
+  function stringify(value: NullishType, replacer?: (number | string)[] | Transformer | null, space?: string | number): string;
 
   /**
    * Checks whether the object parsed from a JSON string contains the property.
@@ -87,7 +88,7 @@ declare namespace json {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 17
    */
   function has(obj: object, property: string): boolean;
 

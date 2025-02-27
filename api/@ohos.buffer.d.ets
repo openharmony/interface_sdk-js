@@ -235,36 +235,7 @@ declare namespace buffer {
    * This is not the same as [`String.prototype.length`], which does not account
    * for the encoding that is used to convert the string into bytes.
    *
-   * @param { string | Buffer | TypedArray | DataView | ArrayBuffer | SharedArrayBuffer } string - string string A value to calculate the length of
-   * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] If `string` is a string, this is its encoding
-   * @returns { number } The number of bytes contained within `string`
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @since 9
-   */
-  /**
-   * Returns the byte length of a string when encoded using `encoding`.
-   * This is not the same as [`String.prototype.length`], which does not account
-   * for the encoding that is used to convert the string into bytes.
-   *
-   * @param { string | Buffer | TypedArray | DataView | ArrayBuffer | SharedArrayBuffer } string - string string A value to calculate the length of
-   * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] If `string` is a string, this is its encoding
-   * @returns { number } The number of bytes contained within `string`
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Returns the byte length of a string when encoded using `encoding`.
-   * This is not the same as [`String.prototype.length`], which does not account
-   * for the encoding that is used to convert the string into bytes.
-   *
-   * @param { string | Buffer | TypedArray | DataView | ArrayBuffer | SharedArrayBuffer } string - string string A value to calculate the length of
+   * @param { string | Buffer | TypedArray | DataView | ArrayBuffer } doc - string string A value to calculate the length of
    * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] If `string` is a string, this is its encoding
    * @returns { number } The number of bytes contained within `string`
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -273,10 +244,10 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 17
    */
   function byteLength(
-    string: string | Buffer | DataView | ArrayBuffer | SharedArrayBuffer,
+    doc: string | Buffer | TypedArray | DataView | ArrayBuffer,
     encoding?: BufferEncoding
   ): number;
 
@@ -336,32 +307,9 @@ declare namespace buffer {
    * 1.Mandatory parameters are left unspecified;
    * 2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
-   * @since 9
-   */
-  /**
-   * Allocates a new Buffer using an array of bytes in the range 0 – 255. Array entries outside that range will be truncated to fit into it.
-   *
-   * @param { number[] } array - array array an array of bytes in the range 0 – 255
-   * @returns { Buffer } Return a new allocated Buffer
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Allocates a new Buffer using an array of bytes in the range 0 – 255. Array entries outside that range will be truncated to fit into it.
-   *
-   * @param { number[] } array - array array an array of bytes in the range 0 – 255
-   * @returns { Buffer } Return a new allocated Buffer
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 17
    */
   function from(array: number[]): Buffer;
 
@@ -369,40 +317,6 @@ declare namespace buffer {
    * This creates a view of the ArrayBuffer without copying the underlying memory.
    *
    * @param { ArrayBuffer | SharedArrayBuffer } arrayBuffer - arrayBuffer arrayBuffer An ArrayBuffer, 
-   * SharedArrayBuffer, for example the .buffer property of a TypedArray.
-   * @param { number } [byteOffset] - byteOffset [byteOffset = 0] Index of first byte to expose
-   * @param { number } [length] - length [length = arrayBuffer.byteLength - byteOffset] Number of bytes to expose
-   * @returns { Buffer } Return a view of the ArrayBuffer
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @throws { BusinessError } 10200001 - The value of "[byteOffset/length]" is out of range.
-   * It must be >= [left range] and <= [right range]. Received value is: [byteOffset/length]
-   * @syscap SystemCapability.Utils.Lang
-   * @since 9
-   */
-  /**
-   * This creates a view of the ArrayBuffer without copying the underlying memory.
-   *
-   * @param { ArrayBuffer | SharedArrayBuffer } arrayBuffer - arrayBuffer arrayBuffer An ArrayBuffer, 
-   * SharedArrayBuffer, for example the .buffer property of a TypedArray.
-   * @param { number } [byteOffset] - byteOffset [byteOffset = 0] Index of first byte to expose
-   * @param { number } [length] - length [length = arrayBuffer.byteLength - byteOffset] Number of bytes to expose
-   * @returns { Buffer } Return a view of the ArrayBuffer
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @throws { BusinessError } 10200001 - The value of "[byteOffset/length]" is out of range.
-   * It must be >= [left range] and <= [right range]. Received value is: [byteOffset/length]
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * This creates a view of the ArrayBuffer without copying the underlying memory.
-   *
-   * @param { ArrayBuffer | SharedArrayBuffer } arrayBuffer - arrayBuffer arrayBuffer An ArrayBuffer, 
-   * SharedArrayBuffer, for example the .buffer property of a TypedArray.
    * @param { number } [byteOffset] - byteOffset [byteOffset = 0] Index of first byte to expose
    * @param { number } [length] - length [length = arrayBuffer.byteLength - byteOffset] Number of bytes to expose
    * @returns { Buffer } Return a view of the ArrayBuffer
@@ -414,9 +328,9 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 17
    */
-  function from(arrayBuffer: ArrayBuffer | SharedArrayBuffer, byteOffset?: number, length?: number): Buffer;
+  function from(arrayBuffer: ArrayBuffer, byteOffset?: number, length?: number): Buffer;
 
   /**
    * Copies the passed buffer data onto a new Buffer instance.
@@ -427,32 +341,9 @@ declare namespace buffer {
    * 1.Mandatory parameters are left unspecified;
    * 2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
-   * @since 9
-   */
-  /**
-   * Copies the passed buffer data onto a new Buffer instance.
-   *
-   * @param { Buffer | Uint8Array } buffer - buffer buffer An existing Buffer or Uint8Array from which to copy data
-   * @returns { Buffer } Return a new allocated Buffer
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Copies the passed buffer data onto a new Buffer instance.
-   *
-   * @param { Buffer | Uint8Array } buffer - buffer buffer An existing Buffer or Uint8Array from which to copy data
-   * @returns { Buffer } Return a new allocated Buffer
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 17
    */
   function from(buffer: Buffer | Uint8Array): Buffer;
 
@@ -514,36 +405,9 @@ declare namespace buffer {
    * 1.Mandatory parameters are left unspecified;
    * 2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
-   * @since 9
-   */
-  /**
-   * Creates a new Buffer containing string. The encoding parameter identifies the character encoding
-   * to be used when converting string into bytes.
-   *
-   * @param { String } string - string string  A string to encode
-   * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] The encoding of string
-   * @returns { Buffer } Return a new Buffer containing string
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Creates a new Buffer containing string. The encoding parameter identifies the character encoding
-   * to be used when converting string into bytes.
-   *
-   * @param { String } string - string string  A string to encode
-   * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] The encoding of string
-   * @returns { Buffer } Return a new Buffer containing string
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
-   * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 17
    */
   function from(string: String, encoding?: BufferEncoding): Buffer;
 
@@ -2202,30 +2066,7 @@ declare namespace buffer {
     /**
      * Decodes buf to a string according to the specified character encoding in encoding
      *
-     * @param { string } [encoding] - encoding [encoding='utf8'] The character encoding to use
-     * @param { number } [start] - start [start = 0] The byte offset to start decoding at
-     * @param { number } [end] - end [end = buf.length] The byte offset to stop decoding at (not inclusive)
-     * @returns { string }
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 9
-     */
-    /**
-     * Decodes buf to a string according to the specified character encoding in encoding
-     *
-     * @param { string } [encoding] - encoding [encoding='utf8'] The character encoding to use
-     * @param { number } [start] - start [start = 0] The byte offset to start decoding at
-     * @param { number } [end] - end [end = buf.length] The byte offset to stop decoding at (not inclusive)
-     * @returns { string }
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Decodes buf to a string according to the specified character encoding in encoding
-     *
-     * @param { string } [encoding] - encoding [encoding='utf8'] The character encoding to use
+     * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] The character encoding to use
      * @param { number } [start] - start [start = 0] The byte offset to start decoding at
      * @param { number } [end] - end [end = buf.length] The byte offset to stop decoding at (not inclusive)
      * @returns { string }
@@ -2233,9 +2074,9 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 17
      */
-    toString(encoding?: string, start?: number, end?: number): string;
+    toString(encoding?: BufferEncoding, start?: number, end?: number): string;
 
     /**
      * Writes string to buf at offset according to the character encoding in encoding
