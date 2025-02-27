@@ -2870,6 +2870,36 @@ declare interface SelectionMenuOptions {
    * @since 15
    */
   onMenuHide?: MenuCallback;
+
+  /**
+   * Defines the preview menu options.
+   * 
+   * @type { ?PreviewMenuOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  previewMenuOptions?: PreviewMenuOptions;
+}
+
+/**
+ * Defines the preview menu options.
+ * 
+ * @interface PreviewMenuOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 18
+ */
+declare interface PreviewMenuOptions {
+  /**
+   * Defines the haptic feedback mode of preview menu.
+   * 
+   * @type { ?HapticFeedbackMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  hapticFeedbackMode? : HapticFeedbackMode;
 }
 
 /**
