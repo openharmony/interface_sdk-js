@@ -733,6 +733,18 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9
    */
+  /**
+   * Sets whether the pointer icon is visible.
+   *
+   * @param { boolean } visible Whether the pointer icon is visible. The value true indicates that the pointer
+   * icon is visible, and the value false indicates the opposite.
+   * @param { AsyncCallback<void> } callback - Callback for the input device event.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported;
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since 14
+   */
   function setPointerVisible(visible: boolean, callback: AsyncCallback<void>): void;
 
   /**
@@ -745,6 +757,18 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9
+   */
+  /**
+   * Sets whether the pointer icon is visible.
+   *
+   * @param { boolean } visible Whether the pointer icon is visible. The value true indicates that the pointer
+   * icon is visible, and the value false indicates the opposite.
+   * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported;
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since 14
    */
   function setPointerVisible(visible: boolean): Promise<void>;
 
