@@ -912,6 +912,19 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
   menus(value: Array<NavigationMenuItem> | CustomBuilder): NavDestinationAttribute;
 
   /**
+   * NavDestination title bar's menus
+   *
+   * @param { Array<NavigationMenuItem> | CustomBuilder } items
+   * @param { NavigationMenuOptions } [options] - Indicates the options of menu.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  menus(items: Array<NavigationMenuItem> | CustomBuilder, options?: NavigationMenuOptions): NavDestinationAttribute;
+
+  /**
     * Configure toolbar with default style parameter or custom parameter.
     *
     * @param { Array<ToolbarItem> | CustomBuilder } toolbarParam - Toolbar configuration parameters.
