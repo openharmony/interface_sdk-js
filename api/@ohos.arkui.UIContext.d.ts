@@ -3348,6 +3348,28 @@ export class UIContext {
   getKeyboardAvoidMode(): KeyboardAvoidMode;
 
   /**
+   * Set the pixel round mode of the system. The default mode is PixelRoundMode.PIXEL_ROUND_ON_LAYOUT_FINISH.
+   *
+   * @param { PixelRoundMode } mode - The mode of pixel round.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  setPixelRoundMode(mode: PixelRoundMode): void;
+
+  /**
+   * Get the pixel round mode of the system.
+   *
+   * @returns { PixelRoundMode } the mode of pixel round.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  getPixelRoundMode(): PixelRoundMode;
+
+  /**
    * Dispach keyboard event to the frameNode with inspector key.
    *
    * @param { number | string } node - The uniqueId or inspector key of the target FrameNode.
