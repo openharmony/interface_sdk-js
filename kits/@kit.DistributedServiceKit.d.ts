@@ -22,5 +22,10 @@ import cooperate from '@ohos.cooperate';
 import distributedDeviceManager from '@ohos.distributedDeviceManager';
 import deviceManager from '@ohos.distributedHardware.deviceManager';
 import hardwareManager from '@ohos.distributedHardware.hardwareManager';
+import DistributedExtensionAbility from "@ohos.application.DistributedExtensionAbility"
+import DistributedExtensionContext from "@ohos.application.DistributedExtensionContext";
 
-export { cooperate, deviceManager, distributedDeviceManager, hardwareManager };
+export { 
+  cooperate, deviceManager, distributedDeviceManager, hardwareManager,
+  DistributedExtensionAbility, DistributedExtensionContext 
+};
