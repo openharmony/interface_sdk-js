@@ -18291,7 +18291,7 @@ declare interface DragInteractionOptions {
   * @default false
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
-  * @since 16
+  * @since 15
   */
   isLiftingDisabled?: boolean;
 }
@@ -18302,7 +18302,7 @@ declare interface DragInteractionOptions {
  * @interface PreviewConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare interface PreviewConfiguration {
   /**
@@ -18312,7 +18312,7 @@ declare interface PreviewConfiguration {
   * @default false
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
-  * @since 16
+  * @since 15
   */
   onlyForLifting?: boolean;
 
@@ -18323,7 +18323,7 @@ declare interface PreviewConfiguration {
   * @default false
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
-  * @since 16
+  * @since 15
   */
   delayCreating?: boolean;
 }
@@ -23073,7 +23073,7 @@ declare class CommonMethod<T> {
    * @returns { T } property value of type T.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   dragPreview(preview: CustomBuilder | DragItemInfo | string, config?: PreviewConfiguration): T;
 
