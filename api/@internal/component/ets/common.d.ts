@@ -10628,7 +10628,7 @@ declare interface HoverEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   x?: number;
 
@@ -10638,7 +10638,7 @@ declare interface HoverEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   y?: number;
 
@@ -10648,7 +10648,7 @@ declare interface HoverEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   windowX?: number;
 
@@ -10658,7 +10658,7 @@ declare interface HoverEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   windowY?: number;
 
@@ -10668,7 +10668,7 @@ declare interface HoverEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   displayX?: number;
 
@@ -10678,7 +10678,7 @@ declare interface HoverEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   displayY?: number;
 
@@ -20168,7 +20168,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   onHoverMove(event: Callback<HoverEvent>): T;
 
