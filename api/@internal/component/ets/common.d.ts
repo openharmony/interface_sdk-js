@@ -18081,6 +18081,51 @@ declare enum DragPreviewMode {
    * @since 16
    */
   ENABLE_MULTI_TILE_EFFECT = 6,
+  /**
+   * Enable the touch point calculation position based on final preview rect.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  ENABLE_TOUCH_POINT_CALCULATION_BASED_ON_FINAL_PREVIEW = 7,
+}
+
+/**
+ * Define drag start animation effect from drag preview to the handle drag image
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 16
+ */
+declare enum DraggingSizeChangeEffect {
+  /**
+   * Default effect, no transition.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  DEFAULT = 0,
+
+  /**
+   * Only scaled transition, this parameter take effect when PREVIEW_MODE is not DISABLE_SCALE.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  SIZE_TRANSITION = 1,
+
+  /**
+   * Scaled and content transition together, this size transition take effect when PREVIEW_MODE is not DISABLE_SCALE.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 16
+   */
+  SIZE_CONTENT_TRANSITION = 2,
 }
 
 /**
@@ -18233,6 +18278,16 @@ declare interface DragPreviewOptions {
   * @since 16
   */
   numberBadge?: boolean | number;
+
+  /**
+  * Drag start animation effect from drag preview to the handle drag image.
+  *
+  * @type { ?DraggingSizeChangeEffect }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @atomicservice
+  * @since 16
+  */
+  sizeChangeEffect?: DraggingSizeChangeEffect;
 }
 
 /**
