@@ -972,7 +972,7 @@ declare class TextMenuItemId {
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   static readonly TRANSLATE: TextMenuItemId;
 
