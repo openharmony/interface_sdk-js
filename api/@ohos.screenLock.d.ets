@@ -53,7 +53,8 @@ declare namespace screenLock {
    * Checks whether the screen is currently locked.
    *
    * @returns { boolean } returns true if the screen is currently locked, returns false otherwise.
-   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 202 - permission verification failed, application
+   * <br>which is not a system application uses system API.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 9
