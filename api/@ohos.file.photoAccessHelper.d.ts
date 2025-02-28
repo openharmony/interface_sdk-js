@@ -1457,6 +1457,21 @@ declare namespace photoAccessHelper {
      */
     getThumbnail(size?: image.Size): Promise<image.PixelMap>;
     /**
+     * Get thumbnail array Buffer of the asset
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { ThumbnailType } type - The type of thumbnail.
+     * @returns { Promise<ArrayBuffer> } Returns array buffer of the content
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 16
+     */
+    getThumbnailData(type: ThumbnailType): Promise<ArrayBuffer>;
+    /**
      * Set favorite state for the asset
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
@@ -4505,6 +4520,22 @@ declare namespace photoAccessHelper {
      */
     saveFormInfo(info: FormInfo): Promise<void>;
     /**
+     * Saves gallery form information
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { GalleryFormInfo } info - Information store with the gallery form.
+     * @returns { Promise<void> } Return void.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - System inner fail.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 16
+     */
+    saveGalleryFormInfo(info: GalleryFormInfo): Promise<void>;
+    /**
      * Removes form information
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
@@ -4536,6 +4567,38 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     removeFormInfo(info: FormInfo): Promise<void>;
+    /**
+     * Removes gallery form information
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { GalleryFormInfo } info - Information store with the gallery form.
+     * @returns { Promise<void> } Return void.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - System inner fail.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 16
+     */
+    removeGalleryFormInfo(info: GalleryFormInfo): Promise<void>;
+    /**
+     * Updates gallery form information
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { GalleryFormInfo } info - Information store with the gallery form.
+     * @returns { Promise<void> } Return void.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - System inner fail.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 16
+     */
+    updateGalleryFormInfo(info: GalleryFormInfo): Promise<void>;
     /**
      * Apply the change request of asset or album.
      *
@@ -4681,6 +4744,35 @@ declare namespace photoAccessHelper {
      * @since 16
      */
     getSupportedPhotoFormats(photoType: PhotoType): Promise<Array<string>>;
+  }
+
+  /**
+   * Gallery Form information.
+   *
+   * @interface GalleryFormInfo
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 16
+   */
+  interface GalleryFormInfo {
+    /**
+     * Id of the form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 16
+     */
+    formId: string;
+    /**
+     * uriList of the photo or album.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 16
+     */
+    assertUris?: Array<string>;
   }
 
   /**
