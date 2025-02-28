@@ -107,7 +107,8 @@ declare namespace screenLock {
    * @param { AsyncCallback<boolean> } callback - the callback of unlock.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 202 - permission verification failed, application
+   * <br>which is not a system application uses system API.
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
@@ -119,7 +120,8 @@ declare namespace screenLock {
    * @param { AsyncCallback<boolean> } callback - the callback of unlock.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 202 - permission verification failed, application
+   * <br>which is not a system application uses system API.
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @throws { BusinessError } 13200003 - Invalid use.
    * @syscap SystemCapability.MiscServices.ScreenLock
@@ -132,7 +134,8 @@ declare namespace screenLock {
    * Unlock the screen.
    *
    * @returns { Promise<boolean> } the promise returned by the function.
-   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 202 - permission verification failed, application
+   * <br>which is not a system application uses system API.
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
@@ -142,7 +145,8 @@ declare namespace screenLock {
    * Unlock the screen.
    *
    * @returns { Promise<boolean> } the promise returned by the function.
-   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 202 - permission verification failed, application
+   * <br>which is not a system application uses system API.
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @throws { BusinessError } 13200003 - Invalid use.
    * @syscap SystemCapability.MiscServices.ScreenLock
@@ -159,7 +163,8 @@ declare namespace screenLock {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 201 - permission denied.
-   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 202 - permission verification failed, application
+   * <br>which is not a system application uses system API.
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
@@ -173,7 +178,8 @@ declare namespace screenLock {
    * @permission ohos.permission.ACCESS_SCREEN_LOCK_INNER
    * @returns { Promise<boolean> } the promise returned by the function.
    * @throws { BusinessError } 201 - permission denied.
-   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 202 - permission verification failed, application
+   * <br>which is not a system application uses system API.
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
@@ -334,7 +340,8 @@ declare namespace screenLock {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 201 - permission denied.
-   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 202 - permission verification failed, application
+   * <br>which is not a system application uses system API.
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
@@ -352,7 +359,8 @@ declare namespace screenLock {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 201 - permission denied.
-   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 202 - permission verification failed, application
+   * <br>which is not a system application uses system API.
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
@@ -370,7 +378,8 @@ declare namespace screenLock {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 201 - permission denied.
-   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 202 - permission verification failed, application
+   * <br>which is not a system application uses system API.
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
@@ -388,7 +397,8 @@ declare namespace screenLock {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 201 - permission denied.
-   * @throws { BusinessError } 202 - permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 202 - permission verification failed, application
+   * <br>which is not a system application uses system API.
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
@@ -423,7 +433,8 @@ declare namespace screenLock {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 201 - permission denied.
-   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 202 - permission verification failed, application
+   * <br>which is not a system application uses system API.
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
@@ -440,7 +451,8 @@ declare namespace screenLock {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 201 - permission denied.
-   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 202 - permission verification failed, application
+   * <br>which is not a system application uses system API.
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
@@ -459,7 +471,8 @@ declare namespace screenLock {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 201 - permission denied.
-   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 202 - permission verification failed, application
+   * <br>which is not a system application uses system API.
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
@@ -476,7 +489,8 @@ declare namespace screenLock {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 201 - permission denied.
-   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 202 - permission verification failed, application
+   * <br>which is not a system application uses system API.
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
@@ -491,7 +505,8 @@ declare namespace screenLock {
    * @returns { boolean } Whether the device is currently locked.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 202 - permission verification failed, application
+   * <br>which is not a system application uses system API.
    * @throws { BusinessError } 13200002 - The screenlock management service is abnormal.
    * @throws { BusinessError } 13200004 - The userId is not same as the caller, and is not allowed for the caller.
    * @syscap SystemCapability.MiscServices.ScreenLock
