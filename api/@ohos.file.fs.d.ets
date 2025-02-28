@@ -19,7 +19,8 @@
  */
 
 import type { AsyncCallback } from './@ohos.base';
-import { stream } from './@ohos.util.stream';
+import stream from './@ohos.util.stream';
+export default fileIo;
 
 /**
  * FileIO
@@ -54,7 +55,7 @@ import { stream } from './@ohos.util.stream';
  * @atomicservice
  * @since 12
  */
-export declare namespace fileIo {
+declare namespace fileIo {
   export { access };
   export { accessSync };
   export { close };
@@ -134,7 +135,6 @@ export declare namespace fileIo {
   export type { Progress };
   export type { CopyOptions };
   export type { ProgressListener };
-  export type { DfsListeners };
 
   /**
    * Mode Indicates the open flags.

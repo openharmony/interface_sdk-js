@@ -19,6 +19,7 @@
  */
 
 import type { AsyncCallback, Callback } from './@ohos.base';
+export default cloudSync;
 
 /**
  * Provides the capabilities to control cloud file synchronization.
@@ -27,7 +28,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
  * @since 11
  */
-export default declare namespace cloudSync {
+declare namespace cloudSync {
   /**
    * Describes the Sync state type.
    *
@@ -1043,3 +1044,4 @@ export default declare namespace cloudSync {
     uris: Array<string>;
   }
 }
+
