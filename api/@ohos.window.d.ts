@@ -7941,7 +7941,7 @@ declare namespace window {
     minimize(): Promise<void>;
 
     /**
-     * Maximize app main and sub window.
+     * Maximize app main or sub window.
      * @param { MaximizePresentation } presentation - set window presentation when maximize.
      * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
