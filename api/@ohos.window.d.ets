@@ -18,12 +18,12 @@
  * @kit ArkUI
  */
 
-//import { AsyncCallback, BusinessError, Callback } from './@ohos.base';
-//import BaseContext from './application/BaseContext';
-//import image from './@ohos.multimedia.image';
-//import rpc from './@ohos.rpc';
-//import dialogRequest from './@ohos.app.ability.dialogRequest';
-//import { UIContext } from './@ohos.arkui.UIContext';
+import { AsyncCallback, BusinessError, Callback } from './@ohos.base';
+import BaseContext from './application/BaseContext';
+import image from './@ohos.multimedia.image';
+import rpc from './@ohos.rpc';
+import dialogRequest from './@ohos.app.ability.dialogRequest';
+import { UIContext } from './@ohos.arkui.UIContext';
 import { LocalStorage } from './@ohos.arkui.component.CommonTsEtsApi';
 
 /**
