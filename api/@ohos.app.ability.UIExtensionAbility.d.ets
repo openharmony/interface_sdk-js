@@ -30,7 +30,7 @@ import type Want from './@ohos.app.ability.Want';
  * @extends ExtensionAbility
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
- * @since 10
+ * @since 17
  */
 declare class UIExtensionAbility extends ExtensionAbility {
   /**
@@ -39,7 +39,7 @@ declare class UIExtensionAbility extends ExtensionAbility {
    * @type { UIExtensionContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
-   * @since 10
+   * @since 17
    */
   context: UIExtensionContext;
 
@@ -48,7 +48,7 @@ declare class UIExtensionAbility extends ExtensionAbility {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @since 10
+   * @since 17
    */
    /**
    * Called back when an UI extension is started for initialization.
@@ -67,7 +67,7 @@ declare class UIExtensionAbility extends ExtensionAbility {
    * @param { UIExtensionContentSession } session - Indicates the session of the UI extension page.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @since 10
+   * @since 17
    */
   onSessionCreate(want: Want, session: UIExtensionContentSession): void;
 
@@ -77,7 +77,7 @@ declare class UIExtensionAbility extends ExtensionAbility {
    * @param { UIExtensionContentSession } session - Indicates the session of the UI extension page.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @since 10
+   * @since 17
    */
   onSessionDestroy(session: UIExtensionContentSession): void;
 
@@ -86,7 +86,7 @@ declare class UIExtensionAbility extends ExtensionAbility {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
-   * @since 10
+   * @since 17
    */
   onForeground(): void;
 
@@ -95,7 +95,7 @@ declare class UIExtensionAbility extends ExtensionAbility {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
-   * @since 10
+   * @since 17
    */
   onBackground(): void;
 
@@ -105,7 +105,7 @@ declare class UIExtensionAbility extends ExtensionAbility {
    * @returns { void | Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @since 10
+   * @since 17
    */
   onDestroy(): Promise<void> | undefined;
 }
