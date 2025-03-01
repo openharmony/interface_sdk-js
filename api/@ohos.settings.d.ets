@@ -1095,7 +1095,8 @@ declare namespace settings {
    * @deprecated since 9
    * @useinstead ohos.settings#setValue
    */
-  function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: object, callback: AsyncCallback<boolean>): void;
+  function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: object,
+    callback: AsyncCallback<boolean>): void;
 
   /**
    * Saves a character string name and its value to the database.
