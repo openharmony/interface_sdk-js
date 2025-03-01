@@ -4186,6 +4186,15 @@ declare namespace avSession {
     lyric?: string;
 
     /**
+     * The single lyric text of the media, not including time prefix
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 16
+     */
+    singleLyricText?: string;
+
+    /**
      * The previous playable media id.
      * Used to tell the controller if there is a previous playable media
      * @type { ?string }
