@@ -7676,6 +7676,18 @@ declare namespace avSession {
      */
     ERR_CODE_CAST_CONTROL_DRM_PROVIDE_KEY_RESPONSE_ERROR = 6616100,
   }
+
+  export {
+    ProtocolType, DeviceLogEventCode, CastDisplayState, ConnectionState, DisplayTag, CallState, AVCastCategory,
+    DeviceType, LoopMode, SkipIntervals, PlaybackState, AVSessionErrorCode, SessionToken, AVSession,
+    AVCastControlCommand, AVCastController, CastDisplayInfo, AVQueueInfo, AVMetadata, AVMediaDescription,
+    AVQueueItem, AVPlaybackState, PlaybackPosition, CallMetadata, AVCallState, DeviceInfo, OutputDeviceInfo,
+    AVSessionDescriptor, AVSessionController, AVControlCommand, AVSessionType, AVCastControlCommandType,
+    KeyRequestCallback, AVControlCommandType, createAVSession, getAllSessionDescriptors,
+    getHistoricalSessionDescriptors, getHistoricalAVQueueInfos, createController, castAudio, startAVPlayback,
+    on, off, sendSystemAVKeyEvent, sendSystemControlCommand, startCastDeviceDiscovery, stopCastDeviceDiscovery,
+    setDiscoverable, getAVCastController, startCasting, stopCasting, startDeviceLogging, stopDeviceLogging
+  }
 }
 
 export default avSession;
