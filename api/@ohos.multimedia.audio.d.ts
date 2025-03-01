@@ -1878,7 +1878,7 @@ declare namespace audio {
     /**
      * Audio volume mode config. If volumeMode is set to {@link AudioVolumeMode.APP_INDIVIDUAL}, this audio renderer
      * will be affeted by app volume percentage setted by {@link setAppVolumePercentage}
-     * @type { AudioVolumeMode }
+     * @type { ?AudioVolumeMode }
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 16
      */
@@ -4549,7 +4549,7 @@ declare namespace audio {
      * @systemapi
      * @since 16
      */
-    getAppVolumePercentage(uid: number): Promise<number>;
+    getAppVolumePercentageForUid(uid: number): Promise<number>;
 
     /**
      * Sets the volume for specified app with range from 0 to 100. Applications with same UID share the same volume.
@@ -4567,7 +4567,7 @@ declare namespace audio {
      * @systemapi
      * @since 16
      */
-    setAppVolumePercentage(uid: number, volume: number): Promise<void>;
+    setAppVolumePercentageForUid(uid: number, volume: number): Promise<void>;
 
     /**
      * Checks whether the app volume is muted. If there are multiple callers setting muted states,
@@ -4587,7 +4587,7 @@ declare namespace audio {
      * @systemapi
      * @since 16
      */
-    isAppVolumeMuted(uid: number, owned: boolean): Promise<boolean>;
+    isAppVolumeMutedForUid(uid: number, owned: boolean): Promise<boolean>;
 
     /**
      * Change mute state of specified application volume. If there are multiple callers setting muted states,
@@ -4606,10 +4606,10 @@ declare namespace audio {
      * @systemapi
      * @since 16
      */
-    setAppVolumeMuted(uid: number, muted: boolean): Promise<void>;
+    setAppVolumeMutedForUid(uid: number, muted: boolean): Promise<void>;
 
     /**
-     * Get the volume for your app with range from 0 to 100. Applications with the same UID share the same volume.
+     * Get the volume for your app with range from 0 to 100. Applications with the same uid share the same volume.
      * @returns { Promise<number> } The application's volume percentage. The value range is from 0 to 100.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 16
@@ -4617,7 +4617,7 @@ declare namespace audio {
     getAppVolumePercentage(): Promise<number>;
 
     /**
-     * Sets the volume for your app with range from 0 to 100. Applications with the same UID share the same volume.
+     * Sets the volume for your app with range from 0 to 100. Applications with the same uid share the same volume.
      * Only AudioRenderers with {@link AudioRendererInfo.volumeMode} set to {@link AudioVolumeMode.APP_INDIVIDUAL}
      * will be affected by this volume.
      * When you change your app's volume, your will receive 'appVolumeChange' callback event.
@@ -4673,11 +4673,11 @@ declare namespace audio {
     off(type: 'volumeChange', callback?: Callback<VolumeEvent>): void;
 
     /**
-     * Listens for specified app volume change events. The app volume may changed by {@link setAppVolumePercentage}.
+     * Listens for specified app volume change events. The app volume may changed by {@link setAppVolumePercentageForUid}.
      * @permission ohos.permission.MANAGE_AUDIO_CONFIG
-     * @param { 'appVolumeChangeForUID' } type - Type of the event to listen for. Only the appVolumeChangeForUID event
+     * @param { 'appVolumeChangeForUid' } type - Type of the event to listen for. Only the appVolumeChangeForUid event
      * is supported.
-     * @param { number } uid - The app's UID.
+     * @param { number } uid - The app's uid.
      * @param { Callback<VolumeEvent> } callback - Callback used to get the app volume change event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
@@ -4689,12 +4689,12 @@ declare namespace audio {
      * @systemapi
      * @since 16
      */
-    on(type: 'appVolumeChangeForUID', uid: number, callback: Callback<VolumeEvent>): void;
+    on(type: 'appVolumeChangeForUid', uid: number, callback: Callback<VolumeEvent>): void;
 
     /**
      * Unsubscribes to the app volume change events..
      * @permission ohos.permission.MANAGE_AUDIO_CONFIG
-     * @param { 'appVolumeChangeForUID' } type - Type of the event to be unregistered. Only the appVolumeChangeForUID
+     * @param { 'appVolumeChangeForUid' } type - Type of the event to be unregistered. Only the appVolumeChangeForUid
      * event is supported.
      * @param { Callback<VolumeEvent> } callback - Callback used to obtain the invoking volume change event.
      * @throws { BusinessError } 201 - Permission denied.
@@ -4707,7 +4707,7 @@ declare namespace audio {
      * @systemapi
      * @since 16
      */
-    off(type: 'appVolumeChangeForUID', callback?: Callback<VolumeEvent>): void;
+    off(type: 'appVolumeChangeForUid', callback?: Callback<VolumeEvent>): void;
 
     /**
      * Listens for app volume change events. The app volume may changed by your called {@link setAppVolumePercentage} 
