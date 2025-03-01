@@ -239,7 +239,7 @@ declare namespace systemManager {
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 12
+     * @since 16
      */
     authInfo?: string;
   }
