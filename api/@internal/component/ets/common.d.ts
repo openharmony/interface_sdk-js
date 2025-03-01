@@ -10066,6 +10066,18 @@ declare interface BaseEvent {
   tiltY: number;
 
   /**
+   * Indicates the angle at which the stylus rotates around the Z-axis.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 16
+   */
+  rollAngle?: number;
+
+  /**
    * The event tool type info.
    *
    * @type { SourceTool }
