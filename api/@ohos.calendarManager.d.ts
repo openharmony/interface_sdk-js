@@ -442,6 +442,19 @@ declare namespace calendarManager {
      * @since 10
      */
     getAccount(): CalendarAccount;
+
+    /**
+     * Query event instances based on the conditions.
+     * @param { number } start - start time of query range
+     * @param { number } end - end time of query range
+     * @param { number[] } ids - Indicates the IDs of multiple events
+     * @param { (keyof Event)[] } eventKey - Expected column to be returned
+     * @returns { Promise<Event[]> } Information about events that match the condition
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 16
+     */
+    queryEventInstances(start: number, end: number, ids?: number[], eventKey?: (keyof Event)[]): Promise<Event[]>;
   }
 
   /**
@@ -755,7 +768,25 @@ declare namespace calendarManager {
      * @atomicservice
      * @since 12
      */
-    isLunar?: boolean;  
+    isLunar?: boolean;
+
+    /**
+     * Start time of the event instance.
+     * @type { ?number }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 16
+     */
+    instanceStartTime?: number;
+
+    /**
+     * End time of the event instance.
+     * @type { ?number }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 16
+     */
+    instanceEndTime?: number;
   }
 
   /**
