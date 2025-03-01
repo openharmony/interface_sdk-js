@@ -4535,7 +4535,7 @@ declare namespace audio {
     getVolumeGroupManagerSync(groupId: number): AudioVolumeGroupManager;
 
     /**
-     * Get the volume for specified app with range from 0 to 100. Applications with same UID share the same volume.
+     * Get the volume for specified app with range from 0 to 100. Applications with same uid share the same volume.
      * @permission ohos.permission.MANAGE_AUDIO_CONFIG
      * @param { number } uid - App's uid.
      * @returns { Promise<number> } Promise used to return the result.
@@ -4552,7 +4552,7 @@ declare namespace audio {
     getAppVolumePercentageForUid(uid: number): Promise<number>;
 
     /**
-     * Sets the volume for specified app with range from 0 to 100. Applications with same UID share the same volume.
+     * Sets the volume for specified app with range from 0 to 100. Applications with same uid share the same volume.
      * @permission ohos.permission.MANAGE_AUDIO_CONFIG
      * @param { number } uid - App's uid.
      * @param { number } volume - Volume to set. The value range is from 0 to 100.
@@ -4574,7 +4574,7 @@ declare namespace audio {
      * only when all callers cancel muted state the volume of this app will be truly unmuted.
      * @permission ohos.permission.MANAGE_AUDIO_CONFIG
      * @param { number } uid - App's uid.
-     * @param { boolean } owned - If true is passed, the result will be indicated your owned muted statesettings to
+     * @param { boolean } owned - If true is passed, the result will be indicated your owned muted state settings to
      * this app. Otherwise if false is passed, the result will be indicated the real muted state.
      * @returns { Promise<boolean> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
