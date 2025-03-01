@@ -64,7 +64,7 @@ declare namespace window {
    * @atomicservice
    * @since 12
    */
-  enum WindowType {
+  export enum WindowType {
     /**
      * App.
      *
@@ -304,7 +304,7 @@ declare namespace window {
    * @atomicservice
    * @since 12
    */
-  enum AvoidAreaType {
+  export enum AvoidAreaType {
     /**
      * Default area of the system
      *
@@ -422,7 +422,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 7
    */
-  enum WindowMode {
+  export enum WindowMode {
     /**
      * Undefined mode of the window
      *
@@ -473,7 +473,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  enum WindowLayoutMode {
+  export enum WindowLayoutMode {
     /**
      * CASCADE
      *
@@ -507,7 +507,7 @@ declare namespace window {
    * @atomicservice
    * @since 12
    */
-  enum WindowStatusType {
+  export enum WindowStatusType {
     /**
      * Undefined status of the window
      *
@@ -609,7 +609,7 @@ declare namespace window {
    * @atomicservice
    * @since 12
    */
-  interface SystemBarProperties {
+  export interface SystemBarProperties {
     /**
      * The color of the status bar.
      *
@@ -735,7 +735,7 @@ declare namespace window {
    * @atomicservice
    * @since 12
    */
-  interface SystemBarStyle {
+  export interface SystemBarStyle {
     /**
      * The content color of the status bar
      *
@@ -755,7 +755,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 8
    */
-  interface SystemBarRegionTint {
+  export interface SystemBarRegionTint {
     /**
      * System bar type
      *
@@ -815,7 +815,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 8
    */
-  interface SystemBarTintState {
+  export interface SystemBarTintState {
     /**
      * Id of display
      *
@@ -860,7 +860,7 @@ declare namespace window {
    * @atomicservice
    * @since 11
    */
-  interface Rect {
+  export interface Rect {
 
     /**
      * The left of the Rect.
@@ -983,7 +983,7 @@ declare namespace window {
    * @atomicservice
    * @since 12
    */
-  interface AvoidArea {
+  export interface AvoidArea {
     /**
      * Whether avoidArea is visible on screen
      *
@@ -1130,7 +1130,7 @@ declare namespace window {
    * @atomicservice
    * @since 11
    */
-  interface Size {
+  export interface Size {
     /**
      * The width of the window.
      *
@@ -1191,7 +1191,7 @@ declare namespace window {
    * @systemapi
    * @since 12
    */
-  interface WindowInfo {
+  export interface WindowInfo {
     /**
      * The position and size of the window
      *
@@ -1267,7 +1267,7 @@ declare namespace window {
    * @atomicservice
    * @since 11
    */
-  interface WindowProperties {
+  export interface WindowProperties {
     /**
      * The position and size of the window
      *
@@ -1552,7 +1552,7 @@ declare namespace window {
    * @atomicservice
    * @since 12
    */
-  enum ColorSpace {
+  export enum ColorSpace {
     /**
      * Default color space.
      *
@@ -1606,7 +1606,7 @@ declare namespace window {
    * @systemapi
    * @since 9
    */
-  interface ScaleOptions {
+  export interface ScaleOptions {
     /**
      * The scale param of x direction. Default is 1.f
      *
@@ -1656,7 +1656,7 @@ declare namespace window {
    * @systemapi
    * @since 9
    */
-  interface RotateOptions {
+  export interface RotateOptions {
     /**
      * The rotate degree of x direction. Default value is 0.f
      *
@@ -1716,7 +1716,7 @@ declare namespace window {
    * @systemapi
    * @since 9
    */
-  interface TranslateOptions {
+  export interface TranslateOptions {
     /**
      * The translate pixel param of x direction. Default is 0.f
      *
@@ -1756,7 +1756,7 @@ declare namespace window {
    * @systemapi
    * @since 9
    */
-  interface TransitionContext {
+  export interface TransitionContext {
     /**
      * The target window with animation
      *
@@ -1801,7 +1801,7 @@ declare namespace window {
    * @systemapi
    * @since 9
    */
-  interface TransitionController {
+  export interface TransitionController {
     /**
      * Animation configuration when showing window
      *
@@ -1863,7 +1863,7 @@ declare namespace window {
    * @atomicservice
    * @since 12
    */
-  interface Configuration {
+  export interface Configuration {
     /**
      * Indicates window id.
      *
@@ -1984,7 +1984,7 @@ declare namespace window {
    * @atomicservice
    * @since 12
    */
-  interface WindowLimits {
+  export interface WindowLimits {
 
     /**
      * The maximum width of the window.
@@ -2070,7 +2070,7 @@ declare namespace window {
    * @atomicservice
    * @since 12
    */
-  interface TitleButtonRect {
+  export interface TitleButtonRect {
 
     /**
      * The right of the Rect.
@@ -2149,7 +2149,7 @@ declare namespace window {
    * @atomicservice
    * @since 12
    */
-  interface RectChangeOptions {
+  export interface RectChangeOptions {
     /**
      * Rect
      *
@@ -2179,7 +2179,7 @@ declare namespace window {
    * @atomicservice
    * @since 12
    */
-  interface AvoidAreaOptions {
+  export interface AvoidAreaOptions {
     /**
      * Avoid area type
      *
@@ -2209,7 +2209,7 @@ declare namespace window {
    * @atomicservice
    * @since 12
    */
-  enum RectChangeReason {
+  export enum RectChangeReason {
     /**
      * Default RectChangeReason.
      *
@@ -2313,7 +2313,7 @@ declare namespace window {
    * @atomicservice
    * @since 12
    */
-  function createWindow(config: Configuration, callback: AsyncCallback<Window>): void;
+  export function createWindow(config: Configuration, callback: AsyncCallback<Window>): void;
 
   /**
    * Create a window with a specific configuration
@@ -2354,7 +2354,7 @@ declare namespace window {
    * @atomicservice
    * @since 12
    */
-  function createWindow(config: Configuration): Promise<Window>;
+  export function createWindow(config: Configuration): Promise<Window>;
 
   /**
    * Create a sub window with a specific id and type, only support 7.
@@ -2368,7 +2368,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#createWindow
    */
-  function create(id: string, type: WindowType, callback: AsyncCallback<Window>): void;
+  export function create(id: string, type: WindowType, callback: AsyncCallback<Window>): void;
 
   /**
    * Create a sub window with a specific id and type, only support 7.
@@ -2382,7 +2382,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#createWindow
    */
-  function create(id: string, type: WindowType): Promise<Window>;
+  export function create(id: string, type: WindowType): Promise<Window>;
 
   /**
    * Create a system or float window with a specific id and type.
@@ -2396,7 +2396,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#createWindow
    */
-  function create(ctx: BaseContext, id: string, type: WindowType): Promise<Window>;
+  export function create(ctx: BaseContext, id: string, type: WindowType): Promise<Window>;
 
   /**
    * Create a system or float window with a specific id and type.
@@ -2410,7 +2410,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#createWindow
    */
-  function create(ctx: BaseContext, id: string, type: WindowType, callback: AsyncCallback<Window>): void;
+  export function create(ctx: BaseContext, id: string, type: WindowType, callback: AsyncCallback<Window>): void;
 
   /**
    * Find the window by id.
@@ -2422,7 +2422,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#findWindow
    */
-  function find(id: string, callback: AsyncCallback<Window>): void;
+  export function find(id: string, callback: AsyncCallback<Window>): void;
 
   /**
    * Find the window by id.
@@ -2434,7 +2434,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#findWindow
    */
-  function find(id: string): Promise<Window>;
+  export function find(id: string): Promise<Window>;
 
   /**
    * Find the window by name.
@@ -2472,7 +2472,7 @@ declare namespace window {
    * @atomicservice
    * @since 11
    */
-  function findWindow(name: string): Window;
+  export function findWindow(name: string): Window;
 
   /**
    * Get the final show window.
@@ -2484,7 +2484,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#getLastWindow
    */
-  function getTopWindow(ctx: BaseContext|AsyncCallback<Window>): undefined|Promise<Window>;
+  export function getTopWindow(ctx: BaseContext|AsyncCallback<Window>): undefined|Promise<Window>;
 
   /**
    * Get the final show window.
@@ -2496,7 +2496,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#getLastWindow
    */
-  function getTopWindow(): Promise<Window>;
+  export function getTopWindow(): Promise<Window>;
 
   /**
    * Get the final show window.
@@ -2508,7 +2508,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#getLastWindow
    */
-  function getTopWindow(ctx: BaseContext, callback: AsyncCallback<Window>): void;
+  export function getTopWindow(ctx: BaseContext, callback: AsyncCallback<Window>): void;
 
   /**
    * Get the final show window.
@@ -2549,7 +2549,7 @@ declare namespace window {
    * @atomicservice
    * @since 12
    */
-  function getLastWindow(ctx: BaseContext, callback: AsyncCallback<Window>): void;
+  export function getLastWindow(ctx: BaseContext, callback: AsyncCallback<Window>): void;
 
   /**
    * Get the final show window.
@@ -2590,7 +2590,7 @@ declare namespace window {
    * @atomicservice
    * @since 12
    */
-  function getLastWindow(ctx: BaseContext): Promise<Window>;
+  export function getLastWindow(ctx: BaseContext): Promise<Window>;
 
   /**
    * Minimize all app windows.
@@ -2621,7 +2621,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function minimizeAll(id: number, callback: AsyncCallback<void>): void;
+  export function minimizeAll(id: number, callback: AsyncCallback<void>): void;
 
   /**
    * Minimize all app windows.
@@ -2652,7 +2652,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function minimizeAll(id: number): Promise<void>;
+  export function minimizeAll(id: number): Promise<void>;
 
   /**
    * Toggle shown state for all app windows. Minimize or restore all app windows.
@@ -2675,7 +2675,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function toggleShownStateForAllAppWindows(callback: AsyncCallback<void>): void;
+  export function toggleShownStateForAllAppWindows(callback: AsyncCallback<void>): void;
 
   /**
    * Toggle shown state for all app windows. Minimize or restore all app windows.
@@ -2698,7 +2698,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function toggleShownStateForAllAppWindows(): Promise<void>;
+  export function toggleShownStateForAllAppWindows(): Promise<void>;
 
   /**
    * Set the layout mode of a window.
@@ -2727,7 +2727,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function setWindowLayoutMode(mode: WindowLayoutMode, callback: AsyncCallback<void>): void;
+  export function setWindowLayoutMode(mode: WindowLayoutMode, callback: AsyncCallback<void>): void;
 
   /**
    * Set the layout mode of a window.
@@ -2756,7 +2756,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function setWindowLayoutMode(mode: WindowLayoutMode): Promise<void>;
+  export function setWindowLayoutMode(mode: WindowLayoutMode): Promise<void>;
 
   /**
    * Sets whether to enable gesture navigation.
@@ -2772,7 +2772,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setGestureNavigationEnabled(enable: boolean, callback: AsyncCallback<void>): void;
+  export function setGestureNavigationEnabled(enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
    * Sets whether to enable gesture navigation.
@@ -2788,7 +2788,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setGestureNavigationEnabled(enable: boolean): Promise<void>;
+  export function setGestureNavigationEnabled(enable: boolean): Promise<void>;
 
   /**
    * Set watermark image.
@@ -2804,7 +2804,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setWaterMarkImage(pixelMap: image.PixelMap, enable: boolean): Promise<void>;
+  export function setWaterMarkImage(pixelMap: image.PixelMap, enable: boolean): Promise<void>;
 
   /**
    * Set watermark image.
@@ -2820,7 +2820,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setWaterMarkImage(pixelMap: image.PixelMap, enable: boolean, callback: AsyncCallback<void>): void;
+  export function setWaterMarkImage(pixelMap: image.PixelMap, enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
    * Shift window focus within the same application. And the window type contains only main window and subwindow.
@@ -2855,7 +2855,7 @@ declare namespace window {
    * @atomicservice
    * @since 12
    */
-  function shiftAppWindowFocus(sourceWindowId: number, targetWindowId: number): Promise<void>;
+  export function shiftAppWindowFocus(sourceWindowId: number, targetWindowId: number): Promise<void>;
 
   /**
    * Get info of visible windows.
@@ -2869,7 +2869,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function getVisibleWindowInfo(): Promise<Array<WindowInfo>>;
+  export function getVisibleWindowInfo(): Promise<Array<WindowInfo>>;
 
   /**
    * gets snapshot of window
@@ -2886,7 +2886,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function getSnapshot(windowId: number): Promise<image.PixelMap>;
+  export function getSnapshot(windowId: number): Promise<image.PixelMap>;
 
   /**
    * Get windows by coordinate.
@@ -2904,7 +2904,7 @@ declare namespace window {
    * @atomicservice
    * @since 14
    */
-  function getWindowsByCoordinate(displayId: number, windowNumber?: number, x?: number, y?: number):
+  export function getWindowsByCoordinate(displayId: number, windowNumber?: number, x?: number, y?: number):
       Promise<Array<Window>>;
 
   /**
@@ -2951,7 +2951,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function on(type: 'waterMarkFlagChange'|'systemBarTintChange'|'gestureNavigationEnabledChange',
+  export function on(type: 'waterMarkFlagChange'|'systemBarTintChange'|'gestureNavigationEnabledChange',
       callback: Callback<boolean>|Callback<SystemBarTintState>): void;
 
   /**
@@ -2996,7 +2996,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function off(type: 'systemBarTintChange'|'gestureNavigationEnabledChange'|'waterMarkFlagChange',
+  export function off(type: 'systemBarTintChange'|'gestureNavigationEnabledChange'|'waterMarkFlagChange',
       callback?: Callback<SystemBarTintState>|Callback<boolean>): void;
 
   /**
@@ -3023,7 +3023,7 @@ declare namespace window {
    * @atomicservice
    * @since 11
    */
-  enum Orientation {
+  export enum Orientation {
     /**
      * Default value. The direction mode is not clearly defined. It is determined by the system.
      *
@@ -3311,7 +3311,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  enum BlurStyle {
+  export enum BlurStyle {
     /**
      * Close blur.
      *
@@ -3362,7 +3362,7 @@ declare namespace window {
    * @atomicservice
    * @since 11
    */
-  enum WindowEventType {
+  export enum WindowEventType {
     /**
      * The value of window event is window show
      *
@@ -3441,7 +3441,7 @@ declare namespace window {
    * @atomicservice
    * @since 12
    */
-  enum MaximizePresentation {
+  export enum MaximizePresentation {
     /**
      * The value means follow immersive state which set by app
      *
@@ -3511,7 +3511,7 @@ declare namespace window {
    * @atomicservice
    * @since 11
    */
-  interface Window {
+  export interface Window {
     /**
      * Hide window.
      *
@@ -8228,7 +8228,7 @@ declare namespace window {
    * @atomicservice
    * @since 11
    */
-  enum WindowStageEventType {
+  export enum WindowStageEventType {
     /**
      * The window stage is running in the foreground.
      *
@@ -8359,7 +8359,7 @@ declare namespace window {
    * @atomicservice
    * @since 14
    */
-  enum ModalityType {
+  export enum ModalityType {
     /**
      * The value means window modality.
      *
@@ -8393,7 +8393,7 @@ declare namespace window {
    * @atomicservice
    * @since 12
    */
-  interface SubWindowOptions {
+  export interface SubWindowOptions {
     /**
      * Indicates subwindow title
      *
@@ -8478,7 +8478,7 @@ declare namespace window {
    * @atomicservice
    * @since 11
    */
-  interface WindowStage {
+  export interface WindowStage {
     /**
      * Get main window of the stage.
      *
@@ -9159,7 +9159,7 @@ declare namespace window {
    * @stagemodelonly
    * @since 14
    */
-   enum ExtensionWindowAttribute {
+   export enum ExtensionWindowAttribute {
     /**
      * System window.
      *
@@ -9190,7 +9190,7 @@ declare namespace window {
    * @stagemodelonly
    * @since 14
    */
-  interface SystemWindowOptions {
+  export interface SystemWindowOptions {
     /**
      * Indicates window type.
      *
@@ -9212,7 +9212,7 @@ declare namespace window {
    * @stagemodelonly
    * @since 14
    */
-  interface ExtensionWindowConfig {
+  export interface ExtensionWindowConfig {
     /**
      * Window name.
      *
