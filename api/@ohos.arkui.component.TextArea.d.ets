@@ -18,9 +18,9 @@
  * @kit ArkUI
  */
 import { TextContentControllerBase,SelectionOptions,CommonMethod,InputCounterOptions,CustomBuilder,TextDecorationOptions,Callback } from './@ohos.arkui.component.Common'
-import { ResourceStr,ResourceColor,Font,Length,FontStyle,FontWeight,Dimension } from './@ohos.arkui.component.Units'
+import { ResourceStr,ResourceColor,Font,Length,Dimension } from './@ohos.arkui.component.Units'
 import { EnterKeyType,SubmitEvent } from './@ohos.arkui.component.TextInput'
-import { TextAlign,CopyOptions,TextContentStyle,BarState,TextHeightAdaptivePolicy,WordBreak,LineBreakStrategy,TextOverflow } from './@ohos.arkui.component.Enums'
+import { TextAlign,CopyOptions,TextContentStyle,BarState,TextHeightAdaptivePolicy,WordBreak,LineBreakStrategy,TextOverflow,FontStyle,FontWeight } from './@ohos.arkui.component.Enums'
 import { CaretStyle,EditableTextOnChangeCallback,InsertValue,DeleteValue,EditMenuOptions } from './@ohos.arkui.component.TextCommon'
 import { PasteEvent,KeyboardOptions } from './@ohos.arkui.component.RichEditor'
 import { Resource } from './global/resource'
