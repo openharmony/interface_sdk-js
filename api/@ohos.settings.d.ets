@@ -38,7 +38,7 @@ declare namespace settings {
    * @syscap SystemCapability.Applications.Settings.Core
    * @since 11
    */
-  namespace domainName {
+  export namespace domainName {
     /**
      * Provide the domain name for device shared Key.
      *
@@ -81,7 +81,7 @@ declare namespace settings {
    * @syscap SystemCapability.Applications.Settings.Core
    * @since 7
    */
-  namespace date {
+  export namespace date {
 
     /**
      * Indicates the date format.
@@ -140,7 +140,7 @@ declare namespace settings {
    * @syscap SystemCapability.Applications.Settings.Core
    * @since 7
    */
-  namespace display {
+  export namespace display {
     /**
      * Indicates the scaling factor of fonts, which is a float number.
      *
@@ -271,7 +271,7 @@ declare namespace settings {
    * @syscap SystemCapability.Applications.Settings.Core
    * @since 7
    */
-  namespace general {
+  export namespace general {
     /**
      * Specifies whether the startup wizard has been run.
      *
@@ -488,7 +488,7 @@ declare namespace settings {
    * @syscap SystemCapability.Applications.Settings.Core
    * @since 7
    */
-  namespace input {
+  export namespace input {
     /**
      * Indicates the default input method and its ID.
      *
@@ -592,7 +592,7 @@ declare namespace settings {
    * @syscap SystemCapability.Applications.Settings.Core
    * @since 7
    */
-  namespace network {
+  export namespace network {
     /**
      * Specifies whether data roaming is enabled.
      *
@@ -632,7 +632,7 @@ declare namespace settings {
    * @syscap SystemCapability.Applications.Settings.Core
    * @since 7
    */
-  namespace phone {
+  export namespace phone {
     /**
      * Specifies whether real-time text (RTT) calling is enabled. If enabled, incoming and outgoing calls are
      * answered as RTT calls when supported by the device and carrier. If the value is {@code 1}, RTT calling is
@@ -653,7 +653,7 @@ declare namespace settings {
    * @syscap SystemCapability.Applications.Settings.Core
    * @since 7
    */
-  namespace sound {
+  export namespace sound {
     /**
      * Indicates whether the device vibrates when it is ringing for an incoming call.
      *
@@ -791,7 +791,7 @@ declare namespace settings {
    * @syscap SystemCapability.Applications.Settings.Core
    * @since 7
    */
-  namespace TTS {
+  export namespace TTS {
     /**
      * Indicates the default pitch of the text-to-speech (TTS) engine.
      *
@@ -840,7 +840,7 @@ declare namespace settings {
    * @syscap SystemCapability.Applications.Settings.Core
    * @since 7
    */
-  namespace wireless {
+  export namespace wireless {
     /**
      * Specifies whether the device can be discovered or connected by other devices through Bluetooth.
      *
