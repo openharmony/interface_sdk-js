@@ -5791,7 +5791,7 @@ declare namespace avSession {
   /**
    * The extra info object.
    *
-   * @typedef { object } ExraInfo
+   * @typedef { object } ExtraInfo
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 16
    */
