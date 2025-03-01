@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { ResourceColor } from './@ohos.arkui.component.Common' 
+import { ResourceColor } from './@ohos.arkui.component.Units' 
 import { Axis } from './@ohos.arkui.component.Enums'
 /**
  * Provides a monthly view component to display information such as date, shift break, and schedule.

@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { CustomBuilder,Rectangle,AnimateParam,Callback,ShadowOptions,ShadowStyle,KeyboardAvoidMode,BlurStyle,HoverModeAreaType
+import { CustomBuilder,Rectangle,AnimateParam,Callback,ShadowOptions,ShadowStyle,KeyboardAvoidMode,BlurStyle,HoverModeAreaType,
   DismissReason
  } from './@ohos.arkui.component.Common'
 import { DialogAlignment } from './@ohos.arkui.component.AlertDialog'
