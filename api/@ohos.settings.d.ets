@@ -1308,7 +1308,8 @@ declare namespace settings {
    * @StageModelOnly
    * @since 11
    */
-  function registerKeyObserver(context: Context, name: string, domainName: string, observer: AsyncCallback<void>): boolean;
+  function registerKeyObserver(context: Context, name: string, domainName: string,
+    observer: AsyncCallback<void>): boolean;
 
   /**
    * Monitor unregister key(synchronous method)
