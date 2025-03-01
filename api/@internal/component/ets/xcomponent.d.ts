@@ -302,6 +302,16 @@ declare interface XComponentOptions {
    * @since 12
    */
   imageAIOptions?: ImageAIOptions;
+
+  /**
+   * Identifier of a screen.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 17
+   */
+  screenId?: number;
 }
 
 /**
