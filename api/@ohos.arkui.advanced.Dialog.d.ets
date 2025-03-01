@@ -21,8 +21,7 @@
 
 
 
-import { Theme, CustomTheme } from './@ohos.arkui.theme';
-
+import { Theme, CustomTheme } from '@ohos.arkui.theme';
 
 /**
  * Declare ButtonOptions
@@ -183,7 +182,7 @@ export declare class ButtonOptions {
  * @since 18
  */
 @CustomDialog
-export struct class TipsDialog {
+export declare struct TipsDialog {
   /**
    * Sets the TipsDialog Controller.
    * @type { CustomDialogController }.
@@ -468,7 +467,7 @@ export struct class TipsDialog {
  * @since 18
  */
 @CustomDialog
-export struct class SelectDialog {
+export declare struct SelectDialog {
   /**
    * Sets the SelectDialog Controller.
    * @type { CustomDialogController }.

@@ -40,7 +40,7 @@
  * @since 12
  */
 
- interface SegmentButtonTextItem {
+interface SegmentButtonTextItem {
   /**
    * The text of text only item.
    *
