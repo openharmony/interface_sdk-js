@@ -1458,6 +1458,8 @@ declare class AlertDialog {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 16
+   * @useinstead ohos.arkui.UIContext.UIContext#showAlertDialog
    */
   static show(value: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions);
 }

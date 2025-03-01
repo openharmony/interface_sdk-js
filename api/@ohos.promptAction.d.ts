@@ -1838,6 +1838,8 @@ declare namespace promptAction {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 16
+   * @useinstead ohos.arkui.UIContext.PromptAction#showToast
    */
   function showToast(options: ShowToastOptions): void;
 
@@ -1915,6 +1917,8 @@ declare namespace promptAction {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 16
+   * @useinstead ohos.arkui.UIContext.PromptAction#showDialog
    */
   function showDialog(options: ShowDialogOptions, callback: AsyncCallback<ShowDialogSuccessResponse>): void;
 
@@ -1959,6 +1963,8 @@ declare namespace promptAction {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 16
+   * @useinstead ohos.arkui.UIContext.PromptAction#showDialog
    */
   function showDialog(options: ShowDialogOptions): Promise<ShowDialogSuccessResponse>;
 
@@ -1990,6 +1996,8 @@ declare namespace promptAction {
    * @crossplatform
    * @atomicservice
    * @since 12
+   * @deprecated since 16
+   * @useinstead ohos.arkui.UIContext.PromptAction#openCustomDialog
    */
   function openCustomDialog(options: CustomDialogOptions): Promise<number>;
 
@@ -2019,6 +2027,8 @@ declare namespace promptAction {
    * @crossplatform
    * @atomicservice
    * @since 12
+   * @deprecated since 16
+   * @useinstead ohos.arkui.UIContext.PromptAction#closeCustomDialog
    */
   function closeCustomDialog(dialogId: number): void;
 
@@ -2063,6 +2073,8 @@ declare namespace promptAction {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 16
+   * @useinstead ohos.arkui.UIContext.PromptAction#showActionMenu
    */
   function showActionMenu(options: ActionMenuOptions, callback: AsyncCallback<ActionMenuSuccessResponse>): void;
 
@@ -2107,6 +2119,8 @@ declare namespace promptAction {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 16
+   * @useinstead ohos.arkui.UIContext.PromptAction#showActionMenu
    */
   function showActionMenu(options: ActionMenuOptions): Promise<ActionMenuSuccessResponse>;
 }

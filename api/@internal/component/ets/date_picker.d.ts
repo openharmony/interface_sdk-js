@@ -1239,6 +1239,8 @@ declare class DatePickerDialog {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 16
+   * @useinstead ohos.arkui.UIContext.UIContext#showDatePickerDialog
    */
   static show(options?: DatePickerDialogOptions);
 }

@@ -841,6 +841,8 @@ declare namespace componentUtils {
   * @crossplatform
   * @atomicservice
   * @since 11
+  * @deprecated since 16
+  * @useinstead ohos.arkui.UIContext.ComponentUtils#getRectangleById
   */
   function getRectangleById(id: string): ComponentInfo;
 }

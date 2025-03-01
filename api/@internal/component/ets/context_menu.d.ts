@@ -60,6 +60,8 @@ declare class ContextMenu {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 16
+   * @useinstead ohos.arkui.UIContext.ContextMenuController#close
    */
   static close();
 }
