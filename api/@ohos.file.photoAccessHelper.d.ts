@@ -430,7 +430,15 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 12
      */
-    ANALYSIS_MULTI_CROP
+    ANALYSIS_MULTI_CROP,
+    /**
+     * Analysis of search index
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 18
+     */
+    ANALYSIS_SEARCH_INDEX = 16
   }
 
   /**
@@ -4681,6 +4689,22 @@ declare namespace photoAccessHelper {
      * @since 16
      */
     getSupportedPhotoFormats(photoType: PhotoType): Promise<Array<string>>;
+    /**
+     * Start asset analysis service
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { AnalysisType } type - Analysis type
+     * @param { Array<string> } assetUris - The uris of asset.
+     * @returns { Promise<number> } Returns the task id of the service.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 18
+     */
+    startAssetAnalysis(type: AnalysisType, assetUris?: Array<string>): Promise<number>; 
   }
 
   /**
