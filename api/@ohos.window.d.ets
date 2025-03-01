@@ -18,12 +18,13 @@
  * @kit ArkUI
  */
 
-import { AsyncCallback, BusinessError, Callback } from './@ohos.base';
-import BaseContext from './application/BaseContext';
-import image from './@ohos.multimedia.image';
-import rpc from './@ohos.rpc';
-import dialogRequest from './@ohos.app.ability.dialogRequest';
-import { UIContext } from './@ohos.arkui.UIContext';
+//import { AsyncCallback, BusinessError, Callback } from './@ohos.base';
+//import BaseContext from './application/BaseContext';
+//import image from './@ohos.multimedia.image';
+//import rpc from './@ohos.rpc';
+//import dialogRequest from './@ohos.app.ability.dialogRequest';
+//import { UIContext } from './@ohos.arkui.UIContext';
+import { LocalStorage } from './@ohos.arkui.component.CommonTsEtsApi';
 
 /**
  * Window manager.
@@ -2484,7 +2485,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#getLastWindow
    */
-  export function getTopWindow(ctx: BaseContext|AsyncCallback<Window>): undefined|Promise<Window>;
+  export function getTopWindow(ctx: BaseContext | AsyncCallback<Window>): undefined | Promise<Window>;
 
   /**
    * Get the final show window.
@@ -2951,8 +2952,8 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  export function on(type: 'waterMarkFlagChange'|'systemBarTintChange'|'gestureNavigationEnabledChange',
-      callback: Callback<boolean>|Callback<SystemBarTintState>): void;
+  export function on(type: 'waterMarkFlagChange' | 'systemBarTintChange' | 'gestureNavigationEnabledChange',
+      callback: Callback<boolean> | Callback<SystemBarTintState>): void;
 
   /**
    * Unregister the callback of systemBarTintChange
@@ -2996,8 +2997,8 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  export function off(type: 'systemBarTintChange'|'gestureNavigationEnabledChange'|'waterMarkFlagChange',
-      callback?: Callback<SystemBarTintState>|Callback<boolean>): void;
+  export function off(type: 'systemBarTintChange' | 'gestureNavigationEnabledChange' | 'waterMarkFlagChange',
+      callback?: Callback<SystemBarTintState> | Callback<boolean>): void;
 
   /**
    * Display orientation
@@ -4923,8 +4924,8 @@ declare namespace window {
      * @deprecated since 9
      * @useinstead ohos.window.Window#setUIContent
      */
-    loadContent(path: string, storageOrCallback?: LocalStorage|AsyncCallback<void>,
-        callbackForStorage?: AsyncCallback<void>): undefined|Promise<void>;
+    loadContent(path: string, storageOrCallback?: LocalStorage | AsyncCallback<void>,
+        callbackForStorage?: AsyncCallback<void>): undefined | Promise<void>;
 
     /**
      * Get the UIContext associate with the window content.
@@ -5500,12 +5501,13 @@ declare namespace window {
      * @atomicservice
      * @since 12
      */
-    on(type: 'screenshot'|'dialogTargetTouch'|'windowEvent'|'windowStatusChange'|'subWindowClose'|
-        'windowTitleButtonRectChange'|'windowRectChange'|'windowVisibilityChange'|'touchOutside'|
-        'keyboardHeightChange'|'windowSizeChange'|'systemAvoidAreaChange'|'avoidAreaChange'|'noInteractionDetected',
-        callbackOrTimeout: number|Callback<void>|Callback<WindowEventType>|Callback<WindowStatusType>|
-        Callback<void>|Callback<TitleButtonRect>|Callback<RectChangeOptions>|Callback<boolean>|Callback<number>|
-        Callback<Size>|Callback<AvoidArea>|Callback<AvoidAreaOptions>,
+    on(type: 'screenshot' | 'dialogTargetTouch' | 'windowEvent' | 'windowStatusChange' | 'subWindowClose' |
+        'windowTitleButtonRectChange' | 'windowRectChange' | 'windowVisibilityChange' | 'touchOutside' |
+        'keyboardHeightChange' | 'windowSizeChange' | 'systemAvoidAreaChange' | 'avoidAreaChange' |
+        'noInteractionDetected',
+        callbackOrTimeout: number | Callback<WindowEventType> | Callback<WindowStatusType> |
+        Callback<void> | Callback<TitleButtonRect> | Callback<RectChangeOptions> | Callback<boolean> |
+        Callback<number> | Callback<Size> | Callback<AvoidArea> | Callback<AvoidAreaOptions>,
         callbackForTimeout?:Callback<void>): void;
 
     /**
@@ -5907,8 +5909,8 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    bindDialogTarget(requestInfoOrToken: rpc.RemoteObject|dialogRequest.RequestInfo, deathCallback: Callback<void>,
-        callback?: AsyncCallback<void>): undefined|Promise<void>;
+    bindDialogTarget(requestInfoOrToken: rpc.RemoteObject | dialogRequest.RequestInfo, deathCallback: Callback<void>,
+        callback?: AsyncCallback<void>): undefined | Promise<void>;
 
     /**
      * Set whether the dialog window responds to back gesture.
@@ -8084,12 +8086,13 @@ declare namespace window {
      * @atomicservice
      * @since 12
      */
-    off(type: 'screenshot'|'dialogTargetTouch'|'windowEvent'|'windowStatusChange'|'subWindowClose'|
-        'windowTitleButtonRectChange'|'windowRectChange'|'windowVisibilityChange'|'touchOutside'|
-        'keyboardHeightChange'|'windowSizeChange'|'systemAvoidAreaChange'|'avoidAreaChange'|'noInteractionDetected',
-        callback?: Callback<void>|Callback<WindowEventType>|Callback<WindowStatusType>|
-        Callback<void>|Callback<TitleButtonRect>|Callback<RectChangeOptions>|Callback<boolean>|Callback<number>|
-        Callback<Size>|Callback<AvoidArea>|Callback<AvoidAreaOptions>): void;
+    off(type: 'screenshot' | 'dialogTargetTouch' | 'windowEvent' | 'windowStatusChange' | 'subWindowClose' |
+        'windowTitleButtonRectChange' | 'windowRectChange' | 'windowVisibilityChange' | 'touchOutside' |
+        'keyboardHeightChange' | 'windowSizeChange' | 'systemAvoidAreaChange' | 'avoidAreaChange' |
+        'noInteractionDetected',
+        callback?: Callback<void> | Callback<WindowEventType> | Callback<WindowStatusType> |
+        Callback<void> | Callback<TitleButtonRect> | Callback<RectChangeOptions> | Callback<boolean> |
+        Callback<number> | Callback<Size> | Callback<AvoidArea> | Callback<AvoidAreaOptions>): void;
 
     /**
      * Set gray scale of window.
@@ -9011,7 +9014,8 @@ declare namespace window {
      * @atomicservice
      * @since 14
      */
-    on(eventType: 'windowStageEvent'|'windowStageClose', callback: Callback<WindowStageEventType>|Callback<void>): void;
+    on(eventType: 'windowStageEvent' | 'windowStageClose', callback: Callback<WindowStageEventType> |
+        Callback<void>): void;
 
     /**
      * Window stage event callback off.
@@ -9077,8 +9081,8 @@ declare namespace window {
      * @atomicservice
      * @since 14
      */
-    on(eventType: 'windowStageEvent'|'windowStageClose',
-        callback?: Callback<WindowStageEventType>|Callback<void>): void;
+    on(eventType: 'windowStageEvent' | 'windowStageClose',
+        callback?: Callback<WindowStageEventType> | Callback<void>): void;
 
     /**
      * Disable window decoration. It must be called before loadContent.
