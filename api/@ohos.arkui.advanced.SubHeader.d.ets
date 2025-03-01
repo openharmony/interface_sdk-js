@@ -19,12 +19,6 @@
  */
 
 import { TextModifier } from './@ohos.arkui.modifier';
-import { SelectOption } from './@ohos.arkui.component.Select';
-import { BuilderParam, Prop, Component } from './@ohos.arkui.component.Common';
-import { Resource } from './global/resource';
-import { ResourceStr, ResourceColor, LocalizedMargin, LocalizedPadding } from './@ohos.arkui.component.Units';
-import { SymbolEffectStrategy, SymbolRenderingStrategy } from './@ohos.arkui.component.SymbolGlyph';
-import { FontWeight } from './@ohos.arkui.component.Enums';
 
 
 /**
@@ -475,7 +469,7 @@ export declare class SymbolOptions {
  * @since 18
  */
 @Component
-export declare class SubHeader {
+export declare struct SubHeader {
 
   /**
    * Icon resource of content area.

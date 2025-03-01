@@ -18,11 +18,8 @@
  * @kit ArkUI
  */
 
-import { Resource } from './global/resource';
-import { ResourceColor,ResourceStr,PX,VP,FP,LPX,SizeOptions,Padding,Dimension,LocalizedPadding } from './@ohos.arkui.component.Units'
-import { FontWeight,Direction } from './@ohos.arkui.component.Enums'
-import { BlurStyle,Observed,Component,ObjectLink,Link,Prop } from './@ohos.arkui.component.Common'
-import { Callback } from './@ohos.base'
+
+
 
 
 /**
@@ -43,7 +40,7 @@ import { Callback } from './@ohos.base'
  * @since 12
  */
 
-export interface SegmentButtonTextItem {
+ interface SegmentButtonTextItem {
   /**
    * The text of text only item.
    *
@@ -105,7 +102,7 @@ export interface SegmentButtonTextItem {
  * @atomicservice
  * @since 12
  */
-export interface SegmentButtonIconItem {
+interface SegmentButtonIconItem {
   /**
    * The icon of icon only item.
    *
@@ -210,7 +207,7 @@ export interface SegmentButtonIconItem {
  * @atomicservice
  * @since 12
  */
-export interface SegmentButtonIconTextItem {
+interface SegmentButtonIconTextItem {
   /**
    * The icon of icon and text item.
    *
@@ -332,7 +329,7 @@ export interface SegmentButtonIconTextItem {
  * @atomicservice
  * @since 12
  */
-export type DimensionNoPercentage = PX | VP | FP | LPX | Resource;
+declare type DimensionNoPercentage = PX | VP | FP | LPX | Resource;
 
 /**
  * Defines SegmentButton common options.
@@ -351,7 +348,7 @@ export type DimensionNoPercentage = PX | VP | FP | LPX | Resource;
  * @atomicservice
  * @since 12
  */
-export interface CommonSegmentButtonOptions {
+interface CommonSegmentButtonOptions {
   /**
    * The font color of buttons.
    *
@@ -651,7 +648,7 @@ export interface CommonSegmentButtonOptions {
  * @atomicservice
  * @since 12
  */
-export type ItemRestriction<T> = [T, T, T | undefined, T | undefined, T | undefined];
+declare type ItemRestriction<T> = [T, T, T?, T?, T?];
 
 /**
  * Defines the SegmentButtonItemTuple type.
@@ -668,7 +665,7 @@ export type ItemRestriction<T> = [T, T, T | undefined, T | undefined, T | undefi
  * @atomicservice
  * @since 12
  */
-export type SegmentButtonItemTuple = ItemRestriction<SegmentButtonTextItem> | ItemRestriction<SegmentButtonIconItem> | ItemRestriction<SegmentButtonIconTextItem>;
+declare type SegmentButtonItemTuple = ItemRestriction<SegmentButtonTextItem> | ItemRestriction<SegmentButtonIconItem> | ItemRestriction<SegmentButtonIconTextItem>;
 
 /**
  * Defines the SegmentButtonItemArray type.
@@ -685,7 +682,7 @@ export type SegmentButtonItemTuple = ItemRestriction<SegmentButtonTextItem> | It
  * @atomicservice
  * @since 12
  */
-export type SegmentButtonItemArray = Array<SegmentButtonTextItem> | Array<SegmentButtonIconItem> | Array<SegmentButtonIconTextItem>;
+declare type SegmentButtonItemArray = Array<SegmentButtonTextItem> | Array<SegmentButtonIconItem> | Array<SegmentButtonIconTextItem>;
 
 /**
  * Defines SegmentButton tab options.
@@ -706,7 +703,7 @@ export type SegmentButtonItemArray = Array<SegmentButtonTextItem> | Array<Segmen
  * @atomicservice
  * @since 12
  */
-export interface TabSegmentButtonConstructionOptions extends CommonSegmentButtonOptions {
+interface TabSegmentButtonConstructionOptions extends CommonSegmentButtonOptions {
   /**
    * The items of tab type of SegmentButton.
    *
@@ -746,7 +743,7 @@ export interface TabSegmentButtonConstructionOptions extends CommonSegmentButton
  * @atomicservice
  * @since 12
  */
-export interface CapsuleSegmentButtonConstructionOptions extends CommonSegmentButtonOptions {
+interface CapsuleSegmentButtonConstructionOptions extends CommonSegmentButtonOptions {
   /**
    * The items of capsule type of SegmentButton.
    *
@@ -807,7 +804,7 @@ export interface CapsuleSegmentButtonConstructionOptions extends CommonSegmentBu
  * @atomicservice
  * @since 12
  */
-export interface TabSegmentButtonOptions extends TabSegmentButtonConstructionOptions {
+interface TabSegmentButtonOptions extends TabSegmentButtonConstructionOptions {
   /**
    * The type of SegmentButton.
    *
@@ -847,7 +844,7 @@ export interface TabSegmentButtonOptions extends TabSegmentButtonConstructionOpt
  * @atomicservice
  * @since 12
  */
-export interface CapsuleSegmentButtonOptions extends CapsuleSegmentButtonConstructionOptions {
+interface CapsuleSegmentButtonOptions extends CapsuleSegmentButtonConstructionOptions {
   /**
    * The type of SegmentButton.
    *
@@ -883,7 +880,7 @@ export interface CapsuleSegmentButtonOptions extends CapsuleSegmentButtonConstru
  * @atomicservice
  * @since 12
  */
-export interface SegmentButtonItemOptionsConstructorOptions {
+interface SegmentButtonItemOptionsConstructorOptions {
   /**
    * The icon of icon and text item.
    *
@@ -1006,7 +1003,7 @@ export interface SegmentButtonItemOptionsConstructorOptions {
  * @since 12
  */
 @Observed
-export declare class SegmentButtonItemOptions {
+declare class SegmentButtonItemOptions {
   /**
    * The icon of item.
    *
@@ -1150,7 +1147,7 @@ export declare class SegmentButtonItemOptions {
  * @since 12
  */
 @Observed
-export declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptions> {
+declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptions> {
   /**
    * The constructor used to create a SegmentButtonItemOptionsArray object.
    *
@@ -1189,7 +1186,7 @@ export declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonIt
    * @atomicservice
    * @since 12
    */
-  push(...items: (SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem)[]): number;
+  push(...items: SegmentButtonItemArray): number;
 
   /**
    * Removes the last element from SegmentButtonItemOptionsArray.
@@ -1248,7 +1245,7 @@ export declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonIt
    * @atomicservice
    * @since 12
    */
-  unshift(...items: (SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem)[]): number;
+  unshift(...items: SegmentButtonItemArray): number;
 
   /**
    * Changes the elements of SegmentButtonItemOptionsArray by removing or replacing existing elements and/or adding new elements in place.
@@ -1313,7 +1310,7 @@ export declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonIt
  * @since 12
  */
 @Observed
-export declare class SegmentButtonOptions {
+declare class SegmentButtonOptions {
   /**
    * The type of SegmentButton.
    *
@@ -1714,7 +1711,7 @@ export declare class SegmentButtonOptions {
  * @since 12
  */
 @Component
-export declare class SegmentButton {
+declare struct SegmentButton {
   /**
    * The options of SegmentButton.
    *
@@ -1778,4 +1775,22 @@ export declare class SegmentButton {
   onItemClicked?: Callback<number>;
 }
 
-
+export {
+  SegmentButton,
+  SegmentButtonOptions,
+  SegmentButtonItemOptionsArray,
+  TabSegmentButtonOptions,
+  TabSegmentButtonConstructionOptions,
+  CapsuleSegmentButtonOptions,
+  CapsuleSegmentButtonConstructionOptions,
+  SegmentButtonTextItem,
+  SegmentButtonIconItem,
+  SegmentButtonIconTextItem,
+  DimensionNoPercentage,
+  CommonSegmentButtonOptions,
+  ItemRestriction,
+  SegmentButtonItemTuple,
+  SegmentButtonItemArray,
+  SegmentButtonItemOptionsConstructorOptions,
+  SegmentButtonItemOptions
+};

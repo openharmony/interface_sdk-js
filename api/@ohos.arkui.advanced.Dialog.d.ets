@@ -22,21 +22,6 @@
 
 
 import { Theme, CustomTheme } from './@ohos.arkui.theme';
-import { ResourceStr, ResourceColor, SizeOptions, Padding, LocalizedPadding } from './@ohos.arkui.component.Units';
-import { ButtonStyleMode, ButtonRole } from './@ohos.arkui.component.Button';
-import image from './@ohos.multimedia.image';
-import {
-  CustomDialog,
-  Prop,
-  ThemeColorMode,
-  BuilderParam,
-  Component,
-  Link,
-  Require,
-} from './@ohos.arkui.component.Common';
-import { CustomDialogController } from './@ohos.arkui.component.CustomDialogController';
-import { Callback } from './@ohos.base';
-import { SheetInfo } from './@ohos.arkui.component.ActionSheet';
 
 
 /**
@@ -198,7 +183,7 @@ export declare class ButtonOptions {
  * @since 18
  */
 @CustomDialog
-export declare class TipsDialog {
+export struct class TipsDialog {
   /**
    * Sets the TipsDialog Controller.
    * @type { CustomDialogController }.
@@ -241,7 +226,7 @@ export declare class TipsDialog {
    * @atomicservice
    * @since 12
    */
-  imageRes: ResourceStr | image.PixelMap;
+  imageRes: ResourceStr | PixelMap;
   /**
    * Sets the TipsDialog image size.
    * @type { SizeOptions }.
@@ -483,7 +468,7 @@ export declare class TipsDialog {
  * @since 18
  */
 @CustomDialog
-export declare class SelectDialog {
+export struct class SelectDialog {
   /**
    * Sets the SelectDialog Controller.
    * @type { CustomDialogController }.
@@ -657,7 +642,7 @@ export declare class SelectDialog {
  * @since 18
  */
 @CustomDialog
-export declare class ConfirmDialog {
+export declare struct ConfirmDialog {
   /**
    * Sets the ConfirmDialog Controller.
    * @type { CustomDialogController }.
@@ -869,7 +854,7 @@ export declare class ConfirmDialog {
  * @since 18
  */
 @CustomDialog
-export declare class AlertDialog {
+export declare struct AlertDialog {
   /**
    * Sets the AlertDialog Controller.
    * @type { CustomDialogController }.
@@ -1017,7 +1002,7 @@ export declare class AlertDialog {
  * @since 18
  */
 @CustomDialog
-export declare class LoadingDialog {
+export declare struct LoadingDialog {
   /**
    * Sets the LoadingDialog Controller.
    * @type { CustomDialogController }.
@@ -1092,7 +1077,7 @@ export declare class LoadingDialog {
  * @since 12
  */
 @CustomDialog
-export declare class CustomContentDialog {
+export declare struct CustomContentDialog {
   /**
    * Sets the CustomContentDialog Controller.
    * @type { CustomDialogController }.
@@ -1187,7 +1172,7 @@ export declare class CustomContentDialog {
  * @since 14
  */
 @Component
-export declare class PopoverDialog {
+export declare struct PopoverDialog {
   /**
    * Sets the PopoverDialog Visible Status.
    * 
@@ -1233,5 +1218,5 @@ export declare class PopoverDialog {
  * @atomicservice
  * @since 14
  */
-export declare class PopoverOptions implements CustomPopupOptions {
+export declare interface PopoverOptions extends CustomPopupOptions {
 }
