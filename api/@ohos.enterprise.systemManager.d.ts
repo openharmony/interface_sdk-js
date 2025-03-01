@@ -594,18 +594,17 @@ declare namespace systemManager {
   function getUpdateResult(admin: Want, version: string): Promise<UpdateResult>;
 
   /**
-   * Gets the result of system update.
+   * Gets the authorize data of system update.
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { string } version - version indicates the version of update.
-   * @returns { Promise<UpdateResult> } the promise returned by the getUpdateResult.
+   * @returns { Promise<string> } the promise returned by the getUpdateAuthData.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 16
