@@ -37,7 +37,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
-  enum BlendMode {
+  export enum BlendMode {
     /**
      * Disable 4 regions(red, green, blue, alpha)
      * @syscap SystemCapability.Graphics.Drawing
@@ -221,7 +221,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  enum PathDirection {
+  export enum PathDirection {
     /**
      * Clockwise direction for adding closed contours.
      * @syscap SystemCapability.Graphics.Drawing
@@ -243,7 +243,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  enum PathFillType {
+  export enum PathFillType {
     /**
      * Specifies that "inside" is computed by a non-zero sum of signed edge crossings.
      * @syscap SystemCapability.Graphics.Drawing
@@ -279,7 +279,7 @@ declare namespace drawing {
   * @syscap SystemCapability.Graphics.Drawing
   * @since 12
   */
-  enum PathMeasureMatrixFlags {
+  export enum PathMeasureMatrixFlags {
     /**
      * Gets position.
      * @syscap SystemCapability.Graphics.Drawing
@@ -306,7 +306,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  class RoundRect {
+  export class RoundRect {
     /**
      * Creates a simple round rect with the same four corner radii.
      * @param { common2D.Rect } rect - Indicates the Rect object.
@@ -360,7 +360,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  enum PathOp {
+  export enum PathOp {
     /**
      * Difference operation.
      * @syscap SystemCapability.Graphics.Drawing
@@ -403,7 +403,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
-  class Path {
+  export class Path {
     /**
      * Creates a Path.
      * @syscap SystemCapability.Graphics.Drawing
@@ -794,7 +794,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  enum PointMode {
+  export enum PointMode {
     /**
      * Draws each point separately.
      * @syscap SystemCapability.Graphics.Drawing
@@ -823,7 +823,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  enum FilterMode {
+  export enum FilterMode {
     /**
      * Single sample point (nearest neighbor).
      * @syscap SystemCapability.Graphics.Drawing
@@ -845,7 +845,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  enum ShadowFlag {
+  export enum ShadowFlag {
     /**
      * Use no shadow flags.
      * @syscap SystemCapability.Graphics.Drawing
@@ -880,7 +880,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  class SamplingOptions {
+  export class SamplingOptions {
     /**
      * Constructor for the samplingOptions.
      * @syscap SystemCapability.Graphics.Drawing
@@ -903,7 +903,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
-  class Canvas {
+  export class Canvas {
     /**
      * Constructor for the Canvas.
      * @param { image.PixelMap } pixelmap - PixelMap.
@@ -1494,7 +1494,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  enum ClipOp {
+  export enum ClipOp {
     /**
      * Clips with difference.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1515,7 +1515,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
-  interface TextBlobRunBuffer {
+  export interface TextBlobRunBuffer {
     /**
      * Text model.
      * @type { number }
@@ -1546,7 +1546,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
-  enum TextEncoding {
+  export enum TextEncoding {
     /**
      * Use 1 byte to represent UTF-8 or ASCII
      * @syscap SystemCapability.Graphics.Drawing
@@ -1580,7 +1580,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
-  class TextBlob {
+  export class TextBlob {
     /**
      * Create a textblob from a string
      * @param { string } text - Drawn glyph content.
@@ -1647,7 +1647,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
-  class Typeface {
+  export class Typeface {
     /**
      * Get the family name for this typeface.
      * @returns { string } Family name.
@@ -1675,7 +1675,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  enum FontEdging {
+  export enum FontEdging {
     /**
      * Uses anti aliasing, default value.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1705,7 +1705,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  enum FontHinting {
+  export enum FontHinting {
     /**
      * Not use text hinting.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1741,7 +1741,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
-  class Font {
+  export class Font {
     /**
      * Requests, but does not require, that glyphs respect sub-pixel positioning.
      * @param { boolean } isSubpixel - Setting for sub-pixel positioning.
@@ -2062,7 +2062,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  enum FontMetricsFlags {
+  export enum FontMetricsFlags {
     /**
      * Set if underlineThickness of FontMetrics is valid.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2105,7 +2105,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
-  interface FontMetrics {
+  export interface FontMetrics {
     /**
      * Indicating which metrics are valid.
      * @type { ?FontMetricsFlags }
@@ -2236,7 +2236,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  class Lattice {
+  export class Lattice {
     /**
      * Divide an image into a rectangular grid. Grid entries on even columns and even rows are fixed;
      * these entries are always drawn at their original size if the destination is large enough. If the destination
@@ -2267,7 +2267,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  enum RectType {
+  export enum RectType {
     /**
      * Draws image into lattice rect.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2295,7 +2295,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  class MaskFilter {
+  export class MaskFilter {
     /**
      * Makes a MaskFilter with a blur effect.
      * @param { BlurType } blurType - Indicates the blur type.
@@ -2315,7 +2315,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  class PathEffect {
+  export class PathEffect {
     /**
      * Makes a dash PathEffect.
      * @param { Array<number> } intervals - Array of ON and OFF distances. Must contain an even number of entries (>=2),
@@ -2349,7 +2349,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  class ShaderEffect {
+  export class ShaderEffect {
     /**
      * Creates an ShaderEffect object that generates a shader with single color.
      * @param { number } color - Indicates the color used by the shader.
@@ -2445,7 +2445,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  enum TileMode {
+  export enum TileMode {
     /**
      * Replicate the edge color if the shader effect draws outside of its original bounds.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2481,7 +2481,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  class ShadowLayer {
+  export class ShadowLayer {
     /**
      * Makes a new ShadowLayer.
      *
@@ -2521,7 +2521,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
-  class ColorFilter {
+  export class ColorFilter {
     /**
      * Makes a color filter with the given color and blend mode.
      * @param { common2D.Color } color - The range of color channels must be [0, 255].
@@ -2604,7 +2604,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  class ImageFilter {
+  export class ImageFilter {
     /**
      * Makes an ImageFilter object that blurs its input by the separate X and Y sigmas.
      * @param { number } sigmaX - Indicates the Gaussian sigma value for blurring along the X axis. Must be > 0.
@@ -2642,7 +2642,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  enum JoinStyle {
+  export enum JoinStyle {
     /**
      * Miter corner. If the angle of a polyline is small, its miter length may be inappropriate.
      * In this case, you need to use the miter limit to limit the miter length.
@@ -2673,7 +2673,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  enum CapStyle {
+  export enum CapStyle {
     /**
      * No cap style. Both ends of the segment are cut off square.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2704,7 +2704,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  enum BlurType {
+  export enum BlurType {
     /**
      * Fuzzy inside and outside.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2739,7 +2739,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
-  class Pen {
+  export class Pen {
     /**
      * Constructor for the pen.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3038,7 +3038,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
-  class Brush {
+  export class Brush {
     /**
      * Constructor for the Brush.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3223,7 +3223,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  class Matrix {
+  export class Matrix {
     /**
      * Creates an identity matrix.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3478,7 +3478,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  enum ScaleToFit {
+  export enum ScaleToFit {
     /**
      * Scales in x and y to fill destination Rect.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3513,7 +3513,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  class Region {
+  export class Region {
     /**
      * Determines whether the test point is in the region.
      * @param { number } x - Indicates the x coordinate of the point. The parameter must be an integer.
@@ -3597,7 +3597,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  enum RegionOp {
+  export enum RegionOp {
     /**
      * Difference operation.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3648,7 +3648,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  enum CornerPos {
+  export enum CornerPos {
     /**
      * Index of top-left corner radius.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3685,7 +3685,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  enum SrcRectConstraint {
+  export enum SrcRectConstraint {
 
     /**
      * Using sampling only inside bounds in a slower manner.
