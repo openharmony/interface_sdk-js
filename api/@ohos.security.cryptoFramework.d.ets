@@ -1303,7 +1303,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  function createRandom(): Random;
+  export function createRandom(): Random;
 
   /**
    * The AsyKeyGenerator provides the ability to generate or convert keyPair.
@@ -1930,7 +1930,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  function createAsyKeyGenerator(algName: string): AsyKeyGenerator;
+  export function createAsyKeyGenerator(algName: string): AsyKeyGenerator;
 
   /**
    * Create a symmetric key generator according to the given algorithm name.
@@ -1968,7 +1968,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  function createSymKeyGenerator(algName: string): SymKeyGenerator;
+  export function createSymKeyGenerator(algName: string): SymKeyGenerator;
 
   /**
    * Provides the Mac type, which is used for Mac generation.
@@ -2350,7 +2350,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  function createMac(algName: string): Mac;
+  export function createMac(algName: string): Mac;
 
   /**
    * Provides the Md type, which is used for Md generation.
@@ -2642,7 +2642,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  function createMd(algName: string): Md;
+  export function createMd(algName: string): Md;
 
   /**
    * Enum for encryption specified parameters.
@@ -3671,7 +3671,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  function createCipher(transformation: string): Cipher;
+  export function createCipher(transformation: string): Cipher;
 
   /**
    * Provides the Sign type, which is used for generating signatures.
@@ -4927,7 +4927,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  function createSign(algName: string): Sign;
+  export function createSign(algName: string): Sign;
 
   /**
    * Create a verify object for verifying signatures.
@@ -4968,7 +4968,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  function createVerify(algName: string): Verify;
+  export function createVerify(algName: string): Verify;
 
   /**
    * Provides key agreement function.
@@ -5176,7 +5176,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  function createKeyAgreement(algName: string): KeyAgreement;
+  export function createKeyAgreement(algName: string): KeyAgreement;
 
   /**
    * Enum for algorithm specified parameters.
@@ -8266,7 +8266,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  function createAsyKeyGeneratorBySpec(asyKeySpec: AsyKeySpec): AsyKeyGeneratorBySpec;
+  export function createAsyKeyGeneratorBySpec(asyKeySpec: AsyKeySpec): AsyKeyGeneratorBySpec;
 
   /**
    * Specifies the key derivation function parameters.
@@ -8601,7 +8601,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  function createKdf(algName: string): Kdf;
+  export function createKdf(algName: string): Kdf;
 
   /**
    * Provides the interface for specifying detailed data in the SM2 ciphertext in ASN.1 format.
