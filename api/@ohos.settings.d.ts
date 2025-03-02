@@ -35,7 +35,7 @@ import Context from './application/Context';
  * @namespace settings
  * @syscap SystemCapability.Applications.Settings.Core
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare namespace settings {
 
@@ -1340,7 +1340,7 @@ declare namespace settings {
    * @throws { BusinessError } 14800000 - Parameter error.
    * @throws { BusinessError } 14800010 - Original service error.
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   function openNetworkManagerSettings(context: Context): Promise<boolean>;
 }

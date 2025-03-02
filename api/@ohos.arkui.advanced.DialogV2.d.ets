@@ -25,7 +25,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export declare type AdvancedDialogV2ButtonAction = () => void;
 
@@ -36,7 +36,7 @@ export declare type AdvancedDialogV2ButtonAction = () => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 @ObservedV2
 export declare class AdvancedDialogV2Button {
@@ -47,7 +47,7 @@ export declare class AdvancedDialogV2Button {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Trace
   content: ResourceStr;
@@ -58,7 +58,7 @@ export declare class AdvancedDialogV2Button {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Trace
   action?: AdvancedDialogV2ButtonAction;
@@ -69,7 +69,7 @@ export declare class AdvancedDialogV2Button {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Trace
   background?: ColorMetrics;
@@ -80,7 +80,7 @@ export declare class AdvancedDialogV2Button {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Trace
   fontColor?: ColorMetrics;
@@ -92,7 +92,7 @@ export declare class AdvancedDialogV2Button {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Trace
   buttonStyle?: ButtonStyleMode;
@@ -104,7 +104,7 @@ export declare class AdvancedDialogV2Button {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Trace
   role?: ButtonRole;
@@ -116,7 +116,7 @@ export declare class AdvancedDialogV2Button {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Trace
   defaultFocus?: boolean;
@@ -128,7 +128,7 @@ export declare class AdvancedDialogV2Button {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Trace
   enabled?: boolean;
@@ -139,7 +139,7 @@ export declare class AdvancedDialogV2Button {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   constructor(options: AdvancedDialogV2ButtonOptions);
 }
@@ -151,7 +151,7 @@ export declare class AdvancedDialogV2Button {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export declare interface AdvancedDialogV2ButtonOptions {
   /**
@@ -161,7 +161,7 @@ export declare interface AdvancedDialogV2ButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   content: ResourceStr;
   /**
@@ -171,7 +171,7 @@ export declare interface AdvancedDialogV2ButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   action?: AdvancedDialogV2ButtonAction;
   /**
@@ -181,7 +181,7 @@ export declare interface AdvancedDialogV2ButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   background?: ColorMetrics;
   /**
@@ -191,7 +191,7 @@ export declare interface AdvancedDialogV2ButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   fontColor?: ColorMetrics;
   /**
@@ -202,7 +202,7 @@ export declare interface AdvancedDialogV2ButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   buttonStyle?: ButtonStyleMode;
   /**
@@ -213,7 +213,7 @@ export declare interface AdvancedDialogV2ButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   role?: ButtonRole;
   /**
@@ -224,7 +224,7 @@ export declare interface AdvancedDialogV2ButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   defaultFocus?: boolean;
   /**
@@ -235,7 +235,7 @@ export declare interface AdvancedDialogV2ButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   enabled?: boolean;
 }
@@ -248,7 +248,7 @@ export declare interface AdvancedDialogV2ButtonOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export declare type AdvancedDialogV2OnCheckedChange = (checked: boolean) => void;
 
@@ -259,7 +259,7 @@ export declare type AdvancedDialogV2OnCheckedChange = (checked: boolean) => void
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 @ComponentV2
 export declare struct TipsDialogV2 {
@@ -270,7 +270,7 @@ export declare struct TipsDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Require
   @Param
@@ -282,7 +282,7 @@ export declare struct TipsDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   imageSize?: SizeOptions;
@@ -293,7 +293,7 @@ export declare struct TipsDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   imageBorderColor?: ColorMetrics;
@@ -304,7 +304,7 @@ export declare struct TipsDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   imageBorderWidth?: LengthMetrics;
@@ -315,7 +315,7 @@ export declare struct TipsDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   title?: ResourceStr;
@@ -326,7 +326,7 @@ export declare struct TipsDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   content?: ResourceStr;
@@ -337,7 +337,7 @@ export declare struct TipsDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   checkTips?: ResourceStr;
@@ -348,7 +348,7 @@ export declare struct TipsDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   checked?: boolean;
@@ -359,7 +359,7 @@ export declare struct TipsDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   primaryButton?: AdvancedDialogV2Button;
@@ -370,7 +370,7 @@ export declare struct TipsDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   secondaryButton?: AdvancedDialogV2Button;
@@ -380,7 +380,7 @@ export declare struct TipsDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   onCheckedChange?: AdvancedDialogV2OnCheckedChange;
@@ -393,7 +393,7 @@ export declare struct TipsDialogV2 {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 @ComponentV2
 export declare struct SelectDialogV2 {
@@ -404,7 +404,7 @@ export declare struct SelectDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Require
   @Param
@@ -416,7 +416,7 @@ export declare struct SelectDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   content?: ResourceStr;
@@ -427,7 +427,7 @@ export declare struct SelectDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   selectedIndex?: number;
@@ -438,7 +438,7 @@ export declare struct SelectDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   confirm?: AdvancedDialogV2Button;
@@ -448,7 +448,7 @@ export declare struct SelectDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Require
   @Param
@@ -462,7 +462,7 @@ export declare struct SelectDialogV2 {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 @ComponentV2
 export declare struct ConfirmDialogV2 {
@@ -473,7 +473,7 @@ export declare struct ConfirmDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Require
   @Param
@@ -485,7 +485,7 @@ export declare struct ConfirmDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   content?: ResourceStr;
@@ -496,7 +496,7 @@ export declare struct ConfirmDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   checkTips?: ResourceStr;
@@ -507,7 +507,7 @@ export declare struct ConfirmDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   checked?: boolean;
@@ -518,7 +518,7 @@ export declare struct ConfirmDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   primaryButton?: AdvancedDialogV2Button;
@@ -529,7 +529,7 @@ export declare struct ConfirmDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   secondaryButton?: AdvancedDialogV2Button;
@@ -540,7 +540,7 @@ export declare struct ConfirmDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   onCheckedChange?: AdvancedDialogV2OnCheckedChange;
@@ -553,7 +553,7 @@ export declare struct ConfirmDialogV2 {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 @ComponentV2
 export declare struct AlertDialogV2 {
@@ -564,7 +564,7 @@ export declare struct AlertDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   primaryTitle?: ResourceStr;
@@ -575,7 +575,7 @@ export declare struct AlertDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   secondaryTitle?: ResourceStr;
@@ -586,7 +586,7 @@ export declare struct AlertDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Require
   @Param
@@ -598,7 +598,7 @@ export declare struct AlertDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   primaryButton?: AdvancedDialogV2Button;
@@ -609,7 +609,7 @@ export declare struct AlertDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   secondaryButton?: AdvancedDialogV2Button;
@@ -622,7 +622,7 @@ export declare struct AlertDialogV2 {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 @ComponentV2
 export declare struct LoadingDialogV2 {
@@ -633,7 +633,7 @@ export declare struct LoadingDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   content?: ResourceStr;
@@ -646,7 +646,7 @@ export declare struct LoadingDialogV2 {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 @ComponentV2
 export declare struct CustomContentDialogV2 {
@@ -657,7 +657,7 @@ export declare struct CustomContentDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   primaryTitle?: ResourceStr;
@@ -668,7 +668,7 @@ export declare struct CustomContentDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   secondaryTitle?: ResourceStr;
@@ -679,7 +679,7 @@ export declare struct CustomContentDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @BuilderParam
   contentBuilder: CustomBuilder;
@@ -690,7 +690,7 @@ export declare struct CustomContentDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   contentAreaPadding?: LocalizedPadding;
@@ -700,7 +700,7 @@ export declare struct CustomContentDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Param
   buttons?: AdvancedDialogV2Button[];
@@ -713,7 +713,7 @@ export declare struct CustomContentDialogV2 {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 @ComponentV2
 export declare struct PopoverDialogV2 {
@@ -724,7 +724,7 @@ export declare struct PopoverDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Require
   @Param
@@ -736,7 +736,7 @@ export declare struct PopoverDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Event
   $visible?: PopoverDialogV2OnVisibleChange;
@@ -747,7 +747,7 @@ export declare struct PopoverDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Require
   @Param
@@ -759,7 +759,7 @@ export declare struct PopoverDialogV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @BuilderParam
   targetBuilder: CustomBuilder;
@@ -773,7 +773,7 @@ export declare struct PopoverDialogV2 {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export declare type PopoverDialogV2OnVisibleChange = (visible: boolean) => void;
 
@@ -785,7 +785,7 @@ export declare type PopoverDialogV2OnVisibleChange = (visible: boolean) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export declare interface PopoverDialogV2Options extends CustomPopupOptions {
 }

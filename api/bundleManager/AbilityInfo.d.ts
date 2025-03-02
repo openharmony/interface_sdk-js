@@ -334,7 +334,7 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly process: string;
 
@@ -363,7 +363,7 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly exported: boolean;
 
@@ -403,7 +403,7 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly orientation: bundleManager.DisplayOrientation;
 
@@ -461,7 +461,7 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly permissions: Array<string>;
 
@@ -523,7 +523,7 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly deviceTypes: Array<string>;
 
@@ -610,7 +610,7 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly enabled: boolean;
 
@@ -639,7 +639,7 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly supportWindowModes: Array<bundleManager.SupportWindowMode>;
 
@@ -668,7 +668,7 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly windowSize: WindowSize;
 
@@ -738,7 +738,7 @@ export interface AbilityInfo {
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export interface WindowSize {
   /**
@@ -766,7 +766,7 @@ export interface WindowSize {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly maxWindowRatio: number;
 
@@ -795,7 +795,7 @@ export interface WindowSize {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly minWindowRatio: number;
 
@@ -824,7 +824,7 @@ export interface WindowSize {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly maxWindowWidth: number;
 
@@ -853,7 +853,7 @@ export interface WindowSize {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly minWindowWidth: number;
 
@@ -882,7 +882,7 @@ export interface WindowSize {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly maxWindowHeight: number;
 
@@ -911,7 +911,7 @@ export interface WindowSize {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly minWindowHeight: number;
 }

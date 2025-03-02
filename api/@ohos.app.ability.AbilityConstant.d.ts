@@ -110,7 +110,7 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     launchReasonMessage?: string;
 
@@ -161,7 +161,7 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     lastExitDetailInfo?: LastExitDetailInfo;
   }
@@ -173,7 +173,7 @@ declare namespace AbilityConstant {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export interface LastExitDetailInfo {
     /**
@@ -183,7 +183,7 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     pid: number;
 
@@ -194,7 +194,7 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     processName: string;
 
@@ -205,7 +205,7 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     uid: number;
 
@@ -216,7 +216,7 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     exitSubReason: number;
 
@@ -227,7 +227,7 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     exitMsg: string;
 
@@ -238,7 +238,7 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     rss: number;
 
@@ -249,7 +249,7 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     pss: number;
 
@@ -260,7 +260,7 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     timestamp: number;
   }
@@ -623,7 +623,7 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     USER_REQUEST = 9,
 
@@ -633,7 +633,7 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     SIGNAL = 10
   }
@@ -1070,7 +1070,7 @@ declare namespace AbilityConstant {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   export enum CollaborateResult {
     /**
@@ -1078,7 +1078,7 @@ declare namespace AbilityConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 16
+     * @since 18
      */
     ACCEPT = 0,
 
@@ -1087,7 +1087,7 @@ declare namespace AbilityConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 16
+     * @since 18
      */
     REJECT = 1,
   }

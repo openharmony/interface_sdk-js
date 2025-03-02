@@ -538,7 +538,7 @@ export default class UIAbilityContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -760,7 +760,7 @@ export default class UIAbilityContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
@@ -1973,7 +1973,7 @@ export default class UIAbilityContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   startAbilityForResult(want: Want, callback: AsyncCallback<AbilityResult>): void;
 
@@ -2177,7 +2177,7 @@ export default class UIAbilityContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   startAbilityForResult(want: Want, options: StartOptions, callback: AsyncCallback<AbilityResult>): void;
 
@@ -2391,7 +2391,7 @@ export default class UIAbilityContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   startAbilityForResult(want: Want, options?: StartOptions): Promise<AbilityResult>;
 
@@ -4790,7 +4790,7 @@ export default class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   setColorMode(colorMode: ConfigurationConstant.ColorMode): void;
 }

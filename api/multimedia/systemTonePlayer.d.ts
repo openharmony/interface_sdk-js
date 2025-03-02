@@ -169,7 +169,7 @@ export interface SystemTonePlayer {
    * @throws { BusinessError } 20700002 -Parameter check error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   on(type: 'playFinished', streamId: number, callback: Callback<number>): void;
 
@@ -184,7 +184,7 @@ export interface SystemTonePlayer {
    * @throws { BusinessError } 20700002 -Parameter check error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   off(type: 'playFinished', callback?: Callback<number>): void;
 
@@ -199,7 +199,7 @@ export interface SystemTonePlayer {
    * @throws { BusinessError } 20700002 -Parameter check error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   on(type: 'error', callback: ErrorCallback): void;
 
@@ -214,7 +214,7 @@ export interface SystemTonePlayer {
    * @throws { BusinessError } 20700002 -Parameter check error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   off(type: 'error', callback?: ErrorCallback): void
 }

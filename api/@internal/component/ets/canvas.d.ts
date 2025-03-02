@@ -2476,7 +2476,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   letterSpacing: LengthMetrics | string;
 
@@ -6215,7 +6215,7 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onReady(event: VoidCallback): CanvasAttribute;
 

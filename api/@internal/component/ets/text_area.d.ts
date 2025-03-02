@@ -1215,7 +1215,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   minFontScale(scale: Optional<number | Resource>): TextAreaAttribute;
 
@@ -1226,7 +1226,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   maxFontScale(scale: Optional<number | Resource>): TextAreaAttribute;
   
@@ -1516,7 +1516,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   halfLeading(halfLeading: Optional<boolean>): TextAreaAttribute;
   
@@ -1528,7 +1528,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   ellipsisMode(mode: Optional<EllipsisMode>): TextAreaAttribute;
 

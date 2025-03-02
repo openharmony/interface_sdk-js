@@ -26,7 +26,7 @@ import { Callback } from '@ohos.base';
  * @enum { number }.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export declare enum MixMode {
   /**
@@ -34,7 +34,7 @@ export declare enum MixMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   AVERAGE = 1,
   /**
@@ -43,7 +43,7 @@ export declare enum MixMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   CROSS = 2,
   /**
@@ -51,7 +51,7 @@ export declare enum MixMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   TOWARDS = 3,
 }
@@ -62,7 +62,7 @@ export declare enum MixMode {
  * @enum { number }.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export declare enum GradientAlpha {
   /**
@@ -70,7 +70,7 @@ export declare enum GradientAlpha {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   OPACITY_20 = 1,
   /**
@@ -78,7 +78,7 @@ export declare enum GradientAlpha {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   OPACITY_60 = 2,
   /**
@@ -86,7 +86,7 @@ export declare enum GradientAlpha {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   OPACITY_80 = 3,
   /**
@@ -94,7 +94,7 @@ export declare enum GradientAlpha {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   OPACITY_100 = 4,
 }
@@ -105,7 +105,7 @@ export declare enum GradientAlpha {
  * @enum { number }.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export declare enum BackgroundTheme {
   /**
@@ -113,7 +113,7 @@ export declare enum BackgroundTheme {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   DARK = 1,
   /**
@@ -121,7 +121,7 @@ export declare enum BackgroundTheme {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   LIGHT = 2,
   /**
@@ -129,7 +129,7 @@ export declare enum BackgroundTheme {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   DEFAULT = 3,
 }
@@ -190,7 +190,7 @@ export declare struct AtomicServiceNavigation {
    * @type { ?GradientBackground }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Prop
   gradientBackground?: GradientBackground;  
@@ -281,7 +281,7 @@ export declare struct AtomicServiceNavigation {
    * @type { ?(CustomBuilder | Array<NavigationMenuItem>) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @BuilderParam
   menus?: CustomBuilder | Array<NavigationMenuItem>;
@@ -291,7 +291,7 @@ export declare struct AtomicServiceNavigation {
    * @type { ?SideBarOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @Prop
   sideBarOptions?: SideBarOptions;
@@ -301,7 +301,7 @@ export declare struct AtomicServiceNavigation {
    * @type { ?Callback<void> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @BuilderParam
   sideBarContent?: Callback<void>;
@@ -355,7 +355,7 @@ export interface TitleOptions {
    * @default TitleBarType.ROUND_ICON
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   titleBarType?: TitleBarType;
 
@@ -366,7 +366,7 @@ export interface TitleOptions {
    * @default atomicservice icon
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   titleIcon?: Resource | SymbolGlyphModifier;
 }
@@ -377,7 +377,7 @@ export interface TitleOptions {
  * @typedef GradientBackground
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export interface GradientBackground {
   /**
@@ -386,7 +386,7 @@ export interface GradientBackground {
    * @type { ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   primaryColor: ResourceColor;
 
@@ -396,7 +396,7 @@ export interface GradientBackground {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   secondaryColor?: ResourceColor;
 
@@ -406,7 +406,7 @@ export interface GradientBackground {
    * @type { ?BackgroundTheme }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   backgroundTheme?: BackgroundTheme;
 
@@ -416,7 +416,7 @@ export interface GradientBackground {
    * @type { ?MixMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   mixMode?: MixMode;
 
@@ -426,7 +426,7 @@ export interface GradientBackground {
    * @type { ?GradientAlpha }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   alpha?: GradientAlpha;
 }
@@ -437,7 +437,7 @@ export interface GradientBackground {
  * @typedef SideBarOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export interface SideBarOptions {
   /**
@@ -446,7 +446,7 @@ export interface SideBarOptions {
    * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   sideBarBackground?: ResourceColor;
 
@@ -456,7 +456,7 @@ export interface SideBarOptions {
    * @type { ?Callback<boolean> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onChange?: Callback<boolean>;
 
@@ -467,7 +467,7 @@ export interface SideBarOptions {
    * @default $r('sys.symbol.open_sidebar')
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   sideBarIcon?: Resource | SymbolGlyphModifier;
 }
@@ -478,7 +478,7 @@ export interface SideBarOptions {
  * @enum { number }.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export declare enum TitleBarType {
   /**
@@ -486,7 +486,7 @@ export declare enum TitleBarType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   SQUARED_ICON = 1,
 
@@ -495,7 +495,7 @@ export declare enum TitleBarType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   ROUND_ICON = 2,
 
@@ -504,7 +504,7 @@ export declare enum TitleBarType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   DRAWER = 3
 }

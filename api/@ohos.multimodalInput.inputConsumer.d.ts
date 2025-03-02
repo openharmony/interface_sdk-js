@@ -83,7 +83,7 @@ declare namespace inputConsumer {
      * @type { ?boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
-     * @since 16
+     * @since 18
      */
     isRepeat?: boolean;
   }

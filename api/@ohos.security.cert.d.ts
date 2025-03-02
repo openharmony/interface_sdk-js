@@ -332,7 +332,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     ERR_MAYBE_WRONG_PASSWORD = 19030008
   }
@@ -4996,7 +4996,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   enum EncodingBaseFormat {
     /**
@@ -5005,7 +5005,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     PEM = 0,
 
@@ -5015,7 +5015,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     DER = 1,
   }
@@ -5027,7 +5027,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   interface Pkcs12Data {
     /**
@@ -5037,7 +5037,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     privateKey?: string | Uint8Array;
 
@@ -5048,7 +5048,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     cert?: X509Cert;
 
@@ -5059,7 +5059,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     otherCerts?: Array<X509Cert>;
   }
@@ -5071,7 +5071,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   interface Pkcs12ParsingConfig {
     /**
@@ -5081,7 +5081,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     password: string;
 
@@ -5093,7 +5093,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     needsPrivateKey?: boolean;
 
@@ -5105,7 +5105,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     privateKeyFormat?: EncodingBaseFormat;
 
@@ -5117,7 +5117,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     needsCert?: boolean;
 
@@ -5129,7 +5129,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     needsOtherCerts?: boolean;
   }
@@ -5149,7 +5149,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   function parsePkcs12(data: Uint8Array, config: Pkcs12ParsingConfig): Pkcs12Data;
 
@@ -5909,7 +5909,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   enum CmsContentType {
     /**
@@ -5918,7 +5918,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     SIGNED_DATA = 0
   }
@@ -5930,7 +5930,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   enum CmsContentDataFormat {
     /**
@@ -5939,7 +5939,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     BINARY = 0,
 
@@ -5949,7 +5949,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     TEXT = 1
   }
@@ -5961,7 +5961,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   enum CmsFormat {
     /**
@@ -5970,7 +5970,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     PEM = 0,
 
@@ -5980,7 +5980,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     DER = 1
   }
@@ -5992,7 +5992,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   interface PrivateKeyInfo {
     /**
@@ -6002,7 +6002,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     key: string | Uint8Array;
 
@@ -6013,7 +6013,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     password?: string;
   }
@@ -6025,7 +6025,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   interface CmsSignerConfig {
     /**
@@ -6035,7 +6035,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     mdName: string;
 
@@ -6047,7 +6047,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     addCert?: boolean;
 
@@ -6059,7 +6059,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     addAttr?: boolean;
 
@@ -6071,7 +6071,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     addSmimeCapAttr?: boolean
   }
@@ -6083,7 +6083,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   interface CmsGeneratorOptions {
     /**
@@ -6094,7 +6094,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     contentDataFormat?: CmsContentDataFormat;
 
@@ -6106,7 +6106,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     outFormat?: CmsFormat;
 
@@ -6118,7 +6118,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     isDetached?: boolean;
   }
@@ -6130,7 +6130,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   interface CmsGenerator {
     /**
@@ -6148,7 +6148,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     addSigner(cert: X509Cert, keyInfo: PrivateKeyInfo, config: CmsSignerConfig): void;
 
@@ -6164,7 +6164,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     addCert(cert: X509Cert): void;
 
@@ -6182,7 +6182,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     doFinal(data: Uint8Array, options?: CmsGeneratorOptions): Promise<Uint8Array | string>;
 
@@ -6200,7 +6200,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     doFinalSync(data: Uint8Array, options?: CmsGeneratorOptions): Uint8Array | string;
   }
@@ -6218,7 +6218,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   function createCmsGenerator(contentType: CmsContentType): CmsGenerator;
 
@@ -6229,7 +6229,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   interface CsrAttribute {
     /**
@@ -6239,7 +6239,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     type: string;
 
@@ -6250,7 +6250,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     value: string;
   }
@@ -6262,7 +6262,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   interface CsrGenerationConfig {
     /**
@@ -6272,7 +6272,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     subject: X500DistinguishedName;
 
@@ -6283,7 +6283,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     mdName: string;
 
@@ -6294,7 +6294,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     attributes?: Array<CsrAttribute>;
 
@@ -6306,7 +6306,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     outFormat?: EncodingBaseFormat;
   }
@@ -6326,7 +6326,7 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   function generateCsr(keyInfo: PrivateKeyInfo, config: CsrGenerationConfig): string | Uint8Array;
 }

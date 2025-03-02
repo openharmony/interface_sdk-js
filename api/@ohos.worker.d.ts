@@ -118,7 +118,7 @@ export interface WorkerOptions {
    * @type { ?ThreadWorkerPriority }
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   priority?: ThreadWorkerPriority;
 }
@@ -129,7 +129,7 @@ export interface WorkerOptions {
  * @enum { number } ThreadWorkerPriority
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export enum ThreadWorkerPriority {
   /**
@@ -137,7 +137,7 @@ export enum ThreadWorkerPriority {
    *
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   HIGH = 0,
 
@@ -146,7 +146,7 @@ export enum ThreadWorkerPriority {
    *
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   MEDIUM = 1,
 
@@ -155,7 +155,7 @@ export enum ThreadWorkerPriority {
    *
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   LOW = 2,
 
@@ -164,7 +164,7 @@ export enum ThreadWorkerPriority {
    *
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   IDLE = 3
 }
@@ -1431,7 +1431,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
  * @returns { void }
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 16
+ * @since 18
  */
 type ErrorCallback = (err: ErrorEvent) => void;
 
@@ -1613,7 +1613,7 @@ declare namespace worker {
      * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     onAllErrors?: ErrorCallback;
 

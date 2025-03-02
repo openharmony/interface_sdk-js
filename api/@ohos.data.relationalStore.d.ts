@@ -346,7 +346,7 @@ declare namespace relationalStore {
      * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 16
+     * @since 18
      */
     rootDir?: string;
 
@@ -384,7 +384,7 @@ declare namespace relationalStore {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 16
+     * @since 18
      */
     vector?: boolean;
 
@@ -431,7 +431,7 @@ declare namespace relationalStore {
      *
      * @type { ?Tokenizer }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 16
+     * @since 18
      */
 
     tokenizer?: Tokenizer;
@@ -631,28 +631,28 @@ declare namespace relationalStore {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 16
+   * @since 18
    */
   enum Tokenizer {
     /**
      * NONE_TOKENIZER: not use tokenizer
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 16
+     * @since 18
      */
     NONE_TOKENIZER = 0,
     /**
      * ICU_TOKENIZER: native icu tokenizer.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 16
+     * @since 18
      */
     ICU_TOKENIZER,
     /**
      * CUSTOM_TOKENIZER: self-developed enhance tokenizer.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 16
+     * @since 18
      */
     CUSTOM_TOKENIZER
   }
@@ -1285,7 +1285,7 @@ declare namespace relationalStore {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 16
+     * @since 18
      */
     asyncDownloadAsset?: boolean;
 
@@ -1294,7 +1294,7 @@ declare namespace relationalStore {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 16
+     * @since 18
      */
     enableCloud?: boolean;
   }
@@ -3467,7 +3467,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 16
+     * @since 18
      */
     getRows(maxCount: number, position?: number): Promise<Array<ValuesBucket>>;
 
@@ -4125,7 +4125,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 16
+     * @since 18
      */
     batchInsertWithConflictResolution(table: string, values: Array<ValuesBucket>, conflict: ConflictResolution): Promise<number>;
 
@@ -4158,7 +4158,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 16
+     * @since 18
      */
     batchInsertWithConflictResolutionSync(table: string, values: Array<ValuesBucket>, conflict: ConflictResolution): number;
 
@@ -7682,7 +7682,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 16
+     * @since 18
      */
     batchInsertWithConflictResolution(table: string, values: Array<ValuesBucket>, conflict: ConflictResolution): Promise<number>;
 
@@ -7714,7 +7714,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 16
+     * @since 18
      */
     batchInsertWithConflictResolutionSync(table: string, values: Array<ValuesBucket>, conflict: ConflictResolution): number;
 
@@ -8305,7 +8305,7 @@ declare namespace relationalStore {
    *
    * @returns { boolean } Returns {@code true} if the vector database is supported; returns {@code false} otherwise.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 16
+   * @since 18
    */
   function isVectorSupported(): boolean;
 
@@ -8315,7 +8315,7 @@ declare namespace relationalStore {
    * @returns { boolean } Returns {@code true} if the tokenizer is supported; returns {@code false} otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 16
+   * @since 18
    */
     function isTokenizerSupported(tokenizer: Tokenizer): boolean;
 }

@@ -984,7 +984,7 @@ declare class TextMenuItemId {
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   static readonly SEARCH: TextMenuItemId;
 
@@ -996,7 +996,7 @@ declare class TextMenuItemId {
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   static readonly SHARE: TextMenuItemId;
 }
@@ -1261,7 +1261,7 @@ interface EditableTextChangeValue {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since 16
+  * @since 18
   */
 declare enum TextMenuShowMode {
   /**
@@ -1270,7 +1270,7 @@ declare enum TextMenuShowMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   DEFAULT = 0,
 
@@ -1281,7 +1281,7 @@ declare enum TextMenuShowMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   PREFER_WINDOW = 1,
 }
@@ -1293,7 +1293,7 @@ declare enum TextMenuShowMode {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since 16
+  * @since 18
   */
 declare interface TextMenuOptions {
   /**
@@ -1303,7 +1303,7 @@ declare interface TextMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   showMode?: TextMenuShowMode;
 }

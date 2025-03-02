@@ -254,7 +254,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   PASSPORT_NUMBER = 27,
 
@@ -264,7 +264,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   VALIDITY = 28,
 
@@ -274,7 +274,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   ISSUE_AT = 29,
 
@@ -284,7 +284,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   ORGANIZATION = 30,
 
@@ -294,7 +294,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   TAX_ID = 31,
 
@@ -304,7 +304,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   ADDRESS_CITY_AND_STATE = 32,
 
@@ -314,7 +314,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   FLIGHT_NUMBER = 33,
 
@@ -324,7 +324,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   LICENSE_NUMBER = 34,
 
@@ -334,7 +334,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   LICENSE_FILE_NUMBER = 35,
 
@@ -344,7 +344,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   LICENSE_PLATE = 36,
 
@@ -354,7 +354,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   ENGINE_NUMBER = 37,
 
@@ -364,7 +364,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   LICENSE_CHASSIS_NUMBER = 38
 }

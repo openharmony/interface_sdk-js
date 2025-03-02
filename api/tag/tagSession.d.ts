@@ -320,7 +320,7 @@ export interface TagSession {
    * @throws { BusinessError } 3100205 - The tag leaves the field.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   transmit(data: number[]): Promise<number[]>;
 

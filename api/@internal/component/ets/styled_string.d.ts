@@ -26,7 +26,7 @@
  * @systemapi
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare type StyledStringMarshallingValue = UserDataSpan;
 
@@ -41,7 +41,7 @@ declare type StyledStringMarshallingValue = UserDataSpan;
  * @systemapi
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare type StyledStringMarshallCallback = (marshallableVal: StyledStringMarshallingValue) => ArrayBuffer;
 
@@ -55,7 +55,7 @@ declare type StyledStringMarshallCallback = (marshallableVal: StyledStringMarsha
  * @systemapi
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare type StyledStringUnmarshallCallback = (buf: ArrayBuffer) => StyledStringMarshallingValue;
 
@@ -189,7 +189,7 @@ declare class StyledString {
      * @returns { ArrayBuffer }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 16
+     * @since 18
      */
     static marshalling(styledString: StyledString, callback: StyledStringMarshallCallback): ArrayBuffer;
 
@@ -205,7 +205,7 @@ declare class StyledString {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 16
+     * @since 18
      */
     static unmarshalling(buffer: ArrayBuffer, callback: StyledStringUnmarshallCallback): Promise<StyledString>;
 
@@ -892,7 +892,7 @@ declare class ParagraphStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     readonly paragraphSpacing?: number;
 }
@@ -980,7 +980,7 @@ declare interface ParagraphStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     paragraphSpacing?: LengthMetrics;
 }

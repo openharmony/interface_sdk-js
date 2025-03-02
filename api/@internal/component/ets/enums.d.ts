@@ -1607,7 +1607,7 @@ declare enum MouseAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   CANCEL = 13
 }
@@ -9224,7 +9224,7 @@ declare enum WordBreak {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   HYPHENATION = 3,
 }
@@ -10024,7 +10024,7 @@ declare enum PageFlipMode {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare enum CrownAction {
   /**
@@ -10032,7 +10032,7 @@ declare enum CrownAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   BEGIN = 0,
 
@@ -10041,7 +10041,7 @@ declare enum CrownAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   UPDATE = 1,
 
@@ -10050,7 +10050,7 @@ declare enum CrownAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   END = 2
 }
@@ -10061,7 +10061,7 @@ declare enum CrownAction {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare enum CrownSensitivity {
   /**
@@ -10069,7 +10069,7 @@ declare enum CrownSensitivity {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   LOW = 0,
 
@@ -10078,7 +10078,7 @@ declare enum CrownSensitivity {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   MEDIUM = 1,
 
@@ -10087,7 +10087,7 @@ declare enum CrownSensitivity {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   HIGH = 2
 }
@@ -10098,7 +10098,7 @@ declare enum CrownSensitivity {
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare enum AxisAction {
   /**
@@ -10106,7 +10106,7 @@ declare enum AxisAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   NONE = 0,
 
@@ -10115,7 +10115,7 @@ declare enum AxisAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   BEGIN = 1,
 
@@ -10124,7 +10124,7 @@ declare enum AxisAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   UPDATE = 2,
 
@@ -10133,7 +10133,7 @@ declare enum AxisAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   END = 3,
 
@@ -10142,7 +10142,7 @@ declare enum AxisAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   CANCEL = 4,
 }
@@ -10155,7 +10155,7 @@ declare enum AxisAction {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 16
+ * @since 18
  */
  declare enum FocusDrawLevel {
   /**
@@ -10165,7 +10165,7 @@ declare enum AxisAction {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   SELF = 0,
 
@@ -10176,7 +10176,7 @@ declare enum AxisAction {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   TOP = 1,
 }
@@ -10188,7 +10188,7 @@ declare enum AxisAction {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare enum DividerMode {
   /**
@@ -10197,7 +10197,7 @@ declare enum DividerMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   FLOATING_ABOVE_MENU = 0,
 
@@ -10207,7 +10207,7 @@ declare enum DividerMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   EMBEDDED_IN_MENU = 1,
 }

@@ -1896,7 +1896,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     getKeyFrameThumbnail(beginFrameTimeMs: number, type: ThumbnailType): Promise<image.PixelMap>;
   }
@@ -2341,7 +2341,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     ALBUM_LPATH = 'lpath'
   }
@@ -3325,7 +3325,7 @@ declare namespace photoAccessHelper {
      * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     readonly lpath?: string;
     /**
@@ -4678,7 +4678,7 @@ declare namespace photoAccessHelper {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 16
+     * @since 18
      */
     getSupportedPhotoFormats(photoType: PhotoType): Promise<Array<string>>;
   }
@@ -6126,7 +6126,7 @@ declare namespace photoAccessHelper {
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     static deleteLocalAssetsPermanently(context: Context, assets: Array<PhotoAsset>): Promise<void>;
   }
@@ -7081,7 +7081,7 @@ declare namespace photoAccessHelper {
    * @extends MediaAlbumChangeRequest
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi 
-   * @since 16
+   * @since 18
    */
    class MediaAnalysisAlbumChangeRequest extends MediaAlbumChangeRequest {
     /**
@@ -7093,7 +7093,7 @@ declare namespace photoAccessHelper {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi 
-     * @since 16
+     * @since 18
      */
     constructor(album: Album);
 
@@ -7111,7 +7111,7 @@ declare namespace photoAccessHelper {
      * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi 
-     * @since 16
+     * @since 18
      */
     setOrderPosition(assets: Array<PhotoAsset>, position: Array<number>): void;
   }
@@ -7121,7 +7121,7 @@ declare namespace photoAccessHelper {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi 
-   * @since 16
+   * @since 18
    */
   class AnalysisAlbum {
     /**
@@ -7133,7 +7133,7 @@ declare namespace photoAccessHelper {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi 
-     * @since 16
+     * @since 18
      */
     constructor(album: Album);
     /**
@@ -7150,7 +7150,7 @@ declare namespace photoAccessHelper {
      * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi 
-     * @since 16
+     * @since 18
      */
     getOrderPosition(assets: Array<PhotoAsset>): Promise<Array<number>>;
   }
@@ -7243,7 +7243,7 @@ declare namespace photoAccessHelper {
      * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi 
-     * @since 16
+     * @since 18
      */
     setSubTitle(subTitle: string): Promise<void>;
 
@@ -7263,7 +7263,7 @@ declare namespace photoAccessHelper {
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi 
-     * @since 16
+     * @since 18
      */
     static deleteHighlightAlbums(context: Context, albums: Array<Album>): Promise<number>;
   }

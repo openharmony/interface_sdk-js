@@ -283,7 +283,7 @@ declare namespace access {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   function on(type: 'stateChange', callback: Callback<BluetoothState>): void;
 

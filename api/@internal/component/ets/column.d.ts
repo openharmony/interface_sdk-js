@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare type SpaceType = string | number | Resource;
 
@@ -86,7 +86,7 @@ interface ColumnOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 16
+ * @since 18
  */
 interface ColumnOptionsV2 {
   /**
@@ -97,7 +97,7 @@ interface ColumnOptionsV2 {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   space?: SpaceType;
 }
@@ -204,7 +204,7 @@ interface ColumnInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   (options?: ColumnOptions | ColumnOptionsV2): ColumnAttribute;
 }

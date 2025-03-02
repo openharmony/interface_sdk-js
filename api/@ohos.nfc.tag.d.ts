@@ -210,7 +210,7 @@ declare namespace tag {
    * @constant
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   const NFC_BARCODE = 10;
 
@@ -1064,7 +1064,7 @@ declare namespace tag {
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   function getBarcodeTag(tagInfo: TagInfo): BarcodeTag;
 
@@ -1514,7 +1514,7 @@ declare namespace tag {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     function makeApplicationRecord(bundleName: string): NdefRecord;
 
@@ -1806,7 +1806,7 @@ declare namespace tag {
   * @typedef { _BarcodeTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
-  * @since 16
+  * @since 18
   */
   export type BarcodeTag = _BarcodeTag;
 

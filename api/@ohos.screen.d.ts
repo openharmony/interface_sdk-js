@@ -244,7 +244,7 @@ declare namespace screen {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
-   * @since 16
+   * @since 18
    */
   function makeUnique(uniqueScreen: Array<number>): Promise<Array<number>>;
 

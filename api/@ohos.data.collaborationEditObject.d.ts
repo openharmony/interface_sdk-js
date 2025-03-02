@@ -27,7 +27,7 @@ import Context from './application/BaseContext';
  * @namespace collaborationEditObject
  * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
  * @systemapi
- * @since 16
+ * @since 18
  */
 declare namespace collaborationEditObject {
   /**
@@ -36,7 +36,7 @@ declare namespace collaborationEditObject {
    * @interface CollaborationConfig
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @systemapi
-   * @since 16
+   * @since 18
    */
   interface CollaborationConfig {
     /**
@@ -45,7 +45,7 @@ declare namespace collaborationEditObject {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     name: string;
   }
@@ -63,7 +63,7 @@ declare namespace collaborationEditObject {
    * @throws { BusinessError } 15410003 - Database error.
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function getCollaborationEditObject(context: Context, config: CollaborationConfig): CollaborationEditObject;
 
@@ -79,7 +79,7 @@ declare namespace collaborationEditObject {
    * @throws { BusinessError } 15410003 - Database error.
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function deleteCollaborationEditObject(context: Context, config: CollaborationConfig): void;
 
@@ -89,7 +89,7 @@ declare namespace collaborationEditObject {
    * @interface UndoRedoConfig
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @systemapi
-   * @since 16
+   * @since 18
    */
   interface UndoRedoConfig {
     /**
@@ -98,7 +98,7 @@ declare namespace collaborationEditObject {
      * @type { number }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     captureTimeout: number;
   }
@@ -109,7 +109,7 @@ declare namespace collaborationEditObject {
    * @interface RelativePos
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @systemapi
-   * @since 16
+   * @since 18
    */
   interface RelativePos {
     /**
@@ -118,7 +118,7 @@ declare namespace collaborationEditObject {
      * @type { UniqueId | null }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     parentId: UniqueId | null;
 
@@ -128,7 +128,7 @@ declare namespace collaborationEditObject {
      * @type { string | null }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     parentName: string | null;
 
@@ -138,7 +138,7 @@ declare namespace collaborationEditObject {
      * @type { UniqueId | null }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     id: UniqueId | null;
 
@@ -150,7 +150,7 @@ declare namespace collaborationEditObject {
      * @type { number }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     pos: number;
   }
@@ -161,7 +161,7 @@ declare namespace collaborationEditObject {
    * @interface EditObjectRecord
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @systemapi
-   * @since 16
+   * @since 18
    */
   interface EditObjectRecord {
     /**
@@ -170,7 +170,7 @@ declare namespace collaborationEditObject {
      * @type { number }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     cursor: number;
 
@@ -180,7 +180,7 @@ declare namespace collaborationEditObject {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     id: string;
 
@@ -190,7 +190,7 @@ declare namespace collaborationEditObject {
      * @type { Uint8Array }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     data: Uint8Array;
   }
@@ -201,7 +201,7 @@ declare namespace collaborationEditObject {
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @systemapi
-   * @since 16
+   * @since 18
    */
   enum Predicate {
     /**
@@ -209,7 +209,7 @@ declare namespace collaborationEditObject {
      *
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     EQUAL_TO = 0,
 
@@ -218,7 +218,7 @@ declare namespace collaborationEditObject {
      *
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     NOT_EQUAL_TO,
 
@@ -227,7 +227,7 @@ declare namespace collaborationEditObject {
      *
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     GREATER_THAN,
 
@@ -236,7 +236,7 @@ declare namespace collaborationEditObject {
      *
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     LESS_THAN,
 
@@ -245,7 +245,7 @@ declare namespace collaborationEditObject {
      *
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     GREATER_THAN_OR_EQUAL_TO,
 
@@ -254,7 +254,7 @@ declare namespace collaborationEditObject {
      *
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     LESS_THAN_OR_EQUAL_TO
   }
@@ -265,7 +265,7 @@ declare namespace collaborationEditObject {
    * @interface QueryCondition
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @systemapi
-   * @since 16
+   * @since 18
    */
   interface QueryCondition {
     /**
@@ -274,7 +274,7 @@ declare namespace collaborationEditObject {
      * @type { Predicate }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     condition: Predicate;
 
@@ -284,7 +284,7 @@ declare namespace collaborationEditObject {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     fieldName: string;
 
@@ -294,7 +294,7 @@ declare namespace collaborationEditObject {
      * @type { string | number }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     fieldValue: string | number;
   }
@@ -305,7 +305,7 @@ declare namespace collaborationEditObject {
    * @interface AssetOperationConfig
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @systemapi
-   * @since 16
+   * @since 18
    */
   interface AssetOperationConfig {
     /**
@@ -314,7 +314,7 @@ declare namespace collaborationEditObject {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     path: string;
   }
@@ -327,7 +327,7 @@ declare namespace collaborationEditObject {
    * @returns { Promise<number> } the number of inserted data
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @systemapi
-   * @since 16
+   * @since 18
    */
   type BatchInsertHandler = (records: Array<EditObjectRecord>) => Promise<number>;
 
@@ -339,7 +339,7 @@ declare namespace collaborationEditObject {
    * @returns { Promise<Array<EditObjectRecord>> } the collaboration edit object records queried from cloud
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @systemapi
-   * @since 16
+   * @since 18
    */
   type QueryHandler = (queryConditions: Array<QueryCondition>) => Promise<Array<EditObjectRecord>>;
 
@@ -351,7 +351,7 @@ declare namespace collaborationEditObject {
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @systemapi
-   * @since 16
+   * @since 18
    */
   type AssetHandler = (config: AssetOperationConfig) => Promise<void>;
 
@@ -361,7 +361,7 @@ declare namespace collaborationEditObject {
    * @interface CloudDB
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @systemapi
-   * @since 16
+   * @since 18
    */
   interface CloudDB {
     /**
@@ -370,7 +370,7 @@ declare namespace collaborationEditObject {
      * @type { BatchInsertHandler }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     batchInsert: BatchInsertHandler;
 
@@ -380,7 +380,7 @@ declare namespace collaborationEditObject {
      * @type { QueryHandler }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     query: QueryHandler;
 
@@ -390,7 +390,7 @@ declare namespace collaborationEditObject {
      * @type { AssetHandler }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     downloadAsset: AssetHandler;
 
@@ -400,7 +400,7 @@ declare namespace collaborationEditObject {
      * @type { AssetHandler }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     uploadAsset: AssetHandler;
 
@@ -410,7 +410,7 @@ declare namespace collaborationEditObject {
      * @type { AssetHandler }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     deleteAsset: AssetHandler;
 
@@ -420,7 +420,7 @@ declare namespace collaborationEditObject {
      * @type { AssetHandler }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     deleteLocalAsset: AssetHandler;
   }
@@ -431,7 +431,7 @@ declare namespace collaborationEditObject {
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @systemapi
-   * @since 16
+   * @since 18
    */
   enum ProgressCode {
     /**
@@ -439,7 +439,7 @@ declare namespace collaborationEditObject {
      *
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     CLOUD_SYNC_SUCCESS = 0,
 
@@ -448,7 +448,7 @@ declare namespace collaborationEditObject {
      *
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     CLOUD_NOT_SET,
 
@@ -457,7 +457,7 @@ declare namespace collaborationEditObject {
      *
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     INTERNAL_ERROR,
 
@@ -466,7 +466,7 @@ declare namespace collaborationEditObject {
      *
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     EXTERNAL_ERROR,
   }
@@ -477,7 +477,7 @@ declare namespace collaborationEditObject {
    * @interface ProgressDetail
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @systemapi
-   * @since 16
+   * @since 18
    */
   interface ProgressDetail {
     /**
@@ -486,7 +486,7 @@ declare namespace collaborationEditObject {
      * @type { ProgressCode }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     code: ProgressCode;
   }
@@ -497,7 +497,7 @@ declare namespace collaborationEditObject {
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @systemapi
-   * @since 16
+   * @since 18
    */
   enum SyncMode {
     /**
@@ -505,7 +505,7 @@ declare namespace collaborationEditObject {
      *
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     SYNC_MODE_PUSH = 0,
 
@@ -514,7 +514,7 @@ declare namespace collaborationEditObject {
      *
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     SYNC_MODE_PULL,
 
@@ -523,7 +523,7 @@ declare namespace collaborationEditObject {
      *
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     SYNC_MODE_PULL_PUSH,
   }
@@ -534,7 +534,7 @@ declare namespace collaborationEditObject {
    * @interface CollaborationEditObject
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @systemapi
-   * @since 16
+   * @since 18
    */
   interface CollaborationEditObject {
     /**
@@ -549,7 +549,7 @@ declare namespace collaborationEditObject {
      * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     getEditUnit(editUnitName: string): EditUnit;
 
@@ -566,7 +566,7 @@ declare namespace collaborationEditObject {
      * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     getUndoRedoManager(editUnitName: string, config: UndoRedoConfig): UndoRedoManager;
 
@@ -581,7 +581,7 @@ declare namespace collaborationEditObject {
      * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     deleteUndoRedoManager(editUnitName: string): void;
 
@@ -594,7 +594,7 @@ declare namespace collaborationEditObject {
      * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     getLocalId(): string;
 
@@ -607,7 +607,7 @@ declare namespace collaborationEditObject {
      * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     applyUpdate(): Array<UpdatedNode>;
 
@@ -622,7 +622,7 @@ declare namespace collaborationEditObject {
      * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     writeUpdate(update:EditObjectRecord): void;
 
@@ -637,7 +637,7 @@ declare namespace collaborationEditObject {
      * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     setCloudDB(cloudDB: CloudDB): void;
 
@@ -653,7 +653,7 @@ declare namespace collaborationEditObject {
      * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     cloudSync(syncMode: SyncMode, progress: Callback<ProgressDetail>): void;
   }
@@ -663,7 +663,7 @@ declare namespace collaborationEditObject {
    *
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @systemapi
-   * @since 16
+   * @since 18
    */
   class EditUnit {
     /**
@@ -673,7 +673,7 @@ declare namespace collaborationEditObject {
      * @throws { BusinessError } 202 - Not system application.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     getName(): string;
 
@@ -691,7 +691,7 @@ declare namespace collaborationEditObject {
      * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     insertNodes(index: number, nodes: Node[]): void;
 
@@ -709,7 +709,7 @@ declare namespace collaborationEditObject {
      * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     delete(index: number, length: number): void;
 
@@ -728,7 +728,7 @@ declare namespace collaborationEditObject {
      * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     getChildren(start: number, end: number): Array<Node | Text>;
 
@@ -743,7 +743,7 @@ declare namespace collaborationEditObject {
      * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     getJsonResult(): string;
 
@@ -759,7 +759,7 @@ declare namespace collaborationEditObject {
      * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     getRelativePos(absolutePos: number): RelativePos;
 
@@ -775,7 +775,7 @@ declare namespace collaborationEditObject {
      * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     getAbsolutePos(relativePos: RelativePos): number;
   }
@@ -786,7 +786,7 @@ declare namespace collaborationEditObject {
    * @interface UniqueId
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @systemapi
-   * @since 16
+   * @since 18
    */
   interface UniqueId {
     /**
@@ -795,7 +795,7 @@ declare namespace collaborationEditObject {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     id: string;
 
@@ -805,7 +805,7 @@ declare namespace collaborationEditObject {
      * @type { number }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     clock: number;
   }
@@ -816,7 +816,7 @@ declare namespace collaborationEditObject {
    * @typedef { Record<string, string | number | boolean> } AttributesRecord
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @systemapi
-   * @since 16
+   * @since 18
    */
   type AttributesRecord = Record<string, string | number | boolean>;
 
@@ -826,7 +826,7 @@ declare namespace collaborationEditObject {
    * @extends EditUnit
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @systemapi
-   * @since 16
+   * @since 18
    */
   class Node extends EditUnit {
     /**
@@ -838,7 +838,7 @@ declare namespace collaborationEditObject {
      *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     constructor(name: string);
 
@@ -851,7 +851,7 @@ declare namespace collaborationEditObject {
      * @throws { BusinessError } 15410001 - Unsupported operation.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     getId(): UniqueId;
 
@@ -869,7 +869,7 @@ declare namespace collaborationEditObject {
      * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     insertTexts(index: number, texts: Text[]): void;
 
@@ -886,7 +886,7 @@ declare namespace collaborationEditObject {
      * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     setAttributes(attributes: AttributesRecord): void;
 
@@ -903,7 +903,7 @@ declare namespace collaborationEditObject {
      * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     removeAttributes(attributeNames: string[]): void;
 
@@ -918,7 +918,7 @@ declare namespace collaborationEditObject {
      * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     getAttributes(): AttributesRecord;
 
@@ -936,7 +936,7 @@ declare namespace collaborationEditObject {
      * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     setAsset(assetKey: string, assetValue: string): void;
   }
@@ -947,7 +947,7 @@ declare namespace collaborationEditObject {
    * @typedef { null | number | string | boolean } FormatValueType
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @systemapi
-   * @since 16
+   * @since 18
    */
   type FormatValueType = null | number | string | boolean;
 
@@ -957,7 +957,7 @@ declare namespace collaborationEditObject {
    * @typedef { Record<string, FormatValueType> } TextFormat
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @systemapi
-   * @since 16
+   * @since 18
    */
   type TextFormat = Record<string, FormatValueType>;
 
@@ -966,7 +966,7 @@ declare namespace collaborationEditObject {
    *
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @systemapi
-   * @since 16
+   * @since 18
    */
   class Text {
     /**
@@ -975,7 +975,7 @@ declare namespace collaborationEditObject {
      * @throws { BusinessError } 202 - Not system application.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     constructor();
 
@@ -988,7 +988,7 @@ declare namespace collaborationEditObject {
      * @throws { BusinessError } 15410001 - Unsupported operation.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     getId(): UniqueId;
 
@@ -1007,7 +1007,7 @@ declare namespace collaborationEditObject {
      * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     insert(index: number, text: string, format?: TextFormat): void;
 
@@ -1025,7 +1025,7 @@ declare namespace collaborationEditObject {
      * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     delete(index: number, length: number): void;
 
@@ -1044,7 +1044,7 @@ declare namespace collaborationEditObject {
      * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     format(index: number, length: number, format: TextFormat): void;
 
@@ -1059,7 +1059,7 @@ declare namespace collaborationEditObject {
      * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     getPlainText(): string;
 
@@ -1074,7 +1074,7 @@ declare namespace collaborationEditObject {
      * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     getJsonResult(): string;
   }
@@ -1085,7 +1085,7 @@ declare namespace collaborationEditObject {
    * @interface UndoRedoManager
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @systemapi
-   * @since 16
+   * @since 18
    */
   interface UndoRedoManager {
     /**
@@ -1096,7 +1096,7 @@ declare namespace collaborationEditObject {
      * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     undo(): void;
 
@@ -1108,7 +1108,7 @@ declare namespace collaborationEditObject {
      * @throws { BusinessError } 15410003 - Database error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     redo(): void;
   }
@@ -1119,7 +1119,7 @@ declare namespace collaborationEditObject {
    * @interface UpdatedNode
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @systemapi
-   * @since 16
+   * @since 18
    */
   interface UpdatedNode {
     /**
@@ -1128,7 +1128,7 @@ declare namespace collaborationEditObject {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     editUnitName: string;
 
@@ -1138,7 +1138,7 @@ declare namespace collaborationEditObject {
      * @type { Node | Text }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @systemapi
-     * @since 16
+     * @since 18
      */
     node: Node | Text;
   }

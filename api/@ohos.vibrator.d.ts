@@ -364,7 +364,7 @@ declare namespace vibrator {
      * Describes the vibration effect of the successful notice.
      *
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 16
+     * @since 18
      */
     EFFECT_NOTICE_SUCCESS = 'haptic.notice.success',
 
@@ -372,7 +372,7 @@ declare namespace vibrator {
      * Describes the vibration effect of the failed notice.
      *
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 16
+     * @since 18
      */
     EFFECT_NOTICE_FAILURE = 'haptic.notice.fail',
 
@@ -380,7 +380,7 @@ declare namespace vibrator {
      * Describes the vibration effect of the warning notice.
      *
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 16
+     * @since 18
      */
     EFFECT_NOTICE_WARNING = 'haptic.notice.warning'
   }
@@ -517,7 +517,7 @@ declare namespace vibrator {
    * @typedef { VibrateTime | VibratePreset | VibrateFromFile | VibrateFromPattern }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFromPattern;
 
@@ -693,14 +693,14 @@ declare namespace vibrator {
    *
    * @enum { number }
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 16
+   * @since 18
    */
   enum VibratorEventType {
     /**
      * Steady state long vibration
      *
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 16
+     * @since 18
      */
     CONTINUOUS = 0,
 
@@ -708,7 +708,7 @@ declare namespace vibrator {
      * Transient short vibration
      *
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 16
+     * @since 18
      */
     TRANSIENT = 1,
   }
@@ -718,7 +718,7 @@ declare namespace vibrator {
    *
    * @interface VibratorCurvePoint
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 16
+   * @since 18
    */
   interface VibratorCurvePoint {
     /**
@@ -726,7 +726,7 @@ declare namespace vibrator {
       *
       * @type { number }
       * @syscap SystemCapability.Sensors.MiscDevice
-      * @since 16
+      * @since 18
       */
     time: number;
 
@@ -735,7 +735,7 @@ declare namespace vibrator {
       *
       * @type { ?number }
       * @syscap SystemCapability.Sensors.MiscDevice
-      * @since 16
+      * @since 18
       */
     intensity?: number;
     /**
@@ -743,7 +743,7 @@ declare namespace vibrator {
      *
      * @type { ?number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 16
+     * @since 18
      */
     frequency?: number;
   }
@@ -753,7 +753,7 @@ declare namespace vibrator {
    *
    * @interface VibratorEvent
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 16
+   * @since 18
    */
   interface VibratorEvent {
     /**
@@ -761,7 +761,7 @@ declare namespace vibrator {
      *
      * @type { VibratorEventType }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 16
+     * @since 18
      */
     eventType: VibratorEventType;
 
@@ -770,7 +770,7 @@ declare namespace vibrator {
      *
      * @type { number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 16
+     * @since 18
      */
     time: number;
 
@@ -779,7 +779,7 @@ declare namespace vibrator {
      *
      * @type { ?number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 16
+     * @since 18
      */
     duration?: number;
 
@@ -788,7 +788,7 @@ declare namespace vibrator {
      *
      * @type { ?number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 16
+     * @since 18
      */
     intensity?: number;
 
@@ -797,7 +797,7 @@ declare namespace vibrator {
      *
      * @type { ?number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 16
+     * @since 18
      */
     frequency?: number;
 
@@ -806,7 +806,7 @@ declare namespace vibrator {
      *
      * @type { ?number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 16
+     * @since 18
      */
     index?: number;
 
@@ -815,7 +815,7 @@ declare namespace vibrator {
      *
      * @type { ?Array<VibratorCurvePoint> }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 16
+     * @since 18
      */
     points?: Array<VibratorCurvePoint>;
   }
@@ -825,7 +825,7 @@ declare namespace vibrator {
    *
    * @interface VibratorPattern
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 16
+   * @since 18
    */
   interface VibratorPattern {
     /**
@@ -833,7 +833,7 @@ declare namespace vibrator {
      *
      * @type { number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 16
+     * @since 18
      */
     time: number;
 
@@ -842,7 +842,7 @@ declare namespace vibrator {
      *
      * @type { Array<VibratorEvent> }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 16
+     * @since 18
      */
     events: Array<VibratorEvent>;
   }
@@ -852,7 +852,7 @@ declare namespace vibrator {
    *
    * @interface ContinuousParam
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 16
+   * @since 18
    */
   interface ContinuousParam {
     /**
@@ -860,7 +860,7 @@ declare namespace vibrator {
      *
      * @type { ?number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 16
+     * @since 18
      */
     intensity?: number;
 
@@ -869,7 +869,7 @@ declare namespace vibrator {
      *
      * @type { ?number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 16
+     * @since 18
      */
     frequency?: number;
 
@@ -878,7 +878,7 @@ declare namespace vibrator {
      *
      * @type { ?VibratorCurvePoint[] }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 16
+     * @since 18
      */
     points?: VibratorCurvePoint[];
 
@@ -887,7 +887,7 @@ declare namespace vibrator {
      *
      * @type { ?number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 16
+     * @since 18
      */
     index?: number;
   }
@@ -897,7 +897,7 @@ declare namespace vibrator {
    *
    * @interface TransientParam
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 16
+   * @since 18
    */
   interface TransientParam {
     /**
@@ -905,7 +905,7 @@ declare namespace vibrator {
      *
      * @type { ?number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 16
+     * @since 18
      */
     intensity?: number;
 
@@ -914,7 +914,7 @@ declare namespace vibrator {
      *
      * @type { ?number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 16
+     * @since 18
      */
     frequency?: number;
 
@@ -923,7 +923,7 @@ declare namespace vibrator {
      *
      * @type { ?number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 16
+     * @since 18
      */
     index?: number;
   }
@@ -933,7 +933,7 @@ declare namespace vibrator {
    *
    * @name VibratorPatternBuilder
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 16
+   * @since 18
    */
   class VibratorPatternBuilder {
     /**
@@ -945,7 +945,7 @@ declare namespace vibrator {
      * @returns { VibratorPatternBuilder } Return the current VibratorPatternBuilder object.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 16
+     * @since 18
      */
     addContinuousEvent(time: number, duration: number, options?: ContinuousParam): VibratorPatternBuilder;
 
@@ -957,7 +957,7 @@ declare namespace vibrator {
      * @returns { VibratorPatternBuilder } Return the current VibratorPatternBuilder object.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 16
+     * @since 18
      */
     addTransientEvent(time: number, options?: TransientParam): VibratorPatternBuilder;
 
@@ -966,7 +966,7 @@ declare namespace vibrator {
      *
      * @returns { VibratorPattern } Return VibratorPattern object.
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 16
+     * @since 18
      */
     build(): VibratorPattern;
   }
@@ -976,7 +976,7 @@ declare namespace vibrator {
    *
    * @interface VibrateFromPattern
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 16
+   * @since 18
    */
   interface VibrateFromPattern {
     /**
@@ -984,7 +984,7 @@ declare namespace vibrator {
      *
      * @type { 'pattern' }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 16
+     * @since 18
      */
     type: 'pattern';
 
@@ -993,7 +993,7 @@ declare namespace vibrator {
      *
      * @type { VibratorPattern }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 16
+     * @since 18
      */
     pattern: VibratorPattern;
   }

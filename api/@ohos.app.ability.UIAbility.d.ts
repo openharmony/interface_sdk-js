@@ -528,7 +528,7 @@ export default class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onWillForeground(): void;
 
@@ -538,7 +538,7 @@ export default class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onDidForeground(): void;
 
@@ -574,7 +574,7 @@ export default class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onWillBackground(): void;
 
@@ -584,7 +584,7 @@ export default class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onDidBackground(): void;
 
@@ -788,7 +788,7 @@ export default class UIAbility extends Ability {
    * @returns { AbilityConstant.CollaborateResult } Return the result of onCollaborate.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   onCollaborate(wantParam: Record<string, Object>): AbilityConstant.CollaborateResult;
 }

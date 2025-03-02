@@ -26,7 +26,7 @@ import Context from './application/BaseContext';
  * @namespace graphStore
  * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
  * @systemapi
- * @since 16
+ * @since 18
  */
 declare namespace graphStore {
   /**
@@ -35,7 +35,7 @@ declare namespace graphStore {
    * @typedef { null | number | string } ValueType
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   type ValueType = null | number | string;
 
@@ -45,7 +45,7 @@ declare namespace graphStore {
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   enum SecurityLevel {
     /**
@@ -54,7 +54,7 @@ declare namespace graphStore {
      *
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     S1 = 1,
     /**
@@ -63,7 +63,7 @@ declare namespace graphStore {
      *
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     S2 = 2,
     /**
@@ -72,7 +72,7 @@ declare namespace graphStore {
      *
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     S3 = 3,
     /**
@@ -81,7 +81,7 @@ declare namespace graphStore {
      *
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     S4 = 4
   }
@@ -92,7 +92,7 @@ declare namespace graphStore {
    * @interface storeConfig
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   interface StoreConfig {
     /**
@@ -101,7 +101,7 @@ declare namespace graphStore {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     name: string;
     /**
@@ -110,7 +110,7 @@ declare namespace graphStore {
      * @type { SecurityLevel }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     securityLevel: SecurityLevel;
     /**
@@ -119,7 +119,7 @@ declare namespace graphStore {
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     encrypt?: boolean;
   }
@@ -130,7 +130,7 @@ declare namespace graphStore {
    * @interface Vertex
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   interface Vertex {
     /**
@@ -139,7 +139,7 @@ declare namespace graphStore {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     vid: string;
     /**
@@ -148,7 +148,7 @@ declare namespace graphStore {
      * @type { Array<string> }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     labels: Array<string>;
     /**
@@ -157,7 +157,7 @@ declare namespace graphStore {
      * @type { Record<string, ValueType> }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     properties: Record<string, ValueType>;
   }
@@ -168,7 +168,7 @@ declare namespace graphStore {
    * @interface Edge
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   interface Edge {
     /**
@@ -177,7 +177,7 @@ declare namespace graphStore {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     eid: string;
     /**
@@ -186,7 +186,7 @@ declare namespace graphStore {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     type: string;
     /**
@@ -195,7 +195,7 @@ declare namespace graphStore {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     startVid: string;
     /**
@@ -204,7 +204,7 @@ declare namespace graphStore {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     endVid: string;
     /**
@@ -213,7 +213,7 @@ declare namespace graphStore {
      * @type { Record<string, ValueType> }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     properties: Record<string, ValueType>;
   }
@@ -224,7 +224,7 @@ declare namespace graphStore {
    * @interface PathSegment
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   interface PathSegment {
     /**
@@ -233,7 +233,7 @@ declare namespace graphStore {
      * @type { Vertex }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     start: Vertex;
     /**
@@ -242,7 +242,7 @@ declare namespace graphStore {
      * @type { Vertex }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     end: Vertex;
     /**
@@ -251,7 +251,7 @@ declare namespace graphStore {
      * @type { Edge }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     edge: Edge;
   }
@@ -262,7 +262,7 @@ declare namespace graphStore {
    * @interface Path
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   interface Path {
     /**
@@ -271,7 +271,7 @@ declare namespace graphStore {
      * @type { Vertex }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     start: Vertex;
     /**
@@ -280,7 +280,7 @@ declare namespace graphStore {
      * @type { Vertex }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     end: Vertex;
     /**
@@ -289,7 +289,7 @@ declare namespace graphStore {
      * @type { number }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     length: number;
     /**
@@ -298,7 +298,7 @@ declare namespace graphStore {
      * @type { Array<PathSegment> }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     segments: Array<PathSegment>;
   }
@@ -309,7 +309,7 @@ declare namespace graphStore {
    * @interface Result
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   interface Result {
     /**
@@ -318,7 +318,7 @@ declare namespace graphStore {
      * @type { ?Array<Record<string, Object>> }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     records?: Array<Record<string, Object>>;
   }
@@ -329,7 +329,7 @@ declare namespace graphStore {
    * @interface Transaction
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   interface Transaction {
     /**
@@ -353,7 +353,7 @@ declare namespace graphStore {
      * @throws { BusinessError } 31300010 - The GQL statement semantic error.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     read(gql: string): Promise<Result>;
 
@@ -380,7 +380,7 @@ declare namespace graphStore {
      * @throws { BusinessError } 31300013 - A conflicting constraint already exists.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     write(gql: string): Promise<Result>;
 
@@ -397,7 +397,7 @@ declare namespace graphStore {
      * @throws { BusinessError } 31300005 - The database is full.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     commit(): Promise<void>;
 
@@ -414,7 +414,7 @@ declare namespace graphStore {
      * @throws { BusinessError } 31300005 - The database is full.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     rollback(): Promise<void>;
   }
@@ -425,7 +425,7 @@ declare namespace graphStore {
    * @interface GraphStore
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   interface GraphStore {
     /**
@@ -449,7 +449,7 @@ declare namespace graphStore {
      * @throws { BusinessError } 31300010 - The GQL statement semantic error.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     read(gql: string): Promise<Result>;
 
@@ -476,7 +476,7 @@ declare namespace graphStore {
      * @throws { BusinessError } 31300013 - A conflicting constraint already exists.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     write(gql: string): Promise<Result>;
 
@@ -493,7 +493,7 @@ declare namespace graphStore {
      * @throws { BusinessError } 31300005 - The database is full.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     createTransaction(): Promise<Transaction>;
 
@@ -504,7 +504,7 @@ declare namespace graphStore {
      * @throws { BusinessError } 31300000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     close(): Promise<void>;
   }
@@ -526,7 +526,7 @@ declare namespace graphStore {
    * @throws { BusinessError } 31300015 - Config changed.
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function getStore(context: Context, config: StoreConfig): Promise<GraphStore>;
 
@@ -543,7 +543,7 @@ declare namespace graphStore {
    * @throws { BusinessError } 31300014 - Invalid database path.
    * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function deleteStore(context: Context, config: StoreConfig): Promise<void>;
 }

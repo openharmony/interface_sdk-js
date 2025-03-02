@@ -219,7 +219,7 @@ declare namespace socket {
      * @type {?ProxyOptions}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 16
+     * @since 18
      */
     proxy?: ProxyOptions;
   }
@@ -229,14 +229,14 @@ declare namespace socket {
    * @enum {number}
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
-   * @since 16
+   * @since 18
    */
   export enum ProxyTypes {
     /**
      * No proxy.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 16
+     * @since 18
      */
     NONE = 0,
 
@@ -244,7 +244,7 @@ declare namespace socket {
      * Use Socks5 proxy.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 16
+     * @since 18
      */
     SOCKS5 = 1
   }
@@ -254,7 +254,7 @@ declare namespace socket {
    * @interface ProxyOptions
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
-   * @since 16
+   * @since 18
    */
   export interface ProxyOptions {
     /**
@@ -262,7 +262,7 @@ declare namespace socket {
      * @type {ProxyTypes}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 16
+     * @since 18
      */  
     type: ProxyTypes;
 
@@ -271,7 +271,7 @@ declare namespace socket {
      * @type {NetAddress}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 16
+     * @since 18
      */
     address: NetAddress;
 
@@ -280,7 +280,7 @@ declare namespace socket {
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 16
+     * @since 18
      */
     username?: string;
 
@@ -289,7 +289,7 @@ declare namespace socket {
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 16
+     * @since 18
      */
     password?: string;
   }
@@ -822,7 +822,7 @@ declare namespace socket {
      * @throws { BusinessError } 2301213 - Socks5 deserialization error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 16
+     * @since 18
      */
     send(options: UDPSendOptions, callback: AsyncCallback<void>): void;
 
@@ -864,7 +864,7 @@ declare namespace socket {
      * @throws { BusinessError } 2301213 - Socks5 deserialization error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 16
+     * @since 18
      */
     send(options: UDPSendOptions): Promise<void>;
 
@@ -2163,7 +2163,7 @@ declare namespace socket {
      * @type {?ProxyOptions}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 16
+     * @since 18
      */
     proxy?: ProxyOptions;
   }
@@ -2388,7 +2388,7 @@ declare namespace socket {
      * @throws { BusinessError } 2301213 - Socks5 deserialization error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 16
+     * @since 18
      */
     connect(options: TCPConnectOptions, callback: AsyncCallback<void>): void;
 
@@ -2430,7 +2430,7 @@ declare namespace socket {
      * @throws { BusinessError } 2301213 - Socks5 deserialization error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 16
+     * @since 18
      */
     connect(options: TCPConnectOptions): Promise<void>;
 
@@ -3427,7 +3427,7 @@ declare namespace socket {
      * @throws { BusinessError } 2301213 - Socks5 deserialization error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 16
+     * @since 18
      */
     connect(options: TLSConnectOptions, callback: AsyncCallback<void>): void;
 
@@ -3508,7 +3508,7 @@ declare namespace socket {
      * @throws { BusinessError } 2301213 - Socks5 deserialization error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 16
+     * @since 18
      */
     connect(options: TLSConnectOptions): Promise<void>;
 
@@ -3873,7 +3873,7 @@ declare namespace socket {
      * @type {?ProxyOptions}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 16
+     * @since 18
      */
     proxy?: ProxyOptions;
   }

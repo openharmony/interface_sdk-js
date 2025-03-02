@@ -163,7 +163,7 @@ export interface SceneResourceFactory {
    * @param { MeshResource } mesh resource - The mesh data for the geometry
    * @returns { Promise<Geometry> } promise a geometry
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 16
+   * @since 18
    */
   createGeometry(params: SceneNodeParameters, mesh:MeshResource): Promise<Geometry>;
 
@@ -174,7 +174,7 @@ export interface SceneResourceFactory {
    * @param { GeometryDefinition } geometry - what sort of a geometric shape to create
    * @returns { Promise<MeshResource> } promise a Mesh
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 16
+   * @since 18
    */
   createMesh(params: SceneResourceParameters, geometry: GeometryDefinition): Promise<MeshResource>;
 
@@ -184,7 +184,7 @@ export interface SceneResourceFactory {
    * @param { Resource } uri - the resource of creating a scene
    * @returns { Promise<Scene> } promise a scene
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 16
+   * @since 18
    */
   createScene(uri?: ResourceStr): Promise<Scene>;
 }
@@ -292,7 +292,7 @@ export class Scene {
    * @param { Node | null} parent - The parent node or null for root
    * @returns { Node } The newly created node.
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 16
+   * @since 18
    */
   importNode(name: string, node: Node, parent: Node | null): Node;
 
@@ -305,7 +305,7 @@ export class Scene {
    * @param { Node | null } parent - The parent node or null for root
    * @returns { Node } The newly created node.
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 16                           
+   * @since 18                           
    */
   importScene(name: string, scene: Scene, parent: Node | null): Node;
 

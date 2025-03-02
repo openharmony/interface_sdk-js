@@ -382,7 +382,7 @@ export interface HapModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly deviceTypes: Array<string>;
 
@@ -411,7 +411,7 @@ export interface HapModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly installationFree: boolean;
 
@@ -440,7 +440,7 @@ export interface HapModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly hashValue: string;
 
@@ -469,7 +469,7 @@ export interface HapModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly type: bundleManager.ModuleType;
 

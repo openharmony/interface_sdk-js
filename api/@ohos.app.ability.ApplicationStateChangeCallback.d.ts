@@ -40,7 +40,7 @@
  * @StageModelOnly
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export default class ApplicationStateChangeCallback {
   /**
@@ -65,7 +65,7 @@ export default class ApplicationStateChangeCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onApplicationForeground(): void;
 
@@ -91,7 +91,7 @@ export default class ApplicationStateChangeCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onApplicationBackground(): void;
 }

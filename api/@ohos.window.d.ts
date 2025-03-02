@@ -775,7 +775,7 @@ declare namespace window {
    * @interface StatusBarProperty
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   interface StatusBarProperty {
     /**
@@ -784,7 +784,7 @@ declare namespace window {
      * @type { string }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     contentColor: string;
   }
@@ -1645,7 +1645,7 @@ declare namespace window {
      * @type { ?string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     name?: string;
   }
@@ -4609,7 +4609,7 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     setSystemAvoidAreaEnabled(enabled: boolean): Promise<void>;
 
@@ -4623,7 +4623,7 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     isSystemAvoidAreaEnabled(): boolean;
 
@@ -4983,7 +4983,7 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     setStatusBarColor(color: ColorMetrics): Promise<void>;
 
@@ -4995,7 +4995,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getStatusBarProperty(): StatusBarProperty;
 
@@ -6573,7 +6573,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     setWindowBackgroundColor(color: string | ColorMetrics): void;
 
@@ -6864,7 +6864,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     isWindowHighlighted(): boolean;
 
@@ -7568,7 +7568,7 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     setWindowShadowRadius(radius: number): void;
 
@@ -7615,7 +7615,7 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     setWindowCornerRadius(cornerRadius: number): Promise<void>;
 
@@ -7628,7 +7628,7 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getWindowCornerRadius(): number;
 
@@ -8211,7 +8211,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getWindowDecorVisible(): boolean;
 
@@ -8437,7 +8437,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     isWindowTitleButtonVisible(): boolean;
 
@@ -8599,7 +8599,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     on(type: 'windowTitleButtonVisibleChange', callback: Callback<boolean>): void;
 
@@ -8614,7 +8614,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     off(type: 'windowTitleButtonVisibleChange', callback?: Callback<boolean>): void;
 
@@ -9048,7 +9048,7 @@ declare namespace window {
      * @type { ?Rect }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     windowRect?: Rect;
   }

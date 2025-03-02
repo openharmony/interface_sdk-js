@@ -1130,7 +1130,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   selectedColor(selectedColor: ResourceColor | LinearGradient): SliderAttribute;
 
@@ -1537,7 +1537,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): SliderAttribute;
 
@@ -1548,7 +1548,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   enableHapticFeedback(enabled: boolean): SliderAttribute;
 }

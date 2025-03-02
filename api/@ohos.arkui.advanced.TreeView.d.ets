@@ -387,7 +387,7 @@ export interface NodeParam {
      * @type { ?SymbolGlyphModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     symbolIconStyle?: SymbolGlyphModifier;
 
@@ -411,7 +411,7 @@ export interface NodeParam {
      * @type { ?SymbolGlyphModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     symbolSelectedIconStyle?: SymbolGlyphModifier;
 
@@ -435,7 +435,7 @@ export interface NodeParam {
      * @type { ?SymbolGlyphModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     symbolEditIconStyle?: SymbolGlyphModifier;
 

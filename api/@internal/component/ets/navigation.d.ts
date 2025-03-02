@@ -1171,7 +1171,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   replaceDestination(info: NavPathInfo, options?: NavigationOptions): Promise<void>;
 
@@ -2041,7 +2041,7 @@ declare interface NavigationTitleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
@@ -2052,7 +2052,7 @@ declare interface NavigationTitleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   backgroundEffect?: BackgroundEffectOptions;
 
@@ -2207,7 +2207,7 @@ declare interface NavigationToolbarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
@@ -2218,7 +2218,7 @@ declare interface NavigationToolbarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   backgroundEffect?: BackgroundEffectOptions;
 
@@ -2229,7 +2229,7 @@ declare interface NavigationToolbarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   moreButtonOptions?: MoreButtonOptions;
 
@@ -2253,7 +2253,7 @@ declare interface NavigationToolbarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   hideItemValue?: boolean
 }
@@ -2265,7 +2265,7 @@ declare interface NavigationToolbarOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare interface NavigationMenuOptions {
 /**
@@ -2275,7 +2275,7 @@ declare interface NavigationMenuOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
   moreButtonOptions?: MoreButtonOptions;
 }
@@ -2287,7 +2287,7 @@ declare interface NavigationMenuOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare interface MoreButtonOptions {
   /**
@@ -2297,7 +2297,7 @@ declare interface MoreButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   backgroundBlurStyle?: BlurStyle;
   
@@ -2308,7 +2308,7 @@ declare interface MoreButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
@@ -2319,7 +2319,7 @@ declare interface MoreButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   backgroundEffect?: BackgroundEffectOptions;
 }
@@ -2735,7 +2735,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   menus(items: Array<NavigationMenuItem> | CustomBuilder, options?: NavigationMenuOptions): NavigationAttribute;
 
@@ -2823,7 +2823,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   enableToolBarAdaptation(enable: Optional<boolean>): NavigationAttribute;
 

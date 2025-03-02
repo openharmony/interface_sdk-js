@@ -3090,7 +3090,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getIntPluralStringValueSync(resId: number, num: number, ...args: Array<string | number>): string;
 
@@ -3112,7 +3112,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getIntPluralStringValueSync(resource: Resource, num: number, ...args: Array<string | number>): string;
 
@@ -3133,7 +3133,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getIntPluralStringByNameSync(resName: string, num: number, ...args: Array<string | number>): string;
 
@@ -3154,7 +3154,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getDoublePluralStringValueSync(resId: number, num: number, ...args: Array<string | number>): string;
 
@@ -3176,7 +3176,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getDoublePluralStringValueSync(resource: Resource, num: number, ...args: Array<string | number>): string;
 
@@ -3197,7 +3197,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getDoublePluralStringByNameSync(resName: string, num: number, ...args: Array<string | number>): string;
 

@@ -232,7 +232,7 @@ declare namespace formInfo {
      * @readonly
      * @syscap SystemCapability.Ability.Form
      * @systemapi
-     * @since 16
+     * @since 18
      */
     readonly renderingMode?: RenderingMode;
 
@@ -435,7 +435,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     readonly previewImages?: Array<number>;
 
@@ -446,7 +446,7 @@ declare namespace formInfo {
      * @readonly
      * @syscap SystemCapability.Ability.Form
      * @systemapi
-     * @since 16
+     * @since 18
      */
     readonly enableBlurBackground?: boolean;
   }
@@ -566,7 +566,7 @@ declare namespace formInfo {
    * @enum { number }
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 16
+   * @since 18
    */
   enum RenderingMode {
     /**
@@ -574,7 +574,7 @@ declare namespace formInfo {
      *
      * @syscap SystemCapability.Ability.Form
      * @systemapi
-     * @since 16
+     * @since 18
      */
     AUTO_COLOR = 0,
 
@@ -583,7 +583,7 @@ declare namespace formInfo {
      *
      * @syscap SystemCapability.Ability.Form
      * @systemapi
-     * @since 16
+     * @since 18
      */
     FULL_COLOR = 1,
 
@@ -592,7 +592,7 @@ declare namespace formInfo {
      *
      * @syscap SystemCapability.Ability.Form
      * @systemapi
-     * @since 16
+     * @since 18
      */
     SINGLE_COLOR = 2
   }
@@ -1303,7 +1303,7 @@ declare namespace formInfo {
      *
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     DIMENSION_2_3 = 8,
 
@@ -1312,7 +1312,7 @@ declare namespace formInfo {
      *
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     DIMENSION_3_3 = 9,
   }

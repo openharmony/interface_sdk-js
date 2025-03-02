@@ -242,7 +242,7 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export enum ParallelStrategy {
     /**
@@ -251,7 +251,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     PARALLEL_STRATEGY_SEQUENTIAL = 0,
     /**
@@ -260,7 +260,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     PARALLEL_STRATEGY_PARALLEL_DECOMPRESSION = 1
   }
@@ -550,7 +550,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     parallel?: ParallelStrategy;
   }

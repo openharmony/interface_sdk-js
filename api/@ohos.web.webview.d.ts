@@ -751,7 +751,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   interface WebStorageOrigin {
     /**
@@ -775,7 +775,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
 	 * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     origin: string;
     /**
@@ -799,7 +799,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
 	 * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     usage: number;
     /**
@@ -823,7 +823,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
 	 * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     quota: number;
   }
@@ -938,7 +938,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   class WebStorage {
     /**
@@ -964,7 +964,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     static deleteAllData(incognito?: boolean): void;
 
@@ -999,7 +999,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     static deleteOrigin(origin: string): void;
 
@@ -1030,7 +1030,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     static getOrigins(): Promise<Array<WebStorageOrigin>>;
 
@@ -1061,7 +1061,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     static getOrigins(callback: AsyncCallback<Array<WebStorageOrigin>>): void;
 
@@ -1095,7 +1095,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     static getOriginQuota(origin: string): Promise<number>;
 
@@ -1130,7 +1130,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     static getOriginQuota(origin: string, callback: AsyncCallback<number>): void;
 
@@ -1165,7 +1165,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     static getOriginUsage(origin: string): Promise<number>;
 
@@ -1200,7 +1200,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     static getOriginUsage(origin: string, callback: AsyncCallback<number>): void;
   }
@@ -1315,7 +1315,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   class GeolocationPermissions {
     /**
@@ -1349,7 +1349,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     static allowGeolocation(origin: string, incognito?: boolean): void;
 
@@ -1384,7 +1384,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     static deleteGeolocation(origin: string, incognito?: boolean): void;
 
@@ -1411,7 +1411,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     static deleteAllGeolocation(incognito?: boolean): void;
 
@@ -1461,7 +1461,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     static getAccessibleGeolocation(origin: string, incognito?: boolean): Promise<boolean>;
 
@@ -1514,7 +1514,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     static getAccessibleGeolocation(origin: string, callback: AsyncCallback<boolean>, incognito?: boolean): void;
 
@@ -1550,7 +1550,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     static getStoredGeolocation(incognito?: boolean): Promise<Array<string>>;
 
@@ -1585,7 +1585,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     static getStoredGeolocation(callback: AsyncCallback<Array<string>>, incognito?: boolean): void;
   }
@@ -1935,7 +1935,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     static existCookie(incognito?: boolean): boolean;
 
@@ -2026,7 +2026,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     static clearSessionCookie(callback: AsyncCallback<void>): void;
   }
@@ -2053,7 +2053,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   enum WebMessageType {
     /**
@@ -2090,7 +2090,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     STRING,
 
@@ -2113,7 +2113,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     NUMBER,
 
@@ -2136,7 +2136,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     BOOLEAN,
 
@@ -2174,7 +2174,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     ARRAY,
 
@@ -2197,7 +2197,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     ERROR
   }
@@ -2221,7 +2221,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   class WebMessageExt {
     /**
@@ -2243,7 +2243,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getType(): WebMessageType;
 
@@ -2272,7 +2272,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getString(): string;
 
@@ -2301,7 +2301,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getNumber(): number;
 
@@ -2330,7 +2330,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getBoolean(): boolean;
 
@@ -2378,7 +2378,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getArray(): Array<string | number | boolean>;
 
@@ -2407,7 +2407,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getError(): Error;
 
@@ -2441,7 +2441,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     setType(type: WebMessageType): void;
 
@@ -2475,7 +2475,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     setString(message: string): void;
 
@@ -2509,7 +2509,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     setNumber(message: number): void;
 
@@ -2543,7 +2543,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     setBoolean(message: boolean): void;
 
@@ -2596,7 +2596,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     setArray(message: Array<string | number | boolean>): void;
 
@@ -2631,7 +2631,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     setError(message: Error): void;
   }
@@ -2773,7 +2773,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     postMessageEventExt(message: WebMessageExt): void;
 
@@ -2804,7 +2804,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     onMessageEventExt(callback: (result: WebMessageExt) => void): void;
   }
@@ -3067,7 +3067,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   enum JsMessageType {
     /**
@@ -3099,7 +3099,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     STRING,
 
@@ -3119,7 +3119,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     NUMBER,
 
@@ -3139,7 +3139,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     BOOLEAN,
 
@@ -3172,7 +3172,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     ARRAY
   }
@@ -3193,7 +3193,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   class JsMessageExt {
     /**
@@ -3215,7 +3215,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getType(): JsMessageType;
 
@@ -3241,7 +3241,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getString(): string;
 
@@ -3267,7 +3267,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getNumber(): number;
 
@@ -3293,7 +3293,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getBoolean(): boolean;
 
@@ -3336,7 +3336,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getArray(): Array<string | number | boolean>;
   }
@@ -3582,7 +3582,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     static setWebDebuggingAccess(webDebuggingAccess: boolean): void;
 
@@ -4033,7 +4033,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     zoomIn(): void;
 
@@ -4065,7 +4065,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     zoomOut(): void;
 
@@ -4115,7 +4115,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getWebId(): number;
 
@@ -4614,7 +4614,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     runJavaScriptExt(script: string | ArrayBuffer): Promise<JsMessageExt>;
 
@@ -4666,7 +4666,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     runJavaScriptExt(script: string | ArrayBuffer, callback: AsyncCallback<JsMessageExt>): void;
 
@@ -4760,7 +4760,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     pageUp(top: boolean): void;
 
@@ -4803,7 +4803,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     pageDown(bottom: boolean): void;
 
@@ -4832,7 +4832,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getOriginalUrl(): string;
 
@@ -4984,7 +4984,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 16
+     * @since 18
      */
     static removeAllCache(clearRom: boolean): void;
 
@@ -5349,7 +5349,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     setDownloadDelegate(delegate: WebDownloadDelegate): void;
 
@@ -5372,7 +5372,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     startDownload(url: string): void;
 
@@ -5403,7 +5403,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     postUrl(url: string, postData: ArrayBuffer): void;
 
@@ -6042,7 +6042,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 16
+     * @since 18
      */
     getLastHitTest(): HitTestValue;
   }
@@ -6060,7 +6060,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   enum WebDownloadState {
     /**
@@ -6074,7 +6074,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     IN_PROGRESS = 0,
 
@@ -6089,7 +6089,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     COMPLETED,
 
@@ -6104,7 +6104,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     CANCELED,
 
@@ -6119,7 +6119,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     INTERRUPTED,
 
@@ -6134,7 +6134,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     PENDING,
 
@@ -6149,7 +6149,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     PAUSED,
 
@@ -6164,7 +6164,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     UNKNOWN,
   }
@@ -6182,7 +6182,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   enum WebDownloadErrorCode {
     /**
@@ -6396,7 +6396,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     USER_CANCELED = 40,
 
@@ -6428,7 +6428,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   class WebDownloadItem {
     /**
@@ -6444,7 +6444,7 @@ declare namespace webview {
     * @syscap SystemCapability.Web.Webview.Core
     * @crossplatform
     * @atomicservice
-    * @since 16
+    * @since 18
     */
     getGuid(): string;
 
@@ -6461,7 +6461,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getCurrentSpeed(): number;
 
@@ -6478,7 +6478,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getPercentComplete(): number;
 
@@ -6495,7 +6495,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getTotalBytes(): number;
 
@@ -6512,7 +6512,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getState(): WebDownloadState;
 
@@ -6529,7 +6529,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getLastErrorCode(): WebDownloadErrorCode;
 
@@ -6546,7 +6546,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getMethod(): string;
 
@@ -6563,7 +6563,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getMimeType(): string;
 
@@ -6580,7 +6580,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getUrl(): string;
 
@@ -6597,7 +6597,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getSuggestedFileName(): string;
 
@@ -6620,7 +6620,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     start(downloadPath: string): void;
 
@@ -6635,7 +6635,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     cancel(): void;
 
@@ -6652,7 +6652,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     pause(): void;
 
@@ -6673,7 +6673,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     resume(): void;
 
@@ -6690,7 +6690,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getReceivedBytes(): number;
 
@@ -6707,7 +6707,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getFullPath(): string;
 
@@ -6744,7 +6744,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   class WebDownloadDelegate {
     /**
@@ -6760,7 +6760,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     onBeforeDownload(callback: Callback<WebDownloadItem>): void;
 
@@ -6777,7 +6777,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     onDownloadUpdated(callback: Callback<WebDownloadItem>): void;
 
@@ -6794,7 +6794,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     onDownloadFinish(callback: Callback<WebDownloadItem>): void;
 
@@ -6811,7 +6811,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     onDownloadFailed(callback: Callback<WebDownloadItem>): void;
   }
@@ -6827,7 +6827,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   class WebDownloadManager {
     /**
@@ -6843,7 +6843,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     static setDownloadDelegate(delegate: WebDownloadDelegate): void;
 

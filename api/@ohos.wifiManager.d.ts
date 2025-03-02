@@ -610,7 +610,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @crossplatform
-   * @since 16
+   * @since 18
    */
   function getMultiLinkedInfo(): Array<WifiLinkedInfo>;
   
@@ -653,7 +653,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @crossplatform
-   * @since 16
+   * @since 18
    */
    function getLinkedInfoSync(): WifiLinkedInfo;
 
@@ -838,7 +838,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 16
+   * @since 18
    */
   function allowAutoConnect(netId: number, isAllowed: boolean): void;
 
@@ -1046,7 +1046,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since 16
+   * @since 18
    */
   function isOpenSoftApAllowed(): boolean;
 
@@ -2504,41 +2504,41 @@ declare namespace wifiManager {
    * Wi-Fi link type.
    * @enum { number }
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 16
+   * @since 18
    */
   enum WifiLinkType {
     /**
      * Default link.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 16
+     * @since 18
      */
     DEFAULT_LINK = 0,
 
     /**
      * Wi-Fi7 single link.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 16
+     * @since 18
      */
     WIFI7_SINGLE_LINK = 1,
 
     /**
      * Wi-Fi7 MLSR.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 16
+     * @since 18
      */
     WIFI7_MLSR = 2,
 
     /**
      * Wi-Fi7 EMLSR.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 16
+     * @since 18
      */
     WIFI7_EMLSR = 3,
 
     /**
      * Wi-Fi7 STR.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 16
+     * @since 18
      */
     WIFI7_STR = 4
   }
@@ -2926,7 +2926,7 @@ declare namespace wifiManager {
      * @type { ?boolean }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 16
+     * @since 18
      */
     isAutoConnectAllowed?: boolean;
   }
@@ -3748,7 +3748,7 @@ declare namespace wifiManager {
      * Wi-Fi link type
      * @type { ?WifiLinkType }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 16
+     * @since 18
      */
     wifiLinkType?: WifiLinkType;
   }

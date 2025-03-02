@@ -2519,7 +2519,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   openAtomicService(appId: string, options?: AtomicServiceOptions): Promise<void>;
 }

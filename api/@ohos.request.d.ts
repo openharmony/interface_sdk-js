@@ -2685,7 +2685,7 @@ declare namespace request {
        *
        * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 16
+       * @since 18
        */
       contentType?: string;
       /**
@@ -4859,7 +4859,7 @@ declare namespace request {
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
        * @throws { BusinessError } 13400003 - task service ability error.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 16
+       * @since 18
        */
       setMaxSpeed(speed: number): Promise<void>;
     }

@@ -186,7 +186,7 @@ declare namespace networkSecurity {
    * @returns { boolean } Returns true if the Cleartext traffic is permitted, else returns false.
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Communication.NetStack
-   * @since 16
+   * @since 18
    */
   export function isCleartextPermitted(): boolean;
  
@@ -198,7 +198,7 @@ declare namespace networkSecurity {
    * @returns { boolean } Returns true if the Cleartext traffic is permitted, else returns false.
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Communication.NetStack
-   * @since 16
+   * @since 18
    */
   export function isCleartextPermittedByHostName(hostName: string): boolean;
 }

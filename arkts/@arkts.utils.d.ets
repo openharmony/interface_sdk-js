@@ -31,7 +31,7 @@ import lang from './@arkts.lang';
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare namespace utils {
   /**
@@ -49,7 +49,7 @@ declare namespace utils {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   namespace locks {
     /**
@@ -65,7 +65,7 @@ declare namespace utils {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     type AsyncLockCallback<T> = () => T | Promise<T>;
 
@@ -82,7 +82,7 @@ declare namespace utils {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     @Sendable
     class AsyncLock {
@@ -99,7 +99,7 @@ declare namespace utils {
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       constructor();
       /**
@@ -121,7 +121,7 @@ declare namespace utils {
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       static request(name: string): AsyncLock;
 
@@ -148,7 +148,7 @@ declare namespace utils {
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       static query(name: string): AsyncLockState;
 
@@ -169,7 +169,7 @@ declare namespace utils {
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       static queryAll(): AsyncLockState[];
 
@@ -198,7 +198,7 @@ declare namespace utils {
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       lockAsync<T>(callback: AsyncLockCallback<T>): Promise<T>;
 
@@ -229,7 +229,7 @@ declare namespace utils {
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       lockAsync<T>(callback: AsyncLockCallback<T>, mode: AsyncLockMode): Promise<T>;
 
@@ -274,7 +274,7 @@ declare namespace utils {
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       lockAsync<T, U>(callback: AsyncLockCallback<T>, mode: AsyncLockMode,
         options: AsyncLockOptions<U>): Promise<T | U>;
@@ -296,7 +296,7 @@ declare namespace utils {
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       readonly name: string;
     }
@@ -316,7 +316,7 @@ declare namespace utils {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     enum AsyncLockMode {
       /**
@@ -334,7 +334,7 @@ declare namespace utils {
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       SHARED = 1,
       /**
@@ -352,7 +352,7 @@ declare namespace utils {
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       EXCLUSIVE = 2,
     }
@@ -370,7 +370,7 @@ declare namespace utils {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     class AsyncLockOptions<T> {
       /**
@@ -386,7 +386,7 @@ declare namespace utils {
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       constructor();
 
@@ -405,7 +405,7 @@ declare namespace utils {
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       isAvailable: boolean;
       /**
@@ -423,7 +423,7 @@ declare namespace utils {
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       signal: AbortSignal<T> | null;
       /**
@@ -443,7 +443,7 @@ declare namespace utils {
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       timeout: number;
     }
@@ -461,7 +461,7 @@ declare namespace utils {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     class AsyncLockState {
       /**
@@ -479,7 +479,7 @@ declare namespace utils {
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       held: AsyncLockInfo[];
       /**
@@ -497,7 +497,7 @@ declare namespace utils {
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       pending: AsyncLockInfo[];
     }
@@ -515,7 +515,7 @@ declare namespace utils {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     class AsyncLockInfo {
       /**
@@ -533,7 +533,7 @@ declare namespace utils {
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       name: string;
       /**
@@ -551,7 +551,7 @@ declare namespace utils {
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       mode: AsyncLockMode;
       /**
@@ -569,7 +569,7 @@ declare namespace utils {
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       contextId: number;
     }
@@ -591,7 +591,7 @@ declare namespace utils {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     class AbortSignal<T> {
       /**
@@ -609,7 +609,7 @@ declare namespace utils {
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       aborted: boolean;
 
@@ -628,7 +628,7 @@ declare namespace utils {
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       reason: T
     }
@@ -638,7 +638,7 @@ declare namespace utils {
      *
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     @Sendable
     class ConditionVariable {
@@ -647,7 +647,7 @@ declare namespace utils {
        *
        * @syscap SystemCapability.Utils.Lang
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       constructor()
       /**
@@ -661,7 +661,7 @@ declare namespace utils {
        * @static
        * @syscap SystemCapability.Utils.Lang
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       static request(name: string): ConditionVariable;
       /**
@@ -670,7 +670,7 @@ declare namespace utils {
        * @returns { Promise<void> } A promise will be resolved once the ConditionVariable is notified..
        * @syscap SystemCapability.Utils.Lang
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       wait(): Promise<void>;
       /**
@@ -684,7 +684,7 @@ declare namespace utils {
        * 2. Parameter verification failed.
        * @syscap SystemCapability.Utils.Lang
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       waitFor(timeout: number): Promise<void>;
       /**
@@ -692,7 +692,7 @@ declare namespace utils {
        *
        * @syscap SystemCapability.Utils.Lang
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       notifyAll(): void;
       /**
@@ -700,7 +700,7 @@ declare namespace utils {
        *
        * @syscap SystemCapability.Utils.Lang
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       notifyOne(): void;
     }
@@ -720,7 +720,7 @@ declare namespace utils {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   namespace ASON {
     /**
@@ -738,7 +738,7 @@ declare namespace utils {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     type ISendable = lang.ISendable;
     /**
@@ -764,7 +764,7 @@ declare namespace utils {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     type Transformer = (this: ISendable, key: string,
       value: ISendable | undefined | null) => ISendable | undefined | null
@@ -791,7 +791,7 @@ declare namespace utils {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     function parse(text: string, reviver?: Transformer, options?: ParseOptions): ISendable | null;
     /**
@@ -814,7 +814,7 @@ declare namespace utils {
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @crossplatform
-     * @since 16
+     * @since 18
      */
     function stringify(value: Object | null | undefined): string;
 
@@ -833,7 +833,7 @@ declare namespace utils {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     const enum BigIntMode {
       /**
@@ -849,7 +849,7 @@ declare namespace utils {
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       DEFAULT = 0,
       /**
@@ -865,7 +865,7 @@ declare namespace utils {
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       PARSE_AS_BIGINT = 1,
       /**
@@ -881,7 +881,7 @@ declare namespace utils {
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       ALWAYS_PARSE_AS_BIGINT = 2,
     }
@@ -901,7 +901,7 @@ declare namespace utils {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     const enum ParseReturnType {
       /**
@@ -917,7 +917,7 @@ declare namespace utils {
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       OBJECT = 0,
       /**
@@ -933,7 +933,7 @@ declare namespace utils {
       * @syscap SystemCapability.Utils.Lang
       * @crossplatform
       * @atomicservice
-      * @since 16
+      * @since 18
       */
       MAP = 1,
     }
@@ -952,7 +952,7 @@ declare namespace utils {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     interface ParseOptions {
       /**
@@ -970,7 +970,7 @@ declare namespace utils {
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       bigIntMode: BigIntMode;
       /**
@@ -988,7 +988,7 @@ declare namespace utils {
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
-       * @since 16
+       * @since 18
        */
       parseReturnType: ParseReturnType;
     }
@@ -999,7 +999,7 @@ declare namespace utils {
   *
   * @syscap SystemCapability.Utils.Lang
   * @atomicservice
-  * @since 16
+  * @since 18
   */
   @Sendable
   class SendableLruCache<K, V> {
@@ -1010,7 +1010,7 @@ declare namespace utils {
      * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     readonly length: number;
     /**
@@ -1019,7 +1019,7 @@ declare namespace utils {
      * @param { number } capacity - The capacity of the SendableLruCache.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     constructor(capacity?: number);
     /**
@@ -1031,7 +1031,7 @@ declare namespace utils {
      * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     updateCapacity(newCapacity: number): void;
     /**
@@ -1045,7 +1045,7 @@ declare namespace utils {
      * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     get(key: K): V | undefined;
     /**
@@ -1060,7 +1060,7 @@ declare namespace utils {
      * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     put(key: K, value: V): V;
     /**
@@ -1073,7 +1073,7 @@ declare namespace utils {
      * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     remove(key: K): V | undefined;
     /**
@@ -1086,7 +1086,7 @@ declare namespace utils {
      * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     contains(key: K): boolean;
     /**
@@ -1095,7 +1095,7 @@ declare namespace utils {
      * @returns { number } The number of times createDefault.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getCreateCount(): number;
     /**
@@ -1104,7 +1104,7 @@ declare namespace utils {
      * @returns { number } The number of times that the queried values are unmatched.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getMissCount(): number;
     /**
@@ -1113,7 +1113,7 @@ declare namespace utils {
      * @returns { number } The number of times that values are removed.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getRemoveCount(): number;
     /**
@@ -1122,7 +1122,7 @@ declare namespace utils {
      * @returns { number } The number of times that the queried values are matched.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getMatchCount(): number;
     /**
@@ -1131,7 +1131,7 @@ declare namespace utils {
      * @returns { number } The number of times that values are added.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getPutCount(): number;
     /**
@@ -1140,7 +1140,7 @@ declare namespace utils {
      * @returns { number } The Capacity of the SendableLruCache.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getCapacity(): number;
     /**
@@ -1148,7 +1148,7 @@ declare namespace utils {
      *
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     clear(): void;
     /**
@@ -1157,7 +1157,7 @@ declare namespace utils {
      * @returns { boolean } true if the SendableLruCache is empty, otherwise false.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     isEmpty(): boolean;
     /**
@@ -1166,7 +1166,7 @@ declare namespace utils {
      * @returns { string } A new string contains all elements.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     toString(): string;
     /**
@@ -1175,7 +1175,7 @@ declare namespace utils {
      * @returns { V[] } An array of all values.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     values(): V[];
     /**
@@ -1184,7 +1184,7 @@ declare namespace utils {
      * @returns { K[] } An array of all keys.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     keys(): K[];
     /**
@@ -1193,7 +1193,7 @@ declare namespace utils {
      * @returns { IterableIterator<[K, V]> } A new iterable iterator object.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     entries(): IterableIterator<[K, V]>;
   }
@@ -1217,7 +1217,7 @@ declare namespace utils {
    * @crossplatform
    * @stagemodelonly
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   function isSendable(value: Object | null | undefined): boolean;
 }

@@ -341,7 +341,7 @@ declare namespace wantConstant {
     *
     * @syscap SystemCapability.Ability.AbilityBase
     * @atomicservice
-    * @since 16
+    * @since 18
     */
     LAUNCH_REASON_MESSAGE = 'ohos.params.launchReasonMessage',
   }
@@ -418,7 +418,7 @@ declare namespace wantConstant {
      * Collaborative target applications in the distributed scheduling system can be pulled up.
      *
      * @syscap SystemCapability.Ability.AbilityBase
-     * @since 16
+     * @since 18
      */
     FLAG_ABILITY_ON_COLLABORATE = 0x00002000,
 

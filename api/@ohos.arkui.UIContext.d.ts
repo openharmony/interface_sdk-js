@@ -922,7 +922,7 @@ export class Router {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare type CustomBuilderWithId = (id: number) => void;
 
@@ -933,7 +933,7 @@ declare type CustomBuilderWithId = (id: number) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export interface TargetInfo {
   /**
@@ -943,7 +943,7 @@ export interface TargetInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   id: string | number;
 
@@ -954,7 +954,7 @@ export interface TargetInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   componentId?: number;
 }
@@ -1017,7 +1017,7 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   openToast(options: promptAction.ShowToastOptions): Promise<number>;
 
@@ -1033,7 +1033,7 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   closeToast(toastId: number): void;
 
@@ -1215,7 +1215,7 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   openCustomDialogWithController<T extends Object>(dialogContent: ComponentContent<T>, controller: promptAction.DialogController,
     options?: promptAction.BaseDialogOptions): Promise<void>;
@@ -1289,7 +1289,7 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   presentCustomDialog(builder: CustomBuilder | CustomBuilderWithId, controller?: promptAction.DialogController,
     options?: promptAction.DialogOptions): Promise<number>;
@@ -1317,7 +1317,7 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   getTopOrder(): LevelOrder
 
@@ -1328,7 +1328,7 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   getBottomOrder(): LevelOrder
 
@@ -1350,7 +1350,7 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   openPopup<T extends Object>(content: ComponentContent<T>, target: TargetInfo, options?: PopupCommonOptions): Promise<void>;
 
@@ -1372,7 +1372,7 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   updatePopup<T extends Object>(content: ComponentContent<T>, options: PopupCommonOptions, partialUpdate?: boolean): Promise<void>;
 
@@ -1390,7 +1390,7 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
   */
   closePopup<T extends Object>(content: ComponentContent<T>): Promise<void>;
   
@@ -1412,7 +1412,7 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   openMenu<T extends Object>(content: ComponentContent<T>, target: TargetInfo, options?: MenuOptions): Promise<void>;
 
@@ -1434,7 +1434,7 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   updateMenu<T extends Object>(content: ComponentContent<T>, options: MenuOptions, partialUpdate?: boolean): Promise<void>;
 
@@ -1452,7 +1452,7 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
   */
   closeMenu<T extends Object>(content: ComponentContent<T>): Promise<void>;
 }
@@ -2115,7 +2115,7 @@ export class OverlayManager {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   addComponentContentWithOrder(content: ComponentContent, levelOrder?: LevelOrder): void;
 
@@ -2364,7 +2364,7 @@ export class MarqueeDynamicSyncScene extends DynamicSyncScene {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export class DragController {
   /**
@@ -2410,7 +2410,7 @@ export class DragController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragInfo,
     callback: AsyncCallback<dragController.DragEventParam>): void;
@@ -2455,7 +2455,7 @@ export class DragController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragInfo)
     : Promise<dragController.DragEventParam>;
@@ -2500,7 +2500,7 @@ export class DragController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   createDragAction(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: dragController.DragInfo): dragController.DragAction;
 
@@ -2523,7 +2523,7 @@ export class DragController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   getDragPreview(): dragController.DragPreview;
 
@@ -2548,7 +2548,7 @@ export class DragController {
     * @param { dragController.DragStartRequestStatus } requestStatus - Status about the drag start behavior.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @atomicservice
-    * @since 16
+    * @since 18
     */
   notifyDragStartRequest(requestStatus: dragController.DragStartRequestStatus): void;
 
@@ -2929,7 +2929,7 @@ export class ComponentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   createFromComponent<T extends Object>(content: ComponentContent<T>, delay?: number,
     checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
@@ -3187,7 +3187,7 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   createAnimator(options: AnimatorOptions | SimpleAnimatorOptions): AnimatorResult;
 
@@ -3388,7 +3388,7 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   getDragController(): DragController;
 
@@ -3859,7 +3859,7 @@ export class UIContext {
    * @param { Optional<boolean> } enabled - enable or disable swipe to back event.
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   enableSwipeBack(enabled: Optional<boolean>): void;
 
@@ -3870,7 +3870,7 @@ export class UIContext {
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @syscap SystemCapability.ArkUI.Full
    * @systemapi
-   * @since 16
+   * @since 18
    */
   freezeUINode(id: string, isFrozen: boolean): void;
 
@@ -3881,7 +3881,7 @@ export class UIContext {
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @syscap SystemCapability.ArkUI.Full
    * @systemapi
-   * @since 16
+   * @since 18
    */
   freezeUINode(uniqueId: number, isFrozen: boolean): void;
 
@@ -3892,7 +3892,7 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   getTextMenuController(): TextMenuController;
 }
@@ -4007,7 +4007,7 @@ export const enum MarqueeDynamicSyncSceneType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export class TextMenuController {
   /**
@@ -4016,7 +4016,7 @@ export class TextMenuController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   setMenuOptions(options: TextMenuOptions): void;
 }

@@ -2185,7 +2185,7 @@ interface LongPressGestureInterface extends GestureInterface<LongPressGestureInt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onActionCancel(event: Callback<GestureEvent>): LongPressGestureInterface;
 }
@@ -2334,7 +2334,7 @@ declare class PanGestureOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
     getDistance(): number;
 }
@@ -2531,7 +2531,7 @@ interface PanGestureInterface extends GestureInterface<PanGestureInterface> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onActionCancel(event: Callback<GestureEvent>): PanGestureInterface;
   
@@ -2830,7 +2830,7 @@ interface PinchGestureInterface extends GestureInterface<PinchGestureInterface> 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onActionCancel(event: Callback<GestureEvent>): PinchGestureInterface;
 }
@@ -3028,7 +3028,7 @@ interface RotationGestureInterface extends GestureInterface<RotationGestureInter
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
    onActionCancel(event: Callback<GestureEvent>): RotationGestureInterface;
 }
@@ -3510,7 +3510,7 @@ declare class LongPressGestureHandler extends GestureHandler<LongPressGestureHan
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onActionCancel(event: Callback<GestureEvent>): LongPressGestureHandler;
 }
@@ -3643,7 +3643,7 @@ declare class PanGestureHandler extends GestureHandler<PanGestureHandler> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onActionCancel(event: Callback<GestureEvent>): PanGestureHandler;
 }
@@ -3853,7 +3853,7 @@ declare class PinchGestureHandler extends GestureHandler<PinchGestureHandler> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onActionCancel(event: Callback<GestureEvent>): PinchGestureHandler;
 }
@@ -3975,7 +3975,7 @@ declare class RotationGestureHandler extends GestureHandler<RotationGestureHandl
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onActionCancel(event: Callback<GestureEvent>): RotationGestureHandler;
 }
@@ -4289,7 +4289,7 @@ declare class GestureRecognizer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   getFingerCount(): number;
   /**
@@ -4299,7 +4299,7 @@ declare class GestureRecognizer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   isFingerCountLimit(): boolean;
 }
@@ -4311,7 +4311,7 @@ declare class GestureRecognizer {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare class TapRecognizer extends GestureRecognizer {
   /**
@@ -4321,7 +4321,7 @@ declare class TapRecognizer extends GestureRecognizer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   getTapCount(): number;
 }
@@ -4333,7 +4333,7 @@ declare class TapRecognizer extends GestureRecognizer {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare class LongPressRecognizer extends GestureRecognizer {
   /**
@@ -4343,7 +4343,7 @@ declare class LongPressRecognizer extends GestureRecognizer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   isRepeat(): boolean;
   /**
@@ -4354,7 +4354,7 @@ declare class LongPressRecognizer extends GestureRecognizer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   getDuration(): number;
 }
@@ -4366,7 +4366,7 @@ declare class LongPressRecognizer extends GestureRecognizer {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare class SwipeRecognizer extends GestureRecognizer {
   /**
@@ -4377,7 +4377,7 @@ declare class SwipeRecognizer extends GestureRecognizer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   getVelocityThreshold(): number;
   /**
@@ -4387,7 +4387,7 @@ declare class SwipeRecognizer extends GestureRecognizer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   getDirection(): SwipeDirection;
 }
@@ -4399,7 +4399,7 @@ declare class SwipeRecognizer extends GestureRecognizer {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare class PinchRecognizer extends GestureRecognizer {
   /**
@@ -4410,7 +4410,7 @@ declare class PinchRecognizer extends GestureRecognizer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   getDistance(): number;
 }
@@ -4422,7 +4422,7 @@ declare class PinchRecognizer extends GestureRecognizer {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare class RotationRecognizer extends GestureRecognizer {
   /**
@@ -4432,7 +4432,7 @@ declare class RotationRecognizer extends GestureRecognizer {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   getAngle(): number;
 }

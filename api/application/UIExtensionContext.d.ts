@@ -1039,7 +1039,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   startServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -1072,7 +1072,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   startServiceExtensionAbilityWithAccount(want: Want, accountId: number): Promise<void>;
 
@@ -1099,7 +1099,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
    setColorMode(colorMode: ConfigurationConstant.ColorMode): void;
 }

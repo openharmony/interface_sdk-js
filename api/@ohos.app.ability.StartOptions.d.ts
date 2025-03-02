@@ -191,7 +191,7 @@ export default class StartOptions {
    * @type { ?number }
    * @syscap SystemCapAbility.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   minWindowWidth?: number;
 
@@ -201,7 +201,7 @@ export default class StartOptions {
    * @type { ?number }
    * @syscap SystemCapAbility.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   minWindowHeight?: number;
 
@@ -211,7 +211,7 @@ export default class StartOptions {
    * @type { ?number }
    * @syscap SystemCapAbility.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   maxWindowWidth?: number;
 
@@ -221,7 +221,7 @@ export default class StartOptions {
    * @type { ?number }
    * @syscap SystemCapAbility.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   maxWindowHeight?: number;
 }

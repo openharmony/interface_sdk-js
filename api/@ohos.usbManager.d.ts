@@ -41,7 +41,7 @@ declare namespace usbManager {
    * @returns { Array<Readonly<USBDevice>> } USB device list.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
-   * @since 16
+   * @since 18
    */
   function getDevices(): Array<Readonly<USBDevice>>;
 
@@ -68,7 +68,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
    * @syscap SystemCapability.USB.USBManager
-   * @since 16
+   * @since 18
    */
   function connectDevice(device: USBDevice): Readonly<USBDevicePipe>;
 
@@ -93,7 +93,7 @@ declare namespace usbManager {
    * <br>2.Incorrect parameter types.  
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
-   * @since 16
+   * @since 18
    */
   function hasRight(deviceName: string): boolean;
 
@@ -120,7 +120,7 @@ declare namespace usbManager {
    * <br>2.Incorrect parameter types.  
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
-   * @since 16
+   * @since 18
    */
   function requestRight(deviceName: string): Promise<boolean>;
 
@@ -147,7 +147,7 @@ declare namespace usbManager {
    * <br>2.Incorrect parameter types.  
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
-   * @since 16
+   * @since 18
    */
   function removeRight(deviceName: string): boolean;
 
@@ -309,7 +309,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function addDeviceAccessRight(tokenId: string, deviceName: string): boolean;
 
@@ -341,7 +341,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function getFunctionsFromString(funcs: string): number;
 
@@ -373,7 +373,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function getStringFromFunctions(funcs: FunctionType): string;
 
@@ -409,7 +409,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 14400006 - Unsupported operation. The function is not supported.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function setDeviceFunctions(funcs: FunctionType): Promise<void>;
 
@@ -433,7 +433,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function getDeviceFunctions(): FunctionType;
 
@@ -459,7 +459,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function getPortList(): Array<USBPort>;
 
@@ -491,7 +491,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function getPortSupportModes(portId: number): PortModeType;
 
@@ -529,7 +529,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 14400003 - Unsupported operation. The current device does not support port role switching.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function setPortRoleTypes(portId: number, powerRole: PowerRoleType, dataRole: DataRoleType): Promise<void>;
 
@@ -568,7 +568,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 14400005 - Database operation exception.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function addAccessoryRight(tokenId: number, accessory: USBAccessory): void;
 
@@ -598,7 +598,7 @@ declare namespace usbManager {
    * <br>2.Incorrect parameter types.  
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
-   * @since 16
+   * @since 18
    */
   function claimInterface(pipe: USBDevicePipe, iface: USBInterface, force?: boolean): number;
 
@@ -625,7 +625,7 @@ declare namespace usbManager {
    * <br>2.Incorrect parameter types. 
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
-   * @since 16
+   * @since 18
    */
   function releaseInterface(pipe: USBDevicePipe, iface: USBInterface): number;
 
@@ -652,7 +652,7 @@ declare namespace usbManager {
    * <br>2.Incorrect parameter types.  
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
-   * @since 16
+   * @since 18
    */
   function setConfiguration(pipe: USBDevicePipe, config: USBConfiguration): number;
 
@@ -679,7 +679,7 @@ declare namespace usbManager {
    * <br>2.Incorrect parameter types.  
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
-   * @since 16
+   * @since 18
    */
   function setInterface(pipe: USBDevicePipe, iface: USBInterface): number;
 
@@ -704,7 +704,7 @@ declare namespace usbManager {
    * <br>2.Incorrect parameter types.  
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
-   * @since 16
+   * @since 18
    */
   function getRawDescriptor(pipe: USBDevicePipe): Uint8Array;
 
@@ -729,7 +729,7 @@ declare namespace usbManager {
    * <br>2.Incorrect parameter types.  
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
-   * @since 16
+   * @since 18
    */
   function getFileDescriptor(pipe: USBDevicePipe): number;
 
@@ -778,7 +778,7 @@ declare namespace usbManager {
    * <br>2.Incorrect parameter types.  
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
-   * @since 16
+   * @since 18
    */
   function usbControlTransfer(pipe: USBDevicePipe, requestparam: USBDeviceRequestParams, timeout?: number): Promise<number>;
 
@@ -811,7 +811,7 @@ declare namespace usbManager {
    * <br>2.Incorrect parameter types.  
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
-   * @since 16
+   * @since 18
    */
   function bulkTransfer(
     pipe: USBDevicePipe,
@@ -841,7 +841,7 @@ declare namespace usbManager {
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
-   * @since 16
+   * @since 18
    */
   function closePipe(pipe: USBDevicePipe): number;
 
@@ -874,7 +874,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 14400005 - Database operation exception.
    * @throws { BusinessError } 14401001 - The target USBAccessory not matched.
    * @syscap SystemCapability.USB.USBManager
-   * @since 16
+   * @since 18
    */
   function hasAccessoryRight(accessory: USBAccessory): boolean;
 
@@ -907,7 +907,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 14400005 - Database operation exception.
    * @throws { BusinessError } 14401001 - The target USBAccessory not matched.
    * @syscap SystemCapability.USB.USBManager
-   * @since 16
+   * @since 18
    */
   function requestAccessoryRight(accessory: USBAccessory): Promise<boolean>;
 
@@ -938,7 +938,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 14400005 - Database operation exception.
    * @throws { BusinessError } 14401001 - The target USBAccessory not matched.
    * @syscap SystemCapability.USB.USBManager
-   * @since 16
+   * @since 18
    */
   function cancelAccessoryRight(accessory: USBAccessory): void;
 
@@ -959,7 +959,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 14400004 - Service exception. Possible causes:
    * <br>1. No accessory is plugged in.
    * @syscap SystemCapability.USB.USBManager
-   * @since 16
+   * @since 18
    */
   function getAccessoryList(): Array<Readonly<USBAccessory>>;
 
@@ -996,7 +996,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 14401002 - Failed to open the native accessory node.
    * @throws { BusinessError } 14401003 - Cannot reopen the accessory.
    * @syscap SystemCapability.USB.USBManager
-   * @since 16
+   * @since 18
    */
   function openAccessory(accessory: USBAccessory): USBAccessoryHandle;
 
@@ -1023,7 +1023,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 14400004 - Service exception. Possible causes:
    * <br>1. No accessory is plugged in.
    * @syscap SystemCapability.USB.USBManager
-   * @since 16
+   * @since 18
    */
   function closeAccessory(accessoryHandle: USBAccessoryHandle): void;
 
@@ -2024,14 +2024,14 @@ declare namespace usbManager {
      *
      * @enum { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 16
+     * @since 18
      */
   export enum UsbTransferFlags {
     /**
      * Report short frames as errors
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 16
+     * @since 18
      */
     USB_TRANSFER_SHORT_NOT_OK = 0,
 
@@ -2039,7 +2039,7 @@ declare namespace usbManager {
      * Automatically free transfer buffer
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 16
+     * @since 18
      */
     USB_TRANSFER_FREE_BUFFER = 1,
 
@@ -2047,7 +2047,7 @@ declare namespace usbManager {
      * Automatically free transfer after callback returns
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 16
+     * @since 18
      */
     USB_TRANSFER_FREE_TRANSFER = 2,
 
@@ -2055,7 +2055,7 @@ declare namespace usbManager {
      * Transmissions that are multiples of wMaxPacketSize will add an additional zero packet.
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 16
+     * @since 18
      */
     USB_TRANSFER_ADD_ZERO_PACKET = 3
   }
@@ -2065,14 +2065,14 @@ declare namespace usbManager {
    *
    * @enum { number }
    * @syscap SystemCapability.USB.USBManager
-   * @since 16
+   * @since 18
    */
   export enum UsbTransferStatus {
     /**
      * Transfer completed
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 16
+     * @since 18
      */
     TRANSFER_COMPLETED = 0,
 
@@ -2080,7 +2080,7 @@ declare namespace usbManager {
      * Transfer failed
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 16
+     * @since 18
      */
     TRANSFER_ERROR = 1,
 
@@ -2088,7 +2088,7 @@ declare namespace usbManager {
      * Transfer timed out
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 16
+     * @since 18
      */
     TRANSFER_TIMED_OUT = 2,
 
@@ -2096,7 +2096,7 @@ declare namespace usbManager {
      * Transfer was canceled
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 16
+     * @since 18
      */
     TRANSFER_CANCELED = 3,
 
@@ -2105,7 +2105,7 @@ declare namespace usbManager {
      * stalled). For control endpoints: control request not supported.
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 16
+     * @since 18
      */
     TRANSFER_STALL = 4,
 
@@ -2113,7 +2113,7 @@ declare namespace usbManager {
      * Device was disconnected
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 16
+     * @since 18
      */
     TRANSFER_NO_DEVICE = 5,
 
@@ -2121,7 +2121,7 @@ declare namespace usbManager {
      * Device sent more data than requested
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 16
+     * @since 18
      */
     TRANSFER_OVERFLOW = 6
   }
@@ -2131,14 +2131,14 @@ declare namespace usbManager {
    *
    * @enum { number }
    * @syscap SystemCapability.USB.USBManager
-   * @since 16
+   * @since 18
    */
   export enum UsbEndpointTransferType {
     /**
      * Isochronous endpoint
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 16
+     * @since 18
      */
     TRANSFER_TYPE_ISOCHRONOUS = 0x1,
 
@@ -2146,7 +2146,7 @@ declare namespace usbManager {
      * Bulk endpoint
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 16
+     * @since 18
      */
     TRANSFER_TYPE_BULK = 0x2,
 
@@ -2154,7 +2154,7 @@ declare namespace usbManager {
      * Interrupt endpoint
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 16
+     * @since 18
      */
     TRANSFER_TYPE_INTERRUPT = 0x3
   }
@@ -2164,7 +2164,7 @@ declare namespace usbManager {
    *
    * @typedef UsbIsoPacketDescriptor
    * @syscap SystemCapability.USB.USBManager
-   * @since 16
+   * @since 18
    */
   interface UsbIsoPacketDescriptor {
     /**
@@ -2172,7 +2172,7 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 16
+     * @since 18
      */
     length: number;
 
@@ -2181,7 +2181,7 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 16
+     * @since 18
      */
     actualLength: number;
 
@@ -2190,7 +2190,7 @@ declare namespace usbManager {
      *
      * @type { UsbTransferStatus }
      * @syscap SystemCapability.USB.USBManager
-     * @since 16
+     * @since 18
      */
     status: UsbTransferStatus;
   }
@@ -2200,7 +2200,7 @@ declare namespace usbManager {
   *
   * @typedef SubmitTransferCallback
   * @syscap SystemCapability.USB.USBManager
-  * @since 16
+  * @since 18
   */
   interface SubmitTransferCallback {
     /**
@@ -2209,7 +2209,7 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 16
+     * @since 18
      */
     actualLength: number;
 
@@ -2218,7 +2218,7 @@ declare namespace usbManager {
      *
      * @type { UsbTransferStatus }
      * @syscap SystemCapability.USB.USBManager
-     * @since 16
+     * @since 18
      */
     status: UsbTransferStatus;
 
@@ -2227,7 +2227,7 @@ declare namespace usbManager {
      *
      * @type { Array<Readonly<UsbIsoPacketDescriptor>> }
      * @syscap SystemCapability.USB.USBManager
-     * @since 16
+     * @since 18
      */
     isoPacketDescs: Array<Readonly<UsbIsoPacketDescriptor>>;
   }
@@ -2238,7 +2238,7 @@ declare namespace usbManager {
    *
    * @typedef UsbDataTransferParams
    * @syscap SystemCapability.USB.USBManager
-   * @since 16
+   * @since 18
    */
   interface UsbDataTransferParams {
     /**
@@ -2246,7 +2246,7 @@ declare namespace usbManager {
      *
      * @type { USBDevicePipe }
      * @syscap SystemCapability.USB.USBManager
-     * @since 16
+     * @since 18
      */
     devPipe: USBDevicePipe;
 
@@ -2255,7 +2255,7 @@ declare namespace usbManager {
      *
      * @type { UsbTransferFlags }
      * @syscap SystemCapability.USB.USBManager
-     * @since 16
+     * @since 18
      */
     flags: UsbTransferFlags;
 
@@ -2264,7 +2264,7 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 16
+     * @since 18
      */
     endpoint: number;
 
@@ -2273,7 +2273,7 @@ declare namespace usbManager {
      *
      * @type { UsbEndpointTransferType }
      * @syscap SystemCapability.USB.USBManager
-     * @since 16
+     * @since 18
      */
     type: UsbEndpointTransferType;
 
@@ -2282,7 +2282,7 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 16
+     * @since 18
      */
     timeout: number;
 
@@ -2291,7 +2291,7 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 16
+     * @since 18
      */
     length: number;
 
@@ -2300,7 +2300,7 @@ declare namespace usbManager {
      *
      * @type { AsyncCallback<SubmitTransferCallback> }
      * @syscap SystemCapability.USB.USBManager
-     * @since 16
+     * @since 18
      */
     callback: AsyncCallback<SubmitTransferCallback>;
 
@@ -2310,7 +2310,7 @@ declare namespace usbManager {
      *
      * @type { Uint8Array }
      * @syscap SystemCapability.USB.USBManager
-     * @since 16
+     * @since 18
      */
     userData: Uint8Array;
 
@@ -2319,7 +2319,7 @@ declare namespace usbManager {
      *
      * @type { Uint8Array }
      * @syscap SystemCapability.USB.USBManager
-     * @since 16
+     * @since 18
      */
     buffer: Uint8Array;
 
@@ -2328,7 +2328,7 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.USB.USBManager
-     * @since 16
+     * @since 18
      */
     isoPacketCount: number;
   }
@@ -2348,7 +2348,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 14400009 - Insufficient memory.
    * @throws { BusinessError } 14400012 - Transmission I/O error.
    * @syscap SystemCapability.USB.USBManager
-   * @since 16
+   * @since 18
    */
   function usbSubmitTransfer(transfer: UsbDataTransferParams): void;
 
@@ -2366,7 +2366,7 @@ declare namespace usbManager {
    * <br>1.Unrecognized discard error code.
    * @throws { BusinessError } 14400011 - The transfer is not in progress, or is already complete or cancelled.
    * @syscap SystemCapability.USB.USBManager
-   * @since 16
+   * @since 18
    */
   function usbCancelTransfer(transfer: UsbDataTransferParams): void;
 }

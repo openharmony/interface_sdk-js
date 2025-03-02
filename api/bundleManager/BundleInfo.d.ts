@@ -44,7 +44,7 @@ import bundleManager from './../@ohos.bundle.bundleManager';
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export interface BundleInfo {
   /**
@@ -72,7 +72,7 @@ export interface BundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly name: string;
 
@@ -101,7 +101,7 @@ export interface BundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly vendor: string;
 
@@ -130,7 +130,7 @@ export interface BundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly versionCode: number;
 
@@ -159,7 +159,7 @@ export interface BundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly versionName: string;
 
@@ -188,7 +188,7 @@ export interface BundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly minCompatibleVersionCode: number;
 
@@ -217,7 +217,7 @@ export interface BundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly targetVersion: number;
 
@@ -246,7 +246,7 @@ export interface BundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly appInfo: ApplicationInfo;
 
@@ -275,7 +275,7 @@ export interface BundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly hapModulesInfo: Array<HapModuleInfo>;
 
@@ -304,7 +304,7 @@ export interface BundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly reqPermissionDetails: Array<ReqPermissionDetail>;
 
@@ -333,7 +333,7 @@ export interface BundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly permissionGrantStates: Array<bundleManager.PermissionGrantState>;
 
@@ -362,7 +362,7 @@ export interface BundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly signatureInfo: SignatureInfo;
 
@@ -432,7 +432,7 @@ export interface BundleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly firstInstallTime?: number;
 }
@@ -459,7 +459,7 @@ export interface BundleInfo {
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export interface ReqPermissionDetail {
   /**
@@ -484,7 +484,7 @@ export interface ReqPermissionDetail {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   name: string;
 
@@ -527,7 +527,7 @@ export interface ReqPermissionDetail {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   reason: string;
 
@@ -553,7 +553,7 @@ export interface ReqPermissionDetail {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   reasonId: number;
 
@@ -579,7 +579,7 @@ export interface ReqPermissionDetail {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   usedScene: UsedScene;
 }
@@ -606,7 +606,7 @@ export interface ReqPermissionDetail {
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export interface UsedScene {
   /**
@@ -631,7 +631,7 @@ export interface UsedScene {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   abilities: Array<string>;
 
@@ -657,7 +657,7 @@ export interface UsedScene {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   when: string;
 }
@@ -684,7 +684,7 @@ export interface UsedScene {
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export interface SignatureInfo {
   /**
@@ -715,7 +715,7 @@ export interface SignatureInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly appId: string;
 
@@ -744,7 +744,7 @@ export interface SignatureInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly fingerprint: string;
 

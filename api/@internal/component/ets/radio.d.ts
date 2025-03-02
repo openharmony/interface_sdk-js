@@ -356,7 +356,7 @@ interface RadioInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare type OnRadioChangeCallback = (isChecked: boolean) => void;
 
@@ -444,7 +444,7 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   checked(isChecked: Optional<boolean>): RadioAttribute;
 
@@ -497,7 +497,7 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   onChange(callback: Optional<OnRadioChangeCallback>): RadioAttribute;
 
@@ -542,7 +542,7 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   contentModifier(modifier: Optional<ContentModifier<RadioConfiguration>>): RadioAttribute;
 }

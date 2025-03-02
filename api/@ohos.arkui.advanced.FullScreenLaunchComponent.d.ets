@@ -58,7 +58,7 @@ export declare struct FullScreenLaunchComponent {
     * @type { ?ErrorCallback }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @atomicservice
-    * @since 16
+    * @since 18
     */
     onError?: ErrorCallback;
     /**
@@ -66,7 +66,7 @@ export declare struct FullScreenLaunchComponent {
     * @type { ?Callback<TerminationInfo> }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @atomicservice
-    * @since 16
+    * @since 18
     */
     onTerminated?: Callback<TerminationInfo>;
 }

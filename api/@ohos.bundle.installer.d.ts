@@ -316,7 +316,7 @@ declare namespace installer {
      * <br>bundle name but different signature information exists on the device.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     install(hapFilePaths: Array<string>, installParam: InstallParam, callback: AsyncCallback<void>): void;
 
@@ -548,7 +548,7 @@ declare namespace installer {
      * <br>bundle name but different signature information exists on the device.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     install(hapFilePaths: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -796,7 +796,7 @@ declare namespace installer {
      * <br>bundle name but different signature information exists on the device.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     install(hapFilePaths: Array<string>, installParam?: InstallParam): Promise<void>;
 

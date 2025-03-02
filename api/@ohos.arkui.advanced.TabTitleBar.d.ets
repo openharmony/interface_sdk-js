@@ -54,7 +54,7 @@ export declare class TabTitleBarMenuItem {
    * @type { ?SymbolGlyphModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   symbolStyle?: SymbolGlyphModifier;
 
@@ -102,7 +102,7 @@ export declare class TabTitleBarMenuItem {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   accessibilityText?: ResourceStr;
 
@@ -111,7 +111,7 @@ export declare class TabTitleBarMenuItem {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   accessibilityDescription?: ResourceStr;
 
@@ -121,7 +121,7 @@ export declare class TabTitleBarMenuItem {
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   accessibilityLevel?: string;
 }
@@ -173,7 +173,7 @@ export declare class TabTitleBarTabItem {
    * @type { ?SymbolGlyphModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   symbolStyle?: SymbolGlyphModifier;
 }

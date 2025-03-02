@@ -24,7 +24,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare type FinishAnimationHandler = () => void;
 
@@ -34,7 +34,7 @@ declare type FinishAnimationHandler = () => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export class ArcSwiperController {
   /**
@@ -43,7 +43,7 @@ export class ArcSwiperController {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   constructor();
 
@@ -53,7 +53,7 @@ export class ArcSwiperController {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   showNext();
 
@@ -63,7 +63,7 @@ export class ArcSwiperController {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   showPrevious();
 
@@ -74,7 +74,7 @@ export class ArcSwiperController {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   finishAnimation(handler?: FinishAnimationHandler);
 }
@@ -86,7 +86,7 @@ export class ArcSwiperController {
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export enum ArcDirection {
   /**
@@ -95,7 +95,7 @@ export enum ArcDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   THREE_CLOCK_DIRECTION = 0,
 
@@ -105,7 +105,7 @@ export enum ArcDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   SIX_CLOCK_DIRECTION = 1,
 
@@ -115,7 +115,7 @@ export enum ArcDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   NINE_CLOCK_DIRECTION = 2,
 }
@@ -126,7 +126,7 @@ export enum ArcDirection {
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export class ArcDotIndicator {
   /**
@@ -135,7 +135,7 @@ export class ArcDotIndicator {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   constructor();
 
@@ -147,7 +147,7 @@ export class ArcDotIndicator {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   arcDirection(direction: Optional<ArcDirection>): ArcDotIndicator;
 
@@ -159,7 +159,7 @@ export class ArcDotIndicator {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   itemColor(color: Optional<ResourceColor>): ArcDotIndicator;
 
@@ -171,7 +171,7 @@ export class ArcDotIndicator {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   selectedItemColor(color: Optional<ResourceColor>): ArcDotIndicator;
 
@@ -183,7 +183,7 @@ export class ArcDotIndicator {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   backgroundColor(color: Optional<ResourceColor>): ArcDotIndicator;
 
@@ -195,7 +195,7 @@ export class ArcDotIndicator {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   maskColor(color: Optional<LinearGradient>): ArcDotIndicator;
 }
@@ -207,7 +207,7 @@ export class ArcDotIndicator {
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 interface ArcSwiperInterface {
   /**
@@ -218,7 +218,7 @@ interface ArcSwiperInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   (controller?: ArcSwiperController): ArcSwiperAttribute;
 }
@@ -231,7 +231,7 @@ interface ArcSwiperInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare type IndexChangedHandler = (index: number) => void;
 
@@ -245,7 +245,7 @@ declare type IndexChangedHandler = (index: number) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare type AnimationStartHandler = (index: number, targetIndex: number, event: SwiperAnimationEvent) => void;
 
@@ -258,7 +258,7 @@ declare type AnimationStartHandler = (index: number, targetIndex: number, event:
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare type AnimationEndHandler = (index: number, event: SwiperAnimationEvent) => void;
 
@@ -271,7 +271,7 @@ declare type AnimationEndHandler = (index: number, event: SwiperAnimationEvent) 
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare type GestureSwipeHandler = (index: number, event: SwiperAnimationEvent) => void;
 
@@ -283,7 +283,7 @@ declare type GestureSwipeHandler = (index: number, event: SwiperAnimationEvent) 
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare interface SwiperContentAnimatedTransition {
   /**
@@ -295,7 +295,7 @@ declare interface SwiperContentAnimatedTransition {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   timeout?: number;
 
@@ -306,7 +306,7 @@ declare interface SwiperContentAnimatedTransition {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   transition: Callback<SwiperContentTransitionProxy>;
 }
@@ -318,7 +318,7 @@ declare interface SwiperContentAnimatedTransition {
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare interface SwiperContentTransitionProxy {
   /**
@@ -328,7 +328,7 @@ declare interface SwiperContentTransitionProxy {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   selectedIndex: number;
 
@@ -339,7 +339,7 @@ declare interface SwiperContentTransitionProxy {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   index: number;
 
@@ -350,7 +350,7 @@ declare interface SwiperContentTransitionProxy {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   position: number;
 
@@ -361,7 +361,7 @@ declare interface SwiperContentTransitionProxy {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   mainAxisLength: number;
 
@@ -371,7 +371,7 @@ declare interface SwiperContentTransitionProxy {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   finishTransition(): void;
 }
@@ -383,7 +383,7 @@ declare interface SwiperContentTransitionProxy {
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
   /**
@@ -394,7 +394,7 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   index(index: Optional<number>): ArcSwiperAttribute;
 
@@ -407,7 +407,7 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   indicator(style: Optional<ArcDotIndicator | boolean>): ArcSwiperAttribute;
 
@@ -419,7 +419,7 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   duration(duration: Optional<number>): ArcSwiperAttribute;
 
@@ -431,7 +431,7 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   vertical(isVertical: Optional<boolean>): ArcSwiperAttribute;
 
@@ -443,7 +443,7 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   disableSwipe(disabled: Optional<boolean>): ArcSwiperAttribute;
 
@@ -455,7 +455,7 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): ArcSwiperAttribute;
 
@@ -467,7 +467,7 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onChange(handler: Optional<IndexChangedHandler>): ArcSwiperAttribute;
 
@@ -479,7 +479,7 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onAnimationStart(handler: Optional<AnimationStartHandler>): ArcSwiperAttribute;
 
@@ -491,7 +491,7 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onAnimationEnd(handler: Optional<AnimationEndHandler>): ArcSwiperAttribute;
 
@@ -503,7 +503,7 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onGestureSwipe(handler: Optional<GestureSwipeHandler>): ArcSwiperAttribute;
 
@@ -516,7 +516,7 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   effectMode(edgeEffect: Optional<EdgeEffect>): ArcSwiperAttribute;
 
@@ -528,7 +528,7 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   customContentTransition(transition: Optional<SwiperContentAnimatedTransition>): ArcSwiperAttribute;
 
@@ -540,7 +540,7 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   disableTransitionAnimation(disabled: Optional<boolean>): ArcSwiperAttribute;
 }
@@ -551,7 +551,7 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare let ArcSwiper: ArcSwiperInterface;
 
@@ -561,6 +561,6 @@ declare let ArcSwiper: ArcSwiperInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare let ArcSwiperInstance: ArcSwiperAttribute;

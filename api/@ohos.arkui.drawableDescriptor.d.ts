@@ -27,7 +27,7 @@ import image from './@ohos.multimedia.image';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare interface DrawableDescriptorResult {
   /**
@@ -38,7 +38,7 @@ declare interface DrawableDescriptorResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly width?: number;
 
@@ -50,7 +50,7 @@ declare interface DrawableDescriptorResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly height?: number;
 }
@@ -62,7 +62,7 @@ declare interface DrawableDescriptorResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare interface DrawableDescriptorOptions {
   /**
@@ -72,7 +72,7 @@ declare interface DrawableDescriptorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   fetchWhenConstructingWithUri?: boolean;
 }
@@ -141,7 +141,7 @@ export class DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   getOriginalWidth(): number;
 
@@ -152,7 +152,7 @@ export class DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   getOriginalHeight(): number;
 
@@ -165,7 +165,7 @@ export class DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   fetch(): Promise<DrawableDescriptorResult>;
 
@@ -178,7 +178,7 @@ export class DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   fetchSync(): DrawableDescriptorResult;
 }
@@ -355,7 +355,7 @@ export class PixelMapDrawableDescriptor extends DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   constructor(src?: image.PixelMap | ResourceStr, options?: DrawableDescriptorOptions);
 }

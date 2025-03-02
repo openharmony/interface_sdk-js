@@ -1035,7 +1035,7 @@ declare namespace PiPWindow {
      * @throws { BusinessError } 1300014 - PiP internal error.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     updateContentNode(contentNode: typeNode.XComponent): Promise<void>;
     

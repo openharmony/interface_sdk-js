@@ -772,7 +772,7 @@ declare namespace audio {
     /**
      * USB audio device.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 16
+     * @since 18
      */
     USB_DEVICE = 25,
     /**
@@ -1916,7 +1916,7 @@ declare namespace audio {
    * @typedef AudioCapturerFilter
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   interface AudioCapturerFilter {
     /**
@@ -1924,7 +1924,7 @@ declare namespace audio {
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     uid?: number;
     /**
@@ -1932,7 +1932,7 @@ declare namespace audio {
      * @type { ?AudioCapturerInfo }
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 16
+     * @since 18
      */
     capturerInfo?: AudioCapturerInfo;
   }
@@ -3075,7 +3075,7 @@ declare namespace audio {
      * Obtains an {@link AudioSpatializationManager} instance.
      * @returns { AudioSpatializationManager } AudioSpatializationManager instance.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
-     * @since 16
+     * @since 18
      */
     getSpatializationManager(): AudioSpatializationManager;
 
@@ -3532,7 +3532,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 16
+     * @since 18
      */
     selectInputDeviceByFilter(filter: AudioCapturerFilter, inputAudioDevices: AudioDeviceDescriptors): Promise<void>;
 
@@ -3625,7 +3625,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 16
+     * @since 18
      */
     getPreferredOutputDeviceByFilter(filter: AudioRendererFilter): AudioDeviceDescriptors;
 
@@ -3750,7 +3750,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 16
+     * @since 18
      */
     getPreferredInputDeviceByFilter(filter: AudioCapturerFilter): AudioDeviceDescriptors;
 
@@ -3885,7 +3885,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 16
+     * @since 18
      */
     excludeOutputDevices(usage: DeviceUsage, devices: AudioDeviceDescriptors): Promise<void>;
 
@@ -3903,7 +3903,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 16
+     * @since 18
      */
     unexcludeOutputDevices(usage: DeviceUsage, devices: AudioDeviceDescriptors): Promise<void>;
 
@@ -3920,7 +3920,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 16
+     * @since 18
      */
      unexcludeOutputDevices(usage: DeviceUsage): Promise<void>;
 
@@ -3935,7 +3935,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 16
+     * @since 18
      */
     getExcludedDevices(usage: DeviceUsage): AudioDeviceDescriptors;
   }
@@ -5354,7 +5354,7 @@ declare namespace audio {
    * Implements audio spatialization management.
    * @typedef AudioSpatializationManager
    * @syscap SystemCapability.Multimedia.Audio.Spatialization
-   * @since 16
+   * @since 18
    */
   interface AudioSpatializationManager {
     /**
@@ -5741,7 +5741,7 @@ declare namespace audio {
      * Checks whether the spatialization is enabled by the current device.
      * @returns { boolean } Whether the spatialization is enabled by the current device.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
-     * @since 16
+     * @since 18
      */
     isSpatializationEnabledForCurrentDevice(): boolean;
 
@@ -5755,7 +5755,7 @@ declare namespace audio {
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
-     * @since 16
+     * @since 18
      */
     on(type: 'spatializationEnabledChangeForCurrentDevice', callback: Callback<boolean>): void;
 
@@ -5768,7 +5768,7 @@ declare namespace audio {
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
-     * @since 16
+     * @since 18
      */
     off(type: 'spatializationEnabledChangeForCurrentDevice', callback?: Callback<boolean>): void;
   }
@@ -6350,7 +6350,7 @@ declare namespace audio {
      * @type { boolean }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
-     * @since 16
+     * @since 18
      */
     readonly spatializationSupported?: boolean;
   }

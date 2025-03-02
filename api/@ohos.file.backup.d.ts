@@ -211,7 +211,7 @@ declare namespace backup {
    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function getBackupVersion(): string;
 
@@ -328,7 +328,7 @@ declare namespace backup {
    * @param {string} reportInfo -the scanned backup datasize infos.
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @systemapi
-   * @since 16
+   * @since 18
    */
    type OnBackupSizeReport = (reportInfo: string) => void;
 
@@ -509,7 +509,7 @@ declare namespace backup {
      * @type {OnBackupSizeReport}.
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 16
+     * @since 18
      */
     onBackupSizeReport?: OnBackupSizeReport;
   }
@@ -547,7 +547,7 @@ declare namespace backup {
      * @throws { BusinessError } 13900042 - Internal error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 16
+     * @since 18
      */
     getLocalCapabilities(): Promise<FileData>;
 
@@ -568,7 +568,7 @@ declare namespace backup {
      * @throws { BusinessError } 13900042 - Internal error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 16
+     * @since 18
      */
     getBackupDataSize(isPreciseScan: boolean, dataList: Array<IncrementalBackupTime>): Promise<void>;
 
@@ -659,7 +659,7 @@ declare namespace backup {
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 16
+     * @since 18
      */
     cancel(bundleName: string): number;
   }
@@ -697,7 +697,7 @@ declare namespace backup {
      * @throws { BusinessError } 13900042 - Internal error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 16
+     * @since 18
      */
     getLocalCapabilities(): Promise<FileData>;
 
@@ -868,7 +868,7 @@ declare namespace backup {
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 16
+     * @since 18
      */
     cancel(bundleName: string): number;
   }
@@ -910,7 +910,7 @@ declare namespace backup {
      * @throws { BusinessError } 13900042 - Internal error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 16
+     * @since 18
      */
     getLocalCapabilities(): Promise<FileData>;
 
@@ -931,7 +931,7 @@ declare namespace backup {
      * @throws { BusinessError } 13900042 - Internal error
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 16
+     * @since 18
      */
     getBackupDataSize(isPreciseScan: boolean, dataList: Array<IncrementalBackupTime>): Promise<void>;
 
@@ -1011,7 +1011,7 @@ declare namespace backup {
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
-     * @since 16
+     * @since 18
      */
     cancel(bundleName: string): number;
   }

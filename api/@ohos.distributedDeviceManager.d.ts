@@ -76,7 +76,7 @@ declare namespace distributedDeviceManager {
      * Device extra data.
      * @type { ?string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @since 16
+     * @since 18
      */
     extraData?: string;
   }

@@ -126,7 +126,7 @@ interface SheetInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   action: VoidCallback;
 }
@@ -171,7 +171,7 @@ declare interface DismissDialogAction {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 interface ActionSheetButtonOptions {
   /**
@@ -288,7 +288,7 @@ interface ActionSheetButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   action: VoidCallback;
 }
@@ -300,7 +300,7 @@ interface ActionSheetButtonOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 interface ActionSheetOffset {
   /**
@@ -310,7 +310,7 @@ interface ActionSheetOffset {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   dx: number | string | Resource;
   /**
@@ -320,7 +320,7 @@ interface ActionSheetOffset {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   dy: number | string | Resource;
 }
@@ -473,7 +473,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   confirm?: ActionSheetButtonOptions;
 
@@ -508,7 +508,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   cancel?: VoidCallback;
 
@@ -621,7 +621,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   offset?: ActionSheetOffset;
 
@@ -733,7 +733,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
@@ -744,7 +744,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   backgroundEffect?: BackgroundEffectOptions;
 
@@ -878,7 +878,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onDidAppear?: Callback<void>;
 
@@ -889,7 +889,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onDidDisappear?: Callback<void>;
 
@@ -900,7 +900,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onWillAppear?: Callback<void>;
 
@@ -911,7 +911,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onWillDisappear?: Callback<void>;
 
@@ -958,7 +958,7 @@ interface ActionSheetOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   levelOrder?: LevelOrder;
 }

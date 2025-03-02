@@ -195,7 +195,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function startUsingPermission(
     tokenID: number,
@@ -268,7 +268,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function stopUsingPermission(
     tokenID: number,
@@ -379,7 +379,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100009 - Common inner error.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function setPermissionUsedRecordToggleStatus(status: boolean): Promise<void>;
 
@@ -393,7 +393,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100007 - The service is abnormal.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function getPermissionUsedRecordToggleStatus(): Promise<boolean>;
 
@@ -449,7 +449,7 @@ declare namespace privacyManager {
      * @type { ?number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 16
+     * @since 18
      */
     callingTokenId?: number;
 
@@ -499,7 +499,7 @@ declare namespace privacyManager {
      * @type { ?PermissionUsedType }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since 16
+     * @since 18
      */
     usedType?: PermissionUsedType;
   }

@@ -1055,7 +1055,7 @@ declare namespace cloudSync {
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function optimizeStorage(): Promise<void>;
 }

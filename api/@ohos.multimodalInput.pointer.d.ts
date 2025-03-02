@@ -423,7 +423,7 @@ declare namespace pointer {
      * Scrolling east and west
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 16
+     * @since 18
      */
     MIDDLE_BTN_EAST_WEST
   }

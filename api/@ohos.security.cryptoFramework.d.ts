@@ -586,7 +586,7 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   interface KeyEncodingConfig {
     /**
@@ -596,7 +596,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     password: string;
 
@@ -607,7 +607,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     cipherName: string;
   }
@@ -921,7 +921,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getEncodedPem(format: string, config: KeyEncodingConfig): string;
   }
@@ -1693,7 +1693,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     convertPemKey(pubKey: string | null, priKey: string | null, password: string): Promise<KeyPair>;
 
@@ -1728,7 +1728,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     convertPemKeySync(pubKey: string | null, priKey: string | null, password: string): KeyPair;
 
@@ -2064,7 +2064,7 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Mac
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   interface MacSpec {
     /**
@@ -2074,7 +2074,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     algName: string;
   }
@@ -2087,7 +2087,7 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Mac
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   interface HmacSpec extends MacSpec {
     /**
@@ -2097,7 +2097,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     mdName: string;
   }
@@ -2110,7 +2110,7 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Mac
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   interface CmacSpec extends MacSpec {
     /**
@@ -2120,7 +2120,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     cipherName: string;
   }
@@ -2520,7 +2520,7 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Mac
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   function createMac(macSpec: MacSpec): Mac;
 
@@ -8639,7 +8639,7 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Kdf
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   interface ScryptSpec extends KdfSpec {
     /**
@@ -8649,7 +8649,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     passphrase: string | Uint8Array;
 
@@ -8660,7 +8660,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     salt: Uint8Array;
 
@@ -8671,7 +8671,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     n: number;
 
@@ -8682,7 +8682,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     r: number;
 
@@ -8693,7 +8693,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     p: number;
 
@@ -8704,7 +8704,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     maxMemory: number;
 
@@ -8715,7 +8715,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     keySize: number;
   }

@@ -117,7 +117,7 @@ declare namespace image {
      * and are stored from the higher-order to the lower-order bits.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 16
+     * @since 18
      */
     ARGB_8888 = 1,
 
@@ -446,7 +446,7 @@ declare namespace image {
      * processing editing.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 16
+     * @since 18
      */
     ASTC_4x4 = 102
   }
@@ -3492,7 +3492,7 @@ declare namespace image {
    *
    * @typedef PackingOptionsForSequence
    * @syscap SystemCapability.Multimedia.Image.ImagePacker
-   * @since 16
+   * @since 18
    */
   interface PackingOptionsForSequence {
     /**
@@ -3500,7 +3500,7 @@ declare namespace image {
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 16
+     * @since 18
      */
     frameCount: number;
 
@@ -3510,7 +3510,7 @@ declare namespace image {
      *
      * @type { Array<number> }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 16
+     * @since 18
      */
     delayTimeList: Array<number>;
 
@@ -3519,7 +3519,7 @@ declare namespace image {
      *
      * @type { ?Array<number> }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 16
+     * @since 18
      */
     disposalTypes?: Array<number>;
 
@@ -3529,7 +3529,7 @@ declare namespace image {
      *
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 16
+     * @since 18
      */
     loopCount?: number;
   }
@@ -6211,7 +6211,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 16
+     * @since 18
      */
     createScaledPixelMap(x: number, y: number, level?: AntiAliasingLevel): Promise<PixelMap>;
 
@@ -6226,7 +6226,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 16
+     * @since 18
      */
     createScaledPixelMapSync(x: number, y: number, level?: AntiAliasingLevel): PixelMap;
 
@@ -6899,7 +6899,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980104 - Image initialization abnormal.
      * @throws { BusinessError } 62980106 - The image data is to large.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 16
+     * @since 18
      */
     cloneSync(): PixelMap;    
 
@@ -6913,7 +6913,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980104 - Image initialization abnormal.
      * @throws { BusinessError } 62980106 - The image data is to large.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 16
+     * @since 18
      */
     clone(): Promise<PixelMap>;
 
@@ -8747,7 +8747,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980106 - The image is too large.
      * @throws { BusinessError } 62980119 - If encoder occur error during encoding.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 16
+     * @since 18
      */
     packToData(pixelmapSequence: Array<PixelMap>, options: PackingOptionsForSequence): Promise<ArrayBuffer>;
 
@@ -8850,7 +8850,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980119 - If encoder occur error during encoding.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 16
+     * @since 18
      */
     packToFile(pixelmapSequence: Array<PixelMap>, fd: number, options: PackingOptionsForSequence): Promise<void>;
 

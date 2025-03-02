@@ -541,7 +541,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   monitorInvisibleArea(monitorInvisibleArea: boolean) : ImageAnimatorAttribute;
 
