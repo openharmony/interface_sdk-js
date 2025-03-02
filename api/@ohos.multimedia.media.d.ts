@@ -175,6 +175,17 @@ declare namespace media {
    */
   function createMediaSourceWithUrl(url: string, headers?: Record<string, string>): MediaSource;
 
+   /**
+   * Create media source from media stream array.
+   * @param { Array<MediaStream> } streams - The player uses it to get stream source info.
+   * @returns { MediaSource } MediaSource instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @atomicservice
+   * @since 18
+   */
+  function createMediaSourceWithStreamData(streams: Array<MediaStream>): MediaSource;
+
   /**
    * Creates an VideoPlayer instance.
    * @param { AsyncCallback<VideoPlayer> } callback - used to return AudioPlayer instance if the operation is successful; returns null otherwise.
@@ -3835,6 +3846,51 @@ declare namespace media {
      * @since 16
      */
     finishLoading(uuid: number, state: LoadingRequestError): void;
+  }
+
+  /**
+   * Media Stream. AVPlayer use this for mediaData access, current version only support live stream.
+   * @typedef MediaStream
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @atomicservice
+   * @since 18
+   */
+  interface MediaStream {	
+    /**
+     * url for this mediaStream
+     * @type { number } source url.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 18
+     */
+    url: string;
+ 
+    /**
+     * video width.
+     * @type { number } video width.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 18
+     */
+    width: number;
+ 
+    /**
+     * video height.
+     * @type { number } video height.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 18
+     */
+    height: number;
+ 
+    /**
+     * biterate of this mediaStream.
+     * @type { number } The source bit rate.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 18
+     */
+    bitrate: number;
   }
 
   /**
