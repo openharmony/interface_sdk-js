@@ -64,7 +64,7 @@ declare namespace colorSpaceManager {
    * @atomicservice
    * @since 12
    */
-  enum ColorSpace {
+  export enum ColorSpace {
     /**
      * Indicates an unknown color space.
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
@@ -586,7 +586,7 @@ declare namespace colorSpaceManager {
    * @crossplatform
    * @since 11
    */
-  interface ColorSpacePrimaries {
+  export interface ColorSpacePrimaries {
     /**
      * Coordinate value x of red color
      * @type { number }
@@ -721,7 +721,7 @@ declare namespace colorSpaceManager {
    * @crossplatform
    * @since 11
    */
-  interface ColorSpaceManager {
+  export interface ColorSpaceManager {
     /**
      * Get the name of color space type.
      * @returns { ColorSpace } Returns the name of color space type.
@@ -795,7 +795,7 @@ declare namespace colorSpaceManager {
    * @crossplatform
    * @since 11
    */
-  function create(colorSpaceName: ColorSpace): ColorSpaceManager;
+  export function create(colorSpaceName: ColorSpace): ColorSpaceManager;
 
   /**
    * Create a customized color space manager by its color primaries and gamma value
@@ -820,7 +820,7 @@ declare namespace colorSpaceManager {
    * @crossplatform
    * @since 11
    */
-  function create(primaries: ColorSpacePrimaries, gamma: number): ColorSpaceManager;
+  export function create(primaries: ColorSpacePrimaries, gamma: number): ColorSpaceManager;
 }
 
 export default colorSpaceManager;
