@@ -37,7 +37,7 @@ declare namespace screenLock {
    * @since 7
    * @deprecated since 9
    */
-  function isScreenLocked(callback: AsyncCallback<boolean>): void;
+  export function isScreenLocked(callback: AsyncCallback<boolean>): void;
 
   /**
    * Checks whether the screen is currently locked.
@@ -47,7 +47,7 @@ declare namespace screenLock {
    * @since 7
    * @deprecated since 9
    */
-  function isScreenLocked(): Promise<boolean>;
+  export function isScreenLocked(): Promise<boolean>;
 
   /**
    * Checks whether the screen is currently locked.
@@ -59,7 +59,7 @@ declare namespace screenLock {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function isLocked(): boolean;
+  export function isLocked(): boolean;
 
   /**
    * Checks whether the screen lock of the current device is secure.
@@ -69,7 +69,7 @@ declare namespace screenLock {
    * @since 7
    * @deprecated since 9
    */
-  function isSecureMode(callback: AsyncCallback<boolean>): void;
+  export function isSecureMode(callback: AsyncCallback<boolean>): void;
 
   /**
    * Checks whether the screen lock of the current device is secure.
@@ -79,7 +79,7 @@ declare namespace screenLock {
    * @since 7
    * @deprecated since 9
    */
-  function isSecureMode(): Promise<boolean>;
+  export function isSecureMode(): Promise<boolean>;
 
   /**
    * Unlock the screen.
@@ -89,7 +89,7 @@ declare namespace screenLock {
    * @since 7
    * @deprecated since 9
    */
-  function unlockScreen(callback: AsyncCallback<void>): void;
+  export function unlockScreen(callback: AsyncCallback<void>): void;
 
   /**
    * Unlock the screen.
@@ -99,7 +99,7 @@ declare namespace screenLock {
    * @since 7
    * @deprecated since 9
    */
-  function unlockScreen(): Promise<void>;
+  export function unlockScreen(): Promise<void>;
 
   /**
    * Unlock the screen.
@@ -128,7 +128,7 @@ declare namespace screenLock {
    * @systemapi Hide this for inner system use.
    * @since 11
    */
-  function unlock(callback: AsyncCallback<boolean>): void;
+  export function unlock(callback: AsyncCallback<boolean>): void;
 
   /**
    * Unlock the screen.
@@ -153,7 +153,7 @@ declare namespace screenLock {
    * @systemapi Hide this for inner system use.
    * @since 11
    */
-  function unlock(): Promise<boolean>;
+  export function unlock(): Promise<boolean>;
 
   /**
    * Lock the screen.
@@ -170,7 +170,7 @@ declare namespace screenLock {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function lock(callback: AsyncCallback<boolean>): void;
+  export function lock(callback: AsyncCallback<boolean>): void;
 
   /**
    * Lock the screen.
@@ -185,7 +185,7 @@ declare namespace screenLock {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function lock(): Promise<boolean>;
+  export function lock(): Promise<boolean>;
 
   /**
    * Indicates the system event type related to the screenlock management service.
@@ -206,7 +206,7 @@ declare namespace screenLock {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  type EventType =
+  export type EventType =
     'beginWakeUp'
     | 'endWakeUp'
     | 'beginScreenOn'
@@ -232,7 +232,7 @@ declare namespace screenLock {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  enum StrongAuthReasonFlags {
+  export enum StrongAuthReasonFlags {
     /**
      * Indicates that there are no strong authentication reason flags.
      */
@@ -267,7 +267,7 @@ declare namespace screenLock {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  enum AuthState {
+  export enum AuthState {
     /**
      * Indicates the screen lock is not authenticated.
      */
@@ -312,7 +312,7 @@ declare namespace screenLock {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  interface SystemEvent {
+  export interface SystemEvent {
     /**
      * Indicates the system event type related to the screenlock management service.
      *
@@ -349,7 +349,7 @@ declare namespace screenLock {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function onSystemEvent(callback: Callback<SystemEvent>): boolean;
+  export function onSystemEvent(callback: Callback<SystemEvent>): boolean;
 
   /**
    * The screen lock app sends the event to the screen lock service.
@@ -368,7 +368,7 @@ declare namespace screenLock {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function sendScreenLockEvent(event: String, parameter: number, callback: AsyncCallback<boolean>): void;
+  export function sendScreenLockEvent(event: String, parameter: number, callback: AsyncCallback<boolean>): void;
 
   /**
    * The screen lock app sends the event to the screen lock service.
@@ -387,7 +387,7 @@ declare namespace screenLock {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function sendScreenLockEvent(event: String, parameter: number): Promise<boolean>;
+  export function sendScreenLockEvent(event: String, parameter: number): Promise<boolean>;
 
   /**
    * Request strong authentication for os account local userId.
@@ -406,7 +406,7 @@ declare namespace screenLock {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function requestStrongAuth(reasonFlag: StrongAuthReasonFlags, userId: number): Promise<void>;
+  export function requestStrongAuth(reasonFlag: StrongAuthReasonFlags, userId: number): Promise<void>;
 
   /**
    * Obtain strong authentication reason flags for os account local userId.
@@ -423,7 +423,7 @@ declare namespace screenLock {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function getStrongAuth(userId: number): number;
+  export function getStrongAuth(userId: number): number;
 
   /**
    * Disable screen lock showing for os account local userId. This only becomes effective when there is no password.
@@ -442,7 +442,7 @@ declare namespace screenLock {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function setScreenLockDisabled(disable: boolean, userId: number): Promise<boolean>;
+  export function setScreenLockDisabled(disable: boolean, userId: number): Promise<boolean>;
 
   /**
    * Check whether screen lock is disabled for os account local userId.
@@ -460,7 +460,7 @@ declare namespace screenLock {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function isScreenLockDisabled(userId: number): boolean;
+  export function isScreenLockDisabled(userId: number): boolean;
 
   /**
    * Set the screen lock authentication state for os account local userId.
@@ -480,7 +480,7 @@ declare namespace screenLock {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function setScreenLockAuthState(state: AuthState, userId: number, authToken: Uint8Array): Promise<boolean>;
+  export function setScreenLockAuthState(state: AuthState, userId: number, authToken: Uint8Array): Promise<boolean>;
 
   /**
    * Obtain the screen lock authentication state for os account local userId.
@@ -498,7 +498,7 @@ declare namespace screenLock {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function getScreenLockAuthState(userId: number): AuthState;
+  export function getScreenLockAuthState(userId: number): AuthState;
 
   /**
    * Check whether the device is currently locked and the screenlock requires an identity to authenticate and unlock.
@@ -515,7 +515,7 @@ declare namespace screenLock {
    * @systemapi Hide this for inner system use.
    * @since 15
    */
-  function isDeviceLocked(userId: number): boolean;
+  export function isDeviceLocked(userId: number): boolean;
 }
 
 export default screenLock;
