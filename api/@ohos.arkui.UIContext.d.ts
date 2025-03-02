@@ -3866,9 +3866,10 @@ export class UIContext {
   /**
    * Sets the component freezing flag based on the component id to prevent the
    * UI component from marking and updating dirty areas.
-   * 
+   * @param { string } id - Id of the frame node.
+   * @param { boolean } isFrozen  - whether the component is frozen.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @syscap SystemCapability.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 16
    */
@@ -3877,9 +3878,10 @@ export class UIContext {
   /**
    * Sets the component freezing flag based on the component uniqueId to prevent the
    * UI component from marking and updating dirty areas.
-   * 
+   * @param { number } uniqueId - Unique Id of the frame node.
+   * @param { boolean } isFrozen - whether the component is frozen.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @syscap SystemCapability.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 16
    */
