@@ -9402,7 +9402,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { EmbedOptions } options The embed options, which can be {@link EmbedOptions}.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 18
+   * @since 16
    */
   nativeEmbedOptions(options?: EmbedOptions): WebAttribute;
 }
@@ -9616,7 +9616,7 @@ declare interface NestedScrollOptionsExt {
  *
  * @typedef EmbedOptions
  * @syscap SystemCapability.Web.Webview.Core
- * @since 18
+ * @since 16
  */
 declare interface EmbedOptions {
   /**
@@ -9626,7 +9626,7 @@ declare interface EmbedOptions {
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 18
+   * @since 16
    */
   supportDefaultIntrinsicSize?: boolean;
 }

@@ -3892,7 +3892,7 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 16
    */
   getTextMenuController(): TextMenuController;
 }
@@ -4007,7 +4007,7 @@ export const enum MarqueeDynamicSyncSceneType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 16
  */
 export class TextMenuController {
   /**
@@ -4016,7 +4016,7 @@ export class TextMenuController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 16
    */
   setMenuOptions(options: TextMenuOptions): void;
 }

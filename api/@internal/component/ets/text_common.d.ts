@@ -1261,7 +1261,7 @@ interface EditableTextChangeValue {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since 18
+  * @since 16
   */
 declare enum TextMenuShowMode {
   /**
@@ -1270,7 +1270,7 @@ declare enum TextMenuShowMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 16
    */
   DEFAULT = 0,
 
@@ -1281,7 +1281,7 @@ declare enum TextMenuShowMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 16
    */
   PREFER_WINDOW = 1,
 }
@@ -1293,7 +1293,7 @@ declare enum TextMenuShowMode {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since 18
+  * @since 16
   */
 declare interface TextMenuOptions {
   /**
@@ -1303,7 +1303,7 @@ declare interface TextMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 16
    */
   showMode?: TextMenuShowMode;
 }
