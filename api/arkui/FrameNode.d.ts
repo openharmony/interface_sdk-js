@@ -529,9 +529,9 @@ export class FrameNode {
   isClipToFrame(): boolean;
 
   /**
-   * Get if the FrameNode is attached.
+   * Get if the FrameNode is attached to the root node tree.
    *
-   * @returns { boolean } - Returns if the FrameNode is attached.
+   * @returns { boolean } - Returns if the FrameNode is attached to the root node tree.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
