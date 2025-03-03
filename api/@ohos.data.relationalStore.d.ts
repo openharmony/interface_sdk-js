@@ -441,10 +441,10 @@ declare namespace relationalStore {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 16
+     * @since 18
      */
 
-    isPersistent?: boolean;
+    persist?: boolean;
   }
 
   /**
