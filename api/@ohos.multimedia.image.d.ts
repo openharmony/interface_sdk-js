@@ -8737,19 +8737,19 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     packToData(source: PixelMap, options: PackingOption): Promise<ArrayBuffer>;
 
     /**
-     * Compresses or packs some images into an arraybuffer and uses a promise to return the result.
+     * Compresses a Pixelmap sequence into gif.
      *
-     * @param { Array<PixelMap> } pixelmapSequence PixelMaps to be processed.
+     * @param { Array<PixelMap> } pixelmapSequence PixelMaps to be encoded.
      * @param { PackingOptionsForSequence } options Options for image packing.
-     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the operation result.
-     * @throws { BusinessError } 401 - If the parameter is invalid.
-     * @throws { BusinessError } 62980101 - The image data is abnormal.
-     * @throws { BusinessError } 62980106 - The image is too large.
-     * @throws { BusinessError } 62980119 - If encoder occur error during encoding.
+     * @returns { Promise<ArrayBuffer> } encoded buffer.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types;3.Parameter verification failed.
+     * @throws { BusinessError } 7800201 - Unsupported options.
+     * @throws { BusinessError } 7800301 - Encoding failed.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 18
      */
-    packToData(pixelmapSequence: Array<PixelMap>, options: PackingOptionsForSequence): Promise<ArrayBuffer>;
+    packToDataFromPixelmapSequence(pixelmapSequence: Array<PixelMap>, options: PackingOptionsForSequence): Promise<ArrayBuffer>;
 
     /**
      * Compresses or packs an image into a file and uses a callback to return the result.
@@ -8840,19 +8840,20 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     packToFile(source: PixelMap, fd: number, options: PackingOption): Promise<void>;
 
     /**
-     * Compresses or packs some images into a file and uses a promise to return the result.
+     * Compresses a Pixelmap sequence into gif.
      *
-     * @param { Array<PixelMap> } pixelmapSequence PixelMaps to be processed.
-     * @param { number } fd ID of a file descriptor.
+     * @param { Array<PixelMap> } pixelmapSequence PixelMaps to be encoded.
+     * @param { number } fd File descriptor of the output encoded file.
      * @param { PackingOptionsForSequence } options Options for image packing.
-     * @returns { Promise<void> } A Promise instance used to return the operation result.
-     * @throws { BusinessError } 401 - If the parameter is invalid.
-     * @throws { BusinessError } 62980101 - The image data is abnormal.
-     * @throws { BusinessError } 62980119 - If encoder occur error during encoding.
+     * @returns { Promise<void> } void.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types;3.Parameter verification failed.
+     * @throws { BusinessError } 7800201 - Unsupported options.
+     * @throws { BusinessError } 7800301 - Encoding failed.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 18
      */
-    packToFile(pixelmapSequence: Array<PixelMap>, fd: number, options: PackingOptionsForSequence): Promise<void>;
+    packToFileFromPixelmapSequence(pixelmapSequence: Array<PixelMap>, fd: number, options: PackingOptionsForSequence): Promise<void>;
 
      /**
      * Releases an ImagePacker instance and uses a callback to return the result.
