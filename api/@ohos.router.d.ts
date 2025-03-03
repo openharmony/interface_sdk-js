@@ -411,7 +411,7 @@ declare namespace router {
    * @crossplatform
    * @atomicservice
    * @since 11
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#pushUrl
    */
   function pushUrl(options: RouterOptions, callback: AsyncCallback<void>): void;
@@ -463,7 +463,7 @@ declare namespace router {
    * @crossplatform
    * @atomicservice
    * @since 11
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#pushUrl
    */
   function pushUrl(options: RouterOptions): Promise<void>;
@@ -518,7 +518,7 @@ declare namespace router {
    * @crossplatform
    * @atomicservice
    * @since 11
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#pushUrl
    */
   function pushUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void;
@@ -573,7 +573,7 @@ declare namespace router {
    * @crossplatform
    * @atomicservice
    * @since 11
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#pushUrl
    */
   function pushUrl(options: RouterOptions, mode: RouterMode): Promise<void>;
@@ -617,7 +617,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
    * @since 11
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#replaceUrl
    */
   function replaceUrl(options: RouterOptions, callback: AsyncCallback<void>): void;
@@ -650,7 +650,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
    * @since 11
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#replaceUrl
    */
   function replaceUrl(options: RouterOptions): Promise<void>;
@@ -685,7 +685,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
    * @since 11
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#replaceUrl
    */
   function replaceUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void;
@@ -720,7 +720,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
    * @since 11
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#replaceUrl
    */
   function replaceUrl(options: RouterOptions, mode: RouterMode): Promise<void>;
@@ -748,7 +748,7 @@ declare namespace router {
    * @crossplatform
    * @atomicservice
    * @since 11
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#back
    */
   function back(options?: RouterOptions): void;
@@ -762,7 +762,7 @@ declare namespace router {
    * @crossplatform
    * @atomicservice
    * @since 12
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#back
    */
  function back(index: number, params?: Object): void;
@@ -787,7 +787,7 @@ declare namespace router {
    * @crossplatform
    * @atomicservice
    * @since 11
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#clear
    */
   function clear(): void;
@@ -815,7 +815,7 @@ declare namespace router {
    * @crossplatform
    * @atomicservice
    * @since 11
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#getLength
    */
   function getLength(): string;
@@ -843,7 +843,7 @@ declare namespace router {
    * @crossplatform
    * @atomicservice
    * @since 11
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#getState
    */
   function getState(): RouterState;
@@ -857,7 +857,7 @@ declare namespace router {
    * @crossplatform
    * @atomicservice
    * @since 12
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#getStateByIndex
    */
    function getStateByIndex(index: number): RouterState | undefined;
@@ -871,7 +871,7 @@ declare namespace router {
     * @crossplatform
     * @atomicservice
     * @since 12
-    * @deprecated since 16
+    * @deprecated since 18
     * @useinstead ohos.arkui.UIContext.Router#getStateByUrl
     */
    function getStateByUrl(url: string): Array<RouterState>;
@@ -925,7 +925,7 @@ declare namespace router {
    * @crossplatform
    * @atomicservice
    * @since 11
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#showAlertBeforeBackPage
    */
   function showAlertBeforeBackPage(options: EnableAlertOptions): void;
@@ -960,7 +960,7 @@ declare namespace router {
    * @crossplatform
    * @atomicservice
    * @since 11
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#hideAlertBeforeBackPage
    */
   function hideAlertBeforeBackPage(): void;
@@ -988,7 +988,7 @@ declare namespace router {
    * @crossplatform
    * @atomicservice
    * @since 11
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#getParams
    */
   function getParams(): Object;
@@ -1088,7 +1088,7 @@ declare namespace router {
    * @crossplatform
    * @atomicservice
    * @since 11
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#pushNamedRoute
    */
   function pushNamedRoute(options: NamedRouterOptions, callback: AsyncCallback<void>): void;
@@ -1125,7 +1125,7 @@ declare namespace router {
    * @crossplatform
    * @atomicservice
    * @since 11
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#pushNamedRoute
    */
   function pushNamedRoute(options: NamedRouterOptions): Promise<void>;
@@ -1164,7 +1164,7 @@ declare namespace router {
    * @crossplatform
    * @atomicservice
    * @since 11
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#pushNamedRoute
    */
   function pushNamedRoute(options: NamedRouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void;
@@ -1203,7 +1203,7 @@ declare namespace router {
    * @crossplatform
    * @atomicservice
    * @since 11
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#pushNamedRoute
    */
   function pushNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise<void>;
@@ -1238,7 +1238,7 @@ declare namespace router {
    * @crossplatform
    * @atomicservice
    * @since 11
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#replaceNamedRoute
    */
   function replaceNamedRoute(options: NamedRouterOptions, callback: AsyncCallback<void>): void;
@@ -1273,7 +1273,7 @@ declare namespace router {
    * @crossplatform
    * @atomicservice
    * @since 11
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#replaceNamedRoute
    */
   function replaceNamedRoute(options: NamedRouterOptions): Promise<void>;
@@ -1310,7 +1310,7 @@ declare namespace router {
    * @crossplatform
    * @atomicservice
    * @since 11
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#replaceNamedRoute
    */
   function replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void;
@@ -1347,7 +1347,7 @@ declare namespace router {
    * @crossplatform
    * @atomicservice
    * @since 11
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Router#replaceNamedRoute
    */
   function replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise<void>;
