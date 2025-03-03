@@ -22,11 +22,11 @@ import type { AsyncCallback } from './@ohos.base';
 
 /**
  * This module provides the capability to query faultlog data.
- * This module is deprecated since 16, please use hiAppEvent to monitor APP_CRASH and APP_FREEZE event
+ * This module is deprecated since 18, please use hiAppEvent to monitor APP_CRASH and APP_FREEZE event
  * @namespace FaultLogger
  * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
  * @since 8
- * @deprecated since 16
+ * @deprecated since 18
  * @useinstead ohos.hiviewdfx.hiAppEvent
  */
 
@@ -37,35 +37,35 @@ declare namespace FaultLogger {
    * @enum { number }
    * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
    * @since 8
-   * @deprecated since 16
+   * @deprecated since 18
    */
   enum FaultType {
     /**
      * NO_SPECIFIC log type not distinguished.
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
      * @since 8
-     * @deprecated since 16
+     * @deprecated since 18
      */
     NO_SPECIFIC = 0,
     /**
      * CPP_CRASH CPP crash log type.
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
      * @since 8
-     * @deprecated since 16
+     * @deprecated since 18
      */
     CPP_CRASH = 2,
     /**
      * JS_CRASH JS crash log type.
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
      * @since 8
-     * @deprecated since 16
+     * @deprecated since 18
      */
     JS_CRASH = 3,
     /**
      * APP_FREEZE app freeze log type.
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
      * @since 8
-     * @deprecated since 16
+     * @deprecated since 18
      */
     APP_FREEZE = 4,
   }
@@ -101,7 +101,7 @@ declare namespace FaultLogger {
    * @throws { BusinessError } 10600001 - The service is not started or is faulty
    * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
    * @since 9
-   * @deprecated since 16
+   * @deprecated since 18
    */
   function query(faultType: FaultType, callback: AsyncCallback<Array<FaultLogInfo>>): void;
 
@@ -114,7 +114,7 @@ declare namespace FaultLogger {
    * @throws { BusinessError } 10600001 - The service is not started or is faulty
    * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
    * @since 9
-   * @deprecated since 16
+   * @deprecated since 18
    */
   function query(faultType: FaultType): Promise<Array<FaultLogInfo>>;
 
@@ -123,7 +123,7 @@ declare namespace FaultLogger {
    * @interface FaultLogInfo
    * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
    * @since 8
-   * @deprecated since 16
+   * @deprecated since 18
    */
   interface FaultLogInfo {
     /**
@@ -131,7 +131,7 @@ declare namespace FaultLogger {
      * @type { number }
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
      * @since 8
-     * @deprecated since 16
+     * @deprecated since 18
      */
     pid: number;
 
@@ -140,7 +140,7 @@ declare namespace FaultLogger {
      * @type { number }
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
      * @since 8
-     * @deprecated since 16
+     * @deprecated since 18
      */
     uid: number;
 
@@ -149,7 +149,7 @@ declare namespace FaultLogger {
      * @type { FaultType }
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
      * @since 8
-     * @deprecated since 16
+     * @deprecated since 18
      */
     type: FaultType;
 
@@ -158,7 +158,7 @@ declare namespace FaultLogger {
      * @type { number }
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
      * @since 8
-     * @deprecated since 16
+     * @deprecated since 18
      */
     timestamp: number;
 
@@ -167,7 +167,7 @@ declare namespace FaultLogger {
      * @type { string }
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
      * @since 8
-     * @deprecated since 16
+     * @deprecated since 18
      */
     reason: string;
 
@@ -176,7 +176,7 @@ declare namespace FaultLogger {
      * @type { string }
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
      * @since 8
-     * @deprecated since 16
+     * @deprecated since 18
      */
     module: string;
 
@@ -185,7 +185,7 @@ declare namespace FaultLogger {
      * @type { string }
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
      * @since 8
-     * @deprecated since 16
+     * @deprecated since 18
      */
     summary: string;
 
@@ -194,7 +194,7 @@ declare namespace FaultLogger {
      * @type { string }
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
      * @since 8
-     * @deprecated since 16
+     * @deprecated since 18
      */
     fullLog: string;
   }
