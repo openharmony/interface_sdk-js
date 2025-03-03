@@ -4574,8 +4574,8 @@ declare namespace audio {
      * only when all callers cancel muted state the volume of this app will be truly unmuted.
      * @permission ohos.permission.MANAGE_AUDIO_CONFIG
      * @param { number } uid - App's uid.
-     * @param { boolean } owned - If true is passed, the result will be indicated your owned muted state settings to
-     * this app. Otherwise if false is passed, the result will be indicated the real muted state.
+     * @param { boolean } owned - If true is passed, the result will be indicated your owned muted state
+     * settings to this app. Otherwise if false is passed, the result will be indicated the real muted state.
      * @returns { Promise<boolean> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
@@ -4673,10 +4673,11 @@ declare namespace audio {
     off(type: 'volumeChange', callback?: Callback<VolumeEvent>): void;
 
     /**
-     * Listens for specified app volume change events. The app volume may changed by {@link setAppVolumePercentageForUid}.
+     * Listens for specified app volume change events.
+     * The app volume may changed by {@link setAppVolumePercentageForUid}.
      * @permission ohos.permission.MANAGE_AUDIO_CONFIG
-     * @param { 'appVolumeChangeForUid' } type - Type of the event to listen for. Only the appVolumeChangeForUid event
-     * is supported.
+     * @param { 'appVolumeChangeForUid' } type - Type of the event to listen for. Only the
+     * appVolumeChangeForUid event is supported.
      * @param { number } uid - The app's uid.
      * @param { Callback<VolumeEvent> } callback - Callback used to get the app volume change event.
      * @throws { BusinessError } 201 - Permission denied.
@@ -4725,7 +4726,8 @@ declare namespace audio {
 
     /**
      * Unsubscribes to the app volume change events..
-     * @param { 'appVolumeChange' } type - Type of the event to be unregistered. Only the appVolumeChange event is supported.
+     * @param { 'appVolumeChange' } type - Type of the event to be unregistered. Only the appVolumeChange event
+     * is supported.
      * @param { Callback<VolumeEvent> } callback - Callback used to obtain the invoking volume change event.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters missing;
@@ -6624,7 +6626,7 @@ declare namespace audio {
     networkId: string;
     /**
      * Audio volume mode of this volume event
-     * @type { AudioVolumeMode }
+     * @type { ?AudioVolumeMode }
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 16
      */
