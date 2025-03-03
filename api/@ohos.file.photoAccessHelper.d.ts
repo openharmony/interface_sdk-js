@@ -1457,18 +1457,20 @@ declare namespace photoAccessHelper {
      */
     getThumbnail(size?: image.Size): Promise<image.PixelMap>;
     /**
-     * Get thumbnail array Buffer of the asset
+     * Get thumbnail data of the asset with ArrayBuffer
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { ThumbnailType } type - The type of thumbnail.
-     * @returns { Promise<ArrayBuffer> } Returns array buffer of the content
+     * @param { ThumbnailType } type - Which thumbnail's type needed to return.
+     * @returns { Promise<ArrayBuffer> } Returns the thumbnail's ArrayBuffer. 
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 13900012 - Permission denied
-     * @throws { BusinessError } 13900020 - Invalid argument
-     * @throws { BusinessError } 14000011 - System inner fail
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 16
+     * @systemapi
+     * @since 18
      */
     getThumbnailData(type: ThumbnailType): Promise<ArrayBuffer>;
     /**
