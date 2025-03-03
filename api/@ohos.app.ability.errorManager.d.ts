@@ -128,7 +128,7 @@ declare namespace errorManager {
    * @throws { BusinessError } 16200001 - If the caller is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   function on(type: 'globalErrorOccurred', observer: GlobalObserver): void;
 
@@ -141,7 +141,7 @@ declare namespace errorManager {
    * @throws { BusinessError } 16200001 - If the caller is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   function on(type: 'globalUnhandledRejectionDetected', observer: GlobalObserver): void;
 
@@ -155,7 +155,7 @@ declare namespace errorManager {
    * @throws { BusinessError } 16300004 - If the observer does not exist
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   function off(type: 'globalErrorOccurred', observer?: GlobalObserver): void;
 
@@ -169,7 +169,7 @@ declare namespace errorManager {
    * @throws { BusinessError } 16300004 - If the observer does not exist
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   function off(type: 'globalUnhandledRejectionDetected', observer?: GlobalObserver): void;
 
@@ -180,7 +180,7 @@ declare namespace errorManager {
    * { GlobalError } reason - the reason of the error or rejection.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export type GlobalObserver = (reason: GlobalError) => void;
 
@@ -191,7 +191,7 @@ declare namespace errorManager {
    * @typedef GlobalError
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export interface GlobalError extends Error {
     /**
@@ -199,7 +199,7 @@ declare namespace errorManager {
      * @type { string } instanceName
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     instanceName: string;
 
@@ -208,7 +208,7 @@ declare namespace errorManager {
      * @type { InstanceType } instanceType
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     instanceType: InstanceType;
   }
@@ -218,7 +218,7 @@ declare namespace errorManager {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export enum InstanceType {
     /**
@@ -226,7 +226,7 @@ declare namespace errorManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     MAIN = 0,
 
@@ -235,7 +235,7 @@ declare namespace errorManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @atomicservice
-     * @since 16
+     * @since 18
      */
      WORKER = 1,
 
@@ -244,7 +244,7 @@ declare namespace errorManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     TASKPOOL = 2,
 
@@ -253,7 +253,7 @@ declare namespace errorManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     CUSTOM = 3,
   }
@@ -328,7 +328,7 @@ declare namespace errorManager {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 16
+   * @since 18
    */
     function on(type: 'freeze', observer: FreezeObserver): void;
 
@@ -343,7 +343,7 @@ declare namespace errorManager {
    * @throws { BusinessError } 16300004 - If the observer does not exist
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   function off(type: 'freeze', observer?: FreezeObserver): void;
 
@@ -388,7 +388,7 @@ declare namespace errorManager {
    * @typedef { function }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export type FreezeObserver = () => void;
 }

@@ -1778,7 +1778,7 @@ declare namespace pasteboard {
      * @returns { number } The number of Pasteboard data changes.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getChangeCount(): number;
     

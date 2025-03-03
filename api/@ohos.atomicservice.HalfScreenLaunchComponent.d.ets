@@ -26,7 +26,7 @@ import { Callback, ErrorCallback } from '@ohos.base';
  * @struct { HalfScreenLaunchComponent }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 16
+ * @since 18
  */
 @Component
 export declare struct HalfScreenLaunchComponent {
@@ -35,7 +35,7 @@ export declare struct HalfScreenLaunchComponent {
    * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   @BuilderParam content: Callback<void>;
   /**
@@ -43,7 +43,7 @@ export declare struct HalfScreenLaunchComponent {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   appId: string;
   /**
@@ -51,7 +51,7 @@ export declare struct HalfScreenLaunchComponent {
    * @type { ?AtomicServiceOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   options?: AtomicServiceOptions;
     /**
@@ -59,7 +59,7 @@ export declare struct HalfScreenLaunchComponent {
     * @type { ?ErrorCallback }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @atomicservice
-    * @since 16
+    * @since 18
     */
     onError?: ErrorCallback;
     /**
@@ -67,7 +67,7 @@ export declare struct HalfScreenLaunchComponent {
     * @type { ?Callback<TerminationInfo> }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @atomicservice
-    * @since 16
+    * @since 18
     */
     onTerminated?: Callback<TerminationInfo>;
 }

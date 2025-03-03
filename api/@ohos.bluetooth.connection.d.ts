@@ -511,7 +511,7 @@ declare namespace connection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
-   * @since 16
+   * @since 18
    */
   function getRemoteDeviceClass(deviceId: string): DeviceClass;
 
@@ -1120,7 +1120,7 @@ declare namespace connection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function getRemoteProductId(deviceId: string): string;
 
@@ -1207,7 +1207,7 @@ declare namespace connection {
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function getRemoteDeviceType(deviceId: string): Promise<DeviceType>;
 
@@ -1383,7 +1383,7 @@ declare namespace connection {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 16
+   * @since 18
    */
   function on(type: 'discoveryResult', callback: Callback<Array<DiscoveryResult>>): void;
 
@@ -1410,7 +1410,7 @@ declare namespace connection {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 16
+   * @since 18
    */
   function off(type: 'discoveryResult', callback?: Callback<Array<DiscoveryResult>>): void;
 
@@ -1987,7 +1987,7 @@ declare namespace connection {
    *
    * @typedef DiscoveryResult
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 16
+   * @since 18
    */
   interface DiscoveryResult {
     /**
@@ -2003,7 +2003,7 @@ declare namespace connection {
      *
      * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 16
+     * @since 18
      */
     deviceId: string;
     /**
@@ -2019,7 +2019,7 @@ declare namespace connection {
      *
      * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 16
+     * @since 18
      */
     rssi: number;
     /**
@@ -2035,7 +2035,7 @@ declare namespace connection {
      *
      * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 16
+     * @since 18
      */
     deviceName: string;
     /**
@@ -2051,7 +2051,7 @@ declare namespace connection {
      *
      * @type { DeviceClass }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 16
+     * @since 18
      */
     deviceClass: DeviceClass;
   }

@@ -147,7 +147,7 @@ declare namespace adminManager {
      * Event indicating that a system account is added.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @since 16
+     * @since 18
      */
     MANAGED_EVENT_ACCOUNT_ADDED = 5,
 
@@ -155,7 +155,7 @@ declare namespace adminManager {
      * Event indicating that a system account is switched.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @since 16
+     * @since 18
      */
     MANAGED_EVENT_ACCOUNT_SWITCHED = 6,
 
@@ -163,7 +163,7 @@ declare namespace adminManager {
      * Event indicating that a system account is removed.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @since 16
+     * @since 18
      */
     MANAGED_EVENT_ACCOUNT_REMOVED = 7
   }
@@ -758,7 +758,7 @@ declare namespace adminManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   function replaceSuperAdmin(oldAdmin: Want, newAdmin: Want, isKeepPolicy: boolean): void;
 }

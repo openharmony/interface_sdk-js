@@ -1539,7 +1539,7 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     readonly isRetractable?: boolean;
   }
@@ -1674,7 +1674,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     closeDelayed(time: number): Promise<void>;
 
@@ -9106,7 +9106,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     isOfflineSupported(): boolean;
 
@@ -9118,7 +9118,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     enableOffline(): void;
 
@@ -9131,7 +9131,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     on(type: 'offlineDeliveryFinished', callback: AsyncCallback<void>): void;
 
@@ -9144,7 +9144,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     off(type: 'offlineDeliveryFinished', callback?: AsyncCallback<void>): void
   }
@@ -9485,7 +9485,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     isAutoVideoFrameRateSupported(): boolean;
 
@@ -9498,7 +9498,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     enableAutoVideoFrameRate(enabled: boolean): void;
 

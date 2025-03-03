@@ -64,7 +64,7 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
-     * @since 16
+     * @since 18
      */
     waitTime?: number;
   }
@@ -382,7 +382,7 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
-     * @since 16
+     * @since 18
      */
     update?: string;
   }

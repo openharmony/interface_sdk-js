@@ -1030,21 +1030,21 @@ declare namespace asset {
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Asset
-   * @since 16
+   * @since 18
    */
   enum WrapType {
     /**
      * An Asset with this attribute value is never allowed to be wrapped up.
      *
      * @syscap SystemCapability.Security.Asset
-     * @since 16
+     * @since 18
      */
     NEVER = 0,
     /**
      * An Asset with this attribute value can only be wrapped or unwrapped on devices logged in with trusted accounts.
      *
      * @syscap SystemCapability.Security.Asset
-     * @since 16
+     * @since 18
      */
     TRUSTED_ACCOUNT = 1,
   }
@@ -1653,14 +1653,14 @@ declare namespace asset {
      * A tag whose value is a byte array indicating the group id an asset belongs to.
      *
      * @syscap SystemCapability.Security.Asset
-     * @since 16
+     * @since 18
      */
     GROUP_ID = TagType.BYTES | 0x48,
     /**
      * A tag whose value is a 32-bit unsigned integer indicating the type of Asset encapsulation.
      *
      * @syscap SystemCapability.Security.Asset
-     * @since 16
+     * @since 18
      */
     WRAP_TYPE = TagType.NUMBER | 0x49,
   }

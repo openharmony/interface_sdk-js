@@ -310,7 +310,7 @@ declare interface XComponentOptions {
  * @interface NativeXComponentParameters
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare interface NativeXComponentParameters {
   /**
@@ -319,7 +319,7 @@ declare interface NativeXComponentParameters {
    * @type { XComponentType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   type: XComponentType;
 
@@ -329,7 +329,7 @@ declare interface NativeXComponentParameters {
    * @type { ?ImageAIOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   imageAIOptions?: ImageAIOptions;
 }
@@ -400,7 +400,7 @@ interface XComponentInterface {
    * @returns { XComponentAttribute } The attribute of the xcomponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   (params: NativeXComponentParameters): XComponentAttribute;
 }
@@ -414,7 +414,7 @@ interface XComponentInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare type OnNativeLoadCallback = (event?: object) => void;
 
@@ -461,7 +461,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onLoad(callback: OnNativeLoadCallback): XComponentAttribute;
 
@@ -491,7 +491,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onDestroy(event: VoidCallback): XComponentAttribute;
 
@@ -535,7 +535,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 16
+   * @since 18
    */
   enableTransparentLayer(enabled: boolean): XComponentAttribute;
 }

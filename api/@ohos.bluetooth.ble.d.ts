@@ -3242,7 +3242,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     characteristicValueHandle?: number;
   }
@@ -3379,7 +3379,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     descriptorHandle?: number;
   }
@@ -4868,7 +4868,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     includeTxPower?: boolean;
   }
@@ -6123,7 +6123,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     FENCE_SENSITIVITY_LOW = 10,
     /**
@@ -6133,7 +6133,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     FENCE_SENSITIVITY_HIGH = 11,
   }

@@ -275,7 +275,7 @@ export default class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   on(type: 'applicationStateChange', callback: ApplicationStateChangeCallback): void;
 
@@ -310,7 +310,7 @@ export default class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   off(type: 'applicationStateChange', callback?: ApplicationStateChangeCallback): void;
 
@@ -471,7 +471,7 @@ export default class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   setColorMode(colorMode: ConfigurationConstant.ColorMode): void;
 

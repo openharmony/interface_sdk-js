@@ -217,7 +217,7 @@ declare namespace uiExtension {
       * @throws { BusinessError } 1300003 - This window manager service works abnormally.
       * @syscap SystemCapability.ArkUI.ArkUI.Full
       * @atomicservice
-      * @since 16
+      * @since 18
       */
      occupyEvents(eventFlags: number): Promise<void>;
 
@@ -238,7 +238,7 @@ declare namespace uiExtension {
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   enum EventFlag {
     /**
@@ -246,7 +246,7 @@ declare namespace uiExtension {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     EVENT_NONE = 0x00000000,
     /**
@@ -254,7 +254,7 @@ declare namespace uiExtension {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     EVENT_PAN_GESTURE_LEFT = 0x00000001,
     /**
@@ -262,7 +262,7 @@ declare namespace uiExtension {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     EVENT_PAN_GESTURE_RIGHT = 0x00000002,
     /**
@@ -270,7 +270,7 @@ declare namespace uiExtension {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     EVENT_PAN_GESTURE_UP = 0x00000004,
     /**
@@ -278,7 +278,7 @@ declare namespace uiExtension {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     EVENT_PAN_GESTURE_DOWN = 0x00000008,
     /**
@@ -286,7 +286,7 @@ declare namespace uiExtension {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     EVENT_CLICK = 0x00000100,
     /**
@@ -294,7 +294,7 @@ declare namespace uiExtension {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     EVENT_LONG_PRESS = 0x00000200,
   }

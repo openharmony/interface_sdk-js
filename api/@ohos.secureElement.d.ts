@@ -69,7 +69,7 @@ declare namespace omapi {
    * @throws { BusinessError } 401 - Invalid parameter.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.SecureElement
-   * @since 16
+   * @since 18
    */
   function on(type: 'stateChanged', callback: Callback<ServiceState>): void;
 
@@ -81,7 +81,7 @@ declare namespace omapi {
    * @throws { BusinessError } 401 - Invalid parameter.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.SecureElement
-   * @since 16
+   * @since 18
    */
   function off(type: 'stateChanged', callback?: Callback<ServiceState>): void;
 

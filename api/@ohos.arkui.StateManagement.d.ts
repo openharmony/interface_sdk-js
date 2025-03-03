@@ -57,7 +57,7 @@ export interface TypeConstructorWithArgs<T> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export class ConnectOptions<T extends object> {
   /**
@@ -65,7 +65,7 @@ export class ConnectOptions<T extends object> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   type: TypeConstructorWithArgs<T>;
 
@@ -75,7 +75,7 @@ export class ConnectOptions<T extends object> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
   */
   key?: string;
 
@@ -85,7 +85,7 @@ export class ConnectOptions<T extends object> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
   */
   defaultCreator?: StorageDefaultCreator<T>;
 
@@ -97,7 +97,7 @@ export class ConnectOptions<T extends object> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
   */
   areaMode?: contextConstant.AreaMode;
 }
@@ -190,7 +190,7 @@ export declare class PersistenceV2 extends AppStorageV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   static globalConnect<T extends object>(
     type: ConnectOptions<T>
@@ -307,7 +307,7 @@ export declare class UIUtils {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
    static makeV1Observed<T extends object>(source: T): T;
 
@@ -320,7 +320,7 @@ export declare class UIUtils {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
    static enableV2Compatibility<T extends object>(source: T): T;
 }

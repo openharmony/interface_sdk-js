@@ -275,7 +275,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 9300003 - No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   getElements(windowId: number, elementId?: number): Promise<Array<AccessibilityElement>>;
 
@@ -291,7 +291,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 9300003 - No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   getDefaultFocusedElementIds(windowId: number): Promise<Array<number>>;
 }
@@ -1020,7 +1020,7 @@ interface ElementAttributeValues {
    * Indicates the component next accessibility focus id.
    * @type { ?number }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 16
+   * @since 18
    */
   accessibilityNextFocusId?: number;
   /**
@@ -1028,14 +1028,14 @@ interface ElementAttributeValues {
    *
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 16
+   * @since 18
    */
   customComponentType?: string;
   /**
    * Indicates the extra info of the element.
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 16
+   * @since 18
    */
   extraInfo?: string;
   /**
@@ -1043,7 +1043,7 @@ interface ElementAttributeValues {
    *
    * @type { ?number }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 16
+   * @since 18
    */
   accessibilityPreviousFocusId?: number;
   /**
@@ -1051,7 +1051,7 @@ interface ElementAttributeValues {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 16
+   * @since 18
    */
   accessibilityScrollable?: boolean;
 }

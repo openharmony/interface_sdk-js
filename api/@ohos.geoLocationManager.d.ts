@@ -103,7 +103,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   function on(type: 'locationChange', request: LocationRequest | ContinuousLocationRequest,
   callback: Callback<Location>): void;
@@ -151,7 +151,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   function off(type: 'locationChange', callback?: Callback<Location>): void;
 
@@ -242,7 +242,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
-   * @since 16
+   * @since 18
    */
   function on(type: 'cachedGnssLocationsChange', request: CachedGnssLocationsRequest, callback: Callback<Array<Location>>): void;
 
@@ -273,7 +273,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
-   * @since 16
+   * @since 18
    */
   function off(type: 'cachedGnssLocationsChange', callback?: Callback<Array<Location>>): void;
 
@@ -661,7 +661,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function isLocationEnabledByUserId(userId: number): boolean;
 
@@ -708,7 +708,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function enableLocationByUserId(userId: number): Promise<void>;
 
@@ -737,7 +737,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function disableLocationByUserId(userId: number): void;
 
@@ -753,7 +753,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function setLocationSwitchIgnored(isIgnored: boolean): void;
 
@@ -2008,7 +2008,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     sportsType?: SportsType;
   }
@@ -3153,7 +3153,7 @@ declare namespace geoLocationManager {
    * @enum { number }
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export enum SportsType {
     /**
@@ -3161,7 +3161,7 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     RUNNING = 1,
 
@@ -3170,7 +3170,7 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     WALKING,
 
@@ -3179,7 +3179,7 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     CYCLING
   }

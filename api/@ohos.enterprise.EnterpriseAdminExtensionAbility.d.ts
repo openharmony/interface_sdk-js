@@ -133,7 +133,7 @@ export default class EnterpriseAdminExtensionAbility {
    * @param { number } accountId ID of the added account.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   onAccountAdded(accountId: number): void;
 
@@ -143,7 +143,7 @@ export default class EnterpriseAdminExtensionAbility {
    * @param { number } accountId ID of the switched account.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   onAccountSwitched(accountId: number): void;
 
@@ -153,7 +153,7 @@ export default class EnterpriseAdminExtensionAbility {
    * @param { number } accountId ID of the removed account.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   onAccountRemoved(accountId: number): void;
 }

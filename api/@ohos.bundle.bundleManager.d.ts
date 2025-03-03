@@ -80,7 +80,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   enum BundleFlag {
     /**
@@ -105,7 +105,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     GET_BUNDLE_INFO_DEFAULT = 0x00000000,
     /**
@@ -130,7 +130,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     GET_BUNDLE_INFO_WITH_APPLICATION = 0x00000001,
     /**
@@ -155,7 +155,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     GET_BUNDLE_INFO_WITH_HAP_MODULE = 0x00000002,
     /**
@@ -183,7 +183,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     GET_BUNDLE_INFO_WITH_ABILITY = 0x00000004,
     /**
@@ -226,7 +226,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     GET_BUNDLE_INFO_WITH_REQUESTED_PERMISSION = 0x00000010,
     /**
@@ -254,7 +254,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     GET_BUNDLE_INFO_WITH_METADATA = 0x00000020,
     /**
@@ -282,7 +282,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     GET_BUNDLE_INFO_WITH_DISABLE = 0x00000040,
     /**
@@ -307,7 +307,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     GET_BUNDLE_INFO_WITH_SIGNATURE_INFO = 0x00000080,
     /**
@@ -750,7 +750,7 @@ declare namespace bundleManager {
      * Indicates extension info with type of asset acceleration
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 16
+     * @since 18
      */
     ASSET_ACCELERATION = 26,
 
@@ -785,7 +785,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export enum PermissionGrantState {
     /**
@@ -807,7 +807,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     PERMISSION_DENIED = -1,
 
@@ -830,7 +830,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     PERMISSION_GRANTED = 0
   }
@@ -857,7 +857,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export enum SupportWindowMode {
     /**
@@ -879,7 +879,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     FULL_SCREEN = 0,
     /**
@@ -901,7 +901,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     SPLIT = 1,
     /**
@@ -923,7 +923,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     FLOATING = 2
   }
@@ -1018,7 +1018,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     SPECIFIED = 2
   }
@@ -1082,7 +1082,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export enum DisplayOrientation {
     /**
@@ -1104,7 +1104,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     UNSPECIFIED,
 
@@ -1127,7 +1127,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     LANDSCAPE,
 
@@ -1150,7 +1150,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     PORTRAIT,
 
@@ -1173,7 +1173,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     FOLLOW_RECENT,
 
@@ -1196,7 +1196,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     LANDSCAPE_INVERTED,
 
@@ -1219,7 +1219,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     PORTRAIT_INVERTED,
 
@@ -1242,7 +1242,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     AUTO_ROTATION,
 
@@ -1265,7 +1265,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     AUTO_ROTATION_LANDSCAPE,
 
@@ -1288,7 +1288,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     AUTO_ROTATION_PORTRAIT,
 
@@ -1311,7 +1311,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     AUTO_ROTATION_RESTRICTED,
 
@@ -1334,7 +1334,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     AUTO_ROTATION_LANDSCAPE_RESTRICTED,
 
@@ -1357,7 +1357,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     AUTO_ROTATION_PORTRAIT_RESTRICTED,
 
@@ -1380,7 +1380,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     LOCKED,
 
@@ -1425,7 +1425,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export enum ModuleType {
     /**
@@ -1447,7 +1447,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     ENTRY = 1,
     /**
@@ -1469,7 +1469,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     FEATURE = 2,
     /**
@@ -1491,7 +1491,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     SHARED = 3
   }
@@ -3697,7 +3697,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700021 - The uid is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 16
+   * @since 18
    */
   function getSignatureInfo(uid: number): SignatureInfo;
 
@@ -3776,7 +3776,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700086 - System error occurred during copy execution.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function migrateData(sourcePaths: Array<string>, destinationPath: string): Promise<void>;
 
@@ -3802,7 +3802,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export type ApplicationInfo = _ApplicationInfo;
 
@@ -3828,7 +3828,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export type ModuleMetadata = _ModuleMetadata;
 
@@ -3854,7 +3854,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export type Metadata = _Metadata;
 
@@ -3880,7 +3880,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export type BundleInfo = _BundleInfo.BundleInfo;
 
@@ -3906,7 +3906,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export type UsedScene = _BundleInfo.UsedScene;
 
@@ -3932,7 +3932,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export type ReqPermissionDetail = _BundleInfo.ReqPermissionDetail;
 
@@ -3958,7 +3958,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export type SignatureInfo = _BundleInfo.SignatureInfo;
 
@@ -3993,7 +3993,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export type HapModuleInfo = _HapModuleInfo.HapModuleInfo;
 
@@ -4073,7 +4073,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export type AbilityInfo = _AbilityInfo.AbilityInfo;
 
@@ -4099,7 +4099,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export type WindowSize = _AbilityInfo.WindowSize;
 

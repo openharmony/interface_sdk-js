@@ -308,7 +308,7 @@ declare namespace media {
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function getScreenCaptureMonitor(): Promise<ScreenCaptureMonitor>;
 
@@ -1507,7 +1507,7 @@ declare namespace media {
      * Seek continuous unsupported.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     AVERR_SEEK_CONTINUOUS_UNSUPPORTED = 5410002,
 
@@ -1515,7 +1515,7 @@ declare namespace media {
      * Super-resolution unsupported.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     AVERR_SUPER_RESOLUTION_UNSUPPORTED = 5410003,
 
@@ -1523,7 +1523,7 @@ declare namespace media {
      * No PlaybackStrategy set to enable super-resolution feature.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     AVERR_SUPER_RESOLUTION_NOT_ENABLED = 5410004,
   }
@@ -1610,7 +1610,7 @@ declare namespace media {
    * @param { boolean } enabled - Super-resolution enabled or not.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   type OnSuperResolutionChanged = (enabled: boolean) => void;
 
@@ -1620,7 +1620,7 @@ declare namespace media {
    * @typedef SeiMessage
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   interface SeiMessage {
     /**
@@ -1628,7 +1628,7 @@ declare namespace media {
      * @type { number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     payloadType: number;
 
@@ -1637,7 +1637,7 @@ declare namespace media {
      * @type { ArrayBuffer }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     payload: ArrayBuffer;
   }
@@ -1650,7 +1650,7 @@ declare namespace media {
    * @param { ?number } playbackPosition - playback position.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   type OnSeiMessageHandle = (messages: Array<SeiMessage>, playbackPosition?: number) => void;
 
@@ -2222,7 +2222,7 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     setPlaybackRange(startTimeMs: number, endTimeMs: number, mode?: SeekMode) : Promise<void>;
 
@@ -2232,7 +2232,7 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getPlaybackPosition() : number;
 
@@ -2243,7 +2243,7 @@ declare namespace media {
      * false: seek continuous is not supported or the support status is uncertain.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     isSeekContinuousSupported() : boolean;
 
@@ -2259,7 +2259,7 @@ declare namespace media {
      *                                     Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     setSuperResolution(enabled: boolean) : Promise<void>;
 
@@ -2277,7 +2277,7 @@ declare namespace media {
      *                                     Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     setVideoWindowSize(width: number, height: number) : Promise<void>;
 
@@ -3358,7 +3358,7 @@ declare namespace media {
      * @param { OnSeiMessageHandle } callback - Callback to listen SEI message event with subscribed payload types.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     on(type: 'seiMessageReceived', payloadTypes: Array<number>, callback: OnSeiMessageHandle): void;
 
@@ -3371,7 +3371,7 @@ declare namespace media {
      * @param { OnSeiMessageHandle } callback - Callback to listen SEI message event with subscribed payload types.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     off(type: 'seiMessageReceived', payloadTypes?: Array<number>, callback?: OnSeiMessageHandle): void;
 
@@ -3381,7 +3381,7 @@ declare namespace media {
      * @param { OnSuperResolutionChanged } callback - Callback used to listen for the super-resolution changed event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     on(type:'superResolutionChanged', callback: OnSuperResolutionChanged): void;
 
@@ -3391,7 +3391,7 @@ declare namespace media {
      * @param { OnSuperResolutionChanged } callback - Callback used to listen for the super-resolution changed event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     off(type:'superResolutionChanged', callback?: OnSuperResolutionChanged): void;    
   }
@@ -3641,7 +3641,7 @@ declare namespace media {
    *                     - client should return immediately.
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   type SourceOpenCallback = (request: MediaSourceLoadingRequest) => number;
 
@@ -3657,7 +3657,7 @@ declare namespace media {
    * @returns { void } - client should return immediately.
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   type SourceReadCallback = (uuid: number, requestedOffset: number, requestedLength: number) => void;
 
@@ -3668,7 +3668,7 @@ declare namespace media {
    * @returns { void } - client should return immediately.
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   type SourceCloseCallback = (uuid: number) => void;
 
@@ -3677,7 +3677,7 @@ declare namespace media {
    * @typedef MediaSourceLoader
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   interface MediaSourceLoader {
     /**
@@ -3685,7 +3685,7 @@ declare namespace media {
      * @type { SourceOpenCallback }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     open: SourceOpenCallback;
 
@@ -3694,7 +3694,7 @@ declare namespace media {
      * @type { SourceReadCallback }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     read: SourceReadCallback;
 
@@ -3703,7 +3703,7 @@ declare namespace media {
      * @type { SourceCloseCallback }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     close: SourceCloseCallback;
   }
@@ -3713,14 +3713,14 @@ declare namespace media {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   enum LoadingRequestError {
     /**
      * If reach the resource end, client should return.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     LOADING_ERROR_SUCCESS = 0,
 
@@ -3728,7 +3728,7 @@ declare namespace media {
      * If resource not ready for access, client should return.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     LOADING_ERROR_NOT_READY = 1,
 
@@ -3736,7 +3736,7 @@ declare namespace media {
      * If resource url not exist, client should return.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     LOADING_ERROR_NO_RESOURCE = 2,
 
@@ -3744,7 +3744,7 @@ declare namespace media {
      * If the uuid of resource handle is valid, client should return.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 16
+     * @since 18
     */
     LOADING_ERROR_INVAID_HANDLE = 3,
 
@@ -3752,7 +3752,7 @@ declare namespace media {
      * If client has no right to request the resource, client should return.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     LOADING_ERROR_ACCESS_DENIED = 4,
 
@@ -3760,7 +3760,7 @@ declare namespace media {
      * If access time out, client should return.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     LOADING_ERROR_ACCESS_TIMEOUT = 5,
 
@@ -3768,7 +3768,7 @@ declare namespace media {
      * If authorization failed, client should return.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     LOADING_ERROR_AUTHORIZE_FAILED = 6,
   }
@@ -3779,7 +3779,7 @@ declare namespace media {
    * @typedef MediaSourceLoadingRequest
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   interface MediaSourceLoadingRequest {
     /**
@@ -3787,7 +3787,7 @@ declare namespace media {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     url: string;
 
@@ -3796,7 +3796,7 @@ declare namespace media {
      * @type { ?Record<string, string> }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     header?: Record<string, string>;
 
@@ -3810,7 +3810,7 @@ declare namespace media {
      *                    - 3, means player buffer is full, the client should wait for next read.
      * @syscap  SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     respondData(uuid: number, offset: number, buffer: ArrayBuffer): number;
 
@@ -3822,7 +3822,7 @@ declare namespace media {
      * @param { ?string } [redirectUrl] - redirect url from the http response if exist.
      * @syscap  SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     respondHeader(uuid: number, header?: Record<string, string>, redirectUrl?: string): void;
 
@@ -3832,7 +3832,7 @@ declare namespace media {
      * @param { LoadingRequestError } state - the request state.
      * @syscap  SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     finishLoading(uuid: number, state: LoadingRequestError): void;
   }
@@ -3860,7 +3860,7 @@ declare namespace media {
      * @param { MediaSourceLoader } resourceLoader - callback function interface set for player use.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     setMediaResourceLoaderDelegate(resourceLoader: MediaSourceLoader): void;
   }
@@ -3955,7 +3955,7 @@ declare namespace media {
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     showFirstFrameOnPrepare?: boolean;
 
@@ -3964,7 +3964,7 @@ declare namespace media {
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     preferredBufferDurationForPlaying?: number;
 
@@ -3974,7 +3974,7 @@ declare namespace media {
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     enableSuperResolution?: boolean;
   }
@@ -6575,7 +6575,7 @@ declare namespace media {
     /**
      * A audio container format type amr.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 16
+     * @since 18
      */
     CFT_AMR = 'amr',
   }
@@ -7605,7 +7605,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     url?: string;
 
@@ -7646,7 +7646,7 @@ declare namespace media {
      * Set the longest duration allowed for current recording.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 16
+     * @since 18
     */
     maxDuration?: number;
   }
@@ -7776,7 +7776,7 @@ declare namespace media {
      * through the on error callback.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     SEEK_CONTINUOUS = 3,
   }
@@ -7962,13 +7962,13 @@ declare namespace media {
     /**
      * AMR_NB codec MIME type.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 16
+     * @since 18
      */
     AUDIO_AMR_NB = 'audio/3gpp',
     /**
      * AMR_WB codec MIME type.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 16
+     * @since 18
      */
     AUDIO_AMR_WB = 'audio/amr-wb',
   }
@@ -8485,21 +8485,21 @@ declare namespace media {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @systemapi
-   * @since 16
+   * @since 18
    */
   enum ScreenCaptureEvent {
     /**
      * Screen capture started
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @systemapi
-     * @since 16
+     * @since 18
      */
     SCREENCAPTURE_STARTED = 0,
     /**
      * Screen capture stopped
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @systemapi
-     * @since 16
+     * @since 18
      */
     SCREENCAPTURE_STOPPED = 1
   }
@@ -8510,7 +8510,7 @@ declare namespace media {
    * @typedef ScreenCaptureMonitor
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @systemapi
-   * @since 16
+   * @since 18
    */
   interface ScreenCaptureMonitor {
     /**
@@ -8520,7 +8520,7 @@ declare namespace media {
      * @throws { BusinessError } 202 - Not System App.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
 	 * @systemapi
-     * @since 16
+     * @since 18
      */
     on(type: 'systemScreenRecorder', callback: Callback<ScreenCaptureEvent>): void;
 
@@ -8531,7 +8531,7 @@ declare namespace media {
      * @throws { BusinessError } 202 - Not System App.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @systemapi
-     * @since 16
+     * @since 18
      */
     off(type: 'systemScreenRecorder', callback?: Callback<ScreenCaptureEvent>): void;
 	
@@ -8541,7 +8541,7 @@ declare namespace media {
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @systemapi
-     * @since 16
+     * @since 18
      */
     readonly isSystemScreenRecorderWorking: boolean;
   }

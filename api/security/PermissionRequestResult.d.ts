@@ -131,7 +131,7 @@ export default class PermissionRequestResult {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   errorReasons?: Array<number>;
 }

@@ -74,7 +74,7 @@ declare interface RowOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 16
+ * @since 18
  */
 interface RowOptionsV2 {
   /**
@@ -85,7 +85,7 @@ interface RowOptionsV2 {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   space?: SpaceType;
 }
@@ -184,7 +184,7 @@ interface RowInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   (options?: RowOptions | RowOptionsV2): RowAttribute;
 }

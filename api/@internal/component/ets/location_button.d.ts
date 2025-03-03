@@ -451,7 +451,7 @@ interface LocationButtonInterface {
  * @param { BusinessError<void> } [error] - The error code and message of click event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 16
+ * @since 18
  */
 type LocationButtonCallback = (event: ClickEvent, result: LocationButtonOnClickResult, error?: BusinessError<void>) => void;
 
@@ -496,7 +496,7 @@ declare class LocationButtonAttribute extends SecurityComponentMethod<LocationBu
    * @returns { LocationButtonAttribute } Returns the attribute of the location button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onClick(event: LocationButtonCallback): LocationButtonAttribute;
 }

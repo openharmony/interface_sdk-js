@@ -255,7 +255,7 @@ declare namespace ConfigurationConstant {
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export enum ScreenDensity {
     /**
@@ -277,7 +277,7 @@ declare namespace ConfigurationConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     SCREEN_DENSITY_NOT_SET = 0,
 
@@ -300,7 +300,7 @@ declare namespace ConfigurationConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     SCREEN_DENSITY_SDPI = 120,
 
@@ -323,7 +323,7 @@ declare namespace ConfigurationConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     SCREEN_DENSITY_MDPI = 160,
 
@@ -346,7 +346,7 @@ declare namespace ConfigurationConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     SCREEN_DENSITY_LDPI = 240,
 
@@ -369,7 +369,7 @@ declare namespace ConfigurationConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     SCREEN_DENSITY_XLDPI = 320,
 
@@ -392,7 +392,7 @@ declare namespace ConfigurationConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     SCREEN_DENSITY_XXLDPI = 480,
 
@@ -415,7 +415,7 @@ declare namespace ConfigurationConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     SCREEN_DENSITY_XXXLDPI = 640
   }

@@ -139,7 +139,7 @@ export interface NotificationRequest {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
-   * @since 16
+   * @since 18
    */
   updateOnly?: boolean;
 
@@ -601,7 +601,7 @@ export interface NotificationRequest {
    * @default false
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   forceDistributed?: boolean;
 
@@ -612,7 +612,7 @@ export interface NotificationRequest {
    * @default false
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   notDistributed?: boolean;
 }

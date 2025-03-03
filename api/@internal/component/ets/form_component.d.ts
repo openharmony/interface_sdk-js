@@ -96,7 +96,7 @@ declare enum FormDimension {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 16
+   * @since 18
    */
   DIMENSION_2_3 = 8,
 
@@ -105,7 +105,7 @@ declare enum FormDimension {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 16
+   * @since 18
    */
   DIMENSION_3_3 = 9,
 }

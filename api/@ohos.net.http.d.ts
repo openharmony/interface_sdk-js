@@ -535,7 +535,7 @@ declare namespace http {
       * @type {?RemoteValidation}
       * @syscap SystemCapability.Communication.NetStack
       * @atomicservice
-      * @since 16
+      * @since 18
       */
      remoteValidation?: RemoteValidation;
  
@@ -544,7 +544,7 @@ declare namespace http {
       * @type {?TlsOptions}
       * @syscap SystemCapability.Communication.NetStack
       * @atomicservice
-      * @since 16
+      * @since 18
       */
      tlsOptions?: TlsOptions;
  
@@ -553,7 +553,7 @@ declare namespace http {
       * @type {?ServerAuthentication}
       * @syscap SystemCapability.Communication.NetStack
       * @atomicservice
-      * @since 16
+      * @since 18
       */
      serverAuthentication?: ServerAuthentication;
 
@@ -571,7 +571,7 @@ declare namespace http {
     * @typedef ServerAuthentication
     * @syscap SystemCapability.Communication.NetStack
     * @atomicservice
-    * @since 16
+    * @since 18
     */
    export interface ServerAuthentication {
      /**
@@ -579,7 +579,7 @@ declare namespace http {
       * @type {Credential}
       * @syscap SystemCapability.Communication.NetStack
       * @atomicservice
-      * @since 16
+      * @since 18
       */
      credential: Credential;
      /**
@@ -587,7 +587,7 @@ declare namespace http {
       * @type {?AuthenticationType}
       * @syscap SystemCapability.Communication.NetStack
       * @atomicservice
-      * @since 16
+      * @since 18
       */
      authenticationType?: AuthenticationType;
    }
@@ -599,7 +599,7 @@ declare namespace http {
     * @typedef {'system' | TlsConfig}
     * @syscap SystemCapability.Communication.NetStack
     * @atomicservice
-    * @since 16
+    * @since 18
     */
    export type TlsOptions = 'system' | TlsConfig;
  
@@ -608,7 +608,7 @@ declare namespace http {
     * @typedef {'system' | 'skip'}
     * @syscap SystemCapability.Communication.NetStack
     * @atomicservice
-    * @since 16
+    * @since 18
     */
    export type RemoteValidation = 'system' | 'skip';
  
@@ -617,7 +617,7 @@ declare namespace http {
     * @typedef {'basic' | 'ntlm' | 'digest'}
     * @syscap SystemCapability.Communication.NetStack
     * @atomicservice
-    * @since 16
+    * @since 18
     */
    export type AuthenticationType = 'basic' | 'ntlm' | 'digest';
  
@@ -626,7 +626,7 @@ declare namespace http {
     * @typedef Credential
     * @syscap SystemCapability.Communication.NetStack
     * @atomicservice
-    * @since 16
+    * @since 18
     */
    export interface Credential {
      /**
@@ -634,7 +634,7 @@ declare namespace http {
       * @type {string}
       * @syscap SystemCapability.Communication.NetStack
       * @atomicservice
-      * @since 16
+      * @since 18
       */
      username: string;
      /**
@@ -642,7 +642,7 @@ declare namespace http {
       * @type {string}
       * @syscap SystemCapability.Communication.NetStack
       * @atomicservice
-      * @since 16
+      * @since 18
       */
      password: string;
    }
@@ -652,7 +652,7 @@ declare namespace http {
     * @typedef TlsConfig
     * @syscap SystemCapability.Communication.NetStack
     * @atomicservice
-    * @since 16
+    * @since 18
     */
    export interface TlsConfig {
        /**
@@ -660,7 +660,7 @@ declare namespace http {
         * @type {TlsVersion}
         * @syscap SystemCapability.Communication.NetStack
         * @atomicservice
-        * @since 16
+        * @since 18
         */
        tlsVersionMin: TlsVersion;
        /**
@@ -668,7 +668,7 @@ declare namespace http {
         * @type {TlsVersion}
         * @syscap SystemCapability.Communication.NetStack
         * @atomicservice
-        * @since 16
+        * @since 18
         */
        tlsVersionMax: TlsVersion;
        /**
@@ -676,7 +676,7 @@ declare namespace http {
         * @type {?CipherSuite[]}
         * @syscap SystemCapability.Communication.NetStack
         * @atomicservice
-        * @since 16
+        * @since 18
         */
        cipherSuites?: CipherSuite[];
    }
@@ -687,7 +687,7 @@ declare namespace http {
     * @typedef {'TLS_AES_128_GCM_SHA256' | 'TLS_AES_256_GCM_SHA384' | 'TLS_CHACHA20_POLY1305_SHA256'}
     * @syscap SystemCapability.Communication.NetStack
     * @atomicservice
-    * @since 16
+    * @since 18
     */
    export type TlsV13SpecificCipherSuite = 'TLS_AES_128_GCM_SHA256' | 'TLS_AES_256_GCM_SHA384' | 'TLS_CHACHA20_POLY1305_SHA256';
  
@@ -696,7 +696,7 @@ declare namespace http {
     * @typedef {'TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256' | 'TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256' | 'TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384' | 'TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384' | 'TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256' | 'TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256' | 'TLS_RSA_WITH_AES_128_GCM_SHA256' | 'TLS_RSA_WITH_AES_256_GCM_SHA384'}
     * @syscap SystemCapability.Communication.NetStack
     * @atomicservice
-    * @since 16
+    * @since 18
     */
    export type TlsV12SpecificCipherSuite = 'TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256' | 'TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256' | 'TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384' | 'TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384' | 'TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256' | 'TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256' | 'TLS_RSA_WITH_AES_128_GCM_SHA256' | 'TLS_RSA_WITH_AES_256_GCM_SHA384';
    
@@ -705,7 +705,7 @@ declare namespace http {
     * @typedef {'TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA' | 'TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA' | 'TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA' | 'TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA' | 'TLS_RSA_WITH_AES_128_CBC_SHA' | 'TLS_RSA_WITH_AES_256_CBC_SHA' | 'TLS_RSA_WITH_3DES_EDE_CBC_SHA'}
     * @syscap SystemCapability.Communication.NetStack
     * @atomicservice
-    * @since 16
+    * @since 18
     */
    export type TlsV10SpecificCipherSuite = 'TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA' | 'TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA' | 'TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA' | 'TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA' | 'TLS_RSA_WITH_AES_128_CBC_SHA' | 'TLS_RSA_WITH_AES_256_CBC_SHA' | 'TLS_RSA_WITH_3DES_EDE_CBC_SHA';
   
@@ -714,7 +714,7 @@ declare namespace http {
    * @typedef {TlsV13CipherSuite}
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export type CipherSuite = TlsV13CipherSuite;
   
@@ -723,7 +723,7 @@ declare namespace http {
    * @typedef {TlsV12CipherSuite | TlsV13SpecificCipherSuite}
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export type TlsV13CipherSuite = TlsV12CipherSuite | TlsV13SpecificCipherSuite;
   
@@ -732,7 +732,7 @@ declare namespace http {
    * @typedef {TlsV11CipherSuite | TlsV12SpecificCipherSuite}
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export type TlsV12CipherSuite = TlsV11CipherSuite | TlsV12SpecificCipherSuite;
   
@@ -741,7 +741,7 @@ declare namespace http {
    * @typedef {TlsV10CipherSuite}
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export type TlsV11CipherSuite = TlsV10CipherSuite;
   
@@ -750,7 +750,7 @@ declare namespace http {
    * @typedef {TlsV10SpecificCipherSuite}
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export type TlsV10CipherSuite = TlsV10SpecificCipherSuite;
   
@@ -759,14 +759,14 @@ declare namespace http {
    * @enum {number}
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   export enum TlsVersion {
     /**
      * Tls version 1.0
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     TLS_V_1_0 = 4,
 
@@ -774,7 +774,7 @@ declare namespace http {
      * Tls version 1.1
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     TLS_V_1_1 = 5,
 
@@ -782,7 +782,7 @@ declare namespace http {
      * Tls version 1.2
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     TLS_V_1_2 = 6,
 
@@ -790,7 +790,7 @@ declare namespace http {
      * Tls version 1.3
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     TLS_V_1_3 = 7
   }
@@ -1273,7 +1273,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     request(url: string, callback: AsyncCallback<HttpResponse>): void;
 
@@ -1485,7 +1485,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     request(url: string, options: HttpRequestOptions, callback: AsyncCallback<HttpResponse>): void;
 
@@ -1697,7 +1697,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     request(url: string, options?: HttpRequestOptions): Promise<HttpResponse>;
 
@@ -1865,7 +1865,7 @@ declare namespace http {
      * @throws { BusinessError } 2300999 - Unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     requestInStream(url: string, callback: AsyncCallback<number>): void;
 
@@ -2033,7 +2033,7 @@ declare namespace http {
      * @throws { BusinessError } 2300999 - Unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     requestInStream(url: string, options: HttpRequestOptions, callback: AsyncCallback<number>): void;
 
@@ -2201,7 +2201,7 @@ declare namespace http {
      * @throws { BusinessError } 2300999 - Unknown error.
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     requestInStream(url: string, options?: HttpRequestOptions): Promise<number>;
 

@@ -106,14 +106,14 @@ declare namespace screenLockFileManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Security.ScreenLockFileManager
-   * @since 16
+   * @since 18
    */
   export enum KeyStatus {
     /**
      * The application is not enabled the data protection under lock screen.
      *
      * @syscap SystemCapability.Security.ScreenLockFileManager
-     * @since 16
+     * @since 18
      */
     KEY_NOT_EXIST = -2,
 
@@ -121,7 +121,7 @@ declare namespace screenLockFileManager {
      * AppKey has been released.
      *
      * @syscap SystemCapability.Security.ScreenLockFileManager
-     * @since 16
+     * @since 18
      */
     KEY_RELEASED = -1,
 
@@ -129,7 +129,7 @@ declare namespace screenLockFileManager {
      * AppKey exists.
      *
      * @syscap SystemCapability.Security.ScreenLockFileManager
-     * @since 16
+     * @since 18
      */
     KEY_EXIST = 0
   }
@@ -207,7 +207,7 @@ declare namespace screenLockFileManager {
    * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
    * @throws { BusinessError } 29300002 - The system ability work abnormally.
    * @syscap SystemCapability.Security.ScreenLockFileManager
-   * @since 16
+   * @since 18
    */
   function queryAppKeyState(): KeyStatus;
 
@@ -225,7 +225,7 @@ declare namespace screenLockFileManager {
    * @throws { BusinessError } 29300002 - The system ability work abnormally.
    * @syscap SystemCapability.Security.ScreenLockFileManager
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function queryAppKeyState(dataType: DataType): KeyStatus;
 }

@@ -33,7 +33,7 @@ import { AsyncCallback } from './@ohos.base';
  * @namespace systemDateTime
  * @syscap SystemCapability.MiscServices.Time
  * @crossplatform
- * @since 16
+ * @since 18
  */
 declare namespace systemDateTime {
   /**
@@ -115,7 +115,7 @@ declare namespace systemDateTime {
    * @returns { number } The timestamp returned of getTime.
    * @syscap SystemCapability.MiscServices.Time
    * @crossplatform
-   * @since 16
+   * @since 18
    */
   function getTime(isNanoseconds?: boolean): number;
 
@@ -202,7 +202,7 @@ declare namespace systemDateTime {
    * @enum { number } TimeType
    * @syscap SystemCapability.MiscServices.Time
    * @crossplatform
-   * @since 16
+   * @since 18
    */
   enum TimeType {
     /**
@@ -216,7 +216,7 @@ declare namespace systemDateTime {
      *
      * @syscap SystemCapability.MiscServices.Time
      * @crossplatform
-     * @since 16
+     * @since 18
      */
     STARTUP,
 
@@ -231,7 +231,7 @@ declare namespace systemDateTime {
      *
      * @syscap SystemCapability.MiscServices.Time
      * @crossplatform
-     * @since 16
+     * @since 18
      */
     ACTIVE
   }
@@ -266,7 +266,7 @@ declare namespace systemDateTime {
    *     3. Parameter verification failed. This error code was added due to missing issues.
    * @syscap SystemCapability.MiscServices.Time
    * @crossplatform
-   * @since 16
+   * @since 18
    */
   function getUptime(timeType: TimeType, isNanoseconds?: boolean): number;
 
@@ -381,7 +381,7 @@ declare namespace systemDateTime {
    * @param { AsyncCallback<string> } callback - The callback of getTimezone
    * @syscap SystemCapability.MiscServices.Time
    * @crossplatform
-   * @since 16
+   * @since 18
    */
   function getTimezone(callback: AsyncCallback<string>): void;
 
@@ -406,7 +406,7 @@ declare namespace systemDateTime {
    * @returns { Promise<string> } The promise returned by the function
    * @syscap SystemCapability.MiscServices.Time
    * @crossplatform
-   * @since 16
+   * @since 18
    */
   function getTimezone(): Promise<string>;
 
@@ -423,7 +423,7 @@ declare namespace systemDateTime {
    * @returns { string } The timezone returned of getTimezoneSync.
    * @syscap SystemCapability.MiscServices.Time
    * @crossplatform
-   * @since 16
+   * @since 18
    */
   function getTimezoneSync(): string;
 

@@ -293,14 +293,14 @@ export interface Rect {
  * 
  * @enum { number }
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 16
+ * @since 18
  */
 export enum GeometryType {
   /**
    * A custom geometric shape.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 16
+   * @since 18
    */
   CUSTOM = 0,
 
@@ -308,7 +308,7 @@ export enum GeometryType {
    * A cube.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 16
+   * @since 18
    */
   CUBE = 1,
 
@@ -316,7 +316,7 @@ export enum GeometryType {
    * A plane.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 16
+   * @since 18
    */
   PLANE = 2,
 
@@ -324,7 +324,7 @@ export enum GeometryType {
    * A sphere.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 16
+   * @since 18
    */
   SPHERE = 3
 }
@@ -333,7 +333,7 @@ export enum GeometryType {
  * Define a geometric shape for mesh creation.
  * 
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 16
+ * @since 18
  */
 export abstract class GeometryDefinition {
   /**
@@ -342,7 +342,7 @@ export abstract class GeometryDefinition {
    * @type { GeometryType }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 16
+   * @since 18
    */
   readonly geometryType: GeometryType;
 }
@@ -352,14 +352,14 @@ export abstract class GeometryDefinition {
  * 
  * @enum { number }
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 16 
+ * @since 18 
  */
 export enum PrimitiveTopology {
   /**
    * The vertices form a set of independent triangle. Vertices (0, 1, 2), (3, 4, 5), ... define separate triangles.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 16
+   * @since 18
    */
   TRIANGLE_LIST = 0,
 
@@ -367,7 +367,7 @@ export enum PrimitiveTopology {
    * The vertices form a triangle strip. Starting from the 3rd, each vertex defines a triangle with the previous two.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 16
+   * @since 18
    */
   TRIANGLE_STRIP = 1
 }
@@ -377,7 +377,7 @@ export enum PrimitiveTopology {
  * 
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 16
+ * @since 18
  */
 export class CustomGeometry extends GeometryDefinition {
   /**
@@ -386,7 +386,7 @@ export class CustomGeometry extends GeometryDefinition {
    * @type { ?PrimitiveTopology }
    * @default PrimitiveTopology.TRIANGLE_LIST
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 16
+   * @since 18
    */
   topology?: PrimitiveTopology;
 
@@ -395,7 +395,7 @@ export class CustomGeometry extends GeometryDefinition {
    * 
    * @type { Vec3[] }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 16
+   * @since 18
    */
   vertices: Vec3[];
 
@@ -414,7 +414,7 @@ export class CustomGeometry extends GeometryDefinition {
    * @type { ?number[] }
    * @default indices: [0, 1 ,2,..., vertices.size() - 1]
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 16
+   * @since 18
    */
   indices?: number[];
 
@@ -423,7 +423,7 @@ export class CustomGeometry extends GeometryDefinition {
    * 
    * @type { ?Vec3[] }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 16
+   * @since 18
    */
   normals?: Vec3[];
 
@@ -432,7 +432,7 @@ export class CustomGeometry extends GeometryDefinition {
    * 
    * @type { ?Vec2[] }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 16
+   * @since 18
    */
   uvs?: Vec2[];
 
@@ -441,7 +441,7 @@ export class CustomGeometry extends GeometryDefinition {
    * 
    * @type { ?Color[] }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 16
+   * @since 18
    */
   colors?: Color[];
 }
@@ -451,7 +451,7 @@ export class CustomGeometry extends GeometryDefinition {
  * 
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 16
+ * @since 18
  */
 export class CubeGeometry extends GeometryDefinition {
   /**
@@ -459,7 +459,7 @@ export class CubeGeometry extends GeometryDefinition {
    * 
    * @type { Vec3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 16
+   * @since 18
    */
   size: Vec3;
 }
@@ -469,7 +469,7 @@ export class CubeGeometry extends GeometryDefinition {
  * 
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 16
+ * @since 18
  */
 export class PlaneGeometry extends GeometryDefinition {
   /**
@@ -477,7 +477,7 @@ export class PlaneGeometry extends GeometryDefinition {
    * 
    * @type { Vec2 }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 16
+   * @since 18
    */
   size: Vec2;
 }
@@ -487,7 +487,7 @@ export class PlaneGeometry extends GeometryDefinition {
  * 
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 16
+ * @since 18
  */
 export class SphereGeometry extends GeometryDefinition {
   /**
@@ -495,7 +495,7 @@ export class SphereGeometry extends GeometryDefinition {
    * 
    * @type { number }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 16
+   * @since 18
    */
   radius: number;
 
@@ -504,7 +504,7 @@ export class SphereGeometry extends GeometryDefinition {
    * 
    * @type { number }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 16
+   * @since 18
    */
   segmentCount: number;
 }

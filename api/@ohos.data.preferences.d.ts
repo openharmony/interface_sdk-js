@@ -155,7 +155,7 @@ declare namespace preferences {
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   enum StorageType {
     /**
@@ -163,7 +163,7 @@ declare namespace preferences {
      *
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     XML = 0,
 
@@ -172,7 +172,7 @@ declare namespace preferences {
      *
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     CLKV
   }
@@ -237,7 +237,7 @@ declare namespace preferences {
      * @type { ?(StorageType | null | undefined) }
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     storageType?: StorageType | null | undefined;
   }
@@ -472,7 +472,7 @@ declare namespace preferences {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   function isStorageTypeSupported(type: StorageType): boolean;
   /**

@@ -159,7 +159,7 @@ export interface ApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly enabled: boolean;
 
@@ -304,7 +304,7 @@ export interface ApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly process: string;
 
@@ -333,7 +333,7 @@ export interface ApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly permissions: Array<string>;
 
@@ -403,7 +403,7 @@ export interface ApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly metadataArray: Array<ModuleMetadata>;
 
@@ -432,7 +432,7 @@ export interface ApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly removable: boolean;
 
@@ -461,7 +461,7 @@ export interface ApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly accessTokenId: number;
 
@@ -490,7 +490,7 @@ export interface ApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly uid: number;
 
@@ -519,7 +519,7 @@ export interface ApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly iconResource: Resource;
 
@@ -548,7 +548,7 @@ export interface ApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly labelResource: Resource;
 
@@ -577,7 +577,7 @@ export interface ApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly descriptionResource: Resource;
 
@@ -606,7 +606,7 @@ export interface ApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly appDistributionType: string;
 
@@ -635,7 +635,7 @@ export interface ApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly appProvisionType: string;
 
@@ -664,7 +664,7 @@ export interface ApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly systemApp: boolean;
 
@@ -712,7 +712,7 @@ export interface ApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly debug: boolean;
 
@@ -733,7 +733,7 @@ export interface ApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly dataUnclearable: boolean;
 
@@ -752,7 +752,7 @@ export interface ApplicationInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
-   * @since 16
+   * @since 18
    */
   readonly nativeLibraryPath: string;
 
@@ -804,7 +804,7 @@ export interface ApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly releaseType: string;
 
@@ -853,7 +853,7 @@ export interface ApplicationInfo {
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export interface ModuleMetadata {
   /**
@@ -881,7 +881,7 @@ export interface ModuleMetadata {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly moduleName: string;
 
@@ -910,7 +910,7 @@ export interface ModuleMetadata {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   readonly metadata: Array<Metadata>;
 }

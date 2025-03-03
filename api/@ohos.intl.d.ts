@@ -2636,7 +2636,7 @@ declare namespace intl {
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     roundingPriority?: string;
 
@@ -2647,7 +2647,7 @@ declare namespace intl {
      * @type { ?number }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     roundingIncrement?: number;
 
@@ -2657,7 +2657,7 @@ declare namespace intl {
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     roundingMode?: string;
   }
@@ -2776,7 +2776,7 @@ declare namespace intl {
      * @returns { string } a number range string formatted based on the specified locale.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     formatRange(startRange: number, endRange: number): string;
 

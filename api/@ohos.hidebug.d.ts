@@ -851,7 +851,7 @@ declare namespace hidebug {
    * @throws { BusinessError } 11400113 - Failed to create dump file.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   function dumpJsRawHeapData(needGC?: boolean): Promise<string>;
 }

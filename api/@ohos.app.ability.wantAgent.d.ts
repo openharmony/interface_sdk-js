@@ -432,7 +432,7 @@ declare namespace wantAgent {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   function setWantAgentMultithreading(isMultithreadingSupported: boolean) : void;
 

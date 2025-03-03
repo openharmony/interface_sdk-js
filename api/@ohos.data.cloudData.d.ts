@@ -164,7 +164,7 @@ declare namespace cloudData {
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
-   * @since 16
+   * @since 18
    */
   enum SyncStatus {
     /**
@@ -172,7 +172,7 @@ declare namespace cloudData {
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 16
+     * @since 18
      */
     RUNNING = 0,
 
@@ -181,7 +181,7 @@ declare namespace cloudData {
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 16
+     * @since 18
      */
     FINISHED = 1
   }
@@ -231,7 +231,7 @@ declare namespace cloudData {
      * @type { ?SyncStatus }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
-     * @since 16
+     * @since 18
      */
     syncStatus?: SyncStatus;
   }

@@ -2295,7 +2295,7 @@ declare namespace osAccount {
      * @type { ?Array<string> }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 16
+     * @since 18
      */
     disallowedPreinstalledBundles?: Array<string>;
 
@@ -2305,7 +2305,7 @@ declare namespace osAccount {
      * @type { ?Array<string> }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 16
+     * @since 18
      */
     allowedPreinstalledBundles?: Array<string>;
   }
@@ -2372,7 +2372,7 @@ declare namespace osAccount {
      *
      * @type { ?string }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 16
+     * @since 18
      */
     serverConfigId?: string;
   }
@@ -3155,7 +3155,7 @@ declare namespace osAccount {
    * Provides abilities for the management of domain account.
    *
    * @syscap SystemCapability.Account.OsAccount
-   * @since 16
+   * @since 18
    */
   class DomainAccountManager {
     /**
@@ -3187,7 +3187,7 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 16
+     * @since 18
      */
     static registerPlugin(plugin: DomainPlugin): void;
 
@@ -3212,7 +3212,7 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 16
+     * @since 18
      */
     static unregisterPlugin(): void;
 
@@ -3460,7 +3460,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300004 - The new account already exists.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @since 16
+     * @since 18
      */
     static updateAccountInfo(oldAccountInfo: DomainAccountInfo, newAccountInfo: DomainAccountInfo): Promise<void>;
 
@@ -3578,7 +3578,7 @@ declare namespace osAccount {
    *
    * @typedef DomainServerConfig
    * @syscap SystemCapability.Account.OsAccount
-   * @since 16
+   * @since 18
    */
   interface DomainServerConfig {
     /**
@@ -3586,7 +3586,7 @@ declare namespace osAccount {
      *
      * @type { Record<string, Object> }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 16
+     * @since 18
      */
     parameters: Record<string, Object>;
 
@@ -3595,7 +3595,7 @@ declare namespace osAccount {
      *
      * @type { string }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 16
+     * @since 18
      */
     id: string;
 
@@ -3604,7 +3604,7 @@ declare namespace osAccount {
      *
      * @type { string }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 16
+     * @since 18
      */
     domain: string;
   }
@@ -3613,7 +3613,7 @@ declare namespace osAccount {
    * Provides abilities for managing domain server config.
    *
    * @syscap SystemCapability.Account.OsAccount
-   * @since 16
+   * @since 18
    */
   class DomainServerConfigManager {
     /**
@@ -3633,7 +3633,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300215 - The number of server config reaches the upper limit.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @since 16
+     * @since 18
      */
     static addServerConfig(parameters: Record<string, Object>): Promise<DomainServerConfig>;
 
@@ -3652,7 +3652,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300214 - Server config has been associated with an account.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @since 16
+     * @since 18
      */
     static removeServerConfig(configId: string): Promise<void>;
 
@@ -3675,7 +3675,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300214 - Server config has been associated with an account.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @since 16
+     * @since 18
      */
     static updateServerConfig(configId: string, parameters: Record<string, Object>): Promise<DomainServerConfig>;
 
@@ -3693,7 +3693,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300212 - Server config not found.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @since 16
+     * @since 18
      */
     static getServerConfig(configId: string): Promise<DomainServerConfig>;
 
@@ -3707,7 +3707,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @since 16
+     * @since 18
      */
     static getAllServerConfigs(): Promise<Array<DomainServerConfig>>;
 
@@ -3725,7 +3725,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Domain account not found.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @since 16
+     * @since 18
      */
     static getAccountServerConfig(domainAccountInfo: DomainAccountInfo): Promise<DomainServerConfig>;
   }

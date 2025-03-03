@@ -388,7 +388,7 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   function getPublishedFormInfoById(formId: string): Promise<formInfo.FormInfo>;
 
@@ -402,7 +402,7 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   function getPublishedFormInfos(): Promise<Array<formInfo.FormInfo>>;
 
@@ -418,7 +418,7 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   function openFormManager(want: Want): void;
 

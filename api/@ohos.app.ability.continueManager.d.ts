@@ -25,7 +25,7 @@ import { AsyncCallback } from './@ohos.base';
  * 
  * @namespace continueManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
- * @since 16
+ * @since 18
  */
 declare namespace continueManager {
     /**
@@ -37,7 +37,7 @@ declare namespace continueManager {
      * @param { AsyncCallback<ContinueResultInfo> } callback - Used to handle ('prepareContinue') command.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @since 16
+     * @since 18
      */
     function on(type: 'prepareContinue', context: Context, callback: AsyncCallback<ContinueResultInfo>): void;
 
@@ -49,7 +49,7 @@ declare namespace continueManager {
      * @param { AsyncCallback<ContinueResultInfo> } callback - Used to handle ('prepareContinue') command.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @since 16
+     * @since 18
      */
     function off(type: 'prepareContinue', context: Context, callback?: AsyncCallback<ContinueResultInfo>): void;
 
@@ -57,14 +57,14 @@ declare namespace continueManager {
      * Continue result info.
      * @interface ContinueEventInfo
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @since 16
+     * @since 18
      */
     interface ContinueResultInfo {
         /**
          * Continue state code.
          * @type { ContinueStateCode }
          * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-         * @since 16
+         * @since 18
          */
         resultState: ContinueStateCode;
 
@@ -72,7 +72,7 @@ declare namespace continueManager {
          * Result info.
          * @type { ?string }
          * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-         * @since 16
+         * @since 18
          */
         resultInfo?: string;
     }
@@ -81,20 +81,20 @@ declare namespace continueManager {
      * Continue state code.
      * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @since 16
+     * @since 18
      */
     enum ContinueStateCode {
         /**
          * Continue success
          * @syscap SystemCapability.Ability.AbilityRuntime.Mission 
-         * @since 16
+         * @since 18
          */
         SUCCESS = 0,
 
         /**
          * System error
          * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-         * @since 16
+         * @since 18
          */
         SYSTEM_ERROR,
     }

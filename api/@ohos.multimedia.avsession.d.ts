@@ -281,7 +281,7 @@ declare namespace avSession {
    * @throws { BusinessError } 6600109 - The remote connection is not established.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function getDistributedSessionController(distributedSessionType: DistributedSessionType): Promise<Array<AVSessionController>>;
 
@@ -447,7 +447,7 @@ declare namespace avSession {
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function on(type: 'distributedSessionChange', distributedSessionType: DistributedSessionType, callback: Callback<Array<AVSessionController>>): void;
 
@@ -462,7 +462,7 @@ declare namespace avSession {
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function off(type: 'distributedSessionChange', distributedSessionType: DistributedSessionType, callback?: Callback<Array<AVSessionController>>): void;
 
@@ -603,14 +603,14 @@ declare namespace avSession {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
-   * @since 16
+   * @since 18
    */
   enum DistributedSessionType {
     /**
      * Remote session sensed from remote device.
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
-     * @since 16
+     * @since 18
      */
     TYPE_SESSION_REMOTE = 0,
 
@@ -618,7 +618,7 @@ declare namespace avSession {
      * Migrated session from remote device to this device.
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
-     * @since 16
+     * @since 18
      */
     TYPE_SESSION_MIGRATE_IN = 1,
 
@@ -626,7 +626,7 @@ declare namespace avSession {
      * Migrated session from this device to remote device.
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
-     * @since 16
+     * @since 18
      */
     TYPE_SESSION_MIGRATE_OUT = 2,
   }
@@ -4135,7 +4135,7 @@ declare namespace avSession {
      * @type { ?image.PixelMap }
      * @readonly
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 16
+     * @since 18
      */
     readonly bundleIcon?: image.PixelMap;
 
@@ -4190,7 +4190,7 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     singleLyricText?: string;
 
@@ -5793,7 +5793,7 @@ declare namespace avSession {
    *
    * @typedef { object } ExtraInfo
    * @syscap SystemCapability.Multimedia.AVSession.Core
-   * @since 16
+   * @since 18
    */
   type ExtraInfo = { [key: string]: Object; };
 
@@ -6565,7 +6565,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @throws { BusinessError } 6600105 - Invalid session command.
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 16
+     * @since 18
      */
     getExtrasWithEvent(extraEvent: string): Promise<ExtraInfo>;
 

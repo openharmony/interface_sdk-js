@@ -67,7 +67,7 @@ export interface Configuration {
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   language?: string;
 
@@ -145,7 +145,7 @@ export interface Configuration {
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   screenDensity?: ConfigurationConstant.ScreenDensity;
 
@@ -208,7 +208,7 @@ export interface Configuration {
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   fontSizeScale?: number;
 

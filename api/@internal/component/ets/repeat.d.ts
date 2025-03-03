@@ -81,7 +81,7 @@ interface VirtualScrollOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   reusable?: boolean;
 
@@ -92,7 +92,7 @@ interface VirtualScrollOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onLazyLoading?(index: number): void;
 
@@ -103,7 +103,7 @@ interface VirtualScrollOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onTotalCount?(): number;
 }
@@ -245,7 +245,7 @@ declare class RepeatAttribute<T> extends DynamicNode<RepeatAttribute<T>> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare type RepeatArray<T> = Array<T> | ReadonlyArray<T> | Readonly<Array<T>>;
 
@@ -259,7 +259,7 @@ declare type RepeatArray<T> = Array<T> | ReadonlyArray<T> | Readonly<Array<T>>;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare type RepeatInterface = <T>(arr: RepeatArray<T>) => RepeatAttribute<T>;
 
@@ -281,6 +281,6 @@ declare type RepeatInterface = <T>(arr: RepeatArray<T>) => RepeatAttribute<T>;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare const Repeat: RepeatInterface;

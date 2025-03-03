@@ -486,7 +486,7 @@ declare enum MessageLevel {
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare enum MixedMode {
   /**
@@ -508,7 +508,7 @@ declare enum MixedMode {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   All = 0,
 
@@ -531,7 +531,7 @@ declare enum MixedMode {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   Compatible = 1,
 
@@ -554,7 +554,7 @@ declare enum MixedMode {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   None = 2
 }
@@ -729,7 +729,7 @@ declare enum HitTestType {
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare enum CacheMode {
   /**
@@ -751,7 +751,7 @@ declare enum CacheMode {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   Default = 0,
 
@@ -760,7 +760,7 @@ declare enum CacheMode {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   DEFAULT = 0,
 
@@ -783,7 +783,7 @@ declare enum CacheMode {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   None = 1,
 
@@ -792,7 +792,7 @@ declare enum CacheMode {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   CACHE_ELSE_NETWORK = 1,
 
@@ -815,7 +815,7 @@ declare enum CacheMode {
   * @syscap SystemCapability.Web.Webview.Core
   * @crossplatform
   * @atomicservice
-  * @since 16
+  * @since 18
   */
   Online = 2,
 
@@ -824,7 +824,7 @@ declare enum CacheMode {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   NO_CACHE = 2,
 
@@ -847,7 +847,7 @@ declare enum CacheMode {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   Only = 3,
 
@@ -856,7 +856,7 @@ declare enum CacheMode {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   CACHE_ONLY = 3
 }
@@ -1176,7 +1176,7 @@ declare interface ScreenCaptureConfig {
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare class FullScreenExitHandler {
   /**
@@ -1198,7 +1198,7 @@ declare class FullScreenExitHandler {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   constructor();
 
@@ -1221,7 +1221,7 @@ declare class FullScreenExitHandler {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   exitFullScreen(): void;
 }
@@ -1241,7 +1241,7 @@ declare class FullScreenExitHandler {
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare interface FullScreenEnterEvent {
   /**
@@ -1259,7 +1259,7 @@ declare interface FullScreenEnterEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   handler: FullScreenExitHandler;
 
@@ -1278,7 +1278,7 @@ declare interface FullScreenEnterEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   videoWidth?: number;
 
@@ -1297,7 +1297,7 @@ declare interface FullScreenEnterEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   videoHeight?: number;
 }
@@ -1319,7 +1319,7 @@ declare interface FullScreenEnterEvent {
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 type OnFullScreenEnterCallback = (event: FullScreenEnterEvent) => void;
 
@@ -1738,7 +1738,7 @@ declare class FileSelectorParam {
    * Gets an array of raw acceptable MIME type.
    * @returns { Array<string> } Return an array of raw acceptable MIME type.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 16
+   * @since 18
    */
   getMimeTypes(): Array<string>;
 }
@@ -3426,7 +3426,7 @@ declare class ConsoleMessage {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   getSourceId(): string;
 
@@ -3452,7 +3452,7 @@ declare class ConsoleMessage {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   getLineNumber(): number;
 
@@ -3548,7 +3548,7 @@ declare class WebResourceRequest {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   getRequestHeader(): Array<Header>;
 
@@ -3600,7 +3600,7 @@ declare class WebResourceRequest {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   isRequestGesture(): boolean;
 
@@ -3626,7 +3626,7 @@ declare class WebResourceRequest {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   isMainFrame(): boolean;
 
@@ -3652,7 +3652,7 @@ declare class WebResourceRequest {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   isRedirect(): boolean;
 
@@ -3678,7 +3678,7 @@ declare class WebResourceRequest {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   getRequestMethod(): string;
 }
@@ -3736,7 +3736,7 @@ declare class WebResourceResponse {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   getResponseData(): string;
 
@@ -3761,7 +3761,7 @@ declare class WebResourceResponse {
    *                                                                   ArrayBuffer type indicate binary data.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
-   * @since 16
+   * @since 18
    */
   getResponseDataEx(): string | number | ArrayBuffer | Resource | undefined;
 
@@ -3823,7 +3823,7 @@ declare class WebResourceResponse {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   getReasonMessage(): string;
 
@@ -3849,7 +3849,7 @@ declare class WebResourceResponse {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   getResponseHeader(): Array<Header>;
 
@@ -4065,7 +4065,7 @@ declare class WebResourceResponse {
    * @returns { boolean } True indicates the response data is ready and false is not ready.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
-   * @since 16
+   * @since 18
    */
   getResponseIsReady(): boolean;
 }
@@ -4100,7 +4100,7 @@ declare class WebResourceResponse {
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare interface Header {
   /**
@@ -4125,7 +4125,7 @@ declare interface Header {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   headerKey: string;
 
@@ -4151,7 +4151,7 @@ declare interface Header {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   headerValue: string;
 }
@@ -4739,7 +4739,7 @@ declare interface WebOptions {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   incognitoMode? : boolean;
 
@@ -5520,7 +5520,7 @@ declare interface OnAlertEvent {
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare interface OnBeforeUnloadEvent {
   /**
@@ -5538,7 +5538,7 @@ declare interface OnBeforeUnloadEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   url: string;
 
@@ -5557,7 +5557,7 @@ declare interface OnBeforeUnloadEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   message: string;
 
@@ -5576,7 +5576,7 @@ declare interface OnBeforeUnloadEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   result: JsResult;
 }
@@ -5815,7 +5815,7 @@ declare interface OnDownloadStartEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   contentDisposition: string;
 
@@ -5857,7 +5857,7 @@ declare interface OnDownloadStartEvent {
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare interface OnRefreshAccessedHistoryEvent {
   /**
@@ -5875,7 +5875,7 @@ declare interface OnRefreshAccessedHistoryEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   url: string;
 
@@ -5894,7 +5894,7 @@ declare interface OnRefreshAccessedHistoryEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   isRefreshed: boolean;
 }
@@ -6866,7 +6866,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onlineImageAccess(onlineImageAccess: boolean): WebAttribute;
 
@@ -6897,7 +6897,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   domStorageAccess(domStorageAccess: boolean): WebAttribute;
 
@@ -6928,7 +6928,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   imageAccess(imageAccess: boolean): WebAttribute;
 
@@ -6957,7 +6957,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   * @syscap SystemCapability.Web.Webview.Core
   * @crossplatform
   * @atomicservice
-  * @since 16
+  * @since 18
   */
   mixedMode(mixedMode: MixedMode): WebAttribute;
 
@@ -7087,7 +7087,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   cacheMode(cacheMode: CacheMode): WebAttribute;
 
@@ -7578,7 +7578,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onBeforeUnload(callback: Callback<OnBeforeUnloadEvent, boolean>): WebAttribute;
 
@@ -7805,7 +7805,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onRefreshAccessedHistory(callback: Callback<OnRefreshAccessedHistoryEvent>): WebAttribute;
 
@@ -7968,7 +7968,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onFullScreenExit(callback: () => void): WebAttribute;
 
@@ -8006,7 +8006,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onFullScreenEnter(callback: OnFullScreenEnterCallback): WebAttribute;
 
@@ -8673,7 +8673,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   blockNetwork(block: boolean): WebAttribute;
 
@@ -9342,7 +9342,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { boolean } follow The value true means to follow the system font weight, and false means the opposite.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 16
+   * @since 18
    */
   enableFollowSystemFontWeight(follow: boolean): WebAttribute;
 
@@ -9352,7 +9352,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { boolean } enabled Whether to enable AVSession. The value true means to enable AVSession, and false means the opposite.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 16
+   * @since 18
    */
   enableWebAVSession(enabled: boolean): WebAttribute;
 
@@ -9362,7 +9362,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { boolean} optimizeParserBudget Default value is false, set true to enable optimize parser budget.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 16
+   * @since 18
    */
   optimizeParserBudget(optimizeParserBudget: boolean): WebAttribute;
 

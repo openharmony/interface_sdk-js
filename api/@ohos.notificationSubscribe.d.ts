@@ -459,7 +459,7 @@ declare namespace notificationSubscribe {
    * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
    function distributeOperation(hashcode: string, operationInfo?: OperationInfo): Promise<void>;
 
@@ -469,7 +469,7 @@ declare namespace notificationSubscribe {
     * @typedef OperationInfo
     * @syscap SystemCapability.Notification.Notification
     * @systemapi
-    * @since 16
+    * @since 18
     */
    export interface OperationInfo {
      /**
@@ -478,7 +478,7 @@ declare namespace notificationSubscribe {
       * @type { ?string }
       * @syscap SystemCapability.Notification.Notification
       * @systemapi
-      * @since 16
+      * @since 18
       */
      actionName?: string;
 
@@ -488,7 +488,7 @@ declare namespace notificationSubscribe {
       * @type { ?string }
       * @syscap SystemCapability.Notification.Notification
       * @systemapi
-      * @since 16
+      * @since 18
       */
      userInput?: string;
    }

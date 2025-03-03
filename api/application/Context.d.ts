@@ -387,7 +387,7 @@ export default class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   processName: string;
 
@@ -585,7 +585,7 @@ export default class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   createAreaModeContext(areaMode: contextConstant.AreaMode): Context;
 
