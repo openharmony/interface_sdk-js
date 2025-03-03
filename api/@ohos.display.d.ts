@@ -971,6 +971,33 @@ declare namespace display {
   }
 
   /**
+   * Enumerates the screen shape.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @since 18
+   */
+  enum ScreenShape {
+    /**
+     *The screen shape is rectangle.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 18
+     */
+    RECTANGLE = 0,
+    /**
+     *The screen shape is round.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 18
+     */
+    ROUND = 1
+  }
+
+  /**
    * Fold Crease Region
    *
    * @interface FoldCreaseRegion
@@ -1637,6 +1664,16 @@ declare namespace display {
      * @since 12
      */
     yDPI: number;
+
+    /**
+     * The shape of screen
+     *
+     * @type { ?ScreenShape }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 18
+     */
+    screenShape?: ScreenShape;
 
     /**
      * All supported color spaces.
