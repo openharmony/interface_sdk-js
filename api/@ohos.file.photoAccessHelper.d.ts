@@ -1017,6 +1017,24 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12
      */
+    /**
+     * Request moving photo
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { Context } context - Hap context information
+     * @param { PhotoAsset } asset - the photo asset requested
+     * @param { RequestOptions } requestOptions - the request options
+     * @param { MediaAssetDataHandler<MovingPhoto> } dataHandler - data handler used to obtain moving photo when data is prepared
+     * @returns { Promise<string> } Returns request id
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 18
+     */
     static requestMovingPhoto(
       context: Context,
       asset: PhotoAsset,
