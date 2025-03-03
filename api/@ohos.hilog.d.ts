@@ -59,7 +59,7 @@ declare namespace hilog {
    * Outputs debug-level logs.
    *
    * * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
-   *                          if the value exceeds the range, logs cannot be printed.
+   *                            if the value exceeds the range, logs cannot be printed.
    * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
    * @param { any[] }args Indicates the log parameters.
