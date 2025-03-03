@@ -1621,7 +1621,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
-     * @deprecated since 16
+     * @deprecated since 18
      * @useinstead ohos.resourceManager.getIntPluralStringValueSync
      */
     getPluralStringValue(resource: Resource, num: number, callback: _AsyncCallback<string>): void;
@@ -1676,7 +1676,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
-     * @deprecated since 16
+     * @deprecated since 18
      * @useinstead ohos.resourceManager.getIntPluralStringValueSync
      */
     getPluralStringValue(resource: Resource, num: number): Promise<string>;
@@ -2245,7 +2245,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
-     * @deprecated since 16
+     * @deprecated since 18
      * @useinstead ohos.resourceManager.getIntPluralStringByNameSync
      */
     getPluralStringByName(resName: string, num: number, callback: _AsyncCallback<string>): void;
@@ -2297,7 +2297,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
-     * @deprecated since 16
+     * @deprecated since 18
      * @useinstead ohos.resourceManager.getIntPluralStringByNameSync
      */
     getPluralStringByName(resName: string, num: number): Promise<string>;
@@ -3016,7 +3016,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
-     * @deprecated since 16
+     * @deprecated since 18
      * @useinstead ohos.resourceManager.getIntPluralStringValueSync
      */
     getPluralStringValue(resId: number, num: number, callback: _AsyncCallback<string>): void;
@@ -3068,7 +3068,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
-     * @deprecated since 16
+     * @deprecated since 18
      * @useinstead ohos.resourceManager.getIntPluralStringValueSync
      */
     getPluralStringValue(resId: number, num: number): Promise<string>;
@@ -4442,7 +4442,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
-     * @deprecated since 16
+     * @deprecated since 18
      * @useinstead ohos.resourceManager.getIntPluralStringValueSync
      */
     getPluralStringValueSync(resId: number, num: number): string;
@@ -4480,7 +4480,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
-     * @deprecated since 16
+     * @deprecated since 18
      * @useinstead ohos.resourceManager.getIntPluralStringValueSync
      */
     getPluralStringValueSync(resource: Resource, num: number): string;
@@ -4574,7 +4574,7 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
-     * @deprecated since 16
+     * @deprecated since 18
      * @useinstead ohos.resourceManager.getIntPluralStringByNameSync
      */
     getPluralStringByNameSync(resName: string, num: number): string;
