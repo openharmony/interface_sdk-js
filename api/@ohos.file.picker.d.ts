@@ -665,7 +665,7 @@ declare namespace picker {
      * @atomicservice
      * @since 18
      */
-    isSupportEncryption?: boolean;
+    isEncryptionSupported?: boolean;
   }
 
   /**
