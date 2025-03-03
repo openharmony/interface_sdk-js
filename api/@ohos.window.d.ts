@@ -7941,7 +7941,7 @@ declare namespace window {
     minimize(): Promise<void>;
 
     /**
-     * Maximize app main or sub window.
+     * Maximize app main window.
      * @param { MaximizePresentation } presentation - set window presentation when maximize.
      * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -9057,7 +9057,7 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     maximizeSupported?: boolean;
   }
