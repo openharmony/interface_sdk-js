@@ -9084,6 +9084,15 @@ declare namespace window {
      * @since 18
      */
     windowRect?: Rect;
+    /**
+     * Indicates whether subwindow support fullscreen
+     * 
+     * @type { ?boolean }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    maximizeSupported?: boolean;
   }
   /**
    * WindowStage
