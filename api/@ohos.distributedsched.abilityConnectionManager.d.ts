@@ -144,7 +144,7 @@ declare namespace abilityConnectionManager {
          * @type { boolean }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
          * @since 18
-         */        
+         */
         isConnected: boolean;
 
         /**
@@ -152,7 +152,7 @@ declare namespace abilityConnectionManager {
          * @type { ?ConnectErrorCode }
          * @syscap SystemCapability.DistributedSched.AppCollaboration
          * @since 18
-         */        
+         */
         errorCode?: ConnectErrorCode;
 
         /**
@@ -489,7 +489,7 @@ declare namespace abilityConnectionManager {
      */
     function off(type: 'receiveImage', sessionId: number,
         callback?: Callback<EventCallbackInfo>): void;
-    
+
     /**
      * Registers collaborateEvent event.
      *
@@ -622,8 +622,8 @@ declare namespace abilityConnectionManager {
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @since 18
      */
-
     function sendData(sessionId: number, data: ArrayBuffer): Promise<void>;
+    
     /**
      * Send image data.
      *
@@ -668,7 +668,6 @@ declare namespace abilityConnectionManager {
      * @systemapi
      * @since 18
      */
-
     function setSurfaceId(streamId: number, surfaceId: string, param: SurfaceParam): void;
     /**
      * Obtains the transmission surface.
