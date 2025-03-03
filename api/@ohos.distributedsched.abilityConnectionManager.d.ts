@@ -491,9 +491,9 @@ declare namespace abilityConnectionManager {
         callback?: Callback<EventCallbackInfo>): void;
     
     /**
-     * Registers CollaborateEvent event.
+     * Registers collaborateEvent event.
      *
-     * @param { 'CollaborateEvent' } type - Registration Type, 'CollaborateEvent'.
+     * @param { 'collaborateEvent' } type - Registration Type, 'collaborateEvent'.
      * @param { number } sessionId - Ability connection Session id.
      * @param { Callback<CollaborateEventInfo> } callback - Called when an error event comes.
      * @throws { BusinessError } 202 - Not system App.
@@ -502,13 +502,13 @@ declare namespace abilityConnectionManager {
      * @systemapi
      * @since 18
      */
-    function on(type: 'CollaborateEvent', sessionId: number,
+    function on(type: 'collaborateEvent', sessionId: number,
         callback: Callback<CollaborateEventInfo>): void;
 
     /**
-     * Unregisters CollaborateEvent event.
+     * Unregisters collaborateEvent event.
      *
-     * @param { 'CollaborateEvent' } type - Registration Type, 'CollaborateEvent'.
+     * @param { 'collaborateEvent' } type - Registration Type, 'collaborateEvent'.
      * @param { number } sessionId - Ability connection Session id.
      * @param { Callback<CollaborateEventInfo> } callback - Called when an error event comes.
      * @throws { BusinessError } 202 - Not system App.
@@ -517,7 +517,7 @@ declare namespace abilityConnectionManager {
      * @systemapi
      * @since 18
      */
-    function off(type: 'CollaborateEvent', sessionId: number,
+    function off(type: 'collaborateEvent', sessionId: number,
         callback?: Callback<CollaborateEventInfo>): void;
 
     /**
