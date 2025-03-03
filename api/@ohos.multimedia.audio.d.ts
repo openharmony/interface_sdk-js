@@ -4139,7 +4139,19 @@ declare namespace audio {
      * @crossplatform
      * @since 12
      */
-    off(type: 'audioRendererChange'): void;
+    /**
+     * Unsubscribes to audio renderer change events.
+     * @param { 'audioRendererChange' } type - Type of the event to listen for. Only the audioRendererChange event is supported.
+     * @param { Callback<AudioRendererChangeInfoArray> } callback - Callback invoked for the audio renderer change event.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @crossplatform
+     * @since 18
+     */
+    off(type: 'audioRendererChange', callback?: Callback<AudioRendererChangeInfoArray>): void;
 
     /**
      * Listens for audio capturer change events. When there is any audio capturer change,
@@ -4189,7 +4201,19 @@ declare namespace audio {
      * @crossplatform
      * @since 12
      */
-    off(type: 'audioCapturerChange'): void;
+    /**
+     * Unsubscribes to audio capturer change events.
+     * @param { 'audioCapturerChange' } type - Type of the event to listen for. Only the audioCapturerChange event is supported.
+     * @param { Callback<AudioCapturerChangeInfoArray> } callback - Callback invoked for the audio capturer change event.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 18
+     */
+    off(type: 'audioCapturerChange', callback?: Callback<AudioCapturerChangeInfoArray>): void;
 
     /**
      * Checks whether a stream is active. This method uses an asynchronous callback to return the query result.
@@ -4966,6 +4990,19 @@ declare namespace audio {
      * @since 9
      */
     on(type: 'ringerModeChange', callback: Callback<AudioRingMode>): void;
+
+    /**
+     * Unsubscribes to the ringer mode state change events.
+     * @param { 'ringerModeChange' } type - Type of the event to listen for.
+     * @param { Callback<AudioRingMode> } callback - Callback used to get the updated ringer mode.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 18
+     */
+    off(type: 'ringerModeChange', callback?: Callback<AudioRingMode>): void;
 
     /**
      * Mutes or unmutes the microphone. This method uses an asynchronous callback to return the result.
@@ -7765,6 +7802,19 @@ declare namespace audio {
     on(type: 'audioInterrupt', callback: Callback<InterruptEvent>): void;
 
     /**
+     * Unsubscribes audio interrupt events.
+     * @param { 'audioInterrupt' } type - Type of the event to listen for.
+     * @param { Callback<InterruptEvent> } callback - Callback used to listen for interrupt callback.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Interrupt
+     * @since 18
+     */
+    off(type: 'audioInterrupt', callback?: Callback<InterruptEvent>): void;
+
+    /**
      * Subscribes to mark reached events. When the number of frames rendered reaches the value of the frame parameter,
      * the callback is invoked.
      * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
@@ -7797,7 +7847,15 @@ declare namespace audio {
      * @crossplatform
      * @since 12
      */
-    off(type: 'markReach'): void;
+    /**
+     * Unsubscribes from mark reached events.
+     * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
+     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @crossplatform
+     * @since 18
+     */
+    off(type: 'markReach', callback?: Callback<number>): void;
 
     /**
      * Subscribes to period reached events. When the period of frame rendering reaches the value of frame parameter,
@@ -7832,7 +7890,15 @@ declare namespace audio {
      * @crossplatform
      * @since 12
      */
-    off(type: 'periodReach'): void;
+    /**
+     * Unsubscribes from period reached events.
+     * @param { 'periodReach' } type - Type of the event to listen for. Only the periodReach event is supported.
+     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @crossplatform
+     * @since 18
+     */
+    off(type: 'periodReach', callback?: Callback<number>): void;
 
     /**
      * Subscribes audio state change event callback.
@@ -7850,6 +7916,19 @@ declare namespace audio {
      * @since 12
      */
     on(type: 'stateChange', callback: Callback<AudioState>): void;
+
+    /**
+     * Unsubscribes audio state change event callback.
+     * @param { 'stateChange' } type - Type of the event to listen for.
+     * @param { Callback<AudioState> } callback - Callback invoked when state change.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 18
+     */
+    off(type: 'stateChange', callback?: Callback<AudioState>): void;
 
     /**
      * Subscribes output device change event callback.
@@ -8716,7 +8795,15 @@ declare namespace audio {
      * @crossplatform
      * @since 12
      */
-    off(type: 'markReach'): void;
+    /**
+     * Unsubscribes from the mark reached events.
+     * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
+     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 18
+     */
+    off(type: 'markReach', callback?: Callback<number>): void;
 
     /**
      * Subscribes to period reached events. When the period of frame capturing reaches the value of frame parameter,
@@ -8751,7 +8838,15 @@ declare namespace audio {
      * @crossplatform
      * @since 12
      */
-    off(type: 'periodReach'): void;
+    /**
+     * Unsubscribes from period reached events.
+     * @param { 'periodReach' } type - Type of the event to listen for. Only the periodReach event is supported.
+     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 18
+     */
+    off(type: 'periodReach', callback?: Callback<number>): void;
 
     /**
      * Subscribes audio state change event callback.
@@ -8769,6 +8864,19 @@ declare namespace audio {
      * @since 12
      */
     on(type: 'stateChange', callback: Callback<AudioState>): void;
+
+    /**
+     * Unsubscribes audio state change event callback.
+     * @param { 'stateChange' } type - Type of the event to listen for.
+     * @param { Callback<AudioState> } callback - Callback used to listen for the audio state change event.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 18
+     */
+    off(type: 'stateChange', callback?: Callback<AudioState>): void;
 
     /**
      * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
