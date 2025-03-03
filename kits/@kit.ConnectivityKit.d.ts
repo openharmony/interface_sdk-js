@@ -30,6 +30,7 @@ import hid from '@ohos.bluetooth.hid';
 import map from '@ohos.bluetooth.map';
 import pan from '@ohos.bluetooth.pan';
 import pbap from '@ohos.bluetooth.pbap';
+import opp from '@ohos.bluetooth.opp';
 import socket from '@ohos.bluetooth.socket';
 import wearDetection from '@ohos.bluetooth.wearDetection';
 import bluetoothManager from '@ohos.bluetoothManager';
@@ -50,6 +51,6 @@ import Bluetooth, {
 export {
   BLEFoundResponse, Bluetooth, BluetoothDevice, StartBLEScanOptions, StopBLEScanOptions,
   SubscribeBLEFoundOptions, a2dp, access, baseProfile, ble, bluetooth, bluetoothManager, cardEmulation,
-  connectedTag, connection, constant, hfp, hid, map, nfcController, omapi, pan, pbap, socket, tag, wearDetection, wifi,
+  connectedTag, connection, constant, hfp, hid, map, nfcController, omapi, opp, pan, pbap, socket, tag, wearDetection, wifi,
   wifiManager, wifiManagerExt, wifiext
 };
