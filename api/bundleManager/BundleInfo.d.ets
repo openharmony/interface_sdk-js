@@ -75,19 +75,19 @@ export interface BundleInfo {
   /**
    * Indicates the version code of the bundle
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates the version code of the bundle
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
    */
-  readonly versionCode: number;
+  readonly versionCode: int;
 
   /**
    * Indicates the version name of the bundle
@@ -109,36 +109,36 @@ export interface BundleInfo {
   /**
    * Indicates the **minimum ** version compatible with the bundle
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates the **minimum ** version compatible with the bundle
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
    */
-  readonly minCompatibleVersionCode: number;
+  readonly minCompatibleVersionCode: int;
 
   /**
    * Indicates the target version number of the bundle
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates the target version number of the bundle
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
    */
-  readonly targetVersion: number;
+  readonly targetVersion: int;
 
   /**
    * Obtains configuration information about an application
@@ -228,36 +228,36 @@ export interface BundleInfo {
   /**
    * Indicates the hap install time
    *
-   * @type { number }
+   * @type { long }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates the hap install time
    *
-   * @type { number }
+   * @type { long }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
    */
-  readonly installTime: number;
+  readonly installTime: long;
 
   /**
    * Indicates the hap update time
    *
-   * @type { number }
+   * @type { long }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates the hap update time
    *
-   * @type { number }
+   * @type { long }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
    */
-  readonly updateTime: number;
+  readonly updateTime: long;
 
   /**
    * Indicates the router information of the application
@@ -273,12 +273,12 @@ export interface BundleInfo {
   /**
    * Indicates the appIndex of application, only work in appClone mode
    * 
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 12
    */
-  readonly appIndex: number;
+  readonly appIndex: int;
 }
 
 /**
@@ -351,19 +351,19 @@ export interface ReqPermissionDetail {
   /**
    * Indicates the reason id of this required permissions
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates the reason id of this required permissions
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
    */
-  reasonId: number;
+  reasonId: int;
 
   /**
    * Indicates the used scene of this required permissions
@@ -533,11 +533,11 @@ export interface AppCloneIdentity {
   /**
    * Indicates the index of clone app.
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12
    */
-  readonly appIndex: number;
+  readonly appIndex: int;
 }

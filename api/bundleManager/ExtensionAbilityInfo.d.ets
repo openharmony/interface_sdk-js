@@ -93,53 +93,53 @@ export interface ExtensionAbilityInfo {
   /**
    * Indicates the label id of the extension ability info
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates the label id of the extension ability info
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
    */
-  readonly labelId: number;
+  readonly labelId: int;
 
   /**
    * Indicates the description id of the extension ability info
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates the description id of the extension ability info
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
    */
-  readonly descriptionId: number;
+  readonly descriptionId: int;
 
   /**
    * Indicates the icon id of the extension ability info
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates the icon id of the extension ability info
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
    */
-  readonly iconId: number;
+  readonly iconId: int;
 
   /**
    * Indicates whether this ability can be called by other abilities
@@ -302,10 +302,10 @@ export interface ExtensionAbilityInfo {
   /**
    * Indicates the appIndex of extension ability, only work in clone app mode
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 12
    */
-  readonly appIndex: number;
+  readonly appIndex: int;
 }
