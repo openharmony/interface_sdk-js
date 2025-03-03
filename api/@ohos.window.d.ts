@@ -4368,6 +4368,24 @@ declare namespace window {
     resizeAsync(width: number, height: number): Promise<void>;
 
     /**
+     * Set whether to follow parent window layout. Only sub windows and dialogs are available.
+     *
+     * @param { boolean } enabled - If true, this window updates the layout follow the parent window.
+     *                              If false, this window does not update the layout follow the parent window.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    setFollowParentWindowLayoutEnabled(enabled: boolean): Promise<void>;
+
+    /**
      * Set the type of a window.
      *
      * @param { WindowType } type - Indicate the type of a window.
