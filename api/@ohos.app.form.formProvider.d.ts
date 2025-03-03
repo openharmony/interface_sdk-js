@@ -422,5 +422,6 @@ declare namespace formProvider {
    */
   function openFormManager(want: Want): void;
 
+  function openFormEditAbility(abilityName: string, formId: string, isMainPage?: boolean): void;
 }
 export default formProvider;
