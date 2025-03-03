@@ -4534,7 +4534,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     saveGalleryFormInfo(info: GalleryFormInfo): Promise<void>;
     /**
@@ -4582,7 +4582,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     removeGalleryFormInfo(info: GalleryFormInfo): Promise<void>;
     /**
@@ -4598,7 +4598,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     updateGalleryFormInfo(info: GalleryFormInfo): Promise<void>;
     /**
@@ -4754,7 +4754,7 @@ declare namespace photoAccessHelper {
    * @interface GalleryFormInfo
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since 16
+   * @since 18
    */
   interface GalleryFormInfo {
     /**
