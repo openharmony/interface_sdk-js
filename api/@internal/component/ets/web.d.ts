@@ -6250,7 +6250,7 @@ declare interface OnSslErrorEventReceiveEvent {
    *
    * @type { ?Array<Uint8Array> }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 18
+   * @since 15
    */
   certChainData?: Array<Uint8Array>;
 }
