@@ -3858,7 +3858,7 @@ declare namespace media {
   interface MediaStream {	
     /**
      * url for this mediaStream
-     * @type { number } source url.
+     * @type { string }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18
@@ -3867,7 +3867,7 @@ declare namespace media {
  
     /**
      * video width.
-     * @type { number } video width.
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18
@@ -3876,7 +3876,7 @@ declare namespace media {
  
     /**
      * video height.
-     * @type { number } video height.
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18
@@ -3885,7 +3885,7 @@ declare namespace media {
  
     /**
      * biterate of this mediaStream.
-     * @type { number } The source bit rate.
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18
