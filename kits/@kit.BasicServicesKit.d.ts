@@ -49,6 +49,7 @@ import thermal from '@ohos.thermal';
 import update from '@ohos.update';
 import usb from '@ohos.usb';
 import usbManager from '@ohos.usbManager';
+import serialManager from '@ohos.usbManager.serial';
 import wallpaper from '@ohos.wallpaper';
 import WallpaperExtensionAbility from '@ohos.WallpaperExtensionAbility';
 import zlib from '@ohos.zlib';
@@ -79,6 +80,6 @@ export {
   UploadResponse, WallpaperExtensionAbility, appAccount, batteryInfo, batteryStats, brightness, charger, configPolicy,
   customConfig, deviceAttest, deviceInfo, distributedAccount, osAccount, pasteboard, power, print, request, cacheDownload, runningLock,
   screenLock, settings, systemCapability, systemDateTime, systemParameter, systemParameterEnhance, systemTime,
-  systemTimer, thermal, update, usb, usbManager, wallpaper, zlib, commonEventManager, emitter, StaticSubscriberExtensionAbility,
+  systemTimer, thermal, update, usb, usbManager, serialManager, wallpaper, zlib, commonEventManager, emitter, StaticSubscriberExtensionAbility,
   StaticSubscriberExtensionContext, systemLoad, intelligentVoice
 };
