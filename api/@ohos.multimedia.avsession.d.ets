@@ -2970,7 +2970,20 @@ declare namespace avSession {
      * @atomicservice
      * @since 12
      */
-    on(type: 'playbackStateChange', filter: Array<keyof AVPlaybackState> | 'all', callback: (state: AVPlaybackState) => void): void;
+    /**
+     * Register playback state changed callback
+     * @param { 'playbackStateChange' } type
+     * @param { Array<AVPlaybackStateKey> | 'all' } filter - The properties of {@link AVPlaybackState} that you cared about
+     * @param { function } callback - The callback used to handle playback state changed event.
+     * The callback function provides the {@link AVPlaybackState} parameter.
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
+     * @throws { BusinessError } 6600101 - Session service exception
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 17
+     */
+    on(type: 'playbackStateChange', filter: Array<AVPlaybackStateKey> | 'all', callback: (state: AVPlaybackState) => void): void;
 
     /**
      * Unregister playback state changed callback
@@ -3798,6 +3811,16 @@ declare namespace avSession {
   }
 
   /**
+   * The key of AVMetadata. See {@link AVMetadata}.
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @since 17
+   */
+  type AVMetadataKey = 'assetId' | 'title' | 'artist' | 'author' | 'avQueueName' | 'avQueueId' | 'avQueueImage' |
+                       'album' | 'writer' | 'composer' | 'duration' | 'mediaImage' | 'publishDate' | 'subtitle' |
+                       'description' | 'lyric' | 'previousAssetId' | 'nextAssetId' | 'filter' | 'drmSchemes' |
+                       'skipIntervals' | 'displayTags';
+
+  /**
    * The metadata of the current media.Used to set the properties of the current media file
    * @interface AVMetadata
    * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -4458,6 +4481,14 @@ declare namespace avSession {
   }
 
   /**
+   * The key of AVPlaybackState. See {@link AVPlaybackState}
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @since 17
+   */
+  type AVPlaybackStateKey = 'state' | 'speed' | 'position' | 'bufferedTime' | 'loopMode' | 'isFavorite' |
+  'activeItemId' | 'volume' | 'maxVolume' | 'muted' | 'duration' | 'videoWidth' | 'videoHeight' | 'extras' ;
+
+  /**
    * Used to indicate the playback state of the current media.
    * If the playback state of the media changes, it needs to be updated synchronously
    * @interface AVPlaybackState
@@ -4723,6 +4754,13 @@ declare namespace avSession {
   }
 
   /**
+   * The key of CallMetadata. See {@link CallMetadata}
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @since 17
+   */
+  type CallMetadataKey = 'name' | 'phoneNumber' | 'avatar';
+
+  /**
    * The metadata of the current call.
    * @interface CallMetadata
    * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -4781,6 +4819,13 @@ declare namespace avSession {
      */
     avatar?: image.PixelMap;
   }
+
+  /**
+   * The key of AVCallState. See {@link AVCallState}
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @since 17
+   */
+  type AVCallStateKey = 'state' | 'muted';
 
   /**
    * Used to indicate the call state of the current call.
@@ -6390,7 +6435,22 @@ declare namespace avSession {
      * @atomicservice
      * @since 12
      */
-    on(type: 'metadataChange', filter: Array<keyof AVMetadata> | 'all', callback: (data: AVMetadata) => void): void;
+    /**
+     * Register metadata changed callback
+     * @param { 'metadataChange' } type 
+     * @param { Array<AVMetadataKey> | 'all' } filter - The properties of {@link AVMetadata} that you cared about
+     * @param { function } callback - The callback used to handle metadata changed event.
+     * The callback function provides the {@link AVMetadata} parameter.
+     * It only contains the properties set in the filter.
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 17
+     */
+    on(type: 'metadataChange', filter: Array<AVMetadataKey> | 'all', callback: (data: AVMetadata) => void): void;
 
     /**
      * Unregister metadata changed callback
@@ -6448,7 +6508,21 @@ declare namespace avSession {
      * @atomicservice
      * @since 12
      */
-    on(type: 'playbackStateChange', filter: Array<keyof AVPlaybackState> | 'all', callback: (state: AVPlaybackState) => void): void;
+    /**
+     * Register playback state changed callback
+     * @param { 'playbackStateChange' } type
+     * @param { Array<AVPlaybackStateKey> | 'all' } filter - The properties of {@link AVPlaybackState} that you cared about
+     * @param { function } callback - The callback used to handle playback state changed event.
+     * The callback function provides the {@link AVPlaybackState} parameter.
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 17
+     */
+    on(type: 'playbackStateChange', filter: Array<AVPlaybackStateKey> | 'all', callback: (state: AVPlaybackState) => void): void;
 
     /**
      * Unregister playback state changed callback
@@ -6506,7 +6580,22 @@ declare namespace avSession {
      * @atomicservice
      * @since 12
      */
-    on(type: 'callMetadataChange', filter: Array<keyof CallMetadata> | 'all', callback: Callback<CallMetadata>): void;
+    /**
+     * Register call metadata changed callback
+     * @param { 'callMetadataChange' } type - 'callMetadataChange'
+     * @param { Array<CallMetadataKey> | 'all' } filter - The properties of {@link CallMetadata} that you cared about
+     * @param { Callback<CallMetadata> } callback - The callback used to handle call metadata changed event.
+     * The callback function provides the {@link CallMetadata} parameter.
+     * It only contains the properties set in the filter.
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 17
+     */
+    on(type: 'callMetadataChange', filter: Array<CallMetadataKey> | 'all', callback: Callback<CallMetadata>): void;
 
     /**
      * Unregister call metadata changed callback
@@ -6564,7 +6653,21 @@ declare namespace avSession {
      * @atomicservice
      * @since 12
      */
-    on(type: 'callStateChange', filter: Array<keyof AVCallState> | 'all', callback: Callback<AVCallState>): void;
+    /**
+     * Register call state changed callback
+     * @param { 'callStateChange' } type - 'callStateChange'
+     * @param { Array<AVCallStateKey> | 'all' } filter - The properties of {@link AVCallState} that you cared about
+     * @param { Callback<AVCallState> } callback - The callback used to handle call state changed event.
+     * The callback function provides the {@link AVCallState} parameter.
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 17
+     */
+    on(type: 'callStateChange', filter: Array<AVCallStateKey> | 'all', callback: Callback<AVCallState>): void;
 
     /**
      * Unregister playback state changed callback
