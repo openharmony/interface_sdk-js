@@ -719,7 +719,7 @@ declare namespace font {
    * @crossplatform
    * @atomicservice
    * @since 12
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Font#registerFont
    */
   function registerFont(options: FontOptions): void;
@@ -747,7 +747,7 @@ declare namespace font {
    * @crossplatform
    * @atomicservice
    * @since 12
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Font#getSystemFontList
    */
   function getSystemFontList(): Array<string>;
@@ -778,7 +778,7 @@ declare namespace font {
    * @crossplatform
    * @atomicservice
    * @since 12
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Font#getFontByName
    */
   function getFontByName(fontName: string): FontInfo;

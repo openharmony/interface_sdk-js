@@ -234,7 +234,7 @@ declare namespace componentSnapshot {
    * @crossplatform
    * @atomicservice
    * @since 12
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.ComponentSnapshot#get
    */
   function get(id: string, callback: AsyncCallback<image.PixelMap>, options?: SnapshotOptions): void;
@@ -268,7 +268,7 @@ declare namespace componentSnapshot {
    * @crossplatform
    * @atomicservice
    * @since 12
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.ComponentSnapshot#get
    */
   function get(id: string, options?: SnapshotOptions): Promise<image.PixelMap>;
@@ -306,7 +306,7 @@ declare namespace componentSnapshot {
    * @crossplatform
    * @atomicservice
    * @since 12
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.ComponentSnapshot#createFromBuilder
    */
   function createFromBuilder(builder: CustomBuilder, callback: AsyncCallback<image.PixelMap>,
@@ -345,7 +345,7 @@ declare namespace componentSnapshot {
    * @crossplatform
    * @atomicservice
    * @since 12
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.ComponentSnapshot#createFromBuilder
    */
   function createFromBuilder(builder: CustomBuilder, delay?: number,

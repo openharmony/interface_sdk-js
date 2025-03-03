@@ -708,7 +708,7 @@ declare namespace dragController {
    * @crossplatform
    * @atomicservice
    * @since 18
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.DragController#executeDrag
    */
   function executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: DragInfo,
@@ -755,7 +755,7 @@ declare namespace dragController {
    * @crossplatform
    * @atomicservice
    * @since 18
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.DragController#executeDrag
    */
   function executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: DragInfo): Promise<DragEventParam>;
@@ -807,7 +807,7 @@ declare namespace dragController {
    * @crossplatform
    * @atomicservice
    * @since 18
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.DragController#createDragAction
    */
   function createDragAction(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: DragInfo): DragAction;
@@ -832,7 +832,7 @@ declare namespace dragController {
    * @crossplatform
    * @atomicservice
    * @since 18
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.DragController#getDragPreview
    */
   function getDragPreview(): DragPreview;

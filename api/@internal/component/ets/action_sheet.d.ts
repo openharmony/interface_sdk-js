@@ -1008,7 +1008,7 @@ declare class ActionSheet {
    * @crossplatform
    * @atomicservice
    * @since 11
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.UIContext#showActionSheet
    */
   static show(value: ActionSheetOptions);

@@ -365,7 +365,7 @@ export default class MeasureText {
    * @crossplatform
    * @atomicservice
    * @since 12
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.MeasureUtils#measureText
    */
   static measureText(options: MeasureOptions): number;
@@ -396,7 +396,7 @@ export default class MeasureText {
    * @crossplatform
    * @atomicservice
    * @since 12
-   * @deprecated since 16
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.MeasureUtils#measureTextSize
    */
   static measureTextSize(options: MeasureOptions): SizeOptions;
