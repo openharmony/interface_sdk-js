@@ -1716,7 +1716,7 @@ declare namespace inputMethodEngine {
      * Starts moving a panel. The panel starts moving when pressed with finger or mouse and stops moving when released.
      * <p>It's Only used for STATUS_BAR panel.</p>
      *
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - capability not supported.
      * @throws { BusinessError } 12800002 - input method engine error.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
