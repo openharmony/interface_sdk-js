@@ -86,6 +86,20 @@ declare namespace photoAccessHelper {
    * @since 12
    */
   function getPhotoAccessHelper(context: Context): PhotoAccessHelper;
+  /**
+   * Returns an instance of PhotoAccessHelper
+   *
+   * @param { Context } context - Hap context information
+   * @param { number } userId - user id
+   * @returns { PhotoAccessHelper } Instance of PhotoAccessHelper
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 18
+   */
+  function getPhotoAccessHelper(context: Context, userId: number): PhotoAccessHelper;
 
   /**
    * Enumeration of different types of photos
@@ -5340,6 +5354,17 @@ declare namespace photoAccessHelper {
      * @since 14
      */
     completeButtonText?: CompleteButtonText;
+
+    /**
+     * user id
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @systemapi
+     * @since 18
+     */
+    userId?: number;
   }
 
   /**
