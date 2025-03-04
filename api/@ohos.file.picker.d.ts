@@ -654,6 +654,18 @@ declare namespace picker {
      * @since 15
      */
     mergeMode?: MergeTypeMode;
+
+    /**
+     * Specifies whether the picker supports encryption.
+     * When its value is set to true, the picker will display a button that allows the user
+     * to encrypt files selected.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 18
+     */
+    isEncryptionSupported?: boolean;
   }
 
   /**
