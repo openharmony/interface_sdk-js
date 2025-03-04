@@ -36,7 +36,6 @@ declare namespace deviceManager {
    * @param { number } busType - The bus type of device to be queried.
    * @returns { Array<Readonly<Device>> } External device list.
    * @throws { BusinessError } 201 - The permission check failed.
-   * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10
