@@ -668,8 +668,6 @@ declare namespace notificationManager {
    * Cancel all notifications of the current application.
    *
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -680,8 +678,6 @@ declare namespace notificationManager {
    * Cancel all notifications of the current application.
    *
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -852,8 +848,6 @@ declare namespace notificationManager {
    * Obtains all NotificationSlot objects created by the current application.
    *
    * @returns { Promise<Array<NotificationSlot>> } Returns all notification slots of this application.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -926,8 +920,6 @@ declare namespace notificationManager {
    * Removes all NotificationSlot objects created by the current application.
    *
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1085,8 +1077,6 @@ declare namespace notificationManager {
    * Checks whether this application allows to publish notifications.
    *
    * @returns { Promise<boolean> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1099,8 +1089,6 @@ declare namespace notificationManager {
    * Checks whether this application allows to publish notifications.
    *
    * @returns { Promise<boolean> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1632,8 +1620,6 @@ declare namespace notificationManager {
    * @returns { Promise<Array<NotificationRequest>> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1661,8 +1647,6 @@ declare namespace notificationManager {
    * Obtains the number of all active notifications.
    *
    * @returns { Promise<number> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1689,8 +1673,6 @@ declare namespace notificationManager {
    * Obtains an array of active notifications.
    *
    * @returns { Promise<Array<NotificationRequest>> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -2013,8 +1995,6 @@ declare namespace notificationManager {
    * @returns { Promise<DoNotDisturbDate> } Returns the Do Not Disturb date.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -2030,8 +2010,6 @@ declare namespace notificationManager {
    * @returns { Promise<DoNotDisturbDate> } Returns the Do Not Disturb date.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -2151,8 +2129,6 @@ declare namespace notificationManager {
    * @returns { Promise<boolean> } Returns whether Do Not Disturb mode is supported.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -2290,8 +2266,6 @@ declare namespace notificationManager {
    * Request permission to send notification.
    *
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -2302,8 +2276,6 @@ declare namespace notificationManager {
    * Request permission to send notification.
    *
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -2316,8 +2288,6 @@ declare namespace notificationManager {
    * Request permission to send notification.
    *
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -2478,8 +2448,6 @@ declare namespace notificationManager {
    * Obtains whether the device supports distributed notification.
    *
    * @returns { Promise<boolean> } Returns whether the distributed notification is supported.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -2881,8 +2849,6 @@ declare namespace notificationManager {
    * @returns { Promise<DeviceRemindType> } Returns the RemindType.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -2897,8 +2863,6 @@ declare namespace notificationManager {
    * @returns { Promise<DeviceRemindType> } Returns the RemindType.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
