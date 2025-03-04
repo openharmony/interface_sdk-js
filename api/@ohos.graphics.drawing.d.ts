@@ -1113,8 +1113,8 @@ declare namespace drawing {
      * @param { common2D.Point3d } planeParams - Represents z offset of the occluder from the canvas based on x and y.
      * @param { common2D.Point3d } devLightPos - Represents the position of the light relative to the canvas.
      * @param { number } lightRadius - The radius of the circular light.
-     * @param { number } ambientColor - Ambient shadow's color represented by ARGB color of hexadecimal format.
-     * @param { number } spotColor - Spot shadow's color represented by ARGB color of hexadecimal format.
+     * @param { common2D.Color | number } ambientColor - Ambient shadow's color represented by ARGB color of hexadecimal format.
+     * @param { common2D.Color | number } spotColor - Spot shadow's color represented by ARGB color of hexadecimal format.
      * @param { ShadowFlag } flag - Indicates the flag to control opaque occluder, shadow, and light position.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1122,7 +1122,7 @@ declare namespace drawing {
      * @since 18
      */
     drawShadow(path: Path, planeParams: common2D.Point3d, devLightPos: common2D.Point3d, lightRadius: number,
-      ambientColor: number, spotColor: number, flag: ShadowFlag) : void;
+      ambientColor: common2D.Color | number, spotColor: common2D.Color | number, flag: ShadowFlag) : void;
 
     /**
      * If radius is zero or less, nothing is drawn. If circle is stroked, use pen to
@@ -1453,13 +1453,13 @@ declare namespace drawing {
 
     /**
      * Clears a canvas by using a specified color represented by ARGB color of hexadecimal format.
-     * @param { number } color - Number must be ARGB color of hexadecimal format.
+     * @param { common2D.Color | number } color - Number must be ARGB color of hexadecimal format.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
-    clear(color: number): void;
+    clear(color: common2D.Color | number): void;
 
     /**
      * Restores the canvas status (canvas matrix) saved on the top of the stack.
@@ -2821,7 +2821,7 @@ declare namespace drawing {
      * @param { number } blurRadius - The blur radius of the shadow. The blur radius must be greater than 0.
      * @param { number } x - The offset point on x-axis.
      * @param { number } y - The offset point on y-axis.
-     * @param { number } color - The shadow color. Number must be ARGB color of hexadecimal format.
+     * @param { common2D.Color | number } color - The shadow color. Number must be ARGB color of hexadecimal format.
      * @returns { ShadowLayer } ShadowLayer object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2829,7 +2829,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
-    static create(blurRadius: number, x: number, y: number, color: number): ShadowLayer;
+    static create(blurRadius: number, x: number, y: number, color: common2D.Color | number): ShadowLayer;
   }
 
   /**
@@ -2854,7 +2854,7 @@ declare namespace drawing {
 
     /**
      * Makes a color filter with the given ARGB color of hexadecimal format and blend mode.
-     * @param { number } color - Number must be ARGB color of hexadecimal format.
+     * @param { common2D.Color | number } color - Number must be ARGB color of hexadecimal format.
      * @param { BlendMode } mode - BlendMode.
      * @returns { ColorFilter } Colorfilter object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2863,7 +2863,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
-    static createBlendModeColorFilter(color: number, mode: BlendMode): ColorFilter;
+    static createBlendModeColorFilter(color: common2D.Color | number, mode: BlendMode): ColorFilter;
 
     /**
      * Create a color filter consisting of two filters.
