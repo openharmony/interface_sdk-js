@@ -8839,6 +8839,20 @@ declare namespace window {
      * @since 15
      */
     setWindowContainerColor(activeColor: string, inactiveColor: string): void;
+
+     /**
+     * Set whether window delay raise is enabled.
+     *
+     * @param { boolean } isEnabled - The value true means to enable window delay raise, and false means disable window delay raise.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 16
+     */
+     setWindowDelayRaiseOnDrag(isEnabled: boolean): void;
   }
 
   /**
