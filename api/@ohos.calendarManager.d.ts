@@ -452,7 +452,7 @@ declare namespace calendarManager {
      * @returns { Promise<Event[]> } Information about events that match the condition
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     queryEventInstances(start: number, end: number, ids?: number[], eventKey?: (keyof Event)[]): Promise<Event[]>;
   }
@@ -775,7 +775,7 @@ declare namespace calendarManager {
      * @type { ?number }
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     instanceStartTime?: number;
 
@@ -784,7 +784,7 @@ declare namespace calendarManager {
      * @type { ?number }
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     instanceEndTime?: number;
   }
