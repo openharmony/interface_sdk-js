@@ -173,7 +173,7 @@ declare type RepeatItemBuilder<T> = (repeatItem: RepeatItem<T>) => void;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare class RepeatAttribute<T> extends DynamicNode<RepeatAttribute<T>> {
   /**
