@@ -4763,7 +4763,7 @@ declare namespace photoAccessHelper {
      * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     formId: string;
     /**
@@ -4772,7 +4772,7 @@ declare namespace photoAccessHelper {
      * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     assertUris?: Array<string>;
   }
