@@ -140,7 +140,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   interface RouterOptions {
     /**
@@ -180,7 +180,7 @@ declare namespace router {
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     url: string;
 
@@ -212,7 +212,7 @@ declare namespace router {
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     params?: Object;
 
