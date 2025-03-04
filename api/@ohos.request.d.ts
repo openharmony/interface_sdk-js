@@ -2675,7 +2675,7 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11
-       * @deprecated since 16
+       * @deprecated since 18
        * @useinstead ohos.request.agent.FileSpec.contentType
        */
       mimeType?: string;
