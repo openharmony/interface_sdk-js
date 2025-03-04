@@ -1880,7 +1880,7 @@ declare namespace audio {
      * will be affeted by app volume percentage setted by {@link setAppVolumePercentage}
      * @type { ?AudioVolumeMode }
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 16
+     * @since 18
      */
     volumeMode?: AudioVolumeMode;
   }
@@ -4547,7 +4547,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 16
+     * @since 18
      */
     getAppVolumePercentageForUid(uid: number): Promise<number>;
 
@@ -4565,7 +4565,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 16
+     * @since 18
      */
     setAppVolumePercentageForUid(uid: number, volume: number): Promise<void>;
 
@@ -4585,7 +4585,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 16
+     * @since 18
      */
     isAppVolumeMutedForUid(uid: number, owned: boolean): Promise<boolean>;
 
@@ -4604,7 +4604,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 16
+     * @since 18
      */
     setAppVolumeMutedForUid(uid: number, muted: boolean): Promise<void>;
 
@@ -4612,7 +4612,7 @@ declare namespace audio {
      * Get the volume for your app with range from 0 to 100. Applications with the same uid share the same volume.
      * @returns { Promise<number> } The application's volume percentage. The value range is from 0 to 100.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 16
+     * @since 18
      */
     getAppVolumePercentage(): Promise<number>;
 
@@ -4630,7 +4630,7 @@ declare namespace audio {
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 16
+     * @since 18
      */
     setAppVolumePercentage(volume: number): Promise<void>;
 
@@ -4688,7 +4688,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 16
+     * @since 18
      */
     on(type: 'appVolumeChangeForUid', uid: number, callback: Callback<VolumeEvent>): void;
 
@@ -4706,7 +4706,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 16
+     * @since 18
      */
     off(type: 'appVolumeChangeForUid', callback?: Callback<VolumeEvent>): void;
 
@@ -4720,7 +4720,7 @@ declare namespace audio {
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 16
+     * @since 18
      */
     on(type: 'appVolumeChange', callback: Callback<VolumeEvent>): void;
 
@@ -4734,7 +4734,7 @@ declare namespace audio {
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 16
+     * @since 18
      */
     off(type: 'appVolumeChange', callback?: Callback<VolumeEvent>): void;
   }
@@ -6549,19 +6549,19 @@ declare namespace audio {
    * Volume mode.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Volume
-   * @since 16
+   * @since 18
    */
   enum AudioVolumeMode {
     /**
      * Audio volume affected by system volume level.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 16
+     * @since 18
      */
     SYSTEM_GLOBAL = 0,
     /**
      * Audio volume affected by app's individual percentage.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 16
+     * @since 18
      */
     APP_INDIVIDUAL = 1
   }
@@ -6628,7 +6628,7 @@ declare namespace audio {
      * Audio volume mode of this volume event
      * @type { ?AudioVolumeMode }
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 16
+     * @since 18
      */
     volumeMode?: AudioVolumeMode;
   }
