@@ -9362,7 +9362,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { boolean} optimizeParserBudget Default value is false, set true to enable optimize parser budget.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 18
+   * @since 15
    */
   optimizeParserBudget(optimizeParserBudget: boolean): WebAttribute;
 
