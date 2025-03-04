@@ -438,6 +438,6 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @since 18
    */
-  function openFormEditAbility(abilityName: string, formId: string, isMainPage?: boolean): void
+  function openFormEditAbility(abilityName: string, formId: string, isMainPage?: boolean): void;
 }
 export default formProvider;
