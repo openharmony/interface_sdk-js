@@ -1182,6 +1182,15 @@ declare namespace PiPWindow {
      * @since 15
      */
     off(type: 'pipWindowSizeChange', callback?: Callback<PiPWindowSize>): void;
+
+    /**
+     * check if picture in picture is possible
+     *
+     * @test used only for testApi, not for public
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     */
+    isPiPPossible(): boolean;
   }
 }
 
