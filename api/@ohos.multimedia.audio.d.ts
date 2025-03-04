@@ -775,6 +775,14 @@ declare namespace audio {
      * @since 18
      */
     USB_DEVICE = 25,
+
+    /**
+     * HDMI device, such as HDMI, ARC, eARC
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 18
+     */
+    HDMI = 27,
+
     /**
      * Default device type.
      * @syscap SystemCapability.Multimedia.Audio.Device
@@ -3970,7 +3978,7 @@ declare namespace audio {
      * @since 12
      */
     getCurrentAudioRendererInfoArray(callback: AsyncCallback<AudioRendererChangeInfoArray>): void;
-    
+
     /**
      * Get information of current existing audio renderers.
      * @returns { Promise<AudioRendererChangeInfoArray> } Promise used to return the information of current
@@ -5822,7 +5830,7 @@ declare namespace audio {
      * Gets supported audio effect properties based on current devices.
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @returns { Array<AudioEffectProperty> } Array of supported audio effect properties.
-     * @throws { BusinessError } 201 - Permission denied. 
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 6800301 - System error.
      * @syscap SystemCapability.Multimedia.Audio.Core
@@ -5834,9 +5842,9 @@ declare namespace audio {
     /**
      * Sets current audio effect properties.
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
-     * @param { Array<AudioEffectProperty> } propertyArray - array of audio effect property to be set. 
+     * @param { Array<AudioEffectProperty> } propertyArray - array of audio effect property to be set.
      * Notice that only one effect property name in each effect property category should be set.
-     * @throws { BusinessError } 201 - Permission denied. 
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -5856,7 +5864,7 @@ declare namespace audio {
      * Gets current audio effect properties.
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @returns { Array<AudioEffectProperty> } Array of current audio effect properties.
-     * @throws { BusinessError } 201 - Permission denied. 
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 6800301 - System error.
      * @syscap SystemCapability.Multimedia.Audio.Core
@@ -10444,7 +10452,7 @@ declare namespace audio {
      * @since 18
      */
     RENDER_EFFECT_FLAG = 0,
-  
+
     /**
      * Audio capture effect.
      * @syscap SystemCapability.Multimedia.Audio.Core
