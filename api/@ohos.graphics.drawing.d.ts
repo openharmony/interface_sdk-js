@@ -863,6 +863,22 @@ declare namespace drawing {
     getPositionAndTangent(forceClosed: boolean, distance: number, position: common2D.Point, tangent: common2D.Point): boolean;
 
     /**
+     * Gets the path between the start and end points.
+     *
+     * @param { boolean } forceClosed - Whether to close the path.
+     * @param { number } start - The distance from the starting point of the segment to the starting point of the path.
+     * @param { number } stop - The distance from the end point of the segment to the starting point of the path.
+     * @param { boolean } startWithMoveTo - Whether the path obtained moveTo to the starting segment.
+     * @param { Path } dst - The path obtained.
+     * @returns { boolean } - Returns false if the segment is zero-length or start >= stop, else return true.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 18
+     */
+    getSegment(forceClosed: boolean, start: number, stop: number, startWithMoveTo: boolean, dst: Path): boolean;
+
+    /**
      * Determines whether the current contour is closed.
      * 
      * @returns { boolean } - Returns true if the current contour is closed, otherwise false.
