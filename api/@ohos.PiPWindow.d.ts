@@ -1187,8 +1187,6 @@ declare namespace PiPWindow {
      * check if picture in picture is possible
      *
      * @test used only for testApi, not for public
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      */
     isPiPPossible(): boolean;
   }
