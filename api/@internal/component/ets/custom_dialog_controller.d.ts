@@ -626,6 +626,18 @@ declare interface CustomDialogControllerOptions {
    * @since 18
    */
   levelOrder?: LevelOrder;
+
+  /**
+   * Specifies whether to get focus when the custom dialog is displayed.
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  focusable?: boolean;
 }
 
 /**
