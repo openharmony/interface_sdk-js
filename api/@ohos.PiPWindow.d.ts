@@ -1186,7 +1186,16 @@ declare namespace PiPWindow {
     /**
      * check if picture in picture is possible
      *
-     * @test used only for testApi, not for public
+     * @returns { boolean } - True if pip is possible, else false
+     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *                                                                2. Incorrect parameter types.
+     *                                                                3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 16
+     * @test
      */
     isPiPPossible(): boolean;
   }
