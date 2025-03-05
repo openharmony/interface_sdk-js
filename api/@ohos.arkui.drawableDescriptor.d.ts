@@ -390,6 +390,17 @@ declare interface AnimationOptions {
    * @since 12
    */
   iterations?: number;
+
+  /**
+   * If true, it will fetch the data using the uri when object is constructing.The default value is false.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  fetchWhenConstructingWithUri?: boolean;
 }
 
 /**
@@ -413,4 +424,49 @@ export class AnimatedDrawableDescriptor extends DrawableDescriptor {
    * @since 12
    */
   constructor(pixelMaps: Array<image.PixelMap>, options?: AnimationOptions);
+
+  /**
+   * Creates a new AnimatedDrawableDescriptor.
+   * @param { Array<image.PixelMap> | ResourceStr } pixelMaps - Indicates the resource to create AnimatedDrawableDescriptor.
+   * @param { ?AnimationOptions } [options] - Animation control options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  constructor(pixelMaps: Array<image.PixelMap> | ResourceStr, options?: AnimationOptions);
+
+  /**
+   * Get the running status of animation.
+   *
+   * @returns { boolean } Return the running status of animation.
+   * @throws { BusinessError } 100001 - Image data is not ready.Maybe you should fetch the data first.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  isRunning(): boolean;
+
+  /**
+   * Start the animation.
+   *
+   * @throws { BusinessError } 100001 - Image data is not ready.Maybe you should fetch the data first.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  start(): void;
+
+  /**
+   * Stop the animation.
+   *
+   * @throws { BusinessError } 100001 - Image data is not ready.Maybe you should fetch the data first.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  stop(): void;
 }
