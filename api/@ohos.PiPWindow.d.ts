@@ -1184,15 +1184,15 @@ declare namespace PiPWindow {
     off(type: 'pipWindowSizeChange', callback?: Callback<PiPWindowSize>): void;
 
     /**
-     * Returns a Boolean value that indicate whether picture in picture is supported
+     * Returns a Boolean value that indicates whether picture-in-picture is supported
      *
-     * @returns { boolean } - True if pip is possible, else false
+     * @returns { boolean } - True if picture-in-picture is supported, otherwise false
      * @throws { BusinessError } 1300014 - PiP internal error.
      * @syscap SystemCapability.Window.SessionManager
      * @since 18
      * @test
      */
-    isSupportPiP(): boolean;
+    isPiPSupported(): boolean;
   }
 }
 
