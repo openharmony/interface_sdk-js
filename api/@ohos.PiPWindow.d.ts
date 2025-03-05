@@ -1184,7 +1184,7 @@ declare namespace PiPWindow {
     off(type: 'pipWindowSizeChange', callback?: Callback<PiPWindowSize>): void;
 
     /**
-     * check if picture in picture is possible
+     * Returns a Boolean value that indicate whether picture in picture is supported
      *
      * @returns { boolean } - True if pip is possible, else false
      * @throws { BusinessError } 1300014 - PiP internal error.
