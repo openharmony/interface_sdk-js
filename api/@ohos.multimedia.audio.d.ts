@@ -4563,6 +4563,7 @@ declare namespace audio {
      *                                 1.Mandatory parameters are left unspecified.
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - System error.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 18
@@ -4602,6 +4603,7 @@ declare namespace audio {
      *                                 1.Mandatory parameters are left unspecified.
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - System error.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 18
@@ -4629,6 +4631,7 @@ declare namespace audio {
      *                                 1.Mandatory parameters are left unspecified.
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - System error.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 18
      */
@@ -4730,7 +4733,7 @@ declare namespace audio {
      * is supported.
      * @param { Callback<VolumeEvent> } callback - Callback used to obtain the invoking volume change event.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                 1.Mandatory parameters missing;
+     *                                 1.Mandatory parameters are left unspecified.
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
