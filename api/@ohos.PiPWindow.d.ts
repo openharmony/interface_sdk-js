@@ -1192,7 +1192,7 @@ declare namespace PiPWindow {
      * @since 18
      * @test
      */
-    isPiPPossible(): boolean;
+    isSupportPiP(): boolean;
   }
 }
 
