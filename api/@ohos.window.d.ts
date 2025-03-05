@@ -8840,7 +8840,7 @@ declare namespace window {
      */
     setWindowContainerColor(activeColor: string, inactiveColor: string): void;
 
-     /**
+    /**
      * Set whether window delay raise is enabled.
      *
      * @param { boolean } isEnabled - The value true means to enable window delay raise, and false means disable window delay raise.
@@ -8852,7 +8852,7 @@ declare namespace window {
      * @atomicservice
      * @since 18
      */
-     setWindowDelayRaiseOnDrag(isEnabled: boolean): void;
+    setWindowDelayRaiseOnDrag(isEnabled: boolean): void;
   }
 
   /**
