@@ -107,8 +107,8 @@ declare namespace geoLocationManager {
    * @atomicservice
    * @since 12
    */
-  export function on(type: 'locationChange', request: LocationRequest | ContinuousLocationRequest,
-  callback: Callback<Location>): void;
+  export function on<T>(type: string, request: LocationRequest | ContinuousLocationRequest,
+  callback: Callback<T>): void;
 
   /**
    * Unsubscribe location changed.
@@ -153,7 +153,7 @@ declare namespace geoLocationManager {
    * @atomicservice
    * @since 11
    */
-  export function off(type: 'locationChange', callback?: Callback<Location>): void;
+  export function off<T>(type: string, callback?: Callback<T>): void;
 
   /**
    * Subscribe continuous location error changed.
@@ -175,7 +175,7 @@ declare namespace geoLocationManager {
    * @atomicservice
    * @since 12
    */
-  export function on(type: 'locationError', callback: Callback<LocationError>): void;
+  export function on<T>(type: string, callback: Callback<T>): void;
 
   /**
    * Unsubscribe continuous location error changed.
@@ -198,7 +198,6 @@ declare namespace geoLocationManager {
    * @atomicservice
    * @since 12
    */
-  export function off(type: 'locationError', callback?: Callback<LocationError>): void;
 
   /**
    * Subscribe location switch changed.
@@ -216,7 +215,6 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
    */
-  export function on(type: 'locationEnabledChange', callback: Callback<boolean>): void;
 
   /**
    * Unsubscribe location switch changed.
@@ -234,7 +232,6 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
    */
-  export function off(type: 'locationEnabledChange', callback?: Callback<boolean>): void;
 
   /**
    * Subscribe to cache GNSS locations update messages.
@@ -258,8 +255,8 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Gnss
    * @since 9
    */
-  export function on(type: 'cachedGnssLocationsChange', request: CachedGnssLocationsRequest,
-    callback: Callback<Array<Location>>): void;
+  export function on<T>(type: string, request: CachedGnssLocationsRequest,
+    callback: Callback<T>): void;
 
   /**
    * Unsubscribe to cache GNSS locations update messages.
@@ -282,7 +279,6 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Gnss
    * @since 9
    */
-  export function off(type: 'cachedGnssLocationsChange', callback?: Callback<Array<Location>>): void;
 
   /**
    * Subscribe satellite status changed.
@@ -304,7 +300,6 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Gnss
    * @since 9
    */
-  export function on(type: 'satelliteStatusChange', callback: Callback<SatelliteStatusInfo>): void;
 
   /**
    * Unsubscribe satellite status changed.
@@ -326,7 +321,6 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Gnss
    * @since 9
    */
-  export function off(type: 'satelliteStatusChange', callback?: Callback<SatelliteStatusInfo>): void;
 
   /**
    * Subscribe nmea message changed.
@@ -348,7 +342,6 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Gnss
    * @since 9
    */
-  export function on(type: 'nmeaMessage', callback: Callback<string>): void;
 
   /**
    * Unsubscribe nmea message changed.
@@ -370,7 +363,6 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Gnss
    * @since 9
    */
-  export function off(type: 'nmeaMessage', callback?: Callback<string>): void;
 
   /**
    * Add a geofence and subscribe geofence status changed.
@@ -394,7 +386,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Geofence
    * @since 9
    */
-  export function on(type: 'gnssFenceStatusChange', request: GeofenceRequest, want: WantAgent): void;
+  export function on<T>(type: string, request: GeofenceRequest, want: WantAgent): void;
 
   /**
    * Remove a geofence and unsubscribe geofence status changed.
@@ -418,7 +410,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Geofence
    * @since 9
    */
-  export function off(type: 'gnssFenceStatusChange', request: GeofenceRequest, want: WantAgent): void;
+  export function off<T>(type: string, request: GeofenceRequest, want: WantAgent): void;
 
   /**
    * Registering the callback function for listening to country code changes.
@@ -437,7 +429,6 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
    */
-  export function on(type: 'countryCodeChange', callback: Callback<CountryCode>): void;
 
   /**
    * Unregistering the callback function for listening to country code changes.
@@ -456,7 +447,6 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
    */
-  export function off(type: 'countryCodeChange', callback?: Callback<CountryCode>): void;
 
   /**
    * Subscribe to changes in WiFi/BT scanning information,
@@ -482,8 +472,8 @@ declare namespace geoLocationManager {
    * @systemapi
    * @since 10
    */
-  export function on(type: 'locatingRequiredDataChange', config: LocatingRequiredDataConfig,
-    callback: Callback<Array<LocatingRequiredData>>): void;
+  export function on<T>(type: string, config: LocatingRequiredDataConfig,
+    callback: Callback<T>): void;
 
   /**
    * Stop WiFi/BT scanning and unsubscribe from WiFi/BT scanning information changes.
@@ -506,7 +496,6 @@ declare namespace geoLocationManager {
    * @systemapi
    * @since 10
    */
-  export function off(type: 'locatingRequiredDataChange', callback?: Callback<Array<LocatingRequiredData>>): void;
 
   /**
    * Subscribe location icon status changed.
@@ -526,7 +515,6 @@ declare namespace geoLocationManager {
    * @systemapi
    * @since 12
    */
-  export function on(type: 'locationIconStatusChange', callback: Callback<LocationIconStatus>): void;
 
   /**
    * Unsubscribe location icon status changed.
@@ -547,7 +535,6 @@ declare namespace geoLocationManager {
    * @systemapi
    * @since 12
    */
-  export function off(type: 'locationIconStatusChange', callback?: Callback<LocationIconStatus>): void;
 
   /**
    * Obtain current location.
