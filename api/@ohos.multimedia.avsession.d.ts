@@ -3619,6 +3619,7 @@ declare namespace avSession {
      * @param { Callback<AVCastPickerState> } callback - The callback used to handle picker state changed event.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types.
+     * @throws { BusinessError } 6600101 - Session service exception.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 14
@@ -3631,6 +3632,7 @@ declare namespace avSession {
      * @param { Callback<AVCastPickerState> } callback - The callback used to handle picker state changed event.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types.
+     * @throws { BusinessError } 6600101 - Session service exception.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 14
