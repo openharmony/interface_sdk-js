@@ -7996,6 +7996,28 @@ declare namespace media {
   }
 
   /**
+   *  Enumerates fill modes of video stream in screen recording.
+   * 
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+   * @since 18
+   */
+  enum AVScreenCaptureFillMode {
+    /**
+     * Keep the scale the same as that of the original image
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 18
+     */
+    PRESERVE_ASPECT_RATIO = 0,
+    /**
+     * Fit the configured width and height
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 18
+     */
+    SCALE_TO_FILL = 1,
+  }
+
+  /**
    *  Enumerates AVScreenCapture callback state type.
    *
    * @enum { number }
@@ -8142,6 +8164,13 @@ declare namespace media {
      * @since 15
      */
     displayId?: number;
+    /**
+     * Indicates the fill mode of video, details see @AVScreenCaptureFillMode
+     * @type { ?AVScreenCaptureFillMode }
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 18
+     */
+    fillMode?: AVScreenCaptureFillMode;
   }
 
   /**
