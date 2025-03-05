@@ -1189,7 +1189,6 @@ declare namespace PiPWindow {
      * @returns { boolean } - True if pip is possible, else false
      * @throws { BusinessError } 1300014 - PiP internal error.
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 18
      * @test
      */
