@@ -102,14 +102,14 @@ export interface ApplicationInfo {
   /**
    * Indicates the description id of the application
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates the description id of the application
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -117,13 +117,13 @@ export interface ApplicationInfo {
   /**
    * Indicates the description id of the application
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  readonly descriptionId: number;
+  readonly descriptionId: int;
 
   /**
    * Indicates whether or not this application may be instantiated
@@ -171,14 +171,14 @@ export interface ApplicationInfo {
   /**
    * Indicates the label id of the application
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates the label id of the application
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -186,13 +186,13 @@ export interface ApplicationInfo {
   /**
    * Indicates the label id of the application
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  readonly labelId: number;
+  readonly labelId: int;
 
   /**
    * Indicates the icon of the application
@@ -223,14 +223,14 @@ export interface ApplicationInfo {
   /**
    * Indicates the icon id of the application
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates the icon id of the application
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -238,13 +238,13 @@ export interface ApplicationInfo {
   /**
    * Indicates the icon id of the application
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  readonly iconId: number;
+  readonly iconId: int;
 
   /**
    * Process of application, if user do not set it ,the value equal bundleName
@@ -357,36 +357,36 @@ export interface ApplicationInfo {
   /**
    * Indicates the access token of the application
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates the access token of the application
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
    */
-  readonly accessTokenId: number;
+  readonly accessTokenId: int;
 
   /**
    * Indicates the uid of the application
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates the uid of the application
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
    */
-  readonly uid: number;
+  readonly uid: int;
 
   /**
    * Indicates icon resource of the application
@@ -558,12 +558,12 @@ export interface ApplicationInfo {
   /**
    * Indicates the index of the bundle
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 12
    */
-  readonly appIndex: number;
+  readonly appIndex: int;
 
   /**
    * Indicates sources to install the app
@@ -601,13 +601,13 @@ export interface ApplicationInfo {
   /**
    * Indicates the flags of the application.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12
    */
-  readonly flags?: number;
+  readonly flags?: int;
 }
 
 /**
@@ -686,12 +686,12 @@ export interface MultiAppMode {
   /**
    * Indicates the max count of the bundle
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 12
    */
-  readonly maxCount: number;
+  readonly maxCount: int;
 }
 
 /**
@@ -729,22 +729,22 @@ export interface PreinstalledApplicationInfo {
   /**
    * Indicates the icon id of the application
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12
    */
-  readonly iconId: number;
+  readonly iconId: int;
 
   /**
    * Indicates the label id of the application
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12
    */
-  readonly labelId: number;
+  readonly labelId: int;
 }
