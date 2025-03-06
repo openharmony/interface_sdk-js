@@ -166,7 +166,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 11
    */
-  interface DataBlob {
+  export interface DataBlob {
     /**
      * Indicates the content of data blob.
      *
@@ -210,7 +210,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface ParamsSpec {
+  export interface ParamsSpec {
     /**
      * Indicates the algorithm name. Should be set before initialization of a cipher object.
      *
@@ -265,7 +265,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface IvParamsSpec extends ParamsSpec {
+  export interface IvParamsSpec extends ParamsSpec {
     /**
      * Indicates the algorithm parameters such as iv.
      *
@@ -320,7 +320,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface GcmParamsSpec extends ParamsSpec {
+  export interface GcmParamsSpec extends ParamsSpec {
     /**
      * Indicates the GCM algorithm parameters such as iv.
      *
@@ -427,7 +427,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface CcmParamsSpec extends ParamsSpec {
+  export interface CcmParamsSpec extends ParamsSpec {
     /**
      * Indicates the GCM algorithm parameters such as IV.
      *
@@ -603,7 +603,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface Key {
+  export interface Key {
     /**
      * Encode the key object to binary data.
      *
@@ -725,7 +725,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface SymKey extends Key {
+  export interface SymKey extends Key {
     /**
      * Reset the key data to zero in the memory.
      *
@@ -777,7 +777,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface PriKey extends Key {
+  export interface PriKey extends Key {
     /**
      * Clear memory of private key.
      *
@@ -902,7 +902,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface PubKey extends Key {
+  export interface PubKey extends Key {
     /**
      * Get the specified parameter of the public key.
      *
@@ -1001,7 +1001,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface KeyPair {
+  export interface KeyPair {
     /**
      * KeyPair's private key.
      *
@@ -1086,7 +1086,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface Random {
+  export interface Random {
     /**
      * Generate random DataBlob by given length.
      *
@@ -1329,7 +1329,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface AsyKeyGenerator {
+  export interface AsyKeyGenerator {
     /**
      * Used to generate asymmetric keypair.
      *
@@ -1699,7 +1699,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface SymKeyGenerator {
+  export interface SymKeyGenerator {
     /**
      * Generate a symmetric key object randomly.
      *
@@ -1994,7 +1994,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface Mac {
+  export interface Mac {
     /**
      * Init hmac with given SymKey.
      *
@@ -2376,7 +2376,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface Md {
+  export interface Md {
     /**
      * Update md with DataBlob.
      *
@@ -2964,7 +2964,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface Cipher {
+  export interface Cipher {
     /**
      * Init the crypto operation with the given crypto mode, key and parameters.
      *
@@ -3697,7 +3697,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface Sign {
+  export interface Sign {
     /**
      * Used to init environment.
      *
@@ -4280,7 +4280,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface Verify {
+  export interface Verify {
     /**
      * Used to init environment.
      *
@@ -4994,7 +4994,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface KeyAgreement {
+  export interface KeyAgreement {
     /**
      * Used to generate secret.
      *
@@ -5985,7 +5985,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface AsyKeySpec {
+  export interface AsyKeySpec {
     /**
      * Indicates the algorithm name of the asymmetric key object.
      *
@@ -6066,7 +6066,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface DSACommonParamsSpec extends AsyKeySpec {
+  export interface DSACommonParamsSpec extends AsyKeySpec {
     /**
      * Indicates the DSA prime p.
      *
@@ -6173,7 +6173,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface DSAPubKeySpec extends AsyKeySpec {
+  export interface DSAPubKeySpec extends AsyKeySpec {
     /**
      * Indicates the DSA common parameters.
      *
@@ -6254,7 +6254,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface DSAKeyPairSpec extends AsyKeySpec {
+  export interface DSAKeyPairSpec extends AsyKeySpec {
     /**
      * Indicates the DSA common parameters.
      *
@@ -6358,7 +6358,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface ECField {
+  export interface ECField {
     /**
      * Indicates the type of an elliptic curve finite field.
      * Currently, only Fp (elliptic curve prime finite field) is supported.
@@ -6416,7 +6416,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface ECFieldFp extends ECField {
+  export interface ECFieldFp extends ECField {
     /**
      * Indicates the prime p.
      *
@@ -6468,7 +6468,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface Point {
+  export interface Point {
     /**
      * Indicates the affine x-coordinate.
      *
@@ -6549,7 +6549,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface ECCCommonParamsSpec extends AsyKeySpec {
+  export interface ECCCommonParamsSpec extends AsyKeySpec {
     /**
      * Indicates an elliptic curve finite field.
      *
@@ -6734,7 +6734,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface ECCPriKeySpec extends AsyKeySpec {
+  export interface ECCPriKeySpec extends AsyKeySpec {
     /**
      * Indicates the ECC common parameters.
      *
@@ -6815,7 +6815,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface ECCPubKeySpec extends AsyKeySpec {
+  export interface ECCPubKeySpec extends AsyKeySpec {
     /**
      * Indicates the ECC common parameters.
      *
@@ -6896,7 +6896,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface ECCKeyPairSpec extends AsyKeySpec {
+  export interface ECCKeyPairSpec extends AsyKeySpec {
     /**
      * Indicates the ECC common parameters.
      *
@@ -6991,7 +6991,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  class ECCKeyUtil {
+  export class ECCKeyUtil {
     /**
      * Create the common parameter set based on the curve name.
      *
@@ -7080,7 +7080,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface DHCommonParamsSpec extends AsyKeySpec {
+  export interface DHCommonParamsSpec extends AsyKeySpec {
     /**
      * Indicates the prime p.
      *
@@ -7158,7 +7158,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface DHPriKeySpec extends AsyKeySpec {
+  export interface DHPriKeySpec extends AsyKeySpec {
     /**
      * Indicates the DH common parameters.
      *
@@ -7217,7 +7217,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface DHPubKeySpec extends AsyKeySpec {
+  export interface DHPubKeySpec extends AsyKeySpec {
     /**
      * Indicates the DH common parameters.
      *
@@ -7276,7 +7276,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface DHKeyPairSpec extends AsyKeySpec {
+  export interface DHKeyPairSpec extends AsyKeySpec {
     /**
      * Indicates the DH common parameters.
      *
@@ -7350,7 +7350,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  class DHKeyUtil {
+  export class DHKeyUtil {
     /**
      * Create the common parameter set.
      *
@@ -7406,7 +7406,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface ED25519PriKeySpec extends AsyKeySpec {
+  export interface ED25519PriKeySpec extends AsyKeySpec {
     /**
      * Indicates the private value of the ED25519 private key.
      *
@@ -7446,7 +7446,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface ED25519PubKeySpec extends AsyKeySpec {
+  export interface ED25519PubKeySpec extends AsyKeySpec {
     /**
      * Indicates the public value of the ED25519 public key.
      *
@@ -7486,7 +7486,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface ED25519KeyPairSpec extends AsyKeySpec {
+  export interface ED25519KeyPairSpec extends AsyKeySpec {
     /**
      * Indicates the private value of the ED25519 private key.
      *
@@ -7545,7 +7545,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface X25519PriKeySpec extends AsyKeySpec {
+  export interface X25519PriKeySpec extends AsyKeySpec {
     /**
      * Indicates the private value of the X25519 private key.
      *
@@ -7585,7 +7585,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface X25519PubKeySpec extends AsyKeySpec {
+  export interface X25519PubKeySpec extends AsyKeySpec {
     /**
      * Indicates the public value of the X25519 public key.
      *
@@ -7625,7 +7625,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface X25519KeyPairSpec extends AsyKeySpec {
+  export interface X25519KeyPairSpec extends AsyKeySpec {
     /**
      * Indicates the private value of the X25519 private key.
      *
@@ -7692,7 +7692,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface RSACommonParamsSpec extends AsyKeySpec {
+  export interface RSACommonParamsSpec extends AsyKeySpec {
     /**
      * Indicates the modulus n.
      *
@@ -7747,7 +7747,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface RSAPubKeySpec extends AsyKeySpec {
+  export interface RSAPubKeySpec extends AsyKeySpec {
     /**
      * Indicates the RSA common parameters.
      *
@@ -7828,7 +7828,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface RSAKeyPairSpec extends AsyKeySpec {
+  export interface RSAKeyPairSpec extends AsyKeySpec {
     /**
      * Indicates the RSA common parameters.
      *
@@ -7932,7 +7932,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface AsyKeyGeneratorBySpec {
+  export interface AsyKeyGeneratorBySpec {
     /**
      * Generate an asymmetric keypair.
      *
@@ -8285,7 +8285,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface KdfSpec {
+  export interface KdfSpec {
     /**
      * Indicates the algorithm name of key derivation function.
      *
@@ -8325,7 +8325,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface PBKDF2Spec extends KdfSpec {
+  export interface PBKDF2Spec extends KdfSpec {
     /**
      * Indicates the password parameter of PBKDF2.
      *
@@ -8413,7 +8413,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface HKDFSpec extends KdfSpec {
+  export interface HKDFSpec extends KdfSpec {
     /**
      * Indicates the key parameter of HKDF.
      *
@@ -8476,7 +8476,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface Kdf {
+  export interface Kdf {
     /**
      * Generate a dataBlob object of secret key.
      *
@@ -8612,7 +8612,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  interface SM2CipherTextSpec {
+  export interface SM2CipherTextSpec {
     /**
      * Indicates the x coordinate, also known as C1x.
      *
@@ -8666,7 +8666,7 @@ declare namespace cryptoFramework {
    * @atomicservice
    * @since 12
    */
-  class SM2CryptoUtil {
+  export class SM2CryptoUtil {
     /**
      * Generate the SM2 ciphertext in ASN.1 format according to the specific data.
      *
