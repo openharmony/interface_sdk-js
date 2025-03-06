@@ -658,7 +658,7 @@ declare namespace inputMethodEngine {
      * Unsubscribe 'callingDisplayChanged' event.
      *
      * @param { 'callingDisplayChanged' } type - indicates the type of subscribe event.
-     * @param { ?Callback<number> } [callback] - optional, indicates the callback of off('callingDisplayChanged').
+     * @param { Callback<number> } [callback] - optional, indicates the callback of off('callingDisplayChanged').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 18
      */
