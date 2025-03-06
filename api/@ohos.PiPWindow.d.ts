@@ -1189,6 +1189,7 @@ declare namespace PiPWindow {
      * @returns { boolean } - True if picture-in-picture is supported, otherwise false
      * @throws { BusinessError } 1300014 - PiP internal error.
      * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use
      * @since 18
      * @test
      */
