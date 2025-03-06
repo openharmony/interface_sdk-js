@@ -536,8 +536,8 @@ declare namespace photoAccessHelper {
      * COLOR_STYLE_PHOTO indicates that color style photo can be recommended
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 12
+     * @systemapi
+     * @since 18
      */
     COLOR_STYLE_PHOTO = 12
   }
