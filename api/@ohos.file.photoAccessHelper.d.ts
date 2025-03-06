@@ -530,7 +530,16 @@ declare namespace photoAccessHelper {
      * @atomicservice
      * @since 12
      */
-    FEATURED_SINGLE_PORTRAIT = 10
+    FEATURED_SINGLE_PORTRAIT = 10,
+
+    /**
+     * COLOR_STYLE_PHOTO indicates that color style photo can be recommended
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 12
+     */
+    COLOR_STYLE_PHOTO = 12
   }
 
   /**
