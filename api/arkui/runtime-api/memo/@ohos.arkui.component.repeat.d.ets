@@ -14,7 +14,7 @@
  */
 
 import { memo } from "../annotations"
-import { KoalaCallsiteKey, int32 } from "../common"
+import { KoalaCallsiteKey, int32 } from "@ohos.arkui.common"
 import { StateContext } from "../states/State"
 @memo export declare function Repeat(count: int32, @memo action: (index: int32) => void): void
 export declare function Repeat(__memo_context: StateContext, __memo_id: KoalaCallsiteKey, count: int32, action: (__memo_context: StateContext, __memo_id: KoalaCallsiteKey, index: int32) => void): void

@@ -14,12 +14,12 @@
  */
 
 import { memo } from "../annotations"
-import { KoalaCallsiteKey } from "../common"
+import { KoalaCallsiteKey } from "@ohos.arkui.common"
 import { StateContext } from "../states/State"
 export declare class MemoCallbackContext {
-    private readonly context: StateContext
-    private readonly id: KoalaCallsiteKey
-    private constructor(context: StateContext, id: KoalaCallsiteKey)
+    readonly context: StateContext
+    readonly id: KoalaCallsiteKey
+    constructor(context: StateContext, id: KoalaCallsiteKey)
     @memo static Make(): MemoCallbackContext
     call(@memo callback: (args: Int32Array) => number, args: Int32Array): number
 }

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { KoalaCallsiteKey } from "./common"
+import { KoalaCallsiteKey } from "@ohos.arkui.common"
 import { StateContext } from "./states/State"
 export type __memo_context_type = StateContext
 export type __memo_id_type = KoalaCallsiteKey

@@ -15,7 +15,7 @@
 
 import { memo, memo_intrinsic } from "../annotations"
 import { State, StateContext } from "../states/State"
-import { KoalaCallsiteKey } from "../common"
+import { KoalaCallsiteKey } from "@ohos.arkui.common"
 import { ReadonlyTreeNode } from "../tree/ReadonlyTreeNode"
 @memo_intrinsic export declare function contextLocal<Value>(name: string): State<Value> | undefined
 @memo_intrinsic export declare function contextLocalValue<Value = ReadonlyTreeNode>(name: string): Value // TODO

@@ -14,7 +14,7 @@
  */
 
 import { memo, memo_intrinsic } from "../annotations"
-import { uint32, KoalaCallsiteKey } from "../common"
+import { uint32, KoalaCallsiteKey } from "@ohos.arkui.common"
 import { GlobalStateManager } from "../states/GlobalStateManager"
 import { ComputableState, State, StateContext, StateManager } from "../states/State"
 import { IncrementalNode } from "../tree/IncrementalNode"

@@ -14,7 +14,7 @@
  */
 
 import { memo, memo_entry } from "../annotations"
-import { KoalaCallsiteKey } from "../common"
+import { KoalaCallsiteKey } from "@ohos.arkui.common"
 import { ComputableState, StateContext } from "../states/State"
 import { IncrementalNode } from "../tree/IncrementalNode"
 export declare function memoRoot<Node extends IncrementalNode>(node: Node, @memo update: (node: Node) => void): ComputableState<Node>

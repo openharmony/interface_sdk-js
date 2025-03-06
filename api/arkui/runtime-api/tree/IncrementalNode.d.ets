@@ -13,16 +13,16 @@
  * limitations under the License.
  */
 
-import { uint32 } from "../common"
+import { uint32 } from "@ohos.arkui.common"
 import { Disposable } from "../states/Disposable"
 import { ReadonlyTreeNode } from "./ReadonlyTreeNode"
 export declare class IncrementalNode implements Disposable, ReadonlyTreeNode {
-    private _disposed: boolean
-    private _child: IncrementalNode | undefined
-    private _prev: IncrementalNode | undefined
-    private _next: IncrementalNode | undefined
-    private _parent: IncrementalNode | undefined
-    private _incremental: IncrementalNode | undefined
+    _disposed: boolean
+    _child: IncrementalNode | undefined
+    _prev: IncrementalNode | undefined
+    _next: IncrementalNode | undefined
+    _parent: IncrementalNode | undefined
+    _incremental: IncrementalNode | undefined
     protected onChildInserted: ((node: IncrementalNode) => void) | undefined
     protected onChildRemoved: ((node: IncrementalNode) => void) | undefined
     readonly kind: uint32

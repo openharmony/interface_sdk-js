@@ -58,7 +58,7 @@ export {
     RepeatByArray,
     RepeatRange,
     RepeatWithKey,
-} from "./arkui/runtime-api/memo/repeat"
+} from "@ohos.arkui.repeat"
 export {
     TestNode,
     testRoot,
