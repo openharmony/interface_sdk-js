@@ -686,6 +686,14 @@ declare namespace deviceInfo {
    * @since 15
    */
   const diskSN: string;
+
+  /**
+   * Obtaining the performance class.
+   *
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 15
+   */
+  const performanceClass: number;
 }
 
 export default deviceInfo;
