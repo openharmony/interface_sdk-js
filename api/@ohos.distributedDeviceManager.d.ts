@@ -568,9 +568,7 @@ declare namespace distributedDeviceManager {
   /**
    * Releases the {@code DeviceManager} instance that is no longer used.
    *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @param { DeviceManager } deviceManager - Indicates the {@code DeviceManager} instance.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                                  1. Mandatory parameters are left unspecified;
    *                                                  2. Incorrect parameter types;
