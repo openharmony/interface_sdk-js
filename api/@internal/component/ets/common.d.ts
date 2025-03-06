@@ -28482,6 +28482,61 @@ declare type OnScrollCallback = (scrollOffset: number, scrollState: ScrollState)
 declare type OnMoveHandler = (from: number, to: number) => void;
 
 /**
+ * Define item drag event handler.
+ *
+ * @interface ItemDragEventHandler
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+declare interface ItemDragEventHandler {
+  /**
+   * This callback is triggered when the item is long pressed.
+   *
+   * @type { ?Callback<number> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  onLongPress?: Callback<number>;
+
+  /**
+   * This callback is triggered when the item is dragged.
+   *
+   * @type { ?Callback<number> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  onDragStart?: Callback<number>;
+
+  /**
+   * This callback is triggered when an item is moved through other items.
+   *
+   * @type { ?Callback<number> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  onMoveThrough?: OnMoveHandler;
+
+  /**
+   * This callback is triggered when the item is dropped.
+   *
+   * @type { ?Callback<number> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  onDrop?: Callback<number>;
+}
+
+/**
  * Define DynamicNode.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -28501,6 +28556,19 @@ declare class DynamicNode<T> {
    * @since 12
    */
   onMove(handler: Optional<OnMoveHandler>): T;
+
+  /**
+   * Set the move action.
+   *
+   * @param { Optional<OnMoveHandler> } handler
+   * @param { ItemDragEventHandler } eventHandler
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  onMove(handler: Optional<OnMoveHandler>, eventHandler: ItemDragEventHandler): T;
 }
 
 /**
