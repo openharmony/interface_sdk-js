@@ -721,7 +721,7 @@ declare namespace resourceManager {
    * @since 6
    * @deprecated since 9
    */
-  declare type AsyncCallback<T> = (err: Error, data: T) => void;
+  export type AsyncCallback<T> = (err: Error, data: T) => void;
 
   /**
    * Obtains the ResourceManager object of the current application.
@@ -4707,5 +4707,4 @@ declare namespace resourceManager {
    */
   export type Resource = _Resource;
 }
-export AsyncCallback<T>;
 export default resourceManager;
