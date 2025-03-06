@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { int32, KoalaCallsiteKey, uint32 } from "../common"
+import { int32, KoalaCallsiteKey, uint32 } from "@ohos.arkui.common"
 import { Disposable } from "./Disposable"
 import { IncrementalNode } from "../tree/IncrementalNode"
 export declare const CONTEXT_ROOT_SCOPE: string

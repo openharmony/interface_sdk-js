@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { uint32 } from "../common"
+import { uint32 } from "@ohos.arkui.common"
 export declare class TreePath<Node> {
     readonly node: Node
     readonly parent: TreePath<Node> | undefined

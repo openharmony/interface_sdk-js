@@ -13,5 +13,5 @@
  * limitations under the License.
  */
 
-import { uint32 } from "../common"
+import { uint32 } from "@ohos.arkui.common"
 export declare const PrimeNumbers: ReadonlyArray<uint32>

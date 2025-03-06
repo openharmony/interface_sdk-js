@@ -14,7 +14,7 @@
  */
 
 import { memo, memo_intrinsic } from "../annotations"
-import { uint32, KoalaCallsiteKey } from "../common"
+import { uint32, KoalaCallsiteKey } from "@ohos.arkui.common"
 import { IncrementalNode } from "../tree/IncrementalNode"
 import { StateContext } from "../states/State"
 @memo_intrinsic export declare function NodeAttach<Node extends IncrementalNode>(create: () => Node, @memo update: (node: Node) => void): void
@@ -22,7 +22,7 @@ import { StateContext } from "../states/State"
 export declare function NodeAttach<Node extends IncrementalNode>(__memo_context: StateContext, __memo_id: KoalaCallsiteKey, create: () => Node, update: (__memo_context: StateContext, __memo_id: KoalaCallsiteKey, node: Node) => void): void
 export declare function contextNode<T extends IncrementalNode>(__memo_context: StateContext, __memo_id: KoalaCallsiteKey, kind: uint32 = 1, name?: string): T
 export declare class DataNode<Data> extends IncrementalNode {
-    private data: Data | undefined
+    data: Data | undefined
     constructor(kind: uint32 = 1)
     static attach<Data>(kind: uint32, data: Data, onDataChange?: () => void): void
     static extract<Data>(kind: uint32, node: IncrementalNode): Data | undefined

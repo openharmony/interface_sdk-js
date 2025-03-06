@@ -15,7 +15,7 @@
 
 import { ArrayState, Equivalent, MutableState, StateManager, ValueTracker } from "./State"
 export declare class GlobalStateManager {
-    private static current: StateManager | undefined
+    static current: StateManager | undefined
     static get instance(): StateManager
     static reset(): void
 }

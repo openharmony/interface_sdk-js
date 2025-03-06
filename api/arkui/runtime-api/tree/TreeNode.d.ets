@@ -13,15 +13,15 @@
  * limitations under the License.
  */
 
-import { float64, int32, uint32 } from "../common"
+import { float64, int32, uint32 } from "@ohos.arkui.common"
 import { Disposable } from "../states/Disposable"
 import { ReadonlyTreeNode } from "./ReadonlyTreeNode"
 export declare class TreeNode implements Disposable, ReadonlyTreeNode {
-    private myIndex: int32
-    private myParent: TreeNode | undefined
-    private myChildren: Array<TreeNode>
-    private myIndicesValid: boolean
-    private myDisposed: boolean
+    myIndex: int32
+    myParent: TreeNode | undefined
+    myChildren: Array<TreeNode>
+    myIndicesValid: boolean
+    myDisposed: boolean
     readonly kind: uint32
     protected onChildInserted: ((node: TreeNode, index: int32) => void) | undefined
     protected onChildRemoved: ((node: TreeNode, index: int32) => void) | undefined
@@ -47,10 +47,10 @@ export declare class TreeNode implements Disposable, ReadonlyTreeNode {
     removeChildrenAt(index: int32, count?: uint32): Array<TreeNode>
     removeChild(node: TreeNode): boolean
     removeFromParent(): void
-    private removeNodes(index: int32, count: uint32): Array<TreeNode>
-    private insertNodeAt(index: int32, node: TreeNode): void
-    private insertable(node: TreeNode): boolean
-    private accessible(index: int32, count: uint32 = 1): boolean
+    removeNodes(index: int32, count: uint32): Array<TreeNode>
+    insertNodeAt(index: int32, node: TreeNode): void
+    insertable(node: TreeNode): boolean
+    accessible(index: int32, count: uint32 = 1): boolean
     toString(): string
     toHierarchy(): string
     collectNodes(): Array<TreeNode>
