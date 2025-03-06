@@ -4763,7 +4763,7 @@ export default class UIAbilityContext extends Context {
 
   /**
    * Set label and icon for current ability instance.
-   * You need to apply for permission:ohos.permission.SET_ABILITY_INSTANCE_INFO to call this founction.
+   * You need to apply for permission:ohos.permission.SET_ABILITY_INSTANCE_INFO to call this function.
    *
    * @permission ohos.permission.SET_ABILITY_INSTANCE_INFO
    * @param { string } label - The label of ability to be displayed in the Task Center and shortcut bar.
