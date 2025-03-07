@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ArrayState, Equivalent, MutableState, StateManager, ValueTracker } from "./State"
+import { ArrayState, Equivalent, MutableState, StateManager, ValueTracker } from '@koalaui.runtime.states.State'
 export declare class GlobalStateManager {
     static current: StateManager | undefined
     static get instance(): StateManager
@@ -21,6 +21,11 @@ export declare class GlobalStateManager {
 }
 export declare function updateStateManager(manager: StateManager = GlobalStateManager.instance): void
 export declare function callScheduledCallbacks(manager: StateManager = GlobalStateManager.instance): void
-export declare function scheduleCallback(callback?: () => void, manager: StateManager = GlobalStateManager.instance): void
-export declare function mutableState<T>(value: T, equivalent?: Equivalent<T>, tracker?: ValueTracker<T>): MutableState<T>
+export declare function scheduleCallback(
+    callback?: () => void,
+    manager: StateManager = GlobalStateManager.instance): void
+export declare function mutableState<T>(
+    value: T,
+    equivalent?: Equivalent<T>,
+    tracker?: ValueTracker<T>): MutableState<T>
 export declare function arrayState<T>(array?: ReadonlyArray<T>, equivalent?: Equivalent<T>): ArrayState<T>

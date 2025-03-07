@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,18 +13,5 @@
  * limitations under the License.
  */
 
-@Retention({policy: "SOURCE"})
-export @interface BuilderLambda {
-    value: string
-}
-
-@Retention({policy: "SOURCE"})
-export @interface Component {}
-
-@Retention({policy: "SOURCE"})
-export @interface State {}
-
-@Retention({policy: "SOURCE"})
-export @interface StorageLink {
-    value: string
-}
+import { uint32 } from '@koalaui.runtime.common'
+export declare const PrimeNumbers: ReadonlyArray<uint32>

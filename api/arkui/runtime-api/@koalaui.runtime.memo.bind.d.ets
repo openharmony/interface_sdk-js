@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { memo } from "../annotations"
-import { KoalaCallsiteKey } from "@ohos.arkui.common"
-import { StateContext } from "../states/State"
+import { memo } from '@koalaui.runtime.annotations'
+import { KoalaCallsiteKey } from '@koalaui.runtime.common'
+import { StateContext } from '@koalaui.runtime.states.State'
 export declare class MemoCallbackContext {
     readonly context: StateContext
     readonly id: KoalaCallsiteKey

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { uint32 } from "@ohos.arkui.common"
-import { Disposable } from "../states/Disposable"
-import { ReadonlyTreeNode } from "./ReadonlyTreeNode"
+import { uint32 } from '@koalaui.runtime.common'
+import { Disposable } from '@koalaui.runtime.states.Disposable'
+import { ReadonlyTreeNode } from '@koalaui.runtime.tree.ReadonlyTreeNode'
 export declare class IncrementalNode implements Disposable, ReadonlyTreeNode {
     _disposed: boolean
     _child: IncrementalNode | undefined
