@@ -2859,7 +2859,9 @@
         "since": 16,
         "deprecated": "",
         "provisionEnable": true,
-        "distributedSceneEnable": false
+        "distributedSceneEnable": false,
+        "isKernelEffect": false,
+        "hasValue": true
       },
       {
         "name": "ohos.permission.ACCESS_DDK_HID",
