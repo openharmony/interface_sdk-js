@@ -776,6 +776,13 @@ declare namespace audio {
      */
     USB_DEVICE = 25,
     /**
+     * Distributed virtualization audio device.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
+     * @since 18
+     */
+    REMOTE_DAUDIO = 29,
+    /**
      * Default device type.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 9
@@ -6390,6 +6397,17 @@ declare namespace audio {
      * @since 18
      */
     readonly spatializationSupported?: boolean;
+
+    /**
+     * Only {@link DeviceType.SPEAKER} with networkId、{@link DeviceType.REMOTE_CAST}
+     * or {@link DeviceType.REMOTE_DAUDIO} has dmDeviceType which indicated deviceTypeId.
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 18
+     */
+    readonly dmDeviceType?: number;
   }
 
   /**
