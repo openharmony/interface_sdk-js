@@ -315,16 +315,16 @@ declare class Indicator<T> {
   /**
    * Set the offset of indicator to the bottom.
    *
-   * @param { LengthMetrics } bottom - the offset of indicator to the bottom.
+   * @param { LengthMetrics | Length } bottom - the offset of indicator to the bottom.
    * @param { boolean } ignoreSize - ignore the size of the indicator.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */
-  bottom(bottom: LengthMetrics, ignoreSize: boolean): T;
+  bottom(bottom: LengthMetrics | Length, ignoreSize: boolean): T;
 
   /**
    * Set the indicator to the left in LTR
