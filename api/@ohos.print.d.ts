@@ -2638,7 +2638,7 @@ declare namespace print {
    * @systemapi Hide this for inner system use.
    * @since 18
    */
-  function setPrinterPreferences(printerId: string, printerPreferences: PrinterPreferences): Promise<void>;
+  function setPrinterPreference(printerId: string, printerPreferences: PrinterPreferences): Promise<void>;
 
   /**
    * Discover all usb printers.
@@ -2651,6 +2651,21 @@ declare namespace print {
    * @since 18
    */
   function discoverUsbPrinters(): Promise<Array<PrinterInformation>>;
+
+  /**
+   * Save the default printer set by the user.
+   * @permission ohos.permission.MANAGE_PRINT_JOB
+   * @param { string } printerId - Indicates the printer to be set as the default printer.
+   * @param { DefaultPrinterType } type - Indicates the default printer type.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 18
+   */
+  function setDefaultPrinter(printerId: string, type: DefaultPrinterType): Promise<void>;
 
   /**
    * Register event callback for the change of printer.
