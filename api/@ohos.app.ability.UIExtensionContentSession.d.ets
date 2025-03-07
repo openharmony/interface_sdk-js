@@ -25,6 +25,7 @@ import type Want from './@ohos.app.ability.Want';
 import type StartOptions from './@ohos.app.ability.StartOptions';
 import type uiExtensionHost from './@ohos.uiExtensionHost';
 import type uiExtension from './@ohos.arkui.uiExtension';
+import { LocalStorage } from './@ohos.arkui.component.CommonTsEtsApi';
 
 /**
  * class of ui extension content session.
@@ -155,9 +156,6 @@ declare class UIExtensionContentSession {
    * @since 10
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
-  startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
-  startAbility(want: Want, options?: StartOptions): Promise<void>;
-  startability(want: Want, options?: StartOptions, callback?: AsyncCallback<void>): Promise<void>;
 
   /**
    * UI extension uses this method to start a specific ability.If the caller application is in foreground,
@@ -266,7 +264,6 @@ declare class UIExtensionContentSession {
    * @since 11
    */
   startAbilityAsCaller(want: Want, callback: AsyncCallback<void>): void;
-  startAbilityAsCaller(want: Want, options?: StartOptions, callback?: AsyncCallback<void>): Promise<void>;
 
   /**
    * Starts a new ability using the original caller information. If the caller application is in foreground,
@@ -375,9 +372,6 @@ declare class UIExtensionContentSession {
    * @since 10
    */
   startAbilityForResult(want: Want, callback: AsyncCallback<AbilityResult>): void;
-  startAbilityForResult(want: Want, options: StartOptions, callback: AsyncCallback<AbilityResult>): void;
-  startAbilityForResult(want: Want, options?: StartOptions): Promise<AbilityResult>;
-  startAbilityForResult(want: Want, options?: StartOptions, callback?: AsyncCallback<AbilityResult>): Promise<AbilityResult>;
 
   /**
    * Starts an ability and returns the execution result when the ability is destroyed.

@@ -74,4 +74,4 @@ interface ConnectOptions {
   onFailed(code: number): void;
 }
 
-export default ConnectOptions; 
+export ConnectOptions;
