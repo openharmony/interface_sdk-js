@@ -319,7 +319,16 @@ declare namespace window {
      * @stagemodelonly
      * @since 15
      */
-    TYPE_SCREEN_CONTROL
+    TYPE_SCREEN_CONTROL,
+    /**
+     * TYPE_FLOAT_NAVIGATION.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 16
+     */
+    TYPE_FLOAT_NAVIGATION
   }
 
   /**
