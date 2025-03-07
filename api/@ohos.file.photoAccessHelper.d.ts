@@ -2305,7 +2305,15 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 14
      */
-    THUMBNAIL_VISIBLE = 'thumbnail_visible'
+    THUMBNAIL_VISIBLE = 'thumbnail_visible',
+    /**
+     * Whether the photo supports auto cloud enhancement task, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 18
+     */
+    IS_CE_AUTO = 'is_auto'
 
   }
 
@@ -7531,6 +7539,30 @@ declare namespace photoAccessHelper {
      * @since 13
      */
     submitCloudEnhancementTasks(photoAssets: Array<PhotoAsset>, hasCloudWatermark: boolean): Promise<void>;
+
+    /**
+     * Submit cloud enhancement tasks.
+     * 
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Array<PhotoAsset> } photoAssets - The photo assets requested
+     * @param { boolean } hasCloudWatermark - true: Persistent cloud watermark; false: Not persistent cloud watermark.
+     * @param { number } triggerMode - Cloud enhancement task type.
+     * 0: Manual cloud enhancement task; 1: Auto cloud enhancement task. The default value is 0.
+     * @returns { Promise<void> } Returns void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 18
+     */
+    submitCloudEnhancementTasks(
+      photoAssets: Array<PhotoAsset>,
+      hasCloudWatermark: boolean,
+      triggerMode?: number
+    ): Promise<void>;
 
     /**
      * Prioritize cloud enhancement task.
