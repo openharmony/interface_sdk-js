@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,14 +13,24 @@
  * limitations under the License.
  */
 
-import { memo, memo_intrinsic } from "../annotations"
-import { uint32, KoalaCallsiteKey } from "@ohos.arkui.common"
-import { IncrementalNode } from "../tree/IncrementalNode"
-import { StateContext } from "../states/State"
-@memo_intrinsic export declare function NodeAttach<Node extends IncrementalNode>(create: () => Node, @memo update: (node: Node) => void): void
+import { memo, memo_intrinsic } from '@koalaui.runtime.annotations'
+import { uint32, KoalaCallsiteKey } from '@koalaui.runtime.common'
+import { IncrementalNode } from '@koalaui.runtime.tree.IncrementalNode'
+import { StateContext } from '@koalaui.runtime.states.State'
+@memo_intrinsic export declare function NodeAttach<Node extends IncrementalNode>(
+    create: () => Node, @memo update: (node: Node) => void): void
 @memo_intrinsic export declare function contextNode<T extends IncrementalNode>(kind: uint32 = 1, name?: string): T
-export declare function NodeAttach<Node extends IncrementalNode>(__memo_context: StateContext, __memo_id: KoalaCallsiteKey, create: () => Node, update: (__memo_context: StateContext, __memo_id: KoalaCallsiteKey, node: Node) => void): void
-export declare function contextNode<T extends IncrementalNode>(__memo_context: StateContext, __memo_id: KoalaCallsiteKey, kind: uint32 = 1, name?: string): T
+export declare function NodeAttach<Node extends IncrementalNode>(
+    __memo_context: StateContext,
+    __memo_id: KoalaCallsiteKey,
+    create: () => Node,
+    update: (__memo_context: StateContext,
+    __memo_id: KoalaCallsiteKey, node: Node) => void): void
+export declare function contextNode<T extends IncrementalNode>(
+    __memo_context: StateContext,
+    __memo_id: KoalaCallsiteKey,
+    kind: uint32 = 1,
+    name?: string): T
 export declare class DataNode<Data> extends IncrementalNode {
     data: Data | undefined
     constructor(kind: uint32 = 1)

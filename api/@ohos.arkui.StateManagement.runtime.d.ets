@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,27 +19,27 @@ export {
     memoPartialBind2_1,
     memoPartialBind3_2,
     MemoCallbackContext,
-} from "./arkui/runtime-api/memo/bind"
+} from '@koalaui.runtime.memo.bind'
 export {
     OnChange,
     RunEffect,
-} from "./arkui/runtime-api/memo/changeListener"
+} from '@koalaui.runtime.memo.changeListener'
 export {
     contextLocal,
     contextLocalScope,
     contextLocalValue,
-} from "./arkui/runtime-api/memo/contextLocal"
+} from '@koalaui.runtime.memo.contextLocal'
 export {
     memoRoot,
     memoEntry,
     memoEntry1,
     memoEntry2,
-} from "./arkui/runtime-api/memo/arkentry"
+} from '@koalaui.runtime.memo.entry'
 export {
     DataNode,
     NodeAttach,
     contextNode,
-} from "./arkui/runtime-api/memo/node"
+} from '@koalaui.runtime.memo.node'
 export {
     memoize,
     memoLifecycle,
@@ -52,26 +52,26 @@ export {
     rememberDisposable,
     rememberMutableAsyncState,
     rememberMutableState,
-} from "./arkui/runtime-api/memo/remember"
+} from '@koalaui.runtime.memo.remember'
 export {
     Repeat,
     RepeatByArray,
     RepeatRange,
     RepeatWithKey,
-} from "@ohos.arkui.repeat"
+} from '@koalaui.runtime.memo.repeat'
 export {
     TestNode,
     testRoot,
     testTick,
     testUpdate,
-} from "./arkui/runtime-api/memo/testing"
+} from '@koalaui.runtime.memo.testing'
 
 export {
     Disposable,
     disposeContent,
     disposeContentBackward,
     disposeContentForward,
-} from "./arkui/runtime-api/states/Disposable"
+} from '@koalaui.runtime.states.Disposable'
 export {
     GlobalStateManager,
     arrayState,
@@ -79,7 +79,7 @@ export {
     mutableState,
     scheduleCallback,
     updateStateManager,
-} from "./arkui/runtime-api/states/GlobalStateManager"
+} from '@koalaui.runtime.states.GlobalStateManager'
 export {
     ArrayState,
     CONTEXT_ROOT_NODE,
@@ -92,7 +92,7 @@ export {
     StateContext,
     StateManager,
     ValueTracker,
-} from "./arkui/runtime-api/states/State"
+} from '@koalaui.runtime.states.State'
 export {
     __context,
     __id,
@@ -102,12 +102,12 @@ export {
     __memo_transformed,
     __memo_transformed_before,
     __memo_transformed_after,
-} from "./arkui/runtime-api/internals"
+} from '@koalaui.runtime.internals'
 
-export { IncrementalNode } from "./arkui/runtime-api/tree/IncrementalNode"
-export { PrimeNumbers } from "./arkui/runtime-api/tree/PrimeNumbers"
-export { ReadonlyTreeNode } from "./arkui/runtime-api/tree/ReadonlyTreeNode"
-export { TreeNode } from "./arkui/runtime-api/tree/TreeNode"
-export { TreePath } from "./arkui/runtime-api/tree/TreePath"
+export { IncrementalNode } from '@koalaui.runtime.tree.IncrementalNode'
+export { PrimeNumbers } from '@koalaui.runtime.tree.PrimeNumbers'
+export { ReadonlyTreeNode } from '@koalaui.runtime.tree.ReadonlyTreeNode'
+export { TreeNode } from '@koalaui.runtime.tree.TreeNode'
+export { TreePath } from '@koalaui.runtime.tree.TreePath'
 
-export { memo, memo_intrinsic, memo_entry, memo_stable, memo_skip } from "./arkui/runtime-api/annotations"
+export { memo, memo_intrinsic, memo_entry, memo_stable, memo_skip } from '@koalaui.runtime.annotations'

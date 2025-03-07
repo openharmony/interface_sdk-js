@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { BuilderLambda } from "@koalaui.arkts-arkui.Common"
-import { __memo_context_type, __memo_id_type, memo } from "@ohos.arkui.StateManagement.runtime";
+import { BuilderLambda } from '@koalaui.arkts-arkui.Common'
+import { __memo_context_type, __memo_id_type, memo } from '@ohos.arkui.StateManagement.runtime';
 
 export declare class Button {
     // TODO: the second argument will be gone after hte plugin is improved

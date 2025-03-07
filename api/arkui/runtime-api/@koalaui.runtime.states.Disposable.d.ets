@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,11 +13,10 @@
  * limitations under the License.
  */
 
-
-import { __memo_context_type, __memo_id_type, memo } from "@ohos.arkui.StateManagement.runtime";
-
-export type UserViewBuilder = (__memo_context: __memo_context_type, __memo_id: __memo_id_type) => void;
-
-export declare class UserView {
-    getBuilder(__memo_context: __memo_context_type, __memo_id: __memo_id_type): UserViewBuilder;
+export declare interface Disposable {
+    readonly disposed: boolean
+    dispose(): void
 }
+export declare function disposeContentForward<Type extends Disposable>(array: ReadonlyArray<Type | undefined>): void
+export declare function disposeContentBackward<Type extends Disposable>(array: ReadonlyArray<Type | undefined>): void
+export declare function disposeContent<Type extends Disposable>(it: IterableIterator<Type | undefined>): void

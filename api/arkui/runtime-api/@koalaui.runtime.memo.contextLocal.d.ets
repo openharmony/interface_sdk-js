@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,10 +13,10 @@
  * limitations under the License.
  */
 
-import { memo, memo_intrinsic } from "../annotations"
-import { State, StateContext } from "../states/State"
-import { KoalaCallsiteKey } from "@ohos.arkui.common"
-import { ReadonlyTreeNode } from "../tree/ReadonlyTreeNode"
+import { memo, memo_intrinsic } from '@koalaui.runtime.annotations'
+import { State, StateContext } from '@koalaui.runtime.states.State'
+import { KoalaCallsiteKey } from '@koalaui.runtime.common'
+import { ReadonlyTreeNode } from '@koalaui.runtime.tree.ReadonlyTreeNode'
 @memo_intrinsic export declare function contextLocal<Value>(name: string): State<Value> | undefined
 @memo_intrinsic export declare function contextLocalValue<Value = ReadonlyTreeNode>(name: string): Value // TODO
 export declare function contextLocalValue<Value = ReadonlyTreeNode>(stateContext: StateContext, id: KoalaCallsiteKey, name: string): Value // TODO
