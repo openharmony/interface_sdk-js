@@ -27,7 +27,7 @@ import { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.Communication.IPC.Core
  * @since 7
  */
-export default declare namespace rpc {
+declare namespace rpc {
   /**
    * The error code of rpc.
    *
@@ -1171,7 +1171,7 @@ export default declare namespace rpc {
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 9
    */
-  class MessageSequence {
+  export class MessageSequence {
     /**
      * Creates an empty {@link MessageSequence} object.
      *
@@ -2303,7 +2303,7 @@ export default declare namespace rpc {
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 11
    */
-  interface Parcelable {
+  export interface Parcelable {
     /**
      * Marshal this {@code Parcelable} object into a {@link MessageSequence}.
      *
@@ -2442,7 +2442,7 @@ export default declare namespace rpc {
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 11
    */
-  abstract class IRemoteObject {
+  export abstract class IRemoteObject {
     /**
      * Queries the description of an interface.
      * <p>A valid {@link IRemoteBroker} object is returned for an interface used by the service provider;
@@ -2871,7 +2871,7 @@ export default declare namespace rpc {
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 11
    */
-  class RemoteObject extends IRemoteObject {
+  export class RemoteObject extends IRemoteObject {
     /**
      * A constructor to create a RemoteObject instance.
      *
@@ -3900,3 +3900,5 @@ export default declare namespace rpc {
     readDataFromAshmem(size: number, offset: number): ArrayBuffer;
   }
 }
+
+export default rpc;
