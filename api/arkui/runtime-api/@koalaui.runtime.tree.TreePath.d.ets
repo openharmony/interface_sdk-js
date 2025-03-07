@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,7 +13,13 @@
  * limitations under the License.
  */
 
-export declare interface ReadonlyTreeNode {
-    readonly parent: ReadonlyTreeNode | undefined
-    toHierarchy(): string
+import { uint32 } from '@koalaui.runtime.common'
+export declare class TreePath<Node> {
+    readonly node: Node
+    readonly parent: TreePath<Node> | undefined
+    constructor(node: Node, parent?: TreePath<Node>)
+    child(node: Node): TreePath<Node> 
+    get root(): TreePath<Node>
+    get depth(): uint32
+    toString(): string
 }

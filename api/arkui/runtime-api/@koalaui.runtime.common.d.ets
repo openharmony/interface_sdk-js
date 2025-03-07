@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,13 +13,8 @@
  * limitations under the License.
  */
 
-import { KoalaCallsiteKey } from "@ohos.arkui.common"
-import { StateContext } from "./states/State"
-export type __memo_context_type = StateContext
-export type __memo_id_type = KoalaCallsiteKey
-export type __memo_transformed_before = string
-export type __memo_transformed_after = number
-export type __memo_transformed = __memo_transformed_before
-export declare function __context(): StateContext
-export declare function __id(): KoalaCallsiteKey
-export declare function __key(): KoalaCallsiteKey
+export type KoalaCallsiteKey = int
+export type int32 = int
+export type uint32 = int
+export type int64 = long
+export type float64 = double
