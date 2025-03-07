@@ -1326,7 +1326,7 @@ declare namespace print {
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18
      */
-    PRINT_JOB_BLOCK_FILE_UPLOADING_ERROR = 30, 
+    PRINT_JOB_BLOCK_FILE_UPLOADING_ERROR = 30,
 
     /**
      * Print unknown issue.
@@ -2604,7 +2604,7 @@ declare namespace print {
     DEFAULT_PRINTER_TYPE_SET_BY_USER = 0,
 
     /**
-     * The last used printer is used as the dafault printer.
+     * The last used printer is used as the default printer.
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18
      */
