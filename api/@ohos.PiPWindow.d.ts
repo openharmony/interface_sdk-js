@@ -1182,6 +1182,19 @@ declare namespace PiPWindow {
      * @since 15
      */
     off(type: 'pipWindowSizeChange', callback?: Callback<PiPWindowSize>): void;
+
+    /**
+     * Returns a Boolean value that indicates whether picture-in-picture is supported
+     *
+     * @returns { boolean } - True if picture-in-picture is supported, otherwise false
+     * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use
+     * @since 18
+     * @test
+     */
+    isPiPSupported(): boolean;
   }
 }
 
