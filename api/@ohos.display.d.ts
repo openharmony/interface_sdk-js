@@ -1917,6 +1917,8 @@ declare namespace display {
     */
     off(type: 'availableAreaChange', callback?: Callback<Rect>): void;
   }
+
+  11
 }
 
 export default display;
