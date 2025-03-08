@@ -73,7 +73,7 @@ declare namespace unifiedDataChannel {
 
   /**
    * Indicated delay get UnifiedData
-   * 
+   *
    * @typedef {function} GetDelayData
    * @param { string } type - the type of UnifiedData required.
    * @returns { UnifiedData } Return the UnifiedData required.
@@ -175,7 +175,7 @@ declare namespace unifiedDataChannel {
    * @atomicservice
    * @since 13
    */
-  class UnifiedData {
+  export class UnifiedData {
     /**
      * Create unified data with a record
      *
@@ -1426,7 +1426,7 @@ declare namespace unifiedDataChannel {
    * @atomicservice
    * @since 11
    */
-  class Options = {
+  class Options {
     /**
      * Indicates the target Intention
      *
@@ -1456,7 +1456,7 @@ declare namespace unifiedDataChannel {
      * @since 11
      */
     key?: string;
-  };
+  }
 
   /**
    * Insert data into unified data channel by Intention
