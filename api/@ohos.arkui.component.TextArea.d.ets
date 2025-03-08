@@ -1003,18 +1003,18 @@ export declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @atomicservice
    * @since 12
    */
-  onSubmit(callback: (enterKey: EnterKeyType) => void): TextAreaAttribute;
-  /**
-   * Called when submitted.
-   *
-   * @param { TextAreaSubmitCallback } callback - callback of the listened event.
-   * @returns { TextAreaAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 14
-   */
-  onSubmit(callback: TextAreaSubmitCallback): TextAreaAttribute;
+  onSubmit(callback: ((enterKey: EnterKeyType) => void) | TextAreaSubmitCallback): TextAreaAttribute;
+  // /**
+  //  * Called when submitted.
+  //  *
+  //  * @param { TextAreaSubmitCallback } callback - callback of the listened event.
+  //  * @returns { TextAreaAttribute }
+  //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  //  * @crossplatform
+  //  * @atomicservice
+  //  * @since 14
+  //  */
+  // onSubmit(callback: ): TextAreaAttribute;
 
   /**
    * Called when the input changes.

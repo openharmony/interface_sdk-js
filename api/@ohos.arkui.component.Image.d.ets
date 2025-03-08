@@ -22,8 +22,8 @@ import { DrawableDescriptor } from './@ohos.arkui.drawableDescriptor';
 import  drawing from './@ohos.graphics.drawing';
 import image from './@ohos.multimedia.image';
 import { ImageAIOptions,ImageAnalyzerConfig } from './@ohos.arkui.component.ImageCommon';
-import { ResourceStr,ResourceColor,ColorFilter,CopyOptions,EdgeWidths } from './@ohos.arkui.component.Units';
-import { ImageFit,ImageRepeat } from './@ohos.arkui.component.Enums';
+import { ResourceStr,ResourceColor,ColorFilter,EdgeWidths } from './@ohos.arkui.component.Units';
+import { ImageFit,ImageRepeat,CopyOptions } from './@ohos.arkui.component.Enums';
 import { Resource } from './global/resource';
 import { CommonMethod, PointLightStyle } from './@ohos.arkui.component.Common'
 

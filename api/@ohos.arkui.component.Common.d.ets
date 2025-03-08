@@ -13306,7 +13306,7 @@ export declare enum MenuPreviewMode {
  * @atomicservice
  * @since 12
  */
-type AnimationRange<T> = [from: T, to: T];
+// type AnimationRange<T> = [from: T, to: T];
 
 /**
  * Defines the ContextMenu's preview animator options.
@@ -13345,7 +13345,7 @@ export interface ContextMenuAnimationOptions {
    * @atomicservice
    * @since 12
    */
-  scale?: AnimationRange<number>;
+  scale?: [number,number];
   /**
    * Defines the transition effect of menu preview opening and closing.
    *
@@ -13366,7 +13366,7 @@ export interface ContextMenuAnimationOptions {
    * @atomicservice
    * @since 12
    */
-  hoverScale?: AnimationRange<number>;
+  hoverScale?: [number,number];
 }
 
 /**
@@ -14456,7 +14456,7 @@ export interface AttributeModifier<T> {
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?:(instance: T)=> void;
+  applyNormalAttribute: undefined | ((instance: T)=> void);
 
   /**
    * Defines the pressed update attribute function.
@@ -14475,7 +14475,7 @@ export interface AttributeModifier<T> {
    * @atomicservice
    * @since 12
    */
-  applyPressedAttribute?:(instance: T)=>void;
+  applyPressedAttribute: undefined | ((instance: T)=> void);
 
   /**
    * Defines the focused update attribute function.
@@ -14494,7 +14494,7 @@ export interface AttributeModifier<T> {
    * @atomicservice
    * @since 12
    */
-  applyFocusedAttribute?:(instance: T) => void;
+  applyFocusedAttribute: undefined | ((instance: T)=> void);
 
   /**
    * Defines the disabled update attribute function.
@@ -14513,7 +14513,7 @@ export interface AttributeModifier<T> {
    * @atomicservice
    * @since 12
    */
-  applyDisabledAttribute?:(instance: T) => void;
+  applyDisabledAttribute: undefined | ((instance: T)=> void);
 
   /**
    * Defines the selected update attribute function.
@@ -14532,7 +14532,7 @@ export interface AttributeModifier<T> {
    * @atomicservice
    * @since 12
    */
-  applySelectedAttribute?:(instance: T) => void;
+  applySelectedAttribute: undefined | ((instance: T)=> void);
 }
 
 /**

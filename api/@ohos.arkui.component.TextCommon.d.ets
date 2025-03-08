@@ -491,7 +491,7 @@ export interface TextEditControllerEx extends TextBaseController{
    * @atomicservice
    * @since 12
    */
-  getPreviewText?: () => PreviewText;
+  getPreviewText: undefined | (() => PreviewText);
 }
 
 /**
