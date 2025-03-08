@@ -19,7 +19,7 @@
  */
 
 import { AsyncCallback } from '../@ohos.base';
-import type ConnectOptions from '../ability/connectOptions';
+import { ConnectOptions } from '../ability/connectOptions';
 import ExtensionContext from './ExtensionContext';
 import Want from '../@ohos.app.ability.Want';
 
