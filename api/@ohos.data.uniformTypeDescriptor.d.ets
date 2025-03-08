@@ -67,7 +67,7 @@ declare namespace uniformTypeDescriptor {
    * @atomicservice
    * @since 13
    */
-  enum UniformDataType {
+  export enum UniformDataType {
     /**
      * Base data type for physical hierarchy, which identifies the physical representation of the data type.
      *
