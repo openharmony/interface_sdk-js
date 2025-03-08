@@ -572,6 +572,129 @@ declare namespace display {
    */
   function setFoldStatusLocked(locked: boolean): void;
 
+    /**
+   * Create virtual display. if surfaceId is valid, this permission is necessary.
+   *
+   * @permission ohos.permission.ACCESS_VIRTUAL_SCREEN
+   * @param { VirtualDisplayOption } options Indicates the options of the virtual display.
+   * @returns { Promise<number> } Promise used to return the created virtual displayId
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap  SystemCapability.Window.SessionManager
+   * @since 18
+   */
+  function createVirtualDisplay(options: VirtualDisplayOption): Promise<number>;
+
+  /**
+   * Destroy virtual display.
+   *
+   * @permission ohos.permission.ACCESS_VIRTUAL_SCREEN
+   * @param { number } displayId Indicates the display id of the virtual display.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap  SystemCapability.Window.SessionManager
+   * @since 18
+   */
+  function destroyVirtualDisplay(displayId: number): Promise<void>;
+  
+  /**
+   * Set surface for the virtual display.
+   *
+   * @permission ohos.permission.ACCESS_VIRTUAL_SCREEN
+   * @param { number } displayId Indicates the display id of the virtual display.
+   * @param { string } surfaceId Indicates the surface id.
+   * @returns { Promise<void> } Promise that returns no value
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap  SystemCapability.Window.SessionManager
+   * @since 18
+   */
+  function setVirtualDisplaySurface(displayId: number, surfaceId: string): Promise<void>;
+
+  /**
+   * Make display as unique-display
+   *
+   * @permission ohos.permission.ACCESS_VIRTUAL_SCREEN
+   * @param { number } displayId the unique displays. It's type should be int.
+   * @returns { Promise<void> } Promise that returns no value
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 18
+   */
+  function makeUnique(displayId: number): Promise<void>;
+
+  /**
+   * The parameter for creating virtual display.
+   *
+   * @interface VirtualDisplayOption
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 18
+   */
+  interface VirtualDisplayOption {
+    /**
+     * Indicates the name of the virtual display.
+     *
+     * @type { string }
+     * @syscap  SystemCapability.Window.SessionManager
+     * @since 18
+     */
+    name: string;
+
+    /**
+     * Indicates the width of the virtual display.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 18
+     */
+    width: number;
+
+    /**
+     * Indicates the height of the virtual display.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 18
+     */
+    height: number;
+
+    /**
+     * Indicates the density of the virtual display.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 18
+     */
+    density: number;
+
+    /**
+     * Indicates the surface id of the virtual display.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 18
+     */
+    surfaceId: string;
+  }
+
+
   /**
    * Enumerates the fold status.
    *
@@ -1917,8 +2040,6 @@ declare namespace display {
     */
     off(type: 'availableAreaChange', callback?: Callback<Rect>): void;
   }
-
-  11
 }
 
 export default display;
