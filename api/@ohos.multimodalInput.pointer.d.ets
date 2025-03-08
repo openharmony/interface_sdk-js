@@ -36,7 +36,8 @@ import image from './@ohos.multimedia.image';
  * @atomicservice
  * @since 12
  */
-export default declare namespace pointer {
+export default pointer;
+declare namespace pointer {
   /**
    * Pointer style.
    *
@@ -52,7 +53,7 @@ export default declare namespace pointer {
    * @atomicservice
    * @since 12
    */
-  enum PointerStyle {
+  export enum PointerStyle {
     /**
      * Default
      *

@@ -529,7 +529,7 @@ export default declare namespace rdb {
    * @deprecated since 9
    * @useinstead ohos.data.relationalStore.RdbPredicates
    */
-  class RdbPredicates {
+  export class RdbPredicates {
     /**
      * A parameterized constructor used to create an RdbPredicates instance.
      *

@@ -343,7 +343,7 @@ declare namespace unifiedDataChannel {
    * @atomicservice
    * @since 11
    */
-  class Summary {
+  export class Summary {
     /**
      * A map for each type and data size, key is data type, value is the corresponding data size
      *
