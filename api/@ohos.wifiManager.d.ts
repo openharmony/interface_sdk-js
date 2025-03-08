@@ -601,7 +601,8 @@ declare namespace wifiManager {
   function getLinkedInfo(): Promise<WifiLinkedInfo>;
   
   /**
-   * Obtain multiple Wi-Fi connection information when Wi-Fi linked in MLO(Muti-Link Operation) state. If does't have the permission of ohos.permission.GET_WIFI_PEERS_MAC, return random bssid. 
+   * Obtain multiple Wi-Fi connection information when Wi-Fi linked in MLO(Muti-Link Operation) state.
+   * If does't have the permission of ohos.permission.GET_WIFI_PEERS_MAC, return random bssid. 
    * @permission ohos.permission.GET_WIFI_INFO
    * @returns { Array<WifiLinkedInfo> } Returns Wi-Fi multiple link information.
    * @throws {BusinessError} 201 - Permission denied.
