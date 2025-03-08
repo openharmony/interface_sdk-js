@@ -789,7 +789,8 @@ export declare abstract class SubscribedAbstractProperty<T> {
    * @systemapi
    * @since 7
    */
-  private id_: number;
+   // # TODO
+  // private id_: number;
 
   /**
    * Private user information.
@@ -799,7 +800,8 @@ export declare abstract class SubscribedAbstractProperty<T> {
    * @systemapi
    * @since 7
    */
-  private info_?: string;
+  // # TODO
+  // private info_?: string;
 
   /**
    * @param { IPropertySubscriber } subscribeMe
@@ -1030,7 +1032,7 @@ export declare abstract class SubscribedAbstractProperty<T> {
    * @atomicservice
    * @since 11
    */
-  abstract aboutToBeDeleted(): void;
+  aboutToBeDeleted(): void;
 }
 
 /**
@@ -1084,7 +1086,8 @@ export declare class SyncedPropertyTwoWay<T>
    * @systemapi
    * @since 7
    */
-  private source_:SubscribedAbstractProperty<T>;
+  // #TODO
+  // private source_:SubscribedAbstractProperty<T>;
 
   /**
    * constructor parameters.
@@ -1160,7 +1163,9 @@ export declare class SyncedPropertyOneWay<T>
    * @systemapi
    * @since 7
    */
-  private wrappedValue_:Object;
+
+   // # TODO
+  // private wrappedValue_:Object;
 
   /**
    * Sources of synchronization attributes bidirectionally.
@@ -1170,7 +1175,8 @@ export declare class SyncedPropertyOneWay<T>
    * @systemapi
    * @since 7
    */
-  private source_:SubscribedAbstractProperty<T>;
+   // # TODO
+  // private source_:SubscribedAbstractProperty<T>;
 
   /**
    * Constructor parameters.
@@ -1261,7 +1267,8 @@ export declare abstract class SubscribaleAbstract {
    * @systemapi
    * @since 7
    */
-  private owningProperties_: Set<number>;
+   // # TODO
+  // private owningProperties_: Set<number>;
 
   /**
    * Constructor.
