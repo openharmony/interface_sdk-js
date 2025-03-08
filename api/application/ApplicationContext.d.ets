@@ -193,7 +193,6 @@ declare class ApplicationContext extends Context {
    * @since 11
    */
   on(type: 'environment', callback: EnvironmentCallback): number;
-  on<T1, T2>(type: T1, callback: T2): Object;
 
   /**
    * Unregister environment callback.
@@ -244,7 +243,6 @@ declare class ApplicationContext extends Context {
    * @since 11
    */
   off(type: 'environment', callbackId: number): Promise<void>;
-  off<T1, T2>(type: T1, callback: T2): Object;
 
   /**
    * Register applicationStateChange callback.
@@ -279,7 +277,7 @@ declare class ApplicationContext extends Context {
    * @atomicservice
    * @since 16
    */
-  on(type: 'applicationStateChange', callback: ApplicationStateChangeCallback): void{}
+  on(type: 'applicationStateChange', callback: ApplicationStateChangeCallback): void;
 
   /**
    * Unregister applicationStateChange callback.
@@ -450,7 +448,7 @@ declare class ApplicationContext extends Context {
    * @atomicservice
    * @since 11
    */
-  killAllProcesses(callback: AsyncCallback<void>);
+  killAllProcesses(callback: AsyncCallback<void>): void;
 
   /**
    * Set colorMode of the application

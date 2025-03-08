@@ -47,7 +47,7 @@ export default declare namespace dataAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @since 7
    */
-  class DataAbilityPredicates {
+  export class DataAbilityPredicates {
     /**
      * Configure the DataAbilityPredicates to match the field whose data type is ValueType and value is equal
      * to a specified value.

@@ -20,7 +20,7 @@
 
 import { AbilityResult } from '../ability/abilityResult';
 import type { AsyncCallback } from '../@ohos.base';
-import ConnectOptions from '../ability/connectOptions';
+import { ConnectOptions } from '../ability/connectOptions';
 import ExtensionContext from './ExtensionContext';
 import type Want from '../@ohos.app.ability.Want';
 import type StartOptions from '../@ohos.app.ability.StartOptions';
@@ -872,7 +872,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @stagemodelonly
    * @since 12
    */
-  reportDrawnCompleted(callback: AsyncCallback<void>): void {}
+  reportDrawnCompleted(callback: AsyncCallback<void>): void;
 
   /**
    * Destroys the UI extension.
@@ -905,7 +905,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @stagemodelonly
    * @since 12
    */
-  terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>): void {}
+  terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>): void;
 
   /**
    * Destroys the UI extension while returning the specified result code and data to the caller.
@@ -938,7 +938,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @stagemodelonly
    * @since 12
    */
-  openAtomicService(appId: string, options?: AtomicServiceOptions): Promise<AbilityResult> {}
+  openAtomicService(appId: string, options?: AtomicServiceOptions): Promise<AbilityResult>;
 
   /**
    * Starts a UI service extension ability.
@@ -994,7 +994,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @stagemodelonly
    * @since 14
    */
-  connectUIServiceExtensionAbility(want: Want, callback: UIServiceExtensionConnectCallback) : Promise<UIServiceProxy> ;
+  connectUIServiceExtensionAbility(want: Want, callback: UIServiceExtensionConnectCallback) : Promise<UIServiceProxy>;
 
   /**
    * Disconnects from a UI service extension, in contrast to {@link connectUIServiceExtensionAbility}.

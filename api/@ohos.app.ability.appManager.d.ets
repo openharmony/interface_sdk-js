@@ -331,8 +331,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14
    */
-  // export function on(type: 'applicationState', observer: ApplicationStateObserver): number;
-  export function on<T1, T2, V>(type: T1, observer: T2): V;
+  export function on(type: 'applicationState', observer: ApplicationStateObserver): number;
 
   /**
    * Register application state observer.
@@ -349,7 +348,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14
    */
-  // export function on(type: 'applicationState', observer: ApplicationStateObserver, bundleNameList: Array<string>): number;
+  export function on(type: 'applicationState', observer: ApplicationStateObserver, bundleNameList: Array<string>): number;
 
   /**
    * Register app foreground or background state observer.
@@ -366,7 +365,7 @@ declare namespace appManager {
    * @systemapi
    * @since 11
    */
-  // export function on(type: 'appForegroundState', observer: AppForegroundStateObserver): void;
+  export function on(type: 'appForegroundState', observer: AppForegroundStateObserver): void;
 
   /**
    * Register ability first frame state observe.
@@ -384,8 +383,8 @@ declare namespace appManager {
    * @systemapi
    * @since 12
    */
-  // export function on(type: 'abilityFirstFrameState', observer: AbilityFirstFrameStateObserver,
-  // bundleName: string): void;
+  export function on(type: 'abilityFirstFrameState', observer: AbilityFirstFrameStateObserver,
+    bundleName: string): void;
 
   /**
    * Unregister application state observer.
@@ -403,9 +402,8 @@ declare namespace appManager {
    * @systemapi
    * @since 9
    */
-  // export function off(type: 'applicationState', observerId: number, callback: AsyncCallback<void>): void;
-  export function off<T1, T2, T3, V>(type: T1, observer?: T2, observerId?:T3, callback?: AsyncCallback<void>): V;
-
+  export function off(type: 'applicationState', observerId: number, callback: AsyncCallback<void>): void;
+  
   /**
    * Unregister application state observer.
    *
@@ -420,7 +418,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14
    */
-  // export function off(type: 'applicationState', observerId: number): Promise<void>;
+  export function off(type: 'applicationState', observerId: number): Promise<void>;
 
   /**
    * Unregister app foreground or background state observer.
@@ -437,7 +435,7 @@ declare namespace appManager {
    * @systemapi
    * @since 11
    */
-  // export function off(type: 'appForegroundState', observer?: AppForegroundStateObserver): void;
+  export function off(type: 'appForegroundState', observer?: AppForegroundStateObserver): void;
 
   /**
    * Unregister ability first frame state observer.
@@ -454,7 +452,7 @@ declare namespace appManager {
    * @systemapi
    * @since 12
    */
-  // export function off(type: 'abilityFirstFrameState', observer?: AbilityFirstFrameStateObserver): void;
+  export function off(type: 'abilityFirstFrameState', observer?: AbilityFirstFrameStateObserver): void;
 
   /**
    * getForegroundApplications.
@@ -731,7 +729,7 @@ declare namespace appManager {
    * @systemapi
    * @since 9
    */
-  export function clearUpApplicationData(bundleName: string, callback: AsyncCallback<void>); void
+  export function clearUpApplicationData(bundleName: string, callback: AsyncCallback<void>): void;
 
   /**
    * Is it a ram-constrained device

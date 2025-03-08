@@ -32,8 +32,8 @@ import _EventHub from './application/EventHub';
 import type { PacMap as _PacMap } from './ability/dataAbilityHelper';
 import { AbilityResult as _AbilityResult } from './ability/abilityResult';
 import type _AbilityStartCallback from './application/AbilityStartCallback';
-import _ConnectOptions from './ability/connectOptions';
-// import type * as _VpnExtensionContext from './application/VpnExtensionContext';
+import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
+import type _VpnExtensionContext from './application/VpnExtensionContext';
 import _AutoStartupCallback from './application/AutoStartupCallback';
 import _AutoStartupInfo from './application/AutoStartupInfo';
 import type _EmbeddableUIAbilityContext from './application/EmbeddableUIAbilityContext';
@@ -396,7 +396,7 @@ declare namespace common {
    * @stagemodelonly
    * @since 11
    */
-  export type VpnExtensionContext = _VpnExtensionContext.default;
+  export type VpnExtensionContext = _VpnExtensionContext;
 
   /**
    * The context of an embeddable UIAbility.

@@ -33,7 +33,6 @@ import window from './@ohos.window';
  * @stagemodelonly
  * @since 9
  */
-export interface OnReleaseCallback {
 /**
  * Defines the callback of OnRelease.
  *
@@ -42,8 +41,7 @@ export interface OnReleaseCallback {
  * @stagemodelonly
  * @since 9
  */
-  msg: string;
-}
+export type OnReleaseCallback = (msg: string)=> void;
 
 /**
  * The prototype of the listener function interface registered by the Caller.
@@ -53,7 +51,6 @@ export interface OnReleaseCallback {
  * @stagemodelonly
  * @since 10
  */
-export interface OnRemoteStateChangeCallback {
 /**
  * Defines the callback of OnRemoteStateChange.
  *
@@ -62,8 +59,7 @@ export interface OnRemoteStateChangeCallback {
  * @stagemodelonly
  * @since 10
  */
-  msg: string;
-}
+export type OnRemoteStateChangeCallback = (msg: string)=> void;
 
 /**
  * The prototype of the message listener function interface registered by the Callee.
@@ -73,7 +69,6 @@ export interface OnRemoteStateChangeCallback {
  * @stagemodelonly
  * @since 9
  */
-export interface CalleeCallback {
 /**
  * Defines the callback of Callee.
  *
@@ -83,8 +78,7 @@ export interface CalleeCallback {
  * @stagemodelonly
  * @since 9
  */
-  (indata: rpc.MessageSequence): rpc.Parcelable;
-}
+export type CalleeCallback = (indata: rpc.MessageSequence)=> rpc.Parcelable;
 
 /**
  * The interface of a Caller.
@@ -488,14 +482,26 @@ declare class UIAbility extends Ability {
   /**
    * Called back before an ability is destroyed.
    *
-   * @returns { undefined | Promise<void> } the promise returned by the function.
+   * @returns { void } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  onDestroy(): undefined | Promise<void>;
+  onDestroy(): void;
+
+  /**
+   * Called back before an ability is destroyed.
+   *
+   * @returns { Promise<void> } the promise returned by the function.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  onDestroyAsync(): Promise<void>;
 
   /**
    * Called back when the state of an ability changes to foreground.

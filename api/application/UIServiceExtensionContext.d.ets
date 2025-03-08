@@ -22,7 +22,7 @@ import ExtensionContext from './ExtensionContext';
 import type Want from '../@ohos.app.ability.Want';
 import type StartOptions from '../@ohos.app.ability.StartOptions';
 import type AbilityStartCallback from './AbilityStartCallback';
-import ConnectOptions from '../ability/connectOptions';
+import { ConnectOptions } from '../ability/connectOptions';
 
 /**
  * The context of UI service extension. It allows access to UIServiceExtension-specific resources.

@@ -21,7 +21,7 @@
 import { AbilityInfo } from '../bundleManager/AbilityInfo';
 import { AbilityResult } from '../ability/abilityResult';
 import { AsyncCallback } from '../@ohos.base';
-import ConnectOptions from '../ability/connectOptions';
+import { ConnectOptions } from '../ability/connectOptions';
 import { HapModuleInfo } from '../bundleManager/HapModuleInfo';
 import Context from './Context'; 
 import Want from '../@ohos.app.ability.Want';
@@ -38,6 +38,7 @@ import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions
 import ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 import UIServiceProxy from './UIServiceProxy';
 import type UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallback';
+import { LocalStorage } from '../@ohos.arkui.component.CommonTsEtsApi';
 
 /**
  * The context of an ability. It allows access to ability-specific resources.
