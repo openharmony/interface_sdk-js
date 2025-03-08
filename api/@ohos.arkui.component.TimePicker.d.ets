@@ -824,7 +824,10 @@ export interface TimePickerDialogOptions extends TimePickerOptions {
    * @atomicservice
    * @since 12
    */
-  dateTimeOptions?: DateTimeOptions;
+
+
+
+  dateTimeOptions?: intl.DateTimeOptions;
 
   /**
    * Defines whether to respond to the hover mode.

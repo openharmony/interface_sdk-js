@@ -43,7 +43,7 @@ export declare class ComponentContent<T extends Object = Object> extends Content
    * @atomicservice
    * @since 12
    */
-  constructor(uiContext: UIContext, builder: WrappedBuilder<[Object]>);
+  constructor(uiContext: UIContext, builder: WrappedBuilder<Array<Object>>);
 
   /**
    * Constructor.
@@ -56,7 +56,7 @@ export declare class ComponentContent<T extends Object = Object> extends Content
    * @atomicservice
    * @since 12
    */
-  constructor(uiContext: UIContext, builder: WrappedBuilder<[Object]>, args: T);
+  constructor(uiContext: UIContext, builder: WrappedBuilder<Array<Object>>, args: T);
 
   /**
    * Constructor.
@@ -70,7 +70,7 @@ export declare class ComponentContent<T extends Object = Object> extends Content
    * @atomicservice
    * @since 12
    */
-  constructor(uiContext: UIContext, builder: WrappedBuilder<[Object]>, args: T, options: BuildOptions);
+  constructor(uiContext: UIContext, builder: WrappedBuilder<Array<Object>>, args: T, options: BuildOptions);
 
 
   /**

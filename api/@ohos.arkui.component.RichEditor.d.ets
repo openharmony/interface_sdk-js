@@ -2913,7 +2913,7 @@ export declare class RichEditorBaseController implements TextEditControllerEx {
    * @atomicservice
    * @since 12
    */
-  getPreviewText?:()=> PreviewText;
+  getPreviewText: undefined | (() => PreviewText);
   
 }
 
