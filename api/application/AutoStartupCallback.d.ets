@@ -18,7 +18,7 @@
  * @kit AbilityKit
  */
 
-import type { AutoStartupInfo } from './AutoStartupInfo';
+import AutoStartupInfo from './AutoStartupInfo';
 
 /**
  * The class of auto startup callback.
