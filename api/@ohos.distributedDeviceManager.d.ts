@@ -568,9 +568,7 @@ declare namespace distributedDeviceManager {
   /**
    * Releases the {@code DeviceManager} instance that is no longer used.
    *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @param { DeviceManager } deviceManager - Indicates the {@code DeviceManager} instance.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                                  1. Mandatory parameters are left unspecified;
    *                                                  2. Incorrect parameter types;
@@ -596,10 +594,6 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @returns { Array<DeviceBasicInfo> } - Returns a list of available devices.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                                  1. Mandatory parameters are left unspecified;
-     *                                                  2. Incorrect parameter types;
-     *                                                  3. Parameter verification failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
@@ -753,12 +747,7 @@ declare namespace distributedDeviceManager {
      * Stop discovering nearby devices.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                                  1. Mandatory parameters are left unspecified;
-     *                                                  2. Incorrect parameter type;
-     *                                                  3. Parameter verification failed.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-     * @throws { BusinessError } 11600104 - Discovery unavailable.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
