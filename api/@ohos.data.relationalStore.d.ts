@@ -110,7 +110,7 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 10
    */
-  interface Asset {
+  export interface Asset {
     /**
      * The name of asset.
      *
@@ -240,7 +240,7 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 11
    */
-  type ValuesBucket = Record<string, ValueType>;
+  export type ValuesBucket = Record<string, ValueType>;
 
   /**
    * The type of the priority key can be number or string
@@ -1441,7 +1441,7 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 10
    */
-  class RdbPredicates {
+  export class RdbPredicates {
     /**
      * A parameterized constructor used to create a RdbPredicates instance.
      *
@@ -5771,7 +5771,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
-    commit(txId : number): Promise<void>;
+    commit(txId: number): Promise<void>;
 
     /**
      * Roll back the sql you have already executed.
@@ -5843,7 +5843,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
-    rollback(txId : number): Promise<void>;
+    rollback(txId: number): Promise<void>;
 
     /**
      * Backs up a database in a specified name.
@@ -6119,35 +6119,6 @@ declare namespace relationalStore {
      * @since 12
      */
     setDistributedTables(tables: Array<string>, callback: AsyncCallback<void>): void;
-
-    /**
-     * Set table to be distributed table.
-     *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Array<string> } tables - Indicates the table names you want to set.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
-     */
-    /**
-     * Set table to be distributed table.
-     *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Array<string> } tables - Indicates the table names you want to set.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
-     */
-    setDistributedTables(tables: Array<string>): Promise<void>;
 
     /**
      * Set table to be distributed table.
@@ -6676,23 +6647,6 @@ declare namespace relationalStore {
      * @since 9
      */
     /**
-     * Registers an observer for the database. When data in the distributed database changes,
-     * the callback will be invoked.
-     *
-     * @param { 'dataChange' } event - Indicates the event must be string 'dataChange'.
-     * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@link SubscribeType}.
-     * If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
-     * @param { Callback<Array<string>> } observer - {Array<string>}: the observer of data change events in the distributed database.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
-     */
-    on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
-
-    /**
      * Registers an observer for the database. When data in the distributed database or the local database changes,
      * the callback will be invoked.
      *
@@ -6797,7 +6751,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
-    on(event: 'statistics', observer: Callback<SqlExecutionInfo> ): void;
+    on(event: 'statistics', observer: Callback<SqlExecutionInfo>): void;
 
     /**
      * Remove specified observer of specified type from the database.
@@ -6812,22 +6766,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
-    /**
-     * Remove specified observer of specified type from the database.
-     *
-     * @param { 'dataChange' } event - Indicates the event must be string 'dataChange'.
-     * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@link SubscribeType}.
-     * If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
-     * @param { Callback<Array<string>> } observer - {Array<string>}: the data change observer already registered.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800014 - Already closed.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
-     */
-    off(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
-
     /**
      * Remove specified observer of specified type from the database.
      *
@@ -6932,7 +6870,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
-    off(event: 'statistics', observer?: Callback<SqlExecutionInfo> ): void;
+    off(event: 'statistics', observer?: Callback<SqlExecutionInfo>): void;
 
     /**
      * Notifies the registered observers of a change to the data resource specified by Uri.
@@ -7005,7 +6943,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
-    attach(fullPath: string, attachName: string, waitTime?: number) : Promise<number>;
+    attach(fullPath: string, attachName: string, waitTime?: number): Promise<number>;
 
     /**
      * Attaches a database file to the currently linked database.
@@ -7043,7 +6981,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
-    attach(context: Context, config: StoreConfig, attachName: string, waitTime?: number) : Promise<number>;
+    attach(context: Context, config: StoreConfig, attachName: string, waitTime?: number): Promise<number>;
 
     /**
      * Detaches a database from this database.
@@ -7074,7 +7012,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
-    detach(attachName: string, waitTime?: number) : Promise<number>;
+    detach(attachName: string, waitTime?: number): Promise<number>;
 
     /**
      * Locks data from the database based on a specified instance object of RdbPredicates.

@@ -19,7 +19,7 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
-import rdb from './@ohos.data.rdb';
+import relationalStore from './@ohos.data.relationalStore';
 
 /**
  * Provides predicates for implementing diverse query methods.
@@ -35,11 +35,11 @@ export default declare namespace dataAbility {
    *
    * @param { string } name - Indicates the table name.
    * @param { DataAbilityPredicates } dataAbilityPredicates - Indicates the dataAbility predicates.
-   * @returns { rdb.RdbPredicates } Returns an RdbPredicates.
+   * @returns { relationalStore.RdbPredicates } Returns an RdbPredicates.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @since 7
    */
-  function createRdbPredicates(name: string, dataAbilityPredicates: DataAbilityPredicates): rdb.RdbPredicates;
+  function createRdbPredicates(name: string, dataAbilityPredicates: DataAbilityPredicates): relationalStore.RdbPredicates;
 
   /**
    * Manages relational database configurations.
