@@ -163,7 +163,7 @@ ohos_copy("common_api") {
 }
 
 ohos_copy("common_api2") {
-  sources = common_api_src
+  sources = common_api_src_ets2
   outputs = [ target_out_dir + "/ets2/${target_name}/{{source_file_part}}" ]
   module_source_dir = target_out_dir + "/ets2/${target_name}"
   module_install_name = ""
@@ -205,12 +205,6 @@ if (!sdk_build_public) {
 # ets/component执行脚本
 ohos_copy_internal("ets_component") {
   sdk_type = "ets"
-  iv_input = "//interface/sdk-js/api/@internal/component/ets"
-}
-
-# ets2/component执行脚本
-ohos_copy_internal("ets_component2") {
-  sdk_type = "ets2"
   iv_input = "//interface/sdk-js/api/@internal/component/ets"
 }
 
