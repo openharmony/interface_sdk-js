@@ -86,7 +86,7 @@ declare namespace commonEventManager {
    * @atomicservice
    * @since 12
    */
-  function publish(event: string, callback: AsyncCallback<void>): void;
+  export function publish(event: string, callback: AsyncCallback<void>): void;
 
   /**
    * Publishes an ordered, sticky, or standard common event.
@@ -139,7 +139,7 @@ declare namespace commonEventManager {
    * @atomicservice
    * @since 12
    */
-  function publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>): void;
+  export function publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>): void;
 
   /**
    * Publishes an ordered, sticky, or standard common event to a specified user.
@@ -158,7 +158,7 @@ declare namespace commonEventManager {
    * @systemapi
    * @since 9
    */
-  function publishAsUser(event: string, userId: number, callback: AsyncCallback<void>): void;
+  export function publishAsUser(event: string, userId: number, callback: AsyncCallback<void>): void;
 
   /**
    * Publishes an ordered, sticky, or standard common event to a specified user.
@@ -179,7 +179,7 @@ declare namespace commonEventManager {
    * @systemapi
    * @since 9
    */
-  function publishAsUser(
+  export function publishAsUser(
     event: string,
     userId: number,
     options: CommonEventPublishData,
@@ -210,7 +210,7 @@ declare namespace commonEventManager {
    * @atomicservice
    * @since 11
    */
-  function createSubscriber(
+  export function createSubscriber(
     subscribeInfo: CommonEventSubscribeInfo,
     callback: AsyncCallback<CommonEventSubscriber>
   ): void;
@@ -237,7 +237,7 @@ declare namespace commonEventManager {
    * @atomicservice
    * @since 11
    */
-  function createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber>;
+  export function createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber>;
 
   /**
    * Creates a CommonEventSubscriber for the SubscriberInfo.
@@ -260,7 +260,7 @@ declare namespace commonEventManager {
    * @atomicservice
    * @since 11
    */
-  function createSubscriberSync(subscribeInfo: CommonEventSubscribeInfo): CommonEventSubscriber;
+  export function createSubscriberSync(subscribeInfo: CommonEventSubscribeInfo): CommonEventSubscriber;
 
   /**
    * Subscribe an ordered, sticky, or standard common event.
@@ -290,7 +290,7 @@ declare namespace commonEventManager {
    * @atomicservice
    * @since 11
    */
-  function subscribe(subscriber: CommonEventSubscriber, callback: AsyncCallback<CommonEventData>): void;
+  export function subscribe(subscriber: CommonEventSubscriber, callback: AsyncCallback<CommonEventData>): void;
 
   /**
    * Unsubscribe from an ordered, sticky, or standard common event.
@@ -320,7 +320,7 @@ declare namespace commonEventManager {
    * @atomicservice
    * @since 11
    */
-  function unsubscribe(subscriber: CommonEventSubscriber, callback?: AsyncCallback<void>): void;
+  export function unsubscribe(subscriber: CommonEventSubscriber, callback?: AsyncCallback<void>): void;
 
   /**
    * Remove sticky common event.
@@ -339,7 +339,7 @@ declare namespace commonEventManager {
    * @systemapi
    * @since 10
    */
-  function removeStickyCommonEvent(event: string, callback: AsyncCallback<void>): void;
+  export function removeStickyCommonEvent(event: string, callback: AsyncCallback<void>): void;
 
   /**
    * Remove sticky common event.
@@ -358,7 +358,7 @@ declare namespace commonEventManager {
    * @systemapi
    * @since 10
    */
-  function removeStickyCommonEvent(event: string): Promise<void>;
+  export function removeStickyCommonEvent(event: string): Promise<void>;
 
   /**
    * Set static subscriber state.
@@ -375,7 +375,7 @@ declare namespace commonEventManager {
    * @StageModelOnly
    * @since 10
    */
-  function setStaticSubscriberState(enable: boolean, callback: AsyncCallback<void>): void;
+  export function setStaticSubscriberState(enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
    * Set static subscriber state.
@@ -393,7 +393,7 @@ declare namespace commonEventManager {
    * @StageModelOnly
    * @since 12
    */
-  function setStaticSubscriberState(enable: boolean, events?: Array<string>): Promise<void>;
+  export function setStaticSubscriberState(enable: boolean, events?: Array<string>): Promise<void>;
 
   /**
    * The event type that the commonEvent supported.
