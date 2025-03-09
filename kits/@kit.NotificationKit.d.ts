@@ -18,10 +18,11 @@
  * @kit NotificationKit
  */
 
+import notification from '@ohos.notification';
 import notificationManager from '@ohos.notificationManager';
 import notificationSubscribe from '@ohos.notificationSubscribe';
 import Notification, { ActionResult, ShowNotificationOptions } from '@system.notification';
 
 export {
-  ActionResult, Notification, ShowNotificationOptions, notificationManager, notificationSubscribe
+  ActionResult, Notification, ShowNotificationOptions, notificationManager, notificationSubscribe, notification
 };
