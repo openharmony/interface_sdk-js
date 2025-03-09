@@ -38,7 +38,7 @@ import window from './@ohos.window';
    * @systemapi
    * @since 16
    */
-  interface WindowInfo {
+  export interface WindowInfo {
     /**
      * Type of the area.
      *
@@ -65,7 +65,7 @@ import window from './@ohos.window';
    * @systemapi
    * @since 11
    */
-  interface UIExtensionHostWindowProxy {
+  export interface UIExtensionHostWindowProxy {
     /**
      * Get the avoid area
      *
@@ -272,7 +272,7 @@ import window from './@ohos.window';
    * @systemapi
    * @since 11
    */
-  interface UIExtensionHostWindowProxyProperties {
+  export interface UIExtensionHostWindowProxyProperties {
     /**
      * The position and size of the UIExtension window
      *
