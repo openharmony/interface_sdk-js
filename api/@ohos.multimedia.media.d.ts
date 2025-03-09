@@ -4033,6 +4033,16 @@ declare namespace media {
      * @since 18
      */
     enableSuperResolution?: boolean;
+
+    /**
+     * set max buffering threshold for liveStreaming or avplayer while change the speed.
+     * It is recommended that the value be 2 seconds greater than the starting waterline.
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 18
+     */
+    thresholdForAutoQuickPlay?: number
   }
 
   /**
