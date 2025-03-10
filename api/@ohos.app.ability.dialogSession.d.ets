@@ -20,7 +20,7 @@
 
 import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
-import type { MultiAppMode } from './bundleManager/ApplicationInfo';
+import { MultiAppMode } from './bundleManager/ApplicationInfo';
 
 /**
  * This module provides the capability to manage dialog session.

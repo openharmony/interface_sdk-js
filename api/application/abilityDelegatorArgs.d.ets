@@ -42,7 +42,7 @@
  * @atomicservice
  * @since 11
  */
-interface AbilityDelegatorArgs {
+export interface AbilityDelegatorArgs {
   /**
    * the bundle name of the application being tested.
    *
@@ -147,5 +147,3 @@ interface AbilityDelegatorArgs {
    */
   testRunnerClassName: string;
 }
-
-export default AbilityDelegatorArgs;

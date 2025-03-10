@@ -47,7 +47,7 @@ import UIAbility from '../@ohos.app.ability.UIAbility';
  * @atomicservice
  * @since 11
  */
-declare interface AbilityMonitor {
+export interface AbilityMonitor {
   /**
    * The name of the ability to monitor.
    *
@@ -260,4 +260,3 @@ declare interface AbilityMonitor {
    */
   onWindowStageDestroy?: (ability: UIAbility) => void;
 }
-export default AbilityMonitor;

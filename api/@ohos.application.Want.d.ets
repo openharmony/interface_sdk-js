@@ -15,25 +15,23 @@
 
 /**
  * @file
- * @kit AbilityKit
  */
 
 /**
  * Want is the basic communication component of the system.
  *
- * @typedef Want
  * @syscap SystemCapability.Ability.AbilityBase
- * @since 6
+ * @since 8
  * @deprecated since 9
  * @useinstead ohos.app.ability.Want/Want
  */
-export declare interface Want {
+export default class Want {
   /**
    * device id
    *
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
-   * @since 6
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.app.ability.Want/Want#deviceId
    */
@@ -44,7 +42,7 @@ export declare interface Want {
    *
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
-   * @since 6
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.app.ability.Want/Want#bundleName
    */
@@ -55,7 +53,7 @@ export declare interface Want {
    *
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
-   * @since 6
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.app.ability.Want/Want#abilityName
    */
@@ -66,7 +64,7 @@ export declare interface Want {
    *
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
-   * @since 6
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.app.ability.Want/Want#uri
    */
@@ -77,7 +75,7 @@ export declare interface Want {
    *
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
-   * @since 6
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.app.ability.Want/Want#type
    */
@@ -88,7 +86,7 @@ export declare interface Want {
    *
    * @type { ?number }
    * @syscap SystemCapability.Ability.AbilityBase
-   * @since 6
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.app.ability.Want/Want#flags
    */
@@ -99,7 +97,7 @@ export declare interface Want {
    *
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
-   * @since 6
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.app.ability.Want/Want#action
    */
@@ -110,7 +108,7 @@ export declare interface Want {
    *
    * @type { ?object }
    * @syscap SystemCapability.Ability.AbilityBase
-   * @since 6
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.app.ability.Want/Want#parameters
    */
@@ -121,7 +119,7 @@ export declare interface Want {
    *
    * @type { ?Array<string> }
    * @syscap SystemCapability.Ability.AbilityBase
-   * @since 6
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.app.ability.Want/Want#entities
    */
