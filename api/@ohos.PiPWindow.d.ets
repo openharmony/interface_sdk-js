@@ -67,7 +67,8 @@ declare namespace PiPWindow {
    * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
    *                                                                2. Incorrect parameter types.
    *                                                                3. Parameter verification failed
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported. 
+   * Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
@@ -81,7 +82,8 @@ declare namespace PiPWindow {
    * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
    *                                                                2. Incorrect parameter types.
    *                                                                3. Parameter verification failed
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12
@@ -100,7 +102,8 @@ declare namespace PiPWindow {
    * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
    *                                                                2. Incorrect parameter types.
    *                                                                3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12
@@ -226,7 +229,8 @@ declare namespace PiPWindow {
     contentHeight?: number;
 
     /**
-     * Describes the custom controls to be displayed in PiP window control panel. If the parameter is empty, only mandatory controls are displayed.
+     * Describes the custom controls to be displayed in PiP window control panel.
+     * If the parameter is empty, only mandatory controls are displayed.
      *
      * @type { ?Array<PiPControlGroup> }
      * @syscap SystemCapability.Window.SessionManager
@@ -430,7 +434,8 @@ declare namespace PiPWindow {
    * @atomicservice
    * @since 12
    */
-  type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup | VideoLiveControlGroup;
+  type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup |
+    VideoLiveControlGroup;
 
   /**
    * Enum for video play PiP window custom controls.
@@ -1011,7 +1016,8 @@ declare namespace PiPWindow {
      * @atomicservice
      * @since 12
      */
-    on(type: 'controlEvent' | 'stateChange' | 'controlPanelActionEvent', callback: Callback<ControlEventParam> | ControlPanelActionEventCallback | PiPStateChangeCallback) : void;
+    on(type: 'controlEvent' | 'stateChange' | 'controlPanelActionEvent', callback: Callback<ControlEventParam> |
+      ControlPanelActionEventCallback | PiPStateChangeCallback) : void;
 
     /**
      * Unregister picture-in-picture control event listener
