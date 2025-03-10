@@ -2163,7 +2163,6 @@ declare namespace print {
    * Notify print service of application event.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { ApplicationEvent } event - Indicates the event to be notified.
-   * @param { ?string } jobId - Indicates the job id.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
@@ -2172,7 +2171,7 @@ declare namespace print {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function notifyPrintServiceEvent(event: ApplicationEvent, jobId?: string): Promise<void>;
+  function notifyPrintServiceEvent(event: ApplicationEvent): Promise<void>;
 
   /**
    * New printers have been found and notify Print SA.
@@ -2666,6 +2665,21 @@ declare namespace print {
    * @since 18
    */
   function setDefaultPrinter(printerId: string, type: DefaultPrinterType): Promise<void>;
+
+  /**
+   * Notify print service of application event.
+   * @permission ohos.permission.MANAGE_PRINT_JOB
+   * @param { ApplicationEvent } event - Indicates the event to be notified.
+   * @param { string } jobId - Indicates the job id.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 18
+   */
+  function notifyPrintServiceEvent(event: ApplicationEvent, jobId: string): Promise<void>;
 
   /**
    * Register event callback for the change of printer.
