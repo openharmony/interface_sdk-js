@@ -365,6 +365,41 @@ declare interface OffsetOptions {
 }
 
 /**
+ * Defines a UIScrollableCommonEvent which is used to set different common event to target component.
+ *
+ * @extends UIScrollableCommonEvent
+ * @interface UIScrollEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+declare interface UIScrollEvent extends UIScrollableCommonEvent {
+  /**
+   * Set or reset the callback which is triggered when the Scroll will scroll.
+   *
+   * @param { ScrollOnWillScrollCallback | undefined } callback - callback function, triggered when
+   *     the Scroll will scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  setOnWillScroll(callback: ScrollOnWillScrollCallback | undefined): void;
+
+  /**
+   * Set or reset the callback which is triggered when the Scroll did scroll.
+   *
+   * @param { ScrollOnScrollCallback | undefined } callback - callback function, triggered when the Scroll did scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  setOnDidScroll(callback: ScrollOnScrollCallback | undefined): void;
+}
+
+/**
  * Scroller
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
