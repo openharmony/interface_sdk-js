@@ -1559,6 +1559,17 @@ export interface OverlayManagerOptions {
    * @since 15
    */
   renderRootOverlay?: boolean;
+
+  /**
+   * Set whether support backPressed event or not.
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  enableBackPressedEvent?: boolean;
 }
 
 /**
