@@ -8029,7 +8029,7 @@ declare namespace image {
      * @crossplatform
      * @since 12
      */
-    getImageProperties(key: Array<PropertyKey>): Promise<Record<PropertyKey, string | null>>;
+    getImageProperties(key: Array<PropertyKey>): Promise<Record<string, string | null>>;
 
     /**
      * Modify the value of a property in an image with the specified key. This method uses a
@@ -8135,7 +8135,7 @@ declare namespace image {
      * @crossplatform
      * @since 12
      */
-    modifyImageProperties(records: Record<PropertyKey, string | null>): Promise<void>;
+    modifyImageProperties(records: Record<string, string | null>): Promise<void>;
 
     /**
      * Update the data in the incremental ImageSource.
