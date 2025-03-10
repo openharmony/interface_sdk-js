@@ -466,14 +466,6 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @param { ResourceColor } value - indicates the color of the selected font.
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  /**
-   * Set the selected font color of non-alphabetic part of the pop-up window.
-   *
-   * @param { ResourceColor } value - indicates the color of the selected font.
-   * @returns { AlphabetIndexerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
