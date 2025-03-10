@@ -25004,6 +25004,17 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Sets how content is drawn within nodes duration animation
+   *
+   * @param { RenderFit } fitMode - The render fit mode of content.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   renderFit(fitMode: RenderFit): T;
 
   /**
@@ -25013,6 +25024,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 18
    */
