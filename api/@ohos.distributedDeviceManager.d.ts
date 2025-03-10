@@ -414,6 +414,24 @@ declare namespace distributedDeviceManager {
      * @since 15
      */
     services?: Array<ServiceProfileInfo>;
+
+    /**
+     * Name of the product to which the device belongs.
+     * @type { ?string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 18
+     */
+    productName?: string;
+
+    /**
+     * Internal model of the product to which the device belongs.
+     * @type { ?string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 18
+     */
+    internalModel?: string;
   }
 
   /**
@@ -421,7 +439,7 @@ declare namespace distributedDeviceManager {
    * @interface DeviceIconInfoFilterOptions
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi
-   * @since 15
+   * @since 18
    */
   interface DeviceIconInfoFilterOptions {
     /**
@@ -429,7 +447,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
-     * @since 15
+     * @since 18
      */
     productId: string;
 
@@ -438,7 +456,7 @@ declare namespace distributedDeviceManager {
      * @type { ?string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
-     * @since 15
+     * @since 18
      */
     subProductId?: string;
 
@@ -447,7 +465,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
-     * @since 15
+     * @since 18
      */
     imageType: string;
 
@@ -456,9 +474,18 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
-     * @since 15
+     * @since 18
      */
     specName: string;
+
+    /**
+     * Internal model of the product to which the device belongs.
+     * @type { ?string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 18
+     */
+    internalModel?: string;
   }
 
   /**
@@ -466,7 +493,7 @@ declare namespace distributedDeviceManager {
    * @interface DeviceIconInfo
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi
-   * @since 15
+   * @since 18
    */
   interface DeviceIconInfo {
     /**
@@ -474,7 +501,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
-     * @since 15
+     * @since 18
      */
     productId: string;
 
@@ -483,7 +510,7 @@ declare namespace distributedDeviceManager {
      * @type { ?string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
-     * @since 15
+     * @since 18
      */
     subProductId?: string;
 
@@ -492,7 +519,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
-     * @since 15
+     * @since 18
      */
     imageType: string;
 
@@ -501,7 +528,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
-     * @since 15
+     * @since 18
      */
     specName: string;
 
@@ -510,7 +537,7 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
-     * @since 15
+     * @since 18
      */
     url: string;
 
@@ -519,9 +546,18 @@ declare namespace distributedDeviceManager {
      * @type { ArrayBuffer }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
-     * @since 15
+     * @since 18
      */
     icon: ArrayBuffer;
+
+    /**
+     * Internal model of the product to which the device belongs.
+     * @type { ?string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 18
+     */
+    internalModel?: string;
   }
 
   /**
@@ -1093,7 +1129,7 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 11600106 - Get data from cloud fail.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
-     * @since 15
+     * @since 18
      */
     getDeviceIconInfo(filterOptions: DeviceIconInfoFilterOptions): Promise<DeviceIconInfo>;
 
@@ -1113,7 +1149,7 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 11600102 - Failed to obtain service.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
-     * @since 15
+     * @since 18
      */
     getLocalDisplayDeviceName(maxNameLength: number): Promise<string>;
 
@@ -1132,7 +1168,7 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 11600102 - Failed to obtain service.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
-     * @since 15
+     * @since 18
      */
     setLocalDeviceName(deviceName: string): Promise<number>;
 
@@ -1153,7 +1189,7 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 11600107 - A login account is required.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
-     * @since 15
+     * @since 18
      */
     setRemoteDeviceName(deviceId: string, deviceName: string): Promise<number>;
 
@@ -1175,6 +1211,19 @@ declare namespace distributedDeviceManager {
      * @since 15
      */
     setHeartbeatPolicy(policy: StrategyForHeartbeat, delayTime: number): void;
+
+    /**
+     * Restores local device name.
+     *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 11600102 - Failed to obtain the service.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @since 18
+     */
+    restoreLocalDeivceName(): void;
   }
 }
 
