@@ -271,9 +271,10 @@ function deleteApi(sourceFile) {
 function isEmptyFile(node) {
   let isEmpty = true;
   if (ts.isSourceFile(node) && node.statements) {
+    const needExportName = new Set();
     for (let i = 0; i < node.statements.length; i++) {
       const statement = node.statements[i];
-      if (ts.isImportDeclaration(statement)) {
+      if (judgeExportHasImport(statement, needExportName)) {
         continue;
       }
       isEmpty = false;
@@ -281,6 +282,53 @@ function isEmptyFile(node) {
     }
   }
   return isEmpty;
+}
+
+/**
+ * 判断import节点和export节点。
+ * 当前文本如果还有其他节点则不能删除，
+ * 如果只有import和export则判断是否export导出import节点
+ * 
+ * @param {*} statement 
+ * @param {*} needExportName 
+ * @returns 
+ */
+function judgeExportHasImport(statement, needExportName) {
+  if (ts.isImportDeclaration(statement)) {
+    processImportDeclaration(statement, needExportName);
+    return true;
+  } else if (ts.isExportAssignment(statement) &&
+    !needExportName.has(statement.expression.escapedText.toString())) {
+    return true;
+  } else if (ts.isExportDeclaration(statement)) {
+    return !statement.exportClause.elements.some((element) => {
+      const exportName = element.propertyName ?
+        element.propertyName.escapedText.toString() :
+        element.name.escapedText.toString();
+      return needExportName.has(exportName);
+    });
+  }
+  return false;
+}
+
+function processImportDeclaration(statement, needExportName) {
+  const importClause = statement.importClause;
+  if (!ts.isImportClause(importClause)) {
+    return;
+  }
+  if (importClause.name) {
+    needExportName.add(importClause.name.escapedText.toString());
+  }
+  const namedBindings = importClause.namedBindings;
+  if (namedBindings !== undefined && ts.isNamedImports(namedBindings)) {
+    const elements = namedBindings.elements;
+    elements.forEach((element) => {
+      const exportName = element.propertyName ?
+        element.propertyName.escapedText.toString() :
+        element.name.escapedText.toString();
+      needExportName.add(exportName);
+    });
+  }
 }
 
 /**
