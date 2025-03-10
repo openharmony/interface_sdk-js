@@ -9014,8 +9014,6 @@ declare namespace window {
      * @atomicservice
      * @since 14
      */
-    on(eventType: 'windowStageEvent' | 'windowStageClose', callback: Callback<WindowStageEventType> |
-        Callback<void>): void;
 
     /**
      * Window stage event callback off.
