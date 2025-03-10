@@ -19,7 +19,7 @@
  */
 
 import { BusinessError } from './@ohos.base';
-import intl from '@ohos.intl';
+import intl from './@ohos.intl';
 import { StyledString, TextStyle } from './@ohos.arkui.component.StyledString';
 
 /**

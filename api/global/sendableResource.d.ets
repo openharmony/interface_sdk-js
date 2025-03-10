@@ -30,7 +30,7 @@ import collections from '../../arkts/@arkts.collections';
  * @atomicservice
  * @since 12
  */
-interface SendableResource extends lang.ISendable {
+export interface SendableResource extends lang.ISendable {
 
   /**
    * bundle name in hap
