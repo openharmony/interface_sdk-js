@@ -152,7 +152,9 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @since 12
      */
-    readonly [index: number]: T;
+    $_get(index:number): T;
+
+ 
     /**
      * Adds all the elements of an ArkTS ConcatArray into a string, separated by the specified separator string.
      * 
@@ -193,7 +195,7 @@ declare namespace collections {
    * @atomicservice
    * @since 12
    */
-  @Sendable
+  
   class Array<T> implements ConcatArray<T> {
     /**
      * Gets the length of the ArkTS array. This is a number one higher than the highest index in the ArkTS array.
@@ -699,7 +701,7 @@ declare namespace collections {
    * @atomicservice
    * @since 12
    */
-  @Sendable
+  
   class Map<K, V> {
     /**
      * Returns the number of elements in the Map.
@@ -722,7 +724,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    constructor(entries?: readonly (readonly [K, V])[] | null)
+    constructor(entries?: ([K, V])[] | null)
     /**
      * A constructor used to create a Map.
      *
@@ -734,7 +736,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    constructor(iterable: Iterable<readonly [K, V]>);
+    constructor(iterable: Iterable< [K, V]>);
     /**
      * Returns an iterator that iterates over key-value pairs.
      *
@@ -872,7 +874,7 @@ declare namespace collections {
    * @atomicservice
    * @since 12
    */
-  @Sendable
+  
   class Set<T> {
     /**
      * Returns the number of elements in the Set.
@@ -896,7 +898,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    constructor(values?: readonly T[] | null);
+    constructor(values?: T[] | null);
     /**
      * A constructor used to create a Set.
      *
@@ -1028,7 +1030,7 @@ declare namespace collections {
    * @atomicservice
    * @since 12
    */
-  @Sendable
+  
   class ArrayBuffer {
     /**
      * Read-only. The length of the ArrayBuffer (in bytes).
@@ -1078,7 +1080,7 @@ declare namespace collections {
    * @atomicservice
    * @since 12
    */
-  @Sendable
+  
   class Int8Array {
     /**
      * The size in bytes of each element in the array.
@@ -1628,7 +1630,7 @@ declare namespace collections {
    * @atomicservice
    * @since 12
    */
-  @Sendable
+  
   class Uint8ClampedArray {
     /**
      * The size in bytes of each element in the array.
@@ -2160,7 +2162,7 @@ declare namespace collections {
    * @atomicservice
    * @since 12
    */
-  @Sendable
+  
   class Uint8Array {
     /**
      * The size in bytes of each element in the array.
@@ -2708,7 +2710,7 @@ declare namespace collections {
    * @atomicservice
    * @since 12
    */
-  @Sendable
+  
   class Int16Array {
     /**
      * The size in bytes of each element in the array.
@@ -3256,7 +3258,7 @@ declare namespace collections {
    * @atomicservice
    * @since 12
    */
-  @Sendable
+  
   class Uint16Array {
     /**
      * The size in bytes of each element in the array.
@@ -3803,7 +3805,7 @@ declare namespace collections {
    * @atomicservice
    * @since 12
    */
-  @Sendable
+  
   class Int32Array {
     /**
      * The size in bytes of each element in the array.
@@ -4351,7 +4353,7 @@ declare namespace collections {
    * @atomicservice
    * @since 12
    */
-  @Sendable
+  
   class Uint32Array {
     /**
      * The size in bytes of each element in the array.
@@ -4898,7 +4900,7 @@ declare namespace collections {
    * @atomicservice
    * @since 12
    */
-  @Sendable
+  
   class Float32Array {
     /**
      * The size in bytes of each element in the array.
@@ -5428,7 +5430,7 @@ declare namespace collections {
    * @atomicservice
    * @since 12
    */
-  @Sendable
+  
   class BitVector {
     /**
      * A constructor used to create a BitVector object.
