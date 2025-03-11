@@ -1465,6 +1465,23 @@ declare namespace photoAccessHelper {
      */
     getThumbnail(size?: image.Size): Promise<image.PixelMap>;
     /**
+     * Get thumbnail data of the asset with ArrayBuffer
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { ThumbnailType } type - Which thumbnail's type needed to return.
+     * @returns { Promise<ArrayBuffer> } Returns the thumbnail's ArrayBuffer. 
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 18
+     */
+    getThumbnailData(type: ThumbnailType): Promise<ArrayBuffer>;
+    /**
      * Set favorite state for the asset
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
@@ -2296,7 +2313,15 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 14
      */
-    THUMBNAIL_VISIBLE = 'thumbnail_visible'
+    THUMBNAIL_VISIBLE = 'thumbnail_visible',
+    /**
+     * Whether the photo supports auto cloud enhancement task, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 18
+     */
+    IS_CE_AUTO = 'is_auto'
 
   }
 
@@ -4513,6 +4538,22 @@ declare namespace photoAccessHelper {
      */
     saveFormInfo(info: FormInfo): Promise<void>;
     /**
+     * Saves gallery form information
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { GalleryFormInfo } info - Information store with the gallery form.
+     * @returns { Promise<void> } Return void.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - System inner fail.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 18
+     */
+    saveGalleryFormInfo(info: GalleryFormInfo): Promise<void>;
+    /**
      * Removes form information
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
@@ -4544,6 +4585,38 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     removeFormInfo(info: FormInfo): Promise<void>;
+    /**
+     * Removes gallery form information
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { GalleryFormInfo } info - Information store with the gallery form.
+     * @returns { Promise<void> } Return void.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - System inner fail.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 18
+     */
+    removeGalleryFormInfo(info: GalleryFormInfo): Promise<void>;
+    /**
+     * Updates gallery form information
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { GalleryFormInfo } info - Information store with the gallery form.
+     * @returns { Promise<void> } Return void.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - System inner fail.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 18
+     */
+    updateGalleryFormInfo(info: GalleryFormInfo): Promise<void>;
     /**
      * Apply the change request of asset or album.
      *
@@ -4705,6 +4778,35 @@ declare namespace photoAccessHelper {
      * @since 18
      */
     startAssetAnalysis(type: AnalysisType, assetUris?: Array<string>): Promise<number>; 
+  }
+
+  /**
+   * Gallery Form information.
+   *
+   * @interface GalleryFormInfo
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 18
+   */
+  interface GalleryFormInfo {
+    /**
+     * Id of the form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 18
+     */
+    formId: string;
+    /**
+     * uriList of the photo or album.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 18
+     */
+    assetUris?: Array<string>;
   }
 
   /**
@@ -7461,6 +7563,30 @@ declare namespace photoAccessHelper {
      * @since 13
      */
     submitCloudEnhancementTasks(photoAssets: Array<PhotoAsset>, hasCloudWatermark: boolean): Promise<void>;
+
+    /**
+     * Submit cloud enhancement tasks.
+     * 
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Array<PhotoAsset> } photoAssets - The photo assets requested
+     * @param { boolean } hasCloudWatermark - true: Persistent cloud watermark; false: Not persistent cloud watermark.
+     * @param { number } triggerMode - Cloud enhancement task type.
+     * 0: Manual cloud enhancement task; 1: Auto cloud enhancement task. The default value is 0.
+     * @returns { Promise<void> } Returns void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 18
+     */
+    submitCloudEnhancementTasks(
+      photoAssets: Array<PhotoAsset>,
+      hasCloudWatermark: boolean,
+      triggerMode?: number
+    ): Promise<void>;
 
     /**
      * Prioritize cloud enhancement task.
