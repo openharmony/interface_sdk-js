@@ -106,7 +106,7 @@ declare class LazyVGridLayoutAttribute extends LazyGridLayoutAttribute<LazyVGrid
  * @atomicservice
  * @since 18
  */
-declare const LazyVGridLayout: LazyVGridLayoutInterface
+declare const LazyVGridLayout: LazyVGridLayoutInterface;
 
 /**
  * Defines the lazy vertical grid layout component instance.
