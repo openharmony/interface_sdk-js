@@ -1069,7 +1069,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
-   * @since 18
+   * @since 15
    */
   function isHotspotActive(): boolean;
 
