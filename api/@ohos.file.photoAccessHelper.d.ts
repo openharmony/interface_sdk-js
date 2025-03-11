@@ -4782,7 +4782,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 18
      */
-    assertUris?: Array<string>;
+    assetUris?: Array<string>;
   }
 
   /**
