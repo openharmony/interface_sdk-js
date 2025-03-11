@@ -135,7 +135,7 @@ declare class SwiperController {
    * Controlling Swiper to change to the specified subcomponent.
    *
    * @param { number } index - the index of item to be redirected.
-   * @param { SwiperAnimationMode | boolean } animationMode - animation mode for changeIndex,
+   * @param { SwiperAnimationMode | boolean } [animationMode] - animation mode for changeIndex,
    * true is equivalent to SwiperAnimationMode.DEFAULT_ANIMATION, false is equivalent to SwiperAnimationMode.NO_ANIMATION
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -143,7 +143,7 @@ declare class SwiperController {
    * @atomicservice
    * @since 15
    */
-  changeIndex(index: number, animationMode: SwiperAnimationMode | boolean);
+  changeIndex(index: number, animationMode?: SwiperAnimationMode | boolean);
 
   /**
    * Called when need to stop the swiper animation.
