@@ -31,7 +31,7 @@ import type UIExtensionContentSession from './@ohos.app.ability.UIExtensionConte
  * @atomicservice
  * @since 11
  */
-export default class InsightIntentExecutor {
+declare class InsightIntentExecutor {
   /**
    * Indicates context of insight intent.
    *
@@ -99,3 +99,5 @@ export default class InsightIntentExecutor {
   onExecuteInServiceExtensionAbility(name: string, param: Record<string, Object>):
     insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
 }
+
+export default InsightIntentExecutor;

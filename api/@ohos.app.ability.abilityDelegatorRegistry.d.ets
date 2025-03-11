@@ -18,9 +18,9 @@
  * @kit TestKit
  */
 
-import _AbilityDelegator from './application/AbilityDelegator';
-import _AbilityDelegatorArgs from './application/abilityDelegatorArgs';
-import _AbilityMonitor from './application/AbilityMonitor';
+import { AbilityDelegator as _AbilityDelegator } from './application/AbilityDelegator';
+import { AbilityDelegatorArgs as _AbilityDelegatorArgs } from './application/abilityDelegatorArgs';
+import { AbilityMonitor as _AbilityMonitor } from './application/AbilityMonitor';
 import _AbilityStageMonitor from './application/AbilityStageMonitor';
 import _ShellCmdResult from './application/shellCmdResult';
 

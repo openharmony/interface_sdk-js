@@ -27,8 +27,8 @@ import AbilityStageContext from './application/AbilityStageContext';
  * @stagemodelonly
  * @since 12
  */
-@Sendable
-export default class StartupTask {
+// @Sendable
+declare class StartupTask {
   /**
    * Called when specific dependent task complete.
    *
@@ -38,7 +38,7 @@ export default class StartupTask {
    * @stagemodelonly
    * @since 12
    */
-  onDependencyCompleted?(dependency: string, result: Object): void;
+  onDependencyCompleted?:(dependency: string, result: Object)=> void;
 
   /**
    * Initializes current startup task.
@@ -50,5 +50,7 @@ export default class StartupTask {
    * @stagemodelonly
    * @since 12
    */
-  init(context: AbilityStageContext): Promise<Object | void>;
+  init(context: AbilityStageContext): Promise<Object | undefined>;
 }
+
+export default StartupTask;

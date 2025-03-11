@@ -18,8 +18,8 @@
  * @kit AbilityKit
  */
 
-import common from '@ohos.app.ability.common';
-import type { SendableContext as _SendableContext } from './application/SendableContext';
+import common from './@ohos.app.ability.common';
+import { SendableContext as _SendableContext } from './application/SendableContext';
 
 /**
  * Sendable context manager.

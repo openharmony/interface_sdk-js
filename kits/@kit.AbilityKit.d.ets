@@ -20,8 +20,8 @@
 
 import ability from '../api/@ohos.ability.ability';
 import { ErrorCode } from '@ohos.ability.errorCode';
-import featureAbility from '../api/@ohos.ability.featureAbility';
-import particleAbility from '@ohos.ability.particleAbility';
+// import featureAbility from '../api/@ohos.ability.featureAbility';
+// import particleAbility from '@ohos.ability.particleAbility';
 import abilityAccessCtrl, {
   Context, PermissionRequestResult, Permissions
 } from '@ohos.abilityAccessCtrl';
@@ -121,9 +121,13 @@ export {
   abilityManager, appControl, appManager, appRecovery, autoFillManager, autoStartupManager, bundle, bundleManager,
   bundleMonitor, bundleResourceManager, businessAbilityRouter, childProcessManager, common, contextConstant,
   continuationManager, dataUriUtils, defaultAppManager, dialogRequest, dialogSession, distributedBundle,
-  distributedBundleManager, distributedMissionManager, errorManager, featureAbility, freeInstall,
+  distributedBundleManager, distributedMissionManager, errorManager,
+  // featureAbility, 
+  freeInstall,
   innerBundleManager, insightIntent, insightIntentDriver, installer, launcherBundleManager, missionManager,
-  overlay, particleAbility, quickFixManager, uriPermissionManager, wantAgent, wantConstant, privacyManager,
+  overlay,
+  // particleAbility,
+  quickFixManager, uriPermissionManager, wantAgent, wantConstant, privacyManager,
   EmbeddedUIExtensionAbility, StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager,
   screenLockFileManager, AtomicServiceOptions, EmbeddableUIAbility, ChildProcessArgs, ChildProcessOptions,
   sendableContextManager, PhotoEditorExtensionAbility, UIServiceExtensionAbility, shortcutManager, application,

@@ -36,5 +36,5 @@ export default class StartupListener {
    * @stagemodelonly
    * @since 12
    */
-  onCompleted?(error: BusinessError<void>): void;
+  onCompleted?:(error: BusinessError<void>) => void;
 }

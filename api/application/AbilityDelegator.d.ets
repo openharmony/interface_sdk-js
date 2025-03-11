@@ -21,7 +21,7 @@
 import { AsyncCallback } from '../@ohos.base';
 import UIAbility from '../@ohos.app.ability.UIAbility';
 import AbilityStage from '../@ohos.app.ability.AbilityStage';
-import AbilityMonitor from './AbilityMonitor';
+import { AbilityMonitor } from './AbilityMonitor';
 import AbilityStageMonitor from './AbilityStageMonitor';
 import Context from './Context';
 import Want from '../@ohos.app.ability.Want';
@@ -51,7 +51,7 @@ import ShellCmdResult from './shellCmdResult';
  * @atomicservice
  * @since 11
  */
-interface AbilityDelegator {
+export interface AbilityDelegator {
   /**
    * Add an AbilityMonitor object for monitoring the lifecycle state changes of the specified ability in this process.
    *
@@ -1307,5 +1307,3 @@ interface AbilityDelegator {
    */
   setMockList(mockList: Record<string, string>): void;
 }
-
-export default AbilityDelegator;

@@ -32,7 +32,7 @@ import type ViewData from './ViewData';
  * @stagemodelonly
  * @since 11
  */
-export default interface FillRequest {
+export interface FillRequest {
   /**
    * The auto fill type.
    *

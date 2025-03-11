@@ -32,5 +32,5 @@ import lang from '../../arkts/@arkts.lang';
  * @atomicservice
  * @since 12
  */
-interface SendableContext extends lang.ISendable {
+export interface SendableContext extends lang.ISendable {
 }
