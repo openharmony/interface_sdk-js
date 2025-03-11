@@ -19,6 +19,7 @@
  */
 
 import { Callback } from './@ohos.base';
+import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
 
 /**
  * The event of key input management module is configured to subscribe and unsubscribe system keys.
@@ -122,6 +123,42 @@ declare namespace inputConsumer {
      * @since 14
      */
     isRepeat?: boolean;
+  }
+
+  /**
+   * Key consunption settings.
+   *
+   * @typedef KeyPressedOptions
+   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+   * @since 16
+   */
+  interface KeyPressedOptions {
+    /**
+     * Key value.
+     *
+     * @type { number }
+     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+     * @since 16
+     */
+    key: number;
+
+    /**
+     * Key event type.
+     *
+     * @type { number }
+     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+     * @since 16
+     */
+    action: number;
+
+    /**
+     * Whether to report repeated key events. By default, the value is true if it is left unspecified.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+     * @since 16
+     */
+    isRepeat: boolean;
   }
 
   /**
@@ -269,6 +306,34 @@ declare namespace inputConsumer {
    * @since 14
    */
   function off(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback?: Callback<HotkeyOptions>): void
+
+  /**
+   * Consumed key events. Only the VolumeUp and VolumeDown keys are supported. When the current application process
+   * is the focus window`s process, a callback will be triggered if the user operates the specified key.
+   *
+   * @param { 'keyPressed' } type - Type of the key events.
+   * @param { KeyPressedOptions } options - Key consumption settings.
+   * @param { Callback<KeyEvent> } callback - Callback used to return key events.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+   * @since 16
+   */
+  function on(type: 'keyPressed', options: KeyPressedOptions, callback: Callback<KeyEvent>): void
+
+  /**
+   * Cancels consumption of key events.
+   *
+   * @param { 'keyPressed' } type - Type of the hotkey events.
+   * @param { Callback<KeyEvent> } callback - Callback used to return hotkey events.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+   * @since 16
+   */
+  function off(type: 'keyPressed', callback?: Callback<KeyEvent>): void
 }
 
 export default inputConsumer;
