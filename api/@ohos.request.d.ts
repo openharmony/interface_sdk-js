@@ -2871,6 +2871,80 @@ declare namespace request {
        * @since 15
        */
       text?: string;
+      /**
+       * Disables the notification.
+       * If the value is false, a notification will be displayed, otherwise nothing will be displayed.
+       * If not specified, the value is false.
+       *
+       * @type { ?boolean }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @systemapi Hide this for inner system use.
+       * @since 20
+       */
+      disable?: boolean;
+    }
+
+    /**
+     * Options of the minimum speed of the task.
+     *
+     * @typedef MinSpeed
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 20
+     */
+    interface MinSpeed {
+      /**
+       * The minimum speed of the task, in bytes per second.
+       * If the speed of the task is lower than this value for a period of time, the task fails.
+       * If the value is set to 0, no minimum speed limit will be activated.
+       *
+       * @type { number }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      speed: number;
+      /**
+       * Duration of the speed which is allowed to be below the minimum speed, in seconds.
+       * If the speed of the task is lower than this value for a period of time, the task fails.
+       * If the value is set to 0, no minimum speed limit will be activated.
+       *
+       * @type { number }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      duration: number;
+    }
+
+    /**
+     * Options of the custom task timeout.
+     *
+     * @typedef Timeout
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 20
+     */
+    interface Timeout {
+      /**
+       * The connection timeout of the task, in seconds.
+       * Connection timeout is the maximum time required for a client and a server to establish a connection.
+       * If this value is not specified, use default value instead. The default value is 60 seconds.
+       * The minimum value allowed is 1 second.
+       *
+       * @type { ?number }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      connectionTimeout?: number;
+      /**
+       * Total timeout of the task, in seconds.
+       * Total timeout includes the time to establish a connection, send a request and receive a response.
+       * If this value is not specified, use default value instead. The default value is 604,800 seconds(1 week).
+       * The minimum value allowed is 1 second.
+       * The maximum value allowed is 604,800 seconds(1 week).
+       *
+       * @type { ?number }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      totalTimeout?: number;
     }
 
     /**
@@ -3011,7 +3085,6 @@ declare namespace request {
        * @atomicservice
        * @since 11
        */
-
       mode?: Mode;
       /**
        * The solution choice when path already exists during download.
@@ -3442,6 +3515,22 @@ declare namespace request {
        * @since 15
        */
       notification?: Notification;
+      /**
+       * Customizes the minimum speed of the task.
+       *
+       * @type { ?MinSpeed }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      minSpeed?: MinSpeed;
+      /**
+       * Customizes the timeout of the task.
+       *
+       * @type { ?Timeout }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      timeout?: Timeout;
     }
 
     /**
@@ -3871,7 +3960,14 @@ declare namespace request {
        * @atomicservice
        * @since 12
        */
-      REDIRECT = 0x80
+      REDIRECT = 0x80,
+      /**
+       * Indicates the speed of the task is too slow.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      LOW_SPEED = 0x90
     }
 
     /**
@@ -4414,6 +4510,44 @@ declare namespace request {
     }
 
     /**
+     * Reason for task waiting.
+     *
+     * @enum { number }
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 20
+     */
+    enum WaitingReason {
+      /**
+       * Indicates the task is waiting for running queue to be free.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      TASK_QUEUE_FULL = 0x00,
+      /**
+       * Indicates the task is waiting for network to recover.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      NETWORK_NOT_MATCH = 0x01,
+      /**
+       * Indicates the task is waiting for app to return to the foreground.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      APP_BACKGROUND = 0x02,
+      /**
+       * Indicates the task is waiting for user to become activated.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      USER_INACTIVATED = 0x03,
+    }
+
+    /**
      * The task entry.
      * New task' status is "initialized" and enqueue.
      * Can `start` a initialized task.
@@ -4733,6 +4867,30 @@ declare namespace request {
        */
       off(event: 'response', callback?: Callback<HttpResponse>): void;
       /**
+       * Enables the wait callback.
+       * This callback is triggered when the task changes from other states to the waiting state.
+       * The returned `WaitingReason` will contain the reason why the task enters waiting state.
+       *
+       * @param { 'wait' } event - event types.
+       * @param { Callback<WaitingReason> } callback - callback function with an `WaitingReason` argument.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
+       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      on(event: 'wait', callback: Callback<WaitingReason>): void;
+      /**
+       * Disables the wait callback.
+       *
+       * @param { 'wait' } event - event types.
+       * @param { Callback<WaitingReason> } callback - callback function with an `WaitingReason` argument.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
+       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      off(event: 'wait', callback?: Callback<WaitingReason>): void;
+      /**
        * Starts the task.
        *
        * @permission ohos.permission.INTERNET
@@ -4982,7 +5140,7 @@ declare namespace request {
     /**
      * Creates a task for upload or download and enqueue it.
      * When an application enters the background, the frontend tasks associated
-     * with it will gradually be paused until the application returns to the foreground. 
+     * with it will gradually be paused until the application returns to the foreground.
      *
      * @permission ohos.permission.INTERNET
      * @param { BaseContext } context context of the caller.
@@ -5362,7 +5520,7 @@ declare namespace request {
 
     /**
      * Describes group configuration options for download tasks.
-     * 
+     *
      * @typedef GroupConfig
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 15
@@ -5373,7 +5531,7 @@ declare namespace request {
        * If true, progress, completed, and failed notifications will be displayed.
        * If false, only completed or failed notifications will be displayed.
        * The default value is false.
-       * 
+       *
        * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 15
@@ -5381,7 +5539,7 @@ declare namespace request {
       gauge?: boolean;
       /**
        * Customizes the notification of the task group.
-       * 
+       *
        * @type { Notification }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 15
@@ -5392,7 +5550,7 @@ declare namespace request {
     /**
      * Creates a background download task notification group.
      * Creates a group based on GroupConfig and returns the group ID.
-     * 
+     *
      * @param { GroupConfig } config - config of the group.
      * @returns { Promise<string> } the gid of the group.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
@@ -5407,7 +5565,7 @@ declare namespace request {
      * Attaches multiple download task IDs to a specified group ID.
      * If any task ID does not meet the attachment conditions,
      * all tasks in the list will not be added to the group.
-     * 
+     *
      * @param { string } gid - the gid of the target group.
      * @param { string[] } tids - the tid list of tasks to be attached.
      * @returns { Promise<void> } the promise returned by the function.
@@ -5426,7 +5584,7 @@ declare namespace request {
     /**
      * Deletes the target group, no more new tasks can be added to this group.
      * If all tasks in this group end, completed or failed notifications will be displayed.
-     * 
+     *
      * @param { string } gid - the gid of the target group.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
