@@ -576,7 +576,7 @@ declare namespace display {
    * Create virtual display. if surfaceId is valid, this permission is necessary.
    *
    * @permission ohos.permission.ACCESS_VIRTUAL_SCREEN
-   * @param { VirtualDisplayConfig } config Indicates the config of the virtual display.
+   * @param { VirtualDisplayOptions } options Indicates the options of the virtual display.
    * @returns { Promise<number> } Promise used to return the created virtual displayId
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -586,7 +586,7 @@ declare namespace display {
    * @syscap  SystemCapability.Window.SessionManager
    * @since 18
    */
-  function createVirtualDisplay(config: VirtualDisplayConfig): Promise<number>;
+  function createVirtualDisplay(options: VirtualDisplayOptions): Promise<number>;
 
   /**
    * Destroy virtual display.
@@ -643,11 +643,11 @@ declare namespace display {
   /**
    * The parameter for creating virtual display.
    *
-   * @interface VirtualDisplayConfig
+   * @interface VirtualDisplayOptions
    * @syscap SystemCapability.Window.SessionManager
    * @since 18
    */
-  interface VirtualDisplayConfig {
+  interface VirtualDisplayOptions {
     /**
      * Indicates the name of the virtual display.
      *
