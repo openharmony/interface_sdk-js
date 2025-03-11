@@ -19,8 +19,8 @@
  */
 
 import type { AsyncCallback } from './@ohos.base';
-import ChildProcessArgs from './@ohos.app.ability.ChildProcessArgs';
-import ChildProcessOptions from './@ohos.app.ability.ChildProcessOptions';
+import { ChildProcessArgs } from './@ohos.app.ability.ChildProcessArgs';
+import { ChildProcessOptions } from './@ohos.app.ability.ChildProcessOptions';
 
 /**
  * This module provides the capability to start and manage child process.
