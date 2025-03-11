@@ -309,7 +309,7 @@ declare namespace inputConsumer {
 
   /**
    * Consumed key events. Only the VolumeUp and VolumeDown keys are supported. When the current application process
-   * is the focus window`s process, a callback will be triggered if the user operates the specified key.
+   * is the focus window's process, a callback will be triggered if the user operates the specified key.
    *
    * @param { 'keyPressed' } type - Type of the key events.
    * @param { KeyPressedOptions } options - Key consumption settings.
