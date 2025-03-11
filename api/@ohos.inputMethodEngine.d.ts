@@ -349,13 +349,25 @@ declare namespace inputMethodEngine {
   type CommandDataType = number | string | boolean;
 
   /**
+   * The callback of 'sizeUpdate' event.
+   *
+   * @typedef { function } SizeUpdateCallback.
+   * @param { window.Size } size - panel size.
+   * @param { KeyboardArea } keyboardArea - keyboard area.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @systemapi
+   * @since 14
+   */
+  export type SizeUpdateCallback = (size: window.Size, keyboardArea: KeyboardArea) => void;
+
+  /**
    * The callback of 'sizeChange' event.
    *
    * @typedef { function } SizeChangeCallback.
    * @param { window.Size } size - panel size.
-   * @param { ?KeyboardArea } keyboardArea - keyboard area.
+   * @param { KeyboardArea } keyboardArea - keyboard area.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 16
+   * @since 15
    */
   export type SizeChangeCallback = (size: window.Size, keyboardArea?: KeyboardArea) => void;
 
@@ -1382,7 +1394,7 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 12800015 - the other side does not accept the request.
      * @throws { BusinessError } 12800016 - input method client is not editable.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @since 15
      */
     sendMessage(msgId: string, msgParam?: ArrayBuffer): Promise<void>;
 
@@ -1392,7 +1404,7 @@ declare namespace inputMethodEngine {
      * @param { ?MessageHandler } [msgHandler] - optional, the handler of the custom message.
      * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @since 15
      */
     recvMessage(msgHandler?: MessageHandler): void;
   }
@@ -1534,6 +1546,47 @@ declare namespace inputMethodEngine {
   }
 
   /**
+   * Defines the immersive mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 15
+   */
+  export enum ImmersiveMode {
+    /**
+     * Default immersive mode, the panel is not in immersive mode.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    NONE_IMMERSIVE = 0,
+
+    /**
+     * Immersive mode.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    IMMERSIVE,
+
+    /**
+     * Light immersive mode.
+     * 
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    LIGHT_IMMERSIVE,
+
+    /**
+     * Dark immersive mode.
+     * 
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    DARK_IMMERSIVE
+  }
+
+  /**
    * A panel is a container used to hold soft keyboard, candidate list, or status bar.
    *
    * @interface Panel
@@ -1648,6 +1701,40 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     moveTo(x: number, y: number): Promise<void>;
+
+    /**
+     * Starts moving a panel. The panel starts moving when pressed with finger or mouse and stops moving when released.
+     * <p>It's Only used for STATUS_BAR panel.</p>
+     *
+     * @throws { BusinessError } 12800002 - input method engine error.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    /**
+     * Starts moving a panel. The panel starts moving when pressed with finger or mouse and stops moving when released.
+     * <p>It's Only used for STATUS_BAR panel.</p>
+     *
+     * @throws { BusinessError } 801 - capability not supported.
+     * @throws { BusinessError } 12800002 - input method engine error.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 18
+     */
+    startMoving(): void;
+
+    /**
+     * Get the ID of the display where the input method panel is located.
+     *
+     * @returns { Promise<number> } the promise returned by the function.
+     * @throws { BusinessError } 12800002 - input method engine error.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    getDisplayId(): Promise<number>;
 
     /**
      * Shows panel.
@@ -1783,7 +1870,7 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 12800013 - window manager service error.
      * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @since 15
      */
     adjustPanelRect(flag: PanelFlag, rect: EnhancedPanelRect): void;
 
@@ -1797,7 +1884,7 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 12800013 - window manager service error.
      * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @since 15
      */
     updateRegion(inputRegion: Array<window.Rect>): void;
 
@@ -1817,7 +1904,7 @@ declare namespace inputMethodEngine {
      * @param { 'sizeChange' } type - the type of subscribe event.
      * @param { SizeChangeCallback } callback - the callback of on('sizeChange').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @since 15
      */
     on(type: 'sizeChange', callback: SizeChangeCallback): void;
 
@@ -1837,9 +1924,56 @@ declare namespace inputMethodEngine {
      * @param { 'sizeChange' } type - the type of unsubscribe event.
      * @param { ?SizeChangeCallback } [callback] - optional, the callback of off('sizeChange').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @since 15
      */
     off(type: 'sizeChange', callback?: SizeChangeCallback): void;
+
+    /**
+     * Subscribe 'sizeUpdate' event.
+     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED and FLG_FLOATING.</p>
+     *
+     * @param { 'sizeUpdate' } type - the type of subscribe event.
+     * @param { SizeUpdateCallback } callback - the callback of on('sizeUpdate').
+     * @throws { BusinessError } 202 - not system application.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 14
+     */
+    on(type: 'sizeUpdate', callback: SizeUpdateCallback): void;
+
+    /**
+     * Unsubscribe 'sizeUpdate' event.
+     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED and FLG_FLOATING.</p>
+     *
+     * @param { 'sizeUpdate' } type - the type of unsubscribe event.
+     * @param { ?SizeUpdateCallback } [callback] - optional, the callback of off('sizeUpdate').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 14
+     */
+    off(type: 'sizeUpdate', callback?: SizeUpdateCallback): void;
+
+    /**
+     * Set immersive mode.
+     * 
+     * @param { ImmersiveMode } mode - Immersive mode.
+     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     *     1.Incorrect parameter types; 2.Parameter verification failed.
+     * @throws { BusinessError } 12800002 - input method engine error.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    setImmersiveMode(mode: ImmersiveMode): void;
+
+    /**
+     * Get immersive mode.
+     * 
+     * @returns { ImmersiveMode } Immersive mode.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    getImmersiveMode(): ImmersiveMode;
   }
 
   /**
@@ -1886,6 +2020,16 @@ declare namespace inputMethodEngine {
      * @since 14
      */
     readonly bundleName?: string;
+
+    /**
+     * Immersive mode.
+     *
+     * @type { ?ImmersiveMode }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    readonly immersiveMode?: ImmersiveMode;
   }
 
   /**
@@ -2222,7 +2366,7 @@ declare namespace inputMethodEngine {
    * 
    * @interface MessageHandler
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 16
+   * @since 15
    */
   interface MessageHandler {
     /**
@@ -2231,7 +2375,7 @@ declare namespace inputMethodEngine {
      * @param { string } msgId - the identifier of the message.
      * @param { ?ArrayBuffer } [msgParam] - the parameter of the custom message.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @since 15
      */
     onMessage(msgId: string, msgParam?: ArrayBuffer): void;
 
@@ -2239,7 +2383,7 @@ declare namespace inputMethodEngine {
      * This method is called when a new message handler is set.
      * 
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @since 15
      */
     onTerminated(): void;
   }
@@ -2249,7 +2393,7 @@ declare namespace inputMethodEngine {
    *
    * @interface EnhancedPanelRect
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 16
+   * @since 15
    */
   export interface EnhancedPanelRect {
     /**
@@ -2258,7 +2402,7 @@ declare namespace inputMethodEngine {
      *
      * @type { ?window.Rect }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @since 15
      */
     landscapeRect?: window.Rect;
     /**
@@ -2267,7 +2411,7 @@ declare namespace inputMethodEngine {
      *
      * @type { ?window.Rect }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @since 15
      */
     portraitRect?: window.Rect;
     /**
@@ -2277,7 +2421,7 @@ declare namespace inputMethodEngine {
      * @type { ?number }
      * @default 0
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @since 15
      */
     landscapeAvoidY?: number;
     /**
@@ -2287,7 +2431,7 @@ declare namespace inputMethodEngine {
      *
      * @type { ?Array<window.Rect> }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @since 15
      */
     landscapeInputRegion?: Array<window.Rect>;
     /**
@@ -2297,7 +2441,7 @@ declare namespace inputMethodEngine {
      * @type { ?number }
      * @default 0
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @since 15
      */
     portraitAvoidY?: number;
     /**
@@ -2307,7 +2451,7 @@ declare namespace inputMethodEngine {
      *
      * @type { ?Array<window.Rect> }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @since 15
      */
     portraitInputRegion?: Array<window.Rect>;
     /**
@@ -2317,7 +2461,7 @@ declare namespace inputMethodEngine {
      * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @since 15
      */
     fullScreenMode?: boolean;
   }
@@ -2327,7 +2471,7 @@ declare namespace inputMethodEngine {
    *
    * @interface KeyboardArea
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 16
+   * @since 15
    */
   export interface KeyboardArea {
     /**
@@ -2335,7 +2479,7 @@ declare namespace inputMethodEngine {
      *
      * @type { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @since 15
      */
     top: number;
     /**
@@ -2343,7 +2487,7 @@ declare namespace inputMethodEngine {
      *
      * @type { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @since 15
      */
     bottom: number;
     /**
@@ -2351,7 +2495,7 @@ declare namespace inputMethodEngine {
      *
      * @type { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @since 15
      */
     left: number;
     /**
@@ -2359,7 +2503,7 @@ declare namespace inputMethodEngine {
      *
      * @type { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @since 15
      */
     right: number;
   }

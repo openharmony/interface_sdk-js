@@ -146,7 +146,7 @@ export default class Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   type?: string;
 

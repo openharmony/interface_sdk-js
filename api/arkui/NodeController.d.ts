@@ -160,7 +160,7 @@ export abstract class NodeController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onAttach?(): void;
 
@@ -170,7 +170,7 @@ export abstract class NodeController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onDetach?(): void;
 
@@ -181,7 +181,7 @@ export abstract class NodeController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onWillBind?(containerId: number): void;
 
@@ -192,7 +192,7 @@ export abstract class NodeController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onWillUnbind?(containerId: number): void;
   
@@ -203,7 +203,7 @@ export abstract class NodeController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onBind?(containerId: number): void;
 
@@ -214,7 +214,7 @@ export abstract class NodeController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onUnbind?(containerId: number): void;
 }

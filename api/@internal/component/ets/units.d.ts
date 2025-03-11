@@ -114,7 +114,7 @@ declare type Length = string | number | Resource;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare type PX = `${number}px`;
 
@@ -140,7 +140,7 @@ declare type PX = `${number}px`;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare type VP = `${number}vp` | number;
 
@@ -166,7 +166,7 @@ declare type VP = `${number}vp` | number;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare type FP = `${number}fp`;
 
@@ -192,7 +192,7 @@ declare type FP = `${number}fp`;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare type LPX = `${number}lpx`;
 
@@ -218,7 +218,7 @@ declare type LPX = `${number}lpx`;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare type Percentage = `${number}%`;
 
@@ -261,7 +261,7 @@ declare type Degree = `${number}deg`;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare type Dimension = PX | VP | FP | LPX | Percentage | Resource;
 
@@ -3346,7 +3346,7 @@ declare class ColorFilter {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare interface TouchPoint {
   /**
@@ -3371,7 +3371,7 @@ declare interface TouchPoint {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   x: Dimension;
 
@@ -3397,7 +3397,7 @@ declare interface TouchPoint {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   y: Dimension;
 }
@@ -3515,6 +3515,17 @@ declare interface DividerStyleOptions {
    * @since 12
    */
   endMargin?: LengthMetrics;
+
+  /**
+   * The mode of Divider.
+   *
+   * @type { ?DividerMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  mode?: DividerMode;
 }
 
 /**

@@ -141,7 +141,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   export interface AtomicServiceStartupRule {
     /**
@@ -150,7 +150,7 @@ declare namespace abilityManager {
      * @type { boolean }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     isOpenAllowed: boolean;
 
@@ -160,7 +160,7 @@ declare namespace abilityManager {
      * @type { boolean }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since 16
+     * @since 18
      */
     isEmbeddedAllowed: boolean;
   }
@@ -510,7 +510,7 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   function queryAtomicServiceStartupRule(context: Context, appId: string): Promise<AtomicServiceStartupRule>;
 

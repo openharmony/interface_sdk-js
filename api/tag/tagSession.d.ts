@@ -82,7 +82,7 @@ export interface TagSession {
    * @permission ohos.permission.NFC_TAG
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -116,7 +116,7 @@ export interface TagSession {
    * @permission ohos.permission.NFC_TAG
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -194,7 +194,7 @@ export interface TagSession {
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -231,7 +231,7 @@ export interface TagSession {
    * @returns { number } Returns the timeout duration.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12
@@ -320,7 +320,7 @@ export interface TagSession {
    * @throws { BusinessError } 3100205 - The tag leaves the field.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   transmit(data: number[]): Promise<number[]>;
 
@@ -352,7 +352,7 @@ export interface TagSession {
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @throws { BusinessError } 3100204 - Tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
@@ -390,7 +390,7 @@ export interface TagSession {
    * @returns { number } Returns the maximum length of the data to be sent to the tag.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since 12

@@ -19,7 +19,7 @@
  */
 
 import photoAccessHelper from '@ohos.file.photoAccessHelper';
-import { AsyncCallback } from '@kit.BasicServicesKit';
+import { AsyncCallback } from '@ohos.base';
 
 /**
  * Declare struct PhotoPickerComponent
@@ -139,7 +139,7 @@ export declare struct PhotoPickerComponent {
    * @atomicservice
    * @since 13
    */
-  onCurrentAlbumDeleted?: CurrentAlbumDeletedCallback
+  onCurrentAlbumDeleted?: CurrentAlbumDeletedCallback;
 
   /**
    * Callback when the video play state changed
@@ -940,7 +940,7 @@ export declare enum SaveMode {
    * @atomicservice
    * @since 15
    */
-   OVERWRITE = 1
+  OVERWRITE = 1
 }
 
 /**

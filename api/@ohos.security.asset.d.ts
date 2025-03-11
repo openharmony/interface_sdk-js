@@ -66,9 +66,12 @@ declare namespace asset {
    */
   /**
    * Add an Asset.
+   * Permission ohos.permission.STORE_PERSISTENT_DATA is required when the Asset needs to be stored persistently
+   *     by setting {@link Tag.IS_PERSISTENT} tag.
    *
    * @param { AssetMap } attributes - a map object containing attributes of the Asset to be added.
    * @returns { Promise<void> } the promise object returned by the function.
+   * @throws { BusinessError } 201 - The caller doesn't have the permission.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -155,8 +158,11 @@ declare namespace asset {
    */
   /**
    * Add an Asset.
+   * Permission ohos.permission.STORE_PERSISTENT_DATA is required when the Asset needs to be stored persistently
+   *     by setting {@link Tag.IS_PERSISTENT} tag.
    *
    * @param { AssetMap } attributes - a map object containing attributes of the Asset to be added.
+   * @throws { BusinessError } 201 - The caller doesn't have the permission.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -1020,6 +1026,30 @@ declare namespace asset {
   }
 
   /**
+   * An enum type indicates the type of Asset encapsulation.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.Asset
+   * @since 18
+   */
+  enum WrapType {
+    /**
+     * An Asset with this attribute value is never allowed to be wrapped up.
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @since 18
+     */
+    NEVER = 0,
+    /**
+     * An Asset with this attribute value can only be wrapped or unwrapped on devices logged in with trusted accounts.
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @since 18
+     */
+    TRUSTED_ACCOUNT = 1,
+  }
+
+  /**
    * An enum type indicates the strategy for conflict resolution when handling duplicated Asset alias.
    *
    * @enum { number }
@@ -1623,9 +1653,16 @@ declare namespace asset {
      * A tag whose value is a byte array indicating the group id an asset belongs to.
      *
      * @syscap SystemCapability.Security.Asset
-     * @since 16
+     * @since 18
      */
     GROUP_ID = TagType.BYTES | 0x48,
+    /**
+     * A tag whose value is a 32-bit unsigned integer indicating the type of Asset encapsulation.
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @since 18
+     */
+    WRAP_TYPE = TagType.NUMBER | 0x49,
   }
 
   /**

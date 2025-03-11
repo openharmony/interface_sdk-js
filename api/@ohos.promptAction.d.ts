@@ -29,7 +29,7 @@ import { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 export enum LevelMode {
   /**
@@ -38,7 +38,7 @@ export enum LevelMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   OVERLAY = 0,
 
@@ -48,7 +48,7 @@ export enum LevelMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   EMBEDDED = 1,
 }
@@ -60,7 +60,7 @@ export enum LevelMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 export enum ImmersiveMode {
   /**
@@ -69,29 +69,53 @@ export enum ImmersiveMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   DEFAULT = 0,
 
   /**
-   * Mask covering the page node.
+   * Mask extend safe area includes status bar and navigation bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
-  PAGE = 1,
+  EXTEND = 1,
+}
+
+/**
+ * Defines level order.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+export class LevelOrder {
+  /**
+   * Generate valid level order.
+   *
+   * @param { number } order - Clamp order with mininum number -100000 and maximum number 100000.
+   * @returns { LevelOrder } the order object.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  static clamp(order: number): LevelOrder
 
   /**
-   * Mask covering the root node.
+   * Get the order from LevelOrder object.
    *
+   * @returns { number } the order number.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
-  FULL = 2,
+  getOrder(): number
 }
 
 /**
@@ -738,6 +762,28 @@ declare namespace promptAction {
     backgroundBlurStyle?: BlurStyle;
 
     /**
+     * Defines the dialog's background blur style with options
+     *
+     * @type { ?BackgroundBlurStyleOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
+    backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
+
+    /**
+     * Defines the dialog's background effect with options
+     *
+     * @type { ?BackgroundEffectOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
+    backgroundEffect?: BackgroundEffectOptions;
+
+    /**
      * Defines the dialog's shadow.
      *
      * @type { ?(ShadowOptions | ShadowStyle) }
@@ -779,7 +825,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     onDidAppear?: Callback<void>;
 
@@ -790,7 +836,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     onDidDisappear?: Callback<void>;
 
@@ -801,7 +847,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     onWillAppear?: Callback<void>;
 
@@ -812,7 +858,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     onWillDisappear?: Callback<void>;
 
@@ -824,7 +870,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     levelMode?: LevelMode;
 
@@ -835,7 +881,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     levelUniqueId?: number;
 
@@ -847,9 +893,21 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     immersiveMode?: ImmersiveMode;
+
+    /**
+     * Determine the display order of the dialog.
+     *
+     * @type { ?LevelOrder }
+     * @default The value returns by LevelOrder.clamp(0)
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
+    levelOrder?: LevelOrder;
   }
 
   /**
@@ -858,7 +916,7 @@ declare namespace promptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   class CommonController {
     /**
@@ -867,7 +925,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     constructor();
 
@@ -877,7 +935,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     close(): void;
   }
@@ -889,7 +947,7 @@ declare namespace promptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   class DialogController extends CommonController {}
 
@@ -1032,6 +1090,28 @@ declare namespace promptAction {
     transition?: TransitionEffect;
 
     /**
+     * Dialog transition parameters of opening/closing custom dialog.
+     *
+     * @type { ?TransitionEffect }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
+    dialogTransition?: TransitionEffect;
+
+    /**
+     * Mask transition parameters of opening/closing custom dialog.
+     *
+     * @type { ?TransitionEffect }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
+    maskTransition?: TransitionEffect;
+    
+    /**
      * Defines custom dialog maskColor
      * 
      * @type { ?ResourceColor }
@@ -1134,13 +1214,35 @@ declare namespace promptAction {
     hoverModeArea?: HoverModeAreaType;
 
     /**
+     * Defines the customDialog's background blur style with options
+     *
+     * @type { ?BackgroundBlurStyleOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
+    backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
+
+    /**
+     * Defines the customDialog's background effect with options
+     *
+     * @type { ?BackgroundEffectOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
+    backgroundEffect?: BackgroundEffectOptions;
+
+    /**
      * Defines the distance between the customDialog and system keyboard.
      *
      * @type { ?LengthMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     keyboardAvoidDistance?: LengthMetrics;
 
@@ -1152,7 +1254,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     levelMode?: LevelMode;
 
@@ -1163,7 +1265,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     levelUniqueId?: number;
 
@@ -1175,9 +1277,33 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     immersiveMode?: ImmersiveMode;
+
+    /**
+     * Determine the display order of the dialog.
+     *
+     * @type { ?LevelOrder }
+     * @default The value returns by LevelOrder.clamp(0)
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
+    levelOrder?: LevelOrder;
+
+    /**
+     * Specifies whether to get focus when the custom dialog is displayed.
+     *
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
+    focusable?: boolean;
   }
 
   /**
@@ -1327,7 +1453,7 @@ declare namespace promptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   declare type DialogOptionsCornerRadius = Dimension | BorderRadiuses;
 
@@ -1338,7 +1464,7 @@ declare namespace promptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   declare type DialogOptionsBorderWidth = Dimension | EdgeWidths;
 
@@ -1349,7 +1475,7 @@ declare namespace promptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   declare type DialogOptionsBorderColor = ResourceColor | EdgeColors;
 
@@ -1360,7 +1486,7 @@ declare namespace promptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   declare type DialogOptionsBorderStyle = BorderStyle | EdgeStyles;
 
@@ -1371,7 +1497,7 @@ declare namespace promptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   declare type DialogOptionsShadow = ShadowOptions | ShadowStyle;
 
@@ -1383,7 +1509,7 @@ declare namespace promptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   interface DialogOptions extends BaseDialogOptions {
     /**
@@ -1393,7 +1519,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     backgroundColor?: ResourceColor;
 
@@ -1404,7 +1530,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     cornerRadius?: DialogOptionsCornerRadius;
 
@@ -1415,7 +1541,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     width?: Dimension;
 
@@ -1426,7 +1552,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     height?: Dimension;
 
@@ -1437,7 +1563,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     borderWidth?: DialogOptionsBorderWidth;
 
@@ -1448,7 +1574,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     borderColor?: DialogOptionsBorderColor;
 
@@ -1459,7 +1585,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     borderStyle?: DialogOptionsBorderStyle;
 
@@ -1470,7 +1596,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     shadow?: DialogOptionsShadow;
 
@@ -1482,7 +1608,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     backgroundBlurStyle?: BlurStyle;
   }
@@ -1658,7 +1784,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     levelMode?: LevelMode;
 
@@ -1669,7 +1795,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     levelUniqueId?: number;
 
@@ -1681,7 +1807,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     immersiveMode?: ImmersiveMode;
   }
@@ -1724,6 +1850,8 @@ declare namespace promptAction {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 18
+   * @useinstead ohos.arkui.UIContext.PromptAction#showToast
    */
   function showToast(options: ShowToastOptions): void;
 
@@ -1740,7 +1868,7 @@ declare namespace promptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   function openToast(options: ShowToastOptions): Promise<number>;
 
@@ -1756,7 +1884,7 @@ declare namespace promptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   function closeToast(toastId: number): void;
 
@@ -1801,6 +1929,8 @@ declare namespace promptAction {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 18
+   * @useinstead ohos.arkui.UIContext.PromptAction#showDialog
    */
   function showDialog(options: ShowDialogOptions, callback: AsyncCallback<ShowDialogSuccessResponse>): void;
 
@@ -1845,6 +1975,8 @@ declare namespace promptAction {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 18
+   * @useinstead ohos.arkui.UIContext.PromptAction#showDialog
    */
   function showDialog(options: ShowDialogOptions): Promise<ShowDialogSuccessResponse>;
 
@@ -1876,6 +2008,8 @@ declare namespace promptAction {
    * @crossplatform
    * @atomicservice
    * @since 12
+   * @deprecated since 18
+   * @useinstead ohos.arkui.UIContext.PromptAction#openCustomDialog
    */
   function openCustomDialog(options: CustomDialogOptions): Promise<number>;
 
@@ -1905,6 +2039,8 @@ declare namespace promptAction {
    * @crossplatform
    * @atomicservice
    * @since 12
+   * @deprecated since 18
+   * @useinstead ohos.arkui.UIContext.PromptAction#closeCustomDialog
    */
   function closeCustomDialog(dialogId: number): void;
 
@@ -1949,6 +2085,8 @@ declare namespace promptAction {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 18
+   * @useinstead ohos.arkui.UIContext.PromptAction#showActionMenu
    */
   function showActionMenu(options: ActionMenuOptions, callback: AsyncCallback<ActionMenuSuccessResponse>): void;
 
@@ -1993,6 +2131,8 @@ declare namespace promptAction {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 18
+   * @useinstead ohos.arkui.UIContext.PromptAction#showActionMenu
    */
   function showActionMenu(options: ActionMenuOptions): Promise<ActionMenuSuccessResponse>;
 }

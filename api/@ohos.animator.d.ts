@@ -304,7 +304,7 @@ export interface AnimatorOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export declare class SimpleAnimatorOptions {
   /**
@@ -315,7 +315,7 @@ export declare class SimpleAnimatorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   constructor(begin: number, end: number);
 
@@ -327,7 +327,7 @@ export declare class SimpleAnimatorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   duration(duration: number): SimpleAnimatorOptions;
 
@@ -353,7 +353,7 @@ export declare class SimpleAnimatorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   easing(curve: string): SimpleAnimatorOptions;
 
@@ -365,7 +365,7 @@ export declare class SimpleAnimatorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   delay(delay: number): SimpleAnimatorOptions;
 
@@ -377,7 +377,7 @@ export declare class SimpleAnimatorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   fill(fillMode: FillMode): SimpleAnimatorOptions;
 
@@ -389,7 +389,7 @@ export declare class SimpleAnimatorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   direction(direction: PlayMode): SimpleAnimatorOptions;
 
@@ -401,7 +401,7 @@ export declare class SimpleAnimatorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   iterations(iterations: number): SimpleAnimatorOptions;
 }
@@ -487,7 +487,7 @@ export interface AnimatorResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   reset(options: AnimatorOptions | SimpleAnimatorOptions): void;
 
@@ -799,6 +799,8 @@ export default class Animator {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 18
+   * @useinstead ohos.arkui.UIContext.UIContext#createAnimator
    */
   static create(options: AnimatorOptions): AnimatorResult;
 
@@ -813,7 +815,7 @@ export default class Animator {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   static create(options: AnimatorOptions | SimpleAnimatorOptions): AnimatorResult;
 }

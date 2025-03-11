@@ -475,6 +475,21 @@ declare namespace display {
   function setFoldDisplayMode(mode: FoldDisplayMode): void;
 
   /**
+   * Change the display mode of the foldable device.
+   *
+   * @param { FoldDisplayMode } mode target display mode to change.
+   * @param { string } reason set display mode reason.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 15
+   */
+  function setFoldDisplayMode(mode: FoldDisplayMode, reason: string): void;
+
+  /**
    * Register the callback for fold display mode changes.
    *
    * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
@@ -968,6 +983,88 @@ declare namespace display {
      * @since 12
      */
     LANDSCAPE_INVERTED = 3
+  }
+
+    /**
+     * Indicate the source mode of the display
+     *
+     * @enum { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+  enum DisplaySourceMode {
+    /**
+     * Indicate that the display is not in use.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    NONE = 0,
+ 
+    /**
+     * Indicate that the display is the main display.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    MAIN = 1,
+
+    /**
+     * Indicate that the display is in mirror mode.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    MIRROR = 2,
+
+    /**
+     * Indicate that the display is in extend mode.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    EXTEND = 3,
+
+    /**
+     * Indicate that the display stands alone.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    ALONE = 4
+  }
+
+  /**
+   * Enumerates the screen shape.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @since 18
+   */
+  enum ScreenShape {
+    /**
+     *The screen shape is rectangle.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 18
+     */
+    RECTANGLE = 0,
+    /**
+     *The screen shape is round.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 18
+     */
+    ROUND = 1
   }
 
   /**
@@ -1639,6 +1736,16 @@ declare namespace display {
     yDPI: number;
 
     /**
+     * The shape of screen
+     *
+     * @type { ?ScreenShape }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 18
+     */
+    screenShape?: ScreenShape;
+
+    /**
      * All supported color spaces.
      *
      * @type { Array<colorSpaceManager.ColorSpace> }
@@ -1671,6 +1778,36 @@ declare namespace display {
      * @since 12
      */
     hdrFormats: Array<hdrCapability.HDRFormat>;
+
+    /**
+     * The source mode of display
+     *
+     * @type { ?DisplaySourceMode }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    sourceMode?: DisplaySourceMode;
+ 
+    /**
+     * Coordinates of the top-left corner of the display relative to the main display.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    x?: number;
+  
+    /**
+     * Coordinates of the top-left corner of the display relative to the main display.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    y?: number;
 
     /**
      * Obtain the cutout info of the display.

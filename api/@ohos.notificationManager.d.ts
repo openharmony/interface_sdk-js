@@ -295,7 +295,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function publish(request: NotificationRequest, userId: number, callback: AsyncCallback<void>): void;
 
@@ -376,7 +376,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function publish(request: NotificationRequest, userId: number): Promise<void>;
 
@@ -668,8 +668,6 @@ declare namespace notificationManager {
    * Cancel all notifications of the current application.
    *
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -680,8 +678,6 @@ declare namespace notificationManager {
    * Cancel all notifications of the current application.
    *
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -852,8 +848,6 @@ declare namespace notificationManager {
    * Obtains all NotificationSlot objects created by the current application.
    *
    * @returns { Promise<Array<NotificationSlot>> } Returns all notification slots of this application.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -926,8 +920,6 @@ declare namespace notificationManager {
    * Removes all NotificationSlot objects created by the current application.
    *
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1085,8 +1077,6 @@ declare namespace notificationManager {
    * Checks whether this application allows to publish notifications.
    *
    * @returns { Promise<boolean> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1099,8 +1089,6 @@ declare namespace notificationManager {
    * Checks whether this application allows to publish notifications.
    *
    * @returns { Promise<boolean> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1183,6 +1171,26 @@ declare namespace notificationManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Sets whether to allow the specified application to show badge.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { boolean } enable - Set enable or not.
+   * @param { AsyncCallback<void> } callback - The callback of displayBadge.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 18
+   */
   function displayBadge(bundle: BundleOption, enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
@@ -1203,6 +1211,26 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
+   */
+  /**
+   * Sets whether to allow the specified application to show badge.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { boolean } enable - Set enable or not.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 18
    */
   function displayBadge(bundle: BundleOption, enable: boolean): Promise<void>;
 
@@ -1241,7 +1269,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function isBadgeDisplayed(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
 
@@ -1280,7 +1308,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function isBadgeDisplayed(bundle: BundleOption): Promise<boolean>;
 
@@ -1321,7 +1349,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function setSlotByBundle(bundle: BundleOption, slot: NotificationSlot, callback: AsyncCallback<void>): void;
 
@@ -1362,7 +1390,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function setSlotByBundle(bundle: BundleOption, slot: NotificationSlot): Promise<void>;
 
@@ -1401,7 +1429,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function getSlotsByBundle(bundle: BundleOption, callback: AsyncCallback<Array<NotificationSlot>>): void;
 
@@ -1444,7 +1472,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function getSlotByBundle(bundle: BundleOption, slotType: SlotType): Promise<NotificationSlot>;
 
@@ -1483,7 +1511,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function getSlotsByBundle(bundle: BundleOption): Promise<Array<NotificationSlot>>;
 
@@ -1522,7 +1550,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function getSlotNumByBundle(bundle: BundleOption, callback: AsyncCallback<number>): void;
 
@@ -1561,7 +1589,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function getSlotNumByBundle(bundle: BundleOption): Promise<number>;
 
@@ -1592,8 +1620,6 @@ declare namespace notificationManager {
    * @returns { Promise<Array<NotificationRequest>> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1621,8 +1647,6 @@ declare namespace notificationManager {
    * Obtains the number of all active notifications.
    *
    * @returns { Promise<number> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1649,8 +1673,6 @@ declare namespace notificationManager {
    * Obtains an array of active notifications.
    *
    * @returns { Promise<Array<NotificationRequest>> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1800,7 +1822,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function setDoNotDisturbDate(date: DoNotDisturbDate, callback: AsyncCallback<void>): void;
 
@@ -1839,7 +1861,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function setDoNotDisturbDate(date: DoNotDisturbDate): Promise<void>;
 
@@ -1882,7 +1904,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function setDoNotDisturbDate(date: DoNotDisturbDate, userId: number, callback: AsyncCallback<void>): void;
 
@@ -1925,7 +1947,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function setDoNotDisturbDate(date: DoNotDisturbDate, userId: number): Promise<void>;
 
@@ -1962,7 +1984,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function getDoNotDisturbDate(callback: AsyncCallback<DoNotDisturbDate>): void;
 
@@ -1973,8 +1995,6 @@ declare namespace notificationManager {
    * @returns { Promise<DoNotDisturbDate> } Returns the Do Not Disturb date.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1990,8 +2010,6 @@ declare namespace notificationManager {
    * @returns { Promise<DoNotDisturbDate> } Returns the Do Not Disturb date.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -1999,7 +2017,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function getDoNotDisturbDate(): Promise<DoNotDisturbDate>;
 
@@ -2040,7 +2058,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function getDoNotDisturbDate(userId: number, callback: AsyncCallback<DoNotDisturbDate>): void;
 
@@ -2081,7 +2099,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function getDoNotDisturbDate(userId: number): Promise<DoNotDisturbDate>;
 
@@ -2111,8 +2129,6 @@ declare namespace notificationManager {
    * @returns { Promise<boolean> } Returns whether Do Not Disturb mode is supported.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -2250,8 +2266,6 @@ declare namespace notificationManager {
    * Request permission to send notification.
    *
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -2262,8 +2276,6 @@ declare namespace notificationManager {
    * Request permission to send notification.
    *
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -2276,8 +2288,6 @@ declare namespace notificationManager {
    * Request permission to send notification.
    *
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -2375,7 +2385,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function setDistributedEnable(enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -2414,7 +2424,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function setDistributedEnable(enable: boolean): Promise<void>;
 
@@ -2438,8 +2448,6 @@ declare namespace notificationManager {
    * Obtains whether the device supports distributed notification.
    *
    * @returns { Promise<boolean> } Returns whether the distributed notification is supported.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -2488,7 +2496,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function setDistributedEnableByBundle(bundle: BundleOption, enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -2531,7 +2539,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function setDistributedEnableByBundle(bundle: BundleOption, enable: boolean): Promise<void>;
 
@@ -2578,7 +2586,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function setDistributedEnabledByBundle(bundle: BundleOption, deviceType: string, enable: boolean): Promise<void>;
 
@@ -2621,7 +2629,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function isDistributedEnabledByBundle(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
 
@@ -2662,7 +2670,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function isDistributedEnabledByBundle(bundle: BundleOption): Promise<boolean>;
 
@@ -2707,7 +2715,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function isDistributedEnabledByBundle(bundle: BundleOption, deviceType: string): Promise<boolean>;
 
@@ -2752,7 +2760,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function setSmartReminderEnabled(deviceType: string, enable: boolean): Promise<void>;
 
@@ -2795,7 +2803,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function isSmartReminderEnabled(deviceType: string): Promise<boolean>;
 
@@ -2830,7 +2838,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function getDeviceRemindType(callback: AsyncCallback<DeviceRemindType>): void;
 
@@ -2841,8 +2849,6 @@ declare namespace notificationManager {
    * @returns { Promise<DeviceRemindType> } Returns the RemindType.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -2857,15 +2863,13 @@ declare namespace notificationManager {
    * @returns { Promise<DeviceRemindType> } Returns the RemindType.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function getDeviceRemindType(): Promise<DeviceRemindType>;
 
@@ -2930,7 +2934,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function setNotificationEnableSlot(
     bundle: BundleOption,
@@ -2984,7 +2988,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function setNotificationEnableSlot(
     bundle: BundleOption,
@@ -3059,7 +3063,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function setNotificationEnableSlot(bundle: BundleOption, type: SlotType, enable: boolean, isForceControl?: boolean): Promise<void>;
 
@@ -3100,7 +3104,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function isNotificationSlotEnabled(bundle: BundleOption, type: SlotType, callback: AsyncCallback<boolean>): void;
 
@@ -3141,7 +3145,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function isNotificationSlotEnabled(bundle: BundleOption, type: SlotType): Promise<boolean>;
 
@@ -3182,7 +3186,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function setSyncNotificationEnabledWithoutApp(userId: number, enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -3223,7 +3227,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function setSyncNotificationEnabledWithoutApp(userId: number, enable: boolean): Promise<void>;
 
@@ -3310,7 +3314,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since 18
    */
   function setBadgeNumber(badgeNumber: number, callback: AsyncCallback<void>): void;
 
@@ -3357,7 +3361,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 16
+   * @since 18
    */
   function setBadgeNumber(badgeNumber: number): Promise<void>;
 
@@ -3398,7 +3402,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function setBadgeNumberByBundle(bundle: BundleOption, badgeNumber: number): Promise<void>;
 
@@ -3429,7 +3433,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600001 - Internal error.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function on(type: 'checkNotification', callback: (checkInfo: NotificationCheckInfo) => NotificationCheckResult): void;
 
@@ -3468,7 +3472,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function on(type: 'checkNotification', checkRequest: NotificationCheckRequest,
     callback: (checkInfo: NotificationCheckInfo) => Promise<NotificationCheckResult>): void;
@@ -3500,7 +3504,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600001 - Internal error.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function off(
     type: 'checkNotification',
@@ -3548,7 +3552,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function triggerSystemLiveView(bundle: BundleOption, notificationId: number, buttonOptions: ButtonOptions): Promise<void>;
 
@@ -3583,7 +3587,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function subscribeSystemLiveView(subscriber: SystemLiveViewSubscriber): Promise<void>;
 
@@ -3624,7 +3628,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function setSlotFlagsByBundle(bundle: BundleOption, slotFlags: number): Promise<void>;
 
@@ -3663,7 +3667,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function getSlotFlagsByBundle(bundle: BundleOption): Promise<number>;
 
@@ -3684,6 +3688,25 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12
+   */
+  /**
+   * Add do not disturb notification templates.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { Array<DoNotDisturbProfile> } templates - The array of Notification templates.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 18
    */
   function addDoNotDisturbProfile(templates: Array<DoNotDisturbProfile>): Promise<void>;
 
@@ -3722,7 +3745,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function removeDoNotDisturbProfile(templates: Array<DoNotDisturbProfile>): Promise<void>;
 
@@ -3761,7 +3784,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function setAdditionalConfig(key: string, value: string): Promise<number>;
 
@@ -3776,6 +3799,19 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.NotificationSettings
    * @stagemodelonly
    * @since 13
+   */
+  /**
+   * Request open the notification settings pop-up window.
+   *
+   * @param { UIAbilityContext } context - The context indicates the ability context you want to bind;
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600018 - the notification settings window is already displayed.
+   * @syscap SystemCapability.Notification.NotificationSettings
+   * @stagemodelonly
+   * @since 18
    */
   function openNotificationSettings(context: UIAbilityContext): Promise<void>;
 
@@ -3814,7 +3850,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600019 - The do-not-disturb profile does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function getDoNotDisturbProfile(id: number): Promise<DoNotDisturbProfile>;
 
@@ -3831,7 +3867,7 @@ declare namespace notificationManager {
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function setTargetDeviceStatus(deviceType: string, status: number): Promise<void>;
 
@@ -3850,7 +3886,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function disableNotificationFeature(disabled:boolean, bundleList: Array<string>): Promise<void>;
 
@@ -3868,7 +3904,7 @@ declare namespace notificationManager {
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
  */
   function setDistributedEnabledBySlot(slot: SlotType, deviceType: string, enabled: boolean): Promise<void>;
 
@@ -3885,7 +3921,7 @@ declare namespace notificationManager {
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
  */
   function isDistributedEnabledBySlot(slot: SlotType, deviceType: string): Promise<boolean>;
 
@@ -4836,7 +4872,7 @@ declare namespace notificationManager {
    * @typedef { _LiveViewTypes } LiveViewTypes
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   export type LiveViewTypes = _LiveViewTypes;
 

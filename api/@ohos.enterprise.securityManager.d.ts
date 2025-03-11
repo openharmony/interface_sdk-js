@@ -184,7 +184,7 @@ declare namespace securityManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   function installUserCertificate(admin: Want, certificate: CertBlob, accountId: number): string;
 
@@ -225,7 +225,7 @@ declare namespace securityManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   function getUserCertificates(admin: Want, accountId: number): Array<string>;
 

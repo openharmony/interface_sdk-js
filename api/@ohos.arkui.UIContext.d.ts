@@ -23,7 +23,7 @@ import font from './@ohos.font';
 import mediaQuery from './@ohos.mediaquery';
 import type inspector from './@ohos.arkui.inspector';
 import type observer from './@ohos.arkui.observer';
-import promptAction from './@ohos.promptAction';
+import promptAction, { LevelOrder } from './@ohos.promptAction';
 import router from './@ohos.router';
 import type componentUtils from './@ohos.arkui.componentUtils';
 import { ComponentContent, FrameNode, Frame } from './@ohos.arkui.node';
@@ -922,7 +922,7 @@ export class Router {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare type CustomBuilderWithId = (id: number) => void;
 
@@ -933,7 +933,7 @@ declare type CustomBuilderWithId = (id: number) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export interface TargetInfo {
   /**
@@ -943,7 +943,7 @@ export interface TargetInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   id: string | number;
 
@@ -954,7 +954,7 @@ export interface TargetInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   componentId?: number;
 }
@@ -1017,7 +1017,7 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   openToast(options: promptAction.ShowToastOptions): Promise<number>;
 
@@ -1033,7 +1033,7 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   closeToast(toastId: number): void;
 
@@ -1215,9 +1215,10 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
-  openCustomDialogWithController<T extends Object>(dialogContent: ComponentContent<T>, controller: promptAction.DialogController, options?: promptAction.BaseDialogOptions): Promise<void>;
+  openCustomDialogWithController<T extends Object>(dialogContent: ComponentContent<T>, controller: promptAction.DialogController,
+    options?: promptAction.BaseDialogOptions): Promise<void>;
 
   /**
    * Update the custom dialog with frameNode.
@@ -1288,9 +1289,10 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
-  presentCustomDialog(builder: CustomBuilder | CustomBuilderWithId, controller?: promptAction.DialogController, options?: promptAction.DialogOptions): Promise<number>;
+  presentCustomDialog(builder: CustomBuilder | CustomBuilderWithId, controller?: promptAction.DialogController,
+    options?: promptAction.DialogOptions): Promise<number>;
 
   /**
    * Close the custom dialog.
@@ -1307,6 +1309,28 @@ export class PromptAction {
    * @since 12
    */
   closeCustomDialog(dialogId: number): void;
+
+  /**
+   * Get order value of top dialog.
+   *
+   * @returns { LevelOrder } the display order.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  getTopOrder(): LevelOrder
+
+  /**
+   * Get order value of bottom dialog.
+   *
+   * @returns { LevelOrder } the display order.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  getBottomOrder(): LevelOrder
 
   /**
    * Open popup with frameNode.
@@ -1326,7 +1350,7 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   openPopup<T extends Object>(content: ComponentContent<T>, target: TargetInfo, options?: PopupCommonOptions): Promise<void>;
 
@@ -1348,7 +1372,7 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   updatePopup<T extends Object>(content: ComponentContent<T>, options: PopupCommonOptions, partialUpdate?: boolean): Promise<void>;
 
@@ -1366,9 +1390,71 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
   */
   closePopup<T extends Object>(content: ComponentContent<T>): Promise<void>;
+  
+  /**
+   * Open menu with frameNode.
+   *
+   * @param { ComponentContent<T> } content - The content of menu.
+   * @param { TargetInfo } target - The target of menu.
+   * @param { MenuOptions } options - Options.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 103301 - The content is incorrect.
+   * @throws { BusinessError } 103302 - The content already exists.
+   * @throws { BusinessError } 103304 - The target does not exist.
+   * @throws { BusinessError } 103305 - The target node is not in the component tree.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  openMenu<T extends Object>(content: ComponentContent<T>, target: TargetInfo, options?: MenuOptions): Promise<void>;
+
+  /**
+   * Update menu with frameNode.
+   *
+   * @param { ComponentContent<T> } content - The content of menu.
+   * @param { MenuOptions } options - Options.
+   * @param { boolean } partialUpdate - If true, only the specified properties in the MenuOptions are updated,
+   *                                    otherwise the rest of the properties are overwritten with the default values.
+   *                                    Default value is false.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - the ComponentContent cannot be found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  updateMenu<T extends Object>(content: ComponentContent<T>, options: MenuOptions, partialUpdate?: boolean): Promise<void>;
+
+  /**
+   * Close menu with frameNode.
+   *
+   * @param { ComponentContent<T> } content - The content of menu.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - the ComponentContent cannot be found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+  */
+  closeMenu<T extends Object>(content: ComponentContent<T>): Promise<void>;
 }
 
 /**
@@ -1385,6 +1471,22 @@ export class PromptAction {
  * @since 12
  */
 declare type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) => void;
+
+/**
+ * Defines the callback type used in UIObserver watch pan event.
+ * The value of event indicates the information of pan event.
+ * The value of node indicates the frameNode which will receive the event.
+ *
+ * @typedef { function } PanListenerCallback
+ * @param { GestureEvent } event - the information of pan event
+ * @param { GestureRecognizer } current - the information of panRecognizer
+ * @param { FrameNode } [node] - the information of frameNode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+declare type PanListenerCallback = (event: GestureEvent, current: GestureRecognizer, node?: FrameNode) => void;
 
 /**
  * Defines the callback type used in UIObserver watch gesture.
@@ -1457,6 +1559,17 @@ export interface OverlayManagerOptions {
    * @since 15
    */
   renderRootOverlay?: boolean;
+
+  /**
+   * Set whether support backPressed event or not.
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  enableBackPressedEvent?: boolean;
 }
 
 /**
@@ -1911,6 +2024,110 @@ export class UIObserver {
   off(type: 'didClick', callback?: GestureEventListenerCallback): void;
 
   /**
+   * Registers a callback function to be called before panGesture onActionStart is called.
+   *
+   * @param { 'beforePanStart' } type - The type of event to listen for.
+   * @param { PanListenerCallback } callback - The callback function to be called
+   *                                                when the panGesture will be trigger or after.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  on(type: 'beforePanStart', callback: PanListenerCallback): void;
+
+  /**
+   * Removes a callback function to be called before panGesture onActionStart is called.
+   *
+   * @param { 'beforePanStart' } type - The type of event to remove the listener for.
+   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
+   *                                                      all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  off(type: 'beforePanStart', callback?: PanListenerCallback): void;
+
+  /**
+   * Registers a callback function to be called before panGesture onActionEnd is called.
+   *
+   * @param { 'beforePanEnd' } type - The type of event to listen for.
+   * @param { PanListenerCallback } callback - The callback function to be called
+   *                                                when the panGesture will be trigger or after.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  on(type: 'beforePanEnd', callback: PanListenerCallback): void;
+
+  /**
+   * Removes a callback function to be called before panGesture onActionEnd is called.
+   *
+   * @param { 'beforePanEnd' } type - The type of event to remove the listener for.
+   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
+   *                                                      all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  off(type: 'beforePanEnd', callback?: PanListenerCallback): void;
+
+  /**
+   * Registers a callback function to be called after panGesture onActionStart is called.
+   *
+   * @param { 'afterPanStart' } type - The type of event to listen for.
+   * @param { PanListenerCallback } callback - The callback function to be called
+   *                                                when the panGesture will be trigger or after.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  on(type: 'afterPanStart', callback: PanListenerCallback): void;
+
+  /**
+   * Removes a callback function to be called after panGesture onActionStart is called.
+   *
+   * @param { 'afterPanStart' } type - The type of event to remove the listener for.
+   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
+   *                                                      all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  off(type: 'afterPanStart', callback?: PanListenerCallback): void;
+
+  /**
+   * Registers a callback function to be called after panGesture onActionEnd is called.
+   *
+   * @param { 'afterPanEnd' } type - The type of event to listen for.
+   * @param { PanListenerCallback } callback - The callback function to be called
+   *                                                when the panGesture will be trigger or after.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  on(type: 'afterPanEnd', callback: PanListenerCallback): void;
+
+  /**
+   * Removes a callback function to be called after panGesture onActionEnd is called.
+   *
+   * @param { 'afterPanEnd' } type - The type of event to remove the listener for.
+   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
+   *                                                      all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  off(type: 'afterPanEnd', callback?: PanListenerCallback): void;
+
+  /**
    * Registers a callback function to be called when the tabContent is showed or hidden.
    *
    * @param { 'tabContentUpdate' } type - The type of event to listen for. Must be 'tabContentUpdate'.
@@ -2020,6 +2237,18 @@ export class OverlayManager {
    * @since 12
    */
   addComponentContent(content: ComponentContent, index?: number): void;
+
+  /**
+   * Add the ComponentContent to the OverlayManager with order.
+   *
+   * @param { ComponentContent } content - The content will be added to the OverlayManager.
+   * @param { LevelOrder } [ levelOrder ] - The display order of the ComponentContent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  addComponentContentWithOrder(content: ComponentContent, levelOrder?: LevelOrder): void;
 
   /**
    * Remove the ComponentContent from the OverlayManager.
@@ -2172,11 +2401,11 @@ export interface AtomicServiceBar {
   /**
    * Get size and position of the bar.
    *
-   * @returns { Frame } The size and position of bar in px relative to window.
+   * @returns { Frame } The size and position of bar in vp relative to window.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   getBarRect(): Frame;
 }
@@ -2261,6 +2490,13 @@ export class MarqueeDynamicSyncScene extends DynamicSyncScene {
  * @atomicservice
  * @since 12
  */
+/**
+ * class DragController
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
 export class DragController {
   /**
    * Execute a drag event.
@@ -2290,6 +2526,22 @@ export class DragController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Execute a drag event.
+   * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
+   * @param { dragController.DragInfo } dragInfo - Information about the drag event.
+   * @param { AsyncCallback<dragController.DragEventParam> } callback - Callback that contains 
+   * the drag event information.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragInfo,
     callback: AsyncCallback<dragController.DragEventParam>): void;
@@ -2321,6 +2573,21 @@ export class DragController {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Execute a drag event.
+   * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
+   * @param { dragController.DragInfo } dragInfo - Information about the drag event.
+   * @returns { Promise<dragController.DragEventParam> } A Promise with the drag event information.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragInfo)
     : Promise<dragController.DragEventParam>;
 
@@ -2351,6 +2618,21 @@ export class DragController {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Create one drag action object, which can be used for starting drag later or monitoring the drag status after drag started.
+   * @param { Array<CustomBuilder | DragItemInfo> } customArray - Objects used for prompts displayed when the objects are dragged.
+   * @param { dragController.DragInfo } dragInfo - Information about the drag event.
+   * @returns { dragController.DragAction } one drag action object
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   createDragAction(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: dragController.DragInfo): dragController.DragAction;
 
   /**
@@ -2365,6 +2647,14 @@ export class DragController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Get a drag preview object.
+   * @returns { dragController.DragPreview } A drag preview object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   getDragPreview(): dragController.DragPreview;
 
@@ -2389,9 +2679,21 @@ export class DragController {
     * @param { dragController.DragStartRequestStatus } requestStatus - Status about the drag start behavior.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @atomicservice
-    * @since 16
+    * @since 18
     */
   notifyDragStartRequest(requestStatus: dragController.DragStartRequestStatus): void;
+
+  /**
+   * Cancel the UDMF data sync process by passing in the data key as the identify, can only be used after the drop.
+   *
+   * @param { string } key - The data key returned by startDataLoading method.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 190004 - Operation failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  cancelDataLoading(key: string): void;
 }
 
 /**
@@ -2474,6 +2776,16 @@ export class MeasureUtils {
   * @since 14
   */
   setAutoFocusTransfer(isAutoFocusTransfer: boolean): void;
+
+  /**
+  * Set the priority of key event processing when component cannot handle the key event..
+  * @param { KeyProcessingMode } mode - Key processing mode.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 15
+  */
+  setKeyProcessingMode(mode: KeyProcessingMode): void;
 }
 
 /**
@@ -2705,7 +3017,7 @@ export class ComponentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   getWithUniqueId(uniqueId: number, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
 
@@ -2726,7 +3038,7 @@ export class ComponentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   getSyncWithUniqueId(uniqueId: number, options?: componentSnapshot.SnapshotOptions): image.PixelMap;
 
@@ -2748,7 +3060,7 @@ export class ComponentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   createFromComponent<T extends Object>(content: ComponentContent<T>, delay?: number,
     checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
@@ -3006,7 +3318,7 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   createAnimator(options: AnimatorOptions | SimpleAnimatorOptions): AnimatorResult;
 
@@ -3174,7 +3486,7 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   dispatchKeyEvent(node: number | string, event: KeyEvent): boolean;
 
@@ -3200,6 +3512,14 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Get DragController.
+   * @returns { DragController } the DragController
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   getDragController(): DragController;
 
@@ -3670,9 +3990,44 @@ export class UIContext {
    * @param { Optional<boolean> } enabled - enable or disable swipe to back event.
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   enableSwipeBack(enabled: Optional<boolean>): void;
+
+  /**
+   * Sets the component freezing flag based on the component id to prevent the
+   * UI component from marking and updating dirty areas.
+   * @param { string } id - Id of the frame node.
+   * @param { boolean } isFrozen  - whether the component is frozen.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 18
+   */
+  freezeUINode(id: string, isFrozen: boolean): void;
+
+  /**
+   * Sets the component freezing flag based on the component uniqueId to prevent the
+   * UI component from marking and updating dirty areas.
+   * @param { number } uniqueId - Unique Id of the frame node.
+   * @param { boolean } isFrozen - whether the component is frozen.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 18
+   */
+  freezeUINode(uniqueId: number, isFrozen: boolean): void;
+
+  /**
+   * Get object text menu controller.
+   *
+   * @returns { TextMenuController } object text menu controller.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  getTextMenuController(): TextMenuController;
 }
 
 /**
@@ -3777,4 +4132,24 @@ export const enum MarqueeDynamicSyncSceneType {
    * @since 14
    */
   ANIMATION = 1
+}
+
+/**
+ * class TextMenuController
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 16
+ */
+export class TextMenuController {
+  /**
+   * Set text menu options.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  setMenuOptions(options: TextMenuOptions): void;
 }

@@ -238,6 +238,42 @@ declare enum NavigationSystemTransitionType {
    * @since 14
    */
   CONTENT = 3,
+  /**
+   * Configure fade style system transition.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  FADE = 4,
+  /**
+   * Configure explode style system transition.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  EXPLODE = 5,
+  /**
+   * Configure right-side slide style system transition.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  SLIDE_RIGHT = 6,
+  /**
+   * Configure bottom-side slide style system transition.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  SLIDE_BOTTOM = 7,
 }
 
 /**
@@ -291,6 +327,77 @@ declare enum NavDestinationMode {
    * @since 12
    */
   DIALOG = 1,
+}
+
+/**
+ * Reason of navDestination be active or inactive.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+declare enum NavDestinationActiveReason {
+  /**
+   * NavDestination become active or inactive because of page transition.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  TRANSITION = 0,
+
+  /**
+   * NavDestination become active or inactive because content cover changes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  CONTENT_COVER = 1,
+
+  /**
+   * NavDestination become active or inactive because sheet changes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  SHEET = 2,
+
+  /**
+   * NavDestination become active or inactive because dialog changes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  DIALOG = 3,
+
+  /**
+   * NavDestination become active or inactive because overlay changes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  OVERLAY = 4,
+
+  /**
+   * NavDestination become active or inactive because app state changes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  APP_STATE = 5,
 }
 
 /**
@@ -479,6 +586,72 @@ declare interface NestedScrollInfo {
 }
 
 /**
+* NavDestination animation protocol.
+*
+* @interface NavDestinationTransition
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @crossplatform
+* @atomicservice
+* @since 15
+*/
+declare interface NavDestinationTransition {
+  /**
+   * This method is called after the transition ends to notify whether the transition was successful.
+   *
+   * @type { ?Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  onTransitionEnd?: Callback<void>;
+
+  /**
+   * Define the limit duration of the transition animation.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  duration?: number;
+
+  /**
+   * Define the curve of the transition animation.
+   *
+   * @type { ?Curve }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  curve?: Curve;
+
+  /**
+   * Define the delay of the transition animation.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  delay?: number;
+
+  /**
+   * Configure the custom transition event.
+   *
+   * @type { Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  event: Callback<void>;
+}
+
+/**
  * The attribute function of NavDestination
  *
  * @extends CommonMethod<NavDestinationAttribute>
@@ -605,7 +778,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   hideBackButton(hide: Optional<boolean>): NavDestinationAttribute;
 
@@ -680,7 +853,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   onResult(callback: Optional<Callback<ESObject>>): NavDestinationAttribute;
 
@@ -725,6 +898,19 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @since 12
    */
   backButtonIcon(value: ResourceStr | PixelMap | SymbolGlyphModifier): NavDestinationAttribute;
+
+  /**
+   * Set back button icon and accessibility broadcast content.
+   *
+   * @param { ResourceStr | PixelMap | SymbolGlyphModifier } icon - Indicates icon of back button.
+   * @param { ResourceStr } accessibilityText - Indicates content needs to broadcast.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  backButtonIcon(icon: ResourceStr | PixelMap | SymbolGlyphModifier, accessibilityText?: ResourceStr): NavDestinationAttribute;
   
   /**
    * NavDestination title bar's menus
@@ -737,6 +923,19 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @since 12
    */
   menus(value: Array<NavigationMenuItem> | CustomBuilder): NavDestinationAttribute;
+
+  /**
+   * NavDestination title bar's menus
+   *
+   * @param { Array<NavigationMenuItem> | CustomBuilder } items
+   * @param { NavigationMenuOptions } [options] - Indicates the options of menu.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  menus(items: Array<NavigationMenuItem> | CustomBuilder, options?: NavigationMenuOptions): NavDestinationAttribute;
 
   /**
     * Configure toolbar with default style parameter or custom parameter.
@@ -895,6 +1094,54 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @since 14
    */
   bindToNestedScrollable(scrollInfos: Array<NestedScrollInfo>): NavDestinationAttribute;
+
+  /**
+   * Invoked when destination is active.
+   *
+   * @param { Optional<Callback<NavDestinationActiveReason>> } callback - Indicates callback when destination is active.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  onActive(callback: Optional<Callback<NavDestinationActiveReason>>): NavDestinationAttribute;
+
+  /**
+   * Invoked when destination is inactive.
+   *
+   * @param { Optional<Callback<NavDestinationActiveReason>> } callback - Indicates callback when destination is inactive.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  onInactive(callback: Optional<Callback<NavDestinationActiveReason>>): NavDestinationAttribute;
+
+  /**
+   * Set NavDestination custom animation.
+   * 
+   * @param { NavDestinationTransitionDelegate } delegate - The delegate of NavDestination custom animation.
+   * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  customTransition(delegate: NavDestinationTransitionDelegate): NavDestinationAttribute;
+
+  /**
+   * Invoked when destination be pushed with singleton mode.
+   *
+   * @param { Optional<Callback<ESObject>> } callback - Indicates callback when destination be pushed with singleton mode.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  onNewParam(callback: Optional<Callback<ESObject>>): NavDestinationAttribute;
 }
 
 /**
@@ -942,3 +1189,18 @@ declare const NavDestination: NavDestinationInterface;
  * @since 11
  */
 declare const NavDestinationInstance: NavDestinationAttribute;
+
+/**
+ * Delegate function for NavDestination custom animation.
+ *
+ * @typedef { function } NavDestinationTransitionDelegate
+ * @param { NavigationOperation } operation - the operation type of current Navigation animation.
+ * @param { boolean } isEnter - whether current NavDestination will do enter-type transition.
+ * @returns { Array<NavDestinationTransition> | undefined } user-set custom navDestination transitions.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 15
+ */
+declare type NavDestinationTransitionDelegate =
+  (operation: NavigationOperation, isEnter: boolean) => Array<NavDestinationTransition> | undefined;

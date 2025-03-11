@@ -253,6 +253,19 @@ interface PasteButtonInterface {
 }
 
 /**
+ * Callback function when the paste button is clicked.
+ *
+ * @typedef { function } PasteButtonCallback
+ * @param { ClickEvent } event - The click event.
+ * @param { PasteButtonOnClickResult } result - The result of click event.
+ * @param { BusinessError<void> } [error] - The error code and message of click event.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 18
+ */
+type PasteButtonCallback = (event: ClickEvent, result: PasteButtonOnClickResult, error?: BusinessError<void>) => void;
+
+/**
  * Defines the attributes of the paste button.
  *
  * @extends SecurityComponentMethod<PasteButtonAttribute>
@@ -285,7 +298,16 @@ declare class PasteButtonAttribute extends SecurityComponentMethod<PasteButtonAt
    * @atomicservice
    * @since 11
    */
-  onClick(event: (event: ClickEvent, result: PasteButtonOnClickResult) => void): PasteButtonAttribute;
+  /**
+   * Called when the paste button is clicked.
+   *
+   * @param { PasteButtonCallback } event
+   * @returns { PasteButtonAttribute } Returns the attribute of the paste button.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  onClick(event: PasteButtonCallback): PasteButtonAttribute;
 }
 
 /**

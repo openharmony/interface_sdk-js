@@ -27,7 +27,7 @@ import { ColorMetrics, LengthMetrics } from '@ohos.arkui.node';
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export declare enum ArcButtonPosition {
     /**
@@ -36,7 +36,7 @@ export declare enum ArcButtonPosition {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     TOP_EDGE = 0,
     /**
@@ -45,7 +45,7 @@ export declare enum ArcButtonPosition {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     BOTTOM_EDGE = 1
 }
@@ -57,7 +57,7 @@ export declare enum ArcButtonPosition {
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export declare enum ArcButtonStyleMode {
     /**
@@ -66,36 +66,36 @@ export declare enum ArcButtonStyleMode {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     EMPHASIZED_LIGHT = 0,
     /**
-     * Emphasis status, deep style.
+     * Emphasis status, dark style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
-    EMPHASIZED_DEEP = 1,
+    EMPHASIZED_DARK = 1,
     /**
      * Normal status, light style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     NORMAL_LIGHT = 2,
     /**
-     * Normal status, deep style.
+     * Normal status, dark style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
-    NORMAL_DEEP = 3,
+    NORMAL_DARK = 3,
     
     /**
      * Custom status, custom style.
@@ -103,7 +103,7 @@ export declare enum ArcButtonStyleMode {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     CUSTOM = 4
 }
@@ -115,7 +115,7 @@ export declare enum ArcButtonStyleMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export declare enum ArcButtonStatus {
     /**
@@ -124,7 +124,7 @@ export declare enum ArcButtonStatus {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     NORMAL = 0,
     /**
@@ -133,7 +133,7 @@ export declare enum ArcButtonStatus {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     PRESSED = 1,
     /**
@@ -142,7 +142,7 @@ export declare enum ArcButtonStatus {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     DISABLED = 2
 }
@@ -154,7 +154,7 @@ export declare enum ArcButtonStatus {
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 interface CommonArcButtonOptions {
     /**
@@ -164,7 +164,7 @@ interface CommonArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     position?: ArcButtonPosition;
     /**
@@ -174,7 +174,7 @@ interface CommonArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     styleMode?: ArcButtonStyleMode;
     /**
@@ -184,7 +184,7 @@ interface CommonArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     status?: ArcButtonStatus;
     /**
@@ -194,7 +194,7 @@ interface CommonArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     label?: ResourceStr;
     /**
@@ -204,7 +204,7 @@ interface CommonArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     backgroundBlurStyle?: BlurStyle;
     /**
@@ -214,7 +214,7 @@ interface CommonArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     backgroundColor?: ColorMetrics;
     /**
@@ -224,7 +224,7 @@ interface CommonArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     shadowColor?: ColorMetrics;
     /**
@@ -234,7 +234,7 @@ interface CommonArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     shadowEnabled?: boolean;
     /**
@@ -244,7 +244,7 @@ interface CommonArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     fontSize?: LengthMetrics;
     /**
@@ -254,7 +254,7 @@ interface CommonArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     fontColor?: ColorMetrics;
     /**
@@ -264,7 +264,7 @@ interface CommonArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     pressedFontColor?: ColorMetrics;
     /**
@@ -274,7 +274,7 @@ interface CommonArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     fontStyle?: FontStyle;
     /**
@@ -284,7 +284,7 @@ interface CommonArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     fontFamily?: string | Resource;
     /**
@@ -294,7 +294,7 @@ interface CommonArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     fontMargin?: LocalizedMargin;
     
@@ -305,7 +305,7 @@ interface CommonArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     onTouch?: Callback<TouchEvent>;
     
@@ -316,7 +316,7 @@ interface CommonArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     onClick?: Callback<ClickEvent>;
 }
@@ -326,7 +326,7 @@ interface CommonArcButtonOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 export declare class ArcButtonOptions {
     /**
@@ -336,7 +336,7 @@ export declare class ArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     position: ArcButtonPosition;
     /**
@@ -346,7 +346,7 @@ export declare class ArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     styleMode: ArcButtonStyleMode;
     /**
@@ -356,7 +356,7 @@ export declare class ArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     status: ArcButtonStatus;
     /**
@@ -366,7 +366,7 @@ export declare class ArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     label: ResourceStr;
     /**
@@ -376,7 +376,7 @@ export declare class ArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     backgroundBlurStyle: BlurStyle;
     /**
@@ -386,7 +386,7 @@ export declare class ArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     backgroundColor: ColorMetrics;
     /**
@@ -396,7 +396,7 @@ export declare class ArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     shadowColor: ColorMetrics;
     /**
@@ -406,7 +406,7 @@ export declare class ArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     shadowEnabled: boolean;
     /**
@@ -416,7 +416,7 @@ export declare class ArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     fontSize: LengthMetrics;
     /**
@@ -426,7 +426,7 @@ export declare class ArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     fontColor: ColorMetrics;
     /**
@@ -436,7 +436,7 @@ export declare class ArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     pressedFontColor: ColorMetrics;
     /**
@@ -446,7 +446,7 @@ export declare class ArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     fontStyle: FontStyle;
     /**
@@ -456,7 +456,7 @@ export declare class ArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     fontFamily: string | Resource;
     /**
@@ -466,7 +466,7 @@ export declare class ArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     fontMargin: LocalizedMargin;
     
@@ -477,7 +477,7 @@ export declare class ArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     onTouch?: Callback<TouchEvent>;
     
@@ -488,7 +488,7 @@ export declare class ArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     onClick?: Callback<ClickEvent>;
     
@@ -499,7 +499,7 @@ export declare class ArcButtonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     constructor(options: CommonArcButtonOptions);
 }
@@ -509,7 +509,7 @@ export declare class ArcButtonOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 @Component
 export declare struct ArcButton {
@@ -520,7 +520,7 @@ export declare struct ArcButton {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     @Require
     readonly options: ArcButtonOptions;

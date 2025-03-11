@@ -468,6 +468,28 @@ declare interface CustomDialogControllerOptions {
   backgroundBlurStyle?: BlurStyle;
 
   /**
+   * Defines the customDialog's background blur style with options
+   *
+   * @type { ?BackgroundBlurStyleOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
+
+  /**
+   * Defines the customDialog's background effect with options
+   *
+   * @type { ?BackgroundEffectOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  backgroundEffect?: BackgroundEffectOptions;
+
+  /**
    * Defines the customDialog's keyboard avoid mode
    *
    * @type { ?KeyboardAvoidMode }
@@ -510,7 +532,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onDidAppear?: Callback<void>;
 
@@ -521,7 +543,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onDidDisappear?: Callback<void>;
 
@@ -532,7 +554,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onWillAppear?: Callback<void>;
 
@@ -543,7 +565,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onWillDisappear?: Callback<void>;
 
@@ -554,7 +576,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   keyboardAvoidDistance?: LengthMetrics;
 
@@ -566,7 +588,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   levelMode?: LevelMode;
 
@@ -577,7 +599,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   levelUniqueId?: number;
 
@@ -589,9 +611,33 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   immersiveMode?: ImmersiveMode;
+
+  /**
+   * Determine the display order of the dialog.
+   *
+   * @type { ?LevelOrder }
+   * @default The value returns by LevelOrder.clamp(0)
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  levelOrder?: LevelOrder;
+
+  /**
+   * Specifies whether to get focus when the custom dialog is displayed.
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  focusable?: boolean;
 }
 
 /**

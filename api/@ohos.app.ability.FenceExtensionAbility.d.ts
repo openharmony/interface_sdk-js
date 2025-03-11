@@ -25,6 +25,7 @@ import geoLocationManager from './@ohos.geoLocationManager';
  * Class of fence extension ability.
  *
  * @syscap SystemCapability.Location.Location.Geofence
+ * @stagemodelonly
  * @since 14
  */
 export default class FenceExtensionAbility {
@@ -33,6 +34,7 @@ export default class FenceExtensionAbility {
    *
    * @type { FenceExtensionContext }
    * @syscap SystemCapability.Location.Location.Geofence
+   * @stagemodelonly
    * @since 14
    */
   context: FenceExtensionContext;
@@ -43,6 +45,7 @@ export default class FenceExtensionAbility {
    * @param { geoLocationManager.GeofenceTransition } transition - Geofence transition status
    * @param { Record<string, string> } additions - Indicates additional information
    * @syscap SystemCapability.Location.Location.Geofence
+   * @stagemodelonly
    * @since 14
    */
   onFenceStatusChange(transition: geoLocationManager.GeofenceTransition, additions: Record<string, string>): void;
@@ -51,6 +54,7 @@ export default class FenceExtensionAbility {
    * Called back before a fence extension is destroyed.
    *
    * @syscap SystemCapability.Location.Location.Geofence
+   * @stagemodelonly
    * @since 14
    */
   onDestroy(): void;

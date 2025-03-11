@@ -346,7 +346,7 @@ declare namespace relationalStore {
      * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 16
+     * @since 18
      */
     rootDir?: string;
 
@@ -384,7 +384,7 @@ declare namespace relationalStore {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 16
+     * @since 18
      */
     vector?: boolean;
 
@@ -431,10 +431,20 @@ declare namespace relationalStore {
      *
      * @type { ?Tokenizer }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 16
+     * @since 18
      */
 
     tokenizer?: Tokenizer;
+
+    /**
+     * Specifies whether the database need persistence.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 18
+     */
+
+    persist?: boolean;
   }
 
   /**
@@ -631,28 +641,28 @@ declare namespace relationalStore {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 16
+   * @since 18
    */
   enum Tokenizer {
     /**
      * NONE_TOKENIZER: not use tokenizer
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 16
+     * @since 18
      */
     NONE_TOKENIZER = 0,
     /**
      * ICU_TOKENIZER: native icu tokenizer.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 16
+     * @since 18
      */
     ICU_TOKENIZER,
     /**
      * CUSTOM_TOKENIZER: self-developed enhance tokenizer.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 16
+     * @since 18
      */
     CUSTOM_TOKENIZER
   }
@@ -1285,9 +1295,18 @@ declare namespace relationalStore {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 16
+     * @since 18
      */
     asyncDownloadAsset?: boolean;
+
+    /**
+     * Specifies whether the cloud sync is enabled for the database.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 18
+     */
+    enableCloud?: boolean;
   }
 
   /**
@@ -3361,7 +3380,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 16
+     * @systemapi
+     * @since 12
      */
     getFloat32Array(columnIndex: number): Float32Array;
 
@@ -3457,7 +3477,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 16
+     * @since 18
      */
     getRows(maxCount: number, position?: number): Promise<Array<ValuesBucket>>;
 
@@ -4084,6 +4104,73 @@ declare namespace relationalStore {
      * @since 12
      */
     batchInsertSync(table: string, values: Array<ValuesBucket>): number;
+
+    /**
+     * Inserts a batch of data into the target table.
+     *
+     * @param { string } table - Indicates the target table.
+     * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
+     * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
+     * @returns { Promise<number> } The number of values that were inserted if the operation is successful. returns -1 otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 18
+     */
+    batchInsertWithConflictResolution(table: string, values: Array<ValuesBucket>, conflict: ConflictResolution): Promise<number>;
+
+    /**
+     * Inserts a batch of data into the target table.
+     *
+     * @param { string } table - Indicates the target table.
+     * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
+     * @returns { number } The number of values that were inserted if the operation is successful. returns -1 otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 18
+     */
+    batchInsertWithConflictResolutionSync(table: string, values: Array<ValuesBucket>, conflict: ConflictResolution): number;
 
     /**
      * Updates data in the database based on a specified instance object of RdbPredicates.
@@ -7225,7 +7312,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800016 - The database alias already exists.
      * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-     * @throws { BusinessError } 14801002 - Invalid data ground ID.
+     * @throws { BusinessError } 14801002 - Invalid data group ID.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
@@ -7578,6 +7665,70 @@ declare namespace relationalStore {
     batchInsertSync(table: string, values: Array<ValuesBucket>): number;
 
     /**
+     * Inserts a batch of data into the target table.
+     *
+     * @param { string } table - Indicates the target table.
+     * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
+     * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
+     * @returns { Promise<number> } The number of values that were inserted if the operation is successful. returns -1 otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 18
+     */
+    batchInsertWithConflictResolution(table: string, values: Array<ValuesBucket>, conflict: ConflictResolution): Promise<number>;
+
+    /**
+     * Inserts a batch of data into the target table.
+     *
+     * @param { string } table - Indicates the target table.
+     * @param { Array<ValuesBucket> } values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
+     * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
+     * @returns { number } The number of values that were inserted if the operation is successful. returns -1 otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 18
+     */
+    batchInsertWithConflictResolutionSync(table: string, values: Array<ValuesBucket>, conflict: ConflictResolution): number;
+
+    /**
      * Updates data in the database based on a specified instance object of RdbPredicates.
      *
      * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
@@ -7874,7 +8025,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
    * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data ground ID.
+   * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -7893,7 +8044,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800010 - Invalid database path.
    * @throws { BusinessError } 14800011 - Database corrupted.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data ground ID.
+   * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @throws { BusinessError } 14800017 - Config changed.
    * @throws { BusinessError } 14800021 - SQLite: Generic error.
    * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
@@ -7920,7 +8071,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800010 - Invalid database path.
    * @throws { BusinessError } 14800011 - Database corrupted.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data ground ID.
+   * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @throws { BusinessError } 14800017 - Config changed.
    * @throws { BusinessError } 14800020 - The secret key is corrupted or lost.
    * @throws { BusinessError } 14800021 - SQLite: Generic error.
@@ -7966,7 +8117,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
    * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data ground ID.
+   * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -7985,7 +8136,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800010 - Invalid database path.
    * @throws { BusinessError } 14800011 - Database corrupted.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data ground ID.
+   * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @throws { BusinessError } 14800017 - Config changed.
    * @throws { BusinessError } 14800021 - SQLite: Generic error.
    * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
@@ -8010,7 +8161,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800010 - Invalid database path.
    * @throws { BusinessError } 14800011 - Database corrupted.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data ground ID.
+   * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @throws { BusinessError } 14800017 - Config changed.
    * @throws { BusinessError } 14800020 - The secret key is corrupted or lost.
    * @throws { BusinessError } 14800021 - SQLite: Generic error.
@@ -8069,7 +8220,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data ground ID.
+   * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -8134,7 +8285,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data ground ID.
+   * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -8152,7 +8303,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Invalid database path.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
-   * @throws { BusinessError } 14801002 - Invalid data ground ID.
+   * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 12
@@ -8164,7 +8315,7 @@ declare namespace relationalStore {
    *
    * @returns { boolean } Returns {@code true} if the vector database is supported; returns {@code false} otherwise.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 16
+   * @since 18
    */
   function isVectorSupported(): boolean;
 
@@ -8174,7 +8325,7 @@ declare namespace relationalStore {
    * @returns { boolean } Returns {@code true} if the tokenizer is supported; returns {@code false} otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 16
+   * @since 18
    */
     function isTokenizerSupported(tokenizer: Tokenizer): boolean;
 }

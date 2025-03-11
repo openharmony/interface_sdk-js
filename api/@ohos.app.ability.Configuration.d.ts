@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -59,6 +59,15 @@ export interface Configuration {
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates the current language of the application.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   language?: string;
 
@@ -129,6 +138,15 @@ export interface Configuration {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Indicates the screen density of the current device.
+   *
+   * @type { ?ConfigurationConstant.ScreenDensity }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   screenDensity?: ConfigurationConstant.ScreenDensity;
 
   /**
@@ -182,6 +200,15 @@ export interface Configuration {
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Indicates the font size scale.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   fontSizeScale?: number;
 

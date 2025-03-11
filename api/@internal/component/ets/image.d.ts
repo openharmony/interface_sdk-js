@@ -73,7 +73,7 @@ declare type DrawingLattice  = import('../api/@ohos.graphics.drawing').default.L
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare type ImageMatrix = import ('../api/@ohos.matrix4').default.Matrix4Transit;
 
@@ -626,7 +626,7 @@ interface ImageSourceSize {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare class ColorContent {
   /**
@@ -638,7 +638,7 @@ declare class ColorContent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   static readonly ORIGIN: ColorContent;
 }
@@ -849,7 +849,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   fillColor(color: ResourceColor | ColorContent): ImageAttribute;
 
@@ -901,7 +901,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   imageMatrix(matrix: ImageMatrix): ImageAttribute;
 
@@ -1269,6 +1269,17 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Enable image dragging.
+   * Default value is true.
+   *
+   * @param { boolean } value
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   draggable(value: boolean): ImageAttribute;
 

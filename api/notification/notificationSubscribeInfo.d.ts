@@ -63,7 +63,7 @@ export interface NotificationSubscribeInfo {
    * @type { ?number }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   filterLimit?: number;
 }

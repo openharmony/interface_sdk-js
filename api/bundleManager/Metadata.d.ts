@@ -128,7 +128,7 @@ export interface Metadata {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 16
+   * @since 18
    */
    readonly valueId?: number;
 }

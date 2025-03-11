@@ -227,7 +227,7 @@ declare enum SaveDescription {
    * @since 12
    */
   EXPORT_TO_GALLERY = 9,
-  
+
   /**
    * Quick save to gallery
    *
@@ -251,7 +251,7 @@ declare enum SaveDescription {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   SAVE_ALL = 12
 }
@@ -427,6 +427,19 @@ interface SaveButtonInterface {
 }
 
 /**
+ * Callback function when the save button is clicked.
+ *
+ * @typedef { function } SaveButtonCallback
+ * @param { ClickEvent } event - The click event.
+ * @param { SaveButtonOnClickResult } result - The result of click event.
+ * @param { BusinessError<void> } [error] - The error code and message of click event.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 18
+ */
+type SaveButtonCallback = (event: ClickEvent, result: SaveButtonOnClickResult, error?: BusinessError<void>) => void;
+
+/**
  * Defines the attributes of the save button.
  *
  * @extends SecurityComponentMethod<SaveButtonAttribute>
@@ -459,7 +472,16 @@ declare class SaveButtonAttribute extends SecurityComponentMethod<SaveButtonAttr
    * @atomicservice
    * @since 11
    */
-  onClick(event: (event: ClickEvent, result: SaveButtonOnClickResult) => void): SaveButtonAttribute;
+  /**
+   * Called when the save button is clicked.
+   *
+   * @param { SaveButtonCallback } event
+   * @returns { SaveButtonAttribute } Returns the attribute of the save button.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  onClick(event: SaveButtonCallback): SaveButtonAttribute;
 }
 
 /**

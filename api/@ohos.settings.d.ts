@@ -29,6 +29,14 @@ import Context from './application/Context';
  * @syscap SystemCapability.Applications.Settings.Core
  * @since 7
  */
+/**
+ * This module provides settings data access abilities.
+ *
+ * @namespace settings
+ * @syscap SystemCapability.Applications.Settings.Core
+ * @atomicservice
+ * @since 18
+ */
 declare namespace settings {
 
   /**
@@ -1323,6 +1331,18 @@ declare namespace settings {
    * @since 11
    */
   function unregisterKeyObserver(context: Context, name: string, domainName: string): boolean;
+
+  /**
+   * Open the network manager settings page.
+   *
+   * @param { Context } context - Indicates Context instance.
+   * @returns { Promise<boolean> } The promise returned by the function.
+   * @throws { BusinessError } 14800000 - Parameter error.
+   * @throws { BusinessError } 14800010 - Original service error.
+   * @atomicservice
+   * @since 18
+   */
+  function openNetworkManagerSettings(context: Context): Promise<boolean>;
 }
 
 export default settings;

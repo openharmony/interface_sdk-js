@@ -1164,7 +1164,7 @@ declare namespace osAccount {
      * @returns { Promise<number> } Returns local ID of the foreground OS account.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 14
+     * @since 15
      */
     getForegroundOsAccountLocalId(): Promise<number>;
 
@@ -1500,7 +1500,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300003 - OS account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 14
+     * @since 15
      */
     getOsAccountDomainInfo(localId: number): Promise<DomainAccountInfo>;
 
@@ -2288,6 +2288,26 @@ declare namespace osAccount {
      * @since 12
      */
     shortName: string;
+
+     /**
+     * Indicates the bundles are disallowed to be preinstalled on the OS account.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 18
+     */
+    disallowedPreinstalledBundles?: Array<string>;
+
+      /**
+     * Indicates the bundles are allowed to be preinstalled on the OS account.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 18
+     */
+    allowedPreinstalledBundles?: Array<string>;
   }
 
   /**
@@ -2352,8 +2372,7 @@ declare namespace osAccount {
      *
      * @type { ?string }
      * @syscap SystemCapability.Account.OsAccount
-     * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 18
      */
     serverConfigId?: string;
   }
@@ -2634,6 +2653,7 @@ declare namespace osAccount {
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid challenge, authType or authTrustLevel.
+     * @throws { BusinessError } 12300013 - Network exception.
      * @throws { BusinessError } 12300101 - The credential is incorrect.
      * @throws { BusinessError } 12300102 - The credential does not exist.
      * @throws { BusinessError } 12300105 - The trust level is not supported.
@@ -2642,7 +2662,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300110 - The authentication is locked.
      * @throws { BusinessError } 12300111 - The authentication time out.
      * @throws { BusinessError } 12300112 - The authentication service is busy.
+     * @throws { BusinessError } 12300113 - The authentication service does not exist.
+     * @throws { BusinessError } 12300114 - The authentication service works abnormally.
      * @throws { BusinessError } 12300117 - PIN is expired.
+     * @throws { BusinessError } 12300211 - Server unreachable.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -2671,6 +2694,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid challenge, authType, authTrustLevel or options.
      * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300013 - Network exception.
      * @throws { BusinessError } 12300101 - The credential is incorrect.
      * @throws { BusinessError } 12300102 - The credential does not exist.
      * @throws { BusinessError } 12300105 - The trust level is not supported.
@@ -2679,7 +2703,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300110 - The authentication is locked.
      * @throws { BusinessError } 12300111 - The authentication time out.
      * @throws { BusinessError } 12300112 - The authentication service is busy.
+     * @throws { BusinessError } 12300113 - The authentication service does not exist.
+     * @throws { BusinessError } 12300114 - The authentication service works abnormally.
      * @throws { BusinessError } 12300117 - PIN is expired.
+     * @throws { BusinessError } 12300211 - Server unreachable.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -2737,6 +2764,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid challenge, authType or authTrustLevel.
      * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300013 - Network exception.
      * @throws { BusinessError } 12300101 - The credential is incorrect.
      * @throws { BusinessError } 12300102 - The credential does not exist.
      * @throws { BusinessError } 12300105 - The trust level is not supported.
@@ -2745,7 +2773,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300110 - The authentication is locked.
      * @throws { BusinessError } 12300111 - The authentication time out.
      * @throws { BusinessError } 12300112 - The authentication service is busy.
+     * @throws { BusinessError } 12300113 - The authentication service does not exist.
+     * @throws { BusinessError } 12300114 - The authentication service works abnormally.
      * @throws { BusinessError } 12300117 - PIN is expired.
+     * @throws { BusinessError } 12300211 - Server unreachable.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -3136,8 +3167,7 @@ declare namespace osAccount {
    * Provides abilities for the management of domain account.
    *
    * @syscap SystemCapability.Account.OsAccount
-   * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 18
    */
   class DomainAccountManager {
     /**
@@ -3155,6 +3185,22 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
+    /**
+     * Registers the domain plugin, which provides the capabilities for domain authentication.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { DomainPlugin } plugin - Indicates the domain plugin.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300201 - The domain plugin has been registered.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 18
+     */
     static registerPlugin(plugin: DomainPlugin): void;
 
     /**
@@ -3167,6 +3213,18 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 9
+     */
+    /**
+     * Unregisters domain plugin.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 18
      */
     static unregisterPlugin(): void;
 
@@ -3193,6 +3251,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300112 - The authentication service is busy.
      * @throws { BusinessError } 12300113 - The account authentication service does not exist.
      * @throws { BusinessError } 12300114 - The account authentication service works abnormally.
+     * @throws { BusinessError } 12300211 - Server unreachable.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -3242,6 +3301,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300112 - The authentication service is busy.
      * @throws { BusinessError } 12300113 - The account authentication service does not exist.
      * @throws { BusinessError } 12300114 - The account authentication service works abnormally.
+     * @throws { BusinessError } 12300211 - Server unreachable.
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3296,6 +3356,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300112 - The authentication service is busy.
      * @throws { BusinessError } 12300113 - The account authentication service does not exist.
      * @throws { BusinessError } 12300114 - The account authentication service works abnormally.
+     * @throws { BusinessError } 12300211 - Server unreachable.
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3317,7 +3378,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid domainAccountInfo.
      * @throws { BusinessError } 12300013 - Network exception.
+     * @throws { BusinessError } 12300014 - Not authenticated.
      * @throws { BusinessError } 12300111 - The operation time out.
+     * @throws { BusinessError } 12300114 - The authentication service works abnormally.
+     * @throws { BusinessError } 12300211 - Server unreachable.
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3339,7 +3403,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid domainAccountInfo.
      * @throws { BusinessError } 12300013 - Network exception.
+     * @throws { BusinessError } 12300014 - Not authenticated.
      * @throws { BusinessError } 12300111 - The operation time out.
+     * @throws { BusinessError } 12300114 - The authentication service works abnormally.
+     * @throws { BusinessError } 12300211 - Server unreachable.
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3400,12 +3467,11 @@ declare namespace osAccount {
     /**
      * Updates the information of the specified domain account.
      *
-     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.MANAGE_DOMAIN_ACCOUNTS
      * @param { DomainAccountInfo } oldAccountInfo - Indicates the old domain account information.
      * @param { DomainAccountInfo } newAccountInfo - Indicates the new domain account information.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -3415,8 +3481,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300004 - The new account already exists.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 18
      */
     static updateAccountInfo(oldAccountInfo: DomainAccountInfo, newAccountInfo: DomainAccountInfo): Promise<void>;
 
@@ -3434,7 +3499,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300013 - Network exception.
+     * @throws { BusinessError } 12300014 - Not authenticated.
      * @throws { BusinessError } 12300111 - The operation time out.
+     * @throws { BusinessError } 12300114 - The authentication service works abnormally.
+     * @throws { BusinessError } 12300211 - Server unreachable.
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3456,7 +3524,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300013 - Network exception.
+     * @throws { BusinessError } 12300014 - Not authenticated.
      * @throws { BusinessError } 12300111 - The operation time out.
+     * @throws { BusinessError } 12300114 - The authentication service works abnormally.
+     * @throws { BusinessError } 12300211 - Server unreachable.
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3479,6 +3550,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300013 - Network exception.
      * @throws { BusinessError } 12300014 - The domain account is not authenticated.
      * @throws { BusinessError } 12300111 - The operation time out.
+     * @throws { BusinessError } 12300114 - The authentication service works abnormally.
+     * @throws { BusinessError } 12300211 - Server unreachable.
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3501,6 +3574,8 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300013 - Network exception.
      * @throws { BusinessError } 12300014 - The domain account is not authenticated.
      * @throws { BusinessError } 12300111 - The operation time out.
+     * @throws { BusinessError } 12300114 - The authentication service works abnormally.
+     * @throws { BusinessError } 12300211 - Server unreachable.
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3534,8 +3609,7 @@ declare namespace osAccount {
    *
    * @typedef DomainServerConfig
    * @syscap SystemCapability.Account.OsAccount
-   * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 18
    */
   interface DomainServerConfig {
     /**
@@ -3543,8 +3617,7 @@ declare namespace osAccount {
      *
      * @type { Record<string, Object> }
      * @syscap SystemCapability.Account.OsAccount
-     * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 18
      */
     parameters: Record<string, Object>;
 
@@ -3553,8 +3626,7 @@ declare namespace osAccount {
      *
      * @type { string }
      * @syscap SystemCapability.Account.OsAccount
-     * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 18
      */
     id: string;
 
@@ -3563,8 +3635,7 @@ declare namespace osAccount {
      *
      * @type { string }
      * @syscap SystemCapability.Account.OsAccount
-     * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 18
      */
     domain: string;
   }
@@ -3573,39 +3644,79 @@ declare namespace osAccount {
    * Provides abilities for managing domain server config.
    *
    * @syscap SystemCapability.Account.OsAccount
-   * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 18
    */
   class DomainServerConfigManager {
     /**
      * Adds a domain server config.
      *
-     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS
      * @param { Record<string, Object> } parameters - Indicates the server config parameters.
      * @returns { Promise<DomainServerConfig> } Returns the added domain server config.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid server config parameters.
      * @throws { BusinessError } 12300211 - Server unreachable.
+     * @throws { BusinessError } 12300213 - Server config already exists.
+     * @throws { BusinessError } 12300215 - The number of server config reaches the upper limit.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 18
      */
     static addServerConfig(parameters: Record<string, Object>): Promise<DomainServerConfig>;
 
     /**
      * Removes a domain server config.
      *
-     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS
      * @param { string } configId - Indicates the server config identifier.
      * @returns { Promise<void> } Returns void.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300212 - Server config not found.
+     * @throws { BusinessError } 12300214 - Server config has been associated with an account.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 18
+     */
+    static removeServerConfig(configId: string): Promise<void>;
+
+    /**
+     * Updates the target server config with the specified parameters.
+     *
+     * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS 
+     * @param { string } configId - Indicates the server config identifier.
+     * @param { Record<string, Object> } parameters - Indicates the server config parameters.
+     * @returns { Promise<DomainServerConfig> } Returns the updated domain server config.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid server config parameters.
+     * @throws { BusinessError } 12300211 - Server unreachable.
+     * @throws { BusinessError } 12300212 - Server config not found.
+     * @throws { BusinessError } 12300213 - Server config already exists.
+     * @throws { BusinessError } 12300214 - Server config has been associated with an account.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 18
+     */
+    static updateServerConfig(configId: string, parameters: Record<string, Object>): Promise<DomainServerConfig>;
+
+    /**
+     * Gets the specified server config by identifier.
+     *
+     * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS
+     * @param { string } configId - Indicates the server config identifier.
+     * @returns { Promise<DomainServerConfig> } Returns the server config.
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -3613,19 +3724,31 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300212 - Server config not found.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 18
      */
-    static removeServerConfig(configId: string): Promise<void>;
+    static getServerConfig(configId: string): Promise<DomainServerConfig>;
+
+    /**
+     * Gets all server configs.
+     *
+     * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS
+     * @returns { Promise<Array<DomainServerConfig>> } Returns a list of server configs.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 18
+     */
+    static getAllServerConfigs(): Promise<Array<DomainServerConfig>>;
 
     /**
      * Gets the server config of the specified domain account.
      *
-     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS
      * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
      * @returns { Promise<DomainServerConfig> } Returns the domain server config.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -3633,8 +3756,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Domain account not found.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 18
      */
     static getAccountServerConfig(domainAccountInfo: DomainAccountInfo): Promise<DomainServerConfig>;
   }
@@ -3912,7 +4034,6 @@ declare namespace osAccount {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
-     * @throws { BusinessError } 12300102 - The credential does not exist.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -3932,7 +4053,6 @@ declare namespace osAccount {
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid authType.
-     * @throws { BusinessError } 12300102 - The credential does not exist.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -3951,7 +4071,6 @@ declare namespace osAccount {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid authType.
-     * @throws { BusinessError } 12300102 - The credential does not exist.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8

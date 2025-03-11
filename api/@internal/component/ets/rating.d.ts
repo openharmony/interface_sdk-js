@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare interface RatingOptions {
   /**
@@ -110,7 +110,7 @@ declare interface RatingOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare interface StarStyleOptions {
   /**
@@ -304,7 +304,7 @@ interface RatingInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   (options?: RatingOptions): RatingAttribute;
 }
@@ -384,7 +384,7 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
   declare type OnRatingChangeCallback = (rating: number) => void;
 
@@ -472,7 +472,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   stars(starCount: Optional<number>): RatingAttribute;
 
@@ -525,7 +525,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   stepSize(size: Optional<number>): RatingAttribute;
 
@@ -576,7 +576,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   starStyle(options: StarStyleOptions): RatingAttribute;
 
@@ -589,7 +589,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   starStyle(options: Optional<StarStyleOptions>): RatingAttribute;
 
@@ -642,7 +642,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   onChange(callback: Optional<OnRatingChangeCallback>): RatingAttribute;
 
@@ -666,7 +666,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   contentModifier(modifier: Optional<ContentModifier<RatingConfiguration>>): RatingAttribute;
 }

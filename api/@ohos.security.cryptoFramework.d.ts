@@ -586,7 +586,7 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   interface KeyEncodingConfig {
     /**
@@ -596,7 +596,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     password: string;
 
@@ -607,7 +607,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     cipherName: string;
   }
@@ -921,7 +921,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getEncodedPem(format: string, config: KeyEncodingConfig): string;
   }
@@ -1693,7 +1693,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     convertPemKey(pubKey: string | null, priKey: string | null, password: string): Promise<KeyPair>;
 
@@ -1728,7 +1728,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     convertPemKeySync(pubKey: string | null, priKey: string | null, password: string): KeyPair;
 
@@ -2058,6 +2058,74 @@ declare namespace cryptoFramework {
   function createSymKeyGenerator(algName: string): SymKeyGenerator;
 
   /**
+   * Specifies the Mac parameters.
+   *
+   * @typedef MacSpec
+   * @syscap SystemCapability.Security.CryptoFramework.Mac
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  interface MacSpec {
+    /**
+     * Indicates the algorithm name of the Mac.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Security.CryptoFramework.Mac
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
+    algName: string;
+  }
+
+  /**
+   * Specifies the HMAC parameters.
+   *
+   * @extends MacSpec
+   * @typedef HmacSpec
+   * @syscap SystemCapability.Security.CryptoFramework.Mac
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  interface HmacSpec extends MacSpec {
+    /**
+     * Indicates the message digest algorithm name of the HMAC.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Security.CryptoFramework.Mac
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
+    mdName: string;
+  }
+
+  /**
+   * Specifies the CMAC parameters.
+   *
+   * @extends MacSpec
+   * @typedef CmacSpec
+   * @syscap SystemCapability.Security.CryptoFramework.Mac
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  interface CmacSpec extends MacSpec {
+    /**
+     * Indicates the cipher algorithm name of the CMAC.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Security.CryptoFramework.Mac
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
+    cipherName: string;
+  }
+
+  /**
    * Provides the Mac type, which is used for Mac generation.
    *
    * @typedef Mac
@@ -2083,7 +2151,7 @@ declare namespace cryptoFramework {
    */
   interface Mac {
     /**
-     * Init hmac with given SymKey.
+     * Init mac with given SymKey.
      *
      * @param { SymKey } key - indicates the SymKey.
      * @param { AsyncCallback<void> } callback - the callback of the init function.
@@ -2094,7 +2162,7 @@ declare namespace cryptoFramework {
      * @since 9
      */
     /**
-     * Init hmac with given SymKey.
+     * Init mac with given SymKey.
      *
      * @param { SymKey } key - indicates the SymKey.
      * @param { AsyncCallback<void> } callback - the callback of the init function.
@@ -2106,7 +2174,7 @@ declare namespace cryptoFramework {
      * @since 11
      */
     /**
-     * Init hmac with given SymKey.
+     * Init mac with given SymKey.
      *
      * @param { SymKey } key - indicates the SymKey.
      * @param { AsyncCallback<void> } callback - the callback of the init function.
@@ -2121,7 +2189,7 @@ declare namespace cryptoFramework {
     init(key: SymKey, callback: AsyncCallback<void>): void;
 
     /**
-     * Init hmac with given SymKey.
+     * Init mac with given SymKey.
      *
      * @param { SymKey } key - indicates the SymKey.
      * @returns { Promise<void> } the promise returned by the function.
@@ -2132,7 +2200,7 @@ declare namespace cryptoFramework {
      * @since 9
      */
     /**
-     * Init hmac with given SymKey.
+     * Init mac with given SymKey.
      *
      * @param { SymKey } key - indicates the SymKey.
      * @returns { Promise<void> } the promise returned by the function.
@@ -2144,7 +2212,7 @@ declare namespace cryptoFramework {
      * @since 11
      */
     /**
-     * Init hmac with given SymKey.
+     * Init mac with given SymKey.
      *
      * @param { SymKey } key - indicates the SymKey.
      * @returns { Promise<void> } the promise returned by the function.
@@ -2159,7 +2227,7 @@ declare namespace cryptoFramework {
     init(key: SymKey): Promise<void>;
 
     /**
-     * Init hmac with given SymKey.
+     * Init mac with given SymKey.
      *
      * @param { SymKey } key - indicates the SymKey.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2173,7 +2241,7 @@ declare namespace cryptoFramework {
     initSync(key: SymKey): void;
 
     /**
-     * Update hmac with DataBlob.
+     * Update mac with DataBlob.
      *
      * @param { DataBlob } input - indicates the DataBlob.
      * @param { AsyncCallback<void> } callback - the callback of the update function.
@@ -2184,7 +2252,7 @@ declare namespace cryptoFramework {
      * @since 9
      */
     /**
-     * Update hmac with DataBlob.
+     * Update mac with DataBlob.
      *
      * @param { DataBlob } input - indicates the DataBlob.
      * @param { AsyncCallback<void> } callback - the callback of the update function.
@@ -2196,7 +2264,7 @@ declare namespace cryptoFramework {
      * @since 11
      */
     /**
-     * Update hmac with DataBlob.
+     * Update mac with DataBlob.
      *
      * @param { DataBlob } input - indicates the DataBlob.
      * @param { AsyncCallback<void> } callback - the callback of the update function.
@@ -2211,7 +2279,7 @@ declare namespace cryptoFramework {
     update(input: DataBlob, callback: AsyncCallback<void>): void;
 
     /**
-     * Update hmac with DataBlob.
+     * Update mac with DataBlob.
      *
      * @param { DataBlob } input - indicates the DataBlob.
      * @returns { Promise<void> } the promise returned by the function.
@@ -2222,7 +2290,7 @@ declare namespace cryptoFramework {
      * @since 9
      */
     /**
-     * Update hmac with DataBlob.
+     * Update mac with DataBlob.
      *
      * @param { DataBlob } input - indicates the DataBlob.
      * @returns { Promise<void> } the promise returned by the function.
@@ -2234,7 +2302,7 @@ declare namespace cryptoFramework {
      * @since 11
      */
     /**
-     * Update hmac with DataBlob.
+     * Update mac with DataBlob.
      *
      * @param { DataBlob } input - indicates the DataBlob.
      * @returns { Promise<void> } the promise returned by the function.
@@ -2249,7 +2317,7 @@ declare namespace cryptoFramework {
     update(input: DataBlob): Promise<void>;
 
     /**
-     * Update hmac with DataBlob.
+     * Update mac with DataBlob.
      *
      * @param { DataBlob } input - indicates the DataBlob.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2263,7 +2331,7 @@ declare namespace cryptoFramework {
     updateSync(input: DataBlob): void;
 
     /**
-     * Output the result of hmac calculation.
+     * Output the result of mac calculation.
      *
      * @param { AsyncCallback<DataBlob> } callback - the callback of the doFinal function.
      * @throws { BusinessError } 17620001 - memory error.
@@ -2272,7 +2340,7 @@ declare namespace cryptoFramework {
      * @since 9
      */
     /**
-     * Output the result of hmac calculation.
+     * Output the result of mac calculation.
      *
      * @param { AsyncCallback<DataBlob> } callback - the callback of the doFinal function.
      * @throws { BusinessError } 17620001 - memory error.
@@ -2282,7 +2350,7 @@ declare namespace cryptoFramework {
      * @since 11
      */
     /**
-     * Output the result of hmac calculation.
+     * Output the result of mac calculation.
      *
      * @param { AsyncCallback<DataBlob> } callback - the callback of the doFinal function.
      * @throws { BusinessError } 17620001 - memory error.
@@ -2295,7 +2363,7 @@ declare namespace cryptoFramework {
     doFinal(callback: AsyncCallback<DataBlob>): void;
 
     /**
-     * Output the result of hmac calculation.
+     * Output the result of mac calculation.
      *
      * @returns { Promise<DataBlob> } the promise returned by the function.
      * @throws { BusinessError } 17620001 - memory error.
@@ -2304,7 +2372,7 @@ declare namespace cryptoFramework {
      * @since 9
      */
     /**
-     * Output the result of hmac calculation.
+     * Output the result of mac calculation.
      *
      * @returns { Promise<DataBlob> } the promise returned by the function.
      * @throws { BusinessError } 17620001 - memory error.
@@ -2314,7 +2382,7 @@ declare namespace cryptoFramework {
      * @since 11
      */
     /**
-     * Output the result of hmac calculation.
+     * Output the result of mac calculation.
      *
      * @returns { Promise<DataBlob> } the promise returned by the function.
      * @throws { BusinessError } 17620001 - memory error.
@@ -2327,7 +2395,7 @@ declare namespace cryptoFramework {
     doFinal(): Promise<DataBlob>;
 
     /**
-     * Output the result of hmac calculation.
+     * Output the result of mac calculation.
      *
      * @returns { DataBlob } the sync returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2343,26 +2411,26 @@ declare namespace cryptoFramework {
     doFinalSync(): DataBlob;
 
     /**
-     * Output the length of hmac result.
+     * Output the length of mac result.
      *
-     * @returns { number } returns the length of the hmac result.
+     * @returns { number } returns the length of the mac result.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
     /**
-     * Output the length of hmac result.
+     * Output the length of mac result.
      *
-     * @returns { number } returns the length of the hmac result.
+     * @returns { number } returns the length of the mac result.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
      */
     /**
-     * Output the length of hmac result.
+     * Output the length of mac result.
      *
-     * @returns { number } returns the length of the hmac result.
+     * @returns { number } returns the length of the mac result.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
@@ -2438,6 +2506,23 @@ declare namespace cryptoFramework {
    * @since 12
    */
   function createMac(algName: string): Mac;
+
+  /**
+   * Provides the mac create func.
+   *
+   * @param { MacSpec } macSpec - indicates the mac parameters.
+   * @returns { Mac } returns the created mac instance.
+   * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 17620001 - memory error.
+   * @throws { BusinessError } 17620002 - runtime error.
+   * @throws { BusinessError } 17630001 - crypto operation error.
+   * @syscap SystemCapability.Security.CryptoFramework.Mac
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  function createMac(macSpec: MacSpec): Mac;
 
   /**
    * Provides the Md type, which is used for Md generation.
@@ -2637,7 +2722,7 @@ declare namespace cryptoFramework {
     /**
      * Output the length of md result.
      *
-     * @returns { number } returns the length of the hmac result.
+     * @returns { number } returns the length of the md result.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -2645,7 +2730,7 @@ declare namespace cryptoFramework {
     /**
      * Output the length of md result.
      *
-     * @returns { number } returns the length of the hmac result.
+     * @returns { number } returns the length of the md result.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -2654,7 +2739,7 @@ declare namespace cryptoFramework {
     /**
      * Output the length of md result.
      *
-     * @returns { number } returns the length of the hmac result.
+     * @returns { number } returns the length of the md result.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
      * @crossplatform
@@ -8542,6 +8627,95 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @atomicservice
      * @since 12
+     */
+    keySize: number;
+  }
+
+  /**
+   * Specifies the SCRYPT parameters.
+   *
+   * @extends KdfSpec
+   * @typedef ScryptSpec
+   * @syscap SystemCapability.Security.CryptoFramework.Kdf
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  interface ScryptSpec extends KdfSpec {
+    /**
+     * Indicates the passphrase parameter of SCRYPT.
+     *
+     * @type { string | Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework.Kdf
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
+    passphrase: string | Uint8Array;
+
+    /**
+     * Indicates the salt parameter of SCRYPT.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework.Kdf
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
+    salt: Uint8Array;
+
+    /**
+     * Indicates the cost parameter of SCRYPT.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.CryptoFramework.Kdf
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
+    n: number;
+
+    /**
+     * Indicates the block size parameter of SCRYPT.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.CryptoFramework.Kdf
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
+    r: number;
+
+    /**
+     * Indicates the parallelization parameter of SCRYPT.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.CryptoFramework.Kdf
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
+    p: number;
+
+    /**
+     * Indicates the byte length of memory of SCRYPT.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.CryptoFramework.Kdf
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
+    maxMemory: number;
+
+    /**
+     * Indicates the byte length of output key of SCRYPT.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.CryptoFramework.Kdf
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     keySize: number;
   }

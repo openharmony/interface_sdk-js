@@ -555,7 +555,7 @@ declare namespace reminderAgentManager {
      * 
      * @type { ?number }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 16
+     * @since 18
      */
     titleResourceId?: number;
   
@@ -573,7 +573,7 @@ declare namespace reminderAgentManager {
      * 
      * @type { ?number }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 16
+     * @since 18
      */
     contentResourceId?: number;
   
@@ -591,7 +591,7 @@ declare namespace reminderAgentManager {
      * 
      * @type { ?number }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 16
+     * @since 18
      */
     expiredContentResourceId?: number;
   
@@ -609,7 +609,7 @@ declare namespace reminderAgentManager {
      * 
      * @type { ?number }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since 16
+     * @since 18
      */
     snoozeContentResourceId?: number;
   

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -523,6 +523,26 @@ export default class UIAbility extends Ability {
   onForeground(): void;
 
   /**
+   * Called back when the state of an ability will changes to foreground.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 18
+   */
+  onWillForeground(): void;
+
+  /**
+   * Called back when the state of an ability changed to foreground.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 18
+   */
+  onDidForeground(): void;
+
+  /**
    * Called back when the state of an ability changes to background.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -547,6 +567,26 @@ export default class UIAbility extends Ability {
    * @since 11
    */
   onBackground(): void;
+
+  /**
+   * Called back when the state of an ability will changes to background.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 18
+   */
+  onWillBackground(): void;
+
+  /**
+   * Called back when the state of an ability changed to background.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 18
+   */
+  onDidBackground(): void;
 
   /**
    * Called back when an ability prepares to continue.
@@ -706,6 +746,21 @@ export default class UIAbility extends Ability {
   onPrepareToTerminate(): boolean;
 
   /**
+   * Called back asynchronously when an ability prepares to terminate.
+   * If onPrepareToTerminateAsync has been implemented then onPrepareToTerminate won't take effect
+   *
+   * @permission ohos.permission.PREPARE_APP_TERMINATE
+   * @returns { Promise<boolean> } Returns a promise to indicate if the ability needs to stop terminating;
+   *                               Returns {@code true} if the ability needs to stop terminating;
+   *                               Returns {@code false} if the ability needs to terminate.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 15
+   */
+  onPrepareToTerminateAsync(): Promise<boolean>;
+
+  /**
    * Called back when back press is dispatched.
    *
    * @returns { boolean } Returns {@code true} means the ability will move to background when back is pressed;
@@ -733,7 +788,7 @@ export default class UIAbility extends Ability {
    * @returns { AbilityConstant.CollaborateResult } Return the result of onCollaborate.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   onCollaborate(wantParam: Record<string, Object>): AbilityConstant.CollaborateResult;
 }

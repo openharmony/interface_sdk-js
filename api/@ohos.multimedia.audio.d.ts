@@ -770,6 +770,19 @@ declare namespace audio {
      */
     REMOTE_CAST = 24,
     /**
+     * USB audio device.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 18
+     */
+    USB_DEVICE = 25,
+    /**
+     * Distributed virtualization audio device.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
+     * @since 18
+     */
+    REMOTE_DAUDIO = 29,
+    /**
      * Default device type.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 9
@@ -1869,6 +1882,14 @@ declare namespace audio {
      * @since 12
      */
     rendererFlags: number;
+    /**
+     * Audio volume mode config. If volumeMode is set to {@link AudioVolumeMode.APP_INDIVIDUAL}, this audio renderer
+     * will be affeted by app volume percentage setted by {@link setAppVolumePercentage}
+     * @type { ?AudioVolumeMode }
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 18
+     */
+    volumeMode?: AudioVolumeMode;
   }
 
   /**
@@ -1910,7 +1931,7 @@ declare namespace audio {
    * @typedef AudioCapturerFilter
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @systemapi
-   * @since 14
+   * @since 18
    */
   interface AudioCapturerFilter {
     /**
@@ -1918,7 +1939,7 @@ declare namespace audio {
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 14
+     * @since 18
      */
     uid?: number;
     /**
@@ -1926,7 +1947,7 @@ declare namespace audio {
      * @type { ?AudioCapturerInfo }
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 14
+     * @since 18
      */
     capturerInfo?: AudioCapturerInfo;
   }
@@ -3068,10 +3089,8 @@ declare namespace audio {
     /**
      * Obtains an {@link AudioSpatializationManager} instance.
      * @returns { AudioSpatializationManager } AudioSpatializationManager instance.
-     * @throws { BusinessError } 202 - Not system App.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
-     * @systemapi
-     * @since 11
+     * @since 18
      */
     getSpatializationManager(): AudioSpatializationManager;
 
@@ -3081,7 +3100,7 @@ declare namespace audio {
      * @throws { BusinessError } 202 - Not system App.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 15
+     * @since 18
      */
     getEffectManager(): AudioEffectManager;
 
@@ -3528,7 +3547,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 14
+     * @since 18
      */
     selectInputDeviceByFilter(filter: AudioCapturerFilter, inputAudioDevices: AudioDeviceDescriptors): Promise<void>;
 
@@ -3621,7 +3640,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 14
+     * @since 18
      */
     getPreferredOutputDeviceByFilter(filter: AudioRendererFilter): AudioDeviceDescriptors;
 
@@ -3746,7 +3765,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 14
+     * @since 18
      */
     getPreferredInputDeviceByFilter(filter: AudioCapturerFilter): AudioDeviceDescriptors;
 
@@ -3864,6 +3883,76 @@ declare namespace audio {
      * @since 13
      */
      off(type: 'micBlockStatusChanged', callback?: Callback<DeviceBlockStatusInfo>): void;
+
+    /**
+     * Exclude output devices. After calling this function successfully, audio will not be played on the specified
+     * devices. Note that only the external ouput device can be excluded by this function. Local output devices is not
+     * accepted.
+     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
+     * @param { DeviceUsage } usage - Device usage, only output device usages can be accepted.
+     * @param { AudioDeviceDescriptors } devices - The devices to be excluded.
+     * @returns { Promise<void> } Promise used to return result.
+     * @throws { BusinessError } 201 - Permisson denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 18
+     */
+    excludeOutputDevices(usage: DeviceUsage, devices: AudioDeviceDescriptors): Promise<void>;
+
+    /**
+     * Unexclude output devices.
+     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
+     * @param { DeviceUsage } usage - Device usage, only output device usages can be accepted.
+     * @param { AudioDeviceDescriptors } devices - The devices to be unexcluded.
+     * @returns { Promise<void> } Promise used to return result.
+     * @throws { BusinessError } 201 - Permisson denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 18
+     */
+    unexcludeOutputDevices(usage: DeviceUsage, devices: AudioDeviceDescriptors): Promise<void>;
+
+    /**
+     * Unexclude output devices. This function will unexclude all output devices belong to specific usage.
+     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
+     * @param { DeviceUsage } usage - Device usage, only output device usages can be accepted.
+     * @returns { Promise<void> } Promise used to return result.
+     * @throws { BusinessError } 201 - Permisson denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 18
+     */
+     unexcludeOutputDevices(usage: DeviceUsage): Promise<void>;
+
+    /**
+     * Get excluded devices by filter.
+     * @param { DeviceUsage } usage - Device usage, only output device usages can be accepted.
+     * @returns { AudioDeviceDescriptors } Exclueded devices.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 18
+     */
+    getExcludedDevices(usage: DeviceUsage): AudioDeviceDescriptors;
   }
 
   /**
@@ -4065,7 +4154,19 @@ declare namespace audio {
      * @crossplatform
      * @since 12
      */
-    off(type: 'audioRendererChange'): void;
+    /**
+     * Unsubscribes to audio renderer change events.
+     * @param { 'audioRendererChange' } type - Type of the event to listen for. Only the audioRendererChange event is supported.
+     * @param { Callback<AudioRendererChangeInfoArray> } callback - Callback invoked for the audio renderer change event.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @crossplatform
+     * @since 18
+     */
+    off(type: 'audioRendererChange', callback?: Callback<AudioRendererChangeInfoArray>): void;
 
     /**
      * Listens for audio capturer change events. When there is any audio capturer change,
@@ -4115,7 +4216,19 @@ declare namespace audio {
      * @crossplatform
      * @since 12
      */
-    off(type: 'audioCapturerChange'): void;
+    /**
+     * Unsubscribes to audio capturer change events.
+     * @param { 'audioCapturerChange' } type - Type of the event to listen for. Only the audioCapturerChange event is supported.
+     * @param { Callback<AudioCapturerChangeInfoArray> } callback - Callback invoked for the audio capturer change event.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 18
+     */
+    off(type: 'audioCapturerChange', callback?: Callback<AudioCapturerChangeInfoArray>): void;
 
     /**
      * Checks whether a stream is active. This method uses an asynchronous callback to return the query result.
@@ -4453,6 +4566,109 @@ declare namespace audio {
     getVolumeGroupManagerSync(groupId: number): AudioVolumeGroupManager;
 
     /**
+     * Get the volume for specified app with range from 0 to 100. Applications with same uid share the same volume.
+     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
+     * @param { number } uid - App's uid.
+     * @returns { Promise<number> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 18
+     */
+    getAppVolumePercentageForUid(uid: number): Promise<number>;
+
+    /**
+     * Sets the volume for specified app with range from 0 to 100. Applications with same uid share the same volume.
+     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
+     * @param { number } uid - App's uid.
+     * @param { number } volume - Volume to set. The value range is from 0 to 100.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Crash or blocking occurs in system process.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 18
+     */
+    setAppVolumePercentageForUid(uid: number, volume: number): Promise<void>;
+
+    /**
+     * Checks whether the app volume is muted. If there are multiple callers setting muted states,
+     * only when all callers cancel muted state the volume of this app will be truly unmuted.
+     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
+     * @param { number } uid - App's uid.
+     * @param { boolean } owned - If true is passed, the result will be indicated your owned muted state
+     * settings to this app. Otherwise if false is passed, the result will be indicated the real muted state.
+     * @returns { Promise<boolean> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 18
+     */
+    isAppVolumeMutedForUid(uid: number, owned: boolean): Promise<boolean>;
+
+    /**
+     * Change mute state of specified application volume. If there are multiple callers setting muted states,
+     * only when all callers cancel muted state the volume of this app will be truly unmuted. 
+     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
+     * @param { number } uid - App's uid.
+     * @param { boolean } muted - Muted state to set.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Crash or blocking occurs in system process.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 18
+     */
+    setAppVolumeMutedForUid(uid: number, muted: boolean): Promise<void>;
+
+    /**
+     * Get the volume for your app with range from 0 to 100. Applications with the same uid share the same volume.
+     * @returns { Promise<number> } The application's volume percentage. The value range is from 0 to 100.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 18
+     */
+    getAppVolumePercentage(): Promise<number>;
+
+    /**
+     * Sets the volume for your app with range from 0 to 100. Applications with the same uid share the same volume.
+     * Only AudioRenderers with {@link AudioRendererInfo.volumeMode} set to {@link AudioVolumeMode.APP_INDIVIDUAL}
+     * will be affected by this volume.
+     * When you change your app's volume, your will receive 'appVolumeChange' callback event.
+     * Your app volume can be also changed by other system settings, and you can monitor the changes through
+     * 'appVolumeChange' callback.
+     * @param { number } volume - Volume to set. The value range is from 0 to 100.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Crash or blocking occurs in system process.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 18
+     */
+    setAppVolumePercentage(volume: number): Promise<void>;
+
+    /**
      * Listens for system volume change events. This method uses a callback to get volume change events.
      * @param { 'volumeChange' } type - Type of the event to listen for. Only the volumeChange event is supported.
      * @param { Callback<VolumeEvent> } callback - Callback used to get the system volume change event.
@@ -4489,6 +4705,72 @@ declare namespace audio {
      * @since 12
      */
     off(type: 'volumeChange', callback?: Callback<VolumeEvent>): void;
+
+    /**
+     * Listens for specified app volume change events.
+     * The app volume may changed by {@link setAppVolumePercentageForUid}.
+     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
+     * @param { 'appVolumeChangeForUid' } type - Type of the event to listen for. Only the
+     * appVolumeChangeForUid event is supported.
+     * @param { number } uid - The app's uid.
+     * @param { Callback<VolumeEvent> } callback - Callback used to get the app volume change event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 18
+     */
+    on(type: 'appVolumeChangeForUid', uid: number, callback: Callback<VolumeEvent>): void;
+
+    /**
+     * Unsubscribes to the app volume change events..
+     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
+     * @param { 'appVolumeChangeForUid' } type - Type of the event to be unregistered. Only the appVolumeChangeForUid
+     * event is supported.
+     * @param { Callback<VolumeEvent> } callback - Callback used to obtain the invoking volume change event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 18
+     */
+    off(type: 'appVolumeChangeForUid', callback?: Callback<VolumeEvent>): void;
+
+    /**
+     * Listens for app volume change events. The app volume may changed by your called {@link setAppVolumePercentage} 
+     * or other system settings.
+     * @param { 'appVolumeChange' } type - Type of the event to listen for. Only the appVolumeChange event is supported.
+     * @param { Callback<VolumeEvent> } callback - Callback used to get the app volume change event.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 18
+     */
+    on(type: 'appVolumeChange', callback: Callback<VolumeEvent>): void;
+
+    /**
+     * Unsubscribes to the app volume change events..
+     * @param { 'appVolumeChange' } type - Type of the event to be unregistered. Only the appVolumeChange event
+     * is supported.
+     * @param { Callback<VolumeEvent> } callback - Callback used to obtain the invoking volume change event.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 18
+     */
+    off(type: 'appVolumeChange', callback?: Callback<VolumeEvent>): void;
   }
 
   /**
@@ -4894,6 +5176,19 @@ declare namespace audio {
     on(type: 'ringerModeChange', callback: Callback<AudioRingMode>): void;
 
     /**
+     * Unsubscribes to the ringer mode state change events.
+     * @param { 'ringerModeChange' } type - Type of the event to listen for.
+     * @param { Callback<AudioRingMode> } callback - Callback used to get the updated ringer mode.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 18
+     */
+    off(type: 'ringerModeChange', callback?: Callback<AudioRingMode>): void;
+
+    /**
      * Mutes or unmutes the microphone. This method uses an asynchronous callback to return the result.
      * @permission ohos.permission.MANAGE_AUDIO_CONFIG
      * @param { boolean } mute - Mute status to set. The value true means to mute the microphone, and false means the opposite.
@@ -5280,8 +5575,7 @@ declare namespace audio {
    * Implements audio spatialization management.
    * @typedef AudioSpatializationManager
    * @syscap SystemCapability.Multimedia.Audio.Spatialization
-   * @systemapi
-   * @since 11
+   * @since 18
    */
   interface AudioSpatializationManager {
     /**
@@ -5663,6 +5957,41 @@ declare namespace audio {
      * @since 12
      */
     getSpatializationSceneType(): AudioSpatializationSceneType;
+
+    /**
+     * Checks whether the spatialization is enabled by the current device.
+     * @returns { boolean } Whether the spatialization is enabled by the current device.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @since 18
+     */
+    isSpatializationEnabledForCurrentDevice(): boolean;
+
+    /**
+     * Subscribes to the spatialization enable state change events by the current device.
+     * When the spatialization enable state changes, registered clients will receive the callback.
+     * @param { 'spatializationEnabledChangeForCurrentDevice' } type - Type of the event to listen for.
+     * @param { Callback<boolean> } callback - Callback used to get the spatialization enable state.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @since 18
+     */
+    on(type: 'spatializationEnabledChangeForCurrentDevice', callback: Callback<boolean>): void;
+
+    /**
+     * Unsubscribes to the spatialization enable state change events by the current device.
+     * @param { 'spatializationEnabledChangeForCurrentDevice' } type - Type of the event to listen for.
+     * @param { Callback<boolean> } callback - Callback used to get the spatialization enable state.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @since 18
+     */
+    off(type: 'spatializationEnabledChangeForCurrentDevice', callback?: Callback<boolean>): void;
   }
 
   /**
@@ -5670,7 +5999,7 @@ declare namespace audio {
    * @typedef AudioEffectManager
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @systemapi
-   * @since 15
+   * @since 18
    */
   interface AudioEffectManager {
     /**
@@ -5682,7 +6011,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 15
+     * @since 18
      */
     getSupportedAudioEffectProperty(): Array<AudioEffectProperty>;
 
@@ -5703,7 +6032,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 15
+     * @since 18
      */
     setAudioEffectProperty(propertyArray: Array<AudioEffectProperty>): void;
 
@@ -5716,7 +6045,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 15
+     * @since 18
      */
     getAudioEffectProperty(): Array<AudioEffectProperty>;
   }
@@ -6236,6 +6565,26 @@ declare namespace audio {
      * @since 12
      */
     readonly encodingTypes?: Array<AudioEncodingType>;
+
+    /**
+     * whether supports spatial rendering.
+     * @type { boolean }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @since 18
+     */
+    readonly spatializationSupported?: boolean;
+
+    /**
+     * Only {@link DeviceType.SPEAKER} with networkId、{@link DeviceType.REMOTE_CAST}
+     * or {@link DeviceType.REMOTE_DAUDIO} has dmDeviceType which indicated deviceTypeId.
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 18
+     */
+    readonly dmDeviceType?: number;
   }
 
   /**
@@ -6253,6 +6602,27 @@ declare namespace audio {
    * @since 12
    */
   type AudioDeviceDescriptors = Array<Readonly<AudioDeviceDescriptor>>;
+
+  /**
+   * Volume mode.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Volume
+   * @since 18
+   */
+  enum AudioVolumeMode {
+    /**
+     * Audio volume affected by system volume level.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 18
+     */
+    SYSTEM_GLOBAL = 0,
+    /**
+     * Audio volume affected by app's individual percentage.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 18
+     */
+    APP_INDIVIDUAL = 1
+  }
 
   /**
    * Describes the volume event received by the app when the volume is changed.
@@ -6312,6 +6682,13 @@ declare namespace audio {
      * @since 9
      */
     networkId: string;
+    /**
+     * Audio volume mode of this volume event
+     * @type { ?AudioVolumeMode }
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 18
+     */
+    volumeMode?: AudioVolumeMode;
   }
 
   /**
@@ -7648,6 +8025,19 @@ declare namespace audio {
     on(type: 'audioInterrupt', callback: Callback<InterruptEvent>): void;
 
     /**
+     * Unsubscribes audio interrupt events.
+     * @param { 'audioInterrupt' } type - Type of the event to listen for.
+     * @param { Callback<InterruptEvent> } callback - Callback used to listen for interrupt callback.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Interrupt
+     * @since 18
+     */
+    off(type: 'audioInterrupt', callback?: Callback<InterruptEvent>): void;
+
+    /**
      * Subscribes to mark reached events. When the number of frames rendered reaches the value of the frame parameter,
      * the callback is invoked.
      * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
@@ -7680,7 +8070,15 @@ declare namespace audio {
      * @crossplatform
      * @since 12
      */
-    off(type: 'markReach'): void;
+    /**
+     * Unsubscribes from mark reached events.
+     * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
+     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @crossplatform
+     * @since 18
+     */
+    off(type: 'markReach', callback?: Callback<number>): void;
 
     /**
      * Subscribes to period reached events. When the period of frame rendering reaches the value of frame parameter,
@@ -7715,7 +8113,15 @@ declare namespace audio {
      * @crossplatform
      * @since 12
      */
-    off(type: 'periodReach'): void;
+    /**
+     * Unsubscribes from period reached events.
+     * @param { 'periodReach' } type - Type of the event to listen for. Only the periodReach event is supported.
+     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @crossplatform
+     * @since 18
+     */
+    off(type: 'periodReach', callback?: Callback<number>): void;
 
     /**
      * Subscribes audio state change event callback.
@@ -7733,6 +8139,19 @@ declare namespace audio {
      * @since 12
      */
     on(type: 'stateChange', callback: Callback<AudioState>): void;
+
+    /**
+     * Unsubscribes audio state change event callback.
+     * @param { 'stateChange' } type - Type of the event to listen for.
+     * @param { Callback<AudioState> } callback - Callback invoked when state change.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 18
+     */
+    off(type: 'stateChange', callback?: Callback<AudioState>): void;
 
     /**
      * Subscribes output device change event callback.
@@ -7985,7 +8404,7 @@ declare namespace audio {
      * Source type for voice transcription and processing.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 15
+     * @since 18
      */
     SOURCE_TYPE_VOICE_TRANSCRIPTION = 12,
 
@@ -8599,7 +9018,15 @@ declare namespace audio {
      * @crossplatform
      * @since 12
      */
-    off(type: 'markReach'): void;
+    /**
+     * Unsubscribes from the mark reached events.
+     * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
+     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 18
+     */
+    off(type: 'markReach', callback?: Callback<number>): void;
 
     /**
      * Subscribes to period reached events. When the period of frame capturing reaches the value of frame parameter,
@@ -8634,7 +9061,15 @@ declare namespace audio {
      * @crossplatform
      * @since 12
      */
-    off(type: 'periodReach'): void;
+    /**
+     * Unsubscribes from period reached events.
+     * @param { 'periodReach' } type - Type of the event to listen for. Only the periodReach event is supported.
+     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @crossplatform
+     * @since 18
+     */
+    off(type: 'periodReach', callback?: Callback<number>): void;
 
     /**
      * Subscribes audio state change event callback.
@@ -8652,6 +9087,19 @@ declare namespace audio {
      * @since 12
      */
     on(type: 'stateChange', callback: Callback<AudioState>): void;
+
+    /**
+     * Unsubscribes audio state change event callback.
+     * @param { 'stateChange' } type - Type of the event to listen for.
+     * @param { Callback<AudioState> } callback - Callback used to listen for the audio state change event.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 18
+     */
+    off(type: 'stateChange', callback?: Callback<AudioState>): void;
 
     /**
      * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
@@ -10209,14 +10657,14 @@ declare namespace audio {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @systemapi
-   * @since 15
+   * @since 18
    */
   enum EffectFlag {
     /**
      * Audio render effect.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 15
+     * @since 18
      */
     RENDER_EFFECT_FLAG = 0,
   
@@ -10224,7 +10672,7 @@ declare namespace audio {
      * Audio capture effect.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 15
+     * @since 18
      */
     CAPTURE_EFFECT_FLAG = 1
   }
@@ -10234,7 +10682,7 @@ declare namespace audio {
    * @typedef AudioEffectProperty
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @systemapi
-   * @since 15
+   * @since 18
    */
   interface AudioEffectProperty {
     /**
@@ -10242,7 +10690,7 @@ declare namespace audio {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 15
+     * @since 18
      */
     name: string;
 
@@ -10251,7 +10699,7 @@ declare namespace audio {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 15
+     * @since 18
      */
     category: string;
 
@@ -10260,7 +10708,7 @@ declare namespace audio {
      * @type { EffectFlag }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 15
+     * @since 18
      */
     flag: EffectFlag;
   }

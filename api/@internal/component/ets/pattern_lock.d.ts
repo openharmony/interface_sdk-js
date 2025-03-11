@@ -114,7 +114,7 @@ declare interface CircleStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 15
    */
     enableForeground?: boolean;
 }
@@ -614,7 +614,7 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 15
    */
   skipUnselectedPoint(skipped: boolean): PatternLockAttribute;
 }

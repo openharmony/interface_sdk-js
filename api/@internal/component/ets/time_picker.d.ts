@@ -233,7 +233,7 @@ declare interface TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   start?: Date;
 
@@ -244,7 +244,7 @@ declare interface TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   end?: Date;
 }
@@ -321,7 +321,7 @@ declare type DateTimeOptions = import('../api/@ohos.intl').default.DateTimeOptio
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare type OnTimePickerChangeCallback = (result: TimePickerResult) => void;
 
@@ -387,7 +387,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   useMilitaryTime(isMilitaryTime: Optional<boolean>): TimePickerAttribute;
 
@@ -417,7 +417,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   loop(isLoop: Optional<boolean>): TimePickerAttribute;
 
@@ -450,7 +450,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   disappearTextStyle(style: Optional<PickerTextStyle>): TimePickerAttribute;
 
@@ -483,7 +483,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   textStyle(style: Optional<PickerTextStyle>): TimePickerAttribute;
 
@@ -516,7 +516,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   selectedTextStyle(style: Optional<PickerTextStyle>): TimePickerAttribute;
 
@@ -540,7 +540,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
   */ 
   dateTimeOptions(timeFormat: Optional<DateTimeOptions>): TimePickerAttribute;
 
@@ -581,7 +581,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   onChange(callback: Optional<OnTimePickerChangeCallback>): TimePickerAttribute;
 
@@ -593,7 +593,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onEnterSelectedArea(callback: Callback<TimePickerResult>): TimePickerAttribute;
 
@@ -615,7 +615,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @returns { TimePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */  
   enableHapticFeedback(enable: Optional<boolean>): TimePickerAttribute;
 
@@ -627,7 +627,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): TimePickerAttribute;
 
@@ -639,7 +639,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   enableCascade(enabled: boolean): TimePickerAttribute;
 }
@@ -919,7 +919,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onEnterSelectedArea?: Callback<TimePickerResult>;
 
@@ -966,6 +966,28 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
   backgroundBlurStyle?: BlurStyle;
 
   /**
+   * Defines the timePickerDialog's background blur style with options
+   *
+   * @type { ?BackgroundBlurStyleOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
+
+  /**
+   * Defines the timePickerDialog's background effect with options
+   *
+   * @type { ?BackgroundEffectOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  backgroundEffect?: BackgroundEffectOptions;
+
+  /**
    * Defines whether the AM/PM option is cascaded with the time in 12-hour mode.
    * 
    * @type { ?boolean }
@@ -973,7 +995,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   enableCascade?: boolean;
 
@@ -1066,6 +1088,17 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @since 14
    */
   hoverModeArea?: HoverModeAreaType;
+
+  /**
+   * Enable or disable haptic feedback.
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  enableHapticFeedback?: boolean;
 }
 
 /**
@@ -1113,6 +1146,8 @@ declare class TimePickerDialog {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 18
+   * @useinstead ohos.arkui.UIContext.UIContext#showTimePickerDialog
    */
   static show(options?: TimePickerDialogOptions);
 }

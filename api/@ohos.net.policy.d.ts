@@ -1270,7 +1270,7 @@ declare namespace policy {
     * @type { ?boolean }
     * @syscap SystemCapability.Communication.NetManager.Core
     * @systemapi Hide this for inner system use.
-    * @since 16
+    * @since 18
     */
     alwaysAllowWiFi?: boolean;
     /**
@@ -1278,7 +1278,7 @@ declare namespace policy {
     * @type { ?boolean }
     * @syscap SystemCapability.Communication.NetManager.Core
     * @systemapi Hide this for inner system use.
-    * @since 16
+    * @since 18
     */
     alwaysAllowCellular?: boolean;
   }

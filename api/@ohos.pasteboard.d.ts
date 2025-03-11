@@ -1112,7 +1112,7 @@ declare namespace pasteboard {
    * @atomicservice
    * @since 15
    */
-  enum FileConflictOption {
+  enum FileConflictOptions {
     /**
      * OVERWRITE overwrite when destUri has file with same name.
      * @syscap SystemCapability.MiscServices.Pasteboard
@@ -1219,13 +1219,13 @@ declare namespace pasteboard {
 
     /**
      * FileConflictOptions indicates fileConflictOptions when dest path has file with same name.
-     * @type { ?FileConflictOption }
-     * @default FileConflictOption.OVERWRITE
+     * @type { ?FileConflictOptions }
+     * @default FileConflictOptions.OVERWRITE
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 15
      */
-    fileConflictOption?: FileConflictOption;
+    fileConflictOptions?: FileConflictOptions;
 
     /**
      * ProgressIndicator indicates whether to use default system progress indicator.
@@ -1778,7 +1778,7 @@ declare namespace pasteboard {
      * @returns { number } The number of Pasteboard data changes.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     getChangeCount(): number;
     

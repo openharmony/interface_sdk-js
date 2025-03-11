@@ -29,7 +29,7 @@ import type notificationManager from '../@ohos.notificationManager';
  * @typedef { Resource | image.PixelMap } IconType
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
- * @since 16
+ * @since 18
  */
 type IconType = Resource | image.PixelMap;
 
@@ -220,7 +220,7 @@ export enum LiveViewStatus {
  * @enum { number }
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
- * @since 16
+ * @since 18
  */
 export enum LiveViewTypes {
   /**
@@ -228,7 +228,7 @@ export enum LiveViewTypes {
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   LIVE_VIEW_ACTIVITY = 0,
   /**
@@ -236,7 +236,7 @@ export enum LiveViewTypes {
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   LIVE_VIEW_INSTANT = 1,
   /**
@@ -244,7 +244,7 @@ export enum LiveViewTypes {
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   LIVE_VIEW_LONG_TERM = 2
 }
@@ -460,7 +460,7 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
    * @type { ?Array<NotificationIconButton> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   cardButtons?: Array<NotificationIconButton>;
 
@@ -488,7 +488,7 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
    * @type { number }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   liveViewType?: LiveViewTypes;
 }
@@ -544,7 +544,7 @@ export interface NotificationCapsule {
    * @type { ?number }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   time?: number;
 
@@ -554,7 +554,7 @@ export interface NotificationCapsule {
    * @type { ?Array<NotificationIconButton> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   capsuleButtons?: Array<NotificationIconButton>;
 }
@@ -564,7 +564,7 @@ export interface NotificationCapsule {
  *
  * @typedef NotificationIconButton
  * @syscap SystemCapability.Notification.Notification
- * @since 16
+ * @since 18
  */
 export interface NotificationIconButton {
 
@@ -574,7 +574,7 @@ export interface NotificationIconButton {
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   name: string;
 
@@ -584,7 +584,7 @@ export interface NotificationIconButton {
    * @type { IconType }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   iconResource: IconType;
 
@@ -594,7 +594,7 @@ export interface NotificationIconButton {
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   text?: string;
 
@@ -604,7 +604,7 @@ export interface NotificationIconButton {
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
   hidePanel?: boolean;
 }

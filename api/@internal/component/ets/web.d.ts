@@ -479,6 +479,15 @@ declare enum MessageLevel {
  * @atomicservice
  * @since 11
  */
+/**
+ * The Web's behavior to load from HTTP or HTTPS. Defaults to MixedMode.None.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
 declare enum MixedMode {
   /**
    * Allows all sources.
@@ -492,6 +501,14 @@ declare enum MixedMode {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Allows all sources.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   All = 0,
 
@@ -508,6 +525,14 @@ declare enum MixedMode {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Allows sources Compatibly.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   Compatible = 1,
 
   /**
@@ -522,6 +547,14 @@ declare enum MixedMode {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Don't allow unsecure sources from a secure origin.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   None = 2
 }
@@ -689,6 +722,15 @@ declare enum HitTestType {
  * @atomicservice
  * @since 11
  */
+/**
+ * Enum type supplied to {@link cacheMode} for setting the Web cache mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
 declare enum CacheMode {
   /**
    * load cache when they are available and not expired, otherwise load online.
@@ -703,7 +745,24 @@ declare enum CacheMode {
    * @atomicservice
    * @since 11
    */
+  /**
+   * load cache when they are available and not expired, otherwise load online.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   Default = 0,
+
+  /**
+   * load cache when they are available and not expired, otherwise load online.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 18
+   */
+  DEFAULT = 0,
 
   /**
    * load cache when they are available, otherwise load online.
@@ -717,10 +776,27 @@ declare enum CacheMode {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * load cache when they are available, otherwise load online.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   None = 1,
 
   /**
+   * load cache when they are available even if the cache is expired.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 18
+   */
+  CACHE_ELSE_NETWORK = 1,
+
+  /**
    * Load online and not cache.
    *
    * @syscap SystemCapability.Web.Webview.Core
@@ -733,7 +809,24 @@ declare enum CacheMode {
    * @atomicservice
    * @since 11
    */
+  /**
+  * Load online and not cache.
+  *
+  * @syscap SystemCapability.Web.Webview.Core
+  * @crossplatform
+  * @atomicservice
+  * @since 18
+  */
   Online = 2,
+
+  /**
+   * load only from network, not use cache.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 18
+   */
+  NO_CACHE = 2,
 
   /**
    * load cache and not online.
@@ -748,7 +841,24 @@ declare enum CacheMode {
    * @atomicservice
    * @since 11
    */
-  Only = 3
+  /**
+   * load cache and not online.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  Only = 3,
+
+  /**
+   * load cache and not online.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 18
+   */
+  CACHE_ONLY = 3
 }
 
 /**
@@ -1060,6 +1170,14 @@ declare interface ScreenCaptureConfig {
  * @atomicservice
  * @since 11
  */
+/**
+ * Define the handler to exit the full screen mode, related to the {@link onFullScreenEnter} event.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
 declare class FullScreenExitHandler {
   /**
    * Constructor.
@@ -1073,6 +1191,14 @@ declare class FullScreenExitHandler {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Constructor.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   constructor();
 
@@ -1089,6 +1215,14 @@ declare class FullScreenExitHandler {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Exit the full screen mode.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   exitFullScreen(): void;
 }
 
@@ -1100,6 +1234,15 @@ declare class FullScreenExitHandler {
  * @atomicservice
  * @since 12
  */
+/**
+ * Defines the event details when the web component enter full screen mode.
+ *
+ * @typedef FullScreenEnterEvent
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
 declare interface FullScreenEnterEvent {
   /**
    * A function handle to exit full-screen mode.
@@ -1108,6 +1251,15 @@ declare interface FullScreenEnterEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * A function handle to exit full-screen mode.
+   *
+   * @type { FullScreenExitHandler }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   handler: FullScreenExitHandler;
 
@@ -1119,6 +1271,15 @@ declare interface FullScreenEnterEvent {
    * @atomicservice
    * @since 12
    */
+  /**
+   * The intrinsic width of the video if the fullscreen element contains video element, expressed in CSS pixels.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   videoWidth?: number;
 
   /**
@@ -1128,6 +1289,15 @@ declare interface FullScreenEnterEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * The intrinsic height of the video if the fullscreen element contains video element, expressed in CSS pixels.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   videoHeight?: number;
 }
@@ -1140,6 +1310,16 @@ declare interface FullScreenEnterEvent {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12
+ */
+/**
+ * The callback when the web component enter full screen mode.
+ *
+ * @typedef { function } OnFullScreenEnterCallback
+ * @param { FullScreenEnterEvent } event - callback information of onFullScreenEnter.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 18
  */
 type OnFullScreenEnterCallback = (event: FullScreenEnterEvent) => void;
 
@@ -1558,7 +1738,7 @@ declare class FileSelectorParam {
    * Gets an array of raw acceptable MIME type.
    * @returns { Array<string> } Return an array of raw acceptable MIME type.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 16
+   * @since 18
    */
   getMimeTypes(): Array<string>;
 }
@@ -3239,6 +3419,15 @@ declare class ConsoleMessage {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Gets the Web source file's path and name of a console message.
+   *
+   * @returns { string } Return the Web source file's path and name of a console message.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   getSourceId(): string;
 
   /**
@@ -3255,6 +3444,15 @@ declare class ConsoleMessage {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Gets the line number of a console message.
+   *
+   * @returns { number } Return the line number of a console message.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   getLineNumber(): number;
 
@@ -3343,6 +3541,15 @@ declare class WebResourceRequest {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Gets request headers.
+   *
+   * @returns { Array<Header> } Return the request headers
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   getRequestHeader(): Array<Header>;
 
   /**
@@ -3386,6 +3593,15 @@ declare class WebResourceRequest {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Check whether the request is associated with gesture.
+   *
+   * @returns { boolean } Return {@code true} if the request is associated with gesture;return {@code false} otherwise.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   isRequestGesture(): boolean;
 
   /**
@@ -3402,6 +3618,15 @@ declare class WebResourceRequest {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Check whether the request is for getting the main frame.
+   *
+   * @returns { boolean } Return {@code true} if the request is associated with gesture for getting the main frame; return {@code false} otherwise.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   isMainFrame(): boolean;
 
@@ -3420,6 +3645,15 @@ declare class WebResourceRequest {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Check whether the request redirects.
+   *
+   * @returns { boolean } Return {@code true} if the request redirects; return {@code false} otherwise.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   isRedirect(): boolean;
 
   /**
@@ -3436,6 +3670,15 @@ declare class WebResourceRequest {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Get request method.
+   *
+   * @returns { string } Return the request method.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   getRequestMethod(): string;
 }
@@ -3486,6 +3729,15 @@ declare class WebResourceResponse {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Gets the response data.
+   *
+   * @returns { string } Return the response data.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   getResponseData(): string;
 
   /**
@@ -3498,6 +3750,18 @@ declare class WebResourceResponse {
    *                                                                   ArrayBuffer type indicate binary data.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13
+   */
+  /**
+   * Gets the response data.
+   *
+   * @returns { string | number | ArrayBuffer | Resource | undefined } Return the response data.
+   *                                                                   string type indicate string in HTML format.
+   *                                                                   number type indicate file handle.
+   *                                                                   Resource type indicate $rawfile resource.
+   *                                                                   ArrayBuffer type indicate binary data.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 18
    */
   getResponseDataEx(): string | number | ArrayBuffer | Resource | undefined;
 
@@ -3552,6 +3816,15 @@ declare class WebResourceResponse {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Gets the reason message.
+   *
+   * @returns { string } Return the reason message.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   getReasonMessage(): string;
 
   /**
@@ -3568,6 +3841,15 @@ declare class WebResourceResponse {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Gets the response headers.
+   *
+   * @returns { Array<Header> } Return the response headers.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   getResponseHeader(): Array<Header>;
 
@@ -3777,6 +4059,14 @@ declare class WebResourceResponse {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13
    */
+  /**
+   * Gets whether the response is ready.
+   *
+   * @returns { boolean } True indicates the response data is ready and false is not ready.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 18
+   */
   getResponseIsReady(): boolean;
 }
 
@@ -3803,6 +4093,15 @@ declare class WebResourceResponse {
  * @atomicservice
  * @since 12
  */
+/**
+ * Defines the Web's request/response header.
+ *
+ * @typedef Header
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
 declare interface Header {
   /**
    * Gets the key of the request/response header.
@@ -3818,6 +4117,15 @@ declare interface Header {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Gets the key of the request/response header.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   headerKey: string;
 
@@ -3835,6 +4143,15 @@ declare interface Header {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Gets the value of the request/response header.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   headerValue: string;
 }
@@ -4412,6 +4729,17 @@ declare interface WebOptions {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+ /**
+   * Sets the incognito mode of the Web, the parameter is optional and default value is false.
+   * When the Web is in incognito mode, cookies, records of websites, geolocation permissions
+   * will not save in persistent files.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   incognitoMode? : boolean;
 
@@ -5185,6 +5513,15 @@ declare interface OnAlertEvent {
  * @atomicservice
  * @since 12
  */
+/**
+ * Defines the triggered function when the web page wants to confirm navigation from JavaScript onbeforeunload.
+ *
+ * @typedef OnBeforeUnloadEvent
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
 declare interface OnBeforeUnloadEvent {
   /**
    * The url of the page.
@@ -5193,6 +5530,15 @@ declare interface OnBeforeUnloadEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * The url of the page.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   url: string;
 
@@ -5204,6 +5550,15 @@ declare interface OnBeforeUnloadEvent {
    * @atomicservice
    * @since 12
    */
+  /**
+   * The message of confirm dialog.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   message: string;
 
   /**
@@ -5213,6 +5568,15 @@ declare interface OnBeforeUnloadEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   *  Handle the user's JavaScript result.
+   *
+   * @type { JsResult }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   result: JsResult;
 }
@@ -5444,6 +5808,15 @@ declare interface OnDownloadStartEvent {
    * @atomicservice
    * @since 12
    */
+  /**
+   * The contentDisposition of page.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   contentDisposition: string;
 
   /**
@@ -5477,6 +5850,15 @@ declare interface OnDownloadStartEvent {
  * @atomicservice
  * @since 12
  */
+/**
+ * Defines the triggered callback when the Web page refreshes accessed history.
+ *
+ * @typedef OnRefreshAccessedHistoryEvent
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
 declare interface OnRefreshAccessedHistoryEvent {
   /**
    * URL of the visit.
@@ -5485,6 +5867,15 @@ declare interface OnRefreshAccessedHistoryEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * URL of the visit.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   url: string;
 
@@ -5495,6 +5886,15 @@ declare interface OnRefreshAccessedHistoryEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * If true, the page is being reloaded, otherwise,  means that the page is newly loaded.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   isRefreshed: boolean;
 }
@@ -5850,7 +6250,7 @@ declare interface OnSslErrorEventReceiveEvent {
    *
    * @type { ?Array<Uint8Array> }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 16
+   * @since 15
    */
   certChainData?: Array<Uint8Array>;
 }
@@ -6304,6 +6704,24 @@ declare enum WebResponseType {
 }
 
 /**
+ * Defines the options of preview menu
+ *
+ * @interface PreviewMenuOptions
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 18
+ */
+declare interface PreviewMenuOptions {
+  /**
+   * Defines the haptic feedback mode of preview menu.
+   *
+   * @type { ?HapticFeedbackMode }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 18
+   */
+  hapticFeedbackMode?: HapticFeedbackMode;
+}
+
+/**
  * Defines the selection menu options.
  *
  * @typedef SelectionMenuOptionsExt
@@ -6346,6 +6764,15 @@ declare interface SelectionMenuOptionsExt {
    * @since 13
    */
   menuType?: MenuType;
+
+  /**
+   * Defines the options of preview menu.
+   *
+   * @type { ?PreviewMenuOptions }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 18
+   */
+  previewMenuOptions?: PreviewMenuOptions;
 }
 
 /**
@@ -6457,6 +6884,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Sets whether to allow image resources to be loaded from the network.
+   *    The default value is true.
+   * @param { boolean } onlineImageAccess - {@code true} means the Web can allow image resources to be loaded from the network;
+   * {@code false} otherwise.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   onlineImageAccess(onlineImageAccess: boolean): WebAttribute;
 
   /**
@@ -6477,6 +6915,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Sets whether to enable the DOM Storage API permission.
+   *    The default value is false.
+   * @param { boolean } domStorageAccess - {@code true} means enable the DOM Storage API permission in Web; {@code false} otherwise.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   domStorageAccess(domStorageAccess: boolean): WebAttribute;
 
@@ -6499,6 +6947,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Sets whether the Web can automatically load image resources.
+   *    The default value is true.
+   * @param { boolean } imageAccess - {@code true} means the Web can automatically load image resources; {@code false} otherwise.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   imageAccess(imageAccess: boolean): WebAttribute;
 
   /**
@@ -6518,6 +6976,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
+  /**
+  * Sets how to load HTTP and HTTPS content.
+  *
+  * @param { MixedMode } mixedMode - The mixed mode, which can be {@link MixedMode}.
+  * @returns { WebAttribute }
+  * @syscap SystemCapability.Web.Webview.Core
+  * @crossplatform
+  * @atomicservice
+  * @since 18
+  */
   mixedMode(mixedMode: MixedMode): WebAttribute;
 
   /**
@@ -6637,6 +7105,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Sets the mode of cache in Web.
+   *
+   * @param { CacheMode } cacheMode - The cache mode, which can be {@link CacheMode}.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   cacheMode(cacheMode: CacheMode): WebAttribute;
 
@@ -7119,6 +7597,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Triggered when the Web wants to confirm navigation from JavaScript onbeforeunload.
+   *
+   * @param { Callback<OnBeforeUnloadEvent, boolean> } callback The triggered function when the web page wants to confirm navigation from JavaScript onbeforeunload.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   onBeforeUnload(callback: Callback<OnBeforeUnloadEvent, boolean>): WebAttribute;
 
   /**
@@ -7336,6 +7824,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Triggered when the Web page refreshes accessed history.
+   *
+   * @param { Callback<OnRefreshAccessedHistoryEvent> } callback The triggered callback when the Web page refreshes accessed history.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   onRefreshAccessedHistory(callback: Callback<OnRefreshAccessedHistoryEvent>): WebAttribute;
 
   /**
@@ -7489,6 +7987,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Triggered when the web component exit the full screen mode.
+   *
+   * @param { function } callback The triggered function when the web component exit the full screen mode.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   onFullScreenExit(callback: () => void): WebAttribute;
 
   /**
@@ -7516,6 +8024,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Triggered when the web component enter the full screen mode.
+   *
+   * @param { OnFullScreenEnterCallback } callback - The triggered function when the web component enter the full screen mode.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   onFullScreenEnter(callback: OnFullScreenEnterCallback): WebAttribute;
 
@@ -8174,6 +8692,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Whether web component can load resource from network.
+   *
+   * @param { boolean } block {@code true} means it can't load resource from network; {@code false} otherwise.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   blockNetwork(block: boolean): WebAttribute;
 
   /**
@@ -8723,16 +9251,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   enableNativeMediaPlayer(config: NativeMediaPlayerConfig): WebAttribute;
 
   /**
-   * Sets the enable window drag smooth for web.
-   *
-   * @param { boolean } mode - True if it needs to enable window drag smooth.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 16
-   */
-  enableSmoothDragResize(mode: boolean): WebAttribute;
-
-  /**
    * Triggered when render process not responding.
    *
    * @param { OnRenderProcessNotRespondingCallback } callback The triggered function when render process not responding.
@@ -8851,7 +9369,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { boolean } follow The value true means to follow the system font weight, and false means the opposite.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 16
+   * @since 18
    */
   enableFollowSystemFontWeight(follow: boolean): WebAttribute;
 
@@ -8861,17 +9379,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { boolean } enabled Whether to enable AVSession. The value true means to enable AVSession, and false means the opposite.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 16
+   * @since 18
    */
   enableWebAVSession(enabled: boolean): WebAttribute;
 
   /**
    * Sets whether to optimize parser budget to reduce FCP time
-   * 
+   *
    * @param { boolean} optimizeParserBudget Default value is false, set true to enable optimize parser budget.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 16
+   * @since 15
    */
   optimizeParserBudget(optimizeParserBudget: boolean): WebAttribute;
 
@@ -8904,6 +9422,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 15
    */
   runJavaScriptOnHeadEnd(scripts: Array<ScriptItem>): WebAttribute;
+
+  /**
+   * Sets the embed options, only valid when enableNativeEmbedMode is true.
+   *
+   * @param { EmbedOptions } options The embed options, which can be {@link EmbedOptions}.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 16
+   */
+  nativeEmbedOptions(options?: EmbedOptions): WebAttribute;
 }
 
 /**
@@ -9108,4 +9636,24 @@ declare interface NestedScrollOptionsExt {
    * @since 14
    */
   scrollLeft?: NestedScrollMode;
+}
+
+/**
+ * Defines the Embed Options.
+ *
+ * @typedef EmbedOptions
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 16
+ */
+declare interface EmbedOptions {
+  /**
+   * Whether the embed element support the default intrinsic size of 300 * 150. 
+   * <br>Default value is false. If false, then the intrinsic size is 0 * 0.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 16
+   */
+  supportDefaultIntrinsicSize?: boolean;
 }

@@ -1299,7 +1299,7 @@ declare namespace userAuth {
      * @type { ?number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 16
+     * @since 18
      */
     userId?: number;
   }
@@ -1372,7 +1372,7 @@ declare namespace userAuth {
      * @type { ?Context }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     uiContext?: Context;
   }
@@ -1904,7 +1904,7 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 16
+     * @since 18
      */
     AUTH_TOKEN_CHECK_FAILED = 12500015,
 
@@ -1913,7 +1913,7 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 16
+     * @since 18
      */
     AUTH_TOKEN_EXPIRED = 12500016
   }

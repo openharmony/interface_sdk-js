@@ -151,7 +151,7 @@ declare enum MatchPattern {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   REG_EXP = 4,
   /**
@@ -160,7 +160,7 @@ declare enum MatchPattern {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   REG_EXP_ICASE = 5,
 }
@@ -1640,7 +1640,7 @@ declare enum MouseButton {
  * @interface TouchPadSwipeOptions
  * @syscap SystemCapability.Test.UiTest
  * @atomicservice
- * @since 16
+ * @since 18
  * @test
  */
 declare interface TouchPadSwipeOptions {
@@ -1649,7 +1649,7 @@ declare interface TouchPadSwipeOptions {
    * @type { ?boolean }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 16
+   * @since 18
    * @test
    */
   stay?: boolean;
@@ -1659,7 +1659,7 @@ declare interface TouchPadSwipeOptions {
    * @type { ?number }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 16
+   * @since 18
    * @test
    */
   speed?: number;
@@ -2199,7 +2199,7 @@ declare class On {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    * @test
    */
   id(id: string, pattern: MatchPattern): On;
@@ -2213,7 +2213,7 @@ declare class On {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    * @test
    */
   type(tp: string, pattern: MatchPattern): On;
@@ -2227,7 +2227,7 @@ declare class On {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    * @test
    */
   hint(val: string, pattern?: MatchPattern): On;
@@ -3121,7 +3121,7 @@ declare class Component {
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    * @test
    */
   getHint(): Promise<string>;
@@ -3137,7 +3137,7 @@ declare class Component {
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 16
+   * @since 18
    * @test
    */
   scrollSearch(on: On, vertical?: boolean, offset?: number): Promise<Component>;
@@ -4274,7 +4274,7 @@ declare class Driver {
    * @throws { BusinessError } 17000005 This device can not support this action.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 16
+   * @since 18
    * @test
    */
   touchPadMultiFingerSwipe(fingers: number, direction: UiDirection, options?: TouchPadSwipeOptions): Promise<void>;
@@ -4287,7 +4287,7 @@ declare class Driver {
    * @throws { BusinessError } 17000002 The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 16
+   * @since 18
    * @test
    */
   penClick(point: Point): Promise<void>;
@@ -4301,7 +4301,7 @@ declare class Driver {
    * @throws { BusinessError } 17000002 The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 16
+   * @since 18
    * @test
    */
   penLongClick(point: Point, pressure?: number): Promise<void>;
@@ -4314,7 +4314,7 @@ declare class Driver {
    * @throws { BusinessError } 17000002 The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 16
+   * @since 18
    * @test
    */
   penDoubleClick(point: Point): Promise<void>;
@@ -4330,7 +4330,7 @@ declare class Driver {
    * @throws { BusinessError } 17000002 The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 16
+   * @since 18
    * @test
    */
   penSwipe(startPoint: Point, endPoint: Point, speed?: number, pressure?: number): Promise<void>;
@@ -4345,7 +4345,7 @@ declare class Driver {
    * @throws { BusinessError } 17000002 The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 16
+   * @since 18
    * @test
    */
   injectPenPointerAction(pointers: PointerMatrix, speed?: number, pressure?: number): Promise<void>;

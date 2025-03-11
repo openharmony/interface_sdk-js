@@ -208,7 +208,7 @@ declare class StackAttribute extends CommonMethod<StackAttribute> {
    * @since 10
    */
   /**
-   * Called when the occupancy of items in the container is set.
+   * Called when the alignment of items in the container is set.
    *
    * @param { Alignment } value
    * @returns { StackAttribute }

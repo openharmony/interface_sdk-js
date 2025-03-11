@@ -672,7 +672,7 @@ declare namespace inputDevice {
    * @throws { BusinessError } 3900001 - The specified device does not exist.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @systemapi
-   * @since 16
+   * @since 18
    */
   function setInputDeviceEnabled(deviceId: number, enabled: boolean): Promise<void>;
 

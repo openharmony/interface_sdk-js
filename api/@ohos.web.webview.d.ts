@@ -744,6 +744,15 @@ declare namespace webview {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Provides basic information of web storage.
+   *
+   * @typedef WebStorageOrigin
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   interface WebStorageOrigin {
     /**
      * Url source.
@@ -758,6 +767,15 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+	/**
+     * Url source.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Web.Webview.Core
+	 * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     origin: string;
     /**
@@ -774,6 +792,15 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+	/**
+     * Specify the amount of storage for the source.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Web.Webview.Core
+	 * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     usage: number;
     /**
      * the callback of getOriginUsage.
@@ -788,6 +815,15 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+	/**
+     * the callback of getOriginUsage.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Web.Webview.Core
+	 * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     quota: number;
   }
@@ -896,6 +932,14 @@ declare namespace webview {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Provides methods for managing web storage.3
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   class WebStorage {
     /**
      * Delete all the storage data.
@@ -911,6 +955,16 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Delete all the storage data.
+     *
+     * @param { boolean } incognito - {@code true} delete all the storage data in incognito mode;
+     *                                {@code false} otherwise.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     static deleteAllData(incognito?: boolean): void;
 
@@ -935,6 +989,18 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Delete the storage data with the origin.
+     *
+     * @param { string } origin - The origin which to be deleted.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     static deleteOrigin(origin: string): void;
 
     /**
@@ -955,6 +1021,17 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Get current all the web storage origins.
+     * @returns { Promise<Array<WebStorageOrigin>> } - returns all the WebStorageOrigin.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100012 - Invalid web storage origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     static getOrigins(): Promise<Array<WebStorageOrigin>>;
 
     /**
@@ -974,6 +1051,17 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Get current all the web storage origins.
+     * @param { AsyncCallback<Array<WebStorageOrigin>> } callback - callback used to return all the WebStorageOrigin.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100012 - Invalid web storage origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     static getOrigins(callback: AsyncCallback<Array<WebStorageOrigin>>): void;
 
@@ -996,6 +1084,18 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Get the web storage quota with the origin.
+     * @param { string } origin -  The origin which to be inquired.
+     * @returns { Promise<number> } - the promise returned by the function
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     static getOriginQuota(origin: string): Promise<number>;
 
@@ -1020,6 +1120,18 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Get the web storage quota with the origin.
+     * @param { string } origin -  The origin which to be inquired.
+     * @param { AsyncCallback<number> } callback - the callback of getOriginQuota.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     static getOriginQuota(origin: string, callback: AsyncCallback<number>): void;
 
     /**
@@ -1043,6 +1155,18 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Get the web amount of storage with the origin.
+     * @param { string } origin -  The origin which to be inquired.
+     * @returns { Promise<number> } - the promise returned by the function
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     static getOriginUsage(origin: string): Promise<number>;
 
     /**
@@ -1065,6 +1189,18 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Get the web amount of storage with the origin.
+     * @param { string } origin -  The origin which to be inquired.
+     * @param { AsyncCallback<number> } callback - the callback of getOriginUsage.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     static getOriginUsage(origin: string, callback: AsyncCallback<number>): void;
   }
@@ -1174,6 +1310,13 @@ declare namespace webview {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Provides a method for managing web geographic location permissions.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   class GeolocationPermissions {
     /**
      * Allow geolocation permissions for specifies source.
@@ -1194,6 +1337,19 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Allow geolocation permissions for specifies source.
+     * @param { string } origin - Url source.
+     * @param { boolean } incognito - {@code true} Allow geolocation permissions for specifies source
+     *                                in incognito mode; {@code false} otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     static allowGeolocation(origin: string, incognito?: boolean): void;
 
@@ -1217,6 +1373,19 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Delete geolocation permissions for specifies source.
+     * @param { string } origin - Url source.
+     * @param { boolean } incognito - {@code true} delete geolocation permissions for specifies source
+     *                                in incognito mode; {@code false} otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     static deleteGeolocation(origin: string, incognito?: boolean): void;
 
     /**
@@ -1233,6 +1402,16 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Delete all geolocation permissions.
+     *
+     * @param { boolean } incognito - {@code true} delete all geolocation in incognito mode;
+     *                                {@code false} otherwise.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     static deleteAllGeolocation(incognito?: boolean): void;
 
@@ -1265,6 +1444,24 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Gets the geolocation permission status of the specified source.
+     * @param { string } origin - Url source.
+     * @param { boolean } incognito - {@code true} gets the geolocation permission status of the
+     *                                specified source in incognito mode; {@code false} otherwise.
+     * @returns { Promise<boolean> } A Promise instance that obtains the permission
+     *                               status of the specified source and obtains successfully,
+     *                               true for authorization, false for access denial. Failed
+     *                               to get, indicating that the permission status of the
+     *                               specified source does not exist.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     static getAccessibleGeolocation(origin: string, incognito?: boolean): Promise<boolean>;
 
@@ -1300,6 +1497,25 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Gets the geolocation permission status of the specified source.
+     * @param { string } origin - Url source.
+     * @param { AsyncCallback<boolean> } callback - Returns the geolocation permission status for
+     *                                              the specified source. Successful acquisition,
+     *                                              true means authorized, false means access is
+     *                                              denied. Failed to get, indicating that the
+     *                                              permission status of the specified source does
+     *                                              not exist.
+     * @param { boolean } incognito - {@code true} gets the geolocation permission status of the
+     *                                specified source in incognito mode; {@code false} otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     static getAccessibleGeolocation(origin: string, callback: AsyncCallback<boolean>, incognito?: boolean): void;
 
     /**
@@ -1323,6 +1539,19 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Get all stored geolocation permission url source.
+     * @param { boolean } incognito - {@code true} get all stored geolocation permission url source
+     *                                in incognito mode; {@code false} otherwise.
+     * @returns { Promise<Array<string>> } A Promise instance that gets all source information about
+     *                                     the stored geolocation permission state.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     static getStoredGeolocation(incognito?: boolean): Promise<Array<string>>;
 
     /**
@@ -1344,6 +1573,19 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Get all stored geolocation permission url source.
+     * @param { AsyncCallback<Array<string>> } callback - Returns all source information for
+     *                                                    stored geolocation permission states.
+     * @param { boolean } incognito - {@code true} gets all stored geolocation permission url
+     *                                source in incognito mode; {@code false} otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     static getStoredGeolocation(callback: AsyncCallback<Array<string>>, incognito?: boolean): void;
   }
@@ -1546,7 +1788,7 @@ declare namespace webview {
     /**
      * Save the cookies synchronously.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 16
+     * @since 15
      */
     static saveCookieSync(): void;
 
@@ -1684,6 +1926,17 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Check whether exists any cookies.
+     *
+     * @param { boolean } incognito - {@code true} check whether exists any cookies.
+     *                                in incognito mode; {@code false} otherwise.
+     * @returns { boolean } True if exists more than one cookie else false;
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     static existCookie(incognito?: boolean): boolean;
 
     /**
@@ -1765,6 +2018,16 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Delete the session cookies Asynchronously.
+     * @param { AsyncCallback<void> } callback - Called after the cookies have been deleted.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     static clearSessionCookie(callback: AsyncCallback<void>): void;
   }
 
@@ -1782,6 +2045,15 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Enum type supplied to {@link onMessageEventExt} for indicating the type of web message.
+   *
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   enum WebMessageType {
     /**
@@ -1812,6 +2084,14 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * The string data type.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     STRING,
 
     /**
@@ -1827,6 +2107,14 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * The number data type.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     NUMBER,
 
     /**
@@ -1841,6 +2129,14 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * The boolean data type.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     BOOLEAN,
 
@@ -1872,6 +2168,14 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * The array data type.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     ARRAY,
 
     /**
@@ -1886,6 +2190,14 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * The error data type.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     ERROR
   }
@@ -1903,6 +2215,14 @@ declare namespace webview {
    * @atomicservice
    * @since 11
    */
+  /**
+   * The message received or sent from web message port.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   class WebMessageExt {
     /**
      * Get the type of the web message.
@@ -1916,6 +2236,14 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Get the type of the web message.
+     * @returns { WebMessageType } - Returns data of WebMessageType type
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     getType(): WebMessageType;
 
@@ -1936,6 +2264,16 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Get the string value of the web message.
+     * @returns { string } - Returns data of string type
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     getString(): string;
 
     /**
@@ -1955,6 +2293,16 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Get the number value of the web message.
+     * @returns { number } - Returns data of number type
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     getNumber(): number;
 
     /**
@@ -1973,6 +2321,16 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Get the boolean value of the web message.
+     * @returns { boolean } - Returns data of Boolean type
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     getBoolean(): boolean;
 
@@ -2012,6 +2370,16 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Get the array value of the web message.
+     * @returns { Array<string | number | boolean> } - Returns data of Array type
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     getArray(): Array<string | number | boolean>;
 
     /**
@@ -2030,6 +2398,16 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Get the error value of the web message.
+     * @returns { Error } - Returns data of Error type
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     getError(): Error;
 
@@ -2053,6 +2431,18 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Set the type of the web message.
+     * @param { WebMessageType } type - set WebMessageType type data
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     setType(type: WebMessageType): void;
 
     /**
@@ -2074,6 +2464,18 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Set the string value of the web message.
+     * @param { string } message - set string type data
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     setString(message: string): void;
 
@@ -2097,6 +2499,18 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Set the number value of the web message.
+     * @param { number } message - set number type data
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     setNumber(message: number): void;
 
     /**
@@ -2118,6 +2532,18 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Set the boolean value of the web message.
+     * @param { boolean } message - set boolean type data
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     setBoolean(message: boolean): void;
 
@@ -2161,6 +2587,17 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Set the array value of the web message.
+     * @param { Array<string | number | boolean> } message - set Array type data
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     setArray(message: Array<string | number | boolean>): void;
 
     /**
@@ -2183,6 +2620,18 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Set the error value of the web message.
+     * @param { Error } message - set Error type data
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     setError(message: Error): void;
   }
@@ -2315,6 +2764,17 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Post a message to other port.
+     * @param { WebMessageExt } message - Message to send.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100010 - Failed to post messages through the port.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     postMessageEventExt(message: WebMessageExt): void;
 
     /**
@@ -2334,6 +2794,17 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Receive message from other port.
+     * @param { function } callback - Callback function for receiving messages.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100006 - Failed to register a message event for the port.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     onMessageEventExt(callback: (result: WebMessageExt) => void): void;
   }
@@ -2590,6 +3061,14 @@ declare namespace webview {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Enum type supplied to {@link runJavaScriptExt} for indicating the result of JavaScript code execution.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   enum JsMessageType {
     /**
      * Unsupported data type.
@@ -2615,6 +3094,13 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * The string data type.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     STRING,
 
     /**
@@ -2628,6 +3114,13 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * The number data type.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     NUMBER,
 
     /**
@@ -2640,6 +3133,13 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * The boolean data type.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     BOOLEAN,
 
@@ -2667,6 +3167,13 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * The array data type.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     ARRAY
   }
 
@@ -2681,6 +3188,13 @@ declare namespace webview {
    * @atomicservice
    * @since 11
    */
+  /**
+   * The message for indicating the of result of JavaScript code execution.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   class JsMessageExt {
     /**
      * Get the type of the JavaScript code execution result.
@@ -2694,6 +3208,14 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Get the type of the JavaScript code execution result.
+     * @returns { JsMessageType } - Returns data of JsMessageType type
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     getType(): JsMessageType;
 
@@ -2712,6 +3234,15 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Get the string value of the JavaScript code execution result.
+     * @returns { string } - Returns data of string type
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     getString(): string;
 
     /**
@@ -2729,6 +3260,15 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Get the number value of the JavaScript code execution result.
+     * @returns { number } - Returns data of number type
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     getNumber(): number;
 
     /**
@@ -2745,6 +3285,15 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Get the boolean value of the JavaScript code execution result.
+     * @returns { boolean } - Returns data of Boolean type
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     getBoolean(): boolean;
 
@@ -2779,6 +3328,15 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Get the array value of the the JavaScript code execution result.
+     * @returns { Array<string | number | boolean> } - Returns data of Array type
+     * @throws { BusinessError } 17100014 - The type and value of the message do not match.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     getArray(): Array<string | number | boolean>;
   }
@@ -3015,6 +3573,16 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Enables debugging of web contents.
+     * @param { boolean } webDebuggingAccess {@code true} enables debugging of web contents; {@code false} otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     static setWebDebuggingAccess(webDebuggingAccess: boolean): void;
 
@@ -3325,6 +3893,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     * @deprecated since 16
+     * @useinstead ohos.web.webview.WebviewController#getLastHitTest
      */
     getHitTest(): WebHitTestType;
 
@@ -3454,6 +4024,17 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Let the Web zoom in.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100004 - Function not enabled.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     zoomIn(): void;
 
     /**
@@ -3475,6 +4056,17 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Let the Web zoom out.
+     *
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100004 - Function not enabled.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     zoomOut(): void;
 
     /**
@@ -3493,6 +4085,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     * @deprecated since 16
+     * @useinstead ohos.web.webview.WebviewController#getLastHitTest
      */
     getHitTestValue(): HitTestValue;
 
@@ -3512,6 +4106,16 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Gets the id for the current Web.
+     * @returns { number } Returns the index value of the current Web component.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     getWebId(): number;
 
@@ -3995,6 +4599,23 @@ declare namespace webview {
      * @atomicservice
      * @since 12
      */
+     /**
+     * Execute JavaScript code in the context of the currently displayed page, and return the result.
+     *
+     * @param { string | ArrayBuffer } script - JavaScript Script.
+     * @returns { Promise<JsMessageExt> } A promise is solved after the JavaScript script is executed.
+     *                              This parameter will be the result of JavaScript script execution.
+     *                              If the JavaScript script fails to execute or has no return value,
+     *                              a none type value will be returned.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     runJavaScriptExt(script: string | ArrayBuffer): Promise<JsMessageExt>;
 
     /**
@@ -4032,6 +4653,20 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
+     */
+    /**
+     * Execute JavaScript code in the context of the currently displayed page, and return the result.
+     *
+     * @param { string | ArrayBuffer } script - JavaScript Script.
+     * @param { AsyncCallback<JsMessageExt> } callback - Callbacks execute JavaScript script results.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     runJavaScriptExt(script: string | ArrayBuffer, callback: AsyncCallback<JsMessageExt>): void;
 
@@ -4112,6 +4747,21 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Scroll the contents of this Webview up by half the view size.
+     *
+     * @param { boolean } top - Whether to jump to the top of the page, if set to false,
+     *                          the page content will scroll up half the size of the viewframe,
+     *                          and when set to true, it will jump to the top of the page.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     pageUp(top: boolean): void;
 
     /**
@@ -4140,6 +4790,21 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Scroll the contents of this Webview down by half the view size.
+     *
+     * @param { boolean } bottom - Whether to jump to the top of the page, if set to false,
+     *                             the page content will scroll up half the size of the viewframe,
+     *                             and when set to true, it will jump to the top of the page.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     pageDown(bottom: boolean): void;
 
     /**
@@ -4158,6 +4823,16 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Gets the original url of current Web page.
+     * @returns { string } Return the original url of the current page.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     getOriginalUrl(): string;
 
@@ -4309,7 +4984,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 16
+     * @since 18
      */
     static removeAllCache(clearRom: boolean): void;
 
@@ -4665,6 +5340,17 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Set delegate for download.
+     * Used to notify the progress of the download triggered from web.
+     * @param { WebDownloadDelegate } delegate - Delegate used for download triggered from web.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     setDownloadDelegate(delegate: WebDownloadDelegate): void;
 
     /**
@@ -4676,6 +5362,17 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Start a download.
+     * @param { string } url - The download url.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     startDownload(url: string): void;
 
@@ -4692,6 +5389,21 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Loads the URL use "POST" method with post data.
+     *
+     * @param { string } url - Request the URL use "POST" method.
+     * @param { ArrayBuffer } postData - This data will passed to "POST" request.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     postUrl(url: string, postData: ArrayBuffer): void;
 
@@ -5323,6 +6035,16 @@ declare namespace webview {
      * @since 12
      */
     scrollByWithResult(deltaX: number, deltaY: number): boolean;
+
+    /**
+     * Gets the last hit test value of HitTest.
+     * @returns { HitTestValue } Return the element information of the clicked area.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 18
+     */
+    getLastHitTest(): HitTestValue;
   }
 
   /**
@@ -5332,12 +6054,27 @@ declare namespace webview {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Defines the state for download.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   enum WebDownloadState {
     /**
      * The web download is in progress.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * The web download is in progress.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     IN_PROGRESS = 0,
 
@@ -5347,6 +6084,13 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * The web download has been completed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     COMPLETED,
 
     /**
@@ -5354,6 +6098,13 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * The web download was canceled.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     CANCELED,
 
@@ -5363,6 +6114,13 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * The web download was interrupted.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     INTERRUPTED,
 
     /**
@@ -5370,6 +6128,13 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * The web download is pending.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     PENDING,
 
@@ -5379,6 +6144,13 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * The web download has been paused.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     PAUSED,
 
     /**
@@ -5386,6 +6158,13 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Unknown state.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     UNKNOWN,
   }
@@ -5396,6 +6175,14 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Defines the error code for download.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   enum WebDownloadErrorCode {
     /**
@@ -5604,6 +6391,13 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * User cancel.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     USER_CANCELED = 40,
 
     /**
@@ -5629,6 +6423,13 @@ declare namespace webview {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Represents a download task, You can use this object to operate the corresponding download task.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   class WebDownloadItem {
     /**
     * Get guid.
@@ -5636,6 +6437,14 @@ declare namespace webview {
     * @syscap SystemCapability.Web.Webview.Core
     * @atomicservice
     * @since 11
+    */
+    /**
+    * Get guid.
+    * @returns { string } - Returns the download's guid.
+    * @syscap SystemCapability.Web.Webview.Core
+    * @crossplatform
+    * @atomicservice
+    * @since 18
     */
     getGuid(): string;
 
@@ -5646,6 +6455,14 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Get current speed, in bytes per second.
+     * @returns { number } - Returns the current download speed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     getCurrentSpeed(): number;
 
     /**
@@ -5654,6 +6471,14 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Get percent complete.
+     * @returns { number } - Returns -1 if progress is unknown. 100 if the download is already complete.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     getPercentComplete(): number;
 
@@ -5664,6 +6489,14 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Get total bytes.
+     * @returns { number } - Returns the total bytes received, -1 if the total size is unknown.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     getTotalBytes(): number;
 
     /**
@@ -5672,6 +6505,14 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Get state of the web download.
+     * @returns { WebDownloadState } - Returns the current download state.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     getState(): WebDownloadState;
 
@@ -5682,6 +6523,14 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Get last error code of the web download.
+     * @returns { WebDownloadErrorCode } - Returns the last error code.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     getLastErrorCode(): WebDownloadErrorCode;
 
     /**
@@ -5690,6 +6539,14 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Get http method of the web download request.
+     * @returns { string } - Returns the http request method.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     getMethod(): string;
 
@@ -5700,6 +6557,14 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Get mime type of the web download.
+     * @returns { string } - Returns the mimetype.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     getMimeType(): string;
 
     /**
@@ -5709,6 +6574,14 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Get url of the web download request.
+     * @returns { string } - Returns the url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     getUrl(): string;
 
     /**
@@ -5717,6 +6590,14 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Get suggested file name of the web download request.
+     * @returns { string } - Returns the suggested file name.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     getSuggestedFileName(): string;
 
@@ -5730,6 +6611,17 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Start the web download.
+     * Used in onBeforeDownload, If you want to start the current download, call this function.
+     * @param { string } downloadPath - The content will be downloaded to this file.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+     * <br>2. Parameter verification failed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     start(downloadPath: string): void;
 
     /**
@@ -5737,6 +6629,13 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Cancel the web download.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     cancel(): void;
 
@@ -5746,6 +6645,14 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Pause the web download.
+     * @throws { BusinessError } 17100019 - The download task is not started yet.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     pause(): void;
 
@@ -5758,6 +6665,16 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Resume the web download.
+     * Use WebDownloadManager.resumeDownload to resume deserialized downloads.
+     * WebDownloadItem.resume is only used to resume the currently paused download.
+     * @throws { BusinessError } 17100016 - The download task is not paused.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     resume(): void;
 
     /**
@@ -5767,6 +6684,14 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Get received bytes.
+     * @returns { number } - Returns the received bytes.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     getReceivedBytes(): number;
 
     /**
@@ -5775,6 +6700,14 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Get full path of the web download.
+     * @returns { string } - Returns the full path of the download.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     getFullPath(): string;
 
@@ -5806,6 +6739,13 @@ declare namespace webview {
    * @atomicservice
    * @since 11
    */
+  /**
+   * The download state is notified through this delegate.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   class WebDownloadDelegate {
     /**
      * Callback will be triggered before web download start.
@@ -5813,6 +6753,14 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Callback will be triggered before web download start.
+     * @param { Callback<WebDownloadItem> } callback - The callback of download will be start.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     onBeforeDownload(callback: Callback<WebDownloadItem>): void;
 
@@ -5823,6 +6771,14 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Callback will be triggered when web download is processing.
+     * @param { Callback<WebDownloadItem> } callback - The callback of download did update.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     onDownloadUpdated(callback: Callback<WebDownloadItem>): void;
 
     /**
@@ -5831,6 +6787,14 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Callback will be triggered when web download is completed.
+     * @param { Callback<WebDownloadItem> } callback - The callback of download did finish.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     onDownloadFinish(callback: Callback<WebDownloadItem>): void;
 
@@ -5841,6 +6805,14 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Callback will be triggered when web download is interrupted or canceled.
+     * @param { Callback<WebDownloadItem> } callback - The callback of download did fail.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     onDownloadFailed(callback: Callback<WebDownloadItem>): void;
   }
 
@@ -5850,6 +6822,13 @@ declare namespace webview {
    * @atomicservice
    * @since 11
    */
+  /**
+   * You can trigger download manually through this interface, or resume failed or canceled downloads.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   class WebDownloadManager {
     /**
      * Set a delegate used to receive the progress of the download triggered from WebDownloadManager.
@@ -5857,6 +6836,14 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Set a delegate used to receive the progress of the download triggered from WebDownloadManager.
+     * @param { WebDownloadDelegate } delegate - Delegate used for download triggered from WebDownloadManager.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     static setDownloadDelegate(delegate: WebDownloadDelegate): void;
 
@@ -7368,6 +8355,208 @@ declare namespace webview {
     constructor();
   }
 
+  /**
+   * Enum type supplied to {@link insertProxyRule} for indicating the scheme filter for proxy.
+   * @enum { number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 15
+   */
+  enum ProxySchemeFilter {
+      /**
+       * This indicates all the schemes will use the proxy.
+       * @syscap SystemCapability.Web.Webview.Core
+       * @since 15
+       */
+      MATCH_ALL_SCHEMES = 0,
+      /**
+       * This indicates only the HTTP requests will use the proxy.
+       * @syscap SystemCapability.Web.Webview.Core
+       * @since 15
+       */
+      MATCH_HTTP = 1,
+      /**
+       * This indicates only the HTTPS requests will use the proxy.
+       * @syscap SystemCapability.Web.Webview.Core
+       * @since 15
+       */
+      MATCH_HTTPS = 2,
+  }
+  /**
+   * The ProxyConfig used by applyProxyOverride.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 15
+   */
+  class ProxyConfig {
+      /**
+       * Insert a bypass rule that indicates URLs that should skip the override proxy and connect the server directly instead.
+       * These maybe URLs or IP addresses and wildcards are supported. e.g. "*.example.com" means that requests to
+       * "https://www.example.com" and "http://test.example.com" will connect the server directly.
+       * 
+       * @param { string } bypassRule - The bypass rule.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+       * <br>2. Incorrect parameter types.
+       * @syscap SystemCapability.Web.Webview.Core
+       * @since 15
+       */
+      insertBypassRule(bypassRule: string): void;
+      /**
+       * Insert a proxy rule that indicates URLs that match the schemeFilter will connect the server directly.
+       * 
+       * @param { ProxySchemeFilter } schemeFilter - The scheme filter for this rule.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+       * <br>2. Incorrect parameter types.
+       * @syscap SystemCapability.Web.Webview.Core
+       * @since 15
+       */
+      insertDirectRule(schemeFilter?: ProxySchemeFilter): void;
+      /**
+       * Insert a proxy rule which indicates that requests matching the schemeFilter should use an override proxy, all requests will
+       * use the proxy rule if schemeFilter is null.
+       * 
+       * The format for proxy is [scheme://]host[:port]. Scheme is optional and must be HTTP, HTTPS, or SOCKS if present. Scheme defaults to HTTP.
+       * Host is an IPv6 literal with brackets, an IPv4 literal or one or more labels seperated by a period. Port number is optional and defaults
+       * to 80 for HTTP, 443 for HTTPS and 1080 for SOCKS.
+       * 
+       * e.g. example.com host: example.com
+       *      https://example.com  scheme: https  host: example.com
+       *      example.com:8888     host: example.com  port: 8888
+       *      https://example.com:8888  scheme:https  host: example.com  port:8888
+       *      192.168.1.1  host: 192.168.1.1
+       *      192.168.1.1:8888  host:192.168.1.1 port: 8888
+       *      [10:20:30:40:50:60:70:80]
+       * 
+       * @param { string } proxyRule - The proxy rule.
+       * @param { ProxySchemeFilter } schemeFilter - The scheme filter for this rule.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+       * <br>2. Incorrect parameter types.
+       * @syscap SystemCapability.Web.Webview.Core
+       * @since 15
+       */
+      insertProxyRule(proxyRule: string, schemeFilter?: ProxySchemeFilter): void;
+      /**
+       * Hostnames without a period in them (and that are not IP literals) will skip the proxy and connect the server directly.
+       * Examples: "abc", "local", "some-domain".
+       * 
+       * @syscap SystemCapability.Web.Webview.Core
+       * @since 15
+       */
+      bypassHostnamesWithoutPeriod(): void;
+      /**
+       * By default, certain hostnames implicitly bypass the proxy if they are link-local IPs, or localhost addresses. For instance
+       * hostnames matching any of (non-exhaustive list): localhost *.localhost [::1] 127.0.0.1/8 169.254/16 [FE80::]/10
+       * Call this function to override the default behavior and force localhost and link-local URLs to be sent through the proxy.
+       * 
+       * @syscap SystemCapability.Web.Webview.Core
+       * @since 15
+       */
+      clearImplicitRules(): void;
+      /**
+       * Reverse the bypass rules.
+       * 
+       * If false all URLs will use proxy settings except URLs match the bypass rules.
+       * If true only URLs in the bypass list will use proxy, and all other URLs will be connected to directly.
+       * 
+       * @param { boolean } reverse - If reverse the bypass rule.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+       * <br>2. Incorrect parameter types.
+       * @syscap SystemCapability.Web.Webview.Core
+       * @since 15
+       */
+      enableReverseBypass(reverse: boolean): void;
+      /**
+       * Returns the bypass rules.
+       * 
+       * @returns { Array<string> } The bypass rules.
+       * @syscap SystemCapability.Web.Webview.Core
+       * @since 15
+       */
+      getBypassRules(): Array<string>;
+      /**
+       * Returns the proxy rules.
+       * 
+       * @returns { Array<ProxyRule> } The proxy rules.
+       * @syscap SystemCapability.Web.Webview.Core
+       * @since 15
+       */
+      getProxyRules(): Array<ProxyRule>;
+      /**
+       * Returns if reverse bypass rules.
+       * 
+       * @returns { boolean } If reverse bypass enabled.
+       * @syscap SystemCapability.Web.Webview.Core
+       * @since 15
+       */
+      isReverseBypassEnabled(): boolean;
+  }
+
+  /**
+   * The ProxyRule used by insertProxyRule.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 15
+   */
+  class ProxyRule {
+      /**
+       * Returns the scheme filter used for this rule.
+       * 
+       * @returns { ProxySchemeFilter } The scheme filter used for this rule.
+       * @syscap SystemCapability.Web.Webview.Core
+       * @since 15
+       */
+      getSchemeFilter(): ProxySchemeFilter;
+      /**
+       * Returns the proxy URL.
+       * 
+       * @returns { string } The proxy URL.
+       * @syscap SystemCapability.Web.Webview.Core
+       * @since 15
+       */
+      getUrl(): string;
+  }
+
+  /**
+   * The callback for proxy changed.
+   * 
+   * @typedef { function }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 15
+   */
+  type OnProxyConfigChangeCallback = () => void;
+
+  /**
+   * This class is used for set proxy for ArkWeb.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 15
+   */
+  class ProxyController {
+    /**
+     * Sets ProxyConfig which will be used by all Webs in the app. URLs that match patterns in the bypass list will connect the server directly.
+     * Instead, the request will use the proxy specified by the config. Requests are not guaranteed to use the new proxy immediately; wait for
+     * the listener before loading a page. This listener will be called on the UI thread.
+     * Note: calling applyProxyOverride will cause any existing system wide setting to be ignored.
+     * 
+     * @param { ProxyConfig } proxyConfig - The proxy config.
+     * @param { OnProxyConfigChangeCallback } callback - Called when the proxy has been changed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 15
+     */
+    static applyProxyOverride(proxyConfig: ProxyConfig, callback: OnProxyConfigChangeCallback): void;
+    /**
+     * Remove the proxy config. Requests are not guaranteed to not use the proxy; Wait for the listener before loading a page. This listener
+     * will be called on the UI thread.
+     * 
+     * @param { OnProxyConfigChangeCallback } callback - Called when the proxy has been changed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 15
+     */
+    static removeProxyOverride(callback: OnProxyConfigChangeCallback): void;
+}
 }
 
 export default webview;

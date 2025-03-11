@@ -383,7 +383,7 @@ declare type OnDidChangeCallback = (rangeBefore: TextRange, rangeAfter: TextRang
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare type EditableTextOnChangeCallback = (value: string, previewText?: PreviewText, options?: TextChangeOptions) => void;
 
@@ -972,7 +972,7 @@ declare class TextMenuItemId {
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   static readonly TRANSLATE: TextMenuItemId;
 
@@ -984,9 +984,21 @@ declare class TextMenuItemId {
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   static readonly SEARCH: TextMenuItemId;
+
+  /**
+   * Indicates the TextMenuItemId to share the selected content.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  static readonly SHARE: TextMenuItemId;
 }
 
 /**
@@ -1036,7 +1048,7 @@ declare interface TextMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   labelInfo?: ResourceStr;
 }
@@ -1150,7 +1162,7 @@ declare interface FontSettingOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 declare interface TextChangeOptions {
   /**
@@ -1160,7 +1172,7 @@ declare interface TextChangeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   rangeBefore: TextRange;
 
@@ -1171,7 +1183,7 @@ declare interface TextChangeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   rangeAfter: TextRange;
 
@@ -1182,7 +1194,7 @@ declare interface TextChangeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   oldContent: string;
 
@@ -1193,7 +1205,7 @@ declare interface TextChangeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   oldPreviewText: PreviewText;
 }
@@ -1205,7 +1217,7 @@ declare interface TextChangeOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 15
  */
 interface EditableTextChangeValue {
   /**
@@ -1215,7 +1227,7 @@ interface EditableTextChangeValue {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   content: string;
 
@@ -1226,7 +1238,7 @@ interface EditableTextChangeValue {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   previewText?: PreviewText;
 
@@ -1237,7 +1249,106 @@ interface EditableTextChangeValue {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   options?: TextChangeOptions;
+}
+
+ /**
+  * Defines text menu show mode.
+  *
+  * @enum { number }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 16
+  */
+declare enum TextMenuShowMode {
+  /**
+   * Display the text selection menu in the current window.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  DEFAULT = 0,
+
+  /**
+   * Prefer to display the text selection menu in a separate window
+   * and continue to display it within the current window if a separate window is not supported
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  PREFER_WINDOW = 1,
+}
+
+ /**
+  * Defines text menu options.
+  *
+  * @interface TextMenuOptions
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 16
+  */
+declare interface TextMenuOptions {
+  /**
+   * Text menu show mode.
+   *
+   * @type { ?TextMenuShowMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 16
+   */
+  showMode?: TextMenuShowMode;
+}
+/**
+ * Defines keyboard appearance.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 15
+ */
+declare enum KeyboardAppearance {
+  /**
+   * Default appearance mode, don't adopt immersive styles
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  NONE_IMMERSIVE = 0,
+
+  /**
+   * Immersive mode
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  IMMERSIVE = 1,
+
+  /**
+   * Light immersive style
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  LIGHT_IMMERSIVE = 2,
+
+  /**
+   * Dark immersive style
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 15
+   */
+  DARK_IMMERSIVE = 3,
 }

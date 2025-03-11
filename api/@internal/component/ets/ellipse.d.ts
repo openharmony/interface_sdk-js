@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 18
  */
 interface EllipseOptions {
   /**
@@ -184,7 +184,7 @@ interface EllipseInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   new (options?: EllipseOptions): EllipseAttribute;
 
@@ -235,7 +235,7 @@ interface EllipseInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   (options?: EllipseOptions): EllipseAttribute;
 }

@@ -456,9 +456,10 @@ declare namespace notificationSubscribe {
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 16
+   * @since 18
    */
    function distributeOperation(hashcode: string, operationInfo?: OperationInfo): Promise<void>;
 
@@ -468,7 +469,7 @@ declare namespace notificationSubscribe {
     * @typedef OperationInfo
     * @syscap SystemCapability.Notification.Notification
     * @systemapi
-    * @since 16
+    * @since 18
     */
    export interface OperationInfo {
      /**
@@ -477,7 +478,7 @@ declare namespace notificationSubscribe {
       * @type { ?string }
       * @syscap SystemCapability.Notification.Notification
       * @systemapi
-      * @since 16
+      * @since 18
       */
      actionName?: string;
 
@@ -487,7 +488,7 @@ declare namespace notificationSubscribe {
       * @type { ?string }
       * @syscap SystemCapability.Notification.Notification
       * @systemapi
-      * @since 16
+      * @since 18
       */
      userInput?: string;
    }

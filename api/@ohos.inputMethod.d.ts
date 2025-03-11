@@ -602,6 +602,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
+     * @deprecated since 16
      */
     showOptionalInputMethods(callback: AsyncCallback<boolean>): void;
 
@@ -612,6 +613,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
+     * @deprecated since 16
      */
     showOptionalInputMethods(): Promise<boolean>;
 
@@ -640,7 +642,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800004 - not an input method application.
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @since 15
      */
     getInputMethodState(): Promise<EnabledState>;
   }
@@ -665,7 +667,6 @@ declare namespace inputMethod {
      * @since 10
      */
     attach(showKeyboard: boolean, textConfig: TextConfig, callback: AsyncCallback<void>): void;
-
     /**
      * Attach application to the input method service.
      *
@@ -680,7 +681,21 @@ declare namespace inputMethod {
      * @since 10
      */
     attach(showKeyboard: boolean, textConfig: TextConfig): Promise<void>;
-
+    /**
+     * Attach application to the input method service.
+     *
+     * @param { boolean } showKeyboard - show the keyboard or not when attach the input method.
+     * @param { TextConfig } textConfig - indicates the config of the textInput.
+     * @param { RequestKeyboardReason } requestKeyboardReason - requestKeyboardReason of show the keyboard .
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    attach(showKeyboard: boolean, textConfig: TextConfig, requestKeyboardReason: RequestKeyboardReason): Promise<void>;
     /**
      * Show the text input and start typing.
      *
@@ -692,7 +707,6 @@ declare namespace inputMethod {
      * @since 10
      */
     showTextInput(callback: AsyncCallback<void>): void;
-
     /**
      * Show the text input and start typing.
      *
@@ -704,7 +718,18 @@ declare namespace inputMethod {
      * @since 10
      */
     showTextInput(): Promise<void>;
-
+    /**
+     * Show the text input and start typing.
+     *
+     * @param { RequestKeyboardReason } requestKeyboardReason - requestKeyboardReason of show the keyboard .
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800009 - input method client detached.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    showTextInput(requestKeyboardReason: RequestKeyboardReason): Promise<void>;
     /**
      * Hide the text input and stop typing.
      *
@@ -990,7 +1015,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 12800015 - the other side does not accept the request.
      * @throws { BusinessError } 12800016 - input method client is not editable.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @since 15
      */
     sendMessage(msgId: string, msgParam?: ArrayBuffer): Promise<void>;
 
@@ -1000,7 +1025,7 @@ declare namespace inputMethod {
      * @param { ?MessageHandler } [msgHandler] - optional, the handler of the custom message.
      * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @since 15
      */
     recvMessage(msgHandler?: MessageHandler): void;
 
@@ -1945,7 +1970,7 @@ declare namespace inputMethod {
    * 
    * @interface MessageHandler
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 16
+   * @since 15
    */
   interface MessageHandler {
     /**
@@ -1954,7 +1979,7 @@ declare namespace inputMethod {
      * @param { string } msgId - the identifier of the message.
      * @param { ?ArrayBuffer } [msgParam] - the parameter of the custom message.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @since 15
      */
     onMessage(msgId: string, msgParam?: ArrayBuffer): void;
 
@@ -1962,7 +1987,7 @@ declare namespace inputMethod {
      * This method is called when a new message handler is set.
      * 
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 16
+     * @since 15
      */
     onTerminated(): void;
   }
@@ -1998,6 +2023,40 @@ declare namespace inputMethod {
      * @since 15
      */
     FULL_EXPERIENCE_MODE
+  }
+
+  /**
+   *  requestKeyboardReason of input click 
+   *
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 15
+   */
+  export enum RequestKeyboardReason {
+    /**
+      * The request keyboard reason is NONE.
+      * @syscap SystemCapability.MiscServices.InputMethodFramework
+      * @since 15
+      */
+    NONE = 0,
+    /**
+     * The request keyboard reason is MOUSE.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    MOUSE = 1,
+    /**
+     * The request keyboard reason is TOUCH.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    TOUCH = 2,
+    /**
+     * The request keyboard reason is OTHER.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 15
+     */
+    OTHER = 20
   }
 }
 

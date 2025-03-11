@@ -26,7 +26,7 @@ import { ColorMetrics } from './@ohos.arkui.node';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @crossplatform
- * @since 16
+ * @since 18
  */
 @ComponentV2
 export declare struct ProgressButtonV2 {
@@ -36,7 +36,7 @@ export declare struct ProgressButtonV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @crossplatform
-   * @since 16
+   * @since 18
    */
   @Require
   @Param readonly progress: number;
@@ -47,7 +47,7 @@ export declare struct ProgressButtonV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @crossplatform
-   * @since 16
+   * @since 18
    */
   @Require
   @Param readonly content: ResourceStr;
@@ -58,7 +58,7 @@ export declare struct ProgressButtonV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @crossplatform
-   * @since 16
+   * @since 18
    */
   @Param @Once progressButtonWidth?: LengthMetrics;
 
@@ -68,7 +68,7 @@ export declare struct ProgressButtonV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @crossplatform
-   * @since 16
+   * @since 18
    */
   @Param readonly onClicked: ClickCallback;
 
@@ -78,7 +78,7 @@ export declare struct ProgressButtonV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @crossplatform
-   * @since 16
+   * @since 18
    */
   @Param readonly isEnabled: boolean;
 
@@ -89,9 +89,20 @@ export declare struct ProgressButtonV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @crossplatform
-   * @since 16
+   * @since 18
    */
   @Param colorOptions?: ProgressButtonV2Color;
+
+  /**
+   * Set border rounded corner radius of progress.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  @Param progressButtonRadius?: LengthMetrics;
 }
 
 /**
@@ -100,7 +111,7 @@ export declare struct ProgressButtonV2 {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @crossplatform
- * @since 16
+ * @since 18
  */
 @ObservedV2
 export declare class ProgressButtonV2Color {
@@ -111,7 +122,7 @@ export declare class ProgressButtonV2Color {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @crossplatform
-   * @since 16
+   * @since 18
    */
   @Trace progressColor?: ColorMetrics;
 
@@ -122,7 +133,7 @@ export declare class ProgressButtonV2Color {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @crossplatform
-   * @since 16
+   * @since 18
    */
   @Trace borderColor?: ColorMetrics;
 
@@ -133,7 +144,7 @@ export declare class ProgressButtonV2Color {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @crossplatform
-   * @since 16
+   * @since 18
    */
   @Trace textColor?: ColorMetrics;
 
@@ -144,7 +155,7 @@ export declare class ProgressButtonV2Color {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @crossplatform
-   * @since 16
+   * @since 18
    */
   @Trace backgroundColor?: ColorMetrics;
 
@@ -155,7 +166,7 @@ export declare class ProgressButtonV2Color {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   constructor(options: ProgressButtonV2ColorOptions);
 }
@@ -166,7 +177,7 @@ export declare class ProgressButtonV2Color {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @crossplatform
- * @since 16
+ * @since 18
  */
 export type ClickCallback = () => void;
 
@@ -177,7 +188,7 @@ export type ClickCallback = () => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @crossplatform
- * @since 16
+ * @since 18
  */
 export declare interface ProgressButtonV2ColorOptions {
   /**
@@ -187,7 +198,7 @@ export declare interface ProgressButtonV2ColorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @crossplatform
-   * @since 16
+   * @since 18
    */
    progressColor?: ColorMetrics;
 
@@ -198,7 +209,7 @@ export declare interface ProgressButtonV2ColorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @crossplatform
-   * @since 16
+   * @since 18
    */
    borderColor?: ColorMetrics;
 
@@ -209,7 +220,7 @@ export declare interface ProgressButtonV2ColorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @crossplatform
-   * @since 16
+   * @since 18
    */
    textColor?: ColorMetrics;
 
@@ -220,7 +231,7 @@ export declare interface ProgressButtonV2ColorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @crossplatform
-   * @since 16
+   * @since 18
    */
    backgroundColor?: ColorMetrics;
 }

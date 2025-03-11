@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare interface TextOverflowOptions {
   /**
@@ -619,7 +619,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   textOverflow(options: TextOverflowOptions): TextAttribute;
 
@@ -923,6 +923,16 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Enable the selectable area can be dragged.
+   *
+   * @param { boolean } value
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   draggable(value: boolean): TextAttribute;
 
   /**
@@ -1196,7 +1206,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   marqueeOptions(options: Optional<TextMarqueeOptions>): TextAttribute;
 
@@ -1208,7 +1218,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onMarqueeStateChange(callback: Callback<MarqueeState>): TextAttribute;
 
@@ -1405,6 +1415,16 @@ declare enum TextSpanType {
    * @since 12
    */
   MIXED = 2,
+
+  /**
+   * When no other types are explicitly specified, this type will be matched.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  DEFAULT = 3,
 }
 
 /**
@@ -1475,6 +1495,16 @@ declare enum TextResponseType {
    * @since 12
    */
   SELECT = 2,
+
+  /**
+   * When no other types are explicitly specified, this type will be matched.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 15
+   */
+  DEFAULT = 3,
 }
 
 /**
@@ -1484,7 +1514,7 @@ declare enum TextResponseType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare enum MarqueeState {
   /**
@@ -1493,7 +1523,7 @@ declare enum MarqueeState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   START = 0,
 
@@ -1503,7 +1533,7 @@ declare enum MarqueeState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   BOUNCE = 1,
 
@@ -1513,7 +1543,7 @@ declare enum MarqueeState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   FINISH = 2,
 }
@@ -1525,7 +1555,7 @@ declare enum MarqueeState {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare enum MarqueeStartPolicy {
   /**
@@ -1534,7 +1564,7 @@ declare enum MarqueeStartPolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   DEFAULT = 0,
 
@@ -1544,7 +1574,7 @@ declare enum MarqueeStartPolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   ON_FOCUS = 1,
 }
@@ -1594,7 +1624,7 @@ declare interface TextOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare interface TextMarqueeOptions {
   /**
@@ -1604,7 +1634,7 @@ declare interface TextMarqueeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   start: boolean;
 
@@ -1615,7 +1645,7 @@ declare interface TextMarqueeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   step?: number;
 
@@ -1626,7 +1656,7 @@ declare interface TextMarqueeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   loop?: number;
 
@@ -1637,7 +1667,7 @@ declare interface TextMarqueeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   fromStart?: boolean;
 
@@ -1648,7 +1678,7 @@ declare interface TextMarqueeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   delay?: number;
 
@@ -1659,7 +1689,7 @@ declare interface TextMarqueeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   fadeout?: boolean;
 
@@ -1670,7 +1700,7 @@ declare interface TextMarqueeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   marqueeStartPolicy?: MarqueeStartPolicy;
 }

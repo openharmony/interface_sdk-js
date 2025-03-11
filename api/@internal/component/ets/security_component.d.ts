@@ -407,7 +407,7 @@ declare class SecurityComponentMethod<T> {
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   borderRadius(radius: Dimension | BorderRadiuses): T;
 
@@ -546,7 +546,7 @@ declare class SecurityComponentMethod<T> {
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   align(alignType: Alignment): T;
 
@@ -557,7 +557,7 @@ declare class SecurityComponentMethod<T> {
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   alignRules(alignRule: AlignRuleOption): T;
 
@@ -568,7 +568,7 @@ declare class SecurityComponentMethod<T> {
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   alignRules(alignRule: LocalizedAlignRuleOptions): T;
 
@@ -579,7 +579,7 @@ declare class SecurityComponentMethod<T> {
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   id(description: string): T;
 
@@ -591,7 +591,7 @@ declare class SecurityComponentMethod<T> {
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   chainMode(direction: Axis, style: ChainStyle): T;
   
@@ -602,7 +602,7 @@ declare class SecurityComponentMethod<T> {
    * @returns { T } Returns the attributes of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   minFontScale(scale: number | Resource): T;
 
@@ -613,7 +613,7 @@ declare class SecurityComponentMethod<T> {
    * @returns { T } Returns the attributes of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   maxFontScale(scale: number | Resource): T;
 
@@ -624,7 +624,7 @@ declare class SecurityComponentMethod<T> {
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   maxLines(line: number): T;
 
@@ -635,7 +635,7 @@ declare class SecurityComponentMethod<T> {
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   minFontSize(minSize: number | string | Resource): T;
 
@@ -646,7 +646,7 @@ declare class SecurityComponentMethod<T> {
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   maxFontSize(maxSize: number | string | Resource): T;
 
@@ -657,7 +657,7 @@ declare class SecurityComponentMethod<T> {
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   heightAdaptivePolicy(policy: TextHeightAdaptivePolicy): T;
 
@@ -669,7 +669,7 @@ declare class SecurityComponentMethod<T> {
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   enabled(respond: boolean): T;
 }

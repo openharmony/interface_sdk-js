@@ -142,7 +142,7 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   function createBleScanner(): BleScanner;
 
@@ -2884,7 +2884,7 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   interface BleScanner {
     /**
@@ -2912,7 +2912,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     startScan(filters: Array<ScanFilter>, options?: ScanOptions): Promise<void>;
     /**
@@ -2928,7 +2928,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     stopScan(): Promise<void>;
     /**
@@ -2945,7 +2945,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     on(type: 'BLEDeviceFind', callback: Callback<ScanReport>): void;
     /**
@@ -2962,7 +2962,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     off(type: 'BLEDeviceFind', callback?: Callback<ScanReport>): void;
   }
@@ -3242,7 +3242,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     characteristicValueHandle?: number;
   }
@@ -3379,7 +3379,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     descriptorHandle?: number;
   }
@@ -4619,7 +4619,7 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   interface ScanReport {
     /**
@@ -4629,7 +4629,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     reportType: ScanReportType;
     /**
@@ -4639,7 +4639,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     scanResult: Array<ScanResult>;
   }
@@ -4868,7 +4868,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     includeTxPower?: boolean;
   }
@@ -5627,7 +5627,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     reportMode?: ScanReportMode;
   }
@@ -6104,7 +6104,7 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   enum ScanReportMode {
     /**
@@ -6113,7 +6113,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     NORMAL = 1,
     /**
@@ -6123,7 +6123,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     FENCE_SENSITIVITY_LOW = 10,
     /**
@@ -6133,7 +6133,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     FENCE_SENSITIVITY_HIGH = 11,
   }
@@ -6145,7 +6145,7 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   enum ScanReportType {
     /**
@@ -6154,7 +6154,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     ON_FOUND = 1,
     /**
@@ -6163,7 +6163,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 16
+     * @since 15
      */
     ON_LOST = 2,
   }

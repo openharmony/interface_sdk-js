@@ -294,6 +294,18 @@ export interface Mesh extends SceneResource {
 }
 
 /**
+ * Mesh resource.
+ * 
+ * 
+ * @extends SceneResource
+ * @interface MeshResource
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 18
+ */
+export interface MeshResource extends SceneResource {
+}
+
+/**
  * Animation resource.
  *
  * @extends SceneResource

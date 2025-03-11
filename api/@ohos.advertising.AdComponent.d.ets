@@ -87,6 +87,14 @@ declare struct AdComponent {
     @BuilderParam adRenderer?: () => void;
 
     /**
+     * The property to control the playback status of the roll ad.
+     * @type { ?number }
+     * @syscap SystemCapability.Advertising.Ads
+     * @since 15
+     */
+    @Prop rollPlayState?: number;
+
+    /**
      * The method to build ad component.
      * @syscap SystemCapability.Advertising.Ads
      * @since 11

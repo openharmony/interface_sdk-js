@@ -351,7 +351,7 @@ declare enum DialogButtonDirection {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare interface AlertDialogButtonBaseOptions {
   /**
@@ -498,7 +498,7 @@ declare interface AlertDialogButtonBaseOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   action: VoidCallback;
 }
@@ -530,7 +530,7 @@ declare interface AlertDialogButtonBaseOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 18
  */
 declare interface AlertDialogButtonOptions extends AlertDialogButtonBaseOptions {
   /**
@@ -566,6 +566,17 @@ declare interface TextStyle {
    */
   wordBreak?: WordBreak;
 }
+
+/**
+ * Import the LevelOrder type from promptAction.
+ *
+ * @typedef { import('../api/@ohos.promptAction').LevelOrder } LevelOrder
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+declare type LevelOrder = import('../api/@ohos.promptAction').LevelOrder;
 
 /**
  * Base param used for AlertDialog.show method.
@@ -718,7 +729,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   cancel?: VoidCallback;
 
@@ -901,7 +912,29 @@ declare interface AlertDialogParam {
    */
   backgroundBlurStyle?: BlurStyle;
 
-    /**
+  /**
+   * Defines the alertDialog's background blur style with options
+   *
+   * @type { ?BackgroundBlurStyleOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
+
+  /**
+   * Defines the alertDialog's background effect with options
+   *
+   * @type { ?BackgroundEffectOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  backgroundEffect?: BackgroundEffectOptions;
+
+  /**
    * Callback function when the dialog interactive dismiss
    *
    * @type { ?Callback<DismissDialogAction> }
@@ -1042,7 +1075,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onDidAppear?: Callback<void>;
 
@@ -1053,7 +1086,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onDidDisappear?: Callback<void>;
 
@@ -1064,7 +1097,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onWillAppear?: Callback<void>;
 
@@ -1075,7 +1108,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onWillDisappear?: Callback<void>;
 
@@ -1087,7 +1120,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   levelMode?: LevelMode;
 
@@ -1098,7 +1131,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   levelUniqueId?: number;
 
@@ -1110,9 +1143,21 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   immersiveMode?: ImmersiveMode;
+
+  /**
+   * Determine the display order of the dialog.
+   *
+   * @type { ?LevelOrder }
+   * @default The value returns by LevelOrder.clamp(0)
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  levelOrder?: LevelOrder;
 }
 
 /**
@@ -1174,7 +1219,7 @@ declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   confirm?: AlertDialogButtonBaseOptions;
 }
@@ -1271,7 +1316,7 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   primaryButton: AlertDialogButtonBaseOptions;
 
@@ -1306,7 +1351,7 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   secondaryButton: AlertDialogButtonBaseOptions;
 }
@@ -1413,6 +1458,8 @@ declare class AlertDialog {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 18
+   * @useinstead ohos.arkui.UIContext.UIContext#showAlertDialog
    */
   static show(value: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions);
 }

@@ -23,6 +23,15 @@ import Animator, { AnimatorOptions, AnimatorResult, SimpleAnimatorOptions } from
 import WindowExtensionAbility, { WindowExtensionContext } from '@ohos.application.WindowExtensionAbility';
 import { AtomicServiceNavigation, NavDestinationBuilder } from '@ohos.atomicservice.AtomicServiceNavigation';
 import {
+  AtomicServiceSearch,
+  InputFilterParams,
+  SearchButtonParams,
+  MenuAlignParams,
+  SearchParams,
+  SelectParams,
+  OperationParams,
+} from '@ohos.atomicservice.AtomicServiceSearch';
+import {
   ArcButton, ArcButtonOptions, ArcButtonPosition, ArcButtonStyleMode, ArcButtonStatus
 } from '@ohos.arkui.advanced.ArcButton';
 import {
@@ -45,6 +54,10 @@ import {
   AlertDialog, ButtonOptions, ConfirmDialog, LoadingDialog, SelectDialog, TipsDialog, CustomContentDialog, PopoverDialog, PopoverOptions,
 } from '@ohos.arkui.advanced.Dialog';
 import {
+  AlertDialogV2, AdvancedDialogV2Button, AdvancedDialogV2ButtonOptions, AdvancedDialogV2ButtonAction, AdvancedDialogV2OnCheckedChange,
+  ConfirmDialogV2, LoadingDialogV2, SelectDialogV2, TipsDialogV2, CustomContentDialogV2, PopoverDialogV2, PopoverDialogV2OnVisibleChange, PopoverDialogV2Options,
+} from '@ohos.arkui.advanced.DialogV2';
+import {
   EditableLeftIconType, EditableTitleBar, EditableTitleBarMenuItem, EditableTitleBarItem, EditableTitleBarOptions,
 } from '@ohos.arkui.advanced.EditableTitleBar';
 import { MarginType, PromptOptions, ExceptionPrompt } from '@ohos.arkui.advanced.ExceptionPrompt';
@@ -55,8 +68,7 @@ import {
   Popup, PopupButtonOptions, PopupIconOptions, PopupOptions, PopupTextOptions
 } from '@ohos.arkui.advanced.Popup';
 import { ProgressButton } from '@ohos.arkui.advanced.ProgressButton';
-import { ProgressButtonV2 } from '@ohos.arkui.advanced.ProgressButtonV2';
-import { ProgressButtonV2ColorOptions } from '@ohos.arkui.advanced.ProgressButtonV2';
+import { ProgressButtonV2, ProgressButtonV2Color, ProgressButtonV2ColorOptions } from '@ohos.arkui.advanced.ProgressButtonV2';
 import {
   SegmentButton, SegmentButtonOptions, SegmentButtonItemOptionsArray, TabSegmentButtonOptions,
   TabSegmentButtonConstructionOptions, CapsuleSegmentButtonOptions, CapsuleSegmentButtonConstructionOptions,
@@ -88,14 +100,14 @@ import inspector from '@ohos.arkui.inspector';
 import {
   NodeRenderType, RenderOptions, BuilderNode, BuildOptions, NodeController, FrameNode, DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation,
   Frame, RenderNode, XComponentNode, LengthMetrics, LengthMetricsUnit, LengthUnit, ColorMetrics, LayoutConstraint, ComponentContent, NodeContent, Content, typeNode, ShapeMask, ShapeClip,
-  NodeAdapter, Rect, RoundRect, edgeColors, edgeWidths, borderStyles, borderRadiuses
+  NodeAdapter, Rect, RoundRect, edgeColors, edgeWidths, borderStyles, borderRadiuses, ExpandMode
 } from '@ohos.arkui.node';
 import uiObserver from '@ohos.arkui.observer';
 import performanceMonitor from '@ohos.arkui.performanceMonitor';
 import { RectShape, CircleShape, EllipseShape, PathShape } from '@ohos.arkui.shape';
 import {
   AtomicServiceBar, ComponentUtils, ContextMenuController, CursorController, DragController, Font, KeyboardAvoidMode, MediaQuery, OverlayManager, PromptAction, Router,
-  UIContext, UIInspector, UIObserver, PageInfo, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, FrameCallback, MeasureUtils, OverlayManagerOptions
+  UIContext, UIInspector, UIObserver, PageInfo, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, FrameCallback, MeasureUtils, OverlayManagerOptions, TargetInfo
 } from '@ohos.arkui.UIContext';
 import curves from '@ohos.curves';
 import {
@@ -111,7 +123,7 @@ import mediaquery from '@ohos.mediaquery';
 import PiPWindow from '@ohos.PiPWindow';
 import pluginComponentManager, { PluginComponentTemplate } from '@ohos.pluginComponent';
 import prompt from '@ohos.prompt';
-import promptAction, { LevelMode, ImmersiveMode } from '@ohos.promptAction';
+import promptAction, { LevelMode, ImmersiveMode, LevelOrder } from '@ohos.promptAction';
 import router from '@ohos.router';
 import screen from '@ohos.screen';
 import screenshot from '@ohos.screenshot';
@@ -159,7 +171,7 @@ import {
   RefreshModifier, SearchModifier, TextAreaModifier, TextModifier, TextInputModifier, ImageSpanModifier,
   ImageAnimatorModifier, ImageModifier, VideoModifier, DataPanelModifier, GaugeModifier, LoadingProgressModifier,
   MarqueeModifier, ProgressModifier, QRCodeModifier, TextClockModifier, TextTimerModifier, LineModifier, PathModifier,
-  PolygonModifier, PolylineModifier, RectModifier, ShapeModifier, AlphabetIndexerModifier, FormComponentModifier,
+  PolygonModifier, PolylineModifier, RectModifier, ShapeModifier, AlphabetIndexerModifier,
   HyperlinkModifier, MenuModifier, MenuItemModifier, PanelModifier, SymbolGlyphModifier, AttributeUpdater,
   ContainerSpanModifier, SymbolSpanModifier, ParticleModifier
 } from "@ohos.arkui.modifier";
@@ -184,6 +196,7 @@ import {
 } from '@ohos.arkui.advanced.SubHeaderV2';
 import {
   ArcSlider,
+  ArcSliderPosition,
   ArcSliderOptions,
   ArcSliderOptionsConstructorOptions,
   ArcSliderLayoutOptions,
@@ -194,6 +207,13 @@ import {
   ArcSliderValueOptionsConstructorOptions
 } from '@ohos.arkui.advanced.ArcSlider';
 import {
+  ArcSwiper,
+  ArcSwiperAttribute,
+  ArcDotIndicator,
+  ArcDirection,
+  ArcSwiperController
+} from '@ohos.arkui.ArcSwiper';
+import {
   SegmentButtonV2ItemOptions,
   OnSelectedIndexChange,
   OnSelectedIndexesChange,
@@ -203,7 +223,9 @@ import {
   CapsuleSegmentButtonV2,
   MultiCapsuleSegmentButtonV2
 } from '@ohos.arkui.advanced.SegmentButtonV2';
+import { HalfScreenLaunchComponent } from '@ohos.atomicservice.HalfScreenLaunchComponent';
 export {
+  AtomicServiceSearch, InputFilterParams, SearchButtonParams, MenuAlignParams, SearchParams, SelectParams, OperationParams,
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, SimpleAnimatorOptions, App, AppResponse, AtomicServiceBar,
   AtomicServiceNavigation, NavDestinationBuilder,
   NavPushPathHelper,
@@ -235,7 +257,7 @@ export {
   ToolBarV2ItemImage, ToolBarV2ItemImageOptions, ToolBarV2, ToolBarV2Item, ToolBarV2ItemOptions, ToolBarV2Modifier, ToolBarV2ItemAction,
   TreeListenerManager, TreeView, UIContext, UIInspector, UIObserver, PageInfo, WindowExtensionAbility, WindowExtensionContext, XComponentNode,
   LengthMetrics, LengthMetricsUnit, LengthUnit, ColorMetrics, LayoutConstraint, ComponentContent, NodeContent, Content, componentSnapshot, componentUtils, curves, display, dragController, dragInteraction,
-  font, inspector, matrix4, mediaquery, performanceMonitor, pluginComponentManager, PluginComponentTemplate, prompt, promptAction, LevelMode, ImmersiveMode, router,
+  font, inspector, matrix4, mediaquery, performanceMonitor, pluginComponentManager, PluginComponentTemplate, prompt, promptAction, LevelMode, ImmersiveMode, LevelOrder, router,
   AtomicServiceWeb, OnMessageEvent, OnErrorReceiveEvent, OnHttpErrorReceiveEvent, OnPageBeginEvent, OnPageEndEvent,
   AtomicServiceWebController, OnLoadInterceptEvent, OnProgressChangeEvent, OnLoadInterceptCallback, WebHeader,
   screen, screenshot, uiAppearance, uiExtensionHost, uiObserver, window, windowAnimationManager, CustomContentDialog, PopoverDialog, PopoverOptions,
@@ -272,4 +294,7 @@ export {
   ArcSliderLayoutOptionsConstructorOptions, ArcSliderStyleOptions, ArcSliderStyleOptionsConstructorOptions,
   ArcSliderValueOptions, ArcSliderValueOptionsConstructorOptions,
   SegmentButtonV2ItemOptions, OnSelectedIndexChange, OnSelectedIndexesChange, SegmentButtonV2Item, SegmentButtonV2Items, TabSegmentButtonV2, CapsuleSegmentButtonV2, MultiCapsuleSegmentButtonV2,
+  AlertDialogV2, AdvancedDialogV2Button, AdvancedDialogV2ButtonOptions, AdvancedDialogV2ButtonAction, AdvancedDialogV2OnCheckedChange,
+  ConfirmDialogV2, LoadingDialogV2, SelectDialogV2, TipsDialogV2, CustomContentDialogV2, PopoverDialogV2, PopoverDialogV2OnVisibleChange, PopoverDialogV2Options, ExpandMode,
+  HalfScreenLaunchComponent, ArcSliderPosition, ArcSwiper, ArcSwiperAttribute, ArcDotIndicator, ArcDirection, ArcSwiperController, TargetInfo,
 };

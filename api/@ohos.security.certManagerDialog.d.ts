@@ -80,7 +80,7 @@ declare namespace certificateManagerDialog {
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
-     * @since 16
+     * @since 18
      */
     ERROR_NOT_COMPLY_SECURITY_POLICY = 29700005,
   }
@@ -184,7 +184,7 @@ declare namespace certificateManagerDialog {
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
-     * @since 16
+     * @since 18
      */
     NOT_SPECIFIED = 0,
 
@@ -202,7 +202,7 @@ declare namespace certificateManagerDialog {
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
-     * @since 16
+     * @since 18
      */
     GLOBAL_USER = 2,
   }
@@ -246,7 +246,7 @@ declare namespace certificateManagerDialog {
    * @throws { BusinessError } 29700005 - The operation does not comply with the device security policy, such as the device does not allow users to manage the ca certificate of the global user.
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   function openInstallCertificateDialog(context: common.Context, certType: CertificateType, certScope: CertificateScope, cert: Uint8Array): Promise<string>;
 
@@ -268,9 +268,49 @@ declare namespace certificateManagerDialog {
    * @throws { BusinessError } 29700005 - The operation does not comply with the device security policy, such as the device does not allow users to manage the ca certificate of the global user.
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
-   * @since 16
+   * @since 18
    */
   function openUninstallCertificateDialog(context: common.Context, certType: CertificateType, certUri: string): Promise<void>;
+
+  /**
+   * Provides the certificate dialog property.
+   *
+   * @typedef CertificateDialogProperty
+   * @syscap SystemCapability.Security.CertificateManagerDialog
+   * @stagemodelonly
+   * @since 18
+   */
+  export interface CertificateDialogProperty {
+    /**
+     * Indicates if the certificate dialog show install button.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Security.CertificateManagerDialog
+     * @stagemodelonly
+     * @since 18
+     */
+    showInstallButton: boolean;
+  }
+
+  /**
+   * open certificate manager dialog and show the certificate detail page.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { common.Context } context - Hap context information
+   * @param { Uint8Array } cert - Indicates the contents of the certificate file.
+   * @param { CertificateDialogProperty } property - the certificate dialog property.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 29700001 - Internal error.
+   * @throws { BusinessError } 29700003 - Show the certificate detail dialog fail, such as the certificate is in an invalid format.
+   * @throws { BusinessError } 29700004 - The API is not supported on this device.
+   * @syscap SystemCapability.Security.CertificateManagerDialog
+   * @stagemodelonly
+   * @since 18
+   */
+  function openCertificateDetailDialog(context: common.Context, cert: Uint8Array, property: CertificateDialogProperty): Promise<void>;
 }
 
 export default certificateManagerDialog;

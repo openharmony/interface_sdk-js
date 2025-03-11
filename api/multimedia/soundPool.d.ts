@@ -388,7 +388,7 @@ export interface SoundPool {
    * @param {'playFinishedWithStreamId'} type name of the play finished event to listen for. 
    * @param {Callback<number>} callback Callback used to listen which stream id has finished playback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 16
+   * @since 18
    */
   on(type: 'playFinishedWithStreamId', callback: Callback<number>): void;
    /**
@@ -396,7 +396,7 @@ export interface SoundPool {
     *
     * @param {'playFinishedWithStreamId'} type name of the play finished event to listen for.
     * @syscap SystemCapability.Multimedia.Media.SoundPool
-    * @since 16
+    * @since 18
     */
   off(type: 'playFinishedWithStreamId'): void;
   /**

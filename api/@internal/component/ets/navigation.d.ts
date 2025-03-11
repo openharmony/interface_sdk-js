@@ -1171,7 +1171,7 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   replaceDestination(info: NavPathInfo, options?: NavigationOptions): Promise<void>;
 
@@ -2035,6 +2035,28 @@ declare interface NavigationTitleOptions {
   backgroundBlurStyle?: BlurStyle;
 
   /**
+   * Background blur style options.
+   *
+   * @type { ?BackgroundBlurStyleOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
+
+  /**
+   * Background effect options.
+   *
+   * @type { ?BackgroundEffectOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  backgroundEffect?: BackgroundEffectOptions;
+
+  /**
    * Set title bar style.
    *
    * @type { ?BarStyle }
@@ -2179,6 +2201,39 @@ declare interface NavigationToolbarOptions {
   backgroundBlurStyle?: BlurStyle;
 
   /**
+   * Background blur style options.
+   *
+   * @type { ?BackgroundBlurStyleOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
+
+  /**
+   * Background effect options.
+   *
+   * @type { ?BackgroundEffectOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  backgroundEffect?: BackgroundEffectOptions;
+
+  /**
+   * More button options.
+   *
+   * @type { ?MoreButtonOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  moreButtonOptions?: MoreButtonOptions;
+
+  /**
    * Set tool bar style.
    *
    * @type { ?BarStyle }
@@ -2188,7 +2243,85 @@ declare interface NavigationToolbarOptions {
    * @atomicservice
    * @since 14
    */
-    barStyle?: BarStyle;
+  barStyle?: BarStyle;
+
+  /**
+   * Set whether toolbar displays text.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  hideItemValue?: boolean
+}
+
+/**
+ * Indicates the options of Navigation's Menu.
+ *
+ * @interface NavigationMenuOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+declare interface NavigationMenuOptions {
+/**
+ * More button options.
+ *
+ * @type { ?MoreButtonOptions }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+  moreButtonOptions?: MoreButtonOptions;
+}
+
+/**
+ * Indicates the options of Navigation's Menu.
+ *
+ * @interface MoreButtonOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+declare interface MoreButtonOptions {
+  /**
+   * Background blur style.
+   *
+   * @type { ?BlurStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  backgroundBlurStyle?: BlurStyle;
+  
+  /**
+   * Background blur style options.
+   *
+   * @type { ?BackgroundBlurStyleOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
+
+  /**
+   * Background effect options.
+   *
+   * @type { ?BackgroundEffectOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  backgroundEffect?: BackgroundEffectOptions;
 }
 
 /**
@@ -2383,6 +2516,19 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 12
    */
   backButtonIcon(value: string | PixelMap | Resource | SymbolGlyphModifier): NavigationAttribute;
+
+  /**
+   * Sets the back button icon and accessibility broadcast content.
+   *
+   * @param { string | PixelMap | Resource | SymbolGlyphModifier } icon - Indicates icon of back button
+   * @param { ResourceStr } accessibilityText - Indicates content needs to broadcast.
+   * @returns { NavigationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  backButtonIcon(icon: string | PixelMap | Resource | SymbolGlyphModifier, accessibilityText?: ResourceStr): NavigationAttribute;
 
   /**
    * Hide the NavBar, which includes title bar, the child of Navigation and tool bar. Supported in split mode.
@@ -2594,6 +2740,19 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   menus(value: Array<NavigationMenuItem> | CustomBuilder): NavigationAttribute;
 
   /**
+   * Navigation title bar's menus
+   *
+   * @param { Array<NavigationMenuItem> | CustomBuilder } items
+   * @param { NavigationMenuOptions } [options] - Indicates the options of menu.
+   * @returns { NavigationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  menus(items: Array<NavigationMenuItem> | CustomBuilder, options?: NavigationMenuOptions): NavigationAttribute;
+
+  /**
    * Tool bar
    *
    * @param { object | CustomBuilder } value
@@ -2668,6 +2827,18 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 13
    */
   hideToolBar(hide: boolean, animated: boolean): NavigationAttribute;
+
+  /**
+   * Enable tool bar adaptation
+   *
+   * @param { Optional<boolean> } enable - Enable or disable tool bar adaptation.
+   * @returns { NavigationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  enableToolBarAdaptation(enable: Optional<boolean>): NavigationAttribute;
 
   /**
    * Trigger callback when title mode change finished at free mode.

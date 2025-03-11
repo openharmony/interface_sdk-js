@@ -25,7 +25,7 @@ import userAuth from '@ohos.userIAM.userAuth';
  *
  * @namespace userAccessCtrl
  * @syscap SystemCapability.UserIAM.UserAuth.Core
- * @since 16
+ * @since 18
  */
 declare namespace userAccessCtrl {
   /**
@@ -46,7 +46,7 @@ declare namespace userAccessCtrl {
    * @throws { BusinessError } 12500016 - AuthToken has expired.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
-   * @since 16
+   * @since 18
    */
   function verifyAuthToken(authToken: Uint8Array, allowableDuration: number): Promise<AuthToken>;
 
@@ -56,7 +56,7 @@ declare namespace userAccessCtrl {
    * @typedef AuthToken
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
-   * @since 16
+   * @since 18
    */
   interface AuthToken {
     /**
@@ -65,7 +65,7 @@ declare namespace userAccessCtrl {
      * @type { Uint8Array }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 16
+     * @since 18
      */
     challenge: Uint8Array;
 
@@ -75,7 +75,7 @@ declare namespace userAccessCtrl {
      * @type { userAuth.AuthTrustLevel }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 16
+     * @since 18
      */
     authTrustLevel: userAuth.AuthTrustLevel;
 
@@ -85,7 +85,7 @@ declare namespace userAccessCtrl {
      * @type { userAuth.UserAuthType }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 16
+     * @since 18
      */
     authType: userAuth.UserAuthType;
 
@@ -95,7 +95,7 @@ declare namespace userAccessCtrl {
      * @type { AuthTokenType }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 16
+     * @since 18
      */
     tokenType: AuthTokenType;
 
@@ -105,7 +105,7 @@ declare namespace userAccessCtrl {
      * @type { number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 16
+     * @since 18
      */
     userId: number;
 
@@ -115,7 +115,7 @@ declare namespace userAccessCtrl {
      * @type { bigint }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 16
+     * @since 18
      */
     timeInterval: bigint;
 
@@ -125,7 +125,7 @@ declare namespace userAccessCtrl {
      * @type { ?bigint }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 16
+     * @since 18
      */
     secureUid?: bigint;
 
@@ -135,7 +135,7 @@ declare namespace userAccessCtrl {
      * @type { ?bigint }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 16
+     * @since 18
      */
     enrolledId?: bigint;
 
@@ -145,7 +145,7 @@ declare namespace userAccessCtrl {
      * @type { ?bigint }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 16
+     * @since 18
      */
     credentialId?: bigint;
   }
@@ -156,7 +156,7 @@ declare namespace userAccessCtrl {
    * @enum { number }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
-   * @since 16
+   * @since 18
    */
   enum AuthTokenType {
     /**
@@ -164,7 +164,7 @@ declare namespace userAccessCtrl {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 16
+     * @since 18
      */
     TOKEN_TYPE_LOCAL_AUTH = 0,
 
@@ -173,7 +173,7 @@ declare namespace userAccessCtrl {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 16
+     * @since 18
      */
     TOKEN_TYPE_LOCAL_RESIGN = 1,
 
@@ -182,7 +182,7 @@ declare namespace userAccessCtrl {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 16
+     * @since 18
      */
     TOKEN_TYPE_COAUTH = 2
   }

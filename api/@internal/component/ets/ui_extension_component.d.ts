@@ -51,14 +51,14 @@ declare enum DpiFollowStrategy {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 16
+ * @since 18
  */
 declare enum WindowModeFollowStrategy {
     /**
      * Followed the host Window Mode.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 16
+     * @since 18
      */
     FOLLOW_HOST_WINDOW_MODE = 0,
 
@@ -66,7 +66,7 @@ declare enum WindowModeFollowStrategy {
      * Followed the UIExtensionAbility.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 16
+     * @since 18
      */
     FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE = 1,
 }
@@ -132,7 +132,7 @@ declare interface UIExtensionOptions {
      * @default WindowModeFollowStrategy.FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 16
+     * @since 18
      */
     windowModeFollowStrategy?: WindowModeFollowStrategy;
 }
@@ -173,7 +173,7 @@ declare interface TerminationInfo {
  * @typedef { import('../api/@ohos.base').Callback<Record<string, Object>> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 16
+ * @since 18
  */
 declare type ReceiveCallback = import('../api/@ohos.base').Callback<Record<string, Object>>;
 
@@ -202,7 +202,7 @@ declare interface UIExtensionProxy {
    * @param { Record<string, Object> } data
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 16
+   * @since 18
    */
   send(data: Record<string, Object>): void;
 
@@ -226,7 +226,7 @@ declare interface UIExtensionProxy {
    * @throws { BusinessError } 100012 - Transferring data failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 16
+   * @since 18
    */
   sendSync(data: Record<string, Object>): Record<string, Object>;
 
@@ -246,7 +246,7 @@ declare interface UIExtensionProxy {
    * @param { Callback<UIExtensionProxy> } callback - Callback of the listened event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 16
+   * @since 18
    */
   on(type: 'asyncReceiverRegister', callback: Callback<UIExtensionProxy>): void;
 
@@ -266,7 +266,7 @@ declare interface UIExtensionProxy {
    * @param { Callback<UIExtensionProxy> } callback - Callback of the listened event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 16
+   * @since 18
    */
   on(type: 'syncReceiverRegister', callback: Callback<UIExtensionProxy>): void;
 
@@ -286,7 +286,7 @@ declare interface UIExtensionProxy {
    * @param { Callback<UIExtensionProxy> } [callback] - Callback of the listened event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 16
+   * @since 18
    */
   off(type: 'asyncReceiverRegister', callback?: Callback<UIExtensionProxy>): void;
 
@@ -306,7 +306,7 @@ declare interface UIExtensionProxy {
    * @param { Callback<UIExtensionProxy> } [callback] - Callback of the listened event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 16
+   * @since 18
    */
   off(type: 'syncReceiverRegister', callback?: Callback<UIExtensionProxy>): void;
 }
@@ -383,7 +383,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 16
+   * @since 18
    */
   onReceive(callback: ReceiveCallback): UIExtensionComponentAttribute;
 
@@ -448,9 +448,9 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
      * @returns { UIExtensionComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 16
+     * @since 18
      */
-    onDrawReady(callback: Callback<void>): UIExtensionComponentAttribute
+    onDrawReady(callback: Callback<void>): UIExtensionComponentAttribute;
 }
 
 /**

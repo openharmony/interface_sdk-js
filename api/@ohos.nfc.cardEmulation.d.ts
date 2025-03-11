@@ -354,7 +354,7 @@ declare namespace cardEmulation {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
-     * @since 16
+     * @since 18
      */
     off(type: 'hceCmd', callback?: AsyncCallback<number[]>): void;
 

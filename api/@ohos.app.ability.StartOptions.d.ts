@@ -184,4 +184,44 @@ export default class StartOptions {
    * @since 14
    */
   supportWindowModes?: Array<bundleManager.SupportWindowMode>;
+
+  /**
+   * The min width of window rectangle.
+   *
+   * @type { ?number }
+   * @syscap SystemCapAbility.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 18
+   */
+  minWindowWidth?: number;
+
+  /**
+   * The min height of window rectangle.
+   *
+   * @type { ?number }
+   * @syscap SystemCapAbility.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 18
+   */
+  minWindowHeight?: number;
+
+  /**
+   * The max width of window rectangle.
+   *
+   * @type { ?number }
+   * @syscap SystemCapAbility.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 18
+   */
+  maxWindowWidth?: number;
+
+  /**
+   * The max height of window rectangle.
+   *
+   * @type { ?number }
+   * @syscap SystemCapAbility.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 18
+   */
+  maxWindowHeight?: number;
 }

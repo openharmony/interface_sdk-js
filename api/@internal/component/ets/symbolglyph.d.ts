@@ -674,9 +674,9 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
-  minFontScale(scale: Optional<number|Resource>): SymbolGlyphAttribute;
+  minFontScale(scale: Optional<number | Resource>): SymbolGlyphAttribute;
 
   /**
    * Called when the maximum font scale of the font is set.
@@ -685,9 +685,9 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 16
+   * @since 18
    */
-  maxFontScale(scale: Optional<number|Resource>): SymbolGlyphAttribute;
+  maxFontScale(scale: Optional<number | Resource>): SymbolGlyphAttribute;
 }
 
 /**

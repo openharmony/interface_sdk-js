@@ -251,7 +251,7 @@ declare namespace systemTimer {
      * @type { ?boolean }
      * @syscap SystemCapability.MiscServices.Time
      * @systemapi
-     * @since 16
+     * @since 15
      */
     autoRestore?: boolean;
 
@@ -263,7 +263,7 @@ declare namespace systemTimer {
      * @type { ?string }
      * @syscap SystemCapability.MiscServices.Time
      * @systemapi
-     * @since 16
+     * @since 15
      */
     name?: string;
   }

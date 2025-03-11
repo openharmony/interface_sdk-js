@@ -844,7 +844,7 @@ declare class ListScroller extends Scroller {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 16
+ * @since 18
  */
 interface ListOptions {
   /**
@@ -1036,7 +1036,7 @@ interface ListInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   (options?: ListOptions): ListAttribute;
 }
@@ -1049,7 +1049,7 @@ interface ListInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 16
+ * @since 18
  */
 declare interface ListDividerOptions {
   /**
@@ -1493,7 +1493,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   divider(
     value: ListDividerOptions | null,
@@ -1792,6 +1792,18 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 12
    */
   maintainVisibleContentPosition(enabled: boolean): ListAttribute;
+
+  /**
+   * Sets the layout of the List component from the end.
+   *
+   * @param { boolean } enabled - Indicates whether the List is layout from the end.
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  stackFromEnd(enabled: boolean): ListAttribute;
 
   /**
    * Called when the offset and status callback of the slide are set.

@@ -135,7 +135,7 @@ declare interface CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   start?: Date;
 
@@ -146,9 +146,20 @@ declare interface CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   end?: Date;
+
+  /**
+   * Defines the disabled date range for the calendar picker.
+   * 
+   * @type { ?DateRange[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  disabledDateRange?: DateRange[];
 }
 
 /**
@@ -232,7 +243,7 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   edgeAlign(alignType: Optional<CalendarAlign>, offset?: Offset): CalendarPickerAttribute;
 
@@ -262,7 +273,7 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   textStyle(style: Optional<PickerTextStyle>): CalendarPickerAttribute;
 
@@ -290,7 +301,7 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onChange(callback: Callback<Date>): CalendarPickerAttribute;
 
@@ -301,9 +312,21 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 16
+   * @since 18
    */
   onChange(callback: Optional<Callback<Date>>): CalendarPickerAttribute;
+
+  /**
+   * Defines whether the calendar picker marks today.
+   * 
+   * @param { boolean } enabled - whether the calendar picker marks today.
+   * @returns { CalendarPickerAttribute } the attribute of the calendar picker.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  markToday(enabled: boolean): CalendarPickerAttribute;
 }
 
 /**
@@ -345,7 +368,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onAccept?: Callback<Date>;
 
@@ -370,7 +393,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onCancel?: VoidCallback;
 
@@ -395,7 +418,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onChange?: Callback<Date>;
 
@@ -442,6 +465,28 @@ declare interface CalendarDialogOptions extends CalendarOptions {
   backgroundBlurStyle?: BlurStyle;
 
   /**
+   * Defines the calendarPickerDialog's background blur style with options
+   *
+   * @type { ?BackgroundBlurStyleOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
+
+  /**
+   * Defines the calendarPickerDialog's background effect with options
+   *
+   * @type { ?BackgroundEffectOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  backgroundEffect?: BackgroundEffectOptions;
+
+  /**
    * Style of accept button.
    *
    * @type { ?PickerDialogButtonStyle }
@@ -479,7 +524,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onDidAppear?: VoidCallback;
 
@@ -499,7 +544,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onDidDisappear?: VoidCallback;
 
@@ -519,7 +564,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onWillAppear?: VoidCallback;
 
@@ -539,7 +584,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 18
    */
   onWillDisappear?: VoidCallback;
 
@@ -577,6 +622,18 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @since 14
    */
   hoverModeArea?: HoverModeAreaType;
+
+  /**
+   * Defines the calendar picker marks today.
+   * 
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  markToday?: boolean;
 }
 
 /**

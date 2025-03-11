@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -612,11 +612,11 @@ declare namespace hiAppEvent {
    * @param { Record<string, ParamType> } config The config info of the os event.
    * @returns { Promise<void> } Return Promise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types.3.Parameter verification failed.
+   * <br>2. Incorrect parameter types; 3.Parameter verification failed.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
-   * @since 16
+   * @since 15
    */
   function setEventConfig(name: string, config: Record<string, ParamType>): Promise<void>;
 
