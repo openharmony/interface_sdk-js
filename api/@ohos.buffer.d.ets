@@ -13,9 +13,11 @@
  * limitations under the License.
  */
 
+'use static';
 /**
  * @file
  * @kit ArkTS
+ * @arkts >= 1.2
  */
 
 /**
@@ -235,7 +237,7 @@ declare namespace buffer {
    * This is not the same as [`String.prototype.length`], which does not account
    * for the encoding that is used to convert the string into bytes.
    *
-   * @param { string | Buffer | TypedArray | DataView | ArrayBuffer } doc - string string A value to calculate the length of
+   * @param { string | Buffer | DataView | ArrayBuffer } doc - string string A value to calculate the length of
    * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] If `string` is a string, this is its encoding
    * @returns { number } The number of bytes contained within `string`
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -244,10 +246,10 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 17
+   * @since 20
    */
   function byteLength(
-    doc: string | Buffer | TypedArray | DataView | ArrayBuffer,
+    doc: string | Buffer | DataView | ArrayBuffer,
     encoding?: BufferEncoding
   ): number;
 
@@ -309,7 +311,7 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 17
+   * @since 20
    */
   function from(array: number[]): Buffer;
 
@@ -328,7 +330,7 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 17
+   * @since 20
    */
   function from(arrayBuffer: ArrayBuffer, byteOffset?: number, length?: number): Buffer;
 
@@ -343,7 +345,7 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 17
+   * @since 20
    */
   function from(buffer: Buffer | Uint8Array): Buffer;
 
@@ -407,7 +409,7 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 17
+   * @since 20
    */
   function from(string: String, encoding?: BufferEncoding): Buffer;
 
@@ -2074,7 +2076,7 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 17
+     * @since 20
      */
     toString(encoding?: BufferEncoding, start?: number, end?: number): string;
 
