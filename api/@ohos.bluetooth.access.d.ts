@@ -335,6 +335,74 @@ declare namespace access {
   function off(type: 'stateChange', callback?: Callback<BluetoothState>): void;
 
   /**
+   * Add a persistent random device address. Once the randomized address is successfully added,
+   * the application can save it for an extended period of time.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.PERSISTENT_BLUETOOTH_PEERS_MAC
+   * @param { string } deviceId - the randomized address of remote device.
+   * @returns { Promise<void> } Returns the promise object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900003 - Bluetooth disabled.
+   * @throws { BusinessError } 2900010 - The number of supported device addresses has reached the upper limit.
+   * @throws { BusinessError } 2900099 - Add persistent device address failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @atomicservice
+   * @since 16
+   */
+  function addPersistentDeviceId(deviceId: string): Promise<void>;
+
+  /**
+   * Delete a persistent random device address.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.PERSISTENT_BLUETOOTH_PEERS_MAC
+   * @param { string } deviceId - the randomized address of remote device.
+   * @returns { Promise<void> } Returns the promise object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900003 - Bluetooth disabled.
+   * @throws { BusinessError } 2900099 - delete persistent device address failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @atomicservice
+   * @since 16
+   */
+  function deletePersistentDeviceId(deviceId: string): Promise<void>;
+
+  /**
+   * Obtains the persistent randomized device address of the application.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.PERSISTENT_BLUETOOTH_PEERS_MAC
+   * @returns { string[] } Returns the list of persistent random device addresses.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900003 - Bluetooth disabled.
+   * @throws { BusinessError } 2900099 - Get persistent device address failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @atomicservice
+   * @since 16
+   */
+  function getPersistentDeviceIds(): string[];
+
+  /**
+   * Determine whether the randomized device address application can still be used.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { string } deviceId - the randomized address of remote device.
+   * @returns { boolean } Returns whether the randomized device address is valid.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900003 - Bluetooth disabled.
+   * @throws { BusinessError } 2900099 - Check persistent device address failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @atomicservice
+   * @since 16
+   */
+  function isValidRandomDeviceId(deviceId: string): boolean;
+
+  /**
    * The enum of bluetooth state.
    *
    * @enum { number }

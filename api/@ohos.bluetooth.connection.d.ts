@@ -466,6 +466,25 @@ declare namespace connection {
   function getRemoteDeviceName(deviceId: string): string;
 
   /**
+   * Obtains the name or alias of the Bluetooth peer device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+   * @param { boolean } [alias] - Indicates whether to obtain the device alias. If the parameter is not provided, the device alias is obtained by default.
+   * @returns { string } Returns the device name in character string format.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth disabled.
+   * @throws { BusinessError } 2900099 - Failed to obtain the name or alias of the peer Bluetooth device.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @atomicservice
+   * @since 16
+   */
+  function getRemoteDeviceName(deviceId: string, alias?: boolean): string;
+
+  /**
    * Obtains the class of a peer Bluetooth device.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
@@ -1030,6 +1049,21 @@ declare namespace connection {
    * @systemapi
    * @since 11
    */
+  /**
+   * Connects all allowed bluetooth profiles between the local and remote device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+   * @param { AsyncCallback<void> } callback - the callback result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth disabled.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 16
+   */
   function connectAllowedProfiles(deviceId: string, callback: AsyncCallback<void>): void;
 
   /**
@@ -1049,6 +1083,21 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 11
+   */
+  /**
+   * Connects all allowed bluetooth profiles between the local and remote device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+   * @returns { Promise<void> } Returns the promise object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth disabled.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 16
    */
   function connectAllowedProfiles(deviceId: string): Promise<void>;
 
