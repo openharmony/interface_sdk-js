@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,8 +18,10 @@
  * @kit ArkData
  */
 
-import { AsyncCallback, Callback } from './@ohos.base';
-import Context from './application/BaseContext';
+import BaseContext from 'BaseContext'
+
+type AsyncCallback<T> = (data: T) => T;
+type Callback<T> = (data: T) => void;
 
 /**
  * Provides interfaces to obtain and modify preferences data.
@@ -48,7 +50,26 @@ import Context from './application/BaseContext';
  * @since 11
  * @name preferences
  */
-declare namespace preferences {
+export namespace preferences {
+    loadLibrary("ani_preferences");
+    export native function executeGetOpt(context: BaseContext, options: Options) : Preferences;
+    export native function executeGetName(context: BaseContext, name: string) : Preferences;
+    export native function executeRemoveName(context: BaseContext, name: string) : int;
+    export native function executeRemoveOpt(context: BaseContext, options: Options) : int;
+
+    export native function flushSync(obj :Preferences): int;
+    export native function getInner(obj :Preferences, key: string, defValue: ValueType): ValueType;
+    native function putInner(obj :Preferences, key: string, value: ValueType): void;
+
+    export function putSyncFunc(obj :Preferences, key: string, value: ValueType): int {
+      putInner(obj, key, value);
+      return 0;
+    }
+
+    export native function deleteSyncInner(obj :Preferences, key: string): int;
+
+    export native function hasSyncInner(obj :Preferences, key: string): boolean;
+
   /**
    * Indicates possible value types
    *
@@ -168,7 +189,7 @@ declare namespace preferences {
    * @atomicservice
    * @since 11
    */
-  interface Options {
+  export interface Options {
     /**
      * The preferences file name.
      *
@@ -255,7 +276,15 @@ declare namespace preferences {
    * @atomicservice
    * @since 11
    */
-  function getPreferences(context: Context, name: string, callback: AsyncCallback<Preferences>): void;
+  export function getPreferences(context: BaseContext, name: string, callback: AsyncCallback<Preferences>): void {
+    console.log("in callback before.....")
+    let p1 = taskpool.execute(executeGetName, context, name);
+    p1.then((e :NullishType)=>{
+        console.log("in callback then.....")
+        let r =  e as Preferences;
+        callback(r)
+    });
+  };
 
   /**
    * Obtains a {@link Preferences} instance matching a specified preferences file name.
@@ -297,7 +326,16 @@ declare namespace preferences {
    * @atomicservice
    * @since 11
    */
-  function getPreferences(context: Context, options: Options, callback: AsyncCallback<Preferences>): void;
+    export function getPreferences(context: BaseContext, options: Options,
+      callback: AsyncCallback<Preferences>): void {
+        console.log("in callback before.....")
+        let p1 = taskpool.execute(executeGetOpt, context, options);
+        p1.then((e :NullishType)=>{
+            console.log("in callback then.....")
+            let r =  e as Preferences;
+            callback(r)
+        });
+    }
 
   /**
    * Obtains a {@link Preferences} instance matching a specified preferences file name.
@@ -345,7 +383,18 @@ declare namespace preferences {
    * @atomicservice
    * @since 11
    */
-  function getPreferences(context: Context, name: string): Promise<Preferences>;
+    export function getPreferences(context: BaseContext, name: string): Promise<Preferences> {
+      let p = new Promise<Preferences>((resolve: (v: Preferences) => void,
+        reject: (error: Object) => void) => {
+          let p1 = taskpool.execute(executeGetName, context, name);
+          p1.then((e :NullishType)=>{
+              console.log("in promise then.....")
+              let r =  e as Preferences;
+              resolve(r);
+          });
+      });
+      return p;
+    }
 
   /**
    * Obtains a {@link Preferences} instance matching a specified preferences file name.
@@ -385,265 +434,20 @@ declare namespace preferences {
    * @atomicservice
    * @since 11
    */
-  function getPreferences(context: Context, options: Options): Promise<Preferences>;
-
-  /**
-   * Obtains a {@link Preferences} instance matching a specified preferences file name.
-   * This interface is executed synchronously.
-   * <p>The {@link references} instance loads all data of the preferences file and
-   * resides in the memory. You can use removePreferencesFromCache to remove the instance from the memory.
-   *
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { Options } options - Indicates the {@link Options} option of preferences file position.
-   * @returns { Preferences } The {@link Preferences} instance matching the specified preferences file name.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 15501001 - Only supported in stage mode.
-   * @throws { BusinessError } 15501002 - The data group id is not valid.
-   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtains a {@link Preferences} instance matching a specified preferences file name.
-   * This interface is executed synchronously.
-   * <p>The {@link references} instance loads all data of the preferences file and
-   * resides in the memory. You can use removePreferencesFromCache to remove the instance from the memory.
-   *
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { Options } options - Indicates the {@link Options} option of preferences file position.
-   * @returns { Preferences } The {@link Preferences} instance matching the specified preferences file name.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 15500000 - Inner error.
-   * @throws { BusinessError } 15501001 - Only supported in stage mode.
-   * @throws { BusinessError } 15501002 - The data group id is not valid.
-   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  function getPreferencesSync(context: Context, options: Options): Preferences;
-
-  /**
-   * Deletes a {@link Preferences} instance matching a specified preferences file name
-   * from the cache which is performed by removePreferencesFromCache and deletes the
-   * preferences file.
-   * <p>When deleting the {@link Preferences} instance, you must release all references
-   * of the instance. In addition, do not use the instance to perform data operations. Otherwise, data inconsistency
-   * will occur.
-   *
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } name - Indicates the preferences file name.
-   * @param { AsyncCallback<void> } callback - Indicates the callback function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
-   * @throws { BusinessError } 15500010 - Failed to delete preferences file.
-   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-   * @since 9
-   */
-  /**
-   * Deletes a {@link Preferences} instance matching a specified preferences file name
-   * from the cache which is performed by removePreferencesFromCache and deletes the
-   * preferences file.
-   * <p>When deleting the {@link Preferences} instance, you must release all references
-   * of the instance. In addition, do not use the instance to perform data operations. Otherwise, data inconsistency
-   * will occur.
-   *
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } name - Indicates the preferences file name.
-   * @param { AsyncCallback<void> } callback - Indicates the callback function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
-   * @throws { BusinessError } 15500010 - Failed to delete preferences file.
-   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Deletes a {@link Preferences} instance matching a specified preferences file name
-   * from the cache which is performed by removePreferencesFromCache and deletes the
-   * preferences file.
-   * <p>When deleting the {@link Preferences} instance, you must release all references
-   * of the instance. In addition, do not use the instance to perform data operations. Otherwise, data inconsistency
-   * will occur.
-   *
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } name - Indicates the preferences file name.
-   * @param { AsyncCallback<void> } callback - Indicates the callback function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
-   * @throws { BusinessError } 15500000 - Inner error.
-   * @throws { BusinessError } 15500010 - Failed to delete preferences file.
-   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  function deletePreferences(context: Context, name: string, callback: AsyncCallback<void>): void;
-
-  /**
-   * Deletes a {@link Preferences} instance matching a specified preferences file name
-   * from the cache which is performed by removePreferencesFromCache and deletes the
-   * preferences file.
-   * <p>When deleting the {@link Preferences} instance, you must release all references
-   * of the instance. In addition, do not use the instance to perform data operations. Otherwise, data inconsistency
-   * will occur.
-   *
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { Options } options - Indicates the {@link Options} option of preferences file position.
-   * @param { AsyncCallback<void> } callback - Indicates the callback function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 15500010 - Failed to delete preferences file.
-   * @throws { BusinessError } 15501001 - Only supported in stage mode.
-   * @throws { BusinessError } 15501002 - The data group id is not valid.
-   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Deletes a {@link Preferences} instance matching a specified preferences file name
-   * from the cache which is performed by removePreferencesFromCache and deletes the
-   * preferences file.
-   * <p>When deleting the {@link Preferences} instance, you must release all references
-   * of the instance. In addition, do not use the instance to perform data operations. Otherwise, data inconsistency
-   * will occur.
-   *
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { Options } options - Indicates the {@link Options} option of preferences file position.
-   * @param { AsyncCallback<void> } callback - Indicates the callback function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 15500000 - Inner error.
-   * @throws { BusinessError } 15500010 - Failed to delete preferences file.
-   * @throws { BusinessError } 15501001 - Only supported in stage mode.
-   * @throws { BusinessError } 15501002 - The data group id is not valid.
-   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  function deletePreferences(context: Context, options: Options, callback: AsyncCallback<void>): void;
-
-  /**
-   * Deletes a {@link Preferences} instance matching a specified preferences file name
-   * from the cache which is performed by removePreferencesFromCache and deletes the
-   * preferences file.
-   * <p>When deleting the {@link Preferences} instance, you must release all references
-   * of the instance. In addition, do not use the instance to perform data operations. Otherwise, data inconsistency
-   * will occur.
-   *
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } name - Indicates the preferences file name.
-   * @returns { Promise<void> } A promise object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
-   * @throws { BusinessError } 15500010 - Failed to delete preferences file.
-   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-   * @since 9
-   */
-  /**
-   * Deletes a {@link Preferences} instance matching a specified preferences file name
-   * from the cache which is performed by removePreferencesFromCache and deletes the
-   * preferences file.
-   * <p>When deleting the {@link Preferences} instance, you must release all references
-   * of the instance. In addition, do not use the instance to perform data operations. Otherwise, data inconsistency
-   * will occur.
-   *
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } name - Indicates the preferences file name.
-   * @returns { Promise<void> } A promise object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
-   * @throws { BusinessError } 15500010 - Failed to delete preferences file.
-   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Deletes a {@link Preferences} instance matching a specified preferences file name
-   * from the cache which is performed by removePreferencesFromCache and deletes the
-   * preferences file.
-   * <p>When deleting the {@link Preferences} instance, you must release all references
-   * of the instance. In addition, do not use the instance to perform data operations. Otherwise, data inconsistency
-   * will occur.
-   *
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } name - Indicates the preferences file name.
-   * @returns { Promise<void> } A promise object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
-   * @throws { BusinessError } 15500000 - Inner error.
-   * @throws { BusinessError } 15500010 - Failed to delete preferences file.
-   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  function deletePreferences(context: Context, name: string): Promise<void>;
-
-  /**
-   * Deletes a {@link Preferences} instance matching a specified preferences file name
-   * from the cache which is performed by removePreferencesFromCache and deletes the
-   * preferences file.
-   * <p>When deleting the {@link Preferences} instance, you must release all references
-   * of the instance. In addition, do not use the instance to perform data operations. Otherwise, data inconsistency
-   * will occur.
-   *
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { Options } options - Indicates the {@link Options} option of preferences file position.
-   * @returns { Promise<void> } A promise object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 15500010 - Failed to delete preferences file.
-   * @throws { BusinessError } 15501001 - Only supported in stage mode.
-   * @throws { BusinessError } 15501002 - The data group id is not valid.
-   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Deletes a {@link Preferences} instance matching a specified preferences file name
-   * from the cache which is performed by removePreferencesFromCache and deletes the
-   * preferences file.
-   * <p>When deleting the {@link Preferences} instance, you must release all references
-   * of the instance. In addition, do not use the instance to perform data operations. Otherwise, data inconsistency
-   * will occur.
-   *
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { Options } options - Indicates the {@link Options} option of preferences file position.
-   * @returns { Promise<void> } A promise object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 15500000 - Inner error.
-   * @throws { BusinessError } 15500010 - Failed to delete preferences file.
-   * @throws { BusinessError } 15501001 - Only supported in stage mode.
-   * @throws { BusinessError } 15501002 - The data group id is not valid.
-   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  function deletePreferences(context: Context, options: Options): Promise<void>;
+    export function getPreferences(context: BaseContext, options: Options): Promise<Preferences> {
+      let p = new Promise<Preferences>((resolve: (v: Preferences) => void,
+        reject: (error: Object) => void) => {
+          console.log("in getPreferences , options is ", options);
+          console.log("in getPreferences , context is ", context);
+          let p1 = taskpool.execute(executeGetOpt, context, options);
+          p1.then((e :NullishType)=>{
+              console.log("in promise then.....")
+              let r =  e as Preferences;
+              resolve(r);
+          });
+      });
+      return p;
+    }
 
   /**
    * Deletes a {@link Preferences} instance matching a specified preferences file name
@@ -697,7 +501,14 @@ declare namespace preferences {
    * @atomicservice
    * @since 11
    */
-  function removePreferencesFromCache(context: Context, name: string, callback: AsyncCallback<void>): void;
+  export function removePreferencesFromCache(context: BaseContext, name: string, callback: AsyncCallback<void>): void {
+    let p1 = taskpool.execute(executeRemoveName, context, name);
+    p1.then((e :NullishType)=>{
+        console.log("in callback then. e is ", e)
+        let r =  undefined;
+        callback(r)
+    });
+  };
 
   /**
    * Deletes a {@link Preferences} instance matching a specified preferences file name
@@ -741,7 +552,14 @@ declare namespace preferences {
    * @atomicservice
    * @since 11
    */
-  function removePreferencesFromCache(context: Context, options: Options, callback: AsyncCallback<void>): void;
+  export function removePreferencesFromCache(context: BaseContext, options: Options, callback: AsyncCallback<void>): void {
+    let p1 = taskpool.execute(executeRemoveOpt, context, options);
+    p1.then((e :NullishType)=>{
+        console.log("in callback then. e is ", e)
+        let r =  undefined;
+        callback(r)
+    });
+  };
 
   /**
    * Deletes a {@link Preferences} instance matching a specified preferences file name
@@ -795,7 +613,18 @@ declare namespace preferences {
    * @atomicservice
    * @since 11
    */
-  function removePreferencesFromCache(context: Context, name: string): Promise<void>;
+  export function removePreferencesFromCache(context: BaseContext, name: string): Promise<int> {
+    let p = new Promise<int>((resolve: (v: int) => void,
+      reject: (error: Object) => void) => {
+        let p1 = taskpool.execute(executeRemoveName, context, name);
+        p1.then((e : NullishType)=>{
+            console.log("in Promise then. e is ", e)
+            let r = e as int;
+            resolve(r);
+        });
+    });
+    return p;
+  };
 
   /**
    * Deletes a {@link Preferences} instance matching a specified preferences file name
@@ -839,7 +668,18 @@ declare namespace preferences {
    * @atomicservice
    * @since 11
    */
-  function removePreferencesFromCache(context: Context, options: Options): Promise<void>;
+  export function removePreferencesFromCache(context: BaseContext, options: Options): Promise<int> {
+    let p = new Promise<int>((resolve: (v: int) => void,
+      reject: (error: Object) => void) => {
+        let p1 = taskpool.execute(executeRemoveOpt, context, options);
+        p1.then((e : NullishType)=>{
+            console.log("in Promise then. e is ", e)
+            let r = e as int;
+            resolve(r);
+        });
+    });
+    return p;
+  };
 
   /**
    * Deletes a {@link Preferences} instance matching a specified preferences file name
@@ -875,7 +715,7 @@ declare namespace preferences {
    * @atomicservice
    * @since 11
    */
-  function removePreferencesFromCacheSync(context: Context, name: string): void;
+  function removePreferencesFromCacheSync(context: BaseContext, name: string): void {};
 
   /**
    * Deletes a {@link Preferences} instance matching a specified preferences file name
@@ -917,7 +757,7 @@ declare namespace preferences {
    * @atomicservice
    * @since 11
    */
-  function removePreferencesFromCacheSync(context: Context, options: Options): void;
+  function removePreferencesFromCacheSync(context: BaseContext, options: Options): void {};
 
   /**
    * Provides interfaces to obtain and modify preferences data.
@@ -955,7 +795,7 @@ declare namespace preferences {
    * @atomicservice
    * @since 11
    */
-  interface Preferences {
+  export interface Preferences {
     /**
      * Obtains the value of a preferences in the ValueType format.
      * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
@@ -1093,85 +933,6 @@ declare namespace preferences {
      * @since 11
      */
     getSync(key: string, defValue: ValueType): ValueType;
-
-    /**
-     * Obtains all the keys and values of a preferences in an object.
-     *
-     * @param { AsyncCallback<Object> } callback - The values and keys in an object.
-     * @throws { BusinessError } 401 - Parameter error. Mandatory parameters are left unspecified.
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-     * @since 9
-     */
-    /**
-     * Obtains all the keys and values of a preferences in an object.
-     *
-     * @param { AsyncCallback<Object> } callback - The values and keys in an object.
-     * @throws { BusinessError } 401 - Parameter error. Mandatory parameters are left unspecified.
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains all the keys and values of a preferences in an object.
-     *
-     * @param { AsyncCallback<Object> } callback - The values and keys in an object.
-     * @throws { BusinessError } 401 - Parameter error. Mandatory parameters are left unspecified.
-     * @throws { BusinessError } 15500000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    getAll(callback: AsyncCallback<Object>): void;
-
-    /**
-     * Obtains all the keys and values of a preferences in an object.
-     *
-     * @returns { Promise<Object> } The values and keys in an object.
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-     * @since 9
-     */
-    /**
-     * Obtains all the keys and values of a preferences in an object.
-     *
-     * @returns { Promise<Object> } The values and keys in an object.
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains all the keys and values of a preferences in an object.
-     *
-     * @returns { Promise<Object> } The values and keys in an object.
-     * @throws { BusinessError } 15500000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    getAll(): Promise<Object>;
-
-    /**
-     * Obtains all the keys and values of a preferences in an object.  This interface
-     * is executed synchronously.
-     *
-     * @returns { Object } The values and keys in an object.
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains all the keys and values of a preferences in an object.  This interface
-     * is executed synchronously.
-     *
-     * @returns { Object } The values and keys in an object.
-     * @throws { BusinessError } 15500000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    getAllSync(): Object;
 
     /**
      * Checks whether the {@link Preferences} object contains a preferences matching a specified key.
@@ -1393,7 +1154,7 @@ declare namespace preferences {
      *        <tt>MAX_KEY_LENGTH</tt>.
      * @param { ValueType } value - Indicates the value of the preferences.
      *        <tt>MAX_VALUE_LENGTH</tt>.
-     * @returns { Promise<void> } A promise object.
+     * @returns { Promise<int> } A promise object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *                                                                   2. Incorrect parameter types;
      *                                                                   3. Parameter verification failed.
@@ -1403,7 +1164,7 @@ declare namespace preferences {
      * @atomicservice
      * @since 11
      */
-    put(key: string, value: ValueType): Promise<void>;
+    put(key: string, value: ValueType): Promise<int>;
 
     /**
      * Sets an int value for the key in the {@link Preferences} object. This interface is executed synchronously.
@@ -1535,7 +1296,7 @@ declare namespace preferences {
      * @atomicservice
      * @since 11
      */
-    delete(key: string): Promise<void>;
+    delete(key: string): Promise<int>;
 
     /**
      * Deletes the preferences with a specified key from the {@link Preferences} object. This interface is
@@ -1570,88 +1331,6 @@ declare namespace preferences {
     deleteSync(key: string): void;
 
     /**
-     * Clears all preferences from the {@link Preferences} object.
-     * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
-     *
-     * @param { AsyncCallback<void> } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - Parameter error. Mandatory parameters are left unspecified.
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-     * @since 9
-     */
-    /**
-     * Clears all preferences from the {@link Preferences} object.
-     * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
-     *
-     * @param { AsyncCallback<void> } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - Parameter error. Mandatory parameters are left unspecified.
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Clears all preferences from the {@link Preferences} object.
-     * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
-     *
-     * @param { AsyncCallback<void> } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - Parameter error. Mandatory parameters are left unspecified.
-     * @throws { BusinessError } 15500000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    clear(callback: AsyncCallback<void>): void;
-
-    /**
-     * Clears all preferences from the {@link Preferences} object.
-     * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
-     *
-     * @returns { Promise<void> } A promise object.
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-     * @since 9
-     */
-    /**
-     * Clears all preferences from the {@link Preferences} object.
-     * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
-     *
-     * @returns { Promise<void> } A promise object.
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Clears all preferences from the {@link Preferences} object.
-     * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
-     *
-     * @returns { Promise<void> } A promise object.
-     * @throws { BusinessError } 15500000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    clear(): Promise<void>;
-
-    /**
-     * Clears all preferences from the {@link Preferences} object. This interface is executed synchronously.
-     * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
-     *
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Clears all preferences from the {@link Preferences} object. This interface is executed synchronously.
-     * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
-     *
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    clearSync(): void;
-
-    /**
      * Asynchronously saves the {@link Preferences} object to the file.
      *
      * @param { AsyncCallback<void> } callback - Indicates the callback function.
@@ -1680,156 +1359,135 @@ declare namespace preferences {
      * @since 11
      */
     flush(callback: AsyncCallback<void>): void;
-
-    /**
-     * Asynchronously saves the {@link Preferences} object to the file.
-     *
-     * @returns { Promise<void> } A promise object.
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-     * @since 9
-     */
-    /**
-     * Asynchronously saves the {@link Preferences} object to the file.
-     *
-     * @returns { Promise<void> } A promise object.
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Asynchronously saves the {@link Preferences} object to the file.
-     *
-     * @returns { Promise<void> } A promise object.
-     * @throws { BusinessError } 15500000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    flush(): Promise<void>;
-
-    /**
-     * Asynchronously saves the {@link Preferences} object to the file.
-     *
-     * @throws { BusinessError } 15500000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    flushSync(): void;
-
-    /**
-     * Registers an observer to listen for the change of a {@link Preferences} object.
-     *
-     * @param { string } type - Indicates the callback when preferences changes.
-     * @param { Callback<{ key: string }> } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-     * @since 9
-     */
-    /**
-     * Registers an observer to listen for the change of a {@link Preferences} object.
-     *
-     * @param { string } type - Indicates the callback when preferences changes.
-     * @param { Function } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Registers an observer to listen for the change of a {@link Preferences} object.
-     *
-     * @param { string } type - Indicates the callback when preferences changes.
-     * @param { Callback<string> } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
-     * @throws { BusinessError } 15500000 - Inner error.
-     * @throws { BusinessError } 15500019 - Failed to obtain subscription service.
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    on(type: string, callback: Callback<string>): void;
-
-    /**
-     * Registers an observer to listen for changes to the {@ link Preferences} object.
-     *
-     * @param { string } type - Indicates the type of the event to observe.
-     * @param { Array<string> } keys - Indicates one or more keys to listen for.
-     * @param { Callback<Record<string, ValueType>> } callback - Indicates the callback used to return the data change.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
-     * @throws { BusinessError } 15500000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-     * @atomicservice
-     * @since 12
-     */
-    on(type: string, keys: Array<string>, callback: Callback<Record<string, ValueType>>): void;
-
-    /**
-     * Unregisters an existing observer.
-     *
-     * @param { string } type - Indicates the callback when preferences changes.
-     * @param { Callback<{ key: string }> } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-     * @since 9
-     */
-    /**
-     * Unregisters an existing observer.
-     *
-     * @param { string } type - Indicates the callback when preferences changes.
-     * @param { Function } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Unregisters an existing observer.
-     *
-     * @param { string } type - Indicates the callback when preferences changes.
-     * @param { Callback<string> } callback - Indicates the callback function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
-     * @throws { BusinessError } 15500000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    off(type: string, callback?: Callback<string>): void;
-
-    /**
-     * Unregisters an observer for changes to the {@ link Preferences} object.
-     *
-     * @param { string } type - Indicates the event type.
-     * @param { Array<string> } keys - Indicates the data whose changes are not observed.
-     * @param { Callback<Record<string, ValueType>> } callback - Indicates the callback to unregister.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
-     * @throws { BusinessError } 15500000 - Inner error.
-     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-     * @atomicservice
-     * @since 12
-     */
-    off(type: string, keys: Array<string>, callback?: Callback<Record<string, ValueType>>): void;
   }
-}
 
-export default preferences;
+  class PreferencesImpl implements Preferences {
+    private nativePtr:long = 0;
+    constructor(context:long) {
+      console.log("in constructor, context is ", context)
+      this.nativePtr = context;
+    }
+
+    getNativePtr(): long {
+      return this.nativePtr;
+    }
+
+    get(key: string, defValue: ValueType, callback: AsyncCallback<ValueType>): void {
+      console.log("Start get in asyncCallback thread.")
+      let p1 = taskpool.execute(getInner, this, key, defValue);
+      p1.then((e :NullishType)=>{
+          let r =  e as ValueType;
+          console.log("in callback then. r is ", r)
+          callback(r)
+      });
+    }
+
+    get(key: string, defValue: ValueType): Promise<ValueType> {
+      console.log("Start get in promise thread.")
+      let p = new Promise<ValueType>((resolve: (v: ValueType) => void,
+        reject: (error: Object) => void) => {
+          let p1 = taskpool.execute(getInner, this, key, defValue);
+          p1.then((e :NullishType)=>{
+              let r =  e as ValueType;
+              console.log("in promise then.....")
+              resolve(r);
+          });
+      });
+      return p;
+    }
+
+    getSync(key: string, defValue: ValueType): ValueType {
+      return getInner(this, key, defValue);
+    }
+
+    has(key: string, callback: AsyncCallback<boolean>): void {
+      console.log("Start get in asyncCallback thread.")
+      let p1 = taskpool.execute(hasSyncInner, this, key);
+      p1.then((e :NullishType)=>{
+          let r =  e as boolean;
+          console.log("in callback then. r is ", r)
+          callback(r)
+      });
+    }
+
+    has(key: string): Promise<boolean> {
+      console.log("Start get in promise thread.")
+      let p = new Promise<boolean>((resolve: (v: boolean) => void,
+        reject: (error: Object) => void) => {
+          let p1 = taskpool.execute(hasSyncInner, this, key);
+          p1.then((e :NullishType)=>{
+              let r =  e as boolean;
+              console.log("in promise then, r is: ", r)
+              resolve(r);
+          });
+      });
+      return p;
+    }
+
+    hasSync(key: string): boolean {
+        return hasSyncInner(this, key);
+    }
+
+    put(key: string, value: ValueType, callback: AsyncCallback<void>): void {
+      console.log("Start put in asyncCallback thread.")
+      let p1 = taskpool.execute(putSyncFunc, this, key, value);
+      p1.then((e :NullishType)=>{
+          let r = undefined;
+          callback(r)
+      });
+    }
+
+    put(key: string, value: ValueType): Promise<int> {
+      console.log("Start put in promise thread.")
+      let p = new Promise<int>((resolve: (v: int) => void, reject: (error: Object) => void) => {
+          let p1 = taskpool.execute(putSyncFunc, this, key, value);
+          p1.then((e :NullishType)=>{
+              let r = e as int;
+              resolve(r);
+          })
+      });
+      return p;
+    }
+
+    putSync(key: string, value: ValueType): void {
+      putSyncFunc(this, key, value);
+    }
+
+    delete(key: string, callback: AsyncCallback<void>): void {
+      console.log("Start put in asyncCallback thread.")
+      let p1 = taskpool.execute(deleteSyncInner, this, key);
+      p1.then((e :NullishType)=>{
+          let r = e as int;
+          console.log("In delete callback, ret is: ", r);
+          callback(undefined);
+      });
+    }
+
+    delete(key: string): Promise<int> {
+      console.log("Start put in asyncCallback thread.")
+      let p = new Promise<int>((resolve: (v: int) => void, reject: (error: Object) => void) => {
+          let p1 = taskpool.execute(deleteSyncInner, this, key);
+            p1.then((e :NullishType)=>{
+              let r = e as int;
+              console.log("In delete Promise, ret is: ", r);
+              resolve(r);
+          })
+      });
+      return p;
+    }
+
+    deleteSync(key: string): void {
+      deleteSyncInner(this, key);
+    };
+
+    flush(callback: AsyncCallback<void>): void {
+      let p1 = taskpool.execute(flushSync, this);
+      p1.then((e :NullishType)=>{
+        console.log("in callback then. r is ", e)
+        let r =  undefined;
+        callback(r)
+      });
+    }
+  }
+
+}
