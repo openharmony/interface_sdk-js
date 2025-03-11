@@ -573,26 +573,26 @@ declare namespace display {
   function setFoldStatusLocked(locked: boolean): void;
 
     /**
-   * Create virtual display. if surfaceId is valid, this permission is necessary.
+   * Create virtual screen.
    *
    * @permission ohos.permission.ACCESS_VIRTUAL_SCREEN
-   * @param { VirtualDisplayOptions } options Indicates the options of the virtual display.
-   * @returns { Promise<number> } Promise used to return the created virtual displayId
+   * @param { VirtualScreenOption } options Indicates the options of the virtual screen.
+   * @returns { Promise<number> } Promise used to return the created virtual screen id
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap  SystemCapability.Window.SessionManager
    * @since 18
    */
-  function createVirtualDisplay(options: VirtualDisplayOptions): Promise<number>;
+  function createVirtualScreen(options: VirtualScreenOptions): Promise<number>;
 
   /**
-   * Destroy virtual display.
+   * Destroy virtual screen.
    *
    * @permission ohos.permission.ACCESS_VIRTUAL_SCREEN
-   * @param { number } displayId Indicates the display id of the virtual display.
+   * @param { number } screenId Indicates the screen id of the virtual screen.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -603,13 +603,13 @@ declare namespace display {
    * @syscap  SystemCapability.Window.SessionManager
    * @since 18
    */
-  function destroyVirtualDisplay(displayId: number): Promise<void>;
+  function destroyVirtualScreen(screenId: number): Promise<void>;
   
   /**
    * Set surface for the virtual display.
    *
    * @permission ohos.permission.ACCESS_VIRTUAL_SCREEN
-   * @param { number } displayId Indicates the display id of the virtual display.
+   * @param { number } screenId Indicates the screen id of the virtual screen.
    * @param { string } surfaceId Indicates the surface id.
    * @returns { Promise<void> } Promise that returns no value
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
@@ -621,13 +621,13 @@ declare namespace display {
    * @syscap  SystemCapability.Window.SessionManager
    * @since 18
    */
-  function setVirtualDisplaySurface(displayId: number, surfaceId: string): Promise<void>;
+  function setVirtualScreenSurface(screenId: number, surfaceId: string): Promise<void>;
 
   /**
-   * Make display as unique-display
+   * Make display as unique-screen
    *
    * @permission ohos.permission.ACCESS_VIRTUAL_SCREEN
-   * @param { number } displayId the unique displays. It's type should be int.
+   * @param { number } the unique screen id. It's type should be int.
    * @returns { Promise<void> } Promise that returns no value
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -641,15 +641,15 @@ declare namespace display {
   function makeUnique(displayId: number): Promise<void>;
 
   /**
-   * The parameter for creating virtual display.
+   * The parameter for creating virtual screen.
    *
-   * @interface VirtualDisplayOptions
+   * @interface VirtualScreenOptions
    * @syscap SystemCapability.Window.SessionManager
    * @since 18
    */
-  interface VirtualDisplayOptions {
+  interface VirtualScreenOptions {
     /**
-     * Indicates the name of the virtual display.
+     * Indicates the name of the virtual screen.
      *
      * @type { string }
      * @syscap  SystemCapability.Window.SessionManager
@@ -658,7 +658,7 @@ declare namespace display {
     name: string;
 
     /**
-     * Indicates the width of the virtual display.
+     * Indicates the width of the virtual screen.
      *
      * @type { number }
      * @syscap SystemCapability.Window.SessionManager
@@ -667,7 +667,7 @@ declare namespace display {
     width: number;
 
     /**
-     * Indicates the height of the virtual display.
+     * Indicates the height of the virtual screen.
      *
      * @type { number }
      * @syscap SystemCapability.Window.SessionManager
@@ -676,7 +676,7 @@ declare namespace display {
     height: number;
 
     /**
-     * Indicates the density of the virtual display.
+     * Indicates the density of the virtual screen.
      *
      * @type { number }
      * @syscap SystemCapability.Window.SessionManager
@@ -685,7 +685,7 @@ declare namespace display {
     density: number;
 
     /**
-     * Indicates the surface id of the virtual display.
+     * Indicates the surface id of the virtual screen.
      *
      * @type { string }
      * @syscap SystemCapability.Window.SessionManager
