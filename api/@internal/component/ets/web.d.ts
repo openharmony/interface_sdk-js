@@ -6744,7 +6744,15 @@ declare enum WebElementType {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13
    */
-  IMAGE = 1
+  IMAGE = 1,
+
+  /**
+   * Link,corresponding link type.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  LINK = 2
 }
 
 /**
@@ -6919,7 +6927,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * fileAccess is disabled by default since API version 12.
    * When fileAccess is set to false, files in the read-only /data/storage/el1/bundle/entry/resources/resfile<br>
    * directory can still be accessed through the file protocol.
-   * </p> 
+   * </p>
    *
    * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
    *    The default value is false.
@@ -7046,7 +7054,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
   * Sets the behavior when a secure origin attempts to load a resource from an insecure origin.
   * The default is MixedMode.None, meaning not allow a secure origin to load content from an insecure origin.
-  * 
+  *
   *
   * @param { MixedMode } mixedMode - The mixed mode, which can be {@link MixedMode}.
   * @returns { WebAttribute }
@@ -7486,7 +7494,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Triggered at the begin of web page loading. 
+   * Triggered at the begin of web page loading.
    *
    * @param { function } callback The triggered function at the begin of web page loading.
    * @returns { WebAttribute }
