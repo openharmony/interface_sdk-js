@@ -72,7 +72,7 @@ declare namespace emitter {
    * @atomicservice
    * @since 12
    */
-  function on(event: InnerEvent, callback: Callback<EventData>): void;
+  export function on(event: InnerEvent, callback: Callback<EventData>): void;
 
   /**
    * Subscribe to a event by specific id in persistent manner and receives the event callback.
@@ -84,7 +84,7 @@ declare namespace emitter {
    * @atomicservice
    * @since 12
    */
-  function on<T>(eventId: string, callback: Callback<EventData> | Callback<GenericEventData<T>>): void;
+  export function on<T>(eventId: string, callback: Callback<EventData> | Callback<GenericEventData<T>>): void;
 
   /**
    * Subscribe to a certain event in one-shot manner and unsubscribe from it
@@ -116,7 +116,7 @@ declare namespace emitter {
    * @atomicservice
    * @since 12
    */
-  function once(event: InnerEvent, callback: Callback<EventData>): void;
+  export function once(event: InnerEvent, callback: Callback<EventData>): void;
 
   /**
    * Subscribe to a event by specific id in one-shot manner and unsubscribe from it
@@ -129,7 +129,7 @@ declare namespace emitter {
    * @atomicservice
    * @since 12
    */
-  function once<T>(eventId: string, callback: Callback<EventData> | Callback<GenericEventData<T>>): void;
+  export function once<T>(eventId: string, callback: Callback<EventData> | Callback<GenericEventData<T>>): void;
 
   /**
    * Unsubscribe from an event.
@@ -155,7 +155,7 @@ declare namespace emitter {
    * @atomicservice
    * @since 12
    */
-  function off(eventId: number): void;
+  export function off(eventId: number): void;
 
   /**
    * Unsubscribe from an event.
@@ -174,7 +174,7 @@ declare namespace emitter {
    * @atomicservice
    * @since 12
    */
-  function off(eventId: string): void;
+  export function off(eventId: string): void;
 
   /**
    * Unsubscribe from an event.
@@ -203,7 +203,7 @@ declare namespace emitter {
    * @atomicservice
    * @since 12
    */
-  function off(eventId: number, callback: Callback<EventData>): void;
+  export function off(eventId: number, callback: Callback<EventData>): void;
 
   /**
    * Unsubscribe specified callback function  from an event.
@@ -215,7 +215,7 @@ declare namespace emitter {
    * @atomicservice
    * @since 12
    */
-  function off<T>(eventId: string, callback: Callback<EventData> | Callback<GenericEventData<T>>): void;
+  export function off<T>(eventId: string, callback: Callback<EventData> | Callback<GenericEventData<T>>): void;
 
   /**
    * Emits an event to the event queue.
@@ -244,7 +244,7 @@ declare namespace emitter {
    * @atomicservice
    * @since 12
    */
-  function emit(event: InnerEvent, data?: EventData): void;
+  export function emit(event: InnerEvent, data?: EventData): void;
 
   /**
    * Emits an event by specific id to the event queue.
@@ -256,7 +256,7 @@ declare namespace emitter {
    * @atomicservice
    * @since 12
    */
-  function emit<T>(eventId: string, data?: EventData | GenericEventData<T>): void;
+  export function emit<T>(eventId: string, data?: EventData | GenericEventData<T>): void;
 
   /**
    * Emits an event by specific id to the event queue.
@@ -269,7 +269,7 @@ declare namespace emitter {
    * @atomicservice
    * @since 12
    */
-  function emit<T>(eventId: string, options: Options, data?: EventData | GenericEventData<T>): void;
+  export function emit<T>(eventId: string, options: Options, data?: EventData | GenericEventData<T>): void;
 
   /**
    * Obtains the number of subscribe listener count.
@@ -290,7 +290,7 @@ declare namespace emitter {
    * @atomicservice
    * @since 12
    */
-  function getListenerCount(eventId: number | string): number;
+  export function getListenerCount(eventId: number | string): number;
 
   /**
    * Describes data passed in the event.
