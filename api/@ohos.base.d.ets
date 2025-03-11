@@ -20,120 +20,47 @@
 
 /**
  * Defines the basic callback.
- * @typedef Callback
- * @syscap SystemCapability.Base
- * @since 6
- */
-/**
- * Defines the basic callback.
- * @typedef Callback
- * @syscap SystemCapability.Base
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the basic callback.
- * @typedef Callback
- * @syscap SystemCapability.Base
- * @crossplatform
- * @atomicservice
- * @since 11
- */
-/**
- * Defines the basic callback.
- * @typedef Callback
+ *
+ * @typedef { Callback<T> }
  * @syscap SystemCapability.Base
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since 20
  */
 export type Callback<T> = (data: T) => void;
 
 /**
  * Defines the basic error callback.
- * @typedef ErrorCallback 
- * @syscap SystemCapability.Base
- * @since 6
- */
-/**
- * Defines the basic error callback.
- * @typedef ErrorCallback
- * @syscap SystemCapability.Base
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the basic error callback.
- * @typedef ErrorCallback
+ *
+ * @typedef { ErrorCallback<T extends Error = BusinessError> }
  * @syscap SystemCapability.Base
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 20
  */
 export type ErrorCallback<T extends Error = BusinessError> = (err: T)=> void;
 
 /**
  * Defines the basic async callback.
- * @typedef AsyncCallback
- * @syscap SystemCapability.Base
- * @since 6
- */
-/**
- * Defines the basic async callback.
- * @typedef AsyncCallback
- * @syscap SystemCapability.Base
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the basic async callback.
- * @typedef AsyncCallback
- * @syscap SystemCapability.Base
- * @crossplatform
- * @atomicservice
- * @since 11
- */
-/**
- * Defines the basic async callback.
- * @typedef AsyncCallback
+ *
+ * @typedef { AsyncCallback<T, E = void> }
  * @syscap SystemCapability.Base
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since 20
  */
 export type AsyncCallback<T, E = void> = (err: BusinessError<E>, data: T)=> void;
 
 /**
  * Defines the error interface.
- * @typedef BusinessError
- * @syscap SystemCapability.Base
- * @since 6
- */
-/**
- * Defines the error interface.
- * @typedef BusinessError
- * @syscap SystemCapability.Base
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the error interface.
- * @typedef BusinessError
- * @syscap SystemCapability.Base
- * @crossplatform
- * @atomicservice
- * @since 11
- */
-/**
- * Defines the error interface.
- * @typedef BusinessError
+ * @interface BusinessError
  * @syscap SystemCapability.Base
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since 20
  */
 export interface BusinessError<T = void> {
   /**
@@ -198,8 +125,34 @@ export interface BusinessError<T = void> {
    * @since 12
    */
   data?: T;
-
+  /**
+   * Defines the error name for business
+   * @type { string } name
+   * @syscap SystemCapability.Base
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
   name: string;
+  /**
+   * Defines the error message for business
+   * @type { string } message
+   * @syscap SystemCapability.Base
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
   message: string;
+  /**
+   * Defines the error stack info
+   * @type { ?string } stack
+   * @syscap SystemCapability.Base
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
   stack?: string;
 }
