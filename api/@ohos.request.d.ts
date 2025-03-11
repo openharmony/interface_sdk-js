@@ -4867,6 +4867,30 @@ declare namespace request {
        */
       off(event: 'response', callback?: Callback<HttpResponse>): void;
       /**
+       * Enables the 'faultOccur' callback.
+       * This callback is triggered when the task failed.
+       * The returned `Faults` will contain the reason why the task failed.
+       *
+       * @param { 'faultOccur' } event - event types.
+       * @param { Callback<Faults> } callback - callback function with a `Faults` argument.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
+       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      on(event: 'faultOccur', callback: Callback<Faults>): void;
+      /**
+       * Disables the 'faultOccur' callback.
+       *
+       * @param { 'faultOccur' } event - event types.
+       * @param { Callback<Faults> } callback - callback function with a `Faults` argument.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
+       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      off(event: 'faultOccur', callback?: Callback<Faults>): void;
+      /**
        * Enables the wait callback.
        * This callback is triggered when the task changes from other states to the waiting state.
        * The returned `WaitingReason` will contain the reason why the task enters waiting state.
