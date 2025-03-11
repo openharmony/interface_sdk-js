@@ -128,11 +128,11 @@ declare namespace inputConsumer {
   /**
    * Key consunption settings.
    *
-   * @typedef KeyPressedOptions
+   * @typedef KeyPressedConfig
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 16
    */
-  interface KeyPressedOptions {
+  interface KeyPressedConfig {
     /**
      * Key value.
      *
@@ -312,7 +312,7 @@ declare namespace inputConsumer {
    * is the focus window's process, a callback will be triggered if the user operates the specified key.
    *
    * @param { 'keyPressed' } type - Type of the key events.
-   * @param { KeyPressedOptions } options - Key consumption settings.
+   * @param { KeyPressedConfig } options - Key consumption settings.
    * @param { Callback<KeyEvent> } callback - Callback used to return key events.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -320,7 +320,7 @@ declare namespace inputConsumer {
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 16
    */
-  function on(type: 'keyPressed', options: KeyPressedOptions, callback: Callback<KeyEvent>): void
+  function on(type: 'keyPressed', options: KeyPressedConfig, callback: Callback<KeyEvent>): void
 
   /**
    * Cancels consumption of key events.
