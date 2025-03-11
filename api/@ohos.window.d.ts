@@ -10130,6 +10130,158 @@ declare namespace window {
      */
     windowRect: Rect;
   }
+
+  /**
+   * Rotation change type
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 18
+   */
+  enum RotationChangeType {
+    /**
+     * Rotation will begin
+     *
+     * @enum { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    WINDOW_WILL_ROTATE = 0,
+
+    /**
+     * Rotation end
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    WINDOW_DID_ROTATE = 1
+  }
+
+  /**
+   * Rect type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 18
+   */
+  enum RectType {
+    /**
+     * Rect relative to screen
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    RELATIVE_TO_SCREEN = 0,
+    /**
+     * Rect relative to parent window
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    RELATIVE_TO_PARENT_WINDOW = 1
+  }
+
+  /**
+   * Rotation change info
+   *
+   * @interface RotationChangeInfo
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 18
+   */
+  interface RotationChangeInfo {
+    /**
+     * Rotation change type
+     *
+     * @type { RotationChangeType }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    type: RotationChangeType;
+    /**
+     * Orientation
+     *
+     * @type { Orientation }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    orientation: Orientation;
+    /**
+     * Display id
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    displayId: number;
+    /**
+     * Display rect
+     *
+     * @type { Rect }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    displayRect: Rect;
+  }
+
+  /**
+   * Rotation change result
+   *
+   * @interface RotationChangeResult
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 18
+   */
+  interface RotationChangeResult {
+    /**
+     * Rect type
+     *
+     * @enum { RectType }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    rectType: RectType;
+    /**
+     * Window rect
+     *
+     * @enum { Rect }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    windowRect: Rect;
+  }
+
+  /**
+   * Rotation Change callback
+   *
+   * @typedef RotationChangeCallback<T, U>
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 18
+   */
+  interface RotationChangeCallback<T, U> {
+    /**
+     * Defines the rotation change callbcak
+     *
+     * @param { T } info
+     * @returns { U } result
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    (info: T): U;
+  }
 }
 
 export default window;
