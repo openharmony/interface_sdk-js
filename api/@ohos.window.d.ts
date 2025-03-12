@@ -8897,6 +8897,24 @@ declare namespace window {
     getParentWindow(): Window;
 
     /**
+     * Set whether the sub window supports simultaneous display on multiple screens when the parent window is dragged to move or dragged to zoom.
+     *
+     * @param { boolean } enabled - The value true means sub window supports simultaneous display on multiple screens when the parent window
+     *                              is dragged to move or dragged to zoom, and false means the opposite.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.Function setFollowParentMultiScreenPolicy can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 16
+     */
+    setFollowParentMultiScreenPolicy(enabled: boolean): Promise<void>;
+
+    /**
      * Set whether the title bar and dock bar will show, when the mouse hovers over hot area.
      *
      * @param { boolean } isTitleHoverShown - The value true means to display the title bar, and false means the opposite.
