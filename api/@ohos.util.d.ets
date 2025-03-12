@@ -1,3 +1,25 @@
+/*
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+'use static';
+/**
+ * @file
+ * @kit ArkTS
+ * @arkts >= 1.2
+ */
+
 declare namespace util {
   /**
    * %s: String will be used to convert all values except BigInt, Object and -0. BigInt values will be represented
@@ -88,7 +110,7 @@ declare namespace util {
      * @atomicservice
      * @since 17
      */
-    length: number;
+    get length(): number;
 
     /**
      * Obtains the capacity of the current buffer.
@@ -316,6 +338,247 @@ declare namespace util {
      * @since 17
      */
     $_iterator(): IterableIterator<[K, V]>;
+  }
+
+  /**
+   * Defines the TextDecoder related options parameters.
+   *
+   * @interface TextDecoderOptions
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  interface TextDecoderOptions {
+    /**
+     * Is a fatal error displayed? The default value is false.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+
+    fatal?: boolean;
+    /**
+    * Do you want to ignore BOM tags? The default value is false.
+    * @type { ?boolean }
+    * @syscap SystemCapability.Utils.Lang
+    * @crossplatform
+    * @atomicservice
+    * @since 20
+    */
+    ignoreBOM?: boolean;
+  }
+
+  /**
+   * Defines the decode with stream related options parameters.
+   *
+   * @interface DecodeToStringOptions
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  interface DecodeToStringOptions {
+    /**
+    * Stream option controls stream processing in decoding. The default value is false.
+    * @type { ?boolean }
+    * @syscap SystemCapability.Utils.Lang
+    * @crossplatform
+    * @atomicservice
+    * @since 20
+    */
+    stream?: boolean;
+  }
+
+  /**
+   * The TextDecoder represents a text decoder that accepts a string as input,
+   * decodes it in UTF-8 format, and outputs UTF-8 byte stream.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  class TextDecoder {
+    /**
+     * The textDecoder constructor.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    constructor();
+
+    /**
+     * The source encoding's name, lowercased.
+     *
+     * @return { string } The string of the TextDecoder encoding.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    get encoding(): string;
+
+    /**
+     * Returns `true` if error mode is "fatal", and `false` otherwise.
+     *
+     * @return { boolean } Whether to display fatal errors.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    get fatal(): boolean;
+
+    /**
+     * Returns `true` if ignore BOM flag is set, and `false` otherwise.
+     *
+     * @return { boolean } Returns `true` if ignore BOM flag is set, and `false` otherwise.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    get ignoreBOM(): boolean;
+
+    /**
+     * Replaces the original constructor to process arguments and return a textDecoder object.
+     *
+     * @param { string } [encoding] - Decoding format
+     * @param { TextDecoderOptions } [options] - Options
+     * @returns { TextDecoder }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    static create(encoding?: string, options?: TextDecoderOptions): TextDecoder;
+
+    /**
+     * The input is decoded and a string is returned.
+     * If options.stream is set to true, any incomplete byte sequences found at the end of the input are internally
+     * buffered and will be emitted after the next call to textDecoder.decodeToString().
+     * If textDecoder.fatal is set to true, any decoding errors that occur will result in a TypeError being thrown.
+     *
+     * @param { Uint8Array } input - Decoded numbers in accordance with the format.
+     * @param { DecodeToStringOptions } [options] - The default option is set to false.
+     * @returns { string } Return decoded text
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Parameter verification failed;
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    decodeToString(input: Uint8Array, options?: DecodeToStringOptions): string;
+  }
+
+  /**
+   * Return encoded text.
+   *
+   * @interface EncodeIntoUint8ArrayInfo
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  interface EncodeIntoUint8ArrayInfo {
+    /**
+    * The read represents the number of characters that have been encoded.
+    * @type { int }
+    * @syscap SystemCapability.Utils.Lang
+    * @crossplatform
+    * @atomicservice
+    * @since 20
+    */
+
+    read: int;
+    /**
+    * The written represents the number of bytes occupied by the encoded characters.
+    * @type { int }
+    * @syscap SystemCapability.Utils.Lang
+    * @crossplatform
+    * @atomicservice
+    * @since 20
+    */
+    written: int;
+  }
+
+  /**
+   * The TextEncoder interface represents a text encoder.
+   * The encoder takes the byte stream as the input and outputs the String string.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  class TextEncoder {
+    /**
+     * Encoding format.
+     *
+     * @return { string } The string of the TextEncoder encoding.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    get encoding(): string;
+
+    /**
+     * The textEncoder constructor.
+     *
+     * @param { string } [encoding] - The string for encoding format.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Parameter verification failed.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    constructor(encoding?: string);
+
+    /**
+     * Create a TextEncoder object.
+     *
+     * @param { string } [encoding] - The string for encoding format.
+     * @returns { TextEncoder }
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Parameter verification failed.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    static create(encoding?: string): TextEncoder;
+
+    /**
+     * UTF-8 encodes the input string and returns a Uint8Array containing the encoded bytes.
+     *
+     * @param { string } [input] - The string to be encoded.
+     * @returns { Uint8Array } Returns the encoded text.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    encodeInto(input?: string): Uint8Array;
+
+    /**
+     * Encode string, write the result to dest array.
+     *
+     * @param { string } input - The string to be encoded.
+     * @param { Uint8Array } dest - Encoded numbers in accordance with the format
+     * @returns { EncodeIntoUint8ArrayInfo } Return the object, where read represents
+     * the number of characters that have been encoded, and written
+     * represents the number of bytes occupied by the encoded characters.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    encodeIntoUint8Array(input: string, dest: Uint8Array): EncodeIntoUint8ArrayInfo;
   }
 }
 export default util;
