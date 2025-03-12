@@ -18,6 +18,9 @@
  * @kit IMEKit
  */
 
+import { Resource } from './global/resource';
+import { CustomDialogController } from './@ohos.arkui.component.CustomDialogController'
+
 /**
  * Define pattern options of keyboard.
  *
@@ -84,8 +87,10 @@ export interface Pattern {
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 11
  */
-@CustomDialog
-export declare struct InputMethodListDialog {
+/**
+ * @CustomDialog
+ */
+declare interface InputMethodListDialog {
   /**
    * Sets the controller.
    *
@@ -103,3 +108,4 @@ export declare struct InputMethodListDialog {
    */
   patternOptions?: PatternOptions;
 }
+export InputMethodListDialog;

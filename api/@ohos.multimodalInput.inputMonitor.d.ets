@@ -21,12 +21,10 @@
 import { Callback } from './@ohos.base';
 import { MouseEvent } from './@ohos.multimodalInput.mouseEvent';
 import type display from './@ohos.display';
-import type { TouchEvent } from './@ohos.multimodalInput.touchEvent';
-import type { Rotate, Pinch, ThreeFingersSwipe, FourFingersSwipe, SwipeInward } from './@ohos.multimodalInput.gestureEvent';
-import type { ThreeFingersTap, TouchGestureEvent } from './@ohos.multimodalInput.gestureEvent';
-import type { FingerprintEvent } from './@ohos.multimodalInput.shortKey';
-import type { KeyEvent } from './@ohos.multimodalInput.keyEvent';
-import type { KeyCode } from './@ohos.multimodalInput.keyCode';
+import  { TouchEvent } from './@ohos.multimodalInput.touchEvent';
+import  { Rotate, Pinch, ThreeFingersSwipe, FourFingersSwipe, SwipeInward } from './@ohos.multimodalInput.gestureEvent';
+import  { ThreeFingersTap, TouchGestureEvent } from './@ohos.multimodalInput.gestureEvent';
+import  { FingerprintEvent } from './@ohos.multimodalInput.shortKey';
 
 /**
  * Global input event listener
@@ -37,7 +35,7 @@ import type { KeyCode } from './@ohos.multimodalInput.keyCode';
  * @systemapi hide for inner use
  * @since 7
  */
-export default declare namespace inputMonitor {
+declare namespace inputMonitor {
   /**
    * Callback used to receive touch input events. If **true** is returned, the touch input is consumed,
    * and the system performs the closing operation.
@@ -47,17 +45,18 @@ export default declare namespace inputMonitor {
    * @systemapi hide for inner use
    * @since 7
    */
-  
-  /**
-   * Callback used to receive touch input events.
-   *
-   * @param { TouchEvent } touchEvent - the reported touch event.
-   * @returns { Boolean } Returns true indicates the touch input is consumed, the value false indicates opposite.
-   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
-   * @systemapi hide for inner use
-   * @since 7
-   */
-  type TouchEventReceiver = (touchEvent: TouchEvent) => Boolean;
+  class TouchEventReceiver {
+    /**
+     * Callback used to receive touch input events.
+     *
+     * @param { TouchEvent } touchEvent - the reported touch event.
+     * @returns { Boolean } Returns true indicates the touch input is consumed, the value false indicates opposite.
+     * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+     * @systemapi hide for inner use
+     * @since 7
+     */
+    (touchEvent: TouchEvent): Boolean;
+  }
 
   /**
    * Listens for touch input events.
@@ -478,7 +477,7 @@ export default declare namespace inputMonitor {
    *                                 2.Incorrect parameter types.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 14
+   * @since 13
    */
   function on(type: 'touchscreenSwipe', fingers: number, receiver: Callback<TouchGestureEvent>): void;
 
@@ -496,7 +495,7 @@ export default declare namespace inputMonitor {
    *                                 2.Incorrect parameter types.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 14
+   * @since 13
    */
   function off(type: 'touchscreenSwipe', fingers: number, receiver?: Callback<TouchGestureEvent>): void;
 
@@ -514,7 +513,7 @@ export default declare namespace inputMonitor {
    *                                 2.Incorrect parameter types.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 14
+   * @since 13
    */
   function on(type: 'touchscreenPinch', fingers: number, receiver: Callback<TouchGestureEvent>): void;
 
@@ -532,41 +531,8 @@ export default declare namespace inputMonitor {
    *                                 2.Incorrect parameter types.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 14
+   * @since 13
    */
   function off(type: 'touchscreenPinch', fingers: number, receiver?: Callback<TouchGestureEvent>): void;
-
-/**
-   * Enables listening for release events of specified keys, such as the logo, power, and volume keys.
-   *
-   * @permission ohos.permission.INPUT_MONITORING
-   * @param { 'keyPressed' } type - Event type, which is **keyPressed**.
-   * @param { Array<KeyCode> }  keys - Key list.
-   * @param { Callback<KeyEvent> } receiver - Callback used to receive the reported data.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 4100001 - Event listening not supported for the key.
-   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
-   * @systemapi hide for inner use
-   * @since 15
-   */
-  function on(type: 'keyPressed', keys: Array<KeyCode>, receiver: Callback<KeyEvent>): void;
-
-/**
-   * Disables listening for release events of specified keys.
-   *
-   * @permission ohos.permission.INPUT_MONITORING
-   * @param { 'keyPressed' } type - Event type, which is **keyPressed**.
-   * @param { Callback<KeyEvent> } receiver - Callback used to receive the reported data.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
-   * @systemapi hide for inner use
-   * @since 15
-   */
-  function off(type: 'keyPressed', receiver?: Callback<KeyEvent>): void;
 }
+export default inputMonitor;
