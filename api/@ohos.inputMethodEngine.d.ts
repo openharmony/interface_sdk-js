@@ -649,6 +649,7 @@ declare namespace inputMethodEngine {
      *
      * @param { 'callingDisplayChanged' } type - indicates the type of subscribe event.
      * @param { Callback<number> } callback - indicates the callback of on('callingDisplayChanged').
+     * @throws { BusinessError } 801 - capability not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 18
      */
