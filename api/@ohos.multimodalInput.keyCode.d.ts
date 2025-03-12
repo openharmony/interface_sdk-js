@@ -1238,7 +1238,7 @@ export declare enum KeyCode {
    * KEYCODE_BUTTON_A
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 18
+   * @since 15
    */
   KEYCODE_BUTTON_A = 2301,
 
@@ -1246,7 +1246,7 @@ export declare enum KeyCode {
    * KEYCODE_BUTTON_B
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 18
+   * @since 15
    */
   KEYCODE_BUTTON_B = 2302,
 
@@ -1254,7 +1254,7 @@ export declare enum KeyCode {
    * KEYCODE_BUTTON_X
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 18
+   * @since 15
    */
   KEYCODE_BUTTON_X = 2304,
 
@@ -1262,7 +1262,7 @@ export declare enum KeyCode {
    * KEYCODE_BUTTON_Y
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 18
+   * @since 15
    */
   KEYCODE_BUTTON_Y = 2305,
 
@@ -1270,7 +1270,7 @@ export declare enum KeyCode {
    * KEYCODE_BUTTON_L1
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 18
+   * @since 15
    */
   KEYCODE_BUTTON_L1 = 2307,
 
@@ -1278,7 +1278,7 @@ export declare enum KeyCode {
    * KEYCODE_BUTTON_R1
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 18
+   * @since 15
    */
   KEYCODE_BUTTON_R1 = 2308,
 
@@ -1286,7 +1286,7 @@ export declare enum KeyCode {
    * KEYCODE_BUTTON_L2
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 18
+   * @since 15
    */
   KEYCODE_BUTTON_L2 = 2309,
 
@@ -1294,7 +1294,7 @@ export declare enum KeyCode {
    * KEYCODE_BUTTON_R2
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 18
+   * @since 15
    */
   KEYCODE_BUTTON_R2 = 2310,
 
@@ -1302,7 +1302,7 @@ export declare enum KeyCode {
    * KEYCODE_BUTTON_SELECT
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 18
+   * @since 15
    */
   KEYCODE_BUTTON_SELECT = 2311,
 
@@ -1310,7 +1310,7 @@ export declare enum KeyCode {
    * KEYCODE_BUTTON_START
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 18
+   * @since 15
    */
   KEYCODE_BUTTON_START = 2312,
 
@@ -1318,7 +1318,7 @@ export declare enum KeyCode {
    * KEYCODE_BUTTON_MODE
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 18
+   * @since 15
    */
   KEYCODE_BUTTON_MODE = 2313,
 
@@ -1326,7 +1326,7 @@ export declare enum KeyCode {
    * KEYCODE_BUTTON_THUMBL
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 18
+   * @since 15
    */
   KEYCODE_BUTTON_THUMBL = 2314,
 
@@ -1334,7 +1334,7 @@ export declare enum KeyCode {
    * KEYCODE_BUTTON_THUMBR
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 18
+   * @since 15
    */
   KEYCODE_BUTTON_THUMBR = 2315,
 
