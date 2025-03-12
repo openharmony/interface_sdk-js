@@ -169,6 +169,33 @@ declare namespace adminManager {
   }
 
   /**
+   * Enum for admin running mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @since 18
+   */
+  export enum RunningMode {
+    /**
+     * The default mode.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @since 18
+     */
+    DEFAULT = 0,
+
+    /**
+     * Multi-user running mode.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @since 18
+     */
+    MULTI_USER = 1,
+  }
+
+  /**
    * Enables the given ability as a administrator of the device.
    * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission or the shell uid can call this method.
    *
@@ -458,6 +485,24 @@ declare namespace adminManager {
    * @since 9
    */
   function setEnterpriseInfo(admin: Want, enterpriseInfo: EnterpriseInfo): Promise<void>;
+
+  /**
+   * Set the running mode for admin.
+   * Only the administrator app can call this method.
+   *
+   * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { RuningMode } mode - indicates the running mode for admin. 
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 18
+   */
+  function setAdminRunningMode(admin: Want, mode: RunningMode): void;
 
   /**
    * Get whether the ability is enabled as super device administrator.
