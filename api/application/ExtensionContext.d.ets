@@ -41,60 +41,58 @@ import { ExtensionAbilityInfo } from '../bundleManager/ExtensionAbilityInfo';
  * @since 11
  */
 export default class ExtensionContext extends Context {
-   /**
-    * Indicates configuration information about an module.
-    *
-    * @type { HapModuleInfo }
-    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @StageModelOnly
-    * @since 9
-    */
-   /**
-    * Indicates configuration information about an module.
-    *
-    * @type { HapModuleInfo }
-    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @StageModelOnly
-    * @atomicservice
-    * @since 11
-    */
-   currentHapModuleInfo: HapModuleInfo;
-
-   /**
-    * Indicates configuration information.
-    *
-    * @type { Configuration }
-    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @StageModelOnly
-    * @since 9
-    */
-   /**
-    * Indicates configuration information.
-    *
-    * @type { Configuration }
-    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @StageModelOnly
-    * @atomicservice
-    * @since 11
-    */
-   config?: Configuration;
-
-   /**
-    * Extension information.
-    *
-    * @type { ExtensionAbilityInfo }
-    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @StageModelOnly
-    * @since 9
-    */
-   /**
-    * Extension information.
-    *
-    * @type { ExtensionAbilityInfo }
-    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @StageModelOnly
-    * @atomicservice
-    * @since 11
-    */
-   extensionAbilityInfo: ExtensionAbilityInfo;
- }
+  /**
+   * Indicates configuration information about an module.
+   *
+   * @type { HapModuleInfo }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 9
+   */
+  /**
+   * Indicates configuration information about an module.
+   *
+   * @type { HapModuleInfo }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
+   */
+  currentHapModuleInfo?: HapModuleInfo;
+  /**
+   * Indicates configuration information.
+   *
+   * @type { Configuration }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 9
+   */
+  /**
+   * Indicates configuration information.
+   *
+   * @type { Configuration }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
+   */
+  config?: Configuration;
+  /**
+   * Extension information.
+   *
+   * @type { ExtensionAbilityInfo }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 9
+   */
+  /**
+   * Extension information.
+   *
+   * @type { ExtensionAbilityInfo }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
+   */
+  extensionAbilityInfo?: ExtensionAbilityInfo;
+}
