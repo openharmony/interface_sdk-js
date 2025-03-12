@@ -218,26 +218,7 @@ declare enum PasteButtonOnClickResult {
  * @atomicservice
  * @since 11
  */
-class PasteButtonInterface {
-  /**
-   * Creates a paste button.
-   *
-   * @returns { PasteButtonAttribute } Returns the attribute of the paste button.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  /**
-   * Creates a paste button.
-   *
-   * @returns { PasteButtonAttribute } Returns the attribute of the paste button.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
-  static $_instantiate(factory: () => PasteButtonAttribute): PasteButtonAttribute {
-    return factory();
-  }
-}
+type PasteButtonInterface = (options?: PasteButtonOptions) => PasteButtonAttribute;
 
 /**
  * Callback function when the paste button is clicked.
