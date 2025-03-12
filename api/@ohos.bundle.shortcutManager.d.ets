@@ -48,7 +48,7 @@ declare namespace shortcutManager {
    * @systemapi
    * @since 12
    */
-  function addDesktopShortcutInfo(shortcutInfo: ShortcutInfo, userId: number): Promise<void>;
+  export function addDesktopShortcutInfo(shortcutInfo: ShortcutInfo, userId: number): Promise<void>;
 
   /**
    * Delete desktop shortcut info.
@@ -65,7 +65,7 @@ declare namespace shortcutManager {
    * @systemapi
    * @since 12
    */
-  function deleteDesktopShortcutInfo(shortcutInfo: ShortcutInfo, userId: number): Promise<void>;
+  export function deleteDesktopShortcutInfo(shortcutInfo: ShortcutInfo, userId: number): Promise<void>;
 
   /**
    * Get all desktop shortcut info.
@@ -81,7 +81,7 @@ declare namespace shortcutManager {
    * @systemapi
    * @since 12
    */
-  function getAllDesktopShortcutInfo(userId: number): Promise<Array<ShortcutInfo>>;
+  export function getAllDesktopShortcutInfo(userId: number): Promise<Array<ShortcutInfo>>;
 
   /**
    * Provides information about a shortcut, including the shortcut ID and label.
