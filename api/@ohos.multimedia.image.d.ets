@@ -3449,6 +3449,69 @@ declare namespace image {
   /**
    * Describes image properties.
    *
+   * @typedef GetImagePropertyOptions
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @since 7
+   * @deprecated since 11
+   * @useinstead image.ImagePropertyOptions
+   */
+  /**
+   * Describes image properties.
+   *
+   * @typedef GetImagePropertyOptions
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @crossplatform
+   * @since 10
+   * @deprecated since 11
+   * @useinstead image.ImagePropertyOptions
+   */
+  interface GetImagePropertyOptions {
+    /**
+     * Index of an image.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 7
+     * @deprecated since 11
+     * @useinstead image.ImagePropertyOptions#index
+     */
+    /**
+     * Index of an image.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 10
+     * @deprecated since 11
+     * @useinstead image.ImagePropertyOptions#index
+     */
+    index?: int;
+
+    /**
+     * Default property value.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 7
+     * @deprecated since 11
+     * @useinstead image.ImagePropertyOptions#defaultValue
+     */
+    /**
+     * Default property value.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 10
+     * @deprecated since 11
+     * @useinstead image.ImagePropertyOptions#defaultValue
+     */
+    defaultValue?: string;
+  }
+
+  /**
+   * Describes image properties.
+   *
    * @typedef ImagePropertyOptions
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
@@ -4964,6 +5027,22 @@ declare namespace image {
   /**
    * Creates an ImageReceiver instance.
    *
+   * @param { number } width The default width in pixels of the Images that this receiver will produce.
+   * @param { number } height The default height in pixels of the Images that this receiver will produce.
+   * @param { number } format The format of the Image that this receiver will produce. This must be one of the
+   *            {@link ImageFormat} constants.
+   * @param { number } capacity The maximum number of images the user will want to access simultaneously.
+   * @returns { ImageReceiver } Returns the ImageReceiver instance if the operation is successful; returns null otherwise.
+   * @syscap SystemCapability.Multimedia.Image.ImageReceiver
+   * @since 9
+   * @deprecated since 11
+   * @useinstead image#createImageReceiver
+   */
+  function createImageReceiver(width: number, height: number, format: number, capacity: number): ImageReceiver;
+
+  /**
+   * Creates an ImageReceiver instance.
+   *
    * @param { Size } size - The default {@link Size} in pixels of the Images that this receiver will produce.
    * @param { ImageFormat } format - The format of the Image that this receiver will produce. This must be one of the
    *            {@link ImageFormat} constants.
@@ -4974,6 +5053,22 @@ declare namespace image {
    * @since 11
    */
   function createImageReceiver(size: Size, format: ImageFormat, capacity: number): ImageReceiver;
+
+  /**
+   * Creates an ImageCreator instance.
+   *
+   * @param { number } width The default width in pixels of the Images that this creator will produce.
+   * @param { number } height The default height in pixels of the Images that this creator will produce.
+   * @param { number } format The format of the Image that this creator will produce. This must be one of the
+   *            {@link ImageFormat} constants.
+   * @param { number } capacity The maximum number of images the user will want to access simultaneously.
+   * @returns { ImageCreator } Returns the ImageCreator instance if the operation is successful; returns null otherwise.
+   * @syscap SystemCapability.Multimedia.Image.ImageCreator
+   * @since 9
+   * @deprecated since 11
+   * @useinstead image#createImageCreator
+   */
+  function createImageCreator(width: number, height: number, format: number, capacity: number): ImageCreator;
 
   /**
    * Creates an ImageCreator instance.
@@ -5593,7 +5688,7 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    getBytesNumberPerRow(): int;
+    getBytesNumberPerRow(): number;
 
     /**
      * Obtains the total number of bytes of the image pixel map.
@@ -5629,7 +5724,7 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    getPixelBytesNumber(): int;
+    getPixelBytesNumber(): number;
 
     /**
      * Obtains the density of the image pixel map.
@@ -5945,7 +6040,7 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    scaleSync(x: double, y: double): void;
+    scaleSync(x: number, y: number): void;
 
     /**
      * Image zoom in width and height width with anti-aliasing. This method uses a promise to return the result.
@@ -5979,7 +6074,7 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    scaleSync(x: double, y: double, level: int): void;
+    scaleSync(x: number, y: number, level: AntiAliasingLevel): void;
 
     /**
      * Image position transformation. This method uses a callback to return the operation result.
@@ -7840,6 +7935,85 @@ declare namespace image {
     getImageProperty(key: PropertyKey, options?: ImagePropertyOptions): Promise<string>;
 
     /**
+     * Obtains the value of a property in an image with the specified index. This method uses a
+     * promise to return the property value in a string.
+     *
+     * @param { string } key Name of the property whose value is to be obtained.
+     * @param { GetImagePropertyOptions } options Index of the image.
+     * @returns { Promise<string> } A Promise instance used to return the property value. If the operation fails, the default value is returned.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 7
+     * @deprecated since 11
+     * @useinstead image.ImageSource#getImageProperty
+     */
+    /**
+     * Obtains the value of a property in an image with the specified index. This method uses a
+     * promise to return the property value in a string.
+     *
+     * @param { string } key Name of the property whose value is to be obtained.
+     * @param { GetImagePropertyOptions } options Index of the image.
+     * @returns { Promise<string> } A Promise instance used to return the property value. If the operation fails, the default value is returned.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 10
+     * @deprecated since 11
+     * @useinstead image.ImageSource#getImageProperty
+     */
+    getImageProperty(key: string, options?: GetImagePropertyOptions): Promise<string>;
+
+    /**
+     * Obtains the value of a property in this image. This method uses a callback to return the
+     * property value in a string.
+     *
+     * @param { string } key Name of the property whose value is to be obtained.
+     * @param { AsyncCallback<string> } callback Callback used to return the property value. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 7
+     * @deprecated since 11
+     * @useinstead image.ImageSource#getImageProperty
+     */
+    /**
+     * Obtains the value of a property in this image. This method uses a callback to return the
+     * property value in a string.
+     *
+     * @param { string } key Name of the property whose value is to be obtained.
+     * @param { AsyncCallback<string> } callback Callback used to return the property value. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 10
+     * @deprecated since 11
+     * @useinstead image.ImageSource#getImageProperty
+     */
+    getImageProperty(key: string, callback: AsyncCallback<string>): void;
+
+    /**
+     * Obtains the value of a property in an image with the specified index. This method uses
+     * a callback to return the property value in a string.
+     *
+     * @param { string } key Name of the property whose value is to be obtained.
+     * @param { GetImagePropertyOptions } options Index of the image.
+     * @param { AsyncCallback<string> } callback Callback used to return the property value. If the operation fails, the default value is returned.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 7
+     * @deprecated since 11
+     * @useinstead image.ImageSource#getImageProperty
+     */
+    /**
+     * Obtains the value of a property in an image with the specified index. This method uses
+     * a callback to return the property value in a string.
+     *
+     * @param { string } key Name of the property whose value is to be obtained.
+     * @param { GetImagePropertyOptions } options Index of the image.
+     * @param { AsyncCallback<string> } callback Callback used to return the property value. If the operation fails, the default value is returned.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 10
+     * @deprecated since 11
+     * @useinstead image.ImageSource#getImageProperty
+     */
+    getImageProperty(key: string, options: GetImagePropertyOptions, callback: AsyncCallback<string>): void;
+
+    /**
      * Obtains the value of properties in an image. This method uses a promise to return the property values in array
      * of records.
      *
@@ -7890,6 +8064,60 @@ declare namespace image {
      * @since 12
      */
     modifyImageProperty(key: PropertyKey, value: string): Promise<void>;
+
+    /**
+     * Modify the value of a property in an image with the specified key. This method uses a
+     * promise to return the property value in a string.
+     *
+     * @param { string } key Name of the property whose value is to be modified.
+     * @param { string } value The value to be set to property.
+     * @returns { Promise<void> } A Promise instance used to return the property value.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 9
+     * @deprecated since 11
+     * @useinstead image.ImageSource#modifyImageProperty
+     */
+    /**
+     * Modify the value of a property in an image with the specified key. This method uses a
+     * promise to return the property value in a string.
+     *
+     * @param { string } key Name of the property whose value is to be modified.
+     * @param { string } value The value to be set to property.
+     * @returns { Promise<void> } A Promise instance used to return the property value.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 10
+     * @deprecated since 11
+     * @useinstead image.ImageSource#modifyImageProperty
+     */
+    modifyImageProperty(key: string, value: string): Promise<void>;
+
+    /**
+     * Modify the value of a property in an image with the specified key. This method uses a callback to return the
+     * property value in a string.
+     *
+     * @param { string } key Name of the property whose value is to be obtained.
+     * @param { string } value The value to be set to property.
+     * @param { AsyncCallback<void> } callback Callback to return the operation result.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 9
+     * @deprecated since 11
+     * @useinstead image.ImageSource#modifyImageProperty
+     */
+    /**
+     * Modify the value of a property in an image with the specified key. This method uses a callback to return the
+     * property value in a string.
+     *
+     * @param { string } key Name of the property whose value is to be obtained.
+     * @param { string } value The value to be set to property.
+     * @param { AsyncCallback<void> } callback Callback to return the operation result.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 10
+     * @deprecated since 11
+     * @useinstead image.ImageSource#modifyImageProperty
+     */
+    modifyImageProperty(key: string, value: string, callback: AsyncCallback<void>): void;
 
     /**
      * Modify the value of properties in an image with the specified keys.
