@@ -2611,7 +2611,7 @@ declare namespace print {
   }
 
   /**
-   * Update the information of the specific printer.
+   * Update the information of the specific printer in system.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { PrinterInformation } printerInformation - Indicates the printer to be updated.
    * @returns { Promise<void> } the promise returned by the function.
@@ -2622,7 +2622,7 @@ declare namespace print {
    * @systemapi Hide this for inner system use.
    * @since 18
    */
-  function updatePrinterInSystem(printerInformation: PrinterInformation): Promise<void>;
+  function updatePrinterInformation(printerInformation: PrinterInformation): Promise<void>;
 
   /**
    * Save the preferences set by the user.
@@ -2637,7 +2637,7 @@ declare namespace print {
    * @systemapi Hide this for inner system use.
    * @since 18
    */
-  function setPrinterPreference(printerId: string, printerPreferences: PrinterPreferences): Promise<void>;
+  function setPrinterPreferences(printerId: string, printerPreferences: PrinterPreferences): Promise<void>;
 
   /**
    * Discover all usb printers.
@@ -2682,28 +2682,41 @@ declare namespace print {
   function notifyPrintServiceEvent(event: ApplicationEvent, jobId: string): Promise<void>;
 
   /**
+   * Defines the callback type used in registering to listen for PrinterEvent.
+   * The value of event indicates the information of PrinterEvent.
+   * The value of printerInformation indicates the latest printer information.
+   *
+   * @typedef { function } PrinterChangeCallback
+   * @param { PrinterEvent } event - the information of PrinterEvent
+   * @param { PrinterInformation } printerInformation - the information of the latest printer
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 18
+   */
+  type PrinterChangeCallback = (event: PrinterEvent, printerInformation: PrinterInformation) => void;
+
+  /**
    * Register event callback for the change of printer.
    * @permission ohos.permission.PRINT
    * @param { 'printerChange' } type - Indicates change of printer.
-   * @param { function } callback - The callback function for change of printer.
+   * @param { PrinterChangeCallback } callback - The callback function for change of printer.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 18
    */
-  function on(type: 'printerChange', callback: (event: PrinterEvent, printerInformation: PrinterInformation) => void): void;
+  function on(type: 'printerChange', callback: PrinterChangeCallback): void;
 
   /**
    * Unregister event callback for the change of printer.
    * @permission ohos.permission.PRINT
    * @param { 'printerChange' } type - Indicates change of printer.
-   * @param { ?Callback<boolean> } callback - The callback function for change of printer.
+   * @param { PrinterChangeCallback } [callback] - The callback function for change of printer.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 18
    */
-  function off(type: 'printerChange', callback?: Callback<boolean>): void;
+  function off(type: 'printerChange', callback?: PrinterChangeCallback): void;
 }
 
 export default print;
