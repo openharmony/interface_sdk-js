@@ -55,14 +55,13 @@ export type AsyncCallback<T, E = void> = (err: BusinessError<E>, data: T)=> void
 
 /**
  * Defines the error interface.
- * @interface BusinessError
  * @syscap SystemCapability.Base
  * @crossplatform
  * @form
  * @atomicservice
  * @since 20
  */
-export interface BusinessError<T = void> {
+export declare class BusinessError<T = void> extends Error {
   /**
    * Defines the basic error code.
    * @type { number } code
@@ -125,34 +124,4 @@ export interface BusinessError<T = void> {
    * @since 12
    */
   data?: T;
-  /**
-   * Defines the error name for business
-   * @type { string } name
-   * @syscap SystemCapability.Base
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   */
-  name: string;
-  /**
-   * Defines the error message for business
-   * @type { string } message
-   * @syscap SystemCapability.Base
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   */
-  message: string;
-  /**
-   * Defines the error stack info
-   * @type { ?string } stack
-   * @syscap SystemCapability.Base
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   */
-  stack?: string;
 }
