@@ -43,7 +43,7 @@ template("ohos_copy_internal") {
 
   # fullSDK中api路径
   input_project_dir = "//interface/sdk-js"
-  if (sdk_build_public || product_name == "ohos-sdk") {
+  if (sdk_type != "ets2" && (sdk_build_public || product_name == "ohos-sdk")) {
     # publicSDK中api路径，经过./build-tools/delete_systemapi_plugin.js脚本处理过systemapi的接口
     input_project_dir = "//out/sdk-public/public_interface/sdk-js"
   }
@@ -99,7 +99,7 @@ template("ohos_declaration_template") {
 
   # fullSDK中api路径
   input_project_dir = "//interface/sdk-js"
-  if (sdk_build_public || product_name == "ohos-sdk") {
+  if (sdk_type != "ets2" && (sdk_build_public || product_name == "ohos-sdk")) {
     # publicSDK中api路径，经过./build-tools/delete_systemapi_plugin.js脚本处理过systemapi的接口
     input_project_dir = "//out/sdk-public/public_interface/sdk-js"
   }
@@ -221,11 +221,7 @@ ohos_copy_internal("bundle_kits") {
 # ets2/kits执行脚本
 ohos_copy_internal("bundle_kits2") {
   sdk_type = "ets2"
-  if (sdk_build_public || product_name == "ohos-sdk") {
-    iv_input = "//out/sdk-public/public_interface/sdk-js/kits"
-  } else {
-    iv_input = "//interface/sdk-js/kits"
-  }
+  iv_input = "//interface/sdk-js/kits"
 }
 
 # js/api执行脚本
