@@ -32,8 +32,10 @@ declare namespace opp {
    * create the instance of OPP server profile.
    *
    * @returns { OppServerProfile } Returns the instance of opp profile.
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
    * @since 16
    */
   function createOppServerProfile(): OppServerProfile;

@@ -1169,7 +1169,7 @@ declare namespace connection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 18
+   * @since 16
    */
   function getRemoteProductId(deviceId: string): string;
 
