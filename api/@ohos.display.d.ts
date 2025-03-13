@@ -580,7 +580,7 @@ declare namespace display {
    * @returns { Promise<number> } Promise used to return the created virtual screen id
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types.
+   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap  SystemCapability.Window.SessionManager
@@ -606,7 +606,7 @@ declare namespace display {
   function destroyVirtualScreen(screenId: number): Promise<void>;
   
   /**
-   * Set surface for the virtual display.
+   * Set surface for the virtual screen.
    *
    * @permission ohos.permission.ACCESS_VIRTUAL_SCREEN
    * @param { number } screenId Indicates the screen id of the virtual screen.
@@ -624,14 +624,14 @@ declare namespace display {
   function setVirtualScreenSurface(screenId: number, surfaceId: string): Promise<void>;
 
   /**
-   * Make display as unique-screen
+   * Make screen as unique-screen
    *
    * @permission ohos.permission.ACCESS_VIRTUAL_SCREEN
    * @param { number } screenId Indicates the unique screen id. It's type should be int.
    * @returns { Promise<void> } Promise that returns no value
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Parameter verification failed.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
