@@ -71,7 +71,7 @@ export interface CheckPackageHasInstalledOptions {
    * @since 3
    * @deprecated since 9
    */
-  fail?: (data: string, code: int) => void;
+  fail?: (data: string, code: number) => void;
 
   /**
    * Called when the execution is completed.

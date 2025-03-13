@@ -93,53 +93,53 @@ export interface ExtensionAbilityInfo {
   /**
    * Indicates the label id of the extension ability info
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates the label id of the extension ability info
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
    */
-  readonly labelId: int;
+  readonly labelId: number;
 
   /**
    * Indicates the description id of the extension ability info
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates the description id of the extension ability info
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
    */
-  readonly descriptionId: int;
+  readonly descriptionId: number;
 
   /**
    * Indicates the icon id of the extension ability info
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates the icon id of the extension ability info
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
    */
-  readonly iconId: int;
+  readonly iconId: number;
 
   /**
    * Indicates whether this ability can be called by other abilities
@@ -297,15 +297,15 @@ export interface ExtensionAbilityInfo {
    * @atomicservice
    * @since 12
    */
-    readonly skills: Array<Skill>;
+  readonly skills: Array<Skill>;
 
   /**
    * Indicates the appIndex of extension ability, only work in clone app mode
    *
-   * @type { int }
+   * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 12
    */
-  readonly appIndex: int;
+  readonly appIndex: number;
 }
