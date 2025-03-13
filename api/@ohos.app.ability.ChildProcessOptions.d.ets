@@ -26,7 +26,7 @@
  * @stagemodelonly
  * @since 12
  */
-export default interface ChildProcessOptions {
+export interface ChildProcessOptions {
   /**
    * Whether the child process runs in an isolated environment.
    *
