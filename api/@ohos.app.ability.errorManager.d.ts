@@ -323,6 +323,21 @@ declare namespace errorManager {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Register loop observer. This function can only by called from main thread,
+   * and if call this function multiple times, the last
+   * modification will overwrite the previous one.
+   * 
+   * @param { 'loopObserver' } type - loopObserver.
+   * @param { number } timeout - Indicates timeout(ms) value of loop observer.
+   * @param { LoopObserver } observer - The loop observer.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   function on(type: 'loopObserver', timeout: number, observer: LoopObserver): void;
 
   /**
@@ -335,6 +350,18 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Unregister loop observer. This function can only by called from main thread.
+   *
+   * @param { 'loopObserver' } type - loopObserver.
+   * @param { LoopObserver } observer - The loop observer.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   function off(type: 'loopObserver', observer?: LoopObserver): void;
 
@@ -456,6 +483,15 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * The observer will be called when application main thread execute timeout.
+   *
+   * @typedef { _LoopObserver }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   export type LoopObserver = _LoopObserver;
   /**

@@ -81,5 +81,14 @@ export default class ErrorObserver {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Will be called when the js runtime throws an exception which doesn't caught by user.
+   *
+   * @param { Error } errObject - the error object about the exception.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   onException?(errObject: Error): void;
 }
