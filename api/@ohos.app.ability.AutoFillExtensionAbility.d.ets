@@ -21,11 +21,7 @@
 import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';
 import type UIExtensionContentSession from './@ohos.app.ability.UIExtensionContentSession';
 import type AutoFillExtensionContext from './application/AutoFillExtensionContext';
-import type FillRequest from './application/AutoFillRequest';
-import type SaveRequest from './application/AutoFillRequest';
-import type UpdateRequest from './application/AutoFillRequest';
-import type FillRequestCallback from './application/AutoFillRequest';
-import type SaveRequestCallback from './application/AutoFillRequest';
+import { FillRequest, SaveRequest, UpdateRequest, FillRequestCallback, SaveRequestCallback } from './application/AutoFillRequest';
 
 /**
  * The class of auto fill extension ability.

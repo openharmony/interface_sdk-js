@@ -21,7 +21,7 @@
 import { HapModuleInfo } from '../bundleManager/HapModuleInfo';
 import { Configuration } from '../@ohos.app.ability.Configuration';
 import Context from './Context';
-import { ExtensionAbilityInfo } from '../bundleManager/ExtensionAbilityInfo';
+import { ExtensionAbilityInfo as _ExtensionAbilityInfo } from '../bundleManager/ExtensionAbilityInfo';
 
 /**
  * The context of an extension. It allows access to extension-specific resources.
@@ -94,5 +94,5 @@ export default class ExtensionContext extends Context {
    * @atomicservice
    * @since 11
    */
-  extensionAbilityInfo?: ExtensionAbilityInfo;
+  extensionAbilityInfo?: _ExtensionAbilityInfo;
 }

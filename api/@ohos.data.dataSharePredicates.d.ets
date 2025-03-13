@@ -37,7 +37,7 @@ import { ValueType } from './@ohos.data.ValuesBucket';
  * @crossplatform
  * @since 12
  */
-export namespace dataSharePredicates {
+export default namespace dataSharePredicates {
   /**
    * Manages relational database configurations.
    *

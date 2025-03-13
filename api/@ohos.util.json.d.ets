@@ -13,9 +13,11 @@
  * limitations under the License.
  */
 
+'use static';
 /**
  * @file
  * @kit ArkTS
+ * @arkts >= 1.2
  */
 
 /**
@@ -25,7 +27,7 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 20
  */
 declare namespace json {
   /**
@@ -37,7 +39,7 @@ declare namespace json {
    * @param { Object } value - The value of the parsed key value pair.
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
-   * @since 12
+   * @since 20
    */
   type Transformer = (this: Object, key: string, value: Object) => Object | undefined | null;
 
@@ -55,7 +57,7 @@ declare namespace json {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 17
+   * @since 20
    */
   function parse<T>(text: string, type: Type, reviver?: Transformer, options?: ParseOptions): T | null | undefined;
 
@@ -74,7 +76,7 @@ declare namespace json {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 17
+   * @since 20
    */
   function stringify(value: NullishType, replacer?: (number | string)[] | Transformer | null, space?: string | number): string;
 
@@ -88,7 +90,7 @@ declare namespace json {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 17
+   * @since 20
    */
   function has(obj: object, property: string): boolean;
 
@@ -101,7 +103,7 @@ declare namespace json {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 20
    */
   function remove(obj: object, property: string): void;
 
@@ -112,7 +114,7 @@ declare namespace json {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 20
    */
   const enum BigIntMode {
     /**
@@ -121,7 +123,7 @@ declare namespace json {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     DEFAULT = 0,
     /**
@@ -130,7 +132,7 @@ declare namespace json {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     PARSE_AS_BIGINT = 1,
     /**
@@ -139,7 +141,7 @@ declare namespace json {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     ALWAYS_PARSE_AS_BIGINT = 2,
   }
@@ -151,7 +153,7 @@ declare namespace json {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 20
    */
   interface ParseOptions {
     /**
@@ -160,7 +162,7 @@ declare namespace json {
     * @syscap SystemCapability.Utils.Lang
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since 20
     */
     bigIntMode: BigIntMode;
   }

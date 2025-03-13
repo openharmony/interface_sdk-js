@@ -18,31 +18,33 @@
  * @kit ArkData
  */
 import DataShareExtensionAbility from '../api/@ohos.application.DataShareExtensionAbility';
-import cloudData from '@ohos.data.cloudData';
-import cloudExtension from '@ohos.data.cloudExtension';
-import commonType from '@ohos.data.commonType';
-import dataAbility from '@ohos.data.dataAbility';
-import dataShare from '@ohos.data.dataShare';
-import dataSharePredicates from '@ohos.data.dataSharePredicates';
-import DataShareResultSet, { DataType } from '@ohos.data.DataShareResultSet';
-import distributedDataObject from '@ohos.data.distributedDataObject';
-import distributedKVStore from '@ohos.data.distributedKVStore';
-import preferences from '@ohos.data.preferences';
-import relationalStore from '@ohos.data.relationalStore';
-import unifiedDataChannel from '@ohos.data.unifiedDataChannel';
-import uniformTypeDescriptor from '@ohos.data.uniformTypeDescriptor';
-import uniformDataStruct from '@ohos.data.uniformDataStruct';
-import { ValueType, ValuesBucket } from '@ohos.data.ValuesBucket';
-import sendablePreferences from '@ohos.data.sendablePreferences';
-import sendableRelationalStore from '@ohos.data.sendableRelationalStore';
-import graphStore from '@ohos.data.graphStore';
-import collaborationEditObject from '@ohos.data.collaborationEditObject';
-import intelligence from '@ohos.data.intelligence';
+import cloudData from '../api/@ohos.data.cloudData';
+import cloudExtension from '../api/@ohos.data.cloudExtension';
+import commonType from '../api/@ohos.data.commonType';
+import dataAbility from '../api/@ohos.data.dataAbility';
+import dataShare from '../api/@ohos.data.dataShare';
+import dataSharePredicates from '../api/@ohos.data.dataSharePredicates';
+import DataShareResultSet from '../api/@ohos.data.DataShareResultSet';
+import { DataType } from '../api/@ohos.data.DataShareResultSet';
+import distributedDataObject from '../api/@ohos.data.distributedDataObject';
+import distributedKVStore from '../api/@ohos.data.distributedKVStore';
+import preferences from '../api/@ohos.data.preferences';
+import relationalStore from '../api/@ohos.data.relationalStore';
+import unifiedDataChannel from '../api/@ohos.data.unifiedDataChannel';
+import uniformTypeDescriptor from '../api/@ohos.data.uniformTypeDescriptor';
+import uniformDataStruct from '../api/@ohos.data.uniformDataStruct';
+import { ValueType, ValuesBucket } from '../api/@ohos.data.ValuesBucket';
+import sendablePreferences from '../api/@ohos.data.sendablePreferences';
+import sendableRelationalStore from '../api/@ohos.data.sendableRelationalStore';
+// import graphStore from '@ohos.data.graphStore';
+// import collaborationEditObject from '@ohos.data.collaborationEditObject';
+// import intelligence from '@ohos.data.intelligence';
 
 export {
   DataShareExtensionAbility
   , DataShareResultSet, DataType, ValueType, ValuesBucket, cloudData, cloudExtension, 
   commonType, dataShare, dataSharePredicates, distributedDataObject, distributedKVStore, preferences,
   relationalStore, unifiedDataChannel, uniformTypeDescriptor, uniformDataStruct, sendablePreferences, dataAbility,
-  sendableRelationalStore, graphStore, collaborationEditObject, intelligence
+  sendableRelationalStore
+  // , graphStore, collaborationEditObject, intelligence
 };

@@ -19,47 +19,47 @@
  */
 
 import ability from '../api/@ohos.ability.ability';
-import { ErrorCode } from '@ohos.ability.errorCode';
+import { ErrorCode } from '../api/@ohos.ability.errorCode';
 // import featureAbility from '../api/@ohos.ability.featureAbility';
-// import particleAbility from '@ohos.ability.particleAbility';
-import abilityAccessCtrl, {
-  Context, PermissionRequestResult, Permissions
-} from '@ohos.abilityAccessCtrl';
+// import particleAbility from '../api/@ohos.ability.particleAbility';
+import abilityAccessCtrl from '../api/@ohos.abilityAccessCtrl';
+import type { Context, PermissionRequestResult } from '../api/@ohos.abilityAccessCtrl';
+import { Permissions } from '../api/@ohos.abilityAccessCtrl';
 import Ability from '../api/@ohos.app.ability.Ability';
 import AbilityConstant from '../api/@ohos.app.ability.AbilityConstant';
 import AbilityLifecycleCallback from '../api/@ohos.app.ability.AbilityLifecycleCallback';
-import abilityManager from '@ohos.app.ability.abilityManager';
+import abilityManager from '../api/@ohos.app.ability.abilityManager';
 import AbilityStage from '../api/@ohos.app.ability.AbilityStage';
-import ActionExtensionAbility from '@ohos.app.ability.ActionExtensionAbility';
+import ActionExtensionAbility from '../api/@ohos.app.ability.ActionExtensionAbility';
 import ApplicationStateChangeCallback from '../api/@ohos.app.ability.ApplicationStateChangeCallback';
 import appManager from '../api/@ohos.app.ability.appManager';
-import appRecovery from '@ohos.app.ability.appRecovery';
-import AutoFillExtensionAbility from '@ohos.app.ability.AutoFillExtensionAbility';
-import autoFillManager from '@ohos.app.ability.autoFillManager';
-import autoStartupManager from '@ohos.app.ability.autoStartupManager';
-import ChildProcess from '@ohos.app.ability.ChildProcess';
-import childProcessManager from '@ohos.app.ability.childProcessManager';
-import { ChildProcessArgs } from '@ohos.app.ability.ChildProcessArgs';
-import { ChildProcessOptions } from '@ohos.app.ability.ChildProcessOptions';
+import appRecovery from '../api/@ohos.app.ability.appRecovery';
+import AutoFillExtensionAbility from '../api/@ohos.app.ability.AutoFillExtensionAbility';
+import autoFillManager from '../api/@ohos.app.ability.autoFillManager';
+import autoStartupManager from '../api/@ohos.app.ability.autoStartupManager';
+import ChildProcess from '../api/@ohos.app.ability.ChildProcess';
+import childProcessManager from '../api/@ohos.app.ability.childProcessManager';
+import { ChildProcessArgs } from '../api/@ohos.app.ability.ChildProcessArgs';
+import { ChildProcessOptions } from '../api/@ohos.app.ability.ChildProcessOptions';
 import common from '../api/@ohos.app.ability.common';
 import { Configuration } from '../api/@ohos.app.ability.Configuration';
 import ConfigurationConstant from '../api/@ohos.app.ability.ConfigurationConstant';
 import contextConstant from '../api/@ohos.app.ability.contextConstant';
-import dataUriUtils from '@ohos.app.ability.dataUriUtils';
+import dataUriUtils from '../api/@ohos.app.ability.dataUriUtils';
 import dialogRequest from '../api/@ohos.app.ability.dialogRequest';
-import dialogSession from '@ohos.app.ability.dialogSession';
+import dialogSession from '../api/@ohos.app.ability.dialogSession';
 import EnvironmentCallback from '../api/@ohos.app.ability.EnvironmentCallback';
-import errorManager from '@ohos.app.ability.errorManager';
+import errorManager from '../api/@ohos.app.ability.errorManager';
 import ExtensionAbility from '../api/@ohos.app.ability.ExtensionAbility';
-import insightIntent from '@ohos.app.ability.insightIntent';
-import InsightIntentContext from '@ohos.app.ability.InsightIntentContext';
-import insightIntentDriver from '@ohos.app.ability.insightIntentDriver';
-import InsightIntentExecutor from '@ohos.app.ability.InsightIntentExecutor';
-import missionManager from '@ohos.app.ability.missionManager';
+import insightIntent from '../api/@ohos.app.ability.insightIntent';
+import InsightIntentContext from '../api/@ohos.app.ability.InsightIntentContext';
+import insightIntentDriver from '../api/@ohos.app.ability.insightIntentDriver';
+import InsightIntentExecutor from '../api/@ohos.app.ability.InsightIntentExecutor';
+import missionManager from '../api/@ohos.app.ability.missionManager';
 import OpenLinkOptions from '../api/@ohos.app.ability.OpenLinkOptions';
-import quickFixManager from '@ohos.app.ability.quickFixManager';
-import ServiceExtensionAbility from '@ohos.app.ability.ServiceExtensionAbility';
-import ShareExtensionAbility from '@ohos.app.ability.ShareExtensionAbility';
+import quickFixManager from '../api/@ohos.app.ability.quickFixManager';
+import ServiceExtensionAbility from '../api/@ohos.app.ability.ServiceExtensionAbility';
+import ShareExtensionAbility from '../api/@ohos.app.ability.ShareExtensionAbility';
 import StartOptions from '../api/@ohos.app.ability.StartOptions';
 import UIAbility from '../api/@ohos.app.ability.UIAbility';
 import Callee from '../api/@ohos.app.ability.UIAbility';
@@ -71,63 +71,60 @@ import UIExtensionAbility from '../api/@ohos.app.ability.UIExtensionAbility';
 import UIExtensionContentSession from '../api/@ohos.app.ability.UIExtensionContentSession';
 import Want from '../api/@ohos.app.ability.Want';
 import wantConstant from '../api/@ohos.app.ability.wantConstant';
-import wantAgent, { WantAgent } from '@ohos.app.ability.wantAgent';
-import businessAbilityRouter from '@ohos.app.businessAbilityRouter';
-import uriPermissionManager from '@ohos.application.uriPermissionManager';
-import appControl from '@ohos.bundle.appControl';
-import bundleManager from '@ohos.bundle.bundleManager';
-import bundleMonitor from '@ohos.bundle.bundleMonitor';
-import bundleResourceManager from '@ohos.bundle.bundleResourceManager';
-import bundle from '@ohos.bundle';
-import defaultAppManager from '@ohos.bundle.defaultAppManager';
-import distributedBundleManager from '@ohos.bundle.distributedBundleManager';
-import freeInstall from '@ohos.bundle.freeInstall';
-import innerBundleManager, { BundleStatusCallback } from '@ohos.bundle.innerBundleManager';
-import installer from '@ohos.bundle.installer';
-import launcherBundleManager from '@ohos.bundle.launcherBundleManager';
-import overlay from '@ohos.bundle.overlay';
-import continuationManager from '@ohos.continuation.continuationManager';
-import continueManager from '@ohos.app.ability.continueManager';
-import distributedBundle from '@ohos.distributedBundle';
-import distributedMissionManager from '@ohos.distributedMissionManager';
-import Package, {
-  CheckPackageHasInstalledOptions, CheckPackageHasInstalledResponse
-} from '@system.package';
-import privacyManager from '@ohos.privacyManager';
-import EmbeddedUIExtensionAbility from '@ohos.app.ability.EmbeddedUIExtensionAbility';
-import StartupConfig from '@ohos.app.appstartup.StartupConfig';
-import StartupConfigEntry from '@ohos.app.appstartup.StartupConfigEntry';
-import StartupListener from '@ohos.app.appstartup.StartupListener';
-import StartupTask from '@ohos.app.appstartup.StartupTask';
-import startupManager from '@ohos.app.appstartup.startupManager';
-import sendableContextManager from '@ohos.app.ability.sendableContextManager';
-import screenLockFileManager from '@ohos.ability.screenLockFileManager';
+import wantAgent from '../api/@ohos.app.ability.wantAgent';
+import type { WantAgent } from '../api/@ohos.app.ability.wantAgent';
+import businessAbilityRouter from '../api/@ohos.app.businessAbilityRouter';
+import uriPermissionManager from '../api/@ohos.application.uriPermissionManager';
+import appControl from '../api/@ohos.bundle.appControl';
+import bundleManager from '../api/@ohos.bundle.bundleManager';
+import bundleMonitor from '../api/@ohos.bundle.bundleMonitor';
+import bundleResourceManager from '../api/@ohos.bundle.bundleResourceManager';
+// import bundle from '../api/@ohos.bundle';
+import defaultAppManager from '../api/@ohos.bundle.defaultAppManager';
+import distributedBundleManager from '../api/@ohos.bundle.distributedBundleManager';
+import freeInstall from '../api/@ohos.bundle.freeInstall';
+import innerBundleManager from '../api/@ohos.bundle.innerBundleManager';
+import type { BundleStatusCallback } from '../api/@ohos.bundle.innerBundleManager';
+import installer from '../api/@ohos.bundle.installer';
+import launcherBundleManager from '../api/@ohos.bundle.launcherBundleManager';
+import overlay from '../api/@ohos.bundle.overlay';
+import continuationManager from '../api/@ohos.continuation.continuationManager';
+// import continueManager from '../api/@ohos.app.ability.continueManager';
+import distributedBundle from '../api/@ohos.distributedBundle';
+import distributedMissionManager from '../api/@ohos.distributedMissionManager';
+import Package from '../api/@system.package';
+import { CheckPackageHasInstalledOptions, CheckPackageHasInstalledResponse } from '../api/@system.package';
+import privacyManager from '../api/@ohos.privacyManager';
+import EmbeddedUIExtensionAbility from '../api/@ohos.app.ability.EmbeddedUIExtensionAbility';
+import StartupConfig from '../api/@ohos.app.appstartup.StartupConfig';
+import StartupConfigEntry from '../api/@ohos.app.appstartup.StartupConfigEntry';
+import StartupListener from '../api/@ohos.app.appstartup.StartupListener';
+import StartupTask from '../api/@ohos.app.appstartup.StartupTask';
+import startupManager from '../api/@ohos.app.appstartup.startupManager';
+import sendableContextManager from '../api/@ohos.app.ability.sendableContextManager';
+import screenLockFileManager from '../api/@ohos.ability.screenLockFileManager';
 import AtomicServiceOptions from '../api/@ohos.app.ability.AtomicServiceOptions';
-import EmbeddableUIAbility from '@ohos.app.ability.EmbeddableUIAbility';
-import PhotoEditorExtensionAbility from '@ohos.app.ability.PhotoEditorExtensionAbility';
-import UIServiceExtensionAbility from '@ohos.app.ability.UIServiceExtensionAbility';
-import shortcutManager from '@ohos.bundle.shortcutManager';
-import application from '@ohos.app.ability.application'; 
-import appDomainVerify from '@ohos.bundle.appDomainVerify';
+import EmbeddableUIAbility from '../api/@ohos.app.ability.EmbeddableUIAbility';
+import PhotoEditorExtensionAbility from '../api/@ohos.app.ability.PhotoEditorExtensionAbility';
+import UIServiceExtensionAbility from '../api/@ohos.app.ability.UIServiceExtensionAbility';
+import shortcutManager from '../api/@ohos.bundle.shortcutManager';
+import application from '../api/@ohos.app.ability.application'; 
+import appDomainVerify from '../api/@ohos.bundle.appDomainVerify';
 
 export {
   Ability, AbilityConstant, AbilityLifecycleCallback, AbilityStage, ActionExtensionAbility,
   ApplicationStateChangeCallback, AutoFillExtensionAbility, BundleStatusCallback, Callee,
-  CalleeCallback, Caller, CheckPackageHasInstalledOptions, CheckPackageHasInstalledResponse,
-  ChildProcess, Configuration, ConfigurationConstant, Context, EnvironmentCallback, ErrorCode,
+  CalleeCallback, Caller, CheckPackageHasInstalledOptions, CheckPackageHasInstalledResponse, ChildProcess,
+  Configuration, ConfigurationConstant, Context, EnvironmentCallback, ErrorCode,
   ExtensionAbility, InsightIntentContext, InsightIntentExecutor, OnReleaseCallback, OnRemoteStateChangeCallback,
   OpenLinkOptions, Package, PermissionRequestResult, Permissions, ServiceExtensionAbility, ShareExtensionAbility,
   StartOptions, UIAbility, UIExtensionAbility, UIExtensionContentSession, Want, WantAgent, ability, abilityAccessCtrl,
-  abilityManager, appControl, appManager, appRecovery, autoFillManager, autoStartupManager, bundle, bundleManager,
+  abilityManager, appControl, appManager, appRecovery, autoFillManager, autoStartupManager, bundleManager,
   bundleMonitor, bundleResourceManager, businessAbilityRouter, childProcessManager, common, contextConstant,
   continuationManager, dataUriUtils, defaultAppManager, dialogRequest, dialogSession, distributedBundle,
-  distributedBundleManager, distributedMissionManager, errorManager,
-  // featureAbility, 
-  freeInstall,
+  distributedBundleManager, distributedMissionManager, errorManager, freeInstall,
   innerBundleManager, insightIntent, insightIntentDriver, installer, launcherBundleManager, missionManager,
-  overlay,
-  // particleAbility,
-  quickFixManager, uriPermissionManager, wantAgent, wantConstant, privacyManager,
+  overlay, quickFixManager, uriPermissionManager, wantAgent, wantConstant, privacyManager,
   EmbeddedUIExtensionAbility, StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager,
   screenLockFileManager, AtomicServiceOptions, EmbeddableUIAbility, ChildProcessArgs, ChildProcessOptions,
   sendableContextManager, PhotoEditorExtensionAbility, UIServiceExtensionAbility, shortcutManager, application,
