@@ -1,3 +1,25 @@
+/*
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+'use static';
+/**
+ * @file
+ * @kit ArkTS
+ * @arkts >= 1.2
+ */
+
 declare namespace util {
   /**
    * %s: String will be used to convert all values except BigInt, Object and -0. BigInt values will be represented
@@ -26,7 +48,7 @@ declare namespace util {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 17
+   * @since 20
    */
   function format(format: string, ...args: Object[]): string;
 
@@ -39,7 +61,7 @@ declare namespace util {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 17
+   * @since 20
    */
   function generateRandomUUID(entropyCache?: boolean): string;
 
@@ -52,7 +74,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 17
+     * @since 20
      */
     constructor(capacity?: number);
 
@@ -64,7 +86,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 17
+     * @since 20
      */
     updateCapacity(newCapacity: number): void;
 
@@ -75,7 +97,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 17
+     * @since 20
      */
     toString(): string;
 
@@ -86,7 +108,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 17
+     * @since 20
      */
     length: number;
 
@@ -97,7 +119,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 17
+     * @since 20
      */
     getCapacity(): number;
 
@@ -107,7 +129,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 17
+     * @since 20
      */
     clear(): void;
 
@@ -118,7 +140,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 17
+     * @since 20
      */
     getCreateCount(): number;
 
@@ -129,7 +151,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 17
+     * @since 20
      */
     getMissCount(): number;
 
@@ -140,7 +162,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 17
+     * @since 20
      */
     getRemovalCount(): number;
 
@@ -151,7 +173,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 17
+     * @since 20
      */
     getMatchCount(): number;
 
@@ -162,7 +184,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 17
+     * @since 20
      */
     getPutCount(): number;
 
@@ -173,7 +195,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 17
+     * @since 20
      */
     isEmpty(): boolean;
 
@@ -188,7 +210,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 17
+     * @since 20
      */
     get(key: K): V | undefined;
 
@@ -204,7 +226,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 17
+     * @since 20
      */
     put(key: K, value: V | undefined): V | undefined;
 
@@ -215,7 +237,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 17
+     * @since 20
      */
     values(): V[];
 
@@ -227,7 +249,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 17
+     * @since 20
      */
     keys(): K[];
 
@@ -242,7 +264,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 17
+     * @since 20
      */
     remove(key: K): V | undefined;
 
@@ -261,7 +283,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 17
+     * @since 20
      */
     afterRemoval(isEvict: boolean, key: K, value: V, newValue: V): void;
 
@@ -276,7 +298,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 17
+     * @since 20
      */
     contains(key: K): boolean;
 
@@ -291,7 +313,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 17
+     * @since 20
      */
     createDefault(key: K): V | undefined;
 
@@ -302,7 +324,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 17
+     * @since 20
      */
     entries(): IterableIterator<[K, V]>;
 
@@ -313,7 +335,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 17
+     * @since 20
      */
     $_iterator(): IterableIterator<[K, V]>;
   }
