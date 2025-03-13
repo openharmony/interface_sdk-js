@@ -102,7 +102,7 @@ export default class PermissionRequestResult {
    * @atomicservice
    * @since 11
    */
-  authResults: Array<number> = new Array<number>();
+  authResults: Array<int> = new Array<int>();
 
   /**
    * Specifies whether a dialog box is shown for each requested permission.

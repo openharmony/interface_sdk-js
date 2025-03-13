@@ -253,7 +253,7 @@ export declare class SecurityComponentMethod<T> {
    * @atomicservice
    * @since 11
    */
-  fontWeight(value: number | FontWeight | string): T;
+  fontWeight(value: int | FontWeight | string): T;
 
   /**
    * Font family of the inner text.

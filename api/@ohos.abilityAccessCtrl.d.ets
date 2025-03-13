@@ -94,7 +94,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @since 9
      */
-    verifyAccessToken(tokenID: number, permissionName: Permissions | string): Promise<GrantStatus>;
+    verifyAccessToken(tokenID: int, permissionName: Permissions | string): Promise<GrantStatus>;
 
     /**
      * Checks whether a specified application has been granted the given permission synchronously.
@@ -109,7 +109,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @since 9
      */
-    verifyAccessTokenSync(tokenID: number, permissionName: Permissions): GrantStatus;
+    verifyAccessTokenSync(tokenID: int, permissionName: Permissions): GrantStatus;
 
     /**
      * Checks whether a specified application has been granted the given permission.
@@ -157,7 +157,7 @@ declare namespace abilityAccessCtrl {
      * @atomicservice
      * @since 11
      */
-    checkAccessToken(tokenID: number, permissionName: Permissions): Promise<GrantStatus>;
+    checkAccessToken(tokenID: int, permissionName: Permissions): Promise<GrantStatus>;
 
     /**
      * Checks whether a specified application has been granted the given permission.
@@ -192,7 +192,7 @@ declare namespace abilityAccessCtrl {
      * @atomicservice
      * @since 11
      */
-    checkAccessTokenSync(tokenID: number, permissionName: Permissions): GrantStatus;
+    checkAccessTokenSync(tokenID: int, permissionName: Permissions): GrantStatus;
 
     /**
      * Requests certain permissions from the user.
@@ -332,7 +332,7 @@ declare namespace abilityAccessCtrl {
      * @systemapi
      * @since 8
      */
-    grantUserGrantedPermission(tokenID: number, permissionName: Permissions, permissionFlags: number): Promise<void>;
+    grantUserGrantedPermission(tokenID: int, permissionName: Permissions, permissionFlags: int): Promise<void>;
 
     /**
      * Grants a specified user_grant permission to the given application.
@@ -360,9 +360,9 @@ declare namespace abilityAccessCtrl {
      * @since 8
      */
     grantUserGrantedPermission(
-      tokenID: number,
+      tokenID: int,
       permissionName: Permissions,
-      permissionFlags: number,
+      permissionFlags: int,
       callback: AsyncCallback<void>
     ): void;
 
@@ -391,7 +391,7 @@ declare namespace abilityAccessCtrl {
      * @systemapi
      * @since 8
      */
-    revokeUserGrantedPermission(tokenID: number, permissionName: Permissions, permissionFlags: number): Promise<void>;
+    revokeUserGrantedPermission(tokenID: int, permissionName: Permissions, permissionFlags: int): Promise<void>;
 
     /**
      * Revoke a specified user_grant permission to the given application.
@@ -419,9 +419,9 @@ declare namespace abilityAccessCtrl {
      * @since 8
      */
     revokeUserGrantedPermission(
-      tokenID: number,
+      tokenID: int,
       permissionName: Permissions,
-      permissionFlags: number,
+      permissionFlags: int,
       callback: AsyncCallback<void>
     ): void;
 
@@ -448,7 +448,7 @@ declare namespace abilityAccessCtrl {
      * @systemapi
      * @since 8
      */
-    getPermissionFlags(tokenID: number, permissionName: Permissions): Promise<number>;
+    getPermissionFlags(tokenID: int, permissionName: Permissions): Promise<int>;
 
     /**
      * Set the toggle status of one permission flag.
@@ -502,7 +502,7 @@ declare namespace abilityAccessCtrl {
      * @systemapi
      * @since 9
      */
-    getVersion(): Promise<number>;
+    getVersion(): Promise<int>;
 
     /**
      * Queries permissions status of the given application.
@@ -524,7 +524,7 @@ declare namespace abilityAccessCtrl {
      * @systemapi
      * @since 12
      */
-    getPermissionsStatus(tokenID: number, permissionList: Array<Permissions>): Promise<Array<PermissionStatus>>;
+    getPermissionsStatus(tokenID: int, permissionList: Array<Permissions>): Promise<Array<PermissionStatus>>;
 
     /**
      * Registers a permission state callback so that
@@ -562,7 +562,7 @@ declare namespace abilityAccessCtrl {
      */
     on(
       type: 'permissionStateChange',
-      tokenIDList: Array<number>,
+      tokenIDList: Array<int>,
       permissionList: Array<Permissions>,
       callback: Callback<PermissionStateChangeInfo>
     ): void;
@@ -623,7 +623,7 @@ declare namespace abilityAccessCtrl {
      */
     off(
       type: 'permissionStateChange',
-      tokenIDList: Array<number>,
+      tokenIDList: Array<int>,
       permissionList: Array<Permissions>,
       callback?: Callback<PermissionStateChangeInfo>
     ): void;
@@ -716,7 +716,7 @@ declare namespace abilityAccessCtrl {
      * @stagemodelonly
      * @since 16
      */
-    requestPermissionOnApplicationSetting(tokenID: number): Promise<void>;
+    requestPermissionOnApplicationSetting(tokenID: int): Promise<void>;
   }
 
   /**
@@ -872,7 +872,7 @@ declare namespace abilityAccessCtrl {
      * @atomicservice
      * @since 16
      */
-    tokenID: number;
+    tokenID: int;
 
     /**
      * Indicates the permission whose state has been changed.

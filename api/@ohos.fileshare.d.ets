@@ -156,7 +156,7 @@ declare namespace fileShare {
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since 11
      */
-    operationMode: number;
+    operationMode: int;
   }
 
   /**
@@ -358,7 +358,7 @@ declare namespace fileShare {
    * @since 15
    */
   function checkPathPermission(
-    tokenID: number,
+    tokenID: int,
     policies: Array<PathPolicyInfo>,
     policyType: PolicyType
   ): Promise<Array<boolean>>;

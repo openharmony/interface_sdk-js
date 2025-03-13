@@ -78,10 +78,10 @@ declare namespace privacyManager {
    * @since 12
    */
   function addPermissionUsedRecord(
-    tokenID: number,
+    tokenID: int,
     permissionName: Permissions,
-    successCount: number,
-    failCount: number,
+    successCount: int,
+    failCount: int,
     options?: AddPermissionUsedRecordOptions
   ): Promise<void>;
 
@@ -110,10 +110,10 @@ declare namespace privacyManager {
    * @since 9
    */
   function addPermissionUsedRecord(
-    tokenID: number,
+    tokenID: int,
     permissionName: Permissions,
-    successCount: number,
-    failCount: number,
+    successCount: int,
+    failCount: int,
     callback: AsyncCallback<void>
   ): void;
 
@@ -191,9 +191,9 @@ declare namespace privacyManager {
    * @since 16
    */
   function startUsingPermission(
-    tokenID: number,
+    tokenID: int,
     permissionName: Permissions,
-    pid?: number,
+    pid?: int,
     usedType?: PermissionUsedType
   ): Promise<void>;
 
@@ -221,7 +221,7 @@ declare namespace privacyManager {
    * @systemapi
    * @since 9
    */
-  function startUsingPermission(tokenID: number, permissionName: Permissions, callback: AsyncCallback<void>): void;
+  function startUsingPermission(tokenID: int, permissionName: Permissions, callback: AsyncCallback<void>): void;
 
   /**
    * Stop using sensitive permission.
@@ -248,9 +248,9 @@ declare namespace privacyManager {
    * @since 16
    */
   function stopUsingPermission(
-    tokenID: number,
+    tokenID: int,
     permissionName: Permissions,
-    pid?: number
+    pid?: int
   ): Promise<void>;
 
   /**
@@ -276,7 +276,7 @@ declare namespace privacyManager {
    * @systemapi
    * @since 9
    */
-  function stopUsingPermission(tokenID: number, permissionName: Permissions, callback: AsyncCallback<void>): void;
+  function stopUsingPermission(tokenID: int, permissionName: Permissions, callback: AsyncCallback<void>): void;
 
   /**
    * Subscribes to the change of active state of the specified permission.
@@ -355,7 +355,7 @@ declare namespace privacyManager {
    * @since 12
    */
   function getPermissionUsedTypeInfos(
-    tokenId?: number,
+    tokenId?: int,
     permissionName?: Permissions
   ): Promise<Array<PermissionUsedTypeInfo>>;
 
@@ -447,7 +447,7 @@ declare namespace privacyManager {
      * @systemapi
      * @since 16
      */
-    callingTokenId?: number;
+    callingTokenId?: int;
 
     /**
      * AccessTokenID
@@ -457,7 +457,7 @@ declare namespace privacyManager {
      * @systemapi
      * @since 9
      */
-    tokenId: number;
+    tokenId: int;
 
     /**
      * The permission name
@@ -544,7 +544,7 @@ declare namespace privacyManager {
      * @systemapi
      * @since 9
      */
-    tokenId?: number;
+    tokenId?: int;
 
     /**
      * Distribute flag
@@ -596,7 +596,7 @@ declare namespace privacyManager {
      * @systemapi
      * @since 9
      */
-    beginTime?: number;
+    beginTime?: int;
 
     /**
      * The end time, in milliseconds
@@ -607,7 +607,7 @@ declare namespace privacyManager {
      * @systemapi
      * @since 9
      */
-    endTime?: number;
+    endTime?: int;
 
     /**
      * The permission usage flag
@@ -637,7 +637,7 @@ declare namespace privacyManager {
      * @systemapi
      * @since 9
      */
-    beginTime: number;
+    beginTime: int;
 
     /**
      * The end time, in milliseconds
@@ -647,7 +647,7 @@ declare namespace privacyManager {
      * @systemapi
      * @since 9
      */
-    endTime: number;
+    endTime: int;
 
     /**
      * The list of permission used records of bundle
@@ -677,7 +677,7 @@ declare namespace privacyManager {
      * @systemapi
      * @since 9
      */
-    tokenId: number;
+    tokenId: int;
 
     /**
      * Distribute flag
@@ -747,7 +747,7 @@ declare namespace privacyManager {
      * @systemapi
      * @since 9
      */
-    accessCount: number;
+    accessCount: int;
 
     /**
      * The reject counts
@@ -757,7 +757,7 @@ declare namespace privacyManager {
      * @systemapi
      * @since 9
      */
-    rejectCount: number;
+    rejectCount: int;
 
     /**
      * The last access time, in milliseconds
@@ -767,7 +767,7 @@ declare namespace privacyManager {
      * @systemapi
      * @since 9
      */
-    lastAccessTime: number;
+    lastAccessTime: int;
 
     /**
      * The last reject time, in milliseconds
@@ -777,7 +777,7 @@ declare namespace privacyManager {
      * @systemapi
      * @since 9
      */
-    lastRejectTime: number;
+    lastRejectTime: int;
 
     /**
      * The last access duration, in milliseconds
@@ -787,7 +787,7 @@ declare namespace privacyManager {
      * @systemapi
      * @since 9
      */
-    lastAccessDuration: number;
+    lastAccessDuration: int;
 
     /**
      * The list of access records of details
@@ -827,7 +827,7 @@ declare namespace privacyManager {
      * @systemapi
      * @since 9
      */
-    status: number;
+    status: int;
 
     /**
      * Indicates the status of lockscreen.
@@ -837,7 +837,7 @@ declare namespace privacyManager {
      * @systemapi
      * @since 11
      */
-    lockScreenStatus?: number;
+    lockScreenStatus?: int;
 
     /**
      * Timestamp, in milliseconds
@@ -847,7 +847,7 @@ declare namespace privacyManager {
      * @systemapi
      * @since 9
      */
-    timestamp: number;
+    timestamp: int;
 
     /**
      * The value of successCount or failCount passed in to addPermissionUsedRecord.
@@ -857,7 +857,7 @@ declare namespace privacyManager {
      * @systemapi
      * @since 11
      */
-    count?: number;
+    count?: int;
 
     /**
      * Access duration, in milliseconds
@@ -867,7 +867,7 @@ declare namespace privacyManager {
      * @systemapi
      * @since 9
      */
-    accessDuration: number;
+    accessDuration: int;
 
     /**
      * Used type of the permission accessed.
@@ -934,7 +934,7 @@ declare namespace privacyManager {
      * @systemapi
      * @since 12
      */
-    tokenId: number;
+    tokenId: int;
 
     /**
      * Name of the permission accessed.
