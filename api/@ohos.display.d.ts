@@ -581,7 +581,7 @@ declare namespace display {
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported. createVirtualScreen can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported.function createVirtualScreen can not work correctly due to limited device capabilities.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap  SystemCapability.Window.SessionManager
    * @since 16
@@ -597,7 +597,7 @@ declare namespace display {
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported. destroyVirtualScreen can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported.function destroyVirtualScreen can not work correctly due to limited device capabilities.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap  SystemCapability.Window.SessionManager
@@ -615,7 +615,7 @@ declare namespace display {
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported. setVirtualScreenSurface can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported.function setVirtualScreenSurface can not work correctly due to limited device capabilities.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap  SystemCapability.Window.SessionManager
@@ -632,7 +632,7 @@ declare namespace display {
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. makeUnique can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported.function makeUnique can not work correctly due to limited device capabilities.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
