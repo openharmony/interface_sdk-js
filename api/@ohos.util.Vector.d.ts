@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit ArkTS
+ * @arkts <= 1.1
  */
 
 /**
