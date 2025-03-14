@@ -9980,6 +9980,25 @@ declare namespace window {
     setWindowRectAutoSave(enabled: boolean): Promise<void>;
 
     /**
+     * Set to automatically save the window rect and whether to enable specifiedFlag. 
+     * Through the specifiedFlag flag, the window is marked and its rect is saved. 
+     *
+     * @param { boolean } enabled - Enable the window rect auto-save if true, otherwise means the opposite.
+     * @param { boolean } isSaveBySpecifiedFlag - Enable the specifiedFlag if true, otherwise means the opposite.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 
+     *                                                                   2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Function setWindowRectAutoSave can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 18
+     */
+    setWindowRectAutoSave(enabled: boolean, isSaveBySpecifiedFlag: boolean): Promise<void>;
+
+    /**
      * Whether the window supports the window rect auto-save.
      *
      * @returns { Promise<boolean> } Promise used to return the result.
