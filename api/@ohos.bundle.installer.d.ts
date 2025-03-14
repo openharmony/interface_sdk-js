@@ -1604,6 +1604,59 @@ declare namespace installer {
      * @since 14
      */
      installPreexistingApp(bundleName: string, userId?: number): Promise<void>;
+
+     /**
+     * Install plugin for host application.
+     *
+     * @permission ohos.permission.INSTALL_PLUGIN_BUNDLE
+     * @param { string } hostBundleName - Indicates the bundle name of host application.
+     * @param { Array<string> } pluginFilePaths - Indicates the file paths of plugin.
+     * @param { PluginParam } [pluginParam] - Indicates parameters required for install plugin.
+     * @returns { Promise<void> }
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_PLUGIN_BUNDLE'.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 17700001 - The specified hostBundleName cannot be found or the bundle is not installed by the specified user.
+     * @throws { BusinessError } 17700004 - The userId is invalid.
+     * @throws { BusinessError } 17700010 - Failed to install the plugin because the plugin fails to be parsed.
+     * @throws { BusinessError } 17700011 - Failed to install the plugin because the plugin signature fails to be verified.
+     * @throws { BusinessError } 17700012 - Failed to install the plugin because the HSP path is invalid or the HSP is too large.
+     * @throws { BusinessError } 17700015 - Failed to install the plugin because they have different configuration information.
+     * @throws { BusinessError } 17700017 - Failed to install the plugin since the version of the plugin to install is too early.
+     * @throws { BusinessError } 17700048 - Failed to install the plugin because the code signature verification is failed.
+     * @throws { BusinessError } 17700052 - Failed to install the plugin because debug bundle cannot be installed under non-developer mode.
+     * @throws { BusinessError } 17700073 - Failed to install the plugin because a plugin with the same
+     * <br>bundle name but different signature information exists on the device.
+     * @throws { BusinessError } 17700087 - Failed to install the plugin because the current device does not support plugin.
+     * @throws { BusinessError } 17700088 - Failed to install the plugin because the host application lacks ohos.permission.kernel.SUPPORT_PLUGIN.
+     * @throws { BusinessError } 17700089 - Failed to install the plugin because the plugin id fails to be parsed.
+     * @throws { BusinessError } 17700090 - Failed to install the plugin because the plugin id fails to be verified.
+     * @throws { BusinessError } 17700091 - Failed to install the plugin because the plugin name is same as host bundle name.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 18
+     */
+     installPlugin(hostBundleName: string, pluginFilePaths: Array<string>, pluginParam?: PluginParam): Promise<void>;
+
+     /**
+     * Uninstall plugin for host application.
+     *
+     * @permission ohos.permission.UNINSTALL_PLUGIN_BUNDLE
+     * @param { string } hostBundleName - Indicates the bundle name of host application.
+     * @param { string } pluginBundleName - Indicates the bundle name of plugin application.
+     * @param { PluginParam } [pluginParam] - Indicates parameters required for uninstall plugin.
+     * @returns { Promise<void> }
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.UNINSTALL_PLUGIN_BUNDLE'.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 17700001 - The specified bundle name is not found.
+     * @throws { BusinessError } 17700004 - The user id is invalid.
+     * @throws { BusinessError } 17700092 - Failed to uninstall the plugin because the specified plugin is not found.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 18
+     */
+     uninstallPlugin(hostBundleName: string, pluginBundleName: string, pluginParam?: PluginParam): Promise<void>;
   }
 
   /**
@@ -1934,6 +1987,36 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 15
+     */
+    parameters?: Array<Parameters>;
+  }
+
+  /**
+   * Provides parameters required for installing a plugin or uninstalling a plugin
+   *
+   * @typedef PluginParam
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 18
+   */
+  export interface PluginParam {
+    /**
+     * Indicates the user id.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 18
+     */
+    userId?: number;
+
+    /**
+     * Indicates parameters.
+     *
+     * @type { ?Array<Parameters> }
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 18
      */
     parameters?: Array<Parameters>;
   }
