@@ -42,7 +42,7 @@
  * @atomicservice
  * @since 11
  */
-export interface AbilityDelegatorArgs {
+export default interface AbilityDelegatorArgs {
   /**
    * the bundle name of the application being tested.
    *

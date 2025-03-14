@@ -26,7 +26,7 @@
  * @systemapi
  * @since 9
  */
-export default interface MissionParameter {
+export interface MissionParameter {
   /**
    * Indicates the deviceId to start sync.
    *

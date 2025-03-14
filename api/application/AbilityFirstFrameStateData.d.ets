@@ -26,7 +26,7 @@
  * @systemapi
  * @since 12
  */
-export default interface AbilityFirstFrameStateData {
+export interface AbilityFirstFrameStateData {
   /**
    * The bundle name.
    *

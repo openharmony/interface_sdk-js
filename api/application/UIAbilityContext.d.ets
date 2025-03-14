@@ -153,7 +153,7 @@ declare class UIAbilityContext extends Context {
    * @atomicservice
    * @since 11
    */
-  config?: Configuration;
+  config: Configuration;
 
   /**
    * Indicates windowStage information.

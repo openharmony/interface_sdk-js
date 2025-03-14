@@ -25,7 +25,7 @@ import ExtensionContext from './ExtensionContext';
 import Want from '../@ohos.app.ability.Want';
 import StartOptions from '../@ohos.app.ability.StartOptions';
 import OpenLinkOptions from '../@ohos.app.ability.OpenLinkOptions';
-import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
+import AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
 
 /**
  * The context of service extension. It allows access to

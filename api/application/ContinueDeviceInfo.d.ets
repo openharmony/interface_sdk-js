@@ -26,7 +26,7 @@
  * @systemapi
  * @since 9
  */
-export default interface ContinueDeviceInfo {
+export interface ContinueDeviceInfo {
   /**
    * Indicates the original deviceId to continue mission.
    *

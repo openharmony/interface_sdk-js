@@ -42,7 +42,7 @@
  * @atomicservice
  * @since 16
  */
-export default class ApplicationStateChangeCallback {
+declare class ApplicationStateChangeCallback {
   /**
    * Called back when the state of the application changes to foreground.
    *
@@ -67,7 +67,7 @@ export default class ApplicationStateChangeCallback {
    * @atomicservice
    * @since 16
    */
-  onApplicationForeground(): void{}
+  onApplicationForeground(): void;
 
   /**
    * Called back when the state of the application changes to background.
@@ -93,5 +93,7 @@ export default class ApplicationStateChangeCallback {
    * @atomicservice
    * @since 16
    */
-  onApplicationBackground(): void{}
+  onApplicationBackground(): void;
 }
+
+export default ApplicationStateChangeCallback;

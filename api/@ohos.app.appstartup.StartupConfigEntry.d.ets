@@ -36,6 +36,6 @@ declare class StartupConfigEntry {
    * @stagemodelonly
    * @since 12
    */
-  onConfig(): StartupConfig;
+  onConfig?:()=> StartupConfig;
 }
 export default StartupConfigEntry;

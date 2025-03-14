@@ -26,7 +26,7 @@
  * @systemapi
  * @since 9
  */
-export default interface MissionCallback {
+export interface MissionCallback {
   /**
    * Called by system when mission changed.
    *

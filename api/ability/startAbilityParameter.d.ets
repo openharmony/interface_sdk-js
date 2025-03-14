@@ -46,7 +46,7 @@ export interface StartAbilityParameter {
    * @FAModelOnly
    * @since 6
    */
-  abilityStartSetting?: Record<string,Object>;
+  abilityStartSetting?: Record<string, Object>;
 
   /**
    * Indicates the special start setting used in starting ability.

@@ -26,7 +26,7 @@
  * @systemapi Hide this for inner system use.
  * @since 10
  */
-export default interface ContinuableInfo {
+export interface ContinuableInfo {
   /**
    * Indicates the original deviceId to continue mission.
    *

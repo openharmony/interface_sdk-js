@@ -32,7 +32,7 @@ export default class ProcessData {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14
    */
-  bundleName?: string;
+  bundleName: string;
 
   /**
    * The pid.

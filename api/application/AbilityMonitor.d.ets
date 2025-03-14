@@ -47,7 +47,7 @@ import UIAbility from '../@ohos.app.ability.UIAbility';
  * @atomicservice
  * @since 11
  */
-export interface AbilityMonitor {
+export default interface AbilityMonitor {
   /**
    * The name of the ability to monitor.
    *

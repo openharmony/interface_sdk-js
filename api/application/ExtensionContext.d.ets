@@ -77,7 +77,7 @@ export default class ExtensionContext extends Context {
     * @atomicservice
     * @since 11
     */
-   config?: Configuration;
+   config: Configuration;
 
    /**
     * Extension information.
