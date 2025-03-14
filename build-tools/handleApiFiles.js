@@ -94,22 +94,26 @@ function handelFileInFirstType(sameName, apiRelativePath, fullPath, allApiFilePa
   const fileContent = fs.readFileSync(fullPath, 'utf-8');
   const apiFileName = path.basename(apiRelativePath).replace(/d.ts|d.ets/g, 'ts');
   const sourceFile = ts.createSourceFile(apiFileName, fileContent, ts.ScriptTarget.ES2017, true);
-  // 节点中识别不到首段jsdoc，直接使用全文字符串去匹配，标有@arkts1.2only的d.ts文件，删除
+  const regx = /(?:@arkts1.2only|@arkts\s+>=\s+1.2)/g;
+  // 节点中识别不到首段jsdoc，直接使用全文字符串去匹配，标有1.2的文件，删除
   if (sourceFile.statements.length === 0) {
-    if (sourceFile.getFullText().match(/\@arkts1.2only/g)) {
+    if (regx.test(sourceFile.getFullText())) {
       deleteSameNameFile(fullPath);
       return;
     }
     return;
   }
+  const fiestNode = sourceFile.statements.find(statement=>{
+    return !ts.isExpressionStatement(statement);
+  });
   // 没有@arkts标签的，不处理
-  if (!sourceFile.statements[0].jsDoc) {
+  if (!fiestNode || !fiestNode.jsDoc) {
     return;
   }
 
-  const firstJsdocText = sourceFile.statements[0].jsDoc[0].getText();
-  // 标有@arkts1.2only的d.ts文件，删除
-  if (firstJsdocText.match(/\@arkts1.2only/g)) {
+  const firstJsdocText = fiestNode.jsDoc[0].getText();
+  // 标有1.2的文件，删除
+  if (regx.test(firstJsdocText)) {
     deleteSameNameFile(fullPath);
     return;
   }
@@ -132,11 +136,11 @@ function handelFileInFirstType(sameName, apiRelativePath, fullPath, allApiFilePa
  */
 function handelFileInSecondType(sameName, apiRelativePath, fullPath, allApiFilePathSet, rootPath) {
   const fileContent = fs.readFileSync(fullPath, 'utf-8');
-  const apiFileName = path.basename(apiRelativePath).replace(/d.ts|d.ets/g, 'ts');
-  const sourceFile = ts.createSourceFile(apiFileName, fileContent, ts.ScriptTarget.ES2017, true);
+  const sourceFile = ts.createSourceFile(path.basename(apiRelativePath), fileContent, ts.ScriptTarget.ES2017, true);
+  const regx = /(?:@arkts1.1only|@arkts\s+<=\s+1.1)/g;
   if (sourceFile.statements.length === 0) {
-    // 节点中识别不到首段jsdoc，直接使用全文字符串去匹配，如果有@arkts1.1only标签的文件，删除
-    if (sourceFile.getFullText().match(/\@arkts1.1only/g)) {
+    // 节点中识别不到首段jsdoc，直接使用全文字符串去匹配，如果有1.1标签的文件，删除
+    if (regx.test(sourceFile.getFullText())) {
       deleteSameNameFile(fullPath);
       return;
     }
@@ -145,9 +149,8 @@ function handelFileInSecondType(sameName, apiRelativePath, fullPath, allApiFileP
 
   if (sourceFile.statements[0].jsDoc && sourceFile.statements[0].jsDoc[0].tags) {
     const firstJsdocText = sourceFile.statements[0].jsDoc[0].getText();
-
-    // 从节点中获取首段标签，删除标有arkts1.1only的文件
-    if (firstJsdocText.match(/\@arkts1.1only/g)) {
+    // 从节点中获取首段标签，删除标有1.1的文件
+    if (regx.test(firstJsdocText)) {
       deleteSameNameFile(fullPath);
       return;
     }
