@@ -7408,7 +7408,7 @@ declare namespace window {
      * Obtains snapshot of window even set the privacy mode.
      *
      * @returns { Promise<image.PixelMap> } Promise that returns no value.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Function snapshotIgnorePrivacy can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
