@@ -189,7 +189,7 @@ export declare enum FixedMode {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 18
    */
-  ONE_HAND = 1
+  AUTO = 1
 }
 
 /**
