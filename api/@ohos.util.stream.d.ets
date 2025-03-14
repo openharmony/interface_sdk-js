@@ -16,6 +16,7 @@
  /**
  * @file
  * @kit ArkTS
+ * @arkts >= 1.2
  */
 
  import {Callback} from './@ohos.base';
@@ -32,7 +33,7 @@
   * @syscap SystemCapability.Utils.Lang
   * @crossplatform
   * @atomicservice
-  * @since 12
+  * @since 20
   */
 declare namespace stream {
   /**
@@ -41,7 +42,7 @@ declare namespace stream {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 20
    */
   class Writable {
     /**
@@ -50,7 +51,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     constructor();
     /**
@@ -74,7 +75,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
     */
     write(chunk?: string | Uint8Array, encoding?: string, callback?: () => void): boolean;
     /**
@@ -92,7 +93,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     end(chunk?: string | Uint8Array, encoding?: string, callback?: () => void): Writable;
     /**
@@ -107,7 +108,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
     */
     setDefaultEncoding(encoding?: string): boolean;
     /**
@@ -117,7 +118,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     cork(): boolean;
     /**
@@ -127,7 +128,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     uncork(): boolean;
     /**
@@ -142,7 +143,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     // on(event: string, callback: Callback<emitter.EventData>): void;
     /**
@@ -156,7 +157,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     // off(event: string, callback?: Callback<emitter.EventData>): void;
     /**
@@ -170,7 +171,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     doInitialize(callback: () => void): void;
     /**
@@ -187,7 +188,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     doWrite(chunk: string | Uint8Array, encoding: string, callback: () => void): void;
     /**
@@ -203,7 +204,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     doWritev(chunks: string[] | Uint8Array[], callback: () => void): void;
     /**
@@ -214,7 +215,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     readonly writableObjectMode: boolean;
     /**
@@ -225,7 +226,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     readonly writableHighWatermark: number;
     /**
@@ -236,7 +237,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     readonly writable: boolean;
     /**
@@ -247,7 +248,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     readonly writableLength: number;
     /**
@@ -258,7 +259,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     readonly writableCorked: number;
     /**
@@ -269,7 +270,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     readonly writableEnded: boolean;
     /**
@@ -280,7 +281,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     readonly writableFinished: boolean;
   }
@@ -292,7 +293,7 @@ declare namespace stream {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 20
    */
   class Transform extends Duplex {
     /**
@@ -301,7 +302,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     constructor();
     /**
@@ -319,7 +320,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     doTransform(chunk: string, encoding: string, callback: () => void): void;
     /**
@@ -334,7 +335,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     doFlush(callback: () => void): void;
   }
@@ -346,7 +347,7 @@ declare namespace stream {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 20
    */
   interface ReadableOptions {
     /**
@@ -363,7 +364,7 @@ declare namespace stream {
     * @syscap SystemCapability.Utils.Lang
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since 20
     */
     encoding?: string;
   }
@@ -374,7 +375,7 @@ declare namespace stream {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 20
    */
    class Readable {
     /**
@@ -383,7 +384,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     constructor();
     /**
@@ -397,7 +398,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     constructor(options: ReadableOptions);
     /**
@@ -414,7 +415,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     read(size?: number): string | null;
     /**
@@ -424,7 +425,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     resume(): Readable;
     /**
@@ -434,7 +435,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     pause(): Readable;
     /**
@@ -448,7 +449,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     setEncoding(encoding?: string): boolean;
     /**
@@ -458,7 +459,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     isPaused(): boolean;
     /**
@@ -474,7 +475,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     pipe(destination: Writable, options?: Object): Writable;
     /**
@@ -489,7 +490,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     unpipe(destination?: Writable): Readable;
     /**
@@ -503,7 +504,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     // on(event: string, callback: Callback<emitter.EventData>): void;
     /**
@@ -517,7 +518,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     // off(event: string, callback?: Callback<emitter.EventData>): void;
     /**
@@ -532,7 +533,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     doInitialize(callback: () => void): void;
     /**
@@ -548,7 +549,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     doRead(size: number): void;
     /**
@@ -565,7 +566,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     push(chunk: Uint8Array | string | null, encoding?: string): boolean;
     /**
@@ -576,7 +577,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     readonly readableObjectMode: boolean;
     /**
@@ -588,7 +589,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     readonly readable: boolean;
     /**
@@ -599,7 +600,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     readonly readableHighWatermark: number;
     /**
@@ -610,7 +611,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     readonly readableFlowing: boolean | null;
     /**
@@ -621,7 +622,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     readonly readableLength: number;
     /**
@@ -633,7 +634,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     readonly readableEncoding: string | null;
     /**
@@ -644,7 +645,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     readonly readableEnded: boolean;
   }
@@ -655,7 +656,7 @@ declare namespace stream {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 20
    */
   class Duplex extends Readable {
     /**
@@ -664,7 +665,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     constructor();
     /**
@@ -688,7 +689,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     write(chunk?: string | Uint8Array, encoding?: string, callback?: () => void): boolean;
     /**
@@ -706,7 +707,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     end(chunk?: string | Uint8Array, encoding?: string, callback?: () => void): Writable;
     /**
@@ -721,7 +722,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     setDefaultEncoding(encoding?: string): boolean;
     /**
@@ -731,7 +732,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     cork(): boolean;
     /**
@@ -741,7 +742,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     uncork(): boolean;
     /**
@@ -758,7 +759,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     doWrite(chunk: string | Uint8Array, encoding: string, callback: () => void): void;
     /**
@@ -774,7 +775,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     doWritev(chunks: string[] | Uint8Array[], callback: () => void): void;
     /**
@@ -785,7 +786,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     readonly writableObjectMode: boolean;
     /**
@@ -796,7 +797,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     readonly writableHighWatermark: number;
     /**
@@ -807,7 +808,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     readonly writable: boolean;
     /**
@@ -818,7 +819,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     readonly writableLength: number;
     /**
@@ -829,7 +830,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     readonly writableCorked: number;
     /**
@@ -840,7 +841,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     readonly writableEnded: boolean;
     /**
@@ -851,7 +852,7 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     readonly writableFinished: boolean;
   }
