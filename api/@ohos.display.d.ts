@@ -586,7 +586,7 @@ declare namespace display {
    * @syscap  SystemCapability.Window.SessionManager
    * @since 16
    */
-  function createVirtualScreen(options: VirtualScreenConfig): Promise<number>;
+  function createVirtualScreen(config: VirtualScreenConfig): Promise<number>;
 
   /**
    * Destroy virtual screen.
