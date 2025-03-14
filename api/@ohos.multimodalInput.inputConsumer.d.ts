@@ -144,7 +144,7 @@ declare namespace inputConsumer {
 
     /**
      * Key event type. The value 1 indicates key press and the value 2 indicates key release. Currently
-     * listening is supported only for key perss events.
+     * listening is supported only for key press events.
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
