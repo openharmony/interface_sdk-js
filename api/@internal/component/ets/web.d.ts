@@ -762,7 +762,7 @@ declare enum CacheMode {
    * @atomicservice
    * @since 18
    */
-  DEFAULT = 0,
+  CACHE_FIRST = 0,
 
   /**
    * load cache when they are available, otherwise load online.
@@ -794,7 +794,7 @@ declare enum CacheMode {
    * @atomicservice
    * @since 18
    */
-  CACHE_ELSE_NETWORK = 1,
+  CACHE_FIRST_WITH_EXPIRED = 1,
 
   /**
    * Load online and not cache.
