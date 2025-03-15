@@ -43,4 +43,8 @@ export declare class ColumnModifier extends ColumnAttribute implements Attribute
    * @since 12
    */
   applyNormalAttribute?: (instance: ColumnAttribute) => void;
+  applyPressedAttribute?: (instance: ColumnAttribute) => void;
+  applyFocusedAttribute?: (instance: ColumnAttribute) => void;
+  applyDisabledAttribute?: (instance: ColumnAttribute) => void;
+  applySelectedAttribute?: (instance: ColumnAttribute) => void;
 }

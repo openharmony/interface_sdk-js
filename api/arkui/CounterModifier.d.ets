@@ -43,4 +43,8 @@ export declare class CounterModifier extends CounterAttribute implements Attribu
    * @since 12
    */
   applyNormalAttribute?: (instance: CounterAttribute) => void;
+  applyPressedAttribute?: (instance: CounterAttribute) => void;
+  applyFocusedAttribute?: (instance: CounterAttribute) => void;
+  applyDisabledAttribute?: (instance: CounterAttribute) => void;
+  applySelectedAttribute?: (instance: CounterAttribute) => void;
 }

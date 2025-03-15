@@ -43,4 +43,8 @@ export declare class DividerModifier extends DividerAttribute implements Attribu
    * @since 12
    */
   applyNormalAttribute?: (instance: DividerAttribute) => void;
+  applyPressedAttribute?: (instance: DividerAttribute) => void;
+  applyFocusedAttribute?: (instance: DividerAttribute) => void;
+  applyDisabledAttribute?: (instance: DividerAttribute) => void;
+  applySelectedAttribute?: (instance: DividerAttribute) => void;
 }

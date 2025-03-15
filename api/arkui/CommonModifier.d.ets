@@ -41,4 +41,8 @@ export declare class CommonModifier extends CommonAttribute implements Attribute
    * @since 12
    */
   applyNormalAttribute?: (instance: CommonAttribute) => void;
+  applyPressedAttribute?: (instance: CommonAttribute) => void;
+  applyFocusedAttribute?: (instance: CommonAttribute) => void;
+  applyDisabledAttribute?: (instance: CommonAttribute) => void;
+  applySelectedAttribute?: (instance: CommonAttribute) => void;
 }

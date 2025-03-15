@@ -44,4 +44,8 @@ export declare class NavDestinationModifier extends NavDestinationAttribute impl
    * @since 12
    */
   applyNormalAttribute?: (instance: NavDestinationAttribute) => void;
+  applyPressedAttribute?: (instance: NavDestinationAttribute) => void;
+  applyFocusedAttribute?: (instance: NavDestinationAttribute) => void;
+  applyDisabledAttribute?: (instance: NavDestinationAttribute) => void;
+  applySelectedAttribute?: (instance: NavDestinationAttribute) => void;
 }

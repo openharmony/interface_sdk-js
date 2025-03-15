@@ -44,4 +44,8 @@ export declare class TimePickerModifier extends TimePickerAttribute implements A
    * @since 12
    */
   applyNormalAttribute?: (instance: TimePickerAttribute) => void;
+  applyPressedAttribute?: (instance: TimePickerAttribute) => void;
+  applyFocusedAttribute?: (instance: TimePickerAttribute) => void;
+  applyDisabledAttribute?: (instance: TimePickerAttribute) => void;
+  applySelectedAttribute?: (instance: TimePickerAttribute) => void;
 }

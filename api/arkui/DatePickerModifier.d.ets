@@ -43,4 +43,8 @@ export declare class DatePickerModifier extends DatePickerAttribute implements A
    * @since 12
    */
   applyNormalAttribute?: (instance: DatePickerAttribute) => void;
+  applyPressedAttribute?: (instance: DatePickerAttribute) => void;
+  applyFocusedAttribute?: (instance: DatePickerAttribute) => void;
+  applyDisabledAttribute?: (instance: DatePickerAttribute) => void;
+  applySelectedAttribute?: (instance: DatePickerAttribute) => void;
 }

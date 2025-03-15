@@ -45,4 +45,8 @@ export declare class NavigationModifier extends NavigationAttribute implements A
    * @since 12
    */
   applyNormalAttribute?: (instance: NavigationAttribute) => void;
+  applyPressedAttribute?: (instance: NavigationAttribute) => void;
+  applyFocusedAttribute?: (instance: NavigationAttribute) => void;
+  applyDisabledAttribute?: (instance: NavigationAttribute) => void;
+  applySelectedAttribute?: (instance: NavigationAttribute) => void;
 }

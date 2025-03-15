@@ -44,4 +44,8 @@ export declare class PanelModifier extends PanelAttribute implements AttributeMo
    * @since 12
    */
   applyNormalAttribute?: (instance: PanelAttribute) => void;
+  applyPressedAttribute?: (instance: PanelAttribute) => void;
+  applyFocusedAttribute?: (instance: PanelAttribute) => void;
+  applyDisabledAttribute?: (instance: PanelAttribute) => void;
+  applySelectedAttribute?: (instance: PanelAttribute) => void;
 }

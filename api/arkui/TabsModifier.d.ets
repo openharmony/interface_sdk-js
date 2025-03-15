@@ -44,4 +44,8 @@ export declare class TabsModifier extends TabsAttribute implements AttributeModi
    * @since 12
    */
   applyNormalAttribute?: (instance: TabsAttribute) => void;
+  applyPressedAttribute?: (instance: TabsAttribute) => void;
+  applyFocusedAttribute?: (instance: TabsAttribute) => void;
+  applyDisabledAttribute?: (instance: TabsAttribute) => void;
+  applySelectedAttribute?: (instance: TabsAttribute) => void;
 }

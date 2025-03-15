@@ -45,4 +45,8 @@ export declare class RowSplitModifier extends RowSplitAttribute implements Attri
    * @since 12
    */
   applyNormalAttribute?:(instance: RowSplitAttribute)=> void;
+  applyPressedAttribute?:(instance: RowSplitAttribute)=> void;
+  applyFocusedAttribute?:(instance: RowSplitAttribute)=> void;
+  applyDisabledAttribute?:(instance: RowSplitAttribute)=> void;
+  applySelectedAttribute?:(instance: RowSplitAttribute)=> void;
 }

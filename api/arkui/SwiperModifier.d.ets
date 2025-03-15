@@ -45,4 +45,8 @@ export declare class SwiperModifier extends SwiperAttribute implements Attribute
    * @since 12
    */
   applyNormalAttribute?: (instance: SwiperAttribute) => void;
+  applyPressedAttribute?: (instance: SwiperAttribute) => void;
+  applyFocusedAttribute?: (instance: SwiperAttribute) => void;
+  applyDisabledAttribute?: (instance: SwiperAttribute) => void;
+  applySelectedAttribute?: (instance: SwiperAttribute) => void;
 }

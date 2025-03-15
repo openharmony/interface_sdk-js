@@ -43,4 +43,8 @@ export declare class TextModifier extends TextAttribute implements AttributeModi
    * @since 12
    */
   applyNormalAttribute?:(instance: TextAttribute)=> void;
+  applyPressedAttribute?:(instance: TextAttribute)=> void;
+  applyFocusedAttribute?:(instance: TextAttribute)=> void;
+  applyDisabledAttribute?:(instance: TextAttribute)=> void;
+  applySelectedAttribute?:(instance: TextAttribute)=> void;
 }

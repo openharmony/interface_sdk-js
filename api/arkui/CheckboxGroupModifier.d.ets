@@ -43,4 +43,8 @@ export declare class CheckboxGroupModifier extends CheckboxGroupAttribute implem
    * @since 12
    */
   applyNormalAttribute?: (instance: CheckboxGroupAttribute) => void;
+  applyPressedAttribute?: (instance: CheckboxGroupAttribute) => void;
+  applyFocusedAttribute?: (instance: CheckboxGroupAttribute) => void;
+  applyDisabledAttribute?: (instance: CheckboxGroupAttribute) => void;
+  applySelectedAttribute?: (instance: CheckboxGroupAttribute) => void;
 }

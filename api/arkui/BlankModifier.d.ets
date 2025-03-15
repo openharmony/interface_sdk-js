@@ -42,4 +42,8 @@ export declare class BlankModifier extends BlankAttribute implements AttributeMo
    * @since 12
    */
   applyNormalAttribute?: (instance: BlankAttribute) => void;
+  applyPressedAttribute?: (instance: BlankAttribute) => void;
+  applyFocusedAttribute?: (instance: BlankAttribute) => void;
+  applyDisabledAttribute?: (instance: BlankAttribute) => void;
+  applySelectedAttribute?: (instance: BlankAttribute) => void;
 }

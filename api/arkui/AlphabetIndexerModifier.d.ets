@@ -41,4 +41,8 @@ export declare class AlphabetIndexerModifier extends AlphabetIndexerAttribute im
    * @since 12
    */
   applyNormalAttribute?: (instance: AlphabetIndexerAttribute) => void;
+  applyPressedAttribute?: (instance: AlphabetIndexerAttribute) => void;
+  applyFocusedAttribute?: (instance: AlphabetIndexerAttribute) => void;
+  applyDisabledAttribute?: (instance: AlphabetIndexerAttribute) => void;
+  applySelectedAttribute?: (instance: AlphabetIndexerAttribute) => void;
 }

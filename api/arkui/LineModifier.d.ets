@@ -44,4 +44,8 @@ export declare class LineModifier extends LineAttribute implements AttributeModi
    * @since 12
    */
   applyNormalAttribute?: (instance: LineAttribute) => void;
+  applyPressedAttribute?: (instance: LineAttribute) => void;
+  applyFocusedAttribute?: (instance: LineAttribute) => void;
+  applyDisabledAttribute?: (instance: LineAttribute) => void;
+  applySelectedAttribute?: (instance: LineAttribute) => void;
 }

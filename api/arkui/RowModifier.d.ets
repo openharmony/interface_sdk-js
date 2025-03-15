@@ -45,4 +45,8 @@ export declare class RowModifier extends RowAttribute implements AttributeModifi
    * @since 12
    */
   applyNormalAttribute?:(instance: RowAttribute)=> void;
+  applyPressedAttribute?:(instance: RowAttribute)=> void;
+  applyFocusedAttribute?:(instance: RowAttribute)=> void;
+  applyDisabledAttribute?:(instance: RowAttribute)=> void;
+  applySelectedAttribute?:(instance: RowAttribute)=> void;
 }

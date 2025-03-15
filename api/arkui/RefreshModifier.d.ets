@@ -46,5 +46,9 @@ export declare class RefreshModifier extends RefreshAttribute implements Attribu
      * @since 12
      */
     applyNormalAttribute?:(instance: RefreshAttribute)=> void;
+  applyPressedAttribute?:(instance: RefreshAttribute)=> void;
+  applyFocusedAttribute?:(instance: RefreshAttribute)=> void;
+  applyDisabledAttribute?:(instance: RefreshAttribute)=> void;
+  applySelectedAttribute?:(instance: RefreshAttribute)=> void;
   }
   

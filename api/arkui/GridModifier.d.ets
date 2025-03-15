@@ -45,4 +45,8 @@ export declare class GridModifier extends GridAttribute implements AttributeModi
    * @since 12
    */
   applyNormalAttribute?: (instance: GridAttribute) => void;
+  applyPressedAttribute?: (instance: GridAttribute) => void;
+  applyFocusedAttribute?: (instance: GridAttribute) => void;
+  applyDisabledAttribute?: (instance: GridAttribute) => void;
+  applySelectedAttribute?: (instance: GridAttribute) => void;
 }

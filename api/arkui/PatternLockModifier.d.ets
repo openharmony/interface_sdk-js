@@ -46,4 +46,8 @@ export declare class PatternLockModifier extends PatternLockAttribute implements
    * @since 12
    */
   applyNormalAttribute?:(instance: PatternLockAttribute)=> void;
+  applyPressedAttribute?:(instance: PatternLockAttribute)=> void;
+  applyFocusedAttribute?:(instance: PatternLockAttribute)=> void;
+  applyDisabledAttribute?:(instance: PatternLockAttribute)=> void;
+  applySelectedAttribute?:(instance: PatternLockAttribute)=> void;
 }

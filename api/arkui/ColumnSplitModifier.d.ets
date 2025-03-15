@@ -43,4 +43,8 @@ export declare class ColumnSplitModifier extends ColumnSplitAttribute implements
    * @since 12
    */
   applyNormalAttribute?: (instance: ColumnSplitAttribute) => void;
+  applyPressedAttribute?: (instance: ColumnSplitAttribute) => void;
+  applyFocusedAttribute?: (instance: ColumnSplitAttribute) => void;
+  applyDisabledAttribute?: (instance: ColumnSplitAttribute) => void;
+  applySelectedAttribute?: (instance: ColumnSplitAttribute) => void;
 }

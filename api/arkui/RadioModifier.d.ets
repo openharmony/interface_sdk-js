@@ -43,4 +43,8 @@ export declare class RadioModifier extends RadioAttribute implements AttributeMo
    * @since 12
    */
   applyNormalAttribute?:(instance: RadioModifier)=> void;
+  applyPressedAttribute?:(instance: RadioModifier)=> void;
+  applyFocusedAttribute?:(instance: RadioModifier)=> void;
+  applyDisabledAttribute?:(instance: RadioModifier)=> void;
+  applySelectedAttribute?:(instance: RadioModifier)=> void;
 }

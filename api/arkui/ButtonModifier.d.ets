@@ -42,4 +42,8 @@ export declare class ButtonModifier extends ButtonAttribute implements Attribute
    * @since 12
    */
   applyNormalAttribute?: (instance: ButtonAttribute) => void;
+  applyPressedAttribute?: (instance: ButtonAttribute) => void;
+  applyFocusedAttribute?: (instance: ButtonAttribute) => void;
+  applyDisabledAttribute?: (instance: ButtonAttribute) => void;
+  applySelectedAttribute?: (instance: ButtonAttribute) => void;
 }

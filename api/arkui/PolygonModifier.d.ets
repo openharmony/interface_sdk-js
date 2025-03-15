@@ -45,4 +45,8 @@ export declare class PolygonModifier extends PolygonAttribute implements Attribu
    * @since 12
    */
   applyNormalAttribute?:(instance: PolygonAttribute)=> void;
+  applyPressedAttribute?:(instance: PolygonAttribute)=> void;
+  applyFocusedAttribute?:(instance: PolygonAttribute)=> void;
+  applyDisabledAttribute?:(instance: PolygonAttribute)=> void;
+  applySelectedAttribute?:(instance: PolygonAttribute)=> void;
 }

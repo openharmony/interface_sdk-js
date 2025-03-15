@@ -46,4 +46,8 @@ export declare class SelectModifier extends SelectAttribute implements Attribute
    * @since 12
    */
   applyNormalAttribute?: (instance: SelectAttribute) => void;
+  applyPressedAttribute?: (instance: SelectAttribute) => void;
+  applyFocusedAttribute?: (instance: SelectAttribute) => void;
+  applyDisabledAttribute?: (instance: SelectAttribute) => void;
+  applySelectedAttribute?: (instance: SelectAttribute) => void;
 }

@@ -44,4 +44,8 @@ export declare class TextAreaModifier extends TextAreaAttribute implements Attri
    * @since 12
    */
   applyNormalAttribute?: (instance: TextAreaAttribute) => void;
+  applyPressedAttribute?: (instance: TextAreaAttribute) => void;
+  applyFocusedAttribute?: (instance: TextAreaAttribute) => void;
+  applyDisabledAttribute?: (instance: TextAreaAttribute) => void;
+  applySelectedAttribute?: (instance: TextAreaAttribute) => void;
 }

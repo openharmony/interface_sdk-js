@@ -45,4 +45,8 @@ export declare class MarqueeModifier extends MarqueeAttribute implements Attribu
    * @since 12
    */
   applyNormalAttribute?: (instance: MarqueeAttribute) => void;
+  applyPressedAttribute?: (instance: MarqueeAttribute) => void;
+  applyFocusedAttribute?: (instance: MarqueeAttribute) => void;
+  applyDisabledAttribute?: (instance: MarqueeAttribute) => void;
+  applySelectedAttribute?: (instance: MarqueeAttribute) => void;
 }

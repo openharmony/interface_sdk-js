@@ -42,4 +42,8 @@ export declare class ImageModifier extends ImageAttribute implements AttributeMo
    * @since 12
    */
   applyNormalAttribute?:(instance: ImageAttribute)=> void;
+  applyPressedAttribute?:(instance: ImageAttribute)=> void;
+  applyFocusedAttribute?:(instance: ImageAttribute)=> void;
+  applyDisabledAttribute?:(instance: ImageAttribute)=> void;
+  applySelectedAttribute?:(instance: ImageAttribute)=> void;
 }

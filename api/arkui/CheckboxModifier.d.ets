@@ -42,4 +42,8 @@ export declare class CheckboxModifier extends CheckboxAttribute implements Attri
    * @since 12
    */
   applyNormalAttribute?: (instance: CheckboxAttribute) => void;
+  applyPressedAttribute?: (instance: CheckboxAttribute) => void;
+  applyFocusedAttribute?: (instance: CheckboxAttribute) => void;
+  applyDisabledAttribute?: (instance: CheckboxAttribute) => void;
+  applySelectedAttribute?: (instance: CheckboxAttribute) => void;
 }

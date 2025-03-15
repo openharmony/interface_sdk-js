@@ -45,4 +45,8 @@ export declare class VideoModifier extends VideoAttribute implements AttributeMo
    * @since 12
    */
   applyNormalAttribute?: (instance: VideoAttribute) => void;
+  applyPressedAttribute?: (instance: VideoAttribute) => void;
+  applyFocusedAttribute?: (instance: VideoAttribute) => void;
+  applyDisabledAttribute?: (instance: VideoAttribute) => void;
+  applySelectedAttribute?: (instance: VideoAttribute) => void;
 }

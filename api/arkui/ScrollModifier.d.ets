@@ -45,4 +45,8 @@ export declare class ScrollModifier extends ScrollAttribute implements Attribute
    * @since 12
    */
   applyNormalAttribute?: (instance: ScrollAttribute) => void;
+  applyPressedAttribute?: (instance: ScrollAttribute) => void;
+  applyFocusedAttribute?: (instance: ScrollAttribute) => void;
+  applyDisabledAttribute?: (instance: ScrollAttribute) => void;
+  applySelectedAttribute?: (instance: ScrollAttribute) => void;
 }

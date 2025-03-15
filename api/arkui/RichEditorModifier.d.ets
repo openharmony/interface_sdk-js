@@ -46,4 +46,8 @@ export declare class RichEditorModifier extends RichEditorAttribute implements A
    * @since 12
    */
   applyNormalAttribute?:(instance: RichEditorAttribute)=> void;
+  applyPressedAttribute?:(instance: RichEditorAttribute)=> void;
+  applyFocusedAttribute?:(instance: RichEditorAttribute)=> void;
+  applyDisabledAttribute?:(instance: RichEditorAttribute)=> void;
+  applySelectedAttribute?:(instance: RichEditorAttribute)=> void;
 }

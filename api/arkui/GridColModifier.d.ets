@@ -45,4 +45,8 @@ export declare class GridColModifier extends GridColAttribute implements Attribu
    * @since 12
    */
   applyNormalAttribute?: (instance: GridColAttribute) => void;
+  applyPressedAttribute?: (instance: GridColAttribute) => void;
+  applyFocusedAttribute?: (instance: GridColAttribute) => void;
+  applyDisabledAttribute?: (instance: GridColAttribute) => void;
+  applySelectedAttribute?: (instance: GridColAttribute) => void;
 }
