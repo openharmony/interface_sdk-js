@@ -4544,6 +4544,21 @@ declare namespace photoAccessHelper {
      */
     stopThumbnailCreationTask(taskId: number): void;
     /**
+     * Provides the capability of stop generating thumbnails.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { number } taskId - Stop generating thumbnail task id.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 1
+     */
+    stopCreateThumbnailTask(taskId: int): void;
+    /**
      * Fetch shared photo assets.
      *
      * @permission ohos.permission.ACCESS_MEDIALIB_THUMB_DB
