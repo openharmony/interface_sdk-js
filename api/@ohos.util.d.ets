@@ -65,6 +65,149 @@ declare namespace util {
    */
   function generateRandomUUID(entropyCache?: boolean): string;
 
+  /**
+   * The ScopeComparable contains comparison methods.
+   *
+   * @interface ScopeComparable
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  interface ScopeComparable<T> {
+    /**
+     * The comparison function is used by the scope.
+     *
+     * @param { ScopeComparable } other - Other
+     * @returns { boolean } Returns whether the current object is greater than or equal to the input object.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    compareTo(other: T): boolean;
+  }
+
+  /**
+    * A type used to denote ScopeComparable or number.
+    *
+    * @typedef { ScopeComparable }
+    * @syscap SystemCapability.Utils.Lang
+    * @crossplatform
+    * @atomicservice
+    * @since 20
+    */
+  type ScopeType<T> = ScopeComparable<T>;
+
+  class ScopeHelper<T extends ScopeComparable<T>> {
+    /**
+     * A constructor used to create a Scope instance with the lower and upper bounds specified.
+     *
+     * @param { ScopeType } lowerObj - A ScopeType value
+     * @param { ScopeType } upperObj - A ScopeType value
+     * @since 20
+     */
+    constructor(lowerObj: T, upperObj: T);
+
+    /**
+     * Obtains a string representation of the current range.
+     *
+     * @returns { string } Returns a string representation of the current range object.
+     * @since 20
+     */
+    toString(): string;
+
+    /**
+     * Returns the intersection of a given range and the current range.
+     *
+     * @param { ScopeHelper } range - A Scope range object
+     * @returns { ScopeHelper } Returns the intersection of a given range and the current range.
+     * @since 20
+     */
+    intersect(range: ScopeHelper<T>): ScopeHelper<T>;
+
+    /**
+     * Returns the intersection of the current range and the range specified by the given lower and upper bounds.
+     *
+     * @param { ScopeType } lowerObj - A ScopeType value
+     * @param { ScopeType } upperObj - A ScopeType value
+     * @returns { ScopeHelper } Returns the intersection of the current range and the range specified by the given lower and upper bounds.
+     * @since 20
+     */
+    intersect(lowerObj: T, upperObj: T): ScopeHelper<T>;
+
+    /**
+     * Obtains the upper bound of the current range.
+     *
+     * @returns { ScopeType } Returns the upper bound of the current range.
+     * @since 20
+     */
+    getUpper(): T;
+
+    /**
+     * Obtains the lower bound of the current range.
+     *
+     * @returns { ScopeType } Returns the lower bound of the current range.
+     * @since 20
+     */
+    getLower(): T;
+
+    /**
+     * Creates the smallest range that includes the current range and the given lower and upper bounds.
+     *
+     * @param { ScopeType } lowerObj - A ScopeType value
+     * @param { ScopeType } upperObj - A ScopeType value
+     * @returns { ScopeHelper } Returns the smallest range that includes the current range and the given lower and upper bounds.
+     * @since 20
+     */
+    expand(lowerObj: T, upperObj: T): ScopeHelper<T>;
+
+    /**
+     * Creates the smallest range that includes the current range and a given range.
+     *
+     * @param { ScopeHelper } range - A Scope range object
+     * @returns { ScopeHelper } Returns the smallest range that includes the current range and a given range.
+     * @since 20
+     */
+    expand(range: ScopeHelper<T>): ScopeHelper<T>;
+
+    /**
+     * Creates the smallest range that includes the current range and a given value.
+     *
+     * @param { ScopeType } value - A ScopeType value
+     * @returns { ScopeHelper } Returns the smallest range that includes the current range and a given value.
+     * @since 20
+     */
+    expand(value: T): ScopeHelper<T>;
+
+    /**
+     * Checks whether a given value is within the current range.
+     *
+     * @param { ScopeType } value - A ScopeType value
+     * @returns { boolean } If the value is within the current range return true,otherwise return false.
+     * @since 20
+     */
+    contains(value: T): boolean;
+
+    /**
+     * Checks whether a given range is within the current range.
+     *
+     * @param { ScopeHelper } range - A Scope range
+     * @returns { boolean } If the current range is within the given range return true,otherwise return false.
+     * @since 20
+     */
+    contains(range: ScopeHelper<T>): boolean;
+
+    /**
+     * Clamps a given value to the current range.
+     *
+     * @param { ScopeType } value - A ScopeType value
+     * @returns { ScopeType } Returns a ScopeType object that a given value is clamped to the current range.
+     * @since 20
+     */
+    clamp(value: T): T;
+  }
+
   class LRUCache<K, V> {
     /**
      * Default constructor used to create a new LruBuffer instance with the default capacity of 64.
