@@ -645,25 +645,25 @@ declare namespace inputMethodEngine {
     off(type: 'privateCommand', callback?: Callback<Record<string, CommandDataType>>): void;
 
     /**
-     * Subscribe 'callingDisplayChanged' event.
+     * Subscribe 'callingDisplayDidChange' event.
      *
-     * @param { 'callingDisplayChanged' } type - indicates the type of subscribe event.
-     * @param { Callback<number> } callback - indicates the callback of on('callingDisplayChanged').
+     * @param { 'callingDisplayDidChange' } type - indicates the type of subscribe event.
+     * @param { Callback<number> } callback - indicates the callback of on('callingDisplayDidChange').
      * @throws { BusinessError } 801 - capability not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 18
      */
-    on(type: 'callingDisplayChanged', callback: Callback<number>): void;
+    on(type: 'callingDisplayDidChange', callback: Callback<number>): void;
 
     /**
-     * Unsubscribe 'callingDisplayChanged' event.
+     * Unsubscribe 'callingDisplayDidChange' event.
      *
-     * @param { 'callingDisplayChanged' } type - indicates the type of subscribe event.
-     * @param { Callback<number> } [callback] - optional, indicates the callback of off('callingDisplayChanged').
+     * @param { 'callingDisplayDidChange' } type - indicates the type of subscribe event.
+     * @param { Callback<number> } [callback] - optional, indicates the callback of off('callingDisplayDidChange').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 18
      */
-    off(type: 'callingDisplayChanged', callback?: Callback<number>): void;
+    off(type: 'callingDisplayDidChange', callback?: Callback<number>): void;
 
     /**
      * Get input method's security mode.
