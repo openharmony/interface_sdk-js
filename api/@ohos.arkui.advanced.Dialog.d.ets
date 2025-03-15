@@ -23,23 +23,7 @@
 
 import { Theme, CustomTheme } from '@ohos.arkui.theme';
 import image from './@ohos.multimedia.image';
-/*** if arkts >=1.2 */
-import { ResourceStr, ResourceColor, SizeOptions, Padding, LocalizedPadding } from './@ohos.arkui.component.Units';
-import { ButtonStyleMode, ButtonRole } from './@ohos.arkui.component.Button';
 
-import {
-  CustomDialog,
-  Prop,
-  ThemeColorMode,
-  BuilderParam,
-  Component,
-  Link,
-  Require,
-} from './@ohos.arkui.component.Common';
-import { CustomDialogController } from './@ohos.arkui.component.CustomDialogController';
-import { Callback } from './@ohos.base';
-import { SheetInfo } from './@ohos.arkui.component.ActionSheet';
-/*** end if */
 /**
  * Declare ButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full

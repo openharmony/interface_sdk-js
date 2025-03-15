@@ -240,7 +240,7 @@ export interface TextDecorationOptions {
  * @since 11
  */
 export @interface Component {
-  freezeWhenInactive : boolean;
+  freezeWhenInactive: boolean = false;
 }
 
 /**
@@ -253,8 +253,7 @@ export @interface Component {
  * @since 12
  */
 export @interface ComponentV2 {
-  freezeWhenInactive : boolean;
-}
+  freezeWhenInactive : boolean = false;
 /**
  * Defines the options of Entry ClassDecorator.
  *
