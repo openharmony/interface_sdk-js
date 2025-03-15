@@ -37,7 +37,7 @@ import { ValueType } from './@ohos.data.ValuesBucket';
  * @crossplatform
  * @since 12
  */
-export default namespace dataSharePredicates {
+declare namespace dataSharePredicates {
   /**
    * Manages relational database configurations.
    *
@@ -54,18 +54,6 @@ export default namespace dataSharePredicates {
    * @since 12
    */
   export class DataSharePredicates {
-    static { loadLibrary("data_share_predicates") }
-    private nativePtr:long = 0;
-
-    constructor(nativePtr:long) {
-        if (this.nativePtr == 0) {
-            this.nativePtr = nativePtr;
-        }
-    }
-    getNativePtr():long {
-        return this.nativePtr;
-    }
-    native static create():DataSharePredicates;
     /**
      * Configure the DataSharePredicates to match the field whose data type is ValueType and value is equal
      * to a specified value.
@@ -91,7 +79,7 @@ export default namespace dataSharePredicates {
      * @crossplatform
      * @since 12
      */
-    native equalTo(field: string, value: ValueType): DataSharePredicates;
+    equalTo(field: string, value: ValueType): DataSharePredicates;
 
     /**
      * Configure the DataSharePredicates to match the field whose data type is ValueType and value is unequal to
@@ -106,7 +94,7 @@ export default namespace dataSharePredicates {
      * @StageModelOnly
      * @since 9
      */
-    native notEqualTo(field: string, value: ValueType): DataSharePredicates;
+    notEqualTo(field: string, value: ValueType): DataSharePredicates;
 
     /**
      * Adds a left parenthesis to the DataSharePredicates.
@@ -118,7 +106,7 @@ export default namespace dataSharePredicates {
      * @StageModelOnly
      * @since 9
      */
-    native beginWrap(): DataSharePredicates;
+    beginWrap(): DataSharePredicates;
 
     /**
      * Adds a right parenthesis to the DataSharePredicates.
@@ -131,7 +119,7 @@ export default namespace dataSharePredicates {
      * @StageModelOnly
      * @since 9
      */
-    native endWrap(): DataSharePredicates;
+    endWrap(): DataSharePredicates;
 
     /**
      * Adds an or condition to the DataSharePredicates.
@@ -143,7 +131,7 @@ export default namespace dataSharePredicates {
      * @StageModelOnly
      * @since 9
      */
-    native or(): DataSharePredicates;
+    or(): DataSharePredicates;
 
     /**
      * Adds an and condition to the DataSharePredicates.
@@ -164,7 +152,7 @@ export default namespace dataSharePredicates {
      * @crossplatform
      * @since 12
      */
-    native and(): DataSharePredicates;
+    and(): DataSharePredicates;
 
     /**
      * Configure the DataSharePredicates to match the field whose data type is string and value
@@ -179,7 +167,7 @@ export default namespace dataSharePredicates {
      * @StageModelOnly
      * @since 9
      */
-    native contains(field: string, value: string): DataSharePredicates;
+    contains(field: string, value: string): DataSharePredicates;
 
     /**
      * Configure the DataSharePredicates to match the field whose data type is string and value starts
@@ -194,7 +182,7 @@ export default namespace dataSharePredicates {
      * @StageModelOnly
      * @since 9
      */
-    native beginsWith(field: string, value: string): DataSharePredicates;
+    beginsWith(field: string, value: string): DataSharePredicates;
 
     /**
      * Configure the DataSharePredicates to match the field whose data type is string and value
@@ -209,7 +197,7 @@ export default namespace dataSharePredicates {
      * @StageModelOnly
      * @since 9
      */
-    native endsWith(field: string, value: string): DataSharePredicates;
+    endsWith(field: string, value: string): DataSharePredicates;
 
     /**
      * Configure the DataSharePredicates to match the fields whose value is null.
@@ -222,7 +210,7 @@ export default namespace dataSharePredicates {
      * @StageModelOnly
      * @since 9
      */
-    native isNull(field: string): DataSharePredicates;
+    isNull(field: string): DataSharePredicates;
 
     /**
      * Configure the DataSharePredicates to match the specified fields whose value is not null.
@@ -235,7 +223,7 @@ export default namespace dataSharePredicates {
      * @StageModelOnly
      * @since 9
      */
-    native isNotNull(field: string): DataSharePredicates;
+    isNotNull(field: string): DataSharePredicates;
 
     /**
      * Configure the DataSharePredicates to match the fields whose data type is string and value is
@@ -251,7 +239,7 @@ export default namespace dataSharePredicates {
      * @StageModelOnly
      * @since 9
      */
-    native like(field: string, value: string): DataSharePredicates;
+    like(field: string, value: string): DataSharePredicates;
 
     /**
      * Configure the DataSharePredicates to match the fields whose data type is string and value is
@@ -259,8 +247,7 @@ export default namespace dataSharePredicates {
      * This method is similar to unlike of the SQL statement.
      *
      * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value to match with the DataSharePredicates. 
-     *        The percent sign (%) in the value.
+     * @param { string } value - Indicates the value to match with the DataSharePredicates. The percent sign (%) in the value
      * is a wildcard (like * in a regular expression).
      * @returns { DataSharePredicates } Returns the DataSharePredicates that match the specified field.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
@@ -268,7 +255,7 @@ export default namespace dataSharePredicates {
      * @StageModelOnly
      * @since 9
      */
-    native unlike(field: string, value: string): DataSharePredicates;
+    unlike(field: string, value: string): DataSharePredicates;
 
     /**
      * Configure DataSharePredicates to match the specified field whose data type is string and the value contains
@@ -283,7 +270,7 @@ export default namespace dataSharePredicates {
      * @StageModelOnly
      * @since 9
      */
-    native glob(field: string, value: string): DataSharePredicates;
+    glob(field: string, value: string): DataSharePredicates;
 
     /**
      * Restricts the value of the field to the range between low value and high value.
@@ -297,7 +284,7 @@ export default namespace dataSharePredicates {
      * @StageModelOnly
      * @since 9
      */
-    native between(field: string, low: ValueType, high: ValueType): DataSharePredicates;
+    between(field: string, low: ValueType, high: ValueType): DataSharePredicates;
 
     /**
      * Configure DataSharePredicates to match the specified field whose data type is int and value is
@@ -312,7 +299,7 @@ export default namespace dataSharePredicates {
      * @StageModelOnly
      * @since 9
      */
-    native notBetween(field: string, low: ValueType, high: ValueType): DataSharePredicates;
+    notBetween(field: string, low: ValueType, high: ValueType): DataSharePredicates;
 
     /**
      * Restricts the value of the field to be greater than the specified value.
@@ -325,7 +312,7 @@ export default namespace dataSharePredicates {
      * @StageModelOnly
      * @since 9
      */
-    native greaterThan(field: string, value: ValueType): DataSharePredicates;
+    greaterThan(field: string, value: ValueType): DataSharePredicates;
 
     /**
      * Restricts the value of the field to be smaller than the specified value.
@@ -338,7 +325,7 @@ export default namespace dataSharePredicates {
      * @StageModelOnly
      * @since 9
      */
-    native lessThan(field: string, value: ValueType): DataSharePredicates;
+    lessThan(field: string, value: ValueType): DataSharePredicates;
 
     /**
      * Restricts the value of the field to be greater than or equal to the specified value.
@@ -351,7 +338,7 @@ export default namespace dataSharePredicates {
      * @StageModelOnly
      * @since 9
      */
-    native greaterThanOrEqualTo(field: string, value: ValueType): DataSharePredicates;
+    greaterThanOrEqualTo(field: string, value: ValueType): DataSharePredicates;
 
     /**
      * Restricts the value of the field to be smaller than or equal to the specified value.
@@ -364,7 +351,7 @@ export default namespace dataSharePredicates {
      * @StageModelOnly
      * @since 9
      */
-    native lessThanOrEqualTo(field: string, value: ValueType): DataSharePredicates;
+    lessThanOrEqualTo(field: string, value: ValueType): DataSharePredicates;
 
     /**
      * Restricts the ascending order of the return list. When there are several orders,
@@ -387,7 +374,7 @@ export default namespace dataSharePredicates {
      * @crossplatform
      * @since 12
      */
-    native orderByAsc(field: string): DataSharePredicates;
+    orderByAsc(field: string): DataSharePredicates;
 
     /**
      * Restricts the descending order of the return list. When there are several orders,
@@ -410,7 +397,7 @@ export default namespace dataSharePredicates {
      * @crossplatform
      * @since 12
      */
-    native orderByDesc(field: string): DataSharePredicates;
+    orderByDesc(field: string): DataSharePredicates;
 
     /**
      * Restricts each row of the query result to be unique.
@@ -421,7 +408,7 @@ export default namespace dataSharePredicates {
      * @StageModelOnly
      * @since 9
      */
-    native distinct(): DataSharePredicates;
+    distinct(): DataSharePredicates;
 
     /**
      * Construct a query object to specify the number of results and the starting position.
@@ -444,20 +431,19 @@ export default namespace dataSharePredicates {
      * @crossplatform
      * @since 12
      */
-    native limit(total: number, offset: number): DataSharePredicates;
+    limit(total: number, offset: number): DataSharePredicates;
 
     /**
      * Configure {@code DataSharePredicates} to group query results by specified columns.
      *
      * @param { Array<string> } fields - Indicates the specified columns by which query results are grouped.
-     * @returns { DataSharePredicates } Returns the DataSharePredicates with the specified columns 
-                by which query results are grouped.
+     * @returns { DataSharePredicates } Returns the DataSharePredicates with the specified columns by which query results are grouped.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
      * @since 9
      */
-    native groupBy(fields: Array<string>): DataSharePredicates;
+    groupBy(fields: Array<string>): DataSharePredicates;
 
     /**
      * Configure {@code DataSharePredicates} to specify the index column.
@@ -470,7 +456,7 @@ export default namespace dataSharePredicates {
      * @StageModelOnly
      * @since 9
      */
-    native indexedBy(field: string): DataSharePredicates;
+    indexedBy(field: string): DataSharePredicates;
 
     /**
      * Configure {@code DataSharePredicates} to match the specified field whose data type is ValueType array and values
@@ -495,7 +481,7 @@ export default namespace dataSharePredicates {
      * @crossplatform
      * @since 12
      */
-    native in(field: string, value: Array<ValueType>): DataSharePredicates;
+    in(field: string, value: Array<ValueType>): DataSharePredicates;
 
     /**
      * Configure {@code DataSharePredicates} to match the specified field whose data type is String array and values
@@ -509,7 +495,7 @@ export default namespace dataSharePredicates {
      * @StageModelOnly
      * @since 9
      */
-    native notIn(field: string, value: Array<ValueType>): DataSharePredicates;
+    notIn(field: string, value: Array<ValueType>): DataSharePredicates;
 
     /**
      * Configure {@code DataSharePredicates} Creates a query condition using the specified key prefix.
@@ -521,7 +507,7 @@ export default namespace dataSharePredicates {
      * @StageModelOnly
      * @since 9
      */
-    native prefixKey(prefix: string): DataSharePredicates;
+    prefixKey(prefix: string): DataSharePredicates;
 
     /**
      * Configure {@code DataSharePredicates} to match the specified value whose key is within a given range.
@@ -533,6 +519,8 @@ export default namespace dataSharePredicates {
      * @StageModelOnly
      * @since 9
      */
-    native inKeys(keys: Array<string>): DataSharePredicates;
+    inKeys(keys: Array<string>): DataSharePredicates;
   }
 }
+
+export default dataSharePredicates;

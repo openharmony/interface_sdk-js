@@ -538,7 +538,7 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    height: number;
+    height: int;
 
     /**
      * Width
@@ -574,7 +574,7 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    width: number;
+    width: int;
   }
 
   /**
@@ -2885,7 +2885,7 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    x: number;
+    x: Int;
 
     /**
      * y-coordinate at the upper left corner of the image.
@@ -2921,7 +2921,7 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    y: number;
+    y: Int;
   }
 
   /**
@@ -3029,7 +3029,7 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    offset: number;
+    offset: int;
 
     /**
      * Number of bytes to read.
@@ -3065,7 +3065,7 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    stride: number;
+    stride: int;
 
     /**
      * Region to read.
@@ -3209,7 +3209,7 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    density: number;
+    density: int;
 
     /**
      * The number of byte per row.
@@ -3228,7 +3228,7 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    stride: number;
+    stride: int;
 
     /**
      * Indicates image format.
@@ -3240,7 +3240,7 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    pixelFormat: PixelMapFormat;
+    pixelFormat: int;
 
     /**
      * Indicates image alpha type.
@@ -3252,7 +3252,7 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    alphaType: AlphaType;
+    alphaType: int;
 
     /**
      * Indicates image mime type.
@@ -3349,7 +3349,7 @@ declare namespace image {
      * @atomicservice
      * @since 11
      */
-    quality: number;
+    quality: Int;
 
     /**
      * BufferSize of the target image.
@@ -3378,7 +3378,7 @@ declare namespace image {
      * @atomicservice
      * @since 11
      */
-    bufferSize?: number;
+    bufferSize?: Int;
 
     /**
      * The desired dynamic range of the target image.
@@ -3387,7 +3387,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 12
      */
-    desiredDynamicRange?: PackingDynamicRange;
+    desiredDynamicRange?: Int;
 
     /**
      * Whether the image properties can be saved, like Exif.
@@ -3396,7 +3396,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 12
      */
-    needsPackProperties?: boolean;
+    needsPackProperties?: Int;
   }
 
   /**
@@ -3414,7 +3414,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 13
      */
-    frameCount: number;
+    frameCount: int;
 
     /**
      * Specify the delay time for each frame of the dynamic image.
@@ -3424,7 +3424,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 13
      */
-    delayTimeList: Array<number>;
+    delayTimeList: Array<int>;
 
     /**
      * Specify the disposal types of each frame in the image sequence packing.
@@ -3433,7 +3433,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 13
      */
-    disposalTypes?: Array<number>;
+    disposalTypes?: Array<int>;
 
     /**
      * Specify the number of times the loop should, the range is [0, 65535]
@@ -3443,7 +3443,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 13
      */
-    loopCount?: number;
+    loopCount?: int;
   }
 
   /**
@@ -3485,7 +3485,7 @@ declare namespace image {
      * @deprecated since 11
      * @useinstead image.ImagePropertyOptions#index
      */
-    index?: number;
+    index?: int;
 
     /**
      * Default property value.
@@ -3526,7 +3526,7 @@ declare namespace image {
      * @crossplatform
      * @since 11
      */
-    index?: number;
+    index?: int;
 
     /**
      * Default property value.
@@ -3608,7 +3608,7 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    index?: number;
+    index?: Int;
 
     /**
      * Sampling ratio of the image pixel map.
@@ -3644,7 +3644,7 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    sampleSize?: number;
+    sampleSize?: Int;
 
     /**
      * Rotation angle of the image pixel map. The value ranges from 0 to 360.
@@ -3680,7 +3680,7 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    rotate?: number;
+    rotate?: Int;
 
     /**
      * Whether the image pixel map is editable.
@@ -3716,7 +3716,7 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    editable?: boolean;
+    editable?: Int;
 
     /**
      * Width and height of the image pixel map. The value (0, 0) indicates that the pixels are decoded
@@ -3828,7 +3828,7 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    desiredPixelFormat?: PixelMapFormat;
+    desiredPixelFormat?: Int;
 
     /**
      * The density for image pixel map.
@@ -3864,7 +3864,7 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    fitDensity?: number;
+    fitDensity?: Int;
 
     /**
      * Color space of the image pixel map.
@@ -3874,7 +3874,7 @@ declare namespace image {
      * @crossplatform
      * @since 11
      */
-    desiredColorSpace?: colorSpaceManager.ColorSpaceManager;
+    desiredColorSpace?: Int;
 
     /**
      * The desired dynamic range of the image pixelmap.
@@ -3883,7 +3883,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 12
      */
-    desiredDynamicRange?: DecodingDynamicRange;
+    desiredDynamicRange?: Int;
 
     /**
      * Resolution Quality of the image.
@@ -3893,7 +3893,7 @@ declare namespace image {
      * @systemapi
      * @since 12
      */
-    resolutionQuality?: ResolutionQuality;
+    resolutionQuality?: Int;
   }
 
   /**
@@ -4019,7 +4019,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12
      */
-    srcPixelFormat?: PixelMapFormat;
+    srcPixelFormat?: Int;
 
     /**
      * PixelMap expected format.
@@ -4055,7 +4055,7 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    pixelFormat?: PixelMapFormat;
+    pixelFormat?: Int;
 
     /**
      * Editable or not.
@@ -4127,7 +4127,7 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    alphaType?: AlphaType;
+    alphaType?: Int;
 
     /**
      * PixelMap expected scaling effect.
@@ -4163,7 +4163,7 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    scaleMode?: ScaleMode;
+    scaleMode?: Int;
   }
 
   /**
@@ -4235,7 +4235,7 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    sourceDensity: number;
+    sourceDensity: int;
 
     /**
      * PixelMap expected format.
@@ -4271,7 +4271,7 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    sourcePixelFormat?: PixelMapFormat;
+    sourcePixelFormat?: int;
 
     /**
      * PixelMap size.
@@ -4460,7 +4460,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12
      */
-    writerVersion: number;
+    writerVersion: int;
 
     /**
      * The minimum version a parser needs to understand.
@@ -4469,7 +4469,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12
      */
-    miniVersion: number;
+    miniVersion: int;
 
     /**
      * The number of gain map channels, with a value of 1 or 3.
@@ -4478,7 +4478,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12
      */
-    gainmapChannelCount: number;
+    gainmapChannelCount: int;
 
     /**
      * Indicate whether to use the color space of the base image.
@@ -4815,7 +4815,7 @@ declare namespace image {
    * @atomicservice
    * @since 11
    */
-  function createImageSource(fd: number): ImageSource;
+  function createImageSource(fd: int): ImageSource;
 
   /**
    * Creates an ImageSource instance based on the file descriptor.
@@ -7192,7 +7192,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13
      */
-    desiredAuxiliaryPictures: Array<AuxiliaryPictureType>;
+    desiredAuxiliaryPictures: Array<int>;
   }
 
   /**
@@ -7246,7 +7246,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13
      */
-    colorSpace: colorSpaceManager.ColorSpaceManager;
+    colorSpace: int;
   }
 
   /**
@@ -7402,7 +7402,7 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    getImageInfo(index?: number): Promise<ImageInfo>;
+    getImageInfo(index?: int): Promise<ImageInfo>;
 
     /**
      * Get image information from image source synchronously.
@@ -7413,7 +7413,7 @@ declare namespace image {
      * @crossplatform
      * @since 12
      */
-    getImageInfoSync(index?: number): ImageInfo;
+    getImageInfoSync(index?: int): ImageInfo;
 
     /**
      * Creates a PixelMap object based on image decoding parameters. This method uses a promise to

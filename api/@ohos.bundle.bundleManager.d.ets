@@ -1493,7 +1493,7 @@ declare namespace bundleManager {
    * @systemapi
    * @since 9
    */
-  function getBundleInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;
+  export function getBundleInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;
 
   /**
    * Obtains bundleInfo based on bundleName, bundleFlags and userId. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
@@ -1513,7 +1513,7 @@ declare namespace bundleManager {
    * @systemapi
    * @since 9
    */
-  function getBundleInfo(bundleName: string,
+  export function getBundleInfo(bundleName: string,
     bundleFlags: number, userId: number, callback: AsyncCallback<BundleInfo>): void;
 
   /**
@@ -1534,7 +1534,7 @@ declare namespace bundleManager {
    * @systemapi
    * @since 9
    */
-  function getBundleInfo(bundleName: string, bundleFlags: number, userId?: number): Promise<BundleInfo>;
+  export function getBundleInfo(bundleName: string, bundleFlags: number, userId?: number): Promise<BundleInfo>;
 
   /**
    * Obtains application info based on a given bundle name. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
@@ -2803,7 +2803,7 @@ declare namespace bundleManager {
    * @systemapi
    * @since 9
    */
-  function getApplicationInfoSync(bundleName: string, applicationFlags: number): ApplicationInfo;
+  export function getApplicationInfoSync(bundleName: string, applicationFlags: number): ApplicationInfo;
 
   /**
    * Obtains bundleInfo based on bundleName, bundleFlags and userId.
@@ -2841,7 +2841,7 @@ declare namespace bundleManager {
    * @systemapi
    * @since 9
    */
-  function getBundleInfoSync(bundleName: string, bundleFlags: number): BundleInfo;
+  export function getBundleInfoSync(bundleName: string, bundleFlags: number): BundleInfo;
 
   /**
    * Obtains SharedBundleInfo of all shared bundle available in the system.
