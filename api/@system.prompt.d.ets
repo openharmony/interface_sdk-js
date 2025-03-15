@@ -440,4 +440,4 @@ export interface ShowActionMenuOptions {
    */
   static showActionMenu(options: ShowActionMenuOptions): void;
 }
-export default prompt;
+export default Prompt;

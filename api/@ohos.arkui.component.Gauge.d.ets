@@ -17,8 +17,9 @@
  * @file
  * @kit ArkUI
  */
-import { CommonMethod,CommonConfiguration,ContentModifier } from './@ohos.arkui.component.Common'
+import { CommonMethod,CommonConfiguration,ContentModifier,MultiShadowOptions,CustomBuilder,Optional  } from './@ohos.arkui.component.Common'
 import { ResourceStr,Dimension,ResourceColor,Length } from './@ohos.arkui.component.Units'
+import { LinearGradient } from './@ohos.arkui.component.DataPanel'
 /**
  * Defines Gauge constructor options.
  *

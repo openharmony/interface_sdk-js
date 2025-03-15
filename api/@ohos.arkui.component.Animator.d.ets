@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 import { CommonMethod} from './@ohos.arkui.component.Common'
-import { AnimationStatus, Curve, PlayMode } from './@ohos.arkui.component.Enums'
+import { AnimationStatus, Curve, PlayMode,FillMode } from './@ohos.arkui.component.Enums'
 /**
  * Customize spring properties.
  *

@@ -22,7 +22,7 @@
 
 import Want from "./@ohos.app.ability.Want";
 import { Visibility } from './@ohos.arkui.component.Enums';
-import { CommonMethod } from './@ohos.arkui.component.Common';
+import { CommonMethod,Callback } from './@ohos.arkui.component.Common';
 
 /**
  * Defines the FormDimension enum.
@@ -306,7 +306,7 @@ export interface FormCallbackInfo {
 }
 
 export interface FormSizeOptions { width: number; height: number }
-export interface ErrorOptions { errcode: number; msg: string }
+export interface FormErrorOptions { errcode: number; msg: string }
 /**
  * @extends CommonMethod<FormComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -400,7 +400,7 @@ export declare class FormComponentAttribute extends CommonMethod<FormComponentAt
    * @systemapi
    * @since 7
    */
-  onError(callback: (info: ErrorOptions) => void): FormComponentAttribute;
+  onError(callback: (info: FormErrorOptions) => void): FormComponentAttribute;
 
   /**
    * Card to be redirected.

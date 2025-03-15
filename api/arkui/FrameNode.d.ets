@@ -1711,7 +1711,7 @@ export declare class NodeAdapter {
    * @atomicservice
    * @since 12
    */
-  set totalNodeCount(count: number):void;
+  set totalNodeCount(count: number);
   /**
    * Get the total number of node count.
    *

@@ -104,7 +104,8 @@ import window from './@ohos.window';
      * @systemapi
      * @since 16
      */
-    on(type: 'avoidAreaChange', callback: Callback<WindowInfo>): void;
+    // on(type: 'avoidAreaChange', callback: Callback<WindowInfo>): void;
+    on<T>(type: string, callback: Callback<T>):void;
 
     /**
      * Unregister the callback of avoidAreaChange
@@ -132,7 +133,8 @@ import window from './@ohos.window';
      * @systemapi
      * @since 16
      */
-    off(type: 'avoidAreaChange', callback?: Callback<WindowInfo>): void;
+    // off(type: 'avoidAreaChange', callback?: Callback<WindowInfo>): void;
+    off<T>(type: string, callback?: Callback<T>): void;
 
     /**
      * Register the callback of windowSizeChange
@@ -147,7 +149,7 @@ import window from './@ohos.window';
      * @systemapi
      * @since 11
      */
-    on(type: 'windowSizeChange', callback: Callback<window.Size>): void;
+    // on(type: 'windowSizeChange', callback: Callback<window.Size>): void;
 
     /**
      * Unregister the callback of windowSizeChange
@@ -162,7 +164,7 @@ import window from './@ohos.window';
      * @systemapi
      * @since 11
      */
-    off(type: 'windowSizeChange', callback?: Callback<window.Size>): void;
+    // off(type: 'windowSizeChange', callback?: Callback<window.Size>): void;
 
     /**
      * The properties of the UIExtension window

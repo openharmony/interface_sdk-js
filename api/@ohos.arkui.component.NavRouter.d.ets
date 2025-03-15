@@ -204,7 +204,7 @@ export declare enum NavRouteMode {
  * @since 11
  * @deprecated since 13
  */
-declare class NavRouterAttribute extends CommonMethod<NavRouterAttribute> {
+export declare class NavRouterAttribute extends CommonMethod<NavRouterAttribute> {
   /**
    * Trigger callback when NavigationView state change.
    *
