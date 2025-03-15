@@ -155,14 +155,14 @@ export interface AbilityInfo {
   /**
    * Indicates the label id of the ability
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates the label id of the ability
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -170,13 +170,13 @@ export interface AbilityInfo {
   /**
    * Indicates the label id of the ability
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  readonly labelId: int;
+  readonly labelId: number;
 
   /**
    * Indicates the ability
@@ -207,14 +207,14 @@ export interface AbilityInfo {
   /**
    * Indicates the description id of the ability
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates the description id of the ability
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -222,13 +222,13 @@ export interface AbilityInfo {
   /**
    * Indicates the description id of the ability
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  readonly descriptionId: int;
+  readonly descriptionId: number;
 
   /**
    * Indicates the icon of the ability
@@ -259,14 +259,14 @@ export interface AbilityInfo {
   /**
    * Indicates the icon id of the ability
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates the icon id of the ability
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -274,13 +274,13 @@ export interface AbilityInfo {
   /**
    * Indicates the icon id of the ability
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  readonly iconId: int;
+  readonly iconId: number;
 
   /**
    * Process of ability, if user do not set it, the value equal application process
@@ -561,23 +561,23 @@ export interface AbilityInfo {
   /**
    * Indicates the appIndex of application, only work in clone app mode
    *
-   * @type { int }
+   * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 12
    */
-  readonly appIndex: int;
+  readonly appIndex: number;
 
   /**
    * Indicates the orientation id of the ability
    *
-   * @type { int }
+   * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 13
    */
-  readonly orientationId: int;
+  readonly orientationId: number;
 }
 
 /**
@@ -599,102 +599,102 @@ export interface WindowSize {
   /**
    * Indicates maximum ratio of width over height of window under free window status.
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates maximum ratio of width over height of window under free window status.
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
    */
-  readonly maxWindowRatio: int;
+  readonly maxWindowRatio: number;
 
   /**
    * Indicates minimum ratio of width over height of window under free window status.
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates minimum ratio of width over height of window under free window status.
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
    */
-  readonly minWindowRatio: int;
+  readonly minWindowRatio: number;
 
   /**
    * Indicates maximum width of window under free window status.
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates maximum width of window under free window status.
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
    */
-  readonly maxWindowWidth: int;
+  readonly maxWindowWidth: number;
 
   /**
    * Indicates minimum width of window under free window status.
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates minimum width of window under free window status.
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
    */
-  readonly minWindowWidth: int;
+  readonly minWindowWidth: number;
 
   /**
    * Indicates maximum height of window under free window status.
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates maximum height of window under free window status.
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
    */
-  readonly maxWindowHeight: int;
+  readonly maxWindowHeight: number;
 
   /**
    * Indicates minimum height of window under free window status.
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates minimum height of window under free window status.
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
    */
-  readonly minWindowHeight: int;
+  readonly minWindowHeight: number;
 }

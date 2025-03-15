@@ -1426,14 +1426,14 @@ declare namespace bundleManager {
   /**
    * Obtains own bundleInfo.
    *
-   * @param { int } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @returns { Promise<BundleInfo> } The result of getting the bundle info.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
    */
-  export function getBundleInfoForSelf(bundleFlags: int): Promise<BundleInfo>;
+  export function getBundleInfoForSelf(bundleFlags: number): Promise<BundleInfo>;
 
   /**
    * Obtains own bundleInfo.
@@ -1447,14 +1447,14 @@ declare namespace bundleManager {
   /**
    * Obtains own bundleInfo.
    *
-   * @param { int } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @param { AsyncCallback<BundleInfo> } callback - The callback of getting bundle info result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
    */
-  export function getBundleInfoForSelf(bundleFlags: int, callback: AsyncCallback<BundleInfo>): void;
+  export function getBundleInfoForSelf(bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;
 
   /**
    * Obtains own bundleInfo.
@@ -1468,14 +1468,14 @@ declare namespace bundleManager {
   /**
    * Obtains own bundleInfo.
    *
-   * @param { int } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @returns { BundleInfo } The result of getting the bundle info.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
    */
-  export native function getBundleInfoForSelfSync(bundleFlags: int): BundleInfo;
+  export native function getBundleInfoForSelfSync(bundleFlags: number): BundleInfo;
 
   /**
    * Obtains bundleInfo based on bundleName, bundleFlags. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
@@ -2772,8 +2772,8 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { int } applicationFlags - Indicates the flag used to specify information contained in the ApplicationInfo object that will be returned.
-   * @param { int } userId - Indicates the user ID or do not pass user ID.
+   * @param { number } applicationFlags - Indicates the flag used to specify information contained in the ApplicationInfo object that will be returned.
+   * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @returns { ApplicationInfo } - Returns the ApplicationInfo object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -2785,7 +2785,7 @@ declare namespace bundleManager {
    * @systemapi
    * @since 9
    */
-  export native function getApplicationInfoSync(bundleName: string, applicationFlags: int, userId: int): ApplicationInfo;
+  export native function getApplicationInfoSync(bundleName: string, applicationFlags: number, userId: number): ApplicationInfo;
 
   /**
    * Obtains applicationInfo based on a given bundleName and bundleFlags.
@@ -2810,8 +2810,8 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { int } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo object that will be returned.
-   * @param { int } userId - Indicates the user ID or do not pass user ID.
+   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo object that will be returned.
+   * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @returns { BundleInfo } - Returns the BundleInfo object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -2823,7 +2823,7 @@ declare namespace bundleManager {
    * @systemapi
    * @since 9
    */
-  export native function getBundleInfoSync(bundleName: string, bundleFlags: int, userId: int) : BundleInfo;
+  export native function getBundleInfoSync(bundleName: string, bundleFlags: number, userId: number) : BundleInfo;
 
   /**
    * Obtains bundleInfo based on bundleName, bundleFlags.

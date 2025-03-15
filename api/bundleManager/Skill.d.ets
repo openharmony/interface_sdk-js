@@ -106,13 +106,13 @@ export interface SkillUri {
     /**
      * Indicates the port of the skillUri
      *
-     * @type { int }
+     * @type { number }
      * @readonly
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 12
      */
-    readonly port: int;
+    readonly port: number;
 
     /**
      * Indicates the path of the skillUri
@@ -172,13 +172,13 @@ export interface SkillUri {
     /**
      * Indicates the maxFileSupported of the skillUri
      *
-     * @type { int }
+     * @type { number }
      * @readonly
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
      * @since 12
      */
-    readonly maxFileSupported: int;
+    readonly maxFileSupported: number;
 
     /**
      * Indicates the linkFeature of the skillUri

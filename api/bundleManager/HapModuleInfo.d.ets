@@ -103,14 +103,14 @@ export interface HapModuleInfo {
   /**
    * Indicates the icon id of this hap module
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates the icon id of this hap module
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -118,13 +118,13 @@ export interface HapModuleInfo {
   /**
    * Indicates the icon id of this hap module
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  readonly iconId: int;
+  readonly iconId: number;
 
   /**
    * Indicates the label of this hap module
@@ -155,14 +155,14 @@ export interface HapModuleInfo {
   /**
    * Indicates the label id of this hap module
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates the label id of this hap module
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -170,13 +170,13 @@ export interface HapModuleInfo {
   /**
    * Indicates the label id of this hap module
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  readonly labelId: int;
+  readonly labelId: number;
 
   /**
    * Describes the hap module
@@ -207,14 +207,14 @@ export interface HapModuleInfo {
   /**
    * Indicates the description of this hap module
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
    * Indicates the description of this hap module
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -222,13 +222,13 @@ export interface HapModuleInfo {
   /**
    * Indicates the description of this hap module
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  readonly descriptionId: int;
+  readonly descriptionId: number;
 
   /**
    * Indicates main elementName of the hap module
@@ -459,7 +459,7 @@ export interface HapModuleInfo {
    */
   readonly nativeLibraryPath: string;
 
-     /**
+  /**
    * Indicates the code path
    *
    * @type { string }
@@ -468,7 +468,7 @@ export interface HapModuleInfo {
    * @atomicservice
    * @since 12
    */
-     readonly codePath: string;  
+  readonly codePath: string;
 }
 
 /**
@@ -524,19 +524,19 @@ export interface Dependency {
   /**
    * Indicates the version code of the dependency
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 10
    */
   /**
    * Indicates the version code of the dependency
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
    */
-  readonly versionCode: int;
+  readonly versionCode: number;
 }
 
 /**
