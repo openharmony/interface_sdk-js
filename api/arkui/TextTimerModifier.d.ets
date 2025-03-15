@@ -44,4 +44,8 @@ export declare class TextTimerModifier extends TextTimerAttribute implements Att
    * @since 12
    */
   applyNormalAttribute?: (instance: TextTimerAttribute) => void;
+  applyPressedAttribute?: (instance: TextTimerAttribute) => void;
+  applyFocusedAttribute?: (instance: TextTimerAttribute) => void;
+  applyDisabledAttribute?: (instance: TextTimerAttribute) => void;
+  applySelectedAttribute?: (instance: TextTimerAttribute) => void;
 }

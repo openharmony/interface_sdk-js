@@ -43,4 +43,8 @@ export declare class DataPanelModifier extends DataPanelAttribute implements Att
    * @since 12
    */
   applyNormalAttribute?: (instance: DataPanelAttribute) => void;
+  applyPressedAttribute?: (instance: DataPanelAttribute) => void;
+  applyFocusedAttribute?: (instance: DataPanelAttribute) => void;
+  applyDisabledAttribute?: (instance: DataPanelAttribute) => void;
+  applySelectedAttribute?: (instance: DataPanelAttribute) => void;
 }

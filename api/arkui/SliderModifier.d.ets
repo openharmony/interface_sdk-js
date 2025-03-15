@@ -44,4 +44,8 @@ export declare class SliderModifier extends SliderAttribute implements Attribute
    * @since 12
    */
   applyNormalAttribute?: (instance: SliderAttribute) => void;
+  applyPressedAttribute?: (instance: SliderAttribute) => void;
+  applyFocusedAttribute?: (instance: SliderAttribute) => void;
+  applyDisabledAttribute?: (instance: SliderAttribute) => void;
+  applySelectedAttribute?: (instance: SliderAttribute) => void;
 }

@@ -254,6 +254,7 @@ export @interface Component {
  */
 export @interface ComponentV2 {
   freezeWhenInactive : boolean = false;
+}
 /**
  * Defines the options of Entry ClassDecorator.
  *
@@ -23293,7 +23294,7 @@ export declare class ChildrenMainSize {
    * @atomicservice
    * @since 12
    */
-  set childDefaultSize(value: number):void;
+  set childDefaultSize(value: number);
 
   /**
    * Get default size

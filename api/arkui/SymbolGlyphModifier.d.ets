@@ -51,4 +51,8 @@ export declare class SymbolGlyphModifier extends SymbolGlyphAttribute implements
      * @since 12
      */
     applyNormalAttribute?:(instance: SymbolGlyphAttribute)=> void;
+  applyPressedAttribute?:(instance: SymbolGlyphAttribute)=> void;
+  applyFocusedAttribute?:(instance: SymbolGlyphAttribute)=> void;
+  applyDisabledAttribute?:(instance: SymbolGlyphAttribute)=> void;
+  applySelectedAttribute?:(instance: SymbolGlyphAttribute)=> void;
   }

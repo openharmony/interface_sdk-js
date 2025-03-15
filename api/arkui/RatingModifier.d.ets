@@ -44,4 +44,8 @@ export declare class RatingModifier extends RatingAttribute implements Attribute
    * @since 12
    */
   applyNormalAttribute?:(instance: RatingModifier)=> void;
+  applyPressedAttribute?:(instance: RatingModifier)=> void;
+  applyFocusedAttribute?:(instance: RatingModifier)=> void;
+  applyDisabledAttribute?:(instance: RatingModifier)=> void;
+  applySelectedAttribute?:(instance: RatingModifier)=> void;
 }

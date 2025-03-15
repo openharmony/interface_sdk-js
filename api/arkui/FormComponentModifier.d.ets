@@ -43,4 +43,8 @@ export declare class FormComponentModifier extends FormComponentAttribute implem
    * @since 12
    */
   applyNormalAttribute?: (instance: FormComponentAttribute) => void;
+  applyPressedAttribute?: (instance: FormComponentAttribute) => void;
+  applyFocusedAttribute?: (instance: FormComponentAttribute) => void;
+  applyDisabledAttribute?: (instance: FormComponentAttribute) => void;
+  applySelectedAttribute?: (instance: FormComponentAttribute) => void;
 }

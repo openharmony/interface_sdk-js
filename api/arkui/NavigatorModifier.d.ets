@@ -44,4 +44,8 @@ export declare class NavigatorModifier extends NavigatorAttribute implements Att
    * @since 12
    */
   applyNormalAttribute?: (instance: NavigatorAttribute) => void;
+  applyPressedAttribute?: (instance: NavigatorAttribute) => void;
+  applyFocusedAttribute?: (instance: NavigatorAttribute) => void;
+  applyDisabledAttribute?: (instance: NavigatorAttribute) => void;
+  applySelectedAttribute?: (instance: NavigatorAttribute) => void;
 }

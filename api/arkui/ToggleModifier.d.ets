@@ -45,4 +45,8 @@ export declare class ToggleModifier extends ToggleAttribute implements Attribute
    * @since 12
    */
   applyNormalAttribute?: (instance: ToggleAttribute) => void;
+  applyPressedAttribute?: (instance: ToggleAttribute) => void;
+  applyFocusedAttribute?: (instance: ToggleAttribute) => void;
+  applyDisabledAttribute?: (instance: ToggleAttribute) => void;
+  applySelectedAttribute?: (instance: ToggleAttribute) => void;
 }

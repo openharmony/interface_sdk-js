@@ -50,4 +50,8 @@ export declare class SymbolSpanModifier extends SymbolSpanAttribute implements A
      * @since 12
      */
     applyNormalAttribute?: (attribute: SymbolSpanAttribute) => void;
+  applyPressedAttribute?: (attribute: SymbolSpanAttribute) => void;
+  applyFocusedAttribute?: (attribute: SymbolSpanAttribute) => void;
+  applyDisabledAttribute?: (attribute: SymbolSpanAttribute) => void;
+  applySelectedAttribute?: (attribute: SymbolSpanAttribute) => void;
 }

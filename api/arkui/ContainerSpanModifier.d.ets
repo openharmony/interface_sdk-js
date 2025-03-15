@@ -42,4 +42,8 @@ export declare class ContainerSpanModifier extends ContainerSpanAttribute implem
    * @since 12
    */
   applyNormalAttribute?: (containerSpanAttribute: ContainerSpanAttribute) => void;
+  applyPressedAttribute?: (containerSpanAttribute: ContainerSpanAttribute) => void;
+  applyFocusedAttribute?: (containerSpanAttribute: ContainerSpanAttribute) => void;
+  applyDisabledAttribute?: (containerSpanAttribute: ContainerSpanAttribute) => void;
+  applySelectedAttribute?: (containerSpanAttribute: ContainerSpanAttribute) => void;
 }

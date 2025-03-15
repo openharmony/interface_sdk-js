@@ -45,4 +45,8 @@ export declare class TextClockModifier extends TextClockAttribute implements Att
    * @since 12
    */
   applyNormalAttribute?: (instance: TextClockAttribute) => void;
+  applyPressedAttribute?: (instance: TextClockAttribute) => void;
+  applyFocusedAttribute?: (instance: TextClockAttribute) => void;
+  applyDisabledAttribute?: (instance: TextClockAttribute) => void;
+  applySelectedAttribute?: (instance: TextClockAttribute) => void;
 }

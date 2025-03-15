@@ -43,4 +43,8 @@ export declare class ProgressModifier extends ProgressAttribute implements Attri
    * @since 12
    */
   applyNormalAttribute?:(instance: ProgressModifier)=> void;
+  applyPressedAttribute?:(instance: ProgressModifier)=> void;
+  applyFocusedAttribute?:(instance: ProgressModifier)=> void;
+  applyDisabledAttribute?:(instance: ProgressModifier)=> void;
+  applySelectedAttribute?:(instance: ProgressModifier)=> void;
 }

@@ -44,4 +44,8 @@ export declare class ListModifier extends ListAttribute implements AttributeModi
    * @since 12
    */
   applyNormalAttribute?: (instance: ListAttribute) => void;
+  applyPressedAttribute?: (instance: ListAttribute) => void;
+  applyFocusedAttribute?: (instance: ListAttribute) => void;
+  applyDisabledAttribute?: (instance: ListAttribute) => void;
+  applySelectedAttribute?: (instance: ListAttribute) => void;
 }

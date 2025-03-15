@@ -45,4 +45,8 @@ export declare class SideBarContainerModifier extends SideBarContainerAttribute 
    * @since 12
    */
   applyNormalAttribute?: (instance: SideBarContainerAttribute) => void;
+  applyPressedAttribute?: (instance: SideBarContainerAttribute) => void;
+  applyFocusedAttribute?: (instance: SideBarContainerAttribute) => void;
+  applyDisabledAttribute?: (instance: SideBarContainerAttribute) => void;
+  applySelectedAttribute?: (instance: SideBarContainerAttribute) => void;
 }

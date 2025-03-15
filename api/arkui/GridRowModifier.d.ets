@@ -45,4 +45,8 @@ export declare class GridRowModifier extends GridRowAttribute implements Attribu
    * @since 12
    */
   applyNormalAttribute?: (instance: GridRowAttribute) => void;
+  applyPressedAttribute?: (instance: GridRowAttribute) => void;
+  applyFocusedAttribute?: (instance: GridRowAttribute) => void;
+  applyDisabledAttribute?: (instance: GridRowAttribute) => void;
+  applySelectedAttribute?: (instance: GridRowAttribute) => void;
 }

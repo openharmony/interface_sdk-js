@@ -44,4 +44,8 @@ export declare class MenuModifier extends MenuAttribute implements AttributeModi
    * @since 12
    */
   applyNormalAttribute?: (instance: MenuAttribute) => void;
+  applyPressedAttribute?: (instance: MenuAttribute) => void;
+  applyFocusedAttribute?: (instance: MenuAttribute) => void;
+  applyDisabledAttribute?: (instance: MenuAttribute) => void;
+  applySelectedAttribute?: (instance: MenuAttribute) => void;
 }

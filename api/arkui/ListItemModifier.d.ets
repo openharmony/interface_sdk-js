@@ -44,4 +44,8 @@ export declare class ListItemModifier extends ListItemAttribute implements Attri
    * @since 12
    */
   applyNormalAttribute?: (instance: ListItemAttribute) => void;
+  applyPressedAttribute?: (instance: ListItemAttribute) => void;
+  applyFocusedAttribute?: (instance: ListItemAttribute) => void;
+  applyDisabledAttribute?: (instance: ListItemAttribute) => void;
+  applySelectedAttribute?: (instance: ListItemAttribute) => void;
 }

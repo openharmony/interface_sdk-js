@@ -43,4 +43,8 @@ export declare class QRCodeModifier extends QRCodeAttribute implements Attribute
    * @since 12
    */
   applyNormalAttribute?:(instance: QRCodeModifier)=> void;
+  applyPressedAttribute?:(instance: QRCodeModifier)=> void;
+  applyFocusedAttribute?:(instance: QRCodeModifier)=> void;
+  applyDisabledAttribute?:(instance: QRCodeModifier)=> void;
+  applySelectedAttribute?:(instance: QRCodeModifier)=> void;
 }

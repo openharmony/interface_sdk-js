@@ -46,4 +46,8 @@ export declare class TextPickerModifier extends TextPickerAttribute implements A
    * @since 12
    */
   applyNormalAttribute?: (instance: TextPickerAttribute) => void;
+  applyPressedAttribute?: (instance: TextPickerAttribute) => void;
+  applyFocusedAttribute?: (instance: TextPickerAttribute) => void;
+  applyDisabledAttribute?: (instance: TextPickerAttribute) => void;
+  applySelectedAttribute?: (instance: TextPickerAttribute) => void;
 }

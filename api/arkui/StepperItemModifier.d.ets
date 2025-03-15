@@ -46,4 +46,8 @@ export declare class StepperItemModifier extends StepperItemAttribute implements
    * @since 12
    */
   applyNormalAttribute?: (instance: StepperItemAttribute) => void;
+  applyPressedAttribute?: (instance: StepperItemAttribute) => void;
+  applyFocusedAttribute?: (instance: StepperItemAttribute) => void;
+  applyDisabledAttribute?: (instance: StepperItemAttribute) => void;
+  applySelectedAttribute?: (instance: StepperItemAttribute) => void;
 }

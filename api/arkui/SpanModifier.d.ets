@@ -44,4 +44,8 @@ export declare class SpanModifier extends SpanAttribute implements AttributeModi
    * @since 12
    */
   applyNormalAttribute?: (instance: SpanAttribute) => void;
+  applyPressedAttribute?: (instance: SpanAttribute) => void;
+  applyFocusedAttribute?: (instance: SpanAttribute) => void;
+  applyDisabledAttribute?: (instance: SpanAttribute) => void;
+  applySelectedAttribute?: (instance: SpanAttribute) => void;
 }

@@ -45,4 +45,8 @@ export declare class ImageSpanModifier extends ImageSpanAttribute implements Att
    * @since 12
    */
   applyNormalAttribute?: (instance: ImageSpanAttribute) => void;
+  applyPressedAttribute?: (instance: ImageSpanAttribute) => void;
+  applyFocusedAttribute?: (instance: ImageSpanAttribute) => void;
+  applyDisabledAttribute?: (instance: ImageSpanAttribute) => void;
+  applySelectedAttribute?: (instance: ImageSpanAttribute) => void;
 }

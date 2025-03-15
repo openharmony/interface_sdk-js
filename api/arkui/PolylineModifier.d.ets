@@ -43,4 +43,8 @@ export declare class PolylineModifier extends PolylineAttribute implements Attri
    * @since 12
    */
   applyNormalAttribute?:(instance: PolylineModifier)=> void;
+  applyPressedAttribute?:(instance: PolylineModifier)=> void;
+  applyFocusedAttribute?:(instance: PolylineModifier)=> void;
+  applyDisabledAttribute?:(instance: PolylineModifier)=> void;
+  applySelectedAttribute?:(instance: PolylineModifier)=> void;
 }

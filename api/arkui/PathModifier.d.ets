@@ -44,4 +44,8 @@ export declare class PathModifier extends PathAttribute implements AttributeModi
    * @since 12
    */
   applyNormalAttribute?:(instance: PathAttribute)=> void;
+  applyPressedAttribute?:(instance: PathAttribute)=> void;
+  applyFocusedAttribute?:(instance: PathAttribute)=> void;
+  applyDisabledAttribute?:(instance: PathAttribute)=> void;
+  applySelectedAttribute?:(instance: PathAttribute)=> void;
 }

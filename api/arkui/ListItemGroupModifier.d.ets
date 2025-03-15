@@ -44,4 +44,8 @@ export declare class ListItemGroupModifier extends ListItemGroupAttribute implem
    * @since 12
    */
   applyNormalAttribute?: (instance: ListItemGroupAttribute) => void;
+  applyPressedAttribute?: (instance: ListItemGroupAttribute) => void;
+  applyFocusedAttribute?: (instance: ListItemGroupAttribute) => void;
+  applyDisabledAttribute?: (instance: ListItemGroupAttribute) => void;
+  applySelectedAttribute?: (instance: ListItemGroupAttribute) => void;
 }

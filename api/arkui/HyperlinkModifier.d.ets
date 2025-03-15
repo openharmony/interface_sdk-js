@@ -44,4 +44,8 @@ export declare class HyperlinkModifier extends HyperlinkAttribute implements Att
    * @since 12
    */
   applyNormalAttribute?: (instance: HyperlinkAttribute) => void;
+  applyPressedAttribute?: (instance: HyperlinkAttribute) => void;
+  applyFocusedAttribute?: (instance: HyperlinkAttribute) => void;
+  applyDisabledAttribute?: (instance: HyperlinkAttribute) => void;
+  applySelectedAttribute?: (instance: HyperlinkAttribute) => void;
 }

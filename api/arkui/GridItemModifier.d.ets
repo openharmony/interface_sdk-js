@@ -44,4 +44,8 @@ export declare class GridItemModifier extends GridItemAttribute implements Attri
    * @since 12
    */
   applyNormalAttribute?: (instance: GridItemAttribute) => void;
+  applyPressedAttribute?: (instance: GridItemAttribute) => void;
+  applyFocusedAttribute?: (instance: GridItemAttribute) => void;
+  applyDisabledAttribute?: (instance: GridItemAttribute) => void;
+  applySelectedAttribute?: (instance: GridItemAttribute) => void;
 }

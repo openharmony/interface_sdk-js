@@ -45,4 +45,8 @@ export declare class RectModifier extends RectAttribute implements AttributeModi
    * @since 12
    */
   applyNormalAttribute?:(instance: RectAttribute)=> void;
+  applyPressedAttribute?:(instance: RectAttribute)=> void;
+  applyFocusedAttribute?:(instance: RectAttribute)=> void;
+  applyDisabledAttribute?:(instance: RectAttribute)=> void;
+  applySelectedAttribute?:(instance: RectAttribute)=> void;
 }

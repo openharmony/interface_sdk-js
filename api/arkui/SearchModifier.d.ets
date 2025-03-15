@@ -45,4 +45,8 @@ export declare class SearchModifier extends SearchAttribute implements Attribute
    * @since 12
    */
   applyNormalAttribute?: (instance: SearchAttribute) => void;
+  applyPressedAttribute?: (instance: SearchAttribute) => void;
+  applyFocusedAttribute?: (instance: SearchAttribute) => void;
+  applyDisabledAttribute?: (instance: SearchAttribute) => void;
+  applySelectedAttribute?: (instance: SearchAttribute) => void;
 }

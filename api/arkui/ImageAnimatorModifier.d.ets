@@ -44,4 +44,8 @@ export declare class ImageAnimatorModifier extends ImageAnimatorAttribute implem
    * @since 12
    */
   applyNormalAttribute?: (instance: ImageAnimatorAttribute) => void;
+  applyPressedAttribute?: (instance: ImageAnimatorAttribute) => void;
+  applyFocusedAttribute?: (instance: ImageAnimatorAttribute) => void;
+  applyDisabledAttribute?: (instance: ImageAnimatorAttribute) => void;
+  applySelectedAttribute?: (instance: ImageAnimatorAttribute) => void;
 }

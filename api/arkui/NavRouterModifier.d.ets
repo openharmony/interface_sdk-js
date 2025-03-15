@@ -45,4 +45,8 @@ export declare class NavRouterModifier extends NavRouterAttribute implements Att
    * @since 12
    */
   applyNormalAttribute?: (instance: NavRouterAttribute) => void;
+  applyPressedAttribute?: (instance: NavRouterAttribute) => void;
+  applyFocusedAttribute?: (instance: NavRouterAttribute) => void;
+  applyDisabledAttribute?: (instance: NavRouterAttribute) => void;
+  applySelectedAttribute?: (instance: NavRouterAttribute) => void;
 }

@@ -44,4 +44,8 @@ export declare class LoadingProgressModifier extends LoadingProgressAttribute im
    * @since 12
    */
   applyNormalAttribute?: (instance: LoadingProgressAttribute) => void;
+  applyPressedAttribute?: (instance: LoadingProgressAttribute) => void;
+  applyFocusedAttribute?: (instance: LoadingProgressAttribute) => void;
+  applyDisabledAttribute?: (instance: LoadingProgressAttribute) => void;
+  applySelectedAttribute?: (instance: LoadingProgressAttribute) => void;
 }
