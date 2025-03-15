@@ -29,7 +29,7 @@ import { Resource } from '../global/resource'
  * @atomicservice
  * @since 12
 */
-export declare class SymbolGlyphModifier extends SymbolGlyphAttribute { // implements AttributeModifier<SymbolGlyphAttribute> {
+export declare class SymbolGlyphModifier extends SymbolGlyphAttribute implements AttributeModifier<SymbolGlyphAttribute> {
     /**
      * constructor
      * 

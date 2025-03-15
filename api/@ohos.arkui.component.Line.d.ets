@@ -138,126 +138,7 @@ export interface LineOptions {
  * @atomicservice
  * @since 11
  */
-interface LineInterface {
-  /**
-   * Uses new to create the line.
-   * width: Width of the rectangle where the line resides..
-   * height: Height of the rectangle where the line resides.
-   *
-   * @param { object } value
-   * @returns { LineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Uses new to create the line.
-   * width: Width of the rectangle where the line resides..
-   * height: Height of the rectangle where the line resides.
-   *
-   * @param { object } value
-   * @returns { LineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Uses new to create the line.
-   * width: Width of the rectangle where the line resides..
-   * height: Height of the rectangle where the line resides.
-   *
-   * @param { object } value
-   * @returns { LineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Uses new to create the line.
-   * width: Width of the rectangle where the line resides..
-   * height: Height of the rectangle where the line resides.
-   *
-   * @param { object } value
-   * @returns { LineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Uses new to create the line.
-   *
-   * @param { LineOptions } [options] - Line options
-   * @returns { LineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 14
-   */
-  new (options?: LineOptions): LineAttribute;
-
-  /**
-   * The return value of the parameter is Line.
-   * width: Width of the rectangle where the line resides..
-   * height: Height of the rectangle where the line resides.
-   *
-   * @param { object } value
-   * @returns { LineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * The return value of the parameter is Line.
-   * width: Width of the rectangle where the line resides..
-   * height: Height of the rectangle where the line resides.
-   *
-   * @param { object } value
-   * @returns { LineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * The return value of the parameter is Line.
-   * width: Width of the rectangle where the line resides..
-   * height: Height of the rectangle where the line resides.
-   *
-   * @param { object } value
-   * @returns { LineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The return value of the parameter is Line.
-   * width: Width of the rectangle where the line resides..
-   * height: Height of the rectangle where the line resides.
-   *
-   * @param { object } value
-   * @returns { LineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * The return value of the parameter is Line.
-   *
-   * @param { LineOptions } [options] - Line options
-   * @returns { LineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 14
-   */
-  (options?: LineOptions): LineAttribute;
-}
-
+export type LineInterface = (options?: LineOptions) => LineAttribute;
 /**
  * inheritance CommonShapeMethod.
  *
@@ -292,7 +173,7 @@ interface LineInterface {
  * @atomicservice
  * @since 11
  */
-declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
+export declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
   /**
    * Coordinate of the start point of the line (relative coordinate).
    *

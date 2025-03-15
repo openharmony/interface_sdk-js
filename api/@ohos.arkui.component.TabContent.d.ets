@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 import  { CommonMethod, ComponentContent, CustomBuilder, SymbolGlyphModifier } from './@ohos.arkui.component.Common';
-import  { TextHeightAdaptivePolicy, TextOverflow } from './@ohos.arkui.component.Enums';
-import  { Dimension, Font, Length, LocalizedPadding, Padding, Resource, ResourceColor, ResourceStr, VerticalAlign, VoidCallback } from './@ohos.arkui.component.Units';
+import  { TextHeightAdaptivePolicy, TextOverflow,VerticalAlign } from './@ohos.arkui.component.Enums';
+import  { Dimension, Font, Length, LocalizedPadding, Padding, Resource, ResourceColor, ResourceStr, VoidCallback } from './@ohos.arkui.component.Units';
 
 /**
  * Enum for the mode of the tab bar when selected.
@@ -1164,36 +1164,8 @@ export declare class TabContentAttribute extends CommonMethod<TabContentAttribut
    * @atomicservice
    * @since 14
    */
-  tabBar(options: string | Resource | CustomBuilder | TabBarOptions): TabContentAttribute;
+  tabBar(options: string | Resource | CustomBuilder | TabBarOptions | SubTabBarStyle | BottomTabBarStyle): TabContentAttribute;
 
-  /**
-   * Called when tabbar is entered.
-   *
-   * @param { SubTabBarStyle | BottomTabBarStyle } value
-   * @returns { TabContentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Called when tabbar is entered.
-   *
-   * @param { SubTabBarStyle | BottomTabBarStyle } value
-   * @returns { TabContentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when tabbar is entered.
-   *
-   * @param { SubTabBarStyle | BottomTabBarStyle } value
-   * @returns { TabContentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  tabBar(value: SubTabBarStyle | BottomTabBarStyle): TabContentAttribute;
 
   /**
    * Called when the tab content will show.

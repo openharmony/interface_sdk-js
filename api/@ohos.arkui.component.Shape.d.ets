@@ -450,7 +450,7 @@ export declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @atomicservice
    * @since 11
    */
-  strokeDashArray(value: Array<any>): ShapeAttribute;
+  strokeDashArray(value: Array<number>): ShapeAttribute;
 
   /**
    * Called when the path endpoint drawing style is set.

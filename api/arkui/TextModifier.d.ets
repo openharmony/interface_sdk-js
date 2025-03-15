@@ -31,7 +31,7 @@ import { AttributeModifier }from '../@ohos.arkui.component.Common'
  * @atomicservice
  * @since 12
 */
-export declare class TextModifier extends TextAttribute { //implements AttributeModifier<TextAttribute> {
+export declare class TextModifier extends TextAttribute implements AttributeModifier<TextAttribute> {
 
   /**
    * Defines the normal update attribute function.
