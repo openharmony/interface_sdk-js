@@ -1849,7 +1849,7 @@ declare namespace cryptoFramework {
     /**
      * Used to convert symmetric key data to a symmetric key object.
      *
-     * @param { Uint8Array } key - the key data blob.
+     * @param { DataBlob } key - the key data blob.
      * @returns { SymKey } return SymKey.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1859,7 +1859,7 @@ declare namespace cryptoFramework {
      * @atomicservice
      * @since 12
      */
-    convertKeySync(key: Uint8Array): SymKey;
+    convertKeySync(key: DataBlob): SymKey;
 
     /**
      * Indicates the algorithm name of the SymKeyGenerator object.
@@ -2164,7 +2164,7 @@ declare namespace cryptoFramework {
     /**
      * Update hmac with DataBlob.
      *
-     * @param { Uint8Array } input - indicates the DataBlob.
+     * @param { DataBlob } input - indicates the DataBlob.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -2173,7 +2173,7 @@ declare namespace cryptoFramework {
      * @atomicservice
      * @since 12
      */
-    updateSync(input: Uint8Array): void;
+    updateSync(input: DataBlob): void;
 
     /**
      * Output the result of hmac calculation.
@@ -2242,7 +2242,7 @@ declare namespace cryptoFramework {
     /**
      * Output the result of hmac calculation.
      *
-     * @returns { Uint8Array } the sync returned by the function.
+     * @returns { DataBlob } the sync returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory error.
@@ -2253,7 +2253,7 @@ declare namespace cryptoFramework {
      * @atomicservice
      * @since 12
      */
-    doFinalSync(): Uint8Array;
+    doFinalSync(): DataBlob;
 
     /**
      * Output the length of hmac result.
