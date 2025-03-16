@@ -46,7 +46,7 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 10
    */
-  enum AssetStatus {
+  export enum AssetStatus {
     /**
      * ASSET_NORMAL: means the status of asset is normal.
      *
@@ -284,7 +284,7 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 10
    */
-  interface StoreConfig {
+  export interface StoreConfig {
     /**
      * The database name.
      *
@@ -426,7 +426,7 @@ declare namespace relationalStore {
    * @systemapi
    * @since 12
    */
-  enum HAMode {
+  export enum HAMode {
     /**
      * SINGLE: Data is written to a single RDB store.
      *
@@ -453,7 +453,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 14
    */
-  interface CryptoParam {
+  export interface CryptoParam {
     /**
      * Specifies the key used when opening an encrypted database.
      * When finished passing the key to the database, its content should be set to all-zero.
@@ -523,7 +523,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 14
    */
-  enum EncryptionAlgo {
+  export enum EncryptionAlgo {
     /**
      * AES_256_GCM: Database is encrypted using AES_256_GCM.
      *
@@ -548,7 +548,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 14
    */
-  enum HmacAlgo {
+  export enum HmacAlgo {
     /**
      * SHA1: HMAC_SHA1 algorithm.
      *
@@ -581,7 +581,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 14
    */
-  enum KdfAlgo {
+  export enum KdfAlgo {
     /**
      * KDF_SHA1: PBKDF2_HMAC_SHA1 algorithm.
      *
@@ -614,7 +614,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10
    */
-  enum Progress {
+  export enum Progress {
     /**
      * SYNC_BEGIN: means the sync process begin.
      *
@@ -647,7 +647,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10
    */
-  interface Statistic {
+  export interface Statistic {
     /**
      * Describes the total number of data to sync.
      *
@@ -692,7 +692,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10
    */
-  interface TableDetails {
+  export interface TableDetails {
     /**
      * Describes the {@code Statistic} details of the upload process.
      *
@@ -719,7 +719,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10
    */
-  enum ProgressCode {
+  export enum ProgressCode {
     /**
      * SUCCESS: means the status of progress is success.
      *
@@ -792,7 +792,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10
    */
-  interface ProgressDetails {
+  export interface ProgressDetails {
     /**
      * Describes the status of data sync progress.
      *
@@ -834,7 +834,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 12
    */
-  interface SqlExecutionInfo {
+  export interface SqlExecutionInfo {
     /**
      * Array of SQL statements executed. When the args of batchInsert is too large, there may be more than one SQL.
      *
@@ -889,7 +889,7 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 9
    */
-  enum SecurityLevel {
+  export enum SecurityLevel {
     /**
      * S1: means the db is low level security
      * There are some low impact, when the data is leaked.
@@ -938,7 +938,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
-  enum SyncMode {
+  export enum SyncMode {
     /**
      * Indicates the data is pushed to remote device from local device.
      *
@@ -987,7 +987,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
-  enum SubscribeType {
+  export enum SubscribeType {
     /**
      * Subscription to remote data changes
      *
@@ -1042,7 +1042,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10
    */
-  enum ChangeType {
+  export enum ChangeType {
     /**
      * Means the change type is data change.
      *
@@ -1081,7 +1081,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10
    */
-  interface ChangeInfo {
+  export interface ChangeInfo {
     /**
      * Indicates the changed table
      *
@@ -1138,7 +1138,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10
    */
-  enum DistributedType {
+  export enum DistributedType {
     /**
      * Indicates the table is distributed among the devices
      *
@@ -1171,7 +1171,7 @@ declare namespace relationalStore {
    * @systemapi
    * @since 11
    */
-  interface Reference {
+  export interface Reference {
     /**
      * Indicates the table that references another table.
      *
@@ -1210,7 +1210,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10
    */
-  interface DistributedConfig {
+  export interface DistributedConfig {
     /**
      * Specifies whether the database auto sync.
      *
@@ -1239,7 +1239,7 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 10
    */
-  enum ConflictResolution {
+  export enum ConflictResolution {
     /**
      * Implements no action when conflict occurs.
      *
@@ -1302,7 +1302,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
    * @since 11
    */
-  enum Origin {
+  export enum Origin {
     /**
      * Indicates the data source is local.
      *
@@ -1335,7 +1335,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
    * @since 11
    */
-  enum Field {
+  export enum Field {
     /**
      * Cursor field.
      *
@@ -1402,7 +1402,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 12
    */
-  enum RebuildType {
+  export enum RebuildType {
     /**
      * The database is not rebuilt or repaired.
      *
@@ -2232,7 +2232,7 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 10
    */
-  interface ResultSet {
+  export interface ResultSet {
     /**
      * Obtains the names of all columns in a result set.
      * The column names are returned as a string array, in which the strings are in the same order
@@ -3395,7 +3395,7 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 10
    */
-  interface RdbStore {
+  export interface RdbStore {
     /**
      * Set RdbStore version. The version number must be an integer greater than 0.
      * Obtains the RdbStore version.
@@ -6949,7 +6949,8 @@ declare namespace relationalStore {
      * Attaches a database file to the currently linked database.
      *
      * @param { Context } context - Indicates the context of an application or ability.
-     * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+     * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this
+     * RDB store.
      * @param { string } attachName - Indicates the alias of the database.
      * @param { number } waitTime - Indicates the maximum time allowed for attaching the database file.
      * @returns { Promise<number> } Promise used to return the number of attached databases.
@@ -7114,7 +7115,8 @@ declare namespace relationalStore {
      * Lock cloud container before non-auto cloud sync.
      *
      * @returns { Promise<number> } The expired time of the lock.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses
+     * system API.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @since 12
@@ -7125,7 +7127,8 @@ declare namespace relationalStore {
      * Unlock cloud container.
      *
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses
+     * system API.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @since 12
@@ -7139,7 +7142,8 @@ declare namespace relationalStore {
    * to obtain a rdb store.
    *
    * @param { Context } context - Indicates the context of an application or ability.
-   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB
+   * store.
    * @param { AsyncCallback<RdbStore> } callback - The RDB store {@link RdbStore}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
@@ -7155,7 +7159,8 @@ declare namespace relationalStore {
    * to obtain a rdb store.
    *
    * @param { Context } context - Indicates the context of an application or ability.
-   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB
+   * store.
    * @param { AsyncCallback<RdbStore> } callback - The RDB store {@link RdbStore}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
@@ -7174,7 +7179,8 @@ declare namespace relationalStore {
    * to obtain a rdb store.
    *
    * @param { Context } context - Indicates the context of an application or ability.
-   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB
+   * store.
    * @param { AsyncCallback<RdbStore> } callback - The RDB store {@link RdbStore}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
@@ -7195,7 +7201,7 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 12
    */
-  function getRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback<RdbStore>): void;
+  export function getRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback<RdbStore>): void;
 
   /**
    * Obtains a RDB store.
@@ -7203,7 +7209,8 @@ declare namespace relationalStore {
    * to obtain a rdb store.
    *
    * @param { Context } context - Indicates the context of an application or ability.
-   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB
+   * store.
    * @returns { Promise<RdbStore> } The RDB store {@link RdbStore}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
@@ -7219,7 +7226,8 @@ declare namespace relationalStore {
    * to obtain a rdb store.
    *
    * @param { Context } context - Indicates the context of an application or ability.
-   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB
+   * store.
    * @returns { Promise<RdbStore> } The RDB store {@link RdbStore}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
@@ -7238,7 +7246,8 @@ declare namespace relationalStore {
    * to obtain a rdb store.
    *
    * @param { Context } context - Indicates the context of an application or ability.
-   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB
+   * store.
    * @returns { Promise<RdbStore> } The RDB store {@link RdbStore}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
@@ -7257,7 +7266,7 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 12
    */
-  function getRdbStore(context: Context, config: StoreConfig): Promise<RdbStore>;
+  export function getRdbStore(context: Context, config: StoreConfig): Promise<RdbStore>;
 
   /**
    * Deletes the database with a specified name.
@@ -7288,14 +7297,15 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 10
    */
-  function deleteRdbStore(context: Context, name: string, callback: AsyncCallback<void>): void;
+  export function deleteRdbStore(context: Context, name: string, callback: AsyncCallback<void>): void;
 
   /**
    * Deletes the database with a specified store config.
    * When specify custom directory, this function should be called.
    *
    * @param { Context } context - Indicates the context of an application or ability.
-   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB
+   * store.
    * @param { AsyncCallback<void> } callback - The callback of deleteRdbStore.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
@@ -7307,7 +7317,7 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 10
    */
-  function deleteRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback<void>): void;
+  export function deleteRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback<void>): void;
 
   /**
    * Deletes the database with a specified name.
@@ -7353,14 +7363,15 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 12
    */
-  function deleteRdbStore(context: Context, name: string): Promise<void>;
+  export function deleteRdbStore(context: Context, name: string): Promise<void>;
 
   /**
    * Deletes the database with a specified store config.
    * When specify custom directory, this function should be called.
    *
    * @param { Context } context - Indicates the context of an application or ability.
-   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB
+   * store.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
@@ -7377,7 +7388,8 @@ declare namespace relationalStore {
    * When specify custom directory, this function should be called.
    *
    * @param { Context } context - Indicates the context of an application or ability.
-   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB
+   * store.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
@@ -7390,7 +7402,7 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 12
    */
-  function deleteRdbStore(context: Context, config: StoreConfig): Promise<void>;
+  export function deleteRdbStore(context: Context, config: StoreConfig): Promise<void>;
 }
 
 export default relationalStore;
