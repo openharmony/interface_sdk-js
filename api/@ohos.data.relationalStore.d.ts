@@ -1558,6 +1558,99 @@ declare namespace relationalStore {
   }
 
   /**
+   * Enumerates the data types of a column.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 18
+   */
+  enum ColumnType {
+    /**
+     * The value in the column is null.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 18
+     */
+    NULL,
+
+    /**
+     * The value in the column is a 64-bit integer. It can be used to hold an 8-bit (including Boolean values), 16-bit,
+     * 32-bit, or 64-bit integer.if the 64-bit integer is greater than 2^53 or less than -2^53, you can use getString
+     * to convert the 64-bit integer into a string.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 18
+     */
+    INTEGER,
+
+    /**
+     * The value in the column is a floating point number.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 18
+     */
+    REAL,
+
+    /**
+     * The value in the column is a string.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 18
+     */
+    TEXT,
+
+    /**
+     * The value in the column is a Uint8Array.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 18
+     */
+    BLOB,
+
+    /**
+     * The value in the column is an asset.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 18
+     */
+    ASSET,
+
+    /**
+     * The value in the column is an array of assets.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 18
+     */
+    ASSETS,
+
+    /**
+     * The value in the column is a Float32Array.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 18
+     */
+    FLOAT_VECTOR,
+
+    /**
+     * The value in the column is a bigint.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 18
+     */
+    UNLIMITED_INT,
+  }
+
+  /**
    * Manages relational database configurations.
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -2633,6 +2726,74 @@ declare namespace relationalStore {
      * @since 12
      */
     getColumnName(columnIndex: number): string;
+
+    /**
+     * Obtains the column data type based on the specified column index.
+     * The column index is passed as an input parameter.
+     *
+     * @param { number | string } columnIdentifier - Index or name of the column.
+     * @returns { Promise<ColumnType> } Promise used to return the data type obtained,
+     * in an {@link ColumnType} instance.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800012 - Row out of bounds.
+     * @throws { BusinessError } 14800013 - Column out of bounds.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800019 - The SQL must be a query statement.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 18
+     */
+    getColumnType(columnIdentifier: number | string): Promise<ColumnType>;
+
+    /**
+     * Obtains the column data type based on the specified column index. This API returns the result synchronously.
+     *
+     * @param { number | string } columnIdentifier - Index or name of the column.
+     * @returns { ColumnType } Column data type obtained.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800012 - Row out of bounds.
+     * @throws { BusinessError } 14800013 - Column out of bounds.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800019 - The SQL must be a query statement.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 18
+     */
+    getColumnTypeSync(columnIdentifier: number | string): ColumnType;
 
     /**
      * Go to the specified row of the result set forwards or backwards by an offset relative to its current position.
