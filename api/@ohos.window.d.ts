@@ -10288,7 +10288,7 @@ declare namespace window {
     /**
      * Window rect
      *
-     * @enum { Rect }
+     * @type { Rect }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18
@@ -10306,7 +10306,7 @@ declare namespace window {
    */
   interface RotationChangeCallback<T, U> {
     /**
-     * Defines the rotation change callbcak
+     * Defines the rotation change callback
      *
      * @param { T } info
      * @returns { U } result
