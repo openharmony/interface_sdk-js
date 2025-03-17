@@ -671,6 +671,14 @@ declare namespace bundleManager {
     ASSET_ACCELERATION = 26,
 
     /**
+     * Indicates extension info with type of formedit
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 18
+     */
+    FORM_EDIT = 27,
+
+    /**
      * Indicates extension info with type of distributed
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
