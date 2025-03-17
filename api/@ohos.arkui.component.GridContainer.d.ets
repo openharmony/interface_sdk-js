@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { CommonMethod } from './@ohos.arkui.component.Common'
+import { ColumnAttribute } from './@ohos.arkui.component.Column'
 /**
  * Defines the size type.
  *

@@ -17,7 +17,8 @@
  * @file
  * @kit ArkUI
  */
-import { ResourceColor, Font,Position } from './@ohos.arkui.component.Units'
+import { ResourceColor, Font,Position,Length } from './@ohos.arkui.component.Units'
+import { CommonMethod,BlurStyle } from './@ohos.arkui.component.Common'
 /**
  * indexer align property.
  *

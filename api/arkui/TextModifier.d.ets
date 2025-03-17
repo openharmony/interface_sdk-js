@@ -31,7 +31,7 @@ import { AttributeModifier }from '../@ohos.arkui.component.Common'
  * @atomicservice
  * @since 12
 */
-export declare class TextModifier extends TextAttribute { //implements AttributeModifier<TextAttribute> {
+export declare class TextModifier extends TextAttribute implements AttributeModifier<TextAttribute> {
 
   /**
    * Defines the normal update attribute function.
@@ -43,4 +43,8 @@ export declare class TextModifier extends TextAttribute { //implements Attribute
    * @since 12
    */
   applyNormalAttribute?:(instance: TextAttribute)=> void;
+  applyPressedAttribute?:(instance: TextAttribute)=> void;
+  applyFocusedAttribute?:(instance: TextAttribute)=> void;
+  applyDisabledAttribute?:(instance: TextAttribute)=> void;
+  applySelectedAttribute?:(instance: TextAttribute)=> void;
 }

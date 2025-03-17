@@ -19,7 +19,7 @@
  */
 import { CommonMethod} from './@ohos.arkui.component.Common'
 import Want from './@ohos.app.ability.Want'
-import { Callback, ErrorCallback } from '../api/@ohos.base'
+import { Callback, ErrorCallback,BusinessError } from '../api/@ohos.base'
 import { EmbeddedType } from './@ohos.arkui.component.Enums'
 
 /**
@@ -92,7 +92,7 @@ export declare class EmbeddedComponentAttribute extends CommonMethod<EmbeddedCom
    * @atomicservice
    * @since 12
    */
-  onError(callback: ErrorCallback): EmbeddedComponentAttribute;
+  onError(callback: ErrorCallback<BusinessError>): EmbeddedComponentAttribute;
 }
 
 /**

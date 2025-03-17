@@ -18,6 +18,7 @@
  * @kit ArkUI
  */
 import { CommonMethod } from './@ohos.arkui.component.Common'
+import { ResourceColor,Dimension } from './@ohos.arkui.component.Units'
 
 /**
  * Sets the initial state of the slidable panel.

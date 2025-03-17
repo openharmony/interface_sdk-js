@@ -21,7 +21,7 @@
 import { Resource } from "./global/resource";
 import image from './@ohos.multimedia.image'
 import { CommonMethod } from './@ohos.arkui.component.Common'
-import { AnimationStatus } from './@ohos.arkui.component.Enums'
+import { AnimationStatus,FillMode } from './@ohos.arkui.component.Enums'
 
 /**
  * Defines the ImageAnimator Interface.
@@ -283,7 +283,7 @@ export interface ImageFrameInfo {
  * @atomicservice
  * @since 11
  */
-declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute> {
+export declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute> {
   /**
    * list images
    *

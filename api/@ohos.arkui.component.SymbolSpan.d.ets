@@ -21,6 +21,7 @@ import { Resource } from "./global/resource";
 import { CommonMethod,AttributeModifier } from "./@ohos.arkui.component.Common";
 import { ResourceColor } from "./@ohos.arkui.component.Units";
 import { SymbolEffectStrategy,SymbolRenderingStrategy } from "./@ohos.arkui.component.SymbolGlyph";
+import { FontWeight } from './@ohos.arkui.component.Enums'
 /**
  * Provides an interface for SymbolSpan.
  *

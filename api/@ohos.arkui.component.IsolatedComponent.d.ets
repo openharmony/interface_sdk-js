@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 import worker from './@ohos.worker'
-import { ErrorCallback } from './@ohos.base';
+import { ErrorCallback,BusinessError } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 import { CommonMethod } from './@ohos.arkui.component.Common';
 
@@ -80,7 +80,7 @@ export declare class IsolatedComponentAttribute extends CommonMethod<IsolatedCom
    * @since 12
    */
   onError(
-    callback: ErrorCallback
+    callback: ErrorCallback<BusinessError>
   ): IsolatedComponentAttribute;
 }
 

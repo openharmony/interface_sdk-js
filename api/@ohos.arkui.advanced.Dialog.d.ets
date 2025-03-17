@@ -22,6 +22,7 @@
 
 
 import { Theme, CustomTheme } from '@ohos.arkui.theme';
+import image from './@ohos.multimedia.image';
 
 /**
  * Declare ButtonOptions
@@ -161,7 +162,7 @@ export declare struct TipsDialog {
    * @atomicservice
    * @since 12
    */
-  imageRes: ResourceStr | PixelMap;
+  imageRes: ResourceStr | image.PixelMap;
   /**
    * Sets the TipsDialog image size.
    * @type { SizeOptions }.

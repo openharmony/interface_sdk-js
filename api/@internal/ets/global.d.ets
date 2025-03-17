@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 
-import { TouchObject, KeyEvent, MouseEvent } from './../component/ets/common';
+import { TouchObject, KeyEvent, MouseEvent } from '../../@ohos.arkui.component.Common';
 
 /**
  * Sets the interval for repeatedly calling a function.

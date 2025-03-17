@@ -18,6 +18,7 @@
  * @kit ArkUI
  */
 import { TextBackgroundStyle } from './@ohos.arkui.component.Span'
+import { AttributeModifier } from './@ohos.arkui.component.Common'
 /**
  * Span container interface.
  *

@@ -1,0 +1,51 @@
+/*
+ * Copyright (c) 2024 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * @file
+ * @kit ArkUI
+ */
+
+import { AttributeModifier } from '../@ohos.arkui.component.Common'
+import { HyperlinkAttribute } from '../@ohos.arkui.component.Hyperlink'
+
+
+
+/**
+ * Defines Hyperlink Modifier
+ *
+ * @extends HyperlinkAttribute
+ * @implements AttributeModifier
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
+*/
+export declare class HyperlinkModifier extends HyperlinkAttribute implements AttributeModifier<HyperlinkAttribute> {
+
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @param { HyperlinkAttribute } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  applyNormalAttribute?: (instance: HyperlinkAttribute) => void;
+  applyPressedAttribute?: (instance: HyperlinkAttribute) => void;
+  applyFocusedAttribute?: (instance: HyperlinkAttribute) => void;
+  applyDisabledAttribute?: (instance: HyperlinkAttribute) => void;
+  applySelectedAttribute?: (instance: HyperlinkAttribute) => void;
+}

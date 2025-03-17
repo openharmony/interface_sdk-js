@@ -30,7 +30,7 @@ import { AttributeModifier }from '../@ohos.arkui.component.Common'
  * @atomicservice
  * @since 12
 */
-export declare class ImageModifier extends ImageAttribute { //implements AttributeModifier<ImageAttribute> {
+export declare class ImageModifier extends ImageAttribute implements AttributeModifier<ImageAttribute> {
 
   /**
    * Defines the normal update attribute function.
@@ -42,4 +42,8 @@ export declare class ImageModifier extends ImageAttribute { //implements Attribu
    * @since 12
    */
   applyNormalAttribute?:(instance: ImageAttribute)=> void;
+  applyPressedAttribute?:(instance: ImageAttribute)=> void;
+  applyFocusedAttribute?:(instance: ImageAttribute)=> void;
+  applyDisabledAttribute?:(instance: ImageAttribute)=> void;
+  applySelectedAttribute?:(instance: ImageAttribute)=> void;
 }

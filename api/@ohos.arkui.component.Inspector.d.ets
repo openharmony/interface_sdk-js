@@ -52,7 +52,7 @@ export declare function getInspectorNodeById(id: number): object;
  * @since 8
  * @test
  */
-export namespace Profiler {
+export declare namespace Profiler {
   /**
    * Registers vsync callback for profiler.
    *
@@ -62,7 +62,7 @@ export namespace Profiler {
    * @since 8
    * @test
    */
-  export declare function registerVsyncCallback(callback: (info: string) => void): void;
+  export function registerVsyncCallback(callback: (info: string) => void): void;
 
   /**
    * Unregisters vsync callback.
@@ -72,7 +72,7 @@ export namespace Profiler {
    * @since 8
    * @test
    */
-  export declare function unregisterVsyncCallback(): void;
+  export function unregisterVsyncCallback(): void;
 }
 
 /**
