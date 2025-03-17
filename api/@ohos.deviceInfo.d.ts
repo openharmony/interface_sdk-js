@@ -691,7 +691,7 @@ declare namespace deviceInfo {
    * Obtaining the performance class.
    *
    * @syscap SystemCapability.Startup.SystemInfo
-   * @since 15
+   * @since 18
    */
   const performanceClass: number;
 }
