@@ -66,6 +66,143 @@ declare namespace util {
   function generateRandomUUID(entropyCache?: boolean): string;
 
   /**
+   * Decodes a Base64 encoded String or input u8 array into a newly-allocated
+   * u8 array using the Base64 encoding scheme.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  class Base64Helper {
+    /**
+     * Constructor for creating base64 encoding and decoding
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    constructor();
+
+    /**
+      * Encodes the given byte array into a Base64 string.
+      * @param bytes The byte array to encode.
+      * @param urlSafe If true, uses the URL-safe Base64 alphabet.
+      * @param mime If true, inserts line breaks according to MIME specifications.
+      * @returns The Base64 encoded string.
+      * @since 20
+      */
+    private static encodeBase64(bytes: Uint8Array, urlSafe: boolean, mime: boolean): string;
+
+    /**
+      * Decodes the given Base64 string into a byte array.
+      * @param base64 The Base64 string to decode.
+      * @param urlSafe If true, uses the URL-safe Base64 alphabet.
+      * @returns A Uint8Array containing the decoded bytes.
+      * @since 20
+      */
+    private static decodeBase64(base64: string, urlSafe: boolean): Uint8Array;
+
+    /**
+     * Encodes all bytes from the specified u8 array into a newly-allocated u8 array using the Base64 encoding scheme.
+     *
+     * @param { Uint8Array } src - A Uint8Array value
+     * @param { Type } [options] - Enumerating input parameters includes two encoding formats: BASIC and BASIC_URL_SAFE
+     * @returns { Uint8Array } Return the encoded new Uint8Array.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    encodeSync(src: Uint8Array, options: Type = Type.BASIC): Uint8Array;
+
+    /**
+     * Encodes the specified byte array into a String using the Base64 encoding scheme.
+     *
+     * @param { Uint8Array } src - A Uint8Array value
+     * @param { Type } options - one of the Type enumeration
+     * @returns { string } Return the encoded string.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    encodeToStringSync(src: Uint8Array, options: Type = Type.BASIC): string;
+
+    /**
+     * Decodes a Base64 encoded String or input u8 array into a newly-allocated u8 array using the Base64 encoding scheme.
+     *
+     * @param { Uint8Array } src - A Uint8Array value
+     * @param { Type } [options] - one of the Type enumeration
+     * @returns { Uint8Array } Return the decoded Uint8Array.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    decodeSync(src: string, options: Type = Type.BASIC): Uint8Array;
+
+    /**
+     * Asynchronously encodes all bytes in the specified u8 array into the newly allocated u8 array using the Base64 encoding scheme.
+     *
+     * @param { Uint8Array } src - A Uint8Array value
+     * @param { Type } [options] - Enumerating input parameters includes two encoding formats: BASIC and BASIC_URL_SAFE
+     * @returns { Promise<Uint8Array> } Return the encodes asynchronous new Uint8Array.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    encode(src: Uint8Array, options: Type = Type.BASIC): Promise<Uint8Array>;
+
+    /**
+     * Asynchronously encodes the specified byte array into a String using the Base64 encoding scheme.
+     *
+     * @param { Uint8Array } src - A Uint8Array value
+     * @param { Type } [options] - one of the Type enumeration
+     * @returns { Promise<string> } Returns the encoded asynchronous string.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    encodeToString(src: Uint8Array, options: Type = Type.BASIC): Promise<string>;
+
+    /**
+     * Use the Base64 encoding scheme to asynchronously decode a Base64-encoded string or
+     * input u8 array into a newly allocated u8 array.
+     *
+     * @param { Uint8Array } src - A Uint8Array value
+     * @param { Type } [options] - one of the Type enumeration
+     * @returns { Promise<Uint8Array> } Return the decoded asynchronous Uint8Array.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    decode(src: Uint8Array, options: Type = Type.BASIC): Promise<Uint8Array>;
+  }
+
+  /**
    * The ScopeComparable contains comparison methods.
    *
    * @interface ScopeComparable
