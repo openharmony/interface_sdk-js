@@ -19730,20 +19730,6 @@ declare class CommonMethod<T> {
   foregroundEffect(options: ForegroundEffectOptions): T;
 
   /**
-   * Foreground effect.
-   * sysOptions: system adaptive options.
-   *
-   * @param { ForegroundEffectOptions } options - options indicates the effect options.
-   * @param { SystemAdaptiveOptions } [ sysOptions ] - system adaptive options.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  foregroundEffect(options: ForegroundEffectOptions, sysOptions?: SystemAdaptiveOptions): T;
-
-  /**
    * Unified visual effect interface.
    *
    * @param { VisualEffect } effect - Visual effect parameters.
