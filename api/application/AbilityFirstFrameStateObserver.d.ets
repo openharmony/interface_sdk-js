@@ -18,7 +18,7 @@
  * @kit AbilityKit
  */
 
-import AbilityFirstFrameStateData from './AbilityFirstFrameStateData';
+    import { AbilityFirstFrameStateData } from './AbilityFirstFrameStateData';
 
 /**
  * The ability first frame state observer.

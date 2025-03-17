@@ -58,7 +58,8 @@ export default class ExtensionContext extends Context {
    * @atomicservice
    * @since 11
    */
-  currentHapModuleInfo?: HapModuleInfo;
+  currentHapModuleInfo: HapModuleInfo;
+
   /**
    * Indicates configuration information.
    *
@@ -76,7 +77,8 @@ export default class ExtensionContext extends Context {
    * @atomicservice
    * @since 11
    */
-  config?: Configuration;
+  config: Configuration;
+  
   /**
    * Extension information.
    *
@@ -94,5 +96,5 @@ export default class ExtensionContext extends Context {
    * @atomicservice
    * @since 11
    */
-  extensionAbilityInfo?: _ExtensionAbilityInfo;
+  extensionAbilityInfo: _ExtensionAbilityInfo;
 }

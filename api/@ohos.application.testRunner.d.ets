@@ -35,7 +35,7 @@
  * @atomicservice
  * @since 11
  */
-export interface TestRunner {
+export default interface TestRunner {
   /**
    * Prepare the unit testing environment for running test cases.
    *

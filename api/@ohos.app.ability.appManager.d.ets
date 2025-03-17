@@ -26,7 +26,7 @@ import _AppStateData from './application/AppStateData';
 import _ProcessData from './application/ProcessData';
 import { ProcessInformation as _ProcessInformation } from './application/ProcessInformation';
 import _AbilityFirstFrameStateObserver from './application/AbilityFirstFrameStateObserver';
-import _AbilityFirstFrameStateData from './application/AbilityFirstFrameStateData';
+import { AbilityFirstFrameStateData as _AbilityFirstFrameStateData } from './application/AbilityFirstFrameStateData';
 import bundleManager from './@ohos.bundle.bundleManager';
 import { RunningMultiAppInfo as _RunningMultiAppInfo } from './application/RunningMultiAppInfo';
 
@@ -1312,4 +1312,5 @@ declare namespace appManager {
    */
   export type RunningMultiAppInfo = _RunningMultiAppInfo;
 }
+
 export default appManager;

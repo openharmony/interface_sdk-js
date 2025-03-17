@@ -63,8 +63,7 @@ declare namespace errorManager {
    * @atomicservice
    * @since 11
    */
-  // export function on(type: 'error', observer: ErrorObserver): number;
-  export function on<T1, T2, V>(type: T1, observer: T2, timeout?: number): V;
+  export function on(type: 'error', observer: ErrorObserver): number;
 
   /**
    * Unregister error observer.
@@ -91,7 +90,7 @@ declare namespace errorManager {
    * @atomicservice
    * @since 11
    */
-  // export function off(type: 'error', observerId: number, callback: AsyncCallback<void>): void;
+  export function off(type: 'error', observerId: number, callback: AsyncCallback<void>): void;
 
   /**
    * Unregister error observer.
@@ -118,8 +117,7 @@ declare namespace errorManager {
    * @atomicservice
    * @since 11
    */
-  // function off(type: 'error', observerId: number): Promise<void>;
-  export function off<T1, T2, V>(type: T1, observer: T2, observerId?: number): V;
+  function off(type: 'error', observerId: number): Promise<void>;
 
   /**
    * Register an error observer for all VM instances include worker and taskpool.
@@ -132,7 +130,7 @@ declare namespace errorManager {
    * @atomicservice
    * @since 16
    */
-  // export function on(type: 'globalErrorOccurred', observer: GlobalObserver): void;
+  export function on(type: 'globalErrorOccurred', observer: GlobalObserver): void;
 
   /**
    * Register a rejection observer for all VM instances include worker and taskpool.
@@ -145,7 +143,7 @@ declare namespace errorManager {
    * @atomicservice
    * @since 16
    */
-  // export function on(type: 'globalUnhandledRejectionDetected', observer: GlobalObserver): void;
+  export function on(type: 'globalUnhandledRejectionDetected', observer: GlobalObserver): void;
 
   /**
    * Unregister the error observer for all VM instance include worker and taskpool.
@@ -159,7 +157,7 @@ declare namespace errorManager {
    * @atomicservice
    * @since 16
    */
-  // export function off(type: 'globalErrorOccurred', observer?: GlobalObserver): void;
+  export function off(type: 'globalErrorOccurred', observer?: GlobalObserver): void;
 
   /**
    * Unregister the rejection observer for all VM instance include worker and taskpool.
@@ -173,7 +171,7 @@ declare namespace errorManager {
    * @atomicservice
    * @since 16
    */
-  // function off(type: 'globalUnhandledRejectionDetected', observer?: GlobalObserver): void;
+  function off(type: 'globalUnhandledRejectionDetected', observer?: GlobalObserver): void;
 
   /**
    * The observer will be called by system when an error or unhandled rejection occurs
@@ -274,7 +272,7 @@ declare namespace errorManager {
    * @atomicservice
    * @since 12
    */
-  // export function on(type: 'loopObserver', timeout: number, observer: LoopObserver): void;
+  export function on(type: 'loopObserver', timeout: number, observer: LoopObserver): void;
 
   /**
    * Unregister loop observer. This function can only by called from main thread.
@@ -287,7 +285,7 @@ declare namespace errorManager {
    * @atomicservice
    * @since 12
    */
-  // export function off(type: 'loopObserver', observer?: LoopObserver): void;
+  export function off(type: 'loopObserver', observer?: LoopObserver): void;
 
   /**
    * Register unhandled rejection observer.
@@ -301,7 +299,7 @@ declare namespace errorManager {
    * @atomicservice
    * @since 12
    */
-  // export function on(type: 'unhandledRejection', observer: UnhandledRejectionObserver): void;
+  export function on(type: 'unhandledRejection', observer: UnhandledRejectionObserver): void;
 
   /**
    * Unregister unhandled rejection observer.
@@ -316,7 +314,7 @@ declare namespace errorManager {
    * @atomicservice
    * @since 12
    */
-  // export function off(type: 'unhandledRejection', observer?: UnhandledRejectionObserver): void;
+  export function off(type: 'unhandledRejection', observer?: UnhandledRejectionObserver): void;
 
   /**
    * The observer will be called by system when an error occurs.

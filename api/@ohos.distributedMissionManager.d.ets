@@ -19,13 +19,13 @@
  */
 
 import type { AsyncCallback, Callback } from './@ohos.base';
-import _ContinuableInfo from './application/ContinuableInfo';
-import _ContinueCallback from './application/ContinueCallback';
-import _ContinueDeviceInfo from './application/ContinueDeviceInfo';
-import _ContinueMissionInfo from './application/ContinueMissionInfo';
-import _MissionCallback from './application/MissionCallbacks';
-import _MissionDeviceInfo from './application/MissionDeviceInfo';
-import _MissionParameter from './application/MissionParameter';
+import { ContinuableInfo as _ContinuableInfo } from './application/ContinuableInfo';
+import { ContinueCallback as _ContinueCallback } from './application/ContinueCallback';
+import { ContinueDeviceInfo as _ContinueDeviceInfo } from './application/ContinueDeviceInfo';
+import { ContinueMissionInfo as _ContinueMissionInfo } from './application/ContinueMissionInfo';
+import { MissionCallback as _MissionCallback } from './application/MissionCallbacks';
+import { MissionDeviceInfo as _MissionDeviceInfo } from './application/MissionDeviceInfo';
+import { MissionParameter as _MissionParameter } from './application/MissionParameter';
 
 /**
  * This module provides the capability to manage abilities and obtain system task information for distributed

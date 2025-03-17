@@ -37,7 +37,7 @@ import appRecovery from '../api/@ohos.app.ability.appRecovery';
 import AutoFillExtensionAbility from '../api/@ohos.app.ability.AutoFillExtensionAbility';
 import autoFillManager from '../api/@ohos.app.ability.autoFillManager';
 import autoStartupManager from '../api/@ohos.app.ability.autoStartupManager';
-import ChildProcess from '../api/@ohos.app.ability.ChildProcess';
+// import ChildProcess from '../api/@ohos.app.ability.ChildProcess';
 import childProcessManager from '../api/@ohos.app.ability.childProcessManager';
 import { ChildProcessArgs } from '../api/@ohos.app.ability.ChildProcessArgs';
 import { ChildProcessOptions } from '../api/@ohos.app.ability.ChildProcessOptions';
@@ -114,7 +114,7 @@ import appDomainVerify from '../api/@ohos.bundle.appDomainVerify';
 export {
   Ability, AbilityConstant, AbilityLifecycleCallback, AbilityStage, ActionExtensionAbility,
   ApplicationStateChangeCallback, AutoFillExtensionAbility, BundleStatusCallback, Callee,
-  CalleeCallback, Caller, CheckPackageHasInstalledOptions, CheckPackageHasInstalledResponse, ChildProcess,
+  CalleeCallback, Caller, CheckPackageHasInstalledOptions, CheckPackageHasInstalledResponse,
   Configuration, ConfigurationConstant, Context, EnvironmentCallback, ErrorCode,
   ExtensionAbility, InsightIntentContext, InsightIntentExecutor, OnReleaseCallback, OnRemoteStateChangeCallback,
   OpenLinkOptions, Package, PermissionRequestResult, Permissions, ServiceExtensionAbility, ShareExtensionAbility,

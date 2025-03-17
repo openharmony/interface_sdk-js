@@ -29,5 +29,5 @@ import UIAbilityContext from './UIAbilityContext';
  * @atomicservice
  * @since 12
  */
-export default class EmbeddableUIAbilityContext {
+export default class EmbeddableUIAbilityContext extends UIAbilityContext {
 }

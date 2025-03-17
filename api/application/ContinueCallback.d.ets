@@ -26,7 +26,7 @@
  * @systemapi
  * @since 9
  */
-export default interface ContinueCallback {
+export interface ContinueCallback {
   /**
    * Called by system when continue mission done.
    *

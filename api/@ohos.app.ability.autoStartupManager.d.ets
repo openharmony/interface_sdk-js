@@ -18,8 +18,8 @@
  * @kit AbilityKit
  */
 
-import type AutoStartupCallback from './application/AutoStartupCallback';
-import type AutoStartupInfo from './application/AutoStartupInfo';
+import AutoStartupCallback from './application/AutoStartupCallback';
+import AutoStartupInfo from './application/AutoStartupInfo';
 import type { AsyncCallback } from './@ohos.base';
 
 /**
