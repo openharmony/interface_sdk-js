@@ -4631,7 +4631,7 @@ declare namespace audio {
 
     /**
      * Change mute state of specified application volume. If there are multiple callers setting muted states,
-     * only when all callers cancel muted state the volume of this app will be truly unmuted. 
+     * only when all callers cancel muted state the volume of this app will be truly unmuted.
      * @permission ohos.permission.MANAGE_AUDIO_CONFIG
      * @param { number } uid - App's uid.
      * @param { boolean } muted - Muted state to set.
@@ -4753,7 +4753,7 @@ declare namespace audio {
     off(type: 'appVolumeChangeForUid', callback?: Callback<VolumeEvent>): void;
 
     /**
-     * Listens for app volume change events. The app volume may changed by your called {@link setAppVolumePercentage} 
+     * Listens for app volume change events. The app volume may changed by your called {@link setAppVolumePercentage}
      * or other system settings.
      * @param { 'appVolumeChange' } type - Type of the event to listen for. Only the appVolumeChange event is supported.
      * @param { Callback<VolumeEvent> } callback - Callback used to get the app volume change event.
@@ -7072,7 +7072,7 @@ declare namespace audio {
    * Audio timestamp info.
    * @typedef AudioTimestampInfo
    * @syscap SystemCapability.Multimedia.Audio.Core
-   * @since 16
+   * @since 18
    */
   interface AudioTimestampInfo {
     /**
@@ -7080,7 +7080,7 @@ declare namespace audio {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 16
+     * @since 18
      */
     readonly framePos: number;
 
@@ -7089,7 +7089,7 @@ declare namespace audio {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 16
+     * @since 18
      */
     readonly timestamp: number;
   }
@@ -7369,8 +7369,6 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12
-     * @deprecated since 16
-     * @useinstead ohos.multimedia.audio.AudioRenderer#getAudioTimestampInfo
      */
     getAudioTime(callback: AsyncCallback<number>): void;
     /**
@@ -7387,8 +7385,6 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12
-     * @deprecated since 16
-     * @useinstead ohos.multimedia.audio.AudioRenderer#getAudioTimestampInfo
      */
     getAudioTime(): Promise<number>;
     /**
@@ -7403,8 +7399,6 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12
-     * @deprecated since 16
-     * @useinstead ohos.multimedia.audio.AudioRenderer#getAudioTimestampInfoSync
      */
     getAudioTimeSync(): number;
 
@@ -7414,7 +7408,7 @@ declare namespace audio {
      * @returns { Promise<AudioTimestampInfo> } The Promise used to return timestamp info.
      * @throws  { BusinessError } 6800103 - Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 16
+     * @since 18
      */
     getAudioTimestampInfo(): Promise<AudioTimestampInfo>;
 
@@ -7424,7 +7418,7 @@ declare namespace audio {
      * @returns { AudioTimestampInfo } The returned timestamp info.
      * @throws { BusinessError } 6800103 - Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 16
+     * @since 18
      */
     getAudioTimestampInfoSync(): AudioTimestampInfo;
 
@@ -8864,8 +8858,6 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12
-     * @deprecated since 16
-     * @useinstead ohos.multimedia.audio.Capturer#getAudioTimestampInfo
      */
     getAudioTime(callback: AsyncCallback<number>): void;
     /**
@@ -8882,8 +8874,6 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12
-     * @deprecated since 16
-     * @useinstead ohos.multimedia.audio.Capturer#getAudioTimestampInfo
      */
     getAudioTime(): Promise<number>;
     /**
@@ -8898,8 +8888,6 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12
-     * @deprecated since 16
-     * @useinstead ohos.multimedia.audio.Capturer#getAudioTimestampInfoSync
      */
     getAudioTimeSync(): number;
 
@@ -8909,7 +8897,7 @@ declare namespace audio {
      * @returns { Promise<AudioTimestampInfo> } The Promise used to return timestamp info.
      * @throws { BusinessError } 6800103 - Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
-     * @since 16
+     * @since 18
      */
     getAudioTimestampInfo(): Promise<AudioTimestampInfo>;
 
@@ -8919,7 +8907,7 @@ declare namespace audio {
       * @returns { AudioTimestampInfo } The returned timestamp info.
       * @throws { BusinessError } 6800103 - Operation not permit at current state.
       * @syscap SystemCapability.Multimedia.Audio.Capturer
-      * @since 16
+      * @since 18
       */
     getAudioTimestampInfoSync(): AudioTimestampInfo;
 
