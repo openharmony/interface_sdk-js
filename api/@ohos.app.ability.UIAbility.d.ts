@@ -486,6 +486,9 @@ export default class UIAbility extends Ability {
    */
   /**
    * Called back before an ability is destroyed.
+   * After the onDestroy() lifecycle callback is executed, the application may exit. Consequently,
+   * the asynchronous function (for example, asynchronously writing data to the database) in onDestroy() may fail to be executed.
+   * You can use the asynchronous lifecycle to ensure that the subsequent lifecycle continues only after the asynchronous function in onDestroy() finishes the execution.
    *
    * @returns { void | Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
