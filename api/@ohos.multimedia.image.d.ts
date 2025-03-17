@@ -3363,6 +3363,31 @@ declare namespace image {
   }
 
   /**
+   * Enumerates the strategies for executing the cropping and scaling operations when both desiredSize and desiredRegion are specified.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 18
+   */
+  enum CropAndScaleStrategy {
+    /**
+     * Scales and then crops the image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 18
+     */
+    SCALE_FIRST = 1,
+
+    /**
+     * Crops and then scales the image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 18
+     */
+    CROP_FIRST = 2
+  }
+
+  /**
    * Describes the option for image packing.
    *
    * @typedef PackingOption
@@ -3982,6 +4007,15 @@ declare namespace image {
      * @since 12
      */
     resolutionQuality?: ResolutionQuality;
+
+    /**
+     * Describes the strategy for executing the cropping and scaling operations when both desiredSize and desiredRegion are specified.
+     *
+     * @type { ?CropAndScaleStrategy }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 18
+     */
+    cropAndScaleStrategy?: CropAndScaleStrategy;
   }
 
   /**

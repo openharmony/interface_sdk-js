@@ -8831,6 +8831,16 @@ declare enum ScrollSource {
  * @atomicservice
  * @since 11
  */
+/**
+ * Enum of RenderFit
+ * 
+ * @enum { number } RenderFit
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 18
+ */
 declare enum RenderFit {
   /**
    * Without scaling the content area, the content area is drawn in the center of the node.
@@ -8846,6 +8856,15 @@ declare enum RenderFit {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Without scaling the content area, the content area is drawn in the center of the node.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   CENTER = 0,
   /**
@@ -8863,6 +8882,15 @@ declare enum RenderFit {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Without scaling the content area, the content area is drawn in the top center of the node.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   TOP = 1,
   /**
    * Without scaling the content area, the content area is drawn in the bottom center of the node.
@@ -8878,6 +8906,15 @@ declare enum RenderFit {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Without scaling the content area, the content area is drawn in the bottom center of the node.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   BOTTOM = 2,
   /**
@@ -8895,6 +8932,15 @@ declare enum RenderFit {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Without scaling the content area, the content area is drawn in the left center of the node.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   LEFT = 3,
   /**
    * Without scaling the content area, the content area is drawn in the right center of the node.
@@ -8910,6 +8956,15 @@ declare enum RenderFit {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Without scaling the content area, the content area is drawn in the right center of the node.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   RIGHT = 4,
   /**
@@ -8927,6 +8982,15 @@ declare enum RenderFit {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Without scaling the content area, the content area is drawn in the top left of the node.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   TOP_LEFT = 5,
   /**
    * Without scaling the content area, the content area is drawn in the top right of the node.
@@ -8942,6 +9006,15 @@ declare enum RenderFit {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Without scaling the content area, the content area is drawn in the top right of the node.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   TOP_RIGHT = 6,
   /**
@@ -8959,6 +9032,15 @@ declare enum RenderFit {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Without scaling the content area, the content area is drawn in the bottom left of the node.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   BOTTOM_LEFT = 7,
   /**
    * Without scaling the content area, the content area is drawn in the bottom right of the node.
@@ -8975,6 +9057,15 @@ declare enum RenderFit {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Without scaling the content area, the content area is drawn in the bottom right of the node.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   BOTTOM_RIGHT = 8,
   /**
    * Scale the length and width of the content area to the node size to fill the node.
@@ -8990,6 +9081,15 @@ declare enum RenderFit {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Scale the length and width of the content area to the node size to fill the node.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   RESIZE_FILL = 9,
   /**
@@ -9010,6 +9110,17 @@ declare enum RenderFit {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Scale the length or width of the content to the length or width of the node, ensuring that one side is equal,
+   * the other side is less than or equal to the corresponding side of the node, and the content after scaling 
+   * is centered.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   RESIZE_CONTAIN = 10,
   /**
@@ -9035,6 +9146,19 @@ declare enum RenderFit {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Scale the length or width of the content to the length or width of the node, ensuring that one side is equal,
+   * the other side is less than or equal to the corresponding side of the node. If the height of the scaled content
+   * is less than or equal to the height of the node, the scaled content area is displayed at the top; otherwise,
+   * the width of the scaled content is less than or equal to the width of the node, the scaled content area is
+   * displayed at the left.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   RESIZE_CONTAIN_TOP_LEFT = 11,
   /**
    * Scale the length or width of the content to the length or width of the node, ensuring that one side is equal,
@@ -9059,6 +9183,19 @@ declare enum RenderFit {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Scale the length or width of the content to the length or width of the node, ensuring that one side is equal,
+   * the other side is less than or equal to the corresponding side of the node. If the height of the scaled content
+   * is less than or equal to the height of the node, the scaled content area is displayed at the bottom; otherwise,
+   * the width of the scaled content is less than or equal to the width of the node, the scaled content area is
+   * displayed at the right.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   RESIZE_CONTAIN_BOTTOM_RIGHT = 12,
   /**
    * Scale the length or width of the content to the length or width of the node, ensuring that one side is equal,
@@ -9078,6 +9215,17 @@ declare enum RenderFit {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Scale the length or width of the content to the length or width of the node, ensuring that one side is equal,
+   * the other side is greater than or equal to the corresponding side of the node, and the content after scaling 
+   * displays the center area.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   RESIZE_COVER = 13,
   /**
@@ -9103,6 +9251,19 @@ declare enum RenderFit {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Scale the length or width of the content to the length or width of the node, ensuring that one side is equal,
+   * the other side is greater than or equal to the corresponding side of the node. If the height of the scaled content
+   * is greater than or equal to the height of the node, the scaled content area displays the top area; otherwise,
+   * the width of the scaled content is greater than or equal to the width of the node, the scaled content area
+   * displays the left area.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   RESIZE_COVER_TOP_LEFT = 14,
   /**
    * Scale the length or width of the content to the length or width of the node, ensuring that one side is equal,
@@ -9126,6 +9287,19 @@ declare enum RenderFit {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Scale the length or width of the content to the length or width of the node, ensuring that one side is equal,
+   * the other side is greater than or equal to the corresponding side of the node. If the height of the scaled content
+   * is greater than or equal to the height of the node, the scaled content area displays the bottom area; otherwise,
+   * the width of the scaled content is greater than or equal to the width of the node, the scaled content area
+   * displays the right area.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   RESIZE_COVER_BOTTOM_RIGHT = 15,
 }

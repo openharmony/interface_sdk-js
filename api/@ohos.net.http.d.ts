@@ -44,15 +44,18 @@ import type connection from './@ohos.net.connection';
  */
 declare namespace http {
   /**
+   * Http Proxy Configuration Information.
    * @syscap SystemCapability.Communication.NetStack
    * @since 10
    */
   /**
+   * Http Proxy Configuration Information.
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
    * @since 11
    */
   /**
+   * Http Proxy Configuration Information.
    * @typedef { connection.HttpProxy }
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
@@ -1864,6 +1867,7 @@ declare namespace http {
      * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
      * @throws { BusinessError } 2300999 - Unknown error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @atomicservice
      * @since 18
      */
@@ -2032,6 +2036,7 @@ declare namespace http {
      * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
      * @throws { BusinessError } 2300999 - Unknown error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @atomicservice
      * @since 18
      */
@@ -2200,6 +2205,7 @@ declare namespace http {
      * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
      * @throws { BusinessError } 2300999 - Unknown error.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @atomicservice
      * @since 18
      */
@@ -2340,6 +2346,15 @@ declare namespace http {
      * @atomicservice
      * @since 15
      */
+    /**
+     * Registers an observer for receiving HTTP Response data events continuously.
+     * @param { "dataReceive" } type - Indicates Event name.
+     * @param { Callback<ArrayBuffer> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     on(type: "dataReceive", callback: Callback<ArrayBuffer>): void;
 
     /**
@@ -2356,6 +2371,15 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 15
+     */
+    /**
+     * Unregisters an observer for receiving HTTP Response data events continuously.
+     * @param { "dataReceive" } type - Indicates Event name.
+     * @param { Callback<ArrayBuffer> } [callback] - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     off(type: "dataReceive", callback?: Callback<ArrayBuffer>): void;
 
@@ -2374,6 +2398,15 @@ declare namespace http {
      * @atomicservice
      * @since 15
      */
+    /**
+     * Registers an observer for receiving HTTP Response data ends events.
+     * @param { "dataEnd" } type - Indicates Event name.
+     * @param { Callback<void> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 18
+     */
     on(type: "dataEnd", callback: Callback<void>): void;
 
     /**
@@ -2390,6 +2423,15 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @atomicservice
      * @since 15
+     */
+    /**
+     * Unregisters an observer for receiving HTTP Response data ends events.
+     * @param { "dataEnd" } type - Indicates Event name.
+     * @param { Callback<void> } [callback] - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 18
      */
     off(type: "dataEnd", callback?: Callback<void>): void;
 

@@ -7093,7 +7093,16 @@ declare namespace camera {
    * @systemapi
    * @since 14
    */
-  interface MacroPhotoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus, DepthFusion {
+  /**
+   * Macro photo session object.
+   *
+   * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus, DepthFusion, ColorManagement
+   * @interface MacroPhotoSession
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 18
+   */
+  interface MacroPhotoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus, DepthFusion, ColorManagement {
     /**
      * Subscribes to error events.
      *
@@ -7176,7 +7185,16 @@ declare namespace camera {
    * @systemapi
    * @since 12
    */
-  interface MacroVideoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus {
+  /**
+   * Macro video session object.
+   *
+   * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus, ColorManagement
+   * @interface MacroVideoSession
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 18
+   */
+  interface MacroVideoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus, ColorManagement {
     /**
      * Subscribes to error events.
      *

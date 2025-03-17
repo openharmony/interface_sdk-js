@@ -775,6 +775,21 @@ declare namespace audio {
      * @since 18
      */
     USB_DEVICE = 25,
+
+    /**
+     * HDMI device, such as HDMI, ARC, eARC
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 18
+     */
+    HDMI = 27,
+
+    /**
+     * Distributed virtualization audio device.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @atomicservice
+     * @since 18
+     */
+    REMOTE_DAUDIO = 29,
     /**
      * Default device type.
      * @syscap SystemCapability.Multimedia.Audio.Device
@@ -1875,6 +1890,14 @@ declare namespace audio {
      * @since 12
      */
     rendererFlags: number;
+    /**
+     * Audio volume mode config. If volumeMode is set to {@link AudioVolumeMode.APP_INDIVIDUAL}, this audio renderer
+     * will be affeted by app volume percentage setted by {@link setAppVolumePercentage}
+     * @type { ?AudioVolumeMode }
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 18
+     */
+    volumeMode?: AudioVolumeMode;
   }
 
   /**
@@ -3970,7 +3993,7 @@ declare namespace audio {
      * @since 12
      */
     getCurrentAudioRendererInfoArray(callback: AsyncCallback<AudioRendererChangeInfoArray>): void;
-    
+
     /**
      * Get information of current existing audio renderers.
      * @returns { Promise<AudioRendererChangeInfoArray> } Promise used to return the information of current
@@ -4551,6 +4574,109 @@ declare namespace audio {
     getVolumeGroupManagerSync(groupId: number): AudioVolumeGroupManager;
 
     /**
+     * Get the volume for specified app with range from 0 to 100. Applications with same uid share the same volume.
+     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
+     * @param { number } uid - App's uid.
+     * @returns { Promise<number> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 18
+     */
+    getAppVolumePercentageForUid(uid: number): Promise<number>;
+
+    /**
+     * Sets the volume for specified app with range from 0 to 100. Applications with same uid share the same volume.
+     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
+     * @param { number } uid - App's uid.
+     * @param { number } volume - Volume to set. The value range is from 0 to 100.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Crash or blocking occurs in system process.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 18
+     */
+    setAppVolumePercentageForUid(uid: number, volume: number): Promise<void>;
+
+    /**
+     * Checks whether the app volume is muted. If there are multiple callers setting muted states,
+     * only when all callers cancel muted state the volume of this app will be truly unmuted.
+     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
+     * @param { number } uid - App's uid.
+     * @param { boolean } owned - If true is passed, the result will be indicated your owned muted state
+     * settings to this app. Otherwise if false is passed, the result will be indicated the real muted state.
+     * @returns { Promise<boolean> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 18
+     */
+    isAppVolumeMutedForUid(uid: number, owned: boolean): Promise<boolean>;
+
+    /**
+     * Change mute state of specified application volume. If there are multiple callers setting muted states,
+     * only when all callers cancel muted state the volume of this app will be truly unmuted. 
+     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
+     * @param { number } uid - App's uid.
+     * @param { boolean } muted - Muted state to set.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Crash or blocking occurs in system process.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 18
+     */
+    setAppVolumeMutedForUid(uid: number, muted: boolean): Promise<void>;
+
+    /**
+     * Get the volume for your app with range from 0 to 100. Applications with the same uid share the same volume.
+     * @returns { Promise<number> } The application's volume percentage. The value range is from 0 to 100.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 18
+     */
+    getAppVolumePercentage(): Promise<number>;
+
+    /**
+     * Sets the volume for your app with range from 0 to 100. Applications with the same uid share the same volume.
+     * Only AudioRenderers with {@link AudioRendererInfo.volumeMode} set to {@link AudioVolumeMode.APP_INDIVIDUAL}
+     * will be affected by this volume.
+     * When you change your app's volume, your will receive 'appVolumeChange' callback event.
+     * Your app volume can be also changed by other system settings, and you can monitor the changes through
+     * 'appVolumeChange' callback.
+     * @param { number } volume - Volume to set. The value range is from 0 to 100.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Crash or blocking occurs in system process.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 18
+     */
+    setAppVolumePercentage(volume: number): Promise<void>;
+
+    /**
      * Listens for system volume change events. This method uses a callback to get volume change events.
      * @param { 'volumeChange' } type - Type of the event to listen for. Only the volumeChange event is supported.
      * @param { Callback<VolumeEvent> } callback - Callback used to get the system volume change event.
@@ -4587,6 +4713,72 @@ declare namespace audio {
      * @since 12
      */
     off(type: 'volumeChange', callback?: Callback<VolumeEvent>): void;
+
+    /**
+     * Listens for specified app volume change events.
+     * The app volume may changed by {@link setAppVolumePercentageForUid}.
+     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
+     * @param { 'appVolumeChangeForUid' } type - Type of the event to listen for. Only the
+     * appVolumeChangeForUid event is supported.
+     * @param { number } uid - The app's uid.
+     * @param { Callback<VolumeEvent> } callback - Callback used to get the app volume change event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 18
+     */
+    on(type: 'appVolumeChangeForUid', uid: number, callback: Callback<VolumeEvent>): void;
+
+    /**
+     * Unsubscribes to the app volume change events..
+     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
+     * @param { 'appVolumeChangeForUid' } type - Type of the event to be unregistered. Only the appVolumeChangeForUid
+     * event is supported.
+     * @param { Callback<VolumeEvent> } callback - Callback used to obtain the invoking volume change event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 18
+     */
+    off(type: 'appVolumeChangeForUid', callback?: Callback<VolumeEvent>): void;
+
+    /**
+     * Listens for app volume change events. The app volume may changed by your called {@link setAppVolumePercentage} 
+     * or other system settings.
+     * @param { 'appVolumeChange' } type - Type of the event to listen for. Only the appVolumeChange event is supported.
+     * @param { Callback<VolumeEvent> } callback - Callback used to get the app volume change event.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 18
+     */
+    on(type: 'appVolumeChange', callback: Callback<VolumeEvent>): void;
+
+    /**
+     * Unsubscribes to the app volume change events..
+     * @param { 'appVolumeChange' } type - Type of the event to be unregistered. Only the appVolumeChange event
+     * is supported.
+     * @param { Callback<VolumeEvent> } callback - Callback used to obtain the invoking volume change event.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 18
+     */
+    off(type: 'appVolumeChange', callback?: Callback<VolumeEvent>): void;
   }
 
   /**
@@ -5822,7 +6014,7 @@ declare namespace audio {
      * Gets supported audio effect properties based on current devices.
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @returns { Array<AudioEffectProperty> } Array of supported audio effect properties.
-     * @throws { BusinessError } 201 - Permission denied. 
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 6800301 - System error.
      * @syscap SystemCapability.Multimedia.Audio.Core
@@ -5834,9 +6026,9 @@ declare namespace audio {
     /**
      * Sets current audio effect properties.
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
-     * @param { Array<AudioEffectProperty> } propertyArray - array of audio effect property to be set. 
+     * @param { Array<AudioEffectProperty> } propertyArray - array of audio effect property to be set.
      * Notice that only one effect property name in each effect property category should be set.
-     * @throws { BusinessError } 201 - Permission denied. 
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -5856,7 +6048,7 @@ declare namespace audio {
      * Gets current audio effect properties.
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @returns { Array<AudioEffectProperty> } Array of current audio effect properties.
-     * @throws { BusinessError } 201 - Permission denied. 
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 6800301 - System error.
      * @syscap SystemCapability.Multimedia.Audio.Core
@@ -6390,6 +6582,17 @@ declare namespace audio {
      * @since 18
      */
     readonly spatializationSupported?: boolean;
+
+    /**
+     * Only {@link DeviceType.SPEAKER} with networkId、{@link DeviceType.REMOTE_CAST}
+     * or {@link DeviceType.REMOTE_DAUDIO} has dmDeviceType which indicated deviceTypeId.
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 18
+     */
+    readonly dmDeviceType?: number;
   }
 
   /**
@@ -6407,6 +6610,27 @@ declare namespace audio {
    * @since 12
    */
   type AudioDeviceDescriptors = Array<Readonly<AudioDeviceDescriptor>>;
+
+  /**
+   * Volume mode.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Volume
+   * @since 18
+   */
+  enum AudioVolumeMode {
+    /**
+     * Audio volume affected by system volume level.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 18
+     */
+    SYSTEM_GLOBAL = 0,
+    /**
+     * Audio volume affected by app's individual percentage.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 18
+     */
+    APP_INDIVIDUAL = 1
+  }
 
   /**
    * Describes the volume event received by the app when the volume is changed.
@@ -6466,6 +6690,13 @@ declare namespace audio {
      * @since 9
      */
     networkId: string;
+    /**
+     * Audio volume mode of this volume event
+     * @type { ?AudioVolumeMode }
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 18
+     */
+    volumeMode?: AudioVolumeMode;
   }
 
   /**
@@ -10444,7 +10675,7 @@ declare namespace audio {
      * @since 18
      */
     RENDER_EFFECT_FLAG = 0,
-  
+
     /**
      * Audio capture effect.
      * @syscap SystemCapability.Multimedia.Audio.Core

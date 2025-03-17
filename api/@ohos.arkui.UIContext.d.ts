@@ -1559,6 +1559,17 @@ export interface OverlayManagerOptions {
    * @since 15
    */
   renderRootOverlay?: boolean;
+
+  /**
+   * Set whether support backPressed event or not.
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  enableBackPressedEvent?: boolean;
 }
 
 /**
@@ -4017,6 +4028,30 @@ export class UIContext {
    * @since 16
    */
   getTextMenuController(): TextMenuController;
+
+  /**
+   * Create a UI instance singleton without window and get its UIContext object.
+   * 
+   * @param { common.UIAbilityContext | common.ExtensionContext } context - UIAbilityContext or ExtensionContext.
+   * @returns { UIContext | undefined } object UIContext, or undefined when failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. The number of parameters is incorrect.
+   * <br> 2. Invalid parameter type of context.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  static createUIContextWithoutWindow(context: common.UIAbilityContext | common.ExtensionContext) : UIContext | undefined;
+
+  /**
+   * Destroy the UI instance singleton without window.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  static destroyUIContextWithoutWindow(): void;
 }
 
 /**

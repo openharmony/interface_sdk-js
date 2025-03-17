@@ -172,14 +172,14 @@ export declare enum SourceType {
  * 
  * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since 15
+ * @since 18
  */
 export declare enum FixedMode {
   /**
    * Not fix.
    * 
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 15
+   * @since 18
    */
   NONE = 0,
 
@@ -187,7 +187,7 @@ export declare enum FixedMode {
    * One hand mode.
    * 
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 15
+   * @since 18
    */
   ONE_HAND = 1
 }
@@ -348,7 +348,7 @@ export declare interface Touch {
    * fixedDisplayX - Corrected value of the screen x coordinate.
    * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 15
+   * @since 18
    */
   fixedDisplayX?: number;
 
@@ -356,7 +356,7 @@ export declare interface Touch {
    * fixedDisplayY - Corrected value of the screen y coordinate.
    * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 15
+   * @since 18
    */
   fixedDisplayY?: number;
 }
@@ -407,7 +407,7 @@ export declare interface TouchEvent extends InputEvent {
    * 
    * @type { FixedMode }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 15
+   * @since 18
    */
   fixedMode?: FixedMode;
 }

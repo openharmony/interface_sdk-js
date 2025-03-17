@@ -107,7 +107,8 @@ import performanceMonitor from '@ohos.arkui.performanceMonitor';
 import { RectShape, CircleShape, EllipseShape, PathShape } from '@ohos.arkui.shape';
 import {
   AtomicServiceBar, ComponentUtils, ContextMenuController, CursorController, DragController, Font, KeyboardAvoidMode, MediaQuery, OverlayManager, PromptAction, Router,
-  UIContext, UIInspector, UIObserver, PageInfo, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, FrameCallback, MeasureUtils, OverlayManagerOptions, TargetInfo
+  UIContext, UIInspector, UIObserver, PageInfo, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, MarqueeDynamicSyncScene, MarqueeDynamicSyncSceneType, FrameCallback,
+  MeasureUtils, OverlayManagerOptions, TargetInfo
 } from '@ohos.arkui.UIContext';
 import curves from '@ohos.curves';
 import {
@@ -267,7 +268,8 @@ export {
   ExtraRegionPosition, ExpandedRegionLayoutOptions, HoverModeRegionLayoutOptions, FoldedRegionLayoutOptions, PresetSplitRatio, FoldSplitContainer,
   HoverModeStatus, OnHoverStatusChangeHandler,
   AppStorageV2, PersistenceV2, Type, UIUtils, ConnectOptions, typeNode,
-  IDataSourcePrefetching, IPrefetcher, BasicPrefetcher, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, uiExtension, FullScreenLaunchComponent, MeasureUtils,
+  IDataSourcePrefetching, IPrefetcher, BasicPrefetcher, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, MarqueeDynamicSyncScene, MarqueeDynamicSyncSceneType,
+  uiExtension, FullScreenLaunchComponent, MeasureUtils,
   CommonModifier, ColumnModifier, ColumnSplitModifier, RowModifier, RowSplitModifier, SideBarContainerModifier,
   BlankModifier, DividerModifier, GridColModifier, GridRowModifier, NavDestinationModifier, NavigatorModifier,
   StackModifier, NavigationModifier, NavRouterModifier, StepperItemModifier, TabsModifier, GridModifier,

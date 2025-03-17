@@ -58,6 +58,7 @@
 /// <reference path="./image_animator.d.ts" />
 /// <reference path="./image_common.d.ts" />
 /// <reference path="./lazy_for_each.d.ts" />
+/// <reference path="./lazy_grid_layout.d.ts" />
 /// <reference path="./line.d.ts" />
 /// <reference path="./list.d.ts" />
 /// <reference path="./list_item.d.ts" />

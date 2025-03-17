@@ -20,7 +20,8 @@
 
 import { AsyncCallback, Callback } from './@ohos.base';
 import Context from './application/Context';
-import { window } from '@kit.ArkUI';
+import window  from "./@ohos.window"
+import type { CustomColors } from './@ohos.arkui.theme';
 /**
  * Provide the capabilities to use different pickers.
  *
@@ -666,6 +667,16 @@ declare namespace picker {
      * @since 18
      */
     isEncryptionSupported?: boolean;
+    
+    /**
+     * Theme color
+     *
+     * @type { ?CustomColors }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 18
+     */
+    themeColor?: CustomColors;
   }
 
   /**
@@ -744,6 +755,16 @@ declare namespace picker {
      * @since 12
      */
     pickerMode?: DocumentPickerMode;
+
+    /**
+     * Theme color
+     *
+     * @type { ?CustomColors }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 18
+     */
+    themeColor?: CustomColors;
   }
 
   /**

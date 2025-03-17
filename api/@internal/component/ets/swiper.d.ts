@@ -135,7 +135,7 @@ declare class SwiperController {
    * Controlling Swiper to change to the specified subcomponent.
    *
    * @param { number } index - the index of item to be redirected.
-   * @param { SwiperAnimationMode | boolean } animationMode - animation mode for changeIndex,
+   * @param { SwiperAnimationMode | boolean } [animationMode] - animation mode for changeIndex,
    * true is equivalent to SwiperAnimationMode.DEFAULT_ANIMATION, false is equivalent to SwiperAnimationMode.NO_ANIMATION
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -143,7 +143,7 @@ declare class SwiperController {
    * @atomicservice
    * @since 15
    */
-  changeIndex(index: number, animationMode: SwiperAnimationMode | boolean);
+  changeIndex(index: number, animationMode?: SwiperAnimationMode | boolean);
 
   /**
    * Called when need to stop the swiper animation.
@@ -315,7 +315,7 @@ declare class Indicator<T> {
   /**
    * Set the offset of indicator to the bottom.
    *
-   * @param { LengthMetrics } bottom - the offset of indicator to the bottom.
+   * @param { LengthMetrics | Length } bottom - the offset of indicator to the bottom.
    * @param { boolean } ignoreSize - ignore the size of the indicator.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -324,7 +324,7 @@ declare class Indicator<T> {
    * @atomicservice
    * @since 18
    */
-  bottom(bottom: LengthMetrics, ignoreSize: boolean): T;
+  bottom(bottom: LengthMetrics | Length, ignoreSize: boolean): T;
 
   /**
    * Set the indicator to the left in LTR

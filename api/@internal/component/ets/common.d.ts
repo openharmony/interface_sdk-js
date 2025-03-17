@@ -8589,6 +8589,30 @@ declare interface BlurOptions {
 }
 
 /**
+ * Defines the SystemAdaptiveOptions interface
+ *
+ * @interface SystemAdaptiveOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 18
+ */
+declare interface SystemAdaptiveOptions {
+  /**
+   * Whether to disable system adaptive.
+   * 
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
+  disableSystemAdaptation?: boolean;
+}
+
+/**
  * Defines the options of blurStyle
  *
  * @interface BlurStyleOptions
@@ -19631,9 +19655,11 @@ declare class CommonMethod<T> {
   /**
    * Background blur style.
    * blurStyle:Blur style type.
+   * sysOptions: system adaptive options.
    *
    * @param { Optional<BlurStyle> } style
    * @param { BackgroundBlurStyleOptions } [options]
+   * @param { SystemAdaptiveOptions } [sysOptions]
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -19641,7 +19667,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 18
    */
-  backgroundBlurStyle(style: Optional<BlurStyle>, options?: BackgroundBlurStyleOptions): T;
+  backgroundBlurStyle(style: Optional<BlurStyle>, options?: BackgroundBlurStyleOptions, sysOptions?: SystemAdaptiveOptions): T;
 
    /**
    * options:background effect options.
@@ -19666,15 +19692,17 @@ declare class CommonMethod<T> {
 
   /**
    * options:background effect options.
+   * sysOptions: system adaptive options.
    *
    * @param { Optional<BackgroundEffectOptions> } options - options indicates the effect options.
+   * @param { SystemAdaptiveOptions } [ sysOptions ] - system adaptive options.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 18
    */
-  backgroundEffect(options: Optional<BackgroundEffectOptions>): T;
+  backgroundEffect(options: Optional<BackgroundEffectOptions>, sysOptions?: SystemAdaptiveOptions): T;
 
   /**
    * Background image resizable.
@@ -19701,6 +19729,19 @@ declare class CommonMethod<T> {
    */
   foregroundEffect(options: ForegroundEffectOptions): T;
 
+  /**
+   * Foreground effect.
+   * sysOptions: system adaptive options.
+   *
+   * @param { ForegroundEffectOptions } options - options indicates the effect options.
+   * @param { SystemAdaptiveOptions } [ sysOptions ] - system adaptive options.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  foregroundEffect(options: ForegroundEffectOptions, sysOptions?: SystemAdaptiveOptions): T;
 
   /**
    * Unified visual effect interface.
@@ -19778,16 +19819,18 @@ declare class CommonMethod<T> {
   /**
    * Foreground blur style.
    * blurStyle:Blur style type.
+   * sysOptions: system adaptive options.
    *
    * @param { Optional<BlurStyle> } style
    * @param { ForegroundBlurStyleOptions } [options]
+   * @param { SystemAdaptiveOptions } [sysOptions]
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 18
    */
-  foregroundBlurStyle(style: Optional<BlurStyle>, options?: ForegroundBlurStyleOptions): T;
+  foregroundBlurStyle(style: Optional<BlurStyle>, options?: ForegroundBlurStyleOptions, sysOptions?: SystemAdaptiveOptions): T;
 
   /**
    * Opacity
@@ -21141,6 +21184,7 @@ declare class CommonMethod<T> {
    *
    * @param { Optional<number> } blurRadius - value indicates radius of backdrop blur.
    * @param { BlurOptions } [options] - options indicates blur options.
+   * @param { SystemAdaptiveOptions } [sysOptions] - system adaptive options.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -21148,7 +21192,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 18
    */
-  blur(blurRadius: Optional<number>, options?: BlurOptions): T;
+  blur(blurRadius: Optional<number>, options?: BlurOptions, sysOptions?: SystemAdaptiveOptions): T;
 
   /**
    * Adds the content linear gradient blurring effect for the current component. The input parameter is the blurring radius.
@@ -21822,6 +21866,7 @@ declare class CommonMethod<T> {
    *
    * @param { Optional<number> } radius - radius indicates radius of backdrop blur.
    * @param { BlurOptions } [options] - options indicates the backdrop blur options.
+   * @param { SystemAdaptiveOptions } [sysOptions] - system adaptive options.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -21829,7 +21874,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 18
    */
-  backdropBlur(radius: Optional<number>, options?: BlurOptions): T;
+  backdropBlur(radius: Optional<number>, options?: BlurOptions, sysOptions?: SystemAdaptiveOptions): T;
 
   /**
    * Composite the contents of this view and its children into an offscreen cache before display in the screen.
@@ -25004,6 +25049,17 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Sets how content is drawn within nodes duration animation
+   *
+   * @param { RenderFit } fitMode - The render fit mode of content.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   renderFit(fitMode: RenderFit): T;
 
   /**
@@ -25013,6 +25069,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 18
    */
@@ -28117,6 +28174,27 @@ declare abstract class TextContentControllerBase {
    * @since 15
    */
   getSelection(): TextRange;
+
+  /**
+   * Clear the content of preview.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  clearPreviewText(): void;
+
+  /**
+   * Gets the text content of the selected range.
+   *
+   * @param { TextRange } [range] - selected range.
+   * @returns { string } text content of the selected range.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @atomicservice
+   * @since 18
+   */
+  getText(range?: TextRange): string;
 }
 
 /**

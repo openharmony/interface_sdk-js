@@ -435,6 +435,16 @@ declare namespace relationalStore {
      */
 
     tokenizer?: Tokenizer;
+
+    /**
+     * Specifies whether the database need persistence.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 18
+     */
+
+    persist?: boolean;
   }
 
   /**

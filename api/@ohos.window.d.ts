@@ -319,7 +319,16 @@ declare namespace window {
      * @stagemodelonly
      * @since 15
      */
-    TYPE_SCREEN_CONTROL
+    TYPE_SCREEN_CONTROL,
+    /**
+     * TYPE_FLOAT_NAVIGATION.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 16
+     */
+    TYPE_FLOAT_NAVIGATION
   }
 
   /**
@@ -2712,13 +2721,13 @@ declare namespace window {
    * @since 10
    */
   /**
-   * Get the final show window.
+   * Get the top window.
    *
    * @param { BaseContext } ctx - Current application context.
    * @param { AsyncCallback<Window> } callback - Callback used to return the top window obtained.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    *                                                                  2. Incorrect parameter types.
-   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300002 - This window state is abnormal. Top window or main window is null or destroyed.
    * @throws { BusinessError } 1300006 - This window context is abnormal.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
@@ -2753,13 +2762,13 @@ declare namespace window {
    * @since 10
    */
   /**
-   * Get the final show window.
+   * Get the top window.
    *
    * @param { BaseContext } ctx - Current application context.
    * @returns { Promise<Window> } Promise used to return the top window obtained.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    *                                                                  2. Incorrect parameter types.
-   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300002 - This window state is abnormal. Top window or main window is null or destroyed.
    * @throws { BusinessError } 1300006 - This window context is abnormal.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
@@ -3712,6 +3721,26 @@ declare namespace window {
   type SpecificSystemBar = 'status' | 'navigation' | 'navigationIndicator';
 
   /**
+   * The infomation of keyboard
+   *
+   * @interface KeyboardInfo
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 18
+   */
+  interface KeyboardInfo {
+    /**
+     * The position and size of the keyboard
+     *
+     * @type { Rect }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    rect: Rect;
+  }
+
+  /**
    * Window
    *
    * @interface Window
@@ -4380,6 +4409,7 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
      * @atomicservice
      * @since 18
      */
@@ -5686,6 +5716,68 @@ declare namespace window {
      * @since 12
      */
     off(type: 'keyboardHeightChange', callback?: Callback<number>): void;
+
+    /**
+     * Register the callback of keyboardDidShow
+     *
+     * @param { 'keyboardDidShow' } type - The value is fixed at 'keyboardDidShow', indicating the completion of the keyboard show animation event.
+     * @param { Callback<KeyboardInfo> } callback - Callback invoked when the keyboard show animation is completed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                   2. Incorrect parameter types;
+     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Function keyboardDidShow can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    on(type: 'keyboardDidShow', callback: Callback<KeyboardInfo>): void;
+
+    /**
+     * Unregister the callback of keyboardDidShow
+     *
+     * @param { 'keyboardDidShow' } type - The value is fixed at 'keyboardDidShow', indicating the completion of the keyboard show animation event.
+     * @param { Callback<KeyboardInfo> } callback - Callback invoked when the keyboard show animation is completed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+     *                                                                   2. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Function keyboardDidShow can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    off(type: 'keyboardDidShow', callback?: Callback<KeyboardInfo>): void;
+
+    /**
+     * Register the callback of keyboardDidHide
+     *
+     * @param { 'keyboardDidHide' } type - The value is fixed at 'keyboardDidHide', indicating the completion of the keyboard hide animation event.
+     * @param { Callback<KeyboardInfo> } callback - Callback invoked when the keyboard hide animation is completed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                   2. Incorrect parameter types;
+     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Function keyboardDidHide can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    on(type: 'keyboardDidHide', callback: Callback<KeyboardInfo>): void;
+
+    /**
+     * Unregister the callback of keyboardDidHide
+     *
+     * @param { 'keyboardDidHide' } type - The value is fixed at 'keyboardDidHide', indicating the completion of the keyboard hide animation event.
+     * @param { Callback<KeyboardInfo> } callback - Callback invoked when the keyboard hide animation is completed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+     *                                                                   2. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Function keyboardDidHide can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    off(type: 'keyboardDidHide', callback?: Callback<KeyboardInfo>): void;
 
     /**
      * Touch outside callback on.
@@ -7314,6 +7406,18 @@ declare namespace window {
     snapshot(): Promise<image.PixelMap>;
 
     /**
+     * Obtains snapshot of window even set the privacy mode.
+     *
+     * @returns { Promise<image.PixelMap> } Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported. Function snapshotIgnorePrivacy can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    snapshotIgnorePrivacy(): Promise<image.PixelMap>;
+
+    /**
      * Sets opacity  of window
      *
      * @param { number } opacity Interval is 0.f-1.f.
@@ -8806,6 +8910,24 @@ declare namespace window {
     getParentWindow(): Window;
 
     /**
+     * Set whether the sub window supports simultaneous display on multiple screens when the parent window is dragged to move or dragged to zoom.
+     *
+     * @param { boolean } enabled - The value true means sub window supports simultaneous display on multiple screens when the parent window
+     *                              is dragged to move or dragged to zoom, and false means the opposite.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.Function setFollowParentMultiScreenPolicy can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 16
+     */
+    setFollowParentMultiScreenPolicy(enabled: boolean): Promise<void>;
+
+    /**
      * Set whether the title bar and dock bar will show, when the mouse hovers over hot area.
      *
      * @param { boolean } isTitleHoverShown - The value true means to display the title bar, and false means the opposite.
@@ -8839,6 +8961,19 @@ declare namespace window {
      * @since 15
      */
     setWindowContainerColor(activeColor: string, inactiveColor: string): void;
+
+    /**
+     * Set whether window delay raise is enabled.
+     *
+     * @param { boolean } isEnabled - The value true means to enable window delay raise, and false means disable window delay raise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.function setWindowDelayRaiseOnDrag can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    setWindowDelayRaiseOnDrag(isEnabled: boolean): void;
   }
 
   /**
@@ -9855,6 +9990,25 @@ declare namespace window {
      * @since 14
      */
     setWindowRectAutoSave(enabled: boolean): Promise<void>;
+
+    /**
+     * Set to automatically save the window rect and whether to enable specifiedFlag. 
+     * Through the specifiedFlag flag, the window is marked and its rect is saved. 
+     *
+     * @param { boolean } enabled - Enable the window rect auto-save if true, otherwise means the opposite.
+     * @param { boolean } isSaveBySpecifiedFlag - Enable the specifiedFlag if true, otherwise means the opposite.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 
+     *                                                                   2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Function setWindowRectAutoSave can not work correctly due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 18
+     */
+    setWindowRectAutoSave(enabled: boolean, isSaveBySpecifiedFlag: boolean): Promise<void>;
 
     /**
      * Whether the window supports the window rect auto-save.
