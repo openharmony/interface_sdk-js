@@ -5346,7 +5346,6 @@ declare namespace photoAccessHelper {
      *
      * @type { ?number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
      * @systemapi
      * @since 18
      */
