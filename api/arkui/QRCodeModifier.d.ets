@@ -42,9 +42,9 @@ export declare class QRCodeModifier extends QRCodeAttribute implements Attribute
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?:(instance: QRCodeModifier)=> void;
-  applyPressedAttribute?:(instance: QRCodeModifier)=> void;
-  applyFocusedAttribute?:(instance: QRCodeModifier)=> void;
-  applyDisabledAttribute?:(instance: QRCodeModifier)=> void;
-  applySelectedAttribute?:(instance: QRCodeModifier)=> void;
+  applyNormalAttribute: undefined | ((instance: QRCodeModifier) => void);
+  applyPressedAttribute: undefined | ((instance: QRCodeModifier) => void);
+  applyFocusedAttribute: undefined | ((instance: QRCodeModifier) => void);
+  applyDisabledAttribute: undefined | ((instance: QRCodeModifier) => void);
+  applySelectedAttribute: undefined | ((instance: QRCodeModifier) => void);
 }

@@ -43,9 +43,9 @@ export declare class TimePickerModifier extends TimePickerAttribute implements A
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: TimePickerAttribute) => void;
-  applyPressedAttribute?: (instance: TimePickerAttribute) => void;
-  applyFocusedAttribute?: (instance: TimePickerAttribute) => void;
-  applyDisabledAttribute?: (instance: TimePickerAttribute) => void;
-  applySelectedAttribute?: (instance: TimePickerAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: TimePickerAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: TimePickerAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: TimePickerAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: TimePickerAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: TimePickerAttribute) => void);
 }

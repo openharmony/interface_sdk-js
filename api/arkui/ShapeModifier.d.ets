@@ -45,9 +45,9 @@ export declare class ShapeModifier extends ShapeAttribute implements AttributeMo
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: ShapeAttribute) => void;
-  applyPressedAttribute?: (instance: ShapeAttribute) => void;
-  applyFocusedAttribute?: (instance: ShapeAttribute) => void;
-  applyDisabledAttribute?: (instance: ShapeAttribute) => void;
-  applySelectedAttribute?: (instance: ShapeAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: ShapeAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: ShapeAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: ShapeAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: ShapeAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: ShapeAttribute) => void);
 }

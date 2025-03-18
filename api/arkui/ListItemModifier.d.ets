@@ -43,9 +43,9 @@ export declare class ListItemModifier extends ListItemAttribute implements Attri
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: ListItemAttribute) => void;
-  applyPressedAttribute?: (instance: ListItemAttribute) => void;
-  applyFocusedAttribute?: (instance: ListItemAttribute) => void;
-  applyDisabledAttribute?: (instance: ListItemAttribute) => void;
-  applySelectedAttribute?: (instance: ListItemAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: ListItemAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: ListItemAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: ListItemAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: ListItemAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: ListItemAttribute) => void);
 }

@@ -44,9 +44,9 @@ export declare class NavRouterModifier extends NavRouterAttribute implements Att
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: NavRouterAttribute) => void;
-  applyPressedAttribute?: (instance: NavRouterAttribute) => void;
-  applyFocusedAttribute?: (instance: NavRouterAttribute) => void;
-  applyDisabledAttribute?: (instance: NavRouterAttribute) => void;
-  applySelectedAttribute?: (instance: NavRouterAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: NavRouterAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: NavRouterAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: NavRouterAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: NavRouterAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: NavRouterAttribute) => void);
 }

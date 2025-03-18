@@ -44,9 +44,9 @@ export declare class TextInputModifier extends TextInputAttribute implements Att
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: TextInputAttribute) => void;
-  applyPressedAttribute?: (instance: TextInputAttribute) => void;
-  applyFocusedAttribute?: (instance: TextInputAttribute) => void;
-  applyDisabledAttribute?: (instance: TextInputAttribute) => void;
-  applySelectedAttribute?: (instance: TextInputAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: TextInputAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: TextInputAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: TextInputAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: TextInputAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: TextInputAttribute) => void);
 }

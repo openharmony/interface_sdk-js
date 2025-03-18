@@ -14456,7 +14456,7 @@ export interface AttributeModifier<T> {
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?:(instance: T)=> void;
+  applyNormalAttribute?: undefined |((instance: T)=> void);
 
   /**
    * Defines the pressed update attribute function.
@@ -14475,7 +14475,7 @@ export interface AttributeModifier<T> {
    * @atomicservice
    * @since 12
    */
-  applyPressedAttribute?:(instance: T)=> void;
+  applyPressedAttribute?:undefined |((instance: T)=> void);
 
   /**
    * Defines the focused update attribute function.
@@ -14494,7 +14494,7 @@ export interface AttributeModifier<T> {
    * @atomicservice
    * @since 12
    */
-  applyFocusedAttribute?:(instance: T)=> void;
+  applyFocusedAttribute?:undefined |((instance: T)=> void);
 
   /**
    * Defines the disabled update attribute function.
@@ -14513,7 +14513,7 @@ export interface AttributeModifier<T> {
    * @atomicservice
    * @since 12
    */
-  applyDisabledAttribute?:(instance: T)=> void;
+  applyDisabledAttribute?:undefined |((instance: T)=> void);
 
   /**
    * Defines the selected update attribute function.
@@ -14532,7 +14532,7 @@ export interface AttributeModifier<T> {
    * @atomicservice
    * @since 12
    */
-  applySelectedAttribute?:(instance: T)=> void;
+  applySelectedAttribute?:undefined |((instance: T)=> void);
 }
 
 /**

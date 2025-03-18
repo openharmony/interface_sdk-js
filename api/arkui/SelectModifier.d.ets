@@ -45,9 +45,9 @@ export declare class SelectModifier extends SelectAttribute implements Attribute
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: SelectAttribute) => void;
-  applyPressedAttribute?: (instance: SelectAttribute) => void;
-  applyFocusedAttribute?: (instance: SelectAttribute) => void;
-  applyDisabledAttribute?: (instance: SelectAttribute) => void;
-  applySelectedAttribute?: (instance: SelectAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: SelectAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: SelectAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: SelectAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: SelectAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: SelectAttribute) => void);
 }

@@ -44,9 +44,9 @@ export declare class RowSplitModifier extends RowSplitAttribute implements Attri
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?:(instance: RowSplitAttribute)=> void;
-  applyPressedAttribute?:(instance: RowSplitAttribute)=> void;
-  applyFocusedAttribute?:(instance: RowSplitAttribute)=> void;
-  applyDisabledAttribute?:(instance: RowSplitAttribute)=> void;
-  applySelectedAttribute?:(instance: RowSplitAttribute)=> void;
+  applyNormalAttribute: undefined | ((instance: RowSplitAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: RowSplitAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: RowSplitAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: RowSplitAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: RowSplitAttribute) => void);
 }

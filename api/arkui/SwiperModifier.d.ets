@@ -44,9 +44,9 @@ export declare class SwiperModifier extends SwiperAttribute implements Attribute
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: SwiperAttribute) => void;
-  applyPressedAttribute?: (instance: SwiperAttribute) => void;
-  applyFocusedAttribute?: (instance: SwiperAttribute) => void;
-  applyDisabledAttribute?: (instance: SwiperAttribute) => void;
-  applySelectedAttribute?: (instance: SwiperAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: SwiperAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: SwiperAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: SwiperAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: SwiperAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: SwiperAttribute) => void);
 }

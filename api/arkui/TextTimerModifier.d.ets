@@ -43,9 +43,9 @@ export declare class TextTimerModifier extends TextTimerAttribute implements Att
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: TextTimerAttribute) => void;
-  applyPressedAttribute?: (instance: TextTimerAttribute) => void;
-  applyFocusedAttribute?: (instance: TextTimerAttribute) => void;
-  applyDisabledAttribute?: (instance: TextTimerAttribute) => void;
-  applySelectedAttribute?: (instance: TextTimerAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: TextTimerAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: TextTimerAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: TextTimerAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: TextTimerAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: TextTimerAttribute) => void);
 }

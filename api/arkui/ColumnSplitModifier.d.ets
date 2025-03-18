@@ -42,9 +42,9 @@ export declare class ColumnSplitModifier extends ColumnSplitAttribute implements
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: ColumnSplitAttribute) => void;
-  applyPressedAttribute?: (instance: ColumnSplitAttribute) => void;
-  applyFocusedAttribute?: (instance: ColumnSplitAttribute) => void;
-  applyDisabledAttribute?: (instance: ColumnSplitAttribute) => void;
-  applySelectedAttribute?: (instance: ColumnSplitAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: ColumnSplitAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: ColumnSplitAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: ColumnSplitAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: ColumnSplitAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: ColumnSplitAttribute) => void);
 }

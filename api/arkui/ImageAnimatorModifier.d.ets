@@ -43,9 +43,9 @@ export declare class ImageAnimatorModifier extends ImageAnimatorAttribute implem
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: ImageAnimatorAttribute) => void;
-  applyPressedAttribute?: (instance: ImageAnimatorAttribute) => void;
-  applyFocusedAttribute?: (instance: ImageAnimatorAttribute) => void;
-  applyDisabledAttribute?: (instance: ImageAnimatorAttribute) => void;
-  applySelectedAttribute?: (instance: ImageAnimatorAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: ImageAnimatorAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: ImageAnimatorAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: ImageAnimatorAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: ImageAnimatorAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: ImageAnimatorAttribute) => void);
 }

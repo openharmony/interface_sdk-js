@@ -45,9 +45,9 @@ export declare class PatternLockModifier extends PatternLockAttribute implements
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?:(instance: PatternLockAttribute)=> void;
-  applyPressedAttribute?:(instance: PatternLockAttribute)=> void;
-  applyFocusedAttribute?:(instance: PatternLockAttribute)=> void;
-  applyDisabledAttribute?:(instance: PatternLockAttribute)=> void;
-  applySelectedAttribute?:(instance: PatternLockAttribute)=> void;
+  applyNormalAttribute: undefined | ((instance: PatternLockAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: PatternLockAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: PatternLockAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: PatternLockAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: PatternLockAttribute) => void);
 }

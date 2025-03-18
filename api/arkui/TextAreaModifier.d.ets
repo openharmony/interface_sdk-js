@@ -43,9 +43,9 @@ export declare class TextAreaModifier extends TextAreaAttribute implements Attri
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: TextAreaAttribute) => void;
-  applyPressedAttribute?: (instance: TextAreaAttribute) => void;
-  applyFocusedAttribute?: (instance: TextAreaAttribute) => void;
-  applyDisabledAttribute?: (instance: TextAreaAttribute) => void;
-  applySelectedAttribute?: (instance: TextAreaAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: TextAreaAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: TextAreaAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: TextAreaAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: TextAreaAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: TextAreaAttribute) => void);
 }

@@ -50,9 +50,9 @@ export declare class SymbolGlyphModifier extends SymbolGlyphAttribute implements
      * @atomicservice
      * @since 12
      */
-    applyNormalAttribute?:(instance: SymbolGlyphAttribute)=> void;
-  applyPressedAttribute?:(instance: SymbolGlyphAttribute)=> void;
-  applyFocusedAttribute?:(instance: SymbolGlyphAttribute)=> void;
-  applyDisabledAttribute?:(instance: SymbolGlyphAttribute)=> void;
-  applySelectedAttribute?:(instance: SymbolGlyphAttribute)=> void;
+    applyNormalAttribute: undefined | ((instance: SymbolGlyphAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: SymbolGlyphAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: SymbolGlyphAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: SymbolGlyphAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: SymbolGlyphAttribute) => void);
   }

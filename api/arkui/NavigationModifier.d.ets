@@ -44,9 +44,9 @@ export declare class NavigationModifier extends NavigationAttribute implements A
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: NavigationAttribute) => void;
-  applyPressedAttribute?: (instance: NavigationAttribute) => void;
-  applyFocusedAttribute?: (instance: NavigationAttribute) => void;
-  applyDisabledAttribute?: (instance: NavigationAttribute) => void;
-  applySelectedAttribute?: (instance: NavigationAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: NavigationAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: NavigationAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: NavigationAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: NavigationAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: NavigationAttribute) => void);
 }

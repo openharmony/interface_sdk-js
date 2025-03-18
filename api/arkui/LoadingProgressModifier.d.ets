@@ -43,9 +43,9 @@ export declare class LoadingProgressModifier extends LoadingProgressAttribute im
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: LoadingProgressAttribute) => void;
-  applyPressedAttribute?: (instance: LoadingProgressAttribute) => void;
-  applyFocusedAttribute?: (instance: LoadingProgressAttribute) => void;
-  applyDisabledAttribute?: (instance: LoadingProgressAttribute) => void;
-  applySelectedAttribute?: (instance: LoadingProgressAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: LoadingProgressAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: LoadingProgressAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: LoadingProgressAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: LoadingProgressAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: LoadingProgressAttribute) => void);
 }

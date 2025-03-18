@@ -41,9 +41,9 @@ export declare class ContainerSpanModifier extends ContainerSpanAttribute implem
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (containerSpanAttribute: ContainerSpanAttribute) => void;
-  applyPressedAttribute?: (containerSpanAttribute: ContainerSpanAttribute) => void;
-  applyFocusedAttribute?: (containerSpanAttribute: ContainerSpanAttribute) => void;
-  applyDisabledAttribute?: (containerSpanAttribute: ContainerSpanAttribute) => void;
-  applySelectedAttribute?: (containerSpanAttribute: ContainerSpanAttribute) => void;
+  applyNormalAttribute: undefined | ((containerSpanAttribute: ContainerSpanAttribute) => void);
+  applyPressedAttribute: undefined | ((containerSpanAttribute: ContainerSpanAttribute) => void);
+  applyFocusedAttribute: undefined | ((containerSpanAttribute: ContainerSpanAttribute) => void);
+  applyDisabledAttribute: undefined | ((containerSpanAttribute: ContainerSpanAttribute) => void);
+  applySelectedAttribute: undefined | ((containerSpanAttribute: ContainerSpanAttribute) => void);
 }

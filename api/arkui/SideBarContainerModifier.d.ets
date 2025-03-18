@@ -44,9 +44,9 @@ export declare class SideBarContainerModifier extends SideBarContainerAttribute 
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: SideBarContainerAttribute) => void;
-  applyPressedAttribute?: (instance: SideBarContainerAttribute) => void;
-  applyFocusedAttribute?: (instance: SideBarContainerAttribute) => void;
-  applyDisabledAttribute?: (instance: SideBarContainerAttribute) => void;
-  applySelectedAttribute?: (instance: SideBarContainerAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: SideBarContainerAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: SideBarContainerAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: SideBarContainerAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: SideBarContainerAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: SideBarContainerAttribute) => void);
 }

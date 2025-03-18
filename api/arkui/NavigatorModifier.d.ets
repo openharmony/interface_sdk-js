@@ -43,9 +43,9 @@ export declare class NavigatorModifier extends NavigatorAttribute implements Att
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: NavigatorAttribute) => void;
-  applyPressedAttribute?: (instance: NavigatorAttribute) => void;
-  applyFocusedAttribute?: (instance: NavigatorAttribute) => void;
-  applyDisabledAttribute?: (instance: NavigatorAttribute) => void;
-  applySelectedAttribute?: (instance: NavigatorAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: NavigatorAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: NavigatorAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: NavigatorAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: NavigatorAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: NavigatorAttribute) => void);
 }

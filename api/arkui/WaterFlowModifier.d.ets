@@ -45,9 +45,9 @@ export declare class WaterFlowModifier extends WaterFlowAttribute implements Att
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: WaterFlowAttribute) => void;
-  applyPressedAttribute?: (instance: WaterFlowAttribute) => void;
-  applyFocusedAttribute?: (instance: WaterFlowAttribute) => void;
-  applyDisabledAttribute?: (instance: WaterFlowAttribute) => void;
-  applySelectedAttribute?: (instance: WaterFlowAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: WaterFlowAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: WaterFlowAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: WaterFlowAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: WaterFlowAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: WaterFlowAttribute) => void);
 }

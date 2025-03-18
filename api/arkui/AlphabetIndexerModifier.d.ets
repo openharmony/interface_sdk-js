@@ -40,9 +40,9 @@ export declare class AlphabetIndexerModifier extends AlphabetIndexerAttribute im
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: AlphabetIndexerAttribute) => void;
-  applyPressedAttribute?: (instance: AlphabetIndexerAttribute) => void;
-  applyFocusedAttribute?: (instance: AlphabetIndexerAttribute) => void;
-  applyDisabledAttribute?: (instance: AlphabetIndexerAttribute) => void;
-  applySelectedAttribute?: (instance: AlphabetIndexerAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: AlphabetIndexerAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: AlphabetIndexerAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: AlphabetIndexerAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: AlphabetIndexerAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: AlphabetIndexerAttribute) => void);
 }
