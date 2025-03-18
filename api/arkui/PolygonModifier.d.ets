@@ -44,9 +44,9 @@ export declare class PolygonModifier extends PolygonAttribute implements Attribu
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?:(instance: PolygonAttribute)=> void;
-  applyPressedAttribute?:(instance: PolygonAttribute)=> void;
-  applyFocusedAttribute?:(instance: PolygonAttribute)=> void;
-  applyDisabledAttribute?:(instance: PolygonAttribute)=> void;
-  applySelectedAttribute?:(instance: PolygonAttribute)=> void;
+  applyNormalAttribute: undefined | ((instance: PolygonAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: PolygonAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: PolygonAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: PolygonAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: PolygonAttribute) => void);
 }

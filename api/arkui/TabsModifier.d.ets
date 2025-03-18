@@ -43,9 +43,9 @@ export declare class TabsModifier extends TabsAttribute implements AttributeModi
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: TabsAttribute) => void;
-  applyPressedAttribute?: (instance: TabsAttribute) => void;
-  applyFocusedAttribute?: (instance: TabsAttribute) => void;
-  applyDisabledAttribute?: (instance: TabsAttribute) => void;
-  applySelectedAttribute?: (instance: TabsAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: TabsAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: TabsAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: TabsAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: TabsAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: TabsAttribute) => void);
 }

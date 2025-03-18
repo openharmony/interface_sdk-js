@@ -44,9 +44,9 @@ export declare class MenuItemModifier extends MenuItemAttribute implements Attri
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: MenuItemAttribute) => void;
-  applyPressedAttribute?: (instance: MenuItemAttribute) => void;
-  applyFocusedAttribute?: (instance: MenuItemAttribute) => void;
-  applyDisabledAttribute?: (instance: MenuItemAttribute) => void;
-  applySelectedAttribute?: (instance: MenuItemAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: MenuItemAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: MenuItemAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: MenuItemAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: MenuItemAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: MenuItemAttribute) => void);
 }

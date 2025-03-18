@@ -43,9 +43,9 @@ export declare class GridItemModifier extends GridItemAttribute implements Attri
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: GridItemAttribute) => void;
-  applyPressedAttribute?: (instance: GridItemAttribute) => void;
-  applyFocusedAttribute?: (instance: GridItemAttribute) => void;
-  applyDisabledAttribute?: (instance: GridItemAttribute) => void;
-  applySelectedAttribute?: (instance: GridItemAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: GridItemAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: GridItemAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: GridItemAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: GridItemAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: GridItemAttribute) => void);
 }

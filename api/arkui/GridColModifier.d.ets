@@ -44,9 +44,9 @@ export declare class GridColModifier extends GridColAttribute implements Attribu
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: GridColAttribute) => void;
-  applyPressedAttribute?: (instance: GridColAttribute) => void;
-  applyFocusedAttribute?: (instance: GridColAttribute) => void;
-  applyDisabledAttribute?: (instance: GridColAttribute) => void;
-  applySelectedAttribute?: (instance: GridColAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: GridColAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: GridColAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: GridColAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: GridColAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: GridColAttribute) => void);
 }

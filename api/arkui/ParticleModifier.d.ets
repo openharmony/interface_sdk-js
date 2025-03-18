@@ -42,9 +42,9 @@ export declare class ParticleModifier extends ParticleAttribute implements Attri
    * @atomicservice
    * @since 12
    */
-    applyNormalAttribute?: (particleAttribute: ParticleAttribute) => void;
-  applyPressedAttribute?: (particleAttribute: ParticleAttribute) => void;
-  applyFocusedAttribute?: (particleAttribute: ParticleAttribute) => void;
-  applyDisabledAttribute?: (particleAttribute: ParticleAttribute) => void;
-  applySelectedAttribute?: (particleAttribute: ParticleAttribute) => void;
+    applyNormalAttribute: undefined | ((particleAttribute: ParticleAttribute) => void);
+  applyPressedAttribute: undefined | ((particleAttribute: ParticleAttribute) => void);
+  applyFocusedAttribute: undefined | ((particleAttribute: ParticleAttribute) => void);
+  applyDisabledAttribute: undefined | ((particleAttribute: ParticleAttribute) => void);
+  applySelectedAttribute: undefined | ((particleAttribute: ParticleAttribute) => void);
 }

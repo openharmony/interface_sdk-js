@@ -43,9 +43,9 @@ export declare class StackModifier extends StackAttribute implements AttributeMo
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: StackAttribute) => void;
-  applyPressedAttribute?: (instance: StackAttribute) => void;
-  applyFocusedAttribute?: (instance: StackAttribute) => void;
-  applyDisabledAttribute?: (instance: StackAttribute) => void;
-  applySelectedAttribute?: (instance: StackAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: StackAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: StackAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: StackAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: StackAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: StackAttribute) => void);
 }

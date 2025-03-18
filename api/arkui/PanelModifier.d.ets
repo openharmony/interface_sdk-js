@@ -43,9 +43,9 @@ export declare class PanelModifier extends PanelAttribute implements AttributeMo
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: PanelAttribute) => void;
-  applyPressedAttribute?: (instance: PanelAttribute) => void;
-  applyFocusedAttribute?: (instance: PanelAttribute) => void;
-  applyDisabledAttribute?: (instance: PanelAttribute) => void;
-  applySelectedAttribute?: (instance: PanelAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: PanelAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: PanelAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: PanelAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: PanelAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: PanelAttribute) => void);
 }

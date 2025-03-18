@@ -43,9 +43,9 @@ export declare class PathModifier extends PathAttribute implements AttributeModi
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?:(instance: PathAttribute)=> void;
-  applyPressedAttribute?:(instance: PathAttribute)=> void;
-  applyFocusedAttribute?:(instance: PathAttribute)=> void;
-  applyDisabledAttribute?:(instance: PathAttribute)=> void;
-  applySelectedAttribute?:(instance: PathAttribute)=> void;
+  applyNormalAttribute: undefined | ((instance: PathAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: PathAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: PathAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: PathAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: PathAttribute) => void);
 }

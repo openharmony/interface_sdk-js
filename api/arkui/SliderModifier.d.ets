@@ -43,9 +43,9 @@ export declare class SliderModifier extends SliderAttribute implements Attribute
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: SliderAttribute) => void;
-  applyPressedAttribute?: (instance: SliderAttribute) => void;
-  applyFocusedAttribute?: (instance: SliderAttribute) => void;
-  applyDisabledAttribute?: (instance: SliderAttribute) => void;
-  applySelectedAttribute?: (instance: SliderAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: SliderAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: SliderAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: SliderAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: SliderAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: SliderAttribute) => void);
 }

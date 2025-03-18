@@ -45,10 +45,10 @@ export declare class RefreshModifier extends RefreshAttribute implements Attribu
      * @atomicservice
      * @since 12
      */
-    applyNormalAttribute?:(instance: RefreshAttribute)=> void;
-  applyPressedAttribute?:(instance: RefreshAttribute)=> void;
-  applyFocusedAttribute?:(instance: RefreshAttribute)=> void;
-  applyDisabledAttribute?:(instance: RefreshAttribute)=> void;
-  applySelectedAttribute?:(instance: RefreshAttribute)=> void;
+    applyNormalAttribute: undefined | ((instance: RefreshAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: RefreshAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: RefreshAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: RefreshAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: RefreshAttribute) => void);
   }
   

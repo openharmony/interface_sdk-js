@@ -44,9 +44,9 @@ export declare class ToggleModifier extends ToggleAttribute implements Attribute
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: ToggleAttribute) => void;
-  applyPressedAttribute?: (instance: ToggleAttribute) => void;
-  applyFocusedAttribute?: (instance: ToggleAttribute) => void;
-  applyDisabledAttribute?: (instance: ToggleAttribute) => void;
-  applySelectedAttribute?: (instance: ToggleAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: ToggleAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: ToggleAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: ToggleAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: ToggleAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: ToggleAttribute) => void);
 }

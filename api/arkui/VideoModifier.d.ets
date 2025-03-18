@@ -44,9 +44,9 @@ export declare class VideoModifier extends VideoAttribute implements AttributeMo
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: VideoAttribute) => void;
-  applyPressedAttribute?: (instance: VideoAttribute) => void;
-  applyFocusedAttribute?: (instance: VideoAttribute) => void;
-  applyDisabledAttribute?: (instance: VideoAttribute) => void;
-  applySelectedAttribute?: (instance: VideoAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: VideoAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: VideoAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: VideoAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: VideoAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: VideoAttribute) => void);
 }

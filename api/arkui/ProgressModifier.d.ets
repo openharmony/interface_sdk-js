@@ -42,9 +42,9 @@ export declare class ProgressModifier extends ProgressAttribute implements Attri
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?:(instance: ProgressModifier)=> void;
-  applyPressedAttribute?:(instance: ProgressModifier)=> void;
-  applyFocusedAttribute?:(instance: ProgressModifier)=> void;
-  applyDisabledAttribute?:(instance: ProgressModifier)=> void;
-  applySelectedAttribute?:(instance: ProgressModifier)=> void;
+  applyNormalAttribute: undefined | ((instance: ProgressModifier) => void);
+  applyPressedAttribute: undefined | ((instance: ProgressModifier) => void);
+  applyFocusedAttribute: undefined | ((instance: ProgressModifier) => void);
+  applyDisabledAttribute: undefined | ((instance: ProgressModifier) => void);
+  applySelectedAttribute: undefined | ((instance: ProgressModifier) => void);
 }

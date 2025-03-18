@@ -43,9 +43,9 @@ export declare class LineModifier extends LineAttribute implements AttributeModi
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: LineAttribute) => void;
-  applyPressedAttribute?: (instance: LineAttribute) => void;
-  applyFocusedAttribute?: (instance: LineAttribute) => void;
-  applyDisabledAttribute?: (instance: LineAttribute) => void;
-  applySelectedAttribute?: (instance: LineAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: LineAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: LineAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: LineAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: LineAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: LineAttribute) => void);
 }

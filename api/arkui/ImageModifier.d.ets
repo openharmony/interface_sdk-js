@@ -41,9 +41,9 @@ export declare class ImageModifier extends ImageAttribute implements AttributeMo
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?:(instance: ImageAttribute)=> void;
-  applyPressedAttribute?:(instance: ImageAttribute)=> void;
-  applyFocusedAttribute?:(instance: ImageAttribute)=> void;
-  applyDisabledAttribute?:(instance: ImageAttribute)=> void;
-  applySelectedAttribute?:(instance: ImageAttribute)=> void;
+  applyNormalAttribute: undefined | ((instance: ImageAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: ImageAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: ImageAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: ImageAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: ImageAttribute) => void);
 }

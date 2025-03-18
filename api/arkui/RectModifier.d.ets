@@ -44,9 +44,9 @@ export declare class RectModifier extends RectAttribute implements AttributeModi
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?:(instance: RectAttribute)=> void;
-  applyPressedAttribute?:(instance: RectAttribute)=> void;
-  applyFocusedAttribute?:(instance: RectAttribute)=> void;
-  applyDisabledAttribute?:(instance: RectAttribute)=> void;
-  applySelectedAttribute?:(instance: RectAttribute)=> void;
+  applyNormalAttribute: undefined | ((instance: RectAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: RectAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: RectAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: RectAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: RectAttribute) => void);
 }

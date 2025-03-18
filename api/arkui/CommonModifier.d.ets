@@ -40,9 +40,9 @@ export declare class CommonModifier extends CommonAttribute implements Attribute
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: CommonAttribute) => void;
-  applyPressedAttribute?: (instance: CommonAttribute) => void;
-  applyFocusedAttribute?: (instance: CommonAttribute) => void;
-  applyDisabledAttribute?: (instance: CommonAttribute) => void;
-  applySelectedAttribute?: (instance: CommonAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: CommonAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: CommonAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: CommonAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: CommonAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: CommonAttribute) => void);
 }

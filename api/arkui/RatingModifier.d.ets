@@ -43,9 +43,9 @@ export declare class RatingModifier extends RatingAttribute implements Attribute
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?:(instance: RatingModifier)=> void;
-  applyPressedAttribute?:(instance: RatingModifier)=> void;
-  applyFocusedAttribute?:(instance: RatingModifier)=> void;
-  applyDisabledAttribute?:(instance: RatingModifier)=> void;
-  applySelectedAttribute?:(instance: RatingModifier)=> void;
+  applyNormalAttribute: undefined | ((instance: RatingModifier) => void);
+  applyPressedAttribute: undefined | ((instance: RatingModifier) => void);
+  applyFocusedAttribute: undefined | ((instance: RatingModifier) => void);
+  applyDisabledAttribute: undefined | ((instance: RatingModifier) => void);
+  applySelectedAttribute: undefined | ((instance: RatingModifier) => void);
 }

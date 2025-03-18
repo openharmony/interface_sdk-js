@@ -42,9 +42,9 @@ export declare class PolylineModifier extends PolylineAttribute implements Attri
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?:(instance: PolylineModifier)=> void;
-  applyPressedAttribute?:(instance: PolylineModifier)=> void;
-  applyFocusedAttribute?:(instance: PolylineModifier)=> void;
-  applyDisabledAttribute?:(instance: PolylineModifier)=> void;
-  applySelectedAttribute?:(instance: PolylineModifier)=> void;
+  applyNormalAttribute: undefined | ((instance: PolylineModifier) => void);
+  applyPressedAttribute: undefined | ((instance: PolylineModifier) => void);
+  applyFocusedAttribute: undefined | ((instance: PolylineModifier) => void);
+  applyDisabledAttribute: undefined | ((instance: PolylineModifier) => void);
+  applySelectedAttribute: undefined | ((instance: PolylineModifier) => void);
 }

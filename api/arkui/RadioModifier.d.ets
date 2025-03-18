@@ -42,9 +42,9 @@ export declare class RadioModifier extends RadioAttribute implements AttributeMo
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?:(instance: RadioModifier)=> void;
-  applyPressedAttribute?:(instance: RadioModifier)=> void;
-  applyFocusedAttribute?:(instance: RadioModifier)=> void;
-  applyDisabledAttribute?:(instance: RadioModifier)=> void;
-  applySelectedAttribute?:(instance: RadioModifier)=> void;
+  applyNormalAttribute: undefined | ((instance: RadioModifier) => void);
+  applyPressedAttribute: undefined | ((instance: RadioModifier) => void);
+  applyFocusedAttribute: undefined | ((instance: RadioModifier) => void);
+  applyDisabledAttribute: undefined | ((instance: RadioModifier) => void);
+  applySelectedAttribute: undefined | ((instance: RadioModifier) => void);
 }

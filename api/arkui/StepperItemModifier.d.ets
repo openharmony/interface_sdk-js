@@ -45,9 +45,9 @@ export declare class StepperItemModifier extends StepperItemAttribute implements
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: StepperItemAttribute) => void;
-  applyPressedAttribute?: (instance: StepperItemAttribute) => void;
-  applyFocusedAttribute?: (instance: StepperItemAttribute) => void;
-  applyDisabledAttribute?: (instance: StepperItemAttribute) => void;
-  applySelectedAttribute?: (instance: StepperItemAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: StepperItemAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: StepperItemAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: StepperItemAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: StepperItemAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: StepperItemAttribute) => void);
 }

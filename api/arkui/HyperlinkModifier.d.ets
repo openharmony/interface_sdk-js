@@ -43,9 +43,9 @@ export declare class HyperlinkModifier extends HyperlinkAttribute implements Att
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: HyperlinkAttribute) => void;
-  applyPressedAttribute?: (instance: HyperlinkAttribute) => void;
-  applyFocusedAttribute?: (instance: HyperlinkAttribute) => void;
-  applyDisabledAttribute?: (instance: HyperlinkAttribute) => void;
-  applySelectedAttribute?: (instance: HyperlinkAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: HyperlinkAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: HyperlinkAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: HyperlinkAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: HyperlinkAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: HyperlinkAttribute) => void);
 }

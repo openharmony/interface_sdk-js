@@ -42,9 +42,9 @@ export declare class CounterModifier extends CounterAttribute implements Attribu
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: CounterAttribute) => void;
-  applyPressedAttribute?: (instance: CounterAttribute) => void;
-  applyFocusedAttribute?: (instance: CounterAttribute) => void;
-  applyDisabledAttribute?: (instance: CounterAttribute) => void;
-  applySelectedAttribute?: (instance: CounterAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: CounterAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: CounterAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: CounterAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: CounterAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: CounterAttribute) => void);
 }
