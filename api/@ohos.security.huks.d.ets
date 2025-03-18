@@ -18,7 +18,12 @@
  * @kit UniversalKeystoreKit
  */
 
-import type { AsyncCallback } from './@ohos.base';
+export declare class HuksBusinessError extends Error {
+  constructor(code: int, message: string);
+  public code: int;
+}
+
+type AsyncCallback<T> = (err: HuksBusinessError, data?: T) => void;
 
 /**
  * OpenHarmony Universal KeyStore
