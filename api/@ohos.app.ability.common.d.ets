@@ -29,7 +29,7 @@ import _ExtensionContext from './application/ExtensionContext';
 import _FormExtensionContext from './application/FormExtensionContext';
 import _ServiceExtensionContext from './application/ServiceExtensionContext';
 import _EventHub from './application/EventHub';
-// import type { PacMap as _PacMap } from './ability/dataAbilityHelper';
+import { PacMap as _PacMap } from './ability/dataAbilityHelper';
 import { AbilityResult as _AbilityResult } from './ability/abilityResult';
 import type _AbilityStartCallback from './application/AbilityStartCallback';
 import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
@@ -300,7 +300,7 @@ declare namespace common {
    * @atomicservice
    * @since 11
    */
-  // export type PacMap = _PacMap;
+  export type PacMap = _PacMap;
 
   /**
    * Indicates the result of startAbility.
