@@ -19,7 +19,8 @@
  */
 
 import { Callback } from './@ohos.base';
-import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
+import { KeyEvent, Action } from './@ohos.multimodalInput.keyEvent';
+import { KeyCode } from './@ohos.multimodalInput.keyCode';
 
 /**
  * The event of key input management module is configured to subscribe and unsubscribe system keys.
@@ -134,26 +135,26 @@ declare namespace inputConsumer {
    */
   interface KeyPressedConfig {
     /**
-     * Key value.
+     * Key value. Currently listening is supported only for KEYCODE_VOLUME_UP and KEYCODE_VOLUME_DOWN keys.
      *
-     * @type { number }
+     * @type { KeyCode }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since 16
      */
-    key: number;
+    key: KeyCode;
 
     /**
      * Key event type. The value 1 indicates key press and the value 2 indicates key release. Currently
      * listening is supported only for key press events.
      *
-     * @type { number }
+     * @type { Action }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since 16
      */
-    action: number;
+    action: Action;
 
     /**
-     * Whether to report repeated key events. By default, the value is true if it is left unspecified.
+     * Whether to report repeated key events.
      *
      * @type { boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
