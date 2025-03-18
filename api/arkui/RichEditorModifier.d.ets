@@ -45,9 +45,9 @@ export declare class RichEditorModifier extends RichEditorAttribute implements A
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?:(instance: RichEditorAttribute)=> void;
-  applyPressedAttribute?:(instance: RichEditorAttribute)=> void;
-  applyFocusedAttribute?:(instance: RichEditorAttribute)=> void;
-  applyDisabledAttribute?:(instance: RichEditorAttribute)=> void;
-  applySelectedAttribute?:(instance: RichEditorAttribute)=> void;
+  applyNormalAttribute: undefined | ((instance: RichEditorAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: RichEditorAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: RichEditorAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: RichEditorAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: RichEditorAttribute) => void);
 }

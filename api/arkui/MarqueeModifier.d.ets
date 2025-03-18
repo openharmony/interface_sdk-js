@@ -44,9 +44,9 @@ export declare class MarqueeModifier extends MarqueeAttribute implements Attribu
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: MarqueeAttribute) => void;
-  applyPressedAttribute?: (instance: MarqueeAttribute) => void;
-  applyFocusedAttribute?: (instance: MarqueeAttribute) => void;
-  applyDisabledAttribute?: (instance: MarqueeAttribute) => void;
-  applySelectedAttribute?: (instance: MarqueeAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: MarqueeAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: MarqueeAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: MarqueeAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: MarqueeAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: MarqueeAttribute) => void);
 }

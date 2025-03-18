@@ -43,9 +43,9 @@ export declare class GaugeModifier extends GaugeAttribute implements AttributeMo
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: GaugeAttribute) => void;
-  applyPressedAttribute?: (instance: GaugeAttribute) => void;
-  applyFocusedAttribute?: (instance: GaugeAttribute) => void;
-  applyDisabledAttribute?: (instance: GaugeAttribute) => void;
-  applySelectedAttribute?: (instance: GaugeAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: GaugeAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: GaugeAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: GaugeAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: GaugeAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: GaugeAttribute) => void);
 }

@@ -44,9 +44,9 @@ export declare class RowModifier extends RowAttribute implements AttributeModifi
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?:(instance: RowAttribute)=> void;
-  applyPressedAttribute?:(instance: RowAttribute)=> void;
-  applyFocusedAttribute?:(instance: RowAttribute)=> void;
-  applyDisabledAttribute?:(instance: RowAttribute)=> void;
-  applySelectedAttribute?:(instance: RowAttribute)=> void;
+  applyNormalAttribute: undefined | ((instance: RowAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: RowAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: RowAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: RowAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: RowAttribute) => void);
 }

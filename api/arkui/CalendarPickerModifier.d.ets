@@ -41,9 +41,9 @@ export declare class CalendarPickerModifier extends CalendarPickerAttribute impl
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: CalendarPickerAttribute) => void;
-  applyPressedAttribute?: (instance: CalendarPickerAttribute) => void;
-  applyFocusedAttribute?: (instance: CalendarPickerAttribute) => void;
-  applyDisabledAttribute?: (instance: CalendarPickerAttribute) => void;
-  applySelectedAttribute?: (instance: CalendarPickerAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: CalendarPickerAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: CalendarPickerAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: CalendarPickerAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: CalendarPickerAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: CalendarPickerAttribute) => void);
 }

@@ -42,9 +42,9 @@ export declare class DividerModifier extends DividerAttribute implements Attribu
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: DividerAttribute) => void;
-  applyPressedAttribute?: (instance: DividerAttribute) => void;
-  applyFocusedAttribute?: (instance: DividerAttribute) => void;
-  applyDisabledAttribute?: (instance: DividerAttribute) => void;
-  applySelectedAttribute?: (instance: DividerAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: DividerAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: DividerAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: DividerAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: DividerAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: DividerAttribute) => void);
 }

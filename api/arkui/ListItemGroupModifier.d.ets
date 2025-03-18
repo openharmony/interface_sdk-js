@@ -43,9 +43,9 @@ export declare class ListItemGroupModifier extends ListItemGroupAttribute implem
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: ListItemGroupAttribute) => void;
-  applyPressedAttribute?: (instance: ListItemGroupAttribute) => void;
-  applyFocusedAttribute?: (instance: ListItemGroupAttribute) => void;
-  applyDisabledAttribute?: (instance: ListItemGroupAttribute) => void;
-  applySelectedAttribute?: (instance: ListItemGroupAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: ListItemGroupAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: ListItemGroupAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: ListItemGroupAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: ListItemGroupAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: ListItemGroupAttribute) => void);
 }

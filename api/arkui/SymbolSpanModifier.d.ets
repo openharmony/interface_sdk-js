@@ -49,9 +49,9 @@ export declare class SymbolSpanModifier extends SymbolSpanAttribute implements A
      * @atomicservice
      * @since 12
      */
-    applyNormalAttribute?: (attribute: SymbolSpanAttribute) => void;
-  applyPressedAttribute?: (attribute: SymbolSpanAttribute) => void;
-  applyFocusedAttribute?: (attribute: SymbolSpanAttribute) => void;
-  applyDisabledAttribute?: (attribute: SymbolSpanAttribute) => void;
-  applySelectedAttribute?: (attribute: SymbolSpanAttribute) => void;
+    applyNormalAttribute: undefined | ((attribute: SymbolSpanAttribute) => void);
+  applyPressedAttribute: undefined | ((attribute: SymbolSpanAttribute) => void);
+  applyFocusedAttribute: undefined | ((attribute: SymbolSpanAttribute) => void);
+  applyDisabledAttribute: undefined | ((attribute: SymbolSpanAttribute) => void);
+  applySelectedAttribute: undefined | ((attribute: SymbolSpanAttribute) => void);
 }

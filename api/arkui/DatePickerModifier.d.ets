@@ -42,9 +42,9 @@ export declare class DatePickerModifier extends DatePickerAttribute implements A
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: DatePickerAttribute) => void;
-  applyPressedAttribute?: (instance: DatePickerAttribute) => void;
-  applyFocusedAttribute?: (instance: DatePickerAttribute) => void;
-  applyDisabledAttribute?: (instance: DatePickerAttribute) => void;
-  applySelectedAttribute?: (instance: DatePickerAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: DatePickerAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: DatePickerAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: DatePickerAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: DatePickerAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: DatePickerAttribute) => void);
 }

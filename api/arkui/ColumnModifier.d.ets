@@ -42,9 +42,9 @@ export declare class ColumnModifier extends ColumnAttribute implements Attribute
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: ColumnAttribute) => void;
-  applyPressedAttribute?: (instance: ColumnAttribute) => void;
-  applyFocusedAttribute?: (instance: ColumnAttribute) => void;
-  applyDisabledAttribute?: (instance: ColumnAttribute) => void;
-  applySelectedAttribute?: (instance: ColumnAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: ColumnAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: ColumnAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: ColumnAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: ColumnAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: ColumnAttribute) => void);
 }

@@ -42,9 +42,9 @@ export declare class DataPanelModifier extends DataPanelAttribute implements Att
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: DataPanelAttribute) => void;
-  applyPressedAttribute?: (instance: DataPanelAttribute) => void;
-  applyFocusedAttribute?: (instance: DataPanelAttribute) => void;
-  applyDisabledAttribute?: (instance: DataPanelAttribute) => void;
-  applySelectedAttribute?: (instance: DataPanelAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: DataPanelAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: DataPanelAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: DataPanelAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: DataPanelAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: DataPanelAttribute) => void);
 }

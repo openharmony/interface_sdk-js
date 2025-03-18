@@ -44,9 +44,9 @@ export declare class GridRowModifier extends GridRowAttribute implements Attribu
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: GridRowAttribute) => void;
-  applyPressedAttribute?: (instance: GridRowAttribute) => void;
-  applyFocusedAttribute?: (instance: GridRowAttribute) => void;
-  applyDisabledAttribute?: (instance: GridRowAttribute) => void;
-  applySelectedAttribute?: (instance: GridRowAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: GridRowAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: GridRowAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: GridRowAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: GridRowAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: GridRowAttribute) => void);
 }

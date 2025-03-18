@@ -45,9 +45,9 @@ export declare class TextPickerModifier extends TextPickerAttribute implements A
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: TextPickerAttribute) => void;
-  applyPressedAttribute?: (instance: TextPickerAttribute) => void;
-  applyFocusedAttribute?: (instance: TextPickerAttribute) => void;
-  applyDisabledAttribute?: (instance: TextPickerAttribute) => void;
-  applySelectedAttribute?: (instance: TextPickerAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: TextPickerAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: TextPickerAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: TextPickerAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: TextPickerAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: TextPickerAttribute) => void);
 }

@@ -42,9 +42,9 @@ export declare class CheckboxGroupModifier extends CheckboxGroupAttribute implem
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: CheckboxGroupAttribute) => void;
-  applyPressedAttribute?: (instance: CheckboxGroupAttribute) => void;
-  applyFocusedAttribute?: (instance: CheckboxGroupAttribute) => void;
-  applyDisabledAttribute?: (instance: CheckboxGroupAttribute) => void;
-  applySelectedAttribute?: (instance: CheckboxGroupAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: CheckboxGroupAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: CheckboxGroupAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: CheckboxGroupAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: CheckboxGroupAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: CheckboxGroupAttribute) => void);
 }

@@ -44,9 +44,9 @@ export declare class ImageSpanModifier extends ImageSpanAttribute implements Att
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: ImageSpanAttribute) => void;
-  applyPressedAttribute?: (instance: ImageSpanAttribute) => void;
-  applyFocusedAttribute?: (instance: ImageSpanAttribute) => void;
-  applyDisabledAttribute?: (instance: ImageSpanAttribute) => void;
-  applySelectedAttribute?: (instance: ImageSpanAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: ImageSpanAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: ImageSpanAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: ImageSpanAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: ImageSpanAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: ImageSpanAttribute) => void);
 }

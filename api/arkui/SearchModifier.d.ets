@@ -44,9 +44,9 @@ export declare class SearchModifier extends SearchAttribute implements Attribute
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: SearchAttribute) => void;
-  applyPressedAttribute?: (instance: SearchAttribute) => void;
-  applyFocusedAttribute?: (instance: SearchAttribute) => void;
-  applyDisabledAttribute?: (instance: SearchAttribute) => void;
-  applySelectedAttribute?: (instance: SearchAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: SearchAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: SearchAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: SearchAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: SearchAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: SearchAttribute) => void);
 }

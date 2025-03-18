@@ -41,9 +41,9 @@ export declare class ButtonModifier extends ButtonAttribute implements Attribute
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: ButtonAttribute) => void;
-  applyPressedAttribute?: (instance: ButtonAttribute) => void;
-  applyFocusedAttribute?: (instance: ButtonAttribute) => void;
-  applyDisabledAttribute?: (instance: ButtonAttribute) => void;
-  applySelectedAttribute?: (instance: ButtonAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: ButtonAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: ButtonAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: ButtonAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: ButtonAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: ButtonAttribute) => void);
 }

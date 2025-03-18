@@ -42,9 +42,9 @@ export declare class FormComponentModifier extends FormComponentAttribute implem
    * @crossplatform
    * @since 12
    */
-  applyNormalAttribute?: (instance: FormComponentAttribute) => void;
-  applyPressedAttribute?: (instance: FormComponentAttribute) => void;
-  applyFocusedAttribute?: (instance: FormComponentAttribute) => void;
-  applyDisabledAttribute?: (instance: FormComponentAttribute) => void;
-  applySelectedAttribute?: (instance: FormComponentAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: FormComponentAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: FormComponentAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: FormComponentAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: FormComponentAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: FormComponentAttribute) => void);
 }

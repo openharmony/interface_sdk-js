@@ -43,9 +43,9 @@ export declare class NavDestinationModifier extends NavDestinationAttribute impl
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?: (instance: NavDestinationAttribute) => void;
-  applyPressedAttribute?: (instance: NavDestinationAttribute) => void;
-  applyFocusedAttribute?: (instance: NavDestinationAttribute) => void;
-  applyDisabledAttribute?: (instance: NavDestinationAttribute) => void;
-  applySelectedAttribute?: (instance: NavDestinationAttribute) => void;
+  applyNormalAttribute: undefined | ((instance: NavDestinationAttribute) => void);
+  applyPressedAttribute: undefined | ((instance: NavDestinationAttribute) => void);
+  applyFocusedAttribute: undefined | ((instance: NavDestinationAttribute) => void);
+  applyDisabledAttribute: undefined | ((instance: NavDestinationAttribute) => void);
+  applySelectedAttribute: undefined | ((instance: NavDestinationAttribute) => void);
 }
