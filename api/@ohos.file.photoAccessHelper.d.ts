@@ -275,6 +275,13 @@ declare namespace photoAccessHelper {
    * @systemapi
    * @since 10
    */
+  /**
+   * Photo asset position
+   *
+   * @enum { number } Photo asset position, such as local device or cloud
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 16
+   */
   enum PositionType {
     /**
      * Asset exists only in local device
@@ -283,7 +290,13 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 10
      */
-    LOCAL = 1 << 0,
+    /**
+     * Asset exists only in local device
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 16
+     */
+    LOCAL = 1,
     /**
      * Asset exists only in cloud
      *
@@ -291,7 +304,20 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 10
      */
-    CLOUD = 1 << 1
+    /**
+     * Asset exists only in cloud
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 16
+     */
+    CLOUD = 2,
+    /**
+     * Asset exists in local device and cloud
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 16
+     */
+    LOCAL_AND_CLOUD = 3
   }
 
   /**
@@ -2130,6 +2156,12 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 10
+     */
+    /**
+     * Asset position, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 16
      */
     POSITION = 'position',
     /**
