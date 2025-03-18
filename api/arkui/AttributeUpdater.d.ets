@@ -52,7 +52,11 @@ export declare class AttributeUpdater<T, C = Initializer<T>> implements Attribut
    * @atomicservice
    * @since 12
    */
-  applyNormalAttribute?:(instance: T)=> void;
+  applyNormalAttribute: undefined | ((instance: T) => void);
+  applyPressedAttribute: undefined | ((instance: T) => void);
+  applyFocusedAttribute: undefined | ((instance: T) => void);
+  applyDisabledAttribute: undefined | ((instance: T) => void);
+  applySelectedAttribute: undefined | ((instance: T) => void);
 
   /**
    * Defines a function for initialization.
