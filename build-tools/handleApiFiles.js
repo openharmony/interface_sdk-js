@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,12 +12,42 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 const fs = require('fs');
 const path = require('path');
 const ts = require('typescript');
 const commander = require('commander');
+// 处理的目录类型
+let dirType = '';
+const deleteApiSet = new Set();
 
+// 处理的目录类型，ets代表处理的是1.1目录，ets2代表处理的是1.2目录里有@arkts 1.1&1.2标签的文件，
+// noTagInEts2代表处理的是1.2目录里无标签的文件
+const DirType = {
+  'typeOne': 'ets',
+  'typeTwo': 'ets2',
+  'typeThree': 'noTagInEts2',
+}
 
+function isEtsFile(path) {
+  return path.endsWith('d.ets');
+}
+
+function isTsFile(path) {
+  return path.endsWith('d.ts');
+}
+
+function hasEtsFile(path) {
+  return fs.existsSync(path.replace(/\.d\.[e]?ts$/g, '.d.ets'));
+}
+
+function hasTsFile(path) {
+  return fs.existsSync(path.replace(/\.d\.[e]?ts$/g, '.d.ts'));
+}
+
+/**
+ * 配置参数
+ */
 function start() {
   const program = new commander.Command();
   program
@@ -27,13 +57,17 @@ function start() {
     .option('--path <string>', 'path name')
     .option('--type <string>', 'handle type')
     .action((opts) => {
+      dirType = opts.type;
       handleApiFiles(opts.path, opts.type);
     });
   program.parse(process.argv);
 }
-
-
-
+/**
+ * 处理API文件的入口函数
+ * 
+ * @param {*} rootPath 
+ * @param {*} type 
+ */
 function handleApiFiles(rootPath, type) {
   const allApiFilePathSet = new Set();
   const fileNames = fs.readdirSync(rootPath);
@@ -51,7 +85,7 @@ function handleApiFiles(rootPath, type) {
 
   for (const apiRelativePath of allApiFilePathSet) {
     try {
-      handleApiFileByType(apiRelativePath, allApiFilePathSet, rootPath, type);
+      handleApiFileByType(apiRelativePath, rootPath, type);
     } catch (error) {
       console.log('error===>', error);
     }
@@ -67,109 +101,567 @@ function handleApiFiles(rootPath, type) {
  * @param {*} type 
  * @returns 
  */
-function handleApiFileByType(apiRelativePath, allApiFilePathSet, rootPath, type) {
+function handleApiFileByType(apiRelativePath, rootPath, type) {
   const fullPath = path.join(rootPath, apiRelativePath);
-  if (!apiRelativePath.endsWith('d.ets') && !apiRelativePath.endsWith('d.ts')) {
+  const isEndWithEts = isEtsFile(apiRelativePath);
+  const isEndWithTs = isTsFile(apiRelativePath);
+
+  if (!isEndWithEts && !isEndWithTs) {
     return;
   }
-
-  const sameName = apiRelativePath.endsWith('d.ets') ? apiRelativePath.replace('d.ets', 'd.ts') : apiRelativePath.replace('d.ts', 'd.ets');
-
-  if (type === 'ets2') {
-    handelFileInSecondType(sameName, apiRelativePath, fullPath, allApiFilePathSet, rootPath);
-  } else if (type === 'ets') {
-    handelFileInFirstType(sameName, apiRelativePath, fullPath, allApiFilePathSet);
+  if (type === 'ets2' && !(hasEtsFile(fullPath) && isEndWithTs)) {
+    handleFileInSecondType(fullPath, type);
+  } else if (type === 'ets' && !(hasTsFile(fullPath) && isEndWithEts)) {
+    handleFileInFirstType(apiRelativePath, fullPath, type);
+  } else {
+    // 删除同名文件
+    deleteSameNameFile(fullPath);
   }
+}
+
+/**
+ * 处理文件过滤 if arkts 1.1|1.2 定义
+ * 
+ * @param {*} type 
+ * @param {*} fileContent 
+ * @returns 
+ */
+function handleArktsDefinition(type, fileContent) {
+  let regx = /\/\*\*\* if arkts 1\.1 \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
+  let regx2 = /\/\*\*\* if arkts 1\.2 \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
+  fileContent = fileContent.replace(regx, (substring, p1) => {
+    return type === 'ets' ? p1 : '';
+  });
+  fileContent = fileContent.replace(regx2, (substring, p1) => {
+    return type === 'ets2' ? p1 : '';
+  });
+  return fileContent;
+}
+
+/**
+ * 保留每个api最新一段jsdoc
+ * 
+ * @param {*} fileContent 
+ * @returns 
+ */
+function saveLatestJsDoc(fileContent) {
+  let regx = /(\/\*[\s\S]*?\*\*\/)/g;
+
+  fileContent = fileContent.split("").reverse().join("");
+  let preset = 0;
+  fileContent = fileContent.replace(regx, (substring, p1, offset, str) => {
+    if (!/ecnis@\s*\*/g.test(substring)) {
+      return substring;
+    }
+    const preStr = str.substring(preset, offset);
+    preset = offset + substring.length;
+    if (/\S/g.test(preStr)) {
+      return substring;
+    }
+    return '';
+  });
+  fileContent = fileContent.split('').reverse().join('');
+  return fileContent;
 }
 
 /**
  * 处理ets目录
  * 
- * @param {string} sameName 
  * @param {string} apiRelativePath 
  * @param {string} fullPath 
  * @returns 
  */
-function handelFileInFirstType(sameName, apiRelativePath, fullPath, allApiFilePathSet) {
-  const fileContent = fs.readFileSync(fullPath, 'utf-8');
-  const apiFileName = path.basename(apiRelativePath).replace(/d.ts|d.ets/g, 'ts');
-  const sourceFile = ts.createSourceFile(apiFileName, fileContent, ts.ScriptTarget.ES2017, true);
-  const regx = /(?:@arkts1.2only|@arkts\s+>=\s+1.2)/g;
-  // 节点中识别不到首段jsdoc，直接使用全文字符串去匹配，标有1.2的文件，删除
+function handleFileInFirstType(apiRelativePath, fullPath, type) {
+  if (isTsFile(fullPath) && fs.existsSync(fullPath.replace(/\.d\.ts$/g, '.d.ets'))) {
+    return;
+  }
+  let fileContent = fs.readFileSync(fullPath, 'utf-8');
+  const sourceFile = ts.createSourceFile(path.basename(apiRelativePath), fileContent, ts.ScriptTarget.ES2017, true);
+  const secondRegx = /(?:@arkts1.2only|@arkts\s+>=\s*1.2|@arkts\s*1.2)/g;
+  const thirdRegx = /(?:\*\s*@arkts\s+1.1&1.2\s*(\r|\n)\s*)/g;
   if (sourceFile.statements.length === 0) {
-    if (regx.test(sourceFile.getFullText())) {
+    // reference文件识别不到首段jsdoc，全文匹配1.2标签，有的话直接删除
+    if (secondRegx.test(sourceFile.getFullText())) {
       deleteSameNameFile(fullPath);
       return;
     }
+    // 标有@arkts 1.1&1.2的声明文件，处理since版本号，删除@arkts 1.1&1.2标签
+    if (thirdRegx.test(sourceFile.getFullText())) {
+      handleSinceInFirstType(deleteArktsTag(fileContent, thirdRegx), fullPath);
+      return;
+    }
+
+    handleNoTagFileInFirstType(sourceFile, fullPath, type);
     return;
   }
-  const fiestNode = sourceFile.statements.find(statement=>{
+  const firstNode = sourceFile.statements.find(statement => {
     return !ts.isExpressionStatement(statement);
   });
-  // 没有@arkts标签的，不处理
-  if (!fiestNode || !fiestNode.jsDoc) {
-    return;
+
+  if (firstNode && firstNode.jsDoc) {
+    const firstJsdocText = firstNode.jsDoc[0].getText();
+    // 标有1.2标签的声明文件，删除
+    if (secondRegx.test(firstJsdocText)) {
+      deleteSameNameFile(fullPath);
+      return;
+    }
+    // 标有@arkts 1.1&1.2的声明文件，处理since版本号，删除@arkts 1.1&1.2标签
+    if (thirdRegx.test(firstJsdocText)) {
+      handleSinceInFirstType(deleteArktsTag(fileContent, thirdRegx), fullPath);
+      return;
+    }
   }
 
-  const firstJsdocText = fiestNode.jsDoc[0].getText();
-  // 标有1.2的文件，删除
-  if (regx.test(firstJsdocText)) {
+  handleNoTagFileInFirstType(sourceFile, fullPath, type);
+}
+/**
+ * 处理1.1目录中无arkts标签的文件
+ * @param {*} sourceFile 
+ * @param {*} fullPath 
+ * @returns 
+ */
+function handleNoTagFileInFirstType(sourceFile, fullPath, type) {
+  if (path.basename(fullPath) === 'index-full.d.ts') {
+    return;
+  }
+  const arktsTagRegx = /\*\s*@arkts\s+1.1&1.2\s*(\r|\n)\s*|@arkts\s*1.2/g;
+  const deletionContent = deleteApi(sourceFile);
+
+  if (deletionContent === '') {
     deleteSameNameFile(fullPath);
     return;
   }
+  //删除使用/*** if arkts 1.2 */
+  fileContent = handleArktsDefinition(type, deletionContent);
+  fileContent = deleteArktsTag(fileContent, arktsTagRegx);
+  fileContent = joinFileJsdoc(fileContent, sourceFile);
 
-  // 判断是否有同名文件，删除同名文件里的d.ets文件
-  if (allApiFilePathSet.has(sameName) && apiRelativePath.endsWith('d.ets')) {
-    // 文件名相同时，删除d.ets文件
-    deleteSameNameFile(fullPath);
-    return;
-  }
+  handleSinceInFirstType(fileContent, fullPath);
+}
+
+/**
+ * 删除指定的arkts标签
+ * 
+ * @param {*} fileContent 文件内容
+ * @param {*} regx 删除的正则表达式
+ * @returns 
+ */
+function deleteArktsTag(fileContent, regx) {
+  return fileContent.replace(regx, '');
+}
+
+/**
+ * 生成1.1目录里文件时，需要去掉since标签里的1.2版本号
+ * 
+ * @param {*} sourceFile 
+ * @param {*} fullPath 
+ */
+function handleSinceInFirstType(fileContent, fullPath) {
+  const newFileContent = fileContent.replace(/@since\s+arkts\s*\{('1.1':)\s*(\d+),\s*('1.2':)\s*\d+\}/g, '@since $2');
+  fs.writeFileSync(fullPath, newFileContent);
 }
 
 /**
  * 处理ets2目录
  * 
- * @param {string} sameName 
- * @param {string} apiRelativePath 
- * @param {string} fullPath 
+ * @param {string} fullPath 文件完整路径
  * @returns 
  */
-function handelFileInSecondType(sameName, apiRelativePath, fullPath, allApiFilePathSet, rootPath) {
+function handleFileInSecondType(fullPath, type) {
   const fileContent = fs.readFileSync(fullPath, 'utf-8');
-  const sourceFile = ts.createSourceFile(path.basename(apiRelativePath), fileContent, ts.ScriptTarget.ES2017, true);
-  const regx = /(?:@arkts1.1only|@arkts\s+<=\s+1.1)/g;
-  if (sourceFile.statements.length === 0) {
-    // 节点中识别不到首段jsdoc，直接使用全文字符串去匹配，如果有1.1标签的文件，删除
-    if (regx.test(sourceFile.getFullText())) {
-      deleteSameNameFile(fullPath);
-      return;
-    }
+  const sourceFile = ts.createSourceFile(path.basename(fullPath), fileContent, ts.ScriptTarget.ES2017, true);
+  // 如果是同名文件，添加use static
+  if (isEtsFile(fullPath) && fs.existsSync(fullPath.replace(/\.d\.ets$/g, '.d.ts'))) {
+    writeFile(fullPath, joinFileJsdoc(fileContent, sourceFile));
     return;
   }
 
-  if (sourceFile.statements[0].jsDoc && sourceFile.statements[0].jsDoc[0].tags) {
-    const firstJsdocText = sourceFile.statements[0].jsDoc[0].getText();
-    // 从节点中获取首段标签，删除标有1.1的文件
+  const regx = /(?:@arkts1.1only|@arkts\s+<=\s+1.1)/g;
+  const secondRegx = /(?:@arkts1.2only|@arkts\s+>=\s*1.2|@arkts\s*1.2)/g;
+  const thirdRegx = /(?:\*\s*@arkts\s+1.1&1.2\s*(\r|\n)\s*)/g;
+  if (sourceFile.statements.length === 0) {
+    // 有1.2标签的文件，删除标记
+    if (secondRegx.test(sourceFile.getFullText())) {
+      writeFile(fullPath, deleteArktsTag(fileContent, secondRegx));
+      return;
+    }
+    // 处理标有@arkts 1.1&1.2的声明文件
+    if (thirdRegx.test(sourceFile.getFullText())) {
+      handlehasTagFile(sourceFile, fullPath);
+      return;
+    }
+    // 处理既没有@arkts 1.2，也没有@arkts 1.1&1.2的声明文件
+    handleNoTagFileInSecondType(sourceFile, fullPath);
+    return;
+  }
+
+  const firstNode = sourceFile.statements.find(statement => {
+    return !ts.isExpressionStatement(statement);
+  });
+
+  if (firstNode && firstNode.jsDoc) {
+    const firstJsdocText = firstNode.jsDoc[0].getText();
     if (regx.test(firstJsdocText)) {
       deleteSameNameFile(fullPath);
       return;
     }
+    // 有1.2标签的文件，删除标记
+    if (secondRegx.test(firstJsdocText)) {
+      writeFile(fullPath, deleteArktsTag(fileContent, secondRegx));
+      return;
+    }
+    // 处理标有@arkts 1.1&1.2的声明文件
+    if (thirdRegx.test(firstJsdocText)) {
+      handlehasTagFile(sourceFile, fullPath);
+      return;
+    }
   }
 
-  if (allApiFilePathSet.has(sameName) && apiRelativePath.endsWith('d.ts')) {
-    // 文件名相同时，删除d.ts文件
+  // 处理既没有@arkts 1.2，也没有@arkts 1.1&1.2的声明文件
+  handleNoTagFileInSecondType(sourceFile, fullPath);
+}
+
+/**
+ * 处理有@arkts 1.1&1.2标签的文件
+ * @param {*} fullPath 
+ */
+function handlehasTagFile(sourceFile, fullPath) {
+  let newContent = getDeletionContent(sourceFile, fullPath);
+  if (newContent === '') {
     deleteSameNameFile(fullPath);
     return;
   }
-  // 剩余d.ts文件，重命名为d.ets文件，d.ets文件不做处理
-  if (apiRelativePath.endsWith('d.ts')) {
-    try {
-      fs.renameSync(path.join(rootPath, apiRelativePath), path.join(rootPath, sameName));
-    } catch (error) {
-      console.error('rename file failed: ', error);
-    }
+  // 保留最后一段注释
+  newContent = saveLatestJsDoc(newContent);
+  writeFile(fullPath, newContent);
+}
+/**
+ * 处理1.2目录中无arkts标签的文件
+ * @param {*} sourceFile 
+ * @param {*} fullPath 
+ * @returns 
+ */
+function handleNoTagFileInSecondType(sourceFile, fullPath) {
+  dirType = DirType.typeThree;
+  const arktsTagRegx = /\*\s*@arkts\s+1.1&1.2\s*(\r|\n)\s*|@arkts\s*1.2/g;
+  const fileContent = sourceFile.getFullText();
+  // API未标@arkts 1.2或@arkts 1.1&1.2标签，删除文件
+  if (!arktsTagRegx.test(fileContent)) {
+    writeFile(fullPath, joinFileJsdoc(fileContent, sourceFile));
+    // TODO：api未标标签，删除文件
     return;
   }
+  let newContent = getDeletionContent(sourceFile, fullPath);
+  if (newContent === '') {
+    deleteSameNameFile(fullPath);
+    return;
+  }
+  // 保留最后一段注释
+  newContent = saveLatestJsDoc(newContent);
+  newContent = deleteArktsTag(newContent, arktsTagRegx);
+  writeFile(fullPath, newContent);
+}
+
+/**
+ * 拼接上被删除的文件注释
+ * 
+ * @param {*} deletionContent 
+ * @param {*} sourceFile 
+ * @returns 
+ */
+function joinFileJsdoc(deletionContent, sourceFile) {
+  const fileJsdoc = sourceFile.getFullText().replace(sourceFile.getText(), '');
+  const copyrightMessage = fileJsdoc.split('*/')[0] + '*/\r\n';
+  const regx = /@kit | @file/g;
+  let kitMessage = '';
+
+  if (regx.test(fileJsdoc)) {
+    kitMessage = fileJsdoc.split('*/')[1] + '*/\r\n';
+  }
+  let newContent = deletionContent;
+  const isHasCopyright = hasCopyright(deletionContent);
+
+  if (!isHasCopyright && !regx.test(deletionContent)) {
+    newContent = copyrightMessage + kitMessage + deletionContent;
+  } else if (!isHasCopyright) {
+    newContent = copyrightMessage + deletionContent;
+  } else if (isHasCopyright && !/@kit | @file/g.test(deletionContent)) {
+    const joinFileJsdoc = copyrightMessage + kitMessage;
+    newContent = deletionContent.replace(copyrightMessage, joinFileJsdoc);
+  }
+
+  if (dirType !== DirType.typeOne) {
+    // TODO：添加use static字符串
+  }
+  return newContent;
+}
+
+function getDeletionContent(sourceFile) {
+  const deletionContent = deleteApi(sourceFile);
+  if (deletionContent === '') {
+    return '';
+  }
+  let newContent = joinFileJsdoc(deletionContent, sourceFile);
+
+  // 处理since版本
+  newContent = handleSinceInSecondType(newContent);
+  return newContent;
+}
+
+/**
+ * 重写文件内容
+ * @param {*} fullPath 
+ * @param {*} fileContent 
+ */
+function writeFile(fullPath, fileContent) {
+  if (isTsFile(fullPath)) {
+    const newPath = fullPath.replace('.d.ts', '.d.ets');
+    fs.renameSync(fullPath, newPath);
+    fs.writeFileSync(newPath, fileContent);
+  } else {
+    fs.writeFileSync(fullPath, fileContent);
+  }
+}
+
+/**
+ * 添加use static字符串
+ * 
+ * @param {*} fileContent 文件内容
+ * @param {*} copyrightMessage 版权头内容
+ * @returns 
+ */
+function addStaticString(fileContent, copyrightMessage) {
+  const hasStaticMessage = /use\s+static/g.test(fileContent);
+  const regex = /\/\*\r?\n\s*\*\s*Copyright[\s\S]*?limitations under the License\.\r?\n\s*\*\//g;
+  const staticMessage = 'use static';
+  let newContent = fileContent;
+  if (!hasStaticMessage) {
+    const newfileJsdoc = `${copyrightMessage}'${staticMessage}'\r\n`;
+    newContent = newContent.replace(regex, newfileJsdoc);
+  }
+  return newContent;
+}
+
+/**
+ * 判断新生成的文件内容有没有版权头
+ * 
+ * @param {*} fileText 新生成的文件内容
+ * @returns 
+ */
+function hasCopyright(fileText) {
+  return /http(\:|\?:)\/\/www\.apache\.org\/licenses\/LICENSE\-2\.0/g.test(fileText);
+}
+
+// 创建 Transformer
+const transformer = (context) => {
+  return (rootNode) => {
+    const visit = (node) => {
+      //struct节点下面会自动生成constructor节点, 置为undefined
+      if (node.kind === ts.SyntaxKind.Constructor && node.parent.kind === ts.SyntaxKind.StructDeclaration) {
+        collectDeletionApiName(node);
+        return undefined;
+      }
+      // 判断是否为要删除的变量声明
+      if (apiNodeTypeArr.includes(node.kind) && judgeIsDeleteApi(node)) {
+        deleteApiSet.add(node.name?.getText());
+        // 删除该节点
+        return undefined;
+      }
+
+      // 非目标节点：继续遍历子节点
+      return ts.visitEachChild(node, visit, context);
+    };
+    return ts.visitNode(rootNode, visit);
+  };
+};
+
+/**
+ * 删除API
+ * @param {*} sourceFile 
+ * @returns 
+ */
+function deleteApi(sourceFile) {
+  const result = ts.transform(sourceFile, [transformer]);
+  const newSourceFile = result.transformed[0];
+  if (isEmptyFile(newSourceFile)) {
+    return '';
+  }
+
+  // 打印结果
+  const printer = ts.createPrinter();
+  let fileContent = printer.printFile(newSourceFile);
+  fileContent = deleteExportApi(newSourceFile, fileContent);
+  deleteApiSet.clear();
+  return fileContent;
+}
+
+/**
+ * api被删除后，对应的export api也需要被删除
+ * @param {*} newSourceFile 
+ * @param {*} fileContent 
+ * @returns 
+ */
+function deleteExportApi(newSourceFile, fileContent) {
+  newSourceFile.statements.forEach(stat => {
+    if (!exportApiType.includes(stat.kind) || stat.moduleSpecifier) {
+      return;
+    }
+
+    if (stat.expression && deleteApiSet.has(stat.expression.escapedText.toString())) {
+      fileContent = fileContent.replace(stat.getFullText(), '');
+      return;
+    }
+
+    if (stat.exportClause) {
+      const exportText = stat.getFullText().replace(/\r|\n/g, '');
+      let newExportText = exportText;
+      stat.exportClause.elements.forEach(element => {
+        const elementText = element.getFullText().replace(/\s*/g, '');
+        if (deleteApiSet.has(elementText)) {
+          newExportText = exportText.replace(`${element.getFullText()},`, '').replace(element.getFullText(), '');
+        }
+      });
+      if (/\{\s*\}/g.test(newExportText)) {
+        fileContent = fileContent.replace(exportText, '');
+      } else {
+        fileContent = fileContent.replace(exportText, newExportText);
+      }
+    }
+  });
+
+  return fileContent;
+}
+
+function isEmptyFile(node) {
+  let isEmpty = true;
+  if (ts.isSourceFile(node) && node.statements) {
+    const needExportName = new Set();
+    for (let i = 0; i < node.statements.length; i++) {
+      const statement = node.statements[i];
+      if (ts.isExportDeclaration(statement) && statement.moduleSpecifier) {
+        isEmpty = false;
+        break;
+      }
+      if (judgeExportHasImport(statement, needExportName)) {
+        continue;
+      }
+      isEmpty = false;
+      break;
+    }
+  }
+  return isEmpty;
+}
+
+function collectDeletionApiName(node) {
+  if (!ts.isImportClause(node)) {
+    deleteApiSet.add(node.name?.getText());
+    return;
+  }
+
+  if (ts.isImportDeclaration(node) && node.importClause?.name) {
+    deleteApiSet.add(importClause.name.escapedText.toString());
+    return;
+  }
+  const namedBindings = node.namedBindings;
+  if (namedBindings !== undefined && ts.isNamedImports(namedBindings)) {
+    const elements = namedBindings.elements;
+    elements.forEach((element) => {
+      const exportName = element.propertyName ?
+        element.propertyName.escapedText.toString() :
+        element.name.escapedText.toString();
+      deleteApiSet.add(exportName);
+    });
+  }
+}
+
+/**
+ * 判断import节点和export节点。
+ * 当前文本如果还有其他节点则不能删除，
+ * 如果只有import和export则判断是否export导出import节点
+ * 
+ * @param {*} statement 
+ * @param {*} needExportName 
+ * @returns 
+ */
+function judgeExportHasImport(statement, needExportName) {
+  if (ts.isImportDeclaration(statement)) {
+    processImportDeclaration(statement, needExportName);
+    return true;
+  } else if (ts.isExportAssignment(statement) &&
+    !needExportName.has(statement.expression.escapedText.toString())) {
+    return true;
+  } else if (ts.isExportDeclaration(statement)) {
+    return !statement.exportClause.elements.some((element) => {
+      const exportName = element.propertyName ?
+        element.propertyName.escapedText.toString() :
+        element.name.escapedText.toString();
+      return needExportName.has(exportName);
+    });
+  }
+  return false;
+}
+
+function processImportDeclaration(statement, needExportName) {
+  const importClause = statement.importClause;
+  if (!ts.isImportClause(importClause)) {
+    return;
+  }
+  if (importClause.name) {
+    needExportName.add(importClause.name.escapedText.toString());
+  }
+  const namedBindings = importClause.namedBindings;
+  if (namedBindings !== undefined && ts.isNamedImports(namedBindings)) {
+    const elements = namedBindings.elements;
+    elements.forEach((element) => {
+      const exportName = element.propertyName ?
+        element.propertyName.escapedText.toString() :
+        element.name.escapedText.toString();
+      needExportName.add(exportName);
+    });
+  }
+}
+
+/**
+ * 判断node节点中是否有famodelonly/deprecated/arkts <=1.1标签
+ * 
+ * @param {*} node 
+ * @returns 
+ */
+function judgeIsDeleteApi(node) {
+  const notesContent = node.getFullText().replace(node.getText(), '').replace(/[\s]/g, '');
+  const notesArr = notesContent.split(/\/\*\*/);
+  const notesStr = notesArr[notesArr.length - 1];
+  const sinceArr = notesStr.match(/@since\d+/);
+  let sinceVersion = 20;
+
+  if (dirType === DirType.typeOne) {
+    return /@arkts1.2/g.test(notesStr);
+  }
+
+  if (sinceArr) {
+    sinceVersion = sinceArr[0].replace('@since', '');
+  }
+
+  if (dirType === DirType.typeTwo) {
+    return /@famodelonly/ig.test(notesStr) || (/@deprecated/g.test(notesStr) && sinceVersion < 20) || /@arkts<=1.1/g.test(notesStr);
+  }
+
+  if (dirType === DirType.typeThree) {
+    return !/@arkts1.2|@arkts1.1&1.2/g.test(notesStr);
+  }
+
+  return false;
+}
+
+/**
+ * 生成1.2目录里文件时，需要去掉since标签里的dynamic版本号
+ * 
+ * @param {*} fileContent 
+ * @returns 
+ */
+function handleSinceInSecondType(fileContent) {
+  const newFileContent = fileContent.replace(/@since\s+arkts\s*\{('1.1':)\s*\d+,\s*('1.2':)\s*(\d+)\}/g, '@since $3');
+  return newFileContent;
 }
 
 
@@ -205,5 +697,33 @@ function getApiFileName(apiPath, rootPath, allApiFilePathSet) {
 
   return apiFilePathSet;
 }
+
+// 所有API的节点类型
+const apiNodeTypeArr = [
+  ts.SyntaxKind.ExportAssignment,
+  ts.SyntaxKind.ExportDeclaration,
+  ts.SyntaxKind.ImportDeclaration,
+  ts.SyntaxKind.VariableStatement,
+  ts.SyntaxKind.MethodDeclaration,
+  ts.SyntaxKind.MethodSignature,
+  ts.SyntaxKind.FunctionDeclaration,
+  ts.SyntaxKind.Constructor,
+  ts.SyntaxKind.ConstructSignature,
+  ts.SyntaxKind.CallSignature,
+  ts.SyntaxKind.PropertyDeclaration,
+  ts.SyntaxKind.PropertySignature,
+  ts.SyntaxKind.EnumMember,
+  ts.SyntaxKind.EnumDeclaration,
+  ts.SyntaxKind.TypeAliasDeclaration,
+  ts.SyntaxKind.ClassDeclaration,
+  ts.SyntaxKind.InterfaceDeclaration,
+  ts.SyntaxKind.ModuleDeclaration,
+  ts.SyntaxKind.StructDeclaration
+];
+
+const exportApiType = [
+  ts.SyntaxKind.ExportAssignment,
+  ts.SyntaxKind.ExportDeclaration,
+];
 
 start();
