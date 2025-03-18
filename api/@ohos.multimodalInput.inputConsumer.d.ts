@@ -134,7 +134,7 @@ declare namespace inputConsumer {
    */
   interface KeyPressedConfig {
     /**
-     * Key value.
+     * Key value. Currently listening is supported only for KEYCODE_VOLUME_UP and KEYCODE_VOLUME_DOWN keys.
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -153,7 +153,7 @@ declare namespace inputConsumer {
     action: number;
 
     /**
-     * Whether to report repeated key events. By default, the value is true if it is left unspecified.
+     * Whether to report repeated key events.
      *
      * @type { boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
