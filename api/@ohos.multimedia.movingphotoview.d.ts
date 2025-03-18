@@ -174,6 +174,15 @@ declare interface MovingPhotoViewOptions {
      * @since 14
      */
     dynamicRangeMode?: DynamicRangeMode;
+    /**
+     * the watermask of the cover photo whether to contain during movingphoto playback
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 18
+     */
+    playWithMask?: boolean;
 }
 /**
  * Defines the moving photo view interface.
