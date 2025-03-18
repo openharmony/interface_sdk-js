@@ -19,6 +19,17 @@
  */
 
 /**
+ * Import the Orientation type from @ohos.window.
+ *
+ * @typedef { import('../api/@ohos.window').default.Orientation } Orientation
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+declare type Orientation = import('../api/@ohos.window').default.Orientation;
+
+/**
  * Defines the navigation destination common title.
  *
  * @interface NavDestinationCommonTitle
@@ -1142,6 +1153,44 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @since 18
    */
   onNewParam(callback: Optional<Callback<ESObject>>): NavDestinationAttribute;
+
+  /**
+   * Set NavDestination's preferred Orientation.
+   * 
+   * @param { Optional<Orientation> } orientation - The preferred Orientation of NavDestination.
+   * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  preferredOrientation(orientation: Optional<Orientation>): NavDestinationAttribute;
+
+  /**
+   * Set statusBar to visible or invisible.
+   * 
+   * @param { Optional<boolean> } enabled - Show statusBar if true, or hide statusBar if false.
+   * @param { boolean } [animated] - Whether using animation during hiding or showing statusBar,
+   *                                 using animation if true or not using animation if false.
+   * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  enableStatusBar(enabled: Optional<boolean>, animated?: boolean): NavDestinationAttribute;
+
+  /**
+   * Set navigationIndicator to visible or invisible.
+   * 
+   * @param { Optional<boolean> } enabled - Show navigationIndicator if true, or hide navigationIndicator if false.
+   * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  enableNavigationIndicator(enabled: Optional<boolean>): NavDestinationAttribute;
 }
 
 /**
