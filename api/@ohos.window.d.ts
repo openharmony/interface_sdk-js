@@ -8974,6 +8974,38 @@ declare namespace window {
      * @since 18
      */
     setWindowDelayRaiseOnDrag(isEnabled: boolean): void;
+
+    /**
+     * Set the zlevel of current sub window.
+     *
+     * @param { number } zLevel - the zlevel of current sub window.
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Function setSubWindowZLevel can not work correctly due to limited device capabilities. 
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300009 - The parent window is invalid.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    setSubWindowZLevel(zLevel: number): Promise<void>;
+
+    /**
+     * Get the zlevel of current sub window.
+     *
+     * @returns { number } - the zlevel of current sub window.
+     * @throws { BusinessError } 801 - Capability not supported. Function setSubWindowZLevel can not work correctly due to limited device capabilities. 
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    getSubWindowZLevel(): number;
   }
 
   /**
@@ -9246,6 +9278,15 @@ declare namespace window {
      * @since 18
      */
     maximizeSupported?: boolean;
+    /**
+     * Indicates zlevel of subwindow
+     * 
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+    zLevel?: number;
   }
   /**
    * WindowStage
