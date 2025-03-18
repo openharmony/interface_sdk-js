@@ -19,7 +19,6 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
-import { DataAbilityHelper } from './ability/dataAbilityHelper';
 import Context from './application/Context';
 
 /**
@@ -1010,37 +1009,6 @@ declare namespace settings {
   function getURI(name: string): Promise<object>;
 
   /**
-   * Obtains the value of a specified character string in the database.
-   *
-   * @param { DataAbilityHelper } dataAbilityHelper - Indicates the {@link ohos.aafwk.ability.DataAbilityHelper} used
-   * to access the database.
-   * @param { string } name - Indicates the name of the character string.
-   * @param { AsyncCallback<object> } [callback] - The callback of getValue result.
-   * @syscap SystemCapability.Applications.Settings.Core
-   * @famodelonly
-   * @since 7
-   * @deprecated since 9
-   * @useinstead ohos.settings#getValue
-   */
-  function getValue(dataAbilityHelper: DataAbilityHelper, name: string, callback: AsyncCallback<object>): void;
-
-  /**
-   * Obtains the value of a specified character string in the database.
-   *
-   * @param { DataAbilityHelper } dataAbilityHelper - Indicates the {@link ohos.aafwk.ability.DataAbilityHelper} used
-   * to access the database.
-   * @param { string } name - Indicates the name of the character string.
-   * @returns { Promise<object> } Returns the value of the character string in the domain if any is found; returns {@code
-   * null} otherwise.
-   * @syscap SystemCapability.Applications.Settings.Core
-   * @famodelonly
-   * @since 7
-   * @deprecated since 9
-   * @useinstead ohos.settings#getValue
-   */
-  function getValue(dataAbilityHelper: DataAbilityHelper, name: string): Promise<object>;
-
-  /**
    * Get value from settingsdata
    *
    * @param { Context } context - Indicates the Context or dataAbilityHelper used to access
@@ -1079,41 +1047,6 @@ declare namespace settings {
    * @since 11
    */
   function getValue(context: Context, name: string, domainName: string): Promise<string>;
-
-  /**
-   * Saves a character string name and its value to the database.
-   *
-   * @param { DataAbilityHelper } dataAbilityHelper - Indicates the {@link ohos.aafwk.ability.DataAbilityHelper} used
-   * to access the database.
-   * @param { string } name - Indicates the name of the character string.
-   * @param { object } value - Indicates the value of the character string.
-   * @param { AsyncCallback<boolean> } [callback] - The callback of setValue result.
-   * @syscap SystemCapability.Applications.Settings.Core
-   * @systemapi Hide this for inner system use.
-   * @famodelonly
-   * @since 7
-   * @deprecated since 9
-   * @useinstead ohos.settings#setValue
-   */
-  function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: object,
-    callback: AsyncCallback<boolean>): void;
-
-  /**
-   * Saves a character string name and its value to the database.
-   *
-   * @param { DataAbilityHelper } dataAbilityHelper - Indicates the {@link ohos.aafwk.ability.DataAbilityHelper} used
-   * to access the database.
-   * @param { string } name - Indicates the name of the character string.
-   * @param { object } value - Indicates the value of the character string.
-   * @returns { Promise<boolean> } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
-   * @syscap SystemCapability.Applications.Settings.Core
-   * @systemapi Hide this for inner system use.
-   * @famodelonly
-   * @since 7
-   * @deprecated since 9
-   * @useinstead ohos.settings#setValue
-   */
-  function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: object): Promise<boolean>;
 
   /**
    * Set settingsdata value.
@@ -1213,21 +1146,6 @@ declare namespace settings {
   /**
    * Get value from settingsdata(synchronous method)
    *
-   * @param { DataAbilityHelper } dataAbilityHelper - Indicates dataAbilityHelper instance.
-   * @param { string } name - Indicates the name of the character string.
-   * @param { string } defValue - Indicates the default value of the character string.
-   * @returns { string } Returns settingsdata value.
-   * @syscap SystemCapability.Applications.Settings.Core
-   * @famodelonly
-   * @since 8
-   * @deprecated since 9
-   * @useinstead ohos.settings#getValueSync
-   */
-  function getValueSync(dataAbilityHelper: DataAbilityHelper, name: string, defValue: string): string;
-
-  /**
-   * Get value from settingsdata(synchronous method)
-   *
    * @param { Context } context - Indicates Context or dataAbilityHelper instance
    * @param { string } name - Indicates the name of the character string.
    * @param { string } defValue - Indicates the default value of the character string.
@@ -1251,22 +1169,6 @@ declare namespace settings {
    * @since 11
    */
   function getValueSync(context: Context, name: string, defValue: string, domainName: string): string;
-
-  /**
-   * Set settingsdata value(synchronous method)
-   *
-   * @permission ohos.permission.MANAGE_SECURE_SETTINGS
-   * @param { DataAbilityHelper } dataAbilityHelper Indicates dataAbilityHelper instance.
-   * @param { string } name Indicates the name of the character string.
-   * @param { string } value Indicates the value of the character string.
-   * @returns { boolean } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
-   * @syscap SystemCapability.Applications.Settings.Core
-   * @famodelonly
-   * @since 8
-   * @deprecated since 9
-   * @useinstead ohos.settings#setValueSync
-   */
-  function setValueSync(dataAbilityHelper: DataAbilityHelper, name: string, value: string): boolean;
 
   /**
    * Set settingsdata value(synchronous method)
