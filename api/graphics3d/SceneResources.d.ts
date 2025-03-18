@@ -92,6 +92,14 @@ export enum SceneResourceType {
    * @since 12
    */
   IMAGE = 7,
+
+  /**
+   * The resource is a mesh resource
+   *
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 18
+   */
+  MESH_RESOURCE = 8,
 }
 
 /**
