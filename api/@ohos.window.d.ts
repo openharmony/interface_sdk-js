@@ -8923,7 +8923,7 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 16
+     * @since 17
      */
     setFollowParentMultiScreenPolicy(enabled: boolean): Promise<void>;
 
