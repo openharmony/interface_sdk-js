@@ -645,8 +645,8 @@ export default class UIAbility extends Ability {
    * @since 10
    */
   /**
-   * Called when the launch mode of an ability is set to singleton.
-   * This happens when you re-launch an ability that has been at the top of the ability stack.
+   * Called when a UIAbility instance that has undergone the following states is started again:
+   * started in the foreground, running in the foreground, and switched to the background.
    *
    * @param { Want } want - Indicates the want info of ability.
    * @param { AbilityConstant.LaunchParam } launchParam - Indicates the launch parameters.
