@@ -5724,7 +5724,7 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    getPixelBytesNumber(): number;
+    getPixelBytesNumber(): int;
 
     /**
      * Obtains the density of the image pixel map.
