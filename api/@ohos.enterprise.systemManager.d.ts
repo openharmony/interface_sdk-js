@@ -192,6 +192,16 @@ declare namespace systemManager {
      * @since 12
      */
     installEndTime?: number;
+
+    /**
+     * True indicates system OTA update is disabled.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 18
+     */
+    disableSystemOtaUpdate?: boolean;
   }
 
   /**
