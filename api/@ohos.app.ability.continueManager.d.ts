@@ -36,6 +36,7 @@ declare namespace continueManager {
      * @param { Context } context - the ability context.
      * @param { AsyncCallback<ContinueResultInfo> } callback - Used to handle ('prepareContinue') command.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
+     * @throws { BusinessError } 16300501 - the system ability work abnormally.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 18
      */
@@ -48,6 +49,7 @@ declare namespace continueManager {
      * @param { Context } context - the ability context.
      * @param { AsyncCallback<ContinueResultInfo> } callback - Used to handle ('prepareContinue') command.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
+     * @throws { BusinessError } 16300501 - the system ability work abnormally.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 18
      */
