@@ -2038,6 +2038,20 @@ declare namespace display {
     * @since 12
     */
     off(type: 'availableAreaChange', callback?: Callback<Rect>): void;
+
+    /**
+    * Get current display capability, including foldstatus, displaymode, rotation, and orientation information.
+    *
+    * @returns { string } Indicates the current foldstatus, displaymode, rotation, and orientation information.
+    * @throws { BusinessError } 801 - Capability not supported.Function getDisplayCapability can not work correctly due to limited device capabilities.
+    * @throws { BusinessError } 1400001 - Invalid display or screen.
+    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+    * @syscap SystemCapability.Window.SessionManager
+    * @atomicservice
+    * @since 18
+    * @test
+    */
+    getDisplayCapability(): string;
   }
 }
 
