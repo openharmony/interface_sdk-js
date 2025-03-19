@@ -4555,7 +4555,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 1
+     * @since 17
      */
     stopCreateThumbnailTask(taskId: int): void;
     /**
@@ -6600,6 +6600,268 @@ declare namespace photoAccessHelper {
      * @since 13
      */
     thmSize: string;
+  }
+
+  /**
+   * Defines the file assets info
+   *
+   * @interface FileAssetInfo
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 17
+   */
+  interface FileAssetInfo {
+    /**
+     * File id of file assets
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 17
+     */
+    file_id: number;
+
+    /**
+     * URI of the file assets.
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 17
+     */
+    uri: string;
+
+    /**
+     * Media type of file assets
+     *
+     * @type { PhotoType }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 17
+     */
+    media_type: PhotoType;
+
+    /**
+     * Display name of file assets.
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 17
+     */
+    display_name: string;
+
+    /**
+     * Size of the asset
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 17
+     */
+    size: number;
+
+    /**
+     * Add date of file assets
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 17
+     */
+    date_added: number;
+
+    /**
+     * Modify date of file assets
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 17
+     */
+    date_modified: number;
+
+    /**
+     * Duration of video files
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 17
+     */
+    duration: number;
+
+    /**
+     * Width of the image asset
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 17
+     */
+    width: number;
+
+    /**
+     * Height of the image asset
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 17
+     */
+    height: number;
+
+    /**
+     * DateTaken of file assets
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 17
+     */
+    date_taken: number;
+
+    /**
+     * Orientation of the image asset
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 17
+     */
+    orientation: number;
+
+    /**
+     * Favorite state of the asset
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 17
+     */
+    is_favorite: boolean;
+
+    /**
+     * Title of the asset
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 17
+     */
+    title: string;
+
+    /**
+     * Asset position
+     *
+     * @type { PositionType }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 17
+     */
+    position: PositionType;
+
+    /**
+     * Trashed date of the asset
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 17
+     */
+    date_trashed: number;
+
+    /**
+     * Hidden state of the asset
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 17
+     */
+    hidden: boolean;
+
+    /**
+     * User comment info
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 17
+     */
+    user_comment: string;
+
+    /**
+     * Camera shot key
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 17
+     */
+    camera_shot_key: string;
+
+    /**
+     * The year of the file created, read only
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 17
+     */
+    date_year: string;
+
+    /**
+     * The month of the file created, read only
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 17
+     */
+    date_month: string;
+
+    /**
+     * The day of the file created, read only
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 17
+     */
+    date_day: string;
+
+    /**
+     * Pending state of the asset, true means asset is pending
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 17
+     */
+    pending: boolean;
+
+    /**
+     * Creation time of the asset in milliseconds
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 17
+     */
+    date_added_ms: number;
+
+    /**
+     * Modified time of the asset in milliseconds
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 17
+     */
+    date_modified_ms: number;
+
+    /**
+     * Trashed time of the asset in milliseconds
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 17
+     */
+    date_trashed_ms: number;
+
+    /**
+     * Photo subtype of the asset
+     *
+     * @type { PhotoSubtype }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 17
+     */
+    subtype: PhotoSubtype;
   }
 
   /**
