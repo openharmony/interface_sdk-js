@@ -54,7 +54,7 @@ export default class DataShareExtensionAbility {
    * @StageModelOnly
    * @since 10
    */
-  context?: ExtensionContext;
+  context: ExtensionContext;
 
   /**
    * Called back when a datashare extension ability is started for initialization.
