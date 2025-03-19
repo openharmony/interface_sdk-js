@@ -959,7 +959,7 @@ export type WindowType = 'application' | 'system';
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9
  */
-export interface Rect {
+interface Rect {
   /**
    * The left position of Rect
    *

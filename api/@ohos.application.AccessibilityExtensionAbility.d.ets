@@ -26,7 +26,6 @@ import {
   FocusDirection as _FocusDirection,
   FocusType as _FocusType,
   WindowType as _WindowType,
-  Rect as _Rect,
 } from './application/AccessibilityExtensionContext';
 import { ElementAttribute } from './application/AccessibilityExtensionContext'
 import { AccessibilityExtensionContext as _AccessibilityExtensionContext} from './application/AccessibilityExtensionContext';
@@ -90,11 +89,44 @@ export type WindowType = _WindowType;
 /**
  * Indicates rectangle.
  *
- * @typedef {_Rect}
+ * @typedef Rect
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10
+ * @since 20
  */
-export type Rect = _Rect;
+export class Rect {
+  /**
+   * The left position of Rect
+   *
+   * @type { number }
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 9
+   */
+  left: number;
+  /**
+   * The top position of Rect
+   *
+   * @type { number }
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 9
+   */
+  top: number;
+  /**
+   * The width position of Rect
+   *
+   * @type { number }
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 9
+   */
+  width: number;
+  /**
+   * The height position of Rect
+   *
+   * @type { number }
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 9
+   */
+  height: number;
+}
 
 /**
  * The accessibility extension context. Used to configure, query information, and inject gestures.
