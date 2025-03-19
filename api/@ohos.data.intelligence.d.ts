@@ -380,6 +380,7 @@ declare namespace intelligence {
      * Given the retrieval condition that includes query terms, recall conditions, and re-ranking strategies, 
      * retrieve a collection of records that meet the specified conditions from a relational store (RDB).
      *
+     * @param { string } query - The query to the retrieval.
      * @param { RetrievalCondition } condition - The condition {@link RetrievalCondition} of the retrieve method.
      * @returns { Promise<RdbRecords> } The promise used to return the retrieved records {@link RdbRecords}.
      * @throws { BusinessError } 31300001 - Database corrupted.
@@ -406,7 +407,7 @@ declare namespace intelligence {
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 18
      */
-    retrieveRdb(condition: RetrievalCondition): Promise<RdbRecords>;
+    retrieveRdb(query: string, condition: RetrievalCondition): Promise<RdbRecords>;
   }
 
   /**
@@ -417,15 +418,6 @@ declare namespace intelligence {
    * @since 18
    */
   interface RetrievalCondition {
-    /**
-     * The query to the retrieval.
-     *
-     * @type { string }
-     * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
-     * @since 18
-     */
-    query: string;
-
     /**
      * The conditions {@link RecallCondition} for recall, where each item in the array corresponds to a recall operation.
      *
@@ -850,14 +842,14 @@ declare namespace intelligence {
   interface VectorRecallCondition {
     /**
      * The query vector used for vector data retrieval {@link VectorQuery}.
-     * Typically, the query vector is generated from the query terms in RetrievalCondition {@link RetrievalCondition} 
+     * Typically, the query vector is generated from the query term in Retriever {@link Retriever} 
      * using an embedding model{@link TextEmbedding}.
      *
      * @type { VectorQuery }
      * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
      * @since 18
      */
-    query: VectorQuery;
+    vectorQuery: VectorQuery;
 
     /**
      * Represents the table name in the database, supporting JOIN operations.
