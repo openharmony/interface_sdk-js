@@ -64,6 +64,50 @@ declare namespace util {
    * @since 20
    */
   function generateRandomUUID(entropyCache?: boolean): string;
+  
+  /**
+   * The Type represents four different encoding formats for base64
+   *
+   * @enum { number } Type
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  enum Type {
+    /**
+     * The value indicates that the encoding format of base64 is BASIC
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    BASIC,
+    /**
+     * The value indicates that the encoding format of base64 is MIME
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    MIME,
+    /**
+     * The value indicates that the encoding format of base64 is BASIC_URL_SAFE
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    BASIC_URL_SAFE,
+    /**
+     * The value indicates that the encoding format of base64 is MIME_URL_SAFE
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    MIME_URL_SAFE,
+  }
 
   /**
    * Decodes a Base64 encoded String or input u8 array into a newly-allocated
@@ -84,25 +128,6 @@ declare namespace util {
      * @since 20
      */
     constructor();
-
-    /**
-      * Encodes the given byte array into a Base64 string.
-      * @param bytes The byte array to encode.
-      * @param urlSafe If true, uses the URL-safe Base64 alphabet.
-      * @param mime If true, inserts line breaks according to MIME specifications.
-      * @returns The Base64 encoded string.
-      * @since 20
-      */
-    private static encodeBase64(bytes: Uint8Array, urlSafe: boolean, mime: boolean): string;
-
-    /**
-      * Decodes the given Base64 string into a byte array.
-      * @param base64 The Base64 string to decode.
-      * @param urlSafe If true, uses the URL-safe Base64 alphabet.
-      * @returns A Uint8Array containing the decoded bytes.
-      * @since 20
-      */
-    private static decodeBase64(base64: string, urlSafe: boolean): Uint8Array;
 
     /**
      * Encodes all bytes from the specified u8 array into a newly-allocated u8 array using the Base64 encoding scheme.
