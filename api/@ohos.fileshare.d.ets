@@ -19,7 +19,7 @@
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
-import type wantConstant from './@ohos.ability.wantConstant';
+import type wantConstant from './@ohos.app.ability.wantConstant';
 
 /**
  * Provides fileshare APIS
