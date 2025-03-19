@@ -18,8 +18,28 @@
  * @kit AccessibilityKit
  */
 
-import { AsyncCallback } from './@ohos.base';
 import { Callback } from './@ohos.base';
+
+/**
+ * Defines the error interface.
+ *
+ * @extends Error
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 20
+ */
+export declare class AccessibilityError extends Error {
+    constructor(code: int, message: string);
+    code: int;
+}
+
+/**
+ * Defines the basic callback.
+ *
+ * @typedef { AccessibilityCallback<T> }
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 20
+ */
+type AccessibilityCallback<T> = (err: AccessibilityError, data?: T) => void;
 
 /**
  * Accessibility
@@ -166,13 +186,13 @@ declare namespace accessibility {
   /**
    * Checks whether accessibility ability is enabled.
    *
-   * @param { AsyncCallback<boolean> } callback Asynchronous callback interface.
+   * @param { AccessibilityCallback<boolean> } callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    * @deprecated since 10
    * @useinstead ohos.accessibility#isOpenAccessibilitySync
    */
-  function isOpenAccessibility(callback: AsyncCallback<boolean>): void;
+  function isOpenAccessibility(callback: AccessibilityCallback<boolean>): void;
 
   /**
    * Checks whether accessibility ability is enabled.
@@ -206,13 +226,13 @@ declare namespace accessibility {
   /**
    * Checks touch browser ability (which is used by talkback) is enabled.
    *
-   * @param { AsyncCallback<boolean> } callback Asynchronous callback interface.
+   * @param { AccessibilityCallback<boolean> } callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
    * @since 7
    * @deprecated since 10
    * @useinstead ohos.accessibility#isOpenTouchGuideSync
    */
-  function isOpenTouchGuide(callback: AsyncCallback<boolean>): void;
+  function isOpenTouchGuide(callback: AccessibilityCallback<boolean>): void;
 
   /**
    * Checks touch browser ability (which is used by talkback) is enabled.
@@ -248,7 +268,7 @@ declare namespace accessibility {
    *
    * @param { AbilityType } abilityType The type of the accessibility ability. {@code AbilityType} eg.spoken
    * @param { AbilityState } stateType The state of the accessibility ability.  {@code AbilityState} eg.installed
-   * @param { AsyncCallback<Array<AccessibilityAbilityInfo>> } callback
+   * @param { AccessibilityCallback<Array<AccessibilityAbilityInfo>> } callback
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    * @deprecated since 9
@@ -257,7 +277,7 @@ declare namespace accessibility {
   function getAbilityLists(
     abilityType: AbilityType,
     stateType: AbilityState,
-    callback: AsyncCallback<Array<AccessibilityAbilityInfo>>
+    callback: AccessibilityCallback<Array<AccessibilityAbilityInfo>>
   ): void;
 
   /**
@@ -296,7 +316,7 @@ declare namespace accessibility {
    *
    * @param { AbilityType } abilityType The type of the accessibility ability. {@code AbilityType} eg.spoken
    * @param { AbilityState } stateType The state of the accessibility ability.  {@code AbilityState} eg.installed
-   * @param { AsyncCallback<Array<AccessibilityAbilityInfo>> } callback
+   * @param { AccessibilityCallback<Array<AccessibilityAbilityInfo>> } callback
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -307,7 +327,7 @@ declare namespace accessibility {
   function getAccessibilityExtensionList(
     abilityType: AbilityType,
     stateType: AbilityState,
-    callback: AsyncCallback<Array<AccessibilityAbilityInfo>>
+    callback: AccessibilityCallback<Array<AccessibilityAbilityInfo>>
   ): void;
 
   /**
@@ -328,13 +348,13 @@ declare namespace accessibility {
    * Send accessibility Event.
    *
    * @param { EventInfo } event The object of the accessibility {@code EventInfo} .
-   * @param { AsyncCallback<void> } callback Asynchronous callback interface.
+   * @param { AccessibilityCallback<void> } callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.accessibility#sendAccessibilityEvent
    */
-  function sendEvent(event: EventInfo, callback: AsyncCallback<void>): void;
+  function sendEvent(event: EventInfo, callback: AccessibilityCallback<void>): void;
 
   /**
    * Send accessibility Event.
@@ -352,7 +372,7 @@ declare namespace accessibility {
    * Send accessibility event.
    *
    * @param { EventInfo } event The object of the accessibility {@code EventInfo} .
-   * @param { AsyncCallback<void> } callback Asynchronous callback interface.
+   * @param { AccessibilityCallback<void> } callback Asynchronous callback interface.
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -360,7 +380,7 @@ declare namespace accessibility {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
-  function sendAccessibilityEvent(event: EventInfo, callback: AsyncCallback<void>): void;
+  function sendAccessibilityEvent(event: EventInfo, callback: AccessibilityCallback<void>): void;
 
   /**
    * Send accessibility event.
