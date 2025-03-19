@@ -32,6 +32,7 @@ import image from './@ohos.multimedia.image';
  * @since 12
  */
 
+
 declare namespace effectKit {
 
   /**
