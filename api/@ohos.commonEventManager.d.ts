@@ -2192,7 +2192,7 @@ declare namespace commonEventManager {
      * @systemapi
      * @since 12
      */
-    COMMON_EVENT_BUNDLE_RESOURCES_CHANGED = "usual.event.BUNDLE_RESOURCES_CHANGED",    
+    COMMON_EVENT_BUNDLE_RESOURCES_CHANGED = 'usual.event.BUNDLE_RESOURCES_CHANGED',    
 
     /**
      * This common event means that datashare is ready.
@@ -2224,7 +2224,7 @@ declare namespace commonEventManager {
      * @systemapi
      * @since 13
      */
-    COMMON_EVENT_RESTORE_START = "usual.event.RESTORE_START",
+    COMMON_EVENT_RESTORE_START = 'usual.event.RESTORE_START',
   }
 
   /**
