@@ -20,7 +20,7 @@
 
 
 import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { SideBarContainerAttribute } from '../@ohos.arkui.component.SideBarContainer'
+import { SideBarContainerAttribute } from '../@ohos.arkui.component.Sidebar'
 
 
 

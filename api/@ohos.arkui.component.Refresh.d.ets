@@ -17,8 +17,9 @@
  * @file
  * @kit ArkUI
  */
-import  { Callback, CommonMethod, ComponentContent, CustomBuilder, Optional } from './@ohos.arkui.component.Common';
+import  { Callback, CommonMethod, CustomBuilder, Optional } from './@ohos.arkui.component.Common';
 import  { ResourceStr } from './@ohos.arkui.component.Units';
+import { ComponentContent } from './arkui/ComponentContent'
 
 /**
  * The refresh status of the drop-down refresh.
