@@ -19,7 +19,7 @@
  */
 
 import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { RefreshAttribute } from '../@ohos.arkui.component.RefreshAttribute'
+import { RefreshAttribute } from '../@ohos.arkui.component.Refresh'
 
 
 
