@@ -1702,7 +1702,7 @@ declare namespace rpc {
     writeRemoteObjectArray(objectArray: IRemoteObject[]): void;
 
     /**
-     * Reads a byte value from the {@link MessageParcel} object.
+     * Reads a byte value from the {@link MessageSequence} object.
      *
      * @returns { number } Return a byte value.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
@@ -2130,7 +2130,7 @@ declare namespace rpc {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter is not an instance of the Ashmem object.
-     * @throws { BusinessError } 1900003 - Failed to write data to the shared memory.
+     * @throws { BusinessError } 1900009 - Failed to write data to the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -2965,9 +2965,9 @@ declare namespace rpc {
      * your own service logic when you are using IPC.
      *
      * @param { number } code - Indicates the service request code sent from the peer end.
-     * @param { MessageSequence } data - Indicates the {@link MessageParcel} object sent from the peer end.
+     * @param { MessageSequence } data - Indicates the {@link MessageSequence} object sent from the peer end.
      * @param { MessageSequence } reply - Indicates the response message object sent from the remote service.
-     * The local service writes the response data to the {@link MessageParcel} object.
+     * The local service writes the response data to the {@link MessageSequence} object.
      * @param { MessageOption } options - Indicates whether the operation is synchronous or asynchronous.
      * @returns { boolean | Promise<boolean> }
      * Return a simple boolean which is {@code true} if the operation succeeds;
