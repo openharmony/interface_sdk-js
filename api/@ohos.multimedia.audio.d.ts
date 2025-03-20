@@ -777,6 +777,14 @@ declare namespace audio {
     USB_DEVICE = 25,
 
     /**
+     * Accessory devices, such as the mic on remote control.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 18
+     */
+    ACCESSORY = 26,
+
+    /**
      * HDMI device, such as HDMI, ARC, eARC
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 18
@@ -9379,6 +9387,21 @@ declare namespace audio {
      * @since 12
      */
     off(type: 'readData', callback?: Callback<ArrayBuffer>): void;
+
+    /**
+     * Sets default input device of this Capturer to DEVICE_TYPE_ACCESSORY. 
+     * Other capturers' devices will not be affected by this method.
+     * This method can only be used before the capture stream starts. Besides,
+     * if audio accessory is not connected, this method will report fail. After
+     * calling this function, the input device of this capturer will not be affected
+     * by other interfaces.
+     * @throws { BusinessError } 202 - Caller is not a system application.     
+     * @throws { BusinessError } 6800103 - Operation not permit at current state.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 18
+     */
+    setInputDeviceToAccessory(): void;
   }
 
   /**
