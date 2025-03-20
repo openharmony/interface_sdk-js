@@ -598,9 +598,9 @@ declare namespace camera {
      * @permission ohos.camera.CAMERA_CONTROL
      * @param { boolean } mute - Mute camera if TRUE, otherwise unmute camera.
      * @param { PolicyType } type - Type for indicating the calling role.
-     * @throws { BusinessError } 201 - Permission denied. 
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not System Application.
-     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect. 
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
@@ -5178,7 +5178,7 @@ declare namespace camera {
      * Must choose preconfig type from {@link PreconfigType}.
      *
      * @param { PreconfigType } preconfigType - preconfig type.
-     * @param { PreconfigRatio } preconfigRatio - the aspect ratio of surface for preconfig, 
+     * @param { PreconfigRatio } preconfigRatio - the aspect ratio of surface for preconfig,
      *                                            default value {@link PreconfigRatio#PRECONFIG_RATIO_4_3}.
      * @returns { boolean } Whether the choosed preconfig type can be used.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
@@ -7106,7 +7106,7 @@ declare namespace camera {
    * High resolution session object.
    *
    * @extends Session, AutoExposure, Focus
-   * @interface HighResolutionPhotoSession 
+   * @interface HighResolutionPhotoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12
@@ -7515,7 +7515,7 @@ declare namespace camera {
      *
      * @param { LightPaintingType } type - Light painting type to set.
      * @throws { BusinessError } 202 - Not System Application.
-     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect. 
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -8039,6 +8039,15 @@ declare namespace camera {
     getActiveFrameRate(): FrameRateRange;
 
     /**
+     *
+     * @returns { Profile } The current preconfig type.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    getActiveProfile(): Profile;
+
+    /**
      * Gets the preview rotation angle.
      *
      * @param { number } displayRotation - The current display rotation angle.
@@ -8061,16 +8070,6 @@ declare namespace camera {
       * @since 12
       */
     setPreviewRotation(previewRotation: ImageRotation, isDisplayLocked?: boolean): void;
-
-    /**
-     * Gets the current preconfig type if you had already call preconfig interface.
-     *
-     * @returns { Profile } The current preconfig type.
-     * @throws { BusinessError } 7400201 - Camera service fatal error.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 12
-     */
-    getActiveProfile(): Profile;
 
     /**
      * Adds a deferred surface.
@@ -10314,7 +10313,7 @@ declare namespace camera {
      *
      * @param { Array<MetadataObjectType> } types - Object types to be added.
      * @throws { BusinessError } 202 - Not System Application.
-     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect. 
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -10328,7 +10327,7 @@ declare namespace camera {
      *
      * @param { Array<MetadataObjectType> } types - Object types to be removed.
      * @throws { BusinessError } 202 - Not System Application.
-     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect. 
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
