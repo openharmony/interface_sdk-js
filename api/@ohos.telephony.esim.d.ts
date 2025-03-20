@@ -1123,7 +1123,7 @@ declare namespace eSIM {
      * @systemapi Hide this for inner system use.
      * @since 18
      */
-    RESULT_SERVER_ADDRESS_INVALID = 218,
+    RESULT_SERVER_ADDRESS_INVALID = 216,
 
     /**
      * Failed to obtain the bound profile package.
