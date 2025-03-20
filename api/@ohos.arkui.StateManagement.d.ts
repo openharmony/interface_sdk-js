@@ -55,7 +55,6 @@ export interface TypeConstructorWithArgs<T> {
 /**
  * Define  ConnectOptions class.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @atomicservice
  * @since 18
  */
@@ -63,7 +62,6 @@ export class ConnectOptions<T extends object> {
   /**
    * @type { TypeConstructorWithArgs<T> } type class type of the stored value.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 18
    */
@@ -73,7 +71,6 @@ export class ConnectOptions<T extends object> {
    * Defines alias name of the key, or the function generating the default value.
    * @type { ?string } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 18
   */
@@ -83,7 +80,6 @@ export class ConnectOptions<T extends object> {
    * Define the function generating the default value.
    * @type { ?StorageDefaultCreator<T>} 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 18
   */
@@ -95,7 +91,6 @@ export class ConnectOptions<T extends object> {
    * 
    * @type { ?contextConstant.AreaMode} 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 18
   */
@@ -188,7 +183,6 @@ export declare class PersistenceV2 extends AppStorageV2 {
    * @param { ConnectOptions<T> } type Application level storage parameters.                                     
    * @returns { T | undefined } the value of the existed key or the default value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 18
    */
