@@ -81,7 +81,6 @@
     "SystemCapability.ResourceSchedule.UsageStatistics.App",
     "SystemCapability.ResourceSchedule.UsageStatistics.AppGroup",
     "SystemCapability.PowerManager.DisplayPowerManager",
-    "SystemCapability.PowerManager.DisplayPowerManager.Lite",
     "SystemCapability.BundleManager.DistributedBundleFramework",
     "SystemCapability.DistributedHardware.DistributedHardwareFWK",
     "SystemCapability.Notification.Notification",
