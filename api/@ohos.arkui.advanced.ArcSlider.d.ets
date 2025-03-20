@@ -421,6 +421,18 @@ declare type ArcSliderTouchHandler = (event: TouchEvent) => void;
 declare type ArcSliderChangeHandler = (progress: number) => void;
 
 /**
+ * Handler of ArcSlider, used in OnEnlarge.
+ *
+ * @typedef { function } ArcSliderEnlargeHandler
+ * @param { boolean } isEnlarged - the enlarged type of the ArcSlider.
+ * @syscap SystemCapability.ArkUI.ArkUI.Circle
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+declare type ArcSliderEnlargeHandler = (isEnlarged: boolean) => void;
+
+/**
  * Construct parameter types for ArcSliderOptions.
  *
  * @typedef ArcSliderOptionsConstructorOptions
@@ -495,6 +507,17 @@ interface ArcSliderOptionsConstructorOptions {
    * @since 18
    */
   onChange?: ArcSliderChangeHandler;
+
+  /**
+   * Enlarged type changging triggers the callback.
+   *
+   * @type { ?ArcSliderEnlargeHandler }
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  onEnlarge?: ArcSliderEnlargeHandler;
 }
 
 /**
@@ -578,6 +601,18 @@ declare class ArcSliderOptions {
    */
   @Trace
   onChange?: ArcSliderChangeHandler;
+
+  /**
+   * Enlarged type changging triggers the callback.
+   *
+   * @type { ?ArcSliderEnlargeHandler }
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  @Trace
+  onEnlarge?: ArcSliderEnlargeHandler;
 
   /**
    * The constructor used to create a ArcSliderOptions object.
