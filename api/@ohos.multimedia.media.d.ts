@@ -20,7 +20,7 @@
 
 import { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
 import audio from "./@ohos.multimedia.audio";
-import photoAccessHelper from "./@ohos.file.photoAccessHelper";
+import photoAccessHelper from './@ohos.file.photoAccessHelper'0;
 import type image from './@ohos.multimedia.image';
 import type { SoundPool as _SoundPool } from './multimedia/soundPool';
 import type { PlayParameters as _PlayParameters } from './multimedia/soundPool';
@@ -3198,7 +3198,7 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 5400104 - Time out.
      * @throws { BusinessError } 5400105 - Service died.
-     * @throws { BusinessError } 5400106 - Unsupport format.
+     * @throws { BusinessError } 5400106 - Unsupported format.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
@@ -3215,7 +3215,7 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @throws { BusinessError } 5400104 - Time out.
      * @throws { BusinessError } 5400105 - Service died.
-     * @throws { BusinessError } 5400106 - Unsupport format.
+     * @throws { BusinessError } 5400106 - Unsupported format.
      * @throws { BusinessError } 5411001 - IO can not find host.
      * @throws { BusinessError } 5411002 - IO connection timeout.
      * @throws { BusinessError } 5411003 - IO network abnormal.
@@ -3387,20 +3387,20 @@ declare namespace media {
      * Subscrips listener for audio playback amplitude update event.
      * In each event, an array of amplitude is reported, large index indicates closer to current time.
      * @param { 'amplitudeUpdate' } type - Type of the event to listen for.
-     * @param { Callback<Array<Number>> } callback - Callback used to listen amplitude update event.
+     * @param { Callback<Array<number>> } callback - Callback used to listen amplitude update event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 13
      */
-    on(type: 'amplitudeUpdate', callback: Callback<Array<Number>>): void
+    on(type: 'amplitudeUpdate', callback: Callback<Array<number>>): void
 
     /**
      * UnSubscrips listener for audio playback amplitude update event
      * @param { 'amplitudeUpdate' } type - Type of the event to listen for.
-     * @param { Callback<Array<Number>> } callback - Callback used to listen amplitude update event.
+     * @param { Callback<Array<number>> } callback - Callback used to listen amplitude update event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 13
      */
-    off(type: 'amplitudeUpdate', callback?: Callback<Array<Number>>): void
+    off(type: 'amplitudeUpdate', callback?: Callback<Array<number>>): void
   }
 
   /**
@@ -6915,6 +6915,7 @@ declare namespace media {
      */
     AUTO_CREATE_CAMERA_SCENE = 1,
   }
+
   /**
    * Provides the video recorder configuration definitions.
    *
@@ -7343,17 +7344,7 @@ declare namespace media {
      * @atomicservice
      * @since 12
      */
-    /**
-     * File output uri, support a kind of uri now.
-     * format like: "fd://" + "context".
-     * @type { ?string }
-     * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @crossplatform
-     * @atomicservice
-     * @since 14
-     */
-    url?: string;
-
+    url: string;
     /**
      * Mode of creating recorder file, details see @FileGenerationMode.
      * @type { ?FileGenerationMode }
@@ -8027,7 +8018,7 @@ declare namespace media {
      * @since 12
      */
     videoFrameWidth?: number;
-
+ 
     /**
      * Indicates the video height.
      * @type { ?number }
@@ -8036,7 +8027,7 @@ declare namespace media {
      */
     videoFrameHeight?: number;
   }
-
+ 
   /**
    * Transcode a source video file to a destination video file.
    * Before calling an AVTranscoder method, you must use @createAVTranscoder
@@ -8150,7 +8141,7 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 5400104 - Time out.
      * @throws { BusinessError } 5400105 - Service died.
-     * @throws { BusinessError } 5400106 - Unsupport format.
+     * @throws { BusinessError } 5400106 - Unsupported format.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 12
      */
