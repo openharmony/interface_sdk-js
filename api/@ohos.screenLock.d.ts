@@ -226,26 +226,46 @@ declare namespace screenLock {
   enum StrongAuthReasonFlags {
     /**
      * Indicates that there are no strong authentication reason flags.
+     *
+     * @syscap SystemCapability.MiscServices.ScreenLock
+     * @systemapi Hide this for inner system use.
+     * @since 12
      */
     NONE = 0x00000000,
 
     /**
      * Indicates the strong authentication reason requested after boot.
+     * 
+     * @syscap SystemCapability.MiscServices.ScreenLock
+     * @systemapi Hide this for inner system use.
+     * @since 12
      */
     AFTER_BOOT = 0x00000001,
 
     /**
      * Indicates the strong authentication reason requested after timeout.
+     * 
+     * @syscap SystemCapability.MiscServices.ScreenLock
+     * @systemapi Hide this for inner system use.
+     * @since 12
      */
     AFTER_TIMEOUT = 0x00000002,
  
     /**
      * Indicates the strong authentication reason requested by active request.
+     * 
+     * @syscap SystemCapability.MiscServices.ScreenLock
+     * @systemapi Hide this for inner system use.
+     * @since 12
      */
     ACTIVE_REQUEST = 0x00000004,
 
     /**
      * Indicates the strong authentication reason requested by policy restriction.
+     * 
+     * @syscap SystemCapability.MiscServices.ScreenLock
+     * @systemapi Hide this for inner system use.
+     * @since 12
      */
     POLICY_RESTRICTION = 0x00000008
   }
@@ -261,36 +281,64 @@ declare namespace screenLock {
   enum AuthState {
     /**
      * Indicates the screen lock is not authenticated.
+     * 
+     * @syscap SystemCapability.MiscServices.ScreenLock
+     * @systemapi Hide this for inner system use.
+     * @since 12
      */
     NOT_AUTHED = 0,
 
     /**
      * Indicates the screen lock is pre authenticated by credential.
+     * 
+     * @syscap SystemCapability.MiscServices.ScreenLock
+     * @systemapi Hide this for inner system use.
+     * @since 12
      */
     PRE_AUTHED_BY_CREDENTIAL = 1,
 
     /**
      * Indicates the screen lock is pre authenticated by fingerprint.
+     * 
+     * @syscap SystemCapability.MiscServices.ScreenLock
+     * @systemapi Hide this for inner system use.
+     * @since 12
      */
     PRE_AUTHED_BY_FINGERPRINT = 2,
 
     /**
      * Indicates the screen lock is pre authenticated by face.
+     * 
+     * @syscap SystemCapability.MiscServices.ScreenLock
+     * @systemapi Hide this for inner system use.
+     * @since 12
      */
     PRE_AUTHED_BY_FACE = 3,
 
     /**
      * Indicates the screen lock is authenticated by credential.
+     * 
+     * @syscap SystemCapability.MiscServices.ScreenLock
+     * @systemapi Hide this for inner system use.
+     * @since 12
      */
     AUTHED_BY_CREDENTIAL = 4,
 
     /**
      * Indicates the screen lock is authenticated by fingerprint.
+     * 
+     * @syscap SystemCapability.MiscServices.ScreenLock
+     * @systemapi Hide this for inner system use.
+     * @since 12
      */
     AUTHED_BY_FINGERPRINT = 5,
 
     /**
      * Indicates the screen lock is authenticated by face.
+     * 
+     * @syscap SystemCapability.MiscServices.ScreenLock
+     * @systemapi Hide this for inner system use.
+     * @since 12
      */
     AUTHED_BY_FACE = 6,
   }
