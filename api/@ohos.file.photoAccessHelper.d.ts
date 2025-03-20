@@ -5340,6 +5340,16 @@ declare namespace photoAccessHelper {
      * @since 14
      */
     completeButtonText?: CompleteButtonText;
+
+    /**
+     * user id
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 18
+     */
+    userId?: number;
   }
 
   /**
