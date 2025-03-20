@@ -8044,7 +8044,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
-    */
+     */
     getActiveProfile(): Profile;
 
     /**
