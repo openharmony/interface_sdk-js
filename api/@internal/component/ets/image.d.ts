@@ -1037,6 +1037,17 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   dynamicRangeMode(value: DynamicRangeMode): ImageAttribute;
 
   /**
+   * Set hdrBrightness for Image.
+  *
+  * @param { number } brightness - control the brightness of HDR Image
+  * @returns { ImageAttribute }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @atomicservice
+  * @since 20
+  */
+ hdrBrightness(brightness: number): ImageAttribute;
+
+  /**
    * Sets the interpolation effect of an image. The interpolation effect is only magnified for the image.
    *
    * @param { ImageInterpolation } value
