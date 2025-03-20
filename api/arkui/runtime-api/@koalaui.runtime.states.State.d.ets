@@ -93,7 +93,9 @@ export declare interface StateContext {
         create?: () => IncrementalNode,
         compute?: () => Value,
         cleanup?: (value: Value | undefined) => void,
-        once?: boolean): InternalScope<Value>
+        once?: boolean,
+        reuseKey?: string
+    ): InternalScope<Value>
     controlledScope(id: KoalaCallsiteKey, invalidate: () => void): ControlledScope
 }
 export declare interface ValueTracker<Value> {

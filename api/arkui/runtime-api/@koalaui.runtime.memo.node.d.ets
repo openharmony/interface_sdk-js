@@ -18,14 +18,16 @@ import { uint32, KoalaCallsiteKey } from '@koalaui.runtime.common'
 import { IncrementalNode } from '@koalaui.runtime.tree.IncrementalNode'
 import { StateContext } from '@koalaui.runtime.states.State'
 @memo_intrinsic export declare function NodeAttach<Node extends IncrementalNode>(
-    create: () => Node, @memo update: (node: Node) => void): void
+    create: () => Node, @memo update: (node: Node) => void, reuseKey?: string): void
 @memo_intrinsic export declare function contextNode<T extends IncrementalNode>(kind: uint32 = 1, name?: string): T
 export declare function NodeAttach<Node extends IncrementalNode>(
     __memo_context: StateContext,
     __memo_id: KoalaCallsiteKey,
     create: () => Node,
     update: (__memo_context: StateContext,
-    __memo_id: KoalaCallsiteKey, node: Node) => void): void
+        __memo_id: KoalaCallsiteKey, node: Node) => void,
+    reuseKey?: string
+): void
 export declare function contextNode<T extends IncrementalNode>(
     __memo_context: StateContext,
     __memo_id: KoalaCallsiteKey,
