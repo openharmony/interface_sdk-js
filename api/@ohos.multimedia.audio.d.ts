@@ -775,14 +775,18 @@ declare namespace audio {
      * @since 18
      */
     USB_DEVICE = 25,
-
     /**
      * HDMI device, such as HDMI, ARC, eARC
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 18
      */
     HDMI = 27,
-
+    /**
+     * Line connected digital output device, such as s/pdif
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 18
+     */
+    LINE_DIGITAL = 28,
     /**
      * Distributed virtualization audio device.
      * @syscap SystemCapability.Multimedia.Audio.Device
