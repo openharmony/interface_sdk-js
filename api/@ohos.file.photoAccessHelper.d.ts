@@ -2362,7 +2362,30 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 18
      */
-    IS_CE_AUTO = 'is_auto'
+    IS_CE_AUTO = 'is_auto',
+    /**
+     * Owner album id of the asset, read only
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 18
+     */
+    OWNER_ALBUM_ID = 'owner_album_id',
+    /**
+     * Recentshow state of the asset, read only
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 18
+     */
+    IS_RECENT_SHOW = 'is_recent_show',
+    /**
+     * Suffix of the asset, read only
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 18
+     */
+    MEDIA_SUFFIX = 'media_suffix'
 
   }
 
@@ -2417,7 +2440,23 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 18
      */
-    ALBUM_LPATH = 'lpath'
+    ALBUM_LPATH = 'lpath',
+    /**
+     * Album bundle name
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 18
+     */
+    BUNDLE_NAME = 'bundle_name',
+    /**
+     * Modified date of the album
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 18
+     */
+    DATE_MODIFIED = 'date_modified',
   }
 
   /**
@@ -2646,6 +2685,53 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     requestPhotoType?: RequestPhotoType;
+  }
+
+  /**
+   * CreationSource of the asset
+   *
+   * @interface PhotoCreationSource
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 18
+   */
+  interface PhotoCreationSource {
+    /**
+     * BundleName of the asset
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 18
+     */
+    bundleName?: string;
+    /**
+     * AppName of the asset
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 18
+     */
+    appName?: string;
+    /**
+     * AppId of the asset
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 18
+     */
+    appId?: string;
+    /**
+     * TokenId of the asset
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 18
+     */
+    tokenId?: number;
   }
 
   /**
@@ -3034,6 +3120,14 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     SYSTEM = 1024,
+    /**
+     * Album created by app.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 18
+     */
+    SOURCE = 2048,
     /**
      * Album created by smart abilities.
      *
@@ -3534,6 +3628,26 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     readonly videoCount?: number;
+    /**
+     * Album dateAdded
+     *
+     * @type { ?number }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 18
+     */
+    readonly dateAdded?: number;
+    /**
+     * Album dateModified
+     *
+     * @type { ?number }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 18
+     */
+    readonly dateModified?: number;
     /**
      * Modify metadata for the album
      *
@@ -4818,7 +4932,42 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 18
      */
-    startAssetAnalysis(type: AnalysisType, assetUris?: Array<string>): Promise<number>; 
+    startAssetAnalysis(type: AnalysisType, assetUris?: Array<string>): Promise<number>;
+    /**
+     * Fetch albums by albumIds
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { Array<number> } albumIds - List of albumId
+     * @returns { Promise<Map<number, Album>> } - Return the map of albums
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 18
+     */
+    getAlbumsByIds(albumIds: Array<number>): Promise<Map<number, Album>>;
+    /**
+     * Create assets in the album and grant save permission to the app
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { PhotoCreationSource } source - photo asset creation source
+     * @param { string } albumUri - URI of the album.
+     * @param { boolean } isAuthorized - Is grant save permission to the app
+     * @param { Array<PhotoCreationConfig> } photoCreationConfigs - List of the photo asset creation configs
+     * @returns { Promise<Array<string>> } - Returns the media library file uri list to application which has been authorized
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 18
+     */
+    createAssetsForAppWithAlbum(source: PhotoCreationSource, albumUri: string, isAuthorized: boolean, photoCreationConfigs: Array<PhotoCreationConfig>): Promise<Array<string>>;
   }
 
   /**
@@ -6440,6 +6589,20 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     setUserComment(userComment: string): void;
+
+    /**
+     * Set recentShow state of the asset.
+     *
+     * @param { boolean } isRencentShow - the new recentShow state of the asset
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 18
+     */
+    setIsRecentShow(isRencentShow: boolean): void;
   }
 
   /**
