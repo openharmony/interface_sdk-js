@@ -396,7 +396,7 @@ declare namespace pasteboard {
    * @atomicservice
    * @since 11
    */
-  interface PasteDataProperty {
+  export interface PasteDataProperty {
     /**
      * additional property data. key-value pairs.
      * @type { object }
@@ -486,7 +486,8 @@ declare namespace pasteboard {
      * @atomicservice
      * @since 11
      */
-    shareOption: ShareOption;
+    // shareOption: ShareOption; // TODO: now enum is not support^M
+    shareOption: number;
   }
 
   /**
@@ -502,7 +503,7 @@ declare namespace pasteboard {
    * @atomicservice
    * @since 11
    */
-  interface PasteDataRecord {
+  export interface PasteDataRecord {
     /**
      * HTML text in a record.
      * @type { string }
@@ -688,7 +689,7 @@ declare namespace pasteboard {
    * @atomicservice
    * @since 11
    */
-  interface PasteData {
+  export interface PasteData {
     /**
      * Adds a Record for HTML text to a PasteData object, and updates the MIME type to PasteData#MIMETYPE_TEXT_HTML in DataProperty.
      * @param { string } htmlText - To save the Html text content.
@@ -1114,7 +1115,7 @@ declare namespace pasteboard {
    * @atomicservice
    * @since 11
    */
-  interface SystemPasteboard {
+  export interface SystemPasteboard {
     /**
      * Callback invoked when pasteboard content changes.
      * @param { 'update' } type - indicates pasteboard content changed.
