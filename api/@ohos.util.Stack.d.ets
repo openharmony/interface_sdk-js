@@ -87,16 +87,16 @@ declare class Stack<T> {
   pop(): T | undefined;
 
   /**
-   * Pushes an item onto the top of this stack
+   * Pushes an element onto the top of this stack
    *
-   * @param { T } item - item to be appended to this Stack
+   * @param { T } element - element to be appended to this Stack
    * @returns { T } the T type
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  push(item: T): T;
+  push(element: T): T;
 
   /**
    * Returns the 1-based position where an object is on this stack
