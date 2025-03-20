@@ -2485,7 +2485,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#getLastWindow
    */
-  export function getTopWindow(callback: AsyncCallbackWindow): void;
+  export function getTopWindow(callback: AsyncCallback<Window>): void;
 
   /**
    * Get the final show window.
@@ -5897,7 +5897,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    bindDialogTarget(token: dialogRequest.RequestInfo, deathCallback: Callback<void>): Promise<void>;
+    bindDialogTarget(requestInfo: dialogRequest.RequestInfo, deathCallback: Callback<void>): Promise<void>;
 
     /**
      * Bind dialog to the target window.
