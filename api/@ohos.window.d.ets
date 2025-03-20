@@ -2485,7 +2485,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#getLastWindow
    */
-  export function getTopWindow(ctx: BaseContext | AsyncCallback<Window>): undefined | Promise<Window>;
+  export function getTopWindow(callback: AsyncCallbackWindow): void;
 
   /**
    * Get the final show window.
@@ -2499,6 +2499,18 @@ declare namespace window {
    */
   export function getTopWindow(): Promise<Window>;
 
+  /**
+   * Get the final show window.
+   *
+   * @param { BaseContext } ctx - Indicates the context on which the window depends
+   * @returns { Promise<Window> } Promise used to return the top window obtained.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.window#getLastWindow
+   */
+  export function getTopWindow(ctx: BaseContext): Promise<Window>;
+ 
   /**
    * Get the final show window.
    *
@@ -4856,6 +4868,7 @@ declare namespace window {
      * @atomicservice
      * @since 11
      */
+    loadContent(path:string, storage:LocalStorage, callback:AsyncCallback<void>):void;
 
     /**
      * Loads content
@@ -4902,6 +4915,7 @@ declare namespace window {
      * @atomicservice
      * @since 11
      */
+    loadContent(path:string, storage:LocalStorage):Promise<void>;
 
     /**
      * Loads content
@@ -4913,6 +4927,7 @@ declare namespace window {
      * @deprecated since 9
      * @useinstead ohos.window.Window#setUIContent
      */
+    loadContent(path:string, callback:AsyncCallback<void>):void;
 
     /**
      * Loads content
@@ -4924,8 +4939,7 @@ declare namespace window {
      * @deprecated since 9
      * @useinstead ohos.window.Window#setUIContent
      */
-    loadContent(path: string, storageOrCallback?: LocalStorage | AsyncCallback<void>,
-        callbackForStorage?: AsyncCallback<void>): undefined | Promise<void>;
+    loadContent(path:string): Promise<void>;
 
     /**
      * Get the UIContext associate with the window content.
@@ -5825,6 +5839,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
+    bindDialogTarget(token: rpc.RemoteObject, deathCallback: Callback<void>): Promise<void>;
 
     /**
      * Bind dialog to the target window.
@@ -5853,6 +5868,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
+    bindDialogTarget(token: rpc.RemoteObject, deathCallback: Callback<void>, callback: AsyncCallback<void>): void;
 
     /**
      * Bind dialog to the target window.
@@ -5881,6 +5897,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
+    bindDialogTarget(token: dialogRequest.RequestInfo, deathCallback: Callback<void>): Promise<void>;
 
     /**
      * Bind dialog to the target window.
@@ -5909,8 +5926,11 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    bindDialogTarget(requestInfoOrToken: rpc.RemoteObject | dialogRequest.RequestInfo, deathCallback: Callback<void>,
-        callback?: AsyncCallback<void>): undefined | Promise<void>;
+    bindDialogTarget(
+      requestInfo: dialogRequest.RequestInfo,
+      deathCallback: Callback<void>,
+      callback: AsyncCallback<void>
+    ): void;
 
     /**
      * Set whether the dialog window responds to back gesture.
