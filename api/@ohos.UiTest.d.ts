@@ -149,7 +149,6 @@ declare enum MatchPattern {
    * Matches the given value using a regular expression, which is case sensitive.
    *
    * @syscap SystemCapability.Test.UiTest
-   * @crossplatform
    * @atomicservice
    * @since 18
    */
@@ -158,7 +157,6 @@ declare enum MatchPattern {
    * Matches the given value using a regular expression, which is case insensitive.
    *
    * @syscap SystemCapability.Test.UiTest
-   * @crossplatform
    * @atomicservice
    * @since 18
    */
@@ -2197,7 +2195,6 @@ declare class On {
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
-   * @crossplatform
    * @atomicservice
    * @since 18
    * @test
@@ -2211,7 +2208,6 @@ declare class On {
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
-   * @crossplatform
    * @atomicservice
    * @since 18
    * @test
@@ -2225,7 +2221,6 @@ declare class On {
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
-   * @crossplatform
    * @atomicservice
    * @since 18
    * @test
@@ -3119,7 +3114,6 @@ declare class Component {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
-   * @crossplatform
    * @atomicservice
    * @since 18
    * @test
