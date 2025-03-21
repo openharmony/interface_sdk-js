@@ -159,18 +159,35 @@ declare namespace socket {
   function off(type: 'sppRead', clientSocket: number, callback?: Callback<ArrayBuffer>): void;
 
   /**
-   * Unsubscribe the event reported when data is read from the socket.
+   * Asynchronous interface for writing data to the socket.
    *
-   * @param { 'sppReadAsync' } type - Type of the spp read event to listen for.
-   * @param { number } clientSocket - Client socket ID, which is obtained by sppAccept or sppConnect.
-   * @param { Callback<ArrayBuffer> } callback - Callback used to listen for the spp read event.
+   * @param { number } clientSocket - Indicates the client socket ID, returned by {@link sppAccept} or {@link sppConnect}.
+   * @param { ArrayBuffer } data - Indicates the data to write.
+   * @returns { Promise<void> } Returns the promise object.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2901054 - IO error.
+   * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
+   * @since 16
    */
-  function off(type: 'sppRead', clientSocket: number, callback?: Callback<ArrayBuffer>): void;
+  function sppWriteAsync(clientSocket: number, data: ArrayBuffer): Promise<void>;
+
+  /**
+   * Asynchronous interface for reading data from the socket.
+   *
+   * @param { number } clientSocket - Indicates the client socket ID, returned by {@link sppAccept} or {@link sppConnect}.
+   * @returns { Promise<ArrayBuffer> } Returns the promise object, used to get the spp read data.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2901054 - IO error.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 16
+   */
+  function sppReadAsync(clientSocket: number): Promise<ArrayBuffer>;
 
   /**
    * Describes the spp parameters.
