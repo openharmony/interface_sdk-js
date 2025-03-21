@@ -5119,6 +5119,41 @@ declare namespace photoAccessHelper {
     MOVING_PHOTO_IMAGE_TYPE = 'image/movingPhoto'
   }
 
+    /**
+     * Enumeration type of single selection mode
+     *
+     * @enum { number } SingleSelectionMode
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 18
+     */
+  export enum SingleSelectionMode {
+    /**
+     * browser mode
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 18
+     */
+    BROWSER_MODE = 0,
+    /**
+     * select directly mode
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 18
+     */
+    SELECT_MODE = 1,
+    /**
+     * browser and select mode
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 18
+     */
+    BROWSER_AND_SELECT_MODE = 2
+  }
+
   /**
    * Class BaseSelectOptions, which is extracted from class PhotoSelectOptions
    *
@@ -5266,6 +5301,16 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     isPreviewForSingleSelectionSupported?: boolean;
+
+    /**
+     * The mode of single selection
+     *
+     * @type { ?SingleSelectionMode }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 18
+     */
+    singleSelectionMode?: SingleSelectionMode;
   }
 
   /**
