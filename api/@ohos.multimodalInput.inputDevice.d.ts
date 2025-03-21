@@ -683,11 +683,11 @@ declare namespace inputDevice {
    * @param { number } functionKey - Function key.
    * @param { boolean } enabled - Whether to enable or disable the function key.
    * @returns { Promise<void> } Returns the result through a promise.
-   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 3900002 - There is currently no keyboard device connected.
-   * @throws { BusinessError } 3900003 - it is prohibited for non-input applications
+   * @throws { BusinessError } 3900003 - It is prohibited for non-input applications.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 15
    */
