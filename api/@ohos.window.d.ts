@@ -10168,6 +10168,7 @@ declare namespace window {
   /**
    * Rotation change type
    *
+   * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 18
@@ -10176,7 +10177,6 @@ declare namespace window {
     /**
      * Rotation will begin
      *
-     * @enum { number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18
@@ -10279,7 +10279,7 @@ declare namespace window {
     /**
      * Rect type
      *
-     * @enum { RectType }
+     * @type { RectType }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18
