@@ -17,8 +17,9 @@
  * @file
  * @kit ArkUI
  */
-import  { CommonMethod, ComponentContent, CustomBuilder, SymbolGlyphModifier } from './@ohos.arkui.component.Common';
+import  { CommonMethod, ComponentContent, CustomBuilder } from './@ohos.arkui.component.Common';
 import  { TextHeightAdaptivePolicy, TextOverflow,VerticalAlign } from './@ohos.arkui.component.Enums';
+import  { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier'
 import  { Dimension, Font, Length, LocalizedPadding, Padding, Resource, ResourceColor, ResourceStr, VoidCallback } from './@ohos.arkui.component.Units';
 
 /**
