@@ -3721,7 +3721,7 @@ declare namespace window {
   type SpecificSystemBar = 'status' | 'navigation' | 'navigationIndicator';
 
   /**
-   * The infomation of keyboard
+   * The information of keyboard
    *
    * @interface KeyboardInfo
    * @syscap SystemCapability.Window.SessionManager
