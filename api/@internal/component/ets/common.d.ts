@@ -17159,6 +17159,28 @@ declare interface ContextMenuOptions {
   enableHoverMode?: boolean;
 
   /**
+    * The color of menu's outer border.
+    *
+    * @type { ?(ResourceColor | EdgeColors) }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 18
+    */
+  outlineColor?: ResourceColor | EdgeColors;
+
+  /**
+    * The width of menu's outer border.
+    *
+    * @type { ?(Dimension | EdgeOutlineWidths) }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 18
+    */
+  outlineWidth?: Dimension | EdgeOutlineWidths;
+
+  /**
    * Defines the haptic feedback mode of menu.
    *
    * @type { ?HapticFeedbackMode }
