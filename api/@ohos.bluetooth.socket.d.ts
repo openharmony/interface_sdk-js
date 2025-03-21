@@ -159,6 +159,20 @@ declare namespace socket {
   function off(type: 'sppRead', clientSocket: number, callback?: Callback<ArrayBuffer>): void;
 
   /**
+   * Unsubscribe the event reported when data is read from the socket.
+   *
+   * @param { 'sppReadAsync' } type - Type of the spp read event to listen for.
+   * @param { number } clientSocket - Client socket ID, which is obtained by sppAccept or sppConnect.
+   * @param { Callback<ArrayBuffer> } callback - Callback used to listen for the spp read event.
+   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 10
+   */
+  function off(type: 'sppRead', clientSocket: number, callback?: Callback<ArrayBuffer>): void;
+
+  /**
    * Describes the spp parameters.
    *
    * @typedef SppOptions
