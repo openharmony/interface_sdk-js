@@ -717,7 +717,7 @@ declare namespace deviceInfo {
    * @crossplatform
    * @since 18
    */
-  const performanceClass: number;
+  const performanceClass: PerformanceClassLevel;
 }
 
 export default deviceInfo;
