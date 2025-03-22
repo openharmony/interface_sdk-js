@@ -687,6 +687,29 @@ declare namespace deviceInfo {
    */
   const diskSN: string;
 
+/**
+   * Performance Class level of a device.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 18
+   */
+  export enum PerformanceClassLevel {
+    /**
+     * Device Capability Level is high.
+     */
+    CLASS_LEVEL_HIGH,
+    /**
+     * Device Capability Level is medium.
+     */
+    CLASS_LEVEL_MEDIUM,
+    /**
+     * Device Capability Level is low.
+     */
+    CLASS_LEVEL_LOW
+  }
+
+
   /**
    * Obtaining the performance class.
    *
