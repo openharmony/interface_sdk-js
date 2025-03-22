@@ -687,13 +687,13 @@ declare namespace text {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 20
      */
-    TEXT_SUPER_SCRIPT,
+    TEXT_SUPERSCRIPT,
     /**
      * Sub badge.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 20
      */
-    TEXT_SUB_SCRIPT,
+    TEXT_SUBSCRIPT,
   }
 
   /**
@@ -869,7 +869,7 @@ declare namespace text {
      * Text style available badge type.
      * @type { ?TextBadgeType } The type of text badge type.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 20
      */
     badgeType?: TextBadgeType;
   }
