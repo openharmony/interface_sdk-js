@@ -709,7 +709,6 @@ declare namespace deviceInfo {
     CLASS_LEVEL_LOW
   }
 
-
   /**
    * Obtaining the performance class.
    *
