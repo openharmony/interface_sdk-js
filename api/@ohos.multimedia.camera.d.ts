@@ -9066,7 +9066,7 @@ declare namespace camera {
      * The method must be called after Session.addInput() and Session.addOutput(photoOutput) are called.
      * To avoid stream reconfiguration and performance loss,
      * you are advised to call the method before Session.commitConfig().
-     * 
+     *
      * @param { boolean } enabled - The value TRUE means to enable quick thumbnail, and FALSE means the opposite.
      * @throws { BusinessError } 7400104 - session is not running.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -9078,7 +9078,7 @@ declare namespace camera {
      * The method must be called after Session.addInput() and Session.addOutput(photoOutput) are called.
      * To avoid stream reconfiguration and performance loss,
      * you are advised to call the method before Session.commitConfig().
-     * 
+     *
      * @param { boolean } enabled - The value TRUE means to enable quick thumbnail, and FALSE means the opposite.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
