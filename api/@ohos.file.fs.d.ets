@@ -18,8 +18,9 @@
  * @kit CoreFileKit
  */
 
-import type { AsyncCallback } from './@ohos.base';
+import { AsyncCallback } from './@ohos.base';
 import stream from './@ohos.util.stream';
+
 export default fileIo;
 
 /**
@@ -129,12 +130,15 @@ declare namespace fileIo {
   export { Stream };
   export { ReadStream };
   export { WriteStream };
+  export { Watcher };
   export { WhenceType };
+  export { TaskSignal };
   export { connectDfs };
   export { disconnectDfs };
-  export type { Progress };
-  export type { CopyOptions };
-  export type { ProgressListener };
+  export { Progress };
+  export { CopyOptions };
+  export { ProgressListener };
+  export type { DfsListeners };
 
   /**
    * Mode Indicates the open flags.
@@ -1016,12 +1020,70 @@ declare function copyDir(src: string, dest: string, mode?: number): Promise<void
  *
  * @param { string } src - source path.
  * @param { string } dest - destination path.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ */
+declare function copyDir(src: string, dest: string, callback: AsyncCallback<void>): void;
+
+/**
+ * Copy directory.
+ *
+ * @param { string } src - source path.
+ * @param { string } dest - destination path.
  * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Return the callback function.
  * @throws { BusinessError } 13900015 - File exists
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
  */
-declare function copyDir(src: string, dest: string, callback: AsyncCallback<void>): void;
+declare function copyDir(src: string, dest: string, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
+
+
+/**
+ * Copy directory.
+ *
+ * @param { string } src - source path.
+ * @param { string } dest - destination path.
+ * @param { number } mode - mode.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ */
+declare function copyDir(src: string, dest: string, mode: number, callback: AsyncCallback<void>): void;
 
 /**
  * Copy directory.
@@ -1034,7 +1096,8 @@ declare function copyDir(src: string, dest: string, callback: AsyncCallback<void
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
  */
-declare function copyDir(src: string, dest: string, mode: number, callback: AsyncCallback<void>): void;
+declare function copyDir(src: string, dest: string, mode: number, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
+
 /**
  * Copy directory with sync interface.
  *
@@ -3086,12 +3149,71 @@ declare function moveDir(src: string, dest: string, mode?: number): Promise<void
  *
  * @param { string } src - source file path.
  * @param { string } dest - destination file path.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900016 - Cross-device link
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900028 - Too many links
+ * @throws { BusinessError } 13900032 - Directory not empty
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ */
+declare function moveDir(src: string, dest: string, callback: AsyncCallback<void>): void;
+
+/**
+ * Move directory.
+ *
+ * @param { string } src - source file path.
+ * @param { string } dest - destination file path.
  * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Return the callback function.
  * @throws { BusinessError } 13900015 - File exists
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
  */
-declare function moveDir(src: string, dest: string, callback: AsyncCallback<void>): void;
+declare function moveDir(src: string, dest: string, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
+
+/**
+ * Move directory.
+ *
+ * @param { string } src - source file path.
+ * @param { string } dest - destination file path.
+ * @param { number } mode - move mode when duplicate file name exists.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900016 - Cross-device link
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900028 - Too many links
+ * @throws { BusinessError } 13900032 - Directory not empty
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ */
+declare function moveDir(src: string, dest: string, mode: number, callback: AsyncCallback<void>): void;
 
 /**
  * Move directory.
@@ -3104,7 +3226,7 @@ declare function moveDir(src: string, dest: string, callback: AsyncCallback<void
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
  */
-declare function moveDir(src: string, dest: string, mode: number, callback: AsyncCallback<void>): void;
+declare function moveDir(src: string, dest: string, mode: number, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
 
 /**
  * Move directory with sync interface.
@@ -6408,7 +6530,7 @@ interface Progress {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
-export class TaskSignal {
+declare class TaskSignal {
   /**
    * Cancel the copy task in progress.
    *
@@ -6418,8 +6540,7 @@ export class TaskSignal {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 12
    */
-  cancel(): void{
-  }
+  cancel(): void;
 
   /**
    * Subscribe the cancel event of current task.
@@ -6431,9 +6552,7 @@ export class TaskSignal {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 12
    */
-  onCancel(): Promise<string>{
-    return Promise.resolve("直接返回已解决的 Promise")
-  }
+  onCancel(): Promise<string>;
 }
 
 /**
@@ -8057,7 +8176,7 @@ declare interface Stream {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
  */
-export interface WatchEventListener {
+export type WatchEventListener = (event: WatchEvent) => void;
   /**
    * Specifies the callback function to be invoked.
    *
@@ -8065,8 +8184,6 @@ export interface WatchEventListener {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
    */
-  foo(event: WatchEvent): void;
-}
 
 /**
  * Event Listening.
@@ -8114,7 +8231,7 @@ export interface WatchEvent {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
  */
-export interface Watcher {
+interface Watcher {
   /**
    * Start watcher.
    *
