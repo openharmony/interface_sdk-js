@@ -725,7 +725,6 @@ declare namespace deviceInfo {
   /**
    * Obtaining the performance class.
    *
-   * @type { PerformanceClassLevel }
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 18
