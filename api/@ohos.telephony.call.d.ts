@@ -5659,7 +5659,7 @@ declare namespace call {
    * @returns { Promise<boolean> } Returns the result of send ussd.
    * Returns {@code true} if the call request is successful; returns {@code false} otherwise.
    * Note that the value {@code true} indicates only the successful processing of the request; it does not mean
-   * that the ussd is rendRequest to modem.
+   * that the ussd is sendRequest to modem.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
