@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (The type of "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -60,6 +60,8 @@ declare namespace buffer {
    * @atomicservice
    * @since 20
    */
+  type TypedArray = Int8Array;
+
   /**
    * Allocates a new Buffer for a fixed size bytes. If fill is undefined, the Buffer will be zero-filled.
    *
@@ -127,7 +129,7 @@ declare namespace buffer {
    * @since 20
    */
   function byteLength(
-    doc: string | Buffer | DataView | ArrayBuffer,
+    doc: string | Buffer | TypedArray | DataView | ArrayBuffer,
     encoding?: BufferEncoding
   ): number;
 
@@ -196,7 +198,7 @@ declare namespace buffer {
    * @atomicservice
    * @since 20
    */
-  function from(buffer: Buffer | Uint8Array): Buffer;
+  function from(buff: Buffer | Uint8Array): Buffer;
 
   /**
    * For the object whose value returned by valueof() function is strictly equal to object
@@ -310,7 +312,7 @@ declare namespace buffer {
      * @atomicservice
      * @since 20
      */
-    length: number;
+    get length(): number;
 
     /**
      * The underlying ArrayBuffer object based on which this Buffer object is created.
@@ -322,7 +324,7 @@ declare namespace buffer {
      * @atomicservice
      * @since 20
      */
-    buffer: ArrayBuffer;
+    get buffer(): ArrayBuffer;
 
     /**
      * The byteOffset of the Buffers underlying ArrayBuffer object
@@ -334,7 +336,7 @@ declare namespace buffer {
      * @atomicservice
      * @since 20
      */
-    byteOffset: number;
+    get byteOffset(): number;
 
     /**
      * Fills buf with the specified value. If the offset and end are not given, the entire buf will be filled.
@@ -1322,6 +1324,37 @@ declare namespace buffer {
   }
 
   /**
+   * Defines the Blob related options parameters.
+   *
+   * @interface BlobOptions
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  interface BlobOptions {
+    /**
+     * Blob content type. The default parameter is' '.
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    type: string;
+
+    /**
+     * How to output a string ending with '\ n' as' transparent or native . The default value is transparent.
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    endings: string;
+  };
+
+  /**
    * Process data as blob type
    *
    * @syscap SystemCapability.Utils.Lang
@@ -1335,7 +1368,7 @@ declare namespace buffer {
      *
      * @param { string[] | ArrayBuffer[] | TypedArray[] | DataView[] | Blob[] } sources - sources sources An array of string, <ArrayBuffer>,
      * <TypedArray>, <DataView>, or <Blob> objects, or any mix of such objects, that will be stored within the Blob
-     * @param { Object } [options] - options options {endings: string, type: string}
+     * @param { BlobOptions } [options] - options options {endings: string, type: string}
      *                 endings:  One of either 'transparent' or 'native'.
      *                 type: The Blob content-type
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1346,7 +1379,7 @@ declare namespace buffer {
      * @atomicservice
      * @since 20
      */
-    constructor(sources: string[] | ArrayBuffer[] | DataView[] | Blob[], options?: Object);
+    constructor(sources: string[] | ArrayBuffer[] | TypedArray[] | DataView[] | Blob[], options?: BlobOptions)
 
     /**
      * The total size of the Blob in bytes
