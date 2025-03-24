@@ -3876,7 +3876,7 @@ export class UIContext {
 
   /**
    * Create a UI instance singleton without window and get its UIContext object.
-   * 
+   *
    * @param { common.UIAbilityContext | common.ExtensionContext } context - UIAbilityContext or ExtensionContext.
    * @returns { UIContext | undefined } object UIContext, or undefined when failed.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -3885,7 +3885,7 @@ export class UIContext {
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   static createUIContextWithoutWindow(context: common.UIAbilityContext | common.ExtensionContext) : UIContext | undefined;
 
@@ -3894,7 +3894,7 @@ export class UIContext {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   static destroyUIContextWithoutWindow(): void;
 }
