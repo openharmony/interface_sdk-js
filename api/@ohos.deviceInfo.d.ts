@@ -692,6 +692,7 @@ declare namespace deviceInfo {
    *
    * @enum { number }
    * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
    * @since 18
    */
   export enum PerformanceClassLevel {
