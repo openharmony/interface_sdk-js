@@ -16,13 +16,13 @@
 
 // WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
 
-import { memo, ComponentBuilder } from "./../stateManagement/runtime"
-import { ButtonType } from "./button"
-import { ClickEvent } from "./common"
-import { SecurityComponentMethod, SecurityComponentLayoutDirection } from "./securityComponent"
-import { Dimension, Position, Edges, LocalizedEdges, ResourceColor, Padding, Length, SizeOptions, ConstraintSizeOptions } from "./units"
-import { FontStyle, FontWeight, BorderStyle } from "./enums"
-import { Resource } from "./../../../api/global/resource"
+import { memo, ComponentBuilder } from './../stateManagement/runtime'
+import { ButtonType } from './button'
+import { ClickEvent } from './common'
+import { SecurityComponentMethod, SecurityComponentLayoutDirection } from './securityComponent'
+import { Dimension, Position, Edges, LocalizedEdges, ResourceColor, Padding, Length, SizeOptions, ConstraintSizeOptions } from './units'
+import { FontStyle, FontWeight, BorderStyle } from './enums'
+import { Resource } from './../../../api/global/resource'
 export enum SaveIconStyle {
     FULL_FILLED = 0,
     LINES = 1,
@@ -55,7 +55,8 @@ export interface SaveButtonInterface {
     invoke(): SaveButtonAttribute;
 
 }
-export type Callback_ClickEvent_SaveButtonOnClickResult_Void = (event: ClickEvent, result: SaveButtonOnClickResult) => void;
+export type Callback_ClickEvent_SaveButtonOnClickResult_Void = (event: ClickEvent,
+    result: SaveButtonOnClickResult) => void;
 export interface SaveButtonAttribute extends SecurityComponentMethod {
     @memo
     onClick(value: ((event: ClickEvent,result: SaveButtonOnClickResult) => void)): this;

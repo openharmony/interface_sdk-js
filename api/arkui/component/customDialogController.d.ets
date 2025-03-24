@@ -16,13 +16,13 @@
 
 // WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
 
-import { Callback_Void } from "./abilityComponent"
-import { DialogAlignment } from "./alertDialog"
-import { Offset, ResourceColor, Dimension, BorderRadiuses, EdgeWidths, EdgeColors, EdgeStyles } from "./units"
-import { Rectangle, AnimateParam, ShadowOptions, ShadowStyle, BlurStyle, KeyboardAvoidMode, HoverModeAreaType } from "./common"
-import { Callback_DismissDialogAction_Void, DismissDialogAction } from "./actionSheet"
-import { BorderStyle } from "./enums"
-import { memo, ComponentBuilder } from "./../stateManagement/runtime"
+import { Callback_Void } from './abilityComponent'
+import { DialogAlignment } from './alertDialog'
+import { Offset, ResourceColor, Dimension, BorderRadiuses, EdgeWidths, EdgeColors, EdgeStyles } from './units'
+import { Rectangle, AnimateParam, ShadowOptions, ShadowStyle, BlurStyle, KeyboardAvoidMode, HoverModeAreaType } from './common'
+import { Callback_DismissDialogAction_Void, DismissDialogAction } from './actionSheet'
+import { BorderStyle } from './enums'
+import { memo, ComponentBuilder } from './../stateManagement/runtime'
 export interface CustomDialogControllerOptions {
     builder: object;
     cancel?: (() => void);

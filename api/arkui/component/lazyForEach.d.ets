@@ -16,14 +16,14 @@
 
 // WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
 
-import { memo, ComponentBuilder } from "./../stateManagement/runtime"
+import { memo, ComponentBuilder } from './../stateManagement/runtime'
 export enum DataOperationType {
-    ADD = "add",
-    DELETE = "delete",
-    EXCHANGE = "exchange",
-    MOVE = "move",
-    CHANGE = "change",
-    RELOAD = "reload"
+    ADD = 'add',
+    DELETE = 'delete',
+    EXCHANGE = 'exchange',
+    MOVE = 'move',
+    CHANGE = 'change',
+    RELOAD = 'reload'
 }
 export interface DataAddOperation {
     type: DataOperationType;
@@ -66,7 +66,8 @@ export interface DataExchangeOperation {
 export interface DataReloadOperation {
     type: DataOperationType;
 }
-export type DataOperation = DataAddOperation | DataDeleteOperation | DataChangeOperation | DataMoveOperation | DataExchangeOperation | DataReloadOperation;
+export type DataOperation = DataAddOperation | DataDeleteOperation | DataChangeOperation | DataMoveOperation |
+    DataExchangeOperation | DataReloadOperation;
 export interface DataChangeListener {
     onDataReloaded(): void
     onDataAdded(index: number): void

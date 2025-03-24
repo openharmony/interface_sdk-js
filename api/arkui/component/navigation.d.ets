@@ -16,22 +16,22 @@
 
 // WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
 
-import { SystemBarStyle, Length, ResourceStr, ResourceColor, Dimension, VisualEffect, Filter, UniformDataType, Blender, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, PixelMap } from "./units"
-import { memo, ComponentBuilder } from "./../stateManagement/runtime"
-import { Resource } from "./../../../api/global/resource"
-import { CustomBuilder, BlurStyle, CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback, LayoutSafeAreaType, LayoutSafeAreaEdge } from "./common"
-import { TitleHeight, HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey } from "./enums"
-import { SymbolGlyphModifier } from "./../../../api/arkui/SymbolGlyphModifier"
-import { Callback_Void } from "./abilityComponent"
-import { NavDestinationContext, NavDestinationMode } from "./navDestination"
-import { LengthMetrics } from "./../Graphics"
-import { TextModifier } from "./../../../api/arkui/TextModifier"
-import { ComponentContent } from "./../ComponentContent"
-import { CircleShape, EllipseShape, PathShape, RectShape } from "./../../../api/@ohos.arkui.shape"
-import { ResizableOptions } from "./image"
-import { FocusBoxStyle, FocusPriority } from "./focus"
-import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from "./gesture"
-import { Callback_Boolean_Void } from "./checkbox"
+import { SystemBarStyle, Length, ResourceStr, ResourceColor, Dimension, VisualEffect, Filter, UniformDataType, Blender, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, Margin, LocalizedMargin, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, BorderRadiuses, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, PixelMap } from './units'
+import { memo, ComponentBuilder } from './../stateManagement/runtime'
+import { Resource } from './../../../api/global/resource'
+import { CustomBuilder, BlurStyle, CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_ClickEvent_Void, ClickEvent, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback, LayoutSafeAreaType, LayoutSafeAreaEdge } from './common'
+import { TitleHeight, HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey } from './enums'
+import { SymbolGlyphModifier } from './../../../api/arkui/SymbolGlyphModifier'
+import { Callback_Void } from './abilityComponent'
+import { NavDestinationContext, NavDestinationMode } from './navDestination'
+import { LengthMetrics } from './../Graphics'
+import { TextModifier } from './../../../api/arkui/TextModifier'
+import { ComponentContent } from './../ComponentContent'
+import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
+import { ResizableOptions } from './image'
+import { FocusBoxStyle, FocusPriority } from './focus'
+import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
+import { Callback_Boolean_Void } from './checkbox'
 export interface NavigationCommonTitle {
     main: string | Resource;
     sub: string | Resource;
@@ -125,7 +125,8 @@ export interface NavPathStack {
     setInterception(interception: NavigationInterception): void
 }
 export type NavBar = string;
-export type InterceptionShowCallback = (from: NavDestinationContext | NavBar, to: NavDestinationContext | NavBar, operation: NavigationOperation, isAnimated: boolean) => void;
+export type InterceptionShowCallback = (from: NavDestinationContext | NavBar, to: NavDestinationContext | NavBar,
+    operation: NavigationOperation, isAnimated: boolean) => void;
 export type InterceptionModeCallback = (mode: NavigationMode) => void;
 export interface NavigationInterception {
     willShow?: InterceptionShowCallback;
@@ -182,7 +183,8 @@ export type Tuple_Dimension_Dimension = [
 export type Callback_NavigationTitleMode_Void = (titleMode: NavigationTitleMode) => void;
 export type Callback_NavigationMode_Void = (mode: NavigationMode) => void;
 export type Callback_String_Unknown_Void = (name: string, param: object) => void;
-export type Type_NavigationAttribute_customNavContentTransition_delegate = (from: NavContentInfo, to: NavContentInfo, operation: NavigationOperation) => NavigationAnimatedTransition | undefined;
+export type Type_NavigationAttribute_customNavContentTransition_delegate = (from: NavContentInfo, to: NavContentInfo,
+    operation: NavigationOperation) => NavigationAnimatedTransition | undefined;
 export interface NavigationAttribute extends CommonMethod {
     @memo
     navBarWidth(value: Length): this;
@@ -221,7 +223,8 @@ export interface NavigationAttribute extends CommonMethod {
     @memo
     navDestination(value: ((name: string,param: object) => void)): this;
     @memo
-    customNavContentTransition(value: ((from: NavContentInfo,to: NavContentInfo,operation: NavigationOperation) => NavigationAnimatedTransition | undefined)): this;
+        customNavContentTransition(value: ((from: NavContentInfo,to: NavContentInfo,
+        operation: NavigationOperation) => NavigationAnimatedTransition | undefined)): this;
     @memo
     systemBarStyle(value: SystemBarStyle | undefined): this;
     @memo

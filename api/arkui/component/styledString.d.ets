@@ -16,14 +16,14 @@
 
 // WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
 
-import { memo, ComponentBuilder } from "./../stateManagement/runtime"
-import { ResourceColor, ResourceStr, PixelMap, SizeOptions, Margin, Padding, BorderRadiuses } from "./units"
-import { FontStyle, FontWeight, TextDecorationType, TextDecorationStyle, TextAlign, TextOverflow, WordBreak, ImageSpanAlignment, ImageFit } from "./enums"
-import { LengthMetrics, DrawContext } from "./../Graphics"
-import { ShadowOptions, Callback_ClickEvent_Void, ClickEvent } from "./common"
-import { TextBackgroundStyle } from "./span"
-import { Callback_GestureEvent_Void, GestureEvent } from "./gesture"
-import { LeadingMarginPlaceholder } from "./richEditor"
+import { memo, ComponentBuilder } from './../stateManagement/runtime'
+import { ResourceColor, ResourceStr, PixelMap, SizeOptions, Margin, Padding, BorderRadiuses } from './units'
+import { FontStyle, FontWeight, TextDecorationType, TextDecorationStyle, TextAlign, TextOverflow, WordBreak, ImageSpanAlignment, ImageFit } from './enums'
+import { LengthMetrics, DrawContext } from './../Graphics'
+import { ShadowOptions, Callback_ClickEvent_Void, ClickEvent } from './common'
+import { TextBackgroundStyle } from './span'
+import { Callback_GestureEvent_Void, GestureEvent } from './gesture'
+import { LeadingMarginPlaceholder } from './richEditor'
 export interface StyledString {
     readonly length: number;
     getString(): string
@@ -111,7 +111,9 @@ export interface LineHeightStyle {
 export interface UrlStyle {
     readonly url: string;
 }
-export type StyledStringValue = TextStyle_styled_string | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan | UserDataSpan | BackgroundColorStyle;
+export type StyledStringValue = TextStyle_styled_string | DecorationStyle | BaselineOffsetStyle |
+    LetterSpacingStyle | TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle |
+    LineHeightStyle | UrlStyle | CustomSpan | UserDataSpan | BackgroundColorStyle;
 export interface MutableStyledString extends StyledString {
     replaceString(start: number, length: number, other: string): void
     insertString(start: number, other: string): void

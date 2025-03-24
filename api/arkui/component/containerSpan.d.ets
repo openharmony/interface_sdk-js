@@ -16,9 +16,9 @@
 
 // WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
 
-import { memo, ComponentBuilder } from "./../stateManagement/runtime"
-import { TextBackgroundStyle } from "./span"
-import { AttributeModifier } from "./common"
+import { memo, ComponentBuilder } from './../stateManagement/runtime'
+import { TextBackgroundStyle } from './span'
+import { AttributeModifier } from './common'
 export type ContainerSpanInterface = () => ContainerSpanAttribute;
 export interface ContainerSpanAttribute {
     @memo

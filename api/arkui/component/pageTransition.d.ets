@@ -16,9 +16,9 @@
 
 // WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
 
-import { memo, ComponentBuilder } from "./../stateManagement/runtime"
-import { TranslateOptions, ScaleOptions, ICurve } from "./common"
-import { Curve } from "./enums"
+import { memo, ComponentBuilder } from './../stateManagement/runtime'
+import { TranslateOptions, ScaleOptions, ICurve } from './common'
+import { Curve } from './enums'
 export enum RouteType {
     NONE = 0,
     None = 0,

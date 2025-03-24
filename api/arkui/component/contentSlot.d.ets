@@ -16,8 +16,8 @@
 
 // WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
 
-import { Content } from "./../../../api/@ohos.arkui.node"
-import { memo, ComponentBuilder } from "./../stateManagement/runtime"
+import { Content } from './../../../api/@ohos.arkui.node'
+import { memo, ComponentBuilder } from './../stateManagement/runtime'
 export interface ContentSlotAttribute {
 }
 export type ContentSlotInterface = (content: Content) => ContentSlotAttribute;

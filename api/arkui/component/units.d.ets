@@ -16,23 +16,23 @@
 
 // WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
 
-import { Resource } from "./../../../api/global/resource"
-import { memo, ComponentBuilder } from "./../stateManagement/runtime"
-import { LengthMetrics, LengthMetricsUnit } from "./../Graphics"
-import { BorderStyle, Color, FontWeight, FontStyle } from "./enums"
-import { OutlineStyle } from "./common"
-import _want from "../../../api/@ohos.app.ability.Want"
-import _context from "../../application/Context"
-import _drawing from "../../../api/@ohos.graphics.drawing"
-import _image from "../../../api/@ohos.multimedia.image"
-import _pointer from "../../../api/@ohos.multimodalInput.pointer"
-import _unifieddatachannel from "../../../api/@ohos.data.unifiedDataChannel"
-import _uniformtypedescriptor from "../../../api/@ohos.data.uniformTypeDescriptor"
-import _observer from "../../../api/@ohos.arkui.observer"
-import _uieffect from "../../../api/@ohos.graphics.uiEffect"
-import _intl from "../../../api/@ohos.intl"
-import _window from "../../../api/@ohos.window"
-import _text from "../../../api/@ohos.graphics.text"
+import { Resource } from './../../../api/global/resource'
+import { memo, ComponentBuilder } from './../stateManagement/runtime'
+import { LengthMetrics, LengthMetricsUnit } from './../Graphics'
+import { BorderStyle, Color, FontWeight, FontStyle } from './enums'
+import { OutlineStyle } from './common'
+import _want from '../../../api/@ohos.app.ability.Want'
+import _context from '../../application/Context'
+import _drawing from '../../../api/@ohos.graphics.drawing'
+import _image from '../../../api/@ohos.multimedia.image'
+import _pointer from '../../../api/@ohos.multimodalInput.pointer'
+import _unifieddatachannel from '../../../api/@ohos.data.unifiedDataChannel'
+import _uniformtypedescriptor from '../../../api/@ohos.data.uniformTypeDescriptor'
+import _observer from '../../../api/@ohos.arkui.observer'
+import _uieffect from '../../../api/@ohos.graphics.uiEffect'
+import _intl from '../../../api/@ohos.intl'
+import _window from '../../../api/@ohos.window'
+import _text from '../../../api/@ohos.graphics.text'
 export type Want = _want
 export type Context = _context
 export type DrawingCanvas = _drawing.Canvas 

@@ -16,12 +16,12 @@
 
 // WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
 
-import { memo, ComponentBuilder } from "./../stateManagement/runtime"
-import { Callback_String_Void } from "./gridRow"
-import { ResourceColor, LineMetrics, TextBox, RectWidthStyle, RectHeightStyle, Affinity, Length, ResourceStr } from "./units"
-import { DecorationStyleInterface, StyledString, MutableStyledString } from "./styledString"
-import { SelectionOptions } from "./common"
-import { TextDecorationType, TextDecorationStyle } from "./enums"
+import { memo, ComponentBuilder } from './../stateManagement/runtime'
+import { Callback_String_Void } from './gridRow'
+import { ResourceColor, LineMetrics, TextBox, RectWidthStyle, RectHeightStyle, Affinity, Length, ResourceStr } from './units'
+import { DecorationStyleInterface, StyledString, MutableStyledString } from './styledString'
+import { SelectionOptions } from './common'
+import { TextDecorationType, TextDecorationStyle } from './enums'
 export enum TextDataDetectorType {
     PHONE_NUMBER = 0,
     URL = 1,

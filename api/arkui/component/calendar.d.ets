@@ -16,9 +16,9 @@
 
 // WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
 
-import { memo, ComponentBuilder } from "./../stateManagement/runtime"
-import { ResourceColor } from "./units"
-import { Axis } from "./enums"
+import { memo, ComponentBuilder } from './../stateManagement/runtime'
+import { ResourceColor } from './units'
+import { Axis } from './enums'
 export interface CalendarDay {
     index: number;
     lunarMonth: string;
