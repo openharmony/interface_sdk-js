@@ -15045,6 +15045,40 @@ declare interface PopupMaskType {
 }
 
 /**
+ * Popup border LinearGradient
+ *
+ * @interface PopupBorderLinearGradient
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+declare interface PopupBorderLinearGradient {
+  /**
+   * direction: Direction of Linear Gradient. The default value is GradientDirection.Bottom;
+   *
+   * @type { ?GradientDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  direction?: GradientDirection;
+
+  /**
+   * Defines color description for gradients.
+   * number: The position of the color stop. The value range is 0 to 1.
+   *
+   * @type { Array<[ResourceColor, number]> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  colors: Array<[ResourceColor, number]>;
+}
+
+/**
  * Popup common options
  *
  * @interface PopupCommonOptions
@@ -15309,6 +15343,50 @@ declare interface PopupCommonOptions {
    * @since 18
    */
   followTransformOfTarget?: boolean;
+
+  /**
+   * The width of popup's outline.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */  
+  outlineWidth?: Dimension;
+
+  /**
+   * The width of popup's border.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  borderWidth?: Dimension;
+    
+  /**
+   * The LinearGradient of popup's outline.
+   *
+   * @type { ?PopupBorderLinearGradient }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  outlineLinearGradient?: PopupBorderLinearGradient;
+
+  /**
+   * The LinearGradient of popup's innerline.
+   *
+   * @type { ?PopupBorderLinearGradient }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  borderLinearGradient?: PopupBorderLinearGradient;
 }
 
 /**
@@ -16091,6 +16169,49 @@ declare interface PopupOptions {
    * @since 15
    */
   keyboardAvoidMode?: KeyboardAvoidMode;
+  /**
+   * The width of popup's outline.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */  
+  outlineWidth?: Dimension;
+
+  /**
+   * The width of popup's border.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  borderWidth?: Dimension;
+    
+  /**
+   * The LinearGradient of popup's outline.
+   *
+   * @type { ?PopupBorderLinearGradient }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  outlineLinearGradient?: PopupBorderLinearGradient;
+
+  /**
+   * The LinearGradient of popup's innerline.
+   *
+   * @type { ?PopupBorderLinearGradient }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  borderLinearGradient?: PopupBorderLinearGradient;
 }
 
 /**
@@ -16638,6 +16759,49 @@ declare interface CustomPopupOptions {
    * @since 15
    */
   keyboardAvoidMode?: KeyboardAvoidMode;
+  /**
+   * The width of popup's outline.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */  
+  outlineWidth?: Dimension;
+
+  /**
+   * The width of popup's border.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  borderWidth?: Dimension;
+    
+  /**
+   * The LinearGradient of popup's outline.
+   *
+   * @type { ?PopupBorderLinearGradient }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  outlineLinearGradient?: PopupBorderLinearGradient;
+
+  /**
+   * The LinearGradient of popup's innerline.
+   *
+   * @type { ?PopupBorderLinearGradient }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  borderLinearGradient?: PopupBorderLinearGradient;
 }
 
 /**
