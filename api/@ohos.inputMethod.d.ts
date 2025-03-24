@@ -2109,7 +2109,7 @@ declare namespace inputMethod {
    * The callback of 'setPreviewText' event.
    *
    * @typedef { function } SetPreviewTextCallback.
-   * @param { text } string - text to be previewd.
+   * @param { text } string - text to be previewed.
    * @param { range } Range - the range of the text to be replaced by the preview text.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 18
