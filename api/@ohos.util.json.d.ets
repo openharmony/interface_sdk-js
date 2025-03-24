@@ -78,7 +78,7 @@ declare namespace json {
    * @atomicservice
    * @since 20
    */
-  function stringify(value: NullishType, replacer?: (number | string)[] | Transformer | null, space?: string | number): string;
+  function stringify(value: NullishType, replacer?: Transformer | ((number | string)[]) | null, space?: string | number): string;
 
   /**
    * Checks whether the object parsed from a JSON string contains the property.

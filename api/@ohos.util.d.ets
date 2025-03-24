@@ -566,30 +566,30 @@ declare namespace util {
      * @atomicservice
      * @since 20
      */
-    put(key: K, value: V | undefined): V | undefined;
+    put(key: K, value: V): V | undefined;
 
     /**
      * Obtains a list of all values in the current buffer.
      *
-     * @returns { V[] } Returns the list of all values in the current buffer in ascending order, from the most recently accessed to least recently accessed.
+     * @returns { Array<V> } Returns the list of all values in the current buffer, ordered from the most recently accessed to the least recently accessed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 20
      */
-    values(): V[];
+    values(): Array<V>;
 
     /**
      * Obtains a list of keys for the values in the current buffer.
      * since 9
      *
-     * @returns { K[] } Returns a list of keys sorted from most recently accessed to least recently accessed.
+     * @returns { Array<K> } Returns a list of keys ordered by access time, from the most recently accessed to the least recently accessed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 20
      */
-    keys(): K[];
+    keys(): Array<K>;
 
     /**
      * Deletes a specified key and its associated value from the current buffer.

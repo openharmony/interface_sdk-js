@@ -105,26 +105,26 @@ declare class LinkedList<T> {
   /**
    * Retrieves and removes the head (first element) of this linkedList.
    *
-   * @returns { T } the head of this list
+   * @returns { T | undefined } the head of this list
    * @throws { BusinessError } 10200010 - Container is empty.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  removeFirst(): T;
+  removeFirst(): T | undefined;
 
   /**
    * Removes and returns the last element from this linkedList.
    *
-   * @returns { T } the head of this list
+   * @returns { T | undefined } the head of this list
    * @throws { BusinessError } 10200010 - Container is empty.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  removeLast(): T;
+  removeLast(): T | undefined;
 
   /**
    * Check if linkedList contains the specified element

@@ -147,13 +147,13 @@ declare class PlainArray<T> {
    * Queries the key at a specified index
    *
    * @param { number } index - target subscript for search
-   * @returns { number | undefined } the key of key-value pairs, or undefined if key is not exist
+   * @returns { number } the key of key-value pairs, or undefined if key is not exist
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  getKeyAt(index: number): number | undefined;
+  getKeyAt(index: number): number;
 
   /**
    * Remove the key-value pair based on a specified key if it exists and return the value
