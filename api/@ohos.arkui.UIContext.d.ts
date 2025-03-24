@@ -1190,7 +1190,7 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
+   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103302 - Dialog content already exists.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1210,7 +1210,7 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
+   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103302 - Dialog content already exists.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1230,8 +1230,8 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
-   * @throws { BusinessError } 103303 - the ComponentContent cannot be found.
+   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1248,8 +1248,8 @@ export class PromptAction {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - the ComponentContent is incorrect.
-   * @throws { BusinessError } 103303 - the ComponentContent cannot be found.
+   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
