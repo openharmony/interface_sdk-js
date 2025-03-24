@@ -2611,7 +2611,7 @@ declare namespace print {
   }
 
   /**
-   * Update the information of the specific printer in system.
+   * Update the information of the specific added printer.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { PrinterInformation } printerInformation - Indicates the printer to be updated.
    * @returns { Promise<void> } the promise returned by the function.
