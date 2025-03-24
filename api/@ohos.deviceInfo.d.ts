@@ -697,14 +697,26 @@ declare namespace deviceInfo {
   export enum PerformanceClassLevel {
     /**
      * Device Capability Level is high.
+     * 
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @since 18
      */
     CLASS_LEVEL_HIGH,
     /**
      * Device Capability Level is medium.
+     * 
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @since 18
      */
     CLASS_LEVEL_MEDIUM,
     /**
      * Device Capability Level is low.
+     * 
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @since 18
      */
     CLASS_LEVEL_LOW
   }
@@ -712,6 +724,7 @@ declare namespace deviceInfo {
   /**
    * Obtaining the performance class.
    *
+   * @type { PerformanceClassLevel }
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
    * @since 18
