@@ -5090,6 +5090,39 @@ declare enum PixelRoundCalcPolicy {
 }
 
 /**
+ * Pixel Round Mode
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 18
+ */
+declare enum PixelRoundMode {
+  /**
+   * Do pixel round on layout finish.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
+  PIXEL_ROUND_ON_LAYOUT_FINISH = 0,
+  /**
+   * Do pixel round after measure.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
+  PIXEL_ROUND_AFTER_MEASURE = 1,
+}
+
+/**
  * FlexWrap enumeration description
  *
  * @enum { number }
