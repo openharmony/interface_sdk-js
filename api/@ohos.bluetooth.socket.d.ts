@@ -170,7 +170,7 @@ declare namespace socket {
    * @throws { BusinessError } 2901054 - IO error.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 16
+   * @since 18
    */
   function sppWriteAsync(clientSocket: number, data: ArrayBuffer): Promise<void>;
 
@@ -185,7 +185,7 @@ declare namespace socket {
    * @throws { BusinessError } 2901054 - IO error.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 16
+   * @since 18
    */
   function sppReadAsync(clientSocket: number): Promise<ArrayBuffer>;
 
