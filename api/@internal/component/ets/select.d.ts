@@ -1130,7 +1130,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   textModifier(modifier: Optional<TextModifier>): SelectAttribute;
 
@@ -1142,7 +1142,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   arrowModifier(modifier: Optional<SymbolGlyphModifier>): SelectAttribute;
   
@@ -1154,7 +1154,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   optionTextModifier(modifier: Optional<TextModifier>): SelectAttribute;
 
@@ -1166,7 +1166,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   selectedOptionTextModifier(modifier: Optional<TextModifier>): SelectAttribute;
 
