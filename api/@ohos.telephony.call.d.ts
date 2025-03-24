@@ -5649,6 +5649,27 @@ declare namespace call {
      */
     MARK_TYPE_ENTERPRISE = 11
   }
+
+  /**
+   * Send ussd response to network.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { number } accountId - Indicates the identifier of the slot.
+   * @param { string } content - Indicates the content send to network.
+   * @returns { Promise<void> } The promise returned by the sensUssdResponse.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+   * 2. Incorrect parameters types;
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 16
+   */
+  function sensUssdResponse(accountId: number, content: string): Promise<void>;
 }
 
 export default call;
