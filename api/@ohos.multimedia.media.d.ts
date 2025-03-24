@@ -277,6 +277,20 @@ declare namespace media {
   function createSoundPool(maxStreams: number, audioRenderInfo: audio.AudioRendererInfo): Promise<SoundPool>;
 
   /**
+   * Create a SoundPool that supports parallel playback of audio with the same SoundID.
+   *
+   * @param {number} maxStreams The maximum number of simultaneous streams for this soundPool instance
+   * @param {audio.AudioRendererInfo} audioRenderInfo Audio renderer information
+   * @returns {Promise<SoundPool>} A Promise instance used to return SoundPool instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 5400101 - No memory. Return by promise.
+   * @throws { BusinessError } 202 - System API error. Return by promise.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @systemapi
+   * @since 18
+   */
+  function createParallelSoundPool(maxStreams: number, audioRenderInfo: audio.AudioRendererInfo): Promise<SoundPool>;
+
+  /**
    * Creates an AVScreenCaptureRecorder instance.
    * @returns { Promise<AVScreenCaptureRecorder> } A Promise instance used to return AVScreenCaptureRecorder instance if the operation is successful;
    * returns null otherwise.
