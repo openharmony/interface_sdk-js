@@ -5651,12 +5651,15 @@ declare namespace call {
   }
 
   /**
-   * Send ussd response to network.
+   * send ussd response to network
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } accountId - Indicates the identifier of the slot.
-   * @param { string } content - Indicates the content send to network.
-   * @returns { Promise<void> } The promise returned by the sensUssdResponse.
+   * @param { number } accountId - account id.
+   * @param { string } content - content send to network.
+   * @returns { Promise<boolean> } Returns the result of send ussd.
+   * Returns {@code true} if the call request is successful; returns {@code false} otherwise.
+   * Note that the value {@code true} indicates only the successful processing of the request; it does not mean
+   * that the ussd is rendRequest to modem.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -5669,7 +5672,7 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 16
    */
-  function sensUssdResponse(accountId: number, content: string): Promise<void>;
+  function sensUssdResponse(accountId: number, content: string): Promise<boolean>;
 }
 
 export default call;
