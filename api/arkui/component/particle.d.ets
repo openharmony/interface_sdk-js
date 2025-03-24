@@ -16,11 +16,11 @@
 
 // WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
 
-import { memo, ComponentBuilder } from "./../stateManagement/runtime"
-import { VP, ResourceStr, Dimension } from "./units"
-import { ImageFit, Curve } from "./enums"
-import { ICurve } from "./common"
-import { SizeT, PositionT } from "./../Graphics"
+import { memo, ComponentBuilder } from './../stateManagement/runtime'
+import { VP, ResourceStr, Dimension } from './units'
+import { ImageFit, Curve } from './enums'
+import { ICurve } from './common'
+import { SizeT, PositionT } from './../Graphics'
 export type ParticleTuple<T1,T2> = [
     T1,
     T2
@@ -75,22 +75,22 @@ export interface ParticlePropertyAnimation<T> {
     curve?: Curve | ICurve;
 }
 export enum ParticleType {
-    POINT = "point",
-    IMAGE = "image"
+    POINT = 'point',
+    IMAGE = 'image'
 }
 export enum ParticleEmitterShape {
-    RECTANGLE = "rectangle",
-    CIRCLE = "circle",
-    ELLIPSE = "ellipse"
+    RECTANGLE = 'rectangle',
+    CIRCLE = 'circle',
+    ELLIPSE = 'ellipse'
 }
 export enum DistributionType {
     UNIFORM = 0,
     GAUSSIAN = 1
 }
 export enum ParticleUpdater {
-    NONE = "none",
-    RANDOM = "random",
-    CURVE = "curve"
+    NONE = 'none',
+    RANDOM = 'random',
+    CURVE = 'curve'
 }
 export enum DisturbanceFieldShape {
     RECT = 0,

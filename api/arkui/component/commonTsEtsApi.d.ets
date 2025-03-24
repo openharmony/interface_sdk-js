@@ -16,8 +16,8 @@
 
 // WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
 
-import { memo, ComponentBuilder } from "./../stateManagement/runtime"
-import { Storage } from "./stateManagement"
+import { memo, ComponentBuilder } from './../stateManagement/runtime'
+import { Storage } from './stateManagement'
 export interface AppStorage {
     ref<T>(propName: string): AbstractProperty<T> | undefined
     setAndRef<T>(propName: string, defaultValue: T): AbstractProperty<T>

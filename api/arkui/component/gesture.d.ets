@@ -16,9 +16,9 @@
 
 // WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
 
-import { memo, ComponentBuilder } from "./../stateManagement/runtime"
-import { BaseEvent, EventTarget, SourceType, SourceTool } from "./common"
-import { Callback_Void } from "./abilityComponent"
+import { memo, ComponentBuilder } from './../stateManagement/runtime'
+import { BaseEvent, EventTarget, SourceType, SourceTool } from './common'
+import { Callback_Void } from './abilityComponent'
 export enum PanDirection {
     NONE = 0,
     None = 0,
@@ -91,7 +91,8 @@ export interface FingerInfo {
     displayX: number;
     displayY: number;
 }
-export type GestureType = TapGestureInterface | LongPressGestureInterface | PanGestureInterface | PinchGestureInterface | SwipeGestureInterface | RotationGestureInterface | GestureGroupInterface;
+export type GestureType = TapGestureInterface | LongPressGestureInterface | PanGestureInterface |
+    PinchGestureInterface | SwipeGestureInterface | RotationGestureInterface | GestureGroupInterface;
 export interface BaseGestureEvent extends BaseEvent {
     fingerList: Array<FingerInfo>;
 }

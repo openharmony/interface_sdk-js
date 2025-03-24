@@ -16,11 +16,11 @@
 
 // WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
 
-import { memo, ComponentBuilder } from "./../stateManagement/runtime"
-import { DialogButtonStyle, WordBreak, BorderStyle } from "./enums"
-import { ResourceStr, ResourceColor, VoidCallback, Offset, Dimension, BorderRadiuses, LocalizedBorderRadiuses, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, EdgeStyles } from "./units"
-import { Rectangle, BlurStyle, TransitionEffect, ShadowOptions, ShadowStyle, HoverModeAreaType } from "./common"
-import { Callback_DismissDialogAction_Void, DismissDialogAction } from "./actionSheet"
+import { memo, ComponentBuilder } from './../stateManagement/runtime'
+import { DialogButtonStyle, WordBreak, BorderStyle } from './enums'
+import { ResourceStr, ResourceColor, VoidCallback, Offset, Dimension, BorderRadiuses, LocalizedBorderRadiuses, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, EdgeStyles } from './units'
+import { Rectangle, BlurStyle, TransitionEffect, ShadowOptions, ShadowStyle, HoverModeAreaType } from './common'
+import { Callback_DismissDialogAction_Void, DismissDialogAction } from './actionSheet'
 export enum DialogAlignment {
     TOP = 0,
     Top = 0,

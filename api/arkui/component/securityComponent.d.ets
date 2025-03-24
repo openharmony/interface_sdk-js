@@ -16,10 +16,10 @@
 
 // WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
 
-import { memo, ComponentBuilder } from "./../stateManagement/runtime"
-import { Dimension, Position, Edges, LocalizedEdges, ResourceColor, Padding, Length, SizeOptions, ConstraintSizeOptions } from "./units"
-import { FontStyle, FontWeight, BorderStyle } from "./enums"
-import { Resource } from "./../../../api/global/resource"
+import { memo, ComponentBuilder } from './../stateManagement/runtime'
+import { Dimension, Position, Edges, LocalizedEdges, ResourceColor, Padding, Length, SizeOptions, ConstraintSizeOptions } from './units'
+import { FontStyle, FontWeight, BorderStyle } from './enums'
+import { Resource } from './../../../api/global/resource'
 export enum SecurityComponentLayoutDirection {
     HORIZONTAL = 0,
     VERTICAL = 1

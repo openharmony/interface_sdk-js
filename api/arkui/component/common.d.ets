@@ -16,28 +16,28 @@
 
 // WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
 
-import { memo, ComponentBuilder } from "./../stateManagement/runtime"
-import { TextDecorationType, TextDecorationStyle, Curve, PlayMode, SharedTransitionEffectType, HorizontalAlign, VerticalAlign, TransitionType, FontWeight, FontStyle, Color, ColoringStrategy, MouseButton, MouseAction, AccessibilityHoverType, TouchType, KeyType, KeySource, BorderStyle, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, GradientDirection, HitTestMode, Alignment, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, BarState, EdgeEffect, IlluminatedType } from "./enums"
-import { ResourceColor, Context, Length, Bias, PixelMap, PointerStyle, Area, Font, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Summary, UniformDataType, UnifiedData, ResourceStr, Dimension, EdgeColors, LocalizedEdgeColors, EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin, BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, VisualEffect, Filter, Blender, EdgeWidth, DirectionalEdgesT, NavDestinationInfo, NavigationInfo, RouterPageInfo } from "./units"
-import { Resource } from "./../../../api/global/resource"
-import { Callback_Void } from "./abilityComponent"
-import { DrawContext, LengthMetrics } from "./../Graphics"
-import { ButtonType, ButtonStyleMode, ButtonRole } from "./button"
-import { BaseGestureEvent, GestureRecognizer, GestureJudgeResult, GestureInfo, GestureType, GestureMask, GestureHandler, GesturePriority } from "./gesture"
-import { IntentionCode } from "./../../../api/@ohos.multimodalInput.intentionCode"
-import { UIContext } from "./../../../api/@ohos.arkui.UIContext"
-import { Callback_Number_Void } from "./alphabetIndexer"
-import { AnimationRange_Number } from "./type-replacements"
-import { SymbolGlyphModifier } from "./../../../api/arkui/SymbolGlyphModifier"
-import { ImageModifier } from "./../../../api/arkui/ImageModifier"
-import { ComponentContent } from "./../ComponentContent"
-import { CircleShape, EllipseShape, PathShape, RectShape } from "./../../../api/@ohos.arkui.shape"
-import { ResizableOptions } from "./image"
-import { FocusBoxStyle, FocusPriority } from "./focus"
-import { Theme } from "./../../../api/@ohos.arkui.theme"
-import { Callback_Number_Number_Void } from "./grid"
-import { ScrollOnWillScrollCallback, ScrollOnScrollCallback } from "./scroll"
-import { ScrollState } from "./list"
+import { memo, ComponentBuilder } from './../stateManagement/runtime'
+import { TextDecorationType, TextDecorationStyle, Curve, PlayMode, SharedTransitionEffectType, HorizontalAlign, VerticalAlign, TransitionType, FontWeight, FontStyle, Color, ColoringStrategy, MouseButton, MouseAction, AccessibilityHoverType, TouchType, KeyType, KeySource, BorderStyle, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, GradientDirection, HitTestMode, Alignment, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, BarState, EdgeEffect, IlluminatedType } from './enums'
+import { ResourceColor, Context, Length, Bias, PixelMap, PointerStyle, Area, Font, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Summary, UniformDataType, UnifiedData, ResourceStr, Dimension, EdgeColors, LocalizedEdgeColors, EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin, BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, VisualEffect, Filter, Blender, EdgeWidth, DirectionalEdgesT, NavDestinationInfo, NavigationInfo, RouterPageInfo } from './units'
+import { Resource } from './../../../api/global/resource'
+import { Callback_Void } from './abilityComponent'
+import { DrawContext, LengthMetrics } from './../Graphics'
+import { ButtonType, ButtonStyleMode, ButtonRole } from './button'
+import { BaseGestureEvent, GestureRecognizer, GestureJudgeResult, GestureInfo, GestureType, GestureMask, GestureHandler, GesturePriority } from './gesture'
+import { IntentionCode } from './../../../api/@ohos.multimodalInput.intentionCode'
+import { UIContext } from './../../../api/@ohos.arkui.UIContext'
+import { Callback_Number_Void } from './alphabetIndexer'
+import { AnimationRange_Number } from './type-replacements'
+import { SymbolGlyphModifier } from './../../../api/arkui/SymbolGlyphModifier'
+import { ImageModifier } from './../../../api/arkui/ImageModifier'
+import { ComponentContent } from './../ComponentContent'
+import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
+import { ResizableOptions } from './image'
+import { FocusBoxStyle, FocusPriority } from './focus'
+import { Theme } from './../../../api/@ohos.arkui.theme'
+import { Callback_Number_Number_Void } from './grid'
+import { ScrollOnWillScrollCallback, ScrollOnScrollCallback } from './scroll'
+import { ScrollState } from './list'
 export interface ComponentOptions {
     freezeWhenInactive: boolean;
 }
@@ -527,8 +527,10 @@ export interface TouchEvent extends BaseEvent {
     getHistoricalPoints(): Array<HistoricalPoint>
 }
 export type SizeChangeCallback = (oldValue: SizeOptions, newValue: SizeOptions) => void;
-export type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>) => GestureJudgeResult;
-export type ShouldBuiltInRecognizerParallelWithCallback = (current: GestureRecognizer, others: Array<GestureRecognizer>) => GestureRecognizer;
+export type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer,
+    recognizers: Array<GestureRecognizer>) => GestureJudgeResult;
+export type ShouldBuiltInRecognizerParallelWithCallback = (current: GestureRecognizer,
+    others: Array<GestureRecognizer>) => GestureRecognizer;
 export type TransitionFinishCallback = (transitionIn: boolean) => void;
 export interface PixelMapMock {
     release(): void
@@ -929,7 +931,8 @@ export interface Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs {
     md?: number | Literal_Number_offset_span;
     lg?: number | Literal_Number_offset_span;
 }
-export type Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo = (event: DragEvent, extraParams?: string) => CustomBuilder | DragItemInfo;
+export type Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo = (event: DragEvent,
+    extraParams?: string) => CustomBuilder | DragItemInfo;
 export type Callback_DragEvent_String_Void = (event: DragEvent, extraParams?: string) => void;
 export type Callback_PreDragStatus_Void = (parameter: PreDragStatus) => void;
 export type Tuple_ResourceColor_Number = [
@@ -960,7 +963,8 @@ export interface Type_CommonMethod_radialGradient_value {
     colors: Array<[ ResourceColor, number ]>;
     repeating?: boolean;
 }
-export type Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult = (gestureInfo: GestureInfo, event: BaseGestureEvent) => GestureJudgeResult;
+export type Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult = (gestureInfo: GestureInfo,
+    event: BaseGestureEvent) => GestureJudgeResult;
 export type Callback_TouchEvent_HitTestMode = (parameter: TouchEvent) => HitTestMode;
 export interface Literal_Alignment_align {
     align?: Alignment;
@@ -1373,7 +1377,8 @@ export interface CustomComponent extends CommonAttribute {
     onLayout(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void
     onPlaceChildren(selfLayoutInfo: GeometryInfo, children: Array<Layoutable>, constraint: ConstraintSizeOptions): void
     onMeasure(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void
-    onMeasureSize(selfLayoutInfo: GeometryInfo, children: Array<Measurable>, constraint: ConstraintSizeOptions): SizeResult
+        onMeasureSize(selfLayoutInfo: GeometryInfo, children: Array<Measurable>,
+        constraint: ConstraintSizeOptions): SizeResult
     onPageShow(): void
     onPageHide(): void
     onFormRecycle(): string
@@ -1507,7 +1512,8 @@ export interface UICommonEvent {
     setOnHover(callback_: HoverCallback | undefined): void
     setOnMouse(callback_: ((event: MouseEvent) => void) | undefined): void
     setOnSizeChange(callback_: SizeChangeCallback | undefined): void
-    setOnVisibleAreaApproximateChange(options: VisibleAreaEventOptions, event: VisibleAreaChangeCallback | undefined): void
+        setOnVisibleAreaApproximateChange(options: VisibleAreaEventOptions,
+        event: VisibleAreaChangeCallback | undefined): void
 }
 export interface UIGestureEvent {
     addGesture<T>(gesture: GestureHandler<T>, priority?: GesturePriority, mask?: GestureMask): void

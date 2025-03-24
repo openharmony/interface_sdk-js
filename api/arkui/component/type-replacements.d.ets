@@ -16,8 +16,8 @@
 
 // WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
 
-import { memo, ComponentBuilder } from "./../stateManagement/runtime"
-import { ItemDragInfo, CustomBuilder } from "./common"
+import { memo, ComponentBuilder } from './../stateManagement/runtime'
+import { ItemDragInfo, CustomBuilder } from './common'
 export type AnimationRange_Number = [
     number,
     number

@@ -16,13 +16,13 @@
 
 // WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
 
-import { Resource } from "./../../../api/global/resource"
-import { VoidCallback, ResourceStr, ResourceColor, Dimension, BorderRadiuses, LocalizedBorderRadiuses, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, EdgeStyles } from "./units"
-import { memo, ComponentBuilder } from "./../stateManagement/runtime"
-import { Callback_Void } from "./abilityComponent"
-import { DismissReason, Rectangle, BlurStyle, TransitionEffect, ShadowOptions, ShadowStyle, HoverModeAreaType } from "./common"
-import { DialogButtonStyle, BorderStyle } from "./enums"
-import { DialogAlignment } from "./alertDialog"
+import { Resource } from './../../../api/global/resource'
+import { VoidCallback, ResourceStr, ResourceColor, Dimension, BorderRadiuses, LocalizedBorderRadiuses, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, EdgeStyles } from './units'
+import { memo, ComponentBuilder } from './../stateManagement/runtime'
+import { Callback_Void } from './abilityComponent'
+import { DismissReason, Rectangle, BlurStyle, TransitionEffect, ShadowOptions, ShadowStyle, HoverModeAreaType } from './common'
+import { DialogButtonStyle, BorderStyle } from './enums'
+import { DialogAlignment } from './alertDialog'
 export interface SheetInfo {
     title: string | Resource;
     icon?: string | Resource;
