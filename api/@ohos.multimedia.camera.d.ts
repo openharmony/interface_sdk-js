@@ -4893,7 +4893,7 @@ declare namespace camera {
      * @since 12
      */
     PRECONFIG_720P = 0,
-  
+
     /**
      * 1080P output for preconfig.
      *
@@ -4901,7 +4901,7 @@ declare namespace camera {
      * @since 12
      */
     PRECONFIG_1080P = 1,
-  
+
     /**
      * 4K output for preconfig.
      *
@@ -4909,7 +4909,7 @@ declare namespace camera {
      * @since 12
      */
     PRECONFIG_4K = 2,
-  
+
     /**
      * high quality output for preconfig.
      *
@@ -4934,7 +4934,7 @@ declare namespace camera {
      * @since 12
      */
     PRECONFIG_RATIO_1_1 = 0,
-  
+
     /**
      * Aspect ratio 4:3 for preconfig.
      *
@@ -4942,7 +4942,7 @@ declare namespace camera {
      * @since 12
      */
     PRECONFIG_RATIO_4_3 = 1,
-  
+
     /**
      * Aspect ratio 16:9 for preconfig.
      *
