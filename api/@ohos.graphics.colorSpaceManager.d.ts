@@ -553,8 +553,6 @@ declare namespace colorSpaceManager {
     /**
      * PRIMARIES_BT2020 | TRANSFUNC_LOG
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
-     * @crossplatform
-     * @atomicservice
      * @since 18
      */
     H_LOG = 26,
