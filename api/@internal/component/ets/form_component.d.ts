@@ -379,30 +379,12 @@ interface FormSize {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
-   */
-  /**
-   * The width of the form.
-   * Anonymous Object Rectification.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @since 18
    */
   width: number;
 
   /**
    * The height of the form.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 7
-   */
-  /**
-   * The height of the form.
-   * Anonymous Object Rectification.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -427,30 +409,12 @@ interface ErrorInformation {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
-   */
-  /**
-   * Error code.
-   * Anonymous Object Rectification.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @since 18
    */
   errcode: number;
 
   /**
    * Error information.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 7
-   */
-  /**
-   * Error information.
-   * Anonymous Object Rectification.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -478,7 +442,6 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    */
   /**
    * Sets the display area size of the card.
-   * Anonymous Object Rectification.
    *
    * @param { FormSize } size - The size of Form.
    * @returns { FormComponentAttribute }
@@ -565,7 +528,6 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    */
   /**
    * Card loading error.
-   * Anonymous Object Rectification.
    *
    * @param { Callback<ErrorInformation> } callback
    * @returns { FormComponentAttribute }
@@ -586,7 +548,6 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    */
   /**
    * Card to be redirected.
-   * Anonymous Object Rectification.
    *
    * @param { Callback<any> } callback
    * @returns { FormComponentAttribute }
@@ -594,7 +555,7 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @systemapi
    * @since 18
    */
-  onRouter(callback: Callback<any>): FormComponentAttribute;
+  onRouter(callback: Callback<object>): FormComponentAttribute;
 
   /**
    * Uninstall Card.
@@ -627,7 +588,6 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    */
   /**
    * Card to be loaded.
-   * Anonymous Object Rectification.
    *
    * @param { VoidCallback } callback
    * @returns { FormComponentAttribute }
