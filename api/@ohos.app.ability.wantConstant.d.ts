@@ -324,6 +324,15 @@ declare namespace wantConstant {
     * @since 14
     */
     CALLER_APP_CLONE_INDEX = 'ohos.param.callerAppCloneIndex',
+  
+    /**
+    * Indicates the param of the appIdentifier trustlist when implicitly launching applications.
+    *
+    * @syscap SystemCapability.Ability.AbilityBase
+    * @atomicservice
+    * @since 17
+    */
+    APP_LAUNCH_TRUSTLIST = 'ohos.params.appLaunchTrustList'  
   }
 
   /**
