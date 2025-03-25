@@ -3582,3 +3582,33 @@ declare interface AccessibilityOptions {
    */
   accessibilityPreferred?: boolean;
 }
+
+/**
+ * Define scrollbar margin options.
+ *
+ * @interface ScrollBarMargin
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+declare interface ScrollBarMargin {
+  /**
+   * Start margin of the scroll bar.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  start?: LengthMetrics;
+
+  /**
+   * End margin of the scroll bar.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  end?: LengthMetrics;
+}
