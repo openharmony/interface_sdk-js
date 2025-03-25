@@ -553,7 +553,7 @@ declare interface NavigationMenuItem {
    * @since 11
    */
   /**
-   * The value of navigation menu item.
+   * The icon of navigation menu item.
    *
    * @type { ?(string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
