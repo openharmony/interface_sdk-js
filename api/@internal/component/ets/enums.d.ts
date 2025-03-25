@@ -10418,3 +10418,24 @@ declare enum DividerMode {
    */
   EMBEDDED_IN_MENU = 1,
 }
+
+/**
+ * Event query type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+declare enum EventQueryType {
+  /**
+   * Type of onClick event.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  ON_CLICK = 0,
+}
