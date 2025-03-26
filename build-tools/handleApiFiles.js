@@ -371,7 +371,7 @@ function handleNoTagFileInSecondType(sourceFile, fullPath) {
  */
 function joinFileJsdoc(deletionContent, sourceFile) {
   const fileJsdoc = sourceFile.getFullText().replace(sourceFile.getText(), '');
-  const copyrightMessage = fileJsdoc.split('*/')[0] + '*/\r\n';
+  const copyrightMessage = hasCopyright(fileJsdoc.split('*/')[0]) ? fileJsdoc.split('*/')[0] + '*/\r\n' : '';
   const regx = /@kit | @file/g;
   let kitMessage = '';
 
@@ -449,7 +449,7 @@ function addStaticString(fileContent, copyrightMessage) {
  * @returns 
  */
 function hasCopyright(fileText) {
-  return /http(\:|\?:)\/\/www\.apache\.org\/licenses\/LICENSE\-2\.0/g.test(fileText);
+  return /http(\:|\?:)\/\/www(\.|\/)apache\.org\/licenses\/LICENSE\-2\.0 | Copyright\s*\(c\)/gi.test(fileText);
 }
 
 // 创建 Transformer
