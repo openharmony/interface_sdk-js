@@ -250,7 +250,7 @@ declare namespace PiPWindow {
      * @type { ?LocalStorage }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since 17
      */
     localStorage?: LocalStorage;
   }
