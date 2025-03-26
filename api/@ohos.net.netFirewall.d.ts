@@ -113,6 +113,7 @@ declare namespace netFirewall {
    * Delete a firewall rule by userId and ruleId.
    *
    * @permission ohos.permission.MANAGE_NET_FIREWALL
+   * @param { NetFirewallRule } rule - Firewall rule.
    * @param { number } userId - Indicates the user ID. It cannot be the ID of a user that does not exist.
    * @param { number } ruleId - Rule ID.
    * @returns { Promise<void> } Returns void.
