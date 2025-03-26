@@ -63,6 +63,38 @@ export type AsyncCallback<T, E = void> = (err: BusinessError<E>, data: T)=> void
  */
 export declare class BusinessError<T = void> extends Error {
   /**
+  * A constructor used to create a BusinessError object
+  * @syscap SystemCapability.Base
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 20
+  */
+  constructor();
+  /**
+  * A constructor used to create a BusinessError object
+  * @params { number } code
+  * @params { Error } error
+  * @syscap SystemCapability.Base
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 20
+  */
+  constructor(code: number, error: Error);
+  /**
+  * A constructor used to create a BusinessError object
+  * @params { number } code
+  * @params { T } data
+  * @params { Error } error
+  * @syscap SystemCapability.Base
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 20
+  */
+  constructor(code: number, data: T, error: Error);
+  /**
    * Defines the basic error code.
    * @type { number } code
    * @syscap SystemCapability.Base
@@ -91,6 +123,15 @@ export declare class BusinessError<T = void> extends Error {
    * @form
    * @atomicservice
    * @since 12
+   */
+   /**
+   * Defines the basic error code.
+   * @type { number } code
+   * @syscap SystemCapability.Base
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
    */
   code: number;
   /**
@@ -122,6 +163,15 @@ export declare class BusinessError<T = void> extends Error {
    * @form
    * @atomicservice
    * @since 12
+   */
+   /**
+   * Defines the additional information for business
+   * @type { ?T } data
+   * @syscap SystemCapability.Base
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
    */
   data?: T;
 }
