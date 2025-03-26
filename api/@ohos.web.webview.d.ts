@@ -4036,11 +4036,15 @@ declare namespace webview {
     runJavaScriptExt(script: string | ArrayBuffer, callback: AsyncCallback<JsMessageExt>): void;
 
     /**
-     * Execute createPdf code in the context of the currently displayed page and return the result.
+     * Rendering current Web page into Pdf data, return the result in async mode.
      *
-     * @param { PdfConfiguration } configuration - createPdf configuration.
+     * @param { PdfConfiguration } configuration - configuration for createPdf,
+     *                                             including page width and height, etc.
+     *                                             {@Link PdfConfiguration}
      * @param { AsyncCallback<PdfData> } callback - Callbacks execute createPdf results.
-     * @throws { BusinessError } 401 - Invalid input parameter. 
+     *                                              PdfData is pdf data stream of current web page in Uint8Array
+     *                                              {@Link PdfData}.
+     * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -4050,13 +4054,16 @@ declare namespace webview {
     createPdf(configuration: PdfConfiguration, callback: AsyncCallback<PdfData>): void;
 
     /**
-     * Execute createPdf code in the context of the currently displayed page and return the result.
+     * Rendering current Web page into Pdf data, return the result in promise mode.
      *
-     * @param { PdfConfiguration } configuration - createPdf configuration.
-     * @returns { Promise<PdfData> } A promise is solved after the createPdf is executed.
-     *                              This parameter will be the result of createPdf execution.
-     *                              If the createPdf fails to execute or has no return value,
-     *                              a none type value will be returned.
+     * @param { PdfConfiguration } configuration - configuration for createPdf,
+     *                                             including page width and height, etc.
+     *                                             {@Link PdfConfiguration}
+     * @returns { Promise<PdfData> } The promise returned by the function.
+     *                               PdfData is pdf data stream of current web page in Uint8Array
+     *                               {@Link PdfData}.
+     *                               If createPdf fails or no return value,
+     *                               a none type value will be returned.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
