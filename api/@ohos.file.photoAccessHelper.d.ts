@@ -5283,97 +5283,7 @@ declare namespace photoAccessHelper {
      * @atomicservice
      * @since 12
      */
-    MOVING_PHOTO_IMAGE_TYPE = 'image/movingPhoto',
-
-    /**
-     * JPEG_IMAGE_TYPE indicates that the selected media resources are .jpg or .jpeg photos.
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 18
-     */
-    JPEG_IMAGE_TYPE = 'image/jpeg',
-
-    /**
-     * GIF_IMAGE_TYPE indicates that the selected media resources are .gif photos.
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 18
-     */
-    GIF_IMAGE_TYPE = 'image/gif',
-
-    /**
-     * PNG_IMAGE_TYPE indicates that the selected media resources are .png photos.
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 18
-     */
-    PNG_IMAGE_TYPE = 'image/png',
-
-    /**
-     * HEIC_IMAGE_TYPE indicates that the selected media resources are .heic photos.
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 18
-     */
-    HEIC_IMAGE_TYPE = 'image/heic',
-
-    /**
-     * HEIF_IMAGE_TYPE indicates that the selected media resources are .heif photos.
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 18
-     */
-    HEIF_IMAGE_TYPE = 'image/heif',
-
-    /**
-     * BMP_IMAGE_TYPE indicates that the selected media resources are .bmp photos.
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 18
-     */
-    BMP_IMAGE_TYPE = 'image/bmp',
-
-    /**
-     * WEBP_IMAGE_TYPE indicates that the selected media resources are .webp photos.
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 18
-     */
-    WEBP_IMAGE_TYPE = 'image/webp',
-
-    /**
-     * AVIF_IMAGE_TYPE indicates that the selected media resources are .avif photos.
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 18
-     */
-    AVIF_IMAGE_TYPE = 'image/avif',
-
-    /**
-     * MP4_VIDEO_TYPE indicates that the selected media resources are .mp4 videos.
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 18
-     */
-    MP4_VIDEO_TYPE = 'video/mp4',
-
-    /**
-     * MOV_VIDEO_TYPE indicates that the selected media resources are .quicktime videos.
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 18
-     */
-    MOV_VIDEO_TYPE = 'video/quicktime',
+    MOVING_PHOTO_IMAGE_TYPE = 'image/movingPhoto'
   }
 
   /**
@@ -5722,7 +5632,7 @@ declare namespace photoAccessHelper {
        * @atomicservice
        * @since 18
        */
-      extraFileSize: number;
+      extraFileSize?: number;
     }
 
   /**
@@ -5761,7 +5671,7 @@ declare namespace photoAccessHelper {
        * @atomicservice
        * @since 18
        */
-      extraVideoDuration: number;
+      extraVideoDuration?: number;
   }
 
   /**
