@@ -18,6 +18,13 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import Want from '../../@ohos.app.ability.Want'
+import RestrictedWorker from '../../@ohos.worker'
+import { ErrorCallback } from '../../@ohos.base'
+import { CommonMethod } from './common'
+/*** endif */
+
 /**
  * Indicates restricted worker for run abc.
  *
@@ -54,7 +61,8 @@ declare type Want = import('../api/@ohos.app.ability.Want').default;
  * @interface IsolatedOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface IsolatedOptions {
   /**
@@ -62,7 +70,8 @@ declare interface IsolatedOptions {
    * @type { Want }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   want: Want;
   /**
@@ -70,7 +79,8 @@ declare interface IsolatedOptions {
    * @type { RestrictedWorker } worker - worker which run abc
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   worker: RestrictedWorker;
 }
@@ -88,12 +98,28 @@ declare interface IsolatedOptions {
 declare type IsolatedComponentInterface = (options: IsolatedOptions) => IsolatedComponentAttribute;
 
 /**
+ * Provide an interface for the IsolatedComponent, which is used to render UI of other ABC
+ *
+ * @typedef { function } IsolatedComponentInterface
+ * @param { IsolatedOptions } options - Construction configuration of IsolatedComponentAttribute
+ * @returns { IsolatedComponentAttribute } Attribute of IsolatedComponent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 20
+ * @arkts 1.2
+ */
+interface IsolatedComponentInterface {
+  (options: IsolatedOptions) : IsolatedComponentAttribute;
+}
+
+/**
  * Define the attribute functions of IsolatedComponent.
  *
  * @extends CommonMethod<IsolatedComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class IsolatedComponentAttribute extends CommonMethod<IsolatedComponentAttribute> {
   /**
@@ -102,7 +128,8 @@ declare class IsolatedComponentAttribute extends CommonMethod<IsolatedComponentA
    * @returns { IsolatedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onError(
     callback: ErrorCallback
