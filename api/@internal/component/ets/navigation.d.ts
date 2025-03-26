@@ -2069,28 +2069,6 @@ declare interface NavigationTitleOptions {
   backgroundBlurStyle?: BlurStyle;
 
   /**
-   * Background blur style options.
-   *
-   * @type { ?BackgroundBlurStyleOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
-
-  /**
-   * Background effect options.
-   *
-   * @type { ?BackgroundEffectOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  backgroundEffect?: BackgroundEffectOptions;
-
-  /**
    * Set title bar style.
    *
    * @type { ?BarStyle }
@@ -2235,39 +2213,6 @@ declare interface NavigationToolbarOptions {
   backgroundBlurStyle?: BlurStyle;
 
   /**
-   * Background blur style options.
-   *
-   * @type { ?BackgroundBlurStyleOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
-
-  /**
-   * Background effect options.
-   *
-   * @type { ?BackgroundEffectOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  backgroundEffect?: BackgroundEffectOptions;
-
-  /**
-   * More button options.
-   *
-   * @type { ?MoreButtonOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  moreButtonOptions?: MoreButtonOptions;
-
-  /**
    * Set tool bar style.
    *
    * @type { ?BarStyle }
@@ -2290,72 +2235,6 @@ declare interface NavigationToolbarOptions {
    * @since 18
    */
   hideItemValue?: boolean
-}
-
-/**
- * Indicates the options of Navigation's Menu.
- *
- * @interface NavigationMenuOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 18
- */
-declare interface NavigationMenuOptions {
-/**
- * More button options.
- *
- * @type { ?MoreButtonOptions }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 18
- */
-  moreButtonOptions?: MoreButtonOptions;
-}
-
-/**
- * Indicates the options of Navigation's Menu.
- *
- * @interface MoreButtonOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 18
- */
-declare interface MoreButtonOptions {
-  /**
-   * Background blur style.
-   *
-   * @type { ?BlurStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  backgroundBlurStyle?: BlurStyle;
-  
-  /**
-   * Background blur style options.
-   *
-   * @type { ?BackgroundBlurStyleOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
-
-  /**
-   * Background effect options.
-   *
-   * @type { ?BackgroundEffectOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  backgroundEffect?: BackgroundEffectOptions;
 }
 
 /**
@@ -2772,19 +2651,6 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 11
    */
   menus(value: Array<NavigationMenuItem> | CustomBuilder): NavigationAttribute;
-
-  /**
-   * Navigation title bar's menus
-   *
-   * @param { Array<NavigationMenuItem> | CustomBuilder } items
-   * @param { NavigationMenuOptions } [options] - Indicates the options of menu.
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  menus(items: Array<NavigationMenuItem> | CustomBuilder, options?: NavigationMenuOptions): NavigationAttribute;
 
   /**
    * Tool bar
