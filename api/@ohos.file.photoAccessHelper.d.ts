@@ -5283,97 +5283,7 @@ declare namespace photoAccessHelper {
      * @atomicservice
      * @since 12
      */
-    MOVING_PHOTO_IMAGE_TYPE = 'image/movingPhoto',
-
-    /**
-     * JPEG_IMAGE_TYPE indicates that the selected media resources are .jpg or .jpeg photos.
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 18
-     */
-    JPEG_IMAGE_TYPE = 'image/jpeg',
-
-    /**
-     * GIF_IMAGE_TYPE indicates that the selected media resources are .gif photos.
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 18
-     */
-    GIF_IMAGE_TYPE = 'image/gif',
-
-    /**
-     * PNG_IMAGE_TYPE indicates that the selected media resources are .png photos.
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 18
-     */
-    PNG_IMAGE_TYPE = 'image/png',
-
-    /**
-     * HEIC_IMAGE_TYPE indicates that the selected media resources are .heic photos.
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 18
-     */
-    HEIC_IMAGE_TYPE = 'image/heic',
-
-    /**
-     * HEIF_IMAGE_TYPE indicates that the selected media resources are .heif photos.
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 18
-     */
-    HEIF_IMAGE_TYPE = 'image/heif',
-
-    /**
-     * BMP_IMAGE_TYPE indicates that the selected media resources are .bmp photos.
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 18
-     */
-    BMP_IMAGE_TYPE = 'image/bmp',
-
-    /**
-     * WEBP_IMAGE_TYPE indicates that the selected media resources are .webp photos.
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 18
-     */
-    WEBP_IMAGE_TYPE = 'image/webp',
-
-    /**
-     * AVIF_IMAGE_TYPE indicates that the selected media resources are .avif photos.
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 18
-     */
-    AVIF_IMAGE_TYPE = 'image/avif',
-
-    /**
-     * MP4_VIDEO_TYPE indicates that the selected media resources are .mp4 videos.
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 18
-     */
-    MP4_VIDEO_TYPE = 'video/mp4',
-
-    /**
-     * MOV_VIDEO_TYPE indicates that the selected media resources are .quicktime videos.
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 18
-     */
-    MOV_VIDEO_TYPE = 'video/quicktime',
+    MOVING_PHOTO_IMAGE_TYPE = 'image/movingPhoto'
   }
 
   /**
@@ -5382,7 +5292,7 @@ declare namespace photoAccessHelper {
    * @enum { number } FilterOperator
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   export enum FilterOperator {
     /**
@@ -5390,7 +5300,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     EQUAL_TO = 0,
     /**
@@ -5398,7 +5308,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     NOT_EQUAL_TO = 1,
     /**
@@ -5406,7 +5316,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     MORE_THAN = 2,
     /**
@@ -5414,7 +5324,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     LESS_THAN = 3,
     /**
@@ -5422,7 +5332,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     MORE_THAN_OR_EQUAL_TO = 4,
     /**
@@ -5430,7 +5340,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     LESS_THAN_OR_EQUAL_TO = 5,
     /**
@@ -5438,7 +5348,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     BETWEEN = 6,
   }
@@ -5642,7 +5552,7 @@ declare namespace photoAccessHelper {
      * @type { ?MIMETypeFilter }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     MIMETypeFilter?: MIMETypeFilter;
 
@@ -5652,7 +5562,7 @@ declare namespace photoAccessHelper {
      * @type { ?FileSizeFilter }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     fileSizeFilter?: FileSizeFilter;
 
@@ -5662,7 +5572,7 @@ declare namespace photoAccessHelper {
      * @type { ?VideoDurationFilter }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     videoDurationFilter?: VideoDurationFilter;
   }
@@ -5672,7 +5582,7 @@ declare namespace photoAccessHelper {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   class MIMETypeFilter {
     /**
@@ -5681,7 +5591,7 @@ declare namespace photoAccessHelper {
      * @type { Array<string> }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     MIMETypeArray: Array<string>;
   }
@@ -5691,7 +5601,7 @@ declare namespace photoAccessHelper {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 18
+   * @since 19
    */
     class FileSizeFilter {
       /**
@@ -5700,7 +5610,7 @@ declare namespace photoAccessHelper {
        * @type { FilterOperator }
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @atomicservice
-       * @since 18
+       * @since 19
        */
       filterOperator: FilterOperator;
 
@@ -5710,7 +5620,7 @@ declare namespace photoAccessHelper {
        * @type { number }
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @atomicservice
-       * @since 18
+       * @since 19
        */
       fileSize: number;
 
@@ -5720,9 +5630,9 @@ declare namespace photoAccessHelper {
        * @type { ?number }
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @atomicservice
-       * @since 18
+       * @since 19
        */
-      extraFileSize: number;
+      extraFileSize?: number;
     }
 
   /**
@@ -5730,7 +5640,7 @@ declare namespace photoAccessHelper {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   class VideoDurationFilter {
       /**
@@ -5739,7 +5649,7 @@ declare namespace photoAccessHelper {
        * @type { FilterOperator }
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @atomicservice
-       * @since 18
+       * @since 19
        */
       filterOperator: FilterOperator;
 
@@ -5749,7 +5659,7 @@ declare namespace photoAccessHelper {
        * @type { number }
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @atomicservice
-       * @since 18
+       * @since 19
        */
       videoDuration: number;
 
@@ -5759,9 +5669,9 @@ declare namespace photoAccessHelper {
        * @type { ?number }
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @atomicservice
-       * @since 18
+       * @since 19
        */
-      extraVideoDuration: number;
+      extraVideoDuration?: number;
   }
 
   /**
