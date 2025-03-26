@@ -5672,7 +5672,7 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 16
    */
-  function sensUssdResponse(accountId: number, content: string): Promise<boolean>;
+  function sendUssdResponse(accountId: number, content: string): Promise<boolean>;
 }
 
 export default call;
