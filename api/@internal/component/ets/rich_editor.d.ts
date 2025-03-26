@@ -18,6 +18,27 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { memo, ComponentBuilder } from './../stateManagement/runtime'
+import { Tuple_Number_Number, ShadowOptions, Callback_ClickEvent_Void, ClickEvent, SelectionOptions, CustomBuilder, CommonMethod, DrawModifier, Rectangle, Callback_Array_TouchTestInfo_TouchResult, TouchTestInfo, TouchResult, PixelRoundPolicy, BackgroundEffectOptions, ForegroundEffectOptions, BorderImageOption, OutlineStyle, Callback_Boolean_HoverEvent_Void, HoverEvent, AccessibilityCallback, Callback_MouseEvent_Void, MouseEvent, Callback_TouchEvent_Void, TouchEvent, Callback_KeyEvent_Void, KeyEvent, Callback_KeyEvent_Boolean, AnimateParam, TransitionOptions, TransitionEffect, MotionBlurOptions, InvertOptions, TranslateOptions, ScaleOptions, RotateOptions, Callback_Area_Area_Void, Literal_Union_Number_Literal_Number_offset_span_lg_md_sm_xs, Literal_Number_offset_span, AlignRuleOption, LocalizedAlignRuleOptions, ClickEffect, Callback_DragEvent_String_Union_CustomBuilder_DragItemInfo, DragEvent, DragItemInfo, Callback_DragEvent_String_Void, Callback_PreDragStatus_Void, PreDragStatus, Type_CommonMethod_linearGradient_value, Tuple_ResourceColor_Number, Type_CommonMethod_sweepGradient_value, Tuple_Length_Length, Type_CommonMethod_radialGradient_value, MotionPathOptions, ShadowStyle, ProgressMask, StateStyles, PixelStretchEffectOptions, AttributeModifier, GestureModifier, BackgroundBrightnessOptions, Callback_GestureInfo_BaseGestureEvent_GestureJudgeResult, GestureRecognizerJudgeBeginCallback, ShouldBuiltInRecognizerParallelWithCallback, Callback_TouchEvent_HitTestMode, SizeChangeCallback, SafeAreaType, SafeAreaEdge, Literal_Alignment_align, BlurStyle, BackgroundBlurStyleOptions, ForegroundBlurStyleOptions, TransitionFinishCallback, BlurOptions, LinearGradientBlurOptions, EffectType, sharedTransitionOptions, ChainStyle, DragPreviewOptions, DragInteractionOptions, OverlayOptions, BlendMode, BlendApplyType, GeometryTransitionOptions, PopupOptions, CustomPopupOptions, MenuElement, MenuOptions, ContextMenuOptions, ModalTransition, ContentCoverOptions, SheetOptions, VisibleAreaChangeCallback } from './common'
+import { ResourceColor, Length, ResourceStr, PixelMap, Dimension, Margin, BorderRadiuses, Font, VisualEffect, Filter, UniformDataType, Blender, SizeOptions, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin, Position, BorderOptions, EdgeStyles, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, LocalizedBorderRadiuses, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Area, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions } from './units'
+import { FontStyle, FontWeight, TextAlign, WordBreak, LineBreakStrategy, ImageSpanAlignment, ImageFit, HitTestMode, ImageSize, Alignment, BorderStyle, ColoringStrategy, HoverEffect, Color, Visibility, ItemAlign, Direction, GradientDirection, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey, CopyOptions, BarState } from './enums'
+import { DecorationStyleInterface, StyledString, MutableStyledString } from './styledString'
+import { Resource } from './../../../api/global/resource'
+import { Tuple_Dimension_Dimension } from './navigation'
+import { Callback_Void } from './abilityComponent'
+import { SymbolEffectStrategy, SymbolRenderingStrategy } from './symbolglyph'
+import { DecorationStyleResult, TextRange, MenuType, TextEditControllerEx, TextBaseController, LayoutManager, PreviewText, StyledStringController, StyledStringChangedListener, TextDataDetectorConfig, OnDidChangeCallback, EditMenuOptions } from './textCommon'
+import { Callback_GestureEvent_Void, GestureEvent, GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
+import { ComponentContent } from './../ComponentContent'
+import { LengthMetrics } from './../Graphics'
+import { CircleShape, EllipseShape, PathShape, RectShape } from './../../../api/@ohos.arkui.shape'
+import { ResizableOptions } from './image'
+import { FocusBoxStyle, FocusPriority } from './focus'
+import { Callback_Boolean_Void } from './checkbox'
+import { EnterKeyType, SubmitEvent } from './textInput'
+/*** endif */
+
 /**
  * Defines delete text direction.
  *
@@ -32,7 +53,8 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum RichEditorDeleteDirection {
   /**
@@ -47,7 +69,8 @@ declare enum RichEditorDeleteDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   BACKWARD,
 
@@ -63,7 +86,8 @@ declare enum RichEditorDeleteDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   FORWARD,
 }
@@ -82,7 +106,8 @@ declare enum RichEditorDeleteDirection {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum RichEditorSpanType {
   /**
@@ -97,7 +122,8 @@ declare enum RichEditorSpanType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   TEXT = 0,
 
@@ -113,7 +139,8 @@ declare enum RichEditorSpanType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   IMAGE = 1,
 
@@ -129,7 +156,8 @@ declare enum RichEditorSpanType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   MIXED = 2,
 
@@ -139,7 +167,8 @@ declare enum RichEditorSpanType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   BUILDER = 3,
 
@@ -169,7 +198,8 @@ declare enum RichEditorSpanType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum RichEditorResponseType {
   /**
@@ -185,7 +215,8 @@ declare enum RichEditorResponseType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   RIGHT_CLICK = 0,
 
@@ -202,7 +233,8 @@ declare enum RichEditorResponseType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   LONG_PRESS = 1,
 
@@ -219,7 +251,8 @@ declare enum RichEditorResponseType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   SELECT = 2,
 
@@ -248,7 +281,8 @@ declare enum RichEditorResponseType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RichEditorSpanPosition {
   /**
@@ -265,7 +299,8 @@ declare interface RichEditorSpanPosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   spanIndex: number;
 
@@ -283,7 +318,8 @@ declare interface RichEditorSpanPosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   spanRange: [number, number];
 }
@@ -302,7 +338,8 @@ declare interface RichEditorSpanPosition {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RichEditorTextStyle {
   /**
@@ -319,7 +356,8 @@ declare interface RichEditorTextStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontColor?: ResourceColor;
 
@@ -337,7 +375,8 @@ declare interface RichEditorTextStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontSize?: Length | number;
 
@@ -355,7 +394,8 @@ declare interface RichEditorTextStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontStyle?: FontStyle;
 
@@ -373,7 +413,8 @@ declare interface RichEditorTextStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontWeight?: number | FontWeight | string;
 
@@ -391,7 +432,8 @@ declare interface RichEditorTextStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontFamily?: ResourceStr;
 
@@ -418,7 +460,8 @@ declare interface RichEditorTextStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   decoration?: DecorationStyleInterface;
 
@@ -437,7 +480,8 @@ declare interface RichEditorTextStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   textShadow?: ShadowOptions | Array<ShadowOptions>;
   
@@ -448,7 +492,8 @@ declare interface RichEditorTextStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   letterSpacing?: number | string;
 
@@ -459,7 +504,8 @@ declare interface RichEditorTextStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lineHeight?: number | string | Resource;
 
@@ -486,7 +532,8 @@ declare interface RichEditorTextStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontFeature?: string;
 
@@ -518,7 +565,8 @@ declare interface RichEditorTextStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface LeadingMarginPlaceholder {
   /**
@@ -536,7 +584,8 @@ declare interface LeadingMarginPlaceholder {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   pixelMap: PixelMap;
 
@@ -555,7 +604,8 @@ declare interface LeadingMarginPlaceholder {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   size: [Dimension, Dimension];
 }
@@ -575,7 +625,8 @@ declare interface LeadingMarginPlaceholder {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RichEditorParagraphStyle {
   /**
@@ -593,7 +644,8 @@ declare interface RichEditorParagraphStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   textAlign?: TextAlign;
 
@@ -612,7 +664,8 @@ declare interface RichEditorParagraphStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   leadingMargin?: Dimension | LeadingMarginPlaceholder;
 
@@ -623,7 +676,8 @@ declare interface RichEditorParagraphStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   wordBreak?: WordBreak;
 
@@ -634,7 +688,8 @@ declare interface RichEditorParagraphStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lineBreakStrategy?: LineBreakStrategy;
 
@@ -657,7 +712,8 @@ declare interface RichEditorParagraphStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface PasteEvent {
   /**
@@ -676,7 +732,8 @@ declare interface PasteEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   preventDefault?: Callback<void>;
 }
@@ -695,7 +752,8 @@ declare interface PasteEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RichEditorTextSpan {
   /**
@@ -712,7 +770,8 @@ declare interface RichEditorTextSpan {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   spanPosition: RichEditorSpanPosition;
 
@@ -730,7 +789,8 @@ declare interface RichEditorTextSpan {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   value: string;
 
@@ -748,7 +808,8 @@ declare interface RichEditorTextSpan {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   textStyle?: RichEditorTextStyle;
 }
@@ -768,7 +829,8 @@ declare interface RichEditorTextSpan {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface RichEditorLayoutStyle {
   /**
@@ -786,7 +848,8 @@ interface RichEditorLayoutStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   margin?: Dimension | Margin;
 
@@ -805,7 +868,8 @@ interface RichEditorLayoutStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   borderRadius?: Dimension | BorderRadiuses;
 }
@@ -824,7 +888,8 @@ interface RichEditorLayoutStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RichEditorImageSpanStyle {
   /**
@@ -841,7 +906,8 @@ declare interface RichEditorImageSpanStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   size?: [Dimension, Dimension];
 
@@ -859,7 +925,8 @@ declare interface RichEditorImageSpanStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   verticalAlign?: ImageSpanAlignment;
 
@@ -877,7 +944,8 @@ declare interface RichEditorImageSpanStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   objectFit?: ImageFit;
 
@@ -896,7 +964,8 @@ declare interface RichEditorImageSpanStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   layoutStyle?: RichEditorLayoutStyle;
 }
@@ -916,7 +985,8 @@ declare interface RichEditorImageSpanStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RichEditorSymbolSpanStyle {
   /**
@@ -934,7 +1004,8 @@ declare interface RichEditorSymbolSpanStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontSize?: number | string | Resource;
 
@@ -953,7 +1024,8 @@ declare interface RichEditorSymbolSpanStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontColor?: Array<ResourceColor>;
 
@@ -972,7 +1044,8 @@ declare interface RichEditorSymbolSpanStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontWeight?: number | FontWeight | string;
 
@@ -991,7 +1064,8 @@ declare interface RichEditorSymbolSpanStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   effectStrategy?: SymbolEffectStrategy;
 
@@ -1010,7 +1084,8 @@ declare interface RichEditorSymbolSpanStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   renderingStrategy?: SymbolRenderingStrategy;
 }
@@ -1029,7 +1104,8 @@ declare interface RichEditorSymbolSpanStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RichEditorTextStyleResult {
   /**
@@ -1046,7 +1122,8 @@ declare interface RichEditorTextStyleResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontColor: ResourceColor;
 
@@ -1064,7 +1141,8 @@ declare interface RichEditorTextStyleResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontSize: number;
 
@@ -1082,7 +1160,8 @@ declare interface RichEditorTextStyleResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontStyle: FontStyle;
 
@@ -1100,7 +1179,8 @@ declare interface RichEditorTextStyleResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontWeight: number;
 
@@ -1118,7 +1198,8 @@ declare interface RichEditorTextStyleResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontFamily: string;
 
@@ -1145,7 +1226,8 @@ declare interface RichEditorTextStyleResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   decoration: DecorationStyleResult;
 
@@ -1156,7 +1238,8 @@ declare interface RichEditorTextStyleResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   textShadow?: Array<ShadowOptions>;
 
@@ -1167,7 +1250,8 @@ declare interface RichEditorTextStyleResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   letterSpacing?: number;
 
@@ -1178,7 +1262,8 @@ declare interface RichEditorTextStyleResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lineHeight?: number;
 
@@ -1205,7 +1290,8 @@ declare interface RichEditorTextStyleResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontFeature?: string;
 
@@ -1236,7 +1322,8 @@ declare interface RichEditorTextStyleResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RichEditorParagraphResult {
   /**
@@ -1254,7 +1341,8 @@ declare interface RichEditorParagraphResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   style: RichEditorParagraphStyle;
 
@@ -1273,7 +1361,8 @@ declare interface RichEditorParagraphResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   range: [number, number];
 }
@@ -1293,7 +1382,8 @@ declare interface RichEditorParagraphResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RichEditorSymbolSpanStyleResult {
   /**
@@ -1311,7 +1401,8 @@ declare interface RichEditorSymbolSpanStyleResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontSize: number | string | Resource;
 
@@ -1330,7 +1421,8 @@ declare interface RichEditorSymbolSpanStyleResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontColor: Array<ResourceColor>;
 
@@ -1349,7 +1441,8 @@ declare interface RichEditorSymbolSpanStyleResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontWeight: number | FontWeight | string;
 
@@ -1368,7 +1461,8 @@ declare interface RichEditorSymbolSpanStyleResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   effectStrategy: SymbolEffectStrategy;
 
@@ -1387,7 +1481,8 @@ declare interface RichEditorSymbolSpanStyleResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   renderingStrategy: SymbolRenderingStrategy;
 }
@@ -1406,7 +1501,8 @@ declare interface RichEditorSymbolSpanStyleResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RichEditorTextSpanResult {
   /**
@@ -1423,7 +1519,8 @@ declare interface RichEditorTextSpanResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   spanPosition: RichEditorSpanPosition;
 
@@ -1441,7 +1538,8 @@ declare interface RichEditorTextSpanResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   value: string;
 
@@ -1459,7 +1557,8 @@ declare interface RichEditorTextSpanResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   textStyle: RichEditorTextStyleResult;
 
@@ -1477,7 +1576,8 @@ declare interface RichEditorTextSpanResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   offsetInSpan: [number, number];
 
@@ -1496,7 +1596,8 @@ declare interface RichEditorTextSpanResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   symbolSpanStyle?: RichEditorSymbolSpanStyle;
 
@@ -1515,7 +1616,8 @@ declare interface RichEditorTextSpanResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   valueResource?: Resource;
 
@@ -1526,7 +1628,8 @@ declare interface RichEditorTextSpanResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   paragraphStyle?: RichEditorParagraphStyle;
 
@@ -1537,7 +1640,8 @@ declare interface RichEditorTextSpanResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   previewText?: string;
 
@@ -1567,7 +1671,8 @@ declare interface RichEditorTextSpanResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RichEditorImageSpanStyleResult {
   /**
@@ -1584,7 +1689,8 @@ declare interface RichEditorImageSpanStyleResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   size: [number, number];
 
@@ -1602,7 +1708,8 @@ declare interface RichEditorImageSpanStyleResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   verticalAlign: ImageSpanAlignment;
 
@@ -1620,7 +1727,8 @@ declare interface RichEditorImageSpanStyleResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   objectFit: ImageFit;
 
@@ -1631,7 +1739,8 @@ declare interface RichEditorImageSpanStyleResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   layoutStyle?: RichEditorLayoutStyle;
 }
@@ -1650,7 +1759,8 @@ declare interface RichEditorImageSpanStyleResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RichEditorImageSpanResult {
   /**
@@ -1667,7 +1777,8 @@ declare interface RichEditorImageSpanResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   spanPosition: RichEditorSpanPosition;
 
@@ -1685,7 +1796,8 @@ declare interface RichEditorImageSpanResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   valuePixelMap?: PixelMap;
 
@@ -1703,7 +1815,8 @@ declare interface RichEditorImageSpanResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   valueResourceStr?: ResourceStr;
 
@@ -1721,7 +1834,8 @@ declare interface RichEditorImageSpanResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   imageStyle: RichEditorImageSpanStyleResult;
 
@@ -1739,7 +1853,8 @@ declare interface RichEditorImageSpanResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   offsetInSpan: [number, number];
 }
@@ -1758,7 +1873,8 @@ declare interface RichEditorImageSpanResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RichEditorImageSpan {
   /**
@@ -1775,7 +1891,8 @@ declare interface RichEditorImageSpan {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   spanPosition: RichEditorSpanPosition;
 
@@ -1793,7 +1910,8 @@ declare interface RichEditorImageSpan {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   value: PixelMap | ResourceStr;
 
@@ -1811,7 +1929,8 @@ declare interface RichEditorImageSpan {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   imageStyle?: RichEditorImageSpanStyle;
 }
@@ -1830,7 +1949,8 @@ declare interface RichEditorImageSpan {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RichEditorRange {
   /**
@@ -1849,7 +1969,8 @@ declare interface RichEditorRange {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   start?: number;
 
@@ -1869,7 +1990,8 @@ declare interface RichEditorRange {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   end?: number;
 }
@@ -1889,7 +2011,8 @@ declare interface RichEditorRange {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RichEditorGesture {
   /**
@@ -1907,7 +2030,8 @@ declare interface RichEditorGesture {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onClick?: Callback<ClickEvent>;
 
@@ -1926,7 +2050,8 @@ declare interface RichEditorGesture {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onLongPress?: Callback<GestureEvent>;
 
@@ -1956,7 +2081,8 @@ declare interface RichEditorGesture {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RichEditorTextSpanOptions {
   /**
@@ -1973,7 +2099,8 @@ declare interface RichEditorTextSpanOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   offset?: number;
 
@@ -1991,7 +2118,8 @@ declare interface RichEditorTextSpanOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   style?: RichEditorTextStyle;
 
@@ -2010,7 +2138,8 @@ declare interface RichEditorTextSpanOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   paragraphStyle?: RichEditorParagraphStyle;
 
@@ -2029,7 +2158,8 @@ declare interface RichEditorTextSpanOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   gesture?: RichEditorGesture;
 
@@ -2052,7 +2182,8 @@ declare interface RichEditorTextSpanOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface KeyboardOptions {
   /**
@@ -2062,7 +2193,8 @@ declare interface KeyboardOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   supportAvoidance?: boolean;
 }
@@ -2081,7 +2213,8 @@ declare interface KeyboardOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RichEditorImageSpanOptions {
   /**
@@ -2098,7 +2231,8 @@ declare interface RichEditorImageSpanOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   offset?: number;
 
@@ -2116,7 +2250,8 @@ declare interface RichEditorImageSpanOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   imageStyle?: RichEditorImageSpanStyle;
 
@@ -2135,7 +2270,8 @@ declare interface RichEditorImageSpanOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   gesture?: RichEditorGesture;
 
@@ -2166,7 +2302,8 @@ declare interface RichEditorImageSpanOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RichEditorBuilderSpanOptions {
   /**
@@ -2184,7 +2321,8 @@ declare interface RichEditorBuilderSpanOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   offset?: number;
 
@@ -2216,7 +2354,8 @@ declare interface RichEditorBuilderSpanOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface PlaceholderStyle {
   /**
@@ -2226,7 +2365,8 @@ declare interface PlaceholderStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   font?: Font;
 
@@ -2237,7 +2377,8 @@ declare interface PlaceholderStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontColor?: ResourceColor;
 }
@@ -2258,7 +2399,8 @@ declare interface PlaceholderStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RichEditorSpanStyleOptions extends RichEditorRange { }
 
@@ -2279,7 +2421,8 @@ declare interface RichEditorSpanStyleOptions extends RichEditorRange { }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RichEditorParagraphStyleOptions extends RichEditorRange {
   /**
@@ -2297,7 +2440,8 @@ declare interface RichEditorParagraphStyleOptions extends RichEditorRange {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   style: RichEditorParagraphStyle;
 }
@@ -2318,7 +2462,8 @@ declare interface RichEditorParagraphStyleOptions extends RichEditorRange {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RichEditorUpdateTextSpanStyleOptions extends RichEditorSpanStyleOptions {
   /**
@@ -2335,7 +2480,8 @@ declare interface RichEditorUpdateTextSpanStyleOptions extends RichEditorSpanSty
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   textStyle: RichEditorTextStyle;
 
@@ -2367,7 +2513,8 @@ declare interface RichEditorUpdateTextSpanStyleOptions extends RichEditorSpanSty
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RichEditorUpdateImageSpanStyleOptions extends RichEditorSpanStyleOptions {
   /**
@@ -2384,7 +2531,8 @@ declare interface RichEditorUpdateImageSpanStyleOptions extends RichEditorSpanSt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   imageStyle: RichEditorImageSpanStyle;
 }
@@ -2406,7 +2554,8 @@ declare interface RichEditorUpdateImageSpanStyleOptions extends RichEditorSpanSt
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RichEditorUpdateSymbolSpanStyleOptions extends RichEditorSpanStyleOptions {
   /**
@@ -2424,7 +2573,8 @@ declare interface RichEditorUpdateSymbolSpanStyleOptions extends RichEditorSpanS
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   symbolStyle: RichEditorSymbolSpanStyle;
 }
@@ -2444,7 +2594,8 @@ declare interface RichEditorUpdateSymbolSpanStyleOptions extends RichEditorSpanS
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RichEditorSymbolSpanOptions {
   /**
@@ -2462,7 +2613,8 @@ declare interface RichEditorSymbolSpanOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   offset?: number;
 
@@ -2481,7 +2633,8 @@ declare interface RichEditorSymbolSpanOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   style?: RichEditorSymbolSpanStyle;
 }
@@ -2500,7 +2653,8 @@ declare interface RichEditorSymbolSpanOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RichEditorSelection {
   /**
@@ -2517,7 +2671,8 @@ declare interface RichEditorSelection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selection: [number, number];
 
@@ -2535,7 +2690,8 @@ declare interface RichEditorSelection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   spans: Array<RichEditorTextSpanResult | RichEditorImageSpanResult>;
 }
@@ -2554,7 +2710,8 @@ declare interface RichEditorSelection {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RichEditorInsertValue {
   /**
@@ -2571,7 +2728,8 @@ declare interface RichEditorInsertValue {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   insertOffset: number;
 
@@ -2589,7 +2747,8 @@ declare interface RichEditorInsertValue {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   insertValue: string;
 
@@ -2600,7 +2759,8 @@ declare interface RichEditorInsertValue {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   previewText?: string;
 }
@@ -2619,7 +2779,8 @@ declare interface RichEditorInsertValue {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RichEditorDeleteValue {
   /**
@@ -2636,7 +2797,8 @@ declare interface RichEditorDeleteValue {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   offset: number;
 
@@ -2654,7 +2816,8 @@ declare interface RichEditorDeleteValue {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   direction: RichEditorDeleteDirection;
 
@@ -2672,7 +2835,8 @@ declare interface RichEditorDeleteValue {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   length: number;
 
@@ -2690,7 +2854,8 @@ declare interface RichEditorDeleteValue {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   richEditorDeleteSpans: Array<RichEditorTextSpanResult | RichEditorImageSpanResult>;
 }
@@ -2702,7 +2867,8 @@ declare interface RichEditorDeleteValue {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RichEditorChangeValue {
   /**
@@ -2712,7 +2878,8 @@ declare interface RichEditorChangeValue {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   rangeBefore: TextRange;
 
@@ -2723,7 +2890,8 @@ declare interface RichEditorChangeValue {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   replacedSpans: Array<RichEditorTextSpanResult>;
 
@@ -2734,7 +2902,8 @@ declare interface RichEditorChangeValue {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   replacedImageSpans: Array<RichEditorImageSpanResult>;
 
@@ -2745,7 +2914,8 @@ declare interface RichEditorChangeValue {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   replacedSymbolSpans: Array<RichEditorTextSpanResult>;
 }
@@ -2764,7 +2934,8 @@ declare interface RichEditorChangeValue {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RichEditorOptions {
   /**
@@ -2781,7 +2952,8 @@ declare interface RichEditorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   controller: RichEditorController;
 }
@@ -2793,7 +2965,8 @@ declare interface RichEditorOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RichEditorStyledStringOptions {
   /**
@@ -2803,7 +2976,8 @@ declare interface RichEditorStyledStringOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   controller: RichEditorStyledStringController;
 }
@@ -2823,7 +2997,8 @@ declare interface RichEditorStyledStringOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface SelectionMenuOptions {
   /**
@@ -2850,7 +3025,8 @@ declare interface SelectionMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onAppear?: MenuOnAppearCallback;
 
@@ -2878,7 +3054,8 @@ declare interface SelectionMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onDisappear?: Callback<void>;
 
@@ -2889,7 +3066,8 @@ declare interface SelectionMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   menuType?: MenuType;
 
@@ -2953,7 +3131,8 @@ declare interface PreviewMenuOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class RichEditorBaseController implements TextEditControllerEx {
   /**
@@ -2970,7 +3149,8 @@ declare class RichEditorBaseController implements TextEditControllerEx {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getCaretOffset(): number;
 
@@ -2990,7 +3170,8 @@ declare class RichEditorBaseController implements TextEditControllerEx {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setCaretOffset(offset: number): boolean;
 
@@ -3006,7 +3187,8 @@ declare class RichEditorBaseController implements TextEditControllerEx {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   closeSelectionMenu(): void;
 
@@ -3025,7 +3207,8 @@ declare class RichEditorBaseController implements TextEditControllerEx {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getTypingStyle(): RichEditorTextStyle;
 
@@ -3044,7 +3227,8 @@ declare class RichEditorBaseController implements TextEditControllerEx {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setTypingStyle(value: RichEditorTextStyle): void;
 
@@ -3066,7 +3250,8 @@ declare class RichEditorBaseController implements TextEditControllerEx {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
 
@@ -3077,7 +3262,8 @@ declare class RichEditorBaseController implements TextEditControllerEx {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isEditing(): boolean;
 
@@ -3087,7 +3273,8 @@ declare class RichEditorBaseController implements TextEditControllerEx {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   stopEditing(): void;
 
@@ -3098,7 +3285,8 @@ declare class RichEditorBaseController implements TextEditControllerEx {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getLayoutManager(): LayoutManager;
 
@@ -3109,7 +3297,8 @@ declare class RichEditorBaseController implements TextEditControllerEx {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getPreviewText(): PreviewText;
 
@@ -3146,7 +3335,8 @@ declare class RichEditorBaseController implements TextEditControllerEx {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class RichEditorController extends RichEditorBaseController {
   /**
@@ -3167,7 +3357,8 @@ declare class RichEditorController extends RichEditorBaseController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   addTextSpan(value: string, options?: RichEditorTextSpanOptions): number;
 
@@ -3189,7 +3380,8 @@ declare class RichEditorController extends RichEditorBaseController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   addImageSpan(value: PixelMap | ResourceStr, options?: RichEditorImageSpanOptions): number;
 
@@ -3212,7 +3404,8 @@ declare class RichEditorController extends RichEditorBaseController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   addBuilderSpan(value: CustomBuilder, options?: RichEditorBuilderSpanOptions): number;
 
@@ -3235,7 +3428,8 @@ declare class RichEditorController extends RichEditorBaseController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   addSymbolSpan(value: Resource, options?: RichEditorSymbolSpanOptions ): number;
   
@@ -3253,7 +3447,8 @@ declare class RichEditorController extends RichEditorBaseController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   updateSpanStyle(value: RichEditorUpdateTextSpanStyleOptions | RichEditorUpdateImageSpanStyleOptions | RichEditorUpdateSymbolSpanStyleOptions): void;
 
@@ -3272,7 +3467,8 @@ declare class RichEditorController extends RichEditorBaseController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   updateParagraphStyle(value: RichEditorParagraphStyleOptions): void;
 
@@ -3290,7 +3486,8 @@ declare class RichEditorController extends RichEditorBaseController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   deleteSpans(value?: RichEditorRange): void;
 
@@ -3310,7 +3507,8 @@ declare class RichEditorController extends RichEditorBaseController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getSpans(value?: RichEditorRange): Array<RichEditorImageSpanResult | RichEditorTextSpanResult>;
 
@@ -3331,7 +3529,8 @@ declare class RichEditorController extends RichEditorBaseController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getParagraphs(value?: RichEditorRange): Array<RichEditorParagraphResult>;
 
@@ -3350,7 +3549,8 @@ declare class RichEditorController extends RichEditorBaseController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getSelection(): RichEditorSelection;
 
@@ -3364,7 +3564,8 @@ declare class RichEditorController extends RichEditorBaseController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fromStyledString(value: StyledString): Array<RichEditorSpan>;
 
@@ -3378,7 +3579,8 @@ declare class RichEditorController extends RichEditorBaseController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
     toStyledString(value: RichEditorRange): StyledString;
 }
@@ -3395,6 +3597,18 @@ declare class RichEditorController extends RichEditorBaseController {
 declare type RichEditorSpan = RichEditorImageSpanResult | RichEditorTextSpanResult;
 
 /**
+ * Defines the types of spans in rich editor.
+ *
+ * @typedef { RichEditorImageSpanResult | RichEditorTextSpanResult } RichEditorSpan
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+type RichEditorSpan = RichEditorImageSpanResult | RichEditorTextSpanResult;
+
+/**
  * Provides Controller for RichEditor with StyledString.
  *
  * @extends RichEditorBaseController
@@ -3402,7 +3616,8 @@ declare type RichEditorSpan = RichEditorImageSpanResult | RichEditorTextSpanResu
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class RichEditorStyledStringController extends RichEditorBaseController implements StyledStringController {
   /**
@@ -3412,7 +3627,8 @@ declare class RichEditorStyledStringController extends RichEditorBaseController 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setStyledString(styledString: StyledString): void;
 
@@ -3422,7 +3638,8 @@ declare class RichEditorStyledStringController extends RichEditorBaseController 
    * @returns { MutableStyledString }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getStyledString(): MutableStyledString;
 
@@ -3433,7 +3650,8 @@ declare class RichEditorStyledStringController extends RichEditorBaseController 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getSelection(): RichEditorRange;
 
@@ -3444,7 +3662,8 @@ declare class RichEditorStyledStringController extends RichEditorBaseController 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onContentChanged(listener: StyledStringChangedListener): void;
 }
@@ -3463,7 +3682,8 @@ declare class RichEditorStyledStringController extends RichEditorBaseController 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   /**
@@ -3492,7 +3712,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onReady(callback: Callback<void>): RichEditorAttribute;
 
@@ -3522,7 +3743,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onSelect(callback: Callback<RichEditorSelection>): RichEditorAttribute;
 
@@ -3534,7 +3756,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onSelectionChange(callback: Callback<RichEditorRange>): RichEditorAttribute;
 
@@ -3564,7 +3787,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   aboutToIMEInput(callback: Callback<RichEditorInsertValue, boolean>): RichEditorAttribute;
 
@@ -3594,7 +3818,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onIMEInputComplete(callback: Callback<RichEditorTextSpanResult>): RichEditorAttribute;
 
@@ -3606,7 +3831,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onDidIMEInput(callback: Callback<TextRange>): RichEditorAttribute;
 
@@ -3636,7 +3862,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   aboutToDelete(callback: Callback<RichEditorDeleteValue, boolean>): RichEditorAttribute;
 
@@ -3666,7 +3893,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onDeleteComplete(callback: Callback<void>): RichEditorAttribute;
 
@@ -3687,7 +3915,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   copyOptions(value: CopyOptions): RichEditorAttribute;
 
@@ -3714,7 +3943,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   bindSelectionMenu(spanType: RichEditorSpanType, content: CustomBuilder, responseType: ResponseType | RichEditorResponseType,
     options?: SelectionMenuOptions): RichEditorAttribute;
@@ -3746,7 +3976,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   customKeyboard(value: CustomBuilder, options?: KeyboardOptions): RichEditorAttribute;
 
@@ -3767,7 +3998,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
     */
   onPaste(callback: PasteEventCallback): RichEditorAttribute;
 
@@ -3788,7 +4020,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enableDataDetector(enable: boolean): RichEditorAttribute;
 
@@ -3800,7 +4033,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enablePreviewText(enable: boolean): RichEditorAttribute;
 
@@ -3821,7 +4055,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   dataDetectorConfig(config: TextDataDetectorConfig): RichEditorAttribute;
 
@@ -3834,7 +4069,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   placeholder(value: ResourceStr, style?: PlaceholderStyle): RichEditorAttribute;
   
@@ -3846,7 +4082,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   caretColor(value: ResourceColor): RichEditorAttribute;
 
@@ -3858,7 +4095,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selectedBackgroundColor(value: ResourceColor): RichEditorAttribute;
 
@@ -3870,7 +4108,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onEditingChange(callback: Callback<boolean>): RichEditorAttribute;
 
@@ -3882,7 +4121,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enterKeyType(value: EnterKeyType): RichEditorAttribute;
 
@@ -3894,7 +4134,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onSubmit(callback: SubmitCallback): RichEditorAttribute;
 
@@ -3906,7 +4147,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onWillChange(callback: Callback<RichEditorChangeValue, boolean>) : RichEditorAttribute;
 
@@ -3918,7 +4160,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onDidChange(callback: OnDidChangeCallback) : RichEditorAttribute;
 
@@ -3930,7 +4173,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
     */
   onCut(callback: Callback<CutEvent>): RichEditorAttribute;
 
@@ -3942,7 +4186,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
     */
   onCopy(callback: Callback<CopyEvent>): RichEditorAttribute;
 
@@ -3954,7 +4199,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   editMenuOptions(editMenu: EditMenuOptions): RichEditorAttribute;
 
@@ -3966,7 +4212,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enableKeyboardOnFocus(isEnabled: boolean): RichEditorAttribute;
 
@@ -3978,7 +4225,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enableHapticFeedback(isEnabled: boolean): RichEditorAttribute;
 
@@ -3990,7 +4238,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   barState(state: BarState): RichEditorAttribute;
 
@@ -4047,7 +4296,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface CutEvent {
   /**
@@ -4057,7 +4307,8 @@ declare interface CutEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   preventDefault?: Callback<void>;
 }
@@ -4068,7 +4319,8 @@ declare interface CutEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface CopyEvent {
   /**
@@ -4078,7 +4330,8 @@ declare interface CopyEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   preventDefault?: Callback<void>;
 }
@@ -4118,6 +4371,20 @@ declare interface RichEditorUrlStyle {
 declare type SubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => void;
 
 /**
+ * callback of the listened enter key event.
+ *
+ * @typedef { function } SubmitCallback
+ * @param { EnterKeyType } enterKey - the enter key type of soft keyboard.
+ * @param { SubmitEvent } event - Provides the method of keeping RichEditor editable state when submitted.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+type SubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => void;
+
+/**
  * Callback function when the selection menu appears.
  *
  * @typedef { function } MenuOnAppearCallback
@@ -4131,17 +4398,18 @@ declare type SubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => vo
 declare type MenuOnAppearCallback = (start: number, end: number) => void;
 
 /**
- * Callback function when the selection menu show or hide.
+ * Callback function when the selection menu appears.
  *
- * @typedef { function } MenuCallback
+ * @typedef { function } MenuOnAppearCallback
  * @param { number } start - Start offset of the selected content in rich editor.
  * @param { number } end - End offset of the selected content in rich editor.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 15
+ * @since 20
+ * @arkts 1.2
  */
-declare type MenuCallback = (start: number, end: number) => void;
+type MenuOnAppearCallback = (start: number, end: number) => void;
 
 /**
  * Callback function when a paste operation is performed.
@@ -4156,17 +4424,17 @@ declare type MenuCallback = (start: number, end: number) => void;
 declare type PasteEventCallback = (event?: PasteEvent) => void;
 
 /**
- * callback of the on hover event.
+ * Callback function when a paste operation is performed.
  *
- * @typedef { function } OnHoverCallback
- * @param { boolean } status - The hover status
- * @param { HoverEvent } event - The event info for hover.
+ * @typedef { function } PasteEventCallback
+ * @param { PasteEvent } [event] - The paste event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 20
+ * @arkts 1.2
  */
-declare type OnHoverCallback = (status: boolean, event: HoverEvent) => void;
+type PasteEventCallback = (event?: PasteEvent) => void;
 
 /**
  * Provides an interface for writing texts.
