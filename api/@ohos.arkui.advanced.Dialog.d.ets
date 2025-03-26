@@ -25,18 +25,18 @@ import { Theme, CustomTheme } from '@ohos.arkui.theme';
 import { ResourceStr, ResourceColor, SizeOptions, Padding, LocalizedPadding } from './arkui/component/units';
 import { ButtonStyleMode, ButtonRole } from './arkui/component/button';
 import { PixelMap } from './@ohos.multimedia.image';
+import { ThemeColorMode } from './arkui/component/common';
+import { CustomDialogController } from './arkui/component/customDialogController';
+import { Callback } from './@ohos.base';
+import { SheetInfo } from './arkui/component/actionSheet';
 import {
   CustomDialog,
   Prop,
-  ThemeColorMode,
   BuilderParam,
   Component,
   Link,
   Require,
-} from './arkui/component/common';
-import { CustomDialogController } from './arkui/component/customDialogController';
-import { Callback } from './@ohos.base';
-import { SheetInfo } from './arkui/component/actionSheet';
+} from './arkui/stateManagement/common';
 /*** endif */
 
 /**
