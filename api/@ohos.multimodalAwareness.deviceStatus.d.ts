@@ -30,7 +30,7 @@ import type { Callback } from "./@ohos.base";
 
 declare namespace deviceStatus {
   /**
-   * Enum for steady standing status
+   * Enum for steady standing status.
    *
    * @enum { number } SteadyStandingStatus
    * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
@@ -54,7 +54,7 @@ declare namespace deviceStatus {
   }
 
   /**
-   * Subscribe to detect the steady standing status.
+   * Subscribe to detect the steady standing status
    * @param { 'steadyStandingDetect' } type - Indicates the event type.
    * @param { Callback<SteadyStandingStatus> } callback - Indicates the callback for getting the event data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
