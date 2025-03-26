@@ -5688,7 +5688,7 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    getBytesNumberPerRow(): number;
+    getBytesNumberPerRow(): int;
 
     /**
      * Obtains the total number of bytes of the image pixel map.
@@ -6040,7 +6040,7 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    scaleSync(x: number, y: number): void;
+    scaleSync(x: double, y: double): void;
 
     /**
      * Image zoom in width and height width with anti-aliasing. This method uses a promise to return the result.
@@ -6074,7 +6074,7 @@ declare namespace image {
      * @atomicservice
      * @since 12
      */
-    scaleSync(x: number, y: number, level: AntiAliasingLevel): void;
+    scaleSync(x: double, y: double, level: int): void;
 
     /**
      * Image position transformation. This method uses a callback to return the operation result.
