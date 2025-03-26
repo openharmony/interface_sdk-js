@@ -111,4 +111,4 @@ declare namespace metadataBinding {
   function off(type: 'operationSubmitMetadata', bundleName: string, callback?: Callback<number>): void;
 }
 
-export default metadataBinding
+export default metadataBinding;
