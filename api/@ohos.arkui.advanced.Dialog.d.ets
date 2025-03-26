@@ -149,7 +149,7 @@ export default ButtonOptions
  * Declare CustomDialog TipsDialog
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
+ * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
  */
 @CustomDialog
@@ -165,7 +165,7 @@ export declare struct TipsDialog {
    * @type { CustomDialogController }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   controller: CustomDialogController;
@@ -246,7 +246,7 @@ export declare struct TipsDialog {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   content?: ResourceStr;
@@ -261,7 +261,7 @@ export declare struct TipsDialog {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   checkTips?: ResourceStr;
@@ -276,7 +276,7 @@ export declare struct TipsDialog {
    * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   @Prop isChecked?: boolean;
@@ -300,7 +300,7 @@ export declare struct TipsDialog {
    * @type { ?ButtonOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   primaryButton?: ButtonOptions;
@@ -315,7 +315,7 @@ export declare struct TipsDialog {
    * @type { ?ButtonOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   secondaryButton?: ButtonOptions;
@@ -361,7 +361,7 @@ export declare struct TipsDialog {
  * Declare CustomDialog SelectDialog
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
+ * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
  */
 @CustomDialog
@@ -377,7 +377,7 @@ export declare struct SelectDialog {
    * @type { CustomDialogController }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   controller: CustomDialogController;
@@ -392,7 +392,7 @@ export declare struct SelectDialog {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   title: ResourceStr;
@@ -407,7 +407,7 @@ export declare struct SelectDialog {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   content?: ResourceStr;
@@ -422,7 +422,7 @@ export declare struct SelectDialog {
    * @type { ?number }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   selectedIndex?: number;
@@ -437,7 +437,7 @@ export declare struct SelectDialog {
    * @type { ?ButtonOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   confirm?: ButtonOptions;
@@ -452,7 +452,7 @@ export declare struct SelectDialog {
    * @type { Array<SheetInfo> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   radioContent: Array<SheetInfo>;
@@ -489,7 +489,7 @@ export declare struct SelectDialog {
  * Declare CustomDialog ConfirmDialog
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
+ * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
  */
 @CustomDialog
@@ -505,7 +505,7 @@ export declare struct ConfirmDialog {
    * @type { CustomDialogController }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   controller: CustomDialogController;
@@ -520,7 +520,7 @@ export declare struct ConfirmDialog {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   title: ResourceStr;
@@ -535,7 +535,7 @@ export declare struct ConfirmDialog {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   content?: ResourceStr;
@@ -550,7 +550,7 @@ export declare struct ConfirmDialog {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   checkTips?: ResourceStr;
@@ -565,7 +565,7 @@ export declare struct ConfirmDialog {
    * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   @Prop isChecked?: boolean;
@@ -580,7 +580,7 @@ export declare struct ConfirmDialog {
    * @type { ?ButtonOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   primaryButton?: ButtonOptions;
@@ -595,7 +595,7 @@ export declare struct ConfirmDialog {
    * @type { ?ButtonOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   secondaryButton?: ButtonOptions;
@@ -641,7 +641,7 @@ export declare struct ConfirmDialog {
  * Declare CustomDialog AlertDialog
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
+ * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
  */
 @CustomDialog
@@ -657,7 +657,7 @@ export declare struct AlertDialog {
    * @type { CustomDialogController }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   controller: CustomDialogController;
@@ -692,7 +692,7 @@ export declare struct AlertDialog {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   content: ResourceStr;
@@ -707,7 +707,7 @@ export declare struct AlertDialog {
    * @type { ?ButtonOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   primaryButton?: ButtonOptions;
@@ -722,7 +722,7 @@ export declare struct AlertDialog {
    * @type { ?ButtonOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   secondaryButton?: ButtonOptions;
@@ -759,7 +759,7 @@ export declare struct AlertDialog {
  * Declare CustomDialog LoadingDialog
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
+ * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
  */
 @CustomDialog
@@ -775,7 +775,7 @@ export declare struct LoadingDialog {
    * @type { CustomDialogController }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   Controller: CustomDialogController;
@@ -790,7 +790,7 @@ export declare struct LoadingDialog {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   content?: ResourceStr;
@@ -928,7 +928,7 @@ export declare struct CustomContentDialog {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
+ * @since arkts {'1.1':'13','1.2':'20'}
  * @arkts 1.1&1.2
  */
 @Component
@@ -940,7 +940,7 @@ export declare struct PopoverDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'13','1.2':'20'}
    * @arkts 1.1&1.2
    */
   @Link
@@ -952,7 +952,7 @@ export declare struct PopoverDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'13','1.2':'20'}
    * @arkts 1.1&1.2
    */
   @Require @Prop
@@ -964,7 +964,7 @@ export declare struct PopoverDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'13','1.2':'20'}
    * @arkts 1.1&1.2
    */
   @Require @BuilderParam 
@@ -979,7 +979,7 @@ export declare struct PopoverDialog {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
+ * @since arkts {'1.1':'13','1.2':'20'}
  * @arkts 1.1&1.2
  */
 export declare interface PopoverOptions extends CustomPopupOptions {
