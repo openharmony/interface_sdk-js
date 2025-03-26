@@ -100,8 +100,8 @@ declare namespace photoAccessHelper {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @StageModelOnly
+   * @Systemapi
    * @crossplatform
-   * @atomicservice
    * @since 18
    */
   function getPhotoAccessHelper(context: Context, userId: number): PhotoAccessHelper;
@@ -2478,7 +2478,7 @@ declare namespace photoAccessHelper {
      */
     cameraShotKey?: string;
     /**
-     * Across local accounts
+     * User id
      *
      * @type { ?number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
