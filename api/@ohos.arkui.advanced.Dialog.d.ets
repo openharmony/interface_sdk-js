@@ -21,8 +21,6 @@
 
 
 /*** if arkts 1.2 */
-import { Theme, CustomTheme } from '@ohos.arkui.theme';
-import image from './@ohos.multimedia.image';
 import {
   ResourceStr,
   ResourceColor,
@@ -36,9 +34,11 @@ import {
   CustomDialogController,
   SheetInfo,
 } from './@ohos.arkui.component';
-import { Callback } from './@ohos.base';
 import { Prop, BuilderParam, Link, Require, Component } from './@ohos.arkui.stateManagement';
 /*** endif */
+import { Theme, CustomTheme } from '@ohos.arkui.theme';
+import { Callback } from './@ohos.base';
+import image from './@ohos.multimedia.image';
 
 /**
  * Declare ButtonOptions
