@@ -59,7 +59,7 @@ declare namespace sendablePhotoAccessHelper {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @StageModelOnly
-   * @Systemapi
+   * @systemapi
    * @crossplatform
    * @since 18
    */
