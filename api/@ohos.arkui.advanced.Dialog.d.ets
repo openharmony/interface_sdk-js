@@ -20,25 +20,24 @@
 
 
 
-/*** if arkts 1.2 */
-import {
-  ResourceStr,
-  ResourceColor,
-  SizeOptions,
-  Padding,
-  LocalizedPadding,
-  ButtonStyleMode,
-  ButtonRole,
-  CustomDialog,
-  ThemeColorMode,
-  CustomDialogController,
-  SheetInfo,
-} from './@ohos.arkui.component';
-import { Prop, BuilderParam, Link, Require, Component } from './@ohos.arkui.stateManagement';
-/*** endif */
 import { Theme, CustomTheme } from '@ohos.arkui.theme';
+/*** if arkts 1.2 */
+import { ResourceStr, ResourceColor, SizeOptions, Padding, LocalizedPadding } from './arkui/component/units';
+import { ButtonStyleMode, ButtonRole } from './arkui/component/button';
+import { PixelMap } from './@ohos.multimedia.image';
+import {
+  CustomDialog,
+  Prop,
+  ThemeColorMode,
+  BuilderParam,
+  Component,
+  Link,
+  Require,
+} from './arkui/component/common';
+import { CustomDialogController } from './arkui/component/customDialogController';
 import { Callback } from './@ohos.base';
-import image from './@ohos.multimedia.image';
+import { SheetInfo } from './arkui/component/actionSheet';
+/*** endif */
 
 /**
  * Declare ButtonOptions
