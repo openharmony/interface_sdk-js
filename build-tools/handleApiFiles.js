@@ -27,7 +27,7 @@ const DirType = {
   'typeOne': 'ets',
   'typeTwo': 'ets2',
   'typeThree': 'noTagInEts2',
-}
+};
 
 function isEtsFile(path) {
   return path.endsWith('d.ets');
@@ -147,7 +147,7 @@ function handleArktsDefinition(type, fileContent) {
 function saveLatestJsDoc(fileContent) {
   let regx = /(\/\*[\s\S]*?\*\*\/)/g;
 
-  fileContent = fileContent.split("").reverse().join("");
+  fileContent = fileContent.split('').reverse().join('');
   let preset = 0;
   fileContent = fileContent.replace(regx, (substring, p1, offset, str) => {
     if (!/ecnis@\s*\*/g.test(substring)) {
@@ -481,7 +481,7 @@ const transformer = (context) => {
  * @returns 
  */
 function deleteApi(sourceFile) {
-  const result = ts.transform(sourceFile, [transformer]);
+  let result = ts.transform(sourceFile, [transformer]);
   const newSourceFile = result.transformed[0];
   if (isEmptyFile(newSourceFile)) {
     return '';
@@ -490,47 +490,39 @@ function deleteApi(sourceFile) {
   // 打印结果
   const printer = ts.createPrinter();
   let fileContent = printer.printFile(newSourceFile);
-  fileContent = deleteExportApi(newSourceFile, fileContent);
+  result = ts.transform(newSourceFile, [transformExportApi]);
+  fileContent = printer.printFile(result.transformed[0]);
   deleteApiSet.clear();
-  return fileContent;
+  return fileContent.replace(/export\s*(?:type\s*)?\{\s*\}\s*(;)?/g, '');
 }
 
 /**
  * api被删除后，对应的export api也需要被删除
- * @param {*} newSourceFile 
- * @param {*} fileContent 
+ * @param {*} context 
  * @returns 
  */
-function deleteExportApi(newSourceFile, fileContent) {
-  newSourceFile.statements.forEach(stat => {
-    if (!exportApiType.includes(stat.kind) || stat.moduleSpecifier) {
-      return;
-    }
-
-    if (stat.expression && deleteApiSet.has(stat.expression.escapedText.toString())) {
-      fileContent = fileContent.replace(stat.getFullText(), '');
-      return;
-    }
-
-    if (stat.exportClause) {
-      const exportText = stat.getFullText().replace(/\r|\n/g, '');
-      let newExportText = exportText;
-      stat.exportClause.elements.forEach(element => {
-        const elementText = element.getFullText().replace(/\s*/g, '');
-        if (deleteApiSet.has(elementText)) {
-          newExportText = exportText.replace(`${element.getFullText()},`, '').replace(element.getFullText(), '');
-        }
-      });
-      if (/\{\s*\}/g.test(newExportText)) {
-        fileContent = fileContent.replace(exportText, '');
-      } else {
-        fileContent = fileContent.replace(exportText, newExportText);
+const transformExportApi = (context) => {
+  return (rootNode) => {
+    const visit = (node) => {
+      //struct节点下面会自动生成constructor节点, 置为undefined
+      if (node.kind === ts.SyntaxKind.Constructor && node.parent.kind === ts.SyntaxKind.StructDeclaration) {
+        return undefined;
       }
-    }
-  });
+      // 判断是否为要删除的变量声明
+      if (ts.isExportAssignment(node) && deleteApiSet.has(node.expression.escapedText.toString())) {
+        return undefined;
+      }
 
-  return fileContent;
-}
+      if (ts.isExportSpecifier(node) && deleteApiSet.has(node.name.escapedText.toString())) {
+        return undefined;
+      }
+
+      // 非目标节点：继续遍历子节点
+      return ts.visitEachChild(node, visit, context);
+    };
+    return ts.visitNode(rootNode, visit);
+  };
+};
 
 function isEmptyFile(node) {
   let isEmpty = true;
