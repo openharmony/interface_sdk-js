@@ -76,7 +76,7 @@ export default class PermissionRequestResult {
    * The results for the corresponding request permissions. The value 0 indicates that a
    * permission is granted, the value -1 indicates not, and the value 2 indicates the request is invalid.
    *
-   * @type { Array<number> }
+   * @type { Array<int> }
    * @syscap SystemCapability.Security.AccessToken
    * @stagemodelonly
    * @since 9
@@ -85,7 +85,7 @@ export default class PermissionRequestResult {
    * The results for the corresponding request permissions. The value 0 indicates that a
    * permission is granted, the value -1 indicates not, and the value 2 indicates the request is invalid.
    *
-   * @type { Array<number> }
+   * @type { Array<int> }
    * @syscap SystemCapability.Security.AccessToken
    * @stagemodelonly
    * @crossplatform
@@ -95,7 +95,7 @@ export default class PermissionRequestResult {
    * The results for the corresponding request permissions. The value 0 indicates that a
    * permission is granted, the value -1 indicates not, and the value 2 indicates the request is invalid.
    *
-   * @type { Array<number> }
+   * @type { Array<int> }
    * @syscap SystemCapability.Security.AccessToken
    * @stagemodelonly
    * @crossplatform
@@ -115,4 +115,23 @@ export default class PermissionRequestResult {
    * @since 12
    */
   dialogShownResults?: Array<boolean>;
+
+  /**
+   * Enumerates the return values of the permission request operation.
+   *   0  The operation is successful.
+   *   1  The permission name is invalid.
+   *   2  The requested permission has not been declared.
+   *   3  The conditions for requesting the permission are not met.
+   *   4  The user does not agree to the Privacy Statement.
+   *   5  The permission cannot be requested in a pop-up window.
+   *   12 The service is abnormal.
+   *
+   * @type { ?Array<int> }
+   * @syscap SystemCapability.Security.AccessToken
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  errorReasons?: Array<int>;
 }
