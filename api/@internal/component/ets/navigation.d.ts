@@ -785,17 +785,6 @@ declare class NavPathInfo {
    * @since 12
    */
   isEntry?: boolean;
-
-  /**
-   * The unique id of NavDestination.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  navDestinationId?: string;
 }
 
 /**
@@ -1587,29 +1576,6 @@ declare class NavPathStack {
    * @since 12
    */
   setInterception(interception: NavigationInterception): void;
-
-  /**
-   * Get the NavPathInfo array.
-   *
-   * @returns { Array<NavPathInfo> } The NavPathInfo array.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  getPathStack(): Array<NavPathInfo>;
-
-  /**
-   * Set the NavPathInfo array.
-   *
-   * @param { Array<NavPathInfo> } pathStack - The NavPathInfo array.
-   * @param { boolean } [animated] - Indicate whether the operation has animation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  setPathStack(pathStack: Array<NavPathInfo>, animated?: boolean): void;
 }
 
 /**
