@@ -6672,7 +6672,7 @@ declare enum WebResponseType {
  *
  * @interface PreviewMenuOptions
  * @syscap SystemCapability.Web.Webview.Core
- * @since 18
+ * @since 20
  */
 declare interface PreviewMenuOptions {
   /**
@@ -6680,7 +6680,7 @@ declare interface PreviewMenuOptions {
    *
    * @type { ?HapticFeedbackMode }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 18
+   * @since 20
    */
   hapticFeedbackMode?: HapticFeedbackMode;
 }
@@ -6734,7 +6734,7 @@ declare interface SelectionMenuOptionsExt {
    *
    * @type { ?PreviewMenuOptions }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 18
+   * @since 20
    */
   previewMenuOptions?: PreviewMenuOptions;
 }
