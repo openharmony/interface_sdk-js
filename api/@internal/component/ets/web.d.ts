@@ -9166,6 +9166,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Injects the JavaScripts before Webview creates the DOM tree, and then the JavaScript snippet will run after the document has been created.
+   * <p><strong>API Note</strong>:<br>
+   * The script runs before any JavaScript code of the page,when the DOM tree may not have been loaded or rendered.
+   * The script is executed in the lexicographic order, not the array order.if the array sequemce is required,you are advised to use the runJavaScriptOnDocumentStart interface.
+   * You are not advised to use this API together with runJavaScriptOnDocumentStart.
+   * </p>
+   *
    * @param { Array<ScriptItem> } scripts - The array of the JavaScripts to be injected.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
