@@ -4479,7 +4479,7 @@ declare class WebController {
   /**
    * Registers the JavaScript object and method list.
    * <p><strong>API Note</strong>:<br>
-   * You should register registerJavaScriptProxy either in synchronous list or in asynchronous list. Otherwise,this API fails to be registered.
+   * You should register registerJavaScriptProxy either in synchronous list or in asynchronous list. Otherwise, this API fails to be registered.
    * The registerJavaScriptProxy API must be used together with the deleteJavaScriptRegister API to prevent memory leak.
    * </p>
    *
@@ -7047,7 +7047,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Registers a JavaScript object with the window. APIs of this object can then be invoked in the window.
    * The parameters cannot be updateed. This API can be used in synchronous or asynchronous mode, or in both modes.
    * If the API can be used in both synchronous and asynchronous modes, it is called asynchronously by default.
-   * Only one object can be registered through this API. To register multiple objects,use registerJavaScriptProxy.
+   * Only one object can be registered through this API. To register multiple objects, use registerJavaScriptProxy.
    * </p>
    *
    * @param { object } javaScriptProxy - The JavaScript object to be injected.
@@ -7059,9 +7059,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Injects the JavaScript object into window and invoke the function in window.
    * <p><strong>API Note</strong>:<br>
    * Registers a JavaScript object with the window. APIs of this object can then be invoked in the window.
-   * The parameters cannot be updateed. This API can be used in synchronous or asynchronous mode,or in both modes.
+   * The parameters cannot be updateed. This API can be used in synchronous or asynchronous mode, or in both modes.
    * If the API can be used in both synchronous and asynchronous modes, it is called asynchronously by default.
-   * Only one object can be registered through this API. To register multiple objects,use registerJavaScriptProxy.
+   * Only one object can be registered through this API. To register multiple objects, use registerJavaScriptProxy.
    * </p>
    *
    * @param { object } javaScriptProxy - The JavaScript object to be injected.
@@ -7074,7 +7074,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Injects the JavaScript object into window and invoke the function in window.
    * <p><strong>API Note</strong>:<br>
    * Registers a JavaScript object with the window. APIs of this object can then be invoked in the window.
-   * The parameters cannot be updateed.This API can be used in synchronous or asynchronous mode, or in both modes.
+   * The parameters cannot be updateed. This API can be used in synchronous or asynchronous mode, or in both modes.
    * If the API can be used in both synchronous and asynchronous modes, it is called asynchronously by default.
    * Only one object can be registered through this API. To register multiple objects, use registerJavaScriptProxy.
    * </p>
@@ -9164,7 +9164,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Injects the JavaScripts before Webview creates the DOM tree, and then the JavaScript snippet will run after the document has been created.
    * <p><strong>API Note</strong>:<br>
    * The script runs before any JavaScript code of the page, when the DOM tree may not have been loaded or rendered.
-   * The script is executed in the lexicographic order, not the array order.if the array sequemce is required, you are advised to use the runJavaScriptOnDocumentStart interface.
+   * The script is executed in the lexicographic order, not the array order. if the array sequemce is required, you are advised to use the runJavaScriptOnDocumentStart interface.
    * You are not advised to use this API together with runJavaScriptOnDocumentStart.
    * </p>
    *
