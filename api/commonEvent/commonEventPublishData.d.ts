@@ -135,6 +135,7 @@ export interface CommonEventPublishData {
   /**
    * Whether the type of a common event is sticky or not.
    *
+   * @permission ohos.permission.COMMONEVENT_STICKY
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.Notification.CommonEvent
