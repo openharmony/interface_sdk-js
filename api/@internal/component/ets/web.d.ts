@@ -7346,24 +7346,22 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered at the end of web page loading.
    * <p><strong>API Note</strong>:<br>
-   * Triggered at the end of web page loading.
    * This callback is only invoked for the main frame and not for subframes.
    * </p>
    *
    * @param { function } callback The triggered function at the end of web page loading.
-   * @returns { WebAttribute }
+   * @returns { WebAttribute } The WebAttribute object representing the attributes of the web page.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   /**
    * Triggered at the end of web page loading.
    * <p><strong>API Note</strong>:<br>
-   * Triggered at the end of web page loading.
    * This callback is only invoked for the main frame and not for subframes.
    * </p>
    *
    * @param { function } callback The triggered function at the end of web page loading.
-   * @returns { WebAttribute }
+   * @returns { WebAttribute } The WebAttribute object representing the attributes of the web page.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @since 10
@@ -7371,12 +7369,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered at the end of web page loading.
    * <p><strong>API Note</strong>:<br>
-   * Triggered at the end of web page loading.
    * This callback is only invoked for the main frame and not for subframes.
    * </p>
    *
    * @param { function } callback The triggered function at the end of web page loading.
-   * @returns { WebAttribute }
+   * @returns { WebAttribute } The WebAttribute object representing the attributes of the web page.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -7385,12 +7382,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered at the end of web page loading.
    * <p><strong>API Note</strong>:<br>
-   * Triggered at the end of web page loading.
    * This callback is only invoked for the main frame and not for subframes.
    * </p>
    *
    * @param { Callback<OnPageEndEvent> } callback The triggered function at the end of web page loading.
-   * @returns { WebAttribute }
+   * @returns { WebAttribute } The WebAttribute object representing the attributes of the web page.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
