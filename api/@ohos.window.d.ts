@@ -8066,6 +8066,19 @@ declare namespace window {
      * Maximize app main window.
      * @param { MaximizePresentation } presentation - set window presentation when maximize.
      * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12
+     */
+        /**
+     * Maximize app main window.
+     * @param { MaximizePresentation } presentation - set window presentation when maximize.
+     * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 
      *                                                                   2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -8074,7 +8087,7 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     maximize(presentation?: MaximizePresentation): Promise<void>;
 
@@ -8319,9 +8332,22 @@ declare namespace window {
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12
+     */
+    /**
+     * Set the visibility of the window decor.
+     *
+     * @param { boolean } isVisible - Enable the decor visible if true, otherwise means the opposite.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
      */
     setWindowDecorVisible(isVisible: boolean): void;
 
@@ -8376,14 +8402,43 @@ declare namespace window {
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12
      */
+    /**
+     * Set the modality of the window.
+     *
+     * @param { boolean } isModal - Enable the window modal if true, otherwise means the opposite.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
     setSubWindowModal(isModal: boolean): Promise<void>;
 
+    /**
+     * Set the modality of the window.
+     *
+     * @param { boolean } isModal - Enable the window modal if true, otherwise means the opposite.
+     * @param { ModalityType } modalityType - Set modality type when the window modal is true. 
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 14
+     */
     /**
      * Set the modality of the window.
      *
@@ -8398,7 +8453,7 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 14
+     * @since 20
      */
     setSubWindowModal(isModal: boolean, modalityType: ModalityType): Promise<void>;
 
@@ -8969,12 +9024,27 @@ declare namespace window {
      * @param { boolean } isTitleHoverShown - The value true means to display the title bar, and false means the opposite.
      * @param { boolean } isDockHoverShown - The value true means to display the dock bar, and false means the opposite.
      * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14
+     */
+    /**
+     * Set whether the title bar and dock bar will show, when the mouse hovers over hot area.
+     *
+     * @param { boolean } isTitleHoverShown - The value true means to display the title bar, and false means the opposite.
+     * @param { boolean } isDockHoverShown - The value true means to display the dock bar, and false means the opposite.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
      */
     setTitleAndDockHoverShown(isTitleHoverShown?: boolean, isDockHoverShown?: boolean): Promise<void>;
 
@@ -10042,11 +10112,26 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
      * @atomicservice
      * @since 14
+     */
+    /**
+     * Set the application modality of the windowStage.
+     *
+     * @param { boolean } isModal - Enable the window modal if true, otherwise means the opposite.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @StageModelOnly
+     * @atomicservice
+     * @since 20
      */
     setWindowModal(isModal: boolean): Promise<void>;
 
@@ -10093,11 +10178,23 @@ declare namespace window {
      *  The value true means that the window rect auto-save is supported, and false means the opposite.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
      * @atomicservice
      * @since 14
+     */
+    /**
+     * Whether the window supports the window rect auto-save.
+     *
+     * @returns { Promise<boolean> } Promise used to return the result.
+     *  The value true means that the window rect auto-save is supported, and false means the opposite.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @StageModelOnly
+     * @atomicservice
+     * @since 20
      */
     isWindowRectAutoSave(): Promise<boolean>;
 
