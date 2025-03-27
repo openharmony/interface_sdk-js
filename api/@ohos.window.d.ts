@@ -3064,12 +3064,12 @@ declare namespace window {
   /**
    * Get info of visible windows.
    *
+   * @permission ohos.permission.VISIBLE_WINDOW_INFO
    * @returns { Promise<Array<WindowInfo>> } - Promise that returns windowInfo list.
    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
-   * @systemapi Hide this for inner system use.
    * @since 12
    */
   function getVisibleWindowInfo(): Promise<Array<WindowInfo>>;
