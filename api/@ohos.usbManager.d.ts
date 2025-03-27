@@ -18,7 +18,7 @@
  * @kit BasicServicesKit
  */
 
-import { AsyncCallback } from '@kit.BasicServicesKit';
+import { AsyncCallback } from './@ohos.base';
 
 /**
  * This module provides the capability of manage USB device.
