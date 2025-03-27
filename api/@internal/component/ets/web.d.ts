@@ -9451,6 +9451,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 /**
  * Defines Web Component.
  *
+ * <p><strong>API Note</strong>:
+ *
+ * <strong>Performance Note</strong>:
+ * <p>For details about how to optimize the compilation, resource loading, and JSBridge performance,
+ * see [Optimizing Web Page Loading]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-web-develop-optimization}
+ * <p>When the white screen duration is long due to complex web page parsing,
+ * you can enable [optimizeParserBudget]{@link WebAttribute.optimizeParserBudget} to reduce the first frame rendering content.</p>
+ * </p>
+ *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
