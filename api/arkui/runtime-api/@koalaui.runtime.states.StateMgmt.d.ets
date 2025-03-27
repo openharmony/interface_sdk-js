@@ -5,22 +5,22 @@ import { MutableState } from "@koalaui.runtime.states.State";
 type WatchFunc = ()=>void;
 export declare class MutableStateMetaBase {
     public readonly deco: string;
-    constructor(deco: string)
+    public constructor(deco: string)
 }
 
 export declare class MutableStateMeta extends MutableStateMetaBase {
-    private __metaDependency: MutableState<int32>;
+    public __metaDependency: MutableState<int32>;
     public addRef(): void
     public fireChange(): void
-    constructor(deco: string)
+    public constructor(deco: string)
 }
 
 export declare class MutableKeyedStateMeta extends MutableStateMetaBase {
     public static readonly OB_LENGTH = '__OB_LENGTH';
-    private __metaDependency: Map<string, MutableState<int32>>;
+    public __metaDependency: Map<string, MutableState<int32>>;
     public addRef(key: string): void
     public fireChange(key: string): void
-    constructor(deco: string)
+    public constructor(deco: string)
 }
 
 export interface IObservedObject {
@@ -53,9 +53,9 @@ export declare abstract class DecoratedVariableBase<T> {
 }
 export declare class StateDecoratedVariable<T> extends DecoratedVariableBase<T> implements DecoratedMutableVariable<T>, DecoratedUpdatableVariable<T>, DecoratedV1Variable {
     public readonly _watchFunc: WatchFunc | undefined;
-    private __backing: T;
+    public __backing: T;
 
-    constructor(localInitValue: T, watchFunc?: ()=>void)
+    public constructor(localInitValue: T, watchFunc?: ()=>void)
 
     public get(): T
 

@@ -13,20 +13,20 @@
  * limitations under the License.
  */
 
-export declare interface StorageProperty {
+export interface StorageProperty {
     key: string;
     defaultValue: number | string | boolean | Object;
 }
 
 export type PersistPropsOptions = StorageProperty;
 
-export declare interface AbstractProperty<T> {
+export interface AbstractProperty<T> {
     info(): string;
     get(): T;
     set(newValue: T): void;
 }
 
-export declare interface SubscribedAbstractProperty<T> extends AbstractProperty<T> {
+export interface SubscribedAbstractProperty<T> extends AbstractProperty<T> {
     aboutToBeDeleted(): void;
 }
 
@@ -105,7 +105,7 @@ export declare class PersistentStorage {
     static keys(): Array<string>;
 }
 
-export declare interface EnvPropsOptions {
+export interface EnvPropsOptions {
     key: string;
     defaultValue: number | string | boolean;
 }
