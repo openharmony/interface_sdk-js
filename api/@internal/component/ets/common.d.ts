@@ -28738,7 +28738,7 @@ declare type OnMoveHandler = (from: number, to: number) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 20
  */
 declare interface ItemDragEventHandler {
   /**
@@ -28748,7 +28748,7 @@ declare interface ItemDragEventHandler {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   onLongPress?: Callback<number>;
 
@@ -28759,7 +28759,7 @@ declare interface ItemDragEventHandler {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   onDragStart?: Callback<number>;
 
@@ -28770,7 +28770,7 @@ declare interface ItemDragEventHandler {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   onMoveThrough?: OnMoveHandler;
 
@@ -28781,7 +28781,7 @@ declare interface ItemDragEventHandler {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   onDrop?: Callback<number>;
 }
@@ -28816,7 +28816,7 @@ declare class DynamicNode<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   onMove(handler: Optional<OnMoveHandler>, eventHandler: ItemDragEventHandler): T;
 }
