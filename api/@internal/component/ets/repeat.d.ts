@@ -84,28 +84,6 @@ interface VirtualScrollOptions {
    * @since 18
    */
   reusable?: boolean;
-
-  /**
-   * Data lazy loading
-   *
-   * @param { number } index
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  onLazyLoading?(index: number): void;
-
-  /**
-   * The function of total data count.
-   *
-   * @returns { number } Returns the total data count.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  onTotalCount?(): number;
 }
 
 /**
@@ -165,17 +143,7 @@ declare type RepeatItemBuilder<T> = (repeatItem: RepeatItem<T>) => void;
  * @atomicservice
  * @since 12
  */
-/**
- * Defines the Repeat component attribute functions.
- *
- * @extends DynamicNode<RepeatAttribute<T>>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 18
- */
-declare class RepeatAttribute<T> extends DynamicNode<RepeatAttribute<T>> {
+declare class RepeatAttribute<T> {
   /**
    * Executes itemGenerator of each item.
    *
