@@ -86,6 +86,20 @@ declare namespace socket {
   function sppConnect(deviceId: string, options: SppOptions, callback: AsyncCallback<number>): void;
 
   /**
+   * Obtain the device id in the client socket.
+   *
+   * @param { number } clientSocket - Indicates client socket.
+   * @returns { string } Returns the connected device id
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types;
+   * 3. Parameter verification failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 17
+   */
+  function getDeviceId(clientSocket: number): string;
+
+  /**
    * Disables an spp server socket and releases related resources.
    *
    * @param { number } socket - Indicates the server socket ID, returned by {@link sppListen}.
