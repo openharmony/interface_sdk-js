@@ -3505,7 +3505,7 @@ declare namespace bundleManager {
    * @returns { Promise<void> } The result of migrating data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700080 - The source paths are invalid.
    * @throws { BusinessError } 17700081 - The destination path is invalid.
    * @throws { BusinessError } 17700082 - User authentication failed.
