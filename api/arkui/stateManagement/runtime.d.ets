@@ -27,7 +27,7 @@ export type __memo_id_type = MemoCallSiteKey;
 
 export type MemoCallSiteKey = int;
 
-export declare interface Disposable {
+export interface Disposable {
     readonly disposed: boolean;
     dispose(): void;
 }
@@ -37,29 +37,39 @@ interface State<T> {
     readonly value: T;
 }
 
-export declare interface MutableState<T> extends Disposable, State<T> {
+export interface MutableState<T> extends Disposable, State<T> {
     value: T;
 }
 
 export type Equivalent<T> = (oldV: T, newV: T) => boolean;
 
-export declare interface InternalScope<Value> {
+export interface InternalScope<Value> {
     readonly unchanged: boolean;
     readonly cached: Value;
     recache(newValue?: Value): Value;
     param<T>(index: int, value: T, equivalent?: Equivalent<T>, name?: string, contextLocal?: boolean): State<T>;
 }
 
-// export declare interface StateContext {
+// export interface StateContext {
 //     scope<T>(id: MemoCallSiteKey, paramCount?: int): InternalScope<T>;
 // }
 
 // From Arkoala
-export declare function propState<T>(value?: T): MutableState<T>;
-export declare function objectLinkState<T>(value?: T): MutableState<T>;
+export declare function propState<T>(value?: T): SyncedProperty<T>;
+export declare function objectLinkState<T>(value?: T): SyncedProperty<T>;
 export declare function stateOf<T>(value: T): MutableState<T>;
-export declare function contextLocalStateOf<T>(value: T, key: () => T): MutableState<T>;
-export declare function contextLocal<T>(value: T): MutableState<T>;
+export declare function contextLocalStateOf<T>(value: string, key: () => T): MutableState<T>;
+export declare function contextLocal<T>(value: string): MutableState<T>;
 export declare function observableProxy<T>(value: T): T;
 export declare function StorageLinkState<T>(storage: LocalStorage, name: string, value: T): MutableState<T>
 export declare function AppStorageLinkState<T>(name: string, value: T): MutableState<T>;
+
+export declare class SyncedProperty<T> implements MutableState<T> {
+    constructor(value: T | undefined, deepCopyOnUpdate: boolean);
+    dispose(): void;
+    get disposed(): boolean;
+    get modified(): boolean;
+    get value(): T;
+    set value(value: T);
+    update(value?: T): void;
+}
