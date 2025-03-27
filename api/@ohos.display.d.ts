@@ -644,7 +644,7 @@ declare namespace display {
    * Add the list of window ids to the black list which won't display on the virtual screen
    *
    * @param { Array<number> } windowIds - The list of window ids that do not want to display on the virtual screen
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.Function addVirtualScreenBlackList can not work correctly due to limited device capabilities.
@@ -659,7 +659,7 @@ declare namespace display {
    * Remove the list of window ids from the black list which won't display on the virtual screen
    *
    * @param { Array<number> } windowIds - The list of window ids that want to display on the virtual screen
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.Function removeVirtualScreenBlackList can not work correctly due to limited device capabilities.
