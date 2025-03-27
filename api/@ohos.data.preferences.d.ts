@@ -1363,6 +1363,10 @@ declare namespace preferences {
      * Sets an int value for the key in the {@link Preferences} object.
      * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the
      * file.
+     * <p>When the value contains strings in a non-UTF-8 format, use the Uint8Array type for storage.
+     * Otherwise, the format of the persistent file is incorrect and the file is damaged.
+     * <p>If the corresponding key already exists, the {@link put} method will overwrite its value.
+     * You can use the {@link #hasSync} method to check whether the corresponding key-value pair exists.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
      *        <tt>MAX_KEY_LENGTH</tt>.
@@ -1380,6 +1384,10 @@ declare namespace preferences {
      * Sets an int value for the key in the {@link Preferences} object.
      * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the
      * file.
+     * <p>When the value contains strings in a non-UTF-8 format, use the Uint8Array type for storage.
+     * Otherwise, the format of the persistent file is incorrect and the file is damaged.
+     * <p>If the corresponding key already exists, the {@link put} method will overwrite its value.
+     * You can use the {@link #hasSync} method to check whether the corresponding key-value pair exists.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
      *        <tt>MAX_KEY_LENGTH</tt>.
@@ -1401,6 +1409,10 @@ declare namespace preferences {
      * Sets an int value for the key in the {@link Preferences} object.
      * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the
      * file.
+     * <p>When the value contains strings in a non-UTF-8 format, use the Uint8Array type for storage.
+     * Otherwise, the format of the persistent file is incorrect and the file is damaged.
+     * <p>If the corresponding key already exists, the {@link put} method will overwrite its value.
+     * You can use the {@link #hasSync} method to check whether the corresponding key-value pair exists.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
      *        <tt>MAX_KEY_LENGTH</tt>.
@@ -1417,7 +1429,11 @@ declare namespace preferences {
      * Sets an int value for the key in the {@link Preferences} object.
      * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the
      * file.
-     *
+     * <p>When the value contains strings in a non-UTF-8 format, use the Uint8Array type for storage.
+     * Otherwise, the format of the persistent file is incorrect and the file is damaged.
+     * <p>If the corresponding key already exists, the {@link put} method will overwrite its value.
+     * You can use the {@link #hasSync} method to check whether the corresponding key-value pair exists.
+     * 
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
      *        <tt>MAX_KEY_LENGTH</tt>.
      * @param { ValueType } value - Indicates the value of the preferences.
@@ -1434,6 +1450,10 @@ declare namespace preferences {
      * Sets an int value for the key in the {@link Preferences} object.
      * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the
      * file.
+     * <p>When the value contains strings in a non-UTF-8 format, use the Uint8Array type for storage.
+     * Otherwise, the format of the persistent file is incorrect and the file is damaged.
+     * <p>If the corresponding key already exists, the {@link put} method will overwrite its value.
+     * You can use the {@link #hasSync} method to check whether the corresponding key-value pair exists.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
      *        <tt>MAX_KEY_LENGTH</tt>.
@@ -1455,6 +1475,10 @@ declare namespace preferences {
      * Sets an int value for the key in the {@link Preferences} object. This interface is executed synchronously.
      * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the
      * file.
+     * <p>When the value contains strings in a non-UTF-8 format, use the Uint8Array type for storage.
+     * Otherwise, the format of the persistent file is incorrect and the file is damaged.
+     * <p>If the corresponding key already exists, the {@link put} method will overwrite its value.
+     * You can use the {@link #hasSync} method to check whether the corresponding key-value pair exists.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
      *        <tt>MAX_KEY_LENGTH</tt>.
@@ -1471,6 +1495,10 @@ declare namespace preferences {
      * Sets an int value for the key in the {@link Preferences} object. This interface is executed synchronously.
      * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the
      * file.
+     * <p>When the value contains strings in a non-UTF-8 format, use the Uint8Array type for storage.
+     * Otherwise, the format of the persistent file is incorrect and the file is damaged.
+     * <p>If the corresponding key already exists, the {@link put} method will overwrite its value.
+     * You can use the {@link #hasSync} method to check whether the corresponding key-value pair exists.
      *
      * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
      *        <tt>MAX_KEY_LENGTH</tt>.
