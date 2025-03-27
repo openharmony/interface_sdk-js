@@ -2002,7 +2002,7 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 14
+   * @since 17
    */
    function convertRecordsToEntries(data: UnifiedData): void;
 }
