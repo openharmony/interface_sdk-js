@@ -257,8 +257,11 @@ function deleteArktsTag(fileContent, regx) {
  * @param {*} fullPath 
  */
 function handleSinceInFirstType(fileContent, fullPath) {
-  const newFileContent = fileContent.replace(/@since\s+arkts\s*\{('1.1':)\s*(\d+),\s*('1.2':)\s*\d+\}/g, '@since $2');
-  fs.writeFileSync(fullPath, newFileContent);
+  const regx = /@since\s+arkts\s*(\{.*\})/g;
+  fileContent = fileContent.replace(regx, (substring, p1) => {
+    return '@since ' + JSON.parse(p1.replace(/'/g, '"'))['1.1'];
+  });
+  fs.writeFileSync(fullPath, fileContent);
 }
 
 /**
@@ -326,6 +329,7 @@ function handleFileInSecondType(fullPath, type) {
  * @param {*} fullPath 
  */
 function handlehasTagFile(sourceFile, fullPath) {
+  const arktsTagRegx = /\*\s*@arkts\s+1.1&1.2\s*(\r|\n)\s*/g;
   let newContent = getDeletionContent(sourceFile, fullPath);
   if (newContent === '') {
     deleteSameNameFile(fullPath);
@@ -333,7 +337,7 @@ function handlehasTagFile(sourceFile, fullPath) {
   }
   // 保留最后一段注释
   newContent = saveLatestJsDoc(newContent);
-  writeFile(fullPath, newContent);
+  writeFile(fullPath, deleteArktsTag(newContent, arktsTagRegx));
 }
 /**
  * 处理1.2目录中无arkts标签的文件
@@ -652,8 +656,11 @@ function judgeIsDeleteApi(node) {
  * @returns 
  */
 function handleSinceInSecondType(fileContent) {
-  const newFileContent = fileContent.replace(/@since\s+arkts\s*\{('1.1':)\s*\d+,\s*('1.2':)\s*(\d+)\}/g, '@since $3');
-  return newFileContent;
+  const regx = /@since\s+arkts\s*(\{.*\})/g;
+  fileContent = fileContent.replace(regx, (substring, p1) => {
+    return '@since ' + JSON.parse(p1.replace(/'/g, '"'))['1.2'];
+  });
+  return fileContent;
 }
 
 
