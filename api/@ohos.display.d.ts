@@ -1045,7 +1045,7 @@ declare namespace display {
    *
    * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @atomicservice
+   * @crossplatform
    * @since 18
    */
   enum ScreenShape {
@@ -1053,7 +1053,7 @@ declare namespace display {
      *The screen shape is rectangle.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
+     * @crossplatform
      * @since 18
      */
     RECTANGLE = 0,
@@ -1061,7 +1061,7 @@ declare namespace display {
      *The screen shape is round.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @atomicservice
+     * @crossplatform
      * @since 18
      */
     ROUND = 1
