@@ -4422,8 +4422,8 @@ declare class WebController {
   /**
    * Loads a piece of code and execute JS code in the context of the currently displayed page.
    * <p><strong>API Note</strong>:<br>
-   * Executes a JavaScript script.This API uses an asynchronous callback to return the script execution result.
-   * runJavaScript can be invoked only after loadUrl is executed.For example,it can be invoked in onPageEnd.
+   * Executes a JavaScript script. This API uses an asynchronous callback to return the script execution result.
+   * runJavaScript can be invoked only after loadUrl is executed. For example, it can be invoked in onPageEnd.
    * </p>
    *
    * @param { object } options The options with a piece of code and a callback.
@@ -4479,7 +4479,7 @@ declare class WebController {
   /**
    * Registers the JavaScript object and method list.
    * <p><strong>API Note</strong>:<br>
-   * You should register registerJavaScriptProxy either in synchronous list or in asynchronous list.Otherwise,this API fails to be registered.
+   * You should register registerJavaScriptProxy either in synchronous list or in asynchronous list. Otherwise,this API fails to be registered.
    * The registerJavaScriptProxy API must be used together with the deleteJavaScriptRegister API to prevent memory leak.
    * </p>
    *
@@ -6938,7 +6938,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets how to load HTTP and HTTPS content.
    * <p><strong>API Note</strong>:<br>
-   * Sets wheater to enable loading of HTTP and HTTPS hybrid content can be loaded.By default,this feature is disabled.
+   * Sets wheater to enable loading of HTTP and HTTPS hybrid content can be loaded. By default, this feature is disabled.
    * </p>
    *
    * @param { MixedMode } mixedMode - The mixed mode, which can be {@link MixedMode}.
@@ -6949,7 +6949,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets how to load HTTP and HTTPS content.
    * <p><strong>API Note</strong>:<br>
-   * Sets wheater to enable loading of HTTP and HTTPS hybrid content can be loaded.By default,this feature is disabled.
+   * Sets wheater to enable loading of HTTP and HTTPS hybrid content can be loaded. By default, this feature is disabled.
    * </p>
    *
    * @param { MixedMode } mixedMode - The mixed mode, which can be {@link MixedMode}.
@@ -6961,7 +6961,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
   * Sets how to load HTTP and HTTPS content.
   * <p><strong>API Note</strong>:<br>
-  * Sets wheater to enable loading of HTTP and HTTPS hybrid content can be loaded.By default,this feature is disabled.
+  * Sets wheater to enable loading of HTTP and HTTPS hybrid content can be loaded. By default, this feature is disabled.
   * </p>
   *
   * @param { MixedMode } mixedMode - The mixed mode, which can be {@link MixedMode}.
@@ -7030,10 +7030,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Injects the JavaScript object into window and invoke the function in window.
    * <p><strong>API Note</strong>:<br>
-   * Registers a JavaScript object with the window.APIs of this object can then be invoked in the window.
-   * The parameters cannot be updateed.This API can be used in synchronous or asynchronous mode,or in both modes.
-   * If the API can be used in both synchronous and asynchronous modes,it is called asynchronously by default.
-   * Only one object can be registered through this API.To register multiple objects,use registerJavaScriptProxy.
+   * Registers a JavaScript object with the window. APIs of this object can then be invoked in the window.
+   * The parameters cannot be updateed. This API can be used in synchronous or asynchronous mode, or in both modes.
+   * If the API can be used in both synchronous and asynchronous modes, it is called asynchronously by default.
+   * Only one object can be registered through this API. To register multiple objects, use registerJavaScriptProxy.
    * </p>
    *
    * @param { object } javaScriptProxy - The JavaScript object to be injected.
@@ -7044,10 +7044,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Injects the JavaScript object into window and invoke the function in window.
    * <p><strong>API Note</strong>:<br>
-   * Registers a JavaScript object with the window.APIs of this object can then be invoked in the window.
-   * The parameters cannot be updateed.This API can be used in synchronous or asynchronous mode,or in both modes.
-   * If the API can be used in both synchronous and asynchronous modes,it is called asynchronously by default.
-   * Only one object can be registered through this API.To register multiple objects,use registerJavaScriptProxy.
+   * Registers a JavaScript object with the window. APIs of this object can then be invoked in the window.
+   * The parameters cannot be updateed. This API can be used in synchronous or asynchronous mode, or in both modes.
+   * If the API can be used in both synchronous and asynchronous modes, it is called asynchronously by default.
+   * Only one object can be registered through this API. To register multiple objects,use registerJavaScriptProxy.
    * </p>
    *
    * @param { object } javaScriptProxy - The JavaScript object to be injected.
@@ -7058,10 +7058,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Injects the JavaScript object into window and invoke the function in window.
    * <p><strong>API Note</strong>:<br>
-   * Registers a JavaScript object with the window.APIs of this object can then be invoked in the window.
-   * The parameters cannot be updateed.This API can be used in synchronous or asynchronous mode,or in both modes.
-   * If the API can be used in both synchronous and asynchronous modes,it is called asynchronously by default.
-   * Only one object can be registered through this API.To register multiple objects,use registerJavaScriptProxy.
+   * Registers a JavaScript object with the window. APIs of this object can then be invoked in the window.
+   * The parameters cannot be updateed. This API can be used in synchronous or asynchronous mode,or in both modes.
+   * If the API can be used in both synchronous and asynchronous modes, it is called asynchronously by default.
+   * Only one object can be registered through this API. To register multiple objects,use registerJavaScriptProxy.
    * </p>
    *
    * @param { object } javaScriptProxy - The JavaScript object to be injected.
@@ -7073,10 +7073,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Injects the JavaScript object into window and invoke the function in window.
    * <p><strong>API Note</strong>:<br>
-   * Registers a JavaScript object with the window.APIs of this object can then be invoked in the window.
-   * The parameters cannot be updateed.This API can be used in synchronous or asynchronous mode,or in both modes.
-   * If the API can be used in both synchronous and asynchronous modes,it is called asynchronously by default.
-   * Only one object can be registered through this API.To register multiple objects,use registerJavaScriptProxy.
+   * Registers a JavaScript object with the window. APIs of this object can then be invoked in the window.
+   * The parameters cannot be updateed.This API can be used in synchronous or asynchronous mode, or in both modes.
+   * If the API can be used in both synchronous and asynchronous modes, it is called asynchronously by default.
+   * Only one object can be registered through this API. To register multiple objects, use registerJavaScriptProxy.
    * </p>
    *
    * @param { JavaScriptProxy } javaScriptProxy - The JavaScript object to be injected.
@@ -7397,7 +7397,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered at the begin of web page loading.
    * <p><strong>API Note</strong>:<br>
-   * Called when the web page starts to be loaded.This API is called only for the main frame content,and not for the iframe or frameset content.
+   * Called when the web page starts to be loaded. This API is called only for the main frame content, and not for the iframe or frameset content.
    * </p>
    *
    * @param { function } callback The triggered function at the begin of web page loading.
@@ -7408,7 +7408,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered at the begin of web page loading.
    * <p><strong>API Note</strong>:<br>
-   * Called when the web page starts to be loaded.This API is called only for the main frame content,and not for the iframe or frameset content.
+   * Called when the web page starts to be loaded. This API is called only for the main frame content, and not for the iframe or frameset content.
    * </p> 
    *
    * @param { function } callback The triggered function at the begin of web page loading.
@@ -7420,7 +7420,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered at the begin of web page loading.
    * <p><strong>API Note</strong>:<br>
-   * Called when the web page starts to be loaded.This API is called only for the main frame content,and not for the iframe or frameset content.
+   * Called when the web page starts to be loaded. This API is called only for the main frame content, and not for the iframe or frameset content.
    * </p>
    *
    * @param { function } callback The triggered function at the begin of web page loading.
@@ -7433,7 +7433,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered at the begin of web page loading.
    * <p><strong>API Note</strong>:<br>
-   * Called when the web page starts to be loaded.This API is called only for the main frame content,and not for the iframe or frameset content.
+   * Called when the web page starts to be loaded. This API is called only for the main frame content, and not for the iframe or frameset content.
    * </p>
    *
    * @param { Callback<OnPageBeginEvent> } callback The triggered function at the begin of web page loading.
@@ -7479,7 +7479,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Triggered when the title of the main application document changes.
    * <p><strong>API Note</strong>:<br>
    * Called when the document title of a web page is changed.
-   * If the <title> element is not set for an HTML5 page,the corresponding URL is returned.
+   * If the <title> element is not set for an HTML5 page, the corresponding URL is returned.
    * </p>
    *
    * @param { function } callback The triggered function when the title of the main application document changes.
@@ -7491,7 +7491,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Triggered when the title of the main application document changes.
    * <p><strong>API Note</strong>:<br>
    * Called when the document title of a web page is changed.
-   * If the <title> element is not set for an HTML5 page,the corresponding URL is returned.
+   * If the <title> element is not set for an HTML5 page, the corresponding URL is returned.
    * </p>
    *
    * @param { function } callback The triggered function when the title of the main application document changes.
@@ -7505,7 +7505,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Triggered when the title of the main application document changes.
    * <p><strong>API Note</strong>:<br>
    * Called when the document title of a web page is changed.
-   * If the <title> element is not set for an HTML5 page,the corresponding URL is returned.
+   * If the <title> element is not set for an HTML5 page, the corresponding URL is returned.
    * </p>
    *
    * @param { Callback<OnTitleReceiveEvent> } callback The triggered function when the title of the main application document changes.
@@ -8357,7 +8357,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Triggered when the Web page receives an ssl Error.
    * <p><strong>API Note</strong>:<br> 
    * Called to notify users when an SSL error occurs with a request for the main frame.
-   * To include errors with requests for subframes,use the OnSslErrorEvent API.
+   * To include errors with requests for subframes, use the OnSslErrorEvent API.
    * </p>
    *
    * @param { function } callback The triggered callback when the Web page receives an ssl Error.
@@ -8369,7 +8369,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Triggered when the Web page receives an ssl Error.
    * <p><strong>API Note</strong>:<br> 
    * Called to notify users when an SSL error occurs with a request for the main frame.
-   * To include errors with requests for subframes,use the OnSslErrorEvent API.
+   * To include errors with requests for subframes, use the OnSslErrorEvent API.
    * </p>
    *
    * @param { function } callback The triggered callback when the Web page receives an ssl Error.
@@ -8382,7 +8382,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Triggered when the Web page receives an ssl Error.
    * <p><strong>API Note</strong>:<br> 
    * Called to notify users when an SSL error occurs with a request for the main frame.
-   * To include errors with requests for subframes,use the OnSslErrorEvent API.
+   * To include errors with requests for subframes, use the OnSslErrorEvent API.
    * </p>
    *
    * @param { Callback<OnSslErrorEventReceiveEvent> } callback The triggered callback when the Web page receives an ssl Error.
@@ -8397,7 +8397,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Triggered when the Web page receives an ssl Error.
    * <p><strong>API Note</strong>:<br>
    * Called to notify users when an SSL error occurs during the loading of resources (for the main frame and subframes).
-   * To handle SSL errors for requests for the main frame,use the isMainFrame field to distinguish.
+   * To handle SSL errors for requests for the main frame, use the isMainFrame field to distinguish.
    * </p>
    *
    * @param { OnSslErrorEventCallback } callback The triggered callback when the Web page receives an ssl Error.
@@ -9163,8 +9163,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Injects the JavaScripts before Webview creates the DOM tree, and then the JavaScript snippet will run after the document has been created.
    * <p><strong>API Note</strong>:<br>
-   * The script runs before any JavaScript code of the page,when the DOM tree may not have been loaded or rendered.
-   * The script is executed in the lexicographic order, not the array order.if the array sequemce is required,you are advised to use the runJavaScriptOnDocumentStart interface.
+   * The script runs before any JavaScript code of the page, when the DOM tree may not have been loaded or rendered.
+   * The script is executed in the lexicographic order, not the array order.if the array sequemce is required, you are advised to use the runJavaScriptOnDocumentStart interface.
    * You are not advised to use this API together with runJavaScriptOnDocumentStart.
    * </p>
    *
