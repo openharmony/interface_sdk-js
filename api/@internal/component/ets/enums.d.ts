@@ -10272,7 +10272,7 @@ declare enum CrownSensitivity {
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 18
+ * @since 17
  */
 declare enum AxisAction {
   /**
@@ -10280,7 +10280,7 @@ declare enum AxisAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   NONE = 0,
 
@@ -10289,7 +10289,7 @@ declare enum AxisAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   BEGIN = 1,
 
@@ -10298,7 +10298,7 @@ declare enum AxisAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   UPDATE = 2,
 
@@ -10307,7 +10307,7 @@ declare enum AxisAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   END = 3,
 
@@ -10316,7 +10316,7 @@ declare enum AxisAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   CANCEL = 4,
 }
