@@ -18,6 +18,12 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { ButtonType } from './button'
+import { ClickEvent } from './common'
+import { SecurityComponentMethod } from './securityComponent'
+/*** endif */
+
 /**
  * Enumerates the icon styles.
  *
@@ -31,7 +37,8 @@
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum PasteIconStyle {
   /**
@@ -45,7 +52,8 @@ declare enum PasteIconStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   LINES = 0
 }
@@ -63,7 +71,8 @@ declare enum PasteIconStyle {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum PasteDescription {
   /**
@@ -77,7 +86,8 @@ declare enum PasteDescription {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   PASTE = 0
 }
@@ -95,7 +105,8 @@ declare enum PasteDescription {
  * @interface PasteButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface PasteButtonOptions {
   /**
@@ -111,7 +122,8 @@ declare interface PasteButtonOptions {
    * @type { ?PasteIconStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   icon?: PasteIconStyle;
 
@@ -128,7 +140,8 @@ declare interface PasteButtonOptions {
    * @type { ?PasteDescription }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   text?: PasteDescription;
 
@@ -145,7 +158,8 @@ declare interface PasteButtonOptions {
    * @type { ?ButtonType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   buttonType?: ButtonType;
 }
@@ -163,7 +177,8 @@ declare interface PasteButtonOptions {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum PasteButtonOnClickResult {
   /**
@@ -177,7 +192,8 @@ declare enum PasteButtonOnClickResult {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   SUCCESS = 0,
 
@@ -192,7 +208,8 @@ declare enum PasteButtonOnClickResult {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   TEMPORARY_AUTHORIZATION_FAILED = 1
 }
@@ -210,7 +227,8 @@ declare enum PasteButtonOnClickResult {
  * @interface PasteButtonInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface PasteButtonInterface {
   /**
@@ -226,7 +244,8 @@ interface PasteButtonInterface {
    * @returns { PasteButtonAttribute } Returns the attribute of the paste button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (): PasteButtonAttribute;
 
@@ -247,7 +266,8 @@ interface PasteButtonInterface {
    * @returns { PasteButtonAttribute } Returns the attribute of the paste button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (options: PasteButtonOptions): PasteButtonAttribute;
 }
@@ -265,7 +285,8 @@ interface PasteButtonInterface {
  * @extends SecurityComponentMethod<PasteButtonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class PasteButtonAttribute extends SecurityComponentMethod<PasteButtonAttribute> {
   /**
@@ -301,7 +322,8 @@ declare class PasteButtonAttribute extends SecurityComponentMethod<PasteButtonAt
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare const PasteButton: PasteButtonInterface;
 
@@ -316,6 +338,7 @@ declare const PasteButton: PasteButtonInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare const PasteButtonInstance: PasteButtonAttribute;
