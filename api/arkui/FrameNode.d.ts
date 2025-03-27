@@ -93,6 +93,61 @@ declare interface CrossLanguageOptions {
 }
 
 /**
+ * The interaction event binding status information on the component.
+ *
+ * @interface InteractionEventBindingInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+declare interface InteractionEventBindingInfo {
+  /**
+   * Whether to bind events declaratively.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  baseEventRegistered: boolean;
+
+  /**
+   * Whether to bind events in an imperative FrameNode mode.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  nodeEventRegistered: boolean;
+
+  /**
+   * Whether to bind the event as an imperative NativeNode.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  nativeEventRegistered: boolean;
+
+  /**
+   * Whether the component binds built-in event.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  builtInEventRegistered: boolean;
+}
+
+/**
  * Enum for the expand mode.
  * 
  * @enum { number }
@@ -806,6 +861,20 @@ export class FrameNode {
    * @since 18
    */
   reuse(): void;
+
+  /**
+   * Gets event binding information of the target node.
+   * 
+   * @param { EventQueryType } eventType - The interaction event type to be queried.
+   * @returns { InteractionEventBindingInfo | undefined } 
+   *   - Returns one InteractionEventBindingInfo object indicating the event binding details if any interaction
+   *     events binded on current node, returns undefined if no one binded on.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  getInteractionEventBindingInfo(eventType: EventQueryType): InteractionEventBindingInfo | undefined;
 }
 
 /**
