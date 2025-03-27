@@ -243,6 +243,17 @@ declare namespace PiPWindow {
      * @since 12
      */
     customUIController?: NodeController;
+
+    /**
+     * Describes the default picture-in-picture window size as it is started.
+     * 0: not set. 1: small size. 2: large size.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 18
+     */
+     defaultWindowSizeType?: number
   }
 
   /**
