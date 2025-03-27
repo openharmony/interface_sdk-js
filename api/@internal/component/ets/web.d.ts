@@ -4480,6 +4480,7 @@ declare class WebController {
    * Registers the JavaScript object and method list.
    * <p>API Note</strong>:<br>
    * You should register registerJavaScriptProxy either in synchronous list or in asynchronous list.Otherwise,this API fails to be registered.
+   * The registerJavaScriptProxy API must be used together with the deleteJavaScriptRegister API to prevent memory leak.
    * </p>
    *
    * @param { object } options - The option with the JavaScript object and method list.
