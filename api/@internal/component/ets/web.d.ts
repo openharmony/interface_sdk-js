@@ -9241,6 +9241,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12
+   * @deprecated since 20
+   * @useinstead ohos.web.WebAttribute#editMenuOptions
    */
   selectionMenuOptions(expandedMenuOptions: Array<ExpandedMenuItemOptions>): WebAttribute;
 
@@ -9524,6 +9526,7 @@ declare interface SslErrorEvent {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12
+ * @deprecated since 20
  */
 declare interface ExpandedMenuItemOptions {
   /**
@@ -9533,6 +9536,7 @@ declare interface ExpandedMenuItemOptions {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   * @deprecated since 20
    */
   content: ResourceStr;
 
@@ -9543,6 +9547,7 @@ declare interface ExpandedMenuItemOptions {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   * @deprecated since 20
    */
   startIcon?: ResourceStr;
 
@@ -9553,6 +9558,7 @@ declare interface ExpandedMenuItemOptions {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   * @deprecated since 20
    */
   action: (selectedText: {plainText: string}) => void;
 }
