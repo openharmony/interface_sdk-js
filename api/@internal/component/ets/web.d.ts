@@ -4421,6 +4421,10 @@ declare class WebController {
 
   /**
    * Loads a piece of code and execute JS code in the context of the currently displayed page.
+   * <p>API Note</strong>:<br>
+   * Executes a JavaScript script.This API uses an asynchronous callback to return the script execution result.
+   * runJavaScript can be invoked only after loadUrl is executed.For example,it can be invoked in onPageEnd.
+   * </p>
    *
    * @param { object } options The options with a piece of code and a callback.
    * @syscap SystemCapability.Web.Webview.Core
@@ -4474,6 +4478,9 @@ declare class WebController {
 
   /**
    * Registers the JavaScript object and method list.
+   * <p>API Note</strong>:<br>
+   * You should register registerJavaScriptProxy either in synchronous list or in asynchronous list.Otherwise,this API fails to be registered.
+   * </p>
    *
    * @param { object } options - The option with the JavaScript object and method list.
    * @syscap SystemCapability.Web.Webview.Core
@@ -6817,7 +6824,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Sets whether enable local file system access in Web.
-   *
+   * * <p>API Note</strong>:<br>
+   * fileAccess is disabled by default since API version 12.
+   * When fileAccess is set to false, files in the read-only /data/storage/el1/bundle/entry/resources/resfile directory can still be accessed through the file protocol.
+   * </p> 
    * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
    *    The default value is false.
    * @returns { WebAttribute }
@@ -6925,6 +6935,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Sets how to load HTTP and HTTPS content.
+   * <p>API Note</strong>:<br>
+   * Sets wheater to enable loading of HTTP and HTTPS hybrid content can be loaded.By default,this feature is disabled.
+   * </p>
    *
    * @param { MixedMode } mixedMode - The mixed mode, which can be {@link MixedMode}.
    * @returns { WebAttribute }
@@ -6933,6 +6946,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Sets how to load HTTP and HTTPS content.
+   * <p>API Note</strong>:<br>
+   * Sets wheater to enable loading of HTTP and HTTPS hybrid content can be loaded.By default,this feature is disabled.
+   * </p>
    *
    * @param { MixedMode } mixedMode - The mixed mode, which can be {@link MixedMode}.
    * @returns { WebAttribute }
@@ -6942,6 +6958,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
   * Sets how to load HTTP and HTTPS content.
+  * <p>API Note</strong>:<br>
+  * Sets wheater to enable loading of HTTP and HTTPS hybrid content can be loaded.By default,this feature is disabled.
+  * </p>
   *
   * @param { MixedMode } mixedMode - The mixed mode, which can be {@link MixedMode}.
   * @returns { WebAttribute }
@@ -7300,6 +7319,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Triggered at the end of web page loading.
+   * <p>API Note</strong>:<br>
+   * Triggered at the end of web page loading.
+   * This callback is only invoked for the main frame and not for subframes.
+   * </p>
    *
    * @param { function } callback The triggered function at the end of web page loading.
    * @returns { WebAttribute }
@@ -7308,6 +7331,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Triggered at the end of web page loading.
+   * <p>API Note</strong>:<br>
+   * Triggered at the end of web page loading.
+   * This callback is only invoked for the main frame and not for subframes.
+   * </p>
    *
    * @param { function } callback The triggered function at the end of web page loading.
    * @returns { WebAttribute }
@@ -7317,6 +7344,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Triggered at the end of web page loading.
+   * <p>API Note</strong>:<br>
+   * Triggered at the end of web page loading.
+   * This callback is only invoked for the main frame and not for subframes.
+   * </p>
    *
    * @param { function } callback The triggered function at the end of web page loading.
    * @returns { WebAttribute }
@@ -7327,6 +7358,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Triggered at the end of web page loading.
+   * <p>API Note</strong>:<br>
+   * Triggered at the end of web page loading.
+   * This callback is only invoked for the main frame and not for subframes.
+   * </p>
    *
    * @param { Callback<OnPageEndEvent> } callback The triggered function at the end of web page loading.
    * @returns { WebAttribute }
@@ -7339,6 +7374,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Triggered at the begin of web page loading.
+   * <p>API Note</strong>:<br>
+   * Called when the web page starts to be loaded.This API is called only for the main frame content,and not for the iframe or frameset content.
+   * </p>
    *
    * @param { function } callback The triggered function at the begin of web page loading.
    * @returns { WebAttribute }
@@ -7347,6 +7385,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Triggered at the begin of web page loading.
+   * <p>API Note</strong>:<br>
+   * Called when the web page starts to be loaded.This API is called only for the main frame content,and not for the iframe or frameset content.
+   * </p> 
    *
    * @param { function } callback The triggered function at the begin of web page loading.
    * @returns { WebAttribute }
@@ -7356,6 +7397,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Triggered at the begin of web page loading.
+   * <p>API Note</strong>:<br>
+   * Called when the web page starts to be loaded.This API is called only for the main frame content,and not for the iframe or frameset content.
+   * </p>
    *
    * @param { function } callback The triggered function at the begin of web page loading.
    * @returns { WebAttribute }
@@ -7366,6 +7410,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Triggered at the begin of web page loading.
+   * <p>API Note</strong>:<br>
+   * Called when the web page starts to be loaded.This API is called only for the main frame content,and not for the iframe or frameset content.
+   * </p>
    *
    * @param { Callback<OnPageBeginEvent> } callback The triggered function at the begin of web page loading.
    * @returns { WebAttribute }
@@ -7408,6 +7455,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Triggered when the title of the main application document changes.
+   * <p>API Note</strong>:<br>
+   * Called when the document title of a web page is changed.
+   * If the <title> element is not set for an HTML5 page,the corresponding URL is returned.
+   * </p>
    *
    * @param { function } callback The triggered function when the title of the main application document changes.
    * @returns { WebAttribute }
@@ -7416,7 +7467,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Triggered when the title of the main application document changes.
-   *
+   * <p>API Note</strong>:<br>
+   * Called when the document title of a web page is changed.
+   * If the <title> element is not set for an HTML5 page,the corresponding URL is returned.
+   * </p>
    * @param { function } callback The triggered function when the title of the main application document changes.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -7426,7 +7480,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Triggered when the title of the main application document changes.
-   *
+   * <p>API Note</strong>:<br>
+   * Called when the document title of a web page is changed.
+   * If the <title> element is not set for an HTML5 page,the corresponding URL is returned.
+   * </p>
    * @param { Callback<OnTitleReceiveEvent> } callback The triggered function when the title of the main application document changes.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -8274,6 +8331,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Triggered when the Web page receives an ssl Error.
+   * <p>API Note</strong>:<br> 
+   * Called to notify users when an SSL error occurs with a request for the main frame.
+   * To include errors with requests for subframes,use the OnSslErrorEvent API.
+   * </p>
    *
    * @param { function } callback The triggered callback when the Web page receives an ssl Error.
    * @returns { WebAttribute }
@@ -8282,6 +8343,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Triggered when the Web page receives an ssl Error.
+   * <p>API Note</strong>:<br> 
+   * Called to notify users when an SSL error occurs with a request for the main frame.
+   * To include errors with requests for subframes,use the OnSslErrorEvent API.
+   * </p>
    *
    * @param { function } callback The triggered callback when the Web page receives an ssl Error.
    * @returns { WebAttribute }
@@ -8291,6 +8356,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Triggered when the Web page receives an ssl Error.
+   * <p>API Note</strong>:<br> 
+   * Called to notify users when an SSL error occurs with a request for the main frame.
+   * To include errors with requests for subframes,use the OnSslErrorEvent API.
+   * </p>
    *
    * @param { Callback<OnSslErrorEventReceiveEvent> } callback The triggered callback when the Web page receives an ssl Error.
    * @returns { WebAttribute }
@@ -8302,6 +8371,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Triggered when the Web page receives an ssl Error.
+   * <p>API Note</strong>:<br>
+   * Called to notify users when an SSL error occurs during the loading of resources (for the main frame and subframes).
+   * To handle SSL errors for requests for the main frame,use the isMainFrame field to distinguish.
+   * </p>
    *
    * @param { OnSslErrorEventCallback } callback The triggered callback when the Web page receives an ssl Error.
    * @returns { WebAttribute }
