@@ -7480,7 +7480,8 @@ declare namespace camera {
     getActiveFrameRate(): FrameRateRange;
 
     /**
-     *
+     * Gets the current preconfig type if you had already call preconfig interface.
+     * 
      * @returns { Profile } The current preconfig type.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
