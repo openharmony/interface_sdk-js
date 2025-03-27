@@ -1,5 +1,5 @@
 /*
-  * Copyright (c) 2023 Huawei Device Co., Ltd.
+  * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
   * Licensed under the Apache License, Version 2.0 (the "License");
   * you may not use this file except in compliance with the License.
   * You may obtain a copy of the License at
@@ -21,6 +21,11 @@
 
 
 
+/*** if arkts 1.2 */
+import { BlurStyle, Callback, Component, Link, ObjectLink, Prop } from '../component/common';
+import { Direction, FontWeight } from '../component/enums';
+import { Dimension, FP, LPX, LocalizedPadding, PX, Padding, Resource, ResourceColor, ResourceStr, SizeOptions, VP } from '../component/units';
+/*** endif */
 
 /**
  * Defines text only item of SegmentButton.
@@ -28,7 +33,8 @@
  * @interface SegmentButtonTextItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
  /**
  * Defines text only item of SegmentButton.
@@ -37,7 +43,8 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 
 interface SegmentButtonTextItem {
@@ -47,7 +54,8 @@ interface SegmentButtonTextItem {
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The text of text only item.
@@ -56,7 +64,8 @@ interface SegmentButtonTextItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   text: ResourceStr;
 
@@ -68,7 +77,8 @@ interface SegmentButtonTextItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   accessibilityLevel?: string;
 
@@ -80,7 +90,8 @@ interface SegmentButtonTextItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   accessibilityDescription?: ResourceStr;
 }
@@ -91,7 +102,8 @@ interface SegmentButtonTextItem {
  * @interface SegmentButtonIconItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
  /**
  * Defines icon only item of SegmentButton.
@@ -100,7 +112,8 @@ interface SegmentButtonTextItem {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface SegmentButtonIconItem {
   /**
@@ -109,7 +122,8 @@ interface SegmentButtonIconItem {
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The icon of icon only item.
@@ -118,7 +132,8 @@ interface SegmentButtonIconItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   icon: ResourceStr;
 
@@ -130,7 +145,8 @@ interface SegmentButtonIconItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   iconAccessibilityText?: ResourceStr;
 
@@ -140,7 +156,8 @@ interface SegmentButtonIconItem {
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The icon of icon only item in the selected state.
@@ -149,7 +166,8 @@ interface SegmentButtonIconItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selectedIcon: ResourceStr;
 
@@ -161,7 +179,8 @@ interface SegmentButtonIconItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selectedIconAccessibilityText?: ResourceStr;
 
@@ -173,7 +192,8 @@ interface SegmentButtonIconItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   accessibilityLevel?: string;
 
@@ -185,7 +205,8 @@ interface SegmentButtonIconItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   accessibilityDescription?: ResourceStr;
 }
@@ -196,7 +217,8 @@ interface SegmentButtonIconItem {
  * @interface SegmentButtonIconTextItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
  /**
  * Defines icon and text item of SegmentButton.
@@ -205,7 +227,8 @@ interface SegmentButtonIconItem {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface SegmentButtonIconTextItem {
   /**
@@ -214,7 +237,8 @@ interface SegmentButtonIconTextItem {
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The icon of icon and text item.
@@ -223,7 +247,8 @@ interface SegmentButtonIconTextItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   icon: ResourceStr;
 
@@ -235,7 +260,8 @@ interface SegmentButtonIconTextItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   iconAccessibilityText?: ResourceStr;
 
@@ -245,7 +271,8 @@ interface SegmentButtonIconTextItem {
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The icon of icon and text item in the selected state.
@@ -254,7 +281,8 @@ interface SegmentButtonIconTextItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selectedIcon: ResourceStr;
 
@@ -266,7 +294,8 @@ interface SegmentButtonIconTextItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selectedIconAccessibilityText?: ResourceStr;
 
@@ -276,7 +305,8 @@ interface SegmentButtonIconTextItem {
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The text of icon and text item.
@@ -285,7 +315,8 @@ interface SegmentButtonIconTextItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   text: ResourceStr;
 
@@ -297,7 +328,8 @@ interface SegmentButtonIconTextItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   accessibilityLevel?: string;
 
@@ -309,7 +341,8 @@ interface SegmentButtonIconTextItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   accessibilityDescription?: ResourceStr;
 }
@@ -319,7 +352,8 @@ interface SegmentButtonIconTextItem {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
  /**
  * Defines the DimensionNoPercentage type.
@@ -327,7 +361,8 @@ interface SegmentButtonIconTextItem {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type DimensionNoPercentage = PX | VP | FP | LPX | Resource;
 
@@ -337,7 +372,8 @@ declare type DimensionNoPercentage = PX | VP | FP | LPX | Resource;
  * @interface CommonSegmentButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
  /**
  * Defines SegmentButton common options.
@@ -346,7 +382,8 @@ declare type DimensionNoPercentage = PX | VP | FP | LPX | Resource;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface CommonSegmentButtonOptions {
   /**
@@ -355,7 +392,8 @@ interface CommonSegmentButtonOptions {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The font color of buttons.
@@ -364,7 +402,8 @@ interface CommonSegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontColor?: ResourceColor;
 
@@ -374,7 +413,8 @@ interface CommonSegmentButtonOptions {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The font color of selected button.
@@ -383,7 +423,8 @@ interface CommonSegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selectedFontColor?: ResourceColor;
 
@@ -394,7 +435,8 @@ interface CommonSegmentButtonOptions {
    * @default $r('sys.float.ohos_id_text_size_body2')
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The font size of buttons.
@@ -404,7 +446,8 @@ interface CommonSegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontSize?: DimensionNoPercentage;
 
@@ -415,7 +458,8 @@ interface CommonSegmentButtonOptions {
    * @default $r('sys.float.ohos_id_text_size_body2')
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The font size of selected button.
@@ -425,7 +469,8 @@ interface CommonSegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selectedFontSize?: DimensionNoPercentage;
 
@@ -436,7 +481,8 @@ interface CommonSegmentButtonOptions {
    * @default FontWeight.Regular
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The font weight of buttons.
@@ -446,7 +492,8 @@ interface CommonSegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontWeight?: FontWeight;
 
@@ -457,7 +504,8 @@ interface CommonSegmentButtonOptions {
    * @default FontWeight.Medium
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The font weight of selected button.
@@ -467,7 +515,8 @@ interface CommonSegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selectedFontWeight?: FontWeight;
 
@@ -478,7 +527,8 @@ interface CommonSegmentButtonOptions {
    * @default $r('sys.color.ohos_id_color_button_normal')
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The background color of SegmentButton.
@@ -488,7 +538,8 @@ interface CommonSegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   backgroundColor?: ResourceColor;
 
@@ -498,7 +549,8 @@ interface CommonSegmentButtonOptions {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The background color of selected button.
@@ -507,7 +559,8 @@ interface CommonSegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selectedBackgroundColor?: ResourceColor;
 
@@ -518,7 +571,8 @@ interface CommonSegmentButtonOptions {
    * @default SizeOptions { width: 24, height: 24 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The image size of buttons.
@@ -528,7 +582,8 @@ interface CommonSegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   imageSize?: SizeOptions;
 
@@ -540,7 +595,8 @@ interface CommonSegmentButtonOptions {
    *          For text & icon buttons Padding { top: 6, right: 8, bottom: 6, left: 8 }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The padding of buttons.
@@ -551,7 +607,8 @@ interface CommonSegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   buttonPadding?: Padding | Dimension;
 
@@ -566,7 +623,8 @@ interface CommonSegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   localizedButtonPadding?: LocalizedPadding;
 
@@ -577,7 +635,8 @@ interface CommonSegmentButtonOptions {
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The padding of text in button.
@@ -587,7 +646,8 @@ interface CommonSegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   textPadding?: Padding | Dimension;
 
@@ -598,7 +658,8 @@ interface CommonSegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   localizedTextPadding?: LocalizedPadding;
 
@@ -608,7 +669,8 @@ interface CommonSegmentButtonOptions {
    * @type { ?BlurStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The blurStyle of background.
@@ -617,7 +679,8 @@ interface CommonSegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   backgroundBlurStyle?: BlurStyle;
 
@@ -628,7 +691,8 @@ interface CommonSegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   direction?: Direction;
 }
@@ -638,7 +702,8 @@ interface CommonSegmentButtonOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
  /**
  * Defines the ItemRestriction type.
@@ -646,7 +711,8 @@ interface CommonSegmentButtonOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type ItemRestriction<T> = [T, T, T?, T?, T?];
 
@@ -655,7 +721,8 @@ declare type ItemRestriction<T> = [T, T, T?, T?, T?];
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
  /**
  * Defines the SegmentButtonItemTuple type.
@@ -663,7 +730,8 @@ declare type ItemRestriction<T> = [T, T, T?, T?, T?];
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type SegmentButtonItemTuple = ItemRestriction<SegmentButtonTextItem> | ItemRestriction<SegmentButtonIconItem> | ItemRestriction<SegmentButtonIconTextItem>;
 
@@ -672,7 +740,8 @@ declare type SegmentButtonItemTuple = ItemRestriction<SegmentButtonTextItem> | I
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
  /**
  * Defines the SegmentButtonItemArray type.
@@ -680,7 +749,8 @@ declare type SegmentButtonItemTuple = ItemRestriction<SegmentButtonTextItem> | I
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type SegmentButtonItemArray = Array<SegmentButtonTextItem> | Array<SegmentButtonIconItem> | Array<SegmentButtonIconTextItem>;
 
@@ -691,7 +761,8 @@ declare type SegmentButtonItemArray = Array<SegmentButtonTextItem> | Array<Segme
  * @extends CommonSegmentButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
  /**
  * Defines SegmentButton tab options.
@@ -701,7 +772,8 @@ declare type SegmentButtonItemArray = Array<SegmentButtonTextItem> | Array<Segme
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface TabSegmentButtonConstructionOptions extends CommonSegmentButtonOptions {
   /**
@@ -710,7 +782,8 @@ interface TabSegmentButtonConstructionOptions extends CommonSegmentButtonOptions
    * @type { ItemRestriction<SegmentButtonTextItem> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * The items of tab type of SegmentButton.
@@ -719,7 +792,8 @@ interface TabSegmentButtonConstructionOptions extends CommonSegmentButtonOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   buttons: ItemRestriction<SegmentButtonTextItem>;
 }
@@ -731,7 +805,8 @@ interface TabSegmentButtonConstructionOptions extends CommonSegmentButtonOptions
  * @extends CommonSegmentButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
  /**
  * Defines SegmentButton capsule options.
@@ -741,7 +816,8 @@ interface TabSegmentButtonConstructionOptions extends CommonSegmentButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface CapsuleSegmentButtonConstructionOptions extends CommonSegmentButtonOptions {
   /**
@@ -750,7 +826,8 @@ interface CapsuleSegmentButtonConstructionOptions extends CommonSegmentButtonOpt
    * @type { SegmentButtonItemTuple }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The items of capsule type of SegmentButton.
@@ -759,7 +836,8 @@ interface CapsuleSegmentButtonConstructionOptions extends CommonSegmentButtonOpt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   buttons: SegmentButtonItemTuple;
 
@@ -770,7 +848,8 @@ interface CapsuleSegmentButtonConstructionOptions extends CommonSegmentButtonOpt
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * Support multiple selections flag.
@@ -780,7 +859,8 @@ interface CapsuleSegmentButtonConstructionOptions extends CommonSegmentButtonOpt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   multiply?: boolean;
 }
@@ -792,7 +872,8 @@ interface CapsuleSegmentButtonConstructionOptions extends CommonSegmentButtonOpt
  * @extends TabSegmentButtonConstructionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
  /**
  * Defines the type of SegmentButton options of tab type.
@@ -802,7 +883,8 @@ interface CapsuleSegmentButtonConstructionOptions extends CommonSegmentButtonOpt
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface TabSegmentButtonOptions extends TabSegmentButtonConstructionOptions {
   /**
@@ -811,7 +893,8 @@ interface TabSegmentButtonOptions extends TabSegmentButtonConstructionOptions {
    * @type { "tab" }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The type of SegmentButton.
@@ -820,7 +903,8 @@ interface TabSegmentButtonOptions extends TabSegmentButtonConstructionOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type: "tab";
 }
@@ -832,7 +916,8 @@ interface TabSegmentButtonOptions extends TabSegmentButtonConstructionOptions {
  * @extends CapsuleSegmentButtonConstructionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
  /**
  * Defines the type of SegmentButton options of capsule type.
@@ -842,7 +927,8 @@ interface TabSegmentButtonOptions extends TabSegmentButtonConstructionOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface CapsuleSegmentButtonOptions extends CapsuleSegmentButtonConstructionOptions {
   /**
@@ -851,7 +937,8 @@ interface CapsuleSegmentButtonOptions extends CapsuleSegmentButtonConstructionOp
    * @type { "capsule" }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The type of SegmentButton.
@@ -860,7 +947,8 @@ interface CapsuleSegmentButtonOptions extends CapsuleSegmentButtonConstructionOp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type: "capsule";
 }
@@ -870,7 +958,8 @@ interface CapsuleSegmentButtonOptions extends CapsuleSegmentButtonConstructionOp
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
  /**
  * Construct parameter types for SegmentButtonItemOptions.
@@ -878,7 +967,8 @@ interface CapsuleSegmentButtonOptions extends CapsuleSegmentButtonConstructionOp
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface SegmentButtonItemOptionsConstructorOptions {
   /**
@@ -887,7 +977,8 @@ interface SegmentButtonItemOptionsConstructorOptions {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The icon of icon and text item.
@@ -896,7 +987,8 @@ interface SegmentButtonItemOptionsConstructorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   icon?: ResourceStr;
 
@@ -908,7 +1000,8 @@ interface SegmentButtonItemOptionsConstructorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   iconAccessibilityText?: ResourceStr;
 
@@ -918,7 +1011,8 @@ interface SegmentButtonItemOptionsConstructorOptions {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The icon of icon and text item in the selected state.
@@ -927,7 +1021,8 @@ interface SegmentButtonItemOptionsConstructorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selectedIcon?: ResourceStr;
 
@@ -939,7 +1034,8 @@ interface SegmentButtonItemOptionsConstructorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selectedIconAccessibilityText?: ResourceStr;
 
@@ -949,7 +1045,8 @@ interface SegmentButtonItemOptionsConstructorOptions {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The text of icon and text item.
@@ -958,7 +1055,8 @@ interface SegmentButtonItemOptionsConstructorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   text?: ResourceStr;
 
@@ -970,7 +1068,8 @@ interface SegmentButtonItemOptionsConstructorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   accessibilityLevel?: string;
 
@@ -982,7 +1081,8 @@ interface SegmentButtonItemOptionsConstructorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   accessibilityDescription?: ResourceStr;
 }
@@ -992,7 +1092,8 @@ interface SegmentButtonItemOptionsConstructorOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
  /**
  * The options for SegmentButton items.
@@ -1000,7 +1101,8 @@ interface SegmentButtonItemOptionsConstructorOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 @Observed
 declare class SegmentButtonItemOptions {
@@ -1010,7 +1112,8 @@ declare class SegmentButtonItemOptions {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The icon of item.
@@ -1019,7 +1122,8 @@ declare class SegmentButtonItemOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   icon?: ResourceStr;
 
@@ -1031,7 +1135,8 @@ declare class SegmentButtonItemOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   iconAccessibilityText?: ResourceStr;
 
@@ -1041,7 +1146,8 @@ declare class SegmentButtonItemOptions {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The icon of selected item.
@@ -1050,7 +1156,8 @@ declare class SegmentButtonItemOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selectedIcon?: ResourceStr;
 
@@ -1062,7 +1169,8 @@ declare class SegmentButtonItemOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selectedIconAccessibilityText?: ResourceStr;
 
@@ -1072,7 +1180,8 @@ declare class SegmentButtonItemOptions {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The text of item.
@@ -1081,7 +1190,8 @@ declare class SegmentButtonItemOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   text?: ResourceStr;
 
@@ -1093,7 +1203,8 @@ declare class SegmentButtonItemOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   accessibilityLevel?: string;
 
@@ -1105,7 +1216,8 @@ declare class SegmentButtonItemOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   accessibilityDescription?: ResourceStr;
 
@@ -1115,7 +1227,8 @@ declare class SegmentButtonItemOptions {
    * @param { SegmentButtonItemOptionsConstructorOptions } options - item info.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * The constructor used to create a SegmentButtonOptionsArray object.
@@ -1124,7 +1237,8 @@ declare class SegmentButtonItemOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(options: SegmentButtonItemOptionsConstructorOptions);
 }
@@ -1135,7 +1249,8 @@ declare class SegmentButtonItemOptions {
  * @extends Array<SegmentButtonItemOptions>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
  /**
  * The class for SegmentButton item options array.
@@ -1144,7 +1259,8 @@ declare class SegmentButtonItemOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 @Observed
 declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptions> {
@@ -1154,7 +1270,8 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
    * @param { SegmentButtonItemTuple } elements - The SegmentButton items.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The constructor used to create a SegmentButtonItemOptionsArray object.
@@ -1163,7 +1280,8 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(elements: SegmentButtonItemTuple);
 
@@ -1174,7 +1292,8 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
    * @returns { number } Returns the new length of SegmentButtonItemOptionsArray.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * Appends new elements to the end of SegmentButtonItemOptionsArray.
@@ -1184,7 +1303,8 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   push(...items: SegmentButtonItemArray): number;
 
@@ -1194,7 +1314,8 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
    * @returns { SegmentButtonItemOptions | undefined } Returns the removed element.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * Removes the last element from SegmentButtonItemOptionsArray.
@@ -1203,7 +1324,8 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   pop(): SegmentButtonItemOptions | undefined;
 
@@ -1213,7 +1335,8 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
    * @returns { SegmentButtonItemOptions | undefined } Returns the removed element.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * Removes the first element from SegmentButtonItemOptionsArray.
@@ -1222,7 +1345,8 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   shift(): SegmentButtonItemOptions | undefined;
 
@@ -1233,7 +1357,8 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
    * @returns { number } Returns the new length of SegmentButtonItemOptionsArray.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * Appends new elements to the start of SegmentButtonItemOptionsArray.
@@ -1243,7 +1368,8 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   unshift(...items: SegmentButtonItemArray): number;
 
@@ -1256,7 +1382,8 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
    * @returns { SegmentButtonItemOptions[] } Returns a SegmentButtonItemOptions array containing the deleted elements.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * Changes the elements of SegmentButtonItemOptionsArray by removing or replacing existing elements and/or adding new elements in place.
@@ -1268,7 +1395,8 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   splice(start: number, deleteCount: number, ...items: SegmentButtonItemOptions[]): SegmentButtonItemOptions[];
 
@@ -1279,7 +1407,8 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
    * @returns { SegmentButtonItemOptionsArray } Returns the a new SegmentButtonItemOptionsArray object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The function used to create a SegmentButtonItemOptionsArray object.
@@ -1289,7 +1418,8 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   static create(elements: SegmentButtonItemTuple): SegmentButtonItemOptionsArray;
 }
@@ -1299,7 +1429,8 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
  /**
  * The class for SegmentButton options.
@@ -1307,7 +1438,8 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 @Observed
 declare class SegmentButtonOptions {
@@ -1317,7 +1449,8 @@ declare class SegmentButtonOptions {
    * @type { "tab" | "capsule" }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The type of SegmentButton.
@@ -1326,7 +1459,8 @@ declare class SegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type: "tab" | "capsule";
 
@@ -1336,7 +1470,8 @@ declare class SegmentButtonOptions {
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The support multiple selections flag of SegmentButton.
@@ -1345,7 +1480,8 @@ declare class SegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   multiply: boolean;
 
@@ -1355,7 +1491,8 @@ declare class SegmentButtonOptions {
    * @type { SegmentButtonOptionsArray }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The buttons information of SegmentButton.
@@ -1364,7 +1501,8 @@ declare class SegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   buttons: SegmentButtonItemOptionsArray;
 
@@ -1374,7 +1512,8 @@ declare class SegmentButtonOptions {
    * @type { ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The font color of buttons.
@@ -1383,7 +1522,8 @@ declare class SegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontColor: ResourceColor;
 
@@ -1393,7 +1533,8 @@ declare class SegmentButtonOptions {
    * @type { ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The font color of selected button.
@@ -1402,7 +1543,8 @@ declare class SegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selectedFontColor: ResourceColor;
 
@@ -1412,7 +1554,8 @@ declare class SegmentButtonOptions {
    * @type { DimensionNoPercentage }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The font size of buttons.
@@ -1421,7 +1564,8 @@ declare class SegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontSize: DimensionNoPercentage;
 
@@ -1431,7 +1575,8 @@ declare class SegmentButtonOptions {
    * @type { DimensionNoPercentage }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The font size of selected button.
@@ -1440,7 +1585,8 @@ declare class SegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selectedFontSize: DimensionNoPercentage;
 
@@ -1450,7 +1596,8 @@ declare class SegmentButtonOptions {
    * @type { FontWeight }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The font weight of buttons.
@@ -1459,7 +1606,8 @@ declare class SegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontWeight: FontWeight;
 
@@ -1469,7 +1617,8 @@ declare class SegmentButtonOptions {
    * @type { FontWeight }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The font weight of selected button.
@@ -1478,7 +1627,8 @@ declare class SegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selectedFontWeight: FontWeight;
 
@@ -1488,7 +1638,8 @@ declare class SegmentButtonOptions {
    * @type { ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The background color of SegmentButton.
@@ -1497,7 +1648,8 @@ declare class SegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   backgroundColor: ResourceColor;
 
@@ -1507,7 +1659,8 @@ declare class SegmentButtonOptions {
    * @type { ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The background color of selected button.
@@ -1516,7 +1669,8 @@ declare class SegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selectedBackgroundColor: ResourceColor;
 
@@ -1526,7 +1680,8 @@ declare class SegmentButtonOptions {
    * @type { SizeOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The image size of buttons.
@@ -1535,7 +1690,8 @@ declare class SegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   imageSize: SizeOptions;
 
@@ -1545,7 +1701,8 @@ declare class SegmentButtonOptions {
    * @type { Padding | Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The padding of buttons.
@@ -1554,7 +1711,8 @@ declare class SegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   buttonPadding: Padding | Dimension;
 
@@ -1565,7 +1723,8 @@ declare class SegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   localizedButtonPadding?: LocalizedPadding;
 
@@ -1575,7 +1734,8 @@ declare class SegmentButtonOptions {
    * @type { Padding | Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The padding of text in button.
@@ -1584,7 +1744,8 @@ declare class SegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   textPadding: Padding | Dimension;
 
@@ -1595,7 +1756,8 @@ declare class SegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   localizedTextPadding?: LocalizedPadding;
 
@@ -1605,7 +1767,8 @@ declare class SegmentButtonOptions {
    * @type { BlurStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The blurStyle of background.
@@ -1614,7 +1777,8 @@ declare class SegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   backgroundBlurStyle: BlurStyle;
 
@@ -1624,7 +1788,8 @@ declare class SegmentButtonOptions {
    * @param { TabSegmentButtonOptions | CapsuleSegmentButtonOptions } options - The options of SegmentButton.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The constructor used to create a SegmentButtonOptions object.
@@ -1633,7 +1798,8 @@ declare class SegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(options: TabSegmentButtonOptions | CapsuleSegmentButtonOptions);
 
@@ -1645,7 +1811,8 @@ declare class SegmentButtonOptions {
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The function used to create a SegmentButtonOptions of tab type.
@@ -1656,7 +1823,8 @@ declare class SegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   static tab(options: TabSegmentButtonConstructionOptions): SegmentButtonOptions;
 
@@ -1668,7 +1836,8 @@ declare class SegmentButtonOptions {
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The function used to create a SegmentButtonOptions of capsule type.
@@ -1679,7 +1848,8 @@ declare class SegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   static capsule(options: CapsuleSegmentButtonConstructionOptions): SegmentButtonOptions;
 
@@ -1690,7 +1860,8 @@ declare class SegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   direction?: Direction;
 }
@@ -1700,7 +1871,8 @@ declare class SegmentButtonOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
  /**
  * Declare Component SegmentButton
@@ -1708,7 +1880,8 @@ declare class SegmentButtonOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 @Component
 declare struct SegmentButton {
@@ -1718,7 +1891,8 @@ declare struct SegmentButton {
    * @type { SegmentButtonOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The options of SegmentButton.
@@ -1727,7 +1901,8 @@ declare struct SegmentButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   @ObjectLink
   options: SegmentButtonOptions;
@@ -1738,7 +1913,8 @@ declare struct SegmentButton {
    * @type { number[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The selectedIndex.
@@ -1747,7 +1923,8 @@ declare struct SegmentButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   @Link
   selectedIndexes: number[];
@@ -1758,7 +1935,8 @@ declare struct SegmentButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   @Prop
   maxFontScale: number | Resource;
@@ -1770,7 +1948,8 @@ declare struct SegmentButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onItemClicked?: Callback<number>;
 }
