@@ -16,7 +16,7 @@
 
 // WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
 
-import { Resource } from './../../../api/global/resource'
+import { Resource as Resource_ } from './../../../api/global/resource'
 import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
 import { LengthMetrics, LengthMetricsUnit } from './../Graphics'
 import { BorderStyle, Color, FontWeight, FontStyle } from './enums'
@@ -59,15 +59,16 @@ export type RectWidthStyle = _text.RectWidthStyle
 export type RectHeightStyle = _text.RectHeightStyle
 export type TextBox = _text.TextBox
 export type RestrictedWorker = string
-export type Length = string | number | Resource;
+export type Length = string | number | Resource_;
 export type PX = string;
 export type VP = string | number;
 export type FP = string;
 export type LPX = string;
 export type Percentage = string;
 export type Degree = string;
-export type Dimension = PX | VP | FP | LPX | Percentage | Resource;
-export type ResourceStr = string | Resource;
+export type Dimension = PX | VP | FP | LPX | Percentage | Resource_;
+export type ResourceStr = string | Resource_;
+export type Resource = Resource_
 export interface Padding {
     top?: Length;
     right?: Length;
@@ -147,7 +148,7 @@ export interface Offset {
     dx: Length;
     dy: Length;
 }
-export type ResourceColor = Color | number | string | Resource;
+export type ResourceColor = Color | number | string | Resource_;
 export interface LengthConstrain {
     minLength: Length;
     maxLength: Length;
@@ -156,7 +157,7 @@ export type VoidCallback = () => void;
 export interface Font {
     size?: Length;
     weight?: FontWeight | number | string;
-    family?: string | Resource;
+    family?: string | Resource_;
     style?: FontStyle;
 }
 export interface Area {
