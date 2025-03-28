@@ -468,28 +468,6 @@ declare interface CustomDialogControllerOptions {
   backgroundBlurStyle?: BlurStyle;
 
   /**
-   * Defines the customDialog's background blur style with options
-   *
-   * @type { ?BackgroundBlurStyleOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
-
-  /**
-   * Defines the customDialog's background effect with options
-   *
-   * @type { ?BackgroundEffectOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  backgroundEffect?: BackgroundEffectOptions;
-
-  /**
    * Defines the customDialog's keyboard avoid mode
    *
    * @type { ?KeyboardAvoidMode }

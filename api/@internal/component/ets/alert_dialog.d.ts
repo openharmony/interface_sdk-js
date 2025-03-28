@@ -913,28 +913,6 @@ declare interface AlertDialogParam {
   backgroundBlurStyle?: BlurStyle;
 
   /**
-   * Defines the alertDialog's background blur style with options
-   *
-   * @type { ?BackgroundBlurStyleOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
-
-  /**
-   * Defines the alertDialog's background effect with options
-   *
-   * @type { ?BackgroundEffectOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  backgroundEffect?: BackgroundEffectOptions;
-
-  /**
    * Callback function when the dialog interactive dismiss
    *
    * @type { ?Callback<DismissDialogAction> }

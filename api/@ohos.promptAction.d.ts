@@ -762,28 +762,6 @@ declare namespace promptAction {
     backgroundBlurStyle?: BlurStyle;
 
     /**
-     * Defines the dialog's background blur style with options
-     *
-     * @type { ?BackgroundBlurStyleOptions }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18
-     */
-    backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
-
-    /**
-     * Defines the dialog's background effect with options
-     *
-     * @type { ?BackgroundEffectOptions }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18
-     */
-    backgroundEffect?: BackgroundEffectOptions;
-
-    /**
      * Defines the dialog's shadow.
      *
      * @type { ?(ShadowOptions | ShadowStyle) }
@@ -1212,28 +1190,6 @@ declare namespace promptAction {
      * @since 14
      */
     hoverModeArea?: HoverModeAreaType;
-
-    /**
-     * Defines the customDialog's background blur style with options
-     *
-     * @type { ?BackgroundBlurStyleOptions }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18
-     */
-    backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
-
-    /**
-     * Defines the customDialog's background effect with options
-     *
-     * @type { ?BackgroundEffectOptions }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18
-     */
-    backgroundEffect?: BackgroundEffectOptions;
 
     /**
      * Defines the distance between the customDialog and system keyboard.
