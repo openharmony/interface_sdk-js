@@ -20,7 +20,7 @@
 
 import { BusinessError } from './@ohos.base';
 import intl from './@ohos.intl';
-import { StyledString, TextStyle } from './@ohos.arkui.component.StyledString';
+import { StyledString, TextStyle } from './arkui/component/styledString';
 
 /**
  * Provides international settings related APIs.

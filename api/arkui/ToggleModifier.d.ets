@@ -19,8 +19,8 @@
  */
 
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { ToggleAttribute } from '../@ohos.arkui.component.Toggle'
+import { AttributeModifier } from './component/common'
+import { ToggleAttribute } from './component/toggle'
 
 
 

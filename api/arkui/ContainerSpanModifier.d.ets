@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { ContainerSpanAttribute } from '../@ohos.arkui.component.ContainerSpan'
+import { AttributeModifier } from './component/common'
+import { ContainerSpanAttribute } from './component/containerSpan'
 /**
  * Defines ContainerSpan modifier, the base class for quick use modifier ability
  * 

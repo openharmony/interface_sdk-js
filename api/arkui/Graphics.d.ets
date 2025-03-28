@@ -20,8 +20,8 @@
 import drawing from '../@ohos.graphics.drawing';
 import common2D from '../@ohos.graphics.common2D';
 import { Resource } from '../global/resource';
-import { BorderStyle } from '../@ohos.arkui.component.Enums';
-import { ResourceColor } from '../@ohos.arkui.component.Units';
+import { BorderStyle } from './component/enums';
+import { ResourceColor } from './component/units';
 
 /**
  * Size info.

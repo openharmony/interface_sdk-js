@@ -22,9 +22,9 @@
 
 import  { AsyncCallback, BusinessError, Callback } from './@ohos.base';
 import unifiedDataChannel from './@ohos.data.unifiedDataChannel';
-import { DragEvent, DragPreviewOptions, DragItemInfo, ICurve, CustomBuilder } from './@ohos.arkui.component.Common';
-import { TouchPoint, ResourceColor } from './@ohos.arkui.component.Units';
-import { Curve } from './@ohos.arkui.component.Enums';
+import { DragEvent, DragPreviewOptions, DragItemInfo, ICurve, CustomBuilder } from './arkui/component/common';
+import { TouchPoint, ResourceColor } from './arkui/component/units';
+import { Curve } from './arkui/component/enums';
 
 /**
  * This module allows developers to trigger a drag event.

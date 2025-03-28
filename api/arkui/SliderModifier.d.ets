@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { SliderAttribute } from '../@ohos.arkui.component.Slider'
+import { AttributeModifier } from './component/common'
+import { SliderAttribute } from './component/slider'
 
 
 

@@ -19,8 +19,8 @@
  */
 
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { TabsAttribute } from '../@ohos.arkui.component.Tabs'
+import { AttributeModifier } from './component/common'
+import { TabsAttribute } from './component/tabs'
 
 
 /**

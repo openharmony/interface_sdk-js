@@ -22,7 +22,7 @@ import { Offset, ResourceColor, Dimension, BorderRadiuses, EdgeWidths, EdgeColor
 import { Rectangle, AnimateParam, ShadowOptions, ShadowStyle, BlurStyle, KeyboardAvoidMode, HoverModeAreaType } from './common'
 import { Callback_DismissDialogAction_Void, DismissDialogAction } from './actionSheet'
 import { BorderStyle } from './enums'
-import { memo, ComponentBuilder } from './../stateManagement/runtime'
+import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
 export interface CustomDialogControllerOptions {
     builder: object;
     cancel?: (() => void);

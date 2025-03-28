@@ -19,8 +19,8 @@
  */
 
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { PolygonAttribute } from '../@ohos.arkui.component.Polygon'
+import { AttributeModifier } from './component/common'
+import { PolygonAttribute } from './component/polygon'
 
 
 

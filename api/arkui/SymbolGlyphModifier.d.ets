@@ -17,8 +17,8 @@
  * @file
  * @kit ArkUI
  */
-import { SymbolGlyphAttribute } from '../@ohos.arkui.component.SymbolGlyph'
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
+import { SymbolGlyphAttribute } from './component/symbolglyph'
+import { AttributeModifier } from './component/common'
 import { Resource } from '../global/resource'
 /**
  * Defines SymbolGlyph Modifier
@@ -29,17 +29,17 @@ import { Resource } from '../global/resource'
  * @atomicservice
  * @since 12
 */
-export declare class SymbolGlyphModifier extends SymbolGlyphAttribute implements AttributeModifier<SymbolGlyphAttribute> {
-    /**
-     * constructor
-     * 
-     * @param { Resource } src
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
-    constructor(src?: Resource);
+export declare interface SymbolGlyphModifier extends SymbolGlyphAttribute, AttributeModifier<SymbolGlyphAttribute> {
+    // /**
+    //  * constructor
+    //  * 
+    //  * @param { Resource } src
+    //  * @syscap SystemCapability.ArkUI.ArkUI.Full
+    //  * @crossplatform
+    //  * @atomicservice
+    //  * @since 12
+    //  */
+    // constructor(src?: Resource);
 
     /**
      * Defines the normal update attribute function.
@@ -51,8 +51,8 @@ export declare class SymbolGlyphModifier extends SymbolGlyphAttribute implements
      * @since 12
      */
     applyNormalAttribute: undefined | ((instance: SymbolGlyphAttribute) => void);
-  applyPressedAttribute: undefined | ((instance: SymbolGlyphAttribute) => void);
-  applyFocusedAttribute: undefined | ((instance: SymbolGlyphAttribute) => void);
-  applyDisabledAttribute: undefined | ((instance: SymbolGlyphAttribute) => void);
-  applySelectedAttribute: undefined | ((instance: SymbolGlyphAttribute) => void);
+    applyPressedAttribute: undefined | ((instance: SymbolGlyphAttribute) => void);
+    applyFocusedAttribute: undefined | ((instance: SymbolGlyphAttribute) => void);
+    applyDisabledAttribute: undefined | ((instance: SymbolGlyphAttribute) => void);
+    applySelectedAttribute: undefined | ((instance: SymbolGlyphAttribute) => void);
   }

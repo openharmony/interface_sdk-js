@@ -16,7 +16,7 @@
 
 // WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
 
-import { memo, ComponentBuilder } from './../stateManagement/runtime'
+import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
 import { TextDecorationType, TextDecorationStyle, Curve, PlayMode, SharedTransitionEffectType, HorizontalAlign, VerticalAlign, TransitionType, FontWeight, FontStyle, Color, ColoringStrategy, MouseButton, MouseAction, AccessibilityHoverType, TouchType, KeyType, KeySource, BorderStyle, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, GradientDirection, HitTestMode, Alignment, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, BarState, EdgeEffect, IlluminatedType } from './enums'
 import { ResourceColor, Context, Length, Bias, PixelMap, PointerStyle, Area, Font, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Summary, UniformDataType, UnifiedData, ResourceStr, Dimension, EdgeColors, LocalizedEdgeColors, EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin, BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, VisualEffect, Filter, Blender, EdgeWidth, DirectionalEdgesT, NavDestinationInfo, NavigationInfo, RouterPageInfo } from './units'
 import { Resource } from './../../../api/global/resource'
@@ -868,11 +868,17 @@ export interface MenuElement {
     action: (() => void);
 }
 export interface AttributeModifier<T> {
-    applyNormalAttribute(instance: T): void
-    applyPressedAttribute(instance: T): void
-    applyFocusedAttribute(instance: T): void
-    applyDisabledAttribute(instance: T): void
-    applySelectedAttribute(instance: T): void
+    // applyNormalAttribute(instance: T): void
+    // applyPressedAttribute(instance: T): void
+    // applyFocusedAttribute(instance: T): void
+    // applyDisabledAttribute(instance: T): void
+    // applySelectedAttribute(instance: T): void
+
+    applyNormalAttribute: undefined | ((instance: T) => void);
+    applyPressedAttribute: undefined | ((instance: T) => void);
+    applyFocusedAttribute: undefined | ((instance: T) => void);
+    applyDisabledAttribute: undefined | ((instance: T) => void);
+    applySelectedAttribute: undefined | ((instance: T) => void);
 }
 export interface ContentModifier<T> {
     stub: string;
@@ -1049,7 +1055,7 @@ export interface CommonMethod {
     @memo
     foregroundColor(value: ResourceColor | ColoringStrategy): this;
     @memo
-    onClick(value: ((event: ClickEvent) => void)): this;
+    onClick(value: ((event: ClickEvent) => void), distanceThreshold?: number): this;
     @memo
     onHover(value: ((isHover: boolean,event: HoverEvent) => void)): this;
     @memo
@@ -1367,31 +1373,6 @@ export interface MeasureResult extends SizeResult {
 export interface Literal_Empty {
     indexSignature(key: string): object
 }
-export interface CustomComponent extends CommonAttribute {
-    build(): void
-    aboutToAppear(): void
-    aboutToDisappear(): void
-    aboutToReuse(params: Literal_Empty): void
-    aboutToRecycle(): void
-    onWillApplyTheme(theme: Theme): void
-    onLayout(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void
-    onPlaceChildren(selfLayoutInfo: GeometryInfo, children: Array<Layoutable>, constraint: ConstraintSizeOptions): void
-    onMeasure(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void
-        onMeasureSize(selfLayoutInfo: GeometryInfo, children: Array<Measurable>,
-        constraint: ConstraintSizeOptions): SizeResult
-    onPageShow(): void
-    onPageHide(): void
-    onFormRecycle(): string
-    onFormRecover(statusData: string): void
-    onBackPress(): boolean
-    pageTransition(): void
-    getUIContext(): UIContext
-    getUniqueId(): number
-    queryNavDestinationInfo(): NavDestinationInfo | undefined
-    queryNavigationInfo(): NavigationInfo | undefined
-    queryRouterPageInfo(): RouterPageInfo | undefined
-    onDidBuild(): void
-}
 export interface View {
     create(value: object): object
 }
@@ -1535,3 +1516,69 @@ export enum HoverModeAreaType {
     TOP_SCREEN = 0,
     BOTTOM_SCREEN = 1
 }
+
+/**
+ * Defining wrapBuilder function.
+ * @param { function } builder
+ * @returns { WrappedBuilder<Args> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+/**
+ * Defining wrapBuilder function.
+ * @param { function } builder
+ * @returns { WrappedBuilder<Args> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+export declare function wrapBuilder<Args extends Array<Object>>(builder: (args: Args) => void): WrappedBuilder<Args>;
+
+/**
+ * Defines the WrappedBuilder class.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+/**
+ * Defines the WrappedBuilder class.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+export declare class WrappedBuilder<Args extends Array<Object>> {
+  /**
+   * @type { function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  /**
+   * @type { function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  builder: (args: Args) => void;
+
+  /**
+   * @param { function } builder
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  /**
+   * @param { function } builder
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  constructor(builder: (args: Args) => void);
+}
+
+export declare function $r(value: string, ...params: Object[]): Resource;

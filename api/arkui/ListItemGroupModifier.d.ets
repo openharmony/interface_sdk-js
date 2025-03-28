@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { ListItemGroupAttribute } from '../@ohos.arkui.component.ListItemGroup'
+import { AttributeModifier } from './component/common'
+import { ListItemGroupAttribute } from './component/listItemGroup'
 
 
 

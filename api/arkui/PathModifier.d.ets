@@ -19,8 +19,8 @@
  */
 
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { PathAttribute } from '../@ohos.arkui.component.Path'
+import { AttributeModifier } from './component/common'
+import { PathAttribute } from './component/path'
 
 
 /**

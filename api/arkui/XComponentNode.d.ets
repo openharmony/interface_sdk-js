@@ -23,7 +23,7 @@
 import { UIContext } from '../@ohos.arkui.UIContext';
 import { NodeRenderType, RenderOptions } from './BuilderNode';
 import { FrameNode } from './FrameNode';
-import { XComponentType } from '../@ohos.arkui.component.Enums'
+import { XComponentType } from './component/enums'
 /**
  * Defines XComponent Node.
  *

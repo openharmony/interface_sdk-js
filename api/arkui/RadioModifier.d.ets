@@ -19,8 +19,8 @@
  */
 
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { RadioAttribute } from '../@ohos.arkui.component.Radio'
+import { AttributeModifier } from './component/common'
+import { RadioAttribute } from './component/radio'
 
 /**
  * Defines Radio Modifier

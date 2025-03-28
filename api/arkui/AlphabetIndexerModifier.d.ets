@@ -17,8 +17,8 @@
  * @file
  * @kit ArkUI
  */
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { AlphabetIndexerAttribute } from '../@ohos.arkui.component.AlphabetIndexer'
+import { AttributeModifier } from './component/common'
+import { AlphabetIndexerAttribute } from './component/alphabetIndexer'
 
 /**
  * Defines AlphabetIndexer Modifier

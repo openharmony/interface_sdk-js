@@ -19,8 +19,8 @@
  */
 
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { DataPanelAttribute } from '../@ohos.arkui.component.DataPanel'
+import { AttributeModifier } from './component/common'
+import { DataPanelAttribute } from './component/dataPanel'
 
 /**
  * Defines DataPanel Modifier

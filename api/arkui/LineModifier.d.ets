@@ -19,8 +19,8 @@
  */
 
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { LineAttribute } from '../@ohos.arkui.component.Line'
+import { AttributeModifier } from './component/common'
+import { LineAttribute } from './component/line'
 
 
 /**

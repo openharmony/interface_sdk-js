@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { VideoAttribute } from '../@ohos.arkui.component.Video'
+import { AttributeModifier } from './component/common'
+import { VideoAttribute } from './component/video'
 
 
 

@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { MenuItemAttribute } from '../@ohos.arkui.component.MenuItem'
+import { AttributeModifier } from './component/common'
+import { MenuItemAttribute } from './component/menuItem'
 
 
 

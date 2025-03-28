@@ -20,7 +20,7 @@
 
 import { AsyncCallback } from './@ohos.base';
 import image from './@ohos.multimedia.image';
-import { CustomBuilder } from './@ohos.arkui.component.Common';
+import { CustomBuilder } from './arkui/component/common';
 
 /**
  * This module allows developers to export snapshot image from a component or a custom builder.

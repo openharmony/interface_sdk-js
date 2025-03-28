@@ -19,8 +19,8 @@
  */
 
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { TimePickerAttribute } from '../@ohos.arkui.component.TimePicker'
+import { AttributeModifier } from './component/common'
+import { TimePickerAttribute } from './component/timePicker'
 
 
 /**

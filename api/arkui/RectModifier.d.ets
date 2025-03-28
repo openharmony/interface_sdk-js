@@ -19,8 +19,8 @@
  */
 
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { RectAttribute } from '../@ohos.arkui.component.Rect'
+import { AttributeModifier } from './component/common'
+import { RectAttribute } from './component/rect'
 
 
 

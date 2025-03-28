@@ -19,8 +19,8 @@
  */
 
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { StepperItemAttribute } from '../@ohos.arkui.component.StepperItem'
+import { AttributeModifier } from './component/common'
+import { StepperItemAttribute } from './component/stepperItem'
 
 
 

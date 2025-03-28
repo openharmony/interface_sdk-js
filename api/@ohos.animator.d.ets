@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { ExpectedFrameRateRange } from './@ohos.arkui.component.Common'
+import { ExpectedFrameRateRange } from './arkui/component/common'
 
 /**
  * Defines the animator options.

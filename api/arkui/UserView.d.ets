@@ -13,18 +13,10 @@
  * limitations under the License.
  */
 
-@Retention({policy: "SOURCE"})
-export @interface BuilderLambda {
-    value: string
-}
+import { __memo_context_type, __memo_id_type, memo } from './stateManagement/runtime';
 
-@Retention({policy: "SOURCE"})
-export @interface Component {}
+export type UserViewBuilder = (__memo_context: __memo_context_type, __memo_id: __memo_id_type) => void;
 
-@Retention({policy: "SOURCE"})
-export @interface State {}
-
-@Retention({policy: "SOURCE"})
-export @interface StorageLink {
-    value: string
+export declare class UserView {
+    getBuilder(): UserViewBuilder;
 }

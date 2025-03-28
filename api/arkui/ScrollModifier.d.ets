@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { ScrollAttribute } from '../@ohos.arkui.component.Scroll'
+import { AttributeModifier } from './component/common'
+import { ScrollAttribute } from './component/scroll'
 
 
 

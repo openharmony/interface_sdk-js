@@ -21,7 +21,7 @@
 import { UIContext } from '../@ohos.arkui.UIContext';
 import { FrameNode } from './FrameNode';
 import { Size } from './Graphics';
-import { TouchEvent } from '../@ohos.arkui.component.Common'
+import { TouchEvent } from './component/common'
 /**
  * Defined the controller of node container.Provides lifecycle callbacks for the associated NodeContainer
  * and methods to control the child node of the NodeContainer.

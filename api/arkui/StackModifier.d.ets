@@ -19,8 +19,8 @@
  */
 
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { StackAttribute } from '../@ohos.arkui.component.Stack'
+import { AttributeModifier } from './component/common'
+import { StackAttribute } from './component/stack'
 
 
 /**

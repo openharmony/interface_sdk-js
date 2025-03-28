@@ -18,9 +18,8 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { ButtonAttribute } from '../@ohos.arkui.component.Button'
-
+import { AttributeModifier } from './component/common'
+import { ButtonAttribute } from './component/button'
 /**
  * Defines Button Modifier
  *

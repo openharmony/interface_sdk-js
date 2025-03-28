@@ -16,7 +16,7 @@
 
 // WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
 
-import { memo, ComponentBuilder } from './../stateManagement/runtime'
+import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
 import { ResourceColor, ResourceStr, PixelMap, SizeOptions, Margin, Padding, BorderRadiuses } from './units'
 import { FontStyle, FontWeight, TextDecorationType, TextDecorationStyle, TextAlign, TextOverflow, WordBreak, ImageSpanAlignment, ImageFit } from './enums'
 import { LengthMetrics, DrawContext } from './../Graphics'
@@ -180,4 +180,87 @@ export interface CustomSpan {
     invalidate(): void
 }
 export interface UserDataSpan {
+}
+
+/**
+ * Defines TextStyle.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+export declare class TextStyle {
+
+    /**
+     * constructor.
+     *
+     * @param { TextStyleInterface } [value] - font property object.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    constructor(value?: TextStyleInterface);
+
+    /**
+     * Get the fontColor of the StyledString.
+     *
+     * @type { ?ResourceColor } - the set fontColor of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    readonly fontColor?: ResourceColor;
+
+    /**
+     * Get the fontFamily of the StyledString.
+     *
+     * @type { ?string } - the fontFamily of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    readonly fontFamily?: string;
+
+    /**
+     * Get the fontSize of the StyledString.
+     * If not undefined, the unit is vp.
+     *
+     * @type { ?number } - the fontSize of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    readonly fontSize?: number;
+
+    /**
+     * Get the fontWeight of the StyledString.
+     *
+     * @type { ?number } - the fontWeight of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    readonly fontWeight?: number;
+
+    /**
+     * Get the fontStyle of the StyledString.
+     *
+     * @type { ?FontStyle  } - the fontStyle of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    readonly fontStyle?: FontStyle;
 }

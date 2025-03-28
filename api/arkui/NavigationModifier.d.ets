@@ -19,8 +19,8 @@
  */
 
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { NavigationAttribute } from '../@ohos.arkui.component.Navigation'
+import { AttributeModifier } from './component/common'
+import { NavigationAttribute } from './component/navigation'
 
 
 

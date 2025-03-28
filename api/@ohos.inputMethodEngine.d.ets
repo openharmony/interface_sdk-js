@@ -22,7 +22,7 @@ import { KeyEvent as InputKeyEvent } from './@ohos.multimodalInput.keyEvent';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
 import BaseContext from './application/BaseContext';
 import window from './@ohos.window';
-import { LocalStorage } from './@ohos.arkui.component.CommonTsEtsApi';
+import { LocalStorage } from './arkui/stateManagement/storage';
 
 /**
  * Input method engine

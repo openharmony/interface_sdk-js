@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-export declare interface Disposable {
+export interface Disposable {
     readonly disposed: boolean
     dispose(): void
 }
