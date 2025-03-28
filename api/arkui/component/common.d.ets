@@ -76,8 +76,8 @@ export interface ExpectedFrameRateRange {
     max: number;
     expected: number;
 }
-export declare function $r(arg0: string, arg1: Array<object>): Resource
-export declare function $rawfile(arg0: string): Resource
+declare function dollar_r(arg0: string, arg1: Array<object>): Resource
+declare function dollar_rawfile(arg0: string): Resource
 export enum FinishCallbackType {
     REMOVED = 0,
     LOGICALLY = 1
