@@ -16,7 +16,7 @@ export declare class MutableStateMeta extends MutableStateMetaBase {
 }
 
 export declare class MutableKeyedStateMeta extends MutableStateMetaBase {
-    public static readonly OB_LENGTH = '__OB_LENGTH';
+    public static readonly OB_LENGTH: string;
     public __metaDependency: Map<string, MutableState<int32>>;
     public addRef(key: string): void
     public fireChange(key: string): void
