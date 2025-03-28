@@ -208,6 +208,12 @@ ohos_copy_internal("ets_component") {
   iv_input = "//interface/sdk-js/api/@internal/component/ets"
 }
 
+# ets1.2/component执行脚本
+ohos_copy_internal("ets_component2") {
+  sdk_type = "ets2"
+  iv_input = "//interface/sdk-js/api/@internal/component/ets"
+}
+
 # ets/kits执行脚本
 ohos_copy_internal("bundle_kits") {
   sdk_type = "ets"
