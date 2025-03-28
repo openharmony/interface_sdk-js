@@ -449,7 +449,7 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @systemapi
    * @since 18
    */
-  size(size: FormSize): FormComponentAttribute;
+  size(formSize: FormSize): FormComponentAttribute;
 
   /**
    * Card module name.
