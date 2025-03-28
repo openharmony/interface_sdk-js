@@ -59,8 +59,8 @@ export interface AnimatableArithmetic<T> {
     multiply(scale: number): AnimatableArithmetic<T>
     equals(rhs: AnimatableArithmetic<T>): boolean
 }
-declare function getContext(arg0: Object): Context
-declare function postCardAction(arg0: Object, arg1: Object): void
+export declare function getContext(arg0: Object): Context
+export declare function postCardAction(arg0: Object, arg1: Object): void
 export interface Configuration {
     colorMode: string;
     fontScale: number;
@@ -76,8 +76,8 @@ export interface ExpectedFrameRateRange {
     max: number;
     expected: number;
 }
-declare function dollar_r(arg0: string, arg1: Array<object>): Resource
-declare function dollar_rawfile(arg0: string): Resource
+export declare function $r(arg0: string, arg1: Array<object>): Resource
+export declare function $rawfile(arg0: string): Resource
 export enum FinishCallbackType {
     REMOVED = 0,
     LOGICALLY = 1
@@ -260,14 +260,14 @@ export interface DragItemInfo {
     builder?: CustomBuilder;
     extraInfo?: string;
 }
-declare function animateTo(arg0: AnimateParam, arg1: (() => void)): void
-declare function animateToImmediately(arg0: AnimateParam, arg1: (() => void)): void
-declare function vp2px(arg0: number): number
-declare function px2vp(arg0: number): number
-declare function fp2px(arg0: number): number
-declare function px2fp(arg0: number): number
-declare function lpx2px(arg0: number): number
-declare function px2lpx(arg0: number): number
+export declare function animateTo(arg0: AnimateParam, arg1: (() => void)): void
+export declare function animateToImmediately(arg0: AnimateParam, arg1: (() => void)): void
+export declare function vp2px(arg0: number): number
+export declare function px2vp(arg0: number): number
+export declare function fp2px(arg0: number): number
+export declare function px2fp(arg0: number): number
+export declare function lpx2px(arg0: number): number
+export declare function px2lpx(arg0: number): number
 export namespace focusControl {
     declare function requestFocus(arg0: string): boolean
 }
