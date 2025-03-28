@@ -10305,7 +10305,7 @@ declare enum CrownSensitivity {
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 18
+ * @since 17
  */
 declare enum AxisAction {
   /**
@@ -10313,7 +10313,7 @@ declare enum AxisAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   NONE = 0,
 
@@ -10322,7 +10322,7 @@ declare enum AxisAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   BEGIN = 1,
 
@@ -10331,7 +10331,7 @@ declare enum AxisAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   UPDATE = 2,
 
@@ -10340,7 +10340,7 @@ declare enum AxisAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   END = 3,
 
@@ -10349,7 +10349,7 @@ declare enum AxisAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   CANCEL = 4,
 }
@@ -10417,4 +10417,25 @@ declare enum DividerMode {
    * @since 18
    */
   EMBEDDED_IN_MENU = 1,
+}
+
+/**
+ * Event query type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+declare enum EventQueryType {
+  /**
+   * Type of onClick event.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  ON_CLICK = 0,
 }

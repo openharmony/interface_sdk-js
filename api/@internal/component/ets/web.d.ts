@@ -6672,7 +6672,7 @@ declare enum WebResponseType {
  *
  * @interface PreviewMenuOptions
  * @syscap SystemCapability.Web.Webview.Core
- * @since 18
+ * @since 20
  */
 declare interface PreviewMenuOptions {
   /**
@@ -6680,7 +6680,7 @@ declare interface PreviewMenuOptions {
    *
    * @type { ?HapticFeedbackMode }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 18
+   * @since 20
    */
   hapticFeedbackMode?: HapticFeedbackMode;
 }
@@ -6734,7 +6734,7 @@ declare interface SelectionMenuOptionsExt {
    *
    * @type { ?PreviewMenuOptions }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 18
+   * @since 20
    */
   previewMenuOptions?: PreviewMenuOptions;
 }
@@ -9241,6 +9241,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12
+   * @deprecated since 20
+   * @useinstead ohos.web.WebAttribute#editMenuOptions
    */
   selectionMenuOptions(expandedMenuOptions: Array<ExpandedMenuItemOptions>): WebAttribute;
 
@@ -9415,6 +9417,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 /**
  * Defines Web Component.
  *
+ * <p><strong>API Note</strong>:
+ *
+ * <strong>Performance Note</strong>:
+ * <p>For details about how to optimize the compilation, resource loading, and JSBridge performance,
+ * see [Optimizing Web Page Loading]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-web-develop-optimization}
+ * <p>When the white screen duration is long due to complex web page parsing,
+ * you can enable [optimizeParserBudget]{@link WebAttribute.optimizeParserBudget} to reduce the first frame rendering content.</p>
+ * </p>
+ *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -9524,6 +9535,7 @@ declare interface SslErrorEvent {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12
+ * @deprecated since 20
  */
 declare interface ExpandedMenuItemOptions {
   /**
@@ -9533,6 +9545,7 @@ declare interface ExpandedMenuItemOptions {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   * @deprecated since 20
    */
   content: ResourceStr;
 
@@ -9543,6 +9556,7 @@ declare interface ExpandedMenuItemOptions {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   * @deprecated since 20
    */
   startIcon?: ResourceStr;
 
@@ -9553,6 +9567,7 @@ declare interface ExpandedMenuItemOptions {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   * @deprecated since 20
    */
   action: (selectedText: {plainText: string}) => void;
 }

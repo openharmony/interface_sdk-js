@@ -11606,7 +11606,7 @@ declare interface TouchEvent extends BaseEvent {
  * @interface AxisEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 18
+ * @since 17
  */
 declare interface AxisEvent extends BaseEvent {
   /**
@@ -11615,7 +11615,7 @@ declare interface AxisEvent extends BaseEvent {
    * @type { AxisAction }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   action: AxisAction;
 
@@ -11625,7 +11625,7 @@ declare interface AxisEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   displayX: number;
 
@@ -11635,7 +11635,7 @@ declare interface AxisEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   displayY: number;
 
@@ -11645,7 +11645,7 @@ declare interface AxisEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   windowX: number;
 
@@ -11655,7 +11655,7 @@ declare interface AxisEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   windowY: number;
 
@@ -11665,7 +11665,7 @@ declare interface AxisEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   x: number;
 
@@ -11675,7 +11675,7 @@ declare interface AxisEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   y: number;
 
@@ -11685,7 +11685,7 @@ declare interface AxisEvent extends BaseEvent {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   scrollStep?: number;
 
@@ -11695,7 +11695,7 @@ declare interface AxisEvent extends BaseEvent {
    * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   propagation: Callback<void>;
 
@@ -11705,7 +11705,7 @@ declare interface AxisEvent extends BaseEvent {
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   getHorizontalAxisValue(): number;
 
@@ -11715,7 +11715,7 @@ declare interface AxisEvent extends BaseEvent {
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   getVerticalAxisValue(): number;
 }
@@ -20818,7 +20818,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   onAxisEvent(event: Callback<AxisEvent>): T;
 
@@ -24741,7 +24741,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   onVisibleAreaApproximateChange(options: VisibleAreaEventOptions, event: VisibleAreaChangeCallback | undefined): void;
 
@@ -28738,7 +28738,7 @@ declare type OnMoveHandler = (from: number, to: number) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 20
  */
 declare interface ItemDragEventHandler {
   /**
@@ -28748,7 +28748,7 @@ declare interface ItemDragEventHandler {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   onLongPress?: Callback<number>;
 
@@ -28759,7 +28759,7 @@ declare interface ItemDragEventHandler {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   onDragStart?: Callback<number>;
 
@@ -28770,7 +28770,7 @@ declare interface ItemDragEventHandler {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   onMoveThrough?: OnMoveHandler;
 
@@ -28781,7 +28781,7 @@ declare interface ItemDragEventHandler {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   onDrop?: Callback<number>;
 }
@@ -28816,7 +28816,7 @@ declare class DynamicNode<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   onMove(handler: Optional<OnMoveHandler>, eventHandler: ItemDragEventHandler): T;
 }
