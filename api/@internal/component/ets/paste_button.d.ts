@@ -317,7 +317,8 @@ declare class PasteButtonAttribute extends SecurityComponentMethod<PasteButtonAt
    * @returns { PasteButtonAttribute } Returns the attribute of the paste button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Called when the paste button is clicked.
@@ -344,8 +345,7 @@ declare class PasteButtonAttribute extends SecurityComponentMethod<PasteButtonAt
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare const PasteButton: PasteButtonInterface;
 
@@ -360,7 +360,6 @@ declare const PasteButton: PasteButtonInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare const PasteButtonInstance: PasteButtonAttribute;
