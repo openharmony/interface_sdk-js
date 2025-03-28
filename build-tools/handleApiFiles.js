@@ -133,7 +133,11 @@ function handleArktsDefinition(type, fileContent) {
     return type === 'ets' ? p1 : '';
   });
   fileContent = fileContent.replace(regx2, (substring, p1) => {
-    return type === 'ets2' ? p1 : '';
+    if (type === 'ets2') {
+      return p1.replace(/(\s*)(\*\s\@since)/g, '$1* @arkts 1.2$1$2');
+    } else {
+      return '';
+    }
   });
   return fileContent;
 }
@@ -176,6 +180,9 @@ function handleFileInFirstType(apiRelativePath, fullPath, type) {
     return;
   }
   let fileContent = fs.readFileSync(fullPath, 'utf-8');
+
+  //删除使用/*** if arkts 1.2 */
+  fileContent = handleArktsDefinition(type, fileContent);
   const sourceFile = ts.createSourceFile(path.basename(apiRelativePath), fileContent, ts.ScriptTarget.ES2017, true);
   const secondRegx = /(?:@arkts1.2only|@arkts\s+>=\s*1.2|@arkts\s*1.2)/g;
   const thirdRegx = /(?:\*\s*@arkts\s+1.1&1.2\s*(\r|\n)\s*)/g;
@@ -225,14 +232,12 @@ function handleNoTagFileInFirstType(sourceFile, fullPath, type) {
     return;
   }
   const arktsTagRegx = /\*\s*@arkts\s+1.1&1.2\s*(\r|\n)\s*|@arkts\s*1.2/g;
-  const deletionContent = deleteApi(sourceFile);
+  let fileContent = deleteApi(sourceFile);
 
-  if (deletionContent === '') {
+  if (fileContent === '') {
     deleteSameNameFile(fullPath);
     return;
   }
-  //删除使用/*** if arkts 1.2 */
-  fileContent = handleArktsDefinition(type, deletionContent);
   fileContent = deleteArktsTag(fileContent, arktsTagRegx);
   fileContent = joinFileJsdoc(fileContent, sourceFile);
 
@@ -271,7 +276,9 @@ function handleSinceInFirstType(fileContent, fullPath) {
  * @returns 
  */
 function handleFileInSecondType(fullPath, type) {
-  const fileContent = fs.readFileSync(fullPath, 'utf-8');
+  let fileContent = fs.readFileSync(fullPath, 'utf-8');
+  //删除使用/*** if arkts 1.2 */
+  fileContent = handleArktsDefinition(type, fileContent);
   const sourceFile = ts.createSourceFile(path.basename(fullPath), fileContent, ts.ScriptTarget.ES2017, true);
   // 如果是同名文件，添加use static
   if (isEtsFile(fullPath) && fs.existsSync(fullPath.replace(/\.d\.ets$/g, '.d.ts'))) {
@@ -699,9 +706,6 @@ function getApiFileName(apiPath, rootPath, allApiFilePathSet) {
 
 // 所有API的节点类型
 const apiNodeTypeArr = [
-  ts.SyntaxKind.ExportAssignment,
-  ts.SyntaxKind.ExportDeclaration,
-  ts.SyntaxKind.ImportDeclaration,
   ts.SyntaxKind.VariableStatement,
   ts.SyntaxKind.MethodDeclaration,
   ts.SyntaxKind.MethodSignature,
