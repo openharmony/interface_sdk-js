@@ -23,7 +23,7 @@ import { FrameNode } from './FrameNode';
 import { Size } from './Graphics';
 
 /*** if arkts 1.2 */
-import type { Callback } from '../@ohos.base';
+import { Callback } from '../@ohos.base';
 /*** endif */
 
 /**
@@ -233,7 +233,7 @@ export abstract class NodeController {
  * @since 20
  * @arkts 1.2
  */
-export abstract class NodeController {
+export declare abstract class NodeController {
   /**
    * MakeNode Method. Used to build a node tree and return the a FrameNode or null, and
    * attach the return result to the associated NodeContainer.
@@ -252,7 +252,7 @@ export abstract class NodeController {
   /**
    * AboutToResize Method. Executed when the associated NodeContainer performs the measure method.
    *
-   * @param { Size } size - size used to resize
+   * @type { ?Callback<Size> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -264,6 +264,7 @@ export abstract class NodeController {
   /**
    * AboutToAppear Method. Executed when the associated NodeContainer is aboutToAppear.
    *
+   * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -275,6 +276,7 @@ export abstract class NodeController {
   /**
    * AboutToDisappear Method. Executed when the associated NodeContainer is aboutToDisappear.
    *
+   * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -286,6 +288,7 @@ export abstract class NodeController {
   /**
    * Rebuild Method. Used to re invoke the makeNode method.
    *
+   * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -297,7 +300,7 @@ export abstract class NodeController {
   /**
    * OnTouchEvent Method. Executed when associated NodeContainer is touched.
    *
-   * @param { TouchEvent } event - The TouchEvent when associated NodeContainer is touched.
+   * @type { ?Callback<TouchEvent> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -309,6 +312,7 @@ export abstract class NodeController {
   /**
    * OnAttach Method. Executed when the associated NodeContainer is attached to the main tree.
    *
+   * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -320,6 +324,7 @@ export abstract class NodeController {
   /**
    * OnDetach Method. Executed when the associated NodeContainer is detached from the main tree.
    *
+   * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -331,7 +336,7 @@ export abstract class NodeController {
   /**
    * OnWillBind Method. Executed before the NodeController is bound to a NodeContainer.
    *
-   * @param { number } containerId - the uniqueId of the NodeContainer.
+   * @type { ?Callback<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -343,7 +348,7 @@ export abstract class NodeController {
   /**
    * OnWillUnbind Method. Executed before the NodeController is unbind with the NodeContainer.
    *
-   * @param { number } containerId - the uniqueId of the NodeContainer.
+   * @type { ?Callback<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -355,7 +360,7 @@ export abstract class NodeController {
   /**
    * OnBind Method. Executed when the NodeController is bound to a NodeContainer.
    *
-   * @param { number } containerId - the uniqueId of the NodeContainer.
+   * @type { ?Callback<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -367,7 +372,7 @@ export abstract class NodeController {
   /**
    * OnUnbind Method. Executed when the NodeController is unbind with the NodeContainer.
    *
-   * @param { number } containerId - the uniqueId of the NodeContainer.
+   * @type { ?Callback<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
