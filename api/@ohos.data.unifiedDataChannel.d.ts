@@ -1997,7 +1997,7 @@ declare namespace unifiedDataChannel {
    * <br>If the input data does not meet the conversion criteria, it will remain unchanged by default.
    * 
    * @param { UnifiedData } data - {@link UnifiedData} Data represents the data that needs to be converted.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:1. Mandatory parameters are left unspecified. 2. Incorrect parameters types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
    * @atomicservice
