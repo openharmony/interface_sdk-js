@@ -1641,7 +1641,7 @@ declare namespace uniformTypeDescriptor {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 11
    */
-  class TypeDescriptor {
+  export class TypeDescriptor {
     /**
      * Type ID of the uniform data type, which corresponds to the enum string in the {@code UniformDataType}.
      *
@@ -1772,7 +1772,7 @@ declare namespace uniformTypeDescriptor {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 11
    */
-  function getTypeDescriptor(typeId: string): TypeDescriptor;
+  export function getTypeDescriptor(typeId: string): TypeDescriptor;
 
   /**
    * Queries and returns the uniform type descriptor by the given filename extension and the uniform data type it belongs to.
@@ -1786,7 +1786,7 @@ declare namespace uniformTypeDescriptor {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 11
    */
-  function getUniformDataTypeByFilenameExtension(filenameExtension: string, belongsTo?: string): string;
+  export function getUniformDataTypeByFilenameExtension(filenameExtension: string, belongsTo?: string): string;
 
   /**
    * Queries and returns the uniform type descriptor by the given MIME type and the uniform data type it belongs to.
@@ -1800,7 +1800,7 @@ declare namespace uniformTypeDescriptor {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 11
    */
-  function getUniformDataTypeByMIMEType(mimeType: string, belongsTo?: string): string;
+  export function getUniformDataTypeByMIMEType(mimeType: string, belongsTo?: string): string;
 
   /**
    * Queries and returns the uniform type descriptor list by the given filename extension and the uniform data type it belongs to.
@@ -1814,7 +1814,7 @@ declare namespace uniformTypeDescriptor {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 13
    */
-  function getUniformDataTypesByFilenameExtension(filenameExtension: string, belongsTo?: string): Array<string>;
+  export function getUniformDataTypesByFilenameExtension(filenameExtension: string, belongsTo?: string): Array<string>;
 
   /**
    * Queries and returns the uniform type descriptor list by the given MIME type and the uniform data type it belongs to.
@@ -1828,7 +1828,7 @@ declare namespace uniformTypeDescriptor {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 13
    */
-  function getUniformDataTypesByMIMEType(mimeType: string, belongsTo?: string): Array<string>;
+  export function getUniformDataTypesByMIMEType(mimeType: string, belongsTo?: string): Array<string>;
 }
 
 export default uniformTypeDescriptor;
