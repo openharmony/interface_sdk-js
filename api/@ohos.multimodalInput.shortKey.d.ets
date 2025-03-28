@@ -28,7 +28,7 @@ import { AsyncCallback } from './@ohos.base';
  * @since 10
  */
 
-export default declare namespace shortKey {
+declare namespace shortKey {
   /**
    * Sets short key down duration.
    * @param { string } businessKey - The key for business which should be applied to MMI.
@@ -58,6 +58,8 @@ export default declare namespace shortKey {
   function setKeyDownDuration(businessKey: string, delay: number): Promise<void>;
 
 }
+
+export default shortKey;
 
 /**
  * Enumerates fingerprint key event types.
