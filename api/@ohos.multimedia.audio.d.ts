@@ -3973,6 +3973,48 @@ declare namespace audio {
      * @since 18
      */
     getExcludedDevices(usage: DeviceUsage): AudioDeviceDescriptors;
+
+    /**
+     * Checks whether the cooperative play is supported by system.
+     * @returns { boolean } Whether the cooperative play is supported by system.
+     * @throws { BusinessError } 202 - Not system application.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 18
+     */
+    isCooperativePlaySupported(): boolean;
+
+    /**
+     * Sets the cooperative play enabled or disabled by the specified device.
+     * This method uses a promise to return the result.
+     * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device descriptor.
+     * @param { boolean } enabled - Whether the cooperative play is enabled.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                1.Mandatory parameters are left unspecified;
+     *                               2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 18
+     */
+    setCooperativePlayEnabledForDevice(deviceDescriptor: AudioDeviceDescriptor, enabled: boolean): Promise<void>;
+
+    /**
+     * Checks whether the cooperative play is enabled by the specified device.
+     * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device descriptor.
+     * @returns { boolean } Whether the cooperative play is enabled.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                1.Mandatory parameters are left unspecified;
+     *                               2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 18
+     */
+    isCooperativePlayEnabledForDevice(deviceDescriptor: AudioDeviceDescriptor): Boolean;
   }
 
   /**
