@@ -20,7 +20,7 @@ export declare const CONTEXT_ROOT_SCOPE: string
 export declare const CONTEXT_ROOT_NODE: string
 export type Equivalent<Value> = (oldV: Value, newV: Value) => boolean
 export declare function createStateManager(): StateManager
-export declare interface StateManager extends StateContext {
+export interface StateManager extends StateContext {
     syncChanges(): void
     isUpdateNeeded(): boolean
     updateSnapshot(): uint32
@@ -33,14 +33,14 @@ export declare interface StateManager extends StateContext {
     frozen: boolean
     reset(): void
 }
-export declare interface State<Value> {
+export interface State<Value> {
     readonly modified: boolean
     readonly value: Value
 }
-export declare interface MutableState<Value> extends Disposable, State<Value> {
+export interface MutableState<Value> extends Disposable, State<Value> {
     value: Value
 }
-export declare interface ArrayState<Item> extends State<ReadonlyArray<Item>> {
+export interface ArrayState<Item> extends State<ReadonlyArray<Item>> {
     length: number
     at(index: number): Item
     get(index: number): Item
@@ -55,10 +55,10 @@ export declare interface ArrayState<Item> extends State<ReadonlyArray<Item>> {
     splice(start: number, deleteCount: number | undefined, ...items: Item[]): Array<Item>
     unshift(...items: Item[]): number
 }
-export declare interface ComputableState<Value> extends Disposable, State<Value> {
+export interface ComputableState<Value> extends Disposable, State<Value> {
     readonly recomputeNeeded: boolean
 }
-export declare interface StateContext {
+export interface StateContext {
     readonly node: IncrementalNode | undefined
     attach<Node extends IncrementalNode>(
         id: KoalaCallsiteKey, create: () => Node, update: () => void, cleanup?: () => void): void
@@ -98,17 +98,17 @@ export declare interface StateContext {
     ): InternalScope<Value>
     controlledScope(id: KoalaCallsiteKey, invalidate: () => void): ControlledScope
 }
-export declare interface ValueTracker<Value> {
+export interface ValueTracker<Value> {
     onCreate(value: Value): Value
     onUpdate(value: Value): Value
 }
-export declare interface InternalScope<Value> {
+export interface InternalScope<Value> {
     readonly unchanged: boolean
     readonly cached: Value
     recache(newValue?: Value): Value
     param<V>(index: int32, value: V, equivalent?: Equivalent<V>, name?: string, contextLocal?: boolean): State<V>
 }
-export declare interface ControlledScope {
+export interface ControlledScope {
     enter(): void
     leave(): void
 }

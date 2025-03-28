@@ -17,7 +17,7 @@
 // WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
 
 import { CustomTheme } from './../../../api/@ohos.arkui.theme'
-import { memo, ComponentBuilder } from './../stateManagement/runtime'
+import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
 import { ThemeColorMode } from './common'
 export interface WithThemeOptions {
     theme?: CustomTheme;

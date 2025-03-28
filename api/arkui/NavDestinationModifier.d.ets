@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { NavDestinationAttribute } from '../@ohos.arkui.component.NavDestination'
+import { AttributeModifier } from './component/common'
+import { NavDestinationAttribute } from './component/navDestination'
 
 
 

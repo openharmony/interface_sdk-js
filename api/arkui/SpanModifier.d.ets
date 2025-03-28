@@ -19,8 +19,8 @@
  */
 
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { SpanAttribute } from '../@ohos.arkui.component.Span'
+import { AttributeModifier } from './component/common'
+import { SpanAttribute } from './component/span'
 
 
 /**

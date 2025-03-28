@@ -32,25 +32,40 @@ export declare @interface Track {};
 export declare @interface ObjectLink {};
 
 @Retention({policy: "SOURCE"})
-export declare @interface StorageProp { value: string };
+export declare @interface StorageProp {
+    property: string;
+};
 
 @Retention({policy: "SOURCE"})
-export declare @interface StorageLink { value: string };
+export declare @interface StorageLink {
+    property: string;
+};
 
 @Retention({policy: "SOURCE"})
-export declare @interface LocalStorageProp { value: string };
+export declare @interface LocalStorageProp {
+    property: string;
+};
 
 @Retention({policy: "SOURCE"})
-export declare @interface LocalStorageLink { value: string };
+export declare @interface LocalStorageLink {
+    property: string;
+};
 
 @Retention({policy: "SOURCE"})
-export declare @interface Provide { value: string };
+export declare @interface Provide {
+    alias: string = "";
+    allowOverride: boolean = false;
+};
 
 @Retention({policy: "SOURCE"})
-export declare @interface Consume { value: string };
+export declare @interface Consume {
+    alias: string = "";
+};
 
 @Retention({policy: "SOURCE"})
-export declare @interface Watch { value: string };
+export declare @interface Watch {
+    callback: string;
+};
 
 @Retention({policy: "SOURCE"})
 export declare @interface Require {};

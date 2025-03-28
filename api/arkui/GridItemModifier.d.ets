@@ -19,8 +19,8 @@
  */
 
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { GridItemAttribute } from '../@ohos.arkui.component.GridItem'
+import { AttributeModifier } from './component/common'
+import { GridItemAttribute } from './component/gridItem'
 
 
 /**

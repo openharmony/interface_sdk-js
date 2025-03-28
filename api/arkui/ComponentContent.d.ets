@@ -21,7 +21,7 @@
 import { BuildOptions } from './BuilderNode';
 import { Content } from './Content';
 import { UIContext } from '../@ohos.arkui.UIContext';
-import { WrappedBuilder } from '../@ohos.arkui.component.Common';
+import { WrappedBuilder } from './component/common';
 
 /**
  * Defines ComponentContent.

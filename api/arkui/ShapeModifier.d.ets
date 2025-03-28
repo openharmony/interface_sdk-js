@@ -19,8 +19,8 @@
  */
 
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { ShapeAttribute } from '../@ohos.arkui.component.Shape'
+import { AttributeModifier } from './component/common'
+import { ShapeAttribute } from './component/shape'
 
 
 

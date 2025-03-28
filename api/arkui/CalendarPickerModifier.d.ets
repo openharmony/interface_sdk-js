@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { CalendarPickerAttribute } from '../@ohos.arkui.component.CalendarPicker'
+import { AttributeModifier } from './component/common'
+import { CalendarPickerAttribute } from './component/calendarPicker'
 
 /**
  * Defines CalendarPicker Modifier

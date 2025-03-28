@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { LoadingProgressAttribute } from '../@ohos.arkui.component.LoadingProgress'
+import { AttributeModifier } from './component/common'
+import { LoadingProgressAttribute } from './component/loadingProgress'
 
 
 

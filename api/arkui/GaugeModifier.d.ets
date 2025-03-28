@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { GaugeAttribute } from '../@ohos.arkui.component.Gauge'
+import { AttributeModifier } from './component/common'
+import { GaugeAttribute } from './component/gauge'
 
 
 

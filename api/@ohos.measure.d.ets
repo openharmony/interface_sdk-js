@@ -18,8 +18,9 @@
  * @kit ArkUI
  */
 
-import { FontStyle, FontWeight, TextAlign, TextOverflow, TextCase, WordBreak } from './@ohos.arkui.component.Enums'
-import { SizeOptions, Resource } from './@ohos.arkui.component.Units';
+import { FontStyle, FontWeight, TextAlign, TextOverflow, TextCase, WordBreak } from './arkui/component/enums'
+import { SizeOptions } from './arkui/component/units';
+import { Resource } from './global/resource'
 
 /**
  * Defines the options of MeasureText.

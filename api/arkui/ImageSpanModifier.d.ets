@@ -19,8 +19,8 @@
  */
 
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { ImageSpanAttribute } from '../@ohos.arkui.component.ImageSpan'
+import { AttributeModifier } from './component/common'
+import { ImageSpanAttribute } from './component/imageSpan'
 
 
 

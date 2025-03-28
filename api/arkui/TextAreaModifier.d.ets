@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { TextAreaAttribute } from '../@ohos.arkui.component.TextArea'
+import { AttributeModifier } from './component/common'
+import { TextAreaAttribute } from './component/textArea'
 
 
 

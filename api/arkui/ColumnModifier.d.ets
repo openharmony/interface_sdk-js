@@ -17,8 +17,8 @@
  * @file
  * @kit ArkUI
  */
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { ColumnAttribute } from '../@ohos.arkui.component.Column'
+import { AttributeModifier } from './component/common'
+import { ColumnAttribute } from './component/column'
 
 
 

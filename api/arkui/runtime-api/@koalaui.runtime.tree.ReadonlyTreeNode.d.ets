@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-export declare interface ReadonlyTreeNode {
+export interface ReadonlyTreeNode {
     readonly parent: ReadonlyTreeNode | undefined
     toHierarchy(): string
 }

@@ -19,8 +19,8 @@
  */
 
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { SelectAttribute } from '../@ohos.arkui.component.Select'
+import { AttributeModifier } from './component/common'
+import { SelectAttribute } from './component/select'
 
 
 

@@ -14,7 +14,7 @@
  */
 
 import { LocalStorage } from "./storage"
-
+import { StateContext } from "../runtime-api/@koalaui.runtime.states.State"
 // From incremental engine
 @Retention({policy: "SOURCE"})
 export declare @interface memo {};
@@ -32,7 +32,7 @@ export declare interface Disposable {
     dispose(): void;
 }
 
-export declare interface State<T> {
+interface State<T> {
     readonly modified: boolean;
     readonly value: T;
 }
@@ -50,9 +50,9 @@ export declare interface InternalScope<Value> {
     param<T>(index: int, value: T, equivalent?: Equivalent<T>, name?: string, contextLocal?: boolean): State<T>;
 }
 
-export declare interface StateContext {
-    scope<T>(id: MemoCallSiteKey, paramCount?: int): InternalScope<T>;
-}
+// export declare interface StateContext {
+//     scope<T>(id: MemoCallSiteKey, paramCount?: int): InternalScope<T>;
+// }
 
 // From Arkoala
 export declare function propState<T>(value?: T): MutableState<T>;

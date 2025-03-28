@@ -17,7 +17,7 @@
 // WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
 
 import { Resource } from './../../../api/global/resource'
-import { memo, ComponentBuilder } from './../stateManagement/runtime'
+import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
 import { LengthMetrics, LengthMetricsUnit } from './../Graphics'
 import { BorderStyle, Color, FontWeight, FontStyle } from './enums'
 import { OutlineStyle } from './common'

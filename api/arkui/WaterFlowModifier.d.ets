@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { WaterFlowAttribute } from '../@ohos.arkui.component.WaterFlow'
+import { AttributeModifier } from './component/common'
+import { WaterFlowAttribute } from './component/waterFlow'
 
 
 

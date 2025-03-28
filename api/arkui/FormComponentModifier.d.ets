@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { FormComponentAttribute } from '../@ohos.arkui.component.FormComponent'
+import { AttributeModifier } from './component/common'
+import { FormComponentAttribute } from './component/formComponent'
 
 
 /**

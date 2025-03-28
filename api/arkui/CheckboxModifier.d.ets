@@ -17,8 +17,8 @@
  * @file
  * @kit ArkUI
  */
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { CheckboxAttribute } from '../@ohos.arkui.component.Checkbox'
+import { AttributeModifier } from './component/common'
+import { CheckboxAttribute } from './component/checkbox'
 
 
 /**

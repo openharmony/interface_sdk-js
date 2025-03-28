@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { HyperlinkAttribute } from '../@ohos.arkui.component.Hyperlink'
+import { AttributeModifier } from './component/common'
+import { HyperlinkAttribute } from './component/hyperlink'
 
 
 

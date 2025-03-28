@@ -19,8 +19,8 @@
  */
 
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { DatePickerAttribute } from '../@ohos.arkui.component.DatePicker'
+import { AttributeModifier } from './component/common'
+import { DatePickerAttribute } from './component/datePicker'
 
 /**
  * Defines DatePicker Modifier

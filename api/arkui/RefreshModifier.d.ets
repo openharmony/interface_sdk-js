@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { RefreshAttribute } from '../@ohos.arkui.component.Refresh'
+import { AttributeModifier } from './component/common'
+import { RefreshAttribute } from './component/refresh'
 
 
 

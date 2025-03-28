@@ -19,8 +19,8 @@
  */
 
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { RatingAttribute } from '../@ohos.arkui.component.Rating'
+import { AttributeModifier } from './component/common'
+import { RatingAttribute } from './component/rating'
 
 
 /**
