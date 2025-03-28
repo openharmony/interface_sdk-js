@@ -21,10 +21,11 @@
 
 
 import { Theme, CustomTheme } from '@ohos.arkui.theme';
+import image from './@ohos.multimedia.image';
 /*** if arkts 1.2 */
 import { ResourceStr, ResourceColor, SizeOptions, Padding, LocalizedPadding } from './arkui/component/units';
 import { ButtonStyleMode, ButtonRole } from './arkui/component/button';
-import { PixelMap } from './@ohos.multimedia.image';
+import image from './@ohos.multimedia.image';
 import { ThemeColorMode } from './arkui/component/common';
 import { CustomDialogController } from './arkui/component/customDialogController';
 import { Callback } from './@ohos.base';
