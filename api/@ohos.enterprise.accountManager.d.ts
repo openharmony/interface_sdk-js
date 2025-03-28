@@ -31,42 +31,6 @@ import type osAccount from './@ohos.account.osAccount';
  */
 declare namespace accountManager {
   /**
-   * The policy of domain account
-   * 
-   * @interface DomainAccountPolicy
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @since 18
-   */
-  interface DomainAccountPolicy {
-    /**
-     * The validity period of authentication.
-     * 
-     * @type { ?number }
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @since 18
-     */
-    authenticationValidityPeriod?: number;
-
-    /**
-     * The validity period of password.
-     * 
-     * @type { ?number }
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @since 18
-     */
-    passwordValidityPeriod?: number;
-
-    /**
-     * The password expiration notification.
-     * 
-     * @type { ?number }
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @since 18
-     */
-    passwordExpirationNotification?: number;
-  }
-
-  /**
    * Disallow the user of device add local account.
    * This function can be called by a super administrator.
    *
@@ -239,46 +203,6 @@ declare namespace accountManager {
    * @since 12
    */
   function addOsAccountAsync(admin: Want, name: string, type: osAccount.OsAccountType): Promise<osAccount.OsAccountInfo>;
-
-  /**
-   * Sets domain account policy.
-   * This function can be called by a super administrator.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { osAccount.DomainAccountInfo } domainAccountInfo - the infomation of domain account.
-   * @param { DomainAccountPolicy } policy - policy indicates the domain account policy.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 18
-   */
-  function setDomainAccountPolicy(admin: Want, domainAccountInfo: osAccount.DomainAccountInfo, policy: DomainAccountPolicy): void;
-
-  /**
-   * Gets domain account policy.
-   * This function can be called by a super administrator.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { osAccount.DomainAccountInfo } domainAccountInfo - the infomation of domain account.
-   * @returns { DomainAccountPolicy } policy - policy indicates the domain account policy.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 18
-   */
-  function getDomainAccountPolicy(admin: Want, domainAccountInfo: osAccount.DomainAccountInfo): DomainAccountPolicy;
 }
 
 export default accountManager;
