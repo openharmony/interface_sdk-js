@@ -31,7 +31,7 @@ import { FrameNode } from './FrameNode';
  * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
  */
-export class NodeContent extends Content {
+export declare class NodeContent extends Content {
   /**
    * constructor
    * 
