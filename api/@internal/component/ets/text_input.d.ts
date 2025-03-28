@@ -233,6 +233,15 @@ declare enum InputType {
    * @since 12
    */
   URL = 13,
+
+  /**
+   * URL entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  ONE_TIME_CODE = 14,
 }
 
 /**
