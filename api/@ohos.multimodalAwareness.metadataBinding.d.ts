@@ -26,7 +26,7 @@ import type { Callback } from './@ohos.base';
  * @namespace metadataBinding
  * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
  * @atomicservice
- * @since 15
+ * @since 18
  */
 declare namespace metadataBinding {
   /**
@@ -40,7 +40,7 @@ declare namespace metadataBinding {
    * @throws { BusinessError } 32100002 - Encode process fail.
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @systemapi
-   * @since 15
+   * @since 18
    */
   function encodeImage(srcImage: image.PixelMap, metadata: string): Promise<image.PixelMap>;
 
@@ -54,7 +54,7 @@ declare namespace metadataBinding {
    * @throws { BusinessError } 32100003 - Decode process fail.
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @systemapi
-   * @since 15
+   * @since 18
    */
    function decodeImage(encodedImage: image.PixelMap): Promise<string>;
 
@@ -67,7 +67,7 @@ declare namespace metadataBinding {
    * @throws { BusinessError } 32100001 - Internal handling failed. Obtain metadata failed.
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @systemapi
-   * @since 15
+   * @since 18
    */
   function notifyMetadataBindingEvent(bundleName: string): Promise<string>;
 
@@ -78,7 +78,7 @@ declare namespace metadataBinding {
    * @throws { BusinessError } 32100001 - Internal handling failed. Set Meta data to screenshot app fail.
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @atomicservice
-   * @since 15
+   * @since 18
    */
   function submitMetadata(metadata: string): void;
 
@@ -92,7 +92,7 @@ declare namespace metadataBinding {
    * @throws { BusinessError } 32100004 - Subscribe Failed.
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @atomicservice
-   * @since 15
+   * @since 18
    */
   function on(type: 'operationSubmitMetadata', bundleName: string, callback: Callback<number>): void;
  
@@ -106,9 +106,9 @@ declare namespace metadataBinding {
    * @throws { BusinessError } 32100005 - Unsubscribe Failed.
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @atomicservice
-   * @since 15
+   * @since 18
    */
   function off(type: 'operationSubmitMetadata', bundleName: string, callback?: Callback<number>): void;
 }
 
-export default metadataBinding
+export default metadataBinding;
