@@ -6825,7 +6825,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Sets whether enable local file system access in Web.
-   * * <p><strong>API Note</strong>:<br>
+   * <p><strong>API Note</strong>:<br>
    * fileAccess is disabled by default since API version 12.
    * When fileAccess is set to false, files in the read-only /data/storage/el1/bundle/entry/resources/resfile directory can still be accessed through the file protocol.
    * </p> 
