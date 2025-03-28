@@ -549,7 +549,7 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
   /**
    * Card to be redirected.
    *
-   * @param { Callback<any> } callback
+   * @param { Callback<object> } callback
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
