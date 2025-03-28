@@ -443,7 +443,7 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
   /**
    * Sets the display area size of the card.
    *
-   * @param { FormSize } size - The size of Form.
+   * @param { FormSize } formSize - The size of Form.
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
