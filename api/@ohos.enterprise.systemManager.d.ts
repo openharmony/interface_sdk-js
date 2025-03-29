@@ -249,7 +249,7 @@ declare namespace systemManager {
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 18
+     * @since 19
      */
     authInfo?: string;
   }
@@ -617,7 +617,7 @@ declare namespace systemManager {
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 18
+   * @since 19
    */
   function getUpdateAuthData(admin: Want): Promise<string>;
 }
