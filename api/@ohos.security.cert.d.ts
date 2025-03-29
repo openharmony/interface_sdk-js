@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -1422,6 +1422,23 @@ declare namespace cert {
     getIssuerName(): DataBlob;
 
     /**
+     * Get X509 cert issuer name according to the encoding type.
+     *
+     * @param { EncodingType } encodingType indicates the encoding type.
+     * @returns { string } X509 cert issuer name.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+     * <br>2. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    getIssuerName(encodingType: EncodingType): string;
+
+    /**
      * Get X509 cert subject name.
      *
      * @returns { DataBlob } X509 cert subject name.
@@ -1964,6 +1981,23 @@ declare namespace cert {
      * @since 12
      */
     toString(): string;
+
+    /**
+     * Get the string type data of the object according to the encoding type.
+     *
+     * @param { EncodingType } encodingType indicates the encoding type.
+     * @returns { string } the string type data of the object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+     * <br>2. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    toString(encodingType: EncodingType): string;
 
     /**
      * Get the hash value of DER format data.
@@ -2597,6 +2631,24 @@ declare namespace cert {
      * @since 12
      */
     getCertIssuer(): DataBlob;
+
+    /**
+     * Get the issuer name of the x509 certificate described by this entry according to the encoding type.
+     *
+     * @param { EncodingType } encodingType indicates the encoding type.
+     * @returns { string } issuer name.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+     * <br>2. Parameter verification failed.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    getCertIssuer(encodingType: EncodingType): string;
 
     /**
      * Get the revocation date from x509CRL entry.
@@ -3267,6 +3319,23 @@ declare namespace cert {
     getIssuerName(): DataBlob;
 
     /**
+     * Get the issuer name from CRL according to the encoding type.
+     *
+     * @param { EncodingType } encodingType indicates the encoding type.
+     * @returns { string } issuer name of CRL.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+     * <br>2. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    getIssuerName(encodingType: EncodingType): string;
+
+    /**
      * Get lastUpdate value from CRL.
      *
      * @returns { string } last update of CRL.
@@ -3636,6 +3705,23 @@ declare namespace cert {
      * @since 12
      */
     toString(): string;
+
+    /**
+     * Get the string type data of the object according to the encoding type.
+     *
+     * @param { EncodingType } encodingType indicates the encoding type.
+     * @returns { string } the string type data of the object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+     * <br>2. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    toString(encodingType: EncodingType): string;
 
     /**
      * Get the hash value of DER format data.
@@ -5234,7 +5320,7 @@ declare namespace cert {
    */
   interface X500DistinguishedName {
     /**
-     * Get distinguished name string.
+     * Get distinguished name string in ASCII encoding type.
      *
      * @returns { string } distinguished name string.
      * @throws { BusinessError } 19020001 - memory error.
@@ -5246,6 +5332,23 @@ declare namespace cert {
      * @since 12
      */
     getName(): string;
+
+    /**
+     * Get distinguished name string according to the encoding type.
+     *
+     * @param { EncodingType } encodingType - the specified encoding type.
+     * @returns { string } distinguished name string.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+     * <br>2. Parameter verification failed.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    getName(encodingType: EncodingType): string;
 
     /**
      * Get distinguished name string by type.
