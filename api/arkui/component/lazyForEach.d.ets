@@ -17,6 +17,7 @@
 // WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
 
 import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
+import { DynamicNode } from './common';
 export enum DataOperationType {
     ADD = 'add',
     DELETE = 'delete',
@@ -68,6 +69,7 @@ export interface DataReloadOperation {
 }
 export type DataOperation = DataAddOperation | DataDeleteOperation | DataChangeOperation | DataMoveOperation |
     DataExchangeOperation | DataReloadOperation;
+
 export interface DataChangeListener {
     onDataReloaded(): void
     onDataAdded(index: number): void
@@ -80,3 +82,25 @@ export interface DataChangeListener {
     onDataChange(index: number): void
     onDatasetChange(dataOperations: Array<DataOperation>): void
 }
+export interface LazyForEachAttribute extends DynamicNode {
+
+}
+
+export interface IDataSource<T> {
+
+    totalCount(): number;
+  
+    getData(index: number): T;
+  
+    registerDataChangeListener(listener: DataChangeListener): void;
+  
+    unregisterDataChangeListener(listener: DataChangeListener): void;
+  }
+  
+@memo
+@ComponentBuilder
+export declare function LazyForEach<T>(dataSource: IDataSource<T>,
+    @memo
+    itemGenerator: (item: T, index: number) => void,
+    keyGenerator?: (item: T, index: number) => string,
+): LazyForEachAttribute

@@ -217,15 +217,19 @@ export interface DrawModifier {
     drawFront(drawContext: DrawContext): void
     invalidate(): void
 }
-export interface TransitionEffect {
-    translate(options: TranslateOptions): TransitionEffect
-    rotate(options: RotateOptions): TransitionEffect
-    scale(options: ScaleOptions): TransitionEffect
-    opacity(alpha: number): TransitionEffect
-    move(edge: TransitionEdge): TransitionEffect
-    asymmetric(appear: TransitionEffect, disappear: TransitionEffect): TransitionEffect
-    animation(value: AnimateParam): TransitionEffect
-    combine(transitionEffect: TransitionEffect): TransitionEffect
+export declare class TransitionEffect {
+    static readonly IDENTITY: TransitionEffect;
+    static readonly OPACITY: TransitionEffect;
+    static readonly SLIDE: TransitionEffect;
+    static readonly SLIDE_SWITCH: TransitionEffect;
+    static translate(options: TranslateOptions): TransitionEffect;
+    static rotate(options: RotateOptions): TransitionEffect;
+    static scale(options: ScaleOptions): TransitionEffect;
+    static opacity(alpha: number): TransitionEffect;
+    static move(edge: TransitionEdge): TransitionEffect;
+    static asymmetric(appear: TransitionEffect, disappear: TransitionEffect): TransitionEffect;
+    animation(value: AnimateParam): TransitionEffect;
+    combine(transitionEffect: TransitionEffect): TransitionEffect;
 }
 export interface PreviewParams {
     title?: string;
@@ -1437,8 +1441,9 @@ export interface OnWillScrollCallback {
 }
 export type OnScrollCallback = (scrollOffset: number, scrollState: ScrollState) => void;
 export type OnMoveHandler = (from: number, to: number) => void;
-export interface DynamicNode<T> {
-    onMove(handler: OnMoveHandler | undefined): T
+export interface DynamicNode {
+    @memo
+    onMove(handler: OnMoveHandler | undefined): this
 }
 export interface EdgeEffectOptions {
     alwaysEnabled: boolean;
