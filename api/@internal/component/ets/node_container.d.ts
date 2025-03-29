@@ -18,6 +18,11 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { NodeController } from '../../@ohos.arkui.node';
+import { CommonMethod } from './common';
+/*** endif */
+
 /**
  * Defines the Interface of NodeContainer. To display the node build by an associated NodeController.
  *
@@ -59,6 +64,31 @@ interface NodeContainerInterface {
 }
 
 /**
+* Defines the Interface of NodeContainer. To display the node build by an associated NodeController.
+*
+* @interface NodeContainerInterface
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @crossplatform
+* @atomicservice
+* @since 20
+* @arkts 1.2
+*/
+interface NodeContainerInterface {
+  /**
+   * Constructor parameters
+   *
+   * @param { NodeController } controller - Indicates the controller of the NodeContainer.
+   * @returns { NodeContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  (controller: NodeController): NodeContainerAttribute;
+}
+
+/**
  * Defines the attribute of NodeContainer, extends from CommonMethod.
  * @extends CommonMethod<NodeContainerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -71,7 +101,8 @@ interface NodeContainerInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class NodeContainerAttribute extends CommonMethod<NodeContainerAttribute> {}
 
@@ -88,7 +119,8 @@ declare class NodeContainerAttribute extends CommonMethod<NodeContainerAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare const NodeContainer: NodeContainerInterface;
 
@@ -105,6 +137,7 @@ declare const NodeContainer: NodeContainerInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare const NodeContainerInstance: NodeContainerAttribute;

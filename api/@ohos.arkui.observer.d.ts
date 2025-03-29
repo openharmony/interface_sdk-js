@@ -17,10 +17,17 @@
  * @file
  * @kit ArkUI
  */
+/*** if arkts 1.2 */
+import { ResourceStr } from './arkui/component/ets/units';
+import { NavPathStack } from './arkui/component/ets/navigation';
+import { UIContext } from './@ohos.arkui.UIContext';
+/*** endif */
 
+/*** if arkts 1.1 */
 import type { Callback } from './@ohos.base';
 import type UIAbilityContext from './application/UIAbilityContext';
 import type { NavigationOperation, NavBar } from '../component/navigation';
+/*** endif */
 
 /**
  * Register callbacks to observe ArkUI behavior.
@@ -37,7 +44,8 @@ import type { NavigationOperation, NavBar } from '../component/navigation';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace uiObserver {
   /**
@@ -57,7 +65,8 @@ declare namespace uiObserver {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum NavDestinationState {
     /**
@@ -75,7 +84,8 @@ declare namespace uiObserver {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ON_SHOWN = 0,
 
@@ -94,7 +104,8 @@ declare namespace uiObserver {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ON_HIDDEN = 1,
 
@@ -105,7 +116,8 @@ declare namespace uiObserver {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ON_APPEAR = 2,
 
@@ -116,7 +128,8 @@ declare namespace uiObserver {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ON_DISAPPEAR = 3,
 
@@ -127,7 +140,8 @@ declare namespace uiObserver {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ON_WILL_SHOW = 4,
 
@@ -138,7 +152,8 @@ declare namespace uiObserver {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ON_WILL_HIDE = 5,
 
@@ -149,7 +164,8 @@ declare namespace uiObserver {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ON_WILL_APPEAR = 6,
 
@@ -160,7 +176,8 @@ declare namespace uiObserver {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ON_WILL_DISAPPEAR = 7,
 
@@ -171,7 +188,8 @@ declare namespace uiObserver {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ON_BACKPRESS = 100
   }
@@ -191,7 +209,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum RouterPageState {
     /**
@@ -207,7 +226,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ABOUT_TO_APPEAR = 0,
 
@@ -224,7 +244,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ABOUT_TO_DISAPPEAR = 1,
 
@@ -241,7 +262,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ON_PAGE_SHOW = 2,
 
@@ -258,7 +280,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ON_PAGE_HIDE = 3,
 
@@ -275,7 +298,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ON_BACK_PRESS = 4
   }
@@ -287,7 +311,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
     export enum ScrollEventType {
       /**
@@ -296,7 +321,8 @@ declare namespace uiObserver {
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
        * @atomicservice
-       * @since 12
+       * @since arkts {'1.1':'12','1.2':'20'}
+       * @arkts 1.1&1.2
        */
       SCROLL_START = 0,
   
@@ -306,7 +332,8 @@ declare namespace uiObserver {
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
        * @atomicservice
-       * @since 12
+       * @since arkts {'1.1':'12','1.2':'20'}
+       * @arkts 1.1&1.2
        */
       SCROLL_STOP = 1
     }
@@ -318,7 +345,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum TabContentState {
     /**
@@ -327,7 +355,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ON_SHOW = 0,
 
@@ -337,7 +366,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ON_HIDE = 1
   }
@@ -357,7 +387,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface NavDestinationInfo {
     /**
@@ -375,7 +406,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     navigationId: ResourceStr,
 
@@ -394,7 +426,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name: ResourceStr,
 
@@ -413,7 +446,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     state: NavDestinationState,
 
@@ -424,7 +458,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     index: number;
 
@@ -435,7 +470,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     param?: Object;
 
@@ -446,7 +482,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     navDestinationId: string;
   }
@@ -458,7 +495,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface NavigationInfo {
     /**
@@ -468,7 +506,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     navigationId: string;
     
@@ -479,7 +518,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pathStack: NavPathStack;
   }
@@ -491,7 +531,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface ScrollEventInfo {
     /**
@@ -501,7 +542,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     id: string,
 
@@ -512,7 +554,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     uniqueId: number,
 
@@ -523,7 +566,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     scrollEvent: ScrollEventType,
 
@@ -534,7 +578,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     offset: number
   }
@@ -546,7 +591,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface TabContentInfo {
     /**
@@ -556,7 +602,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     tabContentId: string,
 
@@ -567,7 +614,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     tabContentUniqueId: number,
 
@@ -578,7 +626,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     state: TabContentState,
 
@@ -589,7 +638,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     index: number,
 
@@ -600,7 +650,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     id: string,
 
@@ -611,7 +662,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     uniqueId: number
   }
@@ -623,7 +675,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     export interface ObserverOptions {
       /**
@@ -633,7 +686,8 @@ declare namespace uiObserver {
        * @syscap SystemCapability.ArkUI.ArkUI.Full
        * @crossplatform
        * @atomicservice
-       * @since 12
+       * @since arkts {'1.1':'12','1.2':'20'}
+       * @arkts 1.1&1.2
        */
       id: string
     }
@@ -651,7 +705,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export class RouterPageInfo {
     /**
@@ -669,7 +724,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     context: UIAbilityContext | UIContext;
 
@@ -688,7 +744,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     index: number;
 
@@ -707,7 +764,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name: string;
 
@@ -726,7 +784,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     path: string;
 
@@ -745,7 +804,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     state: RouterPageState;
 
@@ -756,7 +816,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
      pageId: string;
   }
@@ -767,7 +828,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export class DensityInfo {
     /**
@@ -777,7 +839,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     context: UIContext;
 
@@ -788,7 +851,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     density: number;
   }
@@ -800,7 +864,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface NavDestinationSwitchInfo {
     /**
@@ -810,7 +875,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     context: UIAbilityContext | UIContext;
 
@@ -821,7 +887,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     from: NavDestinationInfo | NavBar;
 
@@ -832,7 +899,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     to: NavDestinationInfo | NavBar;
 
@@ -843,7 +911,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     operation: NavigationOperation;
   }
@@ -855,7 +924,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface NavDestinationSwitchObserverOptions {
     /**
@@ -865,7 +935,8 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     navigationId: ResourceStr;
   }
@@ -892,6 +963,20 @@ declare namespace uiObserver {
    * @since 12
    */
   export function on(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callback: Callback<NavDestinationInfo>): void;
+ 
+  /**
+   * Registers a callback function to be called when the navigation destination is updated.
+   *
+   * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
+   * @param { NavDestinationSwitchObserverOptions } options - The options object.
+   * @param { Callback<NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export function on(type: 'navDestinationUpdate', options: NavDestinationSwitchObserverOptions, callback: Callback<NavDestinationInfo>): void;
 
   /**
    * Removes a callback function that was previously registered with `on()`.
@@ -917,6 +1002,21 @@ declare namespace uiObserver {
    * @since 12
    */
   export function off(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callback?: Callback<NavDestinationInfo>): void;
+ 
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'navDestinationUpdate' } type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
+   * @param { NavDestinationSwitchObserverOptions } options - The options object.
+   * @param { Callback<NavDestinationInfo> } callback - The callback function to remove. If not provided, all callbacks for the given event type and
+   *                                                    navigation ID will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export function off(type: 'navDestinationUpdate', options: NavDestinationSwitchObserverOptions, callback?: Callback<NavDestinationInfo>): void;
 
   /**
    * Registers a callback function to be called when the navigation destination is updated.
@@ -935,7 +1035,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function on(type: 'navDestinationUpdate', callback: Callback<NavDestinationInfo>): void;
 
@@ -958,7 +1059,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function off(type: 'navDestinationUpdate', callback?: Callback<NavDestinationInfo>): void;
 
@@ -971,7 +1073,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function on(type: 'scrollEvent', options: ObserverOptions, callback: Callback<ScrollEventInfo>): void;
 
@@ -985,7 +1088,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function off(type: 'scrollEvent', options: ObserverOptions, callback?: Callback<ScrollEventInfo>): void;
 
@@ -997,7 +1101,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function on(type: 'scrollEvent', callback: Callback<ScrollEventInfo>): void;
 
@@ -1010,7 +1115,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function off(type: 'scrollEvent', callback?: Callback<ScrollEventInfo>): void;
 
@@ -1033,7 +1139,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function on(type: 'routerPageUpdate', context: UIAbilityContext | UIContext, callback: Callback<RouterPageInfo>): void;
 
@@ -1058,7 +1165,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function off(type: 'routerPageUpdate', context: UIAbilityContext | UIContext, callback?: Callback<RouterPageInfo>): void;
 
@@ -1071,7 +1179,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function on(type: 'densityUpdate', context: UIContext, callback: Callback<DensityInfo>): void;
 
@@ -1085,7 +1194,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function off(type: 'densityUpdate', context: UIContext, callback?: Callback<DensityInfo>): void;
 
@@ -1098,7 +1208,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function on(type: 'willDraw', context: UIContext, callback: Callback<void>): void;
 
@@ -1112,7 +1223,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function off(type: 'willDraw', context: UIContext, callback?: Callback<void>): void;
 
@@ -1125,7 +1237,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function on(type: 'didLayout', context: UIContext, callback: Callback<void>): void;
 
@@ -1139,7 +1252,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function off(type: 'didLayout', context: UIContext, callback?: Callback<void>): void;
 
@@ -1152,7 +1266,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function on(type: 'tabContentUpdate', options: ObserverOptions, callback: Callback<TabContentInfo>): void;
 
@@ -1166,7 +1281,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function off(type: 'tabContentUpdate', options: ObserverOptions, callback?: Callback<TabContentInfo>): void;
 
@@ -1178,7 +1294,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function on(type: 'tabContentUpdate', callback: Callback<TabContentInfo>): void;
 
@@ -1191,7 +1308,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function off(type: 'tabContentUpdate', callback?: Callback<TabContentInfo>): void;
 
@@ -1204,7 +1322,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function on(
     type: 'navDestinationSwitch',
@@ -1222,7 +1341,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function off(
     type: 'navDestinationSwitch',
@@ -1240,7 +1360,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function on(
     type: 'navDestinationSwitch',
@@ -1260,7 +1381,8 @@ declare namespace uiObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function off(
     type: 'navDestinationSwitch',
