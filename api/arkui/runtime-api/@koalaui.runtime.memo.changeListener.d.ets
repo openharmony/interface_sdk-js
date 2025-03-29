@@ -14,7 +14,7 @@
  */
 
 import { memo_intrinsic } from '@koalaui.runtime.annotations'
-import { __memo_context_type, __memo_id_type } from "../stateManagement/runtime"
+import { __memo_context_type, __memo_id_type } from '../stateManagement/runtime'
 
 export declare function OnChange<Value>(value: Value, listener: (value: Value) => void): void
 @memo_intrinsic export declare function RunEffect<Value>(value: Value, effect: (value: Value) => void): void

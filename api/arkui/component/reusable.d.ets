@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
-import { CustomComponent } from "./customComponent"
+import { CustomComponent } from './customComponent'
 
-export abstract class ArkReusableStructBase<T extends ArkReusableStructBase<T, T_Options>, T_Options> extends CustomComponent<T, T_Options> {
+export abstract class ArkReusableStructBase<T extends ArkReusableStructBase<T, T_Options>, T_Options> extends
+    CustomComponent<T, T_Options> {
     protected _toRecord(params: Object): Record<string, Object>{
         return {}
     }
-
 }
 
