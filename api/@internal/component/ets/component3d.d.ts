@@ -21,6 +21,7 @@
 /*** if arkts 1.2 */
 import { Scene } from './../../../api/@ohos.graphics.scene'
 import { ResourceStr, Dimension } from './units'
+import { CommonMethod } from './common'
 /*** endif */
 
 /**
@@ -105,6 +106,7 @@ declare interface SceneOptions {
  * @atomicservice
  * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
+ * @component
  */
 interface Component3DInterface {
   /**
