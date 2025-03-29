@@ -38,7 +38,13 @@ function isTsFile(path) {
 }
 
 function hasEtsFile(path) {
-  return fs.existsSync(path.replace(/\.d\.[e]?ts$/g, '.d.ets'));
+  // 为StateManagement.d.ts设定白名单，在1.2打包的时候在Linux上有大小写不同的重名，碰到直接返回true
+  if (path.includes('StateManagement.d.ts')) {
+    console.log('StateManagement.d.ts is in white list, return true. path = ', path);
+    return true;
+  } else {
+    return fs.existsSync(path.replace(/\.d\.[e]?ts$/g, '.d.ets'));
+  }
 }
 
 function hasTsFile(path) {
