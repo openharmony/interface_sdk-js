@@ -82,26 +82,49 @@ declare class ServiceExtensionAbility {
    * Called back when a service extension is first connected to an ability.
    *
    * @param { Want } want - Indicates connection information about the Service ability.
-   * @returns { rpc.RemoteObject | Promise<rpc.RemoteObject> } A RemoteObject for communication between the client
-   *                                                           and server.
+   * @returns { rpc.RemoteObject } A RemoteObject for communication between the client and server.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
-  onConnect(want: Want): rpc.RemoteObject | Promise<rpc.RemoteObject>;
+  onConnect(want: Want): rpc.RemoteObject;
+
+  /**
+   * Called back when a service extension is first connected to an ability.
+   *
+   * @param { Want } want - Indicates connection information about the Service ability.
+   * @returns { Promise<rpc.RemoteObject> } A RemoteObject for communication between the client and server.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   */
+  onConnectAsync(want: Want): Promise<rpc.RemoteObject>;
 
   /**
    * Called back when all abilities connected to a service extension are disconnected.
    *
    * @param { Want } want - Indicates disconnection information about the service extension.
-   * @returns { void | Promise<void> } the promise returned by the function.
+   * @returns { void } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
-  onDisconnect(want: Want): Promise<void> | undefined ;
+  onDisconnect(want: Want): void;
+
+    /**
+   * Called back when all abilities connected to a service extension are disconnected.
+   *
+   * @param { Want } want - Indicates disconnection information about the service extension.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   */
+  onDisconnectAsync(want: Want): Promise<void>;
 
   /**
    * Called when a new client attempts to connect to a service extension after all previous client connections to it
