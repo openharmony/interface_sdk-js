@@ -13,6 +13,12 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ * @arkts 1.2
+ */
+ 
 import { LocalStorage } from "./storage"
 
 // From incremental engine
