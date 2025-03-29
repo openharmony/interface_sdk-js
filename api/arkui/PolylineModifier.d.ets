@@ -19,8 +19,8 @@
  */
 
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { PolylineAttribute } from '../@ohos.arkui.component.Polyline'
+import { AttributeModifier } from './component/common'
+import { PolylineAttribute } from './component/polyline'
 
 /**
  * Defines Polyline Modifier

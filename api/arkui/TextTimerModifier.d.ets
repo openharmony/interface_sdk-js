@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { TextTimerAttribute } from '../@ohos.arkui.component.TextTimer'
+import { AttributeModifier } from './component/common'
+import { TextTimerAttribute } from './component/textTimer'
 
 
 

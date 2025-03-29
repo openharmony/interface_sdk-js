@@ -20,8 +20,8 @@
 
 
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { PatternLockAttribute } from '../@ohos.arkui.component.PatternLock'
+import { AttributeModifier } from './component/common'
+import { PatternLockAttribute } from './component/patternLock'
 
 
 

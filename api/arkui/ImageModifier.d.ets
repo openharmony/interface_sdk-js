@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-import { ImageAttribute } from '../@ohos.arkui.component.Image'
-import { AttributeModifier }from '../@ohos.arkui.component.Common'
+import { ImageAttribute } from './component/image'
+import { AttributeModifier }from './component/common'
 
 /**
  * Defines Image Modifier
@@ -30,7 +30,7 @@ import { AttributeModifier }from '../@ohos.arkui.component.Common'
  * @atomicservice
  * @since 12
 */
-export declare class ImageModifier extends ImageAttribute implements AttributeModifier<ImageAttribute> {
+export declare interface ImageModifier extends ImageAttribute, AttributeModifier<ImageAttribute> {
 
   /**
    * Defines the normal update attribute function.

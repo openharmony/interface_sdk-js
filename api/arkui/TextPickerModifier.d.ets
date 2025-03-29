@@ -19,8 +19,8 @@
  */
 
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { TextPickerAttribute } from '../@ohos.arkui.component.TextPicker'
+import { AttributeModifier } from './component/common'
+import { TextPickerAttribute } from './component/textPicker'
 
 
 

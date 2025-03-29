@@ -17,8 +17,8 @@
  * @kit ArkUI
  */
 
-import { SymbolSpanAttribute } from '../@ohos.arkui.component.SymbolSpan'
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
+import { SymbolSpanAttribute } from './component/symbolSpan'
+import { AttributeModifier } from './component/common'
 import { Resource } from '../global/resource'
 /**
  * Defines SymbolSpan Modifier. Provided for use by the SymbolSpan component

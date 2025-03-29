@@ -19,7 +19,7 @@
  */
 
 import { Resource } from './global/resource';
-import { CustomDialogController } from './@ohos.arkui.component.CustomDialogController'
+import { CustomDialogController } from './arkui/component/customDialogController'
 
 /**
  * Define pattern options of keyboard.

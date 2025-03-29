@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { CounterAttribute } from '../@ohos.arkui.component.Counter'
+import { AttributeModifier } from './component/common'
+import { CounterAttribute } from './component/counter'
 
 
 /**

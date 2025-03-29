@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { SearchAttribute } from '../@ohos.arkui.component.Search'
+import { AttributeModifier } from './component/common'
+import { SearchAttribute } from './component/search'
 
 
 

@@ -19,8 +19,8 @@
  */
 
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { SideBarContainerAttribute } from '../@ohos.arkui.component.Sidebar'
+import { AttributeModifier } from './component/common'
+import { SideBarContainerAttribute } from './component/sidebar'
 
 
 

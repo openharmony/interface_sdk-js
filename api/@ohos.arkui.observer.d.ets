@@ -19,8 +19,8 @@
  */
 import { Callback } from './@ohos.base';
 import UIAbilityContext from './application/UIAbilityContext';
-import  { NavigationOperation, NavBar,NavPathStack } from './@ohos.arkui.component.Navigation';
-import { ResourceStr } from './@ohos.arkui.component.Units'
+import  { NavigationOperation, NavBar,NavPathStack } from './arkui/component/navigation';
+import { ResourceStr } from './arkui/component/units'
 import { UIContext } from './@ohos.arkui.UIContext'
 /**
  * Register callbacks to observe ArkUI behavior.

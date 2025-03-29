@@ -16,7 +16,7 @@
 
 // WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
 
-import { memo, ComponentBuilder } from './../stateManagement/runtime'
+import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
 import { TextDecorationType, TextDecorationStyle, Curve, PlayMode, SharedTransitionEffectType, HorizontalAlign, VerticalAlign, TransitionType, FontWeight, FontStyle, Color, ColoringStrategy, MouseButton, MouseAction, AccessibilityHoverType, TouchType, KeyType, KeySource, BorderStyle, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, GradientDirection, HitTestMode, Alignment, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, ObscuredReasons, RenderFit, ImageRepeat, Axis, ResponseType, FunctionKey, ModifierKey, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, BarState, EdgeEffect, IlluminatedType } from './enums'
 import { ResourceColor, Context, Length, Bias, PixelMap, PointerStyle, Area, Font, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Summary, UniformDataType, UnifiedData, ResourceStr, Dimension, EdgeColors, LocalizedEdgeColors, EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ConstraintSizeOptions, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin, BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, VisualEffect, Filter, Blender, EdgeWidth, DirectionalEdgesT, NavDestinationInfo, NavigationInfo, RouterPageInfo } from './units'
 import { Resource } from './../../../api/global/resource'
@@ -59,8 +59,8 @@ export interface AnimatableArithmetic<T> {
     multiply(scale: number): AnimatableArithmetic<T>
     equals(rhs: AnimatableArithmetic<T>): boolean
 }
-declare function getContext(arg0: Object): Context
-declare function postCardAction(arg0: Object, arg1: Object): void
+export declare function getContext(arg0: Object): Context
+export declare function postCardAction(arg0: Object, arg1: Object): void
 export interface Configuration {
     colorMode: string;
     fontScale: number;
@@ -217,15 +217,19 @@ export interface DrawModifier {
     drawFront(drawContext: DrawContext): void
     invalidate(): void
 }
-export interface TransitionEffect {
-    translate(options: TranslateOptions): TransitionEffect
-    rotate(options: RotateOptions): TransitionEffect
-    scale(options: ScaleOptions): TransitionEffect
-    opacity(alpha: number): TransitionEffect
-    move(edge: TransitionEdge): TransitionEffect
-    asymmetric(appear: TransitionEffect, disappear: TransitionEffect): TransitionEffect
-    animation(value: AnimateParam): TransitionEffect
-    combine(transitionEffect: TransitionEffect): TransitionEffect
+export declare class TransitionEffect {
+    static readonly IDENTITY: TransitionEffect;
+    static readonly OPACITY: TransitionEffect;
+    static readonly SLIDE: TransitionEffect;
+    static readonly SLIDE_SWITCH: TransitionEffect;
+    static translate(options: TranslateOptions): TransitionEffect;
+    static rotate(options: RotateOptions): TransitionEffect;
+    static scale(options: ScaleOptions): TransitionEffect;
+    static opacity(alpha: number): TransitionEffect;
+    static move(edge: TransitionEdge): TransitionEffect;
+    static asymmetric(appear: TransitionEffect, disappear: TransitionEffect): TransitionEffect;
+    animation(value: AnimateParam): TransitionEffect;
+    combine(transitionEffect: TransitionEffect): TransitionEffect;
 }
 export interface PreviewParams {
     title?: string;
@@ -260,14 +264,14 @@ export interface DragItemInfo {
     builder?: CustomBuilder;
     extraInfo?: string;
 }
-declare function animateTo(arg0: AnimateParam, arg1: (() => void)): void
-declare function animateToImmediately(arg0: AnimateParam, arg1: (() => void)): void
-declare function vp2px(arg0: number): number
-declare function px2vp(arg0: number): number
-declare function fp2px(arg0: number): number
-declare function px2fp(arg0: number): number
-declare function lpx2px(arg0: number): number
-declare function px2lpx(arg0: number): number
+export declare function animateTo(arg0: AnimateParam, arg1: (() => void)): void
+export declare function animateToImmediately(arg0: AnimateParam, arg1: (() => void)): void
+export declare function vp2px(arg0: number): number
+export declare function px2vp(arg0: number): number
+export declare function fp2px(arg0: number): number
+export declare function px2fp(arg0: number): number
+export declare function lpx2px(arg0: number): number
+export declare function px2lpx(arg0: number): number
 export namespace focusControl {
     declare function requestFocus(arg0: string): boolean
 }
@@ -868,11 +872,17 @@ export interface MenuElement {
     action: (() => void);
 }
 export interface AttributeModifier<T> {
-    applyNormalAttribute(instance: T): void
-    applyPressedAttribute(instance: T): void
-    applyFocusedAttribute(instance: T): void
-    applyDisabledAttribute(instance: T): void
-    applySelectedAttribute(instance: T): void
+    // applyNormalAttribute(instance: T): void
+    // applyPressedAttribute(instance: T): void
+    // applyFocusedAttribute(instance: T): void
+    // applyDisabledAttribute(instance: T): void
+    // applySelectedAttribute(instance: T): void
+
+    applyNormalAttribute: undefined | ((instance: T) => void);
+    applyPressedAttribute: undefined | ((instance: T) => void);
+    applyFocusedAttribute: undefined | ((instance: T) => void);
+    applyDisabledAttribute: undefined | ((instance: T) => void);
+    applySelectedAttribute: undefined | ((instance: T) => void);
 }
 export interface ContentModifier<T> {
     stub: string;
@@ -1049,7 +1059,7 @@ export interface CommonMethod {
     @memo
     foregroundColor(value: ResourceColor | ColoringStrategy): this;
     @memo
-    onClick(value: ((event: ClickEvent) => void)): this;
+    onClick(value: ((event: ClickEvent) => void), distanceThreshold?: number): this;
     @memo
     onHover(value: ((isHover: boolean,event: HoverEvent) => void)): this;
     @memo
@@ -1367,31 +1377,6 @@ export interface MeasureResult extends SizeResult {
 export interface Literal_Empty {
     indexSignature(key: string): object
 }
-export interface CustomComponent extends CommonAttribute {
-    build(): void
-    aboutToAppear(): void
-    aboutToDisappear(): void
-    aboutToReuse(params: Literal_Empty): void
-    aboutToRecycle(): void
-    onWillApplyTheme(theme: Theme): void
-    onLayout(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void
-    onPlaceChildren(selfLayoutInfo: GeometryInfo, children: Array<Layoutable>, constraint: ConstraintSizeOptions): void
-    onMeasure(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void
-        onMeasureSize(selfLayoutInfo: GeometryInfo, children: Array<Measurable>,
-        constraint: ConstraintSizeOptions): SizeResult
-    onPageShow(): void
-    onPageHide(): void
-    onFormRecycle(): string
-    onFormRecover(statusData: string): void
-    onBackPress(): boolean
-    pageTransition(): void
-    getUIContext(): UIContext
-    getUniqueId(): number
-    queryNavDestinationInfo(): NavDestinationInfo | undefined
-    queryNavigationInfo(): NavigationInfo | undefined
-    queryRouterPageInfo(): RouterPageInfo | undefined
-    onDidBuild(): void
-}
 export interface View {
     create(value: object): object
 }
@@ -1456,8 +1441,9 @@ export interface OnWillScrollCallback {
 }
 export type OnScrollCallback = (scrollOffset: number, scrollState: ScrollState) => void;
 export type OnMoveHandler = (from: number, to: number) => void;
-export interface DynamicNode<T> {
-    onMove(handler: OnMoveHandler | undefined): T
+export interface DynamicNode {
+    @memo
+    onMove(handler: OnMoveHandler | undefined): this
 }
 export interface EdgeEffectOptions {
     alwaysEnabled: boolean;
@@ -1535,3 +1521,69 @@ export enum HoverModeAreaType {
     TOP_SCREEN = 0,
     BOTTOM_SCREEN = 1
 }
+
+/**
+ * Defining wrapBuilder function.
+ * @param { function } builder
+ * @returns { WrappedBuilder<Args> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+/**
+ * Defining wrapBuilder function.
+ * @param { function } builder
+ * @returns { WrappedBuilder<Args> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+export declare function wrapBuilder<Args extends Array<Object>>(builder: (args: Args) => void): WrappedBuilder<Args>;
+
+/**
+ * Defines the WrappedBuilder class.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+/**
+ * Defines the WrappedBuilder class.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+export declare class WrappedBuilder<Args extends Array<Object>> {
+  /**
+   * @type { function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  /**
+   * @type { function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  builder: (args: Args) => void;
+
+  /**
+   * @param { function } builder
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  /**
+   * @param { function } builder
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  constructor(builder: (args: Args) => void);
+}
+
+export declare function $r(value: string, ...params: Object[]): Resource;

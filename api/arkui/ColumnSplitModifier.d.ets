@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { ColumnSplitAttribute } from '../@ohos.arkui.component.ColumnSplit'
+import { AttributeModifier } from './component/common'
+import { ColumnSplitAttribute } from './component/columnSplit'
 
 
 /**

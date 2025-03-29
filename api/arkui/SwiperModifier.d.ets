@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { SwiperAttribute } from '../@ohos.arkui.component.Swiper'
+import { AttributeModifier } from './component/common'
+import { SwiperAttribute } from './component/swiper'
 
 
 

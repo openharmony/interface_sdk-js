@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { MarqueeAttribute } from '../@ohos.arkui.component.Marquee'
+import { AttributeModifier } from './component/common'
+import { MarqueeAttribute } from './component/marquee'
 
 
 

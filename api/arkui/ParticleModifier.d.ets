@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { ParticleAttribute } from '../@ohos.arkui.component.Particle'
+import { AttributeModifier } from './component/common'
+import { ParticleAttribute } from './component/particle'
 
 
 /**

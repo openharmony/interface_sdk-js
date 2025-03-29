@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
+import { AttributeModifier } from './component/common'
 
 /**
  * function that returns a default param of AttributeUpdater.

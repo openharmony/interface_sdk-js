@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { TextClockAttribute } from '../@ohos.arkui.component.TextClock'
+import { AttributeModifier } from './component/common'
+import { TextClockAttribute } from './component/textClock'
 
 
 

@@ -19,8 +19,8 @@
  */
 
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { NavRouterAttribute } from '../@ohos.arkui.component.NavRouter'
+import { AttributeModifier } from './component/common'
+import { NavRouterAttribute } from './component/navRouter'
 
 
 

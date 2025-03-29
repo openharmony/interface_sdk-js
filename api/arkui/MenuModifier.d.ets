@@ -19,8 +19,8 @@
  */
 
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { MenuAttribute } from '../@ohos.arkui.component.Menu'
+import { AttributeModifier } from './component/common'
+import { MenuAttribute } from './component/menu'
 
 
 /**

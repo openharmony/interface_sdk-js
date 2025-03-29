@@ -24,7 +24,7 @@ import image from './@ohos.multimedia.image';
 import rpc from './@ohos.rpc';
 import dialogRequest from './@ohos.app.ability.dialogRequest';
 import { UIContext } from './@ohos.arkui.UIContext';
-import { LocalStorage } from './@ohos.arkui.component.CommonTsEtsApi';
+import { LocalStorage } from './arkui/stateManagement/storage';
 
 /**
  * Window manager.

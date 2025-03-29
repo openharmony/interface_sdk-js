@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { PanelAttribute } from '../@ohos.arkui.component.Panel'
+import { AttributeModifier } from './component/common'
+import { PanelAttribute } from './component/panel'
 
 
 

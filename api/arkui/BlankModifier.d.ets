@@ -19,8 +19,8 @@
  */
 
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { BlankAttribute } from '../@ohos.arkui.component.Blank'
+import { AttributeModifier } from './component/common'
+import { BlankAttribute } from './component/blank'
 /**
  * Defines Blank Modifier
  *

@@ -19,8 +19,8 @@
  */
 
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { RowSplitAttribute } from '../@ohos.arkui.component.RowSplit'
+import { AttributeModifier } from './component/common'
+import { RowSplitAttribute } from './component/rowSplit'
 
 
 

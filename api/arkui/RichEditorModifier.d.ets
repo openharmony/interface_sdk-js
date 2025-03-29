@@ -20,8 +20,8 @@
 
 
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { RichEditorAttribute } from '../@ohos.arkui.component.RichEditor'
+import { AttributeModifier } from './component/common'
+import { RichEditorAttribute } from './component/richEditor'
 
 
 

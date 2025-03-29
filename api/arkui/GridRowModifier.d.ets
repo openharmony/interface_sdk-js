@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { GridRowAttribute } from '../@ohos.arkui.component.GridRow'
+import { AttributeModifier } from './component/common'
+import { GridRowAttribute } from './component/gridRow'
 
 
 

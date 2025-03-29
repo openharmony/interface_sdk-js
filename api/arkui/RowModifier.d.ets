@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { RowAttribute } from '../@ohos.arkui.component.Row'
+import { AttributeModifier } from './component/common'
+import { RowAttribute } from './component/row'
 
 
 

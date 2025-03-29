@@ -19,8 +19,8 @@
  */
 
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { QRCodeAttribute } from '../@ohos.arkui.component.QRCode'
+import { AttributeModifier } from './component/common'
+import { QRCodeAttribute } from './component/qrcode'
 
 /**
  * Defines QRCode Modifier

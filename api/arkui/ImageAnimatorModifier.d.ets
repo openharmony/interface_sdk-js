@@ -19,8 +19,8 @@
  */
 
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { ImageAnimatorAttribute } from '../@ohos.arkui.component.ImageAnimator'
+import { AttributeModifier } from './component/common'
+import { ImageAnimatorAttribute } from './component/imageAnimator'
 
 
 /**

@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier } from '../@ohos.arkui.component.Common'
-import { CheckboxGroupAttribute } from '../@ohos.arkui.component.CheckboxGroup'
+import { AttributeModifier } from './component/common'
+import { CheckboxGroupAttribute } from './component/checkboxGroup'
 
 
 /**

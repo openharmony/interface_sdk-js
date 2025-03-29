@@ -20,8 +20,8 @@
 
 
 
-import { TextAttribute } from '../@ohos.arkui.component.Text'
-import { AttributeModifier }from '../@ohos.arkui.component.Common'
+import { TextAttribute } from './component/text'
+import { AttributeModifier }from './component/common'
 /**
  * Defines Text Modifier
  *
@@ -31,7 +31,7 @@ import { AttributeModifier }from '../@ohos.arkui.component.Common'
  * @atomicservice
  * @since 12
 */
-export declare class TextModifier extends TextAttribute implements AttributeModifier<TextAttribute> {
+export declare interface TextModifier extends TextAttribute, AttributeModifier<TextAttribute> {
 
   /**
    * Defines the normal update attribute function.
