@@ -4014,7 +4014,7 @@ declare namespace audio {
      * @systemapi
      * @since 18
      */
-    isCooperativePlayEnabledForDevice(deviceDescriptor: AudioDeviceDescriptor): Boolean;
+    isCooperativePlayEnabledForDevice(deviceDescriptor: AudioDeviceDescriptor): boolean;
   }
 
   /**
