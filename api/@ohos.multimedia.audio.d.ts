@@ -3980,7 +3980,7 @@ declare namespace audio {
      * @throws { BusinessError } 202 - Not system application.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 18
+     * @since 20
      */
     isCooperativePlaySupported(): boolean;
 
@@ -3997,7 +3997,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 18
+     * @since 20
      */
     setCooperativePlayEnabledForDevice(deviceDescriptor: AudioDeviceDescriptor, enabled: boolean): Promise<void>;
 
@@ -4012,7 +4012,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 18
+     * @since 20
      */
     isCooperativePlayEnabledForDevice(deviceDescriptor: AudioDeviceDescriptor): boolean;
   }
