@@ -27,7 +27,7 @@ import { Callback } from './@ohos.base';
  * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
  * @since 14
  */
-export default declare namespace inputConsumer {
+declare namespace inputConsumer {
   /**
    * Defines event of key that user want to subscribe or unsubscribe.
    *
@@ -270,3 +270,5 @@ export default declare namespace inputConsumer {
    */
   function off(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback?: Callback<HotkeyOptions>): void
 }
+
+export default inputConsumer;

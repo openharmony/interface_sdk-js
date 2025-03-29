@@ -28,7 +28,7 @@ import relationalStore from './@ohos.data.relationalStore';
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @since 7
  */
-export default declare namespace dataAbility {
+declare namespace dataAbility {
   /**
    * Create an RdbPredicates by table name and DataAbilityPredicates.
    * This method is similar to = of the SQL statement.
@@ -380,3 +380,5 @@ export default declare namespace dataAbility {
    */
   type ValueType = number | string | boolean;
 }
+
+export default dataAbility;

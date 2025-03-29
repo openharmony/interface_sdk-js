@@ -28,7 +28,7 @@ import { TouchEvent } from './@ohos.multimodalInput.touchEvent';
  * @systemapi hide for inner use
  * @since 8
  */
-export default declare namespace inputEventClient {
+declare namespace inputEventClient {
   /**
    * Defines event of key that user want to inject.
    *
@@ -253,3 +253,5 @@ export default declare namespace inputEventClient {
    */
    function permitInjection(result: boolean): void;
 }
+
+export default inputEventClient;

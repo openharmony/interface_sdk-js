@@ -29,7 +29,7 @@ import { AsyncCallback } from "./@ohos.base";
  */
 
 
-export default declare namespace inputDeviceCooperate {
+declare namespace inputDeviceCooperate {
   /**
    * Enumerates mouse traversal events.
    * @enum { number }
@@ -337,3 +337,5 @@ export default declare namespace inputDeviceCooperate {
   function off(type: 'cooperation', callback?: AsyncCallback<void>): void;
 
 }
+
+export default inputDeviceCooperate;

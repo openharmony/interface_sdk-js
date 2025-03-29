@@ -28,7 +28,7 @@ import { KeyCode } from './@ohos.multimodalInput.keyCode';
  * @syscap SystemCapability.MultimodalInput.Input.InputDevice
  * @since 8
  */
-export default declare namespace inputDevice {
+declare namespace inputDevice {
   /**
    * Add or remove device
    * @typedef { 'add' | 'remove' }
@@ -706,3 +706,5 @@ export default declare namespace inputDevice {
    */
   function isFunctionKeyEnabled(functionKey: FunctionKey): Promise<boolean>;
 }
+
+export default inputDevice;

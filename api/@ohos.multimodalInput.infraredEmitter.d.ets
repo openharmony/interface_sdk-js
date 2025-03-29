@@ -25,7 +25,7 @@
  * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
  * @since 12
  */
-export default declare namespace infraredEmitter {
+declare namespace infraredEmitter {
   /**
    * Infrared frequency range supported by the IR emitter.
    *
@@ -127,3 +127,5 @@ export default declare namespace infraredEmitter {
    */
   function getInfraredFrequencies(): Array<InfraredFrequency>;
 }
+
+export default infraredEmitter;
