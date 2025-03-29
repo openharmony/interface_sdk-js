@@ -8487,7 +8487,13 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 14
      */
-    SOURCE_TYPE_UNPROCESSED = 14
+    SOURCE_TYPE_UNPROCESSED = 14,
+    /**
+     * live broadcast source type. 
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    SOURCE_TYPE_LIVE = 15
   }
 
   /**
