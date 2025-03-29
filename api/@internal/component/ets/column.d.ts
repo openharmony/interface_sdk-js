@@ -18,6 +18,11 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { PointLightStyle, Optional, CommonMethod } from './common';
+import { HorizontalAlign, FlexAlign } from './enums';
+/*** endif */
+
 /**
  * Column constructor options.
  *
@@ -26,7 +31,8 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 13
+ * @since arkts {'1.1':'13','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface ColumnOptions {
   /**
@@ -61,7 +67,8 @@ interface ColumnOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   space?: string | number;
 }
@@ -98,7 +105,8 @@ interface ColumnOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface ColumnInterface {
   /**
@@ -156,7 +164,8 @@ interface ColumnInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (options?: ColumnOptions): ColumnAttribute;
 }
@@ -193,7 +202,8 @@ interface ColumnInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
   /**
@@ -232,7 +242,8 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   alignItems(value: HorizontalAlign): ColumnAttribute;
 
@@ -272,7 +283,8 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   justifyContent(value: FlexAlign): ColumnAttribute;
   /**
@@ -282,7 +294,8 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
    * @returns { ColumnAttribute } The attribute of the column.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   pointLight(value: PointLightStyle): ColumnAttribute;
   /**
@@ -294,7 +307,8 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   reverse(isReversed: Optional<boolean>): ColumnAttribute;
 }
