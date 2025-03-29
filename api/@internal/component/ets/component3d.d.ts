@@ -221,8 +221,7 @@ declare class Component3DAttribute extends CommonMethod<Component3DAttribute> {
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare const Component3D: Component3DInterface;
 
@@ -231,7 +230,6 @@ declare const Component3D: Component3DInterface;
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare const Component3DInstance: Component3DAttribute;
