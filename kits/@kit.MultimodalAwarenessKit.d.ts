@@ -20,5 +20,6 @@
 
 import stationary from '@ohos.stationary';
 import motion from '@ohos.multimodalAwareness.motion';
+import deviceStatus from '@ohos.multimodalAwareness.deviceStatus';
 
-export { stationary, motion };
+export { stationary, motion, deviceStatus };
