@@ -19,10 +19,10 @@
 import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
 declare function getInspectorNodes(): Object
 declare function getInspectorNodeById(arg0: number): Object
-export namespace Profiler {
-    declare function registerVsyncCallback(arg0: ((info: string) => void)): void
+export declare namespace Profiler {
+    function registerVsyncCallback(arg0: ((info: string) => void)): void
 }
-export namespace Profiler {
-    declare function unregisterVsyncCallback(): void
+export declare namespace Profiler {
+    function unregisterVsyncCallback(): void
 }
 declare function setAppBgColor(arg0: string): void
