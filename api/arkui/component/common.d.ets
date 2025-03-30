@@ -1587,3 +1587,4 @@ export declare class WrappedBuilder<Args extends Array<Object>> {
 }
 
 export declare function $r(value: string, ...params: Object[]): Resource;
+export declare function $rawfile(value: string, ...params: Object[]): Resource;
