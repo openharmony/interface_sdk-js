@@ -78,3 +78,12 @@ export declare class StateDecoratedVariable<T> extends DecoratedVariableBase<T> 
     public set(newValue: T): void
     public update(newValue: T): void
 }
+
+export declare class LinkDecoratedVariable<T> implements DecoratedMutableVariable<T>, DecoratedV1Variable {
+    public _watchFunc: WatchFunc | undefined;
+    public sourceGet_: () => T;
+    public sourceSet_?: (newValue: T) => void;
+    constructor(sourceGet_: () => T, sourceSet_?: (newValue: T) => void, watchFunc?: WatchFunc);
+    public get(): T;
+    public set(newValue: T): void;
+}
