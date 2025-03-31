@@ -12,13 +12,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+ 
+import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from '../stateManagement/runtime';
 import { CustomComponent } from './customComponent'
 
-export abstract class ArkReusableStructBase<T extends ArkReusableStructBase<T, T_Options>, T_Options> extends
+export declare abstract class ArkReusableStructBase<T extends ArkReusableStructBase<T, T_Options>, T_Options> extends
     CustomComponent<T, T_Options> {
-    protected _toRecord(params: Object): Record<string, Object>{
-        return {}
-    }
-}
 
+    @memo
+    @ComponentBuilder
+    static $_instantiate<S extends ArkReusableStructBase<S, S_Options>, S_Options>(
+        factory: () => S,
+        initializers?: S_Options,
+        @memo
+        content?: () => void,
+        reuseId?: string
+    ): S;
+
+    protected _toRecord(params: Object): Record<string, Object>;
+}
