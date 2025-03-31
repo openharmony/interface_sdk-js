@@ -5,11 +5,6 @@
             "api/common/full/featureability.d.ts"
         ]
     },
-    "ets_internal_api2": {
-        "base": [
-            "api/common/full/canvaspattern.d.ets"
-        ]
-    },
     "ets_component": {
         "global_remove": [
             "inspector.d.ts"

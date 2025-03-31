@@ -20,9 +20,9 @@ common_api_src = [
   "//interface/sdk-js/api/@system.router.d.ts",
 ]
 common_api_src_ets2 = [
-  "//interface/sdk-js/api/@system.app.d.ets",
-  "//interface/sdk-js/api/@system.configuration.d.ets",
-  "//interface/sdk-js/api/@system.mediaquery.d.ets",
-  "//interface/sdk-js/api/@system.prompt.d.ets",
+  "//interface/sdk-js/api/@system.app.d.ts",
+  "//interface/sdk-js/api/@system.configuration.d.ts",
+  "//interface/sdk-js/api/@system.mediaquery.d.ts",
+  "//interface/sdk-js/api/@system.prompt.d.ts",
 ]
 sdk_type = "ets"
