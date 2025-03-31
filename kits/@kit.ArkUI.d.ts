@@ -21,7 +21,9 @@
 import windowAnimationManager from '@ohos.animation.windowAnimationManager';
 import Animator, { AnimatorOptions, AnimatorResult, SimpleAnimatorOptions } from '@ohos.animator';
 import WindowExtensionAbility, { WindowExtensionContext } from '@ohos.application.WindowExtensionAbility';
-import { AtomicServiceNavigation, NavDestinationBuilder } from '@ohos.atomicservice.AtomicServiceNavigation';
+import {
+  AtomicServiceNavigation, NavDestinationBuilder, MixMode, GradientAlpha, BackgroundTheme, TitleBarType
+} from '@ohos.atomicservice.AtomicServiceNavigation';
 import {
   AtomicServiceSearch,
   InputFilterParams,
@@ -228,7 +230,7 @@ import { HalfScreenLaunchComponent } from '@ohos.atomicservice.HalfScreenLaunchC
 export {
   AtomicServiceSearch, InputFilterParams, SearchButtonParams, MenuAlignParams, SearchParams, SelectParams, OperationParams,
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, SimpleAnimatorOptions, App, AppResponse, AtomicServiceBar,
-  AtomicServiceNavigation, NavDestinationBuilder,
+  AtomicServiceNavigation, NavDestinationBuilder, MixMode, GradientAlpha, BackgroundTheme, TitleBarType,
   NavPushPathHelper,
   BackRouterOptions, BuilderNode, Button, ButtonOptions, CallbackParam,
   ArcButton, ArcButtonOptions, ArcButtonPosition, ArcButtonStyleMode,
