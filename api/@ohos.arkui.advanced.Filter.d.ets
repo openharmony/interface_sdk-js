@@ -18,8 +18,10 @@
  * @kit ArkUI
  */
 
-
-
+/*** if arkts 1.2 */
+import { ResourceStr } from './arkui/component/units';
+import { Prop, Component, BuilderParam } from './arkui/stateManagement/common';
+/*** endif */
 
 
 /**
@@ -35,7 +37,8 @@
  * @enum { FilterType }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare enum FilterType {
     /**
@@ -47,7 +50,8 @@ export declare enum FilterType {
      * The multi_line_filter type.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MULTI_LINE_FILTER = 0,
 
@@ -60,7 +64,8 @@ export declare enum FilterType {
      * The list_filter type.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LIST_FILTER = 1
 }
@@ -74,7 +79,8 @@ export declare enum FilterType {
  * This parameter is used to define the input of each filtering dimension.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare class FilterParams {
     /**
@@ -88,7 +94,8 @@ export declare class FilterParams {
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name: ResourceStr;
     /**
@@ -102,7 +109,8 @@ export declare class FilterParams {
      * @type { Array<ResourceStr> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     options: Array<ResourceStr>;
 }
@@ -118,7 +126,8 @@ export declare class FilterParams {
  * The index starts from 0.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare class FilterResult {
     /**
@@ -132,7 +141,8 @@ export declare class FilterResult {
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name: ResourceStr;
     /**
@@ -146,7 +156,8 @@ export declare class FilterResult {
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     index: number;
     /**
@@ -160,7 +171,8 @@ export declare class FilterResult {
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     value: ResourceStr;
 }
@@ -174,7 +186,8 @@ export declare class FilterResult {
  * Declare Filter.The Filter is used in scenarios where multi-dimensional filtering is required.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 @Component
 export declare struct Filter {
@@ -189,7 +202,8 @@ export declare struct Filter {
      * @type { () => void }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     @BuilderParam container: () => void;
 
@@ -204,7 +218,8 @@ export declare struct Filter {
      * @type { Array<FilterParams> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     @Prop multiFilters: Array<FilterParams>;
 
@@ -219,7 +234,8 @@ export declare struct Filter {
      * @type { ?FilterParams }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     @Prop additionFilters?: FilterParams;
 
@@ -234,7 +250,8 @@ export declare struct Filter {
      * @param { (filterResults: Array<FilterResult>) => void } FilterType, Filter display style type.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     onFilterChanged: (filterResults: Array<FilterResult>) => void;
 
@@ -249,7 +266,8 @@ export declare struct Filter {
      * @type { ?FilterType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     @Prop filterType?: FilterType;
 }
