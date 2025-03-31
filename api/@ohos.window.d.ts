@@ -5189,13 +5189,16 @@ declare namespace window {
     getPreferredOrientation(): Orientation;
 
     /**
-     * Loads content
+     * Loads the content of a page, with its path in the current project specified, to this window, and transfers the state attribute to the page through a local storage.
+     * This API uses a promise to return the result. You are advised to call this API during UIAbility startup. If called multiple times,
+     * this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
      *
      * @param { string } path - Path of the page to which the content will be loaded
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
+     *                                                                  3. Path is not exist.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5203,13 +5206,16 @@ declare namespace window {
      * @since 9
      */
     /**
-     * Loads content
+     * Loads the content of a page, with its path in the current project specified, to this window, and transfers the state attribute to the page through a local storage.
+     * This API uses a promise to return the result. You are advised to call this API during UIAbility startup. If called multiple times,
+     * this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
      *
      * @param { string } path - Path of the page to which the content will be loaded
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
+     *                                                                  3. Path is not exist.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5218,13 +5224,16 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Loads content
+     * Loads the content of a page, with its path in the current project specified, to this window, and transfers the state attribute to the page through a local storage.
+     * This API uses a promise to return the result. You are advised to call this API during UIAbility startup. If called multiple times,
+     * this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
      *
      * @param { string } path - Path of the page to which the content will be loaded
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
+     *                                                                  3. Path is not exist.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5236,13 +5245,16 @@ declare namespace window {
     loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
 
     /**
-     * Loads content
+     * Loads the content of a page, with its path in the current project specified, to this window, and transfers the state attribute to the page through a local storage.
+     * This API uses a promise to return the result. You are advised to call this API during UIAbility startup. If called multiple times,
+     * this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
      *
      * @param { string } path - Path of the page to which the content will be loaded
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
+     *                                                                  3. Path is not exist.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5250,13 +5262,16 @@ declare namespace window {
      * @since 9
      */
     /**
-     * Loads content
+     * Loads the content of a page, with its path in the current project specified, to this window, and transfers the state attribute to the page through a local storage.
+     * This API uses a promise to return the result. You are advised to call this API during UIAbility startup. If called multiple times,
+     * this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
      *
      * @param { string } path - Path of the page to which the content will be loaded
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
+     *                                                                  3. Path is not exist.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5265,13 +5280,16 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Loads content
+     * Loads the content of a page, with its path in the current project specified, to this window, and transfers the state attribute to the page through a local storage.
+     * This API uses a promise to return the result. You are advised to call this API during UIAbility startup. If called multiple times,
+     * this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
      *
      * @param { string } path - Path of the page to which the content will be loaded
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
+     *                                                                  3. Path is not exist.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5283,7 +5301,8 @@ declare namespace window {
     loadContent(path: string, storage: LocalStorage): Promise<void>;
 
     /**
-     * Loads content
+     * Loads content from a page to this window. This API uses an asynchronous callback to return the result. You are advised to call this API during UIAbility startup.
+     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
      *
      * @param { string } path - Path of the page to which the content will be loaded
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
@@ -5295,7 +5314,8 @@ declare namespace window {
     loadContent(path: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Loads content
+     * Loads content from a page to this window. This API uses a promise to return the result. You are advised to call this API during UIAbility startup.
+     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
      *
      * @param { string } path - Path of the page to which the content will be loaded
      * @returns { Promise<void> } Promise that returns no value.
@@ -9639,13 +9659,16 @@ declare namespace window {
      */
     getSubWindow(callback: AsyncCallback<Array<Window>>): void;
     /**
-     * Loads content
+     * Loads the content of a page, with its path in the current project specified, to the main window of this window stage, and transfers the state attribute to the page through a local storage.
+     * This API uses an asynchronous callback to return the result. You are advised to call this API during UIAbility startup. If called multiple times,
+     * this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
      *
      * @param { string } path Path of the page to which the content will be loaded
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @param { AsyncCallback<void> } callback Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
+     *                                                                  3. Path is not exist.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -9653,13 +9676,16 @@ declare namespace window {
      * @since 9
      */
     /**
-     * Loads content
+     * Loads the content of a page, with its path in the current project specified, to the main window of this window stage, and transfers the state attribute to the page through a local storage.
+     * This API uses an asynchronous callback to return the result. You are advised to call this API during UIAbility startup. If called multiple times,
+     * this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
      *
      * @param { string } path Path of the page to which the content will be loaded
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @param { AsyncCallback<void> } callback Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
+     *                                                                  3. Path is not exist.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -9668,13 +9694,16 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Loads content
+     * Loads the content of a page, with its path in the current project specified, to the main window of this window stage, and transfers the state attribute to the page through a local storage.
+     * This API uses an asynchronous callback to return the result. You are advised to call this API during UIAbility startup. If called multiple times,
+     * this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
      *
      * @param { string } path Path of the page to which the content will be loaded
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @param { AsyncCallback<void> } callback Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
+     *                                                                  3. Path is not exist.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -9685,13 +9714,16 @@ declare namespace window {
      */
     loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
     /**
-     * Loads content
+     * Loads the content of a page, with its path in the current project specified, to the main window of this window stage, and transfers the state attribute to the page through a local storage.
+     * This API uses a promise to return the result. You are advised to call this API during UIAbility startup. If called multiple times,
+     * this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
      *
      * @param { string } path of the page to which the content will be loaded
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @returns { Promise<void> }
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
+     *                                                                  3. Path is not exist.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -9699,13 +9731,16 @@ declare namespace window {
      * @since 9
      */
     /**
-     * Loads content
+     * Loads the content of a page, with its path in the current project specified, to the main window of this window stage, and transfers the state attribute to the page through a local storage.
+     * This API uses a promise to return the result. You are advised to call this API during UIAbility startup. If called multiple times,
+     * this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
      *
      * @param { string } path of the page to which the content will be loaded
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @returns { Promise<void> }
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
+     *                                                                  3. Path is not exist.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -9714,13 +9749,16 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Loads content
+     * Loads the content of a page, with its path in the current project specified, to the main window of this window stage, and transfers the state attribute to the page through a local storage.
+     * This API uses a promise to return the result. You are advised to call this API during UIAbility startup. If called multiple times,
+     * this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
      *
      * @param { string } path of the page to which the content will be loaded
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @returns { Promise<void> }
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
+     *                                                                  3. Path is not exist.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -9731,12 +9769,14 @@ declare namespace window {
      */
     loadContent(path: string, storage?: LocalStorage): Promise<void>;
     /**
-     * Loads content
+     * Loads content from a page to this window stage. This API uses an asynchronous callback to return the result. You are advised to call this API during UIAbility startup.
+     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
      *
      * @param { string } path of the page to which the content will be loaded
      * @param { AsyncCallback<void> } callback Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
+     *                                                                  3. Path is not exist.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -9744,12 +9784,14 @@ declare namespace window {
      * @since 9
      */
     /**
-     * Loads content
+     * Loads content from a page to this window stage. This API uses an asynchronous callback to return the result. You are advised to call this API during UIAbility startup.
+     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
      *
      * @param { string } path of the page to which the content will be loaded
      * @param { AsyncCallback<void> } callback Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
+     *                                                                  3. Path is not exist.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -9758,12 +9800,14 @@ declare namespace window {
      * @since 10
      */
     /**
-     * Loads content
+     * Loads content from a page to this window stage. This API uses an asynchronous callback to return the result. You are advised to call this API during UIAbility startup.
+     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
      *
      * @param { string } path of the page to which the content will be loaded
      * @param { AsyncCallback<void> } callback Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
+     *                                                                  3. Path is not exist.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
