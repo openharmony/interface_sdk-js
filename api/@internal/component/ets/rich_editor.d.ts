@@ -1878,7 +1878,7 @@ declare interface RichEditorGesture {
    * @crossplatform
    * @since 11
    */
-  /**
+   /**
    * Trigger a click event when a click is clicked.
    *
    * @type { ?Callback<ClickEvent> }
@@ -2020,7 +2020,7 @@ declare interface RichEditorTextSpanOptions {
  * @atomicservice
  * @since 12
  */
- declare interface KeyboardOptions {
+declare interface KeyboardOptions {
   /**
    * Indicates whether to support custom keyboard avoidance.
    *
@@ -2828,7 +2828,7 @@ declare interface SelectionMenuOptions {
    */
   /**
    * Callback function when the selection menu disappears.
-   *
+   * 
    * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -3965,7 +3965,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    */
   stopBackPress(isStopped: Optional<boolean>): RichEditorAttribute;
 }
- 
+
 /**
  * the callback of cut event.
  * @interface CutEvent
@@ -3986,7 +3986,7 @@ declare interface CutEvent {
    */
   preventDefault?: Callback<void>;
 }
- 
+
 /**
  * the callback of copy event.
  * @interface CopyEvent
