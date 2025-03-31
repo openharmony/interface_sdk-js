@@ -1055,7 +1055,7 @@ declare namespace cloudSync {
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
-   * @since 16
+   * @since 17
    */
   function optimizeStorage(): Promise<void>;
 
@@ -1074,7 +1074,7 @@ declare namespace cloudSync {
    * @throws { BusinessError } 22400006 - Other optimize task is running.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
-   * @since 16
+   * @since 17
    */
   function startOptimizeSpace(optimizePara: OptimizeSpaceParam, callback?: Callback<OptimizeSpaceProgress>): Promise<void>;
 
@@ -1088,7 +1088,7 @@ declare namespace cloudSync {
    * @throws { BusinessError } 22400005 - Inner error.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
-   * @since 16
+   * @since 17
    */
   function stopOptimizeSpace(): void;
 
@@ -1097,7 +1097,7 @@ declare namespace cloudSync {
    * @enum { number } OptimizeState
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
-   * @since 16
+   * @since 17
    */
   export enum OptimizeState {
 
@@ -1105,7 +1105,7 @@ declare namespace cloudSync {
      * Indicates that the optimize space task in process now.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since 16
+     * @since 17
      */
     RUNNING = 0,
 
@@ -1113,7 +1113,7 @@ declare namespace cloudSync {
      * Indicates that the optimize space task finished successfully.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since 16
+     * @since 17
      */
     COMPLETED = 1,
 
@@ -1121,7 +1121,7 @@ declare namespace cloudSync {
      * Indicates that the optimize space task failed.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since 16
+     * @since 17
      */
     FAILED = 2,
 
@@ -1129,7 +1129,7 @@ declare namespace cloudSync {
      * Indicates that the optimize space task stopped.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since 16
+     * @since 17
      */
     STOPPED = 3
   }
@@ -1139,7 +1139,7 @@ declare namespace cloudSync {
    * @typedef OptimizeSpaceProgress
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
-   * @since 16
+   * @since 17
    */
   declare interface OptimizeSpaceProgress {
 
@@ -1149,7 +1149,7 @@ declare namespace cloudSync {
      * @type { OptimizeState }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since 16
+     * @since 17
      */
     state: OptimizeState;
 
@@ -1159,7 +1159,7 @@ declare namespace cloudSync {
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since 16
+     * @since 17
      */
     progress: number;
   }
@@ -1169,7 +1169,7 @@ declare namespace cloudSync {
    * @typedef OptimizeSpaceParam
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
-   * @since 16
+   * @since 17
    */
   declare interface OptimizeSpaceParam {
 
@@ -1179,7 +1179,7 @@ declare namespace cloudSync {
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since 16
+     * @since 17
      */
     totalSize: number;
 
@@ -1189,7 +1189,7 @@ declare namespace cloudSync {
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since 16
+     * @since 17
      */
     agingDays: number;
   }
