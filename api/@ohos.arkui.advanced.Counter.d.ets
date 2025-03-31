@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,19 +18,13 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { Component, Prop } from '../component/common';
-import { Direction } from '../component/enums';
-import { ResourceStr } from '../component/units';
-/*** endif */
 /**
  * Enum for the counter type.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
  /**
  * Enum for the counter type.
@@ -39,24 +33,21 @@ import { ResourceStr } from '../component/units';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum CounterType {
     /**
      * List counter.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * List counter.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     LIST = 0,
 
@@ -64,16 +55,14 @@ declare enum CounterType {
      * Compact counter.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * Compact counter.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     COMPACT = 1,
 
@@ -81,16 +70,14 @@ declare enum CounterType {
      * Inline counter.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * Inline counter.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     INLINE = 2,
 
@@ -98,16 +85,14 @@ declare enum CounterType {
      * Date inline counter.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * Date inline counter.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     INLINE_DATE = 3
 }
@@ -117,8 +102,7 @@ declare enum CounterType {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
  /**
  * Defines the common options.
@@ -126,8 +110,7 @@ declare enum CounterType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare class CommonOptions {
     /**
@@ -136,8 +119,7 @@ declare class CommonOptions {
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * Set the focusable of the counter component.
@@ -146,8 +128,7 @@ declare class CommonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     focusable?: boolean;
 
@@ -158,8 +139,7 @@ declare class CommonOptions {
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * Set the step of the couter component, ranges greater than or equal to 1
@@ -169,8 +149,7 @@ declare class CommonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     step?: number;
 
@@ -180,8 +159,7 @@ declare class CommonOptions {
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * Trigger a mouse hover event at the increased button.
@@ -190,8 +168,7 @@ declare class CommonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     onHoverIncrease?: (isHover: boolean) => void;
 
@@ -201,8 +178,7 @@ declare class CommonOptions {
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * Trigger a mouse hover event at the decreased button.
@@ -211,8 +187,7 @@ declare class CommonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     onHoverDecrease?: (isHover: boolean) => void;
 }
@@ -222,8 +197,7 @@ declare class CommonOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
  /**
  * Defines the inline style options.
@@ -231,8 +205,7 @@ declare class CommonOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare class InlineStyleOptions extends CommonOptions {
     /**
@@ -242,8 +215,7 @@ declare class InlineStyleOptions extends CommonOptions {
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * Set initial value of the counter component, ranges from min to max.
@@ -253,8 +225,7 @@ declare class InlineStyleOptions extends CommonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     value?: number;
 
@@ -265,8 +236,7 @@ declare class InlineStyleOptions extends CommonOptions {
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * Set minimum value of the counter component
@@ -276,8 +246,7 @@ declare class InlineStyleOptions extends CommonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     min?: number;
 
@@ -288,8 +257,7 @@ declare class InlineStyleOptions extends CommonOptions {
      * @default 999
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * Set maximum value of the counter component
@@ -299,8 +267,7 @@ declare class InlineStyleOptions extends CommonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     max?: number;
 
@@ -311,8 +278,7 @@ declare class InlineStyleOptions extends CommonOptions {
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * Set text width  of the counter component,  ranges greater than or equal to 0
@@ -322,8 +288,7 @@ declare class InlineStyleOptions extends CommonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     textWidth?: number;
 
@@ -333,8 +298,7 @@ declare class InlineStyleOptions extends CommonOptions {
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * Trigger a event when the value of the counter has been changed.
@@ -343,8 +307,7 @@ declare class InlineStyleOptions extends CommonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     onChange?: (value: number) => void;
 }
@@ -354,8 +317,7 @@ declare class InlineStyleOptions extends CommonOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
  /**
  * Defines the number style options.
@@ -363,8 +325,7 @@ declare class InlineStyleOptions extends CommonOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare class NumberStyleOptions extends InlineStyleOptions {
     /**
@@ -373,8 +334,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * Set the label of the counter component.
@@ -383,8 +343,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     label?: ResourceStr;
 
@@ -394,8 +353,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * Trigger a event when the increased button got focus.
@@ -404,8 +362,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     onFocusIncrease?: () => void;
 
@@ -415,8 +372,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * Trigger a event when the decreased button got focus.
@@ -425,8 +381,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     onFocusDecrease?: () => void;
 
@@ -436,8 +391,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * Trigger a event when the increased button lose focus.
@@ -446,8 +400,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     onBlurIncrease?: () => void;
 
@@ -457,8 +410,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * Trigger a event when the decreased button lose focus.
@@ -467,8 +419,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     onBlurDecrease?: () => void;
 }
@@ -478,8 +429,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
  /**
  * Defines the date data.
@@ -487,8 +437,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare class DateData {
     /**
@@ -497,8 +446,7 @@ declare class DateData {
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * The year of the DateData, ranges from 1 to 5000.
@@ -507,8 +455,7 @@ declare class DateData {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     year: number;
 
@@ -518,8 +465,7 @@ declare class DateData {
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * The month of the DateData.
@@ -528,8 +474,7 @@ declare class DateData {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     month: number;
 
@@ -539,8 +484,7 @@ declare class DateData {
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * The day of the DateData.
@@ -549,8 +493,7 @@ declare class DateData {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     day: number;
 
@@ -562,8 +505,7 @@ declare class DateData {
      * @param { number } day - set the day of the DateData.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * Constructor of the DateData.
@@ -574,8 +516,7 @@ declare class DateData {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     constructor(year: number, month: number, day: number);
 
@@ -585,8 +526,7 @@ declare class DateData {
      * @returns { string } date data in string form.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * Convert the date data to string.
@@ -595,8 +535,7 @@ declare class DateData {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     toString(): string;
 }
@@ -606,8 +545,7 @@ declare class DateData {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
  /**
  * Defines the date style options.
@@ -615,8 +553,7 @@ declare class DateData {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare class DateStyleOptions extends CommonOptions {
     /**
@@ -626,8 +563,7 @@ declare class DateStyleOptions extends CommonOptions {
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * Set the year of the counter component, ranges from 1 to 5000.
@@ -637,8 +573,7 @@ declare class DateStyleOptions extends CommonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     year?: number;
 
@@ -649,8 +584,7 @@ declare class DateStyleOptions extends CommonOptions {
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * Set the month of the counter component.
@@ -660,8 +594,7 @@ declare class DateStyleOptions extends CommonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     month?: number;
 
@@ -672,8 +605,7 @@ declare class DateStyleOptions extends CommonOptions {
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * Set the day of the counter component.
@@ -683,8 +615,7 @@ declare class DateStyleOptions extends CommonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     day?: number;
 
@@ -694,8 +625,7 @@ declare class DateStyleOptions extends CommonOptions {
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * Trigger a event when the date of the counter has been changed.
@@ -704,8 +634,7 @@ declare class DateStyleOptions extends CommonOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     onDateChange?: (date: DateData) => void;
 }
@@ -716,8 +645,7 @@ declare class DateStyleOptions extends CommonOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
  /**
  * Defines the counter options.
@@ -725,8 +653,7 @@ declare class DateStyleOptions extends CommonOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare class CounterOptions {
     /**
@@ -735,8 +662,7 @@ declare class CounterOptions {
      * @type { CounterType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * Set the type of the counter component.
@@ -745,8 +671,7 @@ declare class CounterOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     type: CounterType;
 
@@ -756,8 +681,7 @@ declare class CounterOptions {
      * @type { ?NumberStyleOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * Set the counter attribute of the LIST or COMPACT counter component.
@@ -766,8 +690,7 @@ declare class CounterOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     numberOptions?: NumberStyleOptions;
 
@@ -777,8 +700,7 @@ declare class CounterOptions {
      * @type { ?InlineStyleOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * Set the counter attribute of the INLINE counter component.
@@ -787,8 +709,7 @@ declare class CounterOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     inlineOptions?: InlineStyleOptions;
 
@@ -798,8 +719,7 @@ declare class CounterOptions {
      * @type { ?DateStyleOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * Set the counter attribute of the INLINE_DATE counter component.
@@ -808,8 +728,7 @@ declare class CounterOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     dateOptions?: DateStyleOptions;
 
@@ -820,8 +739,7 @@ declare class CounterOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     direction?: Direction;
 }
@@ -831,8 +749,7 @@ declare class CounterOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
  /**
  * Defines Counter Component.
@@ -840,8 +757,7 @@ declare class CounterOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 @Component
 declare struct CounterComponent {
@@ -851,8 +767,7 @@ declare struct CounterComponent {
      * @type { CounterOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
      /**
      * The options of a counter component.
@@ -861,8 +776,7 @@ declare struct CounterComponent {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     @Prop
     options: CounterOptions;

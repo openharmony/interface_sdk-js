@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2023-2025 Huawei Device Co., Ltd.
+* Copyright (C) 2023 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
@@ -22,11 +22,6 @@
 
 
 import { SymbolGlyphModifier } from './@ohos.arkui.modifier';
-/*** if arkts 1.2 */
-import { Builder, Callback } from '../component/common';
-import { Direction } from '../component/enums';
-import { Dimension, LengthMetrics, ResourceColor, ResourceStr, SizeOptions, VoidCallback } from '../component/units';
-/*** endif */
 
 /**
  * Enum for ChipSize
@@ -34,8 +29,7 @@ import { Dimension, LengthMetrics, ResourceColor, ResourceStr, SizeOptions, Void
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 /**
  * Enum for ChipSize
@@ -44,8 +38,7 @@ import { Dimension, LengthMetrics, ResourceColor, ResourceStr, SizeOptions, Void
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 
 export declare enum ChipSize {
@@ -55,8 +48,7 @@ export declare enum ChipSize {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
    /**
    * Normal type.
@@ -64,8 +56,7 @@ export declare enum ChipSize {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   NORMAL = "NORMAL",
 
@@ -74,8 +65,7 @@ export declare enum ChipSize {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
    /**
    * Small type.
@@ -83,8 +73,7 @@ export declare enum ChipSize {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   SMALL = "SMALL"
 }
@@ -96,8 +85,7 @@ export declare enum ChipSize {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'14','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14
  */
 export declare enum AccessibilitySelectedType {
   /**
@@ -106,8 +94,7 @@ export declare enum AccessibilitySelectedType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   CLICKED = 0,
 
@@ -117,8 +104,7 @@ export declare enum AccessibilitySelectedType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   CHECKED = 1,
 
@@ -128,8 +114,7 @@ export declare enum AccessibilitySelectedType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   SELECTED = 2
 }
@@ -140,8 +125,7 @@ export declare enum AccessibilitySelectedType {
  * @interface IconCommonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
  /**
  * Defines the icon common option.
@@ -150,8 +134,7 @@ export declare enum AccessibilitySelectedType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface IconCommonOptions {
 
@@ -161,8 +144,7 @@ export interface IconCommonOptions {
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
    /**
    * Image resource.
@@ -171,8 +153,7 @@ export interface IconCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   src: ResourceStr;
 
@@ -182,8 +163,7 @@ export interface IconCommonOptions {
    * @type { ?SizeOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
    /**
    * Image size option.
@@ -192,8 +172,7 @@ export interface IconCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   size?: SizeOptions;
 
@@ -203,8 +182,7 @@ export interface IconCommonOptions {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
    /**
    * Image filled color.
@@ -213,8 +191,7 @@ export interface IconCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   fillColor?: ResourceColor;
 
@@ -225,8 +202,7 @@ export interface IconCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   activatedFillColor?: ResourceColor;
 }
@@ -238,8 +214,7 @@ export interface IconCommonOptions {
  * @extends IconCommonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
  /**
  * Defines the suffix icon option.
@@ -249,8 +224,7 @@ export interface IconCommonOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface SuffixIconOptions extends IconCommonOptions {
 
@@ -260,8 +234,7 @@ export interface SuffixIconOptions extends IconCommonOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
    /**
    * Called when the suffix icon is clicked.
@@ -270,8 +243,7 @@ export interface SuffixIconOptions extends IconCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   action?: () => void;
 
@@ -282,8 +254,7 @@ export interface SuffixIconOptions extends IconCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   accessibilityText?: ResourceStr;
 
@@ -294,8 +265,7 @@ export interface SuffixIconOptions extends IconCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   accessibilityDescription?: ResourceStr;
 
@@ -307,8 +277,7 @@ export interface SuffixIconOptions extends IconCommonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   accessibilityLevel?: string;
 }
@@ -320,8 +289,7 @@ export interface SuffixIconOptions extends IconCommonOptions {
  * @extends IconCommonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
  /**
  * Defines the prefix icon option.
@@ -331,8 +299,7 @@ export interface SuffixIconOptions extends IconCommonOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface PrefixIconOptions extends IconCommonOptions {}
 
@@ -343,8 +310,7 @@ export interface PrefixIconOptions extends IconCommonOptions {}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'14','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14
  */
 export interface AccessibilityOptions {
   /**
@@ -355,8 +321,7 @@ export interface AccessibilityOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   accessibilityLevel?: string;
 
@@ -367,8 +332,7 @@ export interface AccessibilityOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   accessibilityText?: ResourceStr;
 
@@ -379,8 +343,7 @@ export interface AccessibilityOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   accessibilityDescription?: ResourceStr;
 }
@@ -392,8 +355,7 @@ export interface AccessibilityOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'14','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14
  */
 export interface CloseOptions extends AccessibilityOptions {}
 
@@ -404,8 +366,7 @@ export interface CloseOptions extends AccessibilityOptions {}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface ChipSymbolGlyphOptions {
 
@@ -416,8 +377,7 @@ export interface ChipSymbolGlyphOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   normal?: SymbolGlyphModifier;
 
@@ -428,8 +388,7 @@ export interface ChipSymbolGlyphOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   activated?: SymbolGlyphModifier;
 }
@@ -441,8 +400,7 @@ export interface ChipSymbolGlyphOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'14','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14
  */
 export interface ChipSuffixSymbolGlyphOptions {
   /**
@@ -452,8 +410,7 @@ export interface ChipSuffixSymbolGlyphOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   normalAccessibility?: AccessibilityOptions;
 
@@ -464,8 +421,7 @@ export interface ChipSuffixSymbolGlyphOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   activatedAccessibility?: AccessibilityOptions;
 
@@ -476,8 +432,7 @@ export interface ChipSuffixSymbolGlyphOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   action?: VoidCallback;
 }
@@ -488,8 +443,7 @@ export interface ChipSuffixSymbolGlyphOptions {
  * @interface LabelMarginOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
  /**
  * Defines label margin.
@@ -498,8 +452,7 @@ export interface ChipSuffixSymbolGlyphOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface LabelMarginOptions {
 
@@ -509,8 +462,7 @@ export interface LabelMarginOptions {
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
    /**
    * Left label margin length.
@@ -519,8 +471,7 @@ export interface LabelMarginOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   left?: Dimension;
 
@@ -530,8 +481,7 @@ export interface LabelMarginOptions {
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
    /**
    * Right label margin length.
@@ -540,8 +490,7 @@ export interface LabelMarginOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   right?: Dimension;
 }
@@ -553,8 +502,7 @@ export interface LabelMarginOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface LocalizedLabelMarginOptions {
 
@@ -565,8 +513,7 @@ export interface LocalizedLabelMarginOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
    start?: LengthMetrics;
 
@@ -577,8 +524,7 @@ export interface LocalizedLabelMarginOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   end?: LengthMetrics;
 }
@@ -589,8 +535,7 @@ export interface LocalizedLabelMarginOptions {
  * @interface LabelOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
  /**
  * Defines label option.
@@ -599,8 +544,7 @@ export interface LocalizedLabelMarginOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface LabelOptions {
 
@@ -610,8 +554,7 @@ export interface LabelOptions {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
    /**
    * Text content.
@@ -620,8 +563,7 @@ export interface LabelOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   text: string;
 
@@ -631,8 +573,7 @@ export interface LabelOptions {
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
    /**
    * Text font size.
@@ -641,8 +582,7 @@ export interface LabelOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   fontSize?: Dimension;
 
@@ -652,8 +592,7 @@ export interface LabelOptions {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
    /**
    * Text font color.
@@ -662,8 +601,7 @@ export interface LabelOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   fontColor?: ResourceColor;
 
@@ -674,8 +612,7 @@ export interface LabelOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   activatedFontColor?: ResourceColor;
 
@@ -685,8 +622,7 @@ export interface LabelOptions {
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
    /**
    * Text font family.
@@ -695,8 +631,7 @@ export interface LabelOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   fontFamily?: string;
 
@@ -706,8 +641,7 @@ export interface LabelOptions {
    * @type { ?LabelMarginOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
    /**
    * Label margin.
@@ -716,8 +650,7 @@ export interface LabelOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   labelMargin?: LabelMarginOptions;
 
@@ -728,8 +661,7 @@ export interface LabelOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   localizedLabelMargin?: LocalizedLabelMarginOptions;
 }
@@ -740,8 +672,7 @@ export interface LabelOptions {
  * @interface ChipOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
  /**
  * Defines chip options.
@@ -750,8 +681,7 @@ export interface LabelOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface ChipOptions {
   /**
@@ -760,8 +690,7 @@ export interface ChipOptions {
    * @type { ?PrefixIconOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
    /**
    * Chip prefix icon.
@@ -770,8 +699,7 @@ export interface ChipOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   prefixIcon?: PrefixIconOptions;
 
@@ -782,8 +710,7 @@ export interface ChipOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   prefixSymbol?: ChipSymbolGlyphOptions;
 
@@ -793,8 +720,7 @@ export interface ChipOptions {
    * @type { LabelOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
    /**
    * Chip label.
@@ -803,8 +729,7 @@ export interface ChipOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   label: LabelOptions;
 
@@ -814,8 +739,7 @@ export interface ChipOptions {
    * @type { ?SuffixIconOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
    /**
    * Chip suffix icon.
@@ -824,8 +748,7 @@ export interface ChipOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   suffixIcon?: SuffixIconOptions;
 
@@ -836,8 +759,7 @@ export interface ChipOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   suffixSymbol?: ChipSymbolGlyphOptions;
 
@@ -848,8 +770,7 @@ export interface ChipOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   suffixSymbolOptions?: ChipSuffixSymbolGlyphOptions;
 
@@ -859,8 +780,7 @@ export interface ChipOptions {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
    /**
    * Show close icon.
@@ -869,8 +789,7 @@ export interface ChipOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   allowClose?: boolean;
 
@@ -881,8 +800,7 @@ export interface ChipOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   closeOptions?: CloseOptions;
 
@@ -892,8 +810,7 @@ export interface ChipOptions {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
    /**
    * Enable chip.
@@ -902,8 +819,7 @@ export interface ChipOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   enabled?: boolean;
 
@@ -914,8 +830,7 @@ export interface ChipOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   activated?: boolean;
 
@@ -925,8 +840,7 @@ export interface ChipOptions {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
    /**
    * Chip background color.
@@ -935,8 +849,7 @@ export interface ChipOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   backgroundColor?: ResourceColor;
 
@@ -947,8 +860,7 @@ export interface ChipOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   activatedBackgroundColor?: ResourceColor;
 
@@ -958,8 +870,7 @@ export interface ChipOptions {
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
    /**
    * Chip radius.
@@ -968,8 +879,7 @@ export interface ChipOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   borderRadius?: Dimension;
 
@@ -979,8 +889,7 @@ export interface ChipOptions {
    * @type { ?ChipSize | SizeOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
    /**
    * Chip size.
@@ -989,8 +898,7 @@ export interface ChipOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   size?: ChipSize | SizeOptions;
 
@@ -1000,8 +908,7 @@ export interface ChipOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
    /**
    * On close action.
@@ -1010,8 +917,7 @@ export interface ChipOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onClose?: () => void;
 
@@ -1022,8 +928,7 @@ export interface ChipOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onClicked?: Callback<void>;
 
@@ -1034,8 +939,7 @@ export interface ChipOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
    direction?: Direction;
 
@@ -1046,8 +950,7 @@ export interface ChipOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   accessibilityDescription?: ResourceStr;
 
@@ -1059,8 +962,7 @@ export interface ChipOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   accessibilityLevel?: string;
 
@@ -1071,8 +973,7 @@ export interface ChipOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   accessibilitySelectedType?: AccessibilitySelectedType;
 }
@@ -1083,8 +984,7 @@ export interface ChipOptions {
  * @param { ChipOptions } options - chip option.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
  /**
  * Build function of Chip.
@@ -1093,8 +993,7 @@ export interface ChipOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 @Builder
 export declare function Chip(options: ChipOptions): void;
