@@ -87,3 +87,14 @@ export declare class LinkDecoratedVariable<T> implements DecoratedMutableVariabl
     public get(): T;
     public set(newValue: T): void;
 }
+
+export declare class PropDecoratedVariable<T> extends DecoratedVariableBase<T> implements 
+    DecoratedMutableVariable<T>, DecoratedV1Variable, DecoratedUpdatableVariable<T> {
+    public readonly _watchFunc: WatchFunc | undefined;
+    public __backing: T;
+    public __sourceValue: T;
+    public constructor(source_value: T, watchFunc?: WatchFunc)
+    public get(): T
+    public set(newValue: T): void
+    public update(newValue: T): void
+}
