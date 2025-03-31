@@ -158,6 +158,8 @@ declare namespace socket {
    */
   function off(type: 'sppRead', clientSocket: number, callback?: Callback<ArrayBuffer>): void;
 
+  
+
   /**
    * Describes the spp parameters.
    *
