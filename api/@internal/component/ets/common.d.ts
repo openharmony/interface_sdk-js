@@ -4716,14 +4716,14 @@ declare interface RadialGradientOptions {
    * Defines radius of the radial gradient.
    *
    * Anonymous Object Rectification.
-   * @type { number | string }
+   * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
    * @since 18
    */
-  radius: number | string;
+  radius: Length;
 
   /**
    * colors:Color description for gradients
