@@ -503,6 +503,7 @@ declare interface RichEditorTextStyle {
 }
 
 
+
 /**
  * Defines the leading margin placeholder of a paragraph.
  *
