@@ -16773,45 +16773,6 @@ interface ContextMenuAnimationOptions {
 }
 
 /**
- * Defines the menu haptic feedback mode.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 18
- */
-declare enum HapticFeedbackMode {
-  /**
-   * No haptic feedback.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */    
-  DISABLED = 0,
-  /**
-   * Defines menu always haptic feedback.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  ENABLED = 1,
-  /**
-   * Defines menu automatically haptic feedback.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  AUTO = 2
-}
-
-/**
  * Defines the context menu options.
  *
  * @interface ContextMenuOptions
@@ -17135,18 +17096,6 @@ declare interface ContextMenuOptions {
     * @since 18
     */
   enableHoverMode?: boolean;
-
-  /**
-   * Defines the haptic feedback mode of menu.
-   *
-   * @type { ?HapticFeedbackMode }
-   * @default HapticFeedbackMode.DISABLED
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  hapticFeedbackMode?: HapticFeedbackMode;
 }
 
 /**
