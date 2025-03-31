@@ -4192,6 +4192,7 @@ export class TextMenuController {
   /**
    * Set text menu options.
    *
+   * @param { TextMenuOptions } options - the options of the text menu.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
