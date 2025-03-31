@@ -503,7 +503,6 @@ declare interface RichEditorTextStyle {
 }
 
 
-
 /**
  * Defines the leading margin placeholder of a paragraph.
  *
@@ -638,17 +637,6 @@ declare interface RichEditorParagraphStyle {
    * @since 12
    */
   lineBreakStrategy?: LineBreakStrategy;
-
-  /**
-   * Set paragraph spacing.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  paragraphSpacing?: number;
 }
 
 /**
@@ -1541,17 +1529,6 @@ declare interface RichEditorTextSpanResult {
    * @since 12
    */
   previewText?: string;
-
-  /**
-   * RichEditor url style.
-   *
-   * @type { ?RichEditorUrlStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  urlStyle?: RichEditorUrlStyle;
 }
 
 /**
@@ -1901,7 +1878,7 @@ declare interface RichEditorGesture {
    * @crossplatform
    * @since 11
    */
-   /**
+  /**
    * Trigger a click event when a click is clicked.
    *
    * @type { ?Callback<ClickEvent> }
@@ -2033,19 +2010,7 @@ declare interface RichEditorTextSpanOptions {
    * @since 12
    */
   gesture?: RichEditorGesture;
-
-  /**
-   * RichEditor url style.
-   *
-   * @type { ?RichEditorUrlStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  urlStyle?: RichEditorUrlStyle;
 }
-
 /**
  * Defines the custom keyboard options of RichEditor.
  *
@@ -2055,7 +2020,7 @@ declare interface RichEditorTextSpanOptions {
  * @atomicservice
  * @since 12
  */
-declare interface KeyboardOptions {
+ declare interface KeyboardOptions {
   /**
    * Indicates whether to support custom keyboard avoidance.
    *
@@ -2339,17 +2304,6 @@ declare interface RichEditorUpdateTextSpanStyleOptions extends RichEditorSpanSty
    * @since 11
    */
   textStyle: RichEditorTextStyle;
-
-  /**
-   * RichEditor url style.
-   *
-   * @type { ?RichEditorUrlStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-    urlStyle?: RichEditorUrlStyle;
 }
 
 /**
@@ -2874,7 +2828,7 @@ declare interface SelectionMenuOptions {
    */
   /**
    * Callback function when the selection menu disappears.
-   * 
+   *
    * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2915,36 +2869,6 @@ declare interface SelectionMenuOptions {
    * @since 15
    */
   onMenuHide?: MenuCallback;
-
-  /**
-   * Defines the preview menu options.
-   * 
-   * @type { ?PreviewMenuOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 18
-   */
-  previewMenuOptions?: PreviewMenuOptions;
-}
-
-/**
- * Defines the preview menu options.
- * 
- * @interface PreviewMenuOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 18
- */
-declare interface PreviewMenuOptions {
-  /**
-   * Defines the haptic feedback mode of preview menu.
-   * 
-   * @type { ?HapticFeedbackMode }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 18
-   */
-  hapticFeedbackMode? : HapticFeedbackMode;
 }
 
 /**
@@ -4041,7 +3965,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    */
   stopBackPress(isStopped: Optional<boolean>): RichEditorAttribute;
 }
-
+ 
 /**
  * the callback of cut event.
  * @interface CutEvent
@@ -4062,7 +3986,7 @@ declare interface CutEvent {
    */
   preventDefault?: Callback<void>;
 }
-
+ 
 /**
  * the callback of copy event.
  * @interface CopyEvent
@@ -4082,27 +4006,6 @@ declare interface CopyEvent {
    * @since 12
    */
   preventDefault?: Callback<void>;
-}
-
-/**
- * RichEditor url style.
- * @interface RichEditorUrlStyle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 18
- */
-declare interface RichEditorUrlStyle {
-  /**
-   * uniform resoure locator.
-   *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  url?: ResourceStr;
 }
 
 /**
