@@ -2118,6 +2118,35 @@ declare namespace avSession {
     off(type: 'setLoopMode', callback?: (mode: LoopMode) => void): void;
 
     /**
+     * Register setTargetLoopMode command callback
+     * Application should change playmode to the loopmode which is requested.
+     * @param { 'setTargetLoopMode' } type - Registration Type 'setTargetLoopMode'
+     * @param { function } callback - Used to handle setTargetLoopMode command.The callback provides the {@link LoopMode}
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 18
+     */
+    on(type: 'setTargetLoopMode', callback: Callback<LoopMode>): void;
+
+    /**
+     * Unregister setTargetLoopMode command callback
+     * @param { 'setTargetLoopMode' } type - Registration Type 'setTargetLoopMode'
+     * @param { function } callback - Used to handle setTargetLoopMode command.The callback provides the {@link LoopMode}
+     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 18
+     */
+    off(type: 'setTargetLoopMode', callback?: Callback<LoopMode>): void;
+
+    /**
      * Register toggle favorite command callback
      * @param { 'toggleFavorite' } type - Registration Type 'toggleFavorite'
      * @param { function } callback - Used to handle toggleFavorite command.The callback provides
@@ -7380,8 +7409,17 @@ declare namespace avSession {
    * @atomicservice
    * @since 12
    */
+  /**
+   * The type of control command, add new support 'playFromAssetId' | 'answer' | 'hangUp' | 'toggleCallMute'
+   * @typedef { 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' | 'seek' |
+  *     'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'playFromAssetId' | 'answer' | 'hangUp' |
+  *     'toggleCallMute' | 'setTargetLoopMode' } AVControlCommandType
+  * @syscap SystemCapability.Multimedia.AVSession.Core
+  * @atomicservice
+  * @since 18
+  */
   type AVControlCommandType = 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' |
-  'seek' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'playFromAssetId' | 'answer' | 'hangUp' | 'toggleCallMute';
+  'seek' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'playFromAssetId' | 'answer' | 'hangUp' | 'toggleCallMute' | 'setTargetLoopMode';
 
   /**
    * The definition of command to be sent to the session
