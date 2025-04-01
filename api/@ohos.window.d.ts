@@ -326,7 +326,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 16
+     * @since 17
      */
     TYPE_FLOAT_NAVIGATION,
     /**
