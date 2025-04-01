@@ -3125,6 +3125,16 @@ declare namespace audio {
     getEffectManager(): AudioEffectManager;
 
     /**
+     * Obtains an {@link AudioCollaborativeManager} instance.
+     * @returns { AudioCollaborativeManager } AudioCollaborativeManager instance.
+     * @throws { BusinessError } 202 - Not system App.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 20
+     */
+        getCollaborativeManager(): AudioCollaborativeManager;
+
+    /**
      * user disable the safe media volume state.
      * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
      * @returns { Promise<void> } Promise used to return the result.
@@ -3973,50 +3983,6 @@ declare namespace audio {
      * @since 18
      */
     getExcludedDevices(usage: DeviceUsage): AudioDeviceDescriptors;
-
-    /**
-     * Checks whether the collaborative playback is supported by system.
-     * @returns { boolean } Whether the collaborative playback is supported by system.
-     * @throws { BusinessError } 202 - Not system application.
-     * @syscap SystemCapability.Multimedia.Audio.Device
-     * @systemapi
-     * @since 20
-     */
-    isCollaborativePlaybackSupported(): boolean;
-
-    /**
-     * Sets the collaborative playback enabled or disabled by the specified device.
-     * If the enabled specified device is the current output device, it will collaborate with the local device
-     * to play sound.
-     * This method uses a promise to return the result.
-     * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device descriptor.
-     * @param { boolean } enabled - Whether the collaborative playback is enabled.
-     * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                1.Mandatory parameters are left unspecified;
-     *                               2.Incorrect parameter types.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @syscap SystemCapability.Multimedia.Audio.Device
-     * @systemapi
-     * @since 20
-     */
-    setCollaborativePlaybackEnabledForDevice(deviceDescriptor: AudioDeviceDescriptor, enabled: boolean): Promise<void>;
-
-    /**
-     * Checks whether the collaborative playback is enabled by the specified device.
-     * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device descriptor.
-     * @returns { boolean } Whether the collaborative playback is enabled.
-     * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                1.Mandatory parameters are left unspecified;
-     *                               2.Incorrect parameter types.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @syscap SystemCapability.Multimedia.Audio.Device
-     * @systemapi
-     * @since 20
-     */
-    isCollaborativePlaybackEnabledForDevice(deviceDescriptor: AudioDeviceDescriptor): boolean;
   }
 
   /**
@@ -6112,6 +6078,60 @@ declare namespace audio {
      * @since 18
      */
     getAudioEffectProperty(): Array<AudioEffectProperty>;
+  }
+
+  /**
+   * Implements audio collaborative management.
+   * @typedef AudioCollaborativeManager
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @systemapi
+   * @since 20
+   */
+  interface AudioCollaborativeManager {
+    /**
+     * Checks whether the collaborative playback is supported by system.
+     * @returns { boolean } Whether the collaborative playback is supported by system.
+     * @throws { BusinessError } 202 - Not system application.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 20
+     */
+    isCollaborativePlaybackSupported(): boolean;
+
+    /**
+     * Sets the collaborative playback enabled or disabled by the specified device.
+     * Only A2DP device supports collaborative playback.
+     * If the enabled specified device is the current output device, it will collaborate with the local device
+     * to play sound.
+     * This method uses a promise to return the result.
+     * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device descriptor.
+     * @param { boolean } enabled - Whether the collaborative playback is enabled.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                1.Mandatory parameters are left unspecified;
+     *                               2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 20
+     */
+    setCollaborativePlaybackEnabledForDevice(deviceDescriptor: AudioDeviceDescriptor, enabled: boolean): Promise<void>;
+
+    /**
+     * Checks whether the collaborative playback is enabled by the specified device.
+     * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device descriptor.
+     * @returns { boolean } Whether the collaborative playback is enabled.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                1.Mandatory parameters are left unspecified;
+     *                               2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 20
+     */
+    isCollaborativePlaybackEnabledForDevice(deviceDescriptor: AudioDeviceDescriptor): boolean;
   }
 
   /**
