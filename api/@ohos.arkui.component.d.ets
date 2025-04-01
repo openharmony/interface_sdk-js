@@ -73,6 +73,7 @@ export * from './arkui/component/imageSpan';
 export * from './arkui/component/indicatorcomponent';
 export * from './arkui/component/inspector';
 export * from './arkui/component/isolatedComponent';
+export * from './arkui/component/forEach';
 export * from './arkui/component/lazyForEach';
 export * from './arkui/component/line';
 export * from './arkui/component/linearindicator';
