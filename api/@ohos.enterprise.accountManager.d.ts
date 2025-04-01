@@ -35,7 +35,7 @@ declare namespace accountManager {
    * 
    * @interface DomainAccountPolicy
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @since 18
+   * @since 19
    */
   interface DomainAccountPolicy {
     /**
@@ -43,7 +43,7 @@ declare namespace accountManager {
      * 
      * @type { ?number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @since 18
+     * @since 19
      */
     authenticationValidityPeriod?: number;
 
@@ -52,7 +52,7 @@ declare namespace accountManager {
      * 
      * @type { ?number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @since 18
+     * @since 19
      */
     passwordValidityPeriod?: number;
 
@@ -61,7 +61,7 @@ declare namespace accountManager {
      * 
      * @type { ?number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @since 18
+     * @since 19
      */
     passwordExpirationNotification?: number;
   }
@@ -256,7 +256,7 @@ declare namespace accountManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 18
+   * @since 19
    */
   function setDomainAccountPolicy(admin: Want, domainAccountInfo: osAccount.DomainAccountInfo, policy: DomainAccountPolicy): void;
 
@@ -276,7 +276,7 @@ declare namespace accountManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 18
+   * @since 19
    */
   function getDomainAccountPolicy(admin: Want, domainAccountInfo: osAccount.DomainAccountInfo): DomainAccountPolicy;
 }
