@@ -18,8 +18,22 @@
  * @kit TestKit
  */
 
+/*** if arkts 1.1 */
+import { int, double } from "@ohos.base";
+/*** endif */
+
  import { Callback } from './@ohos.base';
- 
+
+ /**
+  * Assert the matched {@link UiComponent}s exists on current UI;if not,assertError will be raised.
+  *
+  * @returns { void }
+  * @throws {BusinessError} 401 - if the input parameters are invalid.
+  * @syscap SystemCapability.Test.UiTest
+  * @arkts 1.2
+  * @since 20
+  * @test
+  */
  export function loadAndSetupUiTest(): void {};
 
  /**
@@ -213,7 +227,7 @@
     * @deprecated since 9
     * @test
     */
-   id(id: number): By;
+   id(id: int): By;
  
    /**
     * Specifies the type of the target UiComponent.
@@ -536,7 +550,7 @@
     * @useinstead ohos.UiTest.Driver#delayMs
     * @test
     */
-   delayMs(duration: number): Promise<void>;
+   delayMs(duration: int): Promise<void>;
  
    /**
     * Find the first matched {@link UiComponent} on current UI.
@@ -603,7 +617,7 @@
     * @useinstead ohos.UiTest.Driver#triggerKey
     * @test
     */
-   triggerKey(keyCode: number): Promise<void>;
+   triggerKey(keyCode: int): Promise<void>;
  
    /**
     * Click on the specified location on the screen.
@@ -617,7 +631,7 @@
     * @useinstead ohos.UiTest.Driver#click
     * @test
     */
-   click(x: number, y: number): Promise<void>;
+   click(x: int, y: int): Promise<void>;
  
    /**
     * DoubleClick on the specified location on the screen.
@@ -631,7 +645,7 @@
     * @useinstead ohos.UiTest.Driver#doubleClick
     * @test
     */
-   doubleClick(x: number, y: number): Promise<void>;
+   doubleClick(x: int, y: int): Promise<void>;
  
    /**
     * LongClick on the specified location on the screen.
@@ -645,7 +659,7 @@
     * @useinstead ohos.UiTest.Driver#longClick
     * @test
     */
-   longClick(x: number, y: number): Promise<void>;
+   longClick(x: int, y: int): Promise<void>;
  
    /**
     * Swipe on the screen between the specified points.
@@ -661,7 +675,7 @@
     * @useinstead ohos.UiTest.Driver#swipe
     * @test
     */
-   swipe(startx: number, starty: number, endx: number, endy: number): Promise<void>;
+   swipe(startx: int, starty: int, endx: int, endy: int): Promise<void>;
  
    /**
     * Capture current screen and save as picture which PNG format.
@@ -1039,7 +1053,7 @@
     * @atomicservice
     * @since 11
     */
-   readonly x: number;
+   readonly x: int;
    /**
     * The y-coordinate of the coordinate point.
     *
@@ -1067,7 +1081,7 @@
     * @atomicservice
     * @since 11
     */
-   readonly y: number;
+   readonly y: int;
  }
  
  /**
@@ -1122,7 +1136,7 @@
     * @atomicservice
     * @since 12
     */ 
-   readonly left: number;
+   readonly left: int;
    /**
     * The y-coordinate of the top left corner of the rectangle.
     *
@@ -1150,7 +1164,7 @@
     * @atomicservice
     * @since 12
     */
-   readonly top: number;
+   readonly top: int;
    /**
     * The x-coordinate at the bottom right corner of the rectangle.
     *
@@ -1178,7 +1192,7 @@
     * @atomicservice
     * @since 12
     */
-   readonly right: number;
+   readonly right: int;
    /**
     * The y-coordinate at the bottom right corner of the rectangle.
     *
@@ -1206,7 +1220,7 @@
     * @atomicservice
     * @since 12
     */
-   readonly bottom: number;
+   readonly bottom: int;
  }
  
  /**
@@ -1641,7 +1655,7 @@
     * @since 16
     * @test
     */
-   speed?: number;
+   speed?: int;
  }
  
  /**
@@ -2842,7 +2856,7 @@
     * @since 11
     * @test
     */
-   scrollToTop(speed?: number): Promise<void>;
+   scrollToTop(speed?: int): Promise<void>;
  
    /**
     * Scroll on this {@link Component} to the bottom,applicable to scrollable one.
@@ -2883,7 +2897,7 @@
     * @since 11
     * @test
     */
-   scrollToBottom(speed?: number): Promise<void>;
+   scrollToBottom(speed?: int): Promise<void>;
  
    /**
     * Get the bounds rect of this {@link Component}.
@@ -3008,7 +3022,7 @@
     * @since 11
     * @test
     */
-   pinchOut(scale: number): Promise<void>;
+   pinchOut(scale: double): Promise<void>;
  
    /**
     * Pinch shrink this {@link Component} to the target scale.
@@ -3036,7 +3050,7 @@
     * @since 11
     * @test
     */
-   pinchIn(scale: number): Promise<void>;
+   pinchIn(scale: double): Promise<void>;
  
    /**
     * Get the description attribute value.
@@ -3118,7 +3132,7 @@
     * @since 16
     * @test
     */
-   scrollSearch(on: On, vertical?: boolean, offset?: number): Promise<Component>;
+   scrollSearch(on: On, vertical?: boolean, offset?: int): Promise<Component>;
  }
  
  /**
@@ -3217,7 +3231,7 @@
     * @since 11
     * @test
     */
-   delayMs(duration: number): Promise<void>;
+   delayMs(duration: int): Promise<void>;
  
    /**
     * Find the first matched {@link Component} on current UI.
@@ -3307,7 +3321,7 @@
     * @since 11
     * @test
     */
-   waitForComponent(on: On, time: number): Promise<Component>;
+   waitForComponent(on: On, time: int): Promise<Component>;
  
    /**
     * Find all the matched {@link Component}s on current UI.
@@ -3444,7 +3458,7 @@
     * @since 11
     * @test
     */
-   triggerKey(keyCode: number): Promise<void>;
+   triggerKey(keyCode: int): Promise<void>;
  
    /**
     * Press two or three key combinations
@@ -3474,7 +3488,7 @@
     * @since 11
     * @test
     */
-   triggerCombineKeys(key0: number, key1: number, key2?: number): Promise<void>;
+   triggerCombineKeys(key0: int, key1: int, key2?: int): Promise<void>;
  
    /**
     * Click on the specified location on the screen.
@@ -3515,7 +3529,7 @@
     * @since 11
     * @test
     */
-   click(x: number, y: number): Promise<void>;
+   click(x: int, y: int): Promise<void>;
  
    /**
     * DoubleClick on the specified location on the screen.
@@ -3556,7 +3570,7 @@
     * @since 11
     * @test
     */
-   doubleClick(x: number, y: number): Promise<void>;
+   doubleClick(x: int, y: int): Promise<void>;
  
    /**
     * LongClick on the specified location on the screen.
@@ -3597,7 +3611,7 @@
     * @since 11
     * @test
     */
-   longClick(x: number, y: number): Promise<void>;
+   longClick(x: int, y: int): Promise<void>;
  
    /**
     * Swipe on the screen between the specified points.
@@ -3647,7 +3661,7 @@
     * @since 11
     * @test
     */
-   swipe(startx: number, starty: number, endx: number, endy: number, speed?: number): Promise<void>;
+   swipe(startx: int, starty: int, endx: int, endy: int, speed?: int): Promise<void>;
  
    /**
     * Drag on the screen between the specified points.
@@ -3680,7 +3694,7 @@
     * @since 11
     * @test
     */
-   drag(startx: number, starty: number, endx: number, endy: number, speed?: number): Promise<void>;
+   drag(startx: int, starty: int, endx: int, endy: int, speed?: int): Promise<void>;
  
    /**
     * Capture current screen and save as picture which PNG format.
@@ -3887,7 +3901,7 @@
     * @since 11
     * @test
     */
-   waitForIdle(idleTime: number, timeout: number): Promise<boolean>;
+   waitForIdle(idleTime: int, timeout: int): Promise<boolean>;
  
    /**
     * Inject fling on the device display.
@@ -3934,7 +3948,7 @@
     * @since 11
     * @test
     */
-   fling(from: Point, to: Point, stepLen: number, speed: number): Promise<void>;
+   fling(from: Point, to: Point, stepLen: int, speed: int): Promise<void>;
  
    /**
     * Inject multi-pointer action on the device display.
@@ -3962,7 +3976,7 @@
     * @since 11
     * @test
     */
-   injectMultiPointerAction(pointers: PointerMatrix, speed?: number): Promise<boolean>;
+   injectMultiPointerAction(pointers: PointerMatrix, speed?: int): Promise<boolean>;
  
    /**
     * Inject fling on the device display.
@@ -4003,7 +4017,7 @@
     * @since 12
     * @test
     */
-   fling(direction: UiDirection, speed: number): Promise<void>;
+   fling(direction: UiDirection, speed: int): Promise<void>;
  
    /**
     * Click on the specified location on the screen with the specified mouse button, and press the specified key simultaneously if necessary.
@@ -4034,7 +4048,7 @@
     * @since 11
     * @test
     */
-   mouseClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise<void>;
+   mouseClick(p: Point, btnId: MouseButton, key1?: int, key2?: int): Promise<void>;
  
    /**
     * Move the mouse cursor to the specified location.
@@ -4109,7 +4123,7 @@
     * @since 11
     * @test
     */
-   mouseScroll(p: Point, down: boolean, d: number, key1?: number, key2?: number, speed?: number): Promise<void>;
+   mouseScroll(p: Point, down: boolean, d: int, key1?: int, key2?: int, speed?: int): Promise<void>;
  
    /**
     * Capture the specified area of current screen and save as picture which PNG format.
@@ -4174,7 +4188,7 @@
     * @since 11
     * @test
     */
-   mouseDoubleClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise<void>;
+   mouseDoubleClick(p: Point, btnId: MouseButton, key1?: int, key2?: int): Promise<void>;
  
    /**
     * Long click on the specified location on the screen with the specified mouse button, and press the specified key simultaneously if necessary.
@@ -4191,7 +4205,7 @@
     * @since 11
     * @test
     */
-   mouseLongClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise<void>;
+   mouseLongClick(p: Point, btnId: MouseButton, key1?: int, key2?: int): Promise<void>;
  
    /**
     * Swipe on the screen between the specified points with mouse.
@@ -4207,7 +4221,7 @@
     * @since 11
     * @test
     */
-   mouseMoveWithTrack(from: Point, to: Point, speed?: number): Promise<void>;
+   mouseMoveWithTrack(from: Point, to: Point, speed?: int): Promise<void>;
  
    /**
     * Hold down the left mouse button and drag on the screen between the specified points.
@@ -4223,7 +4237,7 @@
     * @since 11
     * @test
     */
-   mouseDrag(from: Point, to: Point, speed?: number): Promise<void>;
+   mouseDrag(from: Point, to: Point, speed?: int): Promise<void>;
  
    /**
     * Inject text on the specified location.
@@ -4254,7 +4268,7 @@
     * @since 16
     * @test
     */
-   touchPadMultiFingerSwipe(fingers: number, direction: UiDirection, options?: TouchPadSwipeOptions): Promise<void>;
+   touchPadMultiFingerSwipe(fingers: int, direction: UiDirection, options?: TouchPadSwipeOptions): Promise<void>;
  
    /**
     * Simulate pen click operation.
@@ -4281,7 +4295,7 @@
     * @since 16
     * @test
     */
-   penLongClick(point: Point, pressure?: number): Promise<void>;
+   penLongClick(point: Point, pressure?: double): Promise<void>;
  
    /**
     * Simulate pen double click operation.
@@ -4310,7 +4324,7 @@
     * @since 16
     * @test
     */
-   penSwipe(startPoint: Point, endPoint: Point, speed?: number, pressure?: number): Promise<void>;
+   penSwipe(startPoint: Point, endPoint: Point, speed?: int, pressure?: double): Promise<void>;
  
    /**
     * Inject pen multi-pointer action on the device display.
@@ -4325,7 +4339,7 @@
     * @since 16
     * @test
     */
-   injectPenPointerAction(pointers: PointerMatrix, speed?: number, pressure?: number): Promise<void>;
+   injectPenPointerAction(pointers: PointerMatrix, speed?: int, pressure?: double): Promise<void>;
  }
  
  /**
@@ -4534,7 +4548,7 @@
     * @since 11
     * @test
     */
-   moveTo(x: number, y: number): Promise<void>;
+   moveTo(x: int, y: int): Promise<void>;
  
    /**
     * Resize this {@link UiWindow} to the specified size for the specified direction.
@@ -4567,7 +4581,7 @@
     * @since 11
     * @test
     */
-   resize(wide: number, height: number, direction: ResizeDirection): Promise<void>;
+   resize(wide: int, height: int, direction: ResizeDirection): Promise<void>;
  
    /**
     * Change this {@link UiWindow} into split screen mode.
@@ -4751,7 +4765,7 @@
     * @since 11
     * @test
     */
-   static create(fingers: number, steps: number): PointerMatrix;
+   static create(fingers: int, steps: int): PointerMatrix;
  
    /**
     * Set the point value of an element in the PointerMatrix.
@@ -4777,7 +4791,7 @@
     * @since 11
     * @test
     */
-   setPoint(finger: number, step: number, point: Point): void;
+   setPoint(finger: int, step: int, point: Point): void;
  }
  
  /**
