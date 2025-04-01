@@ -169,7 +169,7 @@ declare class StyledString {
      * Returns HTML string from the provided StyledString.
      *
      * @param { StyledString } styledString - the StyledString will be converted to a HTML string.
-     * @returns { string }
+     * @returns { string } Returns the HTML string converted from the provided StyledString.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
