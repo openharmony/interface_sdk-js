@@ -3986,6 +3986,8 @@ declare namespace audio {
 
     /**
      * Sets the collaborative playback enabled or disabled by the specified device.
+     * If the enabled specified device is the current output device, it will collaborate with the local device
+     * to play sound.
      * This method uses a promise to return the result.
      * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device descriptor.
      * @param { boolean } enabled - Whether the collaborative playback is enabled.
