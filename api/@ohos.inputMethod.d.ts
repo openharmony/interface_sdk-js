@@ -696,6 +696,19 @@ declare namespace inputMethod {
      * @since 15
      */
     attach(showKeyboard: boolean, textConfig: TextConfig, requestKeyboardReason: RequestKeyboardReason): Promise<void>;
+
+    /**
+     * Discard the typing text
+     *
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800009 - input method client detached.
+     * @throws { BusinessError } 12800015 - the other side does not accept the request.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    discardTypingText(): Promise<void>;
+
     /**
      * Show the text input and start typing.
      *
@@ -1913,6 +1926,15 @@ declare namespace inputMethod {
      * @since 10
      */
     windowId?: number;
+
+    /**
+     *Indicates that this is a new edit box.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    newEditBox?: boolean;
   }
 
   /**
