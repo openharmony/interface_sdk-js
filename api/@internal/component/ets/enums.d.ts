@@ -9412,7 +9412,7 @@ declare enum WordBreak {
  * @atomicservice
  * @since 12
  */
-declare enum LineBreakStrategy  {
+declare enum LineBreakStrategy {
   /**
    * By default. Display as many characters as possible on each line until no more characters
    * can be displayed on that line, and do not automatically add hyphens under this strategy
@@ -9433,7 +9433,7 @@ declare enum LineBreakStrategy  {
    * @atomicservice
    * @since 12
    */
-  HIGH_QUALITY  = 1,
+  HIGH_QUALITY = 1,
 
   /**
    * Balanced folding. We will try our best to ensure that the width of each line in a paragraph
@@ -9444,7 +9444,7 @@ declare enum LineBreakStrategy  {
    * @atomicservice
    * @since 12
    */
-  BALANCED  = 2,
+  BALANCED = 2,
 }
 
 /**
@@ -9808,7 +9808,7 @@ declare enum EmbeddedType {
  * @atomicservice
  * @since 12
  */
-declare enum MarqueeUpdateStrategy  {
+declare enum MarqueeUpdateStrategy {
   /**
    * Reset scroll position and restart scroll.
    *
@@ -10159,40 +10159,6 @@ declare enum AxisModel {
 }
 
 /**
- * Page flip mode of Swiper and Tabs on mouse wheel event.
-
- * @enum { number } PageFlipMode
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 15
- */
-declare enum PageFlipMode {
-  /**
-   * Turn pages continuously according to the number of mouse wheel events.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 15
-   */
-  CONTINUOUS = 0,
-
-  /**
-   * The page-turning animation remains unresponsive to other mouse wheel events until it completes.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 15
-   */
-  SINGLE = 1,
-}
-
-/**
  * Rotating crown event behavior.
  *
  * @enum { number }
@@ -10267,6 +10233,40 @@ declare enum CrownSensitivity {
 }
 
 /**
+ * Page flip mode of Swiper and Tabs on mouse wheel event.
+
+ * @enum { number } PageFlipMode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 15
+ */
+declare enum PageFlipMode {
+  /**
+   * Turn pages continuously according to the number of mouse wheel events.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 15
+   */
+  CONTINUOUS = 0,
+
+  /**
+   * The page-turning animation remains unresponsive to other mouse wheel events until it completes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 15
+   */
+  SINGLE = 1,
+}
+
+/**
  * Type of axis action.
  *
  * @enum {number}
@@ -10319,69 +10319,4 @@ declare enum AxisAction {
    * @since 18
    */
   CANCEL = 4,
-}
-
-/**
- * Type of focus draw level.
- *
- * @enum {number}
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 18
- */
- declare enum FocusDrawLevel {
-  /**
-   * Draw focus on node self level.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18
-   */
-  SELF = 0,
-
-  /**
-   * Draw focus on top level.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18
-   */
-  TOP = 1,
-}
-
-/**
- * Menu divider mode.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 18
- */
-declare enum DividerMode {
-  /**
-   * Menu divider mode floating above menu.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  FLOATING_ABOVE_MENU = 0,
-
-  /**
-   * Menu divider mode embedded in menu.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  EMBEDDED_IN_MENU = 1,
 }
