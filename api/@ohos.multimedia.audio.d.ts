@@ -4791,6 +4791,27 @@ declare namespace audio {
      * @since 18
      */
     off(type: 'appVolumeChange', callback?: Callback<VolumeEvent>): void;
+
+    /**
+     * Listens for active volume type change events. This method uses a callback to get active volume type.
+     * @param { 'activeVolumeTypeChange' } type - Type of the event to listen for.
+     * Only the activeVolumeTypeChange event is supported.
+     * @param { Callback<AudioVolumeType> } callback - Callback used to get active volume type.
+     * @throws { BusinessError } 202 - Not system App.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 20
+     */
+    on(type: 'activeVolumeTypeChange', callback: Callback<AudioVolumeType>): void;
+
+    /**
+     * Unsubscribes to the active volume type change events.
+     * @param { 'activeVolumeTypeChange' } type - Type of the event to be unregistered.
+     * Only the activeVolumeTypeChange event is supported.
+     * @throws { BusinessError } 202 - Not system App.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 20
+     */
+    off(type: 'activeVolumeTypeChange'): void;
   }
 
   /**
