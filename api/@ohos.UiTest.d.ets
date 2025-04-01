@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.1 */
-import { int, double } from "@ohos.base";
+import { int, double } from './@ohos.base';
 /*** endif */
 
  import { Callback } from './@ohos.base';
