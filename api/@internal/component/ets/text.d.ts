@@ -464,7 +464,18 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @atomicservice
    * @since 11
    */
-  fontWeight(value: number | FontWeight | string): TextAttribute;
+   /**
+   * Called when the font weight is set.
+   *
+   * @param { number | FontWeight | ResourceStr } value
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  fontWeight(value: number | FontWeight | ResourceStr): TextAttribute;
 
   /**
    * Called when the font weight is set.
@@ -792,7 +803,18 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @atomicservice
    * @since 11
    */
-  letterSpacing(value: number | string): TextAttribute;
+   /**
+   * Called when the distance between text fonts is set.
+   *
+   * @param { number | ResourceStr } value
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  letterSpacing(value: number | ResourceStr): TextAttribute;
 
   /**
    * Called when the type of letter in the text font is set.
@@ -872,7 +894,18 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @atomicservice
    * @since 11
    */
-  baselineOffset(value: number | string): TextAttribute;
+   /**
+   * Called when the baseline offset is set.
+   *
+   * @param { number | ResourceStr } value
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  baselineOffset(value: number | ResourceStr): TextAttribute;
 
   /**
    * Allow replication.
