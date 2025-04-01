@@ -90,7 +90,7 @@ export interface NavigationOptions {
     launchMode?: LaunchMode;
     animated?: boolean;
 }
-export interface NavPathStack {
+export declare class NavPathStack {
     pushPath(info: NavPathInfo, animated?: boolean): void
 
     pushDestination(info: NavPathInfo, animated?: boolean): Promise<void>
