@@ -1607,18 +1607,6 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   enableHapticFeedback(isEnabled: boolean): SearchAttribute;
 
   /**
-   * Set text mode of automatic case mode switching.
-   *
-   * @param { AutoCapitalizationMode } mode - Automatic case mode switching.
-   * @returns { SearchAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  autoCapitalizationMode(mode: AutoCapitalizationMode): SearchAttribute;
-
-  /**
    * Set the text with half leading.
    *
    * @param { Optional<boolean> } halfLeading
