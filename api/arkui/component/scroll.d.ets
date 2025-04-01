@@ -69,7 +69,7 @@ export interface Literal_Boolean_next_Axis_direction {
     next: boolean;
     direction?: Axis;
 }
-export interface Scroller {
+export declare class Scroller {
     scrollTo(options: ScrollOptions): undefined
     scrollEdge(value: Edge, options?: ScrollEdgeOptions): undefined
     fling(velocity: number): void
