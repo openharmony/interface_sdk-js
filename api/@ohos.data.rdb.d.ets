@@ -31,7 +31,7 @@ import Context from './application/BaseContext';
  * @deprecated since 9
  * @useinstead ohos.data.relationalStore
  */
-export default declare namespace rdb {
+declare namespace rdb {
   /**
    * Obtains an RDB store.
    * You can set parameters of the RDB store as required. In general, this method is recommended
@@ -954,3 +954,5 @@ export default declare namespace rdb {
    */
   export type ResultSet = _ResultSet;
 }
+
+export default rdb;
