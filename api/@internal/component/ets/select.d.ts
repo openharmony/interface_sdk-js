@@ -1089,54 +1089,6 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   divider(options: Optional<DividerOptions> | null): SelectAttribute;
 
   /**
-   * Sets the attribute modifier for the text of select.
-   *
-   * @param { Optional<TextModifier> } modifier Set modifier for the text of select.
-   * @returns { SelectAttribute } the attribute of the select.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  textModifier(modifier: Optional<TextModifier>): SelectAttribute;
-
-  /**
-   * Sets the attribute modifier for the arrow symbol of select.
-   *
-   * @param { Optional<SymbolGlyphModifier> } modifier Set modifier for the arrow symbol of select.
-   * @returns { SelectAttribute } the attribute of the select.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  arrowModifier(modifier: Optional<SymbolGlyphModifier>): SelectAttribute;
-  
-  /**
-   * Sets the attribute modifier for the text of each option.
-   *
-   * @param { Optional<TextModifier> } modifier Set modifier for the text of each option.
-   * @returns { SelectAttribute } the attribute of the select.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  optionTextModifier(modifier: Optional<TextModifier>): SelectAttribute;
-
-  /**
-   * Sets the attribute modifier for the text of selected option.
-   *
-   * @param { Optional<TextModifier> } modifier Set modifier for the text of selected option.
-   * @returns { SelectAttribute } the attribute of the select.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  selectedOptionTextModifier(modifier: Optional<TextModifier>): SelectAttribute;
-
-  /**
    * Set the divider style of option
    *
    * @param { Optional<DividerStyleOptions> } style
