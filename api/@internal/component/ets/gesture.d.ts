@@ -1395,7 +1395,7 @@ interface RotationGestureEvent extends BaseGestureEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 112
+ * @since 12
  */
 interface SwipeGestureEvent extends BaseGestureEvent {
   /**
