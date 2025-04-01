@@ -10422,6 +10422,32 @@ declare class LayoutPolicy {
    * @since 15
    */
   static readonly matchParent: LayoutPolicy;
+  /**
+   * The component fills its content which means its size is as large as its children but it is constained by its parent.
+   *
+   * @type { LayoutPolicy }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice 
+   * @since 20
+   */
+  static readonly wrapContent: LayoutPolicy;
+  /**
+   * The component fills its content which means its size is as large as its children.
+   *
+   * @type { LayoutPolicy }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice 
+   * @since 20
+   */
+  static readonly fixAtIdealSize: LayoutPolicy;
 }
 
 /**
