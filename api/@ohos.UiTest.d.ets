@@ -57,8 +57,9 @@ import { int, double } from "@ohos.base";
   * @enum {number}
   * @syscap SystemCapability.Test.UiTest
   * @crossplatform
-  * @atomicservice
-  * @since 11
+  * @atomicservice 
+  * @since arkts {'1.1':11, '1.2':20}
+  * @arkts 1.1&1.2
   */
  declare enum MatchPattern {
    /**
@@ -82,7 +83,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    EQUALS = 0,
@@ -107,7 +109,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    CONTAINS = 1,
@@ -132,7 +135,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    STARTS_WITH = 2,
@@ -157,7 +161,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    ENDS_WITH = 3,
@@ -167,7 +172,9 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 16
+    * @since arkts {'1.1':16, '1.2':20}
+    * @arkts 1.1&1.2
+    * @test
     */
    REG_EXP = 4,
    /**
@@ -176,7 +183,9 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 16
+    * @since arkts {'1.1':16, '1.2':20}
+    * @arkts 1.1&1.2
+    * @test
     */
    REG_EXP_ICASE = 5,
  }
@@ -701,10 +710,11 @@ import { int, double } from "@ohos.base";
  /**
   * Enumerates the window mode of the tested window.
   *
-  * @enum { number }
+  * @enum { int }
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
-  * @since 11
+  * @since arkts {'1.1':11, '1.2':20}
+  * @arkts 1.1&1.2
   */
  declare enum WindowMode {
    /**
@@ -719,7 +729,8 @@ import { int, double } from "@ohos.base";
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    FULLSCREEN = 0,
@@ -735,7 +746,8 @@ import { int, double } from "@ohos.base";
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    PRIMARY = 1,
@@ -751,7 +763,8 @@ import { int, double } from "@ohos.base";
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    SECONDARY = 2,
@@ -767,7 +780,8 @@ import { int, double } from "@ohos.base";
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    FLOATING = 3,
@@ -783,10 +797,11 @@ import { int, double } from "@ohos.base";
  /**
   * Enumerates the resize direction for the window.
   *
-  * @enum { number }
+  * @enum { int }
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
-  * @since 11
+  * @since arkts {'1.1':11, '1.2':20}
+  * @arkts 1.1&1.2
   */
  declare enum ResizeDirection {
    /**
@@ -801,7 +816,8 @@ import { int, double } from "@ohos.base";
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    LEFT = 0,
@@ -817,7 +833,8 @@ import { int, double } from "@ohos.base";
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    RIGHT = 1,
@@ -833,7 +850,8 @@ import { int, double } from "@ohos.base";
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    UP = 2,
@@ -849,7 +867,8 @@ import { int, double } from "@ohos.base";
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    DOWN = 3,
@@ -865,7 +884,8 @@ import { int, double } from "@ohos.base";
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    LEFT_UP = 4,
@@ -881,7 +901,8 @@ import { int, double } from "@ohos.base";
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    LEFT_DOWN = 5,
@@ -897,7 +918,8 @@ import { int, double } from "@ohos.base";
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    RIGHT_UP = 6,
@@ -913,7 +935,8 @@ import { int, double } from "@ohos.base";
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    RIGHT_DOWN = 7,
@@ -929,10 +952,11 @@ import { int, double } from "@ohos.base";
  /**
   * Enumerates the rotation of the device display.
   *
-  * @enum { number }
+  * @enum { int }
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
-  * @since 11
+  * @since arkts {'1.1':11, '1.2':20}
+  * @arkts 1.1&1.2
   */
  declare enum DisplayRotation {
    /**
@@ -947,7 +971,8 @@ import { int, double } from "@ohos.base";
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    ROTATION_0 = 0,
@@ -963,7 +988,8 @@ import { int, double } from "@ohos.base";
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    ROTATION_90 = 1,
@@ -979,7 +1005,8 @@ import { int, double } from "@ohos.base";
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    ROTATION_180 = 2,
@@ -995,7 +1022,8 @@ import { int, double } from "@ohos.base";
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    ROTATION_270 = 3,
@@ -1023,7 +1051,8 @@ import { int, double } from "@ohos.base";
   * @syscap SystemCapability.Test.UiTest
   * @crossplatform
   * @atomicservice
-  * @since 11
+  * @since arkts {'1.1':11, '1.2':20}
+  * @arkts 1.1&1.2
   */
  declare interface Point {
    /**
@@ -1046,18 +1075,19 @@ import { int, double } from "@ohos.base";
    /**
     * The x-coordinate of the coordinate point.
     *
-    * @type { number }
+    * @type { int }
     * @readonly
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     */
    readonly x: int;
    /**
     * The y-coordinate of the coordinate point.
     *
-    * @type { number }
+    * @type { int }
     * @readonly
     * @syscap SystemCapability.Test.UiTest
     * @since 9
@@ -1065,7 +1095,7 @@ import { int, double } from "@ohos.base";
    /**
     * The y-coordinate of the coordinate point.
     *
-    * @type { number }
+    * @type { int }
     * @readonly
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
@@ -1074,12 +1104,13 @@ import { int, double } from "@ohos.base";
    /**
     * The y-coordinate of the coordinate point.
     *
-    * @type { number }
+    * @type { int }
     * @readonly
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     */
    readonly y: int;
  }
@@ -1106,7 +1137,8 @@ import { int, double } from "@ohos.base";
   * @syscap SystemCapability.Test.UiTest
   * @crossplatform
   * @atomicservice
-  * @since 12
+  * @since arkts {'1.1':11, '1.2':20}
+  * @arkts 1.1&1.2
   */
  declare interface Rect {
    /**
@@ -1129,12 +1161,13 @@ import { int, double } from "@ohos.base";
    /**
     * The x-coordinate of the top left corner of the rectangle.
     *
-    * @type { number }
+    * @type { int }
     * @readonly
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     */ 
    readonly left: int;
    /**
@@ -1157,12 +1190,13 @@ import { int, double } from "@ohos.base";
    /**
     * The y-coordinate of the top left corner of the rectangle.
     *
-    * @type { number }
+    * @type { int }
     * @readonly
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':12, '1.2':20}
+    * @arkts 1.1&1.2
     */
    readonly top: int;
    /**
@@ -1185,12 +1219,13 @@ import { int, double } from "@ohos.base";
    /**
     * The x-coordinate at the bottom right corner of the rectangle.
     *
-    * @type { number }
+    * @type { int }
     * @readonly
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':12, '1.2':20}
+    * @arkts 1.1&1.2
     */
    readonly right: int;
    /**
@@ -1213,12 +1248,13 @@ import { int, double } from "@ohos.base";
    /**
     * The y-coordinate at the bottom right corner of the rectangle.
     *
-    * @type { number }
+    * @type { int }
     * @readonly
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':12, '1.2':20}
+    * @arkts 1.1&1.2
     */
    readonly bottom: int;
  }
@@ -1236,7 +1272,8 @@ import { int, double } from "@ohos.base";
   * @typedef WindowFilter
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
-  * @since 11
+  * @since arkts {'1.1':11, '1.2':20}
+  * @arkts 1.1&1.2
   */
  declare interface WindowFilter {
    /**
@@ -1252,7 +1289,8 @@ import { int, double } from "@ohos.base";
     * @type { ?string }
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     */
    bundleName?: string;
  
@@ -1269,7 +1307,8 @@ import { int, double } from "@ohos.base";
     * @type { ?string }
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     */
    title?: string;
  
@@ -1286,7 +1325,8 @@ import { int, double } from "@ohos.base";
     * @type { ?boolean }
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     */
    focused?: boolean;
  
@@ -1302,7 +1342,6 @@ import { int, double } from "@ohos.base";
     *
     * @type { ?boolean }
     * @syscap SystemCapability.Test.UiTest
-    * @since 11
     * @deprecated since 11
     * @useinstead ohos.UiTest.WindowFilter#active
     */
@@ -1314,7 +1353,8 @@ import { int, double } from "@ohos.base";
     * @type { ?boolean }
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     */
    active?: boolean;
  }
@@ -1333,7 +1373,8 @@ import { int, double } from "@ohos.base";
   * @typedef UIElementInfo
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
-  * @since 11
+  * @since arkts {'1.1':11, '1.2':20}
+  * @arkts 1.1&1.2
   * @test
   */
  declare interface UIElementInfo {
@@ -1351,7 +1392,8 @@ import { int, double } from "@ohos.base";
     * @readonly
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    readonly bundleName: string;
@@ -1369,7 +1411,8 @@ import { int, double } from "@ohos.base";
     * @readonly
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    readonly type: string;
@@ -1387,7 +1430,8 @@ import { int, double } from "@ohos.base";
     * @readonly
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    readonly text: string;
@@ -1407,7 +1451,8 @@ import { int, double } from "@ohos.base";
   * @typedef UIEventObserver
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
-  * @since 11
+  * @since arkts {'1.1':11, '1.2':20}
+  * @arkts 1.1&1.2
   * @test
   */
  declare interface UIEventObserver {
@@ -1429,7 +1474,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    once(type: String, callback: Callback<UIElementInfo>): void;
@@ -1453,11 +1499,12 @@ import { int, double } from "@ohos.base";
  /**
   * Enumerates the direction for the UI operation .
   *
-  * @enum { number }
+  * @enum { int }
   * @syscap SystemCapability.Test.UiTest
   * @crossplatform
   * @atomicservice
-  * @since 12
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
   */
  declare enum UiDirection {
    /**
@@ -1481,7 +1528,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':12, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    LEFT = 0,
@@ -1506,7 +1554,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':12, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    RIGHT = 1,
@@ -1531,7 +1580,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':12, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    UP = 2,
@@ -1556,7 +1606,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':12, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    DOWN = 3,
@@ -1572,10 +1623,11 @@ import { int, double } from "@ohos.base";
  /**
   * Enumerates the id of the button on the mouse.
   *
-  * @enum { number }
+  * @enum { int }
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
-  * @since 11
+  * @since arkts {'1.1':11, '1.2':20}
+  * @arkts 1.1&1.2
   */
  declare enum MouseButton {
    /**
@@ -1590,7 +1642,8 @@ import { int, double } from "@ohos.base";
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    MOUSE_BUTTON_LEFT = 0,
@@ -1606,7 +1659,8 @@ import { int, double } from "@ohos.base";
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    MOUSE_BUTTON_RIGHT = 1,
@@ -1622,7 +1676,8 @@ import { int, double } from "@ohos.base";
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    MOUSE_BUTTON_MIDDLE = 2,
@@ -1633,7 +1688,8 @@ import { int, double } from "@ohos.base";
   * @interface TouchPadSwipeOptions
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
-  * @since 16
+  * @since arkts {'1.1':16, '1.2':20}
+  * @arkts 1.1&1.2
   * @test
   */
  declare interface TouchPadSwipeOptions {
@@ -1642,7 +1698,8 @@ import { int, double } from "@ohos.base";
     * @type { ?boolean }
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 16
+    * @since arkts {'1.1':16, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    stay?: boolean;
@@ -1652,7 +1709,8 @@ import { int, double } from "@ohos.base";
     * @type { ?number }
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 16
+    * @since arkts {'1.1':16, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    speed?: int;
@@ -1677,7 +1735,8 @@ import { int, double } from "@ohos.base";
   * @syscap SystemCapability.Test.UiTest
   * @crossplatform
   * @atomicservice
-  * @since 12
+  * @since arkts {'1.1':12, '1.2':20}
+  * @arkts 1.1&1.2
   */
  declare class On {
    /**
@@ -1713,7 +1772,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    text(txt: string, pattern?: MatchPattern): On;
@@ -1748,7 +1808,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    id(id: string): On;
@@ -1783,7 +1844,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    type(tp: string): On;
@@ -1818,7 +1880,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    clickable(b?: boolean): On;
@@ -1853,7 +1916,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    longClickable(b?: boolean): On;
@@ -1888,7 +1952,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    scrollable(b?: boolean): On;
@@ -1923,7 +1988,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    enabled(b?: boolean): On;
@@ -1958,7 +2024,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    focused(b?: boolean): On;
@@ -1993,7 +2060,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    selected(b?: boolean): On;
@@ -2028,7 +2096,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    checked(b?: boolean): On;
@@ -2063,7 +2132,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    checkable(b?: boolean): On;
@@ -2089,7 +2159,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    isBefore(on: On): On;
@@ -2115,7 +2186,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    isAfter(on: On): On;
@@ -2141,7 +2213,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    within(on: On): On;
@@ -2164,7 +2237,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    inWindow(bundleName: string): On;
@@ -2178,7 +2252,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':16, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    description(val: string, pattern?: MatchPattern): On;
@@ -2192,7 +2267,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 16
+    * @since arkts {'1.1':16, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    id(id: string, pattern: MatchPattern): On;
@@ -2204,9 +2280,9 @@ import { int, double } from "@ohos.base";
     * @returns { On } this {@link On} object.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @syscap SystemCapability.Test.UiTest
-    * @crossplatform
     * @atomicservice
-    * @since 16
+    * @since arkts {'1.1':16, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    type(tp: string, pattern: MatchPattern): On;
@@ -2218,9 +2294,9 @@ import { int, double } from "@ohos.base";
     * @returns { On } this {@link On} object.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @syscap SystemCapability.Test.UiTest
-    * @crossplatform
     * @atomicservice
-    * @since 16
+    * @since arkts {'1.1':16, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    hint(val: string, pattern?: MatchPattern): On;
@@ -2247,7 +2323,8 @@ import { int, double } from "@ohos.base";
   * @syscap SystemCapability.Test.UiTest
   * @crossplatform
   * @atomicservice
-  * @since 12
+  * @since arkts {'1.1':12, '1.2':20}
+  * @arkts 1.1&1.2
   * @test
   */
  declare class Component {
@@ -2281,7 +2358,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    click(): Promise<void>;
@@ -2316,7 +2394,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    doubleClick(): Promise<void>;
@@ -2351,7 +2430,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    longClick(): Promise<void>;
@@ -2386,7 +2466,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    getId(): Promise<string>;
@@ -2421,7 +2502,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    getText(): Promise<string>;
@@ -2456,7 +2538,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    getType(): Promise<string>;
@@ -2491,7 +2574,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    isClickable(): Promise<boolean>;
@@ -2526,7 +2610,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    isLongClickable(): Promise<boolean>;
@@ -2561,7 +2646,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    isScrollable(): Promise<boolean>;
@@ -2596,7 +2682,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    isEnabled(): Promise<boolean>;
@@ -2631,7 +2718,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    isFocused(): Promise<boolean>;
@@ -2666,7 +2754,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    isSelected(): Promise<boolean>;
@@ -2701,7 +2790,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    isChecked(): Promise<boolean>;
@@ -2736,7 +2826,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    isCheckable(): Promise<boolean>;
@@ -2777,7 +2868,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    inputText(text: string): Promise<void>;
@@ -2812,7 +2904,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    clearText(): Promise<void>;
@@ -2845,7 +2938,7 @@ import { int, double } from "@ohos.base";
    /**
     * Scroll on this {@link Component} to the top,applicable to scrollable one.
     *
-    * @param { number } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000.Set it default 600 if out of range or null or undefined.
+    * @param { int } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000.Set it default 600 if out of range or null or undefined.
     * @returns { Promise<void> }
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -2853,7 +2946,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    scrollToTop(speed?: int): Promise<void>;
@@ -2886,7 +2980,7 @@ import { int, double } from "@ohos.base";
    /**
     * Scroll on this {@link Component} to the bottom,applicable to scrollable one.
     *
-    * @param { number } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
+    * @param { int } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
     * @returns { Promise<void> }
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -2894,7 +2988,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    scrollToBottom(speed?: int): Promise<void>;
@@ -2929,7 +3024,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':12, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */ 
    getBounds(): Promise<Rect>;
@@ -2964,7 +3060,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    getBoundsCenter(): Promise<Point>;
@@ -2991,7 +3088,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    dragTo(target: Component): Promise<void>;
@@ -3011,7 +3109,7 @@ import { int, double } from "@ohos.base";
    /**
     * Pinch enlarge this {@link Component} to the target scale.
     *
-    * @param { number } scale - the scale of the pinch enlarge this {@link Component}'s size, ranges greater than 1.
+    * @param { double } scale - the scale of the pinch enlarge this {@link Component}'s size, ranges greater than 1.
     * @returns { Promise<void> }
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -3019,7 +3117,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    pinchOut(scale: double): Promise<void>;
@@ -3039,7 +3138,7 @@ import { int, double } from "@ohos.base";
    /**
     * Pinch shrink this {@link Component} to the target scale.
     *
-    * @param { number } scale - the scale of the pinch shrink this {@link Component}'s size, ranges from 0 to 1.
+    * @param { double } scale - the scale of the pinch shrink this {@link Component}'s size, ranges from 0 to 1.
     * @returns { Promise<void> }
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -3047,7 +3146,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    pinchIn(scale: double): Promise<void>;
@@ -3060,7 +3160,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    getDescription(): Promise<string>;
@@ -3071,9 +3172,9 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
-    * @crossplatform
     * @atomicservice
-    * @since 16
+    * @since arkts {'1.1':16, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    getHint(): Promise<string>;
@@ -3122,14 +3223,15 @@ import { int, double } from "@ohos.base";
     *
     * @param { On } on - the attribute requirements of the target {@link Component}.
     * @param { boolean } [vertical] - Whether the swipe direction is vertical, default is true.
-    * @param { number } [offset] - Offset from the swipe start/end point to the component border, default is 80.
+    * @param { int } [offset] - Offset from the swipe start/end point to the component border, default is 80.
     * @returns { Promise<Component> } the found result,or undefined if not found.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 16
+    * @since arkts {'1.1':16, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    scrollSearch(on: On, vertical?: boolean, offset?: int): Promise<Component>;
@@ -3159,7 +3261,8 @@ import { int, double } from "@ohos.base";
   * @syscap SystemCapability.Test.UiTest
   * @crossplatform
   * @atomicservice
-  * @since 12
+  * @since arkts {'1.1':12, '1.2':20}
+  * @arkts 1.1&1.2
   * @test
   */
  declare class Driver {
@@ -3190,7 +3293,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    static create(): Driver;
@@ -3221,14 +3325,15 @@ import { int, double } from "@ohos.base";
    /**
     * Delay with specified duration.
     *
-    * @param { number } duration - the delay duration in milliseconds, not less than 0.
+    * @param { int } duration - the delay duration in milliseconds, not less than 0.
     * @returns { Promise<void> }
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    delayMs(duration: int): Promise<void>;
@@ -3266,7 +3371,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    findComponent(on: On): Promise<Component>;
@@ -3291,7 +3397,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    findWindow(filter: WindowFilter): Promise<UiWindow>;
@@ -3312,13 +3419,14 @@ import { int, double } from "@ohos.base";
     * Find the first matched {@link Component} on current UI during the time given.
     *
     * @param { On } on - the attribute requirements of the target {@link Component}.
-    * @param { number } time - duration of finding in milliseconds, not less than 0.
+    * @param { int } time - duration of finding in milliseconds, not less than 0.
     * @returns { Promise<Component> } the first matched {@link Component} or undefined.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    waitForComponent(on: On, time: int): Promise<Component>;
@@ -3356,7 +3464,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    findComponents(on: On): Promise<Array<Component>>;
@@ -3397,7 +3506,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    assertComponentExist(on: On): Promise<void>;
@@ -3429,7 +3539,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    pressBack(): Promise<void>;
@@ -3448,14 +3559,15 @@ import { int, double } from "@ohos.base";
    /**
     * Press the specified key.
     *
-    * @param { number } keyCode - the target keyCode.
+    * @param { int } keyCode - the target keyCode.
     * @returns { Promise<void> }
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    triggerKey(keyCode: int): Promise<void>;
@@ -3476,16 +3588,17 @@ import { int, double } from "@ohos.base";
    /**
     * Press two or three key combinations
     *
-    * @param { number } key0 - the first keyCode.
-    * @param { number } key1 - the second keyCode.
-    * @param { number } [key2] - the third keyCode,set it default 0 if null or undefined.
+    * @param { int } key0 - the first keyCode.
+    * @param { int } key1 - the second keyCode.
+    * @param { int } [key2] - the third keyCode,set it default 0 if null or undefined.
     * @returns { Promise<void> }
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    triggerCombineKeys(key0: int, key1: int, key2?: int): Promise<void>;
@@ -3518,15 +3631,16 @@ import { int, double } from "@ohos.base";
    /**
     * Click on the specified location on the screen.
     *
-    * @param { number } x - the x-coordinate, not less than 0.
-    * @param { number } y - the y-coordinate, not less than 0.
+    * @param { int } x - the x-coordinate, not less than 0.
+    * @param { int } y - the y-coordinate, not less than 0.
     * @returns { Promise<void> }
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    click(x: int, y: int): Promise<void>;
@@ -3559,15 +3673,16 @@ import { int, double } from "@ohos.base";
    /**
     * DoubleClick on the specified location on the screen.
     *
-    * @param { number } x - the x-coordinate, not less than 0.
-    * @param { number } y - the y-coordinate, not less than 0.
+    * @param { int } x - the x-coordinate, not less than 0.
+    * @param { int } y - the y-coordinate, not less than 0.
     * @returns { Promise<void> }
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    doubleClick(x: int, y: int): Promise<void>;
@@ -3600,15 +3715,16 @@ import { int, double } from "@ohos.base";
    /**
     * LongClick on the specified location on the screen.
     *
-    * @param { number } x - the x-coordinate, not less than 0.
-    * @param { number } y - the y-coordinate, not less than 0.
+    * @param { int } x - the x-coordinate, not less than 0.
+    * @param { int } y - the y-coordinate, not less than 0.
     * @returns { Promise<void> }
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    longClick(x: int, y: int): Promise<void>;
@@ -3647,18 +3763,19 @@ import { int, double } from "@ohos.base";
    /**
     * Swipe on the screen between the specified points.
     *
-    * @param { number } startx - the x-coordinate of the starting point, not less than 0.
-    * @param { number } starty - the y-coordinate of the starting point, not less than 0.
-    * @param { number } endx - the x-coordinate of the ending point, not less than 0.
-    * @param { number } endy - the y-coordinate of the ending point, not less than 0.
-    * @param { number } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
+    * @param { int } startx - the x-coordinate of the starting point, not less than 0.
+    * @param { int } starty - the y-coordinate of the starting point, not less than 0.
+    * @param { int } endx - the x-coordinate of the ending point, not less than 0.
+    * @param { int } endy - the y-coordinate of the ending point, not less than 0.
+    * @param { int } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
     * @returns { Promise<void> }
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    swipe(startx: int, starty: int, endx: int, endy: int, speed?: int): Promise<void>;
@@ -3681,17 +3798,18 @@ import { int, double } from "@ohos.base";
    /**
     * Drag on the screen between the specified points.
     *
-    * @param { number } startx - the x-coordinate of the starting point, not less than 0.
-    * @param { number } starty - the y-coordinate of the starting point, not less than 0.
-    * @param { number } endx - the x-coordinate of the ending point, not less than 0.
-    * @param { number } endy - the y-coordinate of the ending point, not less than 0.
-    * @param { number } [speed] the speed of drag(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
+    * @param { int } startx - the x-coordinate of the starting point, not less than 0.
+    * @param { int } starty - the y-coordinate of the starting point, not less than 0.
+    * @param { int } endx - the x-coordinate of the ending point, not less than 0.
+    * @param { int } endy - the y-coordinate of the ending point, not less than 0.
+    * @param { int } [speed] the speed of drag(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
     * @returns { Promise<void> }
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    drag(startx: int, starty: int, endx: int, endy: int, speed?: int): Promise<void>;
@@ -3716,7 +3834,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    screenCap(savePath: string): Promise<boolean>;
@@ -3741,7 +3860,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    setDisplayRotation(rotation: DisplayRotation): Promise<void>;
@@ -3762,7 +3882,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    getDisplayRotation(): Promise<DisplayRotation>;
@@ -3787,7 +3908,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    setDisplayRotationEnabled(enabled: boolean): Promise<void>;
@@ -3808,7 +3930,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    getDisplaySize(): Promise<Point>;
@@ -3829,7 +3952,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    getDisplayDensity(): Promise<Point>;
@@ -3850,7 +3974,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    wakeUpDisplay(): Promise<void>;
@@ -3871,7 +3996,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    pressHome(): Promise<void>;
@@ -3891,14 +4017,15 @@ import { int, double } from "@ohos.base";
    /**
     * Wait for the UI become idle.
     *
-    * @param { number } idleTime - the threshold of UI idle time, in millisecond, not less than 0.
-    * @param { number } timeout - the maximum time to wait for idle, in millisecond, not less than 0.
+    * @param { int } idleTime - the threshold of UI idle time, in millisecond, not less than 0.
+    * @param { int } timeout - the maximum time to wait for idle, in millisecond, not less than 0.
     * @returns { Promise<boolean> } true if wait for idle succeed in the timeout, false otherwise.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    waitForIdle(idleTime: int, timeout: int): Promise<boolean>;
@@ -3937,15 +4064,16 @@ import { int, double } from "@ohos.base";
     *
     * @param { Point } from - the coordinate point where the finger touches the screen.
     * @param { Point } to - the coordinate point where the finger leaves the screen.
-    * @param { number } stepLen - the length of each step, in pixels.
-    * @param { number } [speed] - the speed of fling(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
+    * @param { int } stepLen - the length of each step, in pixels.
+    * @param { int } [speed] - the speed of fling(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
     * @returns { Promise<void> }
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    fling(from: Point, to: Point, stepLen: int, speed: int): Promise<void>;
@@ -3966,14 +4094,15 @@ import { int, double } from "@ohos.base";
     * Inject multi-pointer action on the device display.
     *
     * @param { PointerMatrix } pointers - the two-dimensional array of pointers to inject.
-    * @param { number } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
+    * @param { int } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
     * @returns { Promise<boolean> } true if the operation finished, false
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    injectMultiPointerAction(pointers: PointerMatrix, speed?: int): Promise<boolean>;
@@ -4007,14 +4136,15 @@ import { int, double } from "@ohos.base";
     * Inject fling on the device display.
     *
     * @param { UiDirection } direction - the direction of this action.
-    * @param { number } speed - the speed of fling (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+    * @param { int } speed - the speed of fling (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
     * @returns { Promise<void> }
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':12, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    fling(direction: UiDirection, speed: int): Promise<void>;
@@ -4038,14 +4168,15 @@ import { int, double } from "@ohos.base";
     *
     * @param { Point } p - the coordinate of the specified location.
     * @param { MouseButton } btnId - the button of Mouse.
-    * @param { number } [key1] - the first keyCode,set it default 0 if null or undefined.
-    * @param { number } [key2] - the second keyCode,set it default 0 if null or undefined.
+    * @param { int } [key1] - the first keyCode,set it default 0 if null or undefined.
+    * @param { int } [key2] - the second keyCode,set it default 0 if null or undefined.
     * @returns { Promise<void> }
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    mouseClick(p: Point, btnId: MouseButton, key1?: int, key2?: int): Promise<void>;
@@ -4070,7 +4201,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    mouseMoveTo(p: Point): Promise<void>;
@@ -4103,7 +4235,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    /**
@@ -4111,16 +4244,17 @@ import { int, double } from "@ohos.base";
     *
     * @param { Point } p - the coordinate of the specified location.
     * @param { boolean } down - whether the mouse wheel rolls down.
-    * @param { number } d - the number of cells that the mouse wheel scrolls, each cell will make the target point shift 120 pixels.
-    * @param { number } [key1] - the first keyCode,set it default 0 if null or undefined.
-    * @param { number } [key2] - the second keyCode,set it default 0 if null or undefined.
-    * @param { number } [speed] - The Speed of mouse wheel rolls(cells per second),ranges from 1 to 500.Set it default 20 if out of range or null or undefined.
+    * @param { int } d - the number of cells that the mouse wheel scrolls, each cell will make the target point shift 120 pixels.
+    * @param { int } [key1] - the first keyCode,set it default 0 if null or undefined.
+    * @param { int } [key2] - the second keyCode,set it default 0 if null or undefined.
+    * @param { int } [speed] - The Speed of mouse wheel rolls(cells per second),ranges from 1 to 500.Set it default 20 if out of range or null or undefined.
     * @returns { Promise<void> }
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    mouseScroll(p: Point, down: boolean, d: int, key1?: int, key2?: int, speed?: int): Promise<void>;
@@ -4147,7 +4281,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    screenCapture(savePath: string, rect?: Rect): Promise<boolean>;
@@ -4168,7 +4303,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    createUIEventObserver(): UIEventObserver;
@@ -4178,14 +4314,15 @@ import { int, double } from "@ohos.base";
     *
     * @param { Point } p - the coordinate of the specified location.
     * @param { MouseButton } btnId - the button of Mouse.
-    * @param { number } [key1] - the first keyCode,set it default 0 if null or undefined.
-    * @param { number } [key2] - the second keyCode,set it default 0 if null or undefined.
+    * @param { int } [key1] - the first keyCode,set it default 0 if null or undefined.
+    * @param { int } [key2] - the second keyCode,set it default 0 if null or undefined.
     * @returns { Promise<void> }
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    mouseDoubleClick(p: Point, btnId: MouseButton, key1?: int, key2?: int): Promise<void>;
@@ -4195,14 +4332,15 @@ import { int, double } from "@ohos.base";
     *
     * @param { Point } p - the coordinate of the specified location.
     * @param { MouseButton } btnId - the button of Mouse.
-    * @param { number } [key1] - the first keyCode,set it default 0 if null or undefined.
-    * @param { number } [key2] - the second keyCode,set it default 0 if null or undefined.
+    * @param { int } [key1] - the first keyCode,set it default 0 if null or undefined.
+    * @param { int } [key2] - the second keyCode,set it default 0 if null or undefined.
     * @returns { Promise<void> }
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    mouseLongClick(p: Point, btnId: MouseButton, key1?: int, key2?: int): Promise<void>;
@@ -4212,13 +4350,14 @@ import { int, double } from "@ohos.base";
     *
     * @param { Point } from - the starting point.
     * @param { Point } to - the ending point.
-    * @param { number } [speed] - speed of swipe (pixels per second),the value ranges from 200 to 40000.Set it default 600 if out of range or null or undefined.
+    * @param { int } [speed] - speed of swipe (pixels per second),the value ranges from 200 to 40000.Set it default 600 if out of range or null or undefined.
     * @returns { Promise<void> }
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    mouseMoveWithTrack(from: Point, to: Point, speed?: int): Promise<void>;
@@ -4228,13 +4367,14 @@ import { int, double } from "@ohos.base";
     *
     * @param { Point } from - the starting point.
     * @param { Point } to - the ending point.
-    * @param { number } [speed] - speed of drag (pixels per second),the value ranges from 200 to 40000,Set it default 600 if out of range or null or undefined.
+    * @param { int } [speed] - speed of drag (pixels per second),the value ranges from 200 to 40000,Set it default 600 if out of range or null or undefined.
     * @returns { Promise<void> }
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    mouseDrag(from: Point, to: Point, speed?: int): Promise<void>;
@@ -4249,14 +4389,15 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    inputText(p: Point, text: string): Promise<void>;
  
    /**
     * Simulate touchpad multi-finger swipe gestures.
-    * @param { number } fingers Finger count of touchpad multi-finger swipe, ranges from 3 to 4.
+    * @param { int } fingers Finger count of touchpad multi-finger swipe, ranges from 3 to 4.
     * @param { UiDirection } direction Direction of touchpad multi-finger swipe.
     * @param { TouchPadSwipeOptions } [options] Additional options touchpad multi-finger swipe gestures, set its parameters to default values if null or undefined.
     * @returns { Promise<void> }
@@ -4265,7 +4406,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000005 This device can not support this action.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 16
+    * @since arkts {'1.1':16, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    touchPadMultiFingerSwipe(fingers: int, direction: UiDirection, options?: TouchPadSwipeOptions): Promise<void>;
@@ -4278,7 +4420,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000002 The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 16
+    * @since arkts {'1.1':16, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    penClick(point: Point): Promise<void>;
@@ -4286,13 +4429,14 @@ import { int, double } from "@ohos.base";
    /**
     * Simulate pen long click operation.
     * @param { Point } point Coordinate of the specified location.
-    * @param { number } [pressure] Pressure of pen long click operation, default is 1.0, the value ranges from 0.0 to 1.0.
+    * @param { double } [pressure] Pressure of pen long click operation, default is 1.0, the value ranges from 0.0 to 1.0.
     * @returns { Promise<void> }
     * @throws { BusinessError } 401 Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 16
+    * @since arkts {'1.1':16, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    penLongClick(point: Point, pressure?: double): Promise<void>;
@@ -4305,7 +4449,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000002 The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 16
+    * @since arkts {'1.1':16, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    penDoubleClick(point: Point): Promise<void>;
@@ -4314,14 +4459,15 @@ import { int, double } from "@ohos.base";
     * Simulate pen swipe operation.
     * @param { Point } startPoint Coordinate of the specified location.
     * @param { Point } endPoint Coordinate of the specified location.
-    * @param { number } [speed] Speed(pixels per second) of pen swipe, default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
-    * @param { number } [pressure] Pressure of pen swipe operation, default is 1.0, the value ranges from 0.0 to 1.0.
+    * @param { int } [speed] Speed(pixels per second) of pen swipe, default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+    * @param { double } [pressure] Pressure of pen swipe operation, default is 1.0, the value ranges from 0.0 to 1.0.
     * @returns { Promise<void> }
     * @throws { BusinessError } 401 Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 16
+    * @since arkts {'1.1':16, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    penSwipe(startPoint: Point, endPoint: Point, speed?: int, pressure?: double): Promise<void>;
@@ -4329,14 +4475,15 @@ import { int, double } from "@ohos.base";
    /**
     * Inject pen multi-pointer action on the device display.
     * @param { PointerMatrix } pointers The two-dimensional array of pointers to inject.
-    * @param { number } [speed] Speed(pixels per second) of inject pen pointer action, default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
-    * @param { number } [pressure] Pressure of inject pen pointer action operation, default is 1.0, the value ranges from 0.0 to 1.0.
+    * @param { int } [speed] Speed(pixels per second) of inject pen pointer action, default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+    * @param { double } [pressure] Pressure of inject pen pointer action operation, default is 1.0, the value ranges from 0.0 to 1.0.
     * @returns { Promise<void> }
     * @throws { BusinessError } 401 Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 16
+    * @since arkts {'1.1':16, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    injectPenPointerAction(pointers: PointerMatrix, speed?: int, pressure?: double): Promise<void>;
@@ -4352,7 +4499,8 @@ import { int, double } from "@ohos.base";
   *
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
-  * @since 11
+  * @since arkts {'1.1':11, '1.2':20}
+  * @arkts 1.1&1.2
   * @test
   */
  declare class UiWindow {
@@ -4374,7 +4522,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    getBundleName(): Promise<string>;
@@ -4398,7 +4547,8 @@ import { int, double } from "@ohos.base";
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    getBounds(): Promise<Rect>;
@@ -4421,7 +4571,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    getTitle(): Promise<string>;
@@ -4444,7 +4595,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    getWindowMode(): Promise<WindowMode>;
@@ -4467,7 +4619,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    isFocused(): Promise<boolean>;
@@ -4489,7 +4642,6 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
-    * @since 11
     * @deprecated since 11
     * @useinstead ohos.UiTest.UiWindow#isActive
     * @test
@@ -4514,7 +4666,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    focus(): Promise<void>;
@@ -4536,8 +4689,8 @@ import { int, double } from "@ohos.base";
    /**
     * Move this {@link UiWindow} to the specified points.
     *
-    * @param { number } x - the x coordinate of destination, not less than 0.
-    * @param { number } y - the y coordinate of destination, not less than 0.
+    * @param { int } x - the x coordinate of destination, not less than 0.
+    * @param { int } y - the y coordinate of destination, not less than 0.
     * @returns { Promise<void> }
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -4545,7 +4698,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000005 - This operation is not supported.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    moveTo(x: int, y: int): Promise<void>;
@@ -4568,8 +4722,8 @@ import { int, double } from "@ohos.base";
    /**
     * Resize this {@link UiWindow} to the specified size for the specified direction.
     *
-    * @param { number } wide - the expected wide of the window after resizing.
-    * @param { number } height - the expected height of the window after resizing.
+    * @param { int } wide - the expected wide of the window after resizing.
+    * @param { int } height - the expected height of the window after resizing.
     * @param { ResizeDirection } direction - the expected direction of the window after resizing.
     * @returns { Promise<void> }
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -4578,7 +4732,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000005 - This operation is not supported.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    resize(wide: int, height: int, direction: ResizeDirection): Promise<void>;
@@ -4603,7 +4758,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000005 - This operation is not supported.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    split(): Promise<void>;
@@ -4628,7 +4784,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000005 - This operation is not supported.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    maximize(): Promise<void>;
@@ -4653,7 +4810,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000005 - This operation is not supported.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    minimize(): Promise<void>;
@@ -4678,7 +4836,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000005 - This operation is not supported.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    resume(): Promise<void>;
@@ -4703,7 +4862,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000005 - This operation is not supported.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    close(): Promise<void>;
@@ -4716,7 +4876,8 @@ import { int, double } from "@ohos.base";
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    isActive(): Promise<boolean>;
@@ -4737,7 +4898,8 @@ import { int, double } from "@ohos.base";
   * @syscap SystemCapability.Test.UiTest
   * @crossplatform
   * @atomicservice
-  * @since 11
+  * @since arkts {'1.1':11, '1.2':20}
+  * @arkts 1.1&1.2
   * @test
   */
  declare class PointerMatrix {
@@ -4755,14 +4917,15 @@ import { int, double } from "@ohos.base";
    /**
     * Create an {@link PointerMatrix} object.
     *
-    * @param { number } fingers - The number of fingers, ranges from 1 to 10.
-    * @param { number } steps - The number of steps of each finger trace, ranges from 1 to 1000.
+    * @param { int } fingers - The number of fingers, ranges from 1 to 10.
+    * @param { int } steps - The number of steps of each finger trace, ranges from 1 to 1000.
     * @returns { PointerMatrix } the {@link PointerMatrix} object.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    static create(fingers: int, steps: int): PointerMatrix;
@@ -4781,14 +4944,15 @@ import { int, double } from "@ohos.base";
    /**
     * Set the point value of an element in the PointerMatrix.
     *
-    * @param { number } finger - the index of target finger to set.
-    * @param { number } step - the index of target step to set.
+    * @param { int } finger - the index of target finger to set.
+    * @param { int } step - the index of target step to set.
     * @param { Point } point - the coordinate of target step to set.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    setPoint(finger: int, step: int, point: Point): void;
@@ -4818,7 +4982,8 @@ import { int, double } from "@ohos.base";
   * @syscap SystemCapability.Test.UiTest
   * @crossplatform
   * @atomicservice
-  * @since 11
+  * @since arkts {'1.1':11, '1.2':20}
+  * @arkts 1.1&1.2
   * @test
   */
  declare const ON: On;
