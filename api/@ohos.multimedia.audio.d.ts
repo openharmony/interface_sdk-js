@@ -6099,10 +6099,10 @@ declare namespace audio {
     isCollaborativePlaybackSupported(): boolean;
 
     /**
-     * Sets the collaborative playback enabled or disabled by the specified device.
-     * Only A2DP device supports collaborative playback.
-     * If the enabled specified device is the current output device, it will collaborate with the local device
-     * to play sound.
+     * Set to enable or disable collaborative playback with the specified device.
+     * Currently, only A2DP device supports collaborative playback.
+     * If the system is currently using the specified device as the output device, after calling this interface,
+     * the sound will be collaborative played from the local speaker and the specified device.
      * This method uses a promise to return the result.
      * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device descriptor.
      * @param { boolean } enabled - Whether the collaborative playback is enabled.
