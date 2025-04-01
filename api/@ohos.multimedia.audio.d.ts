@@ -6111,7 +6111,7 @@ declare namespace audio {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                1.Mandatory parameters are left unspecified;
      *                               2.Incorrect parameter types.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.Possible causes:
+     * @throws { BusinessError } 6800101 - Parameter verification failed. Possible causes:
      *                               1. The input device is not an A2DP device.
      *                              2. The input device is not connected.
      * @syscap SystemCapability.Multimedia.Audio.Device
