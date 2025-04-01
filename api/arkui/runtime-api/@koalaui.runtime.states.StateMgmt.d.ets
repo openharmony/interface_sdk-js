@@ -87,3 +87,32 @@ export declare class LinkDecoratedVariable<T> implements DecoratedMutableVariabl
     public get(): T;
     public set(newValue: T): void;
 }
+
+export declare class PropDecoratedVariable<T> extends DecoratedVariableBase<T> implements 
+    DecoratedMutableVariable<T>, DecoratedV1Variable, DecoratedUpdatableVariable<T> {
+    public readonly _watchFunc: WatchFunc | undefined;
+    public __backing: T;
+    public __sourceValue: T;
+    public constructor(source_value: T, watchFunc?: WatchFunc)
+    public get(): T
+    public set(newValue: T): void
+    public update(newValue: T): void
+}
+
+export declare class StorageLinkDecoratedVariable<T> implements DecoratedMutableVariable<T>, DecoratedV1Variable {
+    public _watchFunc: WatchFunc | undefined;
+    public asLink : LinkDecoratedVariable<Object> | undefined;
+    constructor(propName: string, varName_: string, localValue: T, watchFunc?: WatchFunc);
+    public getInfo(): string;
+    public get(): T;
+    public set(newValue: T): void;
+}
+
+export declare class StoragePropDecoratedVariable<T> implements DecoratedMutableVariable<T>, DecoratedV1Variable {
+    public _watchFunc: WatchFunc | undefined;
+    public asProp : PropDecoratedVariable<Object> | undefined;
+    constructor(propName: string, varName:string, localVal: T, watchFunc?: WatchFunc);
+    public getInfo(): string;
+    public get(): T;
+    public set(newValue: T): void;
+}
