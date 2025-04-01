@@ -315,6 +315,26 @@ declare namespace appManager {
        * @since 14
        */
       setter: KeepAliveSetter;
+
+      /**
+       * The user id of setter.
+       *
+       * @type { ?number }
+       * @syscap SystemCapability.Ability.AbilityRuntime.Core
+       * @systemapi
+       * @since 20
+       */
+      setterUserId?: number;
+
+      /**
+       * Weather allow user to cancel keep-alive status.
+       *
+       * @type { ?boolean }
+       * @syscap SystemCapability.Ability.AbilityRuntime.Core
+       * @systemapi
+       * @since 20
+       */
+      allowUserToCancel?: boolean;
     }
   
   /**
@@ -1195,6 +1215,42 @@ declare namespace appManager {
    * @since 14
    */
   function getKeepAliveBundles(type: KeepAliveAppType, userId?: number): Promise<Array<KeepAliveBundleInfo>>;
+
+  /**
+   * Set keep alive for the specified app service extension.
+   *
+   * @permission ohos.permission.MANAGE_APP_KEEP_ALIVE
+   * @param { string } bundleName - bundle name.
+   * @param { boolean } enabled - True indicates to enable process keep-alive, while false indicates to disable it.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000081 - The target bundle does not exist.
+   * @throws { BusinessError } 16000202 - Invalid main element type.
+   * @throws { BusinessError } 16000203 - Can not change keep alive status.
+   * @throws { BusinessError } 16000204 - The target bundle is not in u1.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 20
+   */
+  function setKeepAliveForAppServiceExtension(bundleName: string, enabled: boolean): Promise<void>;
+
+  /**
+   * Get keep-alive bundle information.
+   *
+   * @permission ohos.permission.MANAGE_APP_KEEP_ALIVE
+   * @returns { Promise<Array<KeepAliveBundleInfo>> } Returns the list of KeepAliveBundleInfo.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 20
+   */
+  function getKeepAliveAppServiceExtensions(): Promise<Array<KeepAliveBundleInfo>>;
 
   /**
    * Kill processes in batch.
