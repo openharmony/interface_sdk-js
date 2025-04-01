@@ -56,6 +56,7 @@ export * from './arkui/component/flex';
 export * from './arkui/component/flowItem';
 export * from './arkui/component/focus';
 export * from './arkui/component/folderStack';
+export * from './arkui/component/forEach';
 export * from './arkui/component/formComponent';
 export * from './arkui/component/formLink';
 export * from './arkui/component/gauge';
