@@ -19,7 +19,8 @@
  */
 
 /*** if arkts 1.2 */
-import { Prop, Component } from './arkui/stateManagement/common';
+import { Prop } from './arkui/stateManagement/common';
+import { Component } from './arkui/component/customComponent';
 /*** endif */
 
 /**

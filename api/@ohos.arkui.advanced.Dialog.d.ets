@@ -34,10 +34,10 @@ import {
   CustomDialog,
   Prop,
   BuilderParam,
-  Component,
   Link,
   Require,
 } from './arkui/stateManagement/common';
+import { Component } from './arkui/component/customComponent';
 /*** endif */
 
 /**

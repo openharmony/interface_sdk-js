@@ -20,7 +20,8 @@
 
 /*** if arkts 1.2 */
 import { ResourceStr } from './arkui/component/units';
-import { Prop, Component, BuilderParam } from './arkui/stateManagement/common';
+import { Prop, BuilderParam } from './arkui/stateManagement/common';
+import { Component } from './arkui/component/customComponent';
 /*** endif */
 
 
