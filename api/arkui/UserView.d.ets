@@ -20,3 +20,7 @@ export type UserViewBuilder = (__memo_context: __memo_context_type, __memo_id: _
 export declare class UserView {
     getBuilder(): UserViewBuilder;
 }
+
+export declare class EntryPoint {
+    @memo entry(): void;
+}
