@@ -10464,11 +10464,10 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates for camera concurrent type.
+   * Enum for camera concurrent type.
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @systemapi
    * @since 18
    */
   enum CameraConcurrentType {
