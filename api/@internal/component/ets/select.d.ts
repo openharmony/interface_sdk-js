@@ -1089,18 +1089,6 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   divider(options: Optional<DividerOptions> | null): SelectAttribute;
 
   /**
-   * Set the divider style of option
-   *
-   * @param { Optional<DividerStyleOptions> } style
-   * @returns { SelectAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  dividerStyle(style: Optional<DividerStyleOptions>): SelectAttribute;
-
-  /**
    * Set the select menu avoidance mode
    *
    * @param { AvoidanceMode } mode - Enumeration value of the avoidance mode
