@@ -833,6 +833,36 @@ declare namespace camera {
     createSession<T extends Session>(mode: SceneMode): T;
 
     /**
+     * Queries a specified device based on position and type.
+     *
+     * @param { CameraPosition } position - Camera position.
+     * @param { CameraType } type - Camera type.
+     * @returns { CameraDevice } A device queried base on position and type.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
+     * 3. Parameter verification failed.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 18
+     */
+    getCameraDevice(position: CameraPosition, type: CameraType): CameraDevice;
+
+    /**
+     * Obtains the concurrent information of specified cameras,
+     * the empty return means concurrency is not supported.
+     *
+     * @param { Array<CameraDevice> } cameras - Set of camera devices to be queried.
+     * @returns { Array<CameraConcurrentInfo> } Set of queried concurrent information.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
+     * 3. Parameter verification failed.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 18
+     */
+    getCameraConcurrentInfos(cameras: Array<CameraDevice>): Array<CameraConcurrentInfo>;
+
+    /**
      * Subscribes camera status change event callback.
      *
      * @param { 'cameraStatus' } type - Event type.
@@ -1661,6 +1691,20 @@ declare namespace camera {
      * @since 12
      */
     open(isSecureEnabled: boolean): Promise<bigint>;
+
+    /**
+     * Open camera with specified concurrent type.
+     *
+     * @param { CameraConcurrentType } type - Camera concurrent type.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @throws { BusinessError } 7400107 - Can not use camera cause of conflict.
+     * @throws { BusinessError } 7400108 - Camera disabled cause of security reason.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 18
+     */
+    open(type: CameraConcurrentType): Promise<void>;
 
     /**
      * Close camera.
@@ -10417,6 +10461,81 @@ declare namespace camera {
      * @since 10
      */
     off(type: 'error', callback?: ErrorCallback): void;
+  }
+
+  /**
+   * Enumerates for camera concurrent type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 18
+   */
+  enum CameraConcurrentType {
+    /**
+     * Cameras concurrency with limited capabilities.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 18
+     */
+    CAMERA_LIMITED_CAPABILITY = 0,
+
+    /**
+     * Cameras concurrency with full capabilities.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 18
+     */
+    CAMERA_FULL_CAPABILITY = 1,
+  }
+
+  /**
+   * Camera concurrent information.
+   *
+   * @interface CameraConcurrentInfo
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @since 18
+   */
+  interface CameraConcurrentInfo {
+    /**
+     * Camera instance.
+     *
+     * @type { CameraDevice }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 18
+     */
+    readonly device: CameraDevice;
+
+    /**
+     * Camera concurrent type.
+     *
+     * @type { CameraConcurrentType }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 18
+     */
+    readonly type: CameraConcurrentType;
+
+    /**
+     * Supported scene modes.
+     *
+     * @type { Array<SceneMode> }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 18
+     */
+    readonly modes: Array<SceneMode>;
+
+    /**
+     * Supported outputCapability.
+     *
+     * @type { Array<CameraOutputCapability> }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 18
+     */
+    readonly outputCapabilities: Array<CameraOutputCapability>;
   }
 
   /**
