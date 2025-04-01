@@ -1453,7 +1453,8 @@ export interface DynamicNode {
 export interface EdgeEffectOptions {
     alwaysEnabled: boolean;
 }
-export interface ChildrenMainSize {
+export declare class ChildrenMainSize {
+    constructor(size: number)
     childDefaultSize: number;
     splice(start: number, deleteCount?: number, childrenSize?: Array<number>): void
     update(index: number, childSize: number): void
