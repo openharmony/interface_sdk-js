@@ -22,8 +22,9 @@ import abilityDelegatorRegistry from '@ohos.app.ability.abilityDelegatorRegistry
 import TestRunner from '@ohos.application.testRunner';
 import {
   BY, By, Component, DisplayRotation, Driver, MatchPattern, MouseButton, ON, On, PointerMatrix, ResizeDirection,
-  UIElementInfo, UIEventObserver, UiComponent, UiDirection, UiDriver, UiWindow, WindowMode, loadAndSetupUiTest
+  UIElementInfo, UIEventObserver, UiComponent, UiDirection, UiDriver, UiWindow, WindowMode
 } from '@ohos.UiTest';
+
 /*** if arkts 1.1 */
 export {
   BY, By, Component, DisplayRotation, Driver, MatchPattern, MouseButton, ON, On, PointerMatrix, ResizeDirection,
