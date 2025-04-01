@@ -38,6 +38,11 @@ import { Theme } from './../../../api/@ohos.arkui.theme'
 import { Callback_Number_Number_Void } from './grid'
 import { ScrollOnWillScrollCallback, ScrollOnScrollCallback } from './scroll'
 import { ScrollState } from './list'
+
+@Retention({policy: "SOURCE"})
+export declare @interface Builder {};
+@Retention({policy: "SOURCE"})
+export declare @interface BuilderParam {};
 export interface ComponentOptions {
     freezeWhenInactive: boolean;
 }
@@ -272,14 +277,14 @@ export declare function fp2px(arg0: number): number
 export declare function px2fp(arg0: number): number
 export declare function lpx2px(arg0: number): number
 export declare function px2lpx(arg0: number): number
-export namespace focusControl {
-    declare function requestFocus(arg0: string): boolean
+export declare namespace focusControl {
+    function requestFocus(arg0: string): boolean
 }
-export namespace cursorControl {
-    declare function setCursor(arg0: PointerStyle): void
+export declare namespace cursorControl {
+    function setCursor(arg0: PointerStyle): void
 }
-export namespace cursorControl {
-    declare function restoreDefault(): void
+export declare namespace cursorControl {
+    function restoreDefault(): void
 }
 export interface EventTarget {
     area: Area;
@@ -1448,7 +1453,8 @@ export interface DynamicNode {
 export interface EdgeEffectOptions {
     alwaysEnabled: boolean;
 }
-export interface ChildrenMainSize {
+export declare class ChildrenMainSize {
+    constructor(size: number)
     childDefaultSize: number;
     splice(start: number, deleteCount?: number, childrenSize?: Array<number>): void
     update(index: number, childSize: number): void
@@ -1587,3 +1593,4 @@ export declare class WrappedBuilder<Args extends Array<Object>> {
 }
 
 export declare function $r(value: string, ...params: Object[]): Resource;
+export declare function $rawfile(value: string): Resource;

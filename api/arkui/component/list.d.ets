@@ -89,7 +89,7 @@ export interface VisibleListContentInfo {
     itemIndexInGroup?: number;
 }
 export type OnScrollVisibleContentChangeCallback = (start: VisibleListContentInfo, end: VisibleListContentInfo) => void;
-export interface ListScroller extends Scroller {
+export declare class ListScroller extends Scroller {
     getItemRectInGroup(index: number, indexInGroup: number): RectResult
     scrollToItemInGroup(index: number, indexInGroup: number, smooth?: boolean, align?: ScrollAlign): void
     closeAllSwipeActions(options?: CloseSwipeActionOptions): void

@@ -65,7 +65,7 @@ export enum GestureJudgeResult {
     CONTINUE = 0,
     REJECT = 1
 }
-export namespace GestureControl {
+export declare namespace GestureControl {
     export enum GestureType {
         TAP_GESTURE = 0,
         LONG_PRESS_GESTURE = 1,
