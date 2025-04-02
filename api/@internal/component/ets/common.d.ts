@@ -13490,6 +13490,36 @@ declare interface KeyEvent {
    * @since 14
    */
   unicode?: number;
+
+  /**
+   * Whether Num Lock is on
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  isNumLockOn?: boolean;
+
+  /**
+   * Whether Caps Lock is on
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  isCapsLockOn?: boolean;
+
+  /**
+   * Whether Scroll Lock is on
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 18
+   */
+  isScrollLockOn?: boolean;
 }
 
 /**
