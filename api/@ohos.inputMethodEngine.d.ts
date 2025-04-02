@@ -645,6 +645,27 @@ declare namespace inputMethodEngine {
     off(type: 'privateCommand', callback?: Callback<Record<string, CommandDataType>>): void;
 
     /**
+     * Subscribe 'callingDisplayDidChange' event.
+     *
+     * @param { 'callingDisplayDidChange' } type - indicates the type of subscribe event.
+     * @param { Callback<number> } callback - indicates the callback of on('callingDisplayDidChange').
+     * @throws { BusinessError } 801 - capability not supported.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 18
+     */
+    on(type: 'callingDisplayDidChange', callback: Callback<number>): void;
+
+    /**
+     * Unsubscribe 'callingDisplayDidChange' event.
+     *
+     * @param { 'callingDisplayDidChange' } type - indicates the type of subscribe event.
+     * @param { Callback<number> } [callback] - optional, indicates the callback of off('callingDisplayDidChange').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 18
+     */
+    off(type: 'callingDisplayDidChange', callback?: Callback<number>): void;
+
+    /**
      * Get input method's security mode.
      *
      * @returns { SecurityMode } return security mode.
@@ -2030,6 +2051,26 @@ declare namespace inputMethodEngine {
      * @since 15
      */
     readonly immersiveMode?: ImmersiveMode;
+
+    /**
+     * Indicates the ID of the window where the edit box is located.
+     *
+     * @type { ?number }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 18
+     */
+    readonly windowId?: number;
+
+    /**
+     * Indicates the ID of the display where the edit box is located.
+     *
+     * @type { ?number }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 18
+     */
+    readonly displayId?: number;
   }
 
   /**
