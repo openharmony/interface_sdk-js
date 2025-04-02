@@ -130,7 +130,7 @@ export enum TextResponseType {
 export interface TextOptions {
     controller: TextController;
 }
-export interface TextController {
+export declare class TextController {
     closeSelectionMenu(): void
     setStyledString(value: StyledString): void
     getLayoutManager(): LayoutManager
