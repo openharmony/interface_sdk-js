@@ -786,13 +786,13 @@ declare namespace audio {
     /**
      * HDMI device, such as HDMI, ARC, eARC
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 18
+     * @since 19
      */
     HDMI = 27,
     /**
      * Line connected digital output device, such as s/pdif
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 18
+     * @since 19
      */
     LINE_DIGITAL = 28,
     /**
