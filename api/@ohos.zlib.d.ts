@@ -2329,6 +2329,7 @@ declare namespace zlib {
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
+     * @arkts 1.1
      * @since 12
      */
     gzprintf(format: string, ...args: Array<string | number>): Promise<number>;

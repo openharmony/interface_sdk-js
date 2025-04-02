@@ -459,7 +459,7 @@ export interface HapModuleInfo {
    */
   readonly nativeLibraryPath: string;
 
-     /**
+   /**
    * Indicates the code path
    *
    * @type { string }
@@ -468,7 +468,7 @@ export interface HapModuleInfo {
    * @atomicservice
    * @since 12
    */
-     readonly codePath: string;  
+   readonly codePath: string;
 }
 
 /**

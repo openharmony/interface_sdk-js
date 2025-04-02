@@ -322,6 +322,7 @@ export interface AbilityInfo {
    * @type { bundleManager.AbilityType }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @FAModelOnly
+   * @arkts 1.1
    * @since 9
    */
   readonly type: bundleManager.AbilityType;
@@ -392,6 +393,7 @@ export interface AbilityInfo {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @FAModelOnly
+   * @arkts 1.1
    * @since 9
    */
   readonly readPermission: string;
@@ -402,6 +404,7 @@ export interface AbilityInfo {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @FAModelOnly
+   * @arkts 1.1
    * @since 9
    */
   readonly writePermission: string;
@@ -412,6 +415,7 @@ export interface AbilityInfo {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @FAModelOnly
+   * @arkts 1.1
    * @since 9
    */
   readonly uri: string;

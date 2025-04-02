@@ -19,19 +19,20 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
-import type { ApplicationInfo as _ApplicationInfo, ModuleMetadata as _ModuleMetadata,
+import { ApplicationInfo as _ApplicationInfo, ModuleMetadata as _ModuleMetadata,
   PreinstalledApplicationInfo as _PreinstalledApplicationInfo } from './bundleManager/ApplicationInfo';
 import { Metadata as _Metadata } from './bundleManager/Metadata';
 import { PermissionDef as _PermissionDef } from './bundleManager/PermissionDef';
 import { ElementName as _ElementName } from './bundleManager/ElementName';
 import { SharedBundleInfo as _SharedBundleInfo } from './bundleManager/SharedBundleInfo';
-import type { RecoverableApplicationInfo as _RecoverableApplicationInfo } from './bundleManager/RecoverableApplicationInfo';
+import { RecoverableApplicationInfo as _RecoverableApplicationInfo } from './bundleManager/RecoverableApplicationInfo';
 import Want from './@ohos.app.ability.Want';
-import * as _AbilityInfo from './bundleManager/AbilityInfo';
+import { AbilityInfo as _AbilityInfo, WindowSize as _WindowSize } from './bundleManager/AbilityInfo';
 import * as _AppProvisionInfo from './bundleManager/AppProvisionInfo';
-import * as _BundleInfo from './bundleManager/BundleInfo';
+import { BundleInfo as _BundleInfo, UsedScene as _UsedScene, ReqPermissionDetail as _ReqPermissionDetail,
+  SignatureInfo as _SignatureInfo, AppCloneIdentity as _AppCloneIdentity } from './bundleManager/BundleInfo';
 import * as _HapModuleInfo from './bundleManager/HapModuleInfo';
-import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
+import { ExtensionAbilityInfo as _ExtensionAbilityInfo } from './bundleManager/ExtensionAbilityInfo';
 import * as _Skill from './bundleManager/Skill';
 /**
  * This module is used to obtain package information of various applications installed on the current device.
@@ -871,6 +872,7 @@ declare namespace bundleManager {
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @FAModelOnly
+   * @arkts 1.1
    * @since 9
    */
   export enum AbilityType {
@@ -879,6 +881,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @FAModelOnly
+     * @arkts 1.1
      * @since 9
      */
     PAGE = 1,
@@ -888,6 +891,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @FAModelOnly
+     * @arkts 1.1
      * @since 9
      */
     SERVICE = 2,
@@ -897,6 +901,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @FAModelOnly
+     * @arkts 1.1
      * @since 9
      */
     DATA = 3
@@ -3454,7 +3459,7 @@ declare namespace bundleManager {
    * @atomicservice
    * @since 11
    */
-  export type BundleInfo = _BundleInfo.BundleInfo;
+  export type BundleInfo = _BundleInfo;
 
   /**
    * The scene which is used.
@@ -3471,7 +3476,7 @@ declare namespace bundleManager {
    * @atomicservice
    * @since 11
    */
-  export type UsedScene = _BundleInfo.UsedScene;
+  export type UsedScene = _UsedScene;
 
   /**
    * Indicates the required permissions details defined in file config.json.
@@ -3488,7 +3493,7 @@ declare namespace bundleManager {
    * @atomicservice
    * @since 11
    */
-  export type ReqPermissionDetail = _BundleInfo.ReqPermissionDetail;
+  export type ReqPermissionDetail = _ReqPermissionDetail;
 
   /**
    * Indicates the SignatureInfo.
@@ -3505,7 +3510,7 @@ declare namespace bundleManager {
    * @atomicservice
    * @since 11
    */
-  export type SignatureInfo = _BundleInfo.SignatureInfo;
+  export type SignatureInfo = _SignatureInfo;
 
   /**
    * AppCloneIdentity Contain BundleName and appIndex.
@@ -3515,7 +3520,7 @@ declare namespace bundleManager {
    * @systemapi
    * @since 12
    */
-  export type AppCloneIdentity = _BundleInfo.AppCloneIdentity;
+  export type AppCloneIdentity = _AppCloneIdentity;
 
   /**
    * Obtains configuration information about a module.
@@ -3603,7 +3608,7 @@ declare namespace bundleManager {
    * @atomicservice
    * @since 11
    */
-  export type AbilityInfo = _AbilityInfo.AbilityInfo;
+  export type AbilityInfo = _AbilityInfo;
 
   /**
    * Contains basic Ability information. Indicates the window size..
@@ -3620,7 +3625,7 @@ declare namespace bundleManager {
    * @atomicservice
    * @since 11
    */
-  export type WindowSize = _AbilityInfo.WindowSize;
+  export type WindowSize = _WindowSize;
 
   /**
    * Obtains extension information about a bundle.
@@ -3637,7 +3642,7 @@ declare namespace bundleManager {
    * @atomicservice
    * @since 11
    */
-  export type ExtensionAbilityInfo = _ExtensionAbilityInfo.ExtensionAbilityInfo;
+  export type ExtensionAbilityInfo = _ExtensionAbilityInfo;
 
   /**
    * Indicates the defined permission details in file config.json.

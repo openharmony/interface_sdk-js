@@ -272,7 +272,7 @@ export interface BundleInfo {
 
   /**
    * Indicates the appIndex of application, only work in appClone mode
-   * 
+   *
    * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core

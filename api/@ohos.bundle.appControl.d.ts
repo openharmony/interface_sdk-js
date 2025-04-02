@@ -19,7 +19,7 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
-import type { ElementName } from './bundleManager/ElementName';
+import { ElementName } from './bundleManager/ElementName';
 import Want from './@ohos.app.ability.Want';
 
 /**
@@ -427,7 +427,7 @@ declare namespace appControl {
    * @systemapi
    * @since 12
    */
-    function setDisposedRule(appId: string, rule: DisposedRule, appIndex?: number): void;
+  function setDisposedRule(appId: string, rule: DisposedRule, appIndex?: number): void;
 }
 
 export default appControl;
