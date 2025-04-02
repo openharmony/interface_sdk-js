@@ -61,10 +61,8 @@ export enum GridItemAlignment {
     STRETCH = 1
 }
 export interface ComputedBarAttribute {
-    @memo
-    totalOffset(value: number): this;
-    @memo
-    totalLength(value: number): this;
+    totalOffset: number;
+    totalLength: number;
 }
 export type Callback_Number_Number_ComputedBarAttribute = (index: number, offset: number) => ComputedBarAttribute;
 export type Callback_Number_Number_Void = (first: number, last: number) => void;
