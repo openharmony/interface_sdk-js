@@ -141,7 +141,7 @@ export interface ScrollAttribute extends ScrollableCommonMethod {
     @memo
     initialOffset(value: OffsetOptions): this;
 }
-export type ScrollOnScrollCallback = (xOffset: number, yOffset: number, scrollState: ScrollState) => void;
+export type ScrollOnScrollCallback = (scrollOffset: number, scrollState: ScrollState) => void;
 export type ScrollOnWillScrollCallback = (xOffset: number, yOffset: number, scrollState: ScrollState,
     scrollSource: ScrollSource) => OffsetResult;
 @memo
