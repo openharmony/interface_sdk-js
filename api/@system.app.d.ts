@@ -31,7 +31,8 @@
  * @interface AppResponse
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface AppResponse {
   /**
@@ -47,7 +48,8 @@ export interface AppResponse {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   appID: string;
 
@@ -64,7 +66,8 @@ export interface AppResponse {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   appName: string;
 
@@ -81,7 +84,8 @@ export interface AppResponse {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   versionName: string;
 
@@ -98,7 +102,8 @@ export interface AppResponse {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   versionCode: number;
 }
@@ -116,7 +121,8 @@ export interface AppResponse {
  * @interface ScreenOnVisibleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface ScreenOnVisibleOptions {
   /**
@@ -132,7 +138,8 @@ export interface ScreenOnVisibleOptions {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   visible?: boolean;
 
@@ -149,7 +156,8 @@ export interface ScreenOnVisibleOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   success?: () => void;
 
@@ -166,7 +174,8 @@ export interface ScreenOnVisibleOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fail?: (data: string, code: number) => void;
 
@@ -183,7 +192,8 @@ export interface ScreenOnVisibleOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   complete?: () => void;
 }
@@ -201,7 +211,8 @@ export interface ScreenOnVisibleOptions {
  * @interface RequestFullWindowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface RequestFullWindowOptions {
   /**
@@ -217,7 +228,8 @@ export interface RequestFullWindowOptions {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   duration: number;
 }
@@ -233,9 +245,10 @@ export interface RequestFullWindowOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class App {
+declare class App {
   /**
    * Obtains the declared information in the config.json file of an application.
    *
@@ -249,7 +262,8 @@ export default class App {
    * @returns { AppResponse }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   static getInfo(): AppResponse;
 
@@ -264,7 +278,8 @@ export default class App {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   static terminate(): void;
 
@@ -309,7 +324,8 @@ export default class App {
    * @param { number } value - capacity of decoded image count.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   static setImageCacheCount(value: number): void;
 
@@ -328,7 +344,8 @@ export default class App {
    * @param { number } value - capacity of raw image data size in bytes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   static setImageRawDataCacheSize(value: number): void;
 
@@ -347,7 +364,10 @@ export default class App {
    * @param { number } value - capacity of raw image data size in bytes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   static setImageFileCacheSize(value: number): void;
 }
+
+export default App;

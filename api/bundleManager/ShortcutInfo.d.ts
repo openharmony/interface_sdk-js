@@ -207,7 +207,7 @@ export interface ShortcutInfo {
    * @since 12
    */
   appIndex: number;
-  
+
   /**
    * Indicates the source type of shortcut.
    *

@@ -18,6 +18,11 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { TextBackgroundStyle } from './span'
+import { AttributeModifier } from './common'
+/*** endif */
+
 /**
  * Span container interface.
  *
@@ -33,7 +38,8 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface ContainerSpanInterface {
   /**

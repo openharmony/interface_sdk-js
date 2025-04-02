@@ -18,7 +18,24 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { TextAreaAttribute } from './component/textArea'
+/*** endif */
 
+/*** if arkts 1.2 */
+/**
+ * Declare the apply normal status function.
+ *
+ * @typedef { function } TextAreaApplyNormalFunction
+ * @param { TextAreaAttribute } textAreaAttribute - The attribute of component.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type TextAreaApplyNormalFunction = (textAreaAttribute: TextAreaAttribute) => void;
+/*** endif */
 
 
 /**
@@ -28,7 +45,8 @@
  * @implements AttributeModifier<TextAreaAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
 */
 export declare class TextAreaModifier extends TextAreaAttribute implements AttributeModifier<TextAreaAttribute> {
 
@@ -42,4 +60,18 @@ export declare class TextAreaModifier extends TextAreaAttribute implements Attri
    * @since 12
    */
   applyNormalAttribute?(instance: TextAreaAttribute): void;
+
+  /*** if arkts 1.2 */
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyNormalAttribute?: TextAreaApplyNormalFunction;
+  /*** endif */
 }

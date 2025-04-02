@@ -27,51 +27,51 @@
  * @since 12
  */
 export interface Skill {
-    /**
-     * Indicates the actions of the skill
-     *
-     * @type { Array<string> }
-     * @readonly
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @atomicservice
-     * @since 12
-     */
-    readonly actions: Array<string>;
+  /**
+   * Indicates the actions of the skill
+   *
+   * @type { Array<string> }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly actions: Array<string>;
 
-    /**
-     * Indicates the entities of the skill
-     * 
-     * @type { Array<string> }
-     * @readonly
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @atomicservice
-     * @since 12
-     */
-    readonly entities: Array<string>;
+  /**
+   * Indicates the entities of the skill
+   *
+   * @type { Array<string> }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly entities: Array<string>;
 
-    /**
-     * Indicates the uris of the skill
-     *
-     * @type { Array<SkillUri> }
-     * @readonly
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @atomicservice
-     * @since 12
-     */
-    readonly uris: Array<SkillUri>;
+  /**
+   * Indicates the uris of the skill
+   *
+   * @type { Array<SkillUri> }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly uris: Array<SkillUri>;
 
-    /**
-     * Indicates the domainVerify of the skill
-     *
-     * @type { boolean }
-     * @readonly
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @atomicservice
-     * @since 12
-     */
-    readonly domainVerify: boolean;
+  /**
+   * Indicates the domainVerify of the skill
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly domainVerify: boolean;
 }
-  
+
 /**
  * Obtains configuration information about an skillUri
  *
@@ -81,113 +81,113 @@ export interface Skill {
  * @since 12
  */
 export interface SkillUri {
-    /**
-     * Indicates the scheme of the skillUri
-     *
-     * @type { string }
-     * @readonly
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @atomicservice
-     * @since 12
-     */
-    readonly scheme: string;
+  /**
+   * Indicates the scheme of the skillUri
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly scheme: string;
 
-    /**
-     * Indicates the host of the skillUri
-     *
-     * @type { string }
-     * @readonly
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @atomicservice
-     * @since 12
-     */
-    readonly host: string;
+  /**
+   * Indicates the host of the skillUri
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly host: string;
 
-    /**
-     * Indicates the port of the skillUri
-     *
-     * @type { number }
-     * @readonly
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @atomicservice
-     * @since 12
-     */
-    readonly port: number;
+  /**
+   * Indicates the port of the skillUri
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly port: number;
 
-    /**
-     * Indicates the path of the skillUri
-     *
-     * @type { string }
-     * @readonly
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @atomicservice
-     * @since 12
-     */
-    readonly path: string;
+  /**
+   * Indicates the path of the skillUri
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly path: string;
 
-    /**
-     * Indicates the pathStartWith of the skillUri
-     *
-     * @type { string }
-     * @readonly
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @atomicservice
-     * @since 12
-     */
-    readonly pathStartWith: string;
+  /**
+   * Indicates the pathStartWith of the skillUri
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly pathStartWith: string;
 
-    /**
-     * Indicates the pathRegex of the skillUri
-     *
-     * @type {string }
-     * @readonly
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @atomicservice
-     * @since 12
-     */
-    readonly pathRegex: string;
+  /**
+   * Indicates the pathRegex of the skillUri
+   *
+   * @type {string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly pathRegex: string;
 
-    /**
-     * Indicates the type of the skillUri
-     *
-     * @type { string }
-     * @readonly
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @atomicservice
-     * @since 12
-     */
-    readonly type: string;
+  /**
+   * Indicates the type of the skillUri
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly type: string;
 
-    /**
-     * Indicates the utd of the skillUri
-     *
-     * @type { string }
-     * @readonly
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @atomicservice
-     * @since 12
-     */
-    readonly utd: string;
+  /**
+   * Indicates the utd of the skillUri
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly utd: string;
 
-    /**
-     * Indicates the maxFileSupported of the skillUri
-     *
-     * @type { number }
-     * @readonly
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @atomicservice
-     * @since 12
-     */
-    readonly maxFileSupported: number;
+  /**
+   * Indicates the maxFileSupported of the skillUri
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly maxFileSupported: number;
 
-    /**
-     * Indicates the linkFeature of the skillUri
-     *
-     * @type { string }
-     * @readonly
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @atomicservice
-     * @since 12
-     */
-    readonly linkFeature: string;
+  /**
+   * Indicates the linkFeature of the skillUri
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly linkFeature: string;
 }

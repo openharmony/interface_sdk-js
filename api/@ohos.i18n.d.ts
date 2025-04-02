@@ -293,7 +293,8 @@ declare namespace i18n {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1': '11', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     static getSystemLanguage(): string;
 
@@ -333,7 +334,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1': '12', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     static getSystemRegion(): string;
 
@@ -373,7 +375,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1': '11', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     static getSystemLocale(): string;
 
@@ -423,7 +426,8 @@ declare namespace i18n {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1': '12', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     static is24HourClock(): boolean;
 
@@ -1236,7 +1240,8 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1': '12', '1.2': '20'}
+   * @arkts 1.1 & 1.2
    */
   export function getCalendar(locale: string, type?: string): Calendar;
 
@@ -1403,7 +1408,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1': '12', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     getTimeZone(): string;
 
@@ -1542,7 +1548,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1': '12', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     get(field: string): number;
 
@@ -1694,7 +1701,8 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1': '12', '1.2': '20'}
+   * @arkts 1.1 & 1.2
    */
   export function isRTL(locale: string): boolean;
 
@@ -2242,7 +2250,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1': '12', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     static isRTL(char: string): boolean;
 
@@ -2490,7 +2499,8 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1': '12', '1.2': '20'}
+   * @arkts 1.1 & 1.2
    */
   export function getTimeZone(zoneID?: string): TimeZone;
 

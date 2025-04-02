@@ -236,36 +236,6 @@ declare namespace zlib {
   }
 
   /**
-   * ParallelStrategy
-   *
-   * @enum { number }
-   * @syscap SystemCapability.BundleManager.Zlib
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  export enum ParallelStrategy {
-    /**
-     * Indicates the sequential strategy, compress and decompress sequentially.
-     *
-     * @syscap SystemCapability.BundleManager.Zlib
-     * @crossplatform
-     * @atomicservice
-     * @since 18
-     */
-    PARALLEL_STRATEGY_SEQUENTIAL = 0,
-    /**
-     * Indicates the parallel decompression strategy.
-     *
-     * @syscap SystemCapability.BundleManager.Zlib
-     * @crossplatform
-     * @atomicservice
-     * @since 18
-     */
-    PARALLEL_STRATEGY_PARALLEL_DECOMPRESSION = 1
-  }
-
-  /**
    * MemLevel
    *
    * @enum { number }
@@ -543,16 +513,6 @@ declare namespace zlib {
      * @since 11
      */
     strategy?: CompressStrategy;
-    /**
-     * Indicates the parallel strategy.
-     *
-     * @type { ?ParallelStrategy }
-     * @syscap SystemCapability.BundleManager.Zlib
-     * @crossplatform
-     * @atomicservice
-     * @since 18
-     */
-    parallel?: ParallelStrategy;
   }
 
   /**
@@ -2369,6 +2329,7 @@ declare namespace zlib {
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
+     * @arkts 1.1
      * @since 12
      */
     gzprintf(format: string, ...args: Array<string | number>): Promise<number>;

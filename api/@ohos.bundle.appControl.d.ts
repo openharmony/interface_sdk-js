@@ -19,7 +19,7 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
-import type { ElementName } from './bundleManager/ElementName';
+import { ElementName } from './bundleManager/ElementName';
 import Want from './@ohos.app.ability.Want';
 
 /**
@@ -57,25 +57,6 @@ declare namespace appControl {
      * @since 11
      */
     UI_EXTENSION = 2
-  }
-
-  /**
-   * Indicates the ability component type when uninstalled.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
-   * @systemapi
-   * @since 15
-   */
-  export enum UninstallComponentType {
-    /**
-     * Indicates the service extension ability type.
-     *
-     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
-     * @systemapi
-     * @since 15
-     */
-    EXTENSION = 1,
   }
 
   /**
@@ -206,46 +187,6 @@ declare namespace appControl {
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 11
-     */
-    priority: number;
-  }
-
-  /**
-   * Indicates the uninstall rule for interception.
-   *
-   * @typedef UninstallDisposedRule
-   * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
-   * @systemapi
-   * @since 15
-   */
-  export interface UninstallDisposedRule {
-    /**
-     * Indicates the ability that will be pulled up when interception occurs.
-     *
-     * @type { Want }
-     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
-     * @systemapi
-     * @since 15
-     */
-    want: Want;
-
-    /**
-     * Indicates the type of the ability that will be pulled up when interception occurs.
-     *
-     * @type { UninstallComponentType }
-     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
-     * @systemapi
-     * @since 15
-     */
-    uninstallComponentType: UninstallComponentType;
-
-    /**
-     * Indicates priority of the rule.
-     *
-     * @type { number }
-     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
-     * @systemapi
-     * @since 15
      */
     priority: number;
   }
@@ -486,64 +427,7 @@ declare namespace appControl {
    * @systemapi
    * @since 12
    */
-    function setDisposedRule(appId: string, rule: DisposedRule, appIndex?: number): void;
-
-  /**
-   * Sets the uninstall disposed rule of a specified bundle.
-   *
-   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appIdentifier - Indicates the appIdentifier of the application.
-   * @param { UninstallDisposedRule } rule - Indicates the uninstall disposed rule of a specified bundle.
-   * @param { number } [appIndex] Indicates the index of clone app.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 17700061 - AppIndex is not in the valid range.
-   * @throws { BusinessError } 17700074 - The specified appIdentifier is invalid.
-   * @throws { BusinessError } 17700075 - The specified bundleName of want is not the same with caller.
-   * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
-   * @systemapi
-   * @since 15
-   */
-  function setUninstallDisposedRule(appIdentifier: string, rule: UninstallDisposedRule, appIndex?: number): void;
-  
-  /**
-   * Obtains the uninstall disposed rule of a specified bundle.
-   *
-   * @permission ohos.permission.GET_DISPOSED_APP_STATUS or ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appIdentifier - Indicates the appIdentifier of the application.
-   * @param { number } [appIndex] Indicates the index of clone app.
-   * @returns { UninstallDisposedRule } Returns the uninstall disposed rule of a specified bundle.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 17700061 - AppIndex is not in the valid range.
-   * @throws { BusinessError } 17700074 - The specified appIdentifier is invalid.
-   * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
-   * @systemapi
-   * @since 15
-   */
-  function getUninstallDisposedRule(appIdentifier: string, appIndex?: number): UninstallDisposedRule;
-
-  /**
-   * Delete the uninstall disposed rule of a specified bundle.
-   *
-   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appIdentifier - Indicates the appIdentifier of the application.
-   * @param { number } [appIndex] Indicates the index of clone app.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 17700061 - AppIndex is not in the valid range.
-   * @throws { BusinessError } 17700074 - The specified appIdentifier is invalid.
-   * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
-   * @systemapi
-   * @since 15
-   */
-  function deleteUninstallDisposedRule(appIdentifier: string, appIndex?: number): void;
+  function setDisposedRule(appId: string, rule: DisposedRule, appIndex?: number): void;
 }
 
 export default appControl;

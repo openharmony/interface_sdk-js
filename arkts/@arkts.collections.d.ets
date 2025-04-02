@@ -16,6 +16,7 @@
 /**
  * @file Defines the collections for ArkTS
  * @kit ArkTS
+ * @arkts 1.1
  */
 
 import lang from './@arkts.lang'

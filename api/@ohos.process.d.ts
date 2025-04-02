@@ -14,6 +14,10 @@
  */
 
 /**
+ * @arkts1.1only
+ */
+
+/**
  * @file
  * @kit ArkTS
  */

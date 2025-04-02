@@ -42,7 +42,6 @@ declare namespace bundleMonitor {
      * The bundle name
      *
      * @type { string }
-     * @readonly
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -52,7 +51,6 @@ declare namespace bundleMonitor {
      * The user id
      *
      * @type { number }
-     * @readonly
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -62,7 +60,6 @@ declare namespace bundleMonitor {
      * The app index of clone app
      *
      * @type { number }
-     * @readonly
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12

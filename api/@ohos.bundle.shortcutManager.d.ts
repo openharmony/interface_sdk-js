@@ -39,7 +39,7 @@ declare namespace shortcutManager {
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-   * @throws { BusinessError } 17700001 - The specified bundle name is not found. 
+   * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @throws { BusinessError } 17700061 - The specified app index is invalid.
@@ -49,7 +49,7 @@ declare namespace shortcutManager {
    * @since 12
    */
   function addDesktopShortcutInfo(shortcutInfo: ShortcutInfo, userId: number): Promise<void>;
-  
+
   /**
    * Delete desktop shortcut info.
    *
@@ -66,7 +66,7 @@ declare namespace shortcutManager {
    * @since 12
    */
   function deleteDesktopShortcutInfo(shortcutInfo: ShortcutInfo, userId: number): Promise<void>;
-  
+
   /**
    * Get all desktop shortcut info.
    *

@@ -52,7 +52,6 @@ export interface AbilityInfo {
    * Indicates the name of the bundle containing the ability
    *
    * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -60,7 +59,6 @@ export interface AbilityInfo {
    * Indicates the name of the bundle containing the ability
    *
    * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -69,7 +67,6 @@ export interface AbilityInfo {
    * Indicates the name of the bundle containing the ability
    *
    * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -81,7 +78,6 @@ export interface AbilityInfo {
    * Indicates the name of the .hap package to which the capability belongs
    *
    * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -89,7 +85,6 @@ export interface AbilityInfo {
    * Indicates the name of the .hap package to which the capability belongs
    *
    * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -98,7 +93,6 @@ export interface AbilityInfo {
    * Indicates the name of the .hap package to which the capability belongs
    *
    * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -110,7 +104,6 @@ export interface AbilityInfo {
    * Ability simplified class name
    *
    * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -118,7 +111,6 @@ export interface AbilityInfo {
    * Ability simplified class name
    *
    * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -127,7 +119,6 @@ export interface AbilityInfo {
    * Ability simplified class name
    *
    * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -139,7 +130,6 @@ export interface AbilityInfo {
    * Indicates the label of the ability
    *
    * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -147,7 +137,6 @@ export interface AbilityInfo {
    * Indicates the label of the ability
    *
    * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -156,7 +145,6 @@ export interface AbilityInfo {
    * Indicates the label of the ability
    *
    * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -168,7 +156,6 @@ export interface AbilityInfo {
    * Indicates the label id of the ability
    *
    * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -176,7 +163,6 @@ export interface AbilityInfo {
    * Indicates the label id of the ability
    *
    * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -185,7 +171,6 @@ export interface AbilityInfo {
    * Indicates the label id of the ability
    *
    * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -197,7 +182,6 @@ export interface AbilityInfo {
    * Indicates the ability
    *
    * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -205,7 +189,6 @@ export interface AbilityInfo {
    * Indicates the ability
    *
    * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -214,7 +197,6 @@ export interface AbilityInfo {
    * Indicates the ability
    *
    * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -226,7 +208,6 @@ export interface AbilityInfo {
    * Indicates the description id of the ability
    *
    * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -234,7 +215,6 @@ export interface AbilityInfo {
    * Indicates the description id of the ability
    *
    * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -243,7 +223,6 @@ export interface AbilityInfo {
    * Indicates the description id of the ability
    *
    * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -255,7 +234,6 @@ export interface AbilityInfo {
    * Indicates the icon of the ability
    *
    * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -263,7 +241,6 @@ export interface AbilityInfo {
    * Indicates the icon of the ability
    *
    * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -272,7 +249,6 @@ export interface AbilityInfo {
    * Indicates the icon of the ability
    *
    * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -284,7 +260,6 @@ export interface AbilityInfo {
    * Indicates the icon id of the ability
    *
    * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -292,7 +267,6 @@ export interface AbilityInfo {
    * Indicates the icon id of the ability
    *
    * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -301,7 +275,6 @@ export interface AbilityInfo {
    * Indicates the icon id of the ability
    *
    * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -313,7 +286,6 @@ export interface AbilityInfo {
    * Process of ability, if user do not set it, the value equal application process
    *
    * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -321,7 +293,6 @@ export interface AbilityInfo {
    * Process of ability, if user do not set it, the value equal application process
    *
    * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -332,7 +303,6 @@ export interface AbilityInfo {
    * Indicates whether this ability can be called by other abilities
    *
    * @type { boolean }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -340,7 +310,6 @@ export interface AbilityInfo {
    * Indicates whether this ability can be called by other abilities
    *
    * @type { boolean }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -351,9 +320,9 @@ export interface AbilityInfo {
    * Enumerates types of templates that can be used by an ability
    *
    * @type { bundleManager.AbilityType }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @FAModelOnly
+   * @arkts 1.1
    * @since 9
    */
   readonly type: bundleManager.AbilityType;
@@ -362,7 +331,6 @@ export interface AbilityInfo {
    * Enumerates ability display orientations
    *
    * @type { bundleManager.DisplayOrientation }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -370,7 +338,6 @@ export interface AbilityInfo {
    * Enumerates ability display orientations
    *
    * @type { bundleManager.DisplayOrientation }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -381,7 +348,6 @@ export interface AbilityInfo {
    * Enumerates ability launch type
    *
    * @type { bundleManager.LaunchType }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -389,7 +355,6 @@ export interface AbilityInfo {
    * Enumerates ability launch type
    *
    * @type { bundleManager.LaunchType }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -398,7 +363,6 @@ export interface AbilityInfo {
    * Enumerates ability launch type
    *
    * @type { bundleManager.LaunchType }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -410,7 +374,6 @@ export interface AbilityInfo {
    * The permissions that others need to launch this ability
    *
    * @type { Array<string> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -418,7 +381,6 @@ export interface AbilityInfo {
    * The permissions that others need to launch this ability
    *
    * @type { Array<string> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -429,9 +391,9 @@ export interface AbilityInfo {
    * Indicates the permission required for reading ability data
    *
    * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @FAModelOnly
+   * @arkts 1.1
    * @since 9
    */
   readonly readPermission: string;
@@ -440,9 +402,9 @@ export interface AbilityInfo {
    * Indicates the permission required for writing data to the ability
    *
    * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @FAModelOnly
+   * @arkts 1.1
    * @since 9
    */
   readonly writePermission: string;
@@ -451,9 +413,9 @@ export interface AbilityInfo {
    * Uri of ability
    *
    * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @FAModelOnly
+   * @arkts 1.1
    * @since 9
    */
   readonly uri: string;
@@ -462,7 +424,6 @@ export interface AbilityInfo {
    * The device types that this ability can run on
    *
    * @type { Array<string> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -470,7 +431,6 @@ export interface AbilityInfo {
    * The device types that this ability can run on
    *
    * @type { Array<string> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -481,7 +441,6 @@ export interface AbilityInfo {
    * Obtains configuration information about an application
    *
    * @type { ApplicationInfo }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -489,7 +448,6 @@ export interface AbilityInfo {
    * Obtains configuration information about an application
    *
    * @type { ApplicationInfo }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -498,7 +456,6 @@ export interface AbilityInfo {
    * Obtains configuration information about an application
    *
    * @type { ApplicationInfo }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -510,7 +467,6 @@ export interface AbilityInfo {
    * Indicates the metadata of ability
    *
    * @type { Array<Metadata> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -518,7 +474,6 @@ export interface AbilityInfo {
    * Indicates the metadata of ability
    *
    * @type { Array<Metadata> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 10
@@ -527,7 +482,6 @@ export interface AbilityInfo {
    * Indicates the metadata of ability
    *
    * @type { Array<Metadata> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -539,7 +493,6 @@ export interface AbilityInfo {
    * Indicates whether the ability is enabled
    *
    * @type { boolean }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -547,7 +500,6 @@ export interface AbilityInfo {
    * Indicates whether the ability is enabled
    *
    * @type { boolean }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -558,7 +510,6 @@ export interface AbilityInfo {
    * Indicates which window mode is supported
    *
    * @type { Array<bundleManager.SupportWindowMode> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -566,7 +517,6 @@ export interface AbilityInfo {
    * Indicates which window mode is supported
    *
    * @type { Array<bundleManager.SupportWindowMode> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -577,7 +527,6 @@ export interface AbilityInfo {
    * Indicates window size
    *
    * @type { WindowSize }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -585,7 +534,6 @@ export interface AbilityInfo {
    * Indicates window size
    *
    * @type { WindowSize }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -631,7 +579,7 @@ export interface AbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 14
+   * @since 13
    */
   readonly orientationId: number;
 }
@@ -656,7 +604,6 @@ export interface WindowSize {
    * Indicates maximum ratio of width over height of window under free window status.
    *
    * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -664,7 +611,6 @@ export interface WindowSize {
    * Indicates maximum ratio of width over height of window under free window status.
    *
    * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -675,7 +621,6 @@ export interface WindowSize {
    * Indicates minimum ratio of width over height of window under free window status.
    *
    * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -683,7 +628,6 @@ export interface WindowSize {
    * Indicates minimum ratio of width over height of window under free window status.
    *
    * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -694,7 +638,6 @@ export interface WindowSize {
    * Indicates maximum width of window under free window status.
    *
    * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -702,7 +645,6 @@ export interface WindowSize {
    * Indicates maximum width of window under free window status.
    *
    * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -713,7 +655,6 @@ export interface WindowSize {
    * Indicates minimum width of window under free window status.
    *
    * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -721,7 +662,6 @@ export interface WindowSize {
    * Indicates minimum width of window under free window status.
    *
    * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -732,7 +672,6 @@ export interface WindowSize {
    * Indicates maximum height of window under free window status.
    *
    * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -740,7 +679,6 @@ export interface WindowSize {
    * Indicates maximum height of window under free window status.
    *
    * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -751,7 +689,6 @@ export interface WindowSize {
    * Indicates minimum height of window under free window status.
    *
    * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -759,7 +696,6 @@ export interface WindowSize {
    * Indicates minimum height of window under free window status.
    *
    * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11

@@ -18,9 +18,9 @@
  * @kit AbilityKit
  */
 
-import type { AsyncCallback } from './@ohos.base';
-import type { BundleResourceInfo as _BundleResourceInfo } from './bundleManager/BundleResourceInfo';
-import type { LauncherAbilityResourceInfo as _LauncherAbilityResourceInfo } from './bundleManager/LauncherAbilityResourceInfo';
+import { AsyncCallback } from './@ohos.base';
+import { BundleResourceInfo as _BundleResourceInfo } from './bundleManager/BundleResourceInfo';
+import { LauncherAbilityResourceInfo as _LauncherAbilityResourceInfo } from './bundleManager/LauncherAbilityResourceInfo';
 
 /**
  * This module is used to obtain bundle resource information of various applications installed on the current device.
