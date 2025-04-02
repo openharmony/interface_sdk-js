@@ -831,7 +831,8 @@ declare namespace resourceManager {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1': '11', '1.2': '20'}
+   * @arkts 1.1 & 1.2
    */
   export function getSystemResourceManager(): ResourceManager;
 
@@ -924,7 +925,8 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1': '11', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     getStringValue(resource: Resource, callback: _AsyncCallback<string>): void;
 
@@ -968,7 +970,8 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1': '11', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     getStringValue(resource: Resource): Promise<string>;
 
@@ -2339,7 +2342,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1': '11', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     getStringSync(resId: number): string;
 
@@ -2372,7 +2376,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1': '11', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     getStringSync(resId: number, ...args: Array<string | number>): string;
 
@@ -2416,7 +2421,8 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1': '11', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     getStringSync(resource: Resource): string;
 
@@ -2451,7 +2457,8 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1': '11', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     getStringSync(resource: Resource, ...args: Array<string | number>): string;
 
@@ -2692,7 +2699,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1': '11', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     getNumber(resId: number): number;
 
@@ -2736,7 +2744,8 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1': '11', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     getNumber(resource: Resource): number;
 
@@ -2842,7 +2851,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1': '11', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     getStringValue(resId: number, callback: _AsyncCallback<string>): void;
 
@@ -2883,7 +2893,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1': '11', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     getStringValue(resId: number): Promise<string>;
 
@@ -3511,7 +3522,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1': '11', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     getRawFileContent(path: string, callback: _AsyncCallback<Uint8Array>): void;
 
@@ -3546,7 +3558,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1': '11', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     getRawFileContent(path: string): Promise<Uint8Array>;
 
@@ -4087,7 +4100,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1': '11', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     getColorSync(resId: number) : number;
 
@@ -4117,7 +4131,8 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1': '11', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     getColorSync(resource: Resource) : number;
 
@@ -4283,7 +4298,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1': '11', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     getRawFileContentSync(path: string): Uint8Array;
 

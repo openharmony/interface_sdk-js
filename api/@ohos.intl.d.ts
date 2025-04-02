@@ -406,7 +406,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1': '12', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     constructor();
 
@@ -450,7 +451,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1': '12', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     constructor(locale: string, options?: LocaleOptions);
 
@@ -1809,7 +1811,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1': '12', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     constructor();
 
@@ -1853,7 +1856,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1': '12', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     constructor(locale: string | Array<string>, options?: DateTimeOptions);
 
@@ -1893,7 +1897,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1': '12', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     format(date: Date): string;
 
@@ -1973,7 +1978,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1': '12', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     resolvedOptions(): DateTimeOptions;
   }
@@ -2703,7 +2709,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1': '12', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     constructor();
 
@@ -2735,7 +2742,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1': '12', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     constructor(locale: string | Array<string>, options?: NumberOptions);
 
@@ -2764,7 +2772,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1': '12', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     format(number: number): string;
 
@@ -2802,7 +2811,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1': '12', '1.2': '20'}
+     * @arkts 1.1 & 1.2
      */
     resolvedOptions(): NumberOptions;
   }
