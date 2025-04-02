@@ -15312,109 +15312,6 @@ declare interface PopupCommonOptions {
 }
 
 /**
- * Defines the Tips options.
- *
- * @interface TipsOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 18
- */
-declare interface TipsOptions {
-
-  /**
-   * Defines the delay time for appearing.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  appearingTime?: number;
-
-  /**
-   * Defines the delay time for disappearing.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  disappearingTime?: number;
-
-  /**
-   * Define the delay time for the appearance of continuous operations.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  appearingTimeWithContinuousOperation?: number;
-
-  /**
-   * Define the delay time for the disappearance of continuous operations.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  disappearingTimeWithContinuousOperation?: number;
-
-  /**
-   * whether show arrow
-   *
-   * @type { ?boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  enableArrow?: boolean;
-
-  /**
-   * The position of the sharp corner of Tips.
-   *
-   * @type { ?ArrowPointPosition }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  arrowPointPosition?: ArrowPointPosition;
-
-  /**
-   * The width of the arrow.
-   *
-   * @type { ?Dimension }
-   * @default 16.0_vp.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  arrowWidth?: Dimension;
-
-  /**
-   * The height of the arrow.
-   *
-   * @type { ?Dimension }
-   * @default 8.0_vp.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  arrowHeight?: Dimension;
-}
-
-/**
  * Defines the popup options.
  *
  * @interface PopupOptions
@@ -18669,17 +18566,6 @@ declare type RectShape = import('../api/@ohos.arkui.shape').RectShape;
  * @since 12
  */
 declare type Optional<T> = T | undefined;
-
-/**
- * Defines the TipsMessageType property with ResourceStr and StyledString.
- *
- * @typedef { ResourceStr | StyledString } TipsMessageType
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 18
- */
-declare type TipsMessageType = ResourceStr | StyledString;
 
 /**
  * Define the options for background image.
@@ -24154,19 +24040,6 @@ declare class CommonMethod<T> {
    * @since 12
    */
   geometryTransition(id: string, options?: GeometryTransitionOptions): T;
-
-  /**
-  * Tips control
-  *
-  * @param { TipsMessageType } message
-  * @param { TipsOptions } [options]
-  * @returns { T }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @atomicservice
-  * @since 18
-  */
-  bindTips(message: TipsMessageType, options?: TipsOptions): T;
 
   /**
    * Popup control
