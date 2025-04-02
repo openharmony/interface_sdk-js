@@ -279,35 +279,6 @@ declare enum MenuAlignType {
 }
 
 /**
- * Enumeration of avoidance modes for the Select dropdown menu
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 18
- */
-declare enum AvoidanceMode {
-  /**
-   * The value covers the target component.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  COVER_TARGET,
-  /**
-   * This value is displayed in the maximum space.(Compress the scrollbar)
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  AVOID_AROUND_TARGET
-}
-
-/**
  * Callback of selecting an item from the select event.
  * 
  * @typedef {function} OnSelectCallback
@@ -1087,18 +1058,6 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 12
    */
   divider(options: Optional<DividerOptions> | null): SelectAttribute;
-
-  /**
-   * Set the select menu avoidance mode
-   *
-   * @param { AvoidanceMode } mode - Enumeration value of the avoidance mode
-   * @returns { SelectAttribute } Returns the chained object of Select component attributes
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  avoidance(mode: AvoidanceMode): SelectAttribute;
 }
 
 /**

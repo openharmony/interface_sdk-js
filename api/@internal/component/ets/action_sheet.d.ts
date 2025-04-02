@@ -850,50 +850,6 @@ interface ActionSheetOptions
   hoverModeArea?: HoverModeAreaType;
 
   /**
-   * Callback function when the dialog appears.
-   *
-   * @type { ?Callback<void> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  onDidAppear?: Callback<void>;
-
-  /**
-   * Callback function when the dialog disappears.
-   *
-   * @type { ?Callback<void> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  onDidDisappear?: Callback<void>;
-
-  /**
-   * Callback function before the dialog openAnimation starts.
-   *
-   * @type { ?Callback<void> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  onWillAppear?: Callback<void>;
-
-  /**
-   * Callback function before the dialog closeAnimation starts.
-   *
-   * @type { ?Callback<void> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  onWillDisappear?: Callback<void>;
-
-  /**
    * Determine the display level of the dialog.
    *
    * @type { ?LevelMode }

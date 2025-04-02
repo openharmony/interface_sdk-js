@@ -797,50 +797,6 @@ declare namespace promptAction {
     hoverModeArea?: HoverModeAreaType;
 
     /**
-     * Callback function when the dialog appears.
-     *
-     * @type { ?Callback<void> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18
-     */
-    onDidAppear?: Callback<void>;
-
-    /**
-     * Callback function when the dialog disappears.
-     *
-     * @type { ?Callback<void> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18
-     */
-    onDidDisappear?: Callback<void>;
-
-    /**
-     * Callback function before the dialog openAnimation starts.
-     *
-     * @type { ?Callback<void> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18
-     */
-    onWillAppear?: Callback<void>;
-
-    /**
-     * Callback function before the dialog closeAnimation starts.
-     *
-     * @type { ?Callback<void> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18
-     */
-    onWillDisappear?: Callback<void>;
-
-    /**
      * Determine the display level of the dialog.
      *
      * @type { ?LevelMode }
@@ -1066,28 +1022,6 @@ declare namespace promptAction {
      * @since 12
      */
     transition?: TransitionEffect;
-
-    /**
-     * Dialog transition parameters of opening/closing custom dialog.
-     *
-     * @type { ?TransitionEffect }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18
-     */
-    dialogTransition?: TransitionEffect;
-
-    /**
-     * Mask transition parameters of opening/closing custom dialog.
-     *
-     * @type { ?TransitionEffect }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 18
-     */
-    maskTransition?: TransitionEffect;
     
     /**
      * Defines custom dialog maskColor
