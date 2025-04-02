@@ -7581,6 +7581,15 @@ declare namespace media {
      * @since 12
      */
     enableTemporalScale?: boolean;
+    
+    /**
+     * Whether to enble video encoding policy to quality stable encoding.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @systemapi
+     * @since 18
+     */
+    enableStableQualityMode?: boolean
   }
 
   /**
