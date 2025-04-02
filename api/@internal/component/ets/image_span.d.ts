@@ -20,9 +20,9 @@
 
 /*** if arkts 1.2 */
 import { ResourceStr, PixelMap, ColorFilter, DrawingColorFilter } from './units'
-import { BaseSpan } from './span';
-import { ImageSpanAlignment, ImageFit } from './enums';
-import { ImageErrorCallback } from './image';
+import { BaseSpan } from './span'
+import { ImageSpanAlignment, ImageFit } from './enums'
+import { ImageErrorCallback } from './image'
 /*** endif */
 
 /**
