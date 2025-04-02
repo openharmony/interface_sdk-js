@@ -25,8 +25,22 @@ import {
   UIElementInfo, UIEventObserver, UiComponent, UiDirection, UiDriver, UiWindow, WindowMode
 } from '@ohos.UiTest';
 
+/*** if arkts 1.1 */
 export {
   BY, By, Component, DisplayRotation, Driver, MatchPattern, MouseButton, ON, On, PointerMatrix, ResizeDirection,
   TestRunner, UIElementInfo, UIEventObserver, UiComponent, UiDirection, UiDriver, UiWindow,
   WindowMode, abilityDelegatorRegistry
 };
+/*** endif */
+
+/*** if arkts 1.2 */
+import {
+ loadAndSetupUiTest
+} from '@ohos.UiTest';
+export {
+  BY, By, Component, DisplayRotation, Driver, MatchPattern, MouseButton, ON, On, PointerMatrix, ResizeDirection,
+  TestRunner, UIElementInfo, UIEventObserver, UiComponent, UiDirection, UiDriver, UiWindow,
+  WindowMode, abilityDelegatorRegistry, loadAndSetupUiTest
+};
+/*** endif */
+
