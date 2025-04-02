@@ -21,7 +21,7 @@
  import { Callback } from './@ohos.base';
 
  /**
-  * Assert the matched {@link UiComponent}s exists on current UI;if not,assertError will be raised.
+  * Used to initialize the uitest environment at the start of the test
   *
   * @returns { void }
   * @throws {BusinessError} 401 - if the input parameters are invalid.
