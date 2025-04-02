@@ -118,18 +118,19 @@ export declare class StoragePropDecoratedVariable<T> implements DecoratedMutable
 }
 
 export declare class LocalStorage {
-  public link(propName: string): LinkDecoratedVariable<Object> | undefined;
-  public setAndLink(propName: string, defaultValue: Object): LinkDecoratedVariable<Object>;
-  public prop(propName: string): PropDecoratedVariable<Object> | undefined;
-  public setAndProp(propName: string, defaultValue: Object): PropDecoratedVariable<Object>;
-  public has(propName: string): boolean;
-  public get<T>(propName: string): T | undefined;
-  public set(propName: string, newValue: Object): boolean;
-  public setOrCreate(propName: string, newValue: Object): boolean;
-  public keys(): IterableIterator<string>;
-  public size(): number;
-  public delete(propName: string): boolean;
-  public clear(): boolean;
+    static getShared(): LocalStorage | undefined;
+    public link(propName: string): LinkDecoratedVariable<Object> | undefined;
+    public setAndLink(propName: string, defaultValue: Object): LinkDecoratedVariable<Object>;
+    public prop(propName: string): PropDecoratedVariable<Object> | undefined;
+    public setAndProp(propName: string, defaultValue: Object): PropDecoratedVariable<Object>;
+    public has(propName: string): boolean;
+    public get<T>(key: string): T | undefined;
+    public set<T>(key: string, newValue: T): boolean;
+    public setOrCreate<T>(key: string, newValue: T): boolean;
+    public keys(): IterableIterator<string>;
+    public size(): number;
+    public delete(propName: string): boolean;
+    public clear(): boolean;
 }
 
 export declare class AppStorage extends LocalStorage {
@@ -139,8 +140,8 @@ export declare class AppStorage extends LocalStorage {
     public static setAndProp(key: string, defaultValue: Object) : PropDecoratedVariable<Object>;
     public static has(key: string): boolean;
     public static get<T>(key: string): T | undefined;
-    public static set(key: string, newValue: Object): boolean;
-    public static setOrCreate(key: string, newValue: Object): void;
+    public static set<T>(key: string, newValue: T): boolean;
+    public static setOrCreate<T>(key: string, newValue: T): void;
     public static keys(): IterableIterator<string>;
     public static size(): number;
     public static delete(key: string): boolean;
