@@ -4060,6 +4060,7 @@ export class UIContext {
    * <br> 1. The number of parameters is incorrect.
    * <br> 2. Invalid parameter type of context.
    * @throws { BusinessError } 100001 - Internal error.
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 17
@@ -4069,6 +4070,7 @@ export class UIContext {
   /**
    * Destroy the UI instance singleton without window.
    *
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 17
