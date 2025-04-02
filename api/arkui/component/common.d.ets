@@ -994,6 +994,8 @@ export interface CommonMethod {
     @memo
     responseRegion(value: Array<Rectangle> | Rectangle): this;
     @memo
+    expandSafeArea(type?: Array<SafeAreaType>, edge?: Array<SafeAreaEdge>): this;
+    @memo
     mouseResponseRegion(value: Array<Rectangle> | Rectangle): this;
     @memo
     size(value: SizeOptions): this;
@@ -1017,6 +1019,8 @@ export interface CommonMethod {
     margin(value: Margin | Length | LocalizedMargin): this;
     @memo
     backgroundColor(value: ResourceColor): this;
+    @memo
+    backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions): this;
     @memo
     pixelRound(value: PixelRoundPolicy): this;
     @memo
