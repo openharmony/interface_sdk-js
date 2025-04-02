@@ -38,7 +38,7 @@ import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions
 import ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 import UIServiceProxy from './UIServiceProxy';
 import type UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallback';
-import { LocalStorage } from '../arkui/stateManagement/storage';
+import { LocalStorage } from '@ohos.arkui.stateManagement';
 
 /**
  * The context of an ability. It allows access to ability-specific resources.

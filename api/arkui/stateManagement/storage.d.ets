@@ -30,68 +30,68 @@ export interface SubscribedAbstractProperty<T> extends AbstractProperty<T> {
     aboutToBeDeleted(): void;
 }
 
-export declare class LocalStorage {
-    static getShared(): LocalStorage | undefined;
+declare class LocalStorage {
+  static getShared(): LocalStorage | undefined;
 
-    constructor(initializingProperties?: StorageProperty[]);
+  constructor(initializingProperties?: StorageProperty[]);
 
-    has(propName: string): boolean;
+  has(propName: string): boolean;
 
-    keys(): IterableIterator<string>;
+  keys(): IterableIterator<string>;
 
-    size(): int;
+  size(): int;
 
-    get<T>(propName: string): T | undefined;
+  get<T>(propName: string): T | undefined;
 
-    set<T>(propName: string, newValue: T): boolean;
+  set<T>(propName: string, newValue: T): boolean;
 
-    setOrCreate<T>(propName: string, newValue?: T): boolean;
+  setOrCreate<T>(propName: string, newValue?: T): boolean;
 
-    ref<T>(propName: string): AbstractProperty<T> | undefined;
+  ref<T>(propName: string): AbstractProperty<T> | undefined;
 
-    setAndRef<T>(propName: string, defaultValue: T): AbstractProperty<T>;
+  setAndRef<T>(propName: string, defaultValue: T): AbstractProperty<T>;
 
-    link<T>(propName: string): SubscribedAbstractProperty<T> | undefined;
+  link<T>(propName: string): SubscribedAbstractProperty<T> | undefined;
 
-    setAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
+  setAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
 
-    prop<T>(propName: string): SubscribedAbstractProperty<T> | undefined;
+  prop<T>(propName: string): SubscribedAbstractProperty<T> | undefined;
 
-    setAndProp<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
+  setAndProp<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
 
-    delete(propName: string): boolean;
+  delete(propName: string): boolean;
 
-    clear(): boolean;
+  clear(): boolean;
 }
 
-export declare class AppStorage {
-    static has(propName: string): boolean;
+declare class AppStorage {
+  static has(propName: string): boolean;
 
-    static keys(): IterableIterator<string>;
+  static keys(): IterableIterator<string>;
 
-    static size(): int;
+  static size(): int;
 
-    static get<T>(propName: string): T | undefined;
+  static get<T>(propName: string): T | undefined;
 
-    static set<T>(propName: string, newValue: T): boolean;
+  static set<T>(propName: string, newValue: T): boolean;
 
-    static setOrCreate<T>(propName: string, newValue?: T): boolean;
+  static setOrCreate<T>(propName: string, newValue?: T): boolean;
 
-    static ref<T>(propName: string): AbstractProperty<T> | undefined;
+  static ref<T>(propName: string): AbstractProperty<T> | undefined;
 
-    static setAndRef<T>(propName: string, defaultValue: T): AbstractProperty<T>;
+  static setAndRef<T>(propName: string, defaultValue: T): AbstractProperty<T>;
 
-    static link<T>(propName: string): SubscribedAbstractProperty<T> | undefined;
+  static link<T>(propName: string): SubscribedAbstractProperty<T> | undefined;
 
-    static setAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
+  static setAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
 
-    static prop<T>(propName: string): SubscribedAbstractProperty<T> | undefined;
+  static prop<T>(propName: string): SubscribedAbstractProperty<T> | undefined;
 
-    static setAndProp<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
+  static setAndProp<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
 
-    static delete(propName: string): boolean;
+  static delete(propName: string): boolean;
 
-    static clear(): boolean;
+  static clear(): boolean;
 }
 
 export declare class PersistentStorage {
