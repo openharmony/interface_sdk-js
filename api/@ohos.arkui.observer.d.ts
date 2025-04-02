@@ -158,7 +158,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 17
      */
     ON_ACTIVE = 8,
 
@@ -168,7 +168,7 @@ declare namespace uiObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 17
      */
     ON_INACTIVE = 9,
 
