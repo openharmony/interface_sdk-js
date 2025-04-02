@@ -4411,7 +4411,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @atomicservice
-     * @since 18
+     * @since 17
      */
     setFollowParentWindowLayoutEnabled(enabled: boolean): Promise<void>;
 
