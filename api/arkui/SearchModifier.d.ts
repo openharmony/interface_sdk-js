@@ -18,7 +18,24 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { SearchAttribute } from './component/search'
+/*** endif */
 
+/*** if arkts 1.2 */
+/**
+ * Declare the apply normal status function.
+ *
+ * @typedef { function } SearchApplyNormalFunction
+ * @param { SearchAttribute } searchAttribute - The attribute of component.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type SearchApplyNormalFunction = (searchAttribute: SearchAttribute) => void;
+/*** endif */
 
 
 /**
@@ -28,7 +45,8 @@
  * @implements AttributeModifier<SearchAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
 */
 export declare class SearchModifier extends SearchAttribute implements AttributeModifier<SearchAttribute> {
 
@@ -42,4 +60,18 @@ export declare class SearchModifier extends SearchAttribute implements Attribute
    * @since 12
    */
   applyNormalAttribute?(instance: SearchAttribute): void;
+
+  /*** if arkts 1.2 */
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyNormalAttribute?: SearchApplyNormalFunction;
+  /*** endif */
 }

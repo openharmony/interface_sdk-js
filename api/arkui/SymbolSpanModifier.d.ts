@@ -16,6 +16,26 @@
  * @file
  * @kit ArkUI
  */
+
+/*** if arkts 1.2 */
+import { SymbolSpanAttribute } from './component/symbolSpan'
+/*** endif */
+
+/*** if arkts 1.2 */
+/**
+ * Declare the apply normal status function.
+ *
+ * @typedef { function } SymbolSpanApplyNormalFunction
+ * @param { SymbolSpanAttribute } symbolSpanAttribute - The attribute of component.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type SymbolSpanApplyNormalFunction = (symbolSpanAttribute: SymbolSpanAttribute) => void;
+/*** endif */
+
 /**
  * Defines SymbolSpan Modifier. Provided for use by the SymbolSpan component
  *
@@ -23,7 +43,8 @@
  * @implements AttributeModifier<SymbolSpanAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
 */
 export declare class SymbolSpanModifier extends SymbolSpanAttribute implements AttributeModifier<SymbolSpanAttribute> {
     /**
@@ -32,7 +53,8 @@ export declare class SymbolSpanModifier extends SymbolSpanAttribute implements A
      * @param { Resource } src
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(src?: Resource);
     /**
@@ -44,4 +66,18 @@ export declare class SymbolSpanModifier extends SymbolSpanAttribute implements A
      * @since 12
      */
     applyNormalAttribute?(attribute: SymbolSpanAttribute): void;
+
+    /*** if arkts 1.2 */
+    /**
+     * Defines the normal update attribute function.
+     *
+     * @type { ?function }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    applyNormalAttribute?: SymbolSpanApplyNormalFunction;
+    /*** endif */
 }

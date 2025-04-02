@@ -18,6 +18,52 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { SelectionMenuOptions } from './arkui/component/richEditor'
+import { ResourceStr } from './arkui/component/units'
+import { MenuItemOptions } from './arkui/component/menuItem'
+import { RichEditorSelection, RichEditorController } from './arkui/component/richEditor'
+/*** endif */
+
+/*** if arkts 1.2 */
+/**
+ * Declare the callback function when click the icon.
+ *
+ * @typedef { function } EditorMenuActionCallback
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type EditorMenuActionCallback = () => void;
+
+/**
+ * Declare the callback builder when click the icon.
+ *
+ * @typedef { function } EditorMenuBuilderCallback
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type EditorMenuBuilderCallback = () => void;
+
+/**
+ * Declare the function for event info.
+ *
+ * @typedef { function } EditorMenuEventCallback
+ * @param { EditorEventInfo } event - The content of event.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type EditorMenuEventCallback = (event?: EditorEventInfo) => void;
+/*** endif */
+
 /**
  * Construct parameter types for EditorMenuOptions.
  *
@@ -31,7 +77,8 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 
 
@@ -51,7 +98,8 @@ export interface EditorMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   icon: ResourceStr;
 
@@ -101,6 +149,32 @@ export interface EditorMenuOptions {
    * @since 12
    */
   builder?: () => void;
+
+  /*** if arkts 1.2 */
+  /**
+   * Callback function when click the icon.
+   * 
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  action?: EditorMenuActionCallback;
+
+  /**
+   * Callback builder when click the icon.
+   * 
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  builder?: EditorMenuBuilderCallback;
+  /*** endif */
 }
 
 /**
@@ -118,7 +192,8 @@ export interface EditorMenuOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface ExpandedMenuOptions extends MenuItemOptions {
   /**
@@ -139,6 +214,20 @@ export interface ExpandedMenuOptions extends MenuItemOptions {
    * @since 12
    */
   action?: () => void;
+
+  /*** if arkts 1.2 */
+  /**
+   * Callback function when click the option.
+   * 
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  action?: EditorMenuActionCallback;
+  /*** endif */
 }
 
 /**
@@ -156,7 +245,8 @@ export interface ExpandedMenuOptions extends MenuItemOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface EditorEventInfo {
   /**
@@ -174,7 +264,8 @@ export interface EditorEventInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   content?: RichEditorSelection;
 }
@@ -194,7 +285,8 @@ export interface EditorEventInfo {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface SelectionMenuOptions {
   /**
@@ -212,7 +304,8 @@ export interface SelectionMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   editorMenuOptions?: Array<EditorMenuOptions>;
 
@@ -231,7 +324,8 @@ export interface SelectionMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   expandedMenuOptions?: Array<ExpandedMenuOptions>;
 
@@ -250,7 +344,8 @@ export interface SelectionMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   controller?: RichEditorController;
   /**
@@ -328,6 +423,56 @@ export interface SelectionMenuOptions {
    * @since 12
    */
   onSelectAll?: (event?: EditorEventInfo) => void;
+
+  /*** if arkts 1.2 */
+  /**
+   * Replace the built-in paste function.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onPaste?: EditorMenuEventCallback;
+
+  /**
+   * Replace the built-in replication feature.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onCopy?: EditorMenuEventCallback;
+
+  /**
+   * Replace the built-in cut function.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onCut?: EditorMenuEventCallback;
+
+  /**
+   * Replace the built-in select all function.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onSelectAll?: EditorMenuEventCallback;
+  /*** endif */
 }
 
 /**
@@ -345,7 +490,8 @@ export interface SelectionMenuOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 @Builder
 export declare function SelectionMenu(options: SelectionMenuOptions): void;

@@ -18,6 +18,25 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { SymbolGlyphAttribute } from './component/symbolglyph'
+/*** endif */
+
+/*** if arkts 1.2 */
+/**
+ * Declare the apply normal status function.
+ *
+ * @typedef { function } SymbolGlyphApplyNormalFunction
+ * @param { SymbolGlyphAttribute } symbolGlyphAttribute - The attribute of component.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type SymbolGlyphApplyNormalFunction = (symbolGlyphAttribute: SymbolGlyphAttribute) => void;
+/*** endif */
+
 /**
  * Defines SymbolGlyph Modifier
  *
@@ -25,7 +44,8 @@
  * @implements AttributeModifier<SymbolGlyphAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
 */
 export declare class SymbolGlyphModifier extends SymbolGlyphAttribute implements AttributeModifier<SymbolGlyphAttribute> {
     /**
@@ -34,7 +54,8 @@ export declare class SymbolGlyphModifier extends SymbolGlyphAttribute implements
      * @param { Resource } src
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(src?: Resource);
 
@@ -47,4 +68,18 @@ export declare class SymbolGlyphModifier extends SymbolGlyphAttribute implements
      * @since 12
      */
     applyNormalAttribute?(instance: SymbolGlyphAttribute): void;
+
+    /*** if arkts 1.2 */
+    /**
+     * Defines the normal update attribute function.
+     * 
+     * @type { ?function }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    applyNormalAttribute?: SymbolGlyphApplyNormalFunction;
+    /*** endif */
   }

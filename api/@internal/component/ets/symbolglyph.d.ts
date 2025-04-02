@@ -18,6 +18,13 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { Resource } from './global/resource'
+import { ResourceColor } from './units';
+import { FontWeight } from './enums';
+import { CommonMethod } from "./common";
+/*** endif */
+
 /**
  * Provides an interface for SymbolGlyph.
  *
@@ -32,7 +39,8 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface SymbolGlyphInterface {
   /**
@@ -51,7 +59,8 @@ interface SymbolGlyphInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (value?: Resource): SymbolGlyphAttribute;
 }
@@ -70,7 +79,8 @@ interface SymbolGlyphInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum SymbolRenderingStrategy {
   /**
@@ -85,7 +95,8 @@ declare enum SymbolRenderingStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   SINGLE = 0,
 
@@ -101,7 +112,8 @@ declare enum SymbolRenderingStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   MULTIPLE_COLOR = 1,
 
@@ -117,7 +129,8 @@ declare enum SymbolRenderingStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   MULTIPLE_OPACITY = 2,
 }
@@ -136,7 +149,8 @@ declare enum SymbolRenderingStrategy {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum SymbolEffectStrategy {
   /**
@@ -151,7 +165,8 @@ declare enum SymbolEffectStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   NONE = 0,
 
@@ -167,7 +182,8 @@ declare enum SymbolEffectStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   SCALE = 1,
 
@@ -183,7 +199,8 @@ declare enum SymbolEffectStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   HIERARCHICAL = 2,
 }
@@ -195,7 +212,8 @@ declare enum SymbolEffectStrategy {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum EffectDirection {
   /**
@@ -204,7 +222,8 @@ declare enum EffectDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   DOWN = 0,
   /**
@@ -213,7 +232,8 @@ declare enum EffectDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   UP = 1,
 }
@@ -225,7 +245,8 @@ declare enum EffectDirection {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum EffectScope {
   /**
@@ -234,7 +255,8 @@ declare enum EffectScope {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   LAYER = 0,
   /**
@@ -243,7 +265,8 @@ declare enum EffectScope {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   WHOLE = 1,
 }
@@ -255,7 +278,8 @@ declare enum EffectScope {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum EffectFillStyle {
   /**
@@ -264,7 +288,8 @@ declare enum EffectFillStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   CUMULATIVE = 0,
 
@@ -274,7 +299,8 @@ declare enum EffectFillStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ITERATIVE = 1,
 }
@@ -285,7 +311,8 @@ declare enum EffectFillStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class SymbolEffect {
 }
@@ -297,7 +324,8 @@ declare class SymbolEffect {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class ScaleSymbolEffect extends SymbolEffect {
   /**
@@ -308,7 +336,8 @@ declare class ScaleSymbolEffect extends SymbolEffect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(scope?: EffectScope, direction?: EffectDirection);
 
@@ -319,7 +348,8 @@ declare class ScaleSymbolEffect extends SymbolEffect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   scope?: EffectScope;
   
@@ -330,7 +360,8 @@ declare class ScaleSymbolEffect extends SymbolEffect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   direction?: EffectDirection;
 }
@@ -342,7 +373,8 @@ declare class ScaleSymbolEffect extends SymbolEffect {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class HierarchicalSymbolEffect extends SymbolEffect {
   /**
@@ -352,7 +384,8 @@ declare class HierarchicalSymbolEffect extends SymbolEffect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(fillStyle?: EffectFillStyle);
   
@@ -363,7 +396,8 @@ declare class HierarchicalSymbolEffect extends SymbolEffect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fillStyle?: EffectFillStyle;
 }
@@ -375,7 +409,8 @@ declare class HierarchicalSymbolEffect extends SymbolEffect {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class AppearSymbolEffect extends SymbolEffect {
   /**
@@ -385,7 +420,8 @@ declare class AppearSymbolEffect extends SymbolEffect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(scope?: EffectScope);
   
@@ -396,7 +432,8 @@ declare class AppearSymbolEffect extends SymbolEffect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   scope?: EffectScope;
 }
@@ -408,7 +445,8 @@ declare class AppearSymbolEffect extends SymbolEffect {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class DisappearSymbolEffect extends SymbolEffect {
   /**
@@ -418,7 +456,8 @@ declare class DisappearSymbolEffect extends SymbolEffect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(scope?: EffectScope);
   
@@ -429,7 +468,8 @@ declare class DisappearSymbolEffect extends SymbolEffect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   scope?: EffectScope;
 }
@@ -441,7 +481,8 @@ declare class DisappearSymbolEffect extends SymbolEffect {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class BounceSymbolEffect extends SymbolEffect {
   /**
@@ -452,7 +493,8 @@ declare class BounceSymbolEffect extends SymbolEffect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(scope?: EffectScope, direction?: EffectDirection);
   
@@ -463,7 +505,8 @@ declare class BounceSymbolEffect extends SymbolEffect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   scope?: EffectScope;
   
@@ -474,7 +517,8 @@ declare class BounceSymbolEffect extends SymbolEffect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   direction?: EffectDirection;
 }
@@ -486,7 +530,8 @@ declare class BounceSymbolEffect extends SymbolEffect {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class ReplaceSymbolEffect extends SymbolEffect {
   /**
@@ -496,7 +541,8 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(scope?: EffectScope);
   
@@ -507,7 +553,8 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   scope?: EffectScope;
 }
@@ -519,7 +566,8 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class PulseSymbolEffect extends SymbolEffect {
 }
@@ -538,7 +586,8 @@ declare class PulseSymbolEffect extends SymbolEffect {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   /**
@@ -557,7 +606,8 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontSize(value: number | string | Resource): SymbolGlyphAttribute;
 
@@ -577,7 +627,8 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontColor(value: Array<ResourceColor>): SymbolGlyphAttribute;
 
@@ -597,7 +648,8 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontWeight(value: number | FontWeight | string): SymbolGlyphAttribute;
 
@@ -617,7 +669,8 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   effectStrategy(value: SymbolEffectStrategy): SymbolGlyphAttribute;
 
@@ -637,7 +690,8 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   renderingStrategy(value: SymbolRenderingStrategy): SymbolGlyphAttribute;
 
@@ -668,13 +722,29 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   symbolEffect(symbolEffect: SymbolEffect, triggerValue?: number): SymbolGlyphAttribute;
 
   /**
+   *  Define effect options for SymbolGlyph.
+   *
+   * @param { SymbolEffect } [symbolEffect] - The symbol effect type
+   * @param { boolean | number } [triggerValue] - The trigger of the effect
+   * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  symbolEffect(symbolEffect: SymbolEffect, triggerValue?: boolean | number): SymbolGlyphAttribute;
+
+  /**
    * Called when the minimum font scale of the font is set.
    *
    * @param { Optional<number|Resource> } scale
    * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   minFontScale(scale: Optional<number | Resource>): SymbolGlyphAttribute;
 
@@ -685,7 +755,8 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   maxFontScale(scale: Optional<number | Resource>): SymbolGlyphAttribute;
 }

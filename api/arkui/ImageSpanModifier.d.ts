@@ -18,7 +18,24 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { ImageSpanAttribute } from './component/imageSpan'
+/*** endif */
 
+/*** if arkts 1.2 */
+/**
+ * Declare the apply normal status function.
+ *
+ * @typedef { function } ImageSpanApplyNormalFunction
+ * @param { ImageSpanAttribute } imageSpanAttribute - The attribute of component.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type ImageSpanApplyNormalFunction = (imageSpanAttribute: ImageSpanAttribute) => void;
+/*** endif */
 
 
 /**
@@ -28,7 +45,8 @@
  * @implements AttributeModifier<ImageSpanAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
 */
 export declare class ImageSpanModifier extends ImageSpanAttribute implements AttributeModifier<ImageSpanAttribute> {
 
@@ -42,4 +60,18 @@ export declare class ImageSpanModifier extends ImageSpanAttribute implements Att
    * @since 12
    */
   applyNormalAttribute?(instance: ImageSpanAttribute): void;
+
+  /*** if arkts 1.2 */
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyNormalAttribute?: ImageSpanApplyNormalFunction;
+  /*** endif */
 }
