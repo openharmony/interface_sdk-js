@@ -1419,7 +1419,7 @@ declare namespace pasteboard {
      * @param { AsyncCallback<PasteData> } callback - the callback of getData.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *    2. Incorrect  parameters types.
-     * @throws { BusinessError } 12900003 - Another copy or paste operation is in progress.
+     * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
@@ -1451,7 +1451,7 @@ declare namespace pasteboard {
     /**
      * Gets pastedata from the system pasteboard.
      * @returns { Promise<PasteData> } the promise returned by the getData.
-     * @throws { BusinessError } 12900003 - Another copy or paste operation is in progress.
+     * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
@@ -1593,8 +1593,8 @@ declare namespace pasteboard {
      * @param { AsyncCallback<void> } callback - the callback of setData.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
      *    2. Incorrect parameters types.
-     * @throws { BusinessError } 12900003 - Another copy or paste operation is in progress.
-     * @throws { BusinessError } 12900004 - Replication is prohibited.
+     * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
+     * @throws { BusinessError } 27787278 - Replication is prohibited.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
@@ -1618,8 +1618,8 @@ declare namespace pasteboard {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *    2. Incorrect  parameters types.
-     * @throws { BusinessError } 12900003 - Another copy or paste operation is in progress.
-     * @throws { BusinessError } 12900004 - Replication is prohibited.
+     * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
+     * @throws { BusinessError } 27787278 - Replication is prohibited.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
