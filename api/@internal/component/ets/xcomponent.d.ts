@@ -305,36 +305,6 @@ declare interface XComponentOptions {
 }
 
 /**
- * Defines the native xcomponent parameters.
- *
- * @interface NativeXComponentParameters
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 18
- */
-declare interface NativeXComponentParameters {
-  /**
-   * The type of xcomponent
-   *
-   * @type { XComponentType }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 18
-   */
-  type: XComponentType;
-
-  /**
-   * Image ai options.
-   *
-   * @type { ?ImageAIOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 18
-   */
-  imageAIOptions?: ImageAIOptions;
-}
-
-/**
  * Defines XComponent.
  *
  * @interface XComponentInterface
@@ -392,17 +362,6 @@ interface XComponentInterface {
    * @since 12
    */
   (options: XComponentOptions): XComponentAttribute;
-
-  /**
-   * Constructor parameters
-   *
-   * @param { NativeXComponentParameters } params - Indicates the constructor parameters of the xcomponent for native developing.
-   * @returns { XComponentAttribute } The attribute of the xcomponent.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 18
-   */
-  (params: NativeXComponentParameters): XComponentAttribute;
 }
 
 /**
