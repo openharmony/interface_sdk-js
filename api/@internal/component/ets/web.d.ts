@@ -9398,6 +9398,27 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 16
    */
   nativeEmbedOptions(options?: EmbedOptions): WebAttribute;
+
+  /**
+   * Enable data detector.
+   *
+   * @param { boolean } enable - {@code true} means enable data detector in Web;{@code false} otherwise.
+   *    The default value is false.
+   * @returns { WebAttribute } The attribute of the web.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  enableDataDetector(enable: boolean): WebAttribute;
+
+  /**
+   * Data detector with config.
+   *
+   * @param { TextDataDetectorConfig } config - The config of text data detector.
+   * @returns { WebAttribute } The attribute of the web.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  dataDetectorConfig(config: TextDataDetectorConfig): WebAttribute;
 }
 
 /**
