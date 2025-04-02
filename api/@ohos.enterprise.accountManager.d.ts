@@ -268,7 +268,7 @@ declare namespace accountManager {
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
    * @param { osAccount.DomainAccountInfo } domainAccountInfo - the infomation of domain account.
-   * @returns { DomainAccountPolicy } policy - policy indicates the domain account policy.
+   * @returns { DomainAccountPolicy } the domain account policy.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
