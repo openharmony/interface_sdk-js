@@ -297,7 +297,7 @@ export interface ExtensionAbilityInfo {
    * @atomicservice
    * @since 12
    */
-    readonly skills: Array<Skill>;
+  readonly skills: Array<Skill>;
 
   /**
    * Indicates the appIndex of extension ability, only work in clone app mode

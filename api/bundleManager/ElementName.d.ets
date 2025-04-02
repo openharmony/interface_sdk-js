@@ -19,105 +19,120 @@
  */
 
 /**
- * Indicates the Metadata
+ * Contains basic Ability information, which uniquely identifies an ability.
+ * You can use this class to obtain values of the fields set in an element,
+ * such as the device ID, bundle name, and ability name.
  *
- * @typedef Metadata
+ * @typedef ElementName
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 9
  */
 /**
- * Indicates the Metadata
+ * Contains basic Ability information, which uniquely identifies an ability.
+ * You can use this class to obtain values of the fields set in an element,
+ * such as the device ID, bundle name, and ability name.
  *
- * @typedef Metadata
+ * @typedef ElementName
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @crossplatform
- * @since 10
- */
-/**
- * Indicates the Metadata
- *
- * @typedef Metadata
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @crossplatform
  * @atomicservice
  * @since 11
  */
-export interface Metadata {
+export interface ElementName {
   /**
-   * Indicates the metadata name
+   * Indicates device id
    *
-   * @type { string }
+   * @type { ?string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
-   * Indicates the metadata name
+   * Indicates device id
    *
-   * @type { string }
+   * @type { ?string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the metadata name
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
    * @atomicservice
    * @since 11
    */
-  name: string;
+  deviceId?: string;
 
   /**
-   * Indicates the metadata value
-   *
    * @type { string }
+   * @default Indicates bundle name
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
-   * Indicates the metadata value
-   *
    * @type { string }
+   * @default Indicates bundle name
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the metadata value
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
    * @atomicservice
    * @since 11
    */
-  value: string;
+  bundleName: string;
 
   /**
-   * Indicates the metadata resource
+   * @type { ?string }
+   * @default Indicates module name
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  /**
+   * @type { ?string }
+   * @default Indicates module name
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
+  moduleName?: string;
+
+  /**
+   * Indicates ability name
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
-   * Indicates the metadata resource
+   * Indicates ability name
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the metadata resource
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
    * @atomicservice
    * @since 11
    */
-  resource: string;
+  abilityName: string;
+
+  /**
+   * Indicates uri
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  /**
+   * Indicates uri
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
+  uri?: string;
+
+  /**
+   * Indicates short name
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  /**
+   * Indicates short name
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
+  shortName?: string;
 }

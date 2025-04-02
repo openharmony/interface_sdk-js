@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -22,48 +22,50 @@
  * Indicates the defined permission details in file config.json
  *
  * @typedef PermissionDef
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi
- * @since 9
+ * @since 8
+ * @deprecated since 9
+ * @useinstead ohos.bundle.bundleManager.PermissionDef
  */
 export interface PermissionDef {
   /**
-   * Indicates the name of this permission
-   *
    * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @default Indicates the name of this permission
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi
-   * @since 9
+   * @since 8
+   * @deprecated since 9
    */
-  readonly permissionName: string;
+  permissionName: string;
 
   /**
-   * Indicates the grant mode of this permission
-   *
    * @type { number }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @default Indicates the grant mode of this permission
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi
-   * @since 9
+   * @since 8
+   * @deprecated since 9
    */
-  readonly grantMode: number;
+  grantMode: number;
 
   /**
-   * Indicates the labelId of this permission
-   *
    * @type { number }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @default Indicates the labelId of this permission
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi
-   * @since 9
+   * @since 8
+   * @deprecated since 9
    */
-  readonly labelId: number;
+  labelId: number;
 
   /**
-   * Indicates the descriptionId of this permission
-   *
    * @type { number }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @default Indicates the descriptionId of this permission
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi
-   * @since 9
+   * @since 8
+   * @deprecated since 9
    */
-  readonly descriptionId: number;
+  descriptionId: number;
 }

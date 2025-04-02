@@ -18,56 +18,91 @@
  * @kit AbilityKit
  */
 
+import bundleManager from './../@ohos.bundle.bundleManager';
+
 /**
- * Obtains configuration information about a overlay hap module.
+ * Indicates the RecoverableApplicationInfo
  *
- * @typedef OverlayModuleInfo
+ * @typedef RecoverableApplicationInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @since 10
+ * @systemapi
+ * @since 11
  */
-export interface OverlayModuleInfo {
+export interface RecoverableApplicationInfo {
   /**
-   * Indicates the name of the bundle
+   * Indicates the bundle name
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 10
+   * @systemapi
+   * @since 11
    */
   readonly bundleName: string;
 
   /**
-   * Indicates the name of the .hap package to which the capability belongs
+   * Indicates the module name
    *
    * @type { string }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 10
+   * @systemapi
+   * @since 11
    */
   readonly moduleName: string;
 
   /**
-   * Indicates the name of target module which is overlaid by the overlay module
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 10
-   */
-  readonly targetModuleName: string;
-
-  /**
-   * Indicates the priority of the overlay module
+   * Indicates the label id
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 10
+   * @systemapi
+   * @since 11
    */
-  readonly priority: number;
+  readonly labelId: number;
 
   /**
-   * Indicates the state of the overlay module
+   * Indicates the icon id
    *
    * @type { number }
+   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 10
+   * @systemapi
+   * @since 11
    */
-  readonly state: number;
+  readonly iconId: number;
+
+  /**
+   * Indicates whether the application is a system application
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  readonly systemApp: boolean;
+
+  /**
+   * Indicates the type of application.
+   *
+   * @type { bundleManager.BundleType }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  readonly bundleType: bundleManager.BundleType;
+
+  /**
+   * Indicates the application source code path.
+   *
+   * @type { Array<string> }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  readonly codePaths: Array<string>;
 }

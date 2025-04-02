@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,44 +18,45 @@
  * @kit AbilityKit
  */
 
+import { AbilityInfo } from './AbilityInfo';
+import { ExtensionAbilityInfo } from './ExtensionAbilityInfo';
 import { Metadata } from './Metadata';
-import { Resource } from '../global/resource';
 import bundleManager from './../@ohos.bundle.bundleManager';
 
 /**
- * Obtains configuration information about an application
+ * Obtains configuration information about a hap module.
  *
- * @typedef ApplicationInfo
+ * @typedef HapModuleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 9
  */
 /**
- * Obtains configuration information about an application
+ * Obtains configuration information about a hap module.
  *
- * @typedef ApplicationInfo
+ * @typedef HapModuleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @crossplatform
  * @since 10
  */
 /**
- * Obtains configuration information about an application
+ * Obtains configuration information about a hap module.
  *
- * @typedef ApplicationInfo
+ * @typedef HapModuleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @crossplatform
  * @atomicservice
  * @since 11
  */
-export interface ApplicationInfo {
+export interface HapModuleInfo {
   /**
-   * Indicates the application name, which is the same as {@code bundleName}
+   * Indicates the name of this hap module
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
-   * Indicates the application name, which is the same as {@code bundleName}
+   * Indicates the name of this hap module
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -63,7 +64,7 @@ export interface ApplicationInfo {
    * @since 10
    */
   /**
-   * Indicates the application name, which is the same as {@code bundleName}
+   * Indicates the name of this hap module
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -74,14 +75,14 @@ export interface ApplicationInfo {
   readonly name: string;
 
   /**
-   * Description of application
+   * Indicates the icon of this hap module
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
-   * Description of application
+   * Indicates the icon of this hap module
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -89,128 +90,7 @@ export interface ApplicationInfo {
    * @since 10
    */
   /**
-   * Description of application
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  readonly description: string;
-
-  /**
-   * Indicates the description id of the application
-   *
-   * @type { number }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the description id of the application
-   *
-   * @type { number }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the description id of the application
-   *
-   * @type { number }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  readonly descriptionId: number;
-
-  /**
-   * Indicates whether or not this application may be instantiated
-   *
-   * @type { boolean }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates whether or not this application may be instantiated
-   *
-   * @type { boolean }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  readonly enabled: boolean;
-
-  /**
-   * Indicates the label of the application
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the label of the application
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the label of the application
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  readonly label: string;
-
-  /**
-   * Indicates the label id of the application
-   *
-   * @type { number }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the label id of the application
-   *
-   * @type { number }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the label id of the application
-   *
-   * @type { number }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  readonly labelId: number;
-
-  /**
-   * Indicates the icon of the application
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the icon of the application
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the icon of the application
+   * Indicates the icon of this hap module
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -221,14 +101,14 @@ export interface ApplicationInfo {
   readonly icon: string;
 
   /**
-   * Indicates the icon id of the application
+   * Indicates the icon id of this hap module
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
-   * Indicates the icon id of the application
+   * Indicates the icon id of this hap module
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -236,7 +116,7 @@ export interface ApplicationInfo {
    * @since 10
    */
   /**
-   * Indicates the icon id of the application
+   * Indicates the icon id of this hap module
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -247,48 +127,14 @@ export interface ApplicationInfo {
   readonly iconId: number;
 
   /**
-   * Process of application, if user do not set it ,the value equal bundleName
+   * Indicates the label of this hap module
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
-   * Process of application, if user do not set it ,the value equal bundleName
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  readonly process: string;
-
-  /**
-   * Indicates the permissions required for accessing the application.
-   *
-   * @type { Array<string> }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the permissions required for accessing the application.
-   *
-   * @type { Array<string> }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  readonly permissions: Array<string>;
-
-  /**
-   * Indicates the application source code path
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the application source code path
+   * Indicates the label of this hap module
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -296,7 +142,7 @@ export interface ApplicationInfo {
    * @since 10
    */
   /**
-   * Indicates the application source code path
+   * Indicates the label of this hap module
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -304,236 +150,304 @@ export interface ApplicationInfo {
    * @atomicservice
    * @since 11
    */
-  readonly codePath: string;
+  readonly label: string;
 
   /**
-   * Indicates the metadata of module
+   * Indicates the label id of this hap module
    *
-   * @type { Map<string, Array<Metadata>> }
-   * @readonly
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
-   * @deprecated since 10
-   * @useinstead ApplicationInfo#metadataArray
    */
-  readonly metadata: Map<string, Array<Metadata>>;
-
   /**
-   * Indicates the metadata of the application
+   * Indicates the label id of this hap module
    *
-   * @type { Array<ModuleMetadata> }
-   * @readonly
+   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 10
    */
   /**
-   * Indicates the metadata of the application
-   *
-   * @type { Array<ModuleMetadata> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  readonly metadataArray: Array<ModuleMetadata>;
-
-  /**
-   * Indicates whether or not this application may be removable
-   *
-   * @type { boolean }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates whether or not this application may be removable
-   *
-   * @type { boolean }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  readonly removable: boolean;
-
-  /**
-   * Indicates the access token of the application
+   * Indicates the label id of this hap module
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the access token of the application
-   *
-   * @type { number }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
-  readonly accessTokenId: number;
+  readonly labelId: number;
 
   /**
-   * Indicates the uid of the application
-   *
-   * @type { number }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the uid of the application
-   *
-   * @type { number }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  readonly uid: number;
-
-  /**
-   * Indicates icon resource of the application
-   *
-   * @type { Resource }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates icon resource of the application
-   *
-   * @type { Resource }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  readonly iconResource: Resource;
-
-  /**
-   * Indicates label resource of the application
-   *
-   * @type { Resource }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates label resource of the application
-   *
-   * @type { Resource }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  readonly labelResource: Resource;
-
-  /**
-   * Indicates description resource of the application
-   *
-   * @type { Resource }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates description resource of the application
-   *
-   * @type { Resource }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  readonly descriptionResource: Resource;
-
-  /**
-   * Indicates the appDistributionType of the application
+   * Describes the hap module
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
-   * Indicates the appDistributionType of the application
+   * Describes the hap module
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  readonly appDistributionType: string;
-
-  /**
-   * Indicates the appProvisionType of the application
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the appProvisionType of the application
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  readonly appProvisionType: string;
-
-  /**
-   * Indicates whether the application is a system application
-   *
-   * @type { boolean }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates whether the application is a system application
-   *
-   * @type { boolean }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  readonly systemApp: boolean;
-
-  /**
-   * Indicates the type of application is APP or atomicService.
-   *
-   * @type { bundleManager.BundleType }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the type of application is APP or atomicService.
-   *
-   * @type { bundleManager.BundleType }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  readonly bundleType: bundleManager.BundleType;
-
-  /**
-   * Indicates whether the application is in debug mode.
-   *
-   * @type { boolean }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 10
    */
   /**
-   * Indicates whether the application is in debug mode.
+   * Describes the hap module
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  readonly description: string;
+
+  /**
+   * Indicates the description of this hap module
+   *
+   * @type { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  /**
+   * Indicates the description of this hap module
+   *
+   * @type { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Indicates the description of this hap module
+   *
+   * @type { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  readonly descriptionId: number;
+
+  /**
+   * Indicates main elementName of the hap module
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  /**
+   * Indicates main elementName of the hap module
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Indicates main elementName of the hap module
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  readonly mainElementName: string;
+
+  /**
+   * Obtains configuration information about abilities
+   *
+   * @type { Array<AbilityInfo> }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  /**
+   * Obtains configuration information about abilities
+   *
+   * @type { Array<AbilityInfo> }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Obtains configuration information about abilities
+   *
+   * @type { Array<AbilityInfo> }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  readonly abilitiesInfo: Array<AbilityInfo>;
+
+  /**
+   * Obtains configuration information about extension abilities
+   *
+   * @type { Array<ExtensionAbilityInfo> }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  /**
+   * Obtains configuration information about extension abilities
+   *
+   * @type { Array<ExtensionAbilityInfo> }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
+  readonly extensionAbilitiesInfo: Array<ExtensionAbilityInfo>;
+
+  /**
+   * Indicates the metadata of ability
+   *
+   * @type { Array<Metadata> }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  /**
+   * Indicates the metadata of ability
+   *
+   * @type { Array<Metadata> }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Indicates the metadata of ability
+   *
+   * @type { Array<Metadata> }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  readonly metadata: Array<Metadata>;
+
+  /**
+   * The device types that this hap module can run on
+   *
+   * @type { Array<string> }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  /**
+   * The device types that this hap module can run on
+   *
+   * @type { Array<string> }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
+  readonly deviceTypes: Array<string>;
+
+  /**
+   * Indicates whether free installation of the hap module is supported
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  /**
+   * Indicates whether free installation of the hap module is supported
    *
    * @type { boolean }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
    */
-  readonly debug: boolean;
+  readonly installationFree: boolean;
 
   /**
-   * Indicates whether the application data is unclearable, that is, whether the application data cannot be cleared.
+   * Indicates the hash value of the hap module
    *
-   * @type { boolean }
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  /**
+   * Indicates the hash value of the hap module
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
+  readonly hashValue: string;
+
+  /**
+   * Indicates the type of the module
+   *
+   * @type { bundleManager.ModuleType }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  /**
+   * Indicates the type of the module
+   *
+   * @type { bundleManager.ModuleType }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
+  readonly type: bundleManager.ModuleType;
+
+  /**
+   * Indicates the dependency module that this module depends on
+   *
+   * @type { Array<Dependency> }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  /**
+   * Indicates the dependency module that this module depends on
+   *
+   * @type { Array<Dependency> }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
+  readonly dependencies: Array<Dependency>;
+
+  /**
+   * Indicates the preload module
+   *
+   * @type { Array<PreloadItem> }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  /**
+   * Indicates the preload module
+   *
+   * @type { Array<PreloadItem> }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
+  readonly preloads: Array<PreloadItem>;
+
+  /**
+   * Indicates the menu configuration
+   *
+   * @type { string }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
    */
-  readonly dataUnclearable: boolean;
+  readonly fileContextMenuConfig: string;
+
+  /**
+   * Indicates the router information of the module
+   *
+   * @type { Array<RouterItem> }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly routerMap: Array<RouterItem>;
 
   /**
    * Indicates native library path.
@@ -546,27 +460,7 @@ export interface ApplicationInfo {
   readonly nativeLibraryPath: string;
 
   /**
-   * Indicates the MultiAppMode object of the bundle
-   *
-   * @type { MultiAppMode }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 12
-   */
-  readonly multiAppMode: MultiAppMode;
-
-  /**
-   * Indicates the index of the bundle
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 12
-   */
-  readonly appIndex: number;
-
-  /**
-   * Indicates sources to install the app
+   * Indicates the code path
    *
    * @type { string }
    * @readonly
@@ -574,71 +468,36 @@ export interface ApplicationInfo {
    * @atomicservice
    * @since 12
    */
-  readonly installSource: string;
-
-  /**
-   * Indicates the release type of the app
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 12
-   */
-  readonly releaseType: string;
-
-  /**
-   * Indicates whether the application enables cloud file sync.
-   *
-   * @type { boolean }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 12
-   */
-  readonly cloudFileSyncEnabled: boolean;
-
-  /**
-   * Indicates the flags of the application.
-   *
-   * @type { ?number }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 12
-   */
-  readonly flags?: number;
+  readonly codePath: string;
 }
 
 /**
- * Indicates the ModuleMetadata
+ * Indicates the dependency
  *
- * @typedef ModuleMetadata
+ * @typedef Dependency
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @since 10
+ * @since 9
  */
 /**
- * Indicates the ModuleMetadata
+ * Indicates the dependency
  *
- * @typedef ModuleMetadata
+ * @typedef Dependency
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @atomicservice
  * @since 11
  */
-export interface ModuleMetadata {
+export interface Dependency {
   /**
-   * Indicates the name of this hap module
+   * Indicates the module name
    *
    * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 10
+   * @since 9
    */
   /**
-   * Indicates the name of this hap module
+   * Indicates the module name
    *
    * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -646,105 +505,162 @@ export interface ModuleMetadata {
   readonly moduleName: string;
 
   /**
-   * Indicates the metadata of this hap module
+   * Indicates the bundle name of the dependency
    *
-   * @type { Array<Metadata> }
-   * @readonly
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 10
    */
   /**
-   * Indicates the metadata of this hap module
+   * Indicates the bundle name of the dependency
    *
-   * @type { Array<Metadata> }
-   * @readonly
+   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
-   */
-  readonly metadata: Array<Metadata>;
-}
-
-/**
- * Indicates MultiAppMode
- *
- * @typedef MultiAppMode
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @since 12
- */
-export interface MultiAppMode {
-  /**
-   * Indicates the multiAppModeType of the bundle
-   *
-   * @type { bundleManager.MultiAppModeType }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 12
-   */
-  readonly multiAppModeType: bundleManager.MultiAppModeType;
-
-  /**
-   * Indicates the max count of the bundle
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 12
-   */
-  readonly maxCount: number;
-}
-
-/**
- * Indicates the information of preinstalled application
- *
- * @typedef PreinstalledApplicationInfo
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @systemapi
- * @since 12
- */
-export interface PreinstalledApplicationInfo {
-
-  /**
-   * Indicates the name of this bundle
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 12
    */
   readonly bundleName: string;
 
   /**
-   * Indicates the name of module
+   * Indicates the version code of the dependency
+   *
+   * @type { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 10
+   */
+  /**
+   * Indicates the version code of the dependency
+   *
+   * @type { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
+  readonly versionCode: number;
+}
+
+/**
+ * Indicates the preloadItem
+ *
+ * @typedef PreloadItem
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @since 9
+ */
+/**
+ * Indicates the preloadItem
+ *
+ * @typedef PreloadItem
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @atomicservice
+ * @since 11
+ */
+export interface PreloadItem {
+  /**
+   * Indicates the module name need preload
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  /**
+   * Indicates the module name need preload
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
+  readonly moduleName: string;
+}
+
+/**
+ * Indicates the router item
+ *
+ * @typedef RouterItem
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @atomicservice
+ * @since 12
+ */
+export interface RouterItem {
+  /**
+   * Indicates the name of the module to which the current page belongs
    *
    * @type { string }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
+   * @atomicservice
    * @since 12
    */
-  readonly moduleName: string;
-
+  readonly name: string;
   /**
-   * Indicates the icon id of the application
+   * Indicates the file path of the current page within the module
    *
-   * @type { number }
+   * @type { string }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
+   * @atomicservice
    * @since 12
    */
-  readonly iconId: number;
-
+  readonly pageSourceFile: string;
   /**
-   * Indicates the label id of the application
+   * Indicates the name of the function @Builder decorated
    *
-   * @type { number }
+   * @type { string }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
+   * @atomicservice
    * @since 12
    */
-  readonly labelId: number;
+  readonly buildFunction: string;
+  /**
+   * Indicates the json string of custom data
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly customData: string;
+  /**
+   * Indicates the data
+   *
+   * @type { Array<DataItem> }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly data: Array<DataItem>;
+}
+
+/**
+ * Indicates the data item defined in router item
+ *
+ * @typedef DataItem
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @atomicservice
+ * @since 12
+ */
+export interface DataItem {
+  /**
+   * Indicates the key of the custom data item
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly key: string;
+  /**
+   * Indicates the value of the custom data item
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly value: string;
 }

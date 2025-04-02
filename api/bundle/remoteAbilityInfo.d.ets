@@ -18,7 +18,7 @@
  * @kit AbilityKit
  */
 
-import { ElementName } from './ElementName';
+import { ElementName } from './elementName';
 
 /**
  * Contains basic remote ability information.
@@ -26,36 +26,38 @@ import { ElementName } from './ElementName';
  * @typedef RemoteAbilityInfo
  * @syscap SystemCapability.BundleManager.DistributedBundleFramework
  * @systemapi
- * @since 9
+ * @since 8
+ * @deprecated since 9
+ * @useinstead ohos.bundle.distributedBundleManager.RemoteAbilityInfo
  */
 export interface RemoteAbilityInfo {
   /**
-   * Indicates the ability information
-   *
    * @type { ElementName }
+   * @default Indicates the ability information
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 9
+   * @since 8
+   * @deprecated since 9
    */
   readonly elementName: ElementName;
 
   /**
-   * Indicates the label of the ability
-   *
    * @type { string }
+   * @default Indicates the label of the ability
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 9
+   * @since 8
+   * @deprecated since 9
    */
   readonly label: string;
 
   /**
-   * Indicates the icon of the ability
-   *
    * @type { string }
+   * @default Indicates the icon of the ability
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 9
+   * @since 8
+   * @deprecated since 9
    */
   readonly icon: string;
 }

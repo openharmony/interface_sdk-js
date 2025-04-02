@@ -19,19 +19,21 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
-import type { ApplicationInfo as _ApplicationInfo, ModuleMetadata as _ModuleMetadata,
+import { ApplicationInfo as _ApplicationInfo, ModuleMetadata as _ModuleMetadata,
   PreinstalledApplicationInfo as _PreinstalledApplicationInfo } from './bundleManager/ApplicationInfo';
 import { Metadata as _Metadata } from './bundleManager/Metadata';
 import { PermissionDef as _PermissionDef } from './bundleManager/PermissionDef';
 import { ElementName as _ElementName } from './bundleManager/ElementName';
 import { SharedBundleInfo as _SharedBundleInfo } from './bundleManager/SharedBundleInfo';
-import type { RecoverableApplicationInfo as _RecoverableApplicationInfo } from './bundleManager/RecoverableApplicationInfo';
+import { RecoverableApplicationInfo as _RecoverableApplicationInfo } from './bundleManager/RecoverableApplicationInfo';
 import Want from './@ohos.app.ability.Want';
-import * as _AbilityInfo from './bundleManager/AbilityInfo';
+import { AbilityInfo as _AbilityInfo, WindowSize as _WindowSize } from './bundleManager/AbilityInfo';
 import * as _AppProvisionInfo from './bundleManager/AppProvisionInfo';
-import * as _BundleInfo from './bundleManager/BundleInfo';
+import { BundleInfo as _BundleInfo, UsedScene as _UsedScene, ReqPermissionDetail as _ReqPermissionDetail,
+  SignatureInfo as _SignatureInfo, AppCloneIdentity as _AppCloneIdentity } from './bundleManager/BundleInfo';
+import { AppCloneIdentity } from './bundleManager/BundleInfo';
 import * as _HapModuleInfo from './bundleManager/HapModuleInfo';
-import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
+import { ExtensionAbilityInfo as _ExtensionAbilityInfo } from './bundleManager/ExtensionAbilityInfo';
 import * as _Skill from './bundleManager/Skill';
 /**
  * This module is used to obtain package information of various applications installed on the current device.
@@ -1431,7 +1433,7 @@ declare namespace bundleManager {
    * @atomicservice
    * @since 11
    */
-  function getBundleInfoForSelf(bundleFlags: number): Promise<BundleInfo>;
+  export function getBundleInfoForSelf(bundleFlags: number): Promise<BundleInfo>;
 
   /**
    * Obtains own bundleInfo.
@@ -1452,7 +1454,7 @@ declare namespace bundleManager {
    * @atomicservice
    * @since 11
    */
-  function getBundleInfoForSelf(bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;
+  export function getBundleInfoForSelf(bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;
 
   /**
    * Obtains own bundleInfo.
@@ -1473,7 +1475,7 @@ declare namespace bundleManager {
    * @atomicservice
    * @since 11
    */
-  function getBundleInfoForSelfSync(bundleFlags: number): BundleInfo;
+  export native function getBundleInfoForSelfSync(bundleFlags: number): BundleInfo;
 
   /**
    * Obtains bundleInfo based on bundleName, bundleFlags. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
@@ -1491,7 +1493,7 @@ declare namespace bundleManager {
    * @systemapi
    * @since 9
    */
-  function getBundleInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;
+  export function getBundleInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;
 
   /**
    * Obtains bundleInfo based on bundleName, bundleFlags and userId. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
@@ -1511,7 +1513,7 @@ declare namespace bundleManager {
    * @systemapi
    * @since 9
    */
-  function getBundleInfo(bundleName: string,
+  export function getBundleInfo(bundleName: string,
     bundleFlags: number, userId: number, callback: AsyncCallback<BundleInfo>): void;
 
   /**
@@ -1532,7 +1534,7 @@ declare namespace bundleManager {
    * @systemapi
    * @since 9
    */
-  function getBundleInfo(bundleName: string, bundleFlags: number, userId?: number): Promise<BundleInfo>;
+  export function getBundleInfo(bundleName: string, bundleFlags: number, userId?: number): Promise<BundleInfo>;
 
   /**
    * Obtains application info based on a given bundle name. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
@@ -2285,7 +2287,7 @@ declare namespace bundleManager {
    * @systemapi
    * @since 10
    */
-  function isApplicationEnabledSync(bundleName: string): boolean;
+  export native function isApplicationEnabledSync(bundleName: string): boolean;
 
   /**
    * Checks whether a specified ability is enabled.
@@ -2783,7 +2785,7 @@ declare namespace bundleManager {
    * @systemapi
    * @since 9
    */
-  function getApplicationInfoSync(bundleName: string, applicationFlags: number, userId: number): ApplicationInfo;
+  export native function getApplicationInfoSync(bundleName: string, applicationFlags: number, userId: number): ApplicationInfo;
 
   /**
    * Obtains applicationInfo based on a given bundleName and bundleFlags.
@@ -2801,7 +2803,7 @@ declare namespace bundleManager {
    * @systemapi
    * @since 9
    */
-  function getApplicationInfoSync(bundleName: string, applicationFlags: number): ApplicationInfo;
+  export function getApplicationInfoSync(bundleName: string, applicationFlags: number): ApplicationInfo;
 
   /**
    * Obtains bundleInfo based on bundleName, bundleFlags and userId.
@@ -2821,7 +2823,7 @@ declare namespace bundleManager {
    * @systemapi
    * @since 9
    */
-  function getBundleInfoSync(bundleName: string, bundleFlags: number, userId: number): BundleInfo;
+  export native function getBundleInfoSync(bundleName: string, bundleFlags: number, userId: number) : BundleInfo;
 
   /**
    * Obtains bundleInfo based on bundleName, bundleFlags.
@@ -2839,7 +2841,7 @@ declare namespace bundleManager {
    * @systemapi
    * @since 9
    */
-  function getBundleInfoSync(bundleName: string, bundleFlags: number): BundleInfo;
+  export function getBundleInfoSync(bundleName: string, bundleFlags: number): BundleInfo;
 
   /**
    * Obtains SharedBundleInfo of all shared bundle available in the system.
@@ -3454,7 +3456,7 @@ declare namespace bundleManager {
    * @atomicservice
    * @since 11
    */
-  export type BundleInfo = _BundleInfo.BundleInfo;
+  export type BundleInfo = _BundleInfo;
 
   /**
    * The scene which is used.
@@ -3471,7 +3473,7 @@ declare namespace bundleManager {
    * @atomicservice
    * @since 11
    */
-  export type UsedScene = _BundleInfo.UsedScene;
+  export type UsedScene = _UsedScene;
 
   /**
    * Indicates the required permissions details defined in file config.json.
@@ -3488,7 +3490,7 @@ declare namespace bundleManager {
    * @atomicservice
    * @since 11
    */
-  export type ReqPermissionDetail = _BundleInfo.ReqPermissionDetail;
+  export type ReqPermissionDetail = _ReqPermissionDetail;
 
   /**
    * Indicates the SignatureInfo.
@@ -3505,7 +3507,7 @@ declare namespace bundleManager {
    * @atomicservice
    * @since 11
    */
-  export type SignatureInfo = _BundleInfo.SignatureInfo;
+  export type SignatureInfo = _SignatureInfo;
 
   /**
    * AppCloneIdentity Contain BundleName and appIndex.
@@ -3515,7 +3517,7 @@ declare namespace bundleManager {
    * @systemapi
    * @since 12
    */
-  export type AppCloneIdentity = _BundleInfo.AppCloneIdentity;
+  export type AppCloneIdentity = _AppCloneIdentity;
 
   /**
    * Obtains configuration information about a module.
@@ -3603,7 +3605,7 @@ declare namespace bundleManager {
    * @atomicservice
    * @since 11
    */
-  export type AbilityInfo = _AbilityInfo.AbilityInfo;
+  export type AbilityInfo = _AbilityInfo;
 
   /**
    * Contains basic Ability information. Indicates the window size..
@@ -3620,7 +3622,7 @@ declare namespace bundleManager {
    * @atomicservice
    * @since 11
    */
-  export type WindowSize = _AbilityInfo.WindowSize;
+  export type WindowSize = _WindowSize;
 
   /**
    * Obtains extension information about a bundle.
@@ -3637,7 +3639,7 @@ declare namespace bundleManager {
    * @atomicservice
    * @since 11
    */
-  export type ExtensionAbilityInfo = _ExtensionAbilityInfo.ExtensionAbilityInfo;
+  export type ExtensionAbilityInfo = _ExtensionAbilityInfo;
 
   /**
    * Indicates the defined permission details in file config.json.

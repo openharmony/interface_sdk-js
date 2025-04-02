@@ -28,7 +28,8 @@ import { StartOptions } from './@ohos.app.ability.StartOptions';
  *
  * @namespace launcherBundleManager
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
- * @since 18
+ * @systemapi
+ * @since 9
  */
 declare namespace launcherBundleManager {
   /**
@@ -78,12 +79,14 @@ declare namespace launcherBundleManager {
    * @param { number } userId - Indicates the id for the user.
    * @returns { Array<LauncherAbilityInfo> } the LauncherAbilityInfo object.
    * @throws { BusinessError } 201 - Verify permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not support.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 18
+   * @systemapi
+   * @since 10
    */
   function getLauncherAbilityInfoSync(bundleName: string, userId: number): Array<LauncherAbilityInfo>;
 
@@ -215,7 +218,8 @@ declare namespace launcherBundleManager {
    *
    * @typedef { _LauncherAbilityInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 18
+   * @systemapi
+   * @since 9
    */
   export type LauncherAbilityInfo = _LauncherAbilityInfo;
 
