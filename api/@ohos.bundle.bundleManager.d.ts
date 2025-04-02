@@ -23,7 +23,6 @@ import { ApplicationInfo as _ApplicationInfo, ModuleMetadata as _ModuleMetadata,
   PreinstalledApplicationInfo as _PreinstalledApplicationInfo } from './bundleManager/ApplicationInfo';
 import { Metadata as _Metadata } from './bundleManager/Metadata';
 import { PermissionDef as _PermissionDef } from './bundleManager/PermissionDef';
-import { PluginBundleInfo as _PluginBundleInfo, PluginModuleInfo as _PluginModuleInfo} from './bundleManager/PluginBundleInfo';
 import { ElementName as _ElementName } from './bundleManager/ElementName';
 import { SharedBundleInfo as _SharedBundleInfo } from './bundleManager/SharedBundleInfo';
 import { RecoverableApplicationInfo as _RecoverableApplicationInfo } from './bundleManager/RecoverableApplicationInfo';
@@ -3395,47 +3394,6 @@ declare namespace bundleManager {
   function getAppCloneIdentity(uid: number): Promise<AppCloneIdentity>;
 
   /**
-   * Get all plugin info of host application.
-   *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } hostBundleName - Indicates the host application bundle name to be queried.
-   * @param { number } [userId] - Indicates the user ID or do not pass user ID.
-   * @returns { Promise<Array<PluginBundleInfo>> } Returns PluginBundleInfo Arrays.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700004 - The specified user ID is not found.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 18
-   */
-  function getAllPluginInfo(hostBundleName: string, userId?: number): Promise<Array<PluginBundleInfo>>;
-
-  /**
-   * Migrate files from the source paths to the destination path.
-   * 
-   * @permission ohos.permission.MIGRATE_DATA
-   * @param { Array<string> } sourcePaths - Indicates the source paths to be migrated.
-   * @param { string } destinationPath - Target path for data migration.
-   * @returns { Promise<void> } The result of migrating data.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 17700080 - The source paths are invalid.
-   * @throws { BusinessError } 17700081 - The destination path is invalid.
-   * @throws { BusinessError } 17700082 - User authentication failed.
-   * @throws { BusinessError } 17700083 - Waiting for user authentication timeout.
-   * @throws { BusinessError } 17700084 - There are inaccessible path in the source paths.
-   * @throws { BusinessError } 17700085 - The destination path cannot be accessed.
-   * @throws { BusinessError } 17700086 - System error occurred during copy execution.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 18
-   */
-  function migrateData(sourcePaths: Array<string>, destinationPath: string): Promise<void>;
-
-  /**
    * Obtains configuration information about an application.
    *
    * @typedef { _ApplicationInfo }
@@ -3782,26 +3740,6 @@ declare namespace bundleManager {
    * @since 12
    */
   export type PreinstalledApplicationInfo = _PreinstalledApplicationInfo;
-
-  /**
-   * Indicates the information about a plugin.
-   *
-   * @typedef { _PluginBundleInfo  }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 18
-   */
-  export type PluginBundleInfo = _PluginBundleInfo;
-
-  /**
-   * Indicates the plugin module info.
-   *
-   * @typedef { _PluginModuleInfo  }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 18
-   */
-  export type PluginModuleInfo = _PluginModuleInfo;
 }
 
 export default bundleManager;
