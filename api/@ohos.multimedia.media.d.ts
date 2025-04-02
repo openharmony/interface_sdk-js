@@ -4025,7 +4025,7 @@ declare namespace media {
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since 17
      */
     showFirstFrameOnPrepare?: boolean;
 
