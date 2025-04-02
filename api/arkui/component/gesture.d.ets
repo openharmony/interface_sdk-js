@@ -17,7 +17,7 @@
 // WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!
 
 import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
-import { BaseEvent, EventTarget, SourceType, SourceTool } from './common'
+import { BaseEvent, EventTarget, SourceType, SourceTool, Callback } from './common'
 import { Callback_Void } from './abilityComponent'
 export enum PanDirection {
     NONE = 0,
@@ -91,8 +91,7 @@ export interface FingerInfo {
     displayX: number;
     displayY: number;
 }
-export type GestureType = TapGestureInterface | LongPressGestureInterface | PanGestureInterface |
-    PinchGestureInterface | SwipeGestureInterface | RotationGestureInterface | GestureGroupInterface;
+export type GestureType = Gesture | GestureGroup;
 export interface BaseGestureEvent extends BaseEvent {
     fingerList: Array<FingerInfo>;
 }
@@ -309,4 +308,441 @@ export interface GestureRecognizer {
 }
 export interface PanRecognizer extends GestureRecognizer {
     getPanGestureOptions(): PanGestureOptions
+}
+
+/**
+ * Defines Gesture interface.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * 
+ */
+export declare class Gesture {
+    /**
+     * Set gesture's tag.
+     *
+     * @param { string } tag
+     * @returns { Gesture }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * 
+     */
+    tag(tag: string): Gesture;
+    /**
+     * Input source type for gesture response.
+     *
+     * @param { Array<SourceTool> } types - indicate the allowed input source for gesture to response
+     * @returns { Gesture }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * 
+     */
+    allowedTypes(types: Array<SourceTool>): Gesture;
+}
+/**
+ * Defines TapGesture.
+ *
+ * @extends Gesture
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * 
+ */
+export declare class TapGesture extends Gesture {
+    /**
+     * Set the value.
+     * TapGestureParameters: The parameters of the tapGesture.
+     *
+     * @param { function } factory
+     * @param { TapGestureParameters } value
+     * @returns { TapGesture }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * 
+     */
+    static $_instantiate(factory: () => TapGesture, value?: TapGestureParameters): TapGesture;
+    /**
+     * Tap gesture recognition success callback.
+     *
+     * @param { function } event
+     * @returns { TapGestureInterface }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * 
+     */
+    onAction(event: Callback<GestureEvent>): TapGesture;
+}
+/**
+ * Defines LongPressGesture.
+ *
+ * @extends Gesture
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * 
+ * @since 20
+ */
+export declare class LongPressGesture extends Gesture {
+    /**
+     * Set the value.
+     * fingers: Indicates the hand index that triggers the long press.
+     * repeat: Indicates whether to trigger event callback continuously.
+     * duration: Minimum press and hold time, in milliseconds.
+     *
+     * @param { function } factory
+     * @param { LongPressGestureHandlerOptions } value
+     * @returns { LongPressGesture }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * 
+     * @since 11
+     */
+    static $_instantiate(factory: () => LongPressGesture, value?: LongPressGestureHandlerOptions): LongPressGesture;
+    /**
+     * LongPress gesture recognition success callback.
+     *
+     * @param { Callback<GestureEvent> } event
+     * @returns { LongPressGesture }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * 
+     * @since 20
+     */
+    onAction(event: Callback<GestureEvent>): LongPressGesture;
+    /**
+     * The LongPress gesture is successfully recognized. When the finger is lifted, the callback is triggered.
+     *
+     * @param { Callback<GestureEvent> } event
+     * @returns { LongPressGesture }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * 
+     * @since 20
+     */
+    onActionEnd(event: Callback<GestureEvent>): LongPressGesture;
+    /**
+     * The LongPress gesture is successfully recognized and a callback is triggered when the touch cancel event
+     * is received.
+     *
+     * @param { Callback<void> } event
+     * @returns { LongPressGesture }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * 
+     * @since 20
+     */
+    onActionCancel(event: Callback<void>): LongPressGesture;
+}
+
+/**
+ * Defines PanGesture.
+ *
+ * @extends Gesture
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * 
+ * @since 20
+ */
+export declare class PanGesture extends Gesture {
+    /**
+     * Set the value.
+     *
+     * @param { function } factory
+     * @param { PanGestureHandlerOptions } value
+     * @returns { PanGesture }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * 
+     * @since 20
+     */
+    static $_instantiate(factory: () => PanGesture, value?: PanGestureHandlerOptions): PanGesture;
+    /**
+     * Pan gesture recognition success callback.
+     *
+     * @param { Callback<GestureEvent> } event
+     * @returns { PanGesture }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * 
+     * @since 20
+     */
+    onActionStart(event: Callback<GestureEvent>): PanGesture;
+    /**
+     * Callback when the Pan gesture is moving.
+     *
+     * @param { Callback<GestureEvent> } event
+     * @returns { PanGesture }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * 
+     * @since 20
+     */
+    onActionUpdate(event: Callback<GestureEvent>): PanGesture;
+    /**
+     * The Pan gesture is successfully recognized. When the finger is lifted, the callback is triggered.
+     *
+     * @param { Callback<GestureEvent> } event
+     * @returns { PanGesture }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * 
+     * @since 20
+     */
+    onActionEnd(event: Callback<GestureEvent>): PanGesture;
+    /**
+     * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event
+     * is received.
+     *
+     * @param { Callback<void> } event
+     * @returns { PanGesture }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * 
+     * @since 20
+     */
+    onActionCancel(event: Callback<void>): PanGesture;
+}
+/**
+ * Defines SwipeGesture.
+ *
+ * @extends Gesture
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * 
+ * @since 20
+ */
+export declare class SwipeGesture extends Gesture {
+    /**
+     * Set the value.
+     *
+     * @param { function } factory
+     * @param { SwipeGestureHandlerOptions } value
+     * @returns { SwipeGesture }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * 
+     * @since 20
+     */
+    static $_instantiate(factory: () => SwipeGesture, value?: SwipeGestureHandlerOptions): SwipeGesture;
+    /**
+     * Slide gesture recognition success callback.
+     *
+     * @param { Callback<GestureEvent> } event
+     * @returns { SwipeGesture }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * 
+     * @since 20
+     */
+    onAction(event: Callback<GestureEvent>): SwipeGesture;
+}
+/**
+ * Defines PinchGesture.
+ *
+ * @extends Gesture
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * 
+ * @since 20
+ */
+export declare class PinchGesture extends Gesture {
+    /**
+     * Set the value.
+     *
+     * @param { function } factory
+     * @param { PinchGestureHandlerOptions } value
+     * @returns { PinchGesture }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * 
+     * @since 20
+     */
+    static $_instantiate(factory: () => PinchGesture, value?: PinchGestureHandlerOptions): PinchGesture;
+    /**
+     * Pinch gesture recognition success callback.
+     *
+     * @param { Callback<GestureEvent> } event
+     * @returns { PinchGesture }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * 
+     * @since 20
+     */
+    onActionStart(event: Callback<GestureEvent>): PinchGesture;
+    /**
+     * Callback when the Pinch gesture is moving.
+     *
+     * @param { Callback<GestureEvent> } event
+     * @returns { PinchGesture }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * 
+     * @since 20
+     */
+    onActionUpdate(event: Callback<GestureEvent>): PinchGesture;
+    /**
+     * The Pinch gesture is successfully recognized. When the finger is lifted, the callback is triggered.
+     *
+     * @param { Callback<GestureEvent> } event
+     * @returns { PinchGesture }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * 
+     * @since 20
+     */
+    onActionEnd(event: Callback<GestureEvent>): PinchGesture;
+    /**
+     * The Pinch gesture is successfully recognized and a callback is triggered when the touch cancel event
+     * is received.
+     *
+     * @param { Callback<void> } event
+     * @returns { PinchGesture }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * 
+     * @since 20
+     */
+    onActionCancel(event: Callback<void>): PinchGesture;
+}
+/**
+ * Defines RotationGesture.
+ *
+ * @extends Gesture
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * 
+ * @since 20
+ */
+export declare class RotationGesture extends Gesture {
+    /**
+     * Set the value.
+     *
+     * @param { function } factory
+     * @param { RotationGestureHandlerOptions } value
+     * @returns { RotationGesture }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * 
+     * @since 20
+     */
+    static $_instantiate(factory: () => RotationGesture, value?: RotationGestureHandlerOptions): RotationGesture;
+    /**
+     * Rotation gesture recognition success callback.
+     *
+     * @param { Callback<GestureEvent> } event
+     * @returns { RotationGesture }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * 
+     * @since 20
+     */
+    onActionStart(event: Callback<GestureEvent>): RotationGesture;
+    /**
+     * Callback when the Rotation gesture is moving.
+     *
+     * @param { Callback<GestureEvent> } event
+     * @returns { RotationGesture }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * 
+     * @since 20
+     */
+    onActionUpdate(event: Callback<GestureEvent>): RotationGesture;
+    /**
+     * The Rotation gesture is successfully recognized. When the finger is lifted, the callback is triggered.
+     *
+     * @param { Callback<GestureEvent> } event
+     * @returns { RotationGesture }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * 
+     * @since 20
+     */
+    onActionEnd(event: Callback<GestureEvent>): RotationGesture;
+    /**
+     * The Rotation gesture is successfully recognized and a callback is triggered when the touch cancel event
+     * is received.
+     *
+     * @param { Callback<void> } event
+     * @returns { RotationGesture }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * 
+     * @since 20
+     */
+    onActionCancel(event: Callback<void>): RotationGesture;
+}
+/**
+ * Defines the GestureGroup.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * 
+ * @since 20
+ */
+export declare class GestureGroup {
+    /**
+     * Return to Obtain GestureGroup.
+     *
+     * @param { function } factory
+     * @param { GestureMode } mode
+     * @param { GestureType[] } gesture
+     * @returns { GestureGroup }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * 
+     * @since 20
+     */
+    static $_instantiate(factory: () => GestureGroup, mode: GestureMode, ...gesture: GestureType[]): GestureGroup;
+    /**
+     * The Gesture group is successfully recognized and a callback is triggered when the touch cancel event
+     * is received.
+     *
+     * @param { Callback<void> } event
+     * @returns { GestureGroup }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * 
+     * @since 20
+     */
+    onCancel(event: Callback<void>): GestureGroup;
 }
