@@ -18,6 +18,15 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { ResourceColor, Dimension, BorderRadiuses, Length, Font } from './units'
+import { CommonMethod, ShadowOptions } from './common'
+import { LengthMetrics } from './../Graphics'
+import { Resource } from './../../../api/global/resource'
+import { FontStyle, FontWeight, TextCase } from './enums'
+import { DecorationStyleInterface } from './styledString'
+/*** endif */
+
 /**
  * Define the background style of span.
  *
@@ -159,7 +168,8 @@ declare class BaseSpan<T> extends CommonMethod<T> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface SpanInterface {
   /**

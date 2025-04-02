@@ -18,6 +18,12 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { ResourceColor, Length } from './units'
+import { FontWeight, MarqueeUpdateStrategy } from './enums'
+import { Resource } from './../../../api/global/resource'
+/*** endif */
+
 /**
  * Defines Marquee constructor options.
  *
@@ -242,7 +248,8 @@ interface MarqueeOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface MarqueeInterface {
   /**

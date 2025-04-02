@@ -18,6 +18,18 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { KeyboardOptions, PasteEvent } from './rich_editor'
+import { CaretStyle, DeleteValue, EditMenuOptions, EditableTextOnChangeCallback, InsertValue } from './text_common'
+import { BarState, CopyOptions, FontStyle, FontWeight, LineBreakStrategy, TextContentStyle, TextAlign, TextOverflow,
+    TextHeightAdaptivePolicy, WordBreak } from './enums'
+import { EnterKeyType, SubmitEvent } from './text_input'
+import { Dimension, Font, Length, LengthMetrics, ResourceColor, ResourceStr } from './units'
+import { CustomBuilder, InputCounterOptions, TextContentControllerBase, SelectionOptions,
+    TextDecorationOptions, CommonMethod, Callback } from './common'
+import { Resource } from '../../../global/resource'
+/*** endif */
+
 /**
  * Provides the method of switching the cursor position.
  *
@@ -39,7 +51,8 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class TextAreaController extends TextContentControllerBase {
   /**
@@ -61,7 +74,8 @@ declare class TextAreaController extends TextContentControllerBase {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor();
 
@@ -87,7 +101,8 @@ declare class TextAreaController extends TextContentControllerBase {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   caretPosition(value: number): void;
 
@@ -119,7 +134,8 @@ declare class TextAreaController extends TextContentControllerBase {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setTextSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
 
@@ -136,7 +152,8 @@ declare class TextAreaController extends TextContentControllerBase {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   stopEditing(): void;
 }
@@ -163,7 +180,8 @@ declare class TextAreaController extends TextContentControllerBase {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface TextAreaOptions {
   /**
@@ -188,7 +206,8 @@ declare interface TextAreaOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   placeholder?: ResourceStr;
 
@@ -214,7 +233,8 @@ declare interface TextAreaOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   text?: ResourceStr;
 
@@ -240,7 +260,8 @@ declare interface TextAreaOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   controller?: TextAreaController;
 }
@@ -267,7 +288,8 @@ declare interface TextAreaOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface TextAreaInterface {
   /**
@@ -295,7 +317,8 @@ interface TextAreaInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (value?: TextAreaOptions): TextAreaAttribute;
 }
@@ -315,7 +338,8 @@ interface TextAreaInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum TextAreaType {
   /**
@@ -331,7 +355,8 @@ declare enum TextAreaType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   NORMAL = 0,
 
@@ -348,7 +373,8 @@ declare enum TextAreaType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   NUMBER = 2,
 
@@ -365,7 +391,8 @@ declare enum TextAreaType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   PHONE_NUMBER = 3,
 
@@ -382,7 +409,8 @@ declare enum TextAreaType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   EMAIL = 5,
 
@@ -392,7 +420,8 @@ declare enum TextAreaType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   NUMBER_DECIMAL = 12,
 
@@ -402,7 +431,8 @@ declare enum TextAreaType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   URL = 13,
 }
@@ -416,7 +446,8 @@ declare enum TextAreaType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since arkts {'1.1':'14','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type TextAreaSubmitCallback = (enterKeyType: EnterKeyType, event?: SubmitEvent) => void;
 
@@ -442,7 +473,8 @@ declare type TextAreaSubmitCallback = (enterKeyType: EnterKeyType, event?: Submi
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
@@ -470,7 +502,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   placeholderColor(value: ResourceColor): TextAreaAttribute;
 
@@ -499,7 +532,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   placeholderFont(value: Font): TextAreaAttribute;
 
@@ -520,7 +554,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enterKeyType(value: EnterKeyType): TextAreaAttribute;
 
@@ -549,7 +584,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   textAlign(value: TextAlign): TextAreaAttribute;
 
@@ -578,7 +614,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   caretColor(value: ResourceColor): TextAreaAttribute;
 
@@ -607,7 +644,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontColor(value: ResourceColor): TextAreaAttribute;
 
@@ -636,7 +674,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontSize(value: Length): TextAreaAttribute;
 
@@ -665,7 +704,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontStyle(value: FontStyle): TextAreaAttribute;
 
@@ -694,7 +734,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontWeight(value: number | FontWeight | string): TextAreaAttribute;
 
@@ -723,7 +764,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontFamily(value: ResourceStr): TextAreaAttribute;
 
@@ -735,7 +777,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   textOverflow(value: TextOverflow): TextAreaAttribute;
 
@@ -747,7 +790,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   textIndent(value: Dimension): TextAreaAttribute;
 
@@ -779,7 +823,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   inputFilter(value: ResourceStr, error?: (value: string) => void): TextAreaAttribute;
 
@@ -791,7 +836,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   caretStyle(value: CaretStyle): TextAreaAttribute;
 
@@ -803,7 +849,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selectedBackgroundColor(value: ResourceColor): TextAreaAttribute;
 
@@ -824,7 +871,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onSubmit(callback: (enterKey: EnterKeyType) => void): TextAreaAttribute;
   /**
@@ -835,7 +883,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onSubmit(callback: TextAreaSubmitCallback): TextAreaAttribute;
 
@@ -874,7 +923,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onChange(callback: EditableTextOnChangeCallback): TextAreaAttribute;
 
@@ -895,7 +945,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onTextSelectionChange(callback: (selectionStart: number, selectionEnd: number) => void): TextAreaAttribute;
 
@@ -916,7 +967,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onContentScroll(callback: (totalOffsetX: number, totalOffsetY: number) => void): TextAreaAttribute;
 
@@ -939,7 +991,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onEditChange(callback: (isEditing: boolean) => void): TextAreaAttribute;
 
@@ -968,7 +1021,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onCopy(callback: (value: string) => void): TextAreaAttribute;
 
@@ -997,7 +1051,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onCut(callback: (value: string) => void): TextAreaAttribute;
 
@@ -1029,7 +1084,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onPaste(callback: (value: string, event: PasteEvent) => void): TextAreaAttribute;
 
@@ -1058,7 +1114,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   copyOption(value: CopyOptions): TextAreaAttribute;
 
@@ -1079,7 +1136,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enableKeyboardOnFocus(value: boolean): TextAreaAttribute;
 
@@ -1099,7 +1157,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   maxLength(value: number): TextAreaAttribute;
 
@@ -1120,7 +1179,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   showCounter(value: boolean, options?: InputCounterOptions): TextAreaAttribute;
 
@@ -1140,7 +1200,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   style(value: TextContentStyle): TextAreaAttribute;
 
@@ -1159,7 +1220,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   barState(value: BarState): TextAreaAttribute;
 
@@ -1180,7 +1242,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selectionMenuHidden(value: boolean): TextAreaAttribute;
 
@@ -1192,7 +1255,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   minFontSize(value: number | string | Resource): TextAreaAttribute;
 
@@ -1204,7 +1268,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   maxFontSize(value: number | string | Resource): TextAreaAttribute;
 
@@ -1238,7 +1303,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   heightAdaptivePolicy(value: TextHeightAdaptivePolicy): TextAreaAttribute;
 
@@ -1258,7 +1324,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   maxLines(value: number): TextAreaAttribute;
 
@@ -1270,7 +1337,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   wordBreak(value: WordBreak): TextAreaAttribute;
 
@@ -1282,7 +1350,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lineBreakStrategy(strategy: LineBreakStrategy): TextAreaAttribute;
 
@@ -1313,7 +1382,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   customKeyboard(value: CustomBuilder, options?: KeyboardOptions): TextAreaAttribute;
   
@@ -1325,7 +1395,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   decoration(value: TextDecorationOptions): TextAreaAttribute;
 
@@ -1337,7 +1408,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   letterSpacing(value: number | string | Resource): TextAreaAttribute;
 
@@ -1349,7 +1421,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lineSpacing(value: LengthMetrics): TextAreaAttribute;
 
@@ -1361,7 +1434,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lineHeight(value: number | string | Resource): TextAreaAttribute;
 
@@ -1382,7 +1456,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type(value: TextAreaType): TextAreaAttribute;
 
@@ -1393,7 +1468,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enableAutoFill(value: boolean): TextAreaAttribute;
 
@@ -1404,7 +1480,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   contentType(contentType: ContentType): TextAreaAttribute;
 
@@ -1420,7 +1497,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontFeature(value: string): TextAreaAttribute;
 
@@ -1432,7 +1510,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onWillInsert(callback: Callback<InsertValue, boolean>): TextAreaAttribute;
 
@@ -1444,7 +1523,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onDidInsert(callback: Callback<InsertValue>): TextAreaAttribute;
 
@@ -1456,7 +1536,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onWillDelete(callback: Callback<DeleteValue, boolean>): TextAreaAttribute;
 
@@ -1468,7 +1549,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onDidDelete(callback: Callback<DeleteValue>): TextAreaAttribute;
 
@@ -1480,7 +1562,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   editMenuOptions(editMenu: EditMenuOptions): TextAreaAttribute;
 
@@ -1492,7 +1575,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enablePreviewText(enable: boolean): TextAreaAttribute;
 
@@ -1504,7 +1588,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enableHapticFeedback(isEnabled: boolean): TextAreaAttribute;
 

@@ -18,6 +18,12 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { Resource } from './../../../api/global/resource'
+import { CommonMethod } from './common'
+import { Color } from './enums'
+/*** endif */
+
 /**
  * Defines the hyperlink interface.
  *
@@ -31,7 +37,8 @@
  * @interface HyperlinkInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface HyperlinkInterface {
   /**

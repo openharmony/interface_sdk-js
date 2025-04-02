@@ -18,6 +18,14 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { Resource } from './../../../api/global/resource'
+import { CommonMethod, AttributeModifier } from './common'
+import { ResourceColor } from './units'
+import { FontWeight } from './enums'
+import { SymbolEffectStrategy, SymbolRenderingStrategy } from './symbolglyph'
+/*** endif */
+
 /**
  * Provides an interface for SymbolSpan.
  *
@@ -32,7 +40,8 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface SymbolSpanInterface {
   /**

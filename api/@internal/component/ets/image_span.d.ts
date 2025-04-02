@@ -18,6 +18,13 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { ResourceStr, PixelMap, ColorFilter, DrawingColorFilter } from './units'
+import { BaseSpan } from './span';
+import { ImageSpanAlignment, ImageFit } from './enums';
+import { ImageErrorCallback } from './image';
+/*** endif */
+
 /**
  * Provide image decoration in the text component.
  *
@@ -33,7 +40,8 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface ImageSpanInterface {
   /**
