@@ -665,6 +665,26 @@ declare namespace inputMethodEngine {
      */
     off(type: 'callingDisplayDidChange', callback?: Callback<number>): void;
 
+    /** 
+     * Subscribe 'discardTypingText'.
+     *
+     * @param { 'discardTypingText' } type - the type of subscribe event.
+     * @param { Callback<void> } callback - the callback of on('discardTypingText').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    on(type: 'discardTypingText', callback: Callback<void>): void;
+
+    /**
+     * Unsubscribe 'discardTypingText'.
+     *
+     * @param { 'discardTypingText' } type - the type of unsubscribe event.
+     * @param { Callback<void> } callback - the callback of off('discardTypingText').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    off(type: 'discardTypingText', callback?: Callback<void>): void;
+
     /**
      * Get input method's security mode.
      *
