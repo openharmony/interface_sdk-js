@@ -29,6 +29,13 @@ const DirType = {
   'typeThree': 'noTagInEts2',
 };
 
+// 1.2SDK兼容行打包方案过滤文件
+const API_NO_TAGS_FILTER_LIST = [
+  '@arkts.collections.d.ets',
+  '@arkts.lang.d.ets',
+  '@arkts.utils.d.ets'
+];
+
 function isEtsFile(path) {
   return path.endsWith('d.ets');
 }
@@ -365,7 +372,11 @@ function handleNoTagFileInSecondType(sourceFile, fullPath) {
   const fileContent = sourceFile.getFullText();
   // API未标@arkts 1.2或@arkts 1.1&1.2标签，删除文件
   if (!arktsTagRegx.test(fileContent)) {
-    writeFile(fullPath, joinFileJsdoc(fileContent, sourceFile));
+    if (!API_NO_TAGS_FILTER_LIST.includes(path.basename(fullPath))) {
+      writeFile(fullPath, joinFileJsdoc(fileContent, sourceFile));
+    } else {
+      deleteSameNameFile(fullPath);
+    }
     // TODO：api未标标签，删除文件
     return;
   }
