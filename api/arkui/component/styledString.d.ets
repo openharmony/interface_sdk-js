@@ -24,7 +24,8 @@ import { ShadowOptions, Callback_ClickEvent_Void, ClickEvent } from './common'
 import { TextBackgroundStyle } from './span'
 import { Callback_GestureEvent_Void, GestureEvent } from './gesture'
 import { LeadingMarginPlaceholder } from './richEditor'
-export interface StyledString {
+export declare class StyledString {
+    constructor(value: string | ImageAttachment | CustomSpan , styles?: Array<StyleOptions>)
     readonly length: number;
     getString(): string
     getStyles(start: number, length: number, styledKey?: StyledStringKey): Array<SpanStyle>
@@ -61,7 +62,8 @@ export interface TextStyleInterface {
     fontWeight?: number | FontWeight | string;
     fontStyle?: FontStyle;
 }
-export interface DecorationStyle {
+export declare class DecorationStyle {
+    constructor(value: DecorationStyleInterface)
     readonly type: TextDecorationType;
     readonly color?: ResourceColor;
     readonly style?: TextDecorationStyle;
@@ -77,7 +79,8 @@ export interface BaselineOffsetStyle {
 export interface LetterSpacingStyle {
     readonly letterSpacing: number;
 }
-export interface TextShadowStyle {
+export declare class TextShadowStyle {
+    constructor(value: ShadowOptions | Array<ShadowOptions>)
     readonly textShadow: Array<ShadowOptions>;
 }
 export interface BackgroundColorStyle {
@@ -108,13 +111,14 @@ export interface ParagraphStyleInterface {
 export interface LineHeightStyle {
     readonly lineHeight: number;
 }
-export interface UrlStyle {
+export declare class UrlStyle {
+    constructor(url: string)
     readonly url: string;
 }
 export type StyledStringValue = TextStyle_styled_string | DecorationStyle | BaselineOffsetStyle |
     LetterSpacingStyle | TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle |
     LineHeightStyle | UrlStyle | CustomSpan | UserDataSpan | BackgroundColorStyle;
-export interface MutableStyledString extends StyledString {
+export declare class MutableStyledString extends StyledString {
     replaceString(start: number, length: number, other: string): void
     insertString(start: number, other: string): void
     removeString(start: number, length: number): void
