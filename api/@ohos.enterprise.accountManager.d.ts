@@ -35,7 +35,7 @@ declare namespace accountManager {
    * 
    * @interface DomainAccountPolicy
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @since 18
+   * @since 19
    */
   interface DomainAccountPolicy {
     /**
@@ -43,7 +43,7 @@ declare namespace accountManager {
      * 
      * @type { ?number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @since 18
+     * @since 19
      */
     authenticationValidityPeriod?: number;
 
@@ -52,7 +52,7 @@ declare namespace accountManager {
      * 
      * @type { ?number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @since 18
+     * @since 19
      */
     passwordValidityPeriod?: number;
 
@@ -61,7 +61,7 @@ declare namespace accountManager {
      * 
      * @type { ?number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @since 18
+     * @since 19
      */
     passwordExpirationNotification?: number;
   }
@@ -256,7 +256,7 @@ declare namespace accountManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 18
+   * @since 19
    */
   function setDomainAccountPolicy(admin: Want, domainAccountInfo: osAccount.DomainAccountInfo, policy: DomainAccountPolicy): void;
 
@@ -268,7 +268,7 @@ declare namespace accountManager {
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
    * @param { osAccount.DomainAccountInfo } domainAccountInfo - the infomation of domain account.
-   * @returns { DomainAccountPolicy } policy - policy indicates the domain account policy.
+   * @returns { DomainAccountPolicy } the domain account policy.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
@@ -276,7 +276,7 @@ declare namespace accountManager {
    *                                 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 18
+   * @since 19
    */
   function getDomainAccountPolicy(admin: Want, domainAccountInfo: osAccount.DomainAccountInfo): DomainAccountPolicy;
 }
