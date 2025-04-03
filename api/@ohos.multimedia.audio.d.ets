@@ -9096,27 +9096,6 @@ declare namespace audio {
      */
     CH_LAYOUT_AMB_ORDER3_FUMA = 0x100000000103
   }
-
-  export {
-    AudioErrors, AudioState, AudioVolumeType, DeviceFlag, DeviceUsage, DeviceRole, DeviceType, ActiveDeviceType,
-    CommunicationDeviceType, AudioRingMode, PolicyType, AudioSampleFormat, AudioChannel, AudioSamplingRate,
-    AudioEncodingType, ContentType, StreamUsage, InterruptRequestType, VolumeFlag, AudioPrivacyType, InterruptMode,
-    AudioRendererRate, InterruptType, InterruptHint, InterruptForceType, InterruptActionType, DeviceChangeType,
-    AudioScene, VolumeAdjustType, InterruptRequestResultType, DeviceBlockStatus, AudioConcurrencyMode,
-    AudioSessionDeactivatedReason, ConnectType, ChannelBlendMode, AudioStreamDeviceChangeReason,
-    AudioDataCallbackResult, SourceType, AsrNoiseSuppressionMode, AsrAecMode, AsrVoiceControlMode, AsrVoiceMuteMode,
-    AsrWhisperDetectionMode, ToneType, AudioEffectMode, AudioSpatialDeviceType, AudioSpatializationSceneType,
-    AudioChannelLayout, AudioStreamInfo, AudioRendererInfo, AudioRendererFilter, AudioCapturerFilter,
-    AudioRendererOptions, InterruptEvent, AudioManager, InterruptResult, DeviceBlockStatusInfo, AudioRoutingManager,
-    AudioStreamManager, AudioSessionStrategy, AudioSessionDeactivatedEvent, AudioSessionManager, AudioVolumeManager,
-    AudioVolumeGroupManager, AudioSpatialEnabledStateForDevice, AudioSpatializationManager, VolumeGroupInfo,
-    AudioRendererChangeInfo, AudioCapturerChangeInfo, AudioDeviceDescriptor, VolumeEvent, InterruptAction,
-    AudioInterrupt, MicStateChangeEvent, DeviceChangeAction, AudioStreamDeviceChangeInfo, AudioRenderer,
-    AudioCapturerInfo, AudioCapturerOptions, CaptureFilterOptions, AudioPlaybackCaptureConfig, AudioCapturer,
-    AsrProcessingController, TonePlayer, AudioSpatialDeviceState, VolumeGroupInfos, AudioRendererChangeInfoArray,
-    AudioCapturerChangeInfoArray, AudioDeviceDescriptors, AudioRendererWriteDataCallback, AudioEffectInfoArray,
-    getAudioManager, createAudioCapturer, createAudioRenderer, createTonePlayer, createAsrProcessingController,
-  }
 }
 
 export default audio;

@@ -7039,22 +7039,5 @@ declare namespace media {
      */
     off(type:'progressUpdate', callback?: Callback<number>):void;  
   }
-
-  export {
-    SoundPool, PlayParameters, AVPlayerState, OnTrackChangeHandler, OnAVPlayerStateChangeHandle,
-    OnBufferingUpdateHandler, OnVideoSizeChangeHandler, PlaybackInfo, AudioState, AVRecorderState,
-    OnAVRecorderStateChangeHandler, VideoRecordState, VideoPlayState, MediaDescription, createAVPlayer,
-    createAVRecorder, createAudioPlayer, createAudioRecorder, createMediaSourceWithUrl, createVideoPlayer,
-    createVideoRecorder, createSoundPool, createAVScreenCaptureRecorder, reportAVScreenCaptureUserChoice,
-    createAVTranscoder, createAVMetadataExtractor, createAVImageGenerator, StateChangeReason, HdrType,
-    AVImageQueryOptions, PixelFormat, AVErrorCode, PlaybackInfoKey, MediaErrorCode, BufferingInfoType, AVMimeTypes,
-    AudioEncoder, AudioOutputFormat, PlaybackSpeed, VideoScaleType, ContainerFormatType, MediaType,
-    MediaDescriptionKey, AudioSourceType, VideoSourceType, MetaSourceType, FileGenerationMode, SeekMode, SwitchMode,
-    CodecMimeType, AVScreenCaptureRecordPreset, AVScreenCaptureStateCode, AVMetadataExtractor, AVMetadata,
-    AVImageGenerator, PixelMapParams, AVPlayer, MediaSource, PlaybackStrategy, AVFileDescriptor, AVDataSrcDescriptor,
-    SubtitleInfo, AudioPlayer, AVRecorder, Location, WatermarkConfig, AudioRecorderConfig, AudioRecorder,
-    VideoRecorder, VideoPlayer, VideoRecorderProfile, VideoRecorderConfig, EncoderInfo, Range, AVRecorderProfile,
-    AVRecorderConfig, AVScreenCaptureRecordConfig, AVScreenCaptureRecorder, AVTranscoderConfig, AVTranscoder
-  }
 }
 export default media;
