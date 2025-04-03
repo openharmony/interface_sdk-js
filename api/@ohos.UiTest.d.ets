@@ -21,6 +21,18 @@
  import { Callback } from './@ohos.base';
 
  /**
+  * Used to initialize the uitest environment at the start of the test
+  *
+  * @returns { void }
+  * @throws {BusinessError} 401 - if the input parameters are invalid.
+  * @syscap SystemCapability.Test.UiTest
+  * @arkts 1.2
+  * @since arkts {'1.2':20}
+  * @test
+  */
+ export function loadAndSetupUiTest(): void {};
+
+ /**
   * Enumerates the string value match pattern.
   *
   * @enum {number}
@@ -41,8 +53,9 @@
   * @enum {number}
   * @syscap SystemCapability.Test.UiTest
   * @crossplatform
-  * @atomicservice
-  * @since 11
+  * @atomicservice 
+  * @since arkts {'1.1':11, '1.2':20}
+  * @arkts 1.1&1.2
   */
  declare enum MatchPattern {
    /**
@@ -66,7 +79,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    EQUALS = 0,
@@ -91,7 +105,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    CONTAINS = 1,
@@ -116,7 +131,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    STARTS_WITH = 2,
@@ -141,7 +157,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    ENDS_WITH = 3,
@@ -149,18 +166,20 @@
     * Matches the given value using a regular expression, which is case sensitive.
     *
     * @syscap SystemCapability.Test.UiTest
-    * @crossplatform
     * @atomicservice
-    * @since 16
+    * @since arkts {'1.1':18, '1.2':20}
+    * @arkts 1.1&1.2
+    * @test
     */
    REG_EXP = 4,
    /**
     * Matches the given value using a regular expression, which is case insensitive.
     *
     * @syscap SystemCapability.Test.UiTest
-    * @crossplatform
     * @atomicservice
-    * @since 16
+    * @since arkts {'1.1':18, '1.2':20}
+    * @arkts 1.1&1.2
+    * @test
     */
    REG_EXP_ICASE = 5,
  }
@@ -688,7 +707,8 @@
   * @enum { number }
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
-  * @since 11
+  * @since arkts {'1.1':11, '1.2':20}
+  * @arkts 1.1&1.2
   */
  declare enum WindowMode {
    /**
@@ -703,7 +723,8 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    FULLSCREEN = 0,
@@ -719,7 +740,8 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    PRIMARY = 1,
@@ -735,7 +757,8 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    SECONDARY = 2,
@@ -751,7 +774,8 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    FLOATING = 3,
@@ -770,7 +794,8 @@
   * @enum { number }
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
-  * @since 11
+  * @since arkts {'1.1':11, '1.2':20}
+  * @arkts 1.1&1.2
   */
  declare enum ResizeDirection {
    /**
@@ -785,7 +810,8 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    LEFT = 0,
@@ -801,7 +827,8 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    RIGHT = 1,
@@ -817,7 +844,8 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    UP = 2,
@@ -833,7 +861,8 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    DOWN = 3,
@@ -849,7 +878,8 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    LEFT_UP = 4,
@@ -865,7 +895,8 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    LEFT_DOWN = 5,
@@ -881,7 +912,8 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    RIGHT_UP = 6,
@@ -897,7 +929,8 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    RIGHT_DOWN = 7,
@@ -916,7 +949,8 @@
   * @enum { number }
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
-  * @since 11
+  * @since arkts {'1.1':11, '1.2':20}
+  * @arkts 1.1&1.2
   */
  declare enum DisplayRotation {
    /**
@@ -931,7 +965,8 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    ROTATION_0 = 0,
@@ -947,7 +982,8 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    ROTATION_90 = 1,
@@ -963,7 +999,8 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    ROTATION_180 = 2,
@@ -979,7 +1016,8 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    ROTATION_270 = 3,
@@ -1007,7 +1045,8 @@
   * @syscap SystemCapability.Test.UiTest
   * @crossplatform
   * @atomicservice
-  * @since 11
+  * @since arkts {'1.1':11, '1.2':20}
+  * @arkts 1.1&1.2
   */
  declare interface Point {
    /**
@@ -1035,7 +1074,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     */
    readonly x: number;
    /**
@@ -1063,7 +1103,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     */
    readonly y: number;
  }
@@ -1090,7 +1131,8 @@
   * @syscap SystemCapability.Test.UiTest
   * @crossplatform
   * @atomicservice
-  * @since 12
+  * @since arkts {'1.1':12, '1.2':20}
+  * @arkts 1.1&1.2
   */
  declare interface Rect {
    /**
@@ -1118,7 +1160,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     */ 
    readonly left: number;
    /**
@@ -1146,7 +1189,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':12, '1.2':20}
+    * @arkts 1.1&1.2
     */
    readonly top: number;
    /**
@@ -1174,7 +1218,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':12, '1.2':20}
+    * @arkts 1.1&1.2
     */
    readonly right: number;
    /**
@@ -1202,7 +1247,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':12, '1.2':20}
+    * @arkts 1.1&1.2
     */
    readonly bottom: number;
  }
@@ -1220,7 +1266,8 @@
   * @typedef WindowFilter
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
-  * @since 11
+  * @since arkts {'1.1':11, '1.2':20}
+  * @arkts 1.1&1.2
   */
  declare interface WindowFilter {
    /**
@@ -1236,7 +1283,8 @@
     * @type { ?string }
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     */
    bundleName?: string;
  
@@ -1253,7 +1301,8 @@
     * @type { ?string }
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     */
    title?: string;
  
@@ -1270,7 +1319,8 @@
     * @type { ?boolean }
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     */
    focused?: boolean;
  
@@ -1286,7 +1336,6 @@
     *
     * @type { ?boolean }
     * @syscap SystemCapability.Test.UiTest
-    * @since 11
     * @deprecated since 11
     * @useinstead ohos.UiTest.WindowFilter#active
     */
@@ -1298,7 +1347,8 @@
     * @type { ?boolean }
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     */
    active?: boolean;
  }
@@ -1317,7 +1367,8 @@
   * @typedef UIElementInfo
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
-  * @since 11
+  * @since arkts {'1.1':11, '1.2':20}
+  * @arkts 1.1&1.2
   * @test
   */
  declare interface UIElementInfo {
@@ -1335,7 +1386,8 @@
     * @readonly
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    readonly bundleName: string;
@@ -1353,7 +1405,8 @@
     * @readonly
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    readonly type: string;
@@ -1371,7 +1424,8 @@
     * @readonly
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    readonly text: string;
@@ -1391,7 +1445,8 @@
   * @typedef UIEventObserver
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
-  * @since 11
+  * @since arkts {'1.1':11, '1.2':20}
+  * @arkts 1.1&1.2
   * @test
   */
  declare interface UIEventObserver {
@@ -1413,7 +1468,8 @@
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    once(type: String, callback: Callback<UIElementInfo>): void;
@@ -1441,7 +1497,8 @@
   * @syscap SystemCapability.Test.UiTest
   * @crossplatform
   * @atomicservice
-  * @since 12
+  * @since arkts {'1.1':12, '1.2':20}
+  * @arkts 1.1&1.2
   */
  declare enum UiDirection {
    /**
@@ -1465,7 +1522,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':12, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    LEFT = 0,
@@ -1490,7 +1548,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':12, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    RIGHT = 1,
@@ -1515,7 +1574,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':12, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    UP = 2,
@@ -1540,7 +1600,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':12, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    DOWN = 3,
@@ -1559,7 +1620,8 @@
   * @enum { number }
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
-  * @since 11
+  * @since arkts {'1.1':11, '1.2':20}
+  * @arkts 1.1&1.2
   */
  declare enum MouseButton {
    /**
@@ -1574,7 +1636,8 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    MOUSE_BUTTON_LEFT = 0,
@@ -1590,7 +1653,8 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    MOUSE_BUTTON_RIGHT = 1,
@@ -1606,7 +1670,8 @@
     *
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    MOUSE_BUTTON_MIDDLE = 2,
@@ -1617,7 +1682,8 @@
   * @interface TouchPadSwipeOptions
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
-  * @since 16
+  * @since arkts {'1.1':18, '1.2':20}
+  * @arkts 1.1&1.2
   * @test
   */
  declare interface TouchPadSwipeOptions {
@@ -1626,7 +1692,8 @@
     * @type { ?boolean }
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 16
+    * @since arkts {'1.1':18, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    stay?: boolean;
@@ -1636,7 +1703,8 @@
     * @type { ?number }
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 16
+    * @since arkts {'1.1':18, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    speed?: number;
@@ -1661,7 +1729,8 @@
   * @syscap SystemCapability.Test.UiTest
   * @crossplatform
   * @atomicservice
-  * @since 12
+  * @since arkts {'1.1':12, '1.2':20}
+  * @arkts 1.1&1.2
   */
  declare class On {
    /**
@@ -1697,7 +1766,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    text(txt: string, pattern?: MatchPattern): On;
@@ -1732,7 +1802,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    id(id: string): On;
@@ -1767,7 +1838,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    type(tp: string): On;
@@ -1802,7 +1874,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    clickable(b?: boolean): On;
@@ -1837,7 +1910,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    longClickable(b?: boolean): On;
@@ -1872,7 +1946,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    scrollable(b?: boolean): On;
@@ -1907,7 +1982,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    enabled(b?: boolean): On;
@@ -1942,7 +2018,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    focused(b?: boolean): On;
@@ -1977,7 +2054,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    selected(b?: boolean): On;
@@ -2012,7 +2090,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    checked(b?: boolean): On;
@@ -2047,7 +2126,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    checkable(b?: boolean): On;
@@ -2073,7 +2153,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    isBefore(on: On): On;
@@ -2099,7 +2180,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    isAfter(on: On): On;
@@ -2125,7 +2207,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    within(on: On): On;
@@ -2148,7 +2231,8 @@
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    inWindow(bundleName: string): On;
@@ -2162,7 +2246,8 @@
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    description(val: string, pattern?: MatchPattern): On;
@@ -2174,9 +2259,9 @@
     * @returns { On } this {@link On} object.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @syscap SystemCapability.Test.UiTest
-    * @crossplatform
     * @atomicservice
-    * @since 16
+    * @since arkts {'1.1':18, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    id(id: string, pattern: MatchPattern): On;
@@ -2188,9 +2273,9 @@
     * @returns { On } this {@link On} object.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @syscap SystemCapability.Test.UiTest
-    * @crossplatform
     * @atomicservice
-    * @since 16
+    * @since arkts {'1.1':18, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    type(tp: string, pattern: MatchPattern): On;
@@ -2202,9 +2287,9 @@
     * @returns { On } this {@link On} object.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @syscap SystemCapability.Test.UiTest
-    * @crossplatform
     * @atomicservice
-    * @since 16
+    * @since arkts {'1.1':18, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    hint(val: string, pattern?: MatchPattern): On;
@@ -2231,7 +2316,8 @@
   * @syscap SystemCapability.Test.UiTest
   * @crossplatform
   * @atomicservice
-  * @since 12
+  * @since arkts {'1.1':12, '1.2':20}
+  * @arkts 1.1&1.2
   * @test
   */
  declare class Component {
@@ -2265,7 +2351,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    click(): Promise<void>;
@@ -2300,7 +2387,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    doubleClick(): Promise<void>;
@@ -2335,7 +2423,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    longClick(): Promise<void>;
@@ -2370,7 +2459,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    getId(): Promise<string>;
@@ -2405,7 +2495,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    getText(): Promise<string>;
@@ -2440,7 +2531,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    getType(): Promise<string>;
@@ -2475,7 +2567,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    isClickable(): Promise<boolean>;
@@ -2510,7 +2603,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    isLongClickable(): Promise<boolean>;
@@ -2545,7 +2639,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    isScrollable(): Promise<boolean>;
@@ -2580,7 +2675,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    isEnabled(): Promise<boolean>;
@@ -2615,7 +2711,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    isFocused(): Promise<boolean>;
@@ -2650,7 +2747,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    isSelected(): Promise<boolean>;
@@ -2685,7 +2783,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    isChecked(): Promise<boolean>;
@@ -2720,7 +2819,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    isCheckable(): Promise<boolean>;
@@ -2761,7 +2861,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    inputText(text: string): Promise<void>;
@@ -2796,7 +2897,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    clearText(): Promise<void>;
@@ -2837,7 +2939,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    scrollToTop(speed?: number): Promise<void>;
@@ -2878,7 +2981,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    scrollToBottom(speed?: number): Promise<void>;
@@ -2913,7 +3017,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':12, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */ 
    getBounds(): Promise<Rect>;
@@ -2948,7 +3053,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    getBoundsCenter(): Promise<Point>;
@@ -2975,7 +3081,8 @@
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    dragTo(target: Component): Promise<void>;
@@ -3003,7 +3110,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    pinchOut(scale: number): Promise<void>;
@@ -3031,7 +3139,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    pinchIn(scale: number): Promise<void>;
@@ -3044,7 +3153,8 @@
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    getDescription(): Promise<string>;
@@ -3055,9 +3165,9 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
-    * @crossplatform
     * @atomicservice
-    * @since 16
+    * @since arkts {'1.1':18, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    getHint(): Promise<string>;
@@ -3113,7 +3223,8 @@
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 16
+    * @since arkts {'1.1':18, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    scrollSearch(on: On, vertical?: boolean, offset?: number): Promise<Component>;
@@ -3143,7 +3254,8 @@
   * @syscap SystemCapability.Test.UiTest
   * @crossplatform
   * @atomicservice
-  * @since 12
+  * @since arkts {'1.1':12, '1.2':20}
+  * @arkts 1.1&1.2
   * @test
   */
  declare class Driver {
@@ -3174,7 +3286,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    static create(): Driver;
@@ -3212,7 +3325,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    delayMs(duration: number): Promise<void>;
@@ -3250,7 +3364,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    findComponent(on: On): Promise<Component>;
@@ -3275,7 +3390,8 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    findWindow(filter: WindowFilter): Promise<UiWindow>;
@@ -3302,7 +3418,8 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    waitForComponent(on: On, time: number): Promise<Component>;
@@ -3340,7 +3457,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    findComponents(on: On): Promise<Array<Component>>;
@@ -3381,7 +3499,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    assertComponentExist(on: On): Promise<void>;
@@ -3413,7 +3532,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    pressBack(): Promise<void>;
@@ -3439,7 +3559,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    triggerKey(keyCode: number): Promise<void>;
@@ -3469,7 +3590,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    triggerCombineKeys(key0: number, key1: number, key2?: number): Promise<void>;
@@ -3510,7 +3632,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    click(x: number, y: number): Promise<void>;
@@ -3551,7 +3674,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    doubleClick(x: number, y: number): Promise<void>;
@@ -3592,7 +3716,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    longClick(x: number, y: number): Promise<void>;
@@ -3642,7 +3767,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    swipe(startx: number, starty: number, endx: number, endy: number, speed?: number): Promise<void>;
@@ -3675,7 +3801,8 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    drag(startx: number, starty: number, endx: number, endy: number, speed?: number): Promise<void>;
@@ -3700,7 +3827,8 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    screenCap(savePath: string): Promise<boolean>;
@@ -3725,7 +3853,8 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    setDisplayRotation(rotation: DisplayRotation): Promise<void>;
@@ -3746,7 +3875,8 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    getDisplayRotation(): Promise<DisplayRotation>;
@@ -3771,7 +3901,8 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    setDisplayRotationEnabled(enabled: boolean): Promise<void>;
@@ -3792,7 +3923,8 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    getDisplaySize(): Promise<Point>;
@@ -3813,7 +3945,8 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    getDisplayDensity(): Promise<Point>;
@@ -3834,7 +3967,8 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    wakeUpDisplay(): Promise<void>;
@@ -3855,7 +3989,8 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    pressHome(): Promise<void>;
@@ -3882,7 +4017,8 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    waitForIdle(idleTime: number, timeout: number): Promise<boolean>;
@@ -3929,7 +4065,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    fling(from: Point, to: Point, stepLen: number, speed: number): Promise<void>;
@@ -3957,7 +4094,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    injectMultiPointerAction(pointers: PointerMatrix, speed?: number): Promise<boolean>;
@@ -3998,7 +4136,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':12, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    fling(direction: UiDirection, speed: number): Promise<void>;
@@ -4029,7 +4168,8 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    mouseClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise<void>;
@@ -4054,7 +4194,8 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    mouseMoveTo(p: Point): Promise<void>;
@@ -4087,7 +4228,8 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    /**
@@ -4104,7 +4246,8 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    mouseScroll(p: Point, down: boolean, d: number, key1?: number, key2?: number, speed?: number): Promise<void>;
@@ -4131,7 +4274,8 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    screenCapture(savePath: string, rect?: Rect): Promise<boolean>;
@@ -4152,7 +4296,8 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    createUIEventObserver(): UIEventObserver;
@@ -4169,7 +4314,8 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    mouseDoubleClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise<void>;
@@ -4186,7 +4332,8 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    mouseLongClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise<void>;
@@ -4202,7 +4349,8 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    mouseMoveWithTrack(from: Point, to: Point, speed?: number): Promise<void>;
@@ -4218,7 +4366,8 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    mouseDrag(from: Point, to: Point, speed?: number): Promise<void>;
@@ -4233,7 +4382,8 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    inputText(p: Point, text: string): Promise<void>;
@@ -4249,7 +4399,8 @@
     * @throws { BusinessError } 17000005 This device can not support this action.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 16
+    * @since arkts {'1.1':18, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    touchPadMultiFingerSwipe(fingers: number, direction: UiDirection, options?: TouchPadSwipeOptions): Promise<void>;
@@ -4262,7 +4413,8 @@
     * @throws { BusinessError } 17000002 The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 16
+    * @since arkts {'1.1':18, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    penClick(point: Point): Promise<void>;
@@ -4276,7 +4428,8 @@
     * @throws { BusinessError } 17000002 The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 16
+    * @since arkts {'1.1':18, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    penLongClick(point: Point, pressure?: number): Promise<void>;
@@ -4289,7 +4442,8 @@
     * @throws { BusinessError } 17000002 The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 16
+    * @since arkts {'1.1':18, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    penDoubleClick(point: Point): Promise<void>;
@@ -4305,7 +4459,8 @@
     * @throws { BusinessError } 17000002 The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 16
+    * @since arkts {'1.1':18, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    penSwipe(startPoint: Point, endPoint: Point, speed?: number, pressure?: number): Promise<void>;
@@ -4320,7 +4475,8 @@
     * @throws { BusinessError } 17000002 The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 16
+    * @since arkts {'1.1':18, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    injectPenPointerAction(pointers: PointerMatrix, speed?: number, pressure?: number): Promise<void>;
@@ -4336,7 +4492,8 @@
   *
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
-  * @since 11
+  * @since arkts {'1.1':11, '1.2':20}
+  * @arkts 1.1&1.2
   * @test
   */
  declare class UiWindow {
@@ -4358,7 +4515,8 @@
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    getBundleName(): Promise<string>;
@@ -4382,7 +4540,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    getBounds(): Promise<Rect>;
@@ -4405,7 +4564,8 @@
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    getTitle(): Promise<string>;
@@ -4428,7 +4588,8 @@
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    getWindowMode(): Promise<WindowMode>;
@@ -4451,7 +4612,8 @@
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    isFocused(): Promise<boolean>;
@@ -4473,7 +4635,6 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
-    * @since 11
     * @deprecated since 11
     * @useinstead ohos.UiTest.UiWindow#isActive
     * @test
@@ -4498,7 +4659,8 @@
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    focus(): Promise<void>;
@@ -4529,7 +4691,8 @@
     * @throws { BusinessError } 17000005 - This operation is not supported.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    moveTo(x: number, y: number): Promise<void>;
@@ -4562,7 +4725,8 @@
     * @throws { BusinessError } 17000005 - This operation is not supported.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    resize(wide: number, height: number, direction: ResizeDirection): Promise<void>;
@@ -4587,7 +4751,8 @@
     * @throws { BusinessError } 17000005 - This operation is not supported.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    split(): Promise<void>;
@@ -4612,7 +4777,8 @@
     * @throws { BusinessError } 17000005 - This operation is not supported.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    maximize(): Promise<void>;
@@ -4637,7 +4803,8 @@
     * @throws { BusinessError } 17000005 - This operation is not supported.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    minimize(): Promise<void>;
@@ -4662,7 +4829,8 @@
     * @throws { BusinessError } 17000005 - This operation is not supported.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    resume(): Promise<void>;
@@ -4687,7 +4855,8 @@
     * @throws { BusinessError } 17000005 - This operation is not supported.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    close(): Promise<void>;
@@ -4700,7 +4869,8 @@
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    isActive(): Promise<boolean>;
@@ -4721,7 +4891,8 @@
   * @syscap SystemCapability.Test.UiTest
   * @crossplatform
   * @atomicservice
-  * @since 11
+  * @since arkts {'1.1':11, '1.2':20}
+  * @arkts 1.1&1.2
   * @test
   */
  declare class PointerMatrix {
@@ -4746,7 +4917,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    static create(fingers: number, steps: number): PointerMatrix;
@@ -4772,7 +4944,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @crossplatform
     * @atomicservice
-    * @since 11
+    * @since arkts {'1.1':11, '1.2':20}
+    * @arkts 1.1&1.2
     * @test
     */
    setPoint(finger: number, step: number, point: Point): void;
@@ -4802,7 +4975,8 @@
   * @syscap SystemCapability.Test.UiTest
   * @crossplatform
   * @atomicservice
-  * @since 11
+  * @since arkts {'1.1':11, '1.2':20}
+  * @arkts 1.1&1.2
   * @test
   */
  declare const ON: On;
