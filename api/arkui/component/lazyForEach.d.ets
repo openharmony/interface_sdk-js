@@ -82,9 +82,6 @@ export interface DataChangeListener {
     onDataChange(index: number): void
     onDatasetChange(dataOperations: Array<DataOperation>): void
 }
-export interface LazyForEachAttribute extends DynamicNode {
-
-}
 
 export interface IDataSource<T> {
 
@@ -103,4 +100,4 @@ export declare function LazyForEach<T>(dataSource: IDataSource<T>,
     @memo
     itemGenerator: (item: T, index: number) => void,
     keyGenerator?: (item: T, index: number) => string,
-): LazyForEachAttribute
+): DynamicNode
