@@ -30,6 +30,7 @@ import { Resource } from './../../../api/global/resource'
 import { FocusBoxStyle, FocusPriority } from './focus'
 import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
 import { Callback_Number_Number_Void, Callback_ItemDragInfo_Void, Callback_ItemDragInfo_Number_Number_Void, Callback_ItemDragInfo_Number_Void, Callback_ItemDragInfo_Number_Number_Boolean_Void, Callback_Number_ScrollState_Literal_Number_offsetRemain, Literal_Number_offsetRemain } from './grid'
+import { OnScrollFrameBeginCallback, OnScrollFrameBeginHandlerResult } from './scroll'
 import { onItemDragStart_event_type } from './type-replacements'
 export enum ScrollState {
     IDLE = 0,
@@ -176,7 +177,7 @@ export interface ListAttribute extends ScrollableCommonMethod {
     @memo
     onItemDrop(value: ((event: ItemDragInfo,itemIndex: number,insertIndex: number,isSuccess: boolean) => void)): this;
     @memo
-    onScrollFrameBegin(value: ((offset: number,state: ScrollState) => Literal_Number_offsetRemain)): this;
+    onScrollFrameBegin(value: ((offset: number,state: ScrollState) => OnScrollFrameBeginHandlerResult)): this;
 }
 @memo
 @ComponentBuilder
