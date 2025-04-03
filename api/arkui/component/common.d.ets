@@ -1406,7 +1406,7 @@ export interface CaretOffset {
     x: number;
     y: number;
 }
-export interface TextContentControllerBase {
+export declare class TextContentControllerBase {
     getCaretOffset(): CaretOffset
     getTextContentRect(): RectResult
     getTextContentLineCount(): number

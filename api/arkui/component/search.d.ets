@@ -34,7 +34,7 @@ import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, Gesture
 import { Callback_Boolean_Void } from './checkbox'
 import { Callback_String_Void } from './gridRow'
 import { KeyboardOptions } from './richEditor'
-export interface SearchController extends TextContentControllerBase {
+export declare class SearchController extends TextContentControllerBase {
     caretPosition(value: number): void
     stopEditing(): void
     setTextSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void
@@ -83,6 +83,8 @@ export type Callback_InsertValue_Void = (parameter: InsertValue) => void;
 export type Callback_DeleteValue_Boolean = (parameter: DeleteValue) => boolean;
 export type Callback_DeleteValue_Void = (parameter: DeleteValue) => void;
 export interface SearchAttribute extends CommonMethod {
+    @memo
+    searchButton(value: string, option?: SearchButtonOptions): this;
     @memo
     fontColor(value: ResourceColor): this;
     @memo

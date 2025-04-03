@@ -36,7 +36,7 @@ import { Callback_Boolean_Void } from './checkbox'
 import { Callback_String_Void } from './gridRow'
 import { Callback_InsertValue_Boolean, Callback_InsertValue_Void, Callback_DeleteValue_Boolean, Callback_DeleteValue_Void } from './search'
 import { Callback_ResourceStr_Void } from './select'
-export interface TextAreaController extends TextContentControllerBase {
+export declare class TextAreaController extends TextContentControllerBase {
     caretPosition(value: number): void
     setTextSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void
     stopEditing(): void

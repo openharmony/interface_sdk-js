@@ -77,7 +77,7 @@ export interface SubmitEvent {
     text: string;
     keepEditableState(): void
 }
-export interface TextInputController extends TextContentControllerBase {
+export declare class TextInputController extends TextContentControllerBase {
     caretPosition(value: number): void
     setTextSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void
     stopEditing(): void
