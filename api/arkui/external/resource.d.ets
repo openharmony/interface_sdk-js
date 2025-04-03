@@ -16,9 +16,3 @@
 import { Resource as __Resource__ } from "../../global/resource";
 
 export type Resource = __Resource__;
-
-declare function _r(bundleName: string, moduleName: string, name: string, ...params: string[]): Resource;
-
-declare function _rawfile(bundleName: string, moduleName: string, name: string): Resource;
-
-export { _r, _rawfile }
