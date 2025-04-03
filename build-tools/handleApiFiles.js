@@ -133,8 +133,8 @@ function handleApiFileByType(apiRelativePath, rootPath, type) {
  * @returns 
  */
 function handleArktsDefinition(type, fileContent) {
-  let regx = /\/\*\*\* if arkts 1\.1 \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
-  let regx2 = /\/\*\*\* if arkts 1\.2 \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
+  let regx = /\/\*\*\* if arkts 1\.1 \*\/\s*([\s\S]*?)\s*\/\*\*\* end\s*if \*\//g;
+  let regx2 = /\/\*\*\* if arkts 1\.2 \*\/\s*([\s\S]*?)\s*\/\*\*\* end\s*if \*\//g;
   fileContent = fileContent.replace(regx, (substring, p1) => {
     return type === 'ets' ? p1 : '';
   });
