@@ -1,0 +1,17 @@
+{
+  "name": "arkui_transformer",
+  "version": "1.0.0",
+  "main": "build/arkui_transformer.js",
+  "scripts": {
+    "compile:arkui": "tsc -p tsconfig.json",
+    "transform:arkui": "npm run compile:arkui && node . --input-dir ../../etstest/ --target-dir ../../output/"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "typescript": "^4.9.5",
+    "@types/node": "^18.0.0",
+    "commander": "^10.0.0"
+  }
+}
