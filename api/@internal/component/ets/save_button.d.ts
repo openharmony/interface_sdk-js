@@ -21,23 +21,23 @@
 /*** if arkts 1.2 */
 import { ButtonType } from './button';
 import { ClickEvent } from './common';
-import { SecurityComponentMethod } from './securityComponent';
+import { SecurityComponentMethod } from './security_component';
 /*** endif */
 
 /**
  * Enumerates the icon styles.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 /**
  * Enumerates the icon styles.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
+ * @since arkts {'1.1':'11', '1.2':'20'}
  * @arkts 1.1&1.2
  */
 declare enum SaveIconStyle {
@@ -52,7 +52,7 @@ declare enum SaveIconStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   FULL_FILLED = 0,
@@ -68,7 +68,7 @@ declare enum SaveIconStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   LINES = 1,
@@ -78,7 +78,7 @@ declare enum SaveIconStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   PICTURE = 2
@@ -87,17 +87,17 @@ declare enum SaveIconStyle {
 /**
  * Enumerates the text that can be displayed on the save button.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 /**
  * Enumerates the text that can be displayed on the save button.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
+ * @since arkts {'1.1':'11', '1.2':'20'}
  * @arkts 1.1&1.2
  */
 declare enum SaveDescription {
@@ -112,7 +112,7 @@ declare enum SaveDescription {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   DOWNLOAD = 0,
@@ -128,7 +128,7 @@ declare enum SaveDescription {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   DOWNLOAD_FILE = 1,
@@ -144,7 +144,7 @@ declare enum SaveDescription {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   SAVE = 2,
@@ -160,7 +160,7 @@ declare enum SaveDescription {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   SAVE_IMAGE = 3,
@@ -176,7 +176,7 @@ declare enum SaveDescription {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   SAVE_FILE = 4,
@@ -192,7 +192,7 @@ declare enum SaveDescription {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   DOWNLOAD_AND_SHARE = 5,
@@ -208,7 +208,7 @@ declare enum SaveDescription {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   RECEIVE = 6,
@@ -224,7 +224,7 @@ declare enum SaveDescription {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   CONTINUE_TO_RECEIVE = 7,
@@ -234,7 +234,7 @@ declare enum SaveDescription {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   SAVE_TO_GALLERY = 8,
@@ -244,7 +244,7 @@ declare enum SaveDescription {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   EXPORT_TO_GALLERY = 9,
@@ -254,7 +254,7 @@ declare enum SaveDescription {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   QUICK_SAVE_TO_GALLERY = 10,
@@ -264,7 +264,7 @@ declare enum SaveDescription {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   RESAVE_TO_GALLERY = 11,
@@ -292,7 +292,7 @@ declare enum SaveDescription {
  * @interface SaveButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
+ * @since arkts {'1.1':'11', '1.2':'20'}
  * @arkts 1.1&1.2
  */
 declare interface SaveButtonOptions {
@@ -309,7 +309,7 @@ declare interface SaveButtonOptions {
    * @type { ?SaveIconStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   icon?: SaveIconStyle;
@@ -327,7 +327,7 @@ declare interface SaveButtonOptions {
    * @type { ?SaveDescription }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   text?: SaveDescription;
@@ -345,7 +345,7 @@ declare interface SaveButtonOptions {
    * @type { ?ButtonType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   buttonType?: ButtonType;
@@ -354,17 +354,17 @@ declare interface SaveButtonOptions {
 /**
  * Enumerates the click event results of the save button.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 /**
  * Enumerates the click event results of the save button.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
+ * @since arkts {'1.1':'11', '1.2':'20'}
  * @arkts 1.1&1.2
  */
 declare enum SaveButtonOnClickResult {
@@ -379,7 +379,7 @@ declare enum SaveButtonOnClickResult {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   SUCCESS = 0,
@@ -395,7 +395,7 @@ declare enum SaveButtonOnClickResult {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   TEMPORARY_AUTHORIZATION_FAILED = 1
@@ -414,8 +414,7 @@ declare enum SaveButtonOnClickResult {
  * @interface SaveButtonInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 interface SaveButtonInterface {
   /**
@@ -431,8 +430,7 @@ interface SaveButtonInterface {
    * @returns { SaveButtonAttribute } Returns the attribute of the save button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   (): SaveButtonAttribute;
 
@@ -453,11 +451,23 @@ interface SaveButtonInterface {
    * @returns { SaveButtonAttribute } Returns the attribute of the save button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   (options: SaveButtonOptions): SaveButtonAttribute;
 }
+
+/**
+ * Defines the interface for setting a save button.
+ *
+ * @typedef { function }
+ * @param { SaveButtonOptions } options - Indicates the options of the save button.
+ * @returns { SaveButtonAttribute } Returns the attribute of the save button.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+type SaveButtonInterface = (options?: SaveButtonOptions) => SaveButtonAttribute;
 
 /**
  * Callback function when the save button is clicked.
@@ -485,7 +495,7 @@ type SaveButtonCallback = (event: ClickEvent, result: SaveButtonOnClickResult, e
  * @extends SecurityComponentMethod<SaveButtonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
+ * @since arkts {'1.1':'11', '1.2':'20'}
  * @arkts 1.1&1.2
  */
 declare class SaveButtonAttribute extends SecurityComponentMethod<SaveButtonAttribute> {
@@ -504,8 +514,7 @@ declare class SaveButtonAttribute extends SecurityComponentMethod<SaveButtonAttr
    * @returns { SaveButtonAttribute } Returns the attribute of the save button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   /**
    * Called when the save button is clicked.
@@ -532,7 +541,8 @@ declare class SaveButtonAttribute extends SecurityComponentMethod<SaveButtonAttr
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare const SaveButton: SaveButtonInterface;
 
@@ -547,6 +557,7 @@ declare const SaveButton: SaveButtonInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare const SaveButtonInstance: SaveButtonAttribute;
