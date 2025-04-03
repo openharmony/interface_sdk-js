@@ -31,7 +31,8 @@
  *
  * @enum { number }
  * @syscap SystemCapability.Notification.Notification
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export enum NotificationFlagStatus {
   /**
@@ -45,7 +46,8 @@ export enum NotificationFlagStatus {
    * notification flag default value
    *
    * @syscap SystemCapability.Notification.Notification
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   TYPE_NONE = 0,
 
@@ -60,7 +62,8 @@ export enum NotificationFlagStatus {
    * notification flag open
    *
    * @syscap SystemCapability.Notification.Notification
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   TYPE_OPEN = 1,
 
@@ -75,7 +78,8 @@ export enum NotificationFlagStatus {
    * notification flag close
    *
    * @syscap SystemCapability.Notification.Notification
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   TYPE_CLOSE = 2
 }
@@ -85,7 +89,8 @@ export enum NotificationFlagStatus {
  *
  * @typedef NotificationFlags
  * @syscap SystemCapability.Notification.Notification
- * @since 8
+ * @since arkts {'1.1':'8', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface NotificationFlags {
   /**
@@ -94,7 +99,8 @@ export interface NotificationFlags {
    * @type { ?NotificationFlagStatus }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly soundEnabled?: NotificationFlagStatus;
 
@@ -104,7 +110,8 @@ export interface NotificationFlags {
    * @type { ?NotificationFlagStatus }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2  
    */
   readonly vibrationEnabled?: NotificationFlagStatus;
 
@@ -115,7 +122,8 @@ export interface NotificationFlags {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly reminderFlags?: number;
 }

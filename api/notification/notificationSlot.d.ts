@@ -26,7 +26,8 @@ import type notificationManager from '../@ohos.notificationManager';
  *
  * @typedef NotificationSlot
  * @syscap SystemCapability.Notification.Notification
- * @since 7
+ * @since arkts {'1.1':'7', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface NotificationSlot {
   /**
@@ -45,7 +46,8 @@ export interface NotificationSlot {
    *
    * @type { ?notificationManager.SlotType }
    * @syscap SystemCapability.Notification.Notification
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   notificationType?: notificationManager.SlotType;
 
@@ -54,7 +56,8 @@ export interface NotificationSlot {
    *
    * @type { ?notification.SlotLevel }
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   level?: notification.SlotLevel;
 
@@ -63,7 +66,8 @@ export interface NotificationSlot {
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   desc?: string;
 
@@ -72,7 +76,8 @@ export interface NotificationSlot {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   badgeFlag?: boolean;
 
@@ -81,7 +86,8 @@ export interface NotificationSlot {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   bypassDnd?: boolean;
 
@@ -90,7 +96,8 @@ export interface NotificationSlot {
    *
    * @type { ?number }
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lockscreenVisibility?: number;
 
@@ -99,7 +106,8 @@ export interface NotificationSlot {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   vibrationEnabled?: boolean;
 
@@ -108,7 +116,8 @@ export interface NotificationSlot {
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   sound?: string;
 
@@ -117,7 +126,8 @@ export interface NotificationSlot {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lightEnabled?: boolean;
 
@@ -126,7 +136,8 @@ export interface NotificationSlot {
    *
    * @type { ?number }
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lightColor?: number;
 
@@ -135,7 +146,8 @@ export interface NotificationSlot {
    *
    * @type { ?Array<number> }
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   vibrationValues?: Array<number>;
 
@@ -145,7 +157,8 @@ export interface NotificationSlot {
    * @type { ?boolean }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly enabled?: boolean;
 
@@ -156,7 +169,8 @@ export interface NotificationSlot {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly reminderMode?: number;
 
@@ -167,7 +181,8 @@ export interface NotificationSlot {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly authorizedStatus?: number;
 }

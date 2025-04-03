@@ -23,7 +23,8 @@
  *
  * @typedef NotificationUserInput
  * @syscap SystemCapability.Notification.Notification
- * @since 8
+ * @since arkts {'1.1':'8', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface NotificationUserInput {
   /**
@@ -31,7 +32,8 @@ export interface NotificationUserInput {
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   inputKey: string;
 }
