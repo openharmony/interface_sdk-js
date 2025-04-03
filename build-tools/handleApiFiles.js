@@ -133,8 +133,8 @@ function handleApiFileByType(apiRelativePath, rootPath, type) {
  * @returns 
  */
 function handleArktsDefinition(type, fileContent) {
-  let regx = /\/\*\*\* if arkts 1\.1 \*\/\s*([\s\S]*?)\s*\/\*\*\* end\s*if \*\//g;
-  let regx2 = /\/\*\*\* if arkts 1\.2 \*\/\s*([\s\S]*?)\s*\/\*\*\* end\s*if \*\//g;
+  let regx = /\/\*\*\* if arkts 1\.1 \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
+  let regx2 = /\/\*\*\* if arkts 1\.2 \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
   fileContent = fileContent.replace(regx, (substring, p1) => {
     return type === 'ets' ? p1 : '';
   });
@@ -342,6 +342,7 @@ function handleFileInSecondType(fullPath, type) {
  * @param {*} fullPath 
  */
 function handlehasTagFile(sourceFile, fullPath) {
+  dirType = DirType.typeTwo;
   const arktsTagRegx = /\*\s*@arkts\s+1.1&1.2\s*(\r|\n)\s*/g;
   let newContent = getDeletionContent(sourceFile, fullPath);
   if (newContent === '') {
