@@ -12,19 +12,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+import { BusinessError, AsyncCallback } from '@ohos.base';
 /**
  * @file
  * @kit UniversalKeystoreKit
  */
-
-export declare class HuksBusinessError extends Error {
-  constructor(code: int, message: string);
-  public code: int;
-}
-
-type AsyncCallback<T> = (err: HuksBusinessError, data?: T) => void;
-
 /**
  * OpenHarmony Universal KeyStore
  *
@@ -48,21 +40,21 @@ declare namespace huks {
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } options - options indicates the properties of the key.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { HuksBusinessError } 401 - Parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
    *                                 3. Parameter verification failed.
-   * @throws { HuksBusinessError } 801 - api is not supported
-   * @throws { HuksBusinessError } 12000001 - algorithm mode is not supported
-   * @throws { HuksBusinessError } 12000002 - algorithm param is missing
-   * @throws { HuksBusinessError } 12000003 - algorithm param is invalid
-   * @throws { HuksBusinessError } 12000004 - operating file failed
-   * @throws { HuksBusinessError } 12000005 - IPC communication failed
-   * @throws { HuksBusinessError } 12000006 - error occurred in crypto engine
-   * @throws { HuksBusinessError } 12000012 - external error
-   * @throws { HuksBusinessError } 12000013 - queried credential does not exist
-   * @throws { HuksBusinessError } 12000014 - memory is insufficient
-   * @throws { HuksBusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - call service failed
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 20
@@ -77,25 +69,25 @@ declare namespace huks {
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { HuksBusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden
    * by permission:
    * <br>ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
-   * @throws { HuksBusinessError } 202 - not system app
-   * @throws { HuksBusinessError } 401 - Parameter error. Possible causes:
+   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
    *                                 3. Parameter verification failed.
-   * @throws { HuksBusinessError } 801 - api is not supported
-   * @throws { HuksBusinessError } 12000001 - algorithm mode is not supported
-   * @throws { HuksBusinessError } 12000002 - algorithm param is missing
-   * @throws { HuksBusinessError } 12000003 - algorithm param is invalid
-   * @throws { HuksBusinessError } 12000004 - operating file failed
-   * @throws { HuksBusinessError } 12000005 - IPC communication failed
-   * @throws { HuksBusinessError } 12000006 - error occurred in crypto engine
-   * @throws { HuksBusinessError } 12000012 - external error
-   * @throws { HuksBusinessError } 12000013 - queried credential does not exist
-   * @throws { HuksBusinessError } 12000014 - memory is insufficient
-   * @throws { HuksBusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - call service failed
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
    * @since 20
@@ -108,16 +100,16 @@ declare namespace huks {
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } options - options indicates the properties of the key.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { HuksBusinessError } 401 - Parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
    *                                 3. Parameter verification failed.
-   * @throws { HuksBusinessError } 801 - api is not supported
-   * @throws { HuksBusinessError } 12000004 - operating file failed
-   * @throws { HuksBusinessError } 12000005 - IPC communication failed
-   * @throws { HuksBusinessError } 12000011 - queried entity does not exist
-   * @throws { HuksBusinessError } 12000012 - external error
-   * @throws { HuksBusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 20
@@ -130,22 +122,22 @@ declare namespace huks {
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } options - options indicates the properties of the key.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { HuksBusinessError } 401 - Parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
    *                                 3. Parameter verification failed.
-   * @throws { HuksBusinessError } 801 - api is not supported
-   * @throws { HuksBusinessError } 12000001 - algorithm mode is not supported
-   * @throws { HuksBusinessError } 12000002 - algorithm param is missing
-   * @throws { HuksBusinessError } 12000003 - algorithm param is invalid
-   * @throws { HuksBusinessError } 12000004 - operating file failed
-   * @throws { HuksBusinessError } 12000005 - IPC communication failed
-   * @throws { HuksBusinessError } 12000006 - error occurred in crypto engine
-   * @throws { HuksBusinessError } 12000011 - queried entity does not exist
-   * @throws { HuksBusinessError } 12000012 - external error
-   * @throws { HuksBusinessError } 12000013 - queried credential does not exist
-   * @throws { HuksBusinessError } 12000014 - memory is insufficient
-   * @throws { HuksBusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - call service failed
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 20
@@ -159,22 +151,22 @@ declare namespace huks {
    * @param { string } wrappingKeyAlias - wrappingKeyAlias indicates the name of key for wrapping the key to be imported
    * @param { HuksOptions } options - options indicates the properties of the key.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { HuksBusinessError } 401 - Parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
    *                                 3. Parameter verification failed.
-   * @throws { HuksBusinessError } 801 - api is not supported
-   * @throws { HuksBusinessError } 12000001 - algorithm mode is not supported
-   * @throws { HuksBusinessError } 12000002 - algorithm param is missing
-   * @throws { HuksBusinessError } 12000003 - algorithm param is invalid
-   * @throws { HuksBusinessError } 12000004 - operating file failed
-   * @throws { HuksBusinessError } 12000005 - IPC communication failed
-   * @throws { HuksBusinessError } 12000006 - error occurred in crypto engine
-   * @throws { HuksBusinessError } 12000011 - queried entity does not exist
-   * @throws { HuksBusinessError } 12000012 - external error
-   * @throws { HuksBusinessError } 12000013 - queried credential does not exist
-   * @throws { HuksBusinessError } 12000014 - memory is insufficient
-   * @throws { HuksBusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - call service failed
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 20
@@ -187,20 +179,20 @@ declare namespace huks {
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } options - options indicates the properties of the key.
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
-   * @throws { HuksBusinessError } 401 - Parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
    *                                 3. Parameter verification failed.
-   * @throws { HuksBusinessError } 801 - api is not supported
-   * @throws { HuksBusinessError } 12000001 - algorithm mode is not supported
-   * @throws { HuksBusinessError } 12000002 - algorithm param is missing
-   * @throws { HuksBusinessError } 12000003 - algorithm param is invalid
-   * @throws { HuksBusinessError } 12000004 - operating file failed
-   * @throws { HuksBusinessError } 12000005 - IPC communication failed
-   * @throws { HuksBusinessError } 12000006 - error occurred in crypto engine
-   * @throws { HuksBusinessError } 12000011 - queried entity does not exist
-   * @throws { HuksBusinessError } 12000012 - external error
-   * @throws { HuksBusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 20
@@ -213,19 +205,19 @@ declare namespace huks {
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } options - options indicates the properties of the key.
    * @returns { Promise<boolean> } the promise returned by the function.
-   * @throws { HuksBusinessError } 401 - Parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
    *                                 3. Parameter verification failed.
-   * @throws { HuksBusinessError } 801 - api is not supported
-   * @throws { HuksBusinessError } 12000002 - algorithm param is missing
-   * @throws { HuksBusinessError } 12000003 - algorithm param is invalid
-   * @throws { HuksBusinessError } 12000004 - operating file failed
-   * @throws { HuksBusinessError } 12000005 - IPC communication failed
-   * @throws { HuksBusinessError } 12000006 - error occurred in crypto engine
-   * @throws { HuksBusinessError } 12000011 - queried entity does not exist
-   * @throws { HuksBusinessError } 12000012 - external error
-   * @throws { HuksBusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 20
    */
@@ -237,21 +229,21 @@ declare namespace huks {
    * @param { string } keyAlias - keyAlias indicates the key's name.
    * @param { HuksOptions } options - options indicates the properties of the key.
    * @returns { Promise<HuksSessionHandle> } the promise returned by the function.
-   * @throws { HuksBusinessError } 401 - Parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
    *                                 3. Parameter verification failed.
-   * @throws { HuksBusinessError } 801 - api is not supported
-   * @throws { HuksBusinessError } 12000001 - algorithm mode is not supported
-   * @throws { HuksBusinessError } 12000002 - algorithm param is missing
-   * @throws { HuksBusinessError } 12000003 - algorithm param is invalid
-   * @throws { HuksBusinessError } 12000004 - operating file failed
-   * @throws { HuksBusinessError } 12000005 - IPC communication failed
-   * @throws { HuksBusinessError } 12000006 - error occurred in crypto engine
-   * @throws { HuksBusinessError } 12000010 - the number of sessions has reached limit
-   * @throws { HuksBusinessError } 12000011 - queried entity does not exist
-   * @throws { HuksBusinessError } 12000012 - external error
-   * @throws { HuksBusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000010 - the number of sessions has reached limit
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 20
@@ -265,23 +257,23 @@ declare namespace huks {
    * @param { HuksOptions } options - options indicates the properties of the update operation.
    * @param { Uint8Array } token - token indicates the value of auth token from USER IAM service.
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
-   * @throws { HuksBusinessError } 401 - Parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
    *                                 3. Parameter verification failed.
-   * @throws { HuksBusinessError } 801 - api is not supported
-   * @throws { HuksBusinessError } 12000001 - algorithm mode is not supported
-   * @throws { HuksBusinessError } 12000002 - algorithm param is missing
-   * @throws { HuksBusinessError } 12000003 - algorithm param is invalid
-   * @throws { HuksBusinessError } 12000004 - operating file failed
-   * @throws { HuksBusinessError } 12000005 - IPC communication failed
-   * @throws { HuksBusinessError } 12000006 - error occurred in crypto engine
-   * @throws { HuksBusinessError } 12000007 - this credential is already invalidated permanently
-   * @throws { HuksBusinessError } 12000008 - verify auth token failed
-   * @throws { HuksBusinessError } 12000009 - auth token is already timeout
-   * @throws { HuksBusinessError } 12000011 - queried entity does not exist
-   * @throws { HuksBusinessError } 12000012 - external error
-   * @throws { HuksBusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 20
@@ -295,23 +287,23 @@ declare namespace huks {
    * @param { HuksOptions } options - options indicates the properties of the finish operation.
    * @param { Uint8Array } token - token indicates the value of auth token from USER IAM service.
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
-   * @throws { HuksBusinessError } 401 - Parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
    *                                 3. Parameter verification failed.
-   * @throws { HuksBusinessError } 801 - api is not supported
-   * @throws { HuksBusinessError } 12000001 - algorithm mode is not supported
-   * @throws { HuksBusinessError } 12000002 - algorithm param is missing
-   * @throws { HuksBusinessError } 12000003 - algorithm param is invalid
-   * @throws { HuksBusinessError } 12000004 - operating file failed
-   * @throws { HuksBusinessError } 12000005 - IPC communication failed
-   * @throws { HuksBusinessError } 12000006 - error occurred in crypto engine
-   * @throws { HuksBusinessError } 12000007 - this credential is already invalidated permanently
-   * @throws { HuksBusinessError } 12000008 - verify auth token failed
-   * @throws { HuksBusinessError } 12000009 - auth token is already timeout
-   * @throws { HuksBusinessError } 12000011 - queried entity does not exist
-   * @throws { HuksBusinessError } 12000012 - external error
-   * @throws { HuksBusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 20
@@ -324,16 +316,16 @@ declare namespace huks {
    * @param { long } handle - indicates the handle of the init operation.
    * @param { HuksOptions } options - options indicates the properties of the abort operation.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { HuksBusinessError } 401 - Parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
    *                                 3. Parameter verification failed.
-   * @throws { HuksBusinessError } 801 - api is not supported
-   * @throws { HuksBusinessError } 12000004 - operating file failed
-   * @throws { HuksBusinessError } 12000005 - IPC communication failed
-   * @throws { HuksBusinessError } 12000006 - error occurred in crypto engine
-   * @throws { HuksBusinessError } 12000012 - external error
-   * @throws { HuksBusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 20
