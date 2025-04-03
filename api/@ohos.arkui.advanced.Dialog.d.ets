@@ -54,7 +54,7 @@ import { Component } from './arkui/component/customComponent';
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
  */
-declare class ButtonOptions {
+export declare class ButtonOptions {
   /**
    * Sets the Display Content of a Button.
    * @type { ResourceStr }.
@@ -139,7 +139,6 @@ declare class ButtonOptions {
   role?: ButtonRole;
 }
 
-export default ButtonOptions
 /**
  * Declare CustomDialog TipsDialog
  * @syscap SystemCapability.ArkUI.ArkUI.Full
