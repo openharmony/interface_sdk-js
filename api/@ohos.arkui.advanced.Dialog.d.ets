@@ -26,9 +26,8 @@ import image from './@ohos.multimedia.image';
 import { ResourceStr, ResourceColor, SizeOptions, Padding, LocalizedPadding } from './arkui/component/units';
 import { ButtonStyleMode, ButtonRole } from './arkui/component/button';
 import image from './@ohos.multimedia.image';
-import { ThemeColorMode } from './arkui/component/common';
+import { ThemeColorMode, Callback } from './arkui/component/common';
 import { CustomDialogController } from './arkui/component/customDialogController';
-import { Callback } from './@ohos.base';
 import { SheetInfo } from './arkui/component/actionSheet';
 import {
   CustomDialog,
