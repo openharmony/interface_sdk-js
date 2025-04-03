@@ -27,7 +27,7 @@
   * @throws {BusinessError} 401 - if the input parameters are invalid.
   * @syscap SystemCapability.Test.UiTest
   * @arkts 1.2
-  * @since 20
+  * @since arkts {'1.2':20}
   * @test
   */
  export function loadAndSetupUiTest(): void {};
