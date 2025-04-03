@@ -1734,15 +1734,6 @@ declare interface Rectangle {
  * @atomicservice
  * @since 12
  */
-/**
- * Interface for ExpectedFrameRateRange.
- *
- * @interface ExpectedFrameRateRange
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 18
- */
 declare interface ExpectedFrameRateRange {
   /**
    * The minimum animation drawing FPS.
@@ -1758,15 +1749,6 @@ declare interface ExpectedFrameRateRange {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
-   */
-  /**
-   * The minimum animation drawing FPS.
-   * The minimum value should be less than or equal to the maximum value.
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
    */
   min: number,
   /**
@@ -1784,15 +1766,6 @@ declare interface ExpectedFrameRateRange {
    * @atomicservice
    * @since 12
   */
-  /**
-   * The maximum animation drawing FPS.
-   * The maximum value should be greater than or equal to the minimum value.
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
   max: number,
   /**
    * The expected frame rate of dynamical callback rate range.
@@ -1813,17 +1786,6 @@ declare interface ExpectedFrameRateRange {
    * @atomicservice
    * @since 12
   */
-  /**
-   * The expected frame rate of dynamical callback rate range.
-   * The value should be between the minimum and maximum value.
-   * Otherwise, the actual callback rate will be dynamically
-   * adjusted to better align with other animation sources.
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
   expected: number,
 }
 
@@ -28815,17 +28777,6 @@ declare interface KeyframeAnimateParam {
    * @since 12
    */
   onFinish?: () => void;
-
-  /**
-   * Indicates expectedFrameRateRange of keyframe animation.
-   *
-   * @type { ?ExpectedFrameRateRange }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  expectedFrameRateRange?: ExpectedFrameRateRange;
 }
 
 /**
