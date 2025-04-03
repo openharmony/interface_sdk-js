@@ -24,7 +24,27 @@ import { ShadowOptions, Callback_ClickEvent_Void, ClickEvent } from './common'
 import { TextBackgroundStyle } from './span'
 import { Callback_GestureEvent_Void, GestureEvent } from './gesture'
 import { LeadingMarginPlaceholder } from './richEditor'
-export interface StyledString {
+
+/**
+ * StyledString
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+export declare class StyledString {
+    /**
+     * constructor.
+     *
+     * @param { string | ImageAttachment | CustomSpan } value - indicates the current object value of the StyledString.
+     * @param { Array<StyleOptions> } [styles] - indicates the SpanStyle objects.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    constructor(value: string | ImageAttachment | CustomSpan , styles?: Array<StyleOptions>)
     readonly length: number;
     getString(): string
     getStyles(start: number, length: number, styledKey?: StyledStringKey): Array<SpanStyle>
@@ -61,7 +81,26 @@ export interface TextStyleInterface {
     fontWeight?: number | FontWeight | string;
     fontStyle?: FontStyle;
 }
-export interface DecorationStyle {
+
+/**
+ * Defines DecorationStyle.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+export declare class DecorationStyle {
+    /**
+     * constructor.
+     *
+     * @param { DecorationStyleInterface } value - text decoration value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    constructor(value: DecorationStyleInterface)
     readonly type: TextDecorationType;
     readonly color?: ResourceColor;
     readonly style?: TextDecorationStyle;
@@ -77,7 +116,26 @@ export interface BaselineOffsetStyle {
 export interface LetterSpacingStyle {
     readonly letterSpacing: number;
 }
-export interface TextShadowStyle {
+
+/**
+ * Defines TextShadowStyle.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+export declare class TextShadowStyle {
+    /**
+     * constructor.
+     *
+     * @param { ShadowOptions | Array<ShadowOptions> } value - text shadow value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    constructor(value: ShadowOptions | Array<ShadowOptions>)
     readonly textShadow: Array<ShadowOptions>;
 }
 export interface BackgroundColorStyle {
@@ -108,13 +166,54 @@ export interface ParagraphStyleInterface {
 export interface LineHeightStyle {
     readonly lineHeight: number;
 }
-export interface UrlStyle {
+
+/**
+ * Defines the URLStyle hyperlink that allows setting a URL string. When clicking on the text to
+ * which the span is attached, the URLStyle will try to open the URL.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+export declare class UrlStyle {
+    /**
+     * Constructor.
+     *
+     * @param { string } url - URL value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    constructor(url: string)
+
+    /**
+     * Get the URL value of the StyledString.
+     *
+     * @type { string } - the URL value of the StyledString
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     readonly url: string;
 }
 export type StyledStringValue = TextStyle_styled_string | DecorationStyle | BaselineOffsetStyle |
     LetterSpacingStyle | TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle |
     LineHeightStyle | UrlStyle | CustomSpan | UserDataSpan | BackgroundColorStyle;
-export interface MutableStyledString extends StyledString {
+
+/**
+ * MutableStyledString
+ *
+ * @extends StyledString
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+export declare class MutableStyledString extends StyledString {
     replaceString(start: number, length: number, other: string): void
     insertString(start: number, other: string): void
     removeString(start: number, length: number): void
