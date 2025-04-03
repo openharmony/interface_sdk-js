@@ -189,9 +189,9 @@ export default class StartOptions {
    * The min width of window rectangle.
    *
    * @type { ?number }
-   * @syscap SystemCapAbility.Ability.AbilityRuntime.Core
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 18
+   * @since 17
    */
   minWindowWidth?: number;
 
@@ -199,9 +199,9 @@ export default class StartOptions {
    * The min height of window rectangle.
    *
    * @type { ?number }
-   * @syscap SystemCapAbility.Ability.AbilityRuntime.Core
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 18
+   * @since 17
    */
   minWindowHeight?: number;
 
@@ -209,9 +209,9 @@ export default class StartOptions {
    * The max width of window rectangle.
    *
    * @type { ?number }
-   * @syscap SystemCapAbility.Ability.AbilityRuntime.Core
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 18
+   * @since 17
    */
   maxWindowWidth?: number;
 
@@ -219,9 +219,9 @@ export default class StartOptions {
    * The max height of window rectangle.
    *
    * @type { ?number }
-   * @syscap SystemCapAbility.Ability.AbilityRuntime.Core
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 18
+   * @since 17
    */
   maxWindowHeight?: number;
 }
