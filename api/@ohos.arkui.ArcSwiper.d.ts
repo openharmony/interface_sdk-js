@@ -508,10 +508,9 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
   onGestureSwipe(handler: Optional<GestureSwipeHandler>): ArcSwiperAttribute;
 
   /**
-   * Set effect when scroll over edge.
+   * Set effect when scrolling over edge.
    *
    * @param { Optional<EdgeEffect> } edgeEffect - scrolling effect over edge, default value is { EdgeEffect.Spring }.
-
    * @returns { ArcSwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
