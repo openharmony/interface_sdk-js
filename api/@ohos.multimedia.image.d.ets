@@ -8759,19 +8759,6 @@ declare namespace image {
      */
     release(): Promise<void>;
   }
-
-  export {
-    Size, Region, PositionArea, ImageInfo, PackingOption, PackingOptionsForSequence, GetImagePropertyOptions,
-    ImagePropertyOptions, DecodingOptions, Component, InitializationOptions, SourceOptions, HdrStaticMetadata,
-    GainmapChannel, HdrGainmapMetadata, PixelMap, Picture, AuxiliaryPicture, Metadata, DecodingOptionsForPicture,
-    AuxiliaryPictureInfo, ImageSource, ImagePacker, Image, ImageReceiver, ImageCreator, PixelMapFormat,
-    ResolutionQuality, PropertyKey, ImageFormat, AlphaType, DecodingDynamicRange, PackingDynamicRange,
-    AntiAliasingLevel, ScaleMode, ComponentType, HdrMetadataKey, HdrMetadataType, AuxiliaryPictureType, MetadataType,
-    FragmentMapPropertyKey, createPixelMap, createPixelMapSync, createPremultipliedPixelMap,
-    createUnpremultipliedPixelMap, createPixelMapFromParcel, createPixelMapFromSurface, createPixelMapFromSurfaceSync,
-    createImageSource, CreateIncrementalSource, createImagePacker, createImageReceiver, createImageCreator, 
-    createPicture, createPictureFromParcel, createAuxiliaryPicture, HdrMetadataValue
-  }
 }
 
 export default image;
