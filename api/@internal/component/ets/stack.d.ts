@@ -18,6 +18,11 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { PointLightStyle, CommonMethod } from './common';
+import { Alignment } from './enums';
+/*** endif */
+
 /**
  * Options used to construct the stack.
  *
@@ -26,7 +31,8 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since arkts {'1.1':'14','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface StackOptions {
   /**
@@ -61,7 +67,8 @@ declare interface StackOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   alignContent?: Alignment;
 }
@@ -98,7 +105,8 @@ declare interface StackOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface StackInterface {
   /**
@@ -148,7 +156,8 @@ interface StackInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (options?: StackOptions): StackAttribute;
 }
@@ -177,7 +186,8 @@ interface StackInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class StackAttribute extends CommonMethod<StackAttribute> {
   /**
@@ -216,7 +226,8 @@ declare class StackAttribute extends CommonMethod<StackAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   alignContent(value: Alignment): StackAttribute;
 
@@ -227,7 +238,8 @@ declare class StackAttribute extends CommonMethod<StackAttribute> {
    * @returns { StackAttribute } The attribute of the stack.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   pointLight(value: PointLightStyle): StackAttribute;
 }
