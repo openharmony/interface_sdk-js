@@ -1254,7 +1254,7 @@ export class PromptAction {
    * @crossplatform
    * @atomicservice
    * @since 12
-  */
+   */
   closeCustomDialog<T extends Object>(dialogContent: ComponentContent<T>): Promise<void>;
 
   /**
@@ -1319,7 +1319,7 @@ export class PromptAction {
    * @atomicservice
    * @since 18
    */
-  getTopOrder(): LevelOrder
+  getTopOrder(): LevelOrder;
 
   /**
    * Get order value of bottom dialog.
@@ -1330,7 +1330,7 @@ export class PromptAction {
    * @atomicservice
    * @since 18
    */
-  getBottomOrder(): LevelOrder
+  getBottomOrder(): LevelOrder;
 
   /**
    * Open popup with frameNode.
