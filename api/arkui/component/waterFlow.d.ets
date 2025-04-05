@@ -29,7 +29,8 @@ import { Resource } from './../../../api/global/resource'
 import { Callback_Void } from './abilityComponent'
 import { FocusBoxStyle, FocusPriority } from './focus'
 import { GestureInfo, BaseGestureEvent, GestureJudgeResult, GestureType, GestureMask } from './gesture'
-import { Callback_Number_Number_Void, Callback_Number_ScrollState_Literal_Number_offsetRemain, Literal_Number_offsetRemain } from './grid'
+import { Callback_Number_Number_Void } from './grid'
+import { OnScrollFrameBeginCallback, OnScrollFrameBeginHandlerResult } from './scroll'
 import { ScrollState } from './list'
 export type GetItemMainSizeByIndex = (index: number) => number;
 export interface SectionOptions {
@@ -84,7 +85,7 @@ export interface WaterFlowAttribute extends ScrollableCommonMethod {
     @memo
     onReachEnd(value: (() => void)): this;
     @memo
-    onScrollFrameBegin(value: ((offset: number,state: ScrollState) => Literal_Number_offsetRemain)): this;
+    onScrollFrameBegin(value: ((offset: number,state: ScrollState) => OnScrollFrameBeginHandlerResult)): this;
     @memo
     onScrollIndex(value: ((first: number,last: number) => void)): this;
 }
