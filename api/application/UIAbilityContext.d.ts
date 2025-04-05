@@ -4782,6 +4782,22 @@ export default class UIAbilityContext extends Context {
   setAbilityInstanceInfo(label: string, icon: image.PixelMap): Promise<void>;
 
   /**
+   * Revoke delegator.
+   *
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 801 - Capability not support.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000065 - The API can be called only when the ability is running in the foreground.
+   * @throws { BusinessError } 16000084 - The context does not belong to HookAbility; multiple calls are invoked.
+   * @throws { BusinessError } 16000085 - Failed to cancel the hook of the window module.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 17
+   */
+  revokeDelegator(): Promise<void>;
+
+  /**
    * Set colorMode of uiability.
    *
    * @param { ConfigurationConstant.ColorMode } colorMode - Color mode.
