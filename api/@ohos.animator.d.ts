@@ -18,6 +18,10 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { ExpectedFrameRateRange, FillMode, PlayMode } from './@internal/component/ets/enums'
+/*** endif */
+
 /**
  * Defines the animator options.
  * @interface AnimatorOptions
@@ -37,7 +41,8 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface AnimatorOptions {
   /**
@@ -62,7 +67,8 @@ export interface AnimatorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   duration: number;
 
@@ -134,7 +140,8 @@ export interface AnimatorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   easing: string;
 
@@ -160,7 +167,8 @@ export interface AnimatorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   delay: number;
 
@@ -189,7 +197,8 @@ export interface AnimatorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fill: "none" | "forwards" | "backwards" | "both";
 
@@ -215,7 +224,8 @@ export interface AnimatorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   direction: "normal" | "reverse" | "alternate" | "alternate-reverse";
 
@@ -241,7 +251,8 @@ export interface AnimatorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   iterations: number;
 
@@ -267,7 +278,8 @@ export interface AnimatorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   begin: number;
 
@@ -293,7 +305,8 @@ export interface AnimatorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   end: number;
 }
@@ -425,7 +438,8 @@ export declare class SimpleAnimatorOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface AnimatorResult {
   /**
@@ -472,7 +486,8 @@ export interface AnimatorResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   reset(options: AnimatorOptions): void;
 
@@ -507,7 +522,8 @@ export interface AnimatorResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   play(): void;
 
@@ -527,7 +543,8 @@ export interface AnimatorResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   finish(): void;
 
@@ -547,7 +564,8 @@ export interface AnimatorResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   pause(): void;
 
@@ -567,7 +585,8 @@ export interface AnimatorResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   cancel(): void;
 
@@ -588,7 +607,8 @@ export interface AnimatorResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   reverse(): void;
 
@@ -621,7 +641,8 @@ export interface AnimatorResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onFrame: (progress: number) => void;
 
@@ -654,7 +675,8 @@ export interface AnimatorResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onFinish: () => void;
 
@@ -687,7 +709,8 @@ export interface AnimatorResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onCancel: () => void;
 
@@ -720,7 +743,8 @@ export interface AnimatorResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onRepeat: () => void;
 
@@ -729,7 +753,8 @@ export interface AnimatorResult {
    * @param { ExpectedFrameRateRange } rateRange - Indicates ExpectedFrameRateRange.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setExpectedFrameRateRange(rateRange: ExpectedFrameRateRange): void;
 }
@@ -750,9 +775,10 @@ export interface AnimatorResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class Animator {
+declare class Animator {
   /**
    * Create an animator object for custom animation.
    * @param { AnimatorOptions } options - Options.
@@ -798,7 +824,8 @@ export default class Animator {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'28'}
+   * @arkts 1.1&1.2
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.UIContext#createAnimator
    */
@@ -815,7 +842,10 @@ export default class Animator {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   static create(options: AnimatorOptions | SimpleAnimatorOptions): AnimatorResult;
 }
+
+export default Animator
