@@ -239,7 +239,7 @@ declare namespace uri {
          */
         static createFromParts(scheme: string, ssp: string, fragment: string): URI;
         /**
-         * Gets/Sets the protocol part of the URI.
+         * Gets the protocol part of the URI.
          *
          * @type { string | null }
          * @syscap SystemCapability.Utils.Lang
@@ -250,7 +250,18 @@ declare namespace uri {
         get scheme(): string | null;
 
         /**
-         * Gets/Sets Obtains the user information part of the URI.
+         * Sets the protocol part of the URI.
+         *
+         * @type { string }
+         * @syscap SystemCapability.Utils.Lang
+         * @crossplatform
+         * @atomicservice
+         * @since arkts <=1.1 ? 12: 20
+         */
+        set scheme(input: string | null);
+
+        /**
+         * Gets Obtains the user information part of the URI.
          *
          * @type { string | null }
          * @syscap SystemCapability.Utils.Lang
@@ -259,6 +270,17 @@ declare namespace uri {
          * @since 20
          */
         get userInfo(): string | null;
+
+        /**
+         * Sets Obtains the user information part of the URI.
+         *
+         * @type { string }
+         * @syscap SystemCapability.Utils.Lang
+         * @crossplatform
+         * @atomicservice
+         * @since 20
+         */
+        set userInfo(input: string | null);
 
         /**
          * Gets the hostname portion of the URI without a port.
@@ -279,7 +301,7 @@ declare namespace uri {
         get port(): string;
 
         /**
-         * Gets/Sets the path portion of the URI.
+         * Gets the path portion of the URI.
          *
          * @type { string | null }
          * @syscap SystemCapability.Utils.Lang
@@ -290,7 +312,18 @@ declare namespace uri {
         get path(): string | null;
 
         /**
-         * Gets/Sets the query portion of the URI
+         * Sets the path portion of the URI.
+         *
+         * @type { string }
+         * @syscap SystemCapability.Utils.Lang
+         * @crossplatform
+         * @atomicservice
+         * @since 20
+         */
+        set path(input: string | null);
+
+        /**
+         * Gets the query portion of the URI
          *
          * @type { string | null }
          * @syscap SystemCapability.Utils.Lang
@@ -301,7 +334,18 @@ declare namespace uri {
         get query(): string | null;
 
         /**
-         * Gets/Sets the fragment part of the URI.
+         * Sets the query portion of the URI
+         *
+         * @type { string }
+         * @syscap SystemCapability.Utils.Lang
+         * @crossplatform
+         * @atomicservice
+         * @since 20
+         */
+        set query(input: string | null);
+
+        /**
+         * Gets the fragment part of the URI.
          *
          * @type { string | null }
          * @syscap SystemCapability.Utils.Lang
@@ -312,7 +356,18 @@ declare namespace uri {
         get fragment(): string | null;
 
         /**
-         * Gets/Sets the decoding permission component part of this URI.
+         * Sets the fragment part of the URI.
+         *
+         * @type { string }
+         * @syscap SystemCapability.Utils.Lang
+         * @crossplatform
+         * @atomicservice
+         * @since 20
+         */
+        set fragment(input: string | null);
+
+        /**
+         * Gets the decoding permission component part of this URI.
          *
          * @type { string | null }
          * @syscap SystemCapability.Utils.Lang
@@ -323,7 +378,18 @@ declare namespace uri {
         get authority(): string | null;
 
         /**
-         * Gets/Sets the decoding scheme-specific part of the URI.
+         * Sets the decoding permission component part of this URI.
+         *
+         * @type { string }
+         * @syscap SystemCapability.Utils.Lang
+         * @crossplatform
+         * @atomicservice
+         * @since 20
+         */
+        set authority(input: string | null);
+
+        /**
+         * Gets the decoding scheme-specific part of the URI.
          *
          * @type { string }
          * @syscap SystemCapability.Utils.Lang
@@ -332,8 +398,20 @@ declare namespace uri {
          * @since 20
          */
         get ssp(): string;
+
         /**
-         * Gets/Sets Obtains the encoded user information part of the URI.
+         * Sets the decoding scheme-specific part of the URI.
+         *
+         * @type { string }
+         * @syscap SystemCapability.Utils.Lang
+         * @crossplatform
+         * @atomicservice
+         * @since 20
+         */
+        set ssp(input: string | null);
+
+        /**
+         * Gets Obtains the encoded user information part of the URI.
          *
          * @type { string | null }
          * @syscap SystemCapability.Utils.Lang
@@ -343,7 +421,18 @@ declare namespace uri {
          */
         get encodedUserInfo(): string | null;
         /**
-         * Gets/Sets the encoded path portion of the URI.
+         * Sets Obtains the encoded user information part of the URI.
+         *
+         * @type { string }
+         * @syscap SystemCapability.Utils.Lang
+         * @crossplatform
+         * @atomicservice
+         * @since 20
+         */
+        set encodedUserInfo(input: string | null);
+
+        /**
+         * Gets the encoded path portion of the URI.
          *
          * @type { string | null }
          * @syscap SystemCapability.Utils.Lang
@@ -353,7 +442,18 @@ declare namespace uri {
          */
         get encodedPath(): string | null;
         /**
-         * Gets/Sets the encoded query component from this URI.
+         * Sets the encoded path portion of the URI.
+         *
+         * @type { string }
+         * @syscap SystemCapability.Utils.Lang
+         * @crossplatform
+         * @atomicservice
+         * @since 20
+         */
+        set encodedPath(input: string | null);
+
+        /**
+         * Gets the encoded query component from this URI.
          *
          * @type { string | null }
          * @syscap SystemCapability.Utils.Lang
@@ -363,7 +463,18 @@ declare namespace uri {
          */
         get encodedQuery(): string | null;
         /**
-         * Gets/Sets the encoded fragment part of this URI, everything after the '#'.
+         * Sets the encoded query component from this URI.
+         *
+         * @type { string }
+         * @syscap SystemCapability.Utils.Lang
+         * @crossplatform
+         * @atomicservice
+         * @since 20
+         */
+        set encodedQuery(input: string | null);
+
+        /**
+         * Gets the encoded fragment part of this URI, everything after the '#'.
          *
          * @type { string | null }
          * @syscap SystemCapability.Utils.Lang
@@ -373,7 +484,18 @@ declare namespace uri {
          */
         get encodedFragment(): string | null;
         /**
-         * Gets/Sets the encoded authority part of this URI.
+         * Sets the encoded fragment part of this URI, everything after the '#'.
+         *
+         * @type { string }
+         * @syscap SystemCapability.Utils.Lang
+         * @crossplatform
+         * @atomicservice
+         * @since 20
+         */
+        set encodedFragment(input: string | null);
+
+        /**
+         * Gets the encoded authority part of this URI.
          *
          * @type { string | null }
          * @syscap SystemCapability.Utils.Lang
@@ -383,7 +505,18 @@ declare namespace uri {
          */
         get encodedAuthority(): string | null;
         /**
-         * Gets/Sets the scheme-specific part of this URI, i.e. everything between the scheme separator ':' and
+         * Sets the encoded authority part of this URI.
+         *
+         * @type { string }
+         * @syscap SystemCapability.Utils.Lang
+         * @crossplatform
+         * @atomicservice
+         * @since 20
+         */
+        set encodedAuthority(input: string | null);
+
+        /**
+         * Gets the scheme-specific part of this URI, i.e. everything between the scheme separator ':' and
          * the fragment separator '#'.
          *
          * @type { string }
@@ -393,6 +526,18 @@ declare namespace uri {
          * @since 20
          */
         get encodedSSP(): string;
+
+        /**
+         * Sets the scheme-specific part of this URI, i.e. everything between the scheme separator ':' and
+         * the fragment separator '#'.
+         *
+         * @type { string }
+         * @syscap SystemCapability.Utils.Lang
+         * @crossplatform
+         * @atomicservice
+         * @since 20
+         */
+        set encodedSSP(input: string | null)
     }
 }
 export default uri;
