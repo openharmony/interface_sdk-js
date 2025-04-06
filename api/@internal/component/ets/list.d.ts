@@ -614,6 +614,64 @@ declare interface ChainAnimationOptions {
 }
 
 /**
+ * Defines a UIListEvent which is used to set different common event to target component.
+ *
+ * @extends UIScrollableCommonEvent
+ * @interface UIListEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+declare interface UIListEvent extends UIScrollableCommonEvent {
+  /**
+   * Set or reset the callback which is triggered when the List will scroll.
+   *
+   * @param { OnWillScrollCallback | undefined } callback - The callback will be triggered when the List will scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  setOnWillScroll(callback: OnWillScrollCallback | undefined): void;
+
+  /**
+   * Set or reset the callback which is triggered when List view did scroll.
+   *
+   * @param { OnScrollCallback | undefined } callback - callback function, triggered when the List view did scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  setOnDidScroll(callback: OnScrollCallback | undefined): void;
+
+  /**
+   * Set or reset the callback which is triggered when the start, end, or center positions of the display change.
+   *
+   * @param { OnListScrollIndexCallback | undefined } callback - callback function, triggered when the
+   *     start, end, or center positions of the display change.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  setOnScrollIndex(callback: OnListScrollIndexCallback | undefined): void;
+
+  /**
+   * Set or reset the callback which is triggered when the list visible content changes.
+   *
+   * @param { OnScrollVisibleContentChangeCallback | undefined } callback - callback function, triggered when
+   *     the list visible content changes.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  setOnScrollVisibleContentChange(callback: OnScrollVisibleContentChangeCallback | undefined): void;
+}
+
+/**
  * Defines the close swipe action options.
  *
  * @interface CloseSwipeActionOptions
@@ -705,6 +763,21 @@ declare interface VisibleListContentInfo {
  * @since 12
  */
 declare type OnScrollVisibleContentChangeCallback = (start: VisibleListContentInfo, end: VisibleListContentInfo) => void;
+
+/**
+ * Defines the callback type used in onScrollIndex.
+ *
+ * @typedef {function} OnListScrollIndexCallback
+ * @param {number} start - the first index in visible content.
+ * @param {number} end - the last index in visible content.
+ * @param {number} center - the center index in visible content.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 18
+ */
+declare type OnListScrollIndexCallback = (start: number, end: number, center: number) => void;
 
 /**
  * @extends Scroller

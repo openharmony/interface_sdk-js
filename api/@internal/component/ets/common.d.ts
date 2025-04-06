@@ -29635,6 +29635,76 @@ declare interface UICommonEvent {
 }
 
 /**
+ * Defines a UIScrollableCommonEvent which is used to set event to target component.
+ *
+ * @extends UICommonEvent
+ * @interface UIScrollableCommonEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
+ */
+declare interface UIScrollableCommonEvent extends UICommonEvent {
+  /**
+   * Set or reset the callback which is triggered when the scrolling reaches the start position.
+   *
+   * @param { Callback<void> | undefined } callback - callback function, triggered when the
+   *     scrolling reaches the start position.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  setOnReachStart(callback: Callback<void> | undefined): void;
+
+  /**
+   * Set or reset the callback which is triggered when the scrolling reaches the end position.
+   *
+   * @param { Callback<void> | undefined } callback - callback function, triggered when the
+   *     scrolling reaches the end position.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  setOnReachEnd(callback: Callback<void> | undefined): void;
+
+  /**
+   * Set or reset the callback which is triggered when the scrolling started.
+   *
+   * @param { Callback<void> | undefined } callback - callback function, triggered when the scrolling started.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  setOnScrollStart(callback: Callback<void> | undefined): void;
+
+  /**
+   * Set or reset the callback which is triggered when the scrolling stoped.
+   *
+   * @param { Callback<void> | undefined } callback - callback function, triggered when the scrolling stoped.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  setOnScrollStop(callback: Callback<void> | undefined): void;
+
+  /**
+   * Set or reset the callback which is triggered when scrolling begin each frame.
+   *
+   * @param { OnScrollFrameBeginCallback | undefined } callback - callback function, triggered when the
+   *     scrolling begin each frame.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  setOnScrollFrameBegin(callback: OnScrollFrameBeginCallback | undefined): void;
+}
+
+/**
  * Defines a UIGestureEvent which is used to set different gestures to target component.
  *
  * @interface UIGestureEvent
