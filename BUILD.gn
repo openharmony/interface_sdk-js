@@ -176,13 +176,23 @@ ohos_copy_internal("ets_internal_api") {
 }
 
 # ets/arkts执行脚本
-ohos_copy("bundle_arkts") {
+ohos_copy_internal("bundle_arkts") {
   sdk_type = "ets"
-  sources = [ "//interface/sdk-js/arkts" ]
-  outputs = [ target_out_dir + "/${sdk_type}/${target_name}" ]
-  module_source_dir = target_out_dir + "/${sdk_type}/${target_name}"
-  module_install_name = ""
-  license_file = "./LICENCE.md"
+  if (sdk_build_public || product_name == "ohos-sdk") {
+    iv_input = "//out/sdk-public/public_interface/sdk-js/arkts"
+  } else {
+    iv_input = "//interface/sdk-js/arkts"
+  }
+}
+
+# ets1.2/arkts执行脚本
+ohos_copy_internal("bundle_arkts_ets1.2") {
+  sdk_type = "ets2"
+  if (sdk_build_public || product_name == "ohos-sdk") {
+    iv_input = "//out/sdk-public/public_interface/sdk-js/arkts"
+  } else {
+    iv_input = "//interface/sdk-js/arkts"
+  }
 }
 
 ohos_copy_internal("ets_internal_api2") {
