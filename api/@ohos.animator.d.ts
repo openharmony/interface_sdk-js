@@ -19,7 +19,8 @@
  */
 
 /*** if arkts 1.2 */
-import { ExpectedFrameRateRange, FillMode, PlayMode } from './@internal/component/ets/enums'
+import { FillMode, PlayMode } from './@internal/component/ets/enums'
+import { ExpectedFrameRateRange } from './@internal/component/ets/common'
 /*** endif */
 
 /**
