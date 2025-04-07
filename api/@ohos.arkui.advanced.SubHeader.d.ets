@@ -19,7 +19,14 @@
  */
 
 import { TextModifier } from './@ohos.arkui.modifier';
-
+/*** if arkts 1.2 */
+import { Resource, ResourceStr, ResourceColor, LocalizedPadding, LocalizedMargin } from './arkui/component/units';
+import { SymbolEffectStrategy, SymbolRenderingStrategy } from './arkui/component/symbolglyph';
+import { SelectOption } from './arkui/component/select';
+import { Prop, BuilderParam } from './arkui/stateManagement/common';
+import { Component } from './arkui/component/customComponent';
+import { FontWeight } from './arkui/component/enums';
+/*** endif */
 
 /**
  * Control style of operation element
@@ -32,7 +39,16 @@ import { TextModifier } from './@ohos.arkui.modifier';
  * @enum { OperationStyle }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
+ */
+/**
+ * Control style of operation element
+ * @enum { OperationStyle }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 18
  */
 export declare enum OperationType {
   /**
@@ -44,7 +60,15 @@ export declare enum OperationType {
    * The TextArrow style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  /**
+   * The TextArrow style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   TEXT_ARROW = 0,
 
@@ -57,7 +81,7 @@ export declare enum OperationType {
    * The Button style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 18
    */
   BUTTON = 1,
 
@@ -70,7 +94,15 @@ export declare enum OperationType {
    * The IconGroup style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  /**
+   * The IconGroup style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   ICON_GROUP = 2,
 
@@ -83,7 +115,8 @@ export declare enum OperationType {
    * The LoadingProgress style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   LOADING = 3
 }
@@ -97,7 +130,8 @@ export declare enum OperationType {
  * Declare type OperationOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare class OperationOption {
   /**
@@ -111,7 +145,8 @@ export declare class OperationOption {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   value: ResourceStr;
 
@@ -126,7 +161,8 @@ export declare class OperationOption {
    * @type { () => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   action?: () => void;
 }
@@ -140,7 +176,8 @@ export declare class OperationOption {
  * Declare type SelectOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare class SelectOptions {
   /**
@@ -154,7 +191,8 @@ export declare class SelectOptions {
    * @type { Array<SelectSubOption> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   options: Array<SelectOption>;
 
@@ -169,10 +207,11 @@ export declare class SelectOptions {
    * @type { number }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selected?: number;
-  
+
   /**
    * The default text value.
    * @type { string }.
@@ -184,23 +223,25 @@ export declare class SelectOptions {
    * @type { string }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   value?: string;
 
- /**
-  * Callback when the select is selected.
-  * @type { (index: number, value?: string) => void }.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @since 10
-  */
- /**
-  * Callback when the select is selected.
-  * @type { (index: number, value?: string) => void }.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @atomicservice
-  * @since 11
-  */
+  /**
+   * Callback when the select is selected.
+   * @type { (index: number, value?: string) => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  /**
+   * Callback when the select is selected.
+   * @type { (index: number, value?: string) => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
+   */
   onSelect?: (index: number, value?: string) => void;
 }
 
@@ -208,7 +249,7 @@ export declare class SelectOptions {
  * Declare type SymbolOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12 
+ * @since 12
  */
 export declare class SymbolOptions {
   /**
@@ -266,7 +307,8 @@ export declare class SymbolOptions {
  * Declare struct SubHeader
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 @Component
 export declare struct SubHeader {
@@ -282,7 +324,8 @@ export declare struct SubHeader {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   @Prop icon?: ResourceStr;
 
@@ -306,7 +349,8 @@ export declare struct SubHeader {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   @Prop primaryTitle?: ResourceStr;
 
@@ -321,7 +365,8 @@ export declare struct SubHeader {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   @Prop secondaryTitle?: ResourceStr;
 
@@ -336,7 +381,8 @@ export declare struct SubHeader {
    * @type { SelectOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   select?: SelectOptions;
 
@@ -351,7 +397,8 @@ export declare struct SubHeader {
    * @type { OperationStyle }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   @Prop operationType?: OperationType;
 
@@ -366,7 +413,8 @@ export declare struct SubHeader {
    * @type { Array<OperationOption> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   operationItem?: Array<OperationOption>;
 
