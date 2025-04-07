@@ -9611,8 +9611,10 @@ declare interface NestedScrollOptionsExt {
  */
 declare interface EmbedOptions {
   /**
-   * Whether the embed element support the default intrinsic size of 300 * 150. 
-   * <br>Default value is false. If false, then the intrinsic size is 0 * 0.
+   * Whether the embed element support the default intrinsic size of 300 * 150, expressed in CSS pixels.
+   * <br>When CSS size is set, the embed element size is CSS size, otherwise it is intrinsic size.
+   * <br>If true, then the intrinsic size is 300 * 150.
+   * <br>If false, the embed element will not be rendered when the CSS size is not set.
    *
    * @type { ?boolean }
    * @default false
