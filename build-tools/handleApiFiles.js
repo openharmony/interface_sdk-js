@@ -345,7 +345,7 @@ function handleFileInSecondType(fullPath, type) {
  * @param {*} fullPath 
  */
 function handlehasTagFile(sourceFile, fullPath) {
-  const arktsTagRegx = /\*\s*@arkts\s+1.1&1.2\s*(\r|\n)\s*/g;
+  dirType = DirType.typeTwo;
   let newContent = getDeletionContent(sourceFile, fullPath);
   if (newContent === '') {
     deleteSameNameFile(fullPath);
