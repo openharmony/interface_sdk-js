@@ -18,9 +18,6 @@
  * @kit ArkUI
  */
 
-
-
-
 /**
  * Defines NavDestination Modifier
  *
@@ -28,7 +25,8 @@
  * @implements AttributeModifier<NavDestinationAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
 */
 export declare class NavDestinationModifier extends NavDestinationAttribute implements AttributeModifier<NavDestinationAttribute> {
 
@@ -42,4 +40,16 @@ export declare class NavDestinationModifier extends NavDestinationAttribute impl
    * @since 12
    */
   applyNormalAttribute?(instance: NavDestinationAttribute): void;
+
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @param { NavDestinationAttribute } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  applyNormalAttribute?:(instance: NavDestinationAttribute)=> void;
 }
