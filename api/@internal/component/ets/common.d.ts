@@ -10059,7 +10059,7 @@ declare interface BaseEvent {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 17
    */
   rollAngle?: number;
 
