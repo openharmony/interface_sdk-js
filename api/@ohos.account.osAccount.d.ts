@@ -2298,7 +2298,7 @@ declare namespace osAccount {
      * @type { ?Array<string> }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 18
+     * @since 19
      */
     disallowedPreinstalledBundles?: Array<string>;
 
@@ -2308,7 +2308,7 @@ declare namespace osAccount {
      * @type { ?Array<string> }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 18
+     * @since 19
      */
     allowedPreinstalledBundles?: Array<string>;
   }
