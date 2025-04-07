@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { LocalStorage } from '@ohos.arkui.stateManagement'
-import { StateContext } from '../runtime-api/@koalaui.runtime.states.State'
+import { LocalStorage } from "./storage"
+import { StateContext } from "../runtime-api/@koalaui.runtime.states.State"
 // From incremental engine
 @Retention({policy: "SOURCE"})
 export declare @interface memo {};

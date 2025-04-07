@@ -33,8 +33,8 @@ export declare class MutableStateMeta extends MutableStateMetaBase {
 export declare class MutableKeyedStateMeta extends MutableStateMetaBase {
     public static readonly OB_LENGTH: string;
     public __metaDependency: Map<string, MutableState<int32>>;
-    public addRef(propName: string): void
-    public fireChange(propName: string): void
+    public addRef(key: string): void
+    public fireChange(key: string): void
     public constructor(deco: string)
 }
 
@@ -115,35 +115,4 @@ export declare class StoragePropDecoratedVariable<T> implements DecoratedMutable
     public getInfo(): string;
     public get(): T;
     public set(newValue: T): void;
-}
-
-export declare class LocalStorage {
-    static getShared(): LocalStorage | undefined;
-    public link(propName: string): LinkDecoratedVariable<Object> | undefined;
-    public setAndLink(propName: string, defaultValue: Object): LinkDecoratedVariable<Object>;
-    public prop(propName: string): PropDecoratedVariable<Object> | undefined;
-    public setAndProp(propName: string, defaultValue: Object): PropDecoratedVariable<Object>;
-    public has(propName: string): boolean;
-    public get<T>(propName: string): T | undefined;
-    public set<T>(propName: string, newValue: T): boolean;
-    public setOrCreate<T>(propName: string, newValue: T): boolean;
-    public keys(): IterableIterator<string>;
-    public size(): number;
-    public delete(propName: string): boolean;
-    public clear(): boolean;
-}
-
-export declare class AppStorage extends LocalStorage {
-    public static link(propName: string): LinkDecoratedVariable<Object> | undefined;
-    public static setAndLink(propName: string, defaultValue: Object) : LinkDecoratedVariable<Object>;
-    public static prop(propName: string) : PropDecoratedVariable<Object> | undefined;
-    public static setAndProp(propName: string, defaultValue: Object) : PropDecoratedVariable<Object>;
-    public static has(propName: string): boolean;
-    public static get<T>(propName: string): T | undefined;
-    public static set<T>(propName: string, newValue: T): boolean;
-    public static setOrCreate<T>(propName: string, newValue: T): void;
-    public static keys(): IterableIterator<string>;
-    public static size(): number;
-    public static delete(propName: string): boolean;
-    public static clear(): boolean;
 }
