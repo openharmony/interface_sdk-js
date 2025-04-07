@@ -1,25 +1,4 @@
-/*
- * Copyright (C) 2022 Huawei Device Co., Ltd.
- * Licensed under the Apache License,Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,software
- * distributed under the License is distributed on an "ASIS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-/**
- * @file
- * @kit TestKit
- */
-
 import { Callback } from './@ohos.base';
-
 /**
  * Used to initialize the uitest environment at the start of the test
  *
@@ -31,7 +10,6 @@ import { Callback } from './@ohos.base';
  * @test
  */
 export function loadAndSetupUiTest(): void { };
-
 /**
  * Enumerates the string value match pattern.
  *
@@ -3171,7 +3149,6 @@ declare class Component {
    * @test
    */
   getHint(): Promise<string>;
-
   /**
    * Scroll on this {@link Component}to find matched {@link Component},applicable to scrollable one.
    *
@@ -4910,8 +4887,8 @@ declare class PointerMatrix {
   /**
    * Create an {@link PointerMatrix} object.
    *
-   * @param { int } fingers - The int of fingers, ranges from 1 to 10.
-   * @param { int } steps - The int of steps of each finger trace, ranges from 1 to 1000.
+   * @param { int } fingers - The number of fingers, ranges from 1 to 10.
+   * @param { int } steps - The number of steps of each finger trace, ranges from 1 to 1000.
    * @returns { PointerMatrix } the {@link PointerMatrix} object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -5005,4 +4982,3 @@ export {
   UIEventObserver,
   TouchPadSwipeOptions
 };
-
