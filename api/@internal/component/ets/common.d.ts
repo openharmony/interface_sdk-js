@@ -27758,8 +27758,7 @@ declare class CommonAttribute extends CommonMethod<CommonAttribute> {}
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 interface CommonInterface {
   /**
@@ -27794,8 +27793,7 @@ interface CommonInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   (): CommonAttribute;
 }
