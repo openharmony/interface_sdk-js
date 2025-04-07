@@ -255,7 +255,17 @@ declare interface BadgeStyle {
    * @atomicservice
    * @since 11
    */
-  fontSize?: number | string;
+  /**
+   * Text size.
+   *
+   * @type { ?(number | ResourceStr) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  fontSize?: number | ResourceStr;
 
   /**
    * Size of a badge.
@@ -291,7 +301,17 @@ declare interface BadgeStyle {
    * @atomicservice
    * @since 11
    */
-  badgeSize?: number | string;
+  /**
+   * Size of a badge.
+   *
+   * @type { ?(number | ResourceStr) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  badgeSize?: number | ResourceStr;
 
   /**
    * Color of the badge.
@@ -384,7 +404,16 @@ declare interface BadgeStyle {
    * @atomicservice
    * @since 11
    */
-  fontWeight?: number | FontWeight | string;
+  /**
+   * Define the font weight of the badge.
+   * 
+   * @type { ?(number | FontWeight | ResourceStr) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  fontWeight?: number | FontWeight | ResourceStr;
 }
 
 /**
@@ -680,7 +709,17 @@ declare interface BadgeParamWithString extends BadgeParam {
    * @atomicservice
    * @since 11
    */
-  value: string;
+  /**
+   * Text string of the prompt content.
+   *
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  value: ResourceStr;
 }
 
 /**
