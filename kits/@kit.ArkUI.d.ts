@@ -230,7 +230,7 @@ import { HalfScreenLaunchComponent } from '@ohos.atomicservice.HalfScreenLaunchC
 export {
   AtomicServiceSearch, InputFilterParams, SearchButtonParams, MenuAlignParams, SearchParams, SelectParams, OperationParams,
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, SimpleAnimatorOptions, App, AppResponse, AtomicServiceBar,
-  AtomicServiceNavigation, NavDestinationBuilder, MixMode, GradientAlpha, BackgroundTheme, TitleBarType, SideBarOptions, TitleOptions, GradientBackground,``
+  AtomicServiceNavigation, NavDestinationBuilder, MixMode, GradientAlpha, BackgroundTheme, TitleBarType, SideBarOptions, TitleOptions, GradientBackground,
   NavPushPathHelper,
   BackRouterOptions, BuilderNode, Button, ButtonOptions, CallbackParam,
   ArcButton, ArcButtonOptions, ArcButtonPosition, ArcButtonStyleMode,
