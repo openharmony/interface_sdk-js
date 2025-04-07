@@ -76,12 +76,12 @@ export declare abstract class CustomComponent<T extends CustomComponent<T, T_Opt
 
     @memo
     @ComponentBuilder
-    static $_instantiate<S extends CustomComponent<S, S_Options>, S_Options>(
-        factory: () => S,
-        initializers?: S_Options,
+    static $_instantiate(
+        factory: () => T,
+        initializers?: T_Options,
         @memo
         content?: () => void
-    ): S;
+    ): T;
 
    // Life cycle for custom component
     aboutToAppear(): void
