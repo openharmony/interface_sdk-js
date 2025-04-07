@@ -4982,30 +4982,11 @@ declare const ON: On;
 export {
   UiComponent,
   UiDriver,
-  Component,
-  Driver,
-  UiWindow,
-  ON,
-  On,
   BY,
   By,
-  MatchPattern,
-  DisplayRotation,
-  ResizeDirection,
-  WindowMode,
-  Point,
-  WindowFilter,
-  Rect,
-  PointerMatrix,
-  UiDirection,
-  MouseButton,
-  UIElementInfo,
-  UIEventObserver,
-  TouchPadSwipeOptions
 };
 /*** endif */
 
-/*** if arkts 1.2 */
 export {
   Component,
   Driver,
@@ -5026,4 +5007,3 @@ export {
   UIEventObserver,
   TouchPadSwipeOptions
 };
-/*** endif */
