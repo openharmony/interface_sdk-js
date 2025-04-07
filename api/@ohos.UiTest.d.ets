@@ -17,10 +17,6 @@
  * @file
  * @kit TestKit
  */
-/*** if arkts 1.1 */
-export type int = number;
-export type double = number;
-/*** endif */
 
 import { Callback } from './@ohos.base';
 /**
@@ -4982,6 +4978,7 @@ declare const BY: By;
  */
 declare const ON: On;
 
+/*** if arkts 1.1 */
 export {
   UiComponent,
   UiDriver,
@@ -5006,3 +5003,27 @@ export {
   UIEventObserver,
   TouchPadSwipeOptions
 };
+/*** endif */
+
+/*** if arkts 1.2 */
+export {
+  Component,
+  Driver,
+  UiWindow,
+  ON,
+  On,
+  MatchPattern,
+  DisplayRotation,
+  ResizeDirection,
+  WindowMode,
+  Point,
+  WindowFilter,
+  Rect,
+  PointerMatrix,
+  UiDirection,
+  MouseButton,
+  UIElementInfo,
+  UIEventObserver,
+  TouchPadSwipeOptions
+};
+/*** endif */
