@@ -825,8 +825,7 @@ declare class Animator {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'28'}
-   * @arkts 1.1&1.2
+   * @since 11
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.UIContext#createAnimator
    */
