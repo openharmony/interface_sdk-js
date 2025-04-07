@@ -1663,7 +1663,47 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
      */
-    NUMBER_PASSWORD
+    NUMBER_PASSWORD,
+
+    /**
+     * The text input type is SCREEN_LOCK_PASSWORD.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    SCREEN_LOCK_PASSWORD,
+
+    /**
+     * The text input type is USER_NAME.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    USER_NAME,
+
+    /**
+     * The text input type is NEW_PASSWORD.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    NEW_PASSWORD,
+
+    /**
+     * The text input type is NUMBER_DECIMAL.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    NUMBER_DECIMAL,
+
+    /**
+     * The text input type is ONE_TIME_CODE.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    ONE_TIME_CODE
   }
 
   /**
