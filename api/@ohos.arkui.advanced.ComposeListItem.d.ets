@@ -435,8 +435,7 @@ export declare class OperateItem {
    * @type { ?OperateCheck }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   switch?: OperateCheck;
 
