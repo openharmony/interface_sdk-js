@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.1&1.2
  */
 
 import { Callback } from './@ohos.base';
