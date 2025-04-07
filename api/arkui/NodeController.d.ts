@@ -195,9 +195,9 @@ export abstract class NodeController {
    * @since 18
    */
   onWillUnbind?(containerId: number): void;
-  
+
   /**
-   * OnBind Method. Executed when the NodeController is bound to a NodeContainer.
+   * OnBind Method. Executed after the NodeController is bound to a NodeContainer.
    *
    * @param { number } containerId - the uniqueId of the NodeContainer.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -208,7 +208,7 @@ export abstract class NodeController {
   onBind?(containerId: number): void;
 
   /**
-   * OnUnbind Method. Executed when the NodeController is unbind with the NodeContainer.
+   * OnUnbind Method. Executed after the NodeController is unbind with the NodeContainer.
    *
    * @param { number } containerId - the uniqueId of the NodeContainer.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
