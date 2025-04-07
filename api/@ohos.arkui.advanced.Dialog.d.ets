@@ -26,18 +26,17 @@ import image from './@ohos.multimedia.image';
 import { ResourceStr, ResourceColor, SizeOptions, Padding, LocalizedPadding } from './arkui/component/units';
 import { ButtonStyleMode, ButtonRole } from './arkui/component/button';
 import image from './@ohos.multimedia.image';
-import { ThemeColorMode } from './arkui/component/common';
+import { ThemeColorMode, Callback } from './arkui/component/common';
 import { CustomDialogController } from './arkui/component/customDialogController';
-import { Callback } from './@ohos.base';
 import { SheetInfo } from './arkui/component/actionSheet';
 import {
   CustomDialog,
   Prop,
   BuilderParam,
-  Component,
   Link,
   Require,
 } from './arkui/stateManagement/common';
+import { Component } from './arkui/component/customComponent';
 /*** endif */
 
 /**
@@ -54,7 +53,7 @@ import {
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
  */
-declare class ButtonOptions {
+export declare class ButtonOptions {
   /**
    * Sets the Display Content of a Button.
    * @type { ResourceStr }.
@@ -139,7 +138,6 @@ declare class ButtonOptions {
   role?: ButtonRole;
 }
 
-export default ButtonOptions
 /**
  * Declare CustomDialog TipsDialog
  * @syscap SystemCapability.ArkUI.ArkUI.Full

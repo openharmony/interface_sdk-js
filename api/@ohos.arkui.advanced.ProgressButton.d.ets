@@ -18,6 +18,12 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { Prop } from './arkui/stateManagement/common';
+import { Length } from './arkui/component/units';
+import { Component } from './arkui/component/customComponent';
+/*** endif */
+
 /**
  * Declare Component ProgressButton
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -27,7 +33,8 @@
  * Declare Component ProgressButton
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 @Component
 export declare struct ProgressButton {
@@ -42,7 +49,8 @@ export declare struct ProgressButton {
    * @type { number }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   @Prop progress: number;
 
@@ -57,7 +65,8 @@ export declare struct ProgressButton {
    * @type { string }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   @Prop content: string;
 
@@ -72,7 +81,8 @@ export declare struct ProgressButton {
    * @type { ?Length }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   progressButtonWidth?: Length;
 
@@ -87,7 +97,8 @@ export declare struct ProgressButton {
    * @type { () => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   clickCallback: () => void;
 
@@ -102,7 +113,8 @@ export declare struct ProgressButton {
    * @type { boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   @Prop enable: boolean;
 }
