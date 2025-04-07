@@ -30,7 +30,7 @@ export interface SubscribedAbstractProperty<T> extends AbstractProperty<T> {
     aboutToBeDeleted(): void;
 }
 
-export declare class LocalStorage {
+declare class LocalStorage {
     static getShared(): LocalStorage | undefined;
 
     constructor(initializingProperties?: StorageProperty[]);
@@ -64,7 +64,7 @@ export declare class LocalStorage {
     clear(): boolean;
 }
 
-export declare class AppStorage {
+declare class AppStorage {
     static has(propName: string): boolean;
 
     static keys(): IterableIterator<string>;
