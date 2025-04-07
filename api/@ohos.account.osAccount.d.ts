@@ -3147,8 +3147,7 @@ declare namespace osAccount {
    * Provides abilities for the management of domain account.
    *
    * @syscap SystemCapability.Account.OsAccount
-   * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 18
    */
   class DomainAccountManager {
     /**
@@ -3448,12 +3447,11 @@ declare namespace osAccount {
     /**
      * Updates the information of the specified domain account.
      *
-     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.MANAGE_DOMAIN_ACCOUNTS
      * @param { DomainAccountInfo } oldAccountInfo - Indicates the old domain account information.
      * @param { DomainAccountInfo } newAccountInfo - Indicates the new domain account information.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -3463,8 +3461,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300004 - The new account already exists.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 18
      */
     static updateAccountInfo(oldAccountInfo: DomainAccountInfo, newAccountInfo: DomainAccountInfo): Promise<void>;
 
@@ -3669,6 +3666,61 @@ declare namespace osAccount {
      * @since 18
      */
     static removeServerConfig(configId: string): Promise<void>;
+
+    /**
+     * Updates the target server config with the specified parameters.
+     *
+     * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS
+     * @param { string } configId - Indicates the server config identifier.
+     * @param { Record<string, Object> } parameters - Indicates the server config parameters.
+     * @returns { Promise<DomainServerConfig> } Returns the updated domain server config.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid server config parameters.
+     * @throws { BusinessError } 12300211 - Server unreachable.
+     * @throws { BusinessError } 12300212 - Server config not found.
+     * @throws { BusinessError } 12300213 - Server config already exists.
+     * @throws { BusinessError } 12300214 - Server config has been associated with an account.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 18
+     */
+    static updateServerConfig(configId: string, parameters: Record<string, Object>): Promise<DomainServerConfig>;
+
+    /**
+     * Gets the specified server config by identifier.
+     *
+     * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS
+     * @param { string } configId - Indicates the server config identifier.
+     * @returns { Promise<DomainServerConfig> } Returns the server config.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300212 - Server config not found.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 18
+     */
+    static getServerConfig(configId: string): Promise<DomainServerConfig>;
+
+    /**
+     * Gets all server configs.
+     *
+     * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS
+     * @returns { Promise<Array<DomainServerConfig>> } Returns a list of server configs.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 18
+     */
+    static getAllServerConfigs(): Promise<Array<DomainServerConfig>>;
 
     /**
      * Gets the server config of the specified domain account.
