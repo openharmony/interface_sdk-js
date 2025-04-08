@@ -671,6 +671,15 @@ declare namespace bundleManager {
     ASSET_ACCELERATION = 26,
 
     /**
+     * Indicates extension info with type of form edit
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 18
+     */
+    FORM_EDIT = 27,
+
+
+    /**
      * Indicates extension info with type of unspecified
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
