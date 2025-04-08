@@ -26,8 +26,8 @@
   * @returns { void }
   * @throws {BusinessError} 401 - if the input parameters are invalid.
   * @syscap SystemCapability.Test.UiTest
+  * @since arkts {'1.2':20}
   * @arkts 1.2
-  * @since 20
   * @test
   */
  export function loadAndSetupUiTest(): void { };
@@ -4435,7 +4435,7 @@
    penLongClick(point: Point, pressure?: number): Promise<void>;
  
    /**
-    * Simulate pen number click operation.
+    * Simulate pen double click operation.
     * @param { Point } point Coordinate of the specified location.
     * @returns { Promise<void> }
     * @throws { BusinessError } 401 Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -4981,16 +4981,21 @@
   */
  declare const ON: On;
  
+ /*** if arkts 1.1 */
  export {
    UiComponent,
    UiDriver,
+   BY,
+   By,
+ }
+ /*** endif */
+ 
+ export {
    Component,
    Driver,
    UiWindow,
    ON,
    On,
-   BY,
-   By,
    MatchPattern,
    DisplayRotation,
    ResizeDirection,
